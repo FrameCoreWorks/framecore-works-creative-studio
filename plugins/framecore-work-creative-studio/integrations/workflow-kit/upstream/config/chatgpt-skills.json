@@ -1,0 +1,248 @@
+{
+  "schema_version": 5,
+  "mode": "repository-source",
+  "surface": "native-chatgpt-skills",
+  "repository": "https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit",
+  "ref": "main",
+  "raw_base_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/",
+  "bootstrap_path": "CHATGPT_INSTALL.md",
+  "bootstrap_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/CHATGPT_INSTALL.md",
+  "source_manifest_path": "config/chatgpt-skill-sources.json",
+  "source_manifest_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/config/chatgpt-skill-sources.json",
+  "source_root": ".agents/skills",
+  "entry_surface": {
+    "primary": "chatgpt_work",
+    "select_before_pasting_prompt": true,
+    "alternate_path": "plugins_skills_create_with_chat",
+    "alternate_path_opens_work": true
+  },
+  "native_creation": {
+    "mode": "work_surface_explicit_skill_mention",
+    "creator_skill": "skill-creator",
+    "creator_invocation": "@skill-creator",
+    "explicit_skill_mention_required": true,
+    "dollar_command_required": false,
+    "tool_discovery_required": false,
+    "capability_preflight_required": false,
+    "surface": "chatgpt_work",
+    "creation_flow": "create_with_chat"
+  },
+  "setup_session_scope": {
+    "context_source_selection_required": true,
+    "default_context_source": "fresh",
+    "allowed_context_sources": [
+      "fresh",
+      "history_assisted",
+      "current_profile"
+    ],
+    "history_assisted_requires_current_user_approval": true,
+    "use_chatgpt_memory_when_history_assisted": true,
+    "use_previous_conversations_when_history_assisted": true,
+    "history_access_must_be_available": true,
+    "history_observations_are_provisional": true,
+    "user_confirmation_required_before_profile_use": true,
+    "ask_only_unresolved_questions_after_confirmation": true,
+    "use_existing_skills_as_setup_completion": false,
+    "reuse_prior_profile_only_if_user_provides_it_in_current_setup": true
+  },
+  "installation_modes": {
+    "selection_required": true,
+    "default": "guided",
+    "options": {
+      "batch": {
+        "summary": "Create every approved skill in one continuous run after one conversational approval.",
+        "approval_scope": "approved_skill_list",
+        "approval_count": 1,
+        "explain_each_before_creation": false,
+        "continue_without_additional_approval": true
+      },
+      "guided": {
+        "summary": "Explain one skill, ask for conversational approval, create it, then continue to the next skill.",
+        "approval_scope": "current_skill",
+        "approval_count": "one_per_skill",
+        "explain_each_before_creation": true,
+        "continue_without_additional_approval": false
+      }
+    }
+  },
+  "installation_confirmation": {
+    "required": true,
+    "method": "conversation",
+    "accepted_user_replies": [
+      "yes",
+      "approve",
+      "approved",
+      "install",
+      "tak",
+      "zatwierdzam",
+      "instaluj"
+    ],
+    "separate_ui_prompt_expected": false,
+    "assistant_ui_introspection_required": false,
+    "batch_approval_authorizes_all_selected_skills": true,
+    "guided_approval_authorizes_current_skill": true,
+    "approval_alone_marks_installed": false,
+    "successful_install_evidence": [
+      "active_skill_creator_reports_created_and_saved",
+      "skill_visible_in_chatgpt_skills_library"
+    ]
+  },
+  "installation_states": [
+    "onboarding_complete",
+    "workflow_profile_approved",
+    "skill_list_approved",
+    "installation_mode_selected",
+    "installation_approved",
+    "source_resolved",
+    "creation_in_progress",
+    "created",
+    "created_not_installed",
+    "installed",
+    "already_present_needs_review",
+    "blocked"
+  ],
+  "voice_mode_rules": {
+    "voice_approval_can_authorize_profile": true,
+    "voice_approval_can_authorize_skill_list": true,
+    "voice_approval_can_select_installation_mode": true,
+    "voice_approval_can_authorize_creation": true,
+    "approval_alone_marks_installed": false,
+    "assistant_must_not_claim_ui_introspection": true
+  },
+  "provider_cost_preflight": {
+    "default_paid_external_execution": "disabled",
+    "provider_mention_is_not_consent": true,
+    "require_current_explicit_approval": true,
+    "unknown_cost_label": "Unknown",
+    "required_fields": [
+      "provider",
+      "tool_or_operation",
+      "inputs_and_operation_count",
+      "estimated_or_unknown_cost",
+      "billing_unit",
+      "uploaded_data_scope",
+      "privacy_risks",
+      "limits",
+      "retry_policy",
+      "verification_plan"
+    ]
+  },
+  "installation_rules": {
+    "onboarding_before_creation": true,
+    "first_question_is_setup_language": false,
+    "create_each_skill_separately": true,
+    "allow_batch_mode_after_one_conversational_approval": true,
+    "allow_guided_mode_with_per_skill_conversational_approval": true,
+    "wait_for_separate_host_install_action": false,
+    "allow_unconfirmed_completion_claim": false,
+    "codex_agent_files_are_sources": false,
+    "roles_are_temporary_in_chatgpt": true,
+    "installation_language": "en",
+    "user_language_detection": "after_verified_installation"
+  },
+  "post_install_invocation": {
+    "allow_implicit_routing_for_eligible_skills": true,
+    "prefer_smallest_sufficient_route": true,
+    "full_pipeline_requires_explicit_request_or_multistage_fit": true,
+    "explicit_route_skill": "workflow-orchestrator",
+    "explicit_pipeline_skill": "pipeline-core",
+    "explicit_only_skills": [
+      "onboarding-preference-tuning",
+      "hipson-adapter",
+      "workflow-self-improvement"
+    ]
+  },
+  "profiles": {
+    "core": {
+      "summary": "Guided onboarding, workflow routing, brief creation, copy, evidence, safe tool planning, QA, and delivery foundations.",
+      "skills": [
+        "onboarding-preference-tuning",
+        "pipeline-core",
+        "workflow-orchestrator",
+        "brief-architect",
+        "research-evidence",
+        "copy-voice",
+        "tool-routing-cost",
+        "output-critic-iteration",
+        "delivery-documentation"
+      ]
+    },
+    "creative": {
+      "summary": "Core workflow plus the main creative direction, prompting, storyboard, campaign, coded-video, and asset skills.",
+      "skills": [
+        "onboarding-preference-tuning",
+        "pipeline-core",
+        "workflow-orchestrator",
+        "brief-architect",
+        "research-evidence",
+        "reference-pack-curator",
+        "instruction-packet-factory",
+        "asset-manifest",
+        "ecommerce-campaign-strategy-director",
+        "character-design",
+        "cinematography",
+        "commercial-video-campaign-director",
+        "commercial-visual-campaign-director",
+        "creative-music-video-director",
+        "screenplay-story-architect",
+        "humanizer",
+        "copy-voice",
+        "image-prompt-architect",
+        "marketing",
+        "output-critic-iteration",
+        "storyboard-board-architect",
+        "storyboard-director",
+        "storytelling",
+        "ugc",
+        "video-prompt-architect",
+        "producer-ai-task-builder",
+        "creative-video-producer",
+        "caption-studio",
+        "opencut-video-studio",
+        "remotion-video-production",
+        "tool-routing-cost",
+        "delivery-documentation"
+      ]
+    },
+    "full": {
+      "summary": "Every public workflow skill in the repository, ordered from setup and routing through creative, editing, Remotion, specialist, QA, delivery, and governance capabilities.",
+      "skills": [
+        "onboarding-preference-tuning",
+        "pipeline-core",
+        "workflow-orchestrator",
+        "brief-architect",
+        "research-evidence",
+        "reference-pack-curator",
+        "instruction-packet-factory",
+        "asset-manifest",
+        "ecommerce-campaign-strategy-director",
+        "character-design",
+        "cinematography",
+        "commercial-video-campaign-director",
+        "commercial-visual-campaign-director",
+        "creative-music-video-director",
+        "screenplay-story-architect",
+        "humanizer",
+        "copy-voice",
+        "image-prompt-architect",
+        "marketing",
+        "storyboard-board-architect",
+        "storyboard-director",
+        "storytelling",
+        "ugc",
+        "video-prompt-architect",
+        "producer-ai-task-builder",
+        "creative-video-producer",
+        "caption-studio",
+        "opencut-video-studio",
+        "remotion-video-production",
+        "tool-routing-cost",
+        "hyperframes-workflow",
+        "hipson-adapter",
+        "output-critic-iteration",
+        "delivery-documentation",
+        "workflow-self-improvement"
+      ]
+    }
+  }
+}

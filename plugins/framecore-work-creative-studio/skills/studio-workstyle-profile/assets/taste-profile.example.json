@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic examples; not any real user or client profile",
+  "records": [
+    {
+      "id": "P01",
+      "scope": "user",
+      "scope_id": "SYNTHETIC-USER",
+      "preference": "Prefer physical causes for movement when realism is requested.",
+      "medium": "product_video",
+      "evidence_type": "explicit",
+      "evidence_count": 1,
+      "source_decision": "SYNTHETIC-D01",
+      "stated_reason": "I want movements to be understandable.",
+      "confidence": "confirmed",
+      "status": "active",
+      "decision": "stated_preference"
+    },
+    {
+      "id": "P02",
+      "scope": "project",
+      "scope_id": "SYNTHETIC-PROJECT",
+      "preference": "Use a fixed camera for this reel.",
+      "medium": "video",
+      "evidence_type": "explicit",
+      "evidence_count": 1,
+      "source_decision": "SYNTHETIC-D02",
+      "stated_reason": "Unknown",
+      "confidence": "confirmed",
+      "status": "active",
+      "decision": "stated_preference"
+    },
+    {
+      "id": "P03",
+      "scope": "client",
+      "scope_id": "SYNTHETIC-CLIENT",
+      "preference": "May prefer sparse layouts in this campaign.",
+      "medium": "static",
+      "evidence_type": "observed",
+      "evidence_count": 2,
+      "source_decision": "SYNTHETIC-D03+D04",
+      "stated_reason": "Unknown",
+      "confidence": "tentative",
+      "status": "unresolved",
+      "decision": "mixed"
+    }
+  ]
+}

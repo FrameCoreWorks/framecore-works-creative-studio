@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "scope": "Planned behavioral specifications for dev.29 knowledge additions, not executed tests.",
+  "cases": [
+    {
+      "id": "KP01",
+      "family": "reference_transfer",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Prepare a source-faithful jacket portrait from separate face, garment and composition references; the required back view is unavailable.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "reference_transfer",
+      "expected_owners": [
+        "image-prompt-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Assign property authority without blending identities.",
+        "Keep the unseen back Unknown; preserve strict requirement.",
+        "Provide useful conditional prompt planning without claiming generation."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP02",
+      "family": "type_adaptation",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Adapt approved exact-copy artwork to square and portrait with a fixed concept and allowed recomposition.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "type_adaptation",
+      "expected_owners": [
+        "commercial-visual-campaign-director",
+        "image-prompt-architect",
+        "static-graphic-design-creator"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Retain every supplied string and semantic pairing.",
+        "Explain format-specific layout changes.",
+        "Do not certify rendered text or measured contrast from a prompt."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP03",
+      "family": "scene_turn",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Write an original short scene where the characters pursue incompatible goals through subtext.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "scene_turn",
+      "expected_owners": [
+        "screenplay-story-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Return an actual scene with a consequential turn.",
+        "Separate selected dialogue from production estimates.",
+        "Avoid formulaic required exposition."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP04",
+      "family": "sequence_board",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Turn the selected scene into a sequence and a separate coverage board of one moment.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "sequence_board",
+      "expected_owners": [
+        "storyboard-sequence-architect",
+        "storyboard-board-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Preserve exact dialogue and start/end states.",
+        "Label timing as estimated when no recording exists.",
+        "Do not force chronological events into a coverage board."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP05",
+      "family": "editorial_voice",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Rewrite unsupported promotional superlatives from a sparse fact sheet with no voice samples.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "editorial_voice",
+      "expected_owners": [
+        "humanizer"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Use only supported facts.",
+        "Provide a useful draft without inventing testimonials or user style.",
+        "Explain material claim removal succinctly."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP06",
+      "family": "campaign_proof",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Build a video campaign premise for a repair workshop with no performance proof or completed client case.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "campaign_proof",
+      "expected_owners": [
+        "commercial-video-campaign-director",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Separate authored premise from product/business evidence.",
+        "Use original hypothetical staging with no fake case-study results.",
+        "Produce a bounded direction and handoff."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP07",
+      "family": "audio_evidence",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "A user reports muddy vocals and requests a repair plan; no playable file is accessible.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "audio_evidence",
+      "expected_owners": [
+        "audio-production-director"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Label user-report-only evidence.",
+        "Plan listening/arrangement alternatives without measured claims.",
+        "Audio review does not require a task packet or generation."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP08",
+      "family": "music_video_motifs",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Plan a motif-led video from supplied lyrics and a user-reported song structure, no audio available.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "music_video_motifs",
+      "expected_owners": [
+        "creative-music-video-director",
+        "audio-production-director"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Tie image decisions to supplied material.",
+        "Mark structural timing as reported or estimated.",
+        "Do not claim heard rhythm or execute music production."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP09",
+      "family": "video_continuity",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Prepare three prompt-only clips with a repeated camera and future first/last-frame carriers.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "video_continuity",
+      "expected_owners": [
+        "video-prompt-architect",
+        "storyboard-sequence-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Deliver complete conditional prompts.",
+        "Keep strict continuity distinct from execution readiness and observed outcome.",
+        "Do not invent current provider controls."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP10",
+      "family": "asset_revision",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "A source revision changes; two derivatives depend on it and an unrelated lyric does not.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "asset_revision",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "delivery-documentation"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Find transitive affected assets and preserve the unrelated artifact.",
+        "Old acceptance is not current acceptance.",
+        "Do not relabel dependency numbers without actual rework or evidence."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP11",
+      "family": "bounded_qa",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "A cropped preview seems to omit required text; full artwork has not been provided.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "bounded_qa",
+      "expected_owners": [
+        "output-critic-iteration",
+        "delivery-documentation"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Bound observations to the supplied crop.",
+        "Obtain full evidence before prescribing a full artwork rebuild.",
+        "Do not claim technical delivery verification."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    },
+    {
+      "id": "KP12",
+      "family": "research_conflict",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Two official guides recommend different filename lengths; decide a Studio convention.",
+      "context": {
+        "scenario": "Original synthetic knowledge-practice task; no real media bundled."
+      },
+      "available_assets": [],
+      "expected_branch": "research_conflict",
+      "expected_owners": [
+        "research-evidence",
+        "workflow-orchestrator",
+        "studio-workstyle-profile"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Open and compare scope of both sources.",
+        "Do not turn contextual recommendations into universal hard limits.",
+        "Return a source-to-decision record with remaining limits."
+      ],
+      "required_evidence": [
+        "Actual response and read sources recorded separately; fixture loading is not execution."
+      ]
+    }
+  ]
+}

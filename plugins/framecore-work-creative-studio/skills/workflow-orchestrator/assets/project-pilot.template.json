@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "project_alias": "Unknown",
+  "scope": "real user project only when supplied; this template is empty",
+  "requested_deliverable": "Unknown",
+  "success_criteria": [],
+  "directions_shown": "Unknown",
+  "selected_direction": "Unknown",
+  "feedback_turns": "Unknown",
+  "stated_rejection_reasons": [],
+  "source_lock_violations_observed": "Unknown",
+  "adjacent_pairs_inspected": "Unknown",
+  "transition_repairs": "Unknown",
+  "concept_survived_production": "Unknown",
+  "elapsed_time_observed": "Unknown",
+  "user_assessment": "Unknown",
+  "provider_execution": "not_performed",
+  "next_material_improvement": "Unknown"
+}

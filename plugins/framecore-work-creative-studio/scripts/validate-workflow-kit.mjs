@@ -1,0 +1,93 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {isDeepStrictEqual as equal} from 'node:util';
+
+// Called after the canonical validator rejects symlinks. Reads data only.
+export function validateWorkflowKit(root, packageFiles) {
+  const errors = [], fail = (code, detail) => errors.push({code, detail});
+  const read = relative => {
+    if (typeof relative !== 'string' || path.isAbsolute(relative) || relative.split('/').includes('..') || !packageFiles.includes(relative)) throw new Error('Invalid or missing package path: ' + relative);
+    return fs.readFileSync(path.join(root, relative));
+  };
+  const text = relative => read(relative).toString('utf8');
+  const json = relative => JSON.parse(text(relative));
+  const refs = 'skills/pipeline-core/references/';
+  const rows = relative => text(relative).split(/\r?\n/).filter(line => line.startsWith('|')).map(line => line.split('|').slice(1, -1).map(cell => cell.trim()));
+  const tokens = cell => [...cell.matchAll(/`([^`]+)`/g)].map(match => match[1]);
+  try {
+    const manifest = json('integrations/workflow-kit/source-manifest.json');
+    if (manifest.schema_version !== 2 || manifest.source_commit !== '55c8bf19962c7bf7fb43648637ee433d990eb2a9' || manifest.source_file_count !== 359 || manifest.source_skill_count !== 35 || manifest.source_version !== '1.1.0' || manifest.snapshot_activation !== 'source_only_no_automatic_install_or_execution') fail('KIT_PROVENANCE', 'Unexpected source identity, scope or inventory');
+    const sourceFiles = manifest.source_files;
+    if (!Array.isArray(sourceFiles) || sourceFiles.length !== 359) throw new Error('Expected 359 source files');
+    const stubPaths = new Set((manifest.discovery_stubs ?? []).map(item => item.path));
+    if (stubPaths.size !== 35) fail('KIT_DISCOVERY_STUBS', 'Expected 35 inert source pointers');
+    for (const stub of manifest.discovery_stubs ?? []) {
+      const body = text(stub.path);
+      if (body.startsWith('---') || /^name:/m.test(body) || !packageFiles.includes(stub.target) || createHash('sha256').update(body).digest('hex') !== stub.sha256) fail('KIT_DISCOVERY_STUB', stub.path);
+    }
+    const archive = read(manifest.archive?.path);
+    if (archive.length !== manifest.archive?.bytes || createHash('sha256').update(archive).digest('hex') !== manifest.archive?.sha256) fail('KIT_SOURCE_ARCHIVE', 'Pinned archive differs');
+    const snapshotFiles = packageFiles.filter(file => file.startsWith('integrations/workflow-kit/upstream/') && !stubPaths.has(file)).sort();
+    if (!equal(sourceFiles.map(item => item.bundled_path).sort(), snapshotFiles)) fail('KIT_SOURCE_INVENTORY', 'Snapshot has missing, duplicated or unlisted files');
+    for (const item of sourceFiles) {
+      if (item.bundled_path !== 'integrations/workflow-kit/upstream/' + item.source_path.replace(/\/SKILL\.md$/, '/SKILL.source.md')) fail('KIT_SOURCE_PATH', String(item.source_path));
+      const content = read(item.bundled_path);
+      if (content.length !== item.bytes || createHash('sha256').update(content).digest('hex') !== item.sha256) fail('KIT_SOURCE_HASH', item.source_path);
+    }
+    const sourceSkills = sourceFiles.filter(item => /^\.agents\/skills\/[^/]+\/SKILL.md$/.test(item.source_path)).map(item => item.source_path.split('/')[2]).sort();
+    const mappings = manifest.skill_map;
+    if (!Array.isArray(mappings) || !equal(mappings.map(item => item.source_skill).sort(), sourceSkills) || mappings.filter(item => item.mode === 'new').length !== 20 || mappings.filter(item => item.mode === 'merged').length !== 15) fail('KIT_SKILL_MAP', 'Every source skill must have exactly one active owner');
+    const remaps = {'onboarding-preference-tuning':'studio-workstyle-profile', 'storyboard-director':'storyboard-sequence-architect', 'producer-ai-task-builder':'audio-production-director'};
+    const sourcePaths = new Set(sourceFiles.map(item => item.source_path));
+    const resources = manifest.active_resources;
+    if (!Array.isArray(resources) || new Set(resources.map(item => item.active_path)).size !== resources.length) throw new Error('Invalid active resource inventory');
+    const expectedResources = [];
+    for (const mapping of mappings) {
+      const owner = remaps[mapping.source_skill] ?? mapping.source_skill;
+      if (mapping.target_skill !== owner) fail('KIT_OWNER', mapping.source_skill);
+      const entrypoint = 'skills/' + owner + '/SKILL.md';
+      const method = mapping.mode === 'new' ? entrypoint : 'skills/' + owner + '/kit/method.md';
+      if (mapping.active_method !== method) fail('KIT_METHOD', mapping.source_skill);
+      const body = text(entrypoint);
+      if (mapping.mode === 'merged' && !body.includes('(kit/method.md)')) fail('KIT_METHOD_ROUTE', owner);
+      text(method);
+      const prefix = '.agents/skills/' + mapping.source_skill + '/';
+      for (const item of sourceFiles.filter(item => item.source_path.startsWith(prefix))) {
+        const suffix = item.source_path.slice(prefix.length);
+        if (mapping.mode === 'merged' && suffix.startsWith('agents/')) continue;
+        expectedResources.push(item.source_path);
+      }
+    }
+    if (!equal(expectedResources.sort(), resources.map(item => item.source_path).sort())) fail('KIT_RESOURCE_COVERAGE', 'All skill knowledge, templates and helpers must be active; only merged agent metadata is omitted');
+    for (const resource of resources) {
+      if (!sourcePaths.has(resource.source_path) || !resource.active_path.startsWith('skills/')) fail('KIT_ACTIVE_RESOURCE', String(resource.source_path));
+      read(resource.active_path);
+    }
+    for (const resource of manifest.supporting_resources ?? []) {
+      if (!sourcePaths.has(resource.source_path)) fail('KIT_SUPPORT_SOURCE', resource.source_path);
+      read(resource.active_path);
+    }
+    const schema = json('skills/pipeline-core/assets/artifact-schemas.json');
+    if (schema.path_base !== 'plugin_root') fail('KIT_SCHEMA_PATH', 'Schema examples must resolve from the plugin root');
+    for (const artifact of Object.values(schema.artifacts)) for (const example of artifact.example_paths ?? []) read(example);
+    const routes = json('scripts/workflow-kit-routes.json');
+    const roles = Object.fromEntries(rows(refs + 'role-skill-map.md').filter(c => c.length === 4 && c[0].startsWith('`')).map(c => [tokens(c[0])[0], tokens(c[3])]));
+    if (Object.keys(roles).length !== 20 || !equal(roles, routes.roles)) fail('KIT_ROLE_MAP', 'Role documentation and runtime contract differ');
+    for (const [role, owners] of Object.entries(routes.roles)) {
+      if (!Array.isArray(owners) || !owners.length) { fail('KIT_ROLE_OWNER', role); continue; }
+      for (const owner of owners) if (!packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('KIT_ROLE_OWNER', role + ': ' + owner);
+    }
+    const handoffs = rows(refs + 'handoff-matrix.md').filter(c => c.length === 3 && c[0] !== 'From' && !c[0].startsWith('-')).map(c => ({from:c[0], to:c[1], required_fields:c[2]}));
+    const gates = rows(refs + 'gate-registry.md').filter(c => c.length === 3 && c[0].startsWith('`')).map(c => ({id:tokens(c[0])[0], owners:tokens(c[1]), artifact:c[2]}));
+    if (handoffs.length !== 41 || !equal(handoffs, routes.handoffs)) fail('KIT_HANDOFF_MAP', 'Handoff documentation and runtime contract differ');
+    if (gates.length !== 19 || !equal(gates, routes.gates)) fail('KIT_GATE_MAP', 'Gate documentation and runtime contract differ');
+    for (const handoff of routes.handoffs) if (!roles[handoff.from] || !roles[handoff.to] || !handoff.required_fields?.trim()) fail('KIT_HANDOFF_TARGET', JSON.stringify(handoff));
+    for (const gate of routes.gates) if (!gate.id || !gate.artifact || !gate.owners.length || gate.owners.some(owner => !roles[owner])) fail('KIT_GATE_OWNER', gate.id);
+    if (!equal(routes.qa_by_modality, {still:'output-critic-iteration',video:'video-prompt-architect',audio:'audio-production-director',captions:'caption-studio'})) fail('KIT_MEDIA_QA', 'Review must route by inspected modality');
+    const authority = text(refs + 'studio-integration-policy.md');
+    for (const phrase of ['Missing carriers do not lower a strict requirement', 'If the first draft satisfies them', 'Tool availability is discovered from the actual host', 'Hipson Adapter supplies bounded packets', 'A clear request already establishes intent', 'After an unexplained rejection ask one specific direction question']) if (!authority.includes(phrase)) fail('KIT_AUTHORITY', phrase);
+    for (const item of resources.filter(item => item.active_path.endsWith('.md'))) if (/Name the carrier or mark continuity approximate|at least one review-and-revision cycle|must use GPT Image 2/.test(text(item.active_path))) fail('KIT_STALE_POLICY', item.active_path);
+  } catch (error) { fail('KIT_PACKAGE', error.message); }
+  return errors;
+}

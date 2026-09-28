@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "scope": "Contract map; does not execute skills or register agents.",
+  "roles": {
+    "intent-confirmation": [
+      "pipeline-core",
+      "workflow-orchestrator"
+    ],
+    "workflow-orchestrator": [
+      "workflow-orchestrator",
+      "pipeline-core"
+    ],
+    "brief-architect": [
+      "brief-architect"
+    ],
+    "reference-curator": [
+      "reference-pack-curator",
+      "pipeline-core",
+      "hipson-adapter"
+    ],
+    "research-evidence": [
+      "research-evidence",
+      "pipeline-core",
+      "instruction-packet-factory",
+      "reference-pack-curator"
+    ],
+    "instruction-packet-factory": [
+      "instruction-packet-factory",
+      "hipson-adapter"
+    ],
+    "static-direction": [
+      "static-graphic-design-creator",
+      "commercial-visual-campaign-director",
+      "ecommerce-campaign-strategy-director",
+      "marketing",
+      "character-design"
+    ],
+    "motion-direction": [
+      "commercial-video-campaign-director",
+      "creative-video-producer",
+      "cinematography",
+      "storytelling"
+    ],
+    "music-video-direction": [
+      "creative-music-video-director",
+      "audio-production-director",
+      "cinematography",
+      "storytelling"
+    ],
+    "storyboard-architect": [
+      "storyboard-sequence-architect",
+      "screenplay-story-architect",
+      "storytelling",
+      "cinematography"
+    ],
+    "storyboard-board-architect": [
+      "storyboard-board-architect",
+      "image-prompt-architect"
+    ],
+    "copy-voice": [
+      "copy-voice",
+      "humanizer",
+      "marketing",
+      "ugc",
+      "caption-studio"
+    ],
+    "image-prompting": [
+      "image-prompt-architect",
+      "pipeline-core"
+    ],
+    "video-prompting": [
+      "video-prompt-architect",
+      "pipeline-core",
+      "creative-video-producer",
+      "audio-production-director"
+    ],
+    "tool-routing-cost": [
+      "tool-routing-cost",
+      "pipeline-core"
+    ],
+    "execution-manifest": [
+      "pipeline-core",
+      "tool-routing-cost",
+      "asset-manifest",
+      "remotion-video-production",
+      "opencut-video-studio"
+    ],
+    "asset-manifest": [
+      "asset-manifest",
+      "pipeline-core"
+    ],
+    "qa-iteration": [
+      "output-critic-iteration",
+      "video-prompt-architect",
+      "audio-production-director",
+      "caption-studio",
+      "pipeline-core"
+    ],
+    "delivery-documentation": [
+      "delivery-documentation",
+      "humanizer"
+    ],
+    "hyperframes-producer": [
+      "hyperframes-workflow"
+    ]
+  },
+  "handoffs": [
+    {
+      "from": "intent-confirmation",
+      "to": "workflow-orchestrator",
+      "required_fields": "confirmed_goal, excluded_scope, work_mode, expected_output, immediate_next_step"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "brief-architect",
+      "required_fields": "goal, raw_context, constraints, expected_artifact, request_diagnostic, reasoning_route when useful"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "asset-manifest",
+      "required_fields": "existing_files, review_goal, acceptance_criteria, delivery_need, source_notes"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "instruction-packet-factory",
+      "required_fields": "target_role, packet_type, context, goal, exclusions, output_need, reasoning_route, selected_methods, stop_condition"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "qa-iteration",
+      "required_fields": "loop_state, artifacts_under_review, acceptance_matrix, regression_scope, stop_condition"
+    },
+    {
+      "from": "instruction-packet-factory",
+      "to": "research-evidence",
+      "required_fields": "packet_id, goal, source_rules, acceptance_criteria, output_schema, verification_questions"
+    },
+    {
+      "from": "instruction-packet-factory",
+      "to": "reference-curator",
+      "required_fields": "packet_id, reference_goals, suppression_rules, output_schema, source_notes_need"
+    },
+    {
+      "from": "brief-architect",
+      "to": "reference-curator",
+      "required_fields": "brief_contract, reference_needs, constraints"
+    },
+    {
+      "from": "brief-architect",
+      "to": "research-evidence",
+      "required_fields": "brief_contract, research_questions, source_rules"
+    },
+    {
+      "from": "brief-architect",
+      "to": "instruction-packet-factory",
+      "required_fields": "brief_contract, target_role, packet_type, constraints, exclusions, acceptance_criteria"
+    },
+    {
+      "from": "brief-architect",
+      "to": "delivery-documentation",
+      "required_fields": "brief_contract, accepted_scope, delivery_notes"
+    },
+    {
+      "from": "reference-curator",
+      "to": "static-direction",
+      "required_fields": "reference_pack, continuity_anchors, suppression_rules"
+    },
+    {
+      "from": "reference-curator",
+      "to": "motion-direction",
+      "required_fields": "reference_pack, continuity_anchors, suppression_rules"
+    },
+    {
+      "from": "research-evidence",
+      "to": "copy-voice",
+      "required_fields": "evidence_note, claims, citations, uncertainty, verification_questions, source_notes"
+    },
+    {
+      "from": "static-direction",
+      "to": "copy-voice",
+      "required_fields": "direction_contract, audience, copy_requirements"
+    },
+    {
+      "from": "static-direction",
+      "to": "image-prompting",
+      "required_fields": "direction_contract, prompt_constraints, copy_requirements, text_layout_requirements, controlled_variants"
+    },
+    {
+      "from": "motion-direction",
+      "to": "copy-voice",
+      "required_fields": "motion_direction, audience, VO_or_caption_needs"
+    },
+    {
+      "from": "motion-direction",
+      "to": "storyboard-architect",
+      "required_fields": "motion_direction, timing_constraints, continuity_rules"
+    },
+    {
+      "from": "storyboard-architect",
+      "to": "copy-voice",
+      "required_fields": "storyboard_contract, shot_context, VO_or_caption_needs"
+    },
+    {
+      "from": "storyboard-architect",
+      "to": "storyboard-board-architect",
+      "required_fields": "storyboard_contract, visual_direction, panel_count, timing, label_requirements"
+    },
+    {
+      "from": "storyboard-architect",
+      "to": "video-prompting",
+      "required_fields": "storyboard_contract, shot_cards, continuity_rules, timing_beats, required_continuity_carriers"
+    },
+    {
+      "from": "storyboard-architect",
+      "to": "hyperframes-producer",
+      "required_fields": "storyboard_contract, timing, copy, render_constraints"
+    },
+    {
+      "from": "storyboard-board-architect",
+      "to": "image-prompting",
+      "required_fields": "board_artifact_prompt, exact_board_text, panel_layout, safe_margins, acceptance_criteria"
+    },
+    {
+      "from": "storyboard-board-architect",
+      "to": "qa-iteration",
+      "required_fields": "board_artifact_prompt, expected_observables, acceptance_criteria"
+    },
+    {
+      "from": "copy-voice",
+      "to": "research-evidence",
+      "required_fields": "claims, author_context, source_rules, verification_questions, source_notes"
+    },
+    {
+      "from": "copy-voice",
+      "to": "qa-iteration",
+      "required_fields": "copy_pack, copy_pack_status, author_context, fact_and_lock_ledger, human_voice_review, copy_delivery_loop, acceptance_criteria"
+    },
+    {
+      "from": "qa-iteration",
+      "to": "copy-voice",
+      "required_fields": "QA_status, severity, root_cause, copy_delivery_loop_checks, regression_check, corrected_instruction_packets, stop_recommendation"
+    },
+    {
+      "from": "copy-voice",
+      "to": "image-prompting",
+      "required_fields": "exact_copy, tone_notes, text_lock, text_hierarchy, safe_area"
+    },
+    {
+      "from": "copy-voice",
+      "to": "video-prompting",
+      "required_fields": "VO, dialogue, supers, tone_notes, timing_locks, video_text_mode"
+    },
+    {
+      "from": "copy-voice",
+      "to": "hyperframes-producer",
+      "required_fields": "captions, titles, VO, overlay_text, tone_notes"
+    },
+    {
+      "from": "copy-voice",
+      "to": "delivery-documentation",
+      "required_fields": "final_text, copy_pack_status, author_context, human_voice_review, copy_delivery_loop, tone_notes, caveats"
+    },
+    {
+      "from": "image-prompting",
+      "to": "qa-iteration",
+      "required_fields": "prompt_pack, creative_prompt_contract, content_checksum, reference_roles, attachment_plan, continuity_status, expected_observables, acceptance_criteria, selected_methods, verification_questions"
+    },
+    {
+      "from": "image-prompting",
+      "to": "tool-routing-cost",
+      "required_fields": "prompt_pack, creative_prompt_contract, target_verification_status, asset_requirements, acceptance_criteria"
+    },
+    {
+      "from": "video-prompting",
+      "to": "qa-iteration",
+      "required_fields": "prompt_pack, creative_prompt_contract, content_checksum, timing, reference_roles, attachment_plan, continuity_status, expected_observables, acceptance_criteria, selected_methods, verification_questions"
+    },
+    {
+      "from": "video-prompting",
+      "to": "tool-routing-cost",
+      "required_fields": "prompt_pack, creative_prompt_contract, target_verification_status, timing, acceptance_criteria"
+    },
+    {
+      "from": "tool-routing-cost",
+      "to": "execution-manifest",
+      "required_fields": "selected_tool, approval_status, required_inputs, creative_prompt_contract, adapter_verification, output_plan, risks"
+    },
+    {
+      "from": "execution-manifest",
+      "to": "asset-manifest",
+      "required_fields": "output_files, params_summary, source_notes, adapter_verification, execution_evidence, redaction_status"
+    },
+    {
+      "from": "hyperframes-producer",
+      "to": "asset-manifest",
+      "required_fields": "source_files, render_outputs, dependencies, traceability"
+    },
+    {
+      "from": "asset-manifest",
+      "to": "qa-iteration",
+      "required_fields": "file_list, source_traceability, continuity_carriers, accepted_output_refs, acceptance_criteria"
+    },
+    {
+      "from": "qa-iteration",
+      "to": "workflow-orchestrator",
+      "required_fields": "QA status, severity, root_cause, prompt_contract_checks, continuity_checks, adapter_checks, loopback_target, regression_check, stop_recommendation"
+    },
+    {
+      "from": "qa-iteration",
+      "to": "delivery-documentation",
+      "required_fields": "accepted_assets, excluded_assets, QA status, verification_results, prompt_contract_checks, continuity_checks, adapter_checks, stop_condition, caveats"
+    }
+  ],
+  "gates": [
+    {
+      "id": "intent_lock",
+      "owners": [
+        "intent-confirmation"
+      ],
+      "artifact": "Task Confirmation"
+    },
+    {
+      "id": "request_diagnostic_fit",
+      "owners": [
+        "workflow-orchestrator"
+      ],
+      "artifact": "Workflow Request Diagnostic"
+    },
+    {
+      "id": "workflow_route",
+      "owners": [
+        "workflow-orchestrator"
+      ],
+      "artifact": "Project State"
+    },
+    {
+      "id": "loop_control_fit",
+      "owners": [
+        "workflow-orchestrator",
+        "qa-iteration"
+      ],
+      "artifact": "Loop State"
+    },
+    {
+      "id": "brief_completeness",
+      "owners": [
+        "brief-architect"
+      ],
+      "artifact": "Brief Contract"
+    },
+    {
+      "id": "reference_authority_fit",
+      "owners": [
+        "reference-curator"
+      ],
+      "artifact": "Reference Pack"
+    },
+    {
+      "id": "evidence_fit",
+      "owners": [
+        "research-evidence"
+      ],
+      "artifact": "Evidence Note"
+    },
+    {
+      "id": "instruction_packet_fit",
+      "owners": [
+        "instruction-packet-factory"
+      ],
+      "artifact": "Instruction Packet"
+    },
+    {
+      "id": "direction_fit",
+      "owners": [
+        "static-direction",
+        "motion-direction",
+        "music-video-direction"
+      ],
+      "artifact": "Direction Contract"
+    },
+    {
+      "id": "structure_fit",
+      "owners": [
+        "storyboard-architect"
+      ],
+      "artifact": "Storyboard Contract"
+    },
+    {
+      "id": "storyboard_board_fit",
+      "owners": [
+        "storyboard-board-architect"
+      ],
+      "artifact": "Board Artifact Prompt"
+    },
+    {
+      "id": "copy_fit",
+      "owners": [
+        "copy-voice"
+      ],
+      "artifact": "Copy Pack"
+    },
+    {
+      "id": "promptability_fit",
+      "owners": [
+        "image-prompting",
+        "video-prompting"
+      ],
+      "artifact": "Prompt Pack"
+    },
+    {
+      "id": "schema_pricing_fit",
+      "owners": [
+        "tool-routing-cost"
+      ],
+      "artifact": "Tool Routing Plan"
+    },
+    {
+      "id": "execution_manifest_fit",
+      "owners": [
+        "execution-manifest",
+        "hyperframes-producer"
+      ],
+      "artifact": "Execution Manifest or HyperFrames Production Brief"
+    },
+    {
+      "id": "asset_manifest_fit",
+      "owners": [
+        "asset-manifest"
+      ],
+      "artifact": "Asset Manifest"
+    },
+    {
+      "id": "post_execution_fit",
+      "owners": [
+        "qa-iteration"
+      ],
+      "artifact": "QA / Iteration Report"
+    },
+    {
+      "id": "delivery_fit",
+      "owners": [
+        "delivery-documentation"
+      ],
+      "artifact": "Delivery Manifest"
+    },
+    {
+      "id": "self_improvement_sufficiency_fit",
+      "owners": [
+        "workflow-orchestrator",
+        "qa-iteration"
+      ],
+      "artifact": "Self-Improvement Sufficiency Gate"
+    }
+  ],
+  "qa_by_modality": {
+    "still": "output-critic-iteration",
+    "video": "video-prompt-architect",
+    "audio": "audio-production-director",
+    "captions": "caption-studio"
+  }
+}

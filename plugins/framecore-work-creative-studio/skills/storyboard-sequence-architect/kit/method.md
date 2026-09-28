@@ -1,0 +1,98 @@
+
+# Storyboard Director
+
+Read [Studio integration authority](../../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+
+
+Use this skill to convert direction into beats, scenes, shot cards, timing, transitions, and continuity rules for video, image sequence, music video, or coded-video workflows.
+
+## Language Policy
+
+Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
+
+## When To Use
+
+Use this skill when:
+
+- Direction needs to become scene structure or shot cards before prompting or production.
+- A video, multi-shot image sequence, storyboard board, or HyperFrames composition needs timing and continuity.
+- The workflow needs clear loopback points before final prompts.
+
+Do not use this skill to write final technical prompts or execute media production.
+
+## Inputs
+
+Required:
+
+- `brief_contract`: objective, audience, deliverables, and constraints.
+- `direction_contract`: visual, motion, campaign, or music-video direction.
+- `reference_pack`: continuity anchors and suppression rules.
+
+Optional:
+
+- `copy_pack`: VO, dialogue, supers, captions, or CTA.
+- `format_constraints`: duration, aspect ratio, platform, or panel count.
+- `asset_inventory`: existing footage, images, product assets, or coded components.
+
+## Outputs
+
+Produce a Storyboard Contract with:
+
+- beats and scene list
+- shot cards and timing
+- transitions and pacing notes
+- continuity rules
+- per-shot generation mode and required continuity carrier when downstream shots will be generated separately
+- actual-output rewrite-forward requirement when a later shot must continue from an accepted prior result
+- copy placement notes
+- prompt and production handoff notes
+
+## Process
+
+1. Start from approved direction and required deliverables.
+2. Break the idea into beats, then scenes, then shot cards.
+3. Assign timing, transition, continuity rules, and the expected end state only when it matters to the next shot.
+4. For separately generated shots, distinguish planning inheritance from the actual reference, source clip, chained frame, or native shared context required by each request.
+5. Mark copy, VO, caption, or board dependencies.
+6. Hand off to prompt, board, or coded-video roles after structure is stable.
+
+## Decision Rules
+
+- If direction is missing, route back to the relevant direction skill.
+- Use timing to serve comprehension, not just pacing.
+- Keep shot cards concrete enough for prompts but not overloaded with generator syntax.
+- If copy placement affects shot design, route through `copy-voice` before final prompt work.
+- A start state, end state, or repeated description is planning metadata, not proof of strict generated continuity. Name the actual carrier. If a strict carrier is missing, retain the strict requirement and mark execution blocked; use approximation only with explicit user authorization.
+- Use a hard cut when no verified bridge exists between distinct states. If another seam is required, identify the reference, source clip, chained frame, or accepted actual output that carries it.
+
+## Guardrails
+
+- Do not invent unapproved story beats, claims, or product behavior.
+- Do not write final generator prompts.
+- Do not skip continuity anchors or suppression rules.
+- Do not execute media tools.
+
+## Handoff
+
+Review gate: `structure_fit`.
+
+Hand off to `video-prompting`, `storyboard-board-architect`, or `hyperframes-producer` with:
+
+- `storyboard_contract`
+- `shot_cards`
+- `timing`
+- `continuity_rules`
+- `generation_modes`
+- `continuity_carrier_requirements`
+- `rewrite_forward_requirements`
+- `copy_dependencies`
+
+## QA Checklist
+
+- Beat order supports the objective.
+- Each shot has purpose, timing, and continuity notes.
+- Copy dependencies are visible.
+- Separately generated shots identify their generation mode and any required continuity carrier.
+- A planned end frame is never presented as an actual carrier for the next request.
+- Structure can be prompted or produced without reconstructing direction.
+- No final execution or prompt generation is included.

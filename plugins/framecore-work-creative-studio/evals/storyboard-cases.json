@@ -1,0 +1,727 @@
+{
+  "schema_version": 1,
+  "scope": "Planned synthetic cases SB01-SB15 from the storyboard packet. They specify expected behavior; they are not model responses, host runs, generation records, or behavior-quality PASS results. Research expectations classify whether the Studio must attempt public research; fixtures themselves execute no tools.",
+  "cases": [
+    {
+      "id": "SB01",
+      "status": "planned",
+      "dimensions": [
+        "sequence_only",
+        "no_story_invention"
+      ],
+      "research_expectation": "required",
+      "user_request": "Mam tylko pomysł: po latach ktoś wraca do zamkniętej pływalni. Zrób wstępny sequence plan, jeszcze nie wiem jaki format będzie najlepszy.",
+      "checks": [
+        "Creates a sequence/beat plan rather than a screenplay or another intake form",
+        "Asks at most one material question or clearly labels provisional assumptions",
+        "Does not force a plot twist, backstory, fixed act structure, or shot count",
+        "Keeps sequence choices revisable until the user selects them"
+      ],
+      "context": {
+        "mode": "idea_only_sequence_intake",
+        "idea": "someone returns years later to a closed swimming pool",
+        "script": "none",
+        "format": "unknown",
+        "duration": "unknown",
+        "invention_permission": "initial planning only"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "media_generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "provisional_sequence_plan_with_zero_or_one_material_question"
+    },
+    {
+      "id": "SB02",
+      "status": "planned",
+      "dimensions": [
+        "sequence_only",
+        "timing_estimate",
+        "screen_direction"
+      ],
+      "research_expectation": "required",
+      "user_request": "Z tego zaakceptowanego opisu rozpisz dokładnie 6 kart ujęć. Zachowaj kolejność. Czas ma być orientacyjny, nie mierzyliśmy montażu.",
+      "checks": [
+        "Uses only the sequence/storyboard contract and returns exactly six actionable shot cards",
+        "Preserves supplied beat order and stable shot identity",
+        "Labels timing as estimate, not measured runtime",
+        "Keeps camera, action, start/end state and continuity notes distinct where relevant",
+        "Does not create a graphic board or screenplay"
+      ],
+      "context": {
+        "mode": "accepted_description_to_six_cards",
+        "approved_sequence": "S1: bus arrives at a fogged station. S2: Mara steps down with an empty glass jar. S3: the driver waits. S4: Mara places the jar on a bench. S5: the bus departs. S6: condensation slowly clears from the bench slat.",
+        "shot_count": 6,
+        "order_lock": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "timing_basis": "planning estimate requested",
+        "board_requested": false
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic accepted sequence in context.approved_sequence",
+          "role": "story/order authority",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "measured_edit": "unavailable",
+        "image_generation": "not_requested",
+        "video_generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "exactly_six_sequence_contract_shot_cards_with_estimated_timing"
+    },
+    {
+      "id": "SB03",
+      "status": "planned",
+      "dimensions": [
+        "board_only",
+        "exact_copy",
+        "board_layout_fit",
+        "safe_zones"
+      ],
+      "research_expectation": "required",
+      "user_request": "Przygotuj kompletny prompt planszy 3x2 z dokładnymi podpisami Shot 1, Shot 2, Shot 3, Shot 4, Shot 5, Shot 6. Na razie tylko prompt, bez generowania.",
+      "checks": [
+        "Returns a complete Board Artifact Prompt, not only a vague grid description",
+        "Maps the six supplied panel moments to the exact Shot 1–6 labels",
+        "Preserves the requested 3x2 layout for this case without declaring it a universal default",
+        "Includes purpose, order, panel content, hierarchy, safe margins and legibility criteria",
+        "Stops at prompt/specification and does not generate an image"
+      ],
+      "context": {
+        "mode": "board_prompt_only",
+        "board_purpose": "review six consecutive moments",
+        "layout": "user-locked 3x2",
+        "panels": [
+          {
+            "id": "Shot 1",
+            "moment": "closed theatre exterior"
+          },
+          {
+            "id": "Shot 2",
+            "moment": "caretaker checks the brass key"
+          },
+          {
+            "id": "Shot 3",
+            "moment": "key turns in side door"
+          },
+          {
+            "id": "Shot 4",
+            "moment": "door opens onto dark lobby"
+          },
+          {
+            "id": "Shot 5",
+            "moment": "caretaker switches on one lamp"
+          },
+          {
+            "id": "Shot 6",
+            "moment": "lamp reflection in ticket glass"
+          }
+        ],
+        "copy_lock": "exact labels only; no additional visible text"
+      },
+      "available_assets": [
+        {
+          "asset": "six synthetic panel descriptions in context.panels",
+          "role": "approved panel content",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "explicitly_not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "complete_board_artifact_prompt_exact_six_labels_stop_before_generation"
+    },
+    {
+      "id": "SB04",
+      "status": "planned",
+      "dimensions": [
+        "board_only",
+        "no_generation_without_tool",
+        "native_tool_available"
+      ],
+      "research_expectation": "required",
+      "user_request": "Wygeneruj teraz tę gotową planszę. Zaakceptowałem już prompt i dokładne podpisy.",
+      "checks": [
+        "Recognizes explicit generation intent and checks that a native image-generation tool is actually available",
+        "Uses only that exposed native tool if the host provides it, with the accepted prompt and copy lock",
+        "Does not imply external provider/API fallback or claim success before tool confirmation",
+        "If a result is returned, inspects it against panel order, labels, exact copy and safe-area criteria",
+        "Fixture remains a planned behavioral specification, not a claim that a generation was run"
+      ],
+      "context": {
+        "mode": "explicit_board_generation",
+        "accepted_board_prompt": "Six-panel 3x2 storyboard board, exact labels Shot 1 through Shot 6, no other text",
+        "copy_status": "locked",
+        "generation_consent": "explicit",
+        "acceptance": [
+          "six panels in order",
+          "exact labels",
+          "no unapproved text"
+        ]
+      },
+      "available_assets": [
+        {
+          "asset": "accepted prompt and six-panel specification in context",
+          "role": "generation input",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "native_image_tool": "available_for_this_synthetic_case",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "actual_generation_performed": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "use_available_native_tool_then_inspect_confirmed_result_without_external_fallback"
+    },
+    {
+      "id": "SB05",
+      "status": "planned",
+      "dimensions": [
+        "no_generation_without_tool",
+        "board_only"
+      ],
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "generation_unavailable_no_creative_output",
+      "user_request": "Wygeneruj teraz planszę. Jeśli nie masz narzędzia do obrazu, nie kombinuj przez API ani wrapper.",
+      "checks": [
+        "Checks actual native image tool availability",
+        "If unavailable, returns the accepted prompt/spec and plainly labels the image not generated",
+        "Does not ask about or use API/wrapper as fallback",
+        "Does not claim an image was created or inspected"
+      ],
+      "context": {
+        "mode": "explicit_generation_tool_unavailable",
+        "accepted_board_prompt": "three-panel board with exact S01-S03 labels",
+        "generation_consent": "explicit",
+        "copy_status": "locked"
+      },
+      "available_assets": [
+        {
+          "asset": "accepted three-panel prompt in context",
+          "role": "generation input",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "native_image_tool": "unavailable",
+        "api_or_wrapper": "not_authorized_and_not_to_be_asked_about_unless_user_raises_it",
+        "actual_generation_performed": false,
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "provide_prompt_and_not_generated_status_without_api_or_wrapper_fallback"
+    },
+    {
+      "id": "SB06",
+      "status": "planned",
+      "dimensions": [
+        "board_only",
+        "reference_roles"
+      ],
+      "research_expectation": "required",
+      "user_request": "Zrób reference board dla tego opakowania. Uwzględnij product truth, moodboard i typografię, ale nie rozpisuj żadnej sekwencji ani kadrów.",
+      "checks": [
+        "Produces a Reference Board Contract, not invented storyboard shots",
+        "Separates product truth, mood/style inspiration and typography reference roles",
+        "Records preserve/suppress rules per property",
+        "Does not copy incidental marks from an inspiration asset as product truth",
+        "States layout, panel/module purpose and unresolved decisions"
+      ],
+      "context": {
+        "mode": "reference_board_no_sequence",
+        "product_truth": "amber glass jar; matte charcoal label; black screw cap; label wording is locked in source document",
+        "moodboard": "warm shadows and mineral textures; contains an unrelated white box and unrelated logo",
+        "typography_reference": "condensed grotesk for headings; highly legible neutral sans for small information",
+        "shot_sequence": "not requested"
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic product specification",
+          "role": "product truth",
+          "availability": "included_in_fixture"
+        },
+        {
+          "asset": "moodboard",
+          "role": "lighting/material inspiration only",
+          "availability": "described_in_context"
+        },
+        {
+          "asset": "type specimen",
+          "role": "typography reference only",
+          "availability": "described_in_context"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "image_generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "reference_board_contract_with_property_roles_suppressions_and_no_sequence"
+    },
+    {
+      "id": "SB07",
+      "status": "planned",
+      "dimensions": [
+        "property_authority_conflict",
+        "reference_roles"
+      ],
+      "research_expectation": "required",
+      "user_request": "Product source pokazuje czarne opakowanie, moodboard białe. Zachowaj poprawny produkt. Jeśli są dwa równie mocne źródła prawdy, zapytaj mnie.",
+      "checks": [
+        "Does not let lower-authority moodboard override authoritative product source",
+        "Preserves black packaging when product source alone governs product truth",
+        "If two authoritative product sources conflict, isolates the conflict and asks user to resolve it",
+        "Does not average black and white or invent a hybrid package",
+        "States which source controls which property"
+      ],
+      "context": {
+        "mode": "product_authority_conflict",
+        "product_source": "current approved spec: black carton",
+        "moodboard": "white carton used only as atmosphere/layout inspiration",
+        "second_authoritative_source": "none supplied",
+        "authority_status": "product source is explicit truth; moodboard is lower-authority inspiration"
+      },
+      "available_assets": [
+        {
+          "asset": "approved product specification",
+          "role": "product truth",
+          "availability": "included_in_fixture"
+        },
+        {
+          "asset": "moodboard",
+          "role": "inspiration, not product authority",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "preserve_black_product_from_authoritative_source_and_request_resolution_only_if_authorities_tie"
+    },
+    {
+      "id": "SB08",
+      "status": "planned",
+      "dimensions": [
+        "exact_copy",
+        "board_only",
+        "board_layout_fit",
+        "safe_zones"
+      ],
+      "research_expectation": "required",
+      "user_request": "Na planszy mają być tylko dwie polskie etykiety: 'Przed otwarciem' pod kadrem 1 i 'Po zamknięciu' pod kadrem 2. Żadnych innych napisów.",
+      "checks": [
+        "Preserves exactly the two supplied Polish strings including diacritics and punctuation",
+        "Associates each exact string with its specified panel",
+        "Adds no title, shot ID, logo, date, camera metadata, translation or decorative microcopy",
+        "Uses safe zones and sufficient label contrast",
+        "Does not reinterpret flexible line breaks as permission to alter wording"
+      ],
+      "context": {
+        "mode": "two_exact_labels_only",
+        "panels": [
+          "frame 1: unopened bakery",
+          "frame 2: bakery after close"
+        ],
+        "exact_copy_assignments": [
+          {
+            "panel": 1,
+            "text": "Przed otwarciem"
+          },
+          {
+            "panel": 2,
+            "text": "Po zamknięciu"
+          }
+        ],
+        "language": "Polish",
+        "additional_copy": "forbidden"
+      },
+      "available_assets": [
+        {
+          "asset": "two synthetic frame descriptions",
+          "role": "panel mapping",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_requested",
+        "copy_approval": "user_supplied_locked",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "two_panel_board_with_exact_assigned_copy_no_other_visible_text"
+    },
+    {
+      "id": "SB09",
+      "status": "planned",
+      "dimensions": [
+        "exact_copy",
+        "board_only"
+      ],
+      "research_expectation": "required",
+      "user_request": "Te długie akapity mają zostać dokładnie na planszy. Nie skracaj ich. Jeśli będzie nieczytelnie, pokaż problem albo zapytaj o zgodę na notatki obok.",
+      "checks": [
+        "Locks both exact supplied paragraphs and does not shorten or paraphrase",
+        "Explains the concrete legibility/space conflict in the chosen board format",
+        "Offers companion notes/spec outside the image or asks permission to change the format/copy",
+        "Does not silently reduce type size below practical readability or omit text",
+        "Keeps the exact paragraph-to-panel assignment"
+      ],
+      "context": {
+        "mode": "long_locked_production_labels",
+        "format": "single-page six-panel board",
+        "label_1": "CAMERA: Hold the frame until the reflection disappears, then continue the lateral move to reveal the empty chair in the far left background.",
+        "label_2": "CONTINUITY: The envelope remains sealed in every panel; do not show the recipient, contents, address, or any identifying mark.",
+        "copy_status": "exact and not approved for shortening",
+        "readability_constraint": "both paragraphs compete with six panels at the supplied page size"
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic approved production paragraphs in context.label_1 and context.label_2",
+          "role": "exact copy authority",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_requested",
+        "page_size": "user supplied but too small for legible full paragraphs",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "preserve_copy_lock_and_surface_legibility_conflict_with_companion_notes_or_permission_request"
+    },
+    {
+      "id": "SB10",
+      "status": "planned",
+      "dimensions": [
+        "sequence_board_separation",
+        "handoff"
+      ],
+      "research_expectation": "required",
+      "user_request": "Zrób story sheet z siedmioma beatami. Nie potrzebuję pełnego storyboardu z coverage, kamerą i continuity.",
+      "checks": [
+        "Returns a seven-beat story sheet contract, not a full storyboard",
+        "Clearly distinguishes beat summaries from shot/camera/continuity cards",
+        "Does not turn the request into screenplay pages or a comic strip",
+        "Does not add unrequested camera coverage or visual panels",
+        "Labels any proposed visual shorthand as optional"
+      ],
+      "context": {
+        "mode": "story_sheet_only",
+        "approved_beats": [
+          "train stops",
+          "woman reads old timetable",
+          "station attendant sweeps",
+          "lights flicker",
+          "woman folds ticket",
+          "train leaves",
+          "empty timetable case remains"
+        ],
+        "beat_count": 7,
+        "requested_exclusions": [
+          "full shot coverage",
+          "camera specs",
+          "continuity matrix",
+          "screenplay format",
+          "comic panels"
+        ]
+      },
+      "available_assets": [
+        {
+          "asset": "seven synthetic approved beat statements in context.approved_beats",
+          "role": "story/sequence authority",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "seven_beat_story_sheet_not_full_storyboard_screenplay_or_comic"
+    },
+    {
+      "id": "SB11",
+      "status": "planned",
+      "dimensions": [
+        "strict_missing_carrier",
+        "reference_roles"
+      ],
+      "research_expectation": "required",
+      "user_request": "Z jednego nieostrego portretu zrób character sheet dla postaci, którą będę powtarzać w kolejnych scenach.",
+      "checks": [
+        "States what the single blurry portrait can and cannot establish",
+        "Does not invent unseen profile, back view, height, garment construction or facial details as source truth",
+        "Requests useful missing views or labels inferred details as provisional",
+        "Character sheet does not itself guarantee strict identity continuity in later jobs",
+        "Offers approximate use only if the user accepts that limitation"
+      ],
+      "context": {
+        "mode": "character_sheet_from_limited_source",
+        "future_recurrence": "required",
+        "portrait_quality": "single low-resolution blurred front view",
+        "known": [
+          "dark curly hair",
+          "round glasses",
+          "olive jacket"
+        ],
+        "unknown": [
+          "profile",
+          "back",
+          "exact facial features",
+          "jacket rear/fasteners",
+          "height"
+        ]
+      },
+      "available_assets": [
+        {
+          "asset": "one blurred front portrait",
+          "role": "limited identity/wardrobe evidence",
+          "availability": "attached_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_requested",
+        "future_independent_jobs": true,
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "qualify_source_limits_and_request_views_or_mark_sheet_and_recurrence_approximate"
+    },
+    {
+      "id": "SB12",
+      "status": "planned",
+      "dimensions": [
+        "strict_missing_carrier",
+        "continuity"
+      ],
+      "research_expectation": "required",
+      "user_request": "Zachowaj ścisłą identyczność postaci i produktu przez sześć niezależnych paneli, ale nie mam teraz żadnych referencji. Możesz po prostu dopisać 'same' przy każdym?",
+      "checks": [
+        "Marks strict identity/product continuity not ready without actual carriers",
+        "Explains that repeating 'same' does not supply source pixels or shared context",
+        "Requests per-property reference carriers for the independent units, or asks if user accepts explicitly approximate continuity",
+        "Does not promise all six panels will match",
+        "Keeps the request at planning/specification stage until authority and inputs are resolved"
+      ],
+      "context": {
+        "mode": "strict_multi_panel_identity_and_product",
+        "independent_panels": 6,
+        "required_properties": [
+          "same person identity",
+          "exact product package and label"
+        ],
+        "available_references": "none",
+        "user_proposed_fix": "repeat the word same",
+        "continuity_level": "strict"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "shared_context_verified": false,
+        "independent_requests": 6,
+        "image_generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "strict_continuity_not_ready_request_actual_carriers_or_user_approval_to_relax_to_approximate"
+    },
+    {
+      "id": "SB13",
+      "status": "planned",
+      "dimensions": [
+        "board_not_carrier",
+        "strict_missing_carrier"
+      ],
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "missing_continuity_carrier",
+      "user_request": "Przenieś referencje z planszy z historii do promptu dla każdego ujęcia. W nowym jobie inventory assetów jest puste, ale opisz tę samą postać i produkt.",
+      "checks": [
+        "Distinguishes historical mention/reference plan from files actually bound to a downstream job",
+        "Does not claim the board or its attachments are present in the new request when inventory is empty",
+        "Strict locks require an actual suitable carrier per independent request or verified shared context",
+        "Asks the user to reattach needed sources or accept approximate continuity",
+        "Does not hide missing carriers by repeating their descriptions"
+      ],
+      "context": {
+        "mode": "historical_reference_board_empty_downstream_inventory",
+        "history_mentions": "approved identity/product reference board",
+        "downstream_job_inventory": [],
+        "required_lock": "same character and exact product across independent shots",
+        "shared_context": "not verified"
+      },
+      "available_assets": [
+        {
+          "asset": "reference board mentioned in prior conversation",
+          "role": "planned reference only",
+          "availability": "not_attached_to_current_job"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "downstream_asset_inventory": "empty",
+        "independent_requests": true,
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "report_no_actual_binding_and_require_per_request_carriers_for_strict_lock"
+    },
+    {
+      "id": "SB14",
+      "status": "planned",
+      "dimensions": [
+        "aspect_nondefault",
+        "board_layout_fit"
+      ],
+      "research_expectation": "required",
+      "user_request": "Zaadaptuj zaakceptowaną poziomą planszę do 9:16. Shot IDs i ich kolejność muszą zostać bez zmian; możesz rekomponować układ.",
+      "checks": [
+        "Preserves exact shot IDs and their approved sequence order",
+        "Recomposes reading order, cells and label placement for vertical 9:16",
+        "Does not treat adaptation as crop/scale 1:1",
+        "Keeps all mandatory panels/copy or flags a real fit conflict for approval",
+        "Does not invent new story events or change camera intent"
+      ],
+      "context": {
+        "mode": "approved_landscape_board_to_vertical",
+        "source_layout": "horizontal six-panel board",
+        "target_aspect": "9:16",
+        "shot_ids_order_lock": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06"
+        ],
+        "recomposition_allowed": true,
+        "copy_lock": "all existing labels"
+      },
+      "available_assets": [
+        {
+          "asset": "approved horizontal board",
+          "role": "layout and panel source",
+          "availability": "described_in_context; source image availability must be checked"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_edit_tool": "not_requested",
+        "image_generation": "not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "vertical_recomposition_preserving_shot_order_ids_and_copy"
+    },
+    {
+      "id": "SB15",
+      "status": "planned",
+      "dimensions": [
+        "handoff",
+        "continuity",
+        "timing_estimate",
+        "camera_feasibility",
+        "generator_handoff"
+      ],
+      "research_expectation": "required",
+      "user_request": "Zatwierdzony storyboard zamień na gotowy video prompt pack. Jedno ujęcie nie mieści się w zablokowanym czasie, jeśli zachowamy ruch kamery. Nie zmieniaj po cichu kierunku ani nie uruchamiaj generatora.",
+      "checks": [
+        "Hands off approved shot IDs/order, time basis, exact copy/dialogue, carrier roles and continuity commitments to video-prompt-architect",
+        "Identifies the infeasible shot and causal conflict between locked duration and camera/action load",
+        "Proposes the smallest concrete change for user approval (e.g. extend duration or simplify camera path)",
+        "Does not silently rewrite the approved direction or present a workaround as approved",
+        "Does not execute or claim a video generation",
+        "Leaves current generator syntax to current generator-aware research/compiler route"
+      ],
+      "context": {
+        "mode": "approved_storyboard_to_video_prompt_pack",
+        "shot_cards": [
+          {
+            "id": "S01",
+            "duration_seconds": 4,
+            "action": "lift and unfold a large paper map",
+            "camera": "full 360-degree orbit during the action",
+            "copy": "Północ jest gdzie indziej.",
+            "carrier": "approved map opening frame planned but not attached to next job"
+          },
+          {
+            "id": "S02",
+            "duration_seconds": 6,
+            "action": "hold on the revealed route",
+            "camera": "locked-off",
+            "copy": "none"
+          }
+        ],
+        "accepted_locks": [
+          "S01-S02 IDs/order",
+          "exact Polish line",
+          "single 4-second S01 duration",
+          "orbit intent pending feasibility"
+        ],
+        "operation": "video prompt pack requested; exact generator not named"
+      },
+      "available_assets": [
+        {
+          "asset": "approved storyboard cards in context.shot_cards",
+          "role": "sequence/direction authority",
+          "availability": "included_in_fixture"
+        },
+        {
+          "asset": "map opening frame",
+          "role": "planned strict carrier",
+          "availability": "not_attached_to_downstream_job"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "generator": "not_selected",
+        "web_search": "available_read_only",
+        "video_generation": "explicitly_not_requested",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "identify_specific_infeasibility_propose_minimal_change_for_approval_then_compile_only_after_resolution"
+    }
+  ]
+}

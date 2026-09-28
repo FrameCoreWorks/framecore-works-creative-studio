@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "av_cue_sheet_template",
+  "direction": "Unknown",
+  "timeline": {
+    "origin": "Unknown",
+    "units": "seconds",
+    "target_duration": "Unknown",
+    "source_duration": "Unknown",
+    "timebase": "Unknown"
+  },
+  "sources": [],
+  "inspection": {
+    "video": "not_performed",
+    "audio": "not_performed",
+    "covered_intervals": []
+  },
+  "pulse": {
+    "bpm": "Unknown",
+    "beat_unit": "Unknown",
+    "meter": "Unknown",
+    "basis": "Unknown",
+    "evidence": "Unknown"
+  },
+  "cues": [],
+  "cue_record_fields": [
+    "cue_id",
+    "shot_id",
+    "source_revision",
+    "start",
+    "end",
+    "timing_basis",
+    "evidence",
+    "layer",
+    "event",
+    "relationship_to_picture",
+    "mix_priority",
+    "protected_words",
+    "status"
+  ],
+  "mix_targets": {
+    "loudness": "Unknown",
+    "peak": "Unknown",
+    "destination_spec": "Unknown"
+  },
+  "rights_status": "Unknown",
+  "execution_status": "not_requested",
+  "notes": "Internal plan only; translate to a verified provider/editor schema when requested."
+}

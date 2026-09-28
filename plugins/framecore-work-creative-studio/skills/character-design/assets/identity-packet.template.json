@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "identity_packet_template",
+  "character_id": "Unknown",
+  "subject_basis": "Unknown",
+  "required_fidelity": "Unknown",
+  "execution_readiness": "unverified",
+  "actual_inspection": "not_performed",
+  "source_views": [],
+  "observed_identity_anchors": [],
+  "protected_properties": [],
+  "allowed_variations": [],
+  "unseen_or_conflicting_properties": [],
+  "requested_views": [],
+  "orientation_basis": "Unknown",
+  "selected_carriers": [],
+  "carrier_record_fields": [
+    "asset_id",
+    "source_revision",
+    "view",
+    "property_authority",
+    "actual_availability",
+    "inspection_state",
+    "user_selection_evidence"
+  ],
+  "generated_view_rule": "Candidate only; never evidence of unseen real anatomy without supporting source.",
+  "downstream_owner": "Unknown",
+  "private_data_in_template": false
+}

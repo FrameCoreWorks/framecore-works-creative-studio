@@ -1,0 +1,40 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22]
+    env:
+      NPM_CONFIG_CACHE: /tmp/framecore-npm-cache
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+      - name: Privacy audit
+        run: npm run audit:privacy
+      - name: Secret scan
+        run: npm run secret:scan
+      - name: Syntax check
+        run: npm run syntax:check
+      - name: Workflow validation
+        run: npm run validate
+      - name: Agent compliance
+        run: npm run agent:check
+      - name: Tests
+        run: npm test
+      - name: Package audit
+        run: npm run package:audit

@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "scope": "Planned integration scenarios only; loading is not execution.",
+  "cases": [
+    {
+      "id": "WK01",
+      "family": "quick_direction",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Give me three short ideas for a beauty product reel. No full prompts yet.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "quick_direction",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "pipeline-core",
+        "brief-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Return only brief concrete directions after focused research.",
+        "No onboarding barrier, fake generation or full production pack."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK02",
+      "family": "rejected_ideas",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Those ideas are too ornamental and do not fit my product.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "rejected_ideas",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "studio-workstyle-profile"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Ask one specific creative-direction question before another batch.",
+        "Preserve known preferences and distinguish taste feedback from an output defect."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK03",
+      "family": "campaign_strategy",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Plan a campaign for a new product with uncertain audience and no verified performance claims.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "campaign_strategy",
+      "expected_owners": [
+        "ecommerce-campaign-strategy-director",
+        "marketing",
+        "commercial-visual-campaign-director"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Separate hypothesis from verified claim.",
+        "Resolve useful strategy before asset-matrix expansion; use SGDC for individual static graphics."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK04",
+      "family": "strict_character",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Plan a strict multi-shot portrait from one front photo. The generator and profile references are unknown.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "strict_character",
+      "expected_owners": [
+        "character-design",
+        "reference-pack-curator",
+        "image-prompt-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Bind source authority by property; missing profiles are Unknown.",
+        "Keep strict requirement, mark generation blocked, allow requested conditional prompts."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK05",
+      "family": "copy_delivery",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Revise this factual short paragraph naturally without adding a call to action.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "copy_delivery",
+      "expected_owners": [
+        "copy-voice",
+        "humanizer",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Preserve facts, approved words and author truth.",
+        "Review once and stop if sufficient; no forced rewrite or CTA."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK06",
+      "family": "end_to_end_reel",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Plan a 25-second product reel from supplied assets with sound, captions and an OpenCut edit handoff.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "end_to_end_reel",
+      "expected_owners": [
+        "creative-video-producer",
+        "cinematography",
+        "storytelling",
+        "ugc",
+        "caption-studio",
+        "opencut-video-studio",
+        "asset-manifest",
+        "audio-production-director"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Use specialist outputs within one project state.",
+        "Respect timing, product truth and shot adjacency; actual media needed for measured QA."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK07",
+      "family": "coded_edit_routes",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Compare a requested Remotion implementation with a HyperFrames HTML/GSAP variant using the same locked cut.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "coded_edit_routes",
+      "expected_owners": [
+        "remotion-video-production",
+        "hyperframes-workflow"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Route by actual requested runtime and exposed capabilities.",
+        "Preserve edit, caption and sound locks; no claim of a render without actual output."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK08",
+      "family": "bounded_hipson",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Prepare a bounded research packet for an agent; no delegation has been authorized.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "bounded_hipson",
+      "expected_owners": [
+        "hipson-adapter",
+        "instruction-packet-factory"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "not_applicable",
+      "checks": [
+        "Return a packet with sources, scope, acceptance and stop.",
+        "Do not claim Hipson is installed or that an agent ran."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ],
+      "research_exemption_reason": "Mechanical state, packet or source-contract maintenance, without creative or changing provider advice."
+    },
+    {
+      "id": "WK09",
+      "family": "stop_loop",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "The requested workflow repair is implemented, required tests passed and no material failure remains.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "stop_loop",
+      "expected_owners": [
+        "workflow-self-improvement",
+        "pipeline-core",
+        "output-critic-iteration"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "not_applicable",
+      "checks": [
+        "Choose stop_sufficient with evidence.",
+        "Do not multiply repair loops or treat a proposal as permission for new edits."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ],
+      "research_exemption_reason": "Mechanical state, packet or source-contract maintenance, without creative or changing provider advice."
+    },
+    {
+      "id": "WK10",
+      "family": "private_recovery",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Prepare a complete private handoff to another host from this project state; a conversation URL is supplied.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "private_recovery",
+      "expected_owners": [
+        "delivery-documentation",
+        "asset-manifest",
+        "pipeline-core"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "not_applicable",
+      "checks": [
+        "Attempt the exact supplied URL if exposed; report retrieval and attachment gaps separately.",
+        "Keep task-needed context in authorized private handoff, no secrets or invented persistent sync."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ],
+      "research_exemption_reason": "Mechanical state, packet or source-contract maintenance, without creative or changing provider advice."
+    },
+    {
+      "id": "WK11",
+      "family": "provider_boundary",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Draft an execution plan for a named provider with missing attachments; do not run generation.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "provider_boundary",
+      "expected_owners": [
+        "tool-routing-cost",
+        "video-prompt-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Verify current surface fields and record unbound inputs.",
+        "No paid calls, private upload or provider fallback; strict readiness remains blocked."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK12",
+      "family": "integration_revision",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Update source mapping after an approved future workflow-kit version changes a handoff.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "integration_revision",
+      "expected_owners": [
+        "pipeline-core",
+        "workflow-self-improvement"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "not_applicable",
+      "checks": [
+        "Pin source revision, compare mapped owners and active method changes.",
+        "Validate snapshot, roles, gates, links and affected tests before saving; preserve static domain authority."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ],
+      "research_exemption_reason": "Mechanical state, packet or source-contract maintenance, without creative or changing provider advice."
+    }
+  ]
+}

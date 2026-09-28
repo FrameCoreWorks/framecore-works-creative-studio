@@ -1,0 +1,947 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit",
+  "ref": "main",
+  "raw_base_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/",
+  "bootstrap": {
+    "path": "CHATGPT_INSTALL.md",
+    "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/CHATGPT_INSTALL.md"
+  },
+  "setup_config": {
+    "path": "config/chatgpt-skills.json",
+    "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/config/chatgpt-skills.json"
+  },
+  "source_root": ".agents/skills",
+  "skills": [
+    {
+      "name": "onboarding-preference-tuning",
+      "source_dir": ".agents/skills/onboarding-preference-tuning",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/onboarding-preference-tuning/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/onboarding-preference-tuning/SKILL.md",
+          "sha256": "55eaa687ad33b537d79749128630d727d32a71aaea2c260eeef535bbf74d7677"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/onboarding-preference-tuning/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/onboarding-preference-tuning/agents/openai.yaml",
+          "sha256": "678dbf3e8156549be1383a88294e8eaab5a0aaacc4219a6b024311fa57feb4f9"
+        }
+      ]
+    },
+    {
+      "name": "pipeline-core",
+      "source_dir": ".agents/skills/pipeline-core",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/pipeline-core/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/SKILL.md",
+          "sha256": "d636c3c8889909fbb7b5459e01f0caaf261dd744cb751772497c1d0d94d837ea"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/pipeline-core/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/agents/openai.yaml",
+          "sha256": "b1bb207a2c40de2b6c951c59d034fe45f2a53ed5c83b4ce53942fa2a812425b2"
+        },
+        {
+          "path": "references/agent-roster.md",
+          "repository_path": ".agents/skills/pipeline-core/references/agent-roster.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/agent-roster.md",
+          "sha256": "41b9c25885a23218749e854b4146cb67e8d2b2947d5cfd9214521b829910402f"
+        },
+        {
+          "path": "references/creative-prompting-standard.md",
+          "repository_path": ".agents/skills/pipeline-core/references/creative-prompting-standard.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/creative-prompting-standard.md",
+          "sha256": "b828429afba14f713eb5a5cb00f0b0c2179669f5b66214ccd0d6ca843c697c3c"
+        },
+        {
+          "path": "references/gate-registry.md",
+          "repository_path": ".agents/skills/pipeline-core/references/gate-registry.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/gate-registry.md",
+          "sha256": "6c326c69f59766c7420c2d81768a5932447a38d62de39b24a076485c7352b981"
+        },
+        {
+          "path": "references/handoff-matrix.md",
+          "repository_path": ".agents/skills/pipeline-core/references/handoff-matrix.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/handoff-matrix.md",
+          "sha256": "531ab4b38459b02d8e94013b9708fa52c7a92869eb1402e793e239644947bbf9"
+        },
+        {
+          "path": "references/human-voice-and-copy-delivery.md",
+          "repository_path": ".agents/skills/pipeline-core/references/human-voice-and-copy-delivery.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/human-voice-and-copy-delivery.md",
+          "sha256": "d6863a050cadc4ce82a0159aea2e443ed05958349a9e7949c7bae1adbd90700e"
+        },
+        {
+          "path": "references/humanizer-routing.md",
+          "repository_path": ".agents/skills/pipeline-core/references/humanizer-routing.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/humanizer-routing.md",
+          "sha256": "788abd32d79f8bbf0def9eae243101f0d23338b1fe30244f3a270d7be4b665ab"
+        },
+        {
+          "path": "references/hyperframes-workflow.md",
+          "repository_path": ".agents/skills/pipeline-core/references/hyperframes-workflow.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/hyperframes-workflow.md",
+          "sha256": "5d01f9e26140db33f49f24d04b05b2401326268dc6aeb7afc65655f5069fe222"
+        },
+        {
+          "path": "references/inference-reasoning-methods.md",
+          "repository_path": ".agents/skills/pipeline-core/references/inference-reasoning-methods.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/inference-reasoning-methods.md",
+          "sha256": "827324a3a19e97b208dc42e6aa5cfda14ce017dc757a31e6f494a09feb4625f3"
+        },
+        {
+          "path": "references/loop-protocol.md",
+          "repository_path": ".agents/skills/pipeline-core/references/loop-protocol.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/loop-protocol.md",
+          "sha256": "2b341e75635b5cf87f4c3bc8411951e40d0abc3f9d73a630f07a3c014d0b3979"
+        },
+        {
+          "path": "references/prompt-format-and-continuity.md",
+          "repository_path": ".agents/skills/pipeline-core/references/prompt-format-and-continuity.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/prompt-format-and-continuity.md",
+          "sha256": "317a1f1485a425049131cf7880aafa648364f300d8be0719cb9d2ea83ed2ad68"
+        },
+        {
+          "path": "references/role-skill-map.md",
+          "repository_path": ".agents/skills/pipeline-core/references/role-skill-map.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/role-skill-map.md",
+          "sha256": "b69d185e1b7c9ff781ab90cf87e988c5cdb35bdc1b1fc3b6d61d548c2ed29c53"
+        },
+        {
+          "path": "references/text-image-generation-policy.md",
+          "repository_path": ".agents/skills/pipeline-core/references/text-image-generation-policy.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/text-image-generation-policy.md",
+          "sha256": "7ebc3da90f0a3881b12d379df329600d937a80c18a4c0dbf598de06c1ebb24f1"
+        },
+        {
+          "path": "references/workflow-blueprints.md",
+          "repository_path": ".agents/skills/pipeline-core/references/workflow-blueprints.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/workflow-blueprints.md",
+          "sha256": "93c580e788169d740c83fb618d0b569f47aabd8b914301ed96c2ba872c3b479f"
+        },
+        {
+          "path": "references/workflow-operating-model.md",
+          "repository_path": ".agents/skills/pipeline-core/references/workflow-operating-model.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/references/workflow-operating-model.md",
+          "sha256": "c52aab5b2ee71c2da5628369dce70ac6c6f336a0c614b209ba7540c23778c2fa"
+        },
+        {
+          "path": "templates/artifact-templates.md",
+          "repository_path": ".agents/skills/pipeline-core/templates/artifact-templates.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/templates/artifact-templates.md",
+          "sha256": "478d519631911fa4e32d39c7954f1b128b81a29461568dcffd55caf916fc5322"
+        },
+        {
+          "path": "templates/creative-prompt-contract.md",
+          "repository_path": ".agents/skills/pipeline-core/templates/creative-prompt-contract.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/templates/creative-prompt-contract.md",
+          "sha256": "9cc3067c3a153f252593f593ce19efa8c5dcb2cab590b3f9afd713f28a02a140"
+        },
+        {
+          "path": "templates/project-state.md",
+          "repository_path": ".agents/skills/pipeline-core/templates/project-state.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/pipeline-core/templates/project-state.md",
+          "sha256": "636be323a6f3119128d578b4ee42c9011aed40b85d790450fec7dd0608c4ec3c"
+        }
+      ]
+    },
+    {
+      "name": "workflow-orchestrator",
+      "source_dir": ".agents/skills/workflow-orchestrator",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/workflow-orchestrator/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/workflow-orchestrator/SKILL.md",
+          "sha256": "1ec11ba8c6d049129775b1eaa66e5e3d7112e00cd4a795f4a1934c6da786fa38"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/workflow-orchestrator/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/workflow-orchestrator/agents/openai.yaml",
+          "sha256": "a8050a953519acfd8dd71d5959e0cb941c2897673b43437ee5a34c104f98a089"
+        }
+      ]
+    },
+    {
+      "name": "brief-architect",
+      "source_dir": ".agents/skills/brief-architect",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/brief-architect/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/brief-architect/SKILL.md",
+          "sha256": "4ed05860eaf10ec747863b6ecccb9d5dbd91483460bfe19cbdd498ee0bb28359"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/brief-architect/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/brief-architect/agents/openai.yaml",
+          "sha256": "355600763d92d36d5c7dbd411f2aa06c37fb56021e8309a2095f0270b03b66e7"
+        }
+      ]
+    },
+    {
+      "name": "research-evidence",
+      "source_dir": ".agents/skills/research-evidence",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/research-evidence/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/research-evidence/SKILL.md",
+          "sha256": "328031b6853e6d13e8ee0b4cb2b15c5f615ca83da03ff898c958704661b2c8e7"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/research-evidence/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/research-evidence/agents/openai.yaml",
+          "sha256": "2cedf21ae6e2b5933d2aa1f6b8e1034f0e5fbab2c3c5afa0082d36b97b52a43d"
+        }
+      ]
+    },
+    {
+      "name": "reference-pack-curator",
+      "source_dir": ".agents/skills/reference-pack-curator",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/reference-pack-curator/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/reference-pack-curator/SKILL.md",
+          "sha256": "d08ca11996ee22922b7ba15c37c46bfda6e93fdb4684eb77ee7cada15358574a"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/reference-pack-curator/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/reference-pack-curator/agents/openai.yaml",
+          "sha256": "f8cbb7a101862e9ddd10ca87af74c833d9d8fd75913cb17f10e774b8f787a5a4"
+        },
+        {
+          "path": "references/static-graphic-source-authority.md",
+          "repository_path": ".agents/skills/reference-pack-curator/references/static-graphic-source-authority.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/reference-pack-curator/references/static-graphic-source-authority.md",
+          "sha256": "c7022dce6bdc3a903fd5ff819c5685848b25906d6bf26a93b7cc93f7d5597fe1"
+        }
+      ]
+    },
+    {
+      "name": "instruction-packet-factory",
+      "source_dir": ".agents/skills/instruction-packet-factory",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/instruction-packet-factory/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/instruction-packet-factory/SKILL.md",
+          "sha256": "9c5e86c4064bd9f0649a5bb91be3a4eeadaf539e9401be05a3edfce8f02572cc"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/instruction-packet-factory/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/instruction-packet-factory/agents/openai.yaml",
+          "sha256": "479f9f49d5e19952db0aa8b861da37b48ac492178661359dde98c382a627ed0e"
+        }
+      ]
+    },
+    {
+      "name": "asset-manifest",
+      "source_dir": ".agents/skills/asset-manifest",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/asset-manifest/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/asset-manifest/SKILL.md",
+          "sha256": "28cc9585819067e86ed6ee137239dbef732a402fcbe371a2407c2578567779ee"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/asset-manifest/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/asset-manifest/agents/openai.yaml",
+          "sha256": "d3aea7a0641acd0786eaba27cd003bf33ee10485583ce25726a01d2995752d88"
+        },
+        {
+          "path": "references/static-design-components.md",
+          "repository_path": ".agents/skills/asset-manifest/references/static-design-components.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/asset-manifest/references/static-design-components.md",
+          "sha256": "199dab1321c0f480e572ca90e9be86dab207c789da80ce94a8e88004cafe90f3"
+        },
+        {
+          "path": "templates/static-design-components.md",
+          "repository_path": ".agents/skills/asset-manifest/templates/static-design-components.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/asset-manifest/templates/static-design-components.md",
+          "sha256": "bd2bc1dd8ab7f13f265ef0af537b54ef5f0a1b66a75e201aadeab21fc1297506"
+        }
+      ]
+    },
+    {
+      "name": "ecommerce-campaign-strategy-director",
+      "source_dir": ".agents/skills/ecommerce-campaign-strategy-director",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/ecommerce-campaign-strategy-director/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/ecommerce-campaign-strategy-director/SKILL.md",
+          "sha256": "6ba5d5de3ee020fdf000ac142bb846079c583a33cf1072ce457044fbf7531d8b"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+          "sha256": "d275a8a46f58b38ca9a484b601ca533da57d49e5aff8332abb9c4ab44f73f11e"
+        },
+        {
+          "path": "templates/ecommerce-campaign-strategy-pack.md",
+          "repository_path": ".agents/skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+          "sha256": "bb5f8fae2b7459da943af623b8ad3f0397062c741dd4f8ac667528e72dc6355b"
+        }
+      ]
+    },
+    {
+      "name": "character-design",
+      "source_dir": ".agents/skills/character-design",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/character-design/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/character-design/SKILL.md",
+          "sha256": "cce4a5bc5ca49b34879b74a443447b8a1bc5ccf5168ca705fe7571bbe835b57c"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/character-design/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/character-design/agents/openai.yaml",
+          "sha256": "b28c8d1ccaf4eb49e21486cde995ec7597cb153175bf5bade4cf5df67f752262"
+        }
+      ]
+    },
+    {
+      "name": "cinematography",
+      "source_dir": ".agents/skills/cinematography",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/cinematography/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/cinematography/SKILL.md",
+          "sha256": "545464d43c534cf6bc70289631df750877d5b8478124bf40a38140a529ded06a"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/cinematography/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/cinematography/agents/openai.yaml",
+          "sha256": "9c700c7259d801fc9b4918a91b7159bc52e15df5487b89b45a8755527b73465d"
+        }
+      ]
+    },
+    {
+      "name": "commercial-video-campaign-director",
+      "source_dir": ".agents/skills/commercial-video-campaign-director",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/commercial-video-campaign-director/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-video-campaign-director/SKILL.md",
+          "sha256": "00f6170e460bbb4fb2e962d683cfd111ad32d79d4e115a89158274deca582504"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/commercial-video-campaign-director/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-video-campaign-director/agents/openai.yaml",
+          "sha256": "323eac07458638c6e80352f734dcda0c9ed568b43a0a221a6bef6e363f347dd5"
+        }
+      ]
+    },
+    {
+      "name": "commercial-visual-campaign-director",
+      "source_dir": ".agents/skills/commercial-visual-campaign-director",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/SKILL.md",
+          "sha256": "42546fbb8735b3514d17daf817d47adc04634c1e84ba69ce0bfadf273fc03e3d"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/agents/openai.yaml",
+          "sha256": "3b755e2cc843e701e33f0552c6d5f84cd19edb1ab0308eb38c5fd76ffc279c19"
+        },
+        {
+          "path": "references/concept-development-and-originality.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/concept-development-and-originality.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/concept-development-and-originality.md",
+          "sha256": "6d7eac0bcb9de9993bae45d497b6f7371f7b0232088bdf10bc91a95e8682d149"
+        },
+        {
+          "path": "references/deliverable-profiles.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/deliverable-profiles.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/deliverable-profiles.md",
+          "sha256": "d14bd5864d55eced0cd84231b3f1eac631edebe03f8a2562cb21fffcf2920ab6"
+        },
+        {
+          "path": "references/event-poster-code-workflow.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/event-poster-code-workflow.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/event-poster-code-workflow.md",
+          "sha256": "e574602c5e6cfc6970b971acf80eef16d4420efd64524791a2254c33efbe7299"
+        },
+        {
+          "path": "references/event-poster-design-codes.json",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+          "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+        },
+        {
+          "path": "references/poster-movements-and-production-atlas.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/poster-movements-and-production-atlas.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/poster-movements-and-production-atlas.md",
+          "sha256": "92211eef13258c528a0e3281912878023f0c2370b7f43501419cdbfb3498a9d5"
+        },
+        {
+          "path": "references/poster-style-and-composition-atlas.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/poster-style-and-composition-atlas.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/poster-style-and-composition-atlas.md",
+          "sha256": "3d75c828089e952f77f203d7e9ac78178aae0366cf9e5ab48d0c29c6eeb3755e"
+        },
+        {
+          "path": "references/poster-style-translation-catalog.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/poster-style-translation-catalog.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/poster-style-translation-catalog.md",
+          "sha256": "d27819de26dfed812b5f012352c1d59b661c13ff13a3e27479539a9896443f08"
+        },
+        {
+          "path": "references/static-design-direction.md",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/references/static-design-direction.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/references/static-design-direction.md",
+          "sha256": "b7e0016c781c993d3a44a9bb2cc8e8c0419041a91010d5100b440b13f915dded"
+        },
+        {
+          "path": "scripts/poster-codes.mjs",
+          "repository_path": ".agents/skills/commercial-visual-campaign-director/scripts/poster-codes.mjs",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/commercial-visual-campaign-director/scripts/poster-codes.mjs",
+          "sha256": "a42f1a6e9891a6e5ab2a07c021464893f7f0bb2b6c104707797421addbd7126f"
+        }
+      ]
+    },
+    {
+      "name": "creative-music-video-director",
+      "source_dir": ".agents/skills/creative-music-video-director",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/creative-music-video-director/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/creative-music-video-director/SKILL.md",
+          "sha256": "2ee8d5f02ffc349ad2b0325ddb74bab19342c6000d26849c4f337d73088d20ae"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/creative-music-video-director/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/creative-music-video-director/agents/openai.yaml",
+          "sha256": "41cf49b0f21cadcd078f1ffa3ba58a36bf7594920dc24df2a455d1f6b068e332"
+        }
+      ]
+    },
+    {
+      "name": "screenplay-story-architect",
+      "source_dir": ".agents/skills/screenplay-story-architect",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/screenplay-story-architect/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/screenplay-story-architect/SKILL.md",
+          "sha256": "ff343d43eaf298e0ea1eaef6b037f7947f9f0a8282bb7dfa85142bb0e2f92474"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/screenplay-story-architect/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/screenplay-story-architect/agents/openai.yaml",
+          "sha256": "134ab85e73d93f187fb219d9a362f76a79bc7d2d4bffbf314d9c53fb60f6d898"
+        },
+        {
+          "path": "templates/screenplay-development-pack.md",
+          "repository_path": ".agents/skills/screenplay-story-architect/templates/screenplay-development-pack.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/screenplay-story-architect/templates/screenplay-development-pack.md",
+          "sha256": "4401df124d9510321e035b9e41c4205e7aec9f2d6c324843a436a42d0811e8c6"
+        }
+      ]
+    },
+    {
+      "name": "humanizer",
+      "source_dir": ".agents/skills/humanizer",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/humanizer/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/humanizer/SKILL.md",
+          "sha256": "db209950c7279e0d65fa9dddb5bb8cab8c22a55d0b021db24327c0a33d264a33"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/humanizer/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/humanizer/agents/openai.yaml",
+          "sha256": "0e8076f247c0dfd161778fb87cf557a066dba30113e2f6ff7df757c3fcecf581"
+        }
+      ]
+    },
+    {
+      "name": "copy-voice",
+      "source_dir": ".agents/skills/copy-voice",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/copy-voice/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/copy-voice/SKILL.md",
+          "sha256": "f10a2bf2be22a69a9ed66549c64444df724f620f55c398f66312fc9c1068edff"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/copy-voice/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/copy-voice/agents/openai.yaml",
+          "sha256": "a9ef28b478b9bb3bd274e108b6a81ed992942ab69cadd951987af61f766b8393"
+        },
+        {
+          "path": "references/copy-development-and-human-voice.md",
+          "repository_path": ".agents/skills/copy-voice/references/copy-development-and-human-voice.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/copy-voice/references/copy-development-and-human-voice.md",
+          "sha256": "3d7a3847fa4f76c43c60262c6ce6cbcb58083ed1e2f3c3158c48870f377cbff7"
+        }
+      ]
+    },
+    {
+      "name": "image-prompt-architect",
+      "source_dir": ".agents/skills/image-prompt-architect",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/image-prompt-architect/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/SKILL.md",
+          "sha256": "7af71fafc68ffad4e17e714552cf64167ab169e8bc45abfc2fe3a3b8996871fb"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/image-prompt-architect/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/agents/openai.yaml",
+          "sha256": "cb6cbb6f63b35bf0a8c817239855564873e01d395e25f9f6574c628c2b61c06b"
+        },
+        {
+          "path": "references/static-design-prompting.md",
+          "repository_path": ".agents/skills/image-prompt-architect/references/static-design-prompting.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/references/static-design-prompting.md",
+          "sha256": "82afd522cb1d006d832729cbb6a77b5efe1772871e8e71e0f6eba610c94d54f3"
+        },
+        {
+          "path": "references/typography-and-text-feasibility.md",
+          "repository_path": ".agents/skills/image-prompt-architect/references/typography-and-text-feasibility.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/references/typography-and-text-feasibility.md",
+          "sha256": "8359609ae5aad78285fbdc64e62b024f707edd242a9854e93ca6b71c0f0cf2f2"
+        },
+        {
+          "path": "references/unified-static-prompt-contract.md",
+          "repository_path": ".agents/skills/image-prompt-architect/references/unified-static-prompt-contract.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/references/unified-static-prompt-contract.md",
+          "sha256": "d5640cb2d19db3b4a6b4dcdfafdf8697c49d4c7b92198a844f3f550f59ce1e49"
+        },
+        {
+          "path": "scripts/static-design-preflight.mjs",
+          "repository_path": ".agents/skills/image-prompt-architect/scripts/static-design-preflight.mjs",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/scripts/static-design-preflight.mjs",
+          "sha256": "cfbdfca156ada8b9a7363d4558b5dde253c1a6be76a7530a01d36c9142f8c546"
+        },
+        {
+          "path": "templates/static-design-notes.json",
+          "repository_path": ".agents/skills/image-prompt-architect/templates/static-design-notes.json",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/image-prompt-architect/templates/static-design-notes.json",
+          "sha256": "33b52fec21590441804c40c950da53992b7a66d4ac0d1657afe9cbbb024d854e"
+        }
+      ]
+    },
+    {
+      "name": "marketing",
+      "source_dir": ".agents/skills/marketing",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/marketing/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/marketing/SKILL.md",
+          "sha256": "dce47f8e1a2978c144ce6314e218d9e95cfc9336f2c856cbabe0a6e5d1bfa2d9"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/marketing/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/marketing/agents/openai.yaml",
+          "sha256": "298f7eb327d4b0db2a36d04b88fd1bb2158953df42116e869227406c78c28f32"
+        }
+      ]
+    },
+    {
+      "name": "storyboard-board-architect",
+      "source_dir": ".agents/skills/storyboard-board-architect",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/storyboard-board-architect/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/storyboard-board-architect/SKILL.md",
+          "sha256": "fb6887c4252f7251fb724523bdd22329717d7b95e76c23c5c03beccaf91f25d6"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/storyboard-board-architect/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/storyboard-board-architect/agents/openai.yaml",
+          "sha256": "c8ec028ff2d5053a9fec609e5248811eb1c7d27833e2756c84a365480d4d5697"
+        }
+      ]
+    },
+    {
+      "name": "storyboard-director",
+      "source_dir": ".agents/skills/storyboard-director",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/storyboard-director/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/storyboard-director/SKILL.md",
+          "sha256": "4f9b4081f58ac6df13faffbd9635a894fe1ed96a16bae478342d3937d45690b0"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/storyboard-director/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/storyboard-director/agents/openai.yaml",
+          "sha256": "8f19fcfc1d1d996ae134eeec97e67a18030c649b6ed8be39952c01e3814951aa"
+        }
+      ]
+    },
+    {
+      "name": "storytelling",
+      "source_dir": ".agents/skills/storytelling",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/storytelling/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/storytelling/SKILL.md",
+          "sha256": "c2a2fb7ff2809d4caa3a1cc0698c8c9b85414c2cdc0235198951283ec03f73f4"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/storytelling/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/storytelling/agents/openai.yaml",
+          "sha256": "694502a817614164c3ef872ccc0c0bf5197d16079d0ea51c1ca4b02e416e991e"
+        }
+      ]
+    },
+    {
+      "name": "ugc",
+      "source_dir": ".agents/skills/ugc",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/ugc/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/ugc/SKILL.md",
+          "sha256": "0fa557c16ed63c731297f589797d3f2e00022cdfbcc7c904dc734253dd6cb284"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/ugc/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/ugc/agents/openai.yaml",
+          "sha256": "b35e01b837b0c41640a4a8284788580ea893d33480b83c38ff9dc2fd7f5f06aa"
+        }
+      ]
+    },
+    {
+      "name": "video-prompt-architect",
+      "source_dir": ".agents/skills/video-prompt-architect",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/video-prompt-architect/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/video-prompt-architect/SKILL.md",
+          "sha256": "0a040fca1bc4548a228b919c8c6b080c634e238da9f74a51767b47601d4d2ee6"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/video-prompt-architect/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/video-prompt-architect/agents/openai.yaml",
+          "sha256": "7f557804eabc217d5abcadc9b03ee68517c1d51ae6d337a87c7910e2892c9b04"
+        }
+      ]
+    },
+    {
+      "name": "producer-ai-task-builder",
+      "source_dir": ".agents/skills/producer-ai-task-builder",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/producer-ai-task-builder/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/producer-ai-task-builder/SKILL.md",
+          "sha256": "4c813b2ca0821b2862eb521681776e1ab1d2e933fd806b80f9099b9d0e7916a9"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/producer-ai-task-builder/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/producer-ai-task-builder/agents/openai.yaml",
+          "sha256": "459c0dca31ba1af7a304ded5e34fbfef89a2c11a1a2bfed87812d9ba77a6bfe0"
+        },
+        {
+          "path": "templates/producer-ai-task-packet.md",
+          "repository_path": ".agents/skills/producer-ai-task-builder/templates/producer-ai-task-packet.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/producer-ai-task-builder/templates/producer-ai-task-packet.md",
+          "sha256": "0a9b3112ee59fab225f38d4990160424133494c4a284ee31c610ee828774cce8"
+        }
+      ]
+    },
+    {
+      "name": "creative-video-producer",
+      "source_dir": ".agents/skills/creative-video-producer",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/creative-video-producer/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/creative-video-producer/SKILL.md",
+          "sha256": "79e9fb01bd86eda34a12e3072ec01af6fd59106c5bfba72058c8375d552357b9"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/creative-video-producer/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/creative-video-producer/agents/openai.yaml",
+          "sha256": "4d62c554c215240645bb46be7def2010b4f7dd7c591da6ee149d9c5f1c824fb3"
+        },
+        {
+          "path": "templates/creative-video-production-pack.md",
+          "repository_path": ".agents/skills/creative-video-producer/templates/creative-video-production-pack.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/creative-video-producer/templates/creative-video-production-pack.md",
+          "sha256": "042cd76ad3bc771413c60d06b5b81e5c1676810cecf8590007d69f36cffef764"
+        }
+      ]
+    },
+    {
+      "name": "caption-studio",
+      "source_dir": ".agents/skills/caption-studio",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/caption-studio/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/caption-studio/SKILL.md",
+          "sha256": "4245770e1bf9f7b58bfef0f469632e7eddc8f68f0d211663c149ade05cfb517c"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/caption-studio/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/caption-studio/agents/openai.yaml",
+          "sha256": "da4f606cd496be9d378e0182a57813e6183b900baa35853571ac9df2ff0c23d9"
+        },
+        {
+          "path": "templates/caption-task-pack.md",
+          "repository_path": ".agents/skills/caption-studio/templates/caption-task-pack.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/caption-studio/templates/caption-task-pack.md",
+          "sha256": "1b3f309528001f44f4ea4dbc38a01c7bfedaa7bd981a1ffffb0394684cbb71cc"
+        }
+      ]
+    },
+    {
+      "name": "opencut-video-studio",
+      "source_dir": ".agents/skills/opencut-video-studio",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/opencut-video-studio/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/opencut-video-studio/SKILL.md",
+          "sha256": "3f607ab836a4899cd603b6e1f89d2fbe0bf2392e324f86bea7f788424178b8ae"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/opencut-video-studio/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/opencut-video-studio/agents/openai.yaml",
+          "sha256": "09e4f989a75ba1287b12b08ca31bd77e9b2e04eab3c197b9e98efb846b6d4427"
+        },
+        {
+          "path": "templates/opencut-edit-pack.md",
+          "repository_path": ".agents/skills/opencut-video-studio/templates/opencut-edit-pack.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/opencut-video-studio/templates/opencut-edit-pack.md",
+          "sha256": "b7b6219802e6965df8c49f2413c347095a66e8c1aee63d4fc1f527c14ddcbcbd"
+        }
+      ]
+    },
+    {
+      "name": "remotion-video-production",
+      "source_dir": ".agents/skills/remotion-video-production",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/remotion-video-production/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/remotion-video-production/SKILL.md",
+          "sha256": "95efc1af09ce069d7b4c66a3296bfc34bb769388eb10ee2f29bf1bf3a4e1ae0e"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/remotion-video-production/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/remotion-video-production/agents/openai.yaml",
+          "sha256": "e9f524954c630cba5ec53e0bddf2b79df68764ec999dc57a0fcaa36c64b2bdda"
+        },
+        {
+          "path": "references/remotion-implementation-notes.md",
+          "repository_path": ".agents/skills/remotion-video-production/references/remotion-implementation-notes.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/remotion-video-production/references/remotion-implementation-notes.md",
+          "sha256": "81c5548fdd79fa108b1fb02d4ee005053c8a49ea296dd5789e68c964884d22a4"
+        },
+        {
+          "path": "templates/remotion-production-brief.md",
+          "repository_path": ".agents/skills/remotion-video-production/templates/remotion-production-brief.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/remotion-video-production/templates/remotion-production-brief.md",
+          "sha256": "8ec6806e5a2d1bf9467e52c1b32abdeceecb1b0b3df0eb4eedf0e2f3f88c5122"
+        }
+      ]
+    },
+    {
+      "name": "tool-routing-cost",
+      "source_dir": ".agents/skills/tool-routing-cost",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/tool-routing-cost/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/tool-routing-cost/SKILL.md",
+          "sha256": "584bb722ae0a87ed0ed6bcf20af60cf0711024f2e3e963cc9a8bc48ab5208ae3"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/tool-routing-cost/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/tool-routing-cost/agents/openai.yaml",
+          "sha256": "a7272053a4be83ac40a9feb6da367d1818c4e6cd17826364dc1fc9e0123bdeaf"
+        }
+      ]
+    },
+    {
+      "name": "hyperframes-workflow",
+      "source_dir": ".agents/skills/hyperframes-workflow",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/hyperframes-workflow/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hyperframes-workflow/SKILL.md",
+          "sha256": "87e1a3fb7b0bca24398e02863f06624865ed0f72647d943fe2d22815ee1183a1"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/hyperframes-workflow/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hyperframes-workflow/agents/openai.yaml",
+          "sha256": "0623a2f2fca15093c65775e157a6360cc33c08bad74ee53913148613e69daafa"
+        }
+      ]
+    },
+    {
+      "name": "hipson-adapter",
+      "source_dir": ".agents/skills/hipson-adapter",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/hipson-adapter/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hipson-adapter/SKILL.md",
+          "sha256": "ff649465fe66210499d0db137f7824dc3201237e14459ad1a1397fc9418ede31"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/hipson-adapter/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hipson-adapter/agents/openai.yaml",
+          "sha256": "745c4b20c7a3973b6e1f96d65267ec6102c328f83c2ce198f4d334bf44144776"
+        },
+        {
+          "path": "templates/instruction-packet.md",
+          "repository_path": ".agents/skills/hipson-adapter/templates/instruction-packet.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hipson-adapter/templates/instruction-packet.md",
+          "sha256": "53d8e5bfa251f12d9fb3d64b5144198a0c01e7df555b3e1ae4d452e7c34a5bb9"
+        },
+        {
+          "path": "templates/internet-mapping-packet.md",
+          "repository_path": ".agents/skills/hipson-adapter/templates/internet-mapping-packet.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hipson-adapter/templates/internet-mapping-packet.md",
+          "sha256": "fa2743332c2bfba288ffe9dbbe3553ebcec2504c7e5be58fd97277cfab01204e"
+        },
+        {
+          "path": "templates/research-map.md",
+          "repository_path": ".agents/skills/hipson-adapter/templates/research-map.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/hipson-adapter/templates/research-map.md",
+          "sha256": "876ed05b6a5614d8a43032ab4ac048adc6a2435917fe538efba71d5beb51cf30"
+        }
+      ]
+    },
+    {
+      "name": "output-critic-iteration",
+      "source_dir": ".agents/skills/output-critic-iteration",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/output-critic-iteration/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/output-critic-iteration/SKILL.md",
+          "sha256": "4b4d23c9dac5e2586e293c22c6ef1daf70a5c8fc79ae88e4ad58e945e07ec949"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/output-critic-iteration/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/output-critic-iteration/agents/openai.yaml",
+          "sha256": "b390fe997df7f6f8ed8d3528dc3b63b5dc64ff90b4c3cf007e65a9c308a880a4"
+        },
+        {
+          "path": "references/material-artifact-diagnosis.md",
+          "repository_path": ".agents/skills/output-critic-iteration/references/material-artifact-diagnosis.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/output-critic-iteration/references/material-artifact-diagnosis.md",
+          "sha256": "623d3624e7f296b6ccc029458c7fc13e092b8f516d9b99bef8adae6a8eae0148"
+        },
+        {
+          "path": "references/static-graphic-review.md",
+          "repository_path": ".agents/skills/output-critic-iteration/references/static-graphic-review.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/output-critic-iteration/references/static-graphic-review.md",
+          "sha256": "eebf0dd26404a79fa492a6bf2d20e4365a904a5aae9cf0eed5c85911925e25b8"
+        }
+      ]
+    },
+    {
+      "name": "delivery-documentation",
+      "source_dir": ".agents/skills/delivery-documentation",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/delivery-documentation/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/delivery-documentation/SKILL.md",
+          "sha256": "7a1c0251cde322d62b1a99d8c4c307e5e7eb0c0e879b46de5e68acf8b18288d1"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/delivery-documentation/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/delivery-documentation/agents/openai.yaml",
+          "sha256": "156eeb9eda3d8a80f2b469c886a85909f3bd3caaeb760934d14f8976065f6881"
+        }
+      ]
+    },
+    {
+      "name": "workflow-self-improvement",
+      "source_dir": ".agents/skills/workflow-self-improvement",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "repository_path": ".agents/skills/workflow-self-improvement/SKILL.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/workflow-self-improvement/SKILL.md",
+          "sha256": "ab8d1092d7311d4a94ea0a6ac3f61775c86cd10d3f9e4dc0fb737df1d3ed2d2f"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "repository_path": ".agents/skills/workflow-self-improvement/agents/openai.yaml",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/workflow-self-improvement/agents/openai.yaml",
+          "sha256": "cdfefb76148ac34a5a6d74d1dc11284895eff9faece9cbffd77a5e1caef24317"
+        },
+        {
+          "path": "templates/change-proposal.md",
+          "repository_path": ".agents/skills/workflow-self-improvement/templates/change-proposal.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/workflow-self-improvement/templates/change-proposal.md",
+          "sha256": "31f0827beb6bf85c437bcf52d55be1f7c07c1f2723e94b6c3745507b8636624f"
+        },
+        {
+          "path": "templates/improvement-log.md",
+          "repository_path": ".agents/skills/workflow-self-improvement/templates/improvement-log.md",
+          "raw_url": "https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/main/.agents/skills/workflow-self-improvement/templates/improvement-log.md",
+          "sha256": "bd14ac5d6ccc259f5b031b4a2d51931e5cb0120acf1983d0cdbbc48e1327671e"
+        }
+      ]
+    }
+  ]
+}

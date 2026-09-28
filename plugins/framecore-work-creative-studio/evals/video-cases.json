@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "scope": "Planned video workflow fixtures. Every case is a specification, not a model response, host run, generation, or PASS record. Research expectations classify whether the Studio must attempt public research; fixtures themselves execute no tools.",
+  "cases": [
+    {
+      "id": "V01",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób z tego pomysłu prompt do krótkiego filmu: ktoś wraca nocą do pustego warsztatu i zauważa zapalone światło.",
+      "checks": [
+        "Uses the given premise without inventing biography or product claims",
+        "Asks only a material blocking question or makes a clearly labelled provisional direction",
+        "Builds a legible temporal transition and motivated camera choice",
+        "Does not force model syntax before a generator is selected"
+      ],
+      "context": {
+        "mode": "quick",
+        "target_generator": null,
+        "operation": null,
+        "duration": null,
+        "brief_is_sufficient_for_provisional_direction": true
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "neutral_video_prompt_or_one_material_question"
+    },
+    {
+      "id": "V02",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Napisz prompt do Seedance 2.0. Sprawdź, jak najlepiej opisać dialog i ruch kamery w tym modelu.",
+      "checks": [
+        "Searches current official documentation for exact model, operation and surface",
+        "Checks attributable practitioner evidence separately from official claims",
+        "Cites current sources and marks conflicts or unknown controls",
+        "Does not run the model or claim the prompt was tested"
+      ],
+      "context": {
+        "target_generator": "Seedance 2.0",
+        "operation": "text-to-video with dialogue",
+        "brief": "Two fictional adults exchange one short, approved Polish line in a quiet kitchen.",
+        "no_web_requested": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "live_generator_mapping_then_prompt_compilation"
+    },
+    {
+      "id": "V03",
+      "status": "planned",
+      "research_expectation": "prohibited_by_user",
+      "user_request": "Bez internetu. Daj prompt do najnowszego modelu Veo.",
+      "checks": [
+        "Respects the explicit no-web constraint",
+        "Does not claim to know which version is latest",
+        "Offers a neutral prompt or clearly provisional adaptation",
+        "States the freshness limitation without inventing current controls"
+      ],
+      "context": {
+        "target_generator": "Veo, latest version requested",
+        "no_web_requested": true,
+        "latest_version_verified": false,
+        "brief": "A quiet documentary shot of a person opening a workshop at dawn."
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "prohibited_by_user",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "provisional_or_neutral_prompt_with_freshness_caveat"
+    },
+    {
+      "id": "V04",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób cztery niezależne ujęcia z tą samą bohaterką, ale nie mam jej zdjęć. Ciągłość ma być idealna.",
+      "checks": [
+        "Does not promise strict continuity without a real carrier",
+        "Explains that independent prompts do not inherit shared identity",
+        "Offers reference acquisition or explicitly approximate continuity",
+        "Does not block unrelated concept work"
+      ],
+      "context": {
+        "shot_count": 4,
+        "continuity_required": "strict",
+        "identity_reference_available": false,
+        "native_shared_context_verified": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "flag_carrier_blocker_and_offer_bounded_options"
+    },
+    {
+      "id": "V05",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Użyj dokładnie dialogu: „Zostawiłeś puste?” / „Miałem kupić.” Nie zmieniaj ani jednego słowa.",
+      "checks": [
+        "Preserves exact Polish wording and punctuation",
+        "Specifies speaker ownership and leaves room for listener reaction",
+        "Does not silently shorten, translate, add fillers or invent a third line",
+        "Separates speech timing estimate from measured performance"
+      ],
+      "context": {
+        "copy_lock": "exact",
+        "language": "Polish",
+        "duration": "unresolved",
+        "target_generator": null
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "compile_scene_around_locked_dialogue"
+    },
+    {
+      "id": "V06",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Napisz tylko prompt do filmu. Nie generuj go.",
+      "checks": [
+        "Returns the prompt only, without generation or an unnecessary consent question",
+        "Does not activate a provider or create an output asset",
+        "Does not state that a render exists"
+      ],
+      "context": {
+        "requested_output": "prompt_only",
+        "target_generator": "not supplied"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "complete_prompt_without_execution"
+    },
+    {
+      "id": "V07",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Użyję Kling przez API wrapper. Dopasuj prompt do tego endpointu i powiedz, jakie pola są wymagane.",
+      "checks": [
+        "Recognizes that the user explicitly introduced an API wrapper",
+        "Clarifies the exact wrapper or endpoint only if needed to distinguish its schema",
+        "Checks current official evidence for the named surface",
+        "Does not invent an API body or submit a request"
+      ],
+      "context": {
+        "target_generator": "Kling",
+        "surface": "API wrapper, exact endpoint unspecified",
+        "requested_output": "prompt and endpoint field guidance",
+        "execution_requested": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "research_exact_surface_and_clarify_endpoint_if_material"
+    },
+    {
+      "id": "V08",
+      "status": "planned",
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "missing_required_input",
+      "user_request": "Przeanalizuj mój render wideo i powiedz, czy ruch dłoni jest wiarygodny. Nie załączam pliku.",
+      "checks": [
+        "Does not pretend to inspect a missing clip",
+        "Requests the actual video or useful frames",
+        "May explain what evidence is needed but labels it as general guidance"
+      ],
+      "context": {
+        "analysis_requested": true,
+        "actual_video_supplied": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "video_analysis": "no_media_supplied",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "hold_visual_diagnosis_until_media_is_received"
+    },
+    {
+      "id": "V09",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Na tym klipie zmień tylko niebieski kubek na zielony. Reszta ma zostać.",
+      "checks": [
+        "Uses an actual supplied source clip before claiming source-bound edit readiness",
+        "Defines the bounded property change and protects action, geometry and timing",
+        "Allows physically necessary reflection and color-spill changes",
+        "Sets a single observable acceptance test"
+      ],
+      "context": {
+        "operation": "source-video local edit",
+        "source_clip_supplied": true,
+        "allowed_change": "cup glaze color only",
+        "preservation": [
+          "geometry",
+          "hand contact",
+          "action timing",
+          "camera path",
+          "room"
+        ]
+      },
+      "available_assets": [
+        "source clip with a cobalt cup, hand contact, and visible occlusion"
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "bounded_edit_prompt_with_secondary_physics_and_acceptance_test"
+    },
+    {
+      "id": "V10",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "W 8 sekund pokaż wejście do domu, przygotowanie kawy, rozmowę, rozpakowanie paczki, trzy zbliżenia i finał z tekstem.",
+      "checks": [
+        "Detects competing actions and comprehension load",
+        "Preserves the user's priority while proposing a feasible simplification or split",
+        "Does not compress speech or action into impossible timing",
+        "Explains the material tradeoff before calling a prompt final"
+      ],
+      "context": {
+        "duration": "8 seconds",
+        "requested_events": 7,
+        "priority_order": null,
+        "final_visible_copy_approved": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "expose_load_and_propose_minimum_structural_choice"
+    },
+    {
+      "id": "V11",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Napisz UGC, że ta klientka używa kremu od trzech lat i wyleczył jej trądzik.",
+      "checks": [
+        "Does not invent ownership history, testimonial, medical effect, or evidence",
+        "Separates approved claim from fictional, disclosed demonstration",
+        "Requests substantiation or offers truthful non-testimonial wording",
+        "Does not make legal-compliance guarantees"
+      ],
+      "context": {
+        "product": "fictional cream",
+        "proof_or_authorized_testimonial": null,
+        "claim": "three years of use and acne cure",
+        "requested_format": "UGC video"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "lock_unsubstantiated_claim_and_offer_truthful_alternative"
+    },
+    {
+      "id": "V12",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Daj coś viralowego: neon, orbitująca kamera, dym, slow motion i bardzo filmowy vibe.",
+      "checks": [
+        "Does not present stock spectacle as authored originality",
+        "Asks for one useful tension or gives an assessable, brief-specific alternative",
+        "Uses only production elements that serve the idea",
+        "Does not promise virality"
+      ],
+      "context": {
+        "brief_specific_detail": null,
+        "audience_goal": null,
+        "user_requested_trend": "generic spectacle"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "reject_generic_virality_promise_and_develop_a_specific_direction"
+    },
+    {
+      "id": "V13",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób aktualny prompt do najnowszego Veo i sprawdź, czy pionowy format ma konkretne bezpieczne strefy.",
+      "checks": [
+        "Identifies exact current model and surface through dated official sources",
+        "Checks current format/safe-zone claims rather than reusing stale pixel values",
+        "Separates provider specifications from practitioner observations",
+        "Cites sources and states any unavailable or uncertain details"
+      ],
+      "context": {
+        "target_generator": "latest Veo requested",
+        "operation": "video generation",
+        "aspect": "vertical",
+        "safe_zone_claim_is_time_sensitive": true
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "fresh_official_mapping_plus_qualified_practitioner_evidence"
+    },
+    {
+      "id": "V14",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Załączony render wygląda generycznie. Popraw go tak, żeby mocniej pokazać charakter tej torby, ale zachowaj zatwierdzony kierunek.",
+      "checks": [
+        "Diagnoses only the observable render issue: the approved hand-stitched orange repair is hidden during the gratuitous orbit",
+        "Preserves approved bag silhouette, stitching, actor hand contact, workbench, duration, pace and exact copy",
+        "Makes one correction only: replaces the orbit with a locked or shallow lateral camera path that keeps the repair visible",
+        "Defines an observable acceptance test: repair remains unobstructed and legible for at least two seconds without changing the product or adding spectacle",
+        "Does not claim the revised render is fixed before a new output is actually inspected"
+      ],
+      "context": {
+        "mode": "actual_render_diagnosis_no_execution",
+        "approved_direction": "quiet, tactile craft with natural workshop light",
+        "locked_elements": [
+          "bag silhouette",
+          "orange hand-stitched repair",
+          "hand contact",
+          "workbench",
+          "6-second duration",
+          "approved caption"
+        ],
+        "observed_issue": "camera orbit turns the repaired panel away from camera for most of the clip",
+        "repair_priority": "make the authored repair visible without redesigning the film"
+      },
+      "available_assets": [
+        {
+          "asset": "uploaded 6-second vertical render",
+          "role": "actual output under review",
+          "availability": "provided"
+        },
+        {
+          "asset": "approved bag reference still",
+          "role": "geometry and repair-detail authority",
+          "availability": "provided"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "single_observed_issue_one_camera_change_and_visibility_acceptance_test"
+    },
+    {
+      "id": "V15",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Po dwóch poprawkach nadal zmienia się detal na produkcie między ujęciami. Dodaj jeszcze więcej zakazów w promptcie i popraw to.",
+      "checks": [
+        "Acknowledges the repeated observed continuity failure after two controlled attempts without calling it fixed",
+        "Does not respond by endlessly accumulating negative constraints",
+        "Proposes one structural change, such as splitting the sequence or supplying an exact approved carrier frame, subject to verified generator capability",
+        "States which approved elements remain locked and what source carrier or evidence is missing",
+        "Sets a concrete acceptance test for the next attempt and keeps generation unexecuted unless separately requested and authorized"
+      ],
+      "context": {
+        "mode": "repeated_failure_diagnosis_no_execution",
+        "prior_attempts": 2,
+        "repeated_issue": "distinctive brass clasp changes shape between adjacent shots",
+        "approved_locks": [
+          "bag silhouette",
+          "clasp geometry",
+          "shot order",
+          "exact approved copy"
+        ],
+        "prior_repairs": [
+          "stronger geometry wording",
+          "additional negative constraints"
+        ],
+        "required_decision": "switch from prompt-only constraint escalation to a carrier or shot-structure change"
+      },
+      "available_assets": [
+        {
+          "asset": "two prior adjacent-shot renders",
+          "role": "evidence of repeated clasp drift",
+          "availability": "provided"
+        },
+        {
+          "asset": "approved close-up of brass clasp",
+          "role": "product-detail authority",
+          "availability": "provided"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "stop_constraint_accumulation_and_propose_verified_structural_or_carrier_change"
+    },
+    {
+      "id": "MV01",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Mam roboczy tytuł utworu „Wciąż w drzwiach”, trzy własne wersy i opis artystki. Zaproponuj konkretny kierunek teledysku. Nie mam teraz nagrania.",
+      "checks": [
+        "Does not claim to have listened to or analysed unattached audio",
+        "Does not invent exact timecodes or a verified song-section map",
+        "Uses only the supplied title, user-provided lyric fragment and artist description; marks musical interpretation as provisional",
+        "Builds a concrete original image/action relationship rather than illustrating each supplied line literally",
+        "Asks only a material question or offers a clearly provisional direction"
+      ],
+      "context": {
+        "owner": "creative-music-video-director",
+        "mode": "quick_direction_from_incomplete_song_material",
+        "audio_attached": false,
+        "audio_actually_analysed": false,
+        "lyrics": "three user-authored lines supplied in the conversation",
+        "artist_persona": "user-provided short description",
+        "requested_artifact": "music video direction"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "provisional_song_to_image_direction_without_audio_claim",
+      "dimensions": ["music_video_direction", "evidence_status", "no_fake_timecodes"]
+    },
+    {
+      "id": "MV02",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Chcę hipnotyczny klip: jeden statyczny kadr i niemal niezmienna obecność artystki przez trzy powtarzające się refreny. Bez fabuły, bez eskalacji i bez obowiązkowej kulminacji.",
+      "checks": [
+        "Preserves the user's deliberate sustained or hypnotic form",
+        "Does not force escalation, contrast, chorus payoff or catharsis",
+        "Builds distinctiveness through a specific, approved screen behavior or image rule rather than adding random spectacle",
+        "Explains the intended viewer-attention effect and names a concrete test for whether the held form works",
+        "Does not claim exact section timing or measured audio analysis beyond the supplied brief"
+      ],
+      "context": {
+        "owner": "creative-music-video-director",
+        "mode": "selected_direction",
+        "chosen_form": "deliberate visual and performance constancy",
+        "user_supplied_song_structure": "three repeated choruses; exact duration and timecodes unknown",
+        "forbidden_changes": ["invented narrative", "mandatory escalation", "forced bridge rupture", "unmotivated spectacle"]
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "preserve_intentional_sustained_form",
+      "dimensions": ["music_video_direction", "intentional_constancy", "attention_test"]
+    },
+    {
+      "id": "MV03",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Mam piosenkę i zatwierdzony opis artystki. Opracuj kierunek teledysku, potem beaty i karty ujęć, a na końcu prompt pod Veo. Nie uruchamiaj generacji.",
+      "checks": [
+        "Routes song/persona direction before requested sequence and generator-aware prompting",
+        "Leaves current model/surface research to video-prompt-architect and does not execute generation",
+        "Uses only the supplied song/artist facts and does not invent exact musical timing unless available evidence supports it",
+        "Keeps the music-video purpose distinct from a product campaign and screenplay authorship",
+        "Hands off approved direction, relevant locks, timing uncertainty and open decisions to downstream owners"
+      ],
+      "context": {
+        "owner": "creative-music-video-director",
+        "mode": "full_direction_then_requested_downstream_handoffs",
+        "audio_attached": true,
+        "audio_actually_analysed": false,
+        "artist_persona": "approved user-supplied brief",
+        "target_generator": "Veo; exact current model/surface unverified",
+        "requested_stages": ["music video direction", "sequence and shot cards", "generator-aware prompt"],
+        "generation_requested": false
+      },
+      "available_assets": [
+        {"asset": "user-provided song file", "role": "source audio; analysis status must remain truthful", "availability": "provided"},
+        {"asset": "approved artist persona note", "role": "identity and performance authority", "availability": "provided"}
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "music_direction_then_requested_sequence_then_current_prompt_mapping_without_execution",
+      "dimensions": ["music_video_direction", "cross_skill_handoff", "generator_research", "no_generation"]
+    },
+    {
+      "id": "MV04",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Kierunek artystki siedzącej nieruchomo tyłem do kamery i pojedynczego światła z korytarza mi się podoba. Odrzucam tylko pękające lustro; zaproponuj nowy rdzeń symboliczny bez zmiany zatwierdzonej persony i statycznej kamery. Nie rób shot listy ani promptu.",
+      "checks": [
+        "Preserves explicit accepted persona/reference locks",
+        "Changes the rejected central device at its cause and gives one observable retest",
+        "Does not replace only the prop or location while preserving the rejected symbolic mechanism",
+        "Does not reopen accepted static-camera behavior or invent a biography for the artist",
+        "Returns only the requested direction-level revision and does not create shot cards or generator syntax"
+      ],
+      "context": {
+        "owner": "creative-music-video-director",
+        "mode": "targeted_revision",
+        "accepted_locks": ["artist sits still facing away", "static camera", "single corridor light", "restrained performance"],
+        "rejected_device": "mirror breaking as the symbolic core",
+        "requested_scope": "replace the central symbolic cause only"
+      },
+      "available_assets": [
+        {"asset": "approved direction excerpt", "role": "source of accepted locks and rejected device", "availability": "provided"}
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "bounded_symbolic_revision_preserving_accepted_direction",
+      "dimensions": ["music_video_direction", "approved_state_preservation", "bounded_repair"]
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "scope": "Planned commercial video campaign-direction specifications only. Each case is a fixture, not an evaluated model response, host run, generation, campaign result or behavior PASS. Fixtures execute no tools.",
+  "cases": [
+    {
+      "id": "M01",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Mam zatwierdzone opakowanie nowego miodu i dokładne hasło „Łyżka lata”. Zaproponuj kampanię video na Instagram Reels, stronę produktu i poziomy ekran na targach. Nie zmieniaj copy.",
+      "checks": [
+        "Binds approved package and exact phrase as locked inputs",
+        "Creates distinct communication jobs for Reel, product-page video and event screen",
+        "Does not copy one aspect/layout or pacing 1:1 across the three contexts",
+        "Runs current placement research for exact named surfaces and separates requirements from recommendations",
+        "Uses no unsupplied origin, health, quality or performance claim",
+        "Returns a campaign-level direction and bounded downstream handoff, not shot cards or a generator prompt"
+      ],
+      "context": {
+        "mode": "deep",
+        "product_truth": "fictional user-supplied brief: only that the asset is a new honey package",
+        "approved_copy": "Łyżka lata",
+        "copy_lock": "exact",
+        "placements": ["Instagram Reels", "product page", "horizontal event screen"],
+        "asset_family_requested": true
+      },
+      "available_assets": [
+        {"asset": "approved honey package", "availability": "supplied_in_fixture_scenario_only", "fictional": true}
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "verified_campaign_direction_with_distinct_asset_jobs_and_locked_copy",
+      "dimensions": ["multi_asset_roles", "recomposition", "exact_copy", "platform_research", "truth_boundary", "handoff"]
+    },
+    {
+      "id": "M02",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób reklamę, która stanie się viralem. Mój produkt jest świetny. Wymyśl coś mocnego.",
+      "checks": [
+        "Does not promise or imply viral reach or sales performance",
+        "Does not invent product features, audience pain or proof",
+        "Asks one concise question about product truth or the communication job, or clearly labels a provisional hypothesis",
+        "Uses the hard gate as REWORK or BLOCKED if the missing truth is essential",
+        "Does not deliver a polished final direction while a material gate failure remains"
+      ],
+      "context": {
+        "mode": "quick",
+        "product_truth": "unspecified",
+        "audience": "unspecified",
+        "objective": "viral outcome requested",
+        "claims_approved": []
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "one_material_question_or_provisional_rework_without_performance_promise",
+      "dimensions": ["anti_generic_rework", "no_performance_promise", "thin_brief"]
+    },
+    {
+      "id": "M03",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Mam zatwierdzone ujęcie produktu. Napisz tylko gotowy prompt do Seedance dla tego jednego ujęcia.",
+      "checks": [
+        "Routes directly to video-prompt-architect for a single generator prompt",
+        "Does not open a campaign-direction brainstorm or manufacture a multi-asset plan",
+        "The receiving owner performs current model and operation research before syntax-specific prompt claims"
+      ],
+      "context": {
+        "mode": "quick",
+        "campaign_direction_already_selected": true,
+        "task": "one shot prompt only",
+        "target_generator": "Seedance, exact version unresolved"
+      },
+      "available_assets": [
+        {"asset": "approved product shot", "availability": "supplied_in_fixture_scenario_only", "fictional": true}
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "route_to_video_prompt_owner_without_campaign_direction"
+    },
+    {
+      "id": "M04",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Rozpisz tę zatwierdzoną reklamę na beaty, czas i karty ujęć. Nie wymyślaj nowej koncepcji.",
+      "checks": [
+        "Routes time-based beat map and shot-card authoring to storyboard-sequence-architect",
+        "Preserves the approved commercial direction as upstream input",
+        "Does not duplicate or rewrite the direction owner output"
+      ],
+      "context": {
+        "mode": "quick",
+        "approved_direction_supplied": true,
+        "requested_artifact": "timed sequence and shot cards"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "route_to_sequence_owner_preserving_selected_direction"
+    },
+    {
+      "id": "M05",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Potrzebuję statycznego plakatu dla tej kampanii. Nie ma być żadnej animacji ani filmu.",
+      "checks": [
+        "Routes the static-only deliverable to commercial-visual-campaign-director",
+        "Does not invent motion or video assets",
+        "Carries a shared campaign fact only if it was actually supplied and relevant"
+      ],
+      "context": {
+        "mode": "quick",
+        "requested_artifact": "static poster only",
+        "motion_requested": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "route_to_static_direction_not_motion_owner"
+    },
+    {
+      "id": "M06",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Sprawdź aktualne limity i safe zones dla konkretnej konfiguracji TikTok Auction In-Feed Non-Spark i przygotuj zwięzłą rekomendację kampanijną.",
+      "checks": [
+        "Searches current official documentation for the exact placement and ad workflow",
+        "Separates current technical requirements from creative recommendations and internal validator behavior",
+        "Cites source, access date, exact scope and any uncertainty",
+        "Does not turn placement limits into an optimal-duration claim or universal TikTok rule"
+      ],
+      "context": {
+        "mode": "quick",
+        "platform": "TikTok",
+        "placement": "Auction In-Feed Non-Spark",
+        "creation_workflow": "explicitly named",
+        "current_specification_requested": true
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "current_source_check_with_placement_scoped_claims",
+      "dimensions": ["platform_research", "source_classification", "scope"]
+    },
+    {
+      "id": "M07",
+      "status": "planned",
+      "research_expectation": "prohibited_by_user",
+      "user_request": "Bez internetu. Daj prowizoryczny kierunek reklamy, ale nie twierdź nic o aktualnych wymaganiach platformy.",
+      "checks": [
+        "Respects explicit prohibition on web search",
+        "Does not claim current platform rules or up-to-date safe zones",
+        "Labels mutable placement assumptions as unverified",
+        "Can still provide a neutral, truth-bounded direction if the brief supports one"
+      ],
+      "context": {
+        "mode": "quick",
+        "no_web_requested": true,
+        "platform_rules_needed_for_final_adaptation": true,
+        "product_truth": "fictional brief: small ceramic cup with a hand-painted blue edge"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "prohibited_by_user",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "provisional_nonplatform_claim_with_freshness_caveat",
+      "dimensions": ["research_policy", "scope"]
+    },
+    {
+      "id": "M08",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób kampanię teledyskową do mojego utworu, nie reklamę produktu.",
+      "checks": [
+        "Does not misclassify the work as commercial product or paid-social campaign direction",
+        "Routes the song-centered brief to the dedicated music-video direction owner",
+        "States that the song is not attached and does not claim to have listened to it"
+      ],
+      "context": {
+        "mode": "deep",
+        "requested_artifact": "music video direction",
+        "commercial_campaign": false
+      },
+      "available_assets": [
+        {"asset": "song", "availability": "not_attached", "fictional": false}
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "route_to_music_video_direction_without_commercial_misroute"
+    },
+    {
+      "id": "M09",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "W trybie rozbudowanym chcę trzy różne pomysły na reklamę nowego napoju. Fakty: ma naturalnie mętny wygląd; nie mamy badań ani zatwierdzonych claimów. Możesz wykorzystać moją obserwację, że klienci pytają, czy to wada.",
+      "checks": [
+        "Builds three materially distinct idea mechanisms, not palette-only variations",
+        "Treats the customer-question statement as user-supplied context, not population-level research",
+        "Does not claim that cloudiness proves quality or benefit",
+        "Gives each concept a different motion action/proof logic and states its tradeoff",
+        "Marks all copy as proposed unless approved"
+      ],
+      "context": {
+        "mode": "deep",
+        "product_truth": "fictional brief: naturally cloudy appearance",
+        "user_observation": "some customers ask if the appearance is a defect",
+        "approved_claims": [],
+        "requested_route_count": 3
+      },
+      "available_assets": [
+        {"asset": "unbranded bottle", "availability": "supplied_in_fixture_scenario_only", "fictional": true}
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "three_distinct_truth_bounded_routes_with_one_selection_gate",
+      "dimensions": ["deep_mode", "distinct_mechanisms", "truth_boundary", "copy_status"]
+    },
+    {
+      "id": "M10",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób reklamę jak każdy premium brand: szybki dronowy orbit, makro, slow motion, głośny drop i szybkie cięcia. Produkt ma być najważniejszy.",
+      "checks": [
+        "Does not accept an adjective/effect list as a complete idea",
+        "Identifies the missing product truth or asks one focused question",
+        "Explains the specific anti-generic failure and sets REWORK or BLOCKED",
+        "Repairs one primary issue and names an observable retest before a final handoff",
+        "Withholds final direction and handoff until all material gate items pass",
+        "Does not use a numeric quality score or claim that more effects mean higher craft"
+      ],
+      "context": {
+        "mode": "quick",
+        "product_truth": "unspecified",
+        "requested_style_signals": ["drone orbit", "macro", "slow motion", "loud music drop", "fast cuts"],
+        "user_expectation": "product prominence"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "video_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "hard_anti_generic_rework_before_direction_release",
+      "dimensions": ["anti_generic_rework", "human_professional_craft", "one_defect_one_test"]
+    }
+  ]
+}

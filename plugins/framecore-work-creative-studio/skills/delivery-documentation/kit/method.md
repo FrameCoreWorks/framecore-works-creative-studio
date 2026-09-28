@@ -1,0 +1,95 @@
+
+# Delivery Documentation
+
+Read [Studio integration authority](../../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+
+
+Use this skill to package final notes, QA status, source lists, accepted files, excluded files, caveats, and usage guidance after the workflow has produced reviewable outputs.
+
+## Language Policy
+
+Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
+
+## When To Use
+
+Use this skill when:
+
+- Assets, prompts, documents, or workflow artifacts are ready to summarize for the user.
+- A final Delivery Manifest is needed after QA.
+- The user explicitly asks for upload, publishing, packaging, or delivery instructions.
+
+Do not use this skill to approve unreviewed outputs or perform delivery without a current explicit user request.
+
+## Inputs
+
+Required:
+
+- `accepted_assets`: files or artifacts approved by QA or explicitly accepted by the user.
+- `qa_status`: pass, conditional pass, rejected, or not applicable with reason.
+- `source_list`: important inputs, references, prompts, manifests, or generated outputs.
+
+Optional:
+
+- `excluded_assets`: rejected, duplicate, temporary, or non-deliverable files.
+- `usage_notes`: licensing, editability, caveats, or platform notes.
+- `delivery_target`: when the active conversation authorizes the specific delivery action and destination.
+
+## Outputs
+
+Produce a Delivery Manifest with:
+
+- final file list and QA status
+- source and traceability summary
+- excluded files with reasons
+- usage notes and caveats
+- delivery action taken or explicit statement that delivery was not requested
+- concise user-facing summary polished with `humanizer` when useful
+- Copy Pack status and editorial-loop evidence when final user-facing text is
+  included in delivery
+
+## Process
+
+1. Confirm QA status before describing anything as final.
+2. Match accepted assets against the asset manifest when available.
+3. Separate local completion from upload, publishing, or external delivery.
+4. Include caveats and unresolved risks plainly.
+5. Keep the final summary short enough for the user to act on.
+6. Do not describe text as ready-to-use when its Copy Pack lacks author context,
+   fact and lock review, and a completed bounded Copy Delivery Loop.
+
+## Decision Rules
+
+- If generated assets exist and QA is missing, route to `qa-iteration` first.
+- If the active conversation provides no valid scoped authorization for upload or publishing, keep artifacts at the requested local/private destination.
+- If delivery target is ambiguous, ask one concise clarification before sending files externally.
+- Use `humanizer` for tone polish, not for changing facts.
+
+## Guardrails
+
+- Do not upload, publish, email, or share files without explicit current instruction.
+- Do not include secrets, private links, hidden metadata, caches, or rejected assets.
+- Do not claim QA passed unless it did.
+- Do not hide caveats or excluded files.
+- Do not turn a delivery summary into fabricated personal endorsement, source,
+  result, or promise.
+
+## Handoff
+
+Review gate: `delivery_fit`.
+
+Receive from `qa-iteration` with:
+
+- `accepted_assets`
+- `excluded_assets`
+- `QA status`
+- `caveats`
+
+Return to the user with final delivery notes or a local-path summary.
+
+## QA Checklist
+
+- Accepted and excluded files are separated.
+- QA status is visible.
+- Delivery action matches an explicit current request.
+- Usage notes are factual and concise.
+- Final wording is clear without changing approved facts.

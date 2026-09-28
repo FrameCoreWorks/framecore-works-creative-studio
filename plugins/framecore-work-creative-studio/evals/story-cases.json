@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "scope": "Planned screenplay and story-development fixtures. These specifications are not model responses, host tests, or creative-quality PASS records. Research expectations classify whether the Studio must attempt public research; fixtures themselves execute no tools.",
+  "cases": [
+    {
+      "id": "SC01",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Chcę zrobić krótki film o poczuciu, że czas przecieka. Nie wiem jeszcze jak.",
+      "checks": [
+        "Does not jump to a stock tragedy or reveal",
+        "Asks at most one useful association question or offers a clearly labeled specific proposal",
+        "Keeps form choices provisional until the user reacts"
+      ],
+      "context": {
+        "mode": "open_idea",
+        "user_material": "one abstract feeling",
+        "requested_artifact": "development_start"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "specific_seed_exploration_without_forced_backstory_or_formula"
+    },
+    {
+      "id": "SC02",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Napisz gotową krótką scenę: techniczka zamyka po godzinach małą drukarnię, a praktykant próbuje uratować błędny wydruk, który chce wykorzystać na własny szyld. Ma być powściągliwie i bez VO.",
+      "checks": [
+        "Writes an actual scene with playable action and any dialogue needed",
+        "Does not ask intake questions already answered",
+        "Does not return only a logline, beat table, or headings",
+        "Does not force a twist or disclose a motive the user did not supply"
+      ],
+      "context": {
+        "mode": "script_draft",
+        "form": "quiet causal scene",
+        "duration": "short, not exact",
+        "locks": [
+          "after hours",
+          "small print shop",
+          "misprint for handmade sign",
+          "no voice-over",
+          "restrained tone"
+        ]
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "write_full_scene_from_existing_brief"
+    },
+    {
+      "id": "SC03",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Rozpisz obserwacyjną scenę 40 sekund: dyżurna na basenie powoli zwija linę torową po zamknięciu. Bez dialogu.",
+      "checks": [
+        "Uses attention, repeat and duration rather than manufacturing conflict",
+        "Makes visible what changes or is noticed",
+        "Does not add dialogue, twist, injury, or sentimental backstory",
+        "Marks runtime as a planning estimate unless measured"
+      ],
+      "context": {
+        "mode": "observational_script",
+        "duration_target_seconds": 40,
+        "dialogue": "none",
+        "story_change_required": false
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "build_attention_arc_without_forced_plot"
+    },
+    {
+      "id": "SC04",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zaproponuj esej filmowy o zamkniętym kinie w moim mieście. Nie podam jeszcze miasta ani źródeł.",
+      "checks": [
+        "Labels any proposed imagery and voice as provisional",
+        "Does not invent the cinema's history or local facts",
+        "Keeps essay point of view separate from verified evidence",
+        "Asks for sources only if factual specificity is required now"
+      ],
+      "context": {
+        "mode": "essay_documentary_proposal",
+        "location_facts": "unknown",
+        "requested_artifact": "initial direction"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "provisional_form_and_point_of_view_without_fabricated_local_facts"
+    },
+    {
+      "id": "SC05",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Napisz 20-sekundowy film reklamowy dla mojego termicznego kubka. Użyj zatwierdzonego claimu: ‘Ciepło tam, gdzie go potrzebujesz.’ Nie dodawaj ceny ani liczby godzin.",
+      "checks": [
+        "Preserves exact approved claim",
+        "Does not invent temperature, duration, leakproof, material, price, offer, logo, or CTA facts",
+        "Builds the product into a visible truthful action instead of a decorative insert",
+        "Labels any new copy as proposed, not approved"
+      ],
+      "context": {
+        "mode": "commercial_script",
+        "duration_target_seconds": 20,
+        "product_facts": "only one supplied claim",
+        "exact_copy_locks": [
+          "Ciepło tam, gdzie go potrzebujesz."
+        ],
+        "forbidden_claims": [
+          "temperature",
+          "hours",
+          "leakproof"
+        ],
+        "cta": "not supplied"
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "truth_locked_short_ad_script_with_visible_action"
+    },
+    {
+      "id": "SC06",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Popraw naturalność tej sceny, ale zachowaj dokładnie zdanie: ‘Jutro będzie za późno.’",
+      "checks": [
+        "Keeps the exact locked sentence character-for-character",
+        "Edits only surrounding dialogue/action that the request permits",
+        "Does not add random fillers or misspellings to simulate human voice",
+        "Returns the revised scene rather than general writing advice"
+      ],
+      "context": {
+        "mode": "dialogue_polish",
+        "exact_copy_locks": [
+          "Jutro będzie za późno."
+        ],
+        "scope": "naturalness without changing locked line",
+        "source_text": "INT. KORYTARZ — NOC\nAla stoi przy drzwiach. Marek patrzy na nią.\nMAREK: Jutro będzie za późno.\nALA: Nie wiem, co mam powiedzieć.\nMarek kiwa głową. Oboje czekają."
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic scene text in context.source_text",
+          "role": "revision source",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "bounded_voice_rewrite_preserving_exact_line"
+    },
+    {
+      "id": "SC07",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Napisz scenariusz, nie sam konspekt, na podstawie zatwierdzonego treatmentu poniżej.",
+      "checks": [
+        "Produces actual formatted scene action/dialogue for the requested scope",
+        "Does not present beat list as screenplay",
+        "Preserves established tone, character facts and ending",
+        "If output length is constrained, states a clean segment boundary and continues the requested script rather than disguising an outline as completion"
+      ],
+      "context": {
+        "mode": "treatment_to_screenplay",
+        "treatment": "Marta wraca o świcie do szklarni, którą tego dnia mają opróżnić. Chce zabrać jedynie metalowy sekator ojca. Właścicielka szklarni, Lena, nie protestuje; pokazuje jej puste miejsce na półce, gdzie przez lata stała doniczka. Marta znajduje sekator pod ławką, oddaje go Lenie do naostrzenia i czeka. Zakończenie: obie patrzą, jak pierwsze światło przechodzi przez zaparowaną szybę; nie ma pojednania ani deklaracji, tylko wspólne milczenie.",
+        "format": "screenplay",
+        "requested_artifact": "short screenplay scene(s)",
+        "tone_lock": "restrained, observational",
+        "ending_lock": "shared silent look through the fogged greenhouse glass; no reconciliation speech"
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic approved treatment in context.treatment",
+          "role": "story authority",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "write_requested_script_not_summary"
+    },
+    {
+      "id": "SC08",
+      "status": "planned",
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "mechanical_change_only",
+      "user_request": "W scenie 2 zmień właściciela czerwonej teczki z Igi na Pawła. Resztę zostaw.",
+      "checks": [
+        "Changes the owner in scene 2 and the explicit ownership-dependent line in scene 3",
+        "Does not confuse ownership with physical carrying: Iga still carries the folder as a separate locked action",
+        "Preserves the exact dialogue ‘Numer 14 jest właściwy.’ and the clock beat",
+        "States an acceptance test that all ownership references identify Paweł while unrelated actions remain unchanged"
+      ],
+      "context": {
+        "mode": "continuity_revision",
+        "changed_fact": "red folder ownership in scene 2 changes from Iga to Paweł",
+        "preserve_scope": "everything not dependent on ownership",
+        "source_sequence": "SCENE 1 — Iga reads the date written inside the red folder, then places it on the counter.\nSCENE 2 — The inventory sheet lists Iga as owner of the red folder. Archivist Ewa prepares a transfer form but leaves its authorization line blank; Iga carries the folder to shelf B.\nSCENE 3 — Ewa asks who owns the folder and who must authorize the pending transfer. Paweł says: ‘Iga jest właścicielką, więc ona zatwierdzi przekazanie.’ Iga answers: ‘Numer 14 jest właściwy.’\nSCENE 4 — The archive clock stops. Iga and Paweł look up; neither speaks.",
+        "exact_dialogue_lock": "Numer 14 jest właściwy.",
+        "continuity_note": "Ownership and authorization of the still-pending transfer depend on the changed owner; Ewa's role as archivist, Iga carrying the folder, Iga's exact dialogue and the clock beat do not depend on ownership.",
+        "downstream_scenes": "included_in_fixture"
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic scene sequence in context.source_sequence",
+          "role": "continuity source",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "small_revision_with_dependency_propagation"
+    },
+    {
+      "id": "SC09",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Przygotuj pitch filmu na podstawie tej idei i zakończ trzema decyzjami, które muszę zatwierdzić.",
+      "checks": [
+        "Returns a decision-ready pitch rather than a full screenplay",
+        "Separates established facts from invention",
+        "Makes the requested three decisions concrete and genuinely consequential",
+        "Does not impose a different number of options in other contexts"
+      ],
+      "context": {
+        "mode": "pitch",
+        "idea": "provided",
+        "approval_needed": true,
+        "decision_count": 3
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "pitch_plus_exact_requested_approval_questions"
+    },
+    {
+      "id": "SC10",
+      "status": "planned",
+      "research_expectation": "required",
+      "user_request": "Zrób storyboard z timecodami i kartami ujęć z tego zaakceptowanego scenariusza.",
+      "checks": [
+        "Routes time-based sequence and shot-card structure to storyboard-sequence-architect, separately from any board layout",
+        "Carries accepted story facts, exact dialogue and continuity needs into stable shot IDs and cards",
+        "If a static board is also requested, routes its panel layout and exact visible labels separately to storyboard-board-architect",
+        "Does not treat a storyboard board, panel or shot card as an automatically bound video carrier",
+        "Preserves supplied owner, object state and exact dialogue",
+        "Labels timecode basis as supplied, measured, estimated or unknown and never invents measured timing",
+        "Does not generate media unless explicitly requested and an authorized tool is available"
+      ],
+      "context": {
+        "mode": "storyboard_only",
+        "accepted_script_excerpt": "SCENE 1 — INT. ARCHIVE — DAY\nPaweł signs the inventory as the new owner of the red folder. He places the folder flat on the counter.\nIGA: Numer 14 jest właściwy.\nThe archive clock stops. Both look up.\nLOCKS: Paweł owns the folder; the folder remains on the counter; preserve the exact Polish line.",
+        "requested_artifact": "timed shot cards and board",
+        "exact_dialogue_lock": "Numer 14 jest właściwy.",
+        "continuity_locks": [
+          "Paweł is the named owner",
+          "folder lies on counter before the clock stops"
+        ]
+      },
+      "available_assets": [
+        {
+          "asset": "synthetic approved screenplay excerpt in context.accepted_script_excerpt",
+          "role": "story source",
+          "availability": "included_in_fixture"
+        }
+      ],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "web_search": "available_read_only"
+      },
+      "expected_branch": "sequence_architect_creates_shot_cards_and_routes_optional_board_as_separate_artifact"
+    }
+  ]
+}

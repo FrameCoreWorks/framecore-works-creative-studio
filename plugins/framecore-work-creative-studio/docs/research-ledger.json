@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "release": "0.1.0-dev.29",
+  "scope": "27 primary source works used in additions. Source-derived summaries are bounded; procedures and examples are original Studio synthesis. Reading is not experimental validation.",
+  "sources": [
+    {
+      "id": "CORE1",
+      "title": "OpenAI: Build skills",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "owner": "research-evidence",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Progressive disclosure; architecture only."
+    },
+    {
+      "id": "CORE2",
+      "title": "W3C: PROV Model Primer",
+      "url": "https://www.w3.org/TR/prov-primer/",
+      "owner": "delivery-documentation",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Revision and derivation; not PROV compliance."
+    },
+    {
+      "id": "CORE3",
+      "title": "NARA: Best Practices for File Naming",
+      "url": "https://records-express.blogs.archives.gov/2017/08/22/best-practices-for-file-naming/",
+      "owner": "delivery-documentation",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Contextual archival naming guidance."
+    },
+    {
+      "id": "CORE4",
+      "title": "Harvard: File Naming Conventions",
+      "url": "https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions",
+      "owner": "delivery-documentation",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Research-data naming adapted to assets; no universal length."
+    },
+    {
+      "id": "CORE5",
+      "title": "OpenTimelineIO: Time Ranges",
+      "url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/time-ranges.html",
+      "owner": "delivery-documentation",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Time context; accessed development docs, no adapter."
+    },
+    {
+      "id": "CORE6",
+      "title": "C2PA 2.0: Technical Specification",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html",
+      "owner": "delivery-documentation",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Provenance association; no content truth judgment."
+    },
+    {
+      "id": "CORE7",
+      "title": "C2PA 2.4: Security Considerations",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/security/Security_Considerations.html",
+      "owner": "delivery-documentation",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Manifest removal possible; no bundled verifier."
+    },
+    {
+      "id": "VISUAL1",
+      "title": "Choi et al.: IDM-VTON, arXiv v3",
+      "url": "https://arxiv.org/html/2403.05139v3",
+      "owner": "image-prompt-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Study-specific garment fidelity; no universal generator guarantee."
+    },
+    {
+      "id": "VISUAL2",
+      "title": "Nikon: Quick Tips for Taking Better Portraits",
+      "url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/quick-tips-for-taking-better-portraits",
+      "owner": "image-prompt-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Physical portrait focus coverage."
+    },
+    {
+      "id": "VISUAL3",
+      "title": "broncolor: How to Photograph a Bottle",
+      "url": "https://broncolor.swiss/news/how-to-photograph-a-bottle-lighting-a-beverage",
+      "owner": "image-prompt-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Physical material and light demonstration."
+    },
+    {
+      "id": "VISUAL4",
+      "title": "Getty: Vocabulary for Describing an Artwork",
+      "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/",
+      "owner": "commercial-visual-campaign-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Weight, emphasis and eye path."
+    },
+    {
+      "id": "VISUAL5",
+      "title": "W3C: Contrast Minimum",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum",
+      "owner": "commercial-visual-campaign-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Web text scope; no print certification."
+    },
+    {
+      "id": "VISUAL6",
+      "title": "W3C: Images of Text",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html",
+      "owner": "commercial-visual-campaign-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Web presentation and exceptions."
+    },
+    {
+      "id": "STORY1",
+      "title": "Sundance: Glen Mazzara on TV writing",
+      "url": "https://www.sundance.org/blogs/six-rules-for-writing-a-compelling-tv-episode/",
+      "owner": "screenplay-story-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Practitioner craft; not a universal scene formula."
+    },
+    {
+      "id": "STORY2",
+      "title": "Mailchimp: Voice and Tone",
+      "url": "https://styleguide.mailchimp.com/voice-and-tone/",
+      "owner": "humanizer",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Distinction only; brand personality not imported."
+    },
+    {
+      "id": "STORY3",
+      "title": "Google Ads: ABCDs",
+      "url": "https://support.google.com/google-ads/answer/14783551?hl=en",
+      "owner": "commercial-video-campaign-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Optional YouTube ad diagnostic."
+    },
+    {
+      "id": "STORY4",
+      "title": "W3C: Captions/Subtitles",
+      "url": "https://www.w3.org/WAI/media/av/captions/",
+      "owner": "storyboard-board-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Timed meaningful audio representation; not board labels."
+    },
+    {
+      "id": "STORY5",
+      "title": "W3C: Planning Audio and Video Media",
+      "url": "https://www.w3.org/WAI/media/av/planning/",
+      "owner": "storyboard-sequence-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Early accessibility planning, not final compliance."
+    },
+    {
+      "id": "STORY6",
+      "title": "Adobe: Storyboarding",
+      "url": "https://www.adobe.com/creativecloud/video/discover/storyboarding.html",
+      "owner": "storyboard-board-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Creator accounts of communicating production intent."
+    },
+    {
+      "id": "STORY7",
+      "title": "Adobe: Continuity Editing",
+      "url": "https://www.adobe.com/creativecloud/video/hub/ideas/what-is-continuity-editing-in-film.html",
+      "owner": "storyboard-sequence-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Orientation techniques and intentional discontinuity."
+    },
+    {
+      "id": "AV1",
+      "title": "EBU: R128 v5",
+      "url": "https://tech.ebu.ch/docs/r/r128.pdf",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Broadcast recommendation; not universal internet loudness."
+    },
+    {
+      "id": "AV2",
+      "title": "Adobe: Analyzing phase, frequency and amplitude",
+      "url": "https://helpx.adobe.com/audition/desktop/editing-audio-files/analyzing-phase-frequency-amplitude.html",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Method and analysis range; no integration."
+    },
+    {
+      "id": "AV3",
+      "title": "Ableton: Song structure",
+      "url": "https://learningmusic.ableton.com/song-structure/song-structure.html",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Arrangement levels; no imposed song form."
+    },
+    {
+      "id": "AV4",
+      "title": "Shure: How to Record and Mix Vocals",
+      "url": "https://www.shure.com/en-US/insights/how-to-record-and-mix-vocals",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Capture and performance hypotheses."
+    },
+    {
+      "id": "AV5",
+      "title": "ARRI: Emmanuel Lubezki on Birdman",
+      "url": "https://www.arri.com/news-en/emmanuel-lubezki-asc-amc-on-birdman-",
+      "owner": "video-prompt-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Historical creator account, not provider capability."
+    },
+    {
+      "id": "AV6",
+      "title": "Adobe: J-cuts and L-cuts",
+      "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/trim-clips/perform-j-cuts-and-l-cuts.html",
+      "owner": "video-prompt-architect",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Editorial audio/picture boundaries."
+    },
+    {
+      "id": "AV7",
+      "title": "Walker Art Center: Michel Gondry dialogue",
+      "url": "https://www.walkerart.org/reader/michel-gondry-2007/",
+      "owner": "creative-music-video-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Creator rhythm decisions; original style not copied.",
+      "read_attachment": "https://s3.amazonaws.com/wac-imgix/cms/Michel-Gondry-Regis-Dialogue-Formatted.pdf"
+    },
+    {
+      "id": "AUD1",
+      "title": "Suno Help: What rights do I have with the free plan?",
+      "url": "https://help.suno.com/en/articles/9601601",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Free-plan scope; not asset-level legal clearance."
+    },
+    {
+      "id": "AUD2",
+      "title": "Suno Help: Does upgrading grant rights to old songs?",
+      "url": "https://help.suno.com/en/articles/2425729",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "No retroactive assumption; verify track creation/download history."
+    },
+    {
+      "id": "AUD3",
+      "title": "Suno Help: What rights do I have with a paid subscription?",
+      "url": "https://help.suno.com/en/articles/9601665",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Paid-plan rights depend on subscribed-period download; copyright not guaranteed."
+    },
+    {
+      "id": "AUD4",
+      "title": "ElevenLabs: Eleven Music capabilities",
+      "url": "https://elevenlabs.io/docs/overview/capabilities/music",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Current provider prompting/capability research; reverify selected surface."
+    },
+    {
+      "id": "AUD5",
+      "title": "ElevenLabs: Music product and composition plans",
+      "url": "https://elevenlabs.io/docs/eleven-creative/products/music",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Ordered composition-plan docs; API/UI boundaries remain separate."
+    },
+    {
+      "id": "AUD6",
+      "title": "ElevenLabs: Music Marketplace usage types",
+      "url": "https://elevenlabs.io/docs/help-center/product/monetization-business/music-marketplace/what-usage-types-exist-in-music-marketplace",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Usage-type distinctions, including social-media vs paid-marketing cases."
+    },
+    {
+      "id": "AUD7",
+      "title": "TikTok for Business: How to Use the Commercial Music Library (updated July 2026)",
+      "url": "https://ads.tiktok.com/resources/help/article/how-to-use-the-commercial-music-library?lang=en-GB",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Region and placements selection; organic/paid content is within TikTok use."
+    },
+    {
+      "id": "AUD8",
+      "title": "Google Flow Help: Flow Music",
+      "url": "https://support.google.com/flow/answer/17083868?hl=en",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Current Flow Music route; inspect current plan/UI and terms."
+    },
+    {
+      "id": "AUD9",
+      "title": "Google Flow Help: terms entry point",
+      "url": "https://support.google.com/flow/answer/16353333?hl=en",
+      "owner": "audio-production-director",
+      "accessed": "2026-09-28",
+      "reading_status": "opened_and_relevant_body_read",
+      "scope": "Google service terms are controlling source to review for the active product."
+    }
+  ],
+  "excluded_full_text_gaps": [
+    "Library of Congress PREMIS bodies",
+    "ScreenSkills script-supervisor pages",
+    "Meta Reels ads guide (official page redirected to login wall)",
+    "Instagram Sound Collection help (official page redirected to login wall)"
+  ],
+  "alternative_read": "IDM-VTON ECVA PDF too large; authors arXiv v3 full HTML read instead."
+}

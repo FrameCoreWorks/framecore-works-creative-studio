@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "profile_scope": "one_private_user",
+  "last_updated": "",
+  "language": {
+    "conversation": "",
+    "prompt": ""
+  },
+  "work_preferences": {
+    "default_mode": "ask_or_infer_from_request",
+    "first_pitch": "short_clean_ideas",
+    "detail_after_selection": "stepwise",
+    "clarifications": "one_material_question_at_a_time",
+    "research_display": "keep_quick_pitches_concise",
+    "feedback_loop": "ask_targeted_direction_question_after_rejection"
+  },
+  "expertise_by_domain": {
+    "image_design": {
+      "self_reported_level": "unknown",
+      "observed_level": "unknown",
+      "confidence": "none",
+      "evidence": []
+    },
+    "video_editing_and_motion": {
+      "self_reported_level": "unknown",
+      "observed_level": "unknown",
+      "confidence": "none",
+      "evidence": []
+    },
+    "audio_music": {
+      "self_reported_level": "unknown",
+      "observed_level": "unknown",
+      "confidence": "none",
+      "evidence": []
+    },
+    "writing_story": {
+      "self_reported_level": "unknown",
+      "observed_level": "unknown",
+      "confidence": "none",
+      "evidence": []
+    },
+    "generation_tools": {
+      "self_reported_level": "unknown",
+      "observed_level": "unknown",
+      "confidence": "none",
+      "evidence": []
+    }
+  },
+  "approved_constraints": [],
+  "connected_tools_user_reported": [],
+  "private_project_data_excluded": true,
+  "open_questions": [],
+  "portability": {
+    "last_exported": "",
+    "source_environment": "",
+    "destination_environment": ""
+  },
+  "workflow_profile": {
+    "primary_work": [],
+    "common_use_cases": [],
+    "expected_outputs": [],
+    "qa_strictness": "standard",
+    "priorities": [],
+    "collaboration_context": "Unknown",
+    "role_display_labels": {},
+    "output_handling": "host_capability_checked",
+    "forbidden_actions": [],
+    "recurring_review_opt_in": false
+  },
+  "taste_memory": {
+    "schema_version": 1,
+    "records": [],
+    "storage_status": "session_only_unless_actual_authorised_persistence",
+    "real_user_data_in_shared_plugin": false
+  }
+}

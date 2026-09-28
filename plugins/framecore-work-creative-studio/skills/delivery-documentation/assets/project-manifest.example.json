@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "project_id": "fictional-harbor-example",
+  "example_notice": "All asset locations and acceptance records are fictional; do not reuse them as real evidence.",
+  "assets": [
+    {
+      "id": "product-front",
+      "revision": "r002",
+      "kind": "image",
+      "role": "product-truth",
+      "state": "present",
+      "locator": "fictional-example-only/product-front.png",
+      "sha256": null,
+      "depends_on": [],
+      "properties": {
+        "requested": {},
+        "verified": {},
+        "unknown": []
+      },
+      "review": {
+        "status": "accepted",
+        "reviewed_revision": "r002",
+        "scope": [
+          "fictional-example-only"
+        ],
+        "evidence": "Hypothetical accepted record; no media included or actually inspected.",
+        "basis": []
+      },
+      "provenance": {
+        "source": "Original Studio fictional training example",
+        "rights": "Example metadata only; no third-party media supplied"
+      }
+    },
+    {
+      "id": "poster",
+      "revision": "r003",
+      "kind": "image",
+      "role": "square-layout",
+      "state": "present",
+      "locator": "fictional-example-only/poster.png",
+      "sha256": null,
+      "depends_on": [
+        {
+          "id": "product-front",
+          "revision": "r002"
+        }
+      ],
+      "properties": {
+        "requested": {},
+        "verified": {},
+        "unknown": []
+      },
+      "review": {
+        "status": "accepted",
+        "reviewed_revision": "r003",
+        "scope": [
+          "fictional-example-only"
+        ],
+        "evidence": "Hypothetical accepted record; no media included or actually inspected.",
+        "basis": [
+          {
+            "id": "product-front",
+            "revision": "r002"
+          }
+        ]
+      },
+      "provenance": {
+        "source": "Original Studio fictional training example",
+        "rights": "Example metadata only; no third-party media supplied"
+      }
+    },
+    {
+      "id": "portrait",
+      "revision": "r001",
+      "kind": "image",
+      "role": "portrait-adaptation",
+      "state": "present",
+      "locator": "fictional-example-only/portrait.png",
+      "sha256": null,
+      "depends_on": [
+        {
+          "id": "poster",
+          "revision": "r003"
+        }
+      ],
+      "properties": {
+        "requested": {},
+        "verified": {},
+        "unknown": []
+      },
+      "review": {
+        "status": "accepted",
+        "reviewed_revision": "r001",
+        "scope": [
+          "fictional-example-only"
+        ],
+        "evidence": "Hypothetical accepted record; no media included or actually inspected.",
+        "basis": [
+          {
+            "id": "poster",
+            "revision": "r003"
+          }
+        ]
+      },
+      "provenance": {
+        "source": "Original Studio fictional training example",
+        "rights": "Example metadata only; no third-party media supplied"
+      }
+    },
+    {
+      "id": "lyric",
+      "revision": "r001",
+      "kind": "text",
+      "role": "independent-lyrics",
+      "state": "present",
+      "locator": "fictional-example-only/lyric.txt",
+      "sha256": null,
+      "depends_on": [],
+      "properties": {
+        "requested": {},
+        "verified": {},
+        "unknown": []
+      },
+      "review": {
+        "status": "accepted",
+        "reviewed_revision": "r001",
+        "scope": [
+          "fictional-example-only"
+        ],
+        "evidence": "Hypothetical accepted record; no media included or actually inspected.",
+        "basis": []
+      },
+      "provenance": {
+        "source": "Original Studio fictional training example",
+        "rights": "Example metadata only; no third-party media supplied"
+      }
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "portrait",
+      "purpose": "final"
+    }
+  ]
+}

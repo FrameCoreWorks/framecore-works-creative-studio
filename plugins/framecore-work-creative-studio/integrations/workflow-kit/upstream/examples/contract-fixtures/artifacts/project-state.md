@@ -1,0 +1,54 @@
+# Project State
+
+- workflow_blueprint: Minimal provider-neutral planning route for a generic creative task.
+- active_roles:
+  - `intent-confirmation`
+  - `workflow-orchestrator`
+  - `brief-architect`
+- completed_or_existing_artifacts:
+  - Task Confirmation
+- last_completed_gate: `intent_lock`
+- required_handoffs:
+  - `intent-confirmation->workflow-orchestrator`
+  - `workflow-orchestrator->brief-architect`
+- review_gates:
+  - `intent_lock`
+  - `workflow_route`
+  - `brief_completeness`
+- request_diagnostic:
+  - request_classification: creative_workflow
+  - first_safe_output: Project State and Brief Contract route.
+  - blocked_actions: no provider execution, upload, or global install.
+- reasoning_route:
+  - task_class: creative_workflow
+  - complexity: low
+  - risk: low
+  - reasoning_strategy: decompose
+  - selected_methods: Plan-and-Solve / Least-to-Most
+  - raw_trace_storage: forbidden
+  - stop_condition: Stop after the next required gate is known.
+- runtime_route:
+  - recommended_runtime_tier: current_runtime
+  - reasoning_effort: low
+  - provider_execution_allowed: false
+  - openai_api_allowed: false
+  - external_router_adopted_raw: false
+- loop_state:
+  - loop_id: loop-minimal-planning-001
+  - iteration: 0
+  - max_iterations: 1
+  - phase: brief
+  - stop_decision: stop_sufficient
+- loop_evidence_refs:
+  - examples/contract-fixtures/artifacts/project-state.md
+- pending_decisions:
+  - Confirm whether references are required before direction.
+- blocked_items:
+  - Brief Contract is not complete yet.
+- files_touched:
+  - `examples/contract-fixtures/artifacts/project-state.md`
+- risks:
+  - Route may expand if the user requests execution instead of planning only.
+- next_role: `brief-architect`
+- next_action: Produce a concise Brief Contract before specialist direction or prompting.
+- recovery_prompt: Read AGENTS.md, this Project State, and the completed Task Confirmation; continue with `brief-architect` and do not skip `brief_completeness`.

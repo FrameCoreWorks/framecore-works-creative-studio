@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "project_id": "replace-project-id",
+  "assets": [
+    {
+      "id": "replace-asset-id",
+      "revision": "r001",
+      "kind": "image",
+      "role": "replace-reference-role",
+      "state": "planned",
+      "locator": null,
+      "sha256": null,
+      "depends_on": [],
+      "properties": {"requested": {}, "verified": {}, "unknown": []},
+      "review": {"status": "not_reviewed"},
+      "provenance": {"source": "Unknown", "rights": "Unknown"}
+    }
+  ],
+  "deliverables": []
+}

@@ -1,0 +1,28 @@
+FrameCore Works Creative Studio
+Version 1.0.0
+Copyright 2026 FrameCore Works
+
+FrameCore Works original code, instructions and documentation are licensed under Apache-2.0. See LICENSE. Original component attribution and license notices are retained below.
+
+This package adapts creative workflow and static design methods from:
+
+FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit
+Copyright 2026 FrameCore Works
+Source commit: 55c8bf19962c7bf7fb43648637ee433d990eb2a9
+License: Apache-2.0
+
+FrameCoreWorks/static-graphic-design-creator
+Copyright 2026 FrameCore Works
+Release: v0.12.0-rc.3
+Immutable source commit: cbfc0160333d8605078c9a75508116b678f5af99
+License: Apache-2.0 (upstream/LICENSE)
+
+The Static Graphic Design Creator source bundle is included under its Apache-2.0 license. The pinned source paths and SHA-256 values are listed in skills/static-graphic-design-creator/source-provenance.json; the included upstream LICENSE governs that bundle. The Studio wrapper adapts host routing, resource structure, exact-copy authority, evidence boundaries and iteration policy. Upstream source installers and lifecycle scripts are not run as plugin maintenance instructions.
+
+Selected owner-supplied Custom GPT materials inform this release. The owner approved Apache-2.0 for their original code and instructions on 2026-09-28. Existing upstream notices remain in effect. Public source links are evidence anchors, not redistributed publications. Apache-2.0 does not grant additional rights to third-party media or trademark use.
+
+The 200-entry Event Poster Design Codes catalog and skill material are included within the pinned Static Graphic Design Creator bundle; this does not include separate original research PDFs, museum artworks, promotional images, fonts or rendered media. Attribution to upstream does not grant rights to those separate materials.
+
+The dev.29 short-form motion workbook, audio planning and rights notes, workstyle profile/schema, handoff template and reference-capture card are original Studio synthesis. Their external research sources, access dates and scope are recorded in docs/research-ledger.json and the applicable references. No third-party media is included.
+
+Workflow kit integration: FrameCore Works Creative Workflow Skill Kit v1.1.0, source commit 55c8bf19962c7bf7fb43648637ee433d990eb2a9 from https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit (Apache-2.0). All 359 tracked source files and their notices are preserved byte-for-byte at their original paths inside integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz. The expanded reference mirror under integrations/workflow-kit/upstream renames skill entrypoints to SKILL.source.md; inert pointers remain at the old SKILL.md paths. Active Studio adaptations are modified derivatives; see docs/workflow-kit-integration.md and integrations/workflow-kit/source-manifest.json.

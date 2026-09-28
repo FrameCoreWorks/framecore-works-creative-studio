@@ -1,0 +1,273 @@
+# Artifact Templates
+
+## Task Confirmation
+
+- confirmed_goal:
+- excluded_scope:
+- work_mode:
+- expected_output:
+- immediate_next_step:
+
+## Project State
+
+- workflow_blueprint:
+- active_roles:
+- completed_or_existing_artifacts:
+- last_completed_gate:
+- required_handoffs:
+- review_gates:
+- request_diagnostic:
+- reasoning_route:
+- runtime_route:
+- loop_state:
+- loop_evidence_refs:
+- pending_decisions:
+- blocked_items:
+- files_touched:
+- risks:
+- next_role:
+- next_action:
+- recovery_prompt:
+
+## Workflow Request Diagnostic
+
+- request_classification:
+- user_intent:
+- work_mode:
+- first_safe_output:
+- recommended_route:
+- missing_inputs:
+- blocked_actions:
+- next_action:
+- provider_execution_allowed:
+- upload_allowed:
+
+## Loop State
+
+- loop_id:
+- iteration:
+- max_iterations:
+- phase:
+- goal:
+- checklist_version:
+- acceptance_matrix:
+- bounded_execution_packet:
+- evidence:
+- critique:
+- root_cause:
+- repair_or_loopback_target:
+- regression_check:
+- stop_decision:
+- stop_reason:
+
+## Brief Contract
+
+- objective:
+- audience:
+- deliverables:
+- constraints:
+- exclusions:
+- unknowns:
+- acceptance_criteria:
+
+## Reference Pack
+
+- canonical_references:
+- aliases:
+- continuity_anchors:
+- suppression_rules:
+- conflicts:
+- source_notes:
+
+## Evidence Note
+
+- question:
+- sources:
+- freshness:
+- confidence:
+- limits:
+- verification_questions:
+- source_notes:
+- unresolved_unknowns:
+
+## Instruction Packet
+
+- packet_id:
+- target_role:
+- goal:
+- context:
+- exclusions:
+- required_inputs:
+- method:
+- reasoning_strategy:
+- selected_methods:
+- evidence_rules:
+- acceptance_criteria:
+- stop_condition:
+- output_schema:
+- handoff_to:
+
+## Direction Contract
+
+- thesis:
+- system:
+- constraints:
+- asset_matrix:
+- handoff_needs:
+
+## Storyboard Contract
+
+- beats:
+- scenes:
+- shot_cards:
+- timing:
+- continuity:
+
+## Board Artifact Prompt
+
+- panel_count:
+- panel_hierarchy:
+- exact_board_text:
+- shot_labels:
+- safe_margins:
+- visual_style:
+- acceptance_criteria:
+
+## Copy Pack
+
+- copy_pack_status: draft | ready_to_use
+- author_context:
+- fact_and_lock_ledger:
+- headlines:
+- body_copy:
+- VO:
+- dialogue:
+- supers:
+- CTA:
+- exact_text_locks:
+- human_voice_review:
+- copy_delivery_loop:
+
+## Prompt Pack
+
+- prompts:
+- constraints:
+- creative_prompt_contracts:
+- expected_observables:
+- acceptance_criteria:
+
+## Image Prompt Contract
+
+- model_policy:
+- exact_visible_text:
+- text_layout_contract:
+- final_prompt:
+- negative_constraints:
+- reference_roles:
+- continuity_carrier:
+- edit_delta_contract:
+- adapter_verification:
+- QA_checks:
+
+## Creative Prompt Contract
+
+- contract_schema:
+- contract_id:
+- revision:
+- content_checksum:
+- task_kind:
+- target:
+- prompt:
+- reference_roles:
+- attachment_plan:
+- text_layout_contract:
+- edit_delta_contract:
+- shot_contract:
+- continuity:
+- qa_observables:
+- readiness:
+
+## Tool Routing Plan
+
+- selected_tool:
+- approval_status:
+- required_inputs:
+- cost_note:
+- risk_note:
+- output_plan:
+- handoff_to:
+
+## Execution Manifest
+
+- tool:
+- params_summary:
+- source_assets:
+- adapter_verification:
+- execution_evidence:
+- output_files:
+- redaction_status:
+- errors:
+- next_handoff:
+
+## HyperFrames Production Brief
+
+- composition_goal:
+- scene_structure:
+- timing:
+- animation_system:
+- caption_or_overlay_plan:
+- render_constraints:
+- QA_checks:
+- handoff_to:
+
+## Asset Manifest
+
+- files:
+- versions:
+- sources:
+- checksums:
+- continuity_carriers:
+- accepted_output_refs:
+- excluded_files:
+- traceability_notes:
+
+## QA / Iteration Report
+
+- accepted_assets:
+- excluded_assets:
+- defects:
+- critical_questions:
+- verification_results:
+- prompt_contract_checks:
+- continuity_checks:
+- adapter_checks:
+- root_cause:
+- loopback_target:
+- regression_check:
+- stop_decision:
+- corrected_instruction_packets:
+- rerun_guidance:
+- allowlist:
+- stop_condition:
+
+## Delivery Manifest
+
+- final_files:
+- QA_status:
+- excluded_files:
+- source_list:
+- usage_notes:
+- known_caveats:
+
+## Self-Improvement Sufficiency Gate
+
+- objective:
+- current_evidence:
+- remaining_gap:
+- next_patch_scope:
+- expected_benefit:
+- diminishing_returns_check:
+- no_action_option:
+- decision:
+- approval_reason:
+- stop_reason:

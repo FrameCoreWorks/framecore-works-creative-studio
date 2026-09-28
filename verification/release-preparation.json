@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "target_version": "1.0.0",
+  "baseline_version": "0.1.0-dev.33",
+  "source_release_id": "pluginrel_6aba82a1164c8191851348e876111d84",
+  "date": "2026-09-28",
+  "published": false,
+  "plugin_files": 702,
+  "skill_roots": 37,
+  "changed_plugin_files": [
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-1.0.md",
+    "docs/release-history.md",
+    "plugin.json"
+  ],
+  "preserved_skill_and_source_bytes": true,
+  "preserved_complete_interface_and_starters": true,
+  "logo_sha256": "3af68fe37c368e0a87c7189c6f2f94769f3e2bbe9ed22a99b5d4f9f8de355aa4",
+  "marketplace_resolves_to_plugin": true,
+  "credential_pattern_scan": {
+    "result": "no_matches",
+    "scope": "Common credential markers in text files; not an exhaustive secret or rights audit"
+  },
+  "structural_validation": {
+    "status": "PASS",
+    "canonical": {
+      "status": "PASS",
+      "scope": "Structural and planned-contract checks only; not host behavior, media QA, or legacy test equivalence.",
+      "errors": [],
+      "warnings": [
+        "Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed."
+      ],
+      "files": 702,
+      "owners": 37,
+      "evaluations": {
+        "legacy": 114,
+        "overrides": [
+          "S18",
+          "S32",
+          "S35",
+          "S45",
+          "S50",
+          "S51"
+        ],
+        "added_variants": 4,
+        "host_scenarios": 25,
+        "knowledge_scenarios": 12,
+        "integration_scenarios": 12,
+        "total_planned": 167,
+        "executed": 0
+      }
+    },
+    "legacy": {
+      "status": "NOT_RUN",
+      "scope": "Historical validator, separate from canonical checks"
+    }
+  },
+  "not_run": [
+    "host installation",
+    "167 planned behavioral cases",
+    "paid generation",
+    "real-client pilots",
+    "fresh Node/Python regression suites"
+  ],
+  "publication_pending": [
+    "repository creation method",
+    "repository visibility",
+    "combined-package license decision",
+    "GitHub publication",
+    "hosted plugin update"
+  ]
+}

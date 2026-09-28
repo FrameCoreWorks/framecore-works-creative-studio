@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "target_duration_s": 25,
+  "shots": [
+    {
+      "id": "S01",
+      "start_s": 0,
+      "end_s": 4,
+      "timing_basis": "proposed",
+      "action": "Hand rotates to inspect the manicure.",
+      "primary_actions": 1,
+      "camera_moves": 0,
+      "entry_state": "Hand at rest.",
+      "exit_state": "Hand begins to lower.",
+      "continuity_requirement": "strict",
+      "required_refs": [
+        "REF-PRODUCT",
+        "REF-COLOUR"
+      ],
+      "bound_refs": []
+    },
+    {
+      "id": "S02",
+      "start_s": 4,
+      "end_s": 9,
+      "timing_basis": "proposed",
+      "action": "Hand settles beside the supported bottle.",
+      "primary_actions": 1,
+      "camera_moves": 0,
+      "entry_state": "Hand continues lowering.",
+      "exit_state": "Hand and bottle held clearly.",
+      "continuity_requirement": "strict",
+      "required_refs": [
+        "REF-PRODUCT",
+        "REF-COLOUR"
+      ],
+      "bound_refs": []
+    },
+    {
+      "id": "S03",
+      "start_s": 9,
+      "end_s": 14,
+      "timing_basis": "proposed",
+      "action": "One highlight passes across the fixed bottle.",
+      "primary_actions": 1,
+      "camera_moves": 0,
+      "entry_state": "Bottle still and label visible.",
+      "exit_state": "Same bottle after the light pass.",
+      "continuity_requirement": "strict",
+      "required_refs": [
+        "REF-PRODUCT",
+        "REF-COLOUR"
+      ],
+      "bound_refs": []
+    },
+    {
+      "id": "S04",
+      "start_s": 14,
+      "end_s": 19,
+      "timing_basis": "proposed",
+      "action": "Close view holds the nail colour.",
+      "primary_actions": 1,
+      "camera_moves": 0,
+      "entry_state": "Hand rests.",
+      "exit_state": "Same hand and colour.",
+      "continuity_requirement": "strict",
+      "required_refs": [
+        "REF-PRODUCT",
+        "REF-COLOUR"
+      ],
+      "bound_refs": []
+    },
+    {
+      "id": "S05",
+      "start_s": 19,
+      "end_s": 25,
+      "timing_basis": "proposed",
+      "action": "Hold final product and hand composition.",
+      "primary_actions": 1,
+      "camera_moves": 0,
+      "entry_state": "Product and hand established.",
+      "exit_state": "Stable final composition.",
+      "continuity_requirement": "strict",
+      "required_refs": [
+        "REF-PRODUCT",
+        "REF-COLOUR"
+      ],
+      "bound_refs": []
+    }
+  ],
+  "bridges": [
+    {
+      "to": "S02",
+      "type": "action_match",
+      "overlap_s": 0,
+      "relationship": "Continue the lowering action.",
+      "review_checks": [
+        "Preserve product state.",
+        "Inspect attention, direction and action phase."
+      ],
+      "from": "S01"
+    },
+    {
+      "to": "S03",
+      "type": "cut",
+      "overlap_s": 0,
+      "relationship": "Make the next product detail readable.",
+      "review_checks": [
+        "Preserve product state.",
+        "Inspect attention, direction and action phase."
+      ],
+      "from": "S02"
+    },
+    {
+      "to": "S04",
+      "type": "cut",
+      "overlap_s": 0,
+      "relationship": "Make the next product detail readable.",
+      "review_checks": [
+        "Preserve product state.",
+        "Inspect attention, direction and action phase."
+      ],
+      "from": "S03"
+    },
+    {
+      "to": "S05",
+      "type": "cut",
+      "overlap_s": 0,
+      "relationship": "Make the next product detail readable.",
+      "review_checks": [
+        "Preserve product state.",
+        "Inspect attention, direction and action phase."
+      ],
+      "from": "S04"
+    }
+  ]
+}

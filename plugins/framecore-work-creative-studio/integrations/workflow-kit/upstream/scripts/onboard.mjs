@@ -1,0 +1,246 @@
+#!/usr/bin/env node
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import readline from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
+import { assertNoSymlinkPath, backupFile, hasHelpFlag, isMainModule, printHelpAndExit, repoRoot, readJson } from "./common.mjs";
+import { assertValidFrameCoreConfig, isSafeRelativePath, loadFrameCoreConfig, localConfigOverrides } from "./config-validation.mjs";
+
+function argValue(name, fallback) {
+  const index = process.argv.indexOf(name);
+  return index >= 0 ? process.argv[index + 1] : fallback;
+}
+
+function ensureTarget(target, createTarget) {
+  if (!existsSync(target)) {
+    if (!createTarget) {
+      throw new Error("target workspace does not exist. Create or choose the workspace first, or rerun with --create-target.");
+    }
+    mkdirSync(target, { recursive: true });
+  }
+  if (!statSync(target).isDirectory()) {
+    throw new Error("target workspace is not a directory.");
+  }
+}
+
+const onboardingCopy = {
+  en: {
+    intro: `
+Creative Workflow Skill Kit setup
+
+This installer adds a structured creative workflow to your current Codex workspace.
+It was designed for creative production: graphics, video, storyboard, campaign,
+e-commerce, prompt, QA, and delivery work. It can also be adapted to other use
+cases when you profile the setup for your own work.
+
+What will be installed project-locally:
+- role-based Codex agents for planning, references, direction, prompts, QA, and delivery
+- skills and templates for briefs, reference packs, prompt packs, review gates, and manifests
+- Humanizer for natural rewriting and voice polish
+- HyperFrames workflow knowledge for coded video planning
+- a local config file with your preferences
+- a local manifest so update, repair, and uninstall know what this workflow manages
+
+What will not be configured:
+- external paid execution providers
+- provider credentials or API keys
+- private cloud delivery settings
+- automatic uploads unless you explicitly opt into that local behavior
+
+How this improves your work:
+- Codex starts by confirming the task instead of rushing into output
+- larger jobs are split into clear stages and review gates
+- prompts, assets, QA notes, and delivery summaries follow repeatable templates
+- generated or produced assets can be reviewed before delivery
+- your workspace can keep a consistent operating style across projects
+
+Hipson in this setup:
+The included Hipson Adapter is a lightweight packet layer. It helps Codex prepare
+research maps, internet mapping packets, bounded agent instructions, review packets,
+and execution packets inside this workflow.
+
+Full Hipson is separate and optional:
+https://github.com/Hipson47/Hipson.git
+
+If you connect the full Hipson system later, it can add broader repo scanning,
+delta reviews, sidecar review agents, cross-repo orchestration, CLI commands,
+and a larger Hipson knowledge base. The adapter is enough to use this workflow now.
+Onboarding only records whether you intend to connect that optional external
+extension later; it does not clone, install, or activate full Hipson.
+`,
+    continuePrompt: "Press Enter to continue setup. ",
+    profileIntro: "\nFirst, profile this workspace so the pipeline fits your work instead of staying generic.",
+    profileHelp: "These answers stay local in the generated config file and help the orchestrator choose route depth, artifacts, QA strictness, and first workflow paths.",
+    primaryWork: "What kind of work do you do?",
+    primaryUseCases: "What should this pipeline help with most?",
+    workflowStyle: "How should the pipeline fit your work style?",
+    adaptationNotes: "Any adaptation notes for non-creative or specialized use cases?",
+    responseTone: "Response tone",
+    outputDir: "Output directory for generated files and workflow reports (safe relative path, for example output/workflow)",
+    unsafeOutputDir: "Use a safe relative path inside the workspace, for example output/workflow. Do not use absolute paths, ~, URLs, or ../ segments.",
+    qaStrictness: "QA strictness",
+    chooseOne: (choices) => `Choose one of: ${choices.join(", ")}`,
+    yes: "yes",
+    no: "no",
+    chooseYesNo: "Choose yes or no.",
+    autoUpload: "Allow automatic delivery uploads if you later add a delivery integration? yes/no",
+    deliveryRequiresRequest: "Require an explicit user request before delivery/export? yes/no",
+    requireQaAllowlist: "Require QA approval before generated asset delivery? yes/no",
+    recurringReview: "Enable 24-hour workflow self-improvement review? yes/no",
+    fullHipsonHelp: "\nFull Hipson is a separate optional repository, not part of this install. It can later add broader repository scanning, change and delta reviews, sidecar review agents, cross-repo orchestration, CLI commands, and a larger Hipson knowledge base. In this workflow it acts as an optional expansion layer for deeper analysis and structured instruction packets. Choosing yes now only records future intent in the local config; it does not clone, install, activate, upload, or run anything.",
+    fullHipson: "Do you want to record intent to connect the separate full Hipson system later? yes/no",
+    roleNamesIntro: "\nAgents use neutral role IDs by default. You can keep them or rename them locally for your own workspace.",
+    defaultRoleNames: "Use default role names? yes/no",
+    roleNamesHelp: "Enter local display names. Press Enter to keep a role ID.",
+    wrote: "wrote",
+    hipsonDone: "Hipson Adapter is enabled. Full Hipson remains optional and external; onboarding did not clone, install, or activate it.",
+    nextSteps: `
+Next steps:
+1. Run install dry-run against this target workspace.
+   npm run install:dry-run -- --target <target-workspace>
+2. Review the planned writes and resolve any user-owned file conflicts.
+3. Install project-locally.
+   node scripts/install.mjs --mode project-local --target <target-workspace>
+4. Open the target project in Codex and ask it to read AGENTS.md and AGENTS.framecore.md if both exist.
+5. After verified installation, the host resolves your working language from your own conversation or explicit preference.
+6. Use docs/using-the-kit.md for starter prompts and route selection.
+`,
+  },
+};
+
+async function ask(rl, prompt, fallback) {
+  const answer = await rl.question(`${prompt} (${fallback}): `);
+  return answer.trim() || fallback;
+}
+
+async function askChoice(rl, prompt, fallback, choices, copy) {
+  while (true) {
+    const value = await ask(rl, prompt, fallback);
+    if (choices.includes(value)) return value;
+    console.log(copy.chooseOne(choices));
+  }
+}
+
+async function askSafeRelativePath(rl, prompt, fallback, copy) {
+  while (true) {
+    const value = await ask(rl, prompt, fallback);
+    if (isSafeRelativePath(value)) return value;
+    console.log(copy.unsafeOutputDir);
+  }
+}
+
+async function askYesNo(rl, prompt, fallback, copy) {
+  const fallbackText = fallback ? copy.yes : copy.no;
+  while (true) {
+    const value = (await ask(rl, prompt, fallbackText)).toLowerCase();
+    if (["yes", "y", "tak", "t"].includes(value)) return true;
+    if (["no", "n", "nie"].includes(value)) return false;
+    console.log(copy.chooseYesNo);
+  }
+}
+
+function printIntro(language) {
+  console.log(onboardingCopy[language].intro);
+}
+
+function printNextSteps(language) {
+  console.log(onboardingCopy[language].nextSteps);
+}
+
+export async function runOnboarding({ target = process.cwd(), defaults = false, createTarget = false } = {}) {
+  ensureTarget(target, createTarget);
+  const configPath = join(target, "framecore.config.json");
+  assertNoSymlinkPath(target, configPath);
+  const loaded = loadFrameCoreConfig({ target, configPath });
+  assertValidFrameCoreConfig(loaded.config);
+  const config = structuredClone(loaded.config);
+  const roles = readJson(join(repoRoot, "config/agent-naming.schema.json")).roles;
+  const onboardingLanguage = "en";
+
+  if (!defaults) {
+    const rl = readline.createInterface({ input, output });
+    const copy = onboardingCopy[onboardingLanguage];
+    printIntro(onboardingLanguage);
+    await rl.question(copy.continuePrompt);
+    console.log(copy.profileIntro);
+    console.log(copy.profileHelp);
+    config.work_profile.primary_work = await ask(rl, copy.primaryWork, config.work_profile.primary_work);
+    config.work_profile.primary_use_cases = await ask(rl, copy.primaryUseCases, config.work_profile.primary_use_cases);
+    config.work_profile.workflow_style = await ask(rl, copy.workflowStyle, config.work_profile.workflow_style);
+    config.work_profile.adaptation_notes = await ask(rl, copy.adaptationNotes, config.work_profile.adaptation_notes);
+    config.response_tone = await ask(rl, copy.responseTone, config.response_tone);
+    config.output_dir = await askSafeRelativePath(rl, copy.outputDir, config.output_dir, copy);
+    config.qa_strictness = await askChoice(rl, copy.qaStrictness, config.qa_strictness, ["light", "standard", "strict"], copy);
+    config.delivery.auto_upload = await askYesNo(rl, copy.autoUpload, config.delivery.auto_upload, copy);
+    config.delivery.delivery_requires_current_user_request = await askYesNo(rl, copy.deliveryRequiresRequest, config.delivery.delivery_requires_current_user_request, copy);
+    config.delivery.require_qa_allowlist_for_generated_assets = await askYesNo(rl, copy.requireQaAllowlist, config.delivery.require_qa_allowlist_for_generated_assets, copy);
+    config.workflow_self_improvement.recurring_review_enabled = await askYesNo(rl, copy.recurringReview, config.workflow_self_improvement.recurring_review_enabled, copy);
+    console.log(copy.fullHipsonHelp);
+    config.hipson.connect_full_repo = await askYesNo(rl, copy.fullHipson, config.hipson.connect_full_repo, copy);
+
+    console.log(copy.roleNamesIntro);
+    const defaultRoleNames = await askYesNo(rl, copy.defaultRoleNames, Object.keys(config.agent_display_names).length === 0, copy);
+    if (defaultRoleNames) {
+      for (const role of Object.keys(config.agent_display_names)) config.agent_display_names[role] = role;
+    }
+    if (!defaultRoleNames) {
+      console.log(copy.roleNamesHelp);
+      for (const role of roles) {
+        const value = await ask(rl, role, config.agent_display_names[role] ?? role);
+        if (value !== role || role in config.agent_display_names) config.agent_display_names[role] = value;
+      }
+    }
+    rl.close();
+  }
+
+  assertValidFrameCoreConfig(config);
+  assertNoSymlinkPath(target, configPath);
+  const recipeTarget = join(target, ".framecore/automation-recipes/workflow-self-improvement-review.json");
+  if (config.workflow_self_improvement.recurring_review_enabled) assertNoSymlinkPath(target, recipeTarget);
+
+  if (existsSync(configPath)) {
+    backupFile(configPath);
+  }
+
+  mkdirSync(dirname(configPath), { recursive: true });
+  const overrides = localConfigOverrides(loaded.config, config, loaded.localConfig);
+  writeFileSync(configPath, `${JSON.stringify(overrides, null, 2)}\n`);
+
+  if (config.workflow_self_improvement.recurring_review_enabled) {
+    const recipeSource = join(repoRoot, "config/automation-recipes/workflow-self-improvement-review.example.json");
+    assertNoSymlinkPath(target, recipeTarget);
+    mkdirSync(dirname(recipeTarget), { recursive: true });
+    writeFileSync(recipeTarget, readFileSync(recipeSource, "utf8"));
+  }
+
+  const outputLanguage = onboardingLanguage;
+  console.log(`${onboardingCopy[outputLanguage].wrote} ${configPath}`);
+  console.log(onboardingCopy[outputLanguage].hipsonDone);
+  printNextSteps(outputLanguage);
+  return configPath;
+}
+
+if (isMainModule(import.meta.url)) {
+  if (hasHelpFlag()) {
+    printHelpAndExit(`
+Usage:
+  node scripts/onboard.mjs [--target <path>] [--defaults] [--create-target]
+
+Purpose:
+  Create a local framecore.config.json with workspace preferences.
+
+Options:
+  --target <path>  Workspace where framecore.config.json should be written.
+  --defaults       Keep effective preferences without interactive questions.
+  --create-target  Create the target folder if it does not exist.
+
+Output:
+  Writes framecore.config.json and, when explicitly enabled, an optional report-only automation recipe.
+`);
+  }
+  await runOnboarding({
+    target: argValue("--target", process.cwd()),
+    defaults: process.argv.includes("--defaults"),
+    createTarget: process.argv.includes("--create-target"),
+  });
+}

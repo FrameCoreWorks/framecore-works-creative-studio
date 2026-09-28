@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "artifacts": {
+    "Task Confirmation": {
+      "required_fields": [
+        "confirmed_goal",
+        "excluded_scope",
+        "work_mode",
+        "expected_output",
+        "immediate_next_step"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/task-confirmation.md"
+      ]
+    },
+    "Project State": {
+      "required_fields": [
+        "workflow_blueprint",
+        "active_roles",
+        "completed_or_existing_artifacts",
+        "last_completed_gate",
+        "required_handoffs",
+        "review_gates",
+        "request_diagnostic",
+        "reasoning_route",
+        "runtime_route",
+        "loop_state",
+        "loop_evidence_refs",
+        "pending_decisions",
+        "blocked_items",
+        "files_touched",
+        "risks",
+        "next_role",
+        "next_action",
+        "recovery_prompt"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/project-state.md"
+      ]
+    },
+    "Workflow Request Diagnostic": {
+      "required_fields": [
+        "request_classification",
+        "user_intent",
+        "work_mode",
+        "first_safe_output",
+        "recommended_route",
+        "missing_inputs",
+        "blocked_actions",
+        "next_action",
+        "provider_execution_allowed",
+        "upload_allowed"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/workflow-request-diagnostic.md"
+      ]
+    },
+    "Loop State": {
+      "required_fields": [
+        "loop_id",
+        "iteration",
+        "max_iterations",
+        "phase",
+        "goal",
+        "checklist_version",
+        "acceptance_matrix",
+        "bounded_execution_packet",
+        "evidence",
+        "critique",
+        "root_cause",
+        "repair_or_loopback_target",
+        "regression_check",
+        "stop_decision",
+        "stop_reason"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/loop-state.md"
+      ]
+    },
+    "Brief Contract": {
+      "required_fields": [
+        "objective",
+        "audience",
+        "deliverables",
+        "constraints",
+        "exclusions",
+        "unknowns",
+        "acceptance_criteria"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/brief-contract.md"
+      ]
+    },
+    "Reference Pack": {
+      "required_fields": [
+        "canonical_references",
+        "aliases",
+        "continuity_anchors",
+        "suppression_rules",
+        "conflicts",
+        "source_notes"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/reference-pack.md"
+      ]
+    },
+    "Evidence Note": {
+      "required_fields": [
+        "question",
+        "sources",
+        "freshness",
+        "confidence",
+        "limits",
+        "verification_questions",
+        "source_notes",
+        "unresolved_unknowns"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/evidence-note.md"
+      ]
+    },
+    "Instruction Packet": {
+      "required_fields": [
+        "packet_id",
+        "target_role",
+        "goal",
+        "context",
+        "exclusions",
+        "required_inputs",
+        "method",
+        "reasoning_strategy",
+        "selected_methods",
+        "evidence_rules",
+        "acceptance_criteria",
+        "stop_condition",
+        "output_schema",
+        "handoff_to"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/instruction-packet.md"
+      ]
+    },
+    "Direction Contract": {
+      "required_fields": [
+        "thesis",
+        "system",
+        "constraints",
+        "asset_matrix",
+        "handoff_needs"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/direction-contract.md"
+      ]
+    },
+    "Storyboard Contract": {
+      "required_fields": [
+        "beats",
+        "scenes",
+        "shot_cards",
+        "timing",
+        "continuity"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/storyboard-contract.md"
+      ]
+    },
+    "Board Artifact Prompt": {
+      "required_fields": [
+        "panel_count",
+        "panel_hierarchy",
+        "exact_board_text",
+        "shot_labels",
+        "safe_margins",
+        "visual_style",
+        "acceptance_criteria"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/board-artifact-prompt.md"
+      ]
+    },
+    "Copy Pack": {
+      "required_fields": [
+        "copy_pack_status",
+        "author_context",
+        "fact_and_lock_ledger",
+        "headlines",
+        "body_copy",
+        "VO",
+        "dialogue",
+        "supers",
+        "CTA",
+        "exact_text_locks",
+        "human_voice_review",
+        "copy_delivery_loop"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/copy-pack.md"
+      ]
+    },
+    "Prompt Pack": {
+      "required_fields": [
+        "prompts",
+        "constraints",
+        "creative_prompt_contracts",
+        "expected_observables",
+        "acceptance_criteria"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/prompt-pack.md"
+      ]
+    },
+    "Image Prompt Contract": {
+      "required_fields": [
+        "model_policy",
+        "exact_visible_text",
+        "text_layout_contract",
+        "final_prompt",
+        "negative_constraints",
+        "reference_roles",
+        "continuity_carrier",
+        "edit_delta_contract",
+        "adapter_verification",
+        "QA_checks"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/image-prompt-contract.md"
+      ]
+    },
+    "Creative Prompt Contract": {
+      "required_fields": [
+        "contract_schema",
+        "contract_id",
+        "revision",
+        "content_checksum",
+        "task_kind",
+        "target",
+        "prompt",
+        "reference_roles",
+        "attachment_plan",
+        "text_layout_contract",
+        "edit_delta_contract",
+        "shot_contract",
+        "continuity",
+        "qa_observables",
+        "readiness"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/creative-prompt-contract.md"
+      ]
+    },
+    "Tool Routing Plan": {
+      "required_fields": [
+        "selected_tool",
+        "approval_status",
+        "required_inputs",
+        "cost_note",
+        "risk_note",
+        "output_plan",
+        "handoff_to"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/tool-routing-plan.md"
+      ]
+    },
+    "Execution Manifest": {
+      "required_fields": [
+        "tool",
+        "params_summary",
+        "source_assets",
+        "adapter_verification",
+        "execution_evidence",
+        "output_files",
+        "redaction_status",
+        "errors",
+        "next_handoff"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/execution-manifest.md"
+      ]
+    },
+    "HyperFrames Production Brief": {
+      "required_fields": [
+        "composition_goal",
+        "scene_structure",
+        "timing",
+        "animation_system",
+        "caption_or_overlay_plan",
+        "render_constraints",
+        "QA_checks",
+        "handoff_to"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/hyperframes-production-brief.md"
+      ]
+    },
+    "Asset Manifest": {
+      "required_fields": [
+        "files",
+        "versions",
+        "sources",
+        "checksums",
+        "continuity_carriers",
+        "accepted_output_refs",
+        "excluded_files",
+        "traceability_notes"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/asset-manifest.md"
+      ]
+    },
+    "QA / Iteration Report": {
+      "required_fields": [
+        "accepted_assets",
+        "excluded_assets",
+        "defects",
+        "critical_questions",
+        "verification_results",
+        "prompt_contract_checks",
+        "continuity_checks",
+        "adapter_checks",
+        "root_cause",
+        "loopback_target",
+        "regression_check",
+        "stop_decision",
+        "corrected_instruction_packets",
+        "rerun_guidance",
+        "allowlist",
+        "stop_condition"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/qa-iteration-report.md"
+      ]
+    },
+    "Delivery Manifest": {
+      "required_fields": [
+        "final_files",
+        "QA_status",
+        "excluded_files",
+        "source_list",
+        "usage_notes",
+        "known_caveats"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/delivery-manifest.md"
+      ]
+    },
+    "Self-Improvement Sufficiency Gate": {
+      "required_fields": [
+        "objective",
+        "current_evidence",
+        "remaining_gap",
+        "next_patch_scope",
+        "expected_benefit",
+        "diminishing_returns_check",
+        "no_action_option",
+        "decision",
+        "approval_reason",
+        "stop_reason"
+      ],
+      "example_paths": [
+        "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/self-improvement-sufficiency-gate.md"
+      ]
+    }
+  },
+  "path_base": "plugin_root",
+  "scope": "Required planning sections; examples are pinned source examples, not active execution instructions. Scale fields to task stage per Studio integration authority."
+}

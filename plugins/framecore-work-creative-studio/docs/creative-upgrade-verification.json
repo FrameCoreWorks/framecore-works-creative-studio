@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "candidate_version": "0.1.0-dev.31",
+  "date": "2026-09-28",
+  "scope": "Local package, declared-data checks and two fresh text-use exercises. Not an installed-host test, rendered-media QA or provider integration test.",
+  "checks": [
+    {
+      "name": "canonical_package_validation",
+      "result": "PASS",
+      "owners": 37,
+      "source_skill_mappings": 35,
+      "planned_fixtures": 167,
+      "fixture_model_executions": 0
+    },
+    {
+      "name": "node_regression_suite",
+      "command": "node --test tests/studio.test.mjs tests/workflow-kit.test.mjs tests/creative-upgrade.test.mjs",
+      "passed": 43,
+      "failed": 0
+    },
+    {
+      "name": "asset_helper_suite",
+      "command": "python3 -B tests/asset_manifest_test.py",
+      "passed": 23,
+      "failed": 0
+    },
+    {
+      "name": "original_workflow_kit_archive",
+      "result": "PASS",
+      "files": 359,
+      "proof": "Every original path, size and SHA-256 matches source-manifest; archive member bytes were read in a regression test."
+    },
+    {
+      "name": "original_static_design_bundle",
+      "result": "PASS",
+      "files": 34,
+      "proof": "Canonical validator checks all pinned file digests."
+    }
+  ],
+  "fresh_use": [
+    {
+      "id": "CU01",
+      "request": "Polish Quick: three short red nail-colour reel ideas with human gestures; previous satin/camera ideas rejected because nothing happened; no web, boards or prompts yet.",
+      "observed_response": "Three distinct events: finish the last nail despite a doorbell; lend the bottle after a playful promise; catch and protect a bottle approaching a table edge. Stated future product-reference constraint.",
+      "checks_passed": [
+        "three short event-based directions",
+        "applied the explained correction without another intake question",
+        "no web browsing or full downstream pack",
+        "did not claim to inspect the absent product reference"
+      ],
+      "new_resource_used": "skills/commercial-video-campaign-director/references/creative-decision-library.md",
+      "quality_limit": "No user selection or render. These outputs demonstrate bounded instruction use, not that the user will like the ideas."
+    },
+    {
+      "id": "CU02",
+      "request": "Repair only an A/B cut: closed bottle moving right becomes open in next view from across the axis, moving left; no elapsed time, strict product, one front reference described, no clips or generator, no web.",
+      "observed_response": "Kept camera on the same side, carried rightward movement and grip, kept bottle closed at entry to B, moved opening to a visible later action; requested missing views only for visible unknown surfaces and real end-of-A carrier.",
+      "checks_passed": [
+        "identified product-state and screen-direction discontinuities from description",
+        "preserved strict requirement and marked execution blocked",
+        "labelled timing as proposed and media uninspected",
+        "kept response focused on the affected transition"
+      ],
+      "new_resource_used": "skills/storyboard-sequence-architect/references/shot-adjacency-workbook.md",
+      "quality_limit": "No film inspected and no identity-preserving generation performed."
+    }
+  ],
+  "discovery": {
+    "observed_issue": "dev.30 host catalog listed canonical and archived source skill entrypoints",
+    "candidate_repair": "35 archived SKILL.md pointers have no skill frontmatter; original bytes are preserved in SKILL.source.md and exact source archive",
+    "local_recursive_scan": "PASS",
+    "installed_host_refresh": "not_tested_in_this_report"
+  },
+  "not_run": [
+    "167 planned model-evaluation fixtures",
+    "real client project pilot",
+    "paid generation or provider calls",
+    "media timing, visual continuity or audio quality measurement",
+    "cross-host installation and memory synchronization"
+  ]
+}

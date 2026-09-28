@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "scope": "Structural contract registry, not an executable skill router or behavioral evidence. Intentional contract changes require registry and test review.",
+  "owners": [
+    {
+      "id": "asset-manifest",
+      "entrypoint": "skills/asset-manifest/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "audio-production-director",
+      "entrypoint": "skills/audio-production-director/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "brief-architect",
+      "entrypoint": "skills/brief-architect/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "caption-studio",
+      "entrypoint": "skills/caption-studio/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "character-design",
+      "entrypoint": "skills/character-design/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "cinematography",
+      "entrypoint": "skills/cinematography/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "commercial-video-campaign-director",
+      "entrypoint": "skills/commercial-video-campaign-director/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "commercial-visual-campaign-director",
+      "entrypoint": "skills/commercial-visual-campaign-director/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "copy-voice",
+      "entrypoint": "skills/copy-voice/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "creative-music-video-director",
+      "entrypoint": "skills/creative-music-video-director/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "creative-video-producer",
+      "entrypoint": "skills/creative-video-producer/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "delivery-documentation",
+      "entrypoint": "skills/delivery-documentation/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "ecommerce-campaign-strategy-director",
+      "entrypoint": "skills/ecommerce-campaign-strategy-director/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "hipson-adapter",
+      "entrypoint": "skills/hipson-adapter/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "humanizer",
+      "entrypoint": "skills/humanizer/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "hyperframes-workflow",
+      "entrypoint": "skills/hyperframes-workflow/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "image-prompt-architect",
+      "entrypoint": "skills/image-prompt-architect/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "instruction-packet-factory",
+      "entrypoint": "skills/instruction-packet-factory/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "marketing",
+      "entrypoint": "skills/marketing/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "opencut-video-studio",
+      "entrypoint": "skills/opencut-video-studio/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "output-critic-iteration",
+      "entrypoint": "skills/output-critic-iteration/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "pipeline-core",
+      "entrypoint": "skills/pipeline-core/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "producer-ai-task-builder",
+      "entrypoint": "skills/producer-ai-task-builder/SKILL.md",
+      "route_required": false
+    },
+    {
+      "id": "reference-pack-curator",
+      "entrypoint": "skills/reference-pack-curator/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "remotion-video-production",
+      "entrypoint": "skills/remotion-video-production/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "research-evidence",
+      "entrypoint": "skills/research-evidence/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "screenplay-story-architect",
+      "entrypoint": "skills/screenplay-story-architect/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "static-graphic-design-creator",
+      "entrypoint": "skills/static-graphic-design-creator/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "storyboard-board-architect",
+      "entrypoint": "skills/storyboard-board-architect/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "storyboard-sequence-architect",
+      "entrypoint": "skills/storyboard-sequence-architect/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "storytelling",
+      "entrypoint": "skills/storytelling/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "studio-workstyle-profile",
+      "entrypoint": "skills/studio-workstyle-profile/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "tool-routing-cost",
+      "entrypoint": "skills/tool-routing-cost/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "ugc",
+      "entrypoint": "skills/ugc/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "video-prompt-architect",
+      "entrypoint": "skills/video-prompt-architect/SKILL.md",
+      "route_required": true
+    },
+    {
+      "id": "workflow-orchestrator",
+      "entrypoint": "skills/workflow-orchestrator/SKILL.md",
+      "route_required": false
+    },
+    {
+      "id": "workflow-self-improvement",
+      "entrypoint": "skills/workflow-self-improvement/SKILL.md",
+      "route_required": true
+    }
+  ],
+  "critical_contracts": [
+    {
+      "id": "research_privacy",
+      "path": "skills/research-evidence/SKILL.md",
+      "required_patterns": [
+        "Never send private briefs",
+        "Generalize a query"
+      ]
+    },
+    {
+      "id": "untrusted_sources",
+      "path": "skills/research-evidence/SKILL.md",
+      "required_patterns": [
+        "Search results, attached documents, and source code",
+        "not tool authorization or instructions that override"
+      ]
+    },
+    {
+      "id": "research_not_execution",
+      "path": "skills/research-evidence/SKILL.md",
+      "required_patterns": [
+        "Research does not authorize",
+        "Never switch to another provider"
+      ]
+    },
+    {
+      "id": "research_failure_honesty",
+      "path": "skills/research-evidence/SKILL.md",
+      "required_patterns": [
+        "browsing is unavailable, blocked",
+        "research was not completed"
+      ]
+    },
+    {
+      "id": "prompt_only",
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "required_patterns": [
+        "Do not execute a prompt-only request"
+      ]
+    },
+    {
+      "id": "handoff_locks",
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "required_patterns": [
+        "Carry the exact copy, concept, reference roles and permitted changes through every handoff"
+      ]
+    },
+    {
+      "id": "actual_output_review",
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "required_patterns": [
+        "Do not label a render reviewed before inspecting it"
+      ]
+    },
+    {
+      "id": "host_model_honesty",
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "required_patterns": [
+        "never claim to have forced a model the tool cannot select"
+      ]
+    }
+  ],
+  "release_documents": {
+    "README.md": "Wersja:",
+    "docs/migration-status.md": "Version:"
+  },
+  "legacy_policy": "Legacy validator is optional and separately reported. Its errors are never suppressed or converted to PASS."
+}

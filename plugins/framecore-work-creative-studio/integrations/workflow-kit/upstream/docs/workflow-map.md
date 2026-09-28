@@ -1,0 +1,147 @@
+# Workflow Map
+
+## Purpose
+
+This map is the canonical relationship view for how the public Codex workflow pieces in this kit fit together: blueprints, role agents, supporting skills, artifacts, gates, handoffs, examples, and optional adapter knowledge. It is not the source of truth for raw counts.
+
+Use this document when you need the full mental model before installing, customizing, reviewing, or extending the kit. For the raw inventory, see [Included Agents And Skills](included-agents-and-skills.md). For detailed role responsibilities, see [Agent Roster](agent-roster.md).
+
+## System Layers
+
+| Layer | Source | What it owns |
+| --- | --- | --- |
+| Project instructions | `AGENTS.template.md` | Installed workspace behavior, safety boundaries, local workflow entry point. |
+| Role agents | `.codex/agents/*.toml.template` | Codex custom-agent role files rendered into the target workspace. |
+| Workflow skills | `.agents/skills/*/SKILL.md` | Reusable contracts for when to act, required inputs, outputs, guardrails, and handoff. |
+| Pipeline core | `.agents/skills/pipeline-core/` | Role routes, role-to-skill mapping, gates, handoffs, Project State, Loop Protocol, artifact templates, reasoning routes, generator-specific prompt formats, Creative Prompt Contracts, continuity carriers, and safety policy. |
+| Public examples | `examples/*/workflow.json` | Machine-checked route examples for common workflow shapes. |
+| Install lifecycle | `scripts/install.mjs`, `scripts/guided-install.mjs`, `scripts/doctor.mjs` | Project-local install, onboarding, dry-run, update, repair, uninstall, and diagnostics. |
+| Bundle readiness | `config/bundle-map.json`, `docs/bundle-readiness.md` | Future package boundaries without changing current install behavior. |
+
+## Blueprint Map
+
+| Blueprint | Primary route | Main artifacts | Main gates | Example |
+| --- | --- | --- | --- | --- |
+| Minimal planning route | `intent-confirmation` -> `workflow-orchestrator` -> `brief-architect` -> `delivery-documentation` | Task Confirmation, Project State, Brief Contract, Delivery Manifest | `intent_lock`, `workflow_route`, `brief_completeness`, `delivery_fit` | [Minimal Workflow](../examples/minimal-workflow/README.md) |
+| Static campaign or e-commerce graphic | intent, route, brief, optional ecommerce strategy, references, static direction, copy, image prompting, QA, delivery | Ecommerce Campaign Strategy Pack when needed, Brief Contract, Reference Pack, Direction Contract, Copy Pack, Prompt Pack, Creative Prompt Contract when strict controls apply, QA / Iteration Report | intent, route, brief, reference, direction, copy, prompt, QA, delivery gates | [Static Campaign](../examples/static-campaign/README.md), [Ecommerce Product Visual](../examples/ecommerce-product-visual/README.md) |
+| Video campaign or storyboard | intent, route, brief, references, optional screenplay or producer layer, motion direction, storyboard, copy, video prompting, QA, delivery | Screenplay Development Pack or Creative Video Production Pack when needed, Direction Contract, Storyboard Contract, Copy Pack, Prompt Pack, Creative Prompt Contract when strict controls apply, QA / Iteration Report | intent, route, brief, reference, direction, structure, copy, prompt, QA, delivery gates | [Video Storyboard](../examples/video-storyboard/README.md) |
+| Storyboard board artifact | video storyboard route plus `storyboard-board-architect` and image prompting | Storyboard Contract, Board Artifact Prompt, Image Prompt Contract, QA / Iteration Report | structure, storyboard board, promptability, QA, delivery gates | [Storyboard Board](../examples/storyboard-board/README.md) |
+| HyperFrames coded video | intent, route, brief, references, motion, storyboard, copy, HyperFrames producer, asset manifest, QA, delivery | HyperFrames Production Brief, Asset Manifest, QA / Iteration Report, Delivery Manifest | execution manifest, asset manifest, QA, delivery gates | [HyperFrames Video](../examples/hyperframes-video/README.md) |
+| Remotion coded video | intent, route, brief, references, motion, storyboard, copy, execution manifest supported by `remotion-video-production`, asset manifest, QA, delivery | Remotion Production Brief, Execution Manifest, Asset Manifest, QA / Iteration Report, Delivery Manifest | execution manifest, asset manifest, QA, delivery gates | Skill template and project-local implementation route |
+| Prompt pack without execution | intent, route, brief, optional references/direction/copy, image or video prompting, QA, delivery | Prompt Pack, Image Prompt Contract when static image text matters, QA / Iteration Report | promptability, QA, delivery gates | [Image Prompt Pack](../examples/image-prompt-pack/README.md), [No External Execution Mode](../examples/no-provider-mode/README.md) |
+| Document or text workflow | intent, route, brief, optional evidence, copy, QA when a draft exists, delivery | Brief Contract, Evidence Note, Copy Pack, Delivery Manifest | brief, evidence, copy, QA when needed, delivery gates | [Document Workflow](../examples/document-workflow/README.md) |
+| Hipson adapter packet workflow | document workflow plus `instruction-packet-factory` for bounded packet creation | Brief Contract, Instruction Packet, Evidence Note, Copy Pack, Delivery Manifest | brief, instruction packet, evidence, copy, delivery gates | [Hipson Adapter Packets](../examples/hipson-adapter-packets/README.md) |
+| QA and delivery only | intent, route, asset manifest, QA, delivery | Asset Manifest, QA / Iteration Report, Delivery Manifest | asset manifest, QA, delivery gates | [QA And Delivery Review](../examples/qa-delivery-review/README.md) |
+| Workflow self-improvement review | intent, route, workflow-self-improvement, optional QA, user approval before mutation | Improvement Log, Change Proposal, Self-Improvement Sufficiency Gate | workflow route, proposal review, sufficiency gate | [Workflow Self-Improvement](workflow-self-improvement.md) |
+
+## Role To Skill Support Map
+
+The machine-checked source of truth is [Role To Skill Map](../.agents/skills/pipeline-core/references/role-skill-map.md). Some roles have a same-named skill. Other roles are supported by broader specialist skills. This is intentional: role agents own handoff state, while skills provide reusable domain contracts.
+
+If a skill appears here but does not appear as a role-agent template, treat it as support knowledge for the listed role, not as an orphaned agent. If a role appears in a handoff but no same-named ChatGPT skill exists, resolve it through the Role To Skill Map as a temporary responsibility, not as a missing install. Routing still goes through the role IDs in [Agent Roster](agent-roster.md) and [Handoff Matrix](../.agents/skills/pipeline-core/references/handoff-matrix.md).
+
+| Role agent | Supporting skill or knowledge | Primary artifact | Review gate |
+| --- | --- | --- | --- |
+| `intent-confirmation` | `pipeline-core`, `workflow-orchestrator` | Task Confirmation | `intent_lock` |
+| `workflow-orchestrator` | `workflow-orchestrator`, `pipeline-core` | Project State, Workflow Request Diagnostic | `workflow_route`, `request_diagnostic_fit` |
+| `brief-architect` | `brief-architect` | Brief Contract | `brief_completeness` |
+| `reference-curator` | `reference-pack-curator`, `hipson-adapter` when a packet helps | Reference Pack | `reference_authority_fit` |
+| `research-evidence` | `research-evidence`, `hipson-adapter`, `instruction-packet-factory`, `pipeline-core` | Evidence Note | `evidence_fit` |
+| `instruction-packet-factory` | `instruction-packet-factory`, `hipson-adapter` | Instruction Packet | `instruction_packet_fit` |
+| `static-direction` | `ecommerce-campaign-strategy-director`, `commercial-visual-campaign-director`, `marketing`, `character-design`, `storytelling` | Direction Contract | `direction_fit` |
+| `motion-direction` | `ecommerce-campaign-strategy-director`, `creative-video-producer`, `commercial-video-campaign-director`, `cinematography`, `storytelling`, `ugc` | Motion Direction Contract | `direction_fit` |
+| `music-video-direction` | `creative-music-video-director`, `producer-ai-task-builder`, `cinematography`, `storytelling` | Music Video Direction Contract | `direction_fit` |
+| `storyboard-architect` | `screenplay-story-architect`, `creative-video-producer`, `storyboard-director`, `cinematography`, `storytelling` | Storyboard Contract | `structure_fit` |
+| `storyboard-board-architect` | `storyboard-board-architect`, `image-prompt-architect` | Board Artifact Prompt | `storyboard_board_fit` |
+| `copy-voice` | `copy-voice`, `humanizer`, `caption-studio`, `producer-ai-task-builder`, `marketing`, `ugc` | Copy Pack | `copy_fit` |
+| `image-prompting` | `image-prompt-architect`, `pipeline-core` text-image policy | Prompt Pack or Image Prompt Contract | `promptability_fit` |
+| `video-prompting` | `video-prompt-architect`, `creative-video-producer`, `producer-ai-task-builder`, `cinematography`, `storytelling` | Video Prompt Pack | `promptability_fit` |
+| `tool-routing-cost` | `tool-routing-cost`, `pipeline-core`, provider-neutral policy docs | Tool Routing Plan | `schema_pricing_fit` |
+| `execution-manifest` | `creative-video-producer`, `opencut-video-studio`, `remotion-video-production`, `asset-manifest`, `pipeline-core` | Execution Manifest, local Edit Pack, or Remotion Production Brief | `execution_manifest_fit` |
+| `hyperframes-producer` | `hyperframes-workflow` | HyperFrames Production Brief | `execution_manifest_fit` |
+| `asset-manifest` | `asset-manifest` | Asset Manifest | `asset_manifest_fit` |
+| `qa-iteration` | `output-critic-iteration`, `creative-video-producer`, `caption-studio`, `opencut-video-studio`, `pipeline-core` | QA / Iteration Report | `post_execution_fit` |
+| `delivery-documentation` | `delivery-documentation`, `humanizer` when copy polish matters | Delivery Manifest | `delivery_fit` |
+
+## Intentional Name Mismatches
+
+| Skill | Primary role it supports | Reason |
+| --- | --- | --- |
+| `output-critic-iteration` | `qa-iteration` | The role owns the QA handoff state; the skill provides reusable critique, correction, and iteration rules. |
+| `storyboard-director` | `storyboard-architect` | The role owns the checked storyboard artifact; the skill provides story, beat, scene, and continuity methods. |
+| `commercial-visual-campaign-director` | `static-direction` | The role stays neutral; the skill adds commercial static campaign direction. |
+| `commercial-video-campaign-director` | `motion-direction` | The role stays neutral; the skill adds commercial video direction. |
+| `creative-music-video-director` | `music-video-direction` | The role stays neutral; the skill adds music-video direction. |
+| `ecommerce-campaign-strategy-director` | `workflow-orchestrator`, `static-direction`, and `motion-direction` | The skill adds product, offer, audience, asset-matrix, claim, and testing strategy before creative direction. |
+| `screenplay-story-architect` | `storyboard-architect` and `motion-direction` | The skill adds story thesis, treatment, sequence, scene, dialogue, coverage, and rewrite methods before shot planning. |
+| `creative-video-producer` | `workflow-orchestrator` and several production roles | The skill coordinates a complete video package while each role retains ownership of its checked artifact. |
+| `caption-studio` | `copy-voice`, `qa-iteration`, and local editing handoffs | The skill adds timing, style, safe-zone, render-handoff, and caption QA rules without becoming a renderer. |
+| `opencut-video-studio` | `execution-manifest`, `asset-manifest`, and `qa-iteration` | The skill creates a local Edit Pack without assuming OpenCut automation or replacing workflow governance. |
+| `remotion-video-production` | `execution-manifest`, `motion-direction`, `storyboard-architect`, `asset-manifest`, and `qa-iteration` | The skill adds deterministic React/TypeScript composition planning and implementation without creating a permanent role or enabling hosted rendering. |
+| `producer-ai-task-builder` | `music-video-direction`, `copy-voice`, and `video-prompting` | The skill creates text-only music and music-video packets without bundling provider execution. |
+| `marketing`, `ugc`, `storytelling`, `character-design`, `cinematography` | Multiple creative roles | These are support contracts used when the route needs strategy, script, narrative, character, or cinematic depth. |
+
+## Knowledge Packs
+
+| Knowledge pack | Source | Use when |
+| --- | --- | --- |
+| Humanizer | `.agents/skills/humanizer/`, `pipeline-core/references/humanizer-routing.md` | Text needs natural voice, tone adaptation, or final wording polish while preserving locked facts. |
+| HyperFrames | `.agents/skills/hyperframes-workflow/`, `docs/hyperframes.md` | A coded-video or HTML-to-video plan needs scenes, implementation prompting, timing, animation guidance, captions, render QA, or manifest planning. |
+| Remotion video production | `.agents/skills/remotion-video-production/` | A deterministic React/TypeScript video needs composition architecture, frame timing, reusable props, local render planning, or render QA. |
+| Hipson Adapter | `.agents/skills/hipson-adapter/`, `docs/hipson-integration.md` | A task needs research maps, internet mapping packets, review packets, or bounded instruction packets without installing full Hipson. |
+| Creative video production | `.agents/skills/creative-video-producer/`, `.agents/skills/screenplay-story-architect/`, `.agents/skills/caption-studio/`, `.agents/skills/opencut-video-studio/`, `.agents/skills/remotion-video-production/` | A video request needs story development, coordinated production, detailed captions, a local timeline Edit Pack, or a deterministic coded-video composition. |
+| Ecommerce strategy | `.agents/skills/ecommerce-campaign-strategy-director/` | Product and offer truth need audience/JTBD, asset matrices, claim ledgers, creative angles, and controlled test plans before prompting. |
+| Memory Cache | `templates/Memory Cache/`, `docs/memory-cache.md`, `docs/context-folder.md` | Long Codex sessions need local state, recovery prompts, decision logs, and context folding. |
+| Provider governance | `config/provider-neutral-policy.json`, `config/text-image-policy.json`, `docs/provider-neutral-boundary.md` | A workflow touches execution planning, visible text in graphics, OpenAI API boundaries, uploads, or external-provider safety. |
+| Prompt format and continuity | `.agents/skills/pipeline-core/references/prompt-format-and-continuity.md` | An image, video, or storyboard route needs a generator-specific field shape, independent-unit classification, or a real continuity carrier for strict identity, product, wardrobe, location, or screen-direction locks. |
+| Creative prompting standard | `.agents/skills/pipeline-core/references/creative-prompting-standard.md`, `.agents/skills/pipeline-core/templates/creative-prompt-contract.md` | An image, edit, or video route needs a revisioned prompt contract, exact text layout, bounded edit delta, reference-role ownership, adapter verification, rewrite-forward, or execution evidence. |
+
+## Loop Protocol
+
+Nontrivial work that needs QA, correction, validation, delivery readiness,
+workflow changes, or evidence-backed iteration uses [Loop Protocol](loop-protocol.md):
+
+`brief -> checklist -> execute -> evaluate -> critique -> repair -> repeat -> stop`
+
+The canonical gate is `loop_control_fit`. The workflow-orchestrator owns loop
+state and stop decisions. The QA role owns evidence-backed critique, root cause,
+loopback target, regression check, and stop recommendation when QA applies.
+
+Loop Protocol is bounded. It must end with `stop_sufficient`, `patch_one_gap`,
+`ask_user`, or `blocked`; it is not permission for providers, uploads, pushes,
+global installs, destructive commands, or endless polish.
+
+## Handoff Discipline
+
+The workflow should move through the smallest route that preserves required artifacts and gates. A later role should not invent missing upstream data. If required fields are absent, route back to the role that owns the missing artifact.
+
+Common loopbacks:
+
+- Missing audience, deliverables, constraints, or acceptance criteria: return to `brief-architect`.
+- Weak or conflicting references: return to `reference-curator`.
+- Factual uncertainty or claim risk: route to `research-evidence`.
+- Weak direction or unclear visual system: return to `static-direction`, `motion-direction`, or `music-video-direction`.
+- Missing timing, shot continuity, or panel logic: return to `storyboard-architect` or `storyboard-board-architect`.
+- Prompt lacks observable success criteria: return to `image-prompting` or `video-prompting`.
+- Output fails QA: return to the source role instead of hiding the issue in delivery notes.
+
+## Public Additions Checklist
+
+When adding a new role, skill, workflow blueprint, or example:
+
+1. Add or update the source skill or role file.
+2. Add the artifact owner to [Gate Registry](../.agents/skills/pipeline-core/references/gate-registry.md) when a new gate is required.
+3. Add allowed handoffs to [Handoff Matrix](../.agents/skills/pipeline-core/references/handoff-matrix.md).
+4. Add or update artifact fields in [Artifact Schemas](artifact-schemas.md) and `config/artifact-schemas.json`.
+5. Add a checked example under `examples/` when the behavior is user-facing.
+6. Add the bundle boundary in `config/bundle-map.json`.
+7. Run `npm run check` before committing.
+
+## Related Docs
+
+- [Included Agents And Skills](included-agents-and-skills.md)
+- [Agent Roster](agent-roster.md)
+- [Workflow Stages](workflow-stages.md)
+- [Artifact Schemas](artifact-schemas.md)
+- [Example Authoring](example-authoring.md)
+- [Bundle Readiness](bundle-readiness.md)

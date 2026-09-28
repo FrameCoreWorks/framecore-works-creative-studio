@@ -1,0 +1,188 @@
+# Release Guide
+
+## Purpose
+
+This project uses GitHub releases as the public release record. npm publication is optional and not required for project-local installation.
+
+## Release Principles
+
+- Release only reusable, provider-neutral workflow assets.
+- Do not bundle credentials, private URLs, private project context, local machine paths, generated outputs, or user-specific configs.
+- Do not add external paid execution clients, provider CLIs, endpoint catalogs, or API-key setup flows to the kit.
+- Keep role source names neutral. Local display names belong in user-generated config, not in repo source.
+- Keep release checks read-only unless a maintainer explicitly performs the version bump, changelog update, commit, tag, and GitHub release.
+
+## Pre-Release Checklist
+
+1. Confirm the version target and release scope.
+2. For v1.0, complete [v1.0 Readiness](v1-readiness.md).
+3. Update `package.json` version when the release changes the package version.
+4. Update `CHANGELOG.md` with user-visible changes, compatibility notes, and migration notes.
+5. Run the full local release check:
+
+   ```bash
+   npm run release:check
+   ```
+
+   For a tag-specific local check before creating a GitHub release:
+
+   ```bash
+   npm run release:readiness -- --tag v1.0.0
+   ```
+
+6. Audit package contents:
+
+   ```bash
+   npm run package:audit
+   ```
+
+7. Inspect package contents when you want the raw npm dry-run list:
+
+   ```bash
+   npm run package:list
+   ```
+
+8. Confirm the package contains only intended source, docs, examples, scripts, tests, and config files.
+9. Confirm the privacy audit passes without allowlisting sensitive content.
+10. Confirm the text-bearing image policy still references native Codex/ChatGPT image generation powered by GPT Image 2.
+11. Confirm Hipson remains a lightweight adapter unless a user explicitly connects the separate full Hipson repo.
+12. Confirm public examples include validated `workflow.json` manifests.
+13. Confirm workflow self-improvement remains explicit-only and proposal-only.
+14. Confirm [Provider-Neutral Boundary](provider-neutral-boundary.md) still matches `config/provider-neutral-policy.json`.
+15. Validate native ChatGPT skill sources:
+
+   ```bash
+   npm run chatgpt:skills:check
+   ```
+
+16. When the release changes ChatGPT-facing skill sources, regenerate and inspect the checked-in source manifest:
+
+   ```bash
+   npm run chatgpt:skills:sources:update
+   ```
+
+## Required Checks
+
+Run these checks before tagging or publishing release notes:
+
+```bash
+npm run audit:privacy
+npm run secret:scan
+npm run syntax:check
+npm run validate
+npm run agent:check
+npm run chatgpt:skills:check
+npm test
+npm run check
+npm run smoke:install
+npm run package:audit
+npm run package:list
+npm run release:readiness
+npm run release:check
+```
+
+The release-check workflow must remain non-publishing, read-only, and secret-free. It should verify the same local gate a maintainer runs before release.
+
+`secret:scan` is a dependency-free equivalent to a focused secret scanner. It rejects credential-shaped values, private key blocks, secret-bearing filenames, common platform tokens, JWT-like values, private cloud references, and symlinks without printing secret values.
+
+`syntax:check` is a dependency-free JavaScript module check. It runs `node --check` against repository `.mjs` files so CI catches malformed scripts without adding lint or formatting dependencies.
+
+`agent:check` is a deterministic compliance fixture, not a live model evaluation. It verifies the installed AGENTS first move, intent confirmation handoff, workflow-orchestrator handoff, Task Confirmation fields, Project State fields, safety rules, and recovery prompt inside a temporary project-local target.
+
+`smoke:install` creates a temporary target, runs default onboarding through the guided project-local installer, verifies expected installed files and manifest hashes, runs doctor, and previews uninstall without removing files.
+
+`release:readiness` checks package metadata, required package file roots, changelog coverage for the package version, and optional release tag alignment. In GitHub tag workflows, the tag must match `v` plus the `package.json` version.
+
+`chatgpt:skills:check` validates `CHATGPT_INSTALL.md`, all 35 public skill folders, native UI metadata, install profiles, raw source URLs, and checked-in SHA-256 hashes without modifying source files.
+
+The path-sensitive `cross-platform` workflow runs automatically for installer, test, config, package, and workflow changes, and can still be run manually before a public version tag. The default `validate` workflow stays Linux-only for fast push feedback; cross-platform checks cover Ubuntu, macOS, Windows, tests, smoke install, and package audit without making documentation-only commits depend on all hosted runner families.
+
+## Package Contents Review
+
+Review the `npm run package:audit` result before each release. The package should contain source skills, agent templates, config examples, docs, examples, scripts, and tests. It should not contain local configs, generated outputs, caches, backups, machine metadata, archives, logs, or user-specific files.
+
+`package:audit` parses `npm pack --json --dry-run` with a temporary npm cache and rejects unexpected package roots or forbidden package file patterns. Use `npm run package:list` when you want to manually inspect the raw npm file list with the same temporary-cache behavior. Plain `npm pack --dry-run` is optional and only useful when you intentionally want to test your local npm cache as well.
+
+Example folders should include their `workflow.json` manifests. These are source fixtures used by validation, not generated outputs.
+
+## Native ChatGPT Repository Sources
+
+ChatGPT creates native skills from checked-in repository sources. Before publishing a GitHub release that changes those sources:
+
+1. Run `npm run chatgpt:skills:sources:update`.
+2. Confirm `config/chatgpt-skill-sources.json` contains all 35 skills and only intended files.
+3. Run `npm run chatgpt:skills:check`.
+4. Paste the README ChatGPT setup prompt into a compatible ChatGPT account.
+5. Verify the ChatGPT Work entry, leading `@skill-creator` mention, English installation and post-install language detection, profile approval, batch and guided conversational approval modes, separate native skill creation, and truthful final statuses.
+
+Do not commit personal Workflow Profiles, conversations, ChatGPT account state, local manifests, private references, or any source not declared for the public skills.
+
+## Privacy And Provider-Neutral Gate
+
+Stop the release if the audit finds secrets, credentials, private URLs, private project context, local paths, private cloud IDs, generated confidential output, or user-specific onboarding data.
+
+Stop the release if the package introduces bundled external paid execution clients, provider CLIs, endpoint catalogs, API-key setup flows, or provider-specific activation paths. The kit must stay provider-neutral and project-local by default.
+
+## Halt Conditions
+
+Do not release when any of these are true:
+
+- `npm run release:check` fails.
+- Package contents include unintended files.
+- The changelog does not describe user-visible behavior changes.
+- Install, update, repair, uninstall, onboarding, privacy, or validation behavior changed without matching docs.
+- A sensitive report is unresolved.
+- GitHub Actions release-check is red or has not run for the tag.
+
+## Maintainer Sign-Off
+
+Before creating a GitHub release, confirm:
+
+- The tag matches `package.json` version.
+- `CHANGELOG.md` has the final release entry.
+- README, Quickstart, Compatibility, Roadmap, Troubleshooting, Security, Support, and this Release Guide still match current behavior.
+- Repository settings match the current maintenance mode documented in [Repository Settings](repository-settings.md).
+- The release notes do not include sensitive data.
+- No npm publication or registry upload is happening from this release workflow.
+
+## Tag And Release Flow
+
+Use semantic version tags:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+After the tag workflow passes, create a GitHub release from the tag. Release notes should include:
+
+- summary of workflow changes
+- install, update, repair, or uninstall compatibility notes
+- onboarding changes
+- native ChatGPT repository setup or compatibility notes
+- validation or privacy audit changes
+- known limitations
+- links to `README.md`, `docs/quickstart.md`, and `docs/troubleshooting.md`
+
+Use [Release Notes Template](release-notes-template.md) to keep release notes consistent.
+
+Do not paste secrets, private URLs, local paths, private project names, or generated confidential outputs into release notes.
+
+## Release Check Workflow
+
+`.github/workflows/release-check.yml` is intentionally non-publishing. It runs on manual dispatch and version tags, uses read-only permissions, runs validation and packaging checks, and does not require repository secrets.
+
+If a future release process publishes to a registry, add that in a separate workflow with explicit maintainer review and documentation.
+
+`.github/workflows/cross-platform.yml` is intentionally non-publishing and secret-free. It runs on path-sensitive changes plus manual dispatch, and it is a smoke check for operating system portability, not a publishing or deployment workflow.
+
+## Rollback
+
+If a release is found to contain sensitive content:
+
+1. Remove or delete the public release artifact.
+2. Revoke any exposed credentials outside this repo.
+3. Remove sensitive content from source history according to the repository security policy.
+4. Publish a corrected release with a new patch version.
+
+If a release only has a workflow or documentation defect, publish a patch release after `npm run release:check` passes.

@@ -1,0 +1,13 @@
+.DS_Store
+._*
+node_modules/
+.framecore/tmp/
+.framecore/
+.codex/agents/*.toml
+coverage/
+*.log
+framecore.config.json
+framecore.local.json
+framecore.config.local.json
+dist/
+build/

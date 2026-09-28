@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "reference_sheet_template",
+  "purpose": "Unknown",
+  "source_sequence_revision": "Unknown",
+  "source_reference_pack_revision": "Unknown",
+  "sheet_format": {
+    "aspect_ratio": "Unknown",
+    "viewing_size": "Unknown",
+    "panel_count": "Unknown",
+    "grouping": "Unknown"
+  },
+  "visible_copy": {
+    "authorization": "Unknown",
+    "exact_strings": [],
+    "internal_ids_are_visible": false
+  },
+  "panels": [],
+  "panel_record_fields": [
+    "panel_id",
+    "purpose",
+    "shot_id_or_not_applicable",
+    "moment_or_view",
+    "source_aliases",
+    "source_revision",
+    "camera_framing",
+    "action_or_state",
+    "light",
+    "palette",
+    "wardrobe_props",
+    "protected_properties",
+    "allowed_changes",
+    "timing_basis_or_not_applicable",
+    "exact_visible_label_or_none",
+    "inspection_state"
+  ],
+  "individual_frame_handoff": {
+    "requested": false,
+    "actual_assets": [],
+    "binding_status": "unverified"
+  },
+  "observed_quality": "uninspected",
+  "private_data_in_template": false
+}

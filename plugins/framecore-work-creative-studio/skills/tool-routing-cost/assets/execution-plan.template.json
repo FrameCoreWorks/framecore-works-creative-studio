@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "stage": "planning",
+  "target": {
+    "host": "Unknown",
+    "tool": "Unknown",
+    "operation": "Unknown",
+    "model": "Unknown",
+    "schema_source": "Unknown",
+    "verified_at": "Unknown"
+  },
+  "authorisation": {
+    "operation": "Unknown",
+    "destination": "Unknown",
+    "assets": [],
+    "cost_cap": "Unknown",
+    "source": "Unknown"
+  },
+  "input_bindings": [],
+  "prompt_contract_revision": "Unknown",
+  "continuity_requirement": "Unknown",
+  "execution_readiness": "unverified",
+  "cost": {
+    "billing_unit": "Unknown",
+    "unit_cost": "Unknown",
+    "quantity": "Unknown",
+    "maximum_total": "Unknown"
+  },
+  "retry": {
+    "maximum_attempts": "Unknown",
+    "remaining_budget": "Unknown",
+    "ambiguous_job_rule": "inspect_status_before_resubmit",
+    "idempotency_support": "Unknown"
+  },
+  "job": {
+    "id": "Unknown",
+    "observed_status": "not_submitted"
+  },
+  "outputs": [],
+  "verification": {
+    "technical_checks": [],
+    "creative_checks": [],
+    "review_owner": "Unknown",
+    "observed_quality": "uninspected"
+  },
+  "fallback_authorisation": "Unknown",
+  "secret_values_excluded": true
+}

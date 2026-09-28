@@ -1,0 +1,47 @@
+# QA / Iteration Report
+
+- accepted_assets:
+  - hero prompt draft
+  - lifestyle prompt draft
+  - product reveal storyboard prompt draft
+- excluded_assets:
+  - no generated media included
+  - no external provider output included
+- defects:
+  - exact aspect ratios are still unknown
+  - exact product dimensions are still unknown
+  - visible copy is intentionally absent
+- critical_questions:
+  - Are any generated assets being approved without inspection?
+  - Are any visible-text graphics planned with a later text overlay?
+- verification_results:
+  - No generated media is included in this fixture.
+  - Planning artifacts are accepted only as review drafts.
+- prompt_contract_checks:
+  - prompts are standalone planning artifacts with explicit product-identity continuity requirements
+  - no target-specific syntax is claimed without a selected target surface
+- continuity_checks:
+  - a future product-reveal execution needs an actual per-shot carrier; planning wording alone is not proof of continuity
+- adapter_checks:
+  - no adapter translation or execution surface was selected for this planning fixture
+- root_cause:
+  - Missing product specs are upstream brief gaps, not QA-only delivery issues.
+- loopback_target:
+  - `brief-architect` if product specs become required.
+  - `copy-voice` if visible marketing copy becomes required.
+  - `image-prompting` after dimensions and channel formats are known.
+- regression_check:
+  - Ensure no provider execution, uploads, or generated media claims were introduced.
+  - Ensure visible-text policy remains one-pass when text is required.
+- stop_decision: stop_sufficient
+- corrected_instruction_packets:
+  - If visible text becomes required, lock exact copy before any raster graphic generation.
+  - If channel formats are supplied, update prompts with aspect ratio and safe-margin requirements.
+- rerun_guidance:
+  - Return to `brief-architect` for missing product specs.
+  - Return to `copy-voice` if marketing copy becomes visible in the asset.
+  - Return to `image-prompting` after dimensions and channel formats are known.
+- allowlist:
+  - planning artifacts are approved for review
+  - no generated asset is approved because no generation occurred
+- stop_condition: Stop after draft planning artifacts are accepted for review and before any provider execution.

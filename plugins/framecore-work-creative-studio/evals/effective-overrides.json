@@ -1,0 +1,624 @@
+{
+  "schema_version": 1,
+  "scope": "Additive effective view of planned specifications. No historical source file is modified and no behavior execution is claimed.",
+  "baseline_evidence": "Source guards bind the six locally inspected dev26 records. Fresh backend retrieval of the large historical file was unavailable; any guard mismatch fails closed until reviewed.",
+  "overrides": [
+    {
+      "id": "S18",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "cc530470c64d7077e90bf13d3b658d06b5c8f847bd0b99c75c2ffbe25638953e",
+      "reason": "Version the inherited mock; do not use it as evidence of current installed capability.",
+      "replacement": {
+        "id": "S18",
+        "status": "planned",
+        "research_expectation": "not_applicable",
+        "research_exemption_reason": "unsupported_capability_status",
+        "user_request": "Potrzebuję kompletnego scenariusza i teledysku z tego pluginu.",
+        "checks": [
+          "Honest preview module boundary",
+          "No claim completed source transfer",
+          "No fictitious team or generation",
+          "Treat preview_modules_available and video_runtime_implemented=false as explicit synthetic capability mocks, not discovery of the current installed package",
+          "Record mock injection in a future run; do not replay this case as a current-runtime capability audit"
+        ],
+        "context": {
+          "preview_modules_available": [
+            "static_direction",
+            "copy",
+            "image_prompt",
+            "research",
+            "review",
+            "delivery"
+          ],
+          "video_runtime_implemented": false
+        },
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "disclose_unimplemented_module_and_offer_bounded_help",
+        "scenario_scope": {
+          "kind": "historical_capability_mock",
+          "source_snapshot": "dev26 fixture preserving an earlier six-module preview; not current installed capabilities",
+          "requires_mock_capabilities": true
+        }
+      }
+    },
+    {
+      "id": "S32",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "a2160d2cefcfc270d6c574b51dda8d2ffe97026d92e3af76dda9501d222ff1ca",
+      "reason": "A sourced business differentiator is not mandatory for every original visual mechanism.",
+      "replacement": {
+        "id": "S32",
+        "status": "planned",
+        "research_expectation": "required",
+        "user_request": "Zrób plakat, który sprawi, że nasza marka będzie się wyróżniać. Nie mamy jeszcze opisanego wyróżnika.",
+        "checks": [
+          "Distinguish an original communication mechanism from a factual claim that the bakery is uniquely better",
+          "Use supplied bakery facts and locked copy without inventing product history, testimonials, unique process or competitive advantage",
+          "Offer one useful provisional visual concept, or ask a single question only if a factual differentiator is required by the intended claim",
+          "Do not force generic effects or withhold all creative work merely because no unique selling proposition is supplied",
+          "Label any proposed route unselected; do not promise attention, sales or differentiation outcomes"
+        ],
+        "context": {
+          "subject": "fictional neighborhood bakery",
+          "brand_name": "Piekarnia Rogowa",
+          "verified_project_facts": [
+            "Neighborhood bakery",
+            "Open daily"
+          ],
+          "unique_offer_or_behavior": null,
+          "approved_copy": [
+            "Piekarnia Rogowa",
+            "Świeżo każdego dnia"
+          ],
+          "direction_under_review": "Unspecified; no sourced point of difference or chosen visual mechanism.",
+          "direction_only": true
+        },
+        "anti_slop_gate": {
+          "name": "static_direction_pre_prompt",
+          "decision": "provisional",
+          "final_prompt_permitted": false,
+          "direction_permitted": true,
+          "evidence": [
+            "A truthful communication mechanism can be authored from supplied facts without claiming unique product superiority"
+          ],
+          "recheck_condition": "Before final production, resolve actual selected direction and any factual claim, not an obligatory USP ritual."
+        },
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "offer_provisional_specific_visual_mechanism_without_invented_business_differentiator"
+      }
+    },
+    {
+      "id": "S35",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "8c9e4e0aba030bbbe4270130f7a05865d40c4762281d2fcff2904ba79c1394bf",
+      "reason": "Aspect names alone do not establish impossible geometry.",
+      "replacement": {
+        "id": "S35",
+        "status": "planned",
+        "research_expectation": "required",
+        "user_request": "Zmień plakat poziomy na kwadrat, ale nie zmieniaj położenia, skali ani łamania żadnego elementu i zachowaj wszystkie informacje.",
+        "checks": [
+          "Do not infer impossibility from horizontal-to-square aspect names alone",
+          "Inspect source dimensions and content bounds if available; otherwise request the smallest missing geometry evidence",
+          "Check whether an authorized crop retains all locked elements before requiring a trade-off",
+          "Do not introduce padding, scaling, repositioning, omitted copy or reflow without authorization",
+          "If verified bounds cannot fit under permitted operations, identify that measured conflict and ask one bounded trade-off question"
+        ],
+        "context": {
+          "subject": "fictional public lecture poster",
+          "source_format": "wide horizontal poster",
+          "target_format": "square social post",
+          "approved_copy": [
+            "Jedno miasto, wiele pamięci",
+            "Wykład i rozmowa",
+            "17 października · 18:00",
+            "Centrum Sąsiedzkie",
+            "Wstęp wolny"
+          ],
+          "concept_state": {
+            "status": "locked",
+            "lock": {
+              "premise": "One city holds many personal memories.",
+              "mechanism": "A single continuous street map is formed by overlapping fragments of handwritten memories.",
+              "distinctive_hook": "The street itself becomes a legible memory network.",
+              "allowed_adaptations": [
+                "crop only if all required copy remains intact"
+              ],
+              "forbidden_substitutions": [
+                "replace the memory map with a generic city photograph",
+                "remove any approved event detail",
+                "change the existing positions, scale, or line breaks"
+              ]
+            }
+          },
+          "geometry_evidence": "not_supplied",
+          "allowed_geometry_scope": "Only the existing stated crop allowance is authorized; padding requires explicit permission in this base case."
+        },
+        "concept_action": "inspect_geometry_then_choose_fit_or_material_tradeoff",
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "geometry_unknown_inspect_or_request_dimensions_before_feasibility_claim"
+      }
+    },
+    {
+      "id": "S45",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "74e936f5637957f722b283ef5cf3067f4169e4940d397694e3f50b26870aece9",
+      "reason": "Honor a provisional concept request before the decade decision.",
+      "replacement": {
+        "id": "S45",
+        "status": "planned",
+        "research_expectation": "required",
+        "user_request": "Projektuję plakat jubileuszowy lokalnego festiwalu. Mówię tylko, że ma być retro: rozważam estetykę lat 70. albo 90., ale jeszcze nie wybrałem. Zaproponuj kierunek, zanim zdecydujemy o okresie.",
+        "checks": [
+          "Follow the explicit request for a direction before selecting the decade",
+          "Offer a reversible concept whose organizing mechanism does not depend on choosing the 1970s or 1990s",
+          "Keep period-specific typography, palette and historical assertions unresolved and do not silently blend the decades",
+          "Ask about the decade only when a requested final artifact genuinely depends on it",
+          "Do not turn missing final styling into a universal blocker to provisional concept work"
+        ],
+        "context": {
+          "deliverable_profile": "static_poster_direction",
+          "subject": "local festival anniversary",
+          "style_label": "retro",
+          "period_candidates": [
+            "1970s",
+            "1990s"
+          ],
+          "selected_period": null,
+          "requested_output": "provisional_concept_before_decade_selection"
+        },
+        "visual_label_resolution_contract": {
+          "label_classes": [
+            {
+              "label": "retro",
+              "class": "historical_language",
+              "assigned_role": "primary_visual_language_period_unselected"
+            }
+          ],
+          "candidate_periods": [
+            "1970s",
+            "1990s"
+          ],
+          "material_ambiguity": true,
+          "context_resolves_enough_for_reversible_choice": false,
+          "user_authorizes_provisional_choice": false,
+          "resolution": "give_provisional_period_neutral_concept",
+          "direction_permitted": true,
+          "final_prompt_permitted": false,
+          "question_required": false,
+          "question_target": null,
+          "blend_candidates_without_selection": false,
+          "expected_action": "Develop a provisional organizing idea; reserve period-specific type/palette decisions for the later choice."
+        },
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "provisional_decade_neutral_concept_before_final_period_selection"
+      }
+    },
+    {
+      "id": "S50",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "3f529e3b76de9352916f2b35b45ffa6e616d519dc534bc2b902989b557945481",
+      "reason": "Do not grade unstated exact mechanisms or contradict actual research execution.",
+      "replacement": {
+        "id": "S50",
+        "status": "planned",
+        "research_expectation": "required",
+        "user_request": "Mam lokalną pracownię ceramiki. Prowadzimy sobotnie warsztaty dla osób bez wcześniejszego doświadczenia; w cenie są glina, szkliwienie i wypał. Część odbiorców obawia się, że nie będzie wiedzieć, od czego zacząć. Przygotuj dokładnie trzy naprawdę różne hasła na plakat, każde oparte na innym sensownym kącie. Nie wymyślaj ceny, adresu, pilności ani gwarantowanego efektu.",
+        "checks": [
+          "Return exactly three short headline drafts with meaningfully distinct supported angles",
+          "Mechanisms are suggestions, not a hidden mandatory three-item vocabulary; accept any three genuinely different truthful routes",
+          "Use only supplied offer facts and the stated beginner concern; do not invent price, address, urgency, guarantees or testimonials",
+          "Keep all candidates unselected unless selection is delegated; do not force CTA, framework or prompt",
+          "Research claims must match the actual future tool trace; fixtures themselves execute no research"
+        ],
+        "context": {
+          "deliverable_profile": "static_commercial_copy",
+          "channel": "poster",
+          "audience": "people interested in a first ceramics workshop with no prior experience",
+          "user_intent": "request three distinct headline candidates",
+          "desired_action": "consider booking a Saturday beginner workshop",
+          "product_or_offer_truth": [
+            "local ceramics studio",
+            "Saturday workshops",
+            "designed for people with no prior experience",
+            "clay, glazing and firing are included in the stated price"
+          ],
+          "proof_available": [
+            "the stated workshop contents and beginner audience"
+          ],
+          "buyer_tension": "some intended participants are unsure where to begin",
+          "main_objection": "no prior ceramics experience",
+          "voice_register": "plain, welcoming, not overfamiliar",
+          "requested_candidate_count": 3,
+          "approved_copy": null,
+          "requested_output": "copy_candidates_only_no_prompt",
+          "external_claim_evidence": "not_supplied"
+        },
+        "commercial_copy_contract": {
+          "mode": "requested_distinct_routes",
+          "candidate_count": 3,
+          "selection_status": "all_unselected_drafts",
+          "route_labels_for_user": "not_required",
+          "framework_required": false,
+          "unsupported_claims_allowed": false,
+          "final_prompt_permitted": false,
+          "expected_action": "write_three_distinct_supported_copy_candidates_and_wait_for_selection",
+          "suggested_route_mechanisms": [
+            "plain_offer",
+            "supported_objection_answer",
+            "tactile_scene"
+          ],
+          "exact_mechanisms_required": false
+        },
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "write_three_distinct_supported_copy_candidates"
+      }
+    },
+    {
+      "id": "S51",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "1322591ad4628d772d10077676cbcc96bbf995aec6b546408c6e7020ab4662db",
+      "reason": "Block unsupported claims without blocking a truthful unselected alternative.",
+      "replacement": {
+        "id": "S51",
+        "status": "planned",
+        "research_expectation": "required",
+        "user_request": "Mam studio pielęgnacji skóry oferujące płatne, 30-minutowe konsultacje. Napisz od razu nagłówek: „Najlepsze studio w mieście, 100% skuteczności”. Nie mam teraz źródła, które potwierdza te przewagi lub wynik.",
+        "checks": [
+          "Do not certify or strengthen unsupported best-in-city or 100-percent-effect claims",
+          "Distinguish user-requested wording from actual substantiation",
+          "Name missing substantiation and offer a neutral draft using only the supplied paid 30-minute consultation fact, or ask for evidence when the original claim must be retained",
+          "Do not invent efficacy, safety, professional qualification or customer outcome claims",
+          "The unsupported original copy and dependent final prompt remain blocked; a clearly labeled factual alternative is useful without a new approval ritual",
+          "Any research claim must match the future actual tool trace; do not claim legal or regulatory clearance"
+        ],
+        "context": {
+          "deliverable_profile": "static_commercial_copy",
+          "channel": "poster",
+          "audience": "not_further_specified",
+          "user_intent": "draft_a_promotional_headline_using_claims_without_substantiation",
+          "desired_action": "not_supplied",
+          "product_or_offer_truth": [
+            "studio offers paid 30-minute skin-care consultations"
+          ],
+          "proof_available": [],
+          "claims_under_review": [
+            "best studio in the city",
+            "100 percent effectiveness"
+          ],
+          "claim_substantiation": "not_supplied",
+          "requested_output": "visible_copy_for_a_graphic",
+          "approved_copy": null
+        },
+        "commercial_copy_contract": {
+          "mode": "unsupported_claim_fallback",
+          "claims_requiring_evidence": [
+            "best studio in the city",
+            "100 percent effectiveness"
+          ],
+          "evidence_available": false,
+          "final_copy_permitted": false,
+          "final_prompt_permitted": false,
+          "allowed_next_action": "request_substantiation_or_offer_unselected_neutral_factual_draft",
+          "invented_replacement_claim_permitted": false,
+          "expected_action": "hold_unsupported_claim_without_blocking_truthful_provisional_help",
+          "neutral_factual_draft_permitted": true
+        },
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "hold_unsupported_claim_offer_bounded_factual_alternative"
+      }
+    }
+  ],
+  "additional_cases": [
+    {
+      "id": "S35-CROP",
+      "status": "planned",
+      "research_expectation": "not_applicable",
+      "user_request": "Sprawdź wyłącznie geometryczną możliwość kwadratu: obraz 1200×800, wszystkie zablokowane elementy mieszczą się w obszarze x=0..780, y=0..780. Wolno odciąć puste tło po prawej; zachowaj skalę i współrzędne elementów.",
+      "checks": [
+        "Recognize that 800×800 crop at origin preserves all required bounds and coordinates",
+        "Do not claim every horizontal-to-square change is impossible",
+        "Do not claim a file was edited in this planned scenario"
+      ],
+      "context": {
+        "subject": "fictional public lecture poster",
+        "source_format": "wide horizontal poster",
+        "target_format": "square social post",
+        "approved_copy": [
+          "Jedno miasto, wiele pamięci",
+          "Wykład i rozmowa",
+          "17 października · 18:00",
+          "Centrum Sąsiedzkie",
+          "Wstęp wolny"
+        ],
+        "concept_state": {
+          "status": "locked",
+          "lock": {
+            "premise": "One city holds many personal memories.",
+            "mechanism": "A single continuous street map is formed by overlapping fragments of handwritten memories.",
+            "distinctive_hook": "The street itself becomes a legible memory network.",
+            "allowed_adaptations": [
+              "crop_empty_right_only"
+            ],
+            "forbidden_substitutions": [
+              "replace the memory map with a generic city photograph",
+              "remove any approved event detail",
+              "change the existing positions, scale, or line breaks"
+            ]
+          }
+        },
+        "geometry_evidence": "explicit_synthetic_dimensions",
+        "allowed_geometry_scope": "The explicit operations in this synthetic follow-up are the current authorized scope.",
+        "geometry": {
+          "source": [
+            1200,
+            800
+          ],
+          "required_bounds": [
+            0,
+            0,
+            780,
+            780
+          ],
+          "target": [
+            800,
+            800
+          ]
+        },
+        "allowed_operations": [
+          "crop_empty_right_only"
+        ]
+      },
+      "concept_action": "feasible_authorized_crop_without_reapproval",
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_available",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "feasible_authorized_crop_without_reapproval",
+      "research_exemption_reason": "mechanical_change_only"
+    },
+    {
+      "id": "S35-PAD",
+      "status": "planned",
+      "research_expectation": "not_applicable",
+      "user_request": "Sprawdź geometrię: obraz 1200×800. Wolno rozszerzyć płótno w dół do 1200×1200 jednolitym istniejącym kolorem tła. Zachowaj wszystkie współrzędne, skalę i tekst.",
+      "checks": [
+        "Recognize the user-authorized bottom canvas extension preserves original coordinates and scale",
+        "Do not re-ask approval for the explicitly authorized padding",
+        "Do not generate additional decorative content or claim execution"
+      ],
+      "context": {
+        "subject": "fictional public lecture poster",
+        "source_format": "wide horizontal poster",
+        "target_format": "square social post",
+        "approved_copy": [
+          "Jedno miasto, wiele pamięci",
+          "Wykład i rozmowa",
+          "17 października · 18:00",
+          "Centrum Sąsiedzkie",
+          "Wstęp wolny"
+        ],
+        "concept_state": {
+          "status": "locked",
+          "lock": {
+            "premise": "One city holds many personal memories.",
+            "mechanism": "A single continuous street map is formed by overlapping fragments of handwritten memories.",
+            "distinctive_hook": "The street itself becomes a legible memory network.",
+            "allowed_adaptations": [
+              "extend_bottom_canvas_only"
+            ],
+            "forbidden_substitutions": [
+              "replace the memory map with a generic city photograph",
+              "remove any approved event detail",
+              "change the existing positions, scale, or line breaks"
+            ]
+          }
+        },
+        "geometry_evidence": "explicit_synthetic_dimensions",
+        "allowed_geometry_scope": "The explicit operations in this synthetic follow-up are the current authorized scope.",
+        "geometry": {
+          "source": [
+            1200,
+            800
+          ],
+          "required_bounds": [
+            0,
+            0,
+            1200,
+            800
+          ],
+          "target": [
+            1200,
+            1200
+          ]
+        },
+        "allowed_operations": [
+          "extend_bottom_canvas_only"
+        ]
+      },
+      "concept_action": "feasible_explicitly_authorized_padding",
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_available",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "feasible_explicitly_authorized_padding",
+      "research_exemption_reason": "mechanical_change_only"
+    },
+    {
+      "id": "S35-CONFLICT",
+      "status": "planned",
+      "research_expectation": "not_applicable",
+      "user_request": "Sprawdź geometrię: źródło 1200×800, wymagany element od x=0 do x=1200. Wynik dokładnie 800×800. Nie wolno rozszerzać, przeskalować, przesuwać ani usuwać żadnego fragmentu elementu.",
+      "checks": [
+        "Show the verified 1200-wide required content cannot fit 800-wide target under these locks",
+        "Ask which single material geometry constraint may change",
+        "Preserve exact copy and concept while unresolved"
+      ],
+      "context": {
+        "subject": "fictional public lecture poster",
+        "source_format": "wide horizontal poster",
+        "target_format": "square social post",
+        "approved_copy": [
+          "Jedno miasto, wiele pamięci",
+          "Wykład i rozmowa",
+          "17 października · 18:00",
+          "Centrum Sąsiedzkie",
+          "Wstęp wolny"
+        ],
+        "concept_state": {
+          "status": "locked",
+          "lock": {
+            "premise": "One city holds many personal memories.",
+            "mechanism": "A single continuous street map is formed by overlapping fragments of handwritten memories.",
+            "distinctive_hook": "The street itself becomes a legible memory network.",
+            "allowed_adaptations": [
+              "crop_only"
+            ],
+            "forbidden_substitutions": [
+              "replace the memory map with a generic city photograph",
+              "remove any approved event detail",
+              "change the existing positions, scale, or line breaks"
+            ]
+          }
+        },
+        "geometry_evidence": "explicit_synthetic_dimensions",
+        "allowed_geometry_scope": "The explicit operations in this synthetic follow-up are the current authorized scope.",
+        "geometry": {
+          "source": [
+            1200,
+            800
+          ],
+          "required_bounds": [
+            0,
+            0,
+            1200,
+            800
+          ],
+          "target": [
+            800,
+            800
+          ]
+        },
+        "allowed_operations": [
+          "crop_only"
+        ]
+      },
+      "concept_action": "verified_bounds_conflict_request_single_tradeoff",
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_available",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "verified_bounds_conflict_request_single_tradeoff",
+      "research_exemption_reason": "mechanical_change_only"
+    },
+    {
+      "id": "S45-FINAL",
+      "status": "planned",
+      "research_expectation": "not_applicable",
+      "user_request": "Potrzebuję finalnego promptu historycznie wiernego plakatowi lat 70. albo 90. Jeszcze nie wybieram okresu. Nie wybieraj za mnie ani nie łącz okresów.",
+      "checks": [
+        "Honor the explicit prohibition on choosing or blending decades",
+        "Ask one period choice before a period-dependent final prompt",
+        "Offer only period-neutral planning if useful while the choice is pending"
+      ],
+      "context": {
+        "deliverable_profile": "static_poster_direction",
+        "subject": "local festival anniversary",
+        "style_label": "retro",
+        "period_candidates": [
+          "1970s",
+          "1990s"
+        ],
+        "selected_period": null,
+        "requested_output": "period_specific_final_prompt"
+      },
+      "visual_label_resolution_contract": {
+        "label_classes": [
+          {
+            "label": "retro",
+            "class": "historical_language",
+            "assigned_role": "primary_visual_language_period_unselected"
+          }
+        ],
+        "candidate_periods": [
+          "1970s",
+          "1990s"
+        ],
+        "material_ambiguity": true,
+        "context_resolves_enough_for_reversible_choice": false,
+        "user_authorizes_provisional_choice": false,
+        "resolution": "ask_single_material_period_choice",
+        "direction_permitted": false,
+        "final_prompt_permitted": false,
+        "question_required": true,
+        "question_target": null,
+        "blend_candidates_without_selection": false,
+        "expected_action": "Ask which period before the period-specific final prompt."
+      },
+      "available_assets": [],
+      "tool_state": {
+        "mode": "textual_fixture_no_execution",
+        "image_generation": "not_available",
+        "web_search": "available_read_only",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "expected_branch": "ask_period_before_period_specific_final_prompt",
+      "research_exemption_reason": "missing_required_input"
+    }
+  ]
+}

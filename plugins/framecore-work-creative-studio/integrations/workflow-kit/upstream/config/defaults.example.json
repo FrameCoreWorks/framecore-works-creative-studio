@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "product": "FrameCore Works: Creative Workflow Skill Kit for Codex and ChatGPT",
+  "working_language": "auto",
+  "response_tone": "calm, direct, practical",
+  "output_dir": "output/workflow",
+  "qa_strictness": "standard",
+  "work_profile": {
+    "primary_work": "creative production: graphics, video, storyboards, campaign assets, and e-commerce assets",
+    "primary_use_cases": "briefs, references, visual direction, prompt packs, QA review, and delivery preparation",
+    "workflow_style": "structured checkpoints with concise practical outputs",
+    "adaptation_notes": "adapt the creative workflow to my projects without changing provider-neutral safety boundaries"
+  },
+  "delivery": {
+    "auto_upload": false,
+    "delivery_requires_current_user_request": true,
+    "require_qa_allowlist_for_generated_assets": true
+  },
+  "agent_display_names": {},
+  "hipson": {
+    "adapter_enabled": true,
+    "full_repo_url": "https://github.com/Hipson47/Hipson.git",
+    "connect_full_repo": false
+  },
+  "workflow_self_improvement": {
+    "enabled": true,
+    "recurring_review_enabled": false,
+    "cadence": "24h",
+    "mode": "report-and-proposals-only"
+  }
+}

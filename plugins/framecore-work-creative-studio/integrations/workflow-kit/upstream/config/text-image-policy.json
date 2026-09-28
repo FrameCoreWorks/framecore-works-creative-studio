@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "execution_path": "native Codex/ChatGPT image generation",
+  "native_model": "gpt-image-2",
+  "native_route": "openai/gpt-image-2",
+  "provider_classification": "built-in chat image generator, not an external provider integration",
+  "applies_to": [
+    "static raster graphic",
+    "graphic",
+    "poster",
+    "social graphic",
+    "banner",
+    "infographic",
+    "thumbnail",
+    "ecommerce graphic",
+    "storyboard board",
+    "static raster graphic with visible text"
+  ],
+  "required": [
+    "native Codex/ChatGPT image generator by default for generated static raster graphics when available",
+    "one-pass generation",
+    "native Codex/ChatGPT image generator when available",
+    "all visible text included directly in the generated image",
+    "exact final copy in the prompt",
+    "safe margins and hierarchy specified"
+  ],
+  "forbidden": [
+    "external paid media-provider routing by default",
+    "API key or provider CLI requirement",
+    "Python-generated artwork as a substitute for generated static raster graphics",
+    "SVG, HTML/canvas, Sharp/composited PNG, or coded artwork as the default graphic generation route",
+    "text-free background first",
+    "later text overlays",
+    "manual typography after generation",
+    "coded or composited artwork as a substitute for the final raster"
+  ]
+}

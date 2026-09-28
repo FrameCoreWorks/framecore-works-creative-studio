@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "reference_capability_card_template",
+  "task": "Unknown",
+  "operation": "Unknown",
+  "provider": "Unknown",
+  "model_version": "Unknown",
+  "surface": "Unknown",
+  "required_reference_roles": [],
+  "required_attachment_count": "Unknown",
+  "documented_support": "Unknown",
+  "official_source": "Unknown",
+  "verified_at": "Unknown",
+  "observed_quality": {
+    "evidence": "Unknown",
+    "inspection_performed": false
+  },
+  "user_provider_preference": "Unknown",
+  "constraints": [],
+  "unsupported_controls": [],
+  "decision": "unverified",
+  "execution_authorized": false,
+  "on_insufficient_capacity": "Preserve required fidelity; resolve actual input or capability gap without silent downgrade."
+}

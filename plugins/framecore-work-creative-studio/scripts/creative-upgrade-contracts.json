@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "owners": [
+    "commercial-video-campaign-director",
+    "commercial-visual-campaign-director",
+    "static-graphic-design-creator",
+    "storyboard-sequence-architect",
+    "cinematography",
+    "video-prompt-architect",
+    "studio-workstyle-profile",
+    "creative-video-producer",
+    "tool-routing-cost",
+    "workflow-orchestrator",
+    "research-evidence",
+    "audio-production-director",
+    "character-design",
+    "image-prompt-architect",
+    "reference-pack-curator",
+    "storyboard-board-architect"
+  ],
+  "references": [
+    "skills/commercial-video-campaign-director/references/creative-decision-library.md",
+    "skills/storyboard-sequence-architect/references/shot-adjacency-workbook.md",
+    "skills/studio-workstyle-profile/references/taste-learning.md",
+    "skills/research-evidence/references/creative-upgrade-sources.md",
+    "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
+    "skills/tool-routing-cost/references/execution-adapter-contract.md",
+    "skills/character-design/references/human-identity-workbook.md",
+    "skills/storyboard-board-architect/references/production-reference-sheets.md",
+    "skills/tool-routing-cost/references/reference-capability-routing.md",
+    "skills/audio-production-director/references/audio-edit-and-prompt-workbench.md",
+    "skills/research-evidence/references/reference-audio-expansion-sources.md"
+  ],
+  "scope": "Rules and optional planning assets; no new active skills or providers.",
+  "source_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12"
+  ]
+}

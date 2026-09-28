@@ -1,0 +1,21 @@
+# Evidence Note
+
+- question: What information is still needed before making factual claims in a public creative brief?
+- sources:
+  - user-provided brief only
+  - public source required before any external factual claim
+- freshness: Not time-sensitive until a specific market, product, or legal claim is introduced.
+- confidence: Medium for workflow planning; low for factual claims not yet sourced.
+- limits:
+  - no external browsing performed in this fixture
+  - no private source material included
+- verification_questions:
+  - Which facts came from the user brief?
+  - Which claims need public-source verification before delivery?
+- source_notes:
+  - User-provided brief is enough for routing, not for external factual claims.
+  - Public sources are required before market, legal, pricing, or model claims.
+- unresolved_unknowns:
+  - exact product specifications
+  - target market requirements
+  - approved claim language

@@ -1,0 +1,40 @@
+---
+name: static-graphic-design-creator
+description: "Own complete static graphic design work in Creative Studio: develop concepts and copy, design posters, flyers, ads, covers, packaging graphics and social assets, compile exact integrated image prompts, guide explicit edits/layers, and review or hand off results. Use for static-only requests; route campaign-level multi-asset direction to the orchestrator."
+---
+
+# Static Graphic Design Creator for Creative Studio
+
+This is the Studio's complete static-design owner. It includes the full Static Graphic Design Creator knowledge system, code catalog, workflows, prompt contract, reference material, templates, scripts and tests under [the pinned upstream bundle](upstream/SKILL.source.md). The upstream source files are preserved under the upstream directory; read the source skill for design work and load its linked reference chapters selectively.
+
+The Studio integration contract below governs routing, shared research, work mode, cross-media handoffs and host boundaries. It augments the upstream design method and overrides it only where the two environments differ. The bundled upstream maintenance chapter is retained for provenance, not as instructions to manage this plugin: use the active Plugin Creator path for plugin maintenance.
+
+## Route and preserve the whole design method
+
+- Use this skill for a poster, flyer, cover, label, menu, packaging graphic, static social asset, product visual, redesign or standalone prompt. For a multi-asset campaign, the orchestrator owns the shared campaign strategy and truth locks; this skill owns each requested static execution. It replaces the commercial-visual-campaign-director as owner of a static-only artifact while leaving that skill available for campaign families and adaptation strategy.
+- This skill owns its integrated concept, copy, text-feasibility and prompt compiler. Do not send a static-only design through a second full image-prompt intake or separately call Copy Voice or Humanizer for its internal headline/copy work. Use shared specialists only for an explicitly separate deliverable or a provider-specific capability question, preserving the static design contract.
+- Apply all upstream rules for exact text, concept selection, reference authority, 200-code catalog, visual hierarchy, typography, text feasibility, integrated one-pass prompts, layer-by-layer assets, preservation/edit scope, QA/repair, DTP limits and delivery. A code is an optional direction aid, not a provider command. Do not silently omit catalog categories, workflows or reference sources.
+- Ordinary static work does not require the user to inspect or choose a code. Do not force a questionnaire, code catalog or separate-asset workflow onto a simple task. Stop at the requested stage.
+- For installation/source update/audit questions about this containing plugin, route to its Plugin Creator workflow. Do not run upstream personal-skill installation, lifecycle or repository scripts.
+
+## Work mode and selection
+
+- **Quick:** first return a few materially distinct, concise directions (normally 2–4, or the requested count). Keep each to a short concept/copy/image relationship. Do not return a research essay, production prompt pack, storyboard or generated image before the user selects a route, unless they explicitly requested those artifacts now.
+- **Deep:** explore the communication problem, audience response, concept and wording step by step. Build only the next decision the user needs; do not dump the entire production package before a direction is settled.
+- Both modes use the Studio's mandatory targeted public-research preflight for substantive creative decisions. Quick keeps that research behind the scenes and returns clean ideas first. Search only generalized, non-confidential questions. Extract a mechanism or craft decision and make an original direction; do not copy a layout, distinctive image/copy, prompt or living creator's style.
+- If the user says a direction is wrong, pause before generating another batch. Ask one narrow question that identifies the missing dimension, then revise the next routes or research around that answer. Preserve choices and rejections as local to that user's project.
+- Keep the upstream approval gates: a request for concepts, copy or a prompt is not permission to render. Do not fabricate unsupported text, logos, product claims, accessible controls, native tool settings or output QA.
+
+## Research and output boundary
+
+For substantive static work, read the mandatory shared [Research Evidence](../research-evidence/SKILL.md) gate and reuse unchanged evidence through the project. Keep the initial pitch free of source-heavy explanation unless the user asks for it or a concrete claim needs attribution. When model capability changes the recommendation, identify the exact model/surface/operation and research current official documentation; distinguish a native ChatGPT/Codex generation tool from API settings.
+
+The source bundle and its release metadata are part of this plugin, so static-design users do not need to install another plugin or fetch the upstream repository. See [source provenance](source-provenance.json). The original source's own licence and all third-party rights stay distinct from this combined plugin's other materials.
+
+## Shared workflow authority
+
+Follow [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for shared state, ownership, prompt contracts, capability checks and bounded repair.
+
+## Optional creative decision exercises
+
+For an interchangeable concept, borrow only the relevant [decision exercise](../commercial-video-campaign-director/references/creative-decision-library.md). Keep this skill’s complete static design logic, catalog, typography and exact-copy contract authoritative. Do not route a static design through a video workflow.

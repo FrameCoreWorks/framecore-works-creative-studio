@@ -1,0 +1,6 @@
+interface:
+  display_name: "Studio Workstyle Profile"
+  short_description: "Adapt pace, depth, and detail to the user by domain."
+  default_prompt: "Use $studio-workstyle-profile to adapt my Creative Studio workflow."
+policy:
+  allow_implicit_invocation: true

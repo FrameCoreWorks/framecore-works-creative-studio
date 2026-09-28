@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "version": "1.0.0",
+  "date": "2026-09-28",
+  "baseline": "0.1.0-dev.33",
+  "changed_plugin_files": [
+    ".codex-plugin/plugin.json",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-1.0.md",
+    "docs/release-history.md",
+    "plugin.json"
+  ],
+  "unchanged_existing_files": 694,
+  "all_skills_and_source_bundles_byte_preserved": true,
+  "all_interface_fields_and_starters_preserved": true,
+  "structural_validation": {
+    "status": "PASS",
+    "canonical": {
+      "status": "PASS",
+      "scope": "Structural and planned-contract checks only; not host behavior, media QA, or legacy test equivalence.",
+      "errors": [],
+      "warnings": [
+        "Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed."
+      ],
+      "files": 703,
+      "owners": 37,
+      "evaluations": {
+        "legacy": 114,
+        "overrides": [
+          "S18",
+          "S32",
+          "S35",
+          "S45",
+          "S50",
+          "S51"
+        ],
+        "added_variants": 4,
+        "host_scenarios": 25,
+        "knowledge_scenarios": 12,
+        "integration_scenarios": 12,
+        "total_planned": 167,
+        "executed": 0
+      }
+    },
+    "legacy": {
+      "status": "NOT_RUN",
+      "scope": "Historical validator, separate from canonical checks"
+    }
+  },
+  "license": "Apache-2.0",
+  "public_repository_approved": true,
+  "no_new_behavioral_or_media_tests_run": true
+}

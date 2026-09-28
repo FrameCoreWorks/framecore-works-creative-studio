@@ -1,0 +1,18 @@
+{
+  "status": "updated_and_readback_verified",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "version": "1.0.0",
+  "release_id": "pluginrel_6aba929b5f908191be412f8e3f23ffd9",
+  "verified_paths": [
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-1.0.md",
+    "docs/release-history.md"
+  ],
+  "date": "2026-09-28"
+}

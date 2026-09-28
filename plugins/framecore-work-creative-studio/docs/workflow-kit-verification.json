@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "candidate_version": "0.1.0-dev.30",
+  "date": "2026-09-28",
+  "source_commit": "55c8bf19962c7bf7fb43648637ee433d990eb2a9",
+  "automated_checks": [
+    {
+      "scope": "unchanged source checkout",
+      "command": "npm run check",
+      "tests": 210,
+      "passed": 210,
+      "failed": 0,
+      "additional_checks": [
+        "privacy audit",
+        "secret scan",
+        "syntax",
+        "workflow contracts",
+        "agent templates"
+      ]
+    },
+    {
+      "scope": "adapted Studio package",
+      "command": "node --test tests/studio.test.mjs tests/workflow-kit.test.mjs",
+      "tests": 29,
+      "passed": 29,
+      "failed": 0
+    },
+    {
+      "scope": "existing asset dependency helper",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 tests/asset_manifest_test.py",
+      "tests": 23,
+      "passed": 23,
+      "failed": 0
+    }
+  ],
+  "manual_tool_checks": [
+    {
+      "check": "Relocated preflight and poster catalog imports through stdin",
+      "result": "passed after fixing an upstream entrypoint guard that attempted realpath on the stdin marker; included in the 29-test suite"
+    },
+    {
+      "check": "Memory Cache initialization and validation in an isolated temporary target",
+      "result": "passed; no client context or media used"
+    },
+    {
+      "check": "Existing package preservation",
+      "result": "all 158 baseline files retained, original static source bundle and historical validator/test fixtures unchanged; identity and complete starter values preserved"
+    }
+  ],
+  "use_probes": [
+    {
+      "id": "UP01",
+      "environment": "fresh isolated subagent with explicit local plugin path, no source diagnosis or expected answer",
+      "request": "Bez przeszukiwania internetu: trzy krótkie pomysły na rolkę 25 s dla lakieru do paznokci. Ciemna czerwień, elegancja, płynne przejścia, zachowaj wygląd buteleczki. Na razie same pomysły.",
+      "observed": "Returned three short concepts: Czerwony podpis, Ostatni detal przed wyjściem, Satynowa kurtyna; no detailed prompt pack or claimed generation.",
+      "followup": "Nie, zbyt ozdobne, nie podoba mi się to.",
+      "exact_followup_response": "Wolisz prostą prezentację samej buteleczki czy naturalne malowanie paznokci pokazane z bliska?",
+      "review": "PASS for requested count/stage, explicit no-web constraint and one directional clarification. This does not establish creative quality for a real client."
+    },
+    {
+      "id": "UP02",
+      "environment": "separate fresh isolated subagent with explicit local plugin path, no source diagnosis or expected answer",
+      "request": "Bez internetu i bez generowania: przygotuj kompletny handoff trzech ujęć tej samej realistycznej postaci: przód, profil, obrót głowy. Jedno zdjęcie frontalne jest zadeklarowane, lecz nieudostępnione. Dokładne zachowanie tożsamości, bez wyboru generatora i pytań. Muzyka i napisy dopiero później.",
+      "observed": "Produced conditional handoff with three shot cards, separate requirement/readiness/inspection status, missing source slots, proposed timing explicitly labelled, later audio/caption dependencies, and resume instructions.",
+      "response_excerpt": "Wymaganie nie zostaje obniżone do „podobnej osoby”.",
+      "review": "PASS for preserving strict requirement, identifying unavailable frontal/profile/turn references and delivering useful planning without execution claims."
+    }
+  ],
+  "planned_specs": {
+    "total": 167,
+    "new_integration_specs": 12,
+    "executed_by_loader": 0,
+    "status": "planned; use probes are separate evidence, not a conversion of fixture status"
+  },
+  "limitations": [
+    "No fresh ChatGPT/Codex installation or automatic skill discovery tested.",
+    "No provider calls, paid generation, real images, video or audio rendered or inspected.",
+    "No proof of autonomous agents, cross-host sync or universal model behavior.",
+    "Source snapshot is preserved provenance; installer and agent templates are not auto-activated."
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Static Graphic Design Creator"
+  short_description: "Design original static graphics with exact-copy craft and QA."
+  brand_color: "#FF4D29"
+  default_prompt: "Use $static-graphic-design-creator to develop a static concept, its copy, or a complete image prompt."
+policy:
+  allow_implicit_invocation: true
