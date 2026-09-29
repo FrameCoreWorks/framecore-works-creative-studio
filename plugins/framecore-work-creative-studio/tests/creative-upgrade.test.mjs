@@ -101,8 +101,14 @@ test('archive corruption is detected independently of the expanded source mirror
   const m=JSON.parse(fs.readFileSync(path.join(temp,'integrations/workflow-kit/source-manifest.json'),'utf8'));
   fs.appendFileSync(path.join(temp,m.archive.path),'corrupt');assert.ok(codes(temp).includes('KIT_SOURCE_ARCHIVE'));
 }));
-test('orphaning an upgrade resource is caught even when every file still exists',()=>fixture(temp=>{
-  const f=path.join(temp,'skills/tool-routing-cost/SKILL.md');
-  fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('(references/execution-adapter-contract.md)','(SKILL.md)'));
-  assert.ok(codes(temp).includes('CREATIVE_OWNER_ROUTE'));
+test('orphaning a registered upgrade resource is caught even when every file still exists',()=>fixture(temp=>{
+  const reference='skills/tool-routing-cost/references/execution-adapter-contract.md';
+  const registry=JSON.parse(fs.readFileSync(path.join(temp,'scripts/creative-upgrade-contracts.json'),'utf8'));
+  for(const owner of registry.owners){
+    const f=path.join(temp,'skills',owner,'SKILL.md');
+    const text=fs.readFileSync(f,'utf8').replace(/\]\(([^)]+)\)/g,(whole,href)=>
+      path.resolve(path.dirname(f),href.split('#')[0])===path.join(temp,reference)?'](SKILL.md)':whole);
+    fs.writeFileSync(f,text);
+  }
+  assert.ok(codes(temp).includes('CREATIVE_REFERENCE_ROUTE'));
 }));

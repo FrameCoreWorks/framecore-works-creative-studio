@@ -188,6 +188,27 @@
       "route_required": true
     }
   ],
+  "operation_routes": [
+    {
+      "need": "Image supplied as a reference for a new asset",
+      "owners": [
+        "reference-pack-curator"
+      ]
+    },
+    {
+      "need": "Approved base image supplied for an edit",
+      "owners": [
+        "image-prompt-architect",
+        "static-graphic-design-creator"
+      ]
+    },
+    {
+      "need": "Existing image explicitly supplied for review",
+      "owners": [
+        "output-critic-iteration"
+      ]
+    }
+  ],
   "critical_contracts": [
     {
       "id": "research_privacy",

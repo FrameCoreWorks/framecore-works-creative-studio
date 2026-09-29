@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.1.1",
+  "version": "1.1.3",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 1994,
-      "sha256": "7511a86434088a688673d3d6ea015425d60117be807daa2449e7380f9deb43bf"
+      "sha256": "a7badbf3fa73eb90b0db54d9eb16b36bd03e66728a114fab68ad7a7f926752d0"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 11122,
-      "sha256": "1f74cba3f2fc9eaddd8be0ad89243685143e00b84256a5d383486b4fca005706"
+      "sha256": "2a91cfa0f452fb769a16850aeca0d61b625170a009d70fe198cf0554888e850a"
     },
     {
       "path": "assets/logo.png",
@@ -93,8 +93,8 @@
     },
     {
       "path": "docs/migration-status.md",
-      "bytes": 9595,
-      "sha256": "e384a403daec76d9ebfb8489560ae46a7236fb06a9afefa57f6fd2ec34d0e2e1"
+      "bytes": 9744,
+      "sha256": "440b5975b193f25b93aec2f59a508e27cf5cd4221494a167bc0c6e3ed0537209"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -113,8 +113,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 17662,
-      "sha256": "5c4b1a75a2d8409cb5316a95ba09553853799f263fca8252dde7b2171973f10a"
+      "bytes": 18851,
+      "sha256": "69d17887de73627c18e78c73b1888e146f14bf3f47f41a8e03800f718fd67286"
     },
     {
       "path": "docs/research-ledger.json",
@@ -183,8 +183,8 @@
     },
     {
       "path": "evals/workflow-kit-cases.json",
-      "bytes": 13416,
-      "sha256": "9ee82529a3443d68c31a71f6078b65bf93587bf1224ef460acb33fe62ffd85a4"
+      "bytes": 13619,
+      "sha256": "c2d5771ed0a4731ccb5c06a0800c490c92de348cb34d0167e6b23d8df7948949"
     },
     {
       "path": "integrations/workflow-kit/source-manifest.json",
@@ -2174,7 +2174,7 @@
     {
       "path": "plugin.json",
       "bytes": 2153,
-      "sha256": "48b9ac1989c5d4ecb5837c500741fe1ec2a6f693b3a86666a6246fdb0883af73"
+      "sha256": "2528871f911685693a32cebf0be0dec712759f3618567f71bd34d17f7154a02a"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2193,8 +2193,8 @@
     },
     {
       "path": "scripts/studio-contracts.json",
-      "bytes": 7351,
-      "sha256": "b60265930dcce36f07adc21ef49839c132e46f7a78cdcde334e8b0d5192720aa"
+      "bytes": 7821,
+      "sha256": "61acbccd6b990b0a697912076536f20950cdc6da0f5d3f67cbdba9845e54cd79"
     },
     {
       "path": "scripts/validate-package.mjs",
@@ -2203,18 +2203,18 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 20820,
-      "sha256": "e787dcea4e8ae2cf36f6f2c9028c60e0cdcf471ce132e77981ca9ae0b088321e"
+      "bytes": 22516,
+      "sha256": "2e5370ab55b1344fa2d4d680ef0228c0a919ecf31ba3ef09ad8ea461d81f3620"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
-      "bytes": 8856,
-      "sha256": "84b75f937d9cb1c8c2eb5feaaa7080349c7cc0d59d5a031e19ecef54724cfde4"
+      "bytes": 12501,
+      "sha256": "9e17a78e8de15e6b8df80678debbf8300e9d100de276f1fc2c510aa340e8b1ec"
     },
     {
       "path": "scripts/workflow-kit-routes.json",
-      "bytes": 13625,
-      "sha256": "50345cf11ae3c4df04339151c7b1990b2ab79291e7370485978ccd6bd084d853"
+      "bytes": 15926,
+      "sha256": "8e9a2fb91d7ba06355ade6b9e88b779fa2e1e1a18b1b23ecae60c5291f072eee"
     },
     {
       "path": "skills/asset-manifest/SKILL.md",
@@ -2898,13 +2898,13 @@
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
-      "bytes": 1511,
-      "sha256": "6c326c69f59766c7420c2d81768a5932447a38d62de39b24a076485c7352b981"
+      "bytes": 1532,
+      "sha256": "72975b5990da61b7a4d9f09f265f5e81bbe955dbe13cc3f4f7ce0c5add54219e"
     },
     {
       "path": "skills/pipeline-core/references/handoff-matrix.md",
-      "bytes": 6627,
-      "sha256": "9958a55b2350e0065123122afe306080ae379979990d43bf264182dbee1a1d77"
+      "bytes": 7940,
+      "sha256": "bfee6e7aa0f9fc3f12670238d1ddc932a631ec9d1ca4f530adf1acf773fe8afc"
     },
     {
       "path": "skills/pipeline-core/references/human-voice-and-copy-delivery.md",
@@ -2943,13 +2943,13 @@
     },
     {
       "path": "skills/pipeline-core/references/role-skill-map.md",
-      "bytes": 8275,
-      "sha256": "b5a15b5b711cbe784814e9edbffda00ba5629098c0faf4e49982ce643cd32501"
+      "bytes": 8361,
+      "sha256": "9fc6ea03ecc86bd63e3a48b9f5363c5538c489b6e225dd6af1ea9c560f85390a"
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 7093,
-      "sha256": "a49d3fb46c5259c67f9d38228ab17e5b606f821aba86a62a7c26e0bb1c18e28c"
+      "bytes": 7613,
+      "sha256": "0dcfb02b59fa7e97025b1b64929b29fdb8a25133a1f19205187742704ca60b7e"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -2958,13 +2958,13 @@
     },
     {
       "path": "skills/pipeline-core/references/workflow-blueprints.md",
-      "bytes": 8667,
-      "sha256": "ef034111ce91f1d037979b6b958275a8142173b65eedd5487f850881ec486b03"
+      "bytes": 11886,
+      "sha256": "2b74514215e6149799c1e7ce3919a367390507e0ed665a779014bd68322c9c89"
     },
     {
       "path": "skills/pipeline-core/references/workflow-operating-model.md",
-      "bytes": 6987,
-      "sha256": "c52aab5b2ee71c2da5628369dce70ac6c6f336a0c614b209ba7540c23778c2fa"
+      "bytes": 7226,
+      "sha256": "b8c7a89d22c3c49f2bc8b840bd17f498b6cadb681cfb2fc5f81bad380f95883d"
     },
     {
       "path": "skills/pipeline-core/templates/artifact-templates.md",
@@ -3563,8 +3563,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 20362,
-      "sha256": "f324c11747c75bda16f5a4021f00179742e5c319eb1e9d6333bb188ac7a82bea"
+      "bytes": 20835,
+      "sha256": "bf543e4b4c45dc7a445255a7c2f0f92d9718c17f66e92390a209c3caf0122f65"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -3593,8 +3593,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
-      "bytes": 6888,
-      "sha256": "90633320026ed529082cf95bbeca178e96bf513183174093737f7adb2336e21e"
+      "bytes": 7572,
+      "sha256": "4d5840739da17cb8a0f7969a16a1b5a996579a6ab295fe0ada61b2043d8b8616"
     },
     {
       "path": "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
@@ -3603,8 +3603,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
-      "bytes": 11165,
-      "sha256": "9a815026b435bb430b3646bbe20053c0776b3923870ff7c89728e4ca99909910"
+      "bytes": 11467,
+      "sha256": "3149a61f02dc5d43daf8a7cc7c3437209216c39f5e302c45256cf8796e0bf64f"
     },
     {
       "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
@@ -3648,8 +3648,8 @@
     },
     {
       "path": "tests/creative-upgrade.test.mjs",
-      "bytes": 7402,
-      "sha256": "b1527285db69398bb3c42df03907af7a935c0487235472ee392c3bba02761a1d"
+      "bytes": 7750,
+      "sha256": "ad54600b840c8db84a90aa2cd0c973d212fc7795c1d7ec45ca182c8f7f800bcf"
     },
     {
       "path": "tests/package.test.mjs",
@@ -3658,13 +3658,13 @@
     },
     {
       "path": "tests/studio.test.mjs",
-      "bytes": 12513,
-      "sha256": "6bb0afc4a562af845565d5d9b2df1e46884d4a4153f7c628e0e17d4c9e5742a5"
+      "bytes": 13203,
+      "sha256": "6f0361d6677ca91d63dba4effdad2137bad376dd2f4b90be24fae1e42df0ad91"
     },
     {
       "path": "tests/workflow-kit.test.mjs",
-      "bytes": 4773,
-      "sha256": "ca1c8570358a5060cc8fd1d38314cd2fa4e53fc169df3b196cbdc2b1f89db2dd"
+      "bytes": 6064,
+      "sha256": "5a6efac3dca96ad88e10114429625414bbe877447926e8642da94836a5b13a90"
     }
   ]
 }

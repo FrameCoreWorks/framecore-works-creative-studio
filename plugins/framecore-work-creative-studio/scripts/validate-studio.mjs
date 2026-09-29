@@ -129,19 +129,44 @@ export function validateStudio(root, {legacy = false} = {}) {
     }
   }
   const routing = texts.get('skills/workflow-orchestrator/SKILL.md') ?? '';
+  const routeRows = routing.split(/\r?\n/).filter(line => line.startsWith('|') && line.includes('/SKILL.md)'));
+  const linkedOwnersByRow = new Map();
+  const seenRouteRows = new Set();
+  for (const row of routeRows) {
+    if (seenRouteRows.has(row)) fail('OWNER_ROUTE', 'Duplicate route row: ' + row.split('|')[1]?.trim());
+    seenRouteRows.add(row);
+    const linkedOwners = [...row.matchAll(/\(\.\.\/([a-z0-9-]+)\/SKILL\.md\)/g)].map(match => match[1]);
+    if (new Set(linkedOwners).size !== linkedOwners.length) fail('OWNER_ROUTE', 'Duplicate owner link in route row: ' + row.split('|')[1]?.trim());
+    for (const id of linkedOwners) {
+      if (!linkedOwnersByRow.has(id)) linkedOwnersByRow.set(id, []);
+      linkedOwnersByRow.get(id).push(row);
+    }
+  }
   for (const owner of owners) {
     if (owner.entrypoint !== 'skills/' + owner.id + '/SKILL.md' || !texts.has(owner.entrypoint)) { fail('OWNER_ENTRYPOINT', owner.id); continue; }
     const expectedRoute = !['workflow-orchestrator', 'producer-ai-task-builder'].includes(owner.id);
     if (owner.route_required !== expectedRoute) fail('OWNER_ROUTE_CONTRACT', owner.id);
-    if (owner.route_required) {
-      const needle = '(../' + owner.id + '/SKILL.md)', rows = routing.split(/\r?\n/).filter(line => line.startsWith('|') && line.includes(needle));
-      if (rows.length !== 1) fail('OWNER_ROUTE', owner.id + ': expected one table route; found ' + rows.length);
-    }
+    if (owner.route_required && !linkedOwnersByRow.has(owner.id)) fail('OWNER_ROUTE', owner.id + ': no table route');
     if (owner.id !== 'research-evidence') {
       const instructions = texts.get(owner.entrypoint), index = instructions.indexOf('../research-evidence/SKILL.md');
       if (index < 0) fail('RESEARCH_HANDOFF', owner.id);
       else if (!/\bmandatory\b/i.test(instructions.slice(Math.max(0, index - 220), index))) fail('RESEARCH_MANDATORY', owner.id);
     }
+  }
+  const operationRoutes = Array.isArray(registry.operation_routes) ? registry.operation_routes : [];
+  if (!operationRoutes.length) fail('OPERATION_ROUTE_CONTRACT', 'No operation-specific routes are registered');
+  for (const contract of operationRoutes) {
+    if (!contract || typeof contract.need !== 'string' || !Array.isArray(contract.owners) || !contract.owners.length || contract.owners.some(id => !ownerIds.includes(id))) {
+      fail('OPERATION_ROUTE_CONTRACT', String(contract?.need ?? 'invalid route'));
+      continue;
+    }
+    const matchingRows = routeRows.filter(row => row.split('|')[1]?.trim() === contract.need);
+    if (matchingRows.length !== 1) {
+      fail('OPERATION_ROUTE', contract.need + ': expected one row; found ' + matchingRows.length);
+      continue;
+    }
+    const actualOwners = [...matchingRows[0].matchAll(/\(\.\.\/([a-z0-9-]+)\/SKILL\.md\)/g)].map(match => match[1]).sort();
+    if (!isDeepStrictEqual(actualOwners, [...contract.owners].sort())) fail('OPERATION_ROUTE', contract.need + ': expected ' + contract.owners.join(', ') + '; found ' + actualOwners.join(', '));
   }
   const upgrade = json('scripts/creative-upgrade-contracts.json');
   if (upgrade.schema_version !== 1 || !Array.isArray(upgrade.owners) || !Array.isArray(upgrade.references) || !Array.isArray(upgrade.source_ids)) fail('CREATIVE_REGISTRY', 'Invalid creative resource registry');

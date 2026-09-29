@@ -81,3 +81,7 @@ Standardized all 37 skill display names and synchronized the installed Creative 
 ## 1.1.2, 2026-09-29
 
 Aligned the shared research rule across the operating model and blueprints, added formal music-video and standalone-audio routes, made image routing depend on whether an image is a reference, edit base or review target, and added graph, research-owner and routing regression checks. Updated the installed Creative Studio plugin after the repository change. Structural checks and source readback were run; target-host creative behavior and generated media were not evaluated.
+
+## 1.1.3, 2026-09-29
+
+Corrected canonical route validation to allow an owner to appear in multiple operation-specific rows while keeping exact checks for reference, edit-base and review-target routing. Added explicit contracts for those image operations and fixed the orphaned-resource regression test. Synchronized release markers and the complete install-source inventory. Structural and regression checks pass; the 167 behavior specifications remain planned and were not run against a model.

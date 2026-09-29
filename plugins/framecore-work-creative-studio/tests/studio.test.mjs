@@ -35,7 +35,7 @@ test('installed version directory and authoring slug accept both equivalent skil
   }, name);
 });
 
-test('all fifteen specialist table routes are independently required', () => {
+test('every routed specialist appears in at least one orchestrator table route', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8'));
   assert.equal(registry.owners.length, 37);
   for (const owner of registry.owners.filter(item => item.route_required)) withFixture(root => {
@@ -44,7 +44,19 @@ test('all fifteen specialist table routes are independently required', () => {
   });
 });
 
-test('complete pinned Static Graphic Design Creator bundle is byte-verified and routed once', () => {
+test('image reference, edit base and review target routes have distinct owners', () => {
+  const registry = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8'));
+  assert.equal(registry.operation_routes.length, 3);
+  for (const contract of registry.operation_routes) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.split('\n').map(line => {
+      if (line.startsWith('| ' + contract.need + ' |')) return line.replace(/\(\.\.\/[a-z0-9-]+\/SKILL\.md\)/g, '(../humanizer/SKILL.md)');
+      return line;
+    }).join('\n'));
+    assert.ok(codes(validateStudio(root)).includes('OPERATION_ROUTE'), contract.need);
+  });
+});
+
+test('complete pinned Static Graphic Design Creator bundle is byte-verified', () => {
   const provenance = JSON.parse(fs.readFileSync(path.join(source, 'skills/static-graphic-design-creator/source-provenance.json'), 'utf8'));
   assert.equal(provenance.immutable_source_commit, 'cbfc0160333d8605078c9a75508116b678f5af99');
   assert.equal(provenance.source_bundle_file_count, 34);
