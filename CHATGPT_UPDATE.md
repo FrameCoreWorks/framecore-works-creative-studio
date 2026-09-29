@@ -1,6 +1,10 @@
 # Update the existing ChatGPT Work plugin
 
+In **Work**, type `@`, search for **Plugin Creator**, and select it from the menu. Paste the complete prompt below with that selection attached. If the pasted invocation is only plain text, select Plugin Creator through the menu before sending.
+
 ```text
+@plugin-creator
+
 Use Plugin Creator to update my existing FrameCore Works Creative Studio from:
 https://github.com/FrameCoreWorks/framecore-works-creative-studio
 

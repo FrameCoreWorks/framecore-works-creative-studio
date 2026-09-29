@@ -24,9 +24,11 @@ Use the prompt for your environment. The assistant reads the exact source and pe
 
 ### ChatGPT Work
 
-Open **Work**, select **Plugin Creator**, and paste:
+Open **Work**, type `@`, search for **Plugin Creator**, and select it from the menu. Paste the prompt below with that selection attached. If pasting leaves `@plugin-creator` as plain text, select Plugin Creator through the menu before sending; the text alone is not proof that its tools are available.
 
 ```text
+@plugin-creator
+
 Use Plugin Creator to install my private FrameCore Works Creative Studio from:
 https://github.com/FrameCoreWorks/framecore-works-creative-studio
 Read CHATGPT_INSTALL.md and config/install-sources.json first. Pin main to one commit and verify
@@ -39,11 +41,15 @@ my copy publicly. If saving is unavailable, explain the concrete blocker instead
 
 ### Codex
 
-Paste into Codex:
+In **Codex**, use `$plugin-creator` and select the available matching skill from completion. Paste the prompt below. This is the documented Codex invocation, while Work uses `@plugin-creator`. If this Codex host does not expose Plugin Creator, omit only the invocation line and use the same native installation request; the local installer does not depend on Plugin Creator.
 
 ```text
+$plugin-creator
+
 Install FrameCore Works Creative Studio from:
 https://github.com/FrameCoreWorks/framecore-works-creative-studio
+Use Plugin Creator for package checks when available. Follow the native installation below;
+do not create a hosted plugin copy or register a plugin catalog. Report unavailable capabilities.
 Read CODEX_INSTALL.md and config/install-sources.json first. Pin main to one full commit.
 Inspect the local installer, resolve and show the actual native skills location and persistent
 bundle directory, then run plan, install and verify. Keep the complete 37-module bundle together
@@ -55,6 +61,7 @@ whether host activation was observed.
 ```
 
 [Installation details](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
+Invocation syntax checked on 2026-09-29 against [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins) and [ChatGPT's Plugin Creator selection steps](https://learn.chatgpt.com/docs/build-plugins).
 ChatGPT Work creates the user's own private plugin. Codex installs the same Studio knowledge through a native local entry. Availability of actual image, video, audio and research tools depends on the user's environment.
 
 ## Repository layout

@@ -1,5 +1,11 @@
 # Changelog
 
+## Documentation follow-up, 2026-09-29
+
+- Adds `@plugin-creator` to copyable Work installation/update prompts and `$plugin-creator` to their Codex equivalents, including both README installation prompts.
+- Documents menu selection, host availability checks and the difference between selecting a capability and granting access.
+- Keeps Codex's native complete-bundle installation independent of Plugin Creator. Hosted plugin version and published 1.0.1 archives are unchanged; these corrected guides are on main.
+
 ## 1.0.1, 2026-09-29
 
 - Replaces registry-based installation with direct source installation in ChatGPT Work and Codex.

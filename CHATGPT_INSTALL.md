@@ -1,8 +1,10 @@
 # Install Creative Studio in ChatGPT Work
 
-Open **Work**, select **Plugin Creator**, and paste:
+Open **Work**, type `@`, search for **Plugin Creator**, and select it from the menu. Paste the complete prompt below with that selection attached. If `@plugin-creator` remains plain text after pasting, select Plugin Creator through the menu before sending. Do not treat a copied name as proof that its tools are active.
 
 ```text
+@plugin-creator
+
 Use Plugin Creator to create my private FrameCore Works Creative Studio plugin from:
 https://github.com/FrameCoreWorks/framecore-works-creative-studio
 
@@ -43,3 +45,5 @@ hosted entry or synchronize later edits. Use [CHATGPT_UPDATE.md](CHATGPT_UPDATE.
 No provider connection, media generation or external client-data transfer is part of installation.
 
 Package format reference, checked 2026-09-29: [OpenAI, Package your plugin](https://developers.openai.com/plugins/build/plugins). Preserve the portable root manifest and complete skills directory. Use the current host's actual private creation capability, not an assumed public directory listing.
+
+Invocation reference, checked 2026-09-29: [OpenAI, Build plugins](https://learn.chatgpt.com/docs/build-plugins). ChatGPT Work uses `@plugin-creator`; select **Plugin Creator** from the `@` menu. Codex uses `$plugin-creator`, as specified in the packaging guide. The mention selects a capability; it does not grant missing permissions or establish external app connections.

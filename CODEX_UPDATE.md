@@ -1,9 +1,15 @@
 # Update an existing Codex installation
 
+In **Codex**, use `$plugin-creator` and select the matching available skill from completion, then paste the complete prompt below. Use it for package checks while preserving the native entry and bundle. If this host does not expose Plugin Creator, omit only the invocation line and use the same update request. The mention does not grant missing tools or permissions.
+
 ```text
+$plugin-creator
+
 Update my existing FrameCore Works Creative Studio from:
 https://github.com/FrameCoreWorks/framecore-works-creative-studio
 
+Use Plugin Creator for package checks when available. Update the existing native installation;
+do not create a hosted plugin copy or register a plugin catalog. Report unavailable capabilities.
 Read CODEX_UPDATE.md. Locate the actual native entry, receipt and complete bundle, or identify
 an older layout. Resolve main once to a full commit and verify its declared inventory.
 Compare installed bytes, previous verified source and new source. Prepare the complete change

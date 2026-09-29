@@ -7,6 +7,8 @@ Version: **1.0.1**. Install from this repository through the assistant in your t
 | ChatGPT Work with Plugin Creator | [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md) | Your own private Creative Studio plugin |
 | Codex with filesystem access | [CODEX_INSTALL.md](CODEX_INSTALL.md) | Native Studio skill with the complete local knowledge bundle |
 
+The copyable prompts include the host-specific invocation: `@plugin-creator` in **ChatGPT Work** and `$plugin-creator` in **Codex**. In Work, type `@`, search for **Plugin Creator**, and select it from the menu. In Codex, select the matching available skill from completion. Pasted plain text is not proof of an active selection or available tools. Plugin Creator is required for Work's hosted save; Codex's native helper can operate without it, as described in its guide.
+
 Use the matching guide. Ordinary Chat without creation/save capabilities cannot install the package.
 Resolve the requested release, or latest main, to one full Git commit and read all source from that
 commit. [config/install-sources.json](config/install-sources.json) declares every plugin file and SHA-256.

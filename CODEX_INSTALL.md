@@ -1,11 +1,17 @@
 # Install Creative Studio in Codex
 
-Paste into Codex:
+In **Codex**, use `$plugin-creator` and select the matching available skill from completion, then paste the complete prompt below. ChatGPT Work uses `@plugin-creator`; do not assume that the same prefix applies to Codex. Confirm the capability is available rather than treating copied text as proof of activation.
+
+Plugin Creator assists with package checks here. The actual installation remains the native source route below. If Plugin Creator is not available in this host, omit only the invocation line and use the same request; the installer does not require that capability. Do not claim that a connector was enabled.
 
 ```text
+$plugin-creator
+
 Install FrameCore Works Creative Studio from:
 https://github.com/FrameCoreWorks/framecore-works-creative-studio
 
+Use Plugin Creator for package checks when available. Follow the native source-install route
+below; do not create a hosted plugin copy or register a plugin catalog. Report unavailable capabilities.
 Read CODEX_INSTALL.md and config/install-sources.json. Resolve main once to a full commit and use
 that immutable source throughout. Follow this host's actual skill installation rules and inspect
 scripts/install_codex.py before execution.
@@ -72,6 +78,7 @@ Use $framecore-work-creative-studio. Quick mode: give me three short directions 
 ```
 
 Mechanism reference, checked 2026-09-29: [OpenAI, Build skills](https://learn.chatgpt.com/docs/build-skills).
+Invocation references, checked 2026-09-29: [OpenAI, Package your plugin](https://developers.openai.com/plugins/build/plugins) explicitly distinguishes `@plugin-creator` in Work from `$plugin-creator` in Codex; [Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins) documents Codex `$` skill mentions. A mention does not grant permissions or connect external accounts.
 The Work/Codex source-install pattern comes from
 [Workflow Kit](https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/tree/55c8bf19962c7bf7fb43648637ee433d990eb2a9).
 Studio keeps its complete linked bundle rather than copying independent skills.
