@@ -8,7 +8,7 @@
 | `loop_control_fit` | `workflow-orchestrator`, `qa-iteration` | Loop State |
 | `brief_completeness` | `brief-architect` | Brief Contract |
 | `reference_authority_fit` | `reference-curator` | Reference Pack |
-| `evidence_fit` | `research-evidence` | Evidence Note |
+| `evidence_fit` | `research-evidence` | Evidence Note or No-Browse Receipt |
 | `instruction_packet_fit` | `instruction-packet-factory` | Instruction Packet |
 | `direction_fit` | `static-direction`, `motion-direction`, `music-video-direction` | Direction Contract |
 | `structure_fit` | `storyboard-architect` | Storyboard Contract |

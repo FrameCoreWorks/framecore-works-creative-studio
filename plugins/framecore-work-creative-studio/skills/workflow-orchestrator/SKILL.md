@@ -38,7 +38,6 @@ Do not repeat this menu for a user who already gave a task. Quick means fewer ex
 |---|---|---|
 | Artist-led music video, song-to-image concept, performance/persona or music-video visual world | [creative-music-video-director](../creative-music-video-director/SKILL.md) | Song-specific direction, visual and performance logic, deliberate rhythm/motif choices, and requested downstream handoffs |
 | Copy-ready song, lyric, instrumental, music edit or music-video packet; supplied audio review, sonic plan, or visible-singing/lip-sync triage | [audio-production-director](../audio-production-director/SKILL.md) | Researched, text-only task packet with source truth, uncertainty labels, QA and bounded repair; no media generation or provider execution |
-
 | Open commercial brand/product/service video campaign, motion thesis or multi-asset direction | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) | Specific time-based campaign idea, asset jobs, truth locks, placement-aware research and handoffs |
 | Static-only poster, graphic, product visual, exact-copy design or image prompt | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) | Full integrated design method, typography/copy craft, generator-ready prompt, scoped edit or review |
 | Multi-asset visual campaign system or adaptation strategy | [commercial-visual-campaign-director](../commercial-visual-campaign-director/SKILL.md) | Shared visual direction and format-specific asset roles; hand each static deliverable to Static Graphic Design Creator |
@@ -49,7 +48,9 @@ Do not repeat this menu for a user who already gave a task. Quick means fewer ex
 | Direction/copy known, final image prompt or edit instruction | [image-prompt-architect](../image-prompt-architect/SKILL.md) | Standalone generator-ready prompt |
 | Video prompt, shot-card compilation, selected dialogue/audio compilation, source-clip edit, or supplied video review | [video-prompt-architect](../video-prompt-architect/SKILL.md) | Feasible prompt, continuity contract, and observable acceptance tests |
 | Every new substantive creative request; especially a named model, public inspiration need or factual claim | [research-evidence](../research-evidence/SKILL.md) | Mandatory targeted web search, evidence boundary and decision relevant to the requested artifact |
-| Supplied actual still image, raster graphic or static render | [output-critic-iteration](../output-critic-iteration/SKILL.md) | Evidence, preservation set, repair and test |
+| Image supplied as a reference for a new asset | [reference-pack-curator](../reference-pack-curator/SKILL.md) with the requested direction or prompt owner | Property-scoped reference use; not automatically under review |
+| Approved base image supplied for an edit | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only edit instruction | Preserve the approved base and named locks |
+| Existing image explicitly supplied for review | [output-critic-iteration](../output-critic-iteration/SKILL.md) | Evidence, preservation set, repair and test |
 | Accepted work; print, image, audio or video delivery requirements/handoff | [delivery-documentation](../delivery-documentation/SKILL.md) | Medium-specific production specification with requested, verified and unknown properties |
 | User preference, expertise mirroring, pace adjustment or portable profile | [studio-workstyle-profile](../studio-workstyle-profile/SKILL.md) | Domain-specific adaptation and editable user-controlled profile; no assumed cross-host sync |
 

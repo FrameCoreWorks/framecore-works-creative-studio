@@ -14,6 +14,7 @@
       "available_assets": [],
       "expected_branch": "quick_direction",
       "expected_owners": [
+        "research-evidence",
         "workflow-orchestrator",
         "pipeline-core",
         "brief-architect"
@@ -43,6 +44,7 @@
       "available_assets": [],
       "expected_branch": "rejected_ideas",
       "expected_owners": [
+        "research-evidence",
         "workflow-orchestrator",
         "studio-workstyle-profile"
       ],
@@ -71,6 +73,7 @@
       "available_assets": [],
       "expected_branch": "campaign_strategy",
       "expected_owners": [
+        "research-evidence",
         "ecommerce-campaign-strategy-director",
         "marketing",
         "commercial-visual-campaign-director"
@@ -100,6 +103,7 @@
       "available_assets": [],
       "expected_branch": "strict_character",
       "expected_owners": [
+        "research-evidence",
         "character-design",
         "reference-pack-curator",
         "image-prompt-architect"
@@ -158,6 +162,7 @@
       "available_assets": [],
       "expected_branch": "end_to_end_reel",
       "expected_owners": [
+        "research-evidence",
         "creative-video-producer",
         "cinematography",
         "storytelling",
@@ -192,6 +197,7 @@
       "available_assets": [],
       "expected_branch": "coded_edit_routes",
       "expected_owners": [
+        "research-evidence",
         "remotion-video-production",
         "hyperframes-workflow"
       ],
@@ -309,6 +315,7 @@
       "available_assets": [],
       "expected_branch": "provider_boundary",
       "expected_owners": [
+        "research-evidence",
         "tool-routing-cost",
         "video-prompt-architect"
       ],

@@ -73,3 +73,11 @@ Replaces registry-based setup with direct source installation through ChatGPT Wo
 ## 1.1.0, 2026-09-29
 
 Added a dated provider catalog, source evidence, Polish setup guide and private connection-profile template. Extended four existing owners with optional post-install selection and explicit ChatGPT Chat/Work/Codex client, native-app, MCP, CLI and API boundaries. Distinguished Higgsfield consumer credits from Open Higgsfield API billing, captured public-documentation/runtime conflicts, and kept non-generating verification and prompt-only work available. No external provider was installed, authenticated or run. Verification covers package integrity; live provider entitlement and media execution remain untested.
+
+## 1.1.1, 2026-09-29
+
+Standardized all 37 skill display names and synchronized the installed Creative Studio plugin. Source and installed skill-file parity was verified for the updated release.
+
+## 1.1.2, 2026-09-29
+
+Aligned the shared research rule across the operating model and blueprints, added formal music-video and standalone-audio routes, made image routing depend on whether an image is a reference, edit base or review target, and added graph, research-owner and routing regression checks. Updated the installed Creative Studio plugin after the repository change. Structural checks and source readback were run; target-host creative behavior and generated media were not evaluated.

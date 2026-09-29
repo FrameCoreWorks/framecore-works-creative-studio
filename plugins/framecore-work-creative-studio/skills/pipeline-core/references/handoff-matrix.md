@@ -43,6 +43,14 @@
 | asset-manifest | qa-iteration | file_list, source_traceability, continuity_carriers, accepted_output_refs, acceptance_criteria |
 | qa-iteration | workflow-orchestrator | QA status, severity, root_cause, prompt_contract_checks, continuity_checks, adapter_checks, loopback_target, regression_check, stop_recommendation |
 | qa-iteration | delivery-documentation | accepted_assets, excluded_assets, QA status, verification_results, prompt_contract_checks, continuity_checks, adapter_checks, stop_condition, caveats |
+| workflow-orchestrator | research-evidence | goal, decision_to_support, claims_or_target, source_rules, excluded_private_data, acceptance_criteria, stop_condition |
+| research-evidence | workflow-orchestrator | evidence_decision, evidence_note_or_no_browse_receipt, claims, citations, uncertainty, verification_questions, source_notes, refresh_condition |
+| workflow-orchestrator | music-video-direction | goal, song_or_track_status, artist_or_persona, visual_brief, format, constraints, evidence_note, acceptance_criteria |
+| music-video-direction | storyboard-architect | direction_contract, song_structure_or_beat_map, performance_logic, motif_rules, timing_and_continuity |
+| music-video-direction | video-prompting | direction_contract, selected_shot_or_sequence, target_format, reference_roles, motion_and_timing_locks, acceptance_criteria |
+| music-video-direction | audio-production | direction_contract, track_version, approved_motifs_or_sync_points, music_sound_VO_lyrics_scope, rights_questions |
+| workflow-orchestrator | audio-production | goal, source_audio, music_sound_VO_lyrics_scope, delivery_target, evidence_note, acceptance_criteria |
+| audio-production | delivery-documentation | audio_task_pack, track_version, rights_and_source_notes, verified_assumptions, acceptance_criteria, caveats |
 
 `humanizer` is a supporting skill, not a permanent agent role. Its internal
 copy-polish exchange is recorded in the Copy Pack rather than added as a

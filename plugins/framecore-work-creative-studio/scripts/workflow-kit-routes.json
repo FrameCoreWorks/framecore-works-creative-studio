@@ -47,6 +47,9 @@
       "cinematography",
       "storytelling"
     ],
+    "audio-production": [
+      "audio-production-director"
+    ],
     "storyboard-architect": [
       "storyboard-sequence-architect",
       "screenplay-story-architect",
@@ -309,6 +312,46 @@
       "from": "qa-iteration",
       "to": "delivery-documentation",
       "required_fields": "accepted_assets, excluded_assets, QA status, verification_results, prompt_contract_checks, continuity_checks, adapter_checks, stop_condition, caveats"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "research-evidence",
+      "required_fields": "goal, decision_to_support, claims_or_target, source_rules, excluded_private_data, acceptance_criteria, stop_condition"
+    },
+    {
+      "from": "research-evidence",
+      "to": "workflow-orchestrator",
+      "required_fields": "evidence_decision, evidence_note_or_no_browse_receipt, claims, citations, uncertainty, verification_questions, source_notes, refresh_condition"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "music-video-direction",
+      "required_fields": "goal, song_or_track_status, artist_or_persona, visual_brief, format, constraints, evidence_note, acceptance_criteria"
+    },
+    {
+      "from": "music-video-direction",
+      "to": "storyboard-architect",
+      "required_fields": "direction_contract, song_structure_or_beat_map, performance_logic, motif_rules, timing_and_continuity"
+    },
+    {
+      "from": "music-video-direction",
+      "to": "video-prompting",
+      "required_fields": "direction_contract, selected_shot_or_sequence, target_format, reference_roles, motion_and_timing_locks, acceptance_criteria"
+    },
+    {
+      "from": "music-video-direction",
+      "to": "audio-production",
+      "required_fields": "direction_contract, track_version, approved_motifs_or_sync_points, music_sound_VO_lyrics_scope, rights_questions"
+    },
+    {
+      "from": "workflow-orchestrator",
+      "to": "audio-production",
+      "required_fields": "goal, source_audio, music_sound_VO_lyrics_scope, delivery_target, evidence_note, acceptance_criteria"
+    },
+    {
+      "from": "audio-production",
+      "to": "delivery-documentation",
+      "required_fields": "audio_task_pack, track_version, rights_and_source_notes, verified_assumptions, acceptance_criteria, caveats"
     }
   ],
   "gates": [
@@ -360,7 +403,7 @@
       "owners": [
         "research-evidence"
       ],
-      "artifact": "Evidence Note"
+      "artifact": "Evidence Note or No-Browse Receipt"
     },
     {
       "id": "instruction_packet_fit",
@@ -457,5 +500,12 @@
     "video": "video-prompt-architect",
     "audio": "audio-production-director",
     "captions": "caption-studio"
+  },
+  "research_policy": {
+    "scope": "every_new_substantive_creative_request",
+    "role": "research-evidence",
+    "gate": "evidence_fit",
+    "reuse_rule": "Reuse evidence only while the question and source basis are unchanged within the active project.",
+    "no_browse_rule": "Honor explicit user no-browse boundaries, record the restriction, and keep mutable claims unverified."
   }
 }

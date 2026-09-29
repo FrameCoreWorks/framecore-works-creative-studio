@@ -38,6 +38,23 @@ test('a missing handoff field or gate owner fails contract parity', () => {
   fixture(root => {editJson(root,'scripts/workflow-kit-routes.json',m=>m.handoffs[0].required_fields='goal');assert.ok(codes(root).includes('KIT_HANDOFF_MAP'));});
   fixture(root => {editJson(root,'scripts/workflow-kit-routes.json',m=>m.gates[0].owners=['missing-role']);assert.ok(codes(root).includes('KIT_GATE_OWNER'));});
 });
+test('all mapped roles are reachable through the formal handoff graph', () => fixture(root => {
+  editJson(root,'scripts/workflow-kit-routes.json',m=>{m.handoffs=m.handoffs.filter(h=>h.to!=='music-video-direction');});
+  assert.ok(codes(root).includes('KIT_ROLE_REACHABILITY'));
+}));
+test('a required research route cannot disappear from a planned case', () => fixture(root => {
+  editJson(root,'evals/workflow-kit-cases.json',m=>{const c=m.cases.find(c=>c.id==='WK01');c.expected_owners=c.expected_owners.filter(owner=>owner!=='research-evidence');});
+  assert.ok(codes(root).includes('KIT_RESEARCH_OWNER'));
+}));
+test('supplied images route by reference, edit-base, and review operation', () => fixture(root => {
+  edit(root,'skills/workflow-orchestrator/references/capabilities-and-handoffs.md',t=>t.replace('Approved base image supplied for an edit','Actual still/raster image'));
+  assert.ok(codes(root).includes('KIT_IMAGE_OPERATION_ROUTE'));
+}));
+test('research preflight has a reachable request, return handoff, and shared blueprint gate', () => fixture(root => {
+  editJson(root,'scripts/workflow-kit-routes.json',m=>{m.handoffs=m.handoffs.filter(h=>!(h.from==='research-evidence'&&h.to==='workflow-orchestrator'));});
+  assert.ok(codes(root).includes('KIT_RESEARCH_ROUTE'));
+}));
+
 test('video QA cannot be redirected to still-only review', () => fixture(root => {
   editJson(root,'scripts/workflow-kit-routes.json',m=>m.qa_by_modality.video='output-critic-iteration');
   assert.ok(codes(root).includes('KIT_MEDIA_QA'));

@@ -2,6 +2,10 @@
 
 Use these blueprints as starting routes. The workflow-orchestrator may shorten or expand them, but it must preserve required gates, handoffs, and missing-artifact loopbacks.
 
+## Shared Research Preflight
+
+Every new substantive creative route includes `research-evidence` before direction, factual claims, model recommendations, promptability decisions, or diagnosis. It produces an Evidence Note or an explicit No-Browse Receipt. Honor an explicit user no-browse boundary and mark mutable claims unverified. Reuse prior evidence only while the question and source basis remain unchanged within the active project. Include the `evidence_fit` gate on each substantive route; mechanical maintenance and project-state recovery without changing advice may record a specific exemption.
+
 ## Minimal Planning Route
 
 Use for small planning requests, first-install smoke tests, and tasks where the user needs a clean brief or delivery note without the full creative pipeline.
@@ -30,20 +34,22 @@ Route:
 
 1. `intent-confirmation`
 2. `workflow-orchestrator`
-3. `brief-architect`
-4. `reference-curator`
-5. `static-direction`
-6. `copy-voice` when visible text or campaign wording matters
-7. `image-prompting`
-8. `tool-routing-cost` only when execution is explicitly requested
-9. `asset-manifest` when outputs exist
-10. `qa-iteration`
-11. `delivery-documentation`
+3. `research-evidence`
+4. `brief-architect`
+5. `reference-curator`
+6. `static-direction`
+7. `copy-voice` when visible text or campaign wording matters
+8. `image-prompting`
+9. `tool-routing-cost` only when execution is explicitly requested
+10. `asset-manifest` when outputs exist
+11. `qa-iteration`
+12. `delivery-documentation`
 
 Required gates:
 
 - `intent_lock`
 - `workflow_route`
+- `evidence_fit`
 - `loop_control_fit`
 - `brief_completeness`
 - `reference_authority_fit`
@@ -64,21 +70,23 @@ Route:
 
 1. `intent-confirmation`
 2. `workflow-orchestrator`
-3. `brief-architect`
-4. `reference-curator`
-5. `motion-direction`
-6. `storyboard-architect`
-7. `copy-voice` when VO, supers, captions, or dialogue are needed
-8. `video-prompting`
-9. `tool-routing-cost` only when execution is explicitly requested
-10. `asset-manifest` when outputs exist
-11. `qa-iteration`
-12. `delivery-documentation`
+3. `research-evidence`
+4. `brief-architect`
+5. `reference-curator`
+6. `motion-direction`
+7. `storyboard-architect`
+8. `copy-voice` when VO, supers, captions, or dialogue are needed
+9. `video-prompting`
+10. `tool-routing-cost` only when execution is explicitly requested
+11. `asset-manifest` when outputs exist
+12. `qa-iteration`
+13. `delivery-documentation`
 
 Required gates:
 
 - `intent_lock`
 - `workflow_route`
+- `evidence_fit`
 - `loop_control_fit`
 - `brief_completeness`
 - `reference_authority_fit`
@@ -91,6 +99,67 @@ Required gates:
 - `delivery_fit`
 
 Loopback: if the storyboard lacks timing, camera intent, or continuity, return to `storyboard-architect` before prompting.
+
+## Artist-led Music Video
+
+Use for a music-first visual concept, artist persona/performance direction, or a music video whose primary outcome is the song and artist rather than a commercial product campaign.
+
+Route:
+
+1. `intent-confirmation`
+2. `workflow-orchestrator`
+3. `research-evidence`
+4. `brief-architect`
+5. `reference-curator`
+6. `music-video-direction`
+7. `storyboard-architect` when a timed sequence or shot cards are requested
+8. `audio-production` when music, sound, VO, lyrics, rights or audio review is in scope
+9. `copy-voice` when non-lyrical copy, captions or presentation text matters
+10. `video-prompting` when a video prompt is requested
+11. `qa-iteration` when a concrete artifact or prompt is ready for review
+12. `delivery-documentation` when a delivery packet is requested
+
+Required gates:
+
+- `intent_lock`
+- `workflow_route`
+- `evidence_fit`
+- `brief_completeness`
+- `reference_authority_fit`
+- `direction_fit`
+- `structure_fit` when a sequence is produced
+- `promptability_fit` when a video prompt is produced
+- `post_execution_fit` when media or a concrete artifact is reviewed
+- `delivery_fit` when delivery documentation is produced
+
+Boundary: the music-video owner develops song/persona image logic; screenplay authorship, timed shot cards, audio planning, prompt compilation, execution and media review remain with their mapped owners.
+
+## Standalone Audio Planning Or Review
+
+Use for an audio task packet, music/sound/VO/lyrics planning, track-rights research, or review of supplied audio when no larger visual route owns the task.
+
+Route:
+
+1. `intent-confirmation`
+2. `workflow-orchestrator`
+3. `research-evidence`
+4. `brief-architect` when scope or delivery context needs structure
+5. `reference-curator` when supplied audio, source material or reference authority matters
+6. `audio-production`
+7. `qa-iteration` when an actual audio asset or completed packet is explicitly reviewed
+8. `delivery-documentation` when a portable packet or delivery note is requested
+
+Required gates:
+
+- `intent_lock`
+- `workflow_route`
+- `evidence_fit`
+- `brief_completeness` when a brief is produced
+- `reference_authority_fit` when references are used
+- `post_execution_fit` when a concrete artifact or supplied media is reviewed
+- `delivery_fit` when delivery documentation is produced
+
+Boundary: Audio Production Director creates text-based planning/review artifacts and can inspect media only through actually available, task-authorized tools. The route does not imply audio generation or provider execution.
 
 ## Storyboard Board Artifact
 

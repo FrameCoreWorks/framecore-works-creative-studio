@@ -38,6 +38,7 @@ then stop or hand off.
 | `static-direction` | `.codex/agents/static-direction.toml` | temporary responsibility | `static-graphic-design-creator`, `commercial-visual-campaign-director`, `ecommerce-campaign-strategy-director`, `marketing`, `character-design` |
 | `motion-direction` | `.codex/agents/motion-direction.toml` | temporary responsibility | `commercial-video-campaign-director`, `creative-video-producer`, `cinematography`, `storytelling` |
 | `music-video-direction` | `.codex/agents/music-video-direction.toml` | temporary responsibility | `creative-music-video-director`, `audio-production-director`, `cinematography`, `storytelling` |
+| `audio-production` | — | temporary responsibility | `audio-production-director` |
 | `storyboard-architect` | `.codex/agents/storyboard-architect.toml` | temporary responsibility | `storyboard-sequence-architect`, `screenplay-story-architect`, `storytelling`, `cinematography` |
 | `storyboard-board-architect` | `.codex/agents/storyboard-board-architect.toml` | temporary responsibility | `storyboard-board-architect`, `image-prompt-architect` |
 | `copy-voice` | `.codex/agents/copy-voice.toml` | temporary responsibility | `copy-voice`, `humanizer`, `marketing`, `ugc`, `caption-studio` |

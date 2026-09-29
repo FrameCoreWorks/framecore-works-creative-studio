@@ -7,7 +7,7 @@ Default flow:
 3. Workflow route.
 4. Loop Protocol when the work is nontrivial and needs QA, correction, validation, delivery readiness, workflow changes, or evidence-backed iteration.
 5. Brief and reference authority.
-6. Evidence when facts, docs, models, costs, or claims may change.
+6. Mandatory targeted research preflight for every new substantive creative request, owned by `research-evidence`; produce an Evidence Note or explicit No-Browse Receipt, and mark mutable claims unverified when browsing is disallowed. Reuse evidence only while the question and source basis are unchanged.
 7. Direction and structure.
 8. Copy and prompt packs. Ready-to-use copy records author context, claim and
    lock review, Human Voice review, and the bounded Copy Delivery Loop.

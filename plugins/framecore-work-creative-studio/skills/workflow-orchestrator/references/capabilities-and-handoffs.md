@@ -8,7 +8,9 @@ Keep the requested stage separate from the medium. A direction, prompt, generate
 
 | Supplied artifact or task | Lead responsibility | Evidence boundary |
 |---|---|---|
-| Actual still/raster image | Output Critic | Only visible/accessible pixels and actually measured file properties |
+| Image supplied as a reference for a new asset | Reference Pack Curator plus the requested direction or prompt owner | The image controls only its assigned reference properties; it is not automatically under review |
+| Approved base image supplied for an edit | Static Graphic Design Creator, or Image Prompt Architect for a prompt-only edit instruction | Preserve the approved base and named locks; review only when separately requested |
+| Existing image explicitly supplied for review | Output Critic | Only visible/accessible pixels and actually measured file properties |
 | Actual video clip | Video Prompt Architect | Temporal review requires accessible frames/time ranges; sound requires a real audio route |
 | Actual audio, song or visible-singing diagnostic | Audio Production Director | Separate metadata, user report, transcript, and actual audio/video inspection; record range and method |
 | Narrative scene or dialogue | Screenplay Story Architect | Story intent, continuity, action and exact selected dialogue |
@@ -16,7 +18,7 @@ Keep the requested stage separate from the medium. A direction, prompt, generate
 | Lyrics, music prompt, VO, sound design, music-first/picture-first plan or track-rights research | Audio Production Director | Provider-aware output, evidence-bound inspection and track-specific rights scope |
 | Final delivery requirements | Delivery Documentation | Medium-specific requirements versus measured export properties; no invented certification |
 
-A supplied video with no accessible decoder may still support a review of its provided shot list or one actual frame. Name that narrower review. Never report that the full film or soundtrack passed. When a media operation is blocked, provide the useful plan or exact missing input without inventing an inspection.
+Classify each supplied still image by its requested operation: reference for a new asset, approved edit base, or output explicitly submitted for review. References and edit bases are not automatically outputs under review. A supplied video with no accessible decoder may still support a review of its provided shot list or one actual frame. Name that narrower review. Never report that the full film or soundtrack passed. When a media operation is blocked, provide the useful plan or exact missing input without inventing an inspection.
 
 ## Check the actual capability when needed
 
