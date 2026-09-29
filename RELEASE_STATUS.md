@@ -8,9 +8,9 @@ Version: **1.1.1**. Date: 2026-09-29.
 | Visibility | Public, approved by the owner |
 | Release tag | `v1.1.1`, produced by the repository release workflow |
 | License for original code and instructions | Apache-2.0 |
-| Last verified hosted plugin version | 1.1.0 |
-| Hosted release | `pluginrel_6abb7f29d0c08191b12ee2f969abaff0` |
-| Hosted update/readback | 1.1.1 pending; previous 1.1.0 verified; see verification/hosted-release-1.1.0.json |
+| Hosted plugin version | 1.1.1 |
+| Hosted release | `pluginrel_6abb8bb5610c81918008bf040e5736b9` |
+| Hosted update/readback | Verified; all 37 display names and all changed source files; see verification/hosted-release-1.1.1.json |
 | Package/source checks | See VERIFICATION.md and verification/release-1.1.1.json |
 
 The published tag and its attachments identify the distributed snapshot; check the workflow/release page for publication status. GitHub source and the hosted plugin are separate saves. GitHub availability does not grant provider access or change a plugin's audience.

@@ -6,7 +6,7 @@ This document records bounded package verification. It is not a certification of
 
 The current source record is [1.1.1 checks](verification/release-1.1.1.json). All 37 canonical skills have valid and unique display names. Canonical structure, source inventory, preserved skill instructions and manifest values, seven existing installer tests and archive integrity passed bounded checks. Four temporary mutations verified detection of missing metadata, misplaced metadata, raw IDs and lowercase titles.
 
-Hosted 1.1.1 publication/readback is pending at this source checkpoint. The previous [1.1.0 hosted update/readback](verification/hosted-release-1.1.0.json) remains its own historical evidence. UI cache refresh on the user's device has not been observed.
+Hosted 1.1.1 was updated after the source commit was published. [Hosted readback](verification/hosted-release-1.1.1.json) verifies all 37 display names and every changed source file: 42 files match byte-for-byte and the compatibility manifest matches as JSON. The source report retains its pre-publication checkpoint. The previous [1.1.0 hosted update/readback](verification/hosted-release-1.1.0.json) remains its own historical evidence. UI cache refresh on the user's device has not been observed.
 
 ## Historical evidence
 

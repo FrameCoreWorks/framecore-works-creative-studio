@@ -1,0 +1,183 @@
+{
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "version": "1.1.1",
+  "release_id": "pluginrel_6abb8bb5610c81918008bf040e5736b9",
+  "status": "updated_and_source_verified",
+  "repository_commit": "f354c35bacd37289bff7c85e99c12cbaa671570b",
+  "scope": "Saved-source verification; actual device UI cache refresh not observed",
+  "verified_display_name_count": 37,
+  "checks": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "match": "json_equal"
+    },
+    {
+      "path": "README.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/skill-naming.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "plugin.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/asset-manifest/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/audio-production-director/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/brief-architect/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/caption-studio/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/character-design/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/cinematography/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/copy-voice/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/creative-music-video-director/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/creative-video-producer/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/delivery-documentation/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/hipson-adapter/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/humanizer/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/hyperframes-workflow/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/image-prompt-architect/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/instruction-packet-factory/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/marketing/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/opencut-video-studio/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/output-critic-iteration/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/pipeline-core/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/producer-ai-task-builder/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/reference-pack-curator/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/remotion-video-production/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/research-evidence/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/screenplay-story-architect/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/storyboard-board-architect/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/storytelling/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/studio-workstyle-profile/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/tool-routing-cost/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/ugc/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/video-prompt-architect/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-orchestrator/agents/openai.yaml",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-self-improvement/agents/openai.yaml",
+      "match": "byte_equal"
+    }
+  ]
+}
