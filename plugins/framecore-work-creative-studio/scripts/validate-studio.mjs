@@ -107,6 +107,27 @@ export function validateStudio(root, {legacy = false} = {}) {
   const owners = Array.isArray(registry.owners) ? registry.owners.filter(owner => owner && typeof owner === 'object' && typeof owner.id === 'string') : [];
   const ownerIds = owners.map(owner => owner.id), actualOwners = files.filter(file => /^skills\/[^/]+\/SKILL\.md$/.test(file)).map(file => file.split('/')[1]).sort();
   if (registry.schema_version !== 1 || owners.length !== expectedOwnerCount || new Set(ownerIds).size !== expectedOwnerCount || !isDeepStrictEqual([...ownerIds].sort(), actualOwners)) fail('OWNER_ROSTER', 'Registry must match all thirty-seven installed skill roots');
+  // UI names are distinct from stable routing IDs. Check every discovered root,
+  // including future additions, rather than only a fixed list of current names.
+  const nameSpellings = new Map([['ai', 'AI'], ['ugc', 'UGC'], ['hyperframes', 'HyperFrames'], ['opencut', 'OpenCut']]);
+  const displayNames = new Set();
+  for (const id of actualOwners) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) fail('SKILL_ID_FORMAT', id);
+    const relative = 'skills/' + id + '/agents/openai.yaml';
+    if (!files.includes(relative)) { fail('SKILL_DISPLAY_NAME', relative + ': missing UI metadata'); continue; }
+    const config = read(relative);
+    // The naming standard uses a double-quoted scalar directly under interface.
+    const sections = [...config.matchAll(/^interface:[ \t]*\r?\n((?:[ \t]+[^\r\n]*\r?\n|[ \t]*\r?\n)*)/gm)];
+    const entries = [...(sections[0]?.[1] ?? '').matchAll(/^  display_name:[ \t]*("(?:[^"\\\r\n]|\\[^\r\n])*")[ \t]*$/gm)];
+    let title;
+    try { if (sections.length === 1 && entries.length === 1) title = JSON.parse(entries[0][1]); } catch { /* invalid scalar fails below */ }
+    const expected = id.split('-').map(word => nameSpellings.get(word) ?? word[0].toUpperCase() + word.slice(1)).join(' ');
+    if (title !== expected) fail('SKILL_DISPLAY_NAME', relative + ': expected interface.display_name ' + JSON.stringify(expected));
+    if (typeof title === 'string') {
+      if (displayNames.has(title)) fail('SKILL_DISPLAY_NAME_DUPLICATE', title);
+      displayNames.add(title);
+    }
+  }
   const routing = texts.get('skills/workflow-orchestrator/SKILL.md') ?? '';
   for (const owner of owners) {
     if (owner.entrypoint !== 'skills/' + owner.id + '/SKILL.md' || !texts.has(owner.entrypoint)) { fail('OWNER_ENTRYPOINT', owner.id); continue; }

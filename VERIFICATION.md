@@ -4,11 +4,13 @@ This document records bounded package verification. It is not a certification of
 
 ## Current release
 
-The current records are [1.1.0 checks](verification/release-1.1.0.json) and [hosted update/readback](verification/hosted-release-1.1.0.json). Canonical structure, the 12-entry provider catalog, its evidence references, four install prompts, preserved manifest values, source inventory and package archives passed bounded checks. The seven existing isolated installer tests passed. All 37 modules remain packaged.
+The current source record is [1.1.1 checks](verification/release-1.1.1.json). All 37 canonical skills have valid and unique display names. Canonical structure, source inventory, preserved skill instructions and manifest values, seven existing installer tests and archive integrity passed bounded checks. Four temporary mutations verified detection of missing metadata, misplaced metadata, raw IDs and lowercase titles.
 
-The hosted update was saved as 1.1.0 and all 18 changed/added paths were read back. The report distinguishes byte equality from equivalent JSON serialization. Unchanged binary assets were omitted from the overlay and preserved by the update mechanism. Catalog/source research does not establish live provider authentication, entitlement, generation or all-host support.
+Hosted 1.1.1 publication/readback is pending at this source checkpoint. The previous [1.1.0 hosted update/readback](verification/hosted-release-1.1.0.json) remains its own historical evidence. UI cache refresh on the user's device has not been observed.
 
 ## Historical evidence
+
+The [1.1.0 source checks](verification/release-1.1.0.json) cover the provider catalog and installation guidance. They do not establish live provider authentication, entitlement, generation or all-host support.
 
 The [dev.31 report](plugins/framecore-work-creative-studio/docs/creative-upgrade-verification.json) records 43 passing Node checks, 23 passing Python checks and two bounded text-use exercises. These are historical observations, not fresh results for 1.0.0.
 

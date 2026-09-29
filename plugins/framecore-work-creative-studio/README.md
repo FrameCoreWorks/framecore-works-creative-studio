@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Wersja: 1.1.0.
+Wersja: 1.1.1.
 
 Pierwsze stabilne wydanie udokumentowanego zakresu Studio. [Zakres 1.0](docs/release-1.0.md) opisuje zawartość i granice wydania. Kod, instrukcje i dokumentacja FrameCore Works są objęte [Apache-2.0](LICENSE); zachowano licencje i oznaczenia źródeł.
 
@@ -13,6 +13,10 @@ Studio instaluje się bezpośrednio z repozytorium przez ChatGPT Work lub Codex.
 ## Narzędzia dodatkowe w 1.1
 
 [Poradnik integracji](docs/provider-setup-guide.md) rozdziela gotowe aplikacje ChatGPT/Work/Codexa od MCP, CLI i API. Obejmuje datowany katalog usług, konto i rozliczenia, opcjonalny wybór po instalacji oraz pracę bez dodatkowych integracji. Studio nie instaluje ani nie opłaca dostawców automatycznie.
+
+## Nazwy skilli
+
+Wszystkie 37 nazw wyświetlanych stosuje jeden standard: słowa oddzielone spacjami, wielka litera na początku każdego słowa oraz zachowane skróty i nazwy narzędzi, np. AI, UGC, HyperFrames i OpenCut. [Standard nazewnictwa](docs/skill-naming.md) obowiązuje również nowe skille i jest sprawdzany podczas pakowania wydania.
 
 ## Wejścia do pracy
 

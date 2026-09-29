@@ -1,6 +1,7 @@
-version: 1
-metadata:
+interface:
   display_name: "Copy Voice"
   short_description: "Write copy, VO, captions, and tone-safe text."
   default_prompt: "Use $copy-voice to write or polish copy for this workflow."
+
+policy:
   allow_implicit_invocation: true

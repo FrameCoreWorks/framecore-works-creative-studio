@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1, 2026-09-29
+
+- Standardizes all 37 skill display names with spaces and initial capitals, preserving AI, UGC, HyperFrames and OpenCut.
+- Adds 14 missing display metadata files, moves Copy Voice and Tool Routing Cost metadata into the supported interface/policy fields, and normalizes Workflow Self Improvement.
+- Adds a naming standard and a release gate for future skills.
+- Preserves technical IDs, routing, skill instructions, existing starter text, policies, integrations and original source snapshots.
+
 ## 1.1.0, 2026-09-29
 
 - Adds a dated catalog of creative services, source evidence and a Polish setup guide.

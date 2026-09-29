@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Release: **1.1.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Release: **1.1.1**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 Creative Studio supports creative direction and production planning across image, video, audio and text. Work can begin with a brief, a product photo, a character reference, an existing clip, a script or a concrete correction.
 
@@ -14,6 +14,7 @@ Creative Studio supports creative direction and production planning across image
 - Static Graphic Design Creator methods for composition, typography, exact copy and graphic design.
 - Music, voice and sound planning in relation to pictures, or picture planning around existing audio.
 - Asset records, revisions, scoped preferences and portable handoffs between environments.
+- Consistent skill display names, with a [standard for future additions](plugins/framecore-work-creative-studio/docs/skill-naming.md).
 - 37 canonical skill entrypoints: 35 specialist routes, the orchestrator and a retained audio compatibility alias.
 
 The package supplies instructions, knowledge, templates and local verification helpers. Generation, media inspection and editing require the user's available tools and authorization. No credentials, paid-provider account, persistent memory service or automatic cross-environment synchronization is bundled.

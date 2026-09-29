@@ -1,5 +1,5 @@
 interface:
-  display_name: "Workflow Self-Improvement"
+  display_name: "Workflow Self Improvement"
   short_description: "Review workflows and propose approval-gated changes"
   default_prompt: "Use $workflow-self-improvement to review this workflow and propose process improvements without editing files."
 
