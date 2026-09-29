@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](plugins/framecore-work-creative-studio/assets/logo.png)
 
-Release: **1.0.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Release: **1.0.1**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 Creative Studio supports creative direction and production planning across image, video, audio and text. Work can begin with a brief, a product photo, a character reference, an existing clip, a script or a concrete correction.
 
@@ -18,23 +18,59 @@ Creative Studio supports creative direction and production planning across image
 
 The package supplies instructions, knowledge, templates and local verification helpers. Generation, media inspection and editing require the user's available tools and authorization. No credentials, paid-provider account, persistent memory service or automatic cross-environment synchronization is bundled.
 
-## Install and use
+## Install through ChatGPT Work or Codex
 
-Read [INSTALL.md](INSTALL.md) for the documented marketplace route and the limits of web/mobile installation. After installation, select **FrameCore Works Creative Studio** and give an ordinary brief. External tools are connected by each user separately.
+Use the prompt for your environment. The assistant reads the exact source and performs the supported installation. You do not need to add a registry or run installation commands yourself.
 
-For updates and maintenance, see [UPDATE.md](UPDATE.md). For the full current module scope, see the [plugin documentation](plugins/framecore-work-creative-studio/README.md).
+### ChatGPT Work
+
+Open **Work**, select **Plugin Creator**, and paste:
+
+```text
+Use Plugin Creator to install my private FrameCore Works Creative Studio from:
+https://github.com/FrameCoreWorks/framecore-works-creative-studio
+Read CHATGPT_INSTALL.md and config/install-sources.json first. Pin main to one commit and verify
+all declared files. Install the complete 37-module bundle with its shared resources and logo.
+If my copy already exists, follow CHATGPT_UPDATE.md and update that same entry without duplicating
+it or overwriting conflicting personal changes. Use the actual save workflow and verify the result.
+This request authorizes installation. Continue in my language. Do not connect providers or publish
+my copy publicly. If saving is unavailable, explain the concrete blocker instead of claiming success.
+```
+
+### Codex
+
+Paste into Codex:
+
+```text
+Install FrameCore Works Creative Studio from:
+https://github.com/FrameCoreWorks/framecore-works-creative-studio
+Read CODEX_INSTALL.md and config/install-sources.json first. Pin main to one full commit.
+Inspect the local installer, resolve and show the actual native skills location and persistent
+bundle directory, then run plan, install and verify. Keep the complete 37-module bundle together
+outside skill discovery and install its native Studio entry. This request authorizes installation.
+Check existing entries across scopes; follow CODEX_UPDATE.md for conflicts or updates rather than
+duplicating or overwriting personal changes. Continue in my language. Do not connect providers,
+change unrelated configuration or publish anything. Report actual saved-file verification and
+whether host activation was observed.
+```
+
+[Installation details](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
+ChatGPT Work creates the user's own private plugin. Codex installs the same Studio knowledge through a native local entry. Availability of actual image, video, audio and research tools depends on the user's environment.
 
 ## Repository layout
 
 | Path | Purpose |
 |---|---|
-| `.agents/plugins/marketplace.json` | One marketplace entry pointing to the complete plugin |
+| `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md` | Direct source installation prompts and contracts |
+| `CHATGPT_UPDATE.md`, `CODEX_UPDATE.md` | Existing-entry updates preserving user changes |
+| `config/install-sources.json` | Complete plugin file inventory with SHA-256 hashes |
+| `scripts/install_codex.py` | Native Codex entry and intact backing bundle |
 | `plugins/framecore-work-creative-studio/` | Canonical portable plugin and compatibility manifest |
 | `plugins/framecore-work-creative-studio/skills/` | Active skill entrypoints and supporting material |
 | `plugins/framecore-work-creative-studio/integrations/` | Pinned source bundles and provenance |
 | `plugins/framecore-work-creative-studio/docs/` | Scope, source mapping and verification history |
 | `scripts/package_release.py` | Local ZIP packaging and SHA-256 inventories |
-| `LICENSE_STATUS.md` | Current licensing boundary and pending owner decision |
+| `LICENSE_STATUS.md` | Approved licensing scope |
 
 ## Verify and package
 
@@ -42,6 +78,7 @@ Run from the repository root with Node.js and Python 3 available:
 
 ```sh
 node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs
+python3 scripts/build_install_manifest.py
 python3 scripts/package_release.py
 ```
 

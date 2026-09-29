@@ -1,0 +1,37 @@
+name: Publish verified Studio release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - plugins/framecore-work-creative-studio/plugin.json
+      - .github/workflows/release.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: creative-studio-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'FrameCoreWorks/framecore-works-creative-studio'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check the package and isolated filesystem installer
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python3 -m unittest discover -s tests -p 'test_codex_install.py' -v
+          python3 scripts/package_release.py
+      - name: Upload, verify and publish the source commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: FrameCoreWorks/framecore-works-creative-studio
+        run: python3 scripts/publish_github_release.py

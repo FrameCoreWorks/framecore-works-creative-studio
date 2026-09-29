@@ -1,11 +1,18 @@
 # Changelog
 
+## 1.0.1, 2026-09-29
+
+- Replaces registry-based installation with direct source installation in ChatGPT Work and Codex.
+- Adds four copy-paste installation/update guides, a complete hashed source inventory and a local Codex installer.
+- Preserves the complete linked bundle, 37 canonical modules, original sources, logo and starter prompts.
+- Adds a release workflow that publishes verified packages after upload.
+
 ## 1.0.0, 2026-09-28
 
 First stable release of the documented Studio scope. See [release status](RELEASE_STATUS.md).
 
 - Establishes a bounded release scope for the existing 37-entrypoint creative studio.
-- Adds a repository marketplace, installation/update guidance and reproducible local release packaging.
+- Adds repository distribution metadata (retired in 1.0.1), installation/update guidance and reproducible local release packaging.
 - Preserves all existing skill instructions, references, original source bundles and the owner-provided logo.
 - Retains actual verification history and identifies unexecuted evaluations.
 - Separates repository distribution from hosted ChatGPT plugin publication and external provider setup.

@@ -1,10 +1,14 @@
 # FrameCore Works Creative Studio
 
-Wersja: 1.0.0.
+Wersja: 1.0.1.
 
 Pierwsze stabilne wydanie udokumentowanego zakresu Studio. [Zakres 1.0](docs/release-1.0.md) opisuje zawartość i granice wydania. Kod, instrukcje i dokumentacja FrameCore Works są objęte [Apache-2.0](LICENSE); zachowano licencje i oznaczenia źródeł.
 
 Creative Studio prowadzi pracę od briefu i materiałów wejściowych do kierunku, storyboardu, promptów i planu montażu dla obrazu, wideo, dźwięku i tekstu. Odpowiedzi dopasowuje do trybu szybkiego lub pogłębionego; przy nowej decyzji kreatywnej obowiązuje celowany publiczny research. Generowanie, analiza mediów i integracje zależą od faktycznie dostępnych, wybranych przez użytkownika narzędzi.
+
+## Instalacja i aktualizacja
+
+Studio instaluje się bezpośrednio z repozytorium przez ChatGPT Work lub Codex. [Instrukcja instalacji](docs/installation.md) rozdziela własną prywatną kopię pluginu w Work od lokalnego wejścia do kompletnego pakietu w Codexie.
 
 ## Wejścia do pracy
 

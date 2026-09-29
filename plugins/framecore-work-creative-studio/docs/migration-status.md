@@ -1,7 +1,7 @@
 # Current release scope
 
-Version: 1.0.0.
-Date: 2026-09-28.
+Version: 1.0.1.
+Date: 2026-09-29.
 Release scope: 1.0.0. GitHub distribution and hosted plugin updates are separate publication operations.
 
 This release contains thirty-seven skill roots: thirty-five active specialist routes, the workflow orchestrator, and the legacy `producer-ai-task-builder` forwarding entrypoint. The skills are packaged instructions and knowledge, not a promise of host retrieval, automatic tool execution or complete migration of every private Custom GPT. Historical checkpoint claims remain in [release history](release-history.md).

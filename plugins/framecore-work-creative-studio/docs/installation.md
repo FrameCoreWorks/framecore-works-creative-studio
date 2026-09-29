@@ -1,0 +1,19 @@
+# Direct source installation
+
+Install the complete Studio through the assistant in the target environment.
+
+- **ChatGPT Work:** use Plugin Creator to create the user's own private copy from the complete canonical plugin bundle. Preserve all 37 skill roots, source bundles, assets, interface and starter prompts. Update an existing matching plugin rather than duplicating it.
+- **Codex:** install a native Studio entry backed by the complete local bundle. Keep the bundle outside native skill discovery so its nested modules and source mirrors do not become duplicate installed skills. Read modules from their canonical locations to preserve relative references.
+
+The repository supplies copy-paste prompts and complete source inventories:
+
+- [ChatGPT Work installation](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_INSTALL.md)
+- [Codex installation](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CODEX_INSTALL.md)
+- [ChatGPT Work updates](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_UPDATE.md)
+- [Codex updates](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CODEX_UPDATE.md)
+
+Resolve the requested ref to one full commit before reading guides, inventory and source. Fetch every declared file, including binaries, and verify hashes. Do not install isolated specialist folders or assume that a source read is an installation.
+
+Follow the active host's real save mechanism and existing authorization. Report a concrete unavailable capability without simulating success. After saving, read back the actual result and distinguish file verification from host discovery and behavior. Preserve personal changes on updates and inspect ambiguous saves before retrying.
+
+The author's private plugin link is not a public installation link. Public GitHub source permits creating an independent personal copy; it does not synchronize accounts, private history, provider credentials or later changes. Installation does not activate providers or authorize media generation, private asset uploads or public publication.

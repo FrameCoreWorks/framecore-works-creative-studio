@@ -1,0 +1,27 @@
+{
+  "version": "1.0.1",
+  "date": "2026-09-29",
+  "baseline": "1.0.0",
+  "changed_plugin_files": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-1.0.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "docs/installation.md"
+  ],
+  "canonical_modules": 37,
+  "all_existing_skill_and_asset_bytes_preserved": true,
+  "all_interface_fields_and_starters_preserved": true,
+  "source_inventory_files": 704,
+  "structural_validation": "PASS",
+  "isolated_filesystem_installer_tests": {
+    "passed": 7,
+    "failed": 0,
+    "scope": "Temporary filesystem only; no live Codex discovery, activation or creative behavior tested"
+  },
+  "planned_behavioral_cases_executed": 0,
+  "host_activation": "NOT_TESTED",
+  "plugin_registry_removed": true
+}

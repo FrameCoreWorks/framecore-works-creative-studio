@@ -64,4 +64,8 @@ Expanded human identity, production reference sheets, reference capability routi
 
 ## 1.0.0, 2026-09-28
 
-Prepares the existing Studio scope for repository distribution. Preserves all skill instructions, pinned bundles, logo and starters. Adds release-scope documentation and synchronizes current version markers. The repository wrapper supplies a marketplace, installation/update guidance and deterministic ZIP packaging. The owner approved Apache-2.0 for original code and instructions and public GitHub distribution. Hosted publication and GitHub publication are separate operations. Planned evaluations remain planned. See release-1.0.md.
+Prepares the existing Studio scope for repository distribution. Preserves all skill instructions, pinned bundles, logo and starters. Adds release-scope documentation and synchronizes current version markers. The 1.0.0 repository wrapper supplied distribution metadata (retired in 1.0.1), installation/update guidance and deterministic ZIP packaging. The owner approved Apache-2.0 for original code and instructions and public GitHub distribution. Hosted publication and GitHub publication are separate operations. Planned evaluations remain planned. See release-1.0.md.
+
+## 1.0.1, 2026-09-29
+
+Replaces registry-based setup with direct source installation through ChatGPT Work or Codex. Adds separate installation/update prompts, a complete source inventory and a native Codex entry backed by the intact Studio bundle. Preserves all 37 canonical skill roots, shared references, source archives, logo and starter prompts. Filesystem installation checks do not prove live host activation.

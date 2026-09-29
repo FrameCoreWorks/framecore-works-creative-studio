@@ -7,6 +7,7 @@ import shutil
 import stat
 import subprocess
 import zipfile
+from build_install_manifest import verify_source
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / 'plugins' / 'framecore-work-creative-studio'
@@ -71,10 +72,7 @@ def main():
     version, name = manifest['version'], manifest['name']
     if '/' in version or '\\' in version or name != PLUGIN.name:
         raise SystemExit('Unsafe or inconsistent manifest identity')
-    marketplace = json.loads((ROOT / '.agents/plugins/marketplace.json').read_text())
-    entry, = marketplace['plugins']
-    if entry['name'] != name or (ROOT / entry['source']['path']).resolve() != PLUGIN:
-        raise SystemExit('Marketplace does not resolve to the canonical plugin')
+    verify_source()
     DIST.mkdir(exist_ok=True)
     outputs = []
     outputs.extend(package(PLUGIN, name, name + '-' + version + '.zip'))

@@ -1,6 +1,6 @@
 # Creative Studio 1.0 scope
 
-This is the 1.0.0 package. GitHub distribution and a hosted ChatGPT update are separate publication operations.
+This is the 1.0.1 maintenance package for the 1.0 scope. GitHub distribution and a hosted ChatGPT update are separate publication operations.
 
 ## Included
 
@@ -20,6 +20,6 @@ The release preparation runs structural checks and verifies preservation against
 
 ## Distribution
 
-The repository wrapper includes the marketplace, installation/update guides and packaging helper. A GitHub commit or ZIP does not update an existing hosted plugin automatically. Installation and refresh must use an actual supported host mechanism. Public directory availability and universal web/mobile import remain unverified.
+The repository supplies direct ChatGPT Work and Codex installation/update guides, a verified source inventory, a local Codex adapter and a packaging helper. A GitHub commit or ZIP does not update an existing hosted plugin automatically. Installation and refresh must use an actual supported host mechanism. Each user creates a private hosted copy through Plugin Creator or installs the local Codex entry with its complete backing bundle. A public repository is not a shared hosted-plugin installation link. See installation.md.
 
 The owner approved public repository distribution and Apache-2.0 for original Studio code and instructions on 2026-09-28. The LICENSE and NOTICE preserve licensing and attribution. Hosted plugin audience remains controlled separately by the platform.

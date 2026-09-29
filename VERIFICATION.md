@@ -4,9 +4,9 @@ This document records bounded package verification. It is not a certification of
 
 ## Current release
 
-The current machine-readable records are [release checks](verification/release-1.0.json) and [hosted update/readback](verification/hosted-release.json). The [preparation report](verification/release-preparation.json) is historical and retains the pending publication status observed at that stage.
+The current records are [1.0.1 checks](verification/release-1.0.1.json) and [hosted update/readback](verification/hosted-release-1.0.1.json). Earlier 1.0.0 and preparation reports are historical snapshots; their fields describe that earlier setup.
 
-Current documentation, the two versioned manifests and licensing files were updated inside the plugin. All skill instructions, knowledge assets, original source bundles and evaluation status values are preserved.
+Seven isolated filesystem installer tests passed: read-only planning, complete install/readback and no-op repeat, local-edit preservation, identity collision, partial-state protection, symlink/discovery-overlap rejection and extra-file detection. Canonical structural validation passed with 37 modules. All existing skill, asset and original-source bytes and interface fields were preserved. These checks do not establish native host activation or creative quality.
 
 Archive verification compares packaged bytes against the source inventories. This proves packaging integrity, not automatic skill selection or media quality.
 

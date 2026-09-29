@@ -1,33 +1,24 @@
 # Updates and maintenance
 
-## GitHub as the source of releases
+- **ChatGPT Work:** [CHATGPT_UPDATE.md](CHATGPT_UPDATE.md), through Plugin Creator and the same existing plugin.
+- **Codex:** [CODEX_UPDATE.md](CODEX_UPDATE.md), preserving the actual native entry, complete bundle and personal changes.
+- **Fresh installation:** [INSTALL.md](INSTALL.md).
 
-Maintain the complete plugin under `plugins/framecore-work-creative-studio`. Keep its internal name `framecore-work-creative-studio` stable even though the repository name includes `works`.
+Pin all source reads to one full commit. Compare actual installed content first. Preserve existing
+authorization, identity, user additions and providers. Ask only about material conflicts or changed
+scope. A no-op comparison requires no save.
 
-Each release must keep the root manifest, compatibility manifest and current documentation version aligned. Preserve the complete starter prompt array, logo and existing tools unless a change was specifically requested. Preserve upstream source bytes and source manifests unless performing an intentional upstream update.
+## Maintainer release procedure
 
-A Git commit does not automatically update the existing hosted ChatGPT plugin. Publish that plugin separately through its authorized update mechanism and verify the returned version and saved source. Never claim synchronization from a commit alone.
+1. Keep the canonical plugin under `plugins/framecore-work-creative-studio` and preserve its identity.
+2. Synchronize versions and changelog. Preserve starters, logo, source bundles and unrelated modules.
+3. Run bounded checks relevant to the change. Rebuild `config/install-sources.json` after final plugin edits.
+4. Run `python3 scripts/package_release.py` to validate and package complete plugin/repository ZIPs.
+5. Update the hosted plugin separately when requested and read back its saved version and affected source.
+6. Commit and push. The release workflow creates a draft, uploads complete archives and inventories,
+   verifies asset digests, then publishes the release at that source commit.
+7. Verify the immutable tag and published assets. Old tags remain historical snapshots; new installations
+   use the current guides.
 
-## User updates
-
-For a Git-backed marketplace tracking a branch, use:
-
-```sh
-codex plugin marketplace upgrade framecore-works-creative-studio
-```
-
-A marketplace pinned to `v1.0.0` remains pinned; selecting a later release is an explicit source change. Preserve personal preferences and project records outside the distributed plugin before replacing an installation. Inspect the version after refresh.
-
-Command source: [OpenAI, Package your plugin](https://developers.openai.com/plugins/build/plugins), read 2026-09-28. Exact account permissions and client support must be checked in the user's environment.
-
-## Release procedure
-
-1. Read the current source and preserve unrelated edits.
-2. Update current version markers and write an accurate changelog.
-3. Run structural validation and only the checks needed for changed behavior.
-4. Build ZIPs with `python3 scripts/package_release.py` and inspect their inventories.
-5. Confirm repository visibility and distribution terms. Preserve attribution and inspect additions for credentials or private client material.
-6. Publish the Git commit and immutable release tag, then the authorized hosted plugin update. If either fails, report each result separately.
-7. Verify the saved Git tree and plugin version. Record the actual publication result without rewriting unexecuted tests as passed.
-
-The packaging script creates local files only. It never pushes, tags remotely, creates a repository, invokes providers or updates the hosted plugin.
+A GitHub commit does not update hosted or local installations. The local packager and Codex installer
+perform no publication or provider operations.
