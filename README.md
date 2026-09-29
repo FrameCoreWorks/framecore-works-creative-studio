@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-![FrameCore Works Creative Studio](plugins/framecore-work-creative-studio/assets/logo.png)
+![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
 Release: **1.0.1**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
