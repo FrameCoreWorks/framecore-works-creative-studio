@@ -22,6 +22,11 @@ for unchanged scope. After saving, read back the version and source and report t
 If source access, Plugin Creator, saving or readback is unavailable, state the specific limitation.
 Do not simulate installation, substitute a Codex installer, connect providers, upload client assets
 or publish my copy publicly.
+
+After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
+skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
+tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
+API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
 ```
 
 ## Source and preparation
@@ -47,3 +52,5 @@ No provider connection, media generation or external client-data transfer is par
 Package format reference, checked 2026-09-29: [OpenAI, Package your plugin](https://developers.openai.com/plugins/build/plugins). Preserve the portable root manifest and complete skills directory. Use the current host's actual private creation capability, not an assumed public directory listing.
 
 Invocation reference, checked 2026-09-29: [OpenAI, Build plugins](https://learn.chatgpt.com/docs/build-plugins). ChatGPT Work uses `@plugin-creator`; select **Plugin Creator** from the `@` menu. Codex uses `$plugin-creator`, as specified in the packaging guide. The mention selects a capability; it does not grant missing permissions or establish external app connections.
+
+Optional provider setup: [guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md). Skipping setup leaves the Studio installation complete.

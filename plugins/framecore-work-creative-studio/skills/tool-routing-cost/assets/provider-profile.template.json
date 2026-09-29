@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "scope": "private_user_or_project_only",
+  "persistence": "not_saved",
+  "host": {
+    "product": "Unknown",
+    "client": "Unknown"
+  },
+  "setup_preference": "skip_or_prompt_only",
+  "preferred_routes": [],
+  "connections": [],
+  "connection_record_template": {
+    "provider_id": "Unknown",
+    "route": "Unknown",
+    "selected_by_user": false,
+    "evidence_checked_on": "Unknown",
+    "states": {
+      "documented": "Unknown",
+      "found_in_host": "Unknown",
+      "installed": "Unknown",
+      "selected_in_conversation": "Unknown",
+      "account_authorized": "Unknown",
+      "billing_checked": "Unknown",
+      "operation_schema_available": "Unknown",
+      "task_authorized": "not_confirmed"
+    },
+    "billing_product": "Unknown",
+    "operation": "Unknown",
+    "authorization_scope": "none"
+  },
+  "excluded_fields": [
+    "credential_values",
+    "tokens",
+    "account_ids",
+    "balances",
+    "signed_urls",
+    "client_assets"
+  ],
+  "cross_host_sync": false
+}

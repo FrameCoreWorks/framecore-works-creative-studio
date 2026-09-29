@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Release: **1.0.1**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Release: **1.1.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 Creative Studio supports creative direction and production planning across image, video, audio and text. Work can begin with a brief, a product photo, a character reference, an existing clip, a script or a concrete correction.
 
@@ -37,6 +37,11 @@ If my copy already exists, follow CHATGPT_UPDATE.md and update that same entry w
 it or overwriting conflicting personal changes. Use the actual save workflow and verify the result.
 This request authorizes installation. Continue in my language. Do not connect providers or publish
 my copy publicly. If saving is unavailable, explain the concrete blocker instead of claiming success.
+
+After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
+skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
+tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
+API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
 ```
 
 ### Codex
@@ -58,11 +63,20 @@ Check existing entries across scopes; follow CODEX_UPDATE.md for conflicts or up
 duplicating or overwriting personal changes. Continue in my language. Do not connect providers,
 change unrelated configuration or publish anything. Report actual saved-file verification and
 whether host activation was observed.
+
+After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
+skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
+tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
+API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
 ```
 
 [Installation details](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
 Invocation syntax checked on 2026-09-29 against [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins) and [ChatGPT's Plugin Creator selection steps](https://learn.chatgpt.com/docs/build-plugins).
 ChatGPT Work creates the user's own private plugin. Codex installs the same Studio knowledge through a native local entry. Availability of actual image, video, audio and research tools depends on the user's environment.
+
+## Optional creative tools
+
+Read the [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) for a dated catalog of creative apps and host-specific API/MCP/CLI routes. Studio offers one optional choice after installation; no provider is required. Higgsfield consumer-account access and Open Higgsfield API billing are separate. Availability, account authorization and permission to generate are checked independently.
 
 ## Repository layout
 

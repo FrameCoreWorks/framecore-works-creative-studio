@@ -1,6 +1,6 @@
 ---
 name: tool-routing-cost
-description: Plan provider-neutral tool routing, cost preflight, upload boundaries, approval requirements, fallback limits, and execution risk before any external run.
+description: Plan provider-neutral tool routing, optional provider setup, ChatGPT/Codex app versus API/MCP/CLI choices, billing, upload boundaries, approvals and execution risk.
 ---
 
 # Tool Routing Cost
@@ -105,3 +105,7 @@ Use the [execution adapter contract](references/execution-adapter-contract.md) a
 ## Reference-dependent model decisions
 
 Use [reference capability routing](references/reference-capability-routing.md) to match identity, multi-source and board-to-video needs to documented operations and actual host bindings. Keep documented support, observed quality, user preference and execution authorization separate.
+
+## Provider setup by host
+
+For choosing or configuring additional tools, subscriptions, native apps versus API/MCP/CLI, or installation onboarding, use [provider setup and host boundaries](references/provider-setup.md). Read its dated catalog only for the relevant providers. Distinguish public support from installation, login, account entitlement, exposed operation and task authorization. This route provides setup knowledge and keeps prompt-only work available; it does not connect a provider.

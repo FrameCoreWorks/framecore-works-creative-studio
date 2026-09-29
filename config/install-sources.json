@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 1994,
-      "sha256": "fcc3400d8aa996535c1513bb26ff43b8f8805ab6317baf7a630e46ea612b9e04"
+      "sha256": "59d6fa861493ee8bff0da0dfef52ca601b9bff0ee244469ca364ee6fc80480a3"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10434,
-      "sha256": "7934a266ac25e7defc265d388b1fa1522a0e5316a6799cf45ab979cca4c7b577"
+      "bytes": 10774,
+      "sha256": "b722221372bb4a9caf3df66c429441ca1eb1a32014834d8fe54d6f4a23081e9c"
     },
     {
       "path": "assets/logo.png",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/installation.md",
-      "bytes": 2142,
-      "sha256": "704dd03f0168b983b5c8bd874126475b1035142d58a86f1e5a629106cf6c0b1f"
+      "bytes": 2805,
+      "sha256": "cf0bdfb7a5d08d8a1b389f23cac41bc7296431c0da0414c4dc823b3eeb88b56b"
     },
     {
       "path": "docs/knowledge-map.md",
@@ -93,8 +93,13 @@
     },
     {
       "path": "docs/migration-status.md",
-      "bytes": 9510,
-      "sha256": "b544ae18eed7c2c10c5d88eb66093bce9ffd1bb41e8078956bd97050a82c3219"
+      "bytes": 9551,
+      "sha256": "4f36758e5100f60a139ddf21e909b90f6327541d72d6794212287242850d2285"
+    },
+    {
+      "path": "docs/provider-setup-guide.md",
+      "bytes": 8964,
+      "sha256": "fa5405a755ecf61fca5a9ba46048ecc01d742b0502dcd14f164e17c86dde7c8c"
     },
     {
       "path": "docs/reference-audio-expansion.md",
@@ -103,13 +108,13 @@
     },
     {
       "path": "docs/release-1.0.md",
-      "bytes": 2757,
-      "sha256": "0f2b18abd45bb0f61ac238d2a821025bef354c8b401317b942ff0b9085910f9b"
+      "bytes": 2882,
+      "sha256": "d7b7698d3ec1852b3f8f5891acbab8e167fa8efc2816a18df6d487b460126265"
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 17023,
-      "sha256": "5ff406fea1b1ea73bb6ede30d0825cbc29af9af3369c2b526e7f2982726b8a85"
+      "bytes": 17662,
+      "sha256": "5c4b1a75a2d8409cb5316a95ba09553853799f263fca8252dde7b2171973f10a"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2164,7 +2169,7 @@
     {
       "path": "plugin.json",
       "bytes": 2153,
-      "sha256": "b64b8a09a0b7dc2440f347c38b8a4b8d0c7c8bc4a2766ac395f5d143aef6c624"
+      "sha256": "0c46159506fe5aac3e77593b07a6b72fbf878cc1a13e98c8b972dbd6a2fe765d"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2813,8 +2818,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 16631,
-      "sha256": "d1cd4542f8458a4a988338b955a34da72ffb792a4815ef591f01aaddb33f1147"
+      "bytes": 17098,
+      "sha256": "74e8f03be199e8b86a762a077c7228d46e12806a4fa621382e8ea6d1f4ad0c22"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -2903,8 +2908,8 @@
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 6572,
-      "sha256": "da1cf00e71aee72cf2f98d33d8522b921125e293bef1898fcd94f561b560dc9a"
+      "bytes": 7093,
+      "sha256": "a49d3fb46c5259c67f9d38228ab17e5b606f821aba86a62a7c26e0bb1c18e28c"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -3378,8 +3383,8 @@
     },
     {
       "path": "skills/studio-workstyle-profile/SKILL.md",
-      "bytes": 4607,
-      "sha256": "ebd54c8677073063b55e362f0acb014d4fb9d2d146f94963cf972af763315f56"
+      "bytes": 5284,
+      "sha256": "61cc9d8f09b0346e93c182cf6dea52c1c3ed4c26f5eb4f39aa71a14929121319"
     },
     {
       "path": "skills/studio-workstyle-profile/agents/openai.yaml",
@@ -3408,8 +3413,8 @@
     },
     {
       "path": "skills/tool-routing-cost/SKILL.md",
-      "bytes": 5773,
-      "sha256": "8d33de9329de7c31c26795a7f397e2dc8424e0989a11b6063b456a2e32a9ecbe"
+      "bytes": 6282,
+      "sha256": "a628b0326824d33a2b0a8d0a286e5a625a8270e3cb4200b933063698eceab3b9"
     },
     {
       "path": "skills/tool-routing-cost/agents/openai.yaml",
@@ -3422,14 +3427,34 @@
       "sha256": "31a09b9ca60db8d7762297bdbf43abf6b719670ca552f166fc091e89497fd914"
     },
     {
+      "path": "skills/tool-routing-cost/assets/provider-catalog.json",
+      "bytes": 13933,
+      "sha256": "1f5b1895032bb3063c3a27aa6d7a5f511591aebe603acff02424c29b9cab7ccb"
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/provider-profile.template.json",
+      "bytes": 1011,
+      "sha256": "510b0bd4d8dd006807f6c70d8b2f96cf46c4daba9ddc5df115b48b61fdc9c015"
+    },
+    {
       "path": "skills/tool-routing-cost/assets/reference-capability-card.template.json",
       "bytes": 749,
       "sha256": "802507b7ab0bbfe4a7f6bb754a8039f0a3872cc03e66a1e03fd9e4ea04df58c4"
     },
     {
       "path": "skills/tool-routing-cost/references/execution-adapter-contract.md",
-      "bytes": 3523,
-      "sha256": "69a1ee925df146c560a213786df8281e0b0c09daccaab16b0bf5c3755b9960b8"
+      "bytes": 4026,
+      "sha256": "920e2e9b2cf0388c13976cfb41e4feceb890d682e801fe21495cebb1b7a59315"
+    },
+    {
+      "path": "skills/tool-routing-cost/references/provider-setup.md",
+      "bytes": 7131,
+      "sha256": "1fdb7ba31fe634012ce4d02cb7216fbe8642ab7f5d5b93cbfe515f6cd2633d36"
+    },
+    {
+      "path": "skills/tool-routing-cost/references/provider-sources.md",
+      "bytes": 5572,
+      "sha256": "277f5ff1cf7eab433b96406fabcebf05917699571736797d9c14880f0e0fe8a7"
     },
     {
       "path": "skills/tool-routing-cost/references/reference-capability-routing.md",
@@ -3468,8 +3493,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 19621,
-      "sha256": "412bc52585d947bcf8f47e94e687a6eb216d9328fd8ca5555a7f2bffa2a07346"
+      "bytes": 20362,
+      "sha256": "f324c11747c75bda16f5a4021f00179742e5c319eb1e9d6333bb188ac7a82bea"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",

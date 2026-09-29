@@ -69,3 +69,7 @@ Prepares the existing Studio scope for repository distribution. Preserves all sk
 ## 1.0.1, 2026-09-29
 
 Replaces registry-based setup with direct source installation through ChatGPT Work or Codex. Adds separate installation/update prompts, a complete source inventory and a native Codex entry backed by the intact Studio bundle. Preserves all 37 canonical skill roots, shared references, source archives, logo and starter prompts. Filesystem installation checks do not prove live host activation.
+
+## 1.1.0, 2026-09-29
+
+Added a dated provider catalog, source evidence, Polish setup guide and private connection-profile template. Extended four existing owners with optional post-install selection and explicit ChatGPT Chat/Work/Codex client, native-app, MCP, CLI and API boundaries. Distinguished Higgsfield consumer credits from Open Higgsfield API billing, captured public-documentation/runtime conflicts, and kept non-generating verification and prompt-only work available. No external provider was installed, authenticated or run. Verification covers package integrity; live provider entitlement and media execution remain untested.

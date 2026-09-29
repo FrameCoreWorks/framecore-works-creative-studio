@@ -27,6 +27,11 @@ Run plan, install and verify with the same full source commit. Do not copy isola
 folders or add a second orchestrator. Continue in my language. Report saved-file verification
 separately from observed host activation. Do not modify unrelated configuration, connect providers,
 generate media, upload client assets or publish anything.
+
+After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
+skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
+tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
+API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
 ```
 
 ## Complete bundle and native entry
@@ -82,3 +87,5 @@ Invocation references, checked 2026-09-29: [OpenAI, Package your plugin](https:/
 The Work/Codex source-install pattern comes from
 [Workflow Kit](https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/tree/55c8bf19962c7bf7fb43648637ee433d990eb2a9).
 Studio keeps its complete linked bundle rather than copying independent skills.
+
+Optional provider setup: [guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md). Skipping setup leaves the Studio installation complete.

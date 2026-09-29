@@ -1,6 +1,6 @@
 # Creative Studio 1.0 scope
 
-This is the 1.0.1 maintenance package for the 1.0 scope. GitHub distribution and a hosted ChatGPT update are separate publication operations.
+This document records the stable 1.0 core scope. The current package version is in plugin.json; the 1.1 addition is described in [the provider setup guide](provider-setup-guide.md). GitHub distribution and a hosted ChatGPT update are separate publication operations.
 
 ## Included
 

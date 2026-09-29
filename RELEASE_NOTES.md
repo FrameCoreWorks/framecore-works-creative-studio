@@ -1,16 +1,11 @@
-# Creative Studio 1.0.1
+# Creative Studio 1.1.0
 
-Direct source installation through ChatGPT Work and Codex.
+This release adds host-aware provider setup knowledge and optional tool selection after Studio installation.
 
-- Start from the copy-paste prompts in README.md, CHATGPT_INSTALL.md or CODEX_INSTALL.md.
-- ChatGPT Work creates your own private plugin through Plugin Creator.
-- Codex installs a native Studio entry backed by the complete, verified local bundle.
-- Separate update guides preserve existing identity, personal additions and shared resources.
-- Retires the old registry configuration and setup commands.
-- Preserves all 37 canonical modules, original source bundles, logo and starter prompts.
+- Dated creative-service catalog and primary-source evidence.
+- Polish guide for native ChatGPT/Work/Codex integrations versus MCP, CLI and API.
+- Separate account and billing guidance for fal and Higgsfield, including Open Higgsfield API.
+- Private, optional preferences with prompt-only operation always available.
+- Current installation remains the assistant-led source route, with all 37 modules and assets preserved.
 
-Downloads include the complete plugin ZIP, full repository ZIP, two file inventories and SHA256SUMS.txt.
-Use the current installation guides; the earlier 1.0.0 release is a historical snapshot.
-
-Verification covers package structure, source preservation and seven isolated filesystem installer checks.
-It does not claim live Codex activation, universal host support, media generation or execution of the 167 planned behavioral scenarios.
+Validation covers package structure, catalog consistency, source inventory, complete-bundle installer and archive integrity. Provider authentication, paid generation, all-host availability and creative quality were not tested. No client pilots or provider setup are part of this release.

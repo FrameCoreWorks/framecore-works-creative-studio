@@ -20,6 +20,8 @@ an existing destination.
 Keep a private recovery snapshot, recheck drift, apply only intended changes and read back all files.
 Preserve the complete linked bundle. Update the native pointer and receipt only after verification.
 Report actual saved status separately from activation.
+Preserve private provider preferences. Do not repeat optional setup unless requested or needed
+for a changed selected route. Studio updating does not authorize new provider connections.
 ```
 
 For the 1.0.1 layout, `installation.json` next to the native SKILL.md records source identity

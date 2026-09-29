@@ -24,3 +24,5 @@ private copies from these public sources. Repository updates do not automaticall
 After installation, give an ordinary brief in your language and choose quick ideas or deeper work.
 Providers, credentials and connections belong to each user's environment. Installation does not
 authorize paid generation, client-asset uploads or publication.
+
+After installation, optionally choose additional tools using the [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md). Studio is complete without those integrations.

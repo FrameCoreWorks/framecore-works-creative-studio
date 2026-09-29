@@ -18,6 +18,8 @@ If already current, report that without saving.
 Use the actual host update workflow, read back the result and report version, release and
 verification limits. On a lost response, inspect saved state before retrying.
 Do not change sharing, provider connections, project data or unrelated behavior.
+Preserve private provider preferences. Do not repeat optional setup unless requested or needed
+for a changed selected route. Studio updating does not authorize new provider connections.
 ```
 
 Follow the active Plugin Creator update skill. Compare previous verified source, actual saved

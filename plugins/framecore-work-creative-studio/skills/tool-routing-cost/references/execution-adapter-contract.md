@@ -25,3 +25,7 @@ Pass outputs to Asset Manifest and Delivery after the applicable checks. With no
 ## Initial supported routes
 
 The contract can describe a host-native image operation, a user-connected provider operation, a local Remotion composition, an HTML/GSAP HyperFrames composition or an OpenCut editing handoff. Each route remains unverified until its actual surface is inspected for this task. No built-in registry claims these providers are connected. Pick one requested route and validate it before expanding to more integrations.
+
+## Provider route binding
+
+Bind the [provider setup record](provider-setup.md) to this adapter using the exact host/client, provider product, route and billing basis. Do not treat a preference or catalog row as `ready`. A change from consumer plugin/MCP/CLI to API may change account, balance, supported models and upload destination; re-evaluate those fields within the user's authorization. Inspect non-generating tools for transfer side effects, especially cost estimators accepting reference URLs.

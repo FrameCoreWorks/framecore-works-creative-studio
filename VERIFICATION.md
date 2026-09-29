@@ -4,11 +4,9 @@ This document records bounded package verification. It is not a certification of
 
 ## Current release
 
-The current records are [1.0.1 checks](verification/release-1.0.1.json) and [hosted update/readback](verification/hosted-release-1.0.1.json). Earlier 1.0.0 and preparation reports are historical snapshots; their fields describe that earlier setup.
+The current records are [1.1.0 checks](verification/release-1.1.0.json) and [hosted update/readback](verification/hosted-release-1.1.0.json). Canonical structure, the 12-entry provider catalog, its evidence references, four install prompts, preserved manifest values, source inventory and package archives passed bounded checks. The seven existing isolated installer tests passed. All 37 modules remain packaged.
 
-Seven isolated filesystem installer tests passed: read-only planning, complete install/readback and no-op repeat, local-edit preservation, identity collision, partial-state protection, symlink/discovery-overlap rejection and extra-file detection. Canonical structural validation passed with 37 modules. All existing skill, asset and original-source bytes and interface fields were preserved. These checks do not establish native host activation or creative quality.
-
-Archive verification compares packaged bytes against the source inventories. This proves packaging integrity, not automatic skill selection or media quality.
+The hosted update was saved as 1.1.0 and all 18 changed/added paths were read back. The report distinguishes byte equality from equivalent JSON serialization. Unchanged binary assets were omitted from the overlay and preserved by the update mechanism. Catalog/source research does not establish live provider authentication, entitlement, generation or all-host support.
 
 ## Historical evidence
 

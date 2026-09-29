@@ -17,3 +17,7 @@ Resolve the requested ref to one full commit before reading guides, inventory an
 Follow the active host's real save mechanism and existing authorization. Report a concrete unavailable capability without simulating success. After saving, read back the actual result and distinguish file verification from host discovery and behavior. Preserve personal changes on updates and inspect ambiguous saves before retrying.
 
 The author's private plugin link is not a public installation link. Public GitHub source permits creating an independent personal copy; it does not synchronize accounts, private history, provider credentials or later changes. Installation does not activate providers or authorize media generation, private asset uploads or public publication.
+
+## Optional provider setup after saving
+
+After a fresh installation is saved and verified, offer one optional tool-selection question using [the setup method](../skills/tool-routing-cost/references/provider-setup.md). The user may choose existing accounts, request a setup guide, or skip. Read [the user guide](provider-setup-guide.md) for ChatGPT Chat/Work, supported Codex plugins, custom MCP, CLI and API distinctions. Do not connect services, install third-party packages, import client files or spend credits from Studio installation authorization. On updates preserve private preferences and do not repeat onboarding unless requested or materially needed.

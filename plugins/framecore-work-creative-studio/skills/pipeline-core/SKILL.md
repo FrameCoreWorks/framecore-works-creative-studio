@@ -199,3 +199,7 @@ Hand off with:
 Use [project recovery](references/project-recovery.md) for memory and cross-host transfer. [Artifact schemas](assets/artifact-schemas.json) preserve the kit’s required contract sections. [Studio integration authority](references/studio-integration-policy.md) defines primary owners, staged use and the active exceptions. Intent is captured from a clear request; it is not a mandatory confirmation question. Keep full schemas backstage when a compact answer suffices.
 
 Recovery assets: [checkpoint state](assets/project-state.md) and [paste-ready recovery prompt](assets/recovery-prompt.md). The [upstream onboarding schema](assets/onboarding.schema.json) belongs only to a separately requested project-local installation; ordinary Studio use follows [Studio Workstyle Profile](../studio-workstyle-profile/SKILL.md) with optional, incremental preferences.
+
+## Provider setup state
+
+Use [provider setup](../tool-routing-cost/references/provider-setup.md) for optional post-install choices and host-aware connection planning. Keep directory presence, installed/selected state, authentication, billing, schema and task permission independent. The user's account and tool preferences remain private; shared package defaults contain no personal provider state. An instruction-only Studio install is complete without a provider.

@@ -1,0 +1,47 @@
+{
+  "version": "1.1.0",
+  "checked_on": "2026-09-29",
+  "scope": "Package integrity only; no media pilots or paid provider calls",
+  "canonical_structure": "PASS",
+  "canonical_modules": 37,
+  "plugin_files": 709,
+  "provider_entries": 12,
+  "provider_catalog_consistency": "PASS",
+  "install_prompts_with_optional_setup": 4,
+  "existing_installer_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "archives_and_source_inventory": "PASS",
+  "manifest_preservation_except_version": "PASS",
+  "hosted_baseline_for_all_existing_changed_paths": "PASS",
+  "hosted_source_release": "pluginrel_6abb4b74fdb88191a5da64464c474e98",
+  "not_executed": [
+    "provider authentication",
+    "live account or billing checks",
+    "provider installation",
+    "generation",
+    "all-host behavior",
+    "167 planned evaluation scenarios"
+  ],
+  "overlay_paths": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/installation.md",
+    "docs/migration-status.md",
+    "docs/provider-setup-guide.md",
+    "docs/release-1.0.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/SKILL.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/studio-workstyle-profile/SKILL.md",
+    "skills/tool-routing-cost/SKILL.md",
+    "skills/tool-routing-cost/assets/provider-catalog.json",
+    "skills/tool-routing-cost/assets/provider-profile.template.json",
+    "skills/tool-routing-cost/references/execution-adapter-contract.md",
+    "skills/tool-routing-cost/references/provider-setup.md",
+    "skills/tool-routing-cost/references/provider-sources.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ]
+}

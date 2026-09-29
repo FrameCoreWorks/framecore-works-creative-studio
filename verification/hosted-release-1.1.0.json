@@ -1,0 +1,31 @@
+{
+  "version": "1.1.0",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6abb7f29d0c08191b12ee2f969abaff0",
+  "status": "updated",
+  "changed_files_read": 18,
+  "byte_equal": [
+    "README.md",
+    "docs/installation.md",
+    "docs/migration-status.md",
+    "docs/provider-setup-guide.md",
+    "docs/release-1.0.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/SKILL.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/studio-workstyle-profile/SKILL.md",
+    "skills/tool-routing-cost/SKILL.md",
+    "skills/tool-routing-cost/assets/provider-catalog.json",
+    "skills/tool-routing-cost/assets/provider-profile.template.json",
+    "skills/tool-routing-cost/references/execution-adapter-contract.md",
+    "skills/tool-routing-cost/references/provider-setup.md",
+    "skills/tool-routing-cost/references/provider-sources.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "json_value_equal_only": [
+    ".codex-plugin/plugin.json"
+  ],
+  "audience_changed": false,
+  "live_provider_execution": "NOT_RUN"
+}

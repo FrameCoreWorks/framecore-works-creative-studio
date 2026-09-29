@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-09-29",
+  "scope": "Selected public provider knowledge, not an exhaustive directory or user-account inventory",
+  "recheck": "Discover the exact provider in the active host before setup; refresh route, billing, schema and permission facts before execution.",
+  "evidence_ledger": "../references/provider-sources.md",
+  "providers": [
+    {
+      "id": "fal",
+      "display_name": "fal",
+      "category": "creative_service",
+      "capabilities": [
+        "image",
+        "video",
+        "audio",
+        "3d",
+        "upscale"
+      ],
+      "native_app_evidence": "documented_and_tools_exposed",
+      "directory_search_name": "fal",
+      "directory_id": null,
+      "source_ids": [
+        "FAL-PLUGIN",
+        "FAL-MCP",
+        "FAL-PRICING",
+        "FAL-PLANS"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "documented",
+          "authentication": "provider_login",
+          "billing_product": "fal_account_model_usage",
+          "verified_live": false
+        },
+        {
+          "route": "custom_mcp",
+          "hosts": [
+            "compatible_mcp_clients"
+          ],
+          "status": "documented",
+          "authentication": "oauth_or_api_key_per_client",
+          "billing_product": "fal_account_model_usage",
+          "verified_live": false
+        },
+        {
+          "route": "direct_api",
+          "hosts": [
+            "codex_runtime"
+          ],
+          "status": "documented",
+          "authentication": "api_key",
+          "billing_product": "fal_key_account_model_usage",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Exact-name directory search was empty; official provider documentation and exposed tool contracts confirm the plugin. Recheck client-specific availability."
+    },
+    {
+      "id": "higgsfield",
+      "display_name": "Higgsfield",
+      "category": "creative_service",
+      "capabilities": [
+        "image",
+        "video",
+        "creative_workflows"
+      ],
+      "native_app_evidence": "catalog_and_tools_exposed",
+      "directory_search_name": "Higgsfield",
+      "directory_id": "plugin_asdk_app_6a3293e129088191abf0875820e839da",
+      "source_ids": [
+        "DIRECTORY",
+        "HF-CONNECT",
+        "HF-CLI",
+        "HF-API",
+        "HF-API-REF",
+        "HF-TOOLS"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "provider_login",
+          "billing_product": "higgsfield_consumer_account",
+          "verified_live": false
+        },
+        {
+          "route": "custom_mcp",
+          "hosts": [
+            "compatible_mcp_clients"
+          ],
+          "status": "documented",
+          "authentication": "provider_login",
+          "billing_product": "higgsfield_consumer_account",
+          "verified_live": false
+        },
+        {
+          "route": "cli",
+          "hosts": [
+            "codex_runtime"
+          ],
+          "status": "documented",
+          "authentication": "provider_login",
+          "billing_product": "higgsfield_consumer_account",
+          "verified_live": false
+        },
+        {
+          "route": "direct_api",
+          "hosts": [
+            "codex_runtime"
+          ],
+          "status": "documented",
+          "authentication": "api_key",
+          "billing_product": "higgsfield_api_usd_balance",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "API console: https://open.higgsfield.ai . Consumer-plan requirements and live trial/free exceptions must be checked for the selected operation; audio and website support conflicts with older help text."
+    },
+    {
+      "id": "runway",
+      "display_name": "Runway",
+      "category": "creative_service",
+      "capabilities": [
+        "image",
+        "video",
+        "audio",
+        "editing"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Runway",
+      "directory_id": "plugin_asdk_app_6a05e3b201788191be12b590b43e6ce3",
+      "source_ids": [
+        "DIRECTORY",
+        "RUNWAY-API"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "provider_login",
+          "billing_product": "runway_connected_workspace",
+          "verified_live": false
+        },
+        {
+          "route": "direct_api",
+          "hosts": [
+            "codex_runtime"
+          ],
+          "status": "documented",
+          "authentication": "api_key",
+          "billing_product": "runway_api_project_credits",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "API project billing is a separate setup; credit portability from a web plan is Unknown."
+    },
+    {
+      "id": "openart",
+      "display_name": "OpenArt",
+      "category": "creative_service",
+      "capabilities": [
+        "image",
+        "video"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "OpenArt",
+      "directory_id": "plugin_asdk_app_6a42dbbe74c081918a592a0aad65ca26",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Required plan and developer API integration: Unknown."
+    },
+    {
+      "id": "heygen",
+      "display_name": "HeyGen",
+      "category": "creative_service",
+      "capabilities": [
+        "avatar_video",
+        "voice",
+        "translation"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "HeyGen",
+      "directory_id": "plugin_asdk_app_69418aad55e08191aa5e437b649ca2e4",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Exact plan, operation cost and developer setup: Unknown in this research."
+    },
+    {
+      "id": "descript",
+      "display_name": "Descript",
+      "category": "creative_service",
+      "capabilities": [
+        "video_editing",
+        "transcription",
+        "captions",
+        "clips"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Descript",
+      "directory_id": "plugin_asdk_app_69f0dc45f6048191876c14c1016fe778",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Exact plan, operation cost and developer setup: Unknown in this research."
+    },
+    {
+      "id": "adobe",
+      "display_name": "Adobe",
+      "category": "creative_service",
+      "capabilities": [
+        "image_editing",
+        "design",
+        "video_editing",
+        "documents"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Adobe",
+      "directory_id": "plugin_asdk_app_69312da8e4dc81919370cb86fd172b6c",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "guest_or_provider_login",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Directory advertises guest access and expanded signed-in capabilities. Check the selected operation."
+    },
+    {
+      "id": "adobe-express",
+      "display_name": "Adobe Express",
+      "category": "creative_service",
+      "capabilities": [
+        "template_design",
+        "design_editing"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Adobe Express",
+      "directory_id": "plugin_asdk_app_699d522f170c81919c824678c7c03732",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Directory advertises free design start; paid assets/export entitlements remain Unknown."
+    },
+    {
+      "id": "canva",
+      "display_name": "Canva",
+      "category": "creative_service",
+      "capabilities": [
+        "design",
+        "presentations"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Canva",
+      "directory_id": "plugin_connector_68df33b1a2d081918778431a9cfca8ba",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Exact host support, account plan and operation cost must be checked."
+    },
+    {
+      "id": "figma",
+      "display_name": "Figma",
+      "category": "creative_service",
+      "capabilities": [
+        "editable_design",
+        "design_to_code"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Figma",
+      "directory_id": "plugin_connector_68df038e0ba48191908c8434991bbac2",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Exact host support, account plan and operation cost must be checked."
+    },
+    {
+      "id": "replit",
+      "display_name": "Replit",
+      "category": "app_builder",
+      "capabilities": [
+        "websites",
+        "apps"
+      ],
+      "native_app_evidence": "catalog_observed",
+      "directory_search_name": "Replit",
+      "directory_id": "plugin_asdk_app_6934801c799081918131791660f02890",
+      "source_ids": [
+        "DIRECTORY"
+      ],
+      "routes": [
+        {
+          "route": "native_app",
+          "hosts": [
+            "chatgpt_chat",
+            "chatgpt_work",
+            "codex_supported_clients"
+          ],
+          "status": "catalog_observed_recheck_each_host",
+          "authentication": "Unknown",
+          "billing_product": "Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Application builder; no claim of a standalone video generation connector. Agent/hosting cost: Unknown."
+    },
+    {
+      "id": "elevenlabs",
+      "display_name": "ElevenLabs",
+      "category": "developer_integration",
+      "capabilities": [
+        "speech",
+        "agent_management"
+      ],
+      "native_app_evidence": "native_app_Unknown",
+      "directory_search_name": "ElevenLabs",
+      "directory_id": null,
+      "source_ids": [
+        "ELEVEN-TOOLS",
+        "ELEVEN-MCP"
+      ],
+      "routes": [
+        {
+          "route": "custom_mcp",
+          "hosts": [
+            "compatible_mcp_clients"
+          ],
+          "status": "documented",
+          "authentication": "provider_login",
+          "billing_product": "provider_account_Unknown",
+          "verified_live": false
+        },
+        {
+          "route": "direct_api",
+          "hosts": [
+            "codex_runtime"
+          ],
+          "status": "documented",
+          "authentication": "api_key",
+          "billing_product": "provider_account_Unknown",
+          "verified_live": false
+        }
+      ],
+      "actual_user_access": "Unknown",
+      "notes": "Public MCP/API evidence does not establish a ChatGPT directory plugin or music support in the selected MCP tool."
+    }
+  ]
+}

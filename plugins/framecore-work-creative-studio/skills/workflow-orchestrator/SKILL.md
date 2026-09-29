@@ -123,3 +123,7 @@ Use Pipeline Core as the canonical operating contract. For a complete video rout
 Use [compact routing and optional project review](references/compact-routing-and-pilot.md) to load only the current owner and useful resources. Route weak concepts to the creative decision library, temporal defects to Sequence/Video and taste feedback to Studio Workstyle Profile. Do not create extra agents or worksheets for a small task.
 
 For plugin improvement requests, continue authorized development without making a pilot or client project a prerequisite. An explicit refusal of pilots also excludes disguised fresh-use exercises. Use bounded integrity checks for the changed package and report their scope honestly.
+
+## Additional tools and installation onboarding
+
+For provider discovery, setup, billing or a question about what works in ChatGPT Chat, Work or a Codex client, route to [Tool Routing Cost](../tool-routing-cost/SKILL.md) and its [provider setup guide](../tool-routing-cost/references/provider-setup.md). After a successful fresh Studio installation, offer one optional tool-selection question unless already answered or declined. Never block installation or a normal creative task on this step. Do not repeat setup on every greeting. Keep provider setup separate from Studio installation and from paid generation; preserve existing choices on updates. A dated catalog documents candidates, not connected accounts or guaranteed host support.
