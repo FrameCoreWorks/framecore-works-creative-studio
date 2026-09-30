@@ -28,6 +28,20 @@ test('canonical validation passes with explicit structural scope and no legacy e
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
+test('automatic output review cannot disappear from a directly invoked owner', () => {
+  for (const owner of ['workflow-orchestrator', 'pipeline-core', 'static-graphic-design-creator', 'image-prompt-architect', 'commercial-video-campaign-director']) withFixture(root => {
+    edit(root, 'skills/' + owner + '/SKILL.md', text => text.replace('automatically apply [output review]', 'optionally apply [output review]'));
+    assert.ok(codes(validateStudio(root)).includes('OUTPUT_REVIEW_ENTRY'), owner);
+  });
+});
+
+test('automatic output review retains its budget and uninspected-media boundary', () => {
+  for (const phrase of ['at most three evaluation passes', 'media outcome uninspected', 'QA alone authorizes no generation']) withFixture(root => {
+    edit(root, 'skills/pipeline-core/references/loop-protocol.md', text => text.replace(phrase, 'removed contract'));
+    assert.ok(codes(validateStudio(root)).includes('OUTPUT_REVIEW_POLICY'), phrase);
+  });
+});
+
 test('brand strategy, visual craft and guide delivery retain their shared profile', () => {
   for (const owner of ['marketing', 'static-graphic-design-creator', 'delivery-documentation']) withFixture(root => {
     edit(root, 'skills/' + owner + '/SKILL.md', text => text.replace('brand-identity-workflow.md', 'removed.md'));

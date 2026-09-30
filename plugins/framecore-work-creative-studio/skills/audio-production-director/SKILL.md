@@ -5,6 +5,8 @@ description: "Direct sound and music for creative projects: soundtrack concepts,
 
 # Audio Production Director
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Own the sound and music decisions within FrameCore Works Creative Studio. This owner plans and reviews audio; it is not a music-generation connector, a licensed-track marketplace, an automatic audio analyser, or a publishing service. Do not claim a listen, beat map, mix, license or generation unless the exact evidence or execution exists.
 
 Read the existing [production task packet](references/production-task-packet.md) for detailed deliverable shapes and the [audio evidence and AV handoff](references/audio-evidence-and-av-handoff.md) for evidence, sync, cue, transcript and repair boundaries. For film/reel timing, read [audio-to-picture and tempo workbook](references/audio-to-picture-and-tempo-workbook.md). For a named generator, use [music provider routing and rights](references/music-provider-routing-and-rights.md). For an existing or proposed commercial track, use [track-rights research card](assets/track-rights-research-card.md).

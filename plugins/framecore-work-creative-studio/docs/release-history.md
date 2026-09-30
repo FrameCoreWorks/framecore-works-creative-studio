@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.2.8, 2026-09-30
+
+Makes bounded output review automatic for substantive creative results, including ideas, prompts, copy, graphics and production plans, before final delivery. Every existing skill root points to the same profile. Reuses domain QA, preserves a passing draft, caps the initial review plus repairs at three evaluation passes by default and keeps stricter modality budgets. Actual media acceptance requires actual inspection; review never authorizes another generation, upload or paid retry. Welcome, menus, onboarding, technical identities and pinned sources remain unchanged. Source checks are distinct from installed-client behavior.
+
 ## 1.2.7, 2026-09-30
 
 Adds a scoped brand-identity profile using existing owners: Marketing for foundations, Static Graphic Design Creator for integrated logo/visual craft and Delivery Documentation for logo/identity guides and actual file packaging. The shared contract and internal Brand Identity Pack carry revisions, selected decisions, acceptance criteria and evidence in one Project State. Sequential intake reuses supplied facts, while logo-only requests skip unrequested stages. Distinguishes concept rasters, reviewed digital assets and verified editable/production masters, including font, colour, variant and export limits. Extends the existing campaign/static learning domains without adding skill roots. Preserves the canonical welcome, menus, provider boundaries, assets, starters and pinned upstream sources. Source checks and bounded source-use tasks do not establish installed-client behavior.

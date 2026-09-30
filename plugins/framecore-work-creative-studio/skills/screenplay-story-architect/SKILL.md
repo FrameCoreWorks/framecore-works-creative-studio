@@ -5,6 +5,8 @@ description: Develop original stories and screenplays, from a film idea or scene
 
 # Screenplay Story Architect
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Turn a user's idea, brief, observation, reference or draft into the requested
 story artifact. Write actual scenes when asked for a script; do not substitute
 a logline, outline or list of headings. Keep the user's language unless the

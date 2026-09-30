@@ -57,6 +57,18 @@ export function validateStudio(root, {legacy = false} = {}) {
   };
   errors.push(...validateWorkflowKit(base, files));
   errors.push(...validateLearningMode(base, files));
+  // Contract reachability and evidence boundaries; this does not execute model QA.
+  const loopProfile = 'skills/pipeline-core/references/loop-protocol.md';
+  try {
+    const body = read(loopProfile);
+    for (const pattern of [/## Automatic output review/, /automatically run one/, /Do not wait for\s+the user to request QA/, /at most three evaluation passes/, /Honor a stricter domain budget/, /deliver the result unchanged/, /QA alone authorizes no generation/, /media outcome uninspected/, /do not stack a second loop/]) {
+      if (!pattern.test(body)) fail('OUTPUT_REVIEW_POLICY', loopProfile + ': ' + pattern);
+    }
+  } catch (error) { fail('OUTPUT_REVIEW_POLICY', error.message); }
+  for (const relative of files.filter(file => /^skills\/[^/]+\/SKILL\.md$/.test(file))) {
+    const link = relative === 'skills/pipeline-core/SKILL.md' ? 'references/loop-protocol.md#automatic-output-review' : '../pipeline-core/references/loop-protocol.md#automatic-output-review';
+    if (!read(relative).includes('automatically apply [output review](' + link + ')')) fail('OUTPUT_REVIEW_ENTRY', relative);
+  }
   // Brand-profile checks guard packaged contracts, not host design or file QA.
   const brandProfile = 'skills/workflow-orchestrator/references/brand-identity-workflow.md';
   const brandPack = 'skills/workflow-orchestrator/assets/brand-identity.template.md';

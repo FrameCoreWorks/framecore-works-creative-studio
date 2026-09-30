@@ -6,6 +6,8 @@ description: Adapt Creative Studio's pace, vocabulary, depth and format to a use
 
 # Studio workstyle profile
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Mirror the user's working style so they can spend attention on creative decisions rather than repeat explanations. Adapt separately by domain: visual design, video/editing, audio/music, writing/story and generation tools. Expertise in one field does not establish expertise in another.
 
 ## Research boundary

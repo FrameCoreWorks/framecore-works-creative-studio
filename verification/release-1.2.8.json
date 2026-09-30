@@ -1,0 +1,54 @@
+{
+  "version": "1.2.8",
+  "checked_on": "2026-09-30",
+  "base_commit": "f718b0497544ad250bc6d1fef52ae86a598714fa",
+  "status": "PASS",
+  "scope": "Source contracts, local tests and packaging; installed-client behavior and actual media QA unverified",
+  "canonical": {
+    "status": "PASS",
+    "files": 736,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "checks": {
+    "node_tests": 69,
+    "installer_tests": 10,
+    "asset_checks": 23,
+    "archive_bytes_verified": 736,
+    "github_baseline_package_hashes_equal": 736,
+    "hosted_baseline_existing_affected_source_read": 47,
+    "git_diff_check": true
+  },
+  "preservation": {
+    "new_shared_paths": [],
+    "changed_existing_shared_paths": 47,
+    "skill_roots": 37,
+    "owner_role_gate_ids_upstream_assets_plugin_identity_welcome_and_menus_unchanged": true,
+    "plugin_level_defaultPrompt_preserved": true,
+    "metadata_changes": [
+      "version"
+    ],
+    "test_reports_or_transcripts_added_to_package": false
+  },
+  "archive": {
+    "plugin_sha256": "1e1b8aa39faca78a1878ec6b6f3d146cfc163f0bfbdff5609a5268ea6f47cb74",
+    "local_repository_banner": "Unavailable locally; preserved by remote base tree; CI builds the complete repository archive."
+  },
+  "source_use": {
+    "status": "PASS",
+    "tasks": 1,
+    "scope": "Fresh source-use task for two creative concepts and two prompts; no installed-client or media execution",
+    "checks": [
+      "Two requested concepts and standalone English prompts delivered",
+      "Exact Polish strings and 4:5 format retained",
+      "No invented time, price, registration or organizer claim",
+      "Concise review status given after the outputs",
+      "No research or render execution falsely claimed"
+    ]
+  },
+  "publication": {
+    "status": "PENDING",
+    "active_client": "unverified"
+  }
+}

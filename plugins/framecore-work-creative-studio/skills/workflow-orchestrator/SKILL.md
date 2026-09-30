@@ -5,6 +5,8 @@ description: Main entry for FrameCore Works Creative Studio, including plugin-on
 
 # FrameCore Works Creative Studio
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 ## Entry response first
 
 Resolve entry before loading craft, researching or asking for a project. The following sequence is required even at the lowest/instant reasoning setting; deeper reasoning changes depth, not which menus exist. Do not rely on a later reference being loaded to recover these steps.

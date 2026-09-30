@@ -65,7 +65,8 @@ Produce a QA / Iteration Report with:
 5. For Loop Protocol work, name root cause, regression check, and one stop recommendation: `stop_sufficient`, `patch_one_gap`, `ask_user`, or `blocked`.
 6. Produce a clear allowlist for `delivery-documentation`.
 7. For ready-to-use text, reject a Copy Pack that lacks author context, fact and
-   lock review, a completed review-and-revision cycle, or a bounded stop decision.
+   lock review, a completed bounded review with repair only for a diagnosed
+   material issue, or a bounded stop decision. A passing draft needs no rewrite.
 
 ## Decision Rules
 

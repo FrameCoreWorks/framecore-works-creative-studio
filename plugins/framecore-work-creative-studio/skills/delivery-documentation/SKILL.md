@@ -5,6 +5,8 @@ description: Package accepted static, audio and video work, prompt specification
 
 # Useful handoff
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Read [production and delivery](references/production-and-delivery.md). Return the actual requested artifact plus the minimum information the next operator needs.
 
 Run the mandatory [public research preflight](../research-evidence/SKILL.md) before substantive production advice or claims about changing channel, accessibility, or print requirements. Prefer official specifications. If the handoff is purely a record of already verified facts, do not invent a new spec or imply one was rechecked.

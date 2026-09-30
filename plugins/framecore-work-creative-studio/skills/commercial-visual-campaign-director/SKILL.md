@@ -5,6 +5,8 @@ description: Direct the shared visual system and format adaptation strategy for 
 
 # Static direction
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Read [direction and composition](references/direction-and-composition.md) for an open brief. For typographic work load [typography](references/typography.md); for historical/style/process requests load [visual languages](references/visual-languages.md). For different media or campaign systems load [format adaptation](references/format-adaptation.md). [Worked examples](references/worked-examples.md) calibrate complete artifacts, not default aesthetics.
 
 When exact copy needs a concrete reading plan, difficult line breaks or a meaningful change of ratio, use the [type and format workbench](references/type-and-format-workbench.md). Its [copy/format card](assets/copy-and-format-card.md) is optional; [two complete adaptations](assets/half-turn-adaptation-example.md) show how one selected mechanism survives recomposition. Do not load this extension for an unrelated narrow image correction or repeat its worksheet as an intake.

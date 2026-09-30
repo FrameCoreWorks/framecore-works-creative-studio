@@ -5,6 +5,8 @@ description: Develop a distinctive commercial video campaign direction, motion t
 
 # Commercial video campaign direction
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Own the creative decision between a commercial brief and downstream execution. Turn the brief into a specific, defensible motion idea and, when requested, an asset family with a distinct communication job for each version. Do not turn the work into a generic “premium, cinematic, dynamic” moodboard.
 
 Read the [campaign-direction method](references/campaign-direction-method.md) for the full process and [anti-generic gate and handoff](references/anti-generic-gate-and-handoff.md) before releasing an approved direction downstream. For short product reels that need fresh, flowing shot ideas, use the [short-form motion and shot-bridge workbook](references/short-form-motion-bridge-workbook.md) to turn the selected idea into distinct physical events and intuitive transitions.

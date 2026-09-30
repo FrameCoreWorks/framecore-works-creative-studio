@@ -5,6 +5,8 @@ description: Turn an approved script, treatment, concept, or sequence brief into
 
 # Storyboard Sequence Architect
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Own the time-based plan: what happens, in what order, for how long, from which
 camera position, and what state carries into the next shot. This is a practical
 creative artifact, not a claim that a future render, edit, or continuity result

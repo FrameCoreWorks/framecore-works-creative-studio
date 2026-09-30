@@ -5,6 +5,8 @@ description: Design a static storyboard, shot board, reference board, or product
 
 # Storyboard Board Architect
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 Own the graphic organization of the board, not the time-based sequence. A
 board can help people compare selected moments, preserve references, or brief
 production. It is not automatically a sequence, a final storyboard animatic,

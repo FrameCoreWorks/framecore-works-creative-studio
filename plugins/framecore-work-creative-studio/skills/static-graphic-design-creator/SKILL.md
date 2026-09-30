@@ -5,6 +5,8 @@ description: "Own complete static graphic design work in Creative Studio: develo
 
 # Static Graphic Design Creator for Creative Studio
 
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+
 This is the Studio's complete static-design owner. It includes the full Static Graphic Design Creator knowledge system, code catalog, workflows, prompt contract, reference material, templates, scripts and tests under [the pinned upstream bundle](upstream/SKILL.source.md). The upstream source files are preserved under the upstream directory; read the source skill for design work and load its linked reference chapters selectively.
 
 The Studio integration contract below governs routing, shared research, work mode, cross-media handoffs and host boundaries. It augments the upstream design method and overrides it only where the two environments differ. The bundled upstream maintenance chapter is retained for provenance, not as instructions to manage this plugin: use the active Plugin Creator path for plugin maintenance.

@@ -20,9 +20,70 @@ Use `loop_control_fit` when a task needs any of:
 - a loopback decision between roles;
 - regression protection after a patch.
 
-Do not use the loop for trivial answers, direct one-line edits, pure status
-updates, or cases where acceptance criteria are already obvious and no QA or
-repair decision is needed.
+Use the automatic profile below for authored creative results, including a
+small scoped creative edit. Obvious criteria make the review short; they do
+not remove it. Skip the loop for greetings, menus, onboarding questions, pure
+status updates and trivial answers with no creative artifact under delivery.
+
+## Automatic output review
+
+After authoring or revising a substantive creative artifact, and after a
+requested generation returns an accessible result, automatically run one
+bounded review before final delivery or claiming acceptance. Do not wait for
+the user to request QA. Apply this to concepts, prompts, copy, graphics,
+storyboards, production plans and other creative deliverables, including
+direct specialist invocation and every Quick/Deep or model/effort setting.
+Respect an explicit user restriction on review or the requested stage.
+
+Reuse the task's goal, sources, acceptance criteria and approved locks; do not
+start onboarding again or ask whether QA may begin. When criteria are implicit,
+derive a short check from the supplied brief before drafting. Evaluate each
+requested artifact once within the shared project loop. Existing domain QA,
+Copy Delivery review and modality-specific review fulfill this requirement;
+do not stack a second loop or reset the budget at a role handoff.
+
+| Artifact | Review owner and concrete checks | Evidence boundary |
+|---|---|---|
+| Idea, concept or creative direction | Current direction owner: brief/audience fit, project specificity, distinctness when variants were requested, supported claims and feasible next stage | A proposal is not measured effectiveness, guaranteed originality or user selection; taste feedback alone is not an objective defect |
+| Image/video/audio prompt or edit instruction | Current prompt owner: standalone completeness, exact text, source bindings, preservation scope, supported target controls and observable acceptance tests | Prompt readiness is not rendered quality; unavailable model mapping or required inputs remain unverified/blocked |
+| Copy, script, lyrics or production plan | Existing author and domain QA: factual/source truth, exact locks, requested structure, continuity, timing basis and practical usability | Preserve authorship boundaries; estimated timing is not measured media timing |
+| Actual static graphic | Output Critic or the static owner's existing review: visible concept, exact copy, hierarchy, references, preservation and evidenced delivery properties | Inspect the actual returned image; an unseen file, prompt or preview cannot certify unreadable details or unmeasured properties |
+| Actual video, audio or captions | Video Prompt Architect, Audio Production Director or Caption Studio respectively, within available inspection coverage | Record actual frames/ranges, listening or timing evidence; a thumbnail, filename or script is not full media review |
+
+Use this controlled sequence:
+
+1. Review the current artifact/revision against its short acceptance matrix.
+   Record the checked scope, concrete evidence and limitations, not hidden
+   reasoning or a fictional independent agent review.
+2. If applicable criteria pass, record reviewed/no repair needed and
+   `stop_sufficient`; deliver the result unchanged. Do not invent a defect or
+   replace an accepted creative decision to demonstrate iteration.
+3. For a material failure, record severity, observation versus cause
+   hypothesis, one primary repair target and the preserved successes/locks.
+   Use `patch_one_gap` only when a bounded repair is possible within the task.
+4. Repair the text/prompt/plan locally when authorized, then recheck the target
+   and all plausibly affected accepted properties. A media repair or rerender
+   must use an actually available tool and fit the existing operation, input,
+   destination and cost authorization; QA alone authorizes no generation.
+5. Use at most three evaluation passes by default: initial review plus at most
+   two repair/recheck passes. Honor a stricter domain budget. Count the same
+   defect across handoffs; changing adjectives or labels does not reset it.
+   Stop the route when exhausted; choose `ask_user` for a real decision or
+   `blocked` for missing capability/evidence, and propose one useful next step.
+
+For missing or inaccessible generated media, do not claim artifact acceptance
+and do not keep retrying. Deliver any useful checked prompt/plan separately,
+label the media outcome uninspected and name only the missing evidence needed
+for review. A tool-returned asset may already be visible before inspection;
+review it afterward before claiming it is final, without implying the host can
+withhold or hide that preview.
+
+Keep the ordinary response focused on the requested artifact. Give a short
+review status or material caveat when useful; show a fuller QA report only when
+requested or needed to explain an unresolved failure. In learning, review the
+teacher's supplied material without doing the learner's exercise for them.
+Use existing `loop_state`, artifact revisions and acceptance fields for a
+resumable task; do not claim persistent storage unless actually available.
 
 ## Required Sequence
 
