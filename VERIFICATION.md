@@ -4,7 +4,7 @@ This document records bounded package verification. It is not a certification of
 
 ## Current source: 1.2.3
 
-The [1.2.3 source checks](verification/release-1.2.3.json) passed canonical validation, complete source-manifest verification, package byte checks and preservation checks for the 733-file/37-skill bundle. Ordinary-language format intake is carried by the existing orchestrator, brief and static owners. No executable production code, upstream source, skill identity or platform-specific pixel specification changed. Full CI and paired GitHub/ChatGPT publication are pending; active-client behavior is unverified.
+The [1.2.3 source checks](verification/release-1.2.3.json) passed canonical validation, complete source-manifest verification, package byte checks and preservation checks for the 733-file/37-skill bundle. Ordinary-language format intake is carried by the existing orchestrator, brief and static owners. No executable production code, upstream source, skill identity or platform-specific pixel specification changed. A fresh source-use conversation covered four responses: numbered purpose selection, familiar paper-size explanations, a natural-language A5 choice and a supplied Facebook post bypass. GitHub CI passed 62 Node checks, 10 installer tests and 23 asset checks. [Publication](verification/github-publication-1.2.3.json) records v1.2.3, five verified assets and 733 package file hashes matching local source. [Hosted readback](verification/hosted-release-1.2.3.json) verifies all nine changed files byte-for-byte and the complete 733-path/size inventory; the guarded overlay preserved 724 omitted files. These observations do not prove active-client behavior.
 
 ## Previous source: 1.2.2
 
