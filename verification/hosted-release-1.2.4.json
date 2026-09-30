@@ -1,0 +1,17 @@
+{
+  "version": "1.2.4",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "previous_release_id": "pluginrel_6abcd020dd908191bae3aef54cfa6ae6",
+  "release_id": "pluginrel_6abce3993804819187051f206647c204",
+  "source_commit": "3d22bb605bcb3a57e410ccf51af4cc7c4c8b586f",
+  "plugin_tree": "3dd22d48c51038bdc48c482e6f9ba9eba5920e68",
+  "changed_files_byte_equal": 13,
+  "complete_path_size_inventory": 734,
+  "omitted_unchanged_files_preserved_by_guarded_overlay": 721,
+  "full_hosted_archive_byte_comparison": "not performed; unchanged binary and oversized files omitted from overlay",
+  "unchanged_identity_assets_starters": true,
+  "active_client_behavior": "unverified",
+  "stress_reports_or_transcripts_added_to_package": false
+}

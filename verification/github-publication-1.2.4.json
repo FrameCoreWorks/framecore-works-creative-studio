@@ -1,0 +1,50 @@
+{
+  "version": "1.2.4",
+  "source_commit": "3d22bb605bcb3a57e410ccf51af4cc7c4c8b586f",
+  "root_tree": "85ddc588dc1ebdec340468397767882af7500aaf",
+  "plugin_tree": "3dd22d48c51038bdc48c482e6f9ba9eba5920e68",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.2.4",
+  "published_at": "2026-09-30T10:25:10Z",
+  "workflow_id": 36702232152,
+  "workflow_conclusion": "success",
+  "job_id": 109844118204,
+  "ci_passed": {
+    "node": 62,
+    "installer": 10,
+    "assets": 23
+  },
+  "github_package_file_hashes_verified": 734,
+  "plugin_zip_digest_matches_complete_local_archive": true,
+  "assets": [
+    {
+      "name": "framecore-work-creative-studio-1.2.4.zip",
+      "digest": "sha256:17b7a41fd9ea1a0446e42ffa4b97bdc78c412eaf0dfe16f937f31e84529f30c5",
+      "size": 9095649,
+      "state": "uploaded"
+    },
+    {
+      "name": "framecore-work-creative-studio-1.2.4.zip.inventory.json",
+      "digest": "sha256:a9c7b4674ae69208d159cd4e8323e441ec98a81815730be8433b06d6a7f6e49c",
+      "size": 148890,
+      "state": "uploaded"
+    },
+    {
+      "name": "framecore-works-creative-studio-1.2.4-repository.zip",
+      "digest": "sha256:75ba2dc51438dfc9d7a0677f6ac26542f25c8cb2db36e2276c08a58b4b83dded",
+      "size": 10995555,
+      "state": "uploaded"
+    },
+    {
+      "name": "framecore-works-creative-studio-1.2.4-repository.zip.inventory.json",
+      "digest": "sha256:a66330772db4620c0be3422d1f92a838a942a8c77f26f5653598f1de5f3fbdd1",
+      "size": 185300,
+      "state": "uploaded"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:d6f0f9b16f624de705ddf0930ee4ba492579a84d00193f110dfd64a7218a79bc",
+      "size": 482,
+      "state": "uploaded"
+    }
+  ]
+}
