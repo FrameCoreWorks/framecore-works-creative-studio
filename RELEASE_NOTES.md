@@ -1,11 +1,5 @@
-# Creative Studio 1.2.3
+# Creative Studio 1.2.4
 
-Makes poster-format questions easier for ordinary users.
+Uses one canonical Polish welcome as production text. Every sent Studio-only invocation, including repeated startup in the same conversation, copies the complete identity/capability introduction, optional-material invitation and final 1. Tryb kreatywny / 2. Tryb nauki menu verbatim, without a salutation or added prose. Preserves explicit language requests, concrete-task and actual-resume bypasses, checkpoints and the subsequent creative pace/work-area and learning routes. Native Codex installation points to the same asset. Source checks and bounded source-use observations remain distinct from active-client behavior.
 
-- Ask where the poster will be used: paper, internet, both, or help choosing.
-- Explain printed size as a whole printer sheet (A4), half a sheet (A5), or a larger two-sheet size (A3).
-- Explain internet placement as a normal post or phone story; keep unexplained pixel dimensions out of the initial choice.
-- Reuse supplied size and placement, including exact expert specifications; resolve only what is missing.
-- Keep precise technical targets for the relevant prompt or delivery step, with print/export limits intact.
-
-Preserves identity, 37 skill roots, all upstream knowledge, assets and starters. No stress-test reports or transcripts are added to the shared package. Source validation and source-use probes remain distinct from installed-client behavior.
+Preserves identity, 37 skill roots, all upstream knowledge, assets and starter prompts. Adds one production welcome asset, without adding stress-test reports or transcripts to the shared package.

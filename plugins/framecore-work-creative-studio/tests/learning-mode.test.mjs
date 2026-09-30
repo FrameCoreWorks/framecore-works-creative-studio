@@ -57,8 +57,13 @@ test('both intent labels and immediate production entry remain discoverable', ()
 
 test('startup cannot lose its welcome, creative pace step or displayed-menu number binding', () => {
   const startup = 'skills/workflow-orchestrator/references/startup-and-creative-menus.md';
-  for (const phrase of ['## Complete welcome', '1. **Tryb kreatywny**', '2. **Tryb nauki**', '## Creative pace choice', '## Established work-area menu', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus']) fixture(root => {
-    edit(root, startup, text => text.replaceAll(phrase, 'removed'));
+  const welcome = 'skills/workflow-orchestrator/assets/startup-welcome.pl.md';
+  for (const [file, phrase] of [
+    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Creative pace choice', '## Established work-area menu', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
+    ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **Tryb nauki**'].map(phrase => [welcome, phrase]),
+    ['skills/workflow-orchestrator/SKILL.md', 'copy verbatim the entire file']
+  ]) fixture(root => {
+    edit(root, file, text => text.replaceAll(phrase, 'removed'));
     assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), phrase);
   });
 });

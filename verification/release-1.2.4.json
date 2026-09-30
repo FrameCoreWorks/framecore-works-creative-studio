@@ -1,0 +1,53 @@
+{
+  "version": "1.2.4",
+  "checked_on": "2026-09-30",
+  "base_commit": "fe0d00a18c72849222ccd5f5bc69e798cd1ea412",
+  "status": "PASS",
+  "scope": "Canonical source checks, packaging/preservation and bounded source-use probe; not an installed-client UI test",
+  "canonical": {
+    "status": "PASS",
+    "files": 734,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "checks": {
+    "canonical": true,
+    "learning_source_tests": 14,
+    "installer_tests": 10,
+    "complete_install_manifest": true,
+    "packaging": true,
+    "archive_bytes_verified": 734,
+    "git_diff_check": true,
+    "github_baseline_package_byte_hashes": 733,
+    "hosted_baseline_changed_files_byte_equal": 12
+  },
+  "preservation": {
+    "new_shared_paths": 1,
+    "changed_shared_paths": 12,
+    "skill_roots": 37,
+    "upstream_assets_identity_starters_unchanged": true,
+    "test_reports_or_transcripts_added_to_package": false
+  },
+  "archive": {
+    "plugin_files": 734,
+    "plugin_sha256": "17b7a41fd9ea1a0446e42ffa4b97bdc78c412eaf0dfe16f937f31e84529f30c5",
+    "local_repository_only_banner": "Unavailable locally; preserved in remote base tree. CI builds the complete repository archive."
+  },
+  "publication": {
+    "status": "pending",
+    "active_client": "unverified"
+  },
+  "source_use": {
+    "scope": "Fresh sandbox source-use conversation, not actual installed-client behavior",
+    "conversations": 1,
+    "responses": 3,
+    "checks": [
+      "First bare invocation equals canonical welcome text",
+      "Creative answer shows quick/expanded pace menu",
+      "Repeated bare invocation equals first welcome and canonical text"
+    ],
+    "status": "PASS",
+    "comparison": "Exact response text after trimming outer whitespace only"
+  }
+}

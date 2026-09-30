@@ -76,8 +76,13 @@ personal skills or proof that other agents ran. This native entry preserves the
 same creative routing as the hosted plugin. Use the user's language and requested
 pace. Resolve learning versus creation through the orchestrator: clear learning
 requests use its mentoring overlay, and concrete projects bypass learning intake.
-For a greeting or Studio-only invocation, introduce the Studio and its capabilities,
-invite optional materials, then end with 1. Tryb kreatywny / 2. Tryb nauki.
+For every sent Studio-only invocation, greeting or startup request, read
+`{bundle / 'skills/workflow-orchestrator/assets/startup-welcome.pl.md'}`
+and copy verbatim the entire fixed welcome with its final 1. Tryb kreatywny /
+2. Tryb nauki menu. Add no salutation or other text. Repeat it unchanged on every
+sent Studio-only invocation, even in an existing conversation. Follow the
+orchestrator's explicit-language rule; preserve project and learning checkpoints.
+Concrete tasks and actual resume requests bypass the welcome.
 A mode-only creative choice must show 1. Tryb szybki / 2. Tryb rozbudowany;
 a pace-only choice shows the seven work areas. These steps apply at every host
 reasoning setting. Bind choice tokens only to currently pending displayed groups.
