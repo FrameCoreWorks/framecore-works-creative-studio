@@ -1,0 +1,54 @@
+{
+  "version": "1.2.10",
+  "checked_on": "2026-09-30",
+  "plugin": {
+    "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "name": "framecore-work-creative-studio",
+    "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
+    "version": "1.2.10",
+    "current_release_id": "pluginrel_6abd46ba764081919143789f037c71ba",
+    "scope": "USER",
+    "discoverability": "PRIVATE"
+  },
+  "source_commit": "bb378371e91062f3c8d64e929304ae8ea278b786",
+  "scope": "Saved source readback; running-client behavior and live media untested",
+  "changed_files_byte_equal": 13,
+  "readable_files_byte_equal": 725,
+  "complete_path_size_inventory_equal": 736,
+  "unchanged_files_preserved_by_guarded_overlay": 723,
+  "files_not_directly_hash_verified": [
+    "assets/logo.png",
+    "evals/static-cases.json",
+    "integrations/workflow-kit/source-manifest.json",
+    "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+    "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+    "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+    "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+    "scripts/validate-package.mjs",
+    "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+    "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+    "tests/package.test.mjs"
+  ],
+  "unread_reason": "Seven large text files and four binary files are outside the available text-readback path; they were unchanged. Their delivered Codex cache copies match source.",
+  "changed_file_sha256": {
+    ".codex-plugin/plugin.json": "2cadb2090bbfb8bdd27b7774ac3128e31c196f504cad6a37e6e6fd00233b0060",
+    "README.md": "c51f97aa2e37319583fdc490b61b84fa257958ccb831388c38d962d4d0261b44",
+    "docs/migration-status.md": "37156f2b0433ffa103933d11fed9b51f5a3bfc45d8a508201d870dea1469d788",
+    "docs/release-history.md": "ce005de58e54bacbc0c581bb2ded031f0619d334c7eae1335756cd7ee30820c0",
+    "plugin.json": "5accc21fc6b7ac12c368d0de5957b0d835617e056f0828da1a19917a047403a3",
+    "scripts/validate-learning-mode.mjs": "2e7b6c3d2e292161d5caa6ab3c836dd94515c14a3e7ac743e40cb03cd84a2e56",
+    "scripts/validate-studio.mjs": "f18df04cc44b109f1d2f4a1b7a6adaa80fa4c3555c43df5e2d6f0cf0fbe92162",
+    "scripts/validate-workflow-kit.mjs": "3d9495fcaf51a8cb792addfcd3caf90c6ea4be15b84be94948bff14239a32594",
+    "skills/image-prompt-architect/kit/scripts/static-design-preflight.mjs": "d25603b88e03c7456ba8c0624564a0a55beb0c098a49712b8cd7584ba940f196",
+    "skills/workflow-orchestrator/assets/learning-progress.template.md": "71b1d029864e218ceae63ee8aa4c80dac1a8ac362a30833657bfcf4f3e73e749",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md": "9516c0918bfef4cb2188602d9d0cf9de7fc28db82cf29b9fd33db3a5496886e4",
+    "tests/learning-mode.test.mjs": "00c73a9f9cdd63a4d904f340a7e97096e017f4e9b6e8ee0679979cd9664903ed",
+    "tests/workflow-kit.test.mjs": "be3988d7276af4633e1ff2c9181f626d41f9348f825e0b31832946d00179d722"
+  },
+  "codex_cache": {
+    "version": "1.2.10",
+    "files_byte_equal": 736,
+    "cache_path": "/Volumes/Codex/CodexHome/.codex/plugins/cache/created-by-me-remote/framecore-work-creative-studio/1.2.10",
+    "scope": "Installed cache files only; running-client routing and behavior untested"
+  }
+}
