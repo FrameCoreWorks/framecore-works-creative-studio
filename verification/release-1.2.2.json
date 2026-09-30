@@ -48,8 +48,17 @@
     "verified_against_complete_install_inventory": true
   },
   "publication": {
-    "github": "pending",
-    "chatgpt": "pending",
+    "source_commit": "f5099c8d6f5a60e8fed4b5fc8721ff3fee03a7ca",
+    "release": "v1.2.2",
+    "workflow_id": 36689917178,
+    "workflow_conclusion": "success",
+    "ci_node_passed": 62,
+    "ci_node_failed": 0,
+    "ci_installer_passed": 10,
+    "ci_asset_checks_passed": 23,
+    "hosted_release_id": "pluginrel_6abcc8520e2c8191abc54e0cdd9fa0b1",
+    "changed_hosted_files_byte_equal": 14,
+    "hosted_path_and_size_inventory": 733,
     "active_client": "unverified"
   }
 }

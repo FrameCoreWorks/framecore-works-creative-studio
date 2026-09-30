@@ -4,7 +4,7 @@ This document records bounded package verification. It is not a certification of
 
 ## Current source: 1.2.2
 
-The [1.2.2 source checks](verification/release-1.2.2.json) passed canonical validation, 48 local Node runner checks, 23 asset checks, 10 installer tests and nine additional installer probes. Two fresh low-reasoning sandbox conversations covered seven responses, including expired-menu clarification and offline-learning disclosure. These are source-use probes, not installed-client observations. The full release suite and paired GitHub/ChatGPT publication are pending. The package retains 733 files and 37 skill roots; no stress reports or transcripts were added. Active-client behavior remains unverified.
+The [1.2.2 source checks](verification/release-1.2.2.json) passed canonical validation, 48 local Node runner checks, 23 asset checks, 10 installer tests and nine additional installer probes. Two fresh low-reasoning sandbox conversations covered seven responses, including expired-menu clarification and offline-learning disclosure. These are source-use probes, not installed-client observations. GitHub CI passed 62 Node checks, 10 installer tests and 23 asset checks, then published v1.2.2 with five verified assets. The plugin ZIP digest matches the complete local archive. [GitHub publication](verification/github-publication-1.2.2.json) verifies all 733 package file hashes; [hosted readback](verification/hosted-release-1.2.2.json) verifies the 14 changed files byte-for-byte and the complete 733-path/size inventory, with 719 omitted files preserved by the guarded overlay. The package retains 733 files and 37 skill roots; no stress reports or transcripts were added. Active-client behavior remains unverified.
 
 ## Previous source: 1.2.1
 
