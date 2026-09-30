@@ -35,7 +35,19 @@
     "local_repository_only_banner": "Unavailable locally; preserved in remote base tree. CI builds the complete repository archive."
   },
   "publication": {
-    "status": "pending",
+    "status": "synchronized",
+    "source_commit": "2d5f8ffc7af8488f8fd554d6d4db5dac806f35c3",
+    "github_release": "v1.2.5",
+    "workflow_id": 36708669764,
+    "workflow_conclusion": "success",
+    "ci_node_passed": 62,
+    "ci_node_failed": 0,
+    "ci_installer_passed": 10,
+    "ci_asset_checks_passed": 23,
+    "hosted_release_id": "pluginrel_6abcf264f2f88191aa95ca82c774c45d",
+    "changed_hosted_files_byte_equal": 14,
+    "complete_hosted_path_size_inventory": 734,
+    "unchanged_welcome_byte_equal": true,
     "active_client": "unverified"
   },
   "source_use": {
