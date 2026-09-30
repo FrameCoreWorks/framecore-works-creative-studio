@@ -1,11 +1,13 @@
-# Creative Studio 1.1.1
+# Creative Studio 1.2.0
 
-This release standardizes skill names displayed in ChatGPT and compatible Codex interfaces.
+Adds optional learning mode to the existing creative studio.
 
-- All 37 skills have a display name with spaces and initial capitals; AI, UGC, HyperFrames and OpenCut keep their spelling.
-- Adds 14 missing UI metadata files and corrects the metadata structure for Copy Voice and Tool Routing Cost.
-- Changes Workflow Self-Improvement to Workflow Self Improvement.
-- Documents the naming standard and checks it before packaging future releases.
-- Preserves skill IDs, routing, instructions, existing prompts, policies, provider knowledge and assets.
+- Short Tryb nauki / Tryb tworzenia choice for unclear intent; direct learning or project requests bypass that menu.
+- At most six initial learning questions, reusing known answers and allowing optional omissions.
+- Personalized ordered modules, practical exercises, assessment criteria, tool/cost boundaries and estimated effort.
+- Fourteen supported creative areas, shared foundations for broad goals and an integrative project.
+- Short lessons with learner participation, adaptive feedback and a portable progress card.
+- Immediate switching between learning and the existing production workflow; Quick/Deep remains pace.
+- Existing 37 skills, source archives, identity, logo, starter prompts and execution boundaries are retained.
 
-Validation covers all 37 display-name fields, preserved source content, package structure, source inventory, the existing installer checks and archive integrity. The naming gate also detects missing, misplaced and incorrectly formatted names. Source verification does not establish UI cache refresh on every client. No media generation, provider setup or client pilot is part of this release.
+Sixteen added behavior specifications are planned, not executed host tests. Source regression tests check the mentoring contract, mapped owners, progress references, scenario integrity and production entry. They do not establish real lesson quality, UI behavior or educational effectiveness. See VERIFICATION.md and RELEASE_STATUS.md for source checks and separate publication/hosted-save evidence.

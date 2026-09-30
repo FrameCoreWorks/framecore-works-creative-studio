@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {validateWorkflowKit} from './validate-workflow-kit.mjs';
 import {loadEffectiveEvals} from './load-effective-evals.mjs';
+import {validateLearningMode} from './validate-learning-mode.mjs';
 
 const expectedOwnerCount = 37;
 const criticalIds = ['research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
@@ -55,6 +56,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     catch (error) { fail('JSON', relative + ': ' + error.message); return {}; }
   };
   errors.push(...validateWorkflowKit(base, files));
+  errors.push(...validateLearningMode(base, files));
   const portable = json('plugin.json'), compatibility = json('.codex-plugin/plugin.json'), registry = json('scripts/studio-contracts.json');
   for (const key of ['name', 'version', 'description', 'author']) if (!portable[key] || !isDeepStrictEqual(portable[key], compatibility[key])) fail('MANIFEST_IDENTITY', key);
   if (!isDeepStrictEqual(portable.keywords, compatibility.keywords)) fail('MANIFEST_IDENTITY', 'keywords');
@@ -213,7 +215,7 @@ export function validateStudio(root, {legacy = false} = {}) {
       if (item.research_expectation === 'not_applicable' && !item.research_exemption_reason) fail('EVAL_EXEMPTION', item.id);
       if ((item.research_expectation === 'prohibited_by_user') !== (item.tool_state?.web_search === 'prohibited_by_user')) fail('EVAL_BROWSE_BOUNDARY', item.id);
     }
-    if (!isDeepStrictEqual([...effective.overrides_applied].sort(), ['S18', 'S32', 'S35', 'S45', 'S50', 'S51'])) fail('OVERRIDE_COVERAGE', 'The six reviewed inherited cases require their effective overrides');
+    if (!isDeepStrictEqual([...effective.overrides_applied].sort(), ['S01', 'S18', 'S32', 'S35', 'S45', 'S50', 'S51'])) fail('OVERRIDE_COVERAGE', 'The seven reviewed inherited cases require their effective overrides');
     for (const id of ['S35-CROP', 'S35-PAD', 'S35-CONFLICT', 'S45-FINAL']) if (!effective.cases.some(item => item.id === id)) fail('OVERRIDE_VARIANT', id);
     const hostCases = effective.cases.filter(item => item.provenance.source_file === 'studio-behavior-cases.json');
     if (hostCases.length !== 25 || new Set(hostCases.map(item => item.family)).size !== 25) fail('HOST_SCENARIO_COVERAGE', 'Expected twenty-five distinct planned families');
@@ -229,7 +231,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     for (const item of integrationCases) if (item.execution_status !== 'not_run' || !Array.isArray(item.required_evidence) || !item.required_evidence.length || !Array.isArray(item.expected_owners) || !item.expected_owners.length || item.expected_owners.some(id => !ownerIds.includes(id))) fail('INTEGRATION_EVIDENCE', item.id);
     const activeOwnerIds = owners.filter(owner => owner.route_required || owner.id === 'workflow-orchestrator').map(owner => owner.id);
     if (!isDeepStrictEqual([...new Set([...practiceCases, ...integrationCases].flatMap(item => item.expected_owners ?? []))].sort(), [...activeOwnerIds].sort())) fail('KNOWLEDGE_OWNERS', 'Planned knowledge and integration cases must cover every active owner');
-    evaluations = {legacy: effective.legacy_cases, overrides: effective.overrides_applied, added_variants: effective.additional_cases, host_scenarios: effective.host_scenarios, knowledge_scenarios: effective.knowledge_scenarios, integration_scenarios: effective.integration_scenarios, total_planned: effective.cases.length, executed: 0};
+    evaluations = {legacy: effective.legacy_cases, overrides: effective.overrides_applied, added_variants: effective.additional_cases, host_scenarios: effective.host_scenarios, knowledge_scenarios: effective.knowledge_scenarios, integration_scenarios: effective.integration_scenarios, learning_scenarios: effective.learning_scenarios, total_planned: effective.cases.length, executed: 0};
   } catch (error) { fail('EFFECTIVE_EVALS', error.message); }
   warnings.push('Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed.');
   const canonical = {...result(), files: files.length, owners: owners.length, evaluations};

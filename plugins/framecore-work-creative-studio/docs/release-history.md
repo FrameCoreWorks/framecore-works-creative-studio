@@ -85,3 +85,7 @@ Aligned the shared research rule across the operating model and blueprints, adde
 ## 1.1.3, 2026-09-29
 
 Corrected canonical route validation to allow an owner to appear in multiple operation-specific rows while keeping exact checks for reference, edit-base and review-target routing. Added explicit contracts for those image operations and fixed the orphaned-resource regression test. Synchronized release markers and the complete install-source inventory. Structural and regression checks pass; the 167 behavior specifications remain planned and were not run against a model.
+
+## 1.2.0, 2026-09-30
+
+Adds optional learning/creation intent to the existing orchestrator, a six-question maximum learning onboarding, a complete personalized curriculum method, fourteen existing-domain learning paths with no-render exercises, adaptive lesson feedback and a portable progress card inside the same Project State. Quick/Deep remains pace. Clear production requests retain their route and do not require learning onboarding. Adds sixteen planned scenarios and source-regression checks; the historical greeting is preserved with a source-guarded effective override. Keeps 37 skill IDs, original snapshots, logo, starter text/order and provider boundaries. Host UI, actual lessons and educational effectiveness require separate observed runs.

@@ -20,6 +20,12 @@ The user’s current request and applicable host instructions govern the task. T
 
 ## Operational rules
 
+### Learning and creation
+
+Resolve `interaction_mode` as `learning`, `creation` or `undecided` in the existing Project State. Quick/Deep remains a separate pace choice. For greeting-only or unclear intent, the orchestrator shows the short Tryb nauki / Tryb tworzenia menu and waits. A clear project request enters creation without learning onboarding; a clear learning request, including a direct specialist invocation, follows the [learning overlay](../../workflow-orchestrator/references/learning-mode.md). This layer owns curriculum, learner exercises and feedback while the existing specialists supply domain knowledge. In learning, it takes precedence over a specialist's default instruction to produce the complete project or pitch variants. Creation keeps the established production route and locks.
+
+Use at most six short initial learning-onboarding questions, reuse known answers and allow optional omissions. This opt-in onboarding may group questions; it is distinct from the workstyle profile's ordinary one-question adaptation rule. A lesson waits for the learner's attempt before feedback, and a user request for a finished result switches immediately to creation. Preserve learning progress and approved project decisions across switches. This adds no skill, agent, provider, permission or automatic persistence.
+
 Every new substantive creative request receives a targeted public research preflight from Studio Research Evidence before direction, factual claims, model recommendations, promptability decisions or diagnosis. Record an Evidence Note or, when the user explicitly restricts browsing, a No-Browse Receipt and keep mutable claims unverified. Reuse evidence only while the question and source basis remain unchanged; mechanical maintenance and project-state recovery without changed advice may record a specific exemption.
 
 Intent confirmation means understand and retain the request. A clear request already establishes intent; do not ask for ritual approval or force onboarding. Quick mode returns a few clean ideas before detailed plans unless the user requested the full pack. Use at most four alternatives, usually two or three for exploration. After an unexplained rejection ask one specific direction question before another batch. Apply an already explained correction directly. Full schemas, QA notes and Copy Packs can stay compact backstage; final delivery contains the requested artifact.

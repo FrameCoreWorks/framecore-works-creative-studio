@@ -23,4 +23,6 @@ Local semantic index/query utilities use token overlap; they are not model embed
 
 ## QA and delivery
 
+When a learning path is active or paused, retain its `learning_context` inside the same Project State and include a concise [Karta postępu](../../workflow-orchestrator/assets/learning-progress.template.md) in a portable handoff. Reuse known onboarding answers and resume the recorded module after checking actual asset access. Keep self-reported completion distinct from reviewed attempts, and preserve the production checkpoint through mode switches. A card cannot activate a provider or restore missing attachments; without verified storage it is user-carried context, not promised memory.
+
 Verify checkpoint ID, last completed gate, actual asset access, pending strict carriers, exact source revisions and next action. A retrieved conversation may contain inaccessible attachments. A successful write is persistence evidence only for that destination. Prefer one short handoff with exact decisions and explicit missing inputs. Follow [integration authority](studio-integration-policy.md) for valid scoped authorization and the user’s Quick/Deep preference.

@@ -1,0 +1,172 @@
+{
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "version": "1.2.0",
+  "release_id": "pluginrel_6abc36f46814819181a10e363b210117",
+  "baseline_release_id": "pluginrel_6abc0e47bd2c8191852221e9c0dd7f4c",
+  "checked_on": "2026-09-30",
+  "status": "updated_and_source_verified",
+  "source_state": "Local 1.2.0 working tree based on 8b6827d184ed1655fd95dbf12cbe05750c98a79a; not pushed to GitHub",
+  "scope": "Saved-source verification. Does not prove active-client refresh, runtime routing, lesson behavior or educational effectiveness.",
+  "audience": {
+    "scope": "USER",
+    "discoverability": "PRIVATE",
+    "unchanged": true
+  },
+  "complete_path_inventory": {
+    "status": "PASS",
+    "expected": 732,
+    "actual": 732,
+    "matching": true
+  },
+  "changed_file_readback": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "match": "json_equal",
+      "source_sha256": "dc7f9313dd35c59cbb6e902df4fc9c345da2f1ec06ddda3609e8f849f6a23082",
+      "saved_sha256": "007bdb44f6016fc07fb812bcb4ca550b74d07313ce10526fbc4550f5051fe9cb"
+    },
+    {
+      "path": "README.md",
+      "match": "byte_equal",
+      "source_sha256": "967c49728c9783b4590fe4e8a15dbf3cf9230d0a3d159801fbd5b5ae215a8352",
+      "saved_sha256": "967c49728c9783b4590fe4e8a15dbf3cf9230d0a3d159801fbd5b5ae215a8352"
+    },
+    {
+      "path": "docs/learning-mode.md",
+      "match": "byte_equal",
+      "source_sha256": "065daa92e3264bcaea0c5ff333945a5e0010e81e28597cc9d48551b5c5f1b270",
+      "saved_sha256": "065daa92e3264bcaea0c5ff333945a5e0010e81e28597cc9d48551b5c5f1b270"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "match": "byte_equal",
+      "source_sha256": "d18b0292ed68299401adbd4d2105128ec21385060083823c6b25ec190b08ea2b",
+      "saved_sha256": "d18b0292ed68299401adbd4d2105128ec21385060083823c6b25ec190b08ea2b"
+    },
+    {
+      "path": "docs/release-history.md",
+      "match": "byte_equal",
+      "source_sha256": "e930a5b32e9997b264879c4f831cab82946cbd1ea0f7895f26fe542654d41dcb",
+      "saved_sha256": "e930a5b32e9997b264879c4f831cab82946cbd1ea0f7895f26fe542654d41dcb"
+    },
+    {
+      "path": "evals/effective-overrides.json",
+      "match": "byte_equal",
+      "source_sha256": "a156129eb5a8fc6299f13563e91abb8e24f4f15e8157abe7eff197c62b953e28",
+      "saved_sha256": "a156129eb5a8fc6299f13563e91abb8e24f4f15e8157abe7eff197c62b953e28"
+    },
+    {
+      "path": "evals/learning-mode-cases.json",
+      "match": "byte_equal",
+      "source_sha256": "5cdaf36ba226d3f59224043997ad892ef8c9cb9faf55d4886d453413f32ba466",
+      "saved_sha256": "5cdaf36ba226d3f59224043997ad892ef8c9cb9faf55d4886d453413f32ba466"
+    },
+    {
+      "path": "plugin.json",
+      "match": "byte_equal",
+      "source_sha256": "b7464800ce92e1944aa7d27dbede84e16d6cf03711634658979a1c35ffc9bce2",
+      "saved_sha256": "b7464800ce92e1944aa7d27dbede84e16d6cf03711634658979a1c35ffc9bce2"
+    },
+    {
+      "path": "scripts/load-effective-evals.mjs",
+      "match": "byte_equal",
+      "source_sha256": "5ef32bdf20f0e730315f147f2e4051bb5756ec0509bbf0c583759099cc9e6337",
+      "saved_sha256": "5ef32bdf20f0e730315f147f2e4051bb5756ec0509bbf0c583759099cc9e6337"
+    },
+    {
+      "path": "scripts/validate-learning-mode.mjs",
+      "match": "byte_equal",
+      "source_sha256": "c164571f0de708ebac329eea0e18dc94d7023ccaaf0a58a5db9bb87b179fd741",
+      "saved_sha256": "c164571f0de708ebac329eea0e18dc94d7023ccaaf0a58a5db9bb87b179fd741"
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "match": "byte_equal",
+      "source_sha256": "c7b4c72f6e5d1bf025d2440517d5defcae8a047eabd513414baff263a3022404",
+      "saved_sha256": "c7b4c72f6e5d1bf025d2440517d5defcae8a047eabd513414baff263a3022404"
+    },
+    {
+      "path": "skills/pipeline-core/references/project-recovery.md",
+      "match": "byte_equal",
+      "source_sha256": "de37c0f2e2b3a75b781b0f8aab8077eb1e9b38c432cfd43df19e7cc434697e81",
+      "saved_sha256": "de37c0f2e2b3a75b781b0f8aab8077eb1e9b38c432cfd43df19e7cc434697e81"
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "match": "byte_equal",
+      "source_sha256": "5783a329b1b9306024fadab28f7169502102494b91e314b286647d486f67cdb2",
+      "saved_sha256": "5783a329b1b9306024fadab28f7169502102494b91e314b286647d486f67cdb2"
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "match": "byte_equal",
+      "source_sha256": "fbb033b80f3829e2da9512f54236aa336a0609e681a9cd8fa9433ada29877da1",
+      "saved_sha256": "fbb033b80f3829e2da9512f54236aa336a0609e681a9cd8fa9433ada29877da1"
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "match": "byte_equal",
+      "source_sha256": "64cddd0724328dbd60adbbce2ec4c01fd4f7588546cbc37a86185c1b3c185353",
+      "saved_sha256": "64cddd0724328dbd60adbbce2ec4c01fd4f7588546cbc37a86185c1b3c185353"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "match": "byte_equal",
+      "source_sha256": "2b5dce488cd45df43cfcc52167c0b1d25b5c7d59f3922cfc7131ef6ad8770136",
+      "saved_sha256": "2b5dce488cd45df43cfcc52167c0b1d25b5c7d59f3922cfc7131ef6ad8770136"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-domains.json",
+      "match": "byte_equal",
+      "source_sha256": "4392dacfecc598eeac9275375baf8bf745c157ed430bd200e7c13024369c5a1a",
+      "saved_sha256": "4392dacfecc598eeac9275375baf8bf745c157ed430bd200e7c13024369c5a1a"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "match": "byte_equal",
+      "source_sha256": "8bdae22e17a496bc0d90458ce360ed616917a376e3081261d7d65ff444a863c6",
+      "saved_sha256": "8bdae22e17a496bc0d90458ce360ed616917a376e3081261d7d65ff444a863c6"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "match": "byte_equal",
+      "source_sha256": "ff07812e93cb637b28d46d14917ad91e286de562ed012d85ed362c8405b06fd1",
+      "saved_sha256": "ff07812e93cb637b28d46d14917ad91e286de562ed012d85ed362c8405b06fd1"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/learning-mode.md",
+      "match": "byte_equal",
+      "source_sha256": "09a804f1a5e44103cbfd917f2138d458ecb29d99279a766de63635587bde8f09",
+      "saved_sha256": "09a804f1a5e44103cbfd917f2138d458ecb29d99279a766de63635587bde8f09"
+    },
+    {
+      "path": "tests/learning-mode.test.mjs",
+      "match": "byte_equal",
+      "source_sha256": "84e5a70344298b75a4c404bb4c23ee5d9fd575230a83c9ce75c997a2b78dd5fd",
+      "saved_sha256": "84e5a70344298b75a4c404bb4c23ee5d9fd575230a83c9ce75c997a2b78dd5fd"
+    },
+    {
+      "path": "tests/studio.test.mjs",
+      "match": "byte_equal",
+      "source_sha256": "381df6d37f17ac41f6b526d799b410b86c74abbda18e006f8338ff290b5bdfb7",
+      "saved_sha256": "381df6d37f17ac41f6b526d799b410b86c74abbda18e006f8338ff290b5bdfb7"
+    }
+  ],
+  "changed_files_verified": 22,
+  "unchanged_files": "710 paths preserved by overlay semantics; complete inventory checked, their contents not reread in this update",
+  "default_prompts": [
+    {
+      "path": "plugin.json",
+      "default_prompt_type_text_order_preserved": true
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "default_prompt_type_text_order_preserved": true
+    }
+  ],
+  "runtime_ui": "NOT_OBSERVED",
+  "behavioral_scenarios": "NOT_RUN",
+  "new_plugin_created": false,
+  "providers_connected_or_used": false
+}

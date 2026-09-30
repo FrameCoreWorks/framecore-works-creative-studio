@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "scope": "Sixteen planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
+  "execution_rule": "Use a fresh attributed host session, actual input and available assets; save response, tool trace and reviewer results separately. Source tests do not execute these cases.",
+  "cases": [
+    {
+      "id": "LM01",
+      "family": "start_menu",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Hej, od czego zaczynamy?",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "start_menu",
+      "expected_interaction_mode": "undecided",
+      "expected_owners": [
+        "workflow-orchestrator"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
+      "checks": [
+        "Show only the short Tryb nauki / Tryb tworzenia choice and wait.",
+        "Use a genuine choice control if exposed; otherwise numbered text; do not invent buttons.",
+        "No domain default, onboarding, research or generation before intent is known."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM02",
+      "family": "direct_creation",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Napisz tylko prompt plakatu 4:5. Dokładny napis: „Wspólne czytanie”. Jedna otwarta książka, płaskie kolory, bez innych napisów.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "direct_creation",
+      "expected_interaction_mode": "creation",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Enter creation without learning onboarding or a menu barrier.",
+        "Briefly mention the optional learning switch once, then deliver the requested prompt.",
+        "Preserve exact copy and prompt-only boundary."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM03",
+      "family": "learning_onboarding",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Chcę nauczyć się projektować czytelne plakaty od podstaw.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "learning_onboarding",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "studio-workstyle-profile"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
+      "checks": [
+        "Recognize learning directly; ask only useful missing onboarding questions, at most six.",
+        "Cover independent goal, level, project, tools, time/budget and learning preference without assuming paid tools.",
+        "Permit short answers and optional unknowns; no forced video topic."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM04",
+      "family": "complete_brief_plan_lesson",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Chcę samodzielnie robić plakaty wydarzeń. Jestem początkujący, bez projektu i programów. Mam 30 minut trzy razy w tygodniu, budżet zero. Wolę papierowe ćwiczenia z przykładami. Zacznij.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "complete_brief_plan_lesson",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Reuse all six supplied onboarding answers without another questionnaire.",
+        "Return a personalized ordered plan with outcomes, exercises, criteria, tools/cost limits, no-render work and estimated effort.",
+        "Start a first lesson with goal, plain terms, short example, learner exercise and criteria; wait for the attempt."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM05",
+      "family": "domain_choice",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Tryb nauki. Interesują mnie typografia, dialog, dźwięk i storyboard. Pokaż, czego mogę się w tych obszarach nauczyć, zanim wybiorę.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "domain_choice",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "screenplay-story-architect",
+        "audio-production-director",
+        "storyboard-sequence-architect",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Represent all four requested supported fields using the existing domain map.",
+        "State support boundaries and offer varied learner outcomes; do not default to video or character reference.",
+        "Stop at the requested choice overview rather than an unsolicited full course."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM06",
+      "family": "broad_curriculum",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Chcę nauczyć się wszystkiego, co obejmuje Studio: grafika, historia i aktorstwo, kamera, postacie, storyboard, teledysk, reklama, tekst, prompty, dźwięk, montaż i kampania. Poziom zero, dwie godziny tygodniowo, bez płatnych narzędzi, ćwiczenia i przykłady, bez własnego projektu.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "broad_curriculum",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "studio-workstyle-profile",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Preserve the broad goal with shared foundations, all requested supported specializations and an integrative project.",
+        "Identify transferable skills, prerequisites, concrete exercises, criteria and realistic labelled effort estimates.",
+        "Use only existing domain competencies with limits for acting/voice/VFX; begin only the first small lesson."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM07",
+      "family": "learner_participation",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Rozumiem przykład. Daj mi teraz własne ćwiczenie z promptu obrazu, ale nie pisz za mnie całej odpowiedzi.",
+      "context": {
+        "current_lesson": "Opisz cel obrazu, jedną główną decyzję, ograniczenia i kryterium oceny.",
+        "worked_example": "Fikcyjny plakat biblioteki: tytuł i jedna książka, bez danych wydarzenia."
+      },
+      "available_assets": [],
+      "expected_branch": "learner_participation",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "image-prompt-architect",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Assign a meaningful independent choice or draft with a plain explanation and criteria.",
+        "Do not substitute a finished prompt for the learner's attempt.",
+        "Wait for an answer before giving feedback or marking completion."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM08",
+      "family": "adaptive_feedback",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Moja próba: wszystkie napisy dam największe, każdy w innym jaskrawym kolorze, żeby każdy był najważniejszy. Nie rozumiem, co poprawić.",
+      "context": {
+        "current_lesson": "Hierarchia tekstu",
+        "exercise": "Wybierz kolejność czytania trzech tekstów: „Spotkanie”, „Sobota 12:00”, „Wstęp wolny”.",
+        "criteria": [
+          "Jedna pierwsza informacja.",
+          "Pozostałe teksty nadal czytelne."
+        ]
+      },
+      "available_assets": [],
+      "expected_branch": "adaptive_feedback",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "studio-workstyle-profile",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Discuss the actual attempt, focusing on one or two concrete changes, without personal judgment.",
+        "Explain hierarchy more simply, reduce variables and offer a retry or short understanding check.",
+        "Do not claim to inspect an image or certify mastery from this textual answer."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM09",
+      "family": "switch_to_creation",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Zrób już za mnie gotowy prompt tego plakatu. Teraz Tryb tworzenia.",
+      "context": {
+        "interaction_mode": "learning",
+        "current_module": "typography_layout",
+        "project": {
+          "goal": "Plakat 4:5 do fikcyjnego spotkania czytelniczego",
+          "exact_copy": [
+            "Wspólne czytanie"
+          ],
+          "selected_concept": "Jedna otwarta książka, duży tytuł, płaskie kolory"
+        },
+        "learning_progress": {
+          "completed_lessons": [],
+          "next_action": "Samodzielnie rozmieścić tytuł"
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "switch_to_creation",
+      "expected_interaction_mode": "creation",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Switch immediately, without requiring another lesson or user permission to stop learning.",
+        "Preserve the selected concept, exact text and learning checkpoint.",
+        "Return the prompt without generating an image."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM10",
+      "family": "switch_to_learning",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Zamiast kolejnej wersji naucz mnie samodzielnie dobrać hierarchię tego plakatu.",
+      "context": {
+        "interaction_mode": "creation",
+        "project": {
+          "goal": "Plakat 4:5",
+          "exact_copy": [
+            "Spotkanie",
+            "Sobota 12:00",
+            "Wstęp wolny"
+          ],
+          "selected_concept": "Typograficzny plakat bez ilustracji"
+        },
+        "learner": {
+          "level": "beginner",
+          "tools": "paper",
+          "time": "20 minutes",
+          "budget": "zero",
+          "preference": "example and exercise"
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "switch_to_learning",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Reuse the project and supplied learner details without full onboarding.",
+        "Teach one decision and invite an attempt instead of generating another final variant.",
+        "Keep production approvals separate from learning progress."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM11",
+      "family": "production_regression",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Tryb szybki: zaproponuj trzy krótkie pomysły na 15-sekundowy film fikcyjnego pudełka z zatrzaskiem. Bez lekcji, storyboardu i promptów.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "production_regression",
+      "expected_interaction_mode": "creation",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "commercial-video-campaign-director",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Keep Quick as pace inside creation; give three brief distinct directions.",
+        "Preserve the existing research, product-truth and requested-stage boundaries.",
+        "No course, learner exercise, full storyboard, generation or required menu choice."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM12",
+      "family": "no_execution",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Tryb nauki. W planie mamy ćwiczenie generowania muzyki. Nie mam płatnych kont ani budżetu. Naucz mnie tego etapu bez korzystania z usług.",
+      "context": {
+        "independent_outcome": "Przygotować uzasadniony brief muzyczny",
+        "level": "beginner",
+        "available_tools": [
+          "paper"
+        ],
+        "time": "30 minutes",
+        "preference": "exercise"
+      },
+      "available_assets": [],
+      "expected_branch": "no_execution",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "audio-production-director",
+        "tool-routing-cost",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Offer a no-render cue/arrangement or prompt exercise first.",
+        "No provider, API/MCP, paid job, upload or assumption of external credits.",
+        "Separate a plan from actual listening/rendering; a subscription is no free-use guarantee."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM13",
+      "family": "progress_resume",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Wznów naukę z mojej Karty postępu. Obrazu nie mam teraz przy sobie.",
+      "context": {
+        "progress_card": {
+          "selected_path": [
+            "static_graphics"
+          ],
+          "independent_outcome": "Czytelny plakat",
+          "level_by_domain": {
+            "static_graphics": "self_reported beginner"
+          },
+          "current_module": "hierarchia",
+          "current_lesson": "kolejność czytania",
+          "completed_lessons": [
+            {
+              "id": "cel_komunikatu",
+              "evidence": "learner self-report"
+            }
+          ],
+          "skipped_lessons": [],
+          "strengths": [
+            "learner-reported: krótkie określenie celu"
+          ],
+          "practice_needs": [
+            "wybór pierwszej informacji"
+          ],
+          "next_action": "Opisz zamierzoną kolejność czytania",
+          "constraints": {
+            "tools": "paper",
+            "budget": "zero",
+            "time": "20 minutes"
+          },
+          "missing_assets": [
+            "poster-image"
+          ],
+          "persistence": "user_copied_card"
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "progress_resume",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "studio-workstyle-profile"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
+      "checks": [
+        "Reuse the supplied checkpoint, name the missing image and continue an independent text exercise.",
+        "Do not claim visual review, cross-host memory, attached assets or independently verified mastery.",
+        "No repeated full onboarding; update a portable card with actual evidence when useful."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM14",
+      "family": "no_browse_unknown_tools",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Chcę nauczyć się opowiadać obrazem. Nie wiem, jakie narzędzia wybrać, nie znam budżetu. Jestem początkujący, mam 20 minut dziennie, wolę ćwiczenia. Nie przeglądaj internetu.",
+      "context": {
+        "practice_project": "synthetic everyday action"
+      },
+      "available_assets": [],
+      "expected_branch": "no_browse_unknown_tools",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "storyboard-sequence-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "prohibited_by_user",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "prohibited_by_user",
+      "checks": [
+        "Respect no-browse, name the evidence limit and start stable-craft teaching.",
+        "Use an explicit no-render/no-purchase assumption; optional tool/budget unknowns do not block useful work.",
+        "Do not invent current prices, tool access or sources."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM15",
+      "family": "plan_only",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Umiem pisać krótkie sceny. Chcę rozwinąć dłuższą strukturę fabularną, mam 2 godziny tygodniowo, bez nowych narzędzi i kosztów, ćwiczenia na fikcyjnej historii. Przygotuj tylko plan nauki, bez pierwszej lekcji.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "plan_only",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "screenplay-story-architect",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Match the stated intermediate writing experience and schedule.",
+        "Deliver a complete ordered curriculum with exercises, assessment and estimated effort.",
+        "Honor plan-only; no first lesson, unwanted onboarding or completed screenplay."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    },
+    {
+      "id": "LM16",
+      "family": "support_boundaries",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Chcę pełny kurs realizacji webinaru na żywo, zaawansowanych symulacji VFX i klinicznego treningu emisji głosu. Co z tego potrafi nauczyć ten plugin?",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "support_boundaries",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "not_applicable",
+      "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
+      "checks": [
+        "Explain the supported presentation/story, edit/effect-planning and voice-intent portions.",
+        "State that live broadcast engineering, advanced simulation and clinical voice training are not full bundled competencies.",
+        "Do not silently reduce the entire goal to video prompts or promise certification; wait for a supported-scope choice."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
+    }
+  ]
+}

@@ -47,7 +47,9 @@ export function loadEffectiveEvals(root) {
   if (practiceSuite.schema_version !== 1 || !Array.isArray(practiceSuite.cases)) throw new Error('Invalid knowledge practice schema');
   const integrationSuite = read('evals/workflow-kit-cases.json');
   if (integrationSuite.schema_version !== 1 || !Array.isArray(integrationSuite.cases)) throw new Error('Invalid integration case schema');
-  for (const [file, additions] of [['effective-overrides.json', overlay.additional_cases], ['studio-behavior-cases.json', newSuite.cases], ['knowledge-practice-cases.json', practiceSuite.cases], ['workflow-kit-cases.json', integrationSuite.cases]]) {
+  const learningSuite = read('evals/learning-mode-cases.json');
+  if (learningSuite.schema_version !== 1 || !Array.isArray(learningSuite.cases)) throw new Error('Invalid learning case schema');
+  for (const [file, additions] of [['effective-overrides.json', overlay.additional_cases], ['studio-behavior-cases.json', newSuite.cases], ['knowledge-practice-cases.json', practiceSuite.cases], ['workflow-kit-cases.json', integrationSuite.cases], ['learning-mode-cases.json', learningSuite.cases]]) {
     for (const item of additions) {
       if (!item.id || sourceIds.has(item.id)) throw new Error('Duplicate effective eval ID: ' + item.id);
       sourceIds.add(item.id);
@@ -58,7 +60,7 @@ export function loadEffectiveEvals(root) {
     scope: 'Planned specifications only; loading does not run a model, tools, or evaluate behavior.',
     legacy_cases: sources.reduce((n, source) => n + source.data.cases.length, 0),
     overrides_applied: [...applied], additional_cases: overlay.additional_cases.length,
-    host_scenarios: newSuite.cases.length, knowledge_scenarios: practiceSuite.cases.length, integration_scenarios: integrationSuite.cases.length, cases,
+    host_scenarios: newSuite.cases.length, knowledge_scenarios: practiceSuite.cases.length, integration_scenarios: integrationSuite.cases.length, learning_scenarios: learningSuite.cases.length, cases,
   };
 }
 

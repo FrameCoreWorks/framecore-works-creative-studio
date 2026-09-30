@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0, 2026-09-30
+
+- Adds optional Tryb nauki / Tryb tworzenia intent routing while keeping Quick/Deep as pace.
+- Adds bounded onboarding, a personalized curriculum, learner practice and feedback across fourteen supported creative areas, with explicit limits and no-render options.
+- Keeps progress in the shared Project State and adds a portable card and immediate mode switching.
+- Reuses all 37 existing skill identities and preserves production routes, provider authorization, pinned sources, logo and starter prompts.
+- Adds sixteen planned scenarios, a guarded historical greeting override, source-regression checks and release-workflow coverage of the active test suites.
+- Source, hosted save and GitHub publication status are recorded separately in RELEASE_STATUS.md.
+
 ## 1.1.1, 2026-09-29
 
 - Standardizes all 37 skill display names with spaces and initial capitals, preserving AI, UGC, HyperFrames and OpenCut.

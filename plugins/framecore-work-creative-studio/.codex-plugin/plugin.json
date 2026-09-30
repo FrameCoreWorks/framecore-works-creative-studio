@@ -2,20 +2,20 @@
   "interface": {
     "displayName": "FrameCore Works Creative Studio",
     "shortDescription": "Creative direction for graphics, video, sound, stories, campaigns and prompts.",
-    "longDescription": "Plan creative work across image, video, sound and text. Build original campaign ideas, flowing short-form shot sequences, storyboards, realistic reference sheets, exact-copy graphics, generator prompts, audio plans and production handoffs. Choose quick concise directions or develop a project step by step with targeted public research. Execution uses only tools and external providers the user has available and chooses. Includes integrated workflow contracts, reference and asset management, character and camera planning, copy review, captions, editing and coded-video routes, bounded QA and portable project recovery.",
+    "longDescription": "Plan creative work across image, video, sound and text. Build original campaign ideas, flowing short-form shot sequences, storyboards, realistic reference sheets, exact-copy graphics, generator prompts, audio plans and production handoffs. Choose quick concise directions or develop a project step by step with targeted public research. Execution uses only tools and external providers the user has available and chooses. Includes integrated workflow contracts, reference and asset management, character and camera planning, copy review, captions, editing and coded-video routes, bounded QA and portable project recovery. Choose optional learning mode for a personal curriculum, short lessons, independent exercises and feedback across the existing creative domains; switch to creation when you need a finished result.",
     "developerName": "FrameCore Works",
     "category": "Productivity",
     "capabilities": [],
     "defaultPrompt": [
-      "Pokaż menu startowe Creative Studio.",
-      "Tryb szybki: daj krótkie pomysły na grafikę, rolkę, tekst lub dźwięk.",
-      "Tryb rozbudowany: opracuj ze mną krok po kroku obraz, wideo, audio i montaż."
+      "Poka\u017c menu startowe Creative Studio.",
+      "Tryb szybki: daj kr\u00f3tkie pomys\u0142y na grafik\u0119, rolk\u0119, tekst lub d\u017awi\u0119k.",
+      "Tryb rozbudowany: opracuj ze mn\u0105 krok po kroku obraz, wideo, audio i monta\u017c."
     ],
     "composerIcon": "./assets/logo.png",
     "logo": "./assets/logo.png"
   },
   "name": "framecore-work-creative-studio",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
   "author": {
     "name": "FrameCore Works"

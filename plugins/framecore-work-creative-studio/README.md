@@ -1,10 +1,14 @@
 # FrameCore Works Creative Studio
 
-Wersja: 1.1.3.
+Wersja: 1.2.0.
 
 Pierwsze stabilne wydanie udokumentowanego zakresu Studio. [Zakres 1.0](docs/release-1.0.md) opisuje zawartość i granice wydania. Kod, instrukcje i dokumentacja FrameCore Works są objęte [Apache-2.0](LICENSE); zachowano licencje i oznaczenia źródeł.
 
 Creative Studio prowadzi pracę od briefu i materiałów wejściowych do kierunku, storyboardu, promptów i planu montażu dla obrazu, wideo, dźwięku i tekstu. Odpowiedzi dopasowuje do trybu szybkiego lub pogłębionego; przy nowej decyzji kreatywnej obowiązuje celowany publiczny research. Generowanie, analiza mediów i integracje zależą od faktycznie dostępnych, wybranych przez użytkownika narzędzi.
+
+## Tryb nauki i Tryb tworzenia
+
+**Tryb nauki** prowadzi przez krótki onboarding, spersonalizowany plan, ćwiczenia i omówienie Twojej pracy w 14 obszarach istniejących skilli. **Tryb tworzenia** zachowuje dotychczasową pracę nad projektem. Jasna prośba omija menu, a Quick/Deep określa tempo niezależnie od trybu. Przy braku trwałego zapisu możesz przenieść Kartę postępu do kolejnej rozmowy. [Opis trybów, zakres i ograniczenia](docs/learning-mode.md).
 
 ## Instalacja i aktualizacja
 
@@ -56,12 +60,12 @@ Z katalogu pakietu:
 
 ```sh
 node scripts/validate-studio.mjs
-node --test tests/studio.test.mjs tests/workflow-kit.test.mjs tests/creative-upgrade.test.mjs
+node --test tests/studio.test.mjs tests/workflow-kit.test.mjs tests/creative-upgrade.test.mjs tests/learning-mode.test.mjs
 PYTHONDONTWRITEBYTECODE=1 python3 tests/asset_manifest_test.py
 node scripts/load-effective-evals.mjs
 ```
 
-Pierwsze dwa polecenia sprawdzają strukturę i regresje kontraktów. Zestaw Python sprawdza helper rejestru assetów na danych syntetycznych. Loader łączy dotychczasowe fixtures z jawnymi korektami w `evals/effective-overrides.json` oraz scenariuszami w `evals/studio-behavior-cases.json` oraz `evals/knowledge-practice-cases.json` i `evals/workflow-kit-cases.json`. Przypadek oznaczony `planned` jest specyfikacją testu, a nie dowodem, że model wykonał zadanie. Testy tekstowe i źródłowe nie potwierdzają jakości renderu, odsłuchu, adaptera dostawcy ani automatycznego retrieval w nowej rozmowie.
+Pierwsze dwa polecenia sprawdzają strukturę i regresje kontraktów. Zestaw Python sprawdza helper rejestru assetów na danych syntetycznych. Loader łączy dotychczasowe fixtures z jawnymi korektami w `evals/effective-overrides.json` oraz scenariuszami w `evals/studio-behavior-cases.json` oraz `evals/knowledge-practice-cases.json` i `evals/workflow-kit-cases.json` oraz `evals/learning-mode-cases.json`. Przypadek oznaczony `planned` jest specyfikacją testu, a nie dowodem, że model wykonał zadanie. Testy tekstowe i źródłowe nie potwierdzają jakości renderu, odsłuchu, adaptera dostawcy ani automatycznego retrieval w nowej rozmowie.
 
 Stare `scripts/validate-package.mjs`, `tests/package.test.mjs` i `evals/static-cases.json` pozostawiono jako źródła historyczne. Usługa nie pozwoliła odczytać ich pełnej bieżącej zawartości podczas aktualizacji. Nie zostały nadpisane; stare polecenia nie są bramką aktualnego wydania; do kontroli struktury służy `validate-studio.mjs`. Ograniczenia starego walidatora i sprzeczne oczekiwania fixtures są obsługiwane przez nowe, jawnie wskazane pliki. Nie należy utożsamiać wyniku nowego zestawu z zaliczeniem dawnego zestawu 67 testów.
 

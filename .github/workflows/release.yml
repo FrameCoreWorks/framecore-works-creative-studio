@@ -29,6 +29,8 @@ jobs:
           PYTHONDONTWRITEBYTECODE: "1"
         run: |
           python3 -m unittest discover -s tests -p 'test_codex_install.py' -v
+          node --test plugins/framecore-work-creative-studio/tests/studio.test.mjs plugins/framecore-work-creative-studio/tests/workflow-kit.test.mjs plugins/framecore-work-creative-studio/tests/creative-upgrade.test.mjs plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs
+          python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py
           python3 scripts/package_release.py
       - name: Upload, verify and publish the source commit
         env:

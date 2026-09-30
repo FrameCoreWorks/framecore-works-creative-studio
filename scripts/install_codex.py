@@ -15,7 +15,7 @@ NAME = 'framecore-work-creative-studio'
 def wrapper(bundle):
     return f'''---
 name: {NAME}
-description: Use FrameCore Works Creative Studio for creative briefs, graphics, video, audio, text, reference sheets, storyboards and production handoffs. Route the task through the complete installed Studio knowledge bundle. Do not use for unrelated coding.
+description: Use FrameCore Works Creative Studio for learning creative skills or creating briefs, graphics, video, audio, text, reference sheets, storyboards and production handoffs. Route the task through the complete installed Studio knowledge bundle. Do not use for unrelated coding.
 ---
 
 # FrameCore Works Creative Studio
@@ -32,8 +32,10 @@ never from this entry folder. Load only the resources needed for the current tas
 The nested modules are reference files read by Codex, not separately installed
 personal skills or proof that other agents ran. This native entry preserves the
 same creative routing as the hosted plugin. Use the user's language and requested
-pace. Do not repeat onboarding for a concrete task. Quick mode gives short ideas;
-deep mode develops the project step by step. Use only available authorized tools.
+pace. Resolve learning versus creation through the orchestrator: clear learning
+requests use its mentoring overlay, and concrete projects bypass learning intake.
+An explicit specialist learning request follows that same overlay. Quick/Deep
+remains pace, not the learning/creation choice. Use only available authorized tools.
 Installation does not connect providers or synchronize ChatGPT memory.
 '''
 

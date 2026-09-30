@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "Additive effective view of planned specifications. No historical source file is modified and no behavior execution is claimed.",
-  "baseline_evidence": "Source guards bind the six locally inspected dev26 records. Fresh backend retrieval of the large historical file was unavailable; any guard mismatch fails closed until reviewed.",
+  "baseline_evidence": "Source guards bind the six locally inspected dev26 records. Fresh backend retrieval of the large historical file was unavailable; any guard mismatch fails closed until reviewed. S01 is source-guarded from the local 1.1.3 repository for the reviewed 1.2.0 greeting change.",
   "overrides": [
     {
       "id": "S18",
@@ -348,6 +348,36 @@
           "uploads_authorized": false
         },
         "expected_branch": "hold_unsupported_claim_offer_bounded_factual_alternative"
+      }
+    },
+    {
+      "id": "S01",
+      "source_file": "static-cases.json",
+      "source_record_sha256": "b4d7c0220848df03dd08560151db2bfeca5587f88ac119d60a17e996bd4ef79f",
+      "reason": "1.2.0 introduces learning/creation intent; Quick/Deep remains pace. Preserve the historical greeting fixture and supersede its long menu expectations.",
+      "replacement": {
+        "id": "S01",
+        "status": "planned",
+        "research_expectation": "not_applicable",
+        "research_exemption_reason": "non_creative_intake",
+        "user_request": "Cześć, co umiesz?",
+        "checks": [
+          "Short Tryb nauki and Tryb tworzenia choice; wait for unclear intent.",
+          "Quick/Deep remains pace, not the first required choice.",
+          "Do not force a domain, tools, onboarding or long capability inventory.",
+          "Does not begin Polish welcome with Cześć.",
+          "No claim of host-tested teaching or automatic persistence."
+        ],
+        "context": {},
+        "available_assets": [],
+        "tool_state": {
+          "mode": "textual_fixture_no_execution",
+          "image_generation": "not_available",
+          "web_search": "available_read_only",
+          "external_provider_authorized": false,
+          "uploads_authorized": false
+        },
+        "expected_branch": "learning_or_creation_menu"
       }
     }
   ],

@@ -1,18 +1,19 @@
 # Release status
 
-Version: **1.1.1**. Date: 2026-09-29.
+Source version: **1.2.0**. Date: 2026-09-30.
 
 | Field | Value |
 |---|---|
 | Repository | [FrameCoreWorks/framecore-works-creative-studio](https://github.com/FrameCoreWorks/framecore-works-creative-studio) |
-| Visibility | Public, approved by the owner |
-| Release tag | `v1.1.1`, produced by the repository release workflow |
-| License for original code and instructions | Apache-2.0 |
-| Hosted plugin version | 1.1.1 |
-| Hosted release | `pluginrel_6abb8bb5610c81918008bf040e5736b9` |
-| Hosted update/readback | Verified; all 37 display names and all changed source files; see verification/hosted-release-1.1.1.json |
-| Package/source checks | See VERIFICATION.md and verification/release-1.1.1.json |
+| Local source | 1.2.0 learning-mode changes in the working tree, based on 8b6827d184ed1655fd95dbf12cbe05750c98a79a |
+| GitHub main / latest published release | 1.1.3, commit 8b6827d184ed1655fd95dbf12cbe05750c98a79a; rechecked during this update |
+| GitHub 1.2.0 publication | Authorized; commit and push in progress, followed by the existing release workflow |
+| Hosted plugin version | 1.2.0, saved and all 22 changed/new files verified against local source |
+| Hosted current release | pluginrel_6abc36f46814819181a10e363b210117 |
+| Hosted source inventory | 732 paths, identical to the local plugin inventory |
+| Active-client refresh and lesson behavior | Not observed on the new release |
+| Hosted release baseline | pluginrel_6abc0e47bd2c8191852221e9c0dd7f4c |
+| Audience | Existing private personal plugin, unchanged |
+| Source checks | See VERIFICATION.md |
 
-The published tag and its attachments identify the distributed snapshot; check the workflow/release page for publication status. GitHub source and the hosted plugin are separate saves. GitHub availability does not grant provider access or change a plugin's audience.
-
-Installation remains assistant-led from source: CHATGPT_INSTALL.md for Work and CODEX_INSTALL.md for Codex. Additional provider setup is optional after installation. No providers, credentials, paid generation or account preferences are bundled.
+GitHub and the existing ChatGPT plugin are paired release destinations under the standing project rule in AGENTS.md. Source checks, GitHub publication, hosted saving and active-client refresh retain separate evidence. The shared package is `plugins/framecore-work-creative-studio/`; repository-only CI and verification files are not plugin payload.

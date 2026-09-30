@@ -2,9 +2,13 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Release: **1.1.1**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.2.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 Creative Studio supports creative direction and production planning across image, video, audio and text. Work can begin with a brief, a product photo, a character reference, an existing clip, a script or a concrete correction.
+
+## Learning or creation
+
+Choose **Tryb nauki** for a personal learning plan, short lessons, exercises and feedback, or **Tryb tworzenia** to produce a project. A clear request enters the appropriate mode directly. Quick/Deep remains a separate pace preference. Learning covers the existing creative domains, offers exercises without rendering, and uses a portable progress card when persistent storage is unavailable. See [learning mode and limits](plugins/framecore-work-creative-studio/docs/learning-mode.md).
 
 ## What it includes
 

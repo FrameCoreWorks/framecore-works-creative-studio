@@ -131,14 +131,15 @@ test('missing references, escaped Markdown links and missing fragments fail', ()
   });
 });
 
-test('effective loader preserves historical files and applies six source-guarded overrides', () => {
+test('effective loader preserves historical files and applies seven source-guarded overrides', () => {
   const effective = loadEffectiveEvals(source);
   assert.equal(effective.legacy_cases, 114);
-  assert.deepEqual([...effective.overrides_applied].sort(), ['S18', 'S32', 'S35', 'S45', 'S50', 'S51']);
+  assert.deepEqual([...effective.overrides_applied].sort(), ['S01', 'S18', 'S32', 'S35', 'S45', 'S50', 'S51']);
   assert.equal(effective.additional_cases, 4);
   assert.equal(effective.host_scenarios, 25);
   assert.equal(effective.knowledge_scenarios, 12);
-  assert.equal(effective.cases.length, 167);
+  assert.equal(effective.learning_scenarios, 16);
+  assert.equal(effective.cases.length, 183);
   const byId = new Map(effective.cases.map(item => [item.id, item]));
   assert.match(byId.get('S35').expected_branch, /geometry_unknown/);
   assert.match(byId.get('S35-CROP').expected_branch, /^feasible/);

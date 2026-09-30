@@ -22,6 +22,8 @@ When workstyle tuning accompanies a substantive creative request, run the mandat
 
 ## Quick and deep pace
 
+For an explicit learning request, follow the orchestrator's [learning overlay](../workflow-orchestrator/references/learning-mode.md). It may collect up to six concise initial questions, with known answers reused and optional omissions; the ordinary one-question rule above does not block this opt-in onboarding. Support domain-specific level and teaching-format adaptation without taking over curriculum ownership. Learning/creation is intent; Quick/Deep is pace. Quick learning delivers a small explanation and learner exercise, while the Quick production behavior below applies in creation.
+
 Quick begins with a small set of short, clean directions. Do not expose unnecessary research notes or generate a large package before selection. Deep develops the chosen method step by step. A user can switch modes at any point. Keep the research preflight and factual checks in force in either mode.
 
 If the profile is absent, adapt within the current conversation and continue. Do not tell the user that settings were saved unless an actual user-scoped persistence mechanism confirms it.

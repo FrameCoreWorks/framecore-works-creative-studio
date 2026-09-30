@@ -1,0 +1,294 @@
+{
+  "version": "1.2.0",
+  "checked_on": "2026-09-30",
+  "scope": "Deterministic source, fixture, filesystem and regression checks. No real-client conversations, paid providers, generation or educational outcome measurement.",
+  "base_commit": "8b6827d184ed1655fd95dbf12cbe05750c98a79a",
+  "source_state": "local working tree; not committed or pushed",
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "plugins/framecore-work-creative-studio/scripts/validate-studio.mjs"
+      ],
+      "exit_code": 0,
+      "log": "check-1.log"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "plugins/framecore-work-creative-studio/tests/studio.test.mjs",
+        "plugins/framecore-work-creative-studio/tests/workflow-kit.test.mjs",
+        "plugins/framecore-work-creative-studio/tests/creative-upgrade.test.mjs",
+        "plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs"
+      ],
+      "exit_code": 0,
+      "log": "check-2.log"
+    },
+    {
+      "command": [
+        "python3",
+        "plugins/framecore-work-creative-studio/tests/asset_manifest_test.py"
+      ],
+      "exit_code": 0,
+      "log": "check-3.log"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_codex_install.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "check-4.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "check-5.log"
+    }
+  ],
+  "plugin_source_unchanged_during_checks": true,
+  "canonical": {
+    "status": "PASS",
+    "scope": "Structural and planned-contract checks only; not host behavior, media QA, or legacy test equivalence.",
+    "errors": [],
+    "warnings": [
+      "Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed."
+    ],
+    "files": 732,
+    "owners": 37,
+    "evaluations": {
+      "legacy": 114,
+      "overrides": [
+        "S18",
+        "S32",
+        "S35",
+        "S45",
+        "S50",
+        "S51",
+        "S01"
+      ],
+      "added_variants": 4,
+      "host_scenarios": 25,
+      "knowledge_scenarios": 12,
+      "integration_scenarios": 12,
+      "learning_scenarios": 16,
+      "total_planned": 183,
+      "executed": 0
+    }
+  },
+  "test_counts": {
+    "node": {
+      "passed": 60,
+      "failed": 0
+    },
+    "asset_manifest_python": {
+      "passed": 23,
+      "failed": 0
+    },
+    "installer_python": {
+      "passed": 7,
+      "failed": 0
+    }
+  },
+  "test_environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TMPDIR": "/private/tmp"
+  },
+  "manifest_preservation": [
+    {
+      "path": "plugin.json",
+      "changed_fields": [
+        ".extensions.com.openai.interface.longDescription",
+        ".version"
+      ],
+      "identity_and_default_prompts_preserved": true
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "changed_fields": [
+        ".interface.longDescription",
+        ".version"
+      ],
+      "identity_and_default_prompts_preserved": true
+    }
+  ],
+  "overlay_files": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "dc7f9313dd35c59cbb6e902df4fc9c345da2f1ec06ddda3609e8f849f6a23082"
+    },
+    {
+      "path": "README.md",
+      "sha256": "967c49728c9783b4590fe4e8a15dbf3cf9230d0a3d159801fbd5b5ae215a8352"
+    },
+    {
+      "path": "docs/learning-mode.md",
+      "sha256": "065daa92e3264bcaea0c5ff333945a5e0010e81e28597cc9d48551b5c5f1b270"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "sha256": "d18b0292ed68299401adbd4d2105128ec21385060083823c6b25ec190b08ea2b"
+    },
+    {
+      "path": "docs/release-history.md",
+      "sha256": "e930a5b32e9997b264879c4f831cab82946cbd1ea0f7895f26fe542654d41dcb"
+    },
+    {
+      "path": "evals/effective-overrides.json",
+      "sha256": "a156129eb5a8fc6299f13563e91abb8e24f4f15e8157abe7eff197c62b953e28"
+    },
+    {
+      "path": "evals/learning-mode-cases.json",
+      "sha256": "5cdaf36ba226d3f59224043997ad892ef8c9cb9faf55d4886d453413f32ba466"
+    },
+    {
+      "path": "plugin.json",
+      "sha256": "b7464800ce92e1944aa7d27dbede84e16d6cf03711634658979a1c35ffc9bce2"
+    },
+    {
+      "path": "scripts/load-effective-evals.mjs",
+      "sha256": "5ef32bdf20f0e730315f147f2e4051bb5756ec0509bbf0c583759099cc9e6337"
+    },
+    {
+      "path": "scripts/validate-learning-mode.mjs",
+      "sha256": "c164571f0de708ebac329eea0e18dc94d7023ccaaf0a58a5db9bb87b179fd741"
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "sha256": "c7b4c72f6e5d1bf025d2440517d5defcae8a047eabd513414baff263a3022404"
+    },
+    {
+      "path": "skills/pipeline-core/references/project-recovery.md",
+      "sha256": "de37c0f2e2b3a75b781b0f8aab8077eb1e9b38c432cfd43df19e7cc434697e81"
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "sha256": "5783a329b1b9306024fadab28f7169502102494b91e314b286647d486f67cdb2"
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "sha256": "fbb033b80f3829e2da9512f54236aa336a0609e681a9cd8fa9433ada29877da1"
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "sha256": "64cddd0724328dbd60adbbce2ec4c01fd4f7588546cbc37a86185c1b3c185353"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "2b5dce488cd45df43cfcc52167c0b1d25b5c7d59f3922cfc7131ef6ad8770136"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-domains.json",
+      "sha256": "4392dacfecc598eeac9275375baf8bf745c157ed430bd200e7c13024369c5a1a"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "sha256": "8bdae22e17a496bc0d90458ce360ed616917a376e3081261d7d65ff444a863c6"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "sha256": "ff07812e93cb637b28d46d14917ad91e286de562ed012d85ed362c8405b06fd1"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/learning-mode.md",
+      "sha256": "09a804f1a5e44103cbfd917f2138d458ecb29d99279a766de63635587bde8f09"
+    },
+    {
+      "path": "tests/learning-mode.test.mjs",
+      "sha256": "84e5a70344298b75a4c404bb4c23ee5d9fd575230a83c9ce75c997a2b78dd5fd"
+    },
+    {
+      "path": "tests/studio.test.mjs",
+      "sha256": "381df6d37f17ac41f6b526d799b410b86c74abbda18e006f8338ff290b5bdfb7"
+    }
+  ],
+  "hosted_baseline_release": "pluginrel_6abc0e47bd2c8191852221e9c0dd7f4c",
+  "hosted_save": "See hosted-release-1.2.0.json after guarded update/readback",
+  "not_run": [
+    "183 planned behavioral scenarios, including 16 learning scenarios",
+    "Fresh-client UI and model behavior on 1.2.0",
+    "Media generation and paid provider integration",
+    "Educational effectiveness evaluation"
+  ],
+  "raw_check_logs": "Sibling project folder updates/creative-studio-1.2.0/check-1.log through check-5.log",
+  "archives_and_source_inventory": "PASS",
+  "plugin_archive_files_verified": 732,
+  "hosted_baseline_comparison": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "match": "json_equal"
+    },
+    {
+      "path": "README.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/release-history.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "evals/effective-overrides.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "plugin.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "scripts/load-effective-evals.mjs",
+      "match": "byte_equal"
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/pipeline-core/references/project-recovery.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "tests/studio.test.mjs",
+      "match": "byte_equal"
+    }
+  ],
+  "post_check_manifest_normalization": {
+    "path": ".codex-plugin/plugin.json",
+    "reason": "Match the exact saved ChatGPT serialization; parsed JSON unchanged",
+    "canonical_validator_and_package_rechecked": "PASS",
+    "current_source_sha256": "007bdb44f6016fc07fb812bcb4ca550b74d07313ce10526fbc4550f5051fe9cb",
+    "current_parity_report": "source-parity-1.2.0.json"
+  }
+}
