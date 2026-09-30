@@ -95,3 +95,7 @@ See [creative upgrade](creative-upgrade.md) for the six new chapters, their acti
 ## dev.32 reference and audio map
 
 [Reference/audio expansion](reference-audio-expansion.md) links the five new chapters, seven reusable assets and eight primary-source cards. Character, board, image/video prompting, reference curation, cinematography, audio, production, research and tool routing share the new contracts without adding owners.
+
+## Brand identity profile
+
+The [brand identity workflow](../skills/workflow-orchestrator/references/brand-identity-workflow.md) joins Marketing foundations, integrated Static Graphic Design Creator logo/visual craft and Delivery Documentation guides/files in one Project State. The [Brand Identity Pack](../skills/workflow-orchestrator/assets/brand-identity.template.md) records stage revisions, selected decisions and actual file/QA status. It distinguishes logo-only scope, Logo Guide and Identity Guide, supports sequential intake and reuses existing role/gate contracts. Logo/vector/font/colour/export criteria require actual evidence; concepts are not production masters.

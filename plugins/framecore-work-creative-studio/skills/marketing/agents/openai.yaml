@@ -1,7 +1,7 @@
 interface:
   display_name: "Marketing"
-  short_description: "Plan campaigns, offers, channels, and asset matrices"
-  default_prompt: "Use $marketing to plan the campaign, offer, channels, and required asset matrix."
+  short_description: "Plan brand strategy, campaigns, audiences, and asset roles"
+  default_prompt: "Use $marketing to develop brand strategy or a campaign plan from the supplied audience, offer, and goals."
 
 policy:
   allow_implicit_invocation: true

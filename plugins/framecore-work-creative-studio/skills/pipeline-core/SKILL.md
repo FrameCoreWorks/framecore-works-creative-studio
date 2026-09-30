@@ -112,6 +112,7 @@ Read only what is needed:
   review. Revise only a diagnosed material issue; when the draft passes, record
   no repair needed and stop_sufficient. Do not create a second editorial loop.
 - Route deterministic React/TypeScript video composition through `remotion-video-production`.
+- For brand strategy, logo systems and identity guides, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md) and its existing-owner stage handoffs. Keep one Project State; route strategy to Marketing, integrated visual work to Static Graphic Design Creator and the requested guide/file package to Delivery Documentation. Do not expand logo-only work into a full brand project.
 - For static-only work, `static-direction` routes to `static-graphic-design-creator`
   as the integrated owner of concept, layout, catalog guidance, visible copy,
   text feasibility and prompt compilation. Do not add a second Copy Voice,

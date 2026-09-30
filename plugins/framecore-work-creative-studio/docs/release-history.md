@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.2.7, 2026-09-30
+
+Adds a scoped brand-identity profile using existing owners: Marketing for foundations, Static Graphic Design Creator for integrated logo/visual craft and Delivery Documentation for logo/identity guides and actual file packaging. The shared contract and internal Brand Identity Pack carry revisions, selected decisions, acceptance criteria and evidence in one Project State. Sequential intake reuses supplied facts, while logo-only requests skip unrequested stages. Distinguishes concept rasters, reviewed digital assets and verified editable/production masters, including font, colour, variant and export limits. Extends the existing campaign/static learning domains without adding skill roots. Preserves the canonical welcome, menus, provider boundaries, assets, starters and pinned upstream sources. Source checks and bounded source-use tasks do not establish installed-client behavior.
+
 ## 1.2.6, 2026-09-30
 
 Aligns durable and portable Project State fields and cross-host handoffs so interaction mode, unresolved choices and learning progress survive an explicitly requested checkpoint. Static-only work keeps concept, copy, text feasibility and prompt compilation in the integrated Static Graphic Design Creator; separate specialists serve separate requested deliverables. Copy delivery requires review and makes revision conditional on a diagnosed material issue, allowing a passing draft to stop unchanged. Existing source guards cover these contracts. Shortens the listing subtitle to the current 30-character package limit. Preserves the canonical welcome, sequential onboarding, all 37 skill identities, assets, prompts, provider boundaries and pinned upstream sources. Source checks and bounded source-use observations do not establish installed-client behavior.

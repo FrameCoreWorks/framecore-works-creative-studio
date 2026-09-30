@@ -1,0 +1,59 @@
+{
+  "version": "1.2.7",
+  "checked_on": "2026-09-30",
+  "base_commit": "198242dc3116a06e7bef815885aa6b842ac55878",
+  "status": "PASS",
+  "scope": "Source contracts, local tests, packaging and one fresh bounded source-use task; installed-client behavior and production media files unverified",
+  "canonical": {
+    "status": "PASS",
+    "files": 736,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "checks": {
+    "node_tests": 67,
+    "installer_tests": 10,
+    "asset_checks": 23,
+    "archive_bytes_verified": 736,
+    "github_baseline_package_hashes_equal": 734,
+    "hosted_baseline_changed_existing_files_equal": 19,
+    "git_diff_check": true
+  },
+  "preservation": {
+    "new_shared_paths": [
+      "skills/workflow-orchestrator/assets/brand-identity.template.md",
+      "skills/workflow-orchestrator/references/brand-identity-workflow.md"
+    ],
+    "changed_existing_shared_paths": 19,
+    "uploaded_shared_paths": 21,
+    "skill_roots": 37,
+    "owner_role_gate_ids_upstream_assets_plugin_identity_and_welcome_unchanged": true,
+    "plugin_level_defaultPrompt_preserved": true,
+    "metadata_changes": [
+      "version",
+      "interface.longDescription"
+    ],
+    "test_reports_or_transcripts_added_to_package": false
+  },
+  "archive": {
+    "plugin_sha256": "80d227bbd25d2d73518399fe7b7e929ffb2629691fc7780e4f097d67c3886376",
+    "local_repository_banner": "Unavailable locally; preserved by remote base tree; CI builds the complete repository archive."
+  },
+  "source_use": {
+    "status": "PASS",
+    "tasks": 1,
+    "scope": "Fresh sandbox plan-only brand-identity task; not installed-host UI",
+    "checks": [
+      "Complete brief bypasses repeated intake",
+      "Plan covers strategy, logo system, logo guide and identity guide",
+      "Four supplied applications have purpose-specific acceptance",
+      "PNG in SVG is not claimed as a vector master",
+      "Unavailable sketch, font rights and colour production remain unverified",
+      "No file creation or generation performed"
+    ]
+  },
+  "publication": {
+    "status": "pending"
+  }
+}

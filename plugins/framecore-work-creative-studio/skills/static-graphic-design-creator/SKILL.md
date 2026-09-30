@@ -1,6 +1,6 @@
 ---
 name: static-graphic-design-creator
-description: "Own complete static graphic design work in Creative Studio: develop concepts and copy, design posters, flyers, ads, covers, packaging graphics and social assets, compile exact integrated image prompts, guide explicit edits/layers, and review or hand off results. Use for static-only requests; route campaign-level multi-asset direction to the orchestrator."
+description: "Own complete static graphic design work in Creative Studio: develop concepts and copy, logos and visual identity systems, posters, flyers, ads, covers, packaging graphics and social assets, compile exact integrated image prompts, guide explicit edits/layers, and review or hand off results. Use for static-only requests; route brand strategy, full identity guides and campaign-level multi-asset coordination to the orchestrator."
 ---
 
 # Static Graphic Design Creator for Creative Studio
@@ -30,6 +30,8 @@ The Studio integration contract below governs routing, shared research, work mod
 For poster/flyer/static formats, use [ordinary-language format choices](../workflow-orchestrator/references/intake-and-reference-authority.md#format-choices-in-ordinary-language). This Studio conversational rule takes precedence over technical intake wording in the pinned source. First ask only the unresolved purpose: paper print, internet publication, both, or help choosing, with numbered options. For print, describe a whole printer sheet (A4), half a sheet (A5), or a larger two-sheet size (A3). For internet, describe a normal post or a phone story. Do not mix A4/A3 and unexplained pixels in one menu. Reuse known use, size and placement; a supplied exact pixel/physical specification bypasses this choice. Keep dimensions/export details backstage until the prompt or delivery needs them; explain technical terms when they help. Choosing a format is not generation permission or proof of print readiness.
 
 ## Research and output boundary
+
+For a logo, logo system or visual identity, read the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md), especially logo/visual-system acceptance and stage handoffs. Own the integrated visual method, exact name/lettering, variants, typography, usage rules, prompts and inspected status. Reuse an accepted strategy; a logo-only request does not require full brand strategy, a brandbook or another intake. Marketing owns missing brand foundations and Delivery Documentation owns the requested guide/file package. Distinguish raster concepts, reviewed digital assets and verified production masters; an SVG/PDF extension or mockup does not prove editable vector geometry, font rights or print readiness.
 
 For substantive static work, read the mandatory shared [Research Evidence](../research-evidence/SKILL.md) gate and reuse unchanged evidence through the project. Keep the initial pitch free of source-heavy explanation unless the user asks for it or a concrete claim needs attribution. When model capability changes the recommendation, identify the exact model/surface/operation and research current official documentation; distinguish a native ChatGPT/Codex generation tool from API settings.
 

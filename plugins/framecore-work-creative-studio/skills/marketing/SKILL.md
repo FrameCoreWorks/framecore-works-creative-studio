@@ -1,6 +1,6 @@
 ---
 name: marketing
-description: Use this skill for provider-neutral campaign planning, offer framing, asset matrices, audience fit, channel adaptation, launch kits, and campaign QA.
+description: Use this skill for brand strategy and positioning, audience and offer foundations, values and voice principles, or provider-neutral campaign planning, asset matrices, channel adaptation, launch kits and campaign QA. Brand visual systems and logo execution stay with Static Graphic Design Creator.
 ---
 
 # Marketing
@@ -15,6 +15,8 @@ Use this skill to plan campaign-level positioning, offer framing, audience fit, 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
 
 ## When To Use
+
+For brand strategy or identity foundations, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md). Produce a Brand Strategy with sourced/user-supplied facts, proposed positioning, audience/use situations, differentiation and proof limits, values, voice principles and the visual direction basis. Reuse known inputs and ask exactly one missing question per response. Hand the strategy revision and selected direction to Static Graphic Design Creator. Do not force campaign-only CTA, launch or asset-matrix fields into brand-only work. For campaign work, use the method below.
 
 Use this skill when:
 

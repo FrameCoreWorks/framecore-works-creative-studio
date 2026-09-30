@@ -28,6 +28,24 @@ test('canonical validation passes with explicit structural scope and no legacy e
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
+test('brand strategy, visual craft and guide delivery retain their shared profile', () => {
+  for (const owner of ['marketing', 'static-graphic-design-creator', 'delivery-documentation']) withFixture(root => {
+    edit(root, 'skills/' + owner + '/SKILL.md', text => text.replace('brand-identity-workflow.md', 'removed.md'));
+    assert.ok(codes(validateStudio(root)).includes('BRAND_IDENTITY_SOURCE'), owner);
+  });
+});
+
+test('brand profile cannot drop vector evidence or revision-aware delivery', () => {
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/references/brand-identity-workflow.md', text => text.replace('actual vector geometry', 'a filename'));
+    assert.ok(codes(validateStudio(root)).includes('BRAND_IDENTITY_SOURCE'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/assets/brand-identity.template.md', text => text.replace('source_revisions', 'removed'));
+    assert.ok(codes(validateStudio(root)).includes('BRAND_IDENTITY_SOURCE'));
+  });
+});
+
 test('installed version directory and authoring slug accept both equivalent skills paths', () => {
   for (const name of ['framecore-work-creative-studio', currentVersion]) for (const discovery of ['./skills', './skills/']) withFixture(root => {
     editJson(root, '.codex-plugin/plugin.json', data => { data.skills = discovery; });

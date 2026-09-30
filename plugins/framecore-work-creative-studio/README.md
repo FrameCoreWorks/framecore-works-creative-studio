@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Wersja: 1.2.6.
+Wersja: 1.2.7.
 
 Pierwsze stabilne wydanie udokumentowanego zakresu Studio. [Zakres 1.0](docs/release-1.0.md) opisuje zawartość i granice wydania. Kod, instrukcje i dokumentacja FrameCore Works są objęte [Apache-2.0](LICENSE); zachowano licencje i oznaczenia źródeł.
 
@@ -11,6 +11,10 @@ Creative Studio prowadzi pracę od briefu i materiałów wejściowych do kierunk
 Pełne powitanie wyjaśnia, czym jest Studio i co potrafi, a następnie pokazuje **1. Tryb kreatywny / 2. Tryb nauki**. Po samym wyborze kreatywnym otrzymasz **1. Tryb szybki / 2. Tryb rozbudowany**, a potem wcześniejsze menu obszarów i doprecyzowanie zadania. **Tryb tworzenia** pozostaje aliasem trybu kreatywnego. Jasna prośba omija zbędne wybory; numer odnosi się do ostatnio pokazanego menu. [Powitanie i dalsze kroki](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
 
 **Tryb nauki** zachowuje krótki onboarding, spersonalizowany plan, ćwiczenia i omówienie Twojej pracy w 14 obszarach istniejących skilli. Quick/Deep określa tempo niezależnie od celu. Przy braku trwałego zapisu możesz przenieść Kartę postępu do kolejnej rozmowy. [Opis trybów, zakres i ograniczenia](docs/learning-mode.md).
+
+## Strategia marki i identyfikacja
+
+Studio prowadzi strategię marki, system logo, księgę znaku i księgę identyfikacji przez istniejących właścicieli, ze wspólnymi decyzjami, rewizjami i kryteriami odbioru. Możesz zamówić cały proces lub wybrany etap. Koncepcje i materiały cyfrowe mają odrębny status od zweryfikowanych plików produkcyjnych; rzeczywiste eksporty zależą od dostępnych narzędzi. [Kontrakt procesu](skills/workflow-orchestrator/references/brand-identity-workflow.md).
 
 ## Instalacja i aktualizacja
 

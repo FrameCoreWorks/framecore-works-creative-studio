@@ -10,6 +10,7 @@ The user’s current request and applicable host instructions govern the task. T
 | End-to-end video | Creative Video Producer within the orchestrator’s state | Coordinates sequence, references, sound, captions, edit and delivery without replacing specialist authors |
 | Prompt contract and attachments | Pipeline Core Creative Prompting Standard plus current image/video specialist | Explicit revision, exact copy, input ownership, adapter checks and QA observables |
 | Static graphics and catalog | Existing Static Graphic Design Creator | Complete pinned domain method; workflow-kit static references add handoff craft but cannot introduce a second catalog or renderer policy |
+| Brand strategy, logo system and identity guides | Marketing, Static Graphic Design Creator and Delivery Documentation within the orchestrator's state | [Brand identity profile](../../workflow-orchestrator/references/brand-identity-workflow.md) connects foundations, integrated visual craft and actual guide/file delivery with staged acceptance; logo-only requests stay scoped |
 | Copy creation and ready-to-use wording | Copy Voice, supported by Humanizer | Author context, fact/lock ledger and bounded editorial review |
 | Narrative scenes/dialogue | Screenplay Story Architect | Narrative authorship stays with the scene owner; Copy Voice/Humanizer may review requested wording without rewriting locked dialogue |
 | Lyrics, sound, music and audio review | Audio Production Director | Existing audio depth and model-aware research; Producer AI Task Builder is only a compatibility alias |

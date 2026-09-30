@@ -1,5 +1,7 @@
 # Workflow Blueprints
 
+For brand strategy, a logo system, Logo Guide or Identity Guide, use the [brand identity profile](../../workflow-orchestrator/references/brand-identity-workflow.md). Reuse this kit's existing roles/gates: brief and research as needed, then `static-direction` with Marketing for foundations and Static Graphic Design Creator for integrated logo/visual craft, inspected `qa-iteration` where applicable, and `delivery-documentation` for the requested guide/package. Keep stage artifacts and selection status in one Project State; a logo-only request skips the unrequested stages.
+
 Use these blueprints as starting routes. The workflow-orchestrator may shorten or expand them, but it must preserve required gates, handoffs, and missing-artifact loopbacks.
 
 ## Shared Research Preflight

@@ -21,6 +21,8 @@ Honor the host's storage contract for requested files. External upload or public
 
 ## Applied practice
 
+For a Logo Guide, Identity Guide or identity file package, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md) and its [Brand Identity Pack](../workflow-orchestrator/assets/brand-identity.template.md). Package the selected strategy/logo/system revisions, actual requested applications and inspected files. Keep logo-guide scope distinct from a full identity guide. Verify actual document exports and any claimed vector master; record concept, reviewed digital asset and remaining production work separately. Preserve font/rights evidence and source dependencies rather than inferring readiness from filenames.
+
 For related assets, masters, variants, changed sources or resumable delivery, use [asset lifecycle and dependencies](references/asset-lifecycle-and-dependencies.md), the [blank manifest](assets/project-manifest.template.json) and [fictional worked example](assets/project-manifest.example.json). The optional [manifest helper](scripts/asset_manifest.py) checks declared consistency and change impact; it never inspects, uploads or modifies media.
 
 ## Integrated workflow contracts

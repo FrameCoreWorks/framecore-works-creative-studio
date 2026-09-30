@@ -18,6 +18,8 @@ For a poster or static graphic, follow [ordinary-language format choices](../wor
 
 ## When To Use
 
+For brand strategy, logo or identity-guide briefs, follow the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md). Preserve exact brand-name spelling, real offer, audience, practical goal, intended uses, retained assets and requested scope. Reuse supplied facts and ask exactly one missing question per response; never show the internal pack as a questionnaire or expand a logo-only request into full brand strategy.
+
 Use this skill when:
 
 - The user request is messy, partial, broad, or mixed with source material.

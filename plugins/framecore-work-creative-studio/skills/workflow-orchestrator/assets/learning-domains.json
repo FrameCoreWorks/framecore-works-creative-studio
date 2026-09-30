@@ -14,19 +14,24 @@
       "sources": [
         "skills/static-graphic-design-creator/SKILL.md",
         "skills/image-prompt-architect/SKILL.md",
-        "skills/commercial-visual-campaign-director/SKILL.md"
+        "skills/commercial-visual-campaign-director/SKILL.md",
+        "skills/workflow-orchestrator/references/brand-identity-workflow.md"
       ],
       "topics": [
         "kompozycja",
         "relacja obrazu z komunikatem",
         "plakat",
         "ilustracja",
-        "key visual"
+        "key visual",
+        "system logo",
+        "identyfikacja wizualna",
+        "księga znaku"
       ],
       "exercise_no_render": "Narysuj trzy miniatury plakatu dla fikcyjnego spotkania wymiany książek; w każdej uzasadnij jeden punkt skupienia.",
       "assessment_criteria": [
         "Komunikat ma czytelną hierarchię.",
-        "Warianty zmieniają zasadę kompozycji, nie tylko kolor."
+        "Warianty zmieniają zasadę kompozycji, nie tylko kolor.",
+        "Rozróżnia koncepcję logo, sprawdzony materiał cyfrowy i zweryfikowany master produkcyjny."
       ],
       "support_boundary": "Ćwiczenie papierowe nie dowodzi jakości renderu ani gotowości do druku."
     },
@@ -381,7 +386,8 @@
         "skills/asset-manifest/SKILL.md",
         "skills/delivery-documentation/SKILL.md",
         "skills/output-critic-iteration/SKILL.md",
-        "skills/tool-routing-cost/SKILL.md"
+        "skills/tool-routing-cost/SKILL.md",
+        "skills/workflow-orchestrator/references/brand-identity-workflow.md"
       ],
       "topics": [
         "cel i odbiorca",
@@ -390,12 +396,15 @@
         "social",
         "QA",
         "wersje",
-        "dostawa"
+        "dostawa",
+        "fundament i pozycjonowanie marki",
+        "księga identyfikacji"
       ],
       "exercise_no_render": "Dla fikcyjnego warsztatu rozpisz rolę plakatu, krótkiego filmu i tekstu, wspólne fakty oraz oddzielne kryteria odbioru i wersje.",
       "assessment_criteria": [
         "Każdy materiał ma inną uzasadnioną funkcję.",
-        "Fakty, wersje, plan i rzeczywista ocena pozostają rozdzielone."
+        "Fakty, wersje, plan i rzeczywista ocena pozostają rozdzielone.",
+        "Strategia, logo i księga odnoszą się do tych samych zatwierdzonych decyzji i rewizji."
       ],
       "support_boundary": "Nie gwarantuje skuteczności kampanii; emisja, upload, aktualne specyfikacje platform i prawa wymagają osobnej weryfikacji lub autoryzacji."
     }

@@ -57,6 +57,19 @@ export function validateStudio(root, {legacy = false} = {}) {
   };
   errors.push(...validateWorkflowKit(base, files));
   errors.push(...validateLearningMode(base, files));
+  // Brand-profile checks guard packaged contracts, not host design or file QA.
+  const brandProfile = 'skills/workflow-orchestrator/references/brand-identity-workflow.md';
+  const brandPack = 'skills/workflow-orchestrator/assets/brand-identity.template.md';
+  const needBrand = (relative, patterns) => {
+    try {
+      const body = read(relative);
+      for (const pattern of patterns) if (!pattern.test(body)) fail('BRAND_IDENTITY_SOURCE', relative + ': ' + pattern);
+    } catch (error) { fail('BRAND_IDENTITY_SOURCE', relative + ': ' + error.message); }
+  };
+  needBrand(brandProfile, [/Ask exactly one missing question per response and wait/, /Keep one Project State/, /logo-only request stays logo-only/, /\.\.\/\.\.\/marketing\/SKILL\.md/, /\.\.\/\.\.\/static-graphic-design-creator\/SKILL\.md/, /\.\.\/\.\.\/delivery-documentation\/SKILL\.md/, /brief_revision/, /strategy_revision/, /## Strategy acceptance/, /## Logo and visual-system acceptance/, /## Guide, applications and delivery acceptance/, /actual vector geometry/, /CMYK.*Unknown/, /trademark clearance/, /asset lifecycle and dependency contract/]);
+  needBrand(brandPack, [/existing Project State/, /one pending question/, /strategy_revision/, /logo_revision/, /identity_guide_revision/, /actual_files/, /verified_production_master/, /remaining_Unknown/, /source_revisions/]);
+  for (const owner of ['marketing', 'static-graphic-design-creator', 'brief-architect', 'delivery-documentation', 'pipeline-core', 'workflow-orchestrator']) needBrand('skills/' + owner + '/SKILL.md', [/brand-identity-workflow\.md/]);
+  needBrand('skills/pipeline-core/references/workflow-blueprints.md', [/brand-identity-workflow\.md/, /logo-only request skips the unrequested stages/]);
   const portable = json('plugin.json'), compatibility = json('.codex-plugin/plugin.json'), registry = json('scripts/studio-contracts.json');
   for (const key of ['name', 'version', 'description', 'author']) if (!portable[key] || !isDeepStrictEqual(portable[key], compatibility[key])) fail('MANIFEST_IDENTITY', key);
   if (!isDeepStrictEqual(portable.keywords, compatibility.keywords)) fail('MANIFEST_IDENTITY', 'keywords');
