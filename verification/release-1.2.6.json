@@ -48,6 +48,15 @@
     ]
   },
   "publication": {
-    "status": "pending"
+    "status": "synchronized",
+    "source_commit": "61bbaafd3fcfd73d334ac9e70739f87a7458dd40",
+    "github_release": "v1.2.6",
+    "workflow_id": 36720796700,
+    "workflow_conclusion": "success",
+    "hosted_release_id": "pluginrel_6abd0c8ad62c8191a64861c36e0a819c",
+    "changed_hosted_files_byte_equal": 20,
+    "complete_hosted_path_size_inventory": 734,
+    "unchanged_welcome_byte_equal": true,
+    "active_client": "unverified"
   }
 }
