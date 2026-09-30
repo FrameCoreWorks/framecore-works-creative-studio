@@ -1,0 +1,57 @@
+{
+  "version": "1.2.10",
+  "checked_on": "2026-09-30",
+  "base_commit": "c32127204149f7cda9f31d478e8fc3971c9bd8a3",
+  "status": "PASS",
+  "scope": "Deterministic source/helper and package checks only; no installed-client behavior or media generation tested",
+  "canonical": {
+    "status": "PASS",
+    "files": 736,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "checks": {
+    "node_tests": 78,
+    "installer_tests": 10,
+    "asset_checks": 23,
+    "git_diff_check": true,
+    "archive_bytes_verified": 736
+  },
+  "fixes": [
+    "F1 lexical exact-copy matching including decimal-number boundaries",
+    "F2 required blueprint owners/gates/sections, outgoing music handoffs and complete image operation contract inventory",
+    "F3 production-only grouped-choice example preserving sequential learning onboarding",
+    "F4 portable onboarding answers, question counter and pending token mapping"
+  ],
+  "preservation": {
+    "changed_shared_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "plugin.json",
+      "scripts/validate-learning-mode.mjs",
+      "scripts/validate-studio.mjs",
+      "scripts/validate-workflow-kit.mjs",
+      "skills/image-prompt-architect/kit/scripts/static-design-preflight.mjs",
+      "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "tests/learning-mode.test.mjs",
+      "tests/workflow-kit.test.mjs"
+    ],
+    "changed_shared_files": 13,
+    "unchanged_shared_files_byte_equal": 723,
+    "new_shared_paths": [],
+    "deleted_shared_paths": [],
+    "hosted_affected_baseline_byte_equal": 13,
+    "metadata_changes": [
+      "version"
+    ],
+    "archive_bytes_verified": 736,
+    "plugin_zip_sha256": "6d7e1934fcc6058aef2cbe746f03b72a36eb031bcc42016b5f5ed950399d8f3a"
+  },
+  "publication": {
+    "status": "pending"
+  }
+}

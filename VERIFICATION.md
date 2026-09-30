@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.2.9
+## Current source: 1.2.10
+
+The [1.2.10 source checks](verification/release-1.2.10.json) passed canonical validation, 78 Node tests, 10 installer tests and 23 asset checks. Six new regression tests cover the four audited defects, including decimal-price boundaries and malformed blueprint sections. All 736 package archive entries match source; 723 unchanged package files match the 1.2.9 baseline byte-for-byte. Thirteen changed paths comprise eight targeted implementation/test files and five version/release files. No skill roots, routing contracts, provider rules, assets, pinned sources, starter prompts or canonical welcome were changed. Paired publication is pending. Installed-client behavior and the 183 planned host cases remain unexecuted.
+
+## Previous source: 1.2.9
 
 The [1.2.9 source checks](verification/release-1.2.9.json) passed canonical validation, 72 Node tests, 10 installer tests and 23 asset checks. Three new regression tests cover conflicting CQoT names, lost shared-budget/evidence rules and unreachable conditional-method routes for direct reviewers and research. The package retains 736 files and 37 skill roots. One fresh source-use prompt task retained the accepted direction and exact copy, produced one requested prompt and did not claim current model-version verification or a guaranteed perfect render. This is source-use evidence, not installed-client observation. The 183 planned host cases remain unexecuted. [GitHub publication](verification/github-publication-1.2.9.json) verifies the published tag, successful workflow, five uploaded assets, matching plugin ZIP digest and all 736 package hashes. [Hosted readback](verification/hosted-release-1.2.9.json) confirms all 15 uploaded files byte-for-byte, the complete path/size inventory and unchanged welcome; 721 omitted files are preserved by the guarded overlay without individual omitted-byte comparison. Active-client behavior remains unverified. Paired publication status is recorded in [release status](RELEASE_STATUS.md).
 

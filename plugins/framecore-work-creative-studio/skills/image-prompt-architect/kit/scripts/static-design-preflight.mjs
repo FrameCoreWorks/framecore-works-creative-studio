@@ -4,6 +4,12 @@ import { fileURLToPath } from "node:url";
 
 const object = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
 const text = (value) => typeof value === "string" && value.trim().length > 0 && value !== "Unknown";
+const containsExactCopy = (prompt, copy) => {
+  const literal = copy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const numericStart = /^\p{N}/u.test(copy) ? "(?<!\\p{N}[.,])" : "";
+  const numericEnd = /\p{N}$/u.test(copy) ? "(?![.,]\\p{N})" : "";
+  return new RegExp(`(?<![\\p{L}\\p{N}\\p{M}_])${numericStart}${literal}${numericEnd}(?![\\p{L}\\p{N}\\p{M}_])`, "u").test(prompt);
+};
 
 export function preflight(notes) {
   const blockers = [];
@@ -89,7 +95,7 @@ export function preflight(notes) {
     blockers.push("a fresh graphic cannot inherit a scoped-edit omission exception");
   }
   for (const item of items) {
-    if (quotedIds.has(item?.id) && text(item.text) && !prompt.includes(item.text)) blockers.push(`prompt is missing exact copy ${item.id}`);
+    if (quotedIds.has(item?.id) && text(item.text) && !containsExactCopy(prompt, item.text)) blockers.push(`prompt is missing exact copy ${item.id}`);
   }
   return result(blockers.length ? "blocked" : "ready_for_prompt_review");
 }

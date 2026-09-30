@@ -194,7 +194,8 @@ export function validateStudio(root, {legacy = false} = {}) {
     }
   }
   const operationRoutes = Array.isArray(registry.operation_routes) ? registry.operation_routes : [];
-  if (!operationRoutes.length) fail('OPERATION_ROUTE_CONTRACT', 'No operation-specific routes are registered');
+  const requiredOperations = ['Image supplied as a reference for a new asset', 'Approved base image supplied for an edit', 'Existing image explicitly supplied for review'];
+  for (const need of requiredOperations) if (operationRoutes.filter(route => route?.need === need).length !== 1) fail('OPERATION_ROUTE_CONTRACT', 'Expected exactly one operation contract: ' + need);
   for (const contract of operationRoutes) {
     if (!contract || typeof contract.need !== 'string' || !Array.isArray(contract.owners) || !contract.owners.length || contract.owners.some(id => !ownerIds.includes(id))) {
       fail('OPERATION_ROUTE_CONTRACT', String(contract?.need ?? 'invalid route'));

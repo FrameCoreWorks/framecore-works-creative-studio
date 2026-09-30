@@ -6,6 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {validateStudio} from '../scripts/validate-studio.mjs';
+import {preflight} from '../skills/image-prompt-architect/kit/scripts/static-design-preflight.mjs';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 function fixture(action) {
@@ -16,6 +17,81 @@ function fixture(action) {
 const edit = (root, file, fn) => { const p=path.join(root,file);fs.writeFileSync(p,fn(fs.readFileSync(p,'utf8'))); };
 const editJson = (root,file,fn) => edit(root,file,text => {const value=JSON.parse(text);fn(value);return JSON.stringify(value);});
 const codes = root => (validateStudio(root).canonical?.errors ?? []).map(item => item.code);
+
+test('exact copy cannot match inside a longer word or price', () => {
+  const example = JSON.parse(fs.readFileSync(path.join(source, 'skills/image-prompt-architect/kit/templates/static-design-notes.json'), 'utf8'));
+  for (const [approved, supplied, expected] of [
+    ['10 zł', '10 zł', true], ['10 zł', '110 zł', false], ['10 zł', '10 złotych', false],
+    ['10 zł', '110,10 zł', false], ['10 zł', '110.10 zł', false],
+    ['10', '10,90', false], ['10', '10.90', false], ['10,90 zł', '10,90 zł', true],
+    ['CISZA', 'NIECISZA', false], ['CISZA', 'CISZA', true], ['CISZA', 'cisza', false],
+    ['ŻÓŁĆ', 'ŻÓŁĆ', true], ['ŻÓŁĆ', 'ŻÓŁĆx', false], ['A', 'A\u0301', false],
+    ['CENA', 'CENA_2', false], ['10 zł', '10  zł', false],
+    ['C++ (50%)', 'C++ (50%)', true], ['C++ (50%)', 'C+ (50%)', false]
+  ]) {
+    const notes = structuredClone(example);
+    notes.copy.items[0].text = approved;
+    notes.prompt = `Create a poster. Visible text: "${supplied}".`;
+    assert.equal(preflight(notes).status, expected ? 'ready_for_prompt_review' : 'blocked', supplied);
+  }
+  example.copy.items[0].text = '10 zł';
+  for (const prompt of ['10 zł', 'Headline: 10 zł.', 'Reject "110 zł"; use "10 zł".']) {
+    example.prompt = prompt;
+    assert.equal(preflight(example).status, 'ready_for_prompt_review', prompt);
+  }
+});
+
+test('blueprint QA gates and mapped audio owner cannot disappear', () => {
+  const relative = 'skills/pipeline-core/references/workflow-blueprints.md';
+  for (const heading of ['Static Campaign Or E-Commerce Graphic', 'Video Campaign Or Storyboard', 'Artist-led Music Video', 'Standalone Audio Planning Or Review']) fixture(root => {
+    edit(root, relative, text => {
+      const start = text.indexOf('## ' + heading), end = text.indexOf('\n## ', start + 3);
+      const block = text.slice(start, end);
+      const changed = block.replace(/^- `post_execution_fit`.*\n/m, '');
+      assert.notEqual(changed, block);
+      return text.slice(0, start) + changed + text.slice(end);
+    });
+    assert.ok(codes(root).includes('KIT_BLUEPRINT_GATE'), heading);
+  });
+  fixture(root => {
+    edit(root, relative, text => text.replace('6. `audio-production`', '6. `audio-production-missing`'));
+    assert.ok(codes(root).includes('KIT_BLUEPRINT_ROLE'));
+  });
+  for (const label of ['Route:', 'Required gates:']) fixture(root => {
+    edit(root, relative, text => {
+      const start = text.indexOf('## Standalone Audio Planning Or Review');
+      const block = text.slice(start);
+      return text.slice(0, start) + block.replace(label, 'Removed:').replace(/^- `post_execution_fit`.*\n/m, '');
+    });
+    assert.ok(codes(root).includes('KIT_BLUEPRINT_STRUCTURE'), label);
+  });
+});
+
+test('matching graph and prose cannot remove outgoing music handoffs', () => fixture(root => {
+  editJson(root, 'scripts/workflow-kit-routes.json', data => {
+    const outgoing = data.handoffs.filter(row => row.from === 'music-video-direction');
+    assert.equal(outgoing.length, 3);
+    for (const row of outgoing) row.from = 'workflow-orchestrator';
+  });
+  edit(root, 'skills/pipeline-core/references/handoff-matrix.md', text => text.replace(/^\| music-video-direction \|/gm, '| workflow-orchestrator |'));
+  const errors = codes(root);
+  assert.ok(errors.includes('KIT_MUSIC_HANDOFF'));
+  assert.ok(!errors.includes('KIT_HANDOFF_MAP'));
+}));
+
+test('each required image operation contract must occur exactly once', () => {
+  for (const need of ['Image supplied as a reference for a new asset', 'Approved base image supplied for an edit', 'Existing image explicitly supplied for review']) {
+    for (const duplicate of [false, true]) fixture(root => {
+      editJson(root, 'scripts/studio-contracts.json', data => {
+        const contract = data.operation_routes.find(route => route.need === need);
+        assert.ok(contract);
+        if (duplicate) data.operation_routes.push(contract);
+        else data.operation_routes = data.operation_routes.filter(route => route.need !== need);
+      });
+      assert.ok(codes(root).includes('OPERATION_ROUTE_CONTRACT'), need);
+    });
+  }
+});
 
 test('workflow-kit candidate passes canonical validation', () => assert.equal(validateStudio(source).status,'PASS'));
 test('CQoT cannot use a conflicting quality-gate expansion', () => fixture(root => {

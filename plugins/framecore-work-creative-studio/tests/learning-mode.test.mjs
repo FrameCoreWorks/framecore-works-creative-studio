@@ -28,6 +28,18 @@ const editJSON = (root, relative, change) => edit(root, relative, text => {
 });
 const codes = root => (validateStudio(root).canonical?.errors ?? []).map(item => item.code);
 
+test('grouped-menu example remains outside single-question learning onboarding', () => fixture(root => {
+  edit(root, 'skills/workflow-orchestrator/references/startup-and-creative-menus.md', text => text.replace('when a production task calls for grouped choices', 'learning domains and learning pace'));
+  assert.ok(codes(root).includes('LEARNING_INSTRUCTION'));
+}));
+
+test('a standalone progress card retains the unfinished onboarding state', () => {
+  for (const phrase of ['onboarding_context', 'known/unknown/skipped answers', 'questions asked', 'six-question limit', 'at most one pending question', 'displayed token-to-option mapping', 'Remove answered/skipped/replaced pending questions']) fixture(root => {
+    edit(root, 'skills/workflow-orchestrator/assets/learning-progress.template.md', text => text.replace(phrase, 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), phrase);
+  });
+});
+
 test('learning is integrated with the same 37 skills and unexecuted evidence scope', () => {
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical.errors));

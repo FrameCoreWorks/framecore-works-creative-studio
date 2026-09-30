@@ -91,12 +91,46 @@ export function validateWorkflowKit(root, packageFiles) {
       for (const handoff of routes.handoffs) if (reachable.has(handoff.from) && !reachable.has(handoff.to)) { reachable.add(handoff.to); changed = true; }
     }
     for (const role of Object.keys(roles)) if (!reachable.has(role)) fail('KIT_ROLE_REACHABILITY', role);
+    for (const target of ['storyboard-architect', 'video-prompting', 'audio-production']) {
+      if (!routes.handoffs.some(item => item.from === 'music-video-direction' && item.to === target)) fail('KIT_MUSIC_HANDOFF', 'music-video-direction -> ' + target);
+    }
     const researchPolicy = routes.research_policy;
     if (!researchPolicy || researchPolicy.scope !== 'every_new_substantive_creative_request' || researchPolicy.role !== 'research-evidence' || researchPolicy.gate !== 'evidence_fit' || !researchPolicy.reuse_rule || !researchPolicy.no_browse_rule) fail('KIT_RESEARCH_POLICY', 'Targeted preflight, reuse and no-browse behavior must be explicit');
     if (!routes.handoffs.some(item => item.from === 'workflow-orchestrator' && item.to === 'research-evidence') || !routes.handoffs.some(item => item.from === 'research-evidence' && item.to === 'workflow-orchestrator')) fail('KIT_RESEARCH_ROUTE', 'Research must receive the request from and return evidence to the orchestrator');
     const evidenceGate = routes.gates.find(item => item.id === 'evidence_fit');
     if (!evidenceGate || !evidenceGate.owners.includes('research-evidence') || !/Evidence Note/.test(evidenceGate.artifact)) fail('KIT_RESEARCH_GATE', 'Research output must be gated or record an explicit no-browse receipt');
     const blueprints = text(refs + 'workflow-blueprints.md');
+    const blueprintOwners = {
+      'Static Campaign Or E-Commerce Graphic': 'static-direction',
+      'Video Campaign Or Storyboard': 'motion-direction',
+      'Artist-led Music Video': 'music-video-direction',
+      'Standalone Audio Planning Or Review': 'audio-production'
+    };
+    const sharedGates = ['intent_lock', 'workflow_route', 'evidence_fit', 'brief_completeness', 'reference_authority_fit', 'post_execution_fit', 'delivery_fit'];
+    const blueprintGates = {
+      'Static Campaign Or E-Commerce Graphic': [...sharedGates, 'loop_control_fit', 'direction_fit', 'copy_fit', 'promptability_fit', 'asset_manifest_fit'],
+      'Video Campaign Or Storyboard': [...sharedGates, 'loop_control_fit', 'direction_fit', 'structure_fit', 'copy_fit', 'promptability_fit', 'asset_manifest_fit'],
+      'Artist-led Music Video': [...sharedGates, 'direction_fit', 'structure_fit', 'promptability_fit'],
+      'Standalone Audio Planning Or Review': sharedGates
+    };
+    const sections = new Map([...blueprints.matchAll(/^## ([^\n]+)\n([\s\S]*?)(?=^## |$(?![\s\S]))/gm)].map(match => [match[1], match[2]]));
+    for (const [heading, block] of sections) {
+      if (!block.includes('Route:')) continue;
+      const routeText = block.split('Route:')[1].split('Required gates:')[0];
+      const routeRoles = [...routeText.matchAll(/^\d+\. (`[^`]+`(?: or `[^`]+`)*)/gm)].flatMap(match => tokens(match[1]));
+      const gateIds = [...(block.split('Required gates:')[1] ?? '').matchAll(/^- `([^`]+)`/gm)].map(match => match[1]);
+      for (const role of routeRoles) {
+        if (!roles[role] && !packageFiles.includes('skills/' + role + '/SKILL.md')) fail('KIT_BLUEPRINT_ROLE', heading + ': ' + role);
+      }
+      for (const id of blueprintGates[heading] ?? []) if (!gateIds.includes(id)) fail('KIT_BLUEPRINT_GATE', heading + ': missing gate ' + id);
+      for (const id of gateIds) if (!routes.gates.some(gate => gate.id === id)) fail('KIT_BLUEPRINT_GATE', heading + ': unknown gate ' + id);
+    }
+    for (const [heading, owner] of Object.entries(blueprintOwners)) {
+      const block = sections.get(heading) ?? '';
+      if (!/^Route:$/m.test(block) || !/^Required gates:$/m.test(block)) fail('KIT_BLUEPRINT_STRUCTURE', heading + ': missing route or gate section');
+      const route = block.split('Required gates:')[0];
+      if (!route.split('\n').some(line => /^\d+\. /.test(line) && tokens(line)[0] === owner)) fail('KIT_BLUEPRINT_ROLE', heading + ': missing owner ' + owner);
+    }
     const staticStart = blueprints.indexOf('## Static Campaign Or E-Commerce Graphic');
     const staticBlock = blueprints.slice(staticStart, blueprints.indexOf('## Video Campaign Or Storyboard', staticStart));
     if (!staticBlock.includes('`static-graphic-design-creator` as the integrated owner') || /^\d+\. `(?:copy-voice|image-prompting)`/m.test(staticBlock)) fail('KIT_STATIC_OWNER', 'Static-only work must keep copy and prompt compilation inside the integrated static owner');

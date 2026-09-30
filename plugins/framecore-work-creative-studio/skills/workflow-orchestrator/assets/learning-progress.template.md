@@ -2,6 +2,7 @@
 
 - interaction_mode: learning | creation
 - learning_status: onboarding | planned | in_progress | paused | completed
+- onboarding_context: optional portable view of learning_context; known/unknown/skipped answers, questions asked (count toward the six-question limit), at most one pending question with its displayed token-to-option mapping and next action. Remove answered/skipped/replaced pending questions; never reconstruct a mapping from an old menu or repeat a skipped optional question.
 - selected_path / domain_ids:
 - independent_outcome:
 - level_by_domain: self_reported | observed | unknown; brief evidence
