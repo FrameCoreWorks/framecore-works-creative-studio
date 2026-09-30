@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "framecore-work-creative-studio",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
   "author": {
     "name": "FrameCore Works"
@@ -33,7 +33,7 @@
     "com.openai": {
       "interface": {
         "displayName": "FrameCore Works Creative Studio",
-        "shortDescription": "Creative direction for graphics, video, sound, stories, campaigns and prompts.",
+        "shortDescription": "Creative production & learning",
         "longDescription": "Plan creative work across image, video, sound and text. Build original campaign ideas, flowing short-form shot sequences, storyboards, realistic reference sheets, exact-copy graphics, generator prompts, audio plans and production handoffs. Choose quick concise directions or develop a project step by step with targeted public research. Execution uses only tools and external providers the user has available and chooses. Includes integrated workflow contracts, reference and asset management, character and camera planning, copy review, captions, editing and coded-video routes, bounded QA and portable project recovery. Choose optional learning mode for a personal curriculum, short lessons, independent exercises and feedback across the existing creative domains; switch to creation when you need a finished result.",
         "developerName": "FrameCore Works",
         "category": "Productivity",

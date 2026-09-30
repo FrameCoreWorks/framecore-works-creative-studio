@@ -114,7 +114,9 @@ depending on the next artifact.
 - Exact visible text is isolated for image, storyboard, video, or caption use.
 - Variants are meaningfully different and not redundant filler.
 - The Copy Pack distinguishes `draft` from `ready_to_use`; ready text records a
-  completed review-and-revision cycle with an existing Loop Protocol stop decision.
+  completed bounded review with an existing Loop Protocol stop decision. Revise
+  only a diagnosed material issue; a passing draft records no repair needed and
+  stop_sufficient without changing approved wording.
 - No fabricated author experience or unrequested CTA, hook, hashtag, emoji, or
   presentation format was added.
 - Handoff target and next review gate are clear.

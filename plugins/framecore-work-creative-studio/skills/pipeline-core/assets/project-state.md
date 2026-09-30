@@ -4,6 +4,15 @@
 
 Durable recovery state for one operational chat or project folder.
 
+Keep one Project State. This checkpoint and the [portable state template](../templates/project-state.md) use the same interaction fields; a handoff is a view of that state. Preserve known values and user edits when adapting an older checkpoint.
+
+## Interaction and learning
+
+- interaction_mode: learning | creation | undecided
+- pace: quick | deep | user_defined
+- entry_context: optional; stage (intent_choice | pace_choice | area_choice | brief | working), last menu actually shown (history only), selected work area, next unresolved choice and pending_choice_groups (purpose and displayed token-to-option mapping for each unresolved group). Remove answered/skipped/replaced groups; brief/working retains no entry tokens unless a new choice was offered. Use [startup and creative menus](../../workflow-orchestrator/references/startup-and-creative-menus.md); bind tokens only to pending groups, with distinct number/letter namespaces in one response.
+- learning_context: optional; goal, selected domains, level evidence, optional onboarding context (known/unknown answers, questions asked, one pending question with its displayed token mapping and next action; never a question batch), plan revision, current module/lesson, completed/skipped lessons, strengths, practice needs, constraints, next action, persistence evidence and research_status (not_attempted | incomplete | completed; scope and limitation_disclosed). Use the [progress card](../../workflow-orchestrator/assets/learning-progress.template.md) for a portable view of this same state.
+
 ## Checkpoint
 
 - checkpoint_id: initial-setup

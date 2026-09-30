@@ -106,17 +106,19 @@ Read only what is needed:
 - Start from a workflow blueprint when the request matches a known pattern, then shrink or expand it based on available artifacts.
 - Use role IDs from the public kit. Use local display names only from Codex onboarding config, or user-selected labels in the current ChatGPT conversation.
 - Do not skip upstream gates when later roles depend on their artifacts.
-- Route new commercial/editorial wording through `copy-voice`, use `humanizer` for voice polish, and use `caption-studio` for timing and accessibility. Keep narrative dialogue with screenplay and lyrics with audio.
+- Route standalone commercial/editorial wording or a separately requested Copy Pack through `copy-voice`, use `humanizer` for voice polish when needed, and use `caption-studio` for timing and accessibility. Keep static-only design copy inside `static-graphic-design-creator`, narrative dialogue with screenplay and lyrics with audio.
 - Route ready-to-use copy through `copy-voice` with the Human Voice and Copy
   Delivery policy. Use the existing Loop Protocol for at least one bounded
-  review-and-revision cycle; do not create a second editorial loop.
+  review. Revise only a diagnosed material issue; when the draft passes, record
+  no repair needed and stop_sufficient. Do not create a second editorial loop.
 - Route deterministic React/TypeScript video composition through `remotion-video-production`.
-- Static graphic design is integrated into existing roles: `static-direction`
-  owns concept/layout/catalog guidance, `copy-voice` owns wording,
-  `reference-curator` owns source properties, `image-prompting` owns one-pass
-  prompts and text feasibility, `qa-iteration` owns inspected acceptance, and
-  `asset-manifest` owns explicitly requested component inventories. Use only
-  missing stages; route static-design work through Studio’s existing `static-graphic-design-creator`.
+- For static-only work, `static-direction` routes to `static-graphic-design-creator`
+  as the integrated owner of concept, layout, catalog guidance, visible copy,
+  text feasibility and prompt compilation. Do not add a second Copy Voice,
+  Humanizer or Image Prompt intake for its internal stages. Use shared reference,
+  execution, inspected QA and asset/delivery owners only for missing requested
+  work. A separately requested copy deliverable or non-static artifact in a mixed
+  campaign may use its specialist; pass accepted context and exact-copy locks.
 - Route coded-video planning through HyperFrames skills when the requested runtime is specifically HyperFrames or HTML/GSAP composition.
 - Route Hipson-style packets through `hipson-adapter` unless the user chooses full Hipson separately.
 - Route unresolved product, offer, audience, channel, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`.

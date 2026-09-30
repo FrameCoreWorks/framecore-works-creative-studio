@@ -135,7 +135,7 @@ Use these labels when useful:
 
 For ready-to-use text, retain the canonical loop and use this bounded profile:
 
-`draft -> deep review -> revision -> final QA -> delivery`
+`draft -> deep review -> revision only if a diagnosed material issue -> final QA -> delivery`
 
 `copy-voice` records the author context, facts and exact-copy locks, Human
 Voice review, iteration evidence, root cause, repair target, regression check,
@@ -144,7 +144,10 @@ inventing authority or changing locks. `research-evidence` verifies material
 claims. `qa-iteration` is used when independent critique, evidence, or
 loopback is needed.
 
-At least one review-and-revision cycle is required for a ready-to-use Copy Pack.
+At least one bounded review is required for a ready-to-use Copy Pack. Revision
+is conditional on a diagnosed material issue. If the draft passes, record no
+repair needed and stop_sufficient, then deliver it unchanged. Preserve approved
+wording and exact-copy locks; do not invent a defect to force an iteration.
 Default maximum: three iterations. Do not create a separate editorial loop or
 expose internal editorial traces in ordinary user delivery.
 

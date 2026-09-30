@@ -105,7 +105,7 @@ For ready-to-use text created or substantially revised by a covered writing
 skill, apply the existing Loop Protocol with this bounded sequence:
 
 ```text
-draft -> deep review -> revision -> final QA -> delivery
+draft -> deep review -> revision only if a diagnosed material issue -> final QA -> delivery
 ```
 
 The Copy Pack records `author_context`, `fact_and_lock_ledger`,
@@ -113,6 +113,9 @@ The Copy Pack records `author_context`, `fact_and_lock_ledger`,
 at least one review, with revision only for a diagnosed material issue, evidence, root cause when relevant, repair target when needed,
 regression check, and one existing stop decision. Default maximum: three iterations.
 Rerun only for a material diagnosed issue.
+
+If the draft passes, record no repair needed and stop_sufficient, and deliver
+the approved wording unchanged.
 
 The internal review checks brief fit, author and audience fit, factual honesty,
 claim and lock preservation, channel fit, unnecessary polish or marketing

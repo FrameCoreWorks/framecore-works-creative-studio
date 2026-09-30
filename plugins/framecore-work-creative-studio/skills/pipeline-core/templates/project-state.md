@@ -1,5 +1,11 @@
 # Project State
 
+Keep one Project State. This portable view and the [durable checkpoint](../assets/project-state.md) use the same interaction fields. Preserve known values and user edits; a handoff does not create a second state store.
+
+- checkpoint_id:
+- checkpoint_status:
+- updated_utc:
+
 - interaction_mode: learning | creation | undecided
 - pace: quick | deep | user_defined
 - entry_context: optional; stage (intent_choice | pace_choice | area_choice | brief | working), last menu actually shown (history only), selected work area, next unresolved choice and pending_choice_groups (purpose and displayed token-to-option mapping for each unresolved group). Remove answered/skipped/replaced groups; brief/working retains no entry tokens unless a new choice was offered. Use [startup and creative menus](../../workflow-orchestrator/references/startup-and-creative-menus.md); bind tokens only to pending groups, with distinct number/letter namespaces in one response.

@@ -38,12 +38,12 @@ Route:
 4. `brief-architect`
 5. `reference-curator`
 6. `static-direction`
-7. `copy-voice` when visible text or campaign wording matters
-8. `image-prompting`
-9. `tool-routing-cost` only when execution is explicitly requested
-10. `asset-manifest` when outputs exist
-11. `qa-iteration`
-12. `delivery-documentation`
+7. `tool-routing-cost` only when execution is explicitly requested
+8. `asset-manifest` when outputs exist and an inventory is requested or needed for delivery
+9. `qa-iteration` for actually accessible outputs
+10. `delivery-documentation` for the requested handoff
+
+For static-only work, `static-direction` uses `static-graphic-design-creator` as the integrated owner of concept, layout, visible copy, text feasibility and prompt compilation. Keep these internal stages in that owner; do not add a second Copy Voice, Humanizer or Image Prompt intake. Reuse an existing brief and accepted references rather than repeating intake. In a mixed campaign, use `copy-voice` only for a separately requested Copy Pack and `image-prompting` for a separate non-static artifact. Carry approved context and exact-copy locks to those owners.
 
 Required gates:
 
@@ -54,8 +54,8 @@ Required gates:
 - `brief_completeness`
 - `reference_authority_fit`
 - `direction_fit`
-- `copy_fit` when copy is used
-- `promptability_fit`
+- `copy_fit` when copy is used, checked within the integrated static owner
+- `promptability_fit`, checked within the integrated static owner
 - `asset_manifest_fit` when outputs exist
 - `post_execution_fit`
 - `delivery_fit`

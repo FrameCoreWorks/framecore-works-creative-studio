@@ -1,0 +1,53 @@
+{
+  "version": "1.2.6",
+  "checked_on": "2026-09-30",
+  "base_commit": "9a37c312b2751cf70469eb6bb1ce75341abd8997",
+  "status": "PASS",
+  "scope": "Source validation, focused regression checks, packaging and one bounded source-use task; installed-client behavior unverified",
+  "canonical": {
+    "status": "PASS",
+    "files": 734,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "checks": {
+    "node_tests": 65,
+    "installer_tests": 10,
+    "asset_checks": 23,
+    "archive_bytes_verified": 734,
+    "github_baseline_package_hashes_equal": 734,
+    "hosted_baseline_changed_files_equal": 20,
+    "git_diff_check": true,
+    "subtitle_characters": 30
+  },
+  "preservation": {
+    "new_shared_paths": 0,
+    "changed_shared_paths": 20,
+    "skill_roots": 37,
+    "upstream_assets_identity_starters_and_canonical_welcome_unchanged": true,
+    "metadata_changes": [
+      "version",
+      "interface.shortDescription"
+    ],
+    "test_reports_or_transcripts_added_to_package": false
+  },
+  "archive": {
+    "plugin_sha256": "c882dd2fb3ea71d6ceb72b29b20e6c804abf098c00d40be8d565dac8c410a437",
+    "local_repository_banner": "Unavailable locally; preserved in remote base tree; release CI builds the full repository archive."
+  },
+  "source_use": {
+    "status": "PASS",
+    "tasks": 1,
+    "scope": "Fresh sandbox source-use task; not installed-host UI",
+    "checks": [
+      "Retains learning goal and declared level",
+      "Carries exact unresolved tools question and numbered mapping",
+      "Completed mode/pace menus remain history",
+      "No lessons marked completed and no provider execution"
+    ]
+  },
+  "publication": {
+    "status": "pending"
+  }
+}

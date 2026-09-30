@@ -15,7 +15,10 @@ Use this only when the user asks for a handoff or portable brief. If they provid
 ## Goal and accepted direction
 
 - Client/user goal, audience and requested deliverable:
-- Work mode: Quick / Deep / changed during project:
+- Work mode / pace: Quick / Deep / user-defined / changed during project:
+- interaction_mode: learning / creation / undecided:
+- entry_context: current stage, known choices, and only unresolved pending_choice_groups with the exact displayed token-to-option mapping; answered, skipped or replaced menus remain history:
+- learning_context: known onboarding answers, at most one pending question and its exact displayed token mapping, plan revision, current module/lesson, reviewed or self-reported progress, and next action; include the [progress card](learning-progress.template.md) when learning is active or paused:
 - Selected concept and its reason:
 - Rejected routes and the user's stated reason:
 - Approved copy, exact punctuation, language and line-break locks:
@@ -53,6 +56,8 @@ For each item record a stable alias, role, version, actual availability in the d
 ## Resume rule
 
 Read the exact linked conversation if accessible, compare it with this brief, and recover actual attached assets where the destination can access them. Mark any link/file that did not open. Continue from the last accepted stage, preserve exact prompts/copy and avoid restarting intake. A readable thread does not imply that its image/audio/video attachments are present in the new host.
+
+Recover interaction and learning fields into the same Project State. Bind a numeric reply only to the recorded unresolved choice; never reactivate completed menus. If an older checkpoint lacks a necessary field, mark it unknown and ask only the one question needed to continue. Do not restart learning onboarding or mark lessons complete without evidence.
 
 ## Workflow kit state
 

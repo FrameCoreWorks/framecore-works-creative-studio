@@ -133,6 +133,23 @@ test('progress and mode switching preserve one Project State without claimed aut
   });
 });
 
+test('durable checkpoints and portable handoffs retain the same pending learning state', () => {
+  const durable = 'skills/pipeline-core/assets/project-state.md';
+  const handoff = 'skills/workflow-orchestrator/assets/cross-host-handoff.template.md';
+  for (const field of ['interaction_mode', 'entry_context', 'learning_context']) fixture(root => {
+    edit(root, durable, text => text.replace(field, 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), field);
+  });
+  fixture(root => {
+    edit(root, durable, text => text.replace('learning | creation | undecided', 'creation | undecided'));
+    assert.ok(codes(root).includes('LEARNING_STATE_CONTRACT'));
+  });
+  fixture(root => {
+    edit(root, handoff, text => text.replace('learning_context', 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'));
+  });
+});
+
 test('scenario inventory covers learning, creation, resume, plan-only and provider boundaries', () => {
   const cases = loadEffectiveEvals(source).cases.filter(c => c.provenance.source_file === 'learning-mode-cases.json');
   assert.deepEqual(cases.map(c => c.id), learningCaseIds);

@@ -30,6 +30,15 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/studio-workstyle-profile/SKILL.md', [/learning overlay/, /ordinary one-question rule/, /Ask exactly one onboarding question per response and wait/]);
     need('skills/workflow-orchestrator/SKILL.md', [/Ask exactly one onboarding question per response and wait/]);
     need('skills/pipeline-core/templates/project-state.md', [/interaction_mode/, /learning_context/, /learning-progress\.template\.md/, /entry_context/, /last menu actually shown/]);
+    const stateViews = ['skills/pipeline-core/templates/project-state.md', 'skills/pipeline-core/assets/project-state.md'];
+    const stateFields = ['interaction_mode', 'pace', 'entry_context', 'learning_context'];
+    for (const view of stateViews) need(view, [/checkpoint_id/, /checkpoint_status/, /updated_utc/, /interaction_mode/, /pace/, /entry_context/, /learning_context/, /pending_choice_groups/, /one pending question/, /learning-progress\.template\.md/]);
+    for (const field of stateFields) {
+      const pattern = new RegExp('^- ' + field + ':.*$', 'm');
+      const values = stateViews.map(view => read(view).match(pattern)?.[0]);
+      if (!values[0] || values[0] !== values[1]) fail('LEARNING_STATE_CONTRACT', field + ': portable and durable state fields differ');
+    }
+    need('skills/workflow-orchestrator/assets/cross-host-handoff.template.md', [/interaction_mode/, /pace/, /entry_context/, /learning_context/, /pending_choice_groups/, /at most one pending question/, /learning-progress\.template\.md/, /never reactivate completed menus/]);
     need('skills/pipeline-core/references/project-recovery.md', [/learning_context/, /learning-progress\.template\.md/]);
     const method = 'skills/workflow-orchestrator/references/learning-mode.md';
     need(method, [/## Onboarding/, /at most six short questions/, /Ask exactly one onboarding question per response and wait/, /Do not group onboarding questions/, /a natural-language answer/, /Do not ask an already answered question/, /optional blanks do not block/i, /## Personal plan/, /shared foundations/, /all requested supported specializations/, /begin the first lesson/, /plan-only/, /## Lesson cycle/, /Stop for the learner's attempt/, /one or two priority improvements/, /## Switching and project work/, /switches to creation immediately/, /## Progress and recovery/, /Do not mark a lesson completed merely because it was displayed/, /Do not promise persistent memory or cross-host sync/, /## Research, costs and limits/, /first offers a no-render alternative/, /Learning alone authorizes no generation/, /No free-use guarantee follows from a ChatGPT subscription/]);

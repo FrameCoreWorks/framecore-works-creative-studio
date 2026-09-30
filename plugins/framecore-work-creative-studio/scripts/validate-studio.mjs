@@ -69,6 +69,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   const ui = portable.extensions?.['com.openai']?.interface;
   if (!ui || !isDeepStrictEqual(ui, compatibility.interface)) fail('INTERFACE', 'Portable and compatibility interfaces differ');
   if (ui?.displayName !== 'FrameCore Works Creative Studio') fail('DISPLAY_NAME', 'Unexpected display name');
+  if (typeof ui?.shortDescription !== 'string' || !ui.shortDescription.trim() || [...ui.shortDescription].length > 30) fail('SHORT_DESCRIPTION', 'Listing subtitle must have one to thirty characters');
   if (!Array.isArray(ui?.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.length > 3 || ui.defaultPrompt.some(item => typeof item !== 'string' || item.length > 128)) fail('STARTERS', 'Expected one to three concise starters');
   for (const name of ['mcp.json', '.mcp.json', 'app.json', '.app.json', 'hooks.json']) if (files.includes(name)) fail('UNPLANNED_INTEGRATION', name);
   for (const key of ['mcpServers', 'apps', 'hooks']) if (key in portable || key in compatibility || key in (portable.extensions?.['com.openai'] ?? {})) fail('UNPLANNED_INTEGRATION', key);

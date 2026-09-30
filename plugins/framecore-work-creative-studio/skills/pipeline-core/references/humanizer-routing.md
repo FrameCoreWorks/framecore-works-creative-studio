@@ -21,7 +21,10 @@ For ready-to-use text, `copy-voice` records `author_context`,
 `fact_and_lock_ledger`, `human_voice_review`, and `copy_delivery_loop` in the
 Copy Pack. The existing Loop Protocol supplies the bounded sequence:
 
-`draft -> deep review -> revision -> final QA -> delivery`
+`draft -> deep review -> revision only if a diagnosed material issue -> final QA -> delivery`
+
+If the draft passes, record no repair needed and stop_sufficient; do not polish
+or rewrite approved wording merely to complete a cycle.
 
 Default to ordinary, useful writing. A hook, CTA, list, heading, emoji,
 hashtag, question, or lightly rough voice is conditional on author, audience,

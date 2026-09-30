@@ -18,6 +18,14 @@ const editJson = (root,file,fn) => edit(root,file,text => {const value=JSON.pars
 const codes = root => (validateStudio(root).canonical?.errors ?? []).map(item => item.code);
 
 test('workflow-kit candidate passes canonical validation', () => assert.equal(validateStudio(source).status,'PASS'));
+test('static-only blueprints cannot restore separate copy or prompt intake', () => fixture(root => {
+  edit(root, 'skills/pipeline-core/references/workflow-blueprints.md', text => text.replace('6. `static-direction`', '6. `static-direction`\n7. `copy-voice` when visible text matters'));
+  assert.ok(codes(root).includes('KIT_STATIC_OWNER'));
+}));
+test('a passing Copy Pack cannot acquire a compulsory rewrite cycle', () => fixture(root => {
+  edit(root, 'skills/pipeline-core/references/loop-protocol.md', text => text.replace('At least one bounded review is required', 'At least one review-and-revision cycle is required'));
+  assert.ok(codes(root).includes('KIT_COPY_REVIEW_POLICY'));
+}));
 test('corrupted or extra snapshot files fail byte inventory', () => {
   fixture(root => {edit(root,'integrations/workflow-kit/upstream/README.md',t=>t+'\ncorrupted\n');assert.ok(codes(root).includes('KIT_SOURCE_HASH'));});
   fixture(root => {fs.writeFileSync(path.join(root,'integrations/workflow-kit/upstream/extra.txt'),'x');assert.ok(codes(root).includes('KIT_SOURCE_INVENTORY'));});

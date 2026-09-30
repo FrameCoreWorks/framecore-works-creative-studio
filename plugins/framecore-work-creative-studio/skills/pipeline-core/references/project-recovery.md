@@ -8,6 +8,8 @@ Inspect the active host’s actual file and storage tools. With no persistent pr
 
 For a user-requested local recovery store, keep user input in Context/ and compact generated recovery state in Memory Cache/. Reuse existing files, retain the selected checkpoint and preserve user edits. Store goal, artifact/shot IDs, exact selected copy, source revisions, source-map pointers, decisions, open questions, tested evidence, loop stop state and next action. Exclude secrets, full transcripts, hidden reasoning, raw provider responses, signed URLs and bulk media.
 
+Retain `interaction_mode`, `pace`, `entry_context` and `learning_context` in local checkpoints and portable handoffs. Preserve at most one pending learning question and its exact displayed token mapping. Keep only unresolved `pending_choice_groups`; answered, skipped or replaced menus are history. If an older state lacks a field, recover it from accessible evidence or mark it unknown and ask only the one necessary question. Do not restart completed intake or create a second state store.
+
 ## Included utilities
 
 The complete original source is in the [pinned archive](../../../integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz). When local persistence is requested and a shell is available, extract this archive into a separate, explicitly chosen scratch/source directory first. The expanded reference mirror contains non-discoverable source names and must not be used as an upstream installation. Then use the extracted source root and an explicit user-project target:

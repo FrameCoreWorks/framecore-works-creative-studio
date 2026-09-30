@@ -97,6 +97,15 @@ export function validateWorkflowKit(root, packageFiles) {
     const evidenceGate = routes.gates.find(item => item.id === 'evidence_fit');
     if (!evidenceGate || !evidenceGate.owners.includes('research-evidence') || !/Evidence Note/.test(evidenceGate.artifact)) fail('KIT_RESEARCH_GATE', 'Research output must be gated or record an explicit no-browse receipt');
     const blueprints = text(refs + 'workflow-blueprints.md');
+    const staticStart = blueprints.indexOf('## Static Campaign Or E-Commerce Graphic');
+    const staticBlock = blueprints.slice(staticStart, blueprints.indexOf('## Video Campaign Or Storyboard', staticStart));
+    if (!staticBlock.includes('`static-graphic-design-creator` as the integrated owner') || /^\d+\. `(?:copy-voice|image-prompting)`/m.test(staticBlock)) fail('KIT_STATIC_OWNER', 'Static-only work must keep copy and prompt compilation inside the integrated static owner');
+    const core = text('skills/pipeline-core/SKILL.md');
+    if (!/For static-only work[\s\S]*?integrated owner/.test(core) || !core.includes('Do not add a second Copy Voice')) fail('KIT_STATIC_OWNER', 'Pipeline Core must preserve the integrated static owner');
+    for (const relative of ['skills/pipeline-core/SKILL.md', 'skills/copy-voice/SKILL.md', refs + 'loop-protocol.md', refs + 'human-voice-and-copy-delivery.md', refs + 'humanizer-routing.md']) {
+      const body = text(relative);
+      if (/review-and-revision\s+cycle/i.test(body) || !/no\s+repair needed/.test(body) || !/stop_sufficient/.test(body)) fail('KIT_COPY_REVIEW_POLICY', relative + ': review is required, revision is conditional, and a passing draft may stop unchanged');
+    }
     if (!blueprints.includes('research-evidence') || !blueprints.includes('evidence_fit') || !blueprints.includes('Every new substantive creative route')) fail('KIT_RESEARCH_BLUEPRINT', 'All substantive routes inherit the targeted research preflight and evidence gate');
     for (const [heading,next] of [['## Static Campaign Or E-Commerce Graphic','## Video Campaign Or Storyboard'],['## Video Campaign Or Storyboard','## Artist-led Music Video']]) {
       const start=blueprints.indexOf(heading), end=blueprints.indexOf(next,start+heading.length), block=blueprints.slice(start,end);
