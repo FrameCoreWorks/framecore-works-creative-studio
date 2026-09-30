@@ -3,7 +3,7 @@
   "checked_on": "2026-09-30",
   "base_commit": "67c92d20e62a6ff784898586b5c5f6dcdcae033d",
   "status": "PASS",
-  "scope": "Source contracts and local tests; saved-source parity pending, installed-client behavior and actual media QA unverified",
+  "scope": "Source contracts, local tests, publication and saved-source parity; installed-client behavior and actual media QA unverified",
   "canonical": {
     "status": "PASS",
     "files": 736,
@@ -44,7 +44,16 @@
     ]
   },
   "publication": {
-    "status": "pending",
+    "status": "synchronized",
+    "source_commit": "ecbd6a2b8f0d531c257b59162c236cdfcc90baf6",
+    "github_release": "v1.2.9",
+    "workflow_id": 36748572849,
+    "workflow_conclusion": "success",
+    "hosted_release_id": "pluginrel_6abd40e9a10881919e0a616900e0dfd0",
+    "uploaded_hosted_files_byte_equal": 15,
+    "complete_hosted_path_size_inventory": 736,
+    "unchanged_welcome_byte_equal": true,
+    "github_source_file_hashes_verified": 736,
     "active_client": "unverified"
   },
   "archive": {

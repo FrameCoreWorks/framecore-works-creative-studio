@@ -1,0 +1,44 @@
+{
+  "version": "1.2.9",
+  "source_commit": "ecbd6a2b8f0d531c257b59162c236cdfcc90baf6",
+  "package_tree_sha": "4dff1029755ee1794567960a29358bb6b124f627",
+  "github_release": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.2.9",
+  "published_at": "2026-09-30T17:03:12Z",
+  "workflow_id": 36748572849,
+  "workflow_conclusion": "success",
+  "tag_commit": "ecbd6a2b8f0d531c257b59162c236cdfcc90baf6",
+  "assets": [
+    {
+      "name": "framecore-work-creative-studio-1.2.9.zip",
+      "digest": "sha256:208bd0cb947824c9aba1a643daac195f725f77920b6a59222e0838d661145da7",
+      "state": "uploaded"
+    },
+    {
+      "name": "framecore-work-creative-studio-1.2.9.zip.inventory.json",
+      "digest": "sha256:f0d73146b57e03cdf95609b934c827d97d1dff425aafa9ff05d5ed894e17a6c5",
+      "state": "uploaded"
+    },
+    {
+      "name": "framecore-works-creative-studio-1.2.9-repository.zip",
+      "digest": "sha256:03c87367b5bc52ecf7c1451d54ae72787afebb01368dce79923616a35111d914",
+      "state": "uploaded"
+    },
+    {
+      "name": "framecore-works-creative-studio-1.2.9-repository.zip.inventory.json",
+      "digest": "sha256:3877b3fdf8e4d8aa2da106bdf3ed8c43bf4f109aab1c63d4a1e0fae523639f2b",
+      "state": "uploaded"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:24d6c476eb8d381d39cf951096a4ce5ba00c402dfce6f4b3a78fd0881b41046c",
+      "state": "uploaded"
+    }
+  ],
+  "plugin_archive_sha256_equal": true,
+  "github_source_file_hashes_verified": 736,
+  "hosted_release_id": "pluginrel_6abd40e9a10881919e0a616900e0dfd0",
+  "uploaded_hosted_files_byte_equal": 15,
+  "complete_hosted_path_size_inventory": 736,
+  "unchanged_welcome_byte_equal": true,
+  "active_client": "unverified"
+}
