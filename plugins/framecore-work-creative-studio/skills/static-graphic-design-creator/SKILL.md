@@ -25,6 +25,10 @@ The Studio integration contract below governs routing, shared research, work mod
 - If the user says a direction is wrong, pause before generating another batch. Ask one narrow question that identifies the missing dimension, then revise the next routes or research around that answer. Preserve choices and rejections as local to that user's project.
 - Keep the upstream approval gates: a request for concepts, copy or a prompt is not permission to render. Do not fabricate unsupported text, logos, product claims, accessible controls, native tool settings or output QA.
 
+## Accessible format intake
+
+For poster/flyer/static formats, use [ordinary-language format choices](../workflow-orchestrator/references/intake-and-reference-authority.md#format-choices-in-ordinary-language). This Studio conversational rule takes precedence over technical intake wording in the pinned source. First ask only the unresolved purpose: paper print, internet publication, both, or help choosing, with numbered options. For print, describe a whole printer sheet (A4), half a sheet (A5), or a larger two-sheet size (A3). For internet, describe a normal post or a phone story. Do not mix A4/A3 and unexplained pixels in one menu. Reuse known use, size and placement; a supplied exact pixel/physical specification bypasses this choice. Keep dimensions/export details backstage until the prompt or delivery needs them; explain technical terms when they help. Choosing a format is not generation permission or proof of print readiness.
+
 ## Research and output boundary
 
 For substantive static work, read the mandatory shared [Research Evidence](../research-evidence/SKILL.md) gate and reuse unchanged evidence through the project. Keep the initial pitch free of source-heavy explanation unless the user asks for it or a concrete claim needs attribution. When model capability changes the recommendation, identify the exact model/surface/operation and research current official documentation; distinguish a native ChatGPT/Codex generation tool from API settings.

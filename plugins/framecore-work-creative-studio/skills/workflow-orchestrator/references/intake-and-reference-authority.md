@@ -36,6 +36,41 @@ Examples of potentially blocking decisions include:
 
 Do not block for a nonessential mood nuance, a missing optional reference, a detail that can be safely marked unknown, or a choice the user has already made. When proceeding with an assumption, state it briefly only if it could surprise the user or alter the result.
 
+### Format choices in ordinary language
+
+For posters, flyers and static graphics, first establish where the user will use the result, then resolve only the missing size or placement. Default to practical descriptions a non-designer can understand. Do not offer a mixed menu of paper labels and unexplained pixel dimensions such as A4 / A3 / 1080 × 1350 / 1080 × 1920. Every offered alternative has a reply token under [the pending-choice rules](startup-and-creative-menus.md). Ask one unresolved decision at a time; if the user requests grouped choices, use separate number/letter namespaces.
+
+When use is unknown, ask in Polish (translate naturally in other languages):
+
+> **Gdzie chcesz wykorzystać plakat?**
+> 1. **Wydrukować na papierze.**
+> 2. **Opublikować w internecie**, np. na Facebooku lub Instagramie.
+> 3. **Wydrukować i opublikować w internecie.**
+> 4. **Jeszcze nie wiem** — pomóż mi wybrać.
+>
+> Wpisz numer lub opisz własny pomysł.
+
+For print with unknown size, the next decision uses familiar paper comparisons:
+
+> **Jak duży ma być wydruk?**
+> 1. **Na całej zwykłej kartce do drukarki** — A4.
+> 2. **Mniejszy, na połowie takiej kartki** — A5.
+> 3. **Większy, jak dwie kartki A4 obok siebie** — A3.
+> 4. **Inny rozmiar** — napisz jaki lub opisz miejsce, gdzie ma wisieć.
+
+The primary labels describe use and size; paper codes are secondary. “Cała kartka” establishes the page-sized design, not proof of borderless printing. Resolve real printer margins, bleed and export requirements only at the relevant delivery step, in plain language; do not promise a print-ready master or turn this choice into a DPI/CMYK questionnaire.
+
+For digital use with unknown placement, ask:
+
+> **Jak chcesz opublikować plakat?**
+> 1. **Jako zwykły post**, np. na Facebooku lub Instagramie.
+> 2. **Jako relację (story)** — pionowy obraz na ekranie telefonu.
+> 3. **W innym miejscu** — napisz gdzie.
+
+If the user already said “post na Facebooku”, reuse that placement and propose an appropriate readable layout; do not ask print or pixel questions again. If they said only “Facebook”, ask post versus relacja if that choice matters. For both print and internet, retain both uses, settle only missing choices, and adapt one approved concept to the requested outputs through the existing owner. Do not claim that one file automatically satisfies both purposes. For “nie wiem”, recommend a simple route using the goal and viewing context; ask only a material question, without requiring technical knowledge.
+
+Reuse supplied size, orientation, placement and exact specifications immediately. “Cała kartka A4” resolves print and page size; ask orientation only when it materially changes the work, or propose a reversible portrait layout. An expert's explicit “1080 × 1350 px”, aspect ratio or printer specification is already a decision, not a reason to restart this menu. Keep precise dimensions and export targets in the internal design contract and final prompt/handoff when needed; they are not a quiz for the user. Show them when requested or useful, briefly explained. Verify changing platform/export requirements for the actual destination when material; these conversational examples define no fixed current Facebook/Instagram pixel requirement or guaranteed renderer control.
+
 ## 3. Give every supplied reference a role
 
 Never equate “uploaded” with “approved for every use” or “authoritative for every property.” First establish whether an item is actually visible/available to this task. If it is not, say so and request it only when the intended operation depends on it. A text description of an image is not proof that the image is attached.

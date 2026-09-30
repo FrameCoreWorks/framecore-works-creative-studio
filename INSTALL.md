@@ -1,6 +1,6 @@
 # Installation
 
-Version: **1.2.2**. Install from this repository through the assistant in your target environment.
+Version: **1.2.3**. Install from this repository through the assistant in your target environment.
 
 | Environment | Copy-paste guide | Result |
 |---|---|---|

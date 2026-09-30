@@ -1,8 +1,8 @@
 # Current release scope
 
-Version: 1.2.2.
+Version: 1.2.3.
 Date: 2026-09-30.
-Release scope: 1.0 core plus optional provider setup in 1.1.0, consistent skill display names in 1.1.1, aligned research, music and operation-specific image routing in 1.1.2, route-aware structural checks with a synchronized source inventory in 1.1.3, optional learning/creation mentoring in 1.2.0, and the restored full welcome with staged creative pace and work-area menus in 1.2.1, and strengthened entry, expiring choice groups and concise offline-learning evidence boundaries in 1.2.2. GitHub distribution and hosted plugin updates are separate publication operations.
+Release scope: 1.0 core plus optional provider setup in 1.1.0, consistent skill display names in 1.1.1, aligned research, music and operation-specific image routing in 1.1.2, route-aware structural checks with a synchronized source inventory in 1.1.3, optional learning/creation mentoring in 1.2.0, and the restored full welcome with staged creative pace and work-area menus in 1.2.1, and strengthened entry, expiring choice groups and concise offline-learning evidence boundaries in 1.2.2, plus ordinary-language poster format intake in 1.2.3. GitHub distribution and hosted plugin updates are separate publication operations.
 
 This release contains thirty-seven skill roots: thirty-five active specialist routes, the workflow orchestrator, and the legacy `producer-ai-task-builder` forwarding entrypoint. The skills are packaged instructions and knowledge, not a promise of host retrieval, automatic tool execution or complete migration of every private Custom GPT. Historical checkpoint claims remain in [release history](release-history.md).
 

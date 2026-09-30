@@ -14,6 +14,8 @@ Use this skill to convert scattered intent into a Brief Contract that downstream
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
 
+For a poster or static graphic, follow [ordinary-language format choices](../workflow-orchestrator/references/intake-and-reference-authority.md#format-choices-in-ordinary-language): ask only missing use (print/internet/both), then familiar paper size or post/story placement, with numbered options. Reuse exact supplied dimensions. Do not expose a mixed paper-code/pixel menu or make technical knowledge a prerequisite for the brief.
+
 ## When To Use
 
 Use this skill when:
