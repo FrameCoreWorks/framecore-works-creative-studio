@@ -1,0 +1,91 @@
+{
+  "version": "1.2.1",
+  "checked_on": "2026-09-30",
+  "status": "UPDATED_AND_READ_BACK",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "current_release_id": "pluginrel_6abcae66149c8191844c566120f505d9",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "source_commit": "ad057a1209cfd91681c1140f2c2448517823bece",
+  "changed_files_byte_equal": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "README.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/learning-mode.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "docs/release-history.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "evals/effective-overrides.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "evals/learning-mode-cases.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "plugin.json",
+      "match": "byte_equal"
+    },
+    {
+      "path": "scripts/validate-learning-mode.mjs",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/learning-mode.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "match": "byte_equal"
+    },
+    {
+      "path": "tests/learning-mode.test.mjs",
+      "match": "byte_equal"
+    }
+  ],
+  "complete_path_inventory": 733,
+  "complete_size_inventory_match": true,
+  "comparison_scope": "All 17 uploaded changed/new text files reread and byte-equal. All 733 paths and sizes match. The 716 omitted files remain from the guarded baseline via overlay; no new claim of a complete remote binary hash readback.",
+  "preservation": {
+    "existing_identity": true,
+    "private_audience": true,
+    "logo_and_starters": true,
+    "skill_roots": 37,
+    "pinned_sources": true
+  },
+  "active_client_behavior": "Unknown; source-use text probe is recorded separately."
+}

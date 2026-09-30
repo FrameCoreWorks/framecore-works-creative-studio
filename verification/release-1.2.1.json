@@ -64,7 +64,17 @@
     "local_repository_zip_limitation": "Unchanged repository-only banner unavailable through source tools. GitHub CI must produce complete repository archive from the preserved remote tree."
   },
   "entry_probe": "studio-entry-probe-1.2.1.json",
-  "publication": "Pending source commit and hosted guarded update at report creation; subsequent evidence is recorded in RELEASE_STATUS.md.",
+  "publication": {
+    "source_commit": "ad057a1209cfd91681c1140f2c2448517823bece",
+    "release": "v1.2.1",
+    "workflow_id": 36679277409,
+    "workflow_conclusion": "success",
+    "ci_node_passed": 62,
+    "ci_node_failed": 0,
+    "hosted_release_id": "pluginrel_6abcae66149c8191844c566120f505d9",
+    "changed_hosted_files_byte_equal": 17,
+    "hosted_path_and_size_inventory": 733
+  },
   "not_run": [
     "183 planned host behavior cases",
     "Fresh installed-client UI/lesson behavior",
