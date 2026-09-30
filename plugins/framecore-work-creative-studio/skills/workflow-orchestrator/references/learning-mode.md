@@ -12,6 +12,8 @@ Directly invoked specialists apply this same overlay when learning is explicit. 
 
 Reuse all supplied answers. Ask only missing questions that change the plan, in at most six short questions total for initial onboarding, either together or one at a time if preferred. Permit a short numbered answer and “nie wiem”. Do not restart onboarding at each owner handoff. Suggested Polish prompts:
 
+When offering alternatives, use the pending-group rules in [startup and creative menus](startup-and-creative-menus.md): give options reply tokens, use numbers for one group and letters for another in the same message, and retain the displayed mapping only until answered. For example, domains plus pace may accept `7, A`. The numbered questions below are prompts for free-text answers, not six overlapping option menus. Lesson/quiz numbers never activate a resolved startup menu.
+
 1. Czego chcesz się nauczyć i jaki rezultat chcesz umieć osiągnąć samodzielnie?
 2. Co już umiesz w tych obszarach? Możesz zacząć całkiem od podstaw.
 3. Czy masz projekt do nauki, czy wolisz prosty przykład ćwiczeniowy?
@@ -68,6 +70,8 @@ Do not promise persistent memory or cross-host sync. Save a card only through an
 ## Research, costs and limits
 
 Follow the mandatory [Research Evidence](../../research-evidence/SKILL.md) preflight when designing substantive curriculum, examples, creative feedback or target-specific advice. Reuse relevant evidence across an unchanged teaching question. Menu, onboarding, progress bookkeeping and literal checks do not need unrelated searches. A no-browse instruction or tool failure retains its existing honest limitation; useful stable-craft teaching may continue without invented citations.
+
+Before the first substantive offline plan/lesson/example, include one short sentence distinguishing research not attempted from an unsuccessful attempt. For example: “Pracujemy offline: nie wykonałem researchu, więc ćwiczymy podstawy warsztatu bez potwierdzania aktualnych funkcji narzędzi.” If a search was attempted but failed, say that instead. Store the scope, status and whether the limitation was disclosed in the existing `learning_context.research_status`. Reuse that disclosure for unchanged stable-craft exercises; repeat it only when the research boundary changes or a new mutable claim needs qualification. This sentence does not replace the lesson or block a paper/text exercise, and it never implies that current facts were verified.
 
 Distinguish explanation, planning, text/paper exercises and actual media execution. Every proposed render exercise first offers a no-render alternative. Learning alone authorizes no generation, paid provider, external API/MCP, upload or publication. A later execution request must satisfy the current host/user authorization conditions, exact activation phrases where required, input permission and cost limits. No free-use guarantee follows from a ChatGPT subscription. Tool mentions and API documentation do not prove availability in the user's current interface. Verify changing features and costs for the exact surface when needed; otherwise mark cost unknown and keep the no-render option usable.
 

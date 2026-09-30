@@ -12,6 +12,48 @@ from build_install_manifest import PLUGIN, inventory, verify_source
 NAME = 'framecore-work-creative-studio'
 
 
+def frontmatter_name(path):
+    """Read the skill identity, not name-like text in its Markdown body.
+
+    Support ordinary YAML scalar names, quoted keys/values and comments.
+    Ambiguous or unsupported identity syntax requires review before any write;
+    this is deliberately not a general YAML parser.
+    """
+    lines = path.read_text(encoding='utf-8-sig').splitlines()
+    if not lines or lines[0].strip() != '---':
+        return None
+    end = next((i for i, line in enumerate(lines[1:], 1)
+                if line.strip() in {'---', '...'}), None)
+    if end is None:
+        raise ValueError('Unterminated skill frontmatter requires review: ' + str(path))
+    declarations = []
+    for line in lines[1:end]:
+        match = re.match(r'^(?:name|"name"|\'name\')\s*:\s*(.*)$', line)
+        if match:
+            declarations.append(match[1].strip())
+    if len(declarations) != 1:
+        raise ValueError('Missing, duplicate or unsupported skill name requires review: ' + str(path))
+    scalar = declarations[0]
+    if scalar.startswith('"'):
+        try:
+            name, consumed = json.JSONDecoder().raw_decode(scalar)
+        except ValueError as error:
+            raise ValueError('Unsupported quoted skill name requires review: ' + str(path)) from error
+        tail = scalar[consumed:]
+        if not isinstance(name, str) or (tail.strip() and not re.fullmatch(r'\s+#.*', tail)):
+            raise ValueError('Ambiguous skill name requires review: ' + str(path))
+    elif scalar.startswith("'"):
+        match = re.fullmatch(r"'((?:[^']|'')*)'(?:\s+#.*)?\s*", scalar)
+        if not match:
+            raise ValueError('Unsupported quoted skill name requires review: ' + str(path))
+        name = match[1].replace("''", "'")
+    else:
+        name = re.split(r'\s+#', scalar, maxsplit=1)[0].strip()
+        if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]*', name):
+            raise ValueError('Unsupported skill name requires review: ' + str(path))
+    return name
+
+
 def wrapper(bundle):
     return f'''---
 name: {NAME}
@@ -34,6 +76,11 @@ personal skills or proof that other agents ran. This native entry preserves the
 same creative routing as the hosted plugin. Use the user's language and requested
 pace. Resolve learning versus creation through the orchestrator: clear learning
 requests use its mentoring overlay, and concrete projects bypass learning intake.
+For a greeting or Studio-only invocation, introduce the Studio and its capabilities,
+invite optional materials, then end with 1. Tryb kreatywny / 2. Tryb nauki.
+A mode-only creative choice must show 1. Tryb szybki / 2. Tryb rozbudowany;
+a pace-only choice shows the seven work areas. These steps apply at every host
+reasoning setting. Bind choice tokens only to currently pending displayed groups.
 An explicit specialist learning request follows that same overlay. Quick/Deep
 remains pace, not the learning/creation choice. Use only available authorized tools.
 Installation does not connect providers or synchronize ChatGPT memory.
@@ -97,8 +144,7 @@ def main():
             return
         raise ValueError('Existing or partial installation; inspect it with CODEX_UPDATE.md')
     collisions = [p for p in skills.glob('*/SKILL.md')
-                  if re.search(r'^name:\s*["\']?(' + '|'.join(map(re.escape, declared['entrypoints']))
-                               + r')["\']?\s*$', p.read_text(), re.M)]
+                  if frontmatter_name(p) in declared['entrypoints']]
     if collisions:
         raise ValueError('Existing Studio/Workflow Kit skill identities require review: ' + ', '.join(map(str, collisions)))
     if args.action == 'plan':

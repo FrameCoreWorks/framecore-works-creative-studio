@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.2, 2026-09-30
+
+Strengthens the short Studio entry contract across reasoning settings: introduce capabilities and optional materials before the final intent menu, then require creative pace and work-area selections when unresolved. Choice tokens belong only to pending groups; resolved menus expire and simultaneous groups use distinct number/letter namespaces. Offline learning briefly discloses incomplete or unattempted research at the first substantive lesson. Preserves direct briefs, resumed work, learning progress, 37 skill identities, assets, starter prompts and provider boundaries. No stress-test reports or transcripts are added to the shared package. Source-use verification does not establish active-client behavior.
+
+Repository-only installer now reads the actual frontmatter identity, recognizes quoted names/keys and trailing comments, and requires review for ambiguous syntax before writes. Installation guidance carries the current release number.
+
 ## 1.2.1, 2026-09-30
 
 - Restores the complete Studio welcome, capability overview and optional asset invitation.

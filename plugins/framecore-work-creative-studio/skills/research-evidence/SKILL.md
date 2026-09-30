@@ -40,6 +40,8 @@ Research does not authorize an image/video/audio provider, API, wrapper, upload,
 
 Respect an explicit user request not to browse. If browsing is unavailable, blocked, times out, returns an error, or the required source cannot be read, distinguish not attempted from attempted but incomplete; disclose that active research was not completed, proceed only with stable craft where useful, and mark changing or unsupported claims as unverified. Do not imply current best practice, comprehensive market coverage, or fact-check completion without evidence.
 
+In learning, disclose this briefly at the first substantive offline plan, lesson or example, before the exercise. Retain research status, scope and disclosure in the existing learning context. Do not repeat a long limitation on every unchanged lesson; refresh it when the evidence boundary or mutable advice changes. An offline stable-craft exercise remains useful, with no invented sources or claim of current verification.
+
 ### Reuse and recovery
 
 Carry only the decision-relevant evidence into the next owner: question, sources, access date, exact surface/operation and unresolved claims. Reuse it when the question and applicable conditions are unchanged; a handoff alone does not require another broad search. Refresh changing specifications and newly affected claims. Treat the dated snapshot as a discovery index, not current verification or a fixed market-size target.

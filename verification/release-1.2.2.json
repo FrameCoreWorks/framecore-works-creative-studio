@@ -1,0 +1,55 @@
+{
+  "version": "1.2.2",
+  "checked_on": "2026-09-30",
+  "base_commit": "a63a4827dd841cf78e23020eaea51fd2e0c49b0b",
+  "status": "PASS",
+  "scope": "Deterministic source/filesystem checks and bounded sandbox source-use probes; installed-client behavior unknown",
+  "canonical": {
+    "status": "PASS",
+    "files": 733,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "local_checks": {
+    "node_runner_passed": 48,
+    "node_runner_failed": 0,
+    "asset_checks_passed": 23,
+    "installer_tests_passed": 10,
+    "additional_installer_probes_passed": 9,
+    "additional_installer_probes_failed": 0,
+    "package_inventory_verified": true
+  },
+  "source_use": {
+    "conversations": 2,
+    "responses": 7,
+    "checks_passed": 7,
+    "model": "gpt-6-luna",
+    "reasoning_effort": "low",
+    "attribution": "Fresh sandbox agents following candidate source, not actual host plugin activation"
+  },
+  "local_execution_limits": "Default isolated Node run failed; direct learning run exposed a stale assertion which was corrected. The remaining direct Creative Upgrade CLI check fails locally because child output is unavailable; full suites must pass in GitHub CI. Local repository-only banner is unavailable; CI must package the complete preserved remote source.",
+  "preservation": {
+    "skill_roots": 37,
+    "unchanged_identity_logo_starters": true,
+    "unchanged_vendored_sources": true,
+    "new_shared_paths": 0,
+    "changed_shared_paths": 14,
+    "stress_reports_or_transcripts_added_to_package": false
+  },
+  "guarded_hosted_baseline": {
+    "release_id": "pluginrel_6abcae66149c8191844c566120f505d9",
+    "inventory_paths": 733,
+    "read_changed_files": 14
+  },
+  "archive": {
+    "plugin_files": 733,
+    "plugin_sha256": "e371eded4a67ae36335b3ffbf399973aafe631db402b4a7e478f7231bdc069d4",
+    "verified_against_complete_install_inventory": true
+  },
+  "publication": {
+    "github": "pending",
+    "chatgpt": "pending",
+    "active_client": "unverified"
+  }
+}

@@ -60,6 +60,52 @@ class InstallationChecks(unittest.TestCase):
         self.assertFalse(self.bundle.exists())
         self.assertFalse((self.skills / 'framecore-work-creative-studio').exists())
 
+    def test_yaml_identity_variants_block_plan_and_install_without_writes(self):
+        existing = self.skills / 'my-custom-folder/SKILL.md'
+        existing.parent.mkdir(parents=True)
+        declarations = [
+            'name: workflow-orchestrator # user preference',
+            '"name": "workflow-orchestrator"',
+            "'name': 'workflow-orchestrator' # personal",
+            'name: "workflow-orchestrator" # personal',
+            'name: workflow-orchestrator',
+        ]
+        for declaration in declarations:
+            with self.subTest(declaration=declaration):
+                content = '---\n' + declaration + '\ndescription: Personal\n---\nKeep my work.\n'
+                existing.write_text(content)
+                for action in ['plan', 'install']:
+                    self.assertIn('Existing Studio/Workflow Kit', self.run_helper(action, success=False))
+                    self.assertEqual(existing.read_text(), content)
+                    self.assertFalse(self.bundle.exists())
+                    self.assertFalse((self.skills / 'framecore-work-creative-studio').exists())
+
+    def test_body_name_does_not_create_a_false_collision(self):
+        existing = self.skills / 'personal/SKILL.md'
+        existing.parent.mkdir(parents=True)
+        content = '---\nname: personal-skill\ndescription: Personal\n---\nname: workflow-orchestrator\n'
+        existing.write_text(content)
+        self.assertEqual(self.run_helper('plan')['status'], 'READY')
+        self.run_helper('install')
+        self.assertEqual(existing.read_text(), content)
+
+    def test_ambiguous_frontmatter_requires_review_before_writes(self):
+        existing = self.skills / 'personal/SKILL.md'
+        existing.parent.mkdir(parents=True)
+        variants = [
+            '---\nname: >-\n  workflow-orchestrator\n---\n',
+            '---\nname: personal\nname: workflow-orchestrator\n---\n',
+            '---\n{name: workflow-orchestrator}\n---\n',
+            '---\nname: workflow-orchestrator\n',
+        ]
+        for content in variants:
+            with self.subTest(content=content):
+                existing.write_text(content)
+                self.assertIn('requires review', self.run_helper('install', success=False))
+                self.assertEqual(existing.read_text(), content)
+                self.assertFalse(self.bundle.exists())
+                self.assertFalse((self.skills / 'framecore-work-creative-studio').exists())
+
     def test_partial_installation_is_not_overwritten(self):
         self.bundle.mkdir(parents=True)
         sentinel = self.bundle / 'my-file.txt'

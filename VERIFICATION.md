@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.2.1
+## Current source: 1.2.2
+
+The [1.2.2 source checks](verification/release-1.2.2.json) passed canonical validation, 48 local Node runner checks, 23 asset checks, 10 installer tests and nine additional installer probes. Two fresh low-reasoning sandbox conversations covered seven responses, including expired-menu clarification and offline-learning disclosure. These are source-use probes, not installed-client observations. The full release suite and paired GitHub/ChatGPT publication are pending. The package retains 733 files and 37 skill roots; no stress reports or transcripts were added. Active-client behavior remains unverified.
+
+## Previous source: 1.2.1
 
 This update restores the complete welcome and the creative entry sequence. Current deterministic source checks, package inventory, bounded text-only entry probe and paired release readback are recorded in [1.2.1 source checks](verification/release-1.2.1.json). GitHub CI passed all 62 Node tests and published v1.2.1 with five verified assets. All 17 changed/new hosted files are byte-equal to source, and the complete 733-path/size inventory matches; see [publication](verification/github-publication-1.2.1.json) and [hosted readback](verification/hosted-release-1.2.1.json). The probe is an attributed source-use exercise, not observed behavior of a newly installed ChatGPT/Codex client. The 183 planned cases remain unexecuted host specifications.
 

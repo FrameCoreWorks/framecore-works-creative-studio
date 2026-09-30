@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.2.2, 2026-09-30
+
+Strengthens the short Studio entry contract across reasoning settings: introduce capabilities and optional materials before the final intent menu, then require creative pace and work-area selections when unresolved. Choice tokens belong only to pending groups; resolved menus expire and simultaneous groups use distinct number/letter namespaces. Offline learning briefly discloses incomplete or unattempted research at the first substantive lesson. Preserves direct briefs, resumed work, learning progress, 37 skill identities, assets, starter prompts and provider boundaries. No stress-test reports or transcripts are added to the shared package. Source-use verification does not establish active-client behavior.
+
 ## 1.2.1, 2026-09-30
 
 Restored the full Studio welcome and capability overview. Startup now offers 1. Tryb kreatywny / 2. Tryb nauki; a mode-only creative choice leads to quick/expanded pace, the established seven work areas and a relevant brief. Numeric replies bind to the last displayed menu, including older-session order. Concrete briefs bypass redundant selections. The learning curriculum, 37 skill identities, original sources, logo, starter prompts and execution boundaries remain intact. Updated source guards check these entry contracts; planned cases remain unexecuted host specifications. Source checks and a bounded text-only probe do not prove installed-client behavior.
