@@ -3,7 +3,6 @@
   "checked_on": "2026-09-30",
   "scope": "Deterministic source, fixture, filesystem and regression checks. No real-client conversations, paid providers, generation or educational outcome measurement.",
   "base_commit": "8b6827d184ed1655fd95dbf12cbe05750c98a79a",
-  "source_state": "local working tree; not committed or pushed",
   "status": "PASS",
   "checks": [
     {
@@ -290,5 +289,7 @@
     "canonical_validator_and_package_rechecked": "PASS",
     "current_source_sha256": "007bdb44f6016fc07fb812bcb4ca550b74d07313ce10526fbc4550f5051fe9cb",
     "current_parity_report": "source-parity-1.2.0.json"
-  }
+  },
+  "source_state_at_check": "local working tree; not committed or pushed",
+  "subsequent_publication": "github-publication-1.2.0.json"
 }

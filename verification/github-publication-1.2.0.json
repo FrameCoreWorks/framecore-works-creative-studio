@@ -1,0 +1,108 @@
+{
+  "version": "1.2.0",
+  "checked_on": "2026-09-30",
+  "status": "PUSHED_AND_RELEASE_PUBLISHED",
+  "source_commit": "65ab9bb8e54a88155acf3316241b79591ecc7983",
+  "source_commit_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/commit/65ab9bb8e54a88155acf3316241b79591ecc7983",
+  "plugin_tree_sha": "d9776a7bb5336e377c761b3ebe342b9b29154ef8",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.2.0",
+  "release_id": 399724065,
+  "tag": "v1.2.0",
+  "published_at": "2026-09-30T04:41:30Z",
+  "workflow": {
+    "id": 36669924511,
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/36669924511",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 109742537514,
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check the package and isolated filesystem installer",
+            "conclusion": "success"
+          },
+          {
+            "name": "Upload, verify and publish the source commit",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "release_assets": [
+    {
+      "name": "framecore-work-creative-studio-1.2.0.zip",
+      "digest": "sha256:f470142544534568869bff29d89d3abbdbf7208f6bc9f320364ad529d98029f5",
+      "state": "uploaded",
+      "size": 9082003
+    },
+    {
+      "name": "framecore-work-creative-studio-1.2.0.zip.inventory.json",
+      "digest": "sha256:a97ff333cbf262fffe99186087ef9c71cc6f5892746c7f18e76a09628bf751cc",
+      "state": "uploaded",
+      "size": 148493
+    },
+    {
+      "name": "framecore-works-creative-studio-1.2.0-repository.zip",
+      "digest": "sha256:67bb344a4aa0f2dbb69fdaebd9baf407de5bf27040a0e4efcdbab841024fe8f0",
+      "state": "uploaded",
+      "size": 10965086
+    },
+    {
+      "name": "framecore-works-creative-studio-1.2.0-repository.zip.inventory.json",
+      "digest": "sha256:0c3b2e52b8b37bd004cfaa384c82a4a5d014bc9f01df6ea0dc355ae1209aedd5",
+      "state": "uploaded",
+      "size": 182761
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:e4ab1509322f4ab35a3ce8e0753de172e3382a1e78089e1adc24d23573d99427",
+      "state": "uploaded",
+      "size": 482
+    }
+  ],
+  "hosted_plugin": {
+    "id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "version": "1.2.0",
+    "release_id": "pluginrel_6abc36f46814819181a10e363b210117",
+    "url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "new_update_required": false,
+    "reason": "Existing saved 1.2.0 package already matches the published implementation; this step publishes the same source to GitHub"
+  },
+  "source_parity": {
+    "report": "source-parity-1.2.0.json",
+    "byte_equal_readable_files": 721,
+    "path_and_size_equal_files": 732,
+    "unread_files": 11,
+    "unread_files_unchanged_from_base_commit": "8b6827d184ed1655fd95dbf12cbe05750c98a79a",
+    "limitation": "Seven large text and four binary remote contents could not be rehashed because source tools returned HTTP 413 and archive HTTP 403. Full 732-file byte equality remains unverified."
+  },
+  "client_runtime": "Not observed; saved sources do not prove client reload or behavior",
+  "local_plugin_archive_and_inventory_match_github_asset_digests": [
+    {
+      "name": "framecore-work-creative-studio-1.2.0.zip",
+      "match": true
+    },
+    {
+      "name": "framecore-work-creative-studio-1.2.0.zip.inventory.json",
+      "match": true
+    }
+  ]
+}

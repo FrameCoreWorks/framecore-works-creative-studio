@@ -5,15 +5,17 @@ Source version: **1.2.0**. Date: 2026-09-30.
 | Field | Value |
 |---|---|
 | Repository | [FrameCoreWorks/framecore-works-creative-studio](https://github.com/FrameCoreWorks/framecore-works-creative-studio) |
-| Local source | 1.2.0 learning-mode changes in the working tree, based on 8b6827d184ed1655fd95dbf12cbe05750c98a79a |
-| GitHub main / latest published release | 1.1.3, commit 8b6827d184ed1655fd95dbf12cbe05750c98a79a; rechecked during this update |
-| GitHub 1.2.0 publication | Authorized; commit and push in progress, followed by the existing release workflow |
-| Hosted plugin version | 1.2.0, saved and all 22 changed/new files verified against local source |
+| Published package source | [65ab9bb8e54a88155acf3316241b79591ecc7983](https://github.com/FrameCoreWorks/framecore-works-creative-studio/commit/65ab9bb8e54a88155acf3316241b79591ecc7983) |
+| Plugin package Git tree | d9776a7bb5336e377c761b3ebe342b9b29154ef8 |
+| GitHub release | [v1.2.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.2.0), published 2026-09-30T04:41:30Z |
+| Release workflow | [36669924511](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/36669924511), success |
+| Release assets | Five uploaded and verified; plugin ZIP and inventory hashes also match the local package |
+| Hosted plugin version | 1.2.0, saved in the existing private personal plugin |
 | Hosted current release | pluginrel_6abc36f46814819181a10e363b210117 |
-| Hosted source inventory | 732 paths, identical to the local plugin inventory |
+| Hosted readback | 721 files byte-equal; all 732 paths and sizes match local source |
+| Full hash comparison limitation | Seven large text and four binary files cannot be reread through current tools (413 / archive 403); all eleven are unchanged from 1.1.3 |
 | Active-client refresh and lesson behavior | Not observed on the new release |
-| Hosted release baseline | pluginrel_6abc0e47bd2c8191852221e9c0dd7f4c |
 | Audience | Existing private personal plugin, unchanged |
-| Source checks | See VERIFICATION.md |
+| Evidence | [Publication](verification/github-publication-1.2.0.json), [source parity](verification/source-parity-1.2.0.json), [checks](VERIFICATION.md) |
 
-GitHub and the existing ChatGPT plugin are paired release destinations under the standing project rule in AGENTS.md. Source checks, GitHub publication, hosted saving and active-client refresh retain separate evidence. The shared package is `plugins/framecore-work-creative-studio/`; repository-only CI and verification files are not plugin payload.
+GitHub and the existing ChatGPT plugin are paired release destinations under the standing project rule in AGENTS.md. The shared package is `plugins/framecore-work-creative-studio/`; repository-only CI, maintenance instructions and verification reports are outside that payload. Later documentation-only commits preserve the package tree identified above. Saved-source parity and actual client loading retain separate evidence.

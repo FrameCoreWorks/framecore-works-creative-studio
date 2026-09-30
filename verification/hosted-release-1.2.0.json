@@ -6,7 +6,6 @@
   "baseline_release_id": "pluginrel_6abc0e47bd2c8191852221e9c0dd7f4c",
   "checked_on": "2026-09-30",
   "status": "updated_and_source_verified",
-  "source_state": "Local 1.2.0 working tree based on 8b6827d184ed1655fd95dbf12cbe05750c98a79a; not pushed to GitHub",
   "scope": "Saved-source verification. Does not prove active-client refresh, runtime routing, lesson behavior or educational effectiveness.",
   "audience": {
     "scope": "USER",
@@ -168,5 +167,7 @@
   "runtime_ui": "NOT_OBSERVED",
   "behavioral_scenarios": "NOT_RUN",
   "new_plugin_created": false,
-  "providers_connected_or_used": false
+  "providers_connected_or_used": false,
+  "source_state_at_check": "Local 1.2.0 working tree based on 8b6827d184ed1655fd95dbf12cbe05750c98a79a; not pushed to GitHub",
+  "subsequent_publication": "github-publication-1.2.0.json"
 }
