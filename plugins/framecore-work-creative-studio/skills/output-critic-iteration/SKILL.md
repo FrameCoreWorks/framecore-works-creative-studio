@@ -15,6 +15,13 @@ Run the mandatory [public research preflight](../research-evidence/SKILL.md) for
 
 Judge separately: meaning and specificity; factual/copy/source correctness; visual craft and reading; requested delivery properties. A single critical mismatch blocks acceptance. An attractive image cannot compensate for wrong required text or a changed product.
 
+Apply [CQoT and conditional verification](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods)
+inside this existing review. Ask up to three relevant critical questions about
+brief fit, locks, feasible intent and actual evidence; record only findings.
+Use CoVe for material factual/technical claims, with sources or observed tests,
+not as another general review. Preserve the shared iteration count at handoffs;
+self-review does not establish independent expert or model verification.
+
 Give concrete observations, priority, preserved successes, one primary repair objective and its acceptance test. Check causally affected properties too. Distinguish prompt intent from observed pixels, diagnosis from hypothesis, and technical compliance from taste.
 
 Use a scoped edit for a local defect when the source and supported route exist; rebuild only when the mechanism or composition fails. An explicit text correction is not permission to rewrite all copy. Dense exact production requirements may require [DTP handoff](../delivery-documentation/SKILL.md).

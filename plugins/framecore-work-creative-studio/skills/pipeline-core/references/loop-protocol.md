@@ -42,6 +42,16 @@ requested artifact once within the shared project loop. Existing domain QA,
 Copy Delivery review and modality-specific review fulfill this requirement;
 do not stack a second loop or reset the budget at a role handoff.
 
+Use [the conditional method policy](inference-reasoning-methods.md#one-review-conditional-methods)
+inside this same review. CQoT means Critical-Questions-of-Thought: check the
+relevant assumptions, brief fit, locks, feasibility and evidence in up to
+three critical questions per pass. These are reviewer checks, not extra
+onboarding questions or a request to reveal hidden reasoning. Add CoVe only
+for material factual/technical claims, comparison only for a needed choice,
+and branching only when a simpler route is insufficient. Reuse existing
+research and domain QA; do not create another loop, restart the budget or
+claim an independent expert without actual delegation evidence.
+
 | Artifact | Review owner and concrete checks | Evidence boundary |
 |---|---|---|
 | Idea, concept or creative direction | Current direction owner: brief/audience fit, project specificity, distinctness when variants were requested, supported claims and feasible next stage | A proposal is not measured effectiveness, guaranteed originality or user selection; taste feedback alone is not an objective defect |

@@ -67,7 +67,7 @@ Produce one or more of:
 ## Process
 
 1. `intent-confirmation` locks goal, exclusions, work mode, expected output, and immediate next step.
-2. `workflow-orchestrator` chooses blueprint, roles, gates, handoffs, reasoning route when useful, and next action.
+2. `workflow-orchestrator` chooses blueprint, only the useful specialist roles (MoE-style responsibility selection), gates, handoffs, conditional reasoning route when useful, and next action. Role selection is not proof of separate agent execution.
 3. For nontrivial iterative work, `workflow-orchestrator` activates `loop_control_fit`: brief, checklist, bounded execution, evaluation, critique, minimal repair, regression check, and stop decision.
 4. Specialist roles produce contracts, not loose opinions. ChatGPT roles remain temporary and stop after their artifact or handoff is complete.
 5. `qa-iteration` reviews produced outputs when assets exist or when evidence-backed critique is needed.
@@ -97,6 +97,10 @@ Read only what is needed:
 ## Decision Rules
 
 - Prefer the smallest route that preserves gates and handoffs.
+- Apply CQoT (Critical-Questions-of-Thought) inside the existing output review.
+  Use [conditional methods](references/inference-reasoning-methods.md#one-review-conditional-methods)
+  for claims, choices or difficult dependencies; do not stack reviews, reset
+  repair budgets, force hidden CoT or invent independent expert execution.
 - Resolve installed Skills through the active host, not a hard-coded project path. Relative resources belong to the actual Skill directory. Native installation does not supply the repository CLI or register project agents. Map role IDs through [references/role-skill-map.md](references/role-skill-map.md); report missing supporting Skills without inventing or installing them.
 - A direct request for one prompt, brief, storyboard, caption plan, review, or other bounded artifact should route to the relevant specialist skill when its inputs are sufficient. Do not start the full pipeline merely because implicit invocation is available.
 - Use a multi-stage route when the user explicitly asks for an end-to-end or full workflow, or when the task genuinely spans dependent stages that require shared state, gates, handoffs, or QA.

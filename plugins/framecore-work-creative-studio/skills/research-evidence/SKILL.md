@@ -30,6 +30,13 @@ Choose only the lanes relevant to the task, but always perform at least one focu
 
 ## Evidence handling
 
+For material factual or technical claims, use [CoVe within the shared review](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods):
+state the verification question, check attributable sources or observed tests,
+and retain the result or Unknown. Reuse this preflight for the unchanged claim;
+neither another model answer nor a role label is independent verification.
+Critical CQoT questions test assumptions in the existing loop, not a second
+research or review cycle. Keep its shared budget and evidence boundary.
+
 Separate vendor documentation, vendor announcements/demos, user-supplied account evidence, first-hand community experiments, secondary commentary, local craft synthesis, and inference. Record the claim, source, publication date if available, access date, exact model/version/surface and operation, applicable conditions, contradiction, and the resulting decision. A repeated anecdote is not independent corroboration; a polished output without prompt, inputs, settings, and version is inspiration, not a reproducible recipe. Search snippets are leads, not audited evidence.
 
 For a user-facing answer, cite direct sources near current or factual claims when the host supports citations. Convert sources into a specific creative choice, test, or limitation instead of returning a link dump. Do not claim that research proves a design will convert, a prompt was tested, or a generator will reproduce an image.

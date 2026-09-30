@@ -18,6 +18,26 @@ const editJson = (root,file,fn) => edit(root,file,text => {const value=JSON.pars
 const codes = root => (validateStudio(root).canonical?.errors ?? []).map(item => item.code);
 
 test('workflow-kit candidate passes canonical validation', () => assert.equal(validateStudio(source).status,'PASS'));
+test('CQoT cannot use a conflicting quality-gate expansion', () => fixture(root => {
+  edit(root, 'skills/pipeline-core/references/inference-reasoning-methods.md', text => text.replace('Critical-Questions-of-Thought', 'Concise Quality Of Thought'));
+  assert.ok(codes(root).includes('REASONING_METHOD_POLICY'));
+}));
+test('method handoffs cannot lose the shared review budget or evidence boundary', () => {
+  fixture(root => {
+    edit(root, 'skills/pipeline-core/references/inference-reasoning-methods.md', text => text.replace('No method\nor handoff resets this budget', 'Each handoff starts a fresh repair budget'));
+    assert.ok(codes(root).includes('REASONING_METHOD_POLICY'));
+  });
+  fixture(root => {
+    edit(root, 'skills/pipeline-core/references/inference-reasoning-methods.md', text => text.replace('leave missing evidence Unknown', 'accept the model answer as verification'));
+    assert.ok(codes(root).includes('REASONING_METHOD_POLICY'));
+  });
+});
+test('direct reviewer and research owners must retain the conditional method route', () => {
+  for (const owner of ['output-critic-iteration', 'research-evidence']) fixture(root => {
+    edit(root, 'skills/' + owner + '/SKILL.md', text => text.replace('inference-reasoning-methods.md#one-review-conditional-methods', 'inference-reasoning-methods.md'));
+    assert.ok(codes(root).includes('REASONING_METHOD_ROUTE'));
+  });
+});
 test('static-only blueprints cannot restore separate copy or prompt intake', () => fixture(root => {
   edit(root, 'skills/pipeline-core/references/workflow-blueprints.md', text => text.replace('6. `static-direction`', '6. `static-direction`\n7. `copy-voice` when visible text matters'));
   assert.ok(codes(root).includes('KIT_STATIC_OWNER'));

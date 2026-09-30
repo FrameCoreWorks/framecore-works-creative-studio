@@ -82,11 +82,20 @@ Default routing:
 
 - `direct`: simple answers, small docs, or mechanical edits.
 - `decompose`: multi-step work that needs Plan-and-Solve or Least-to-Most.
-- `verify`: factual, QA, delivery, or claim-sensitive work using CQoT or CoVe.
-- `compare`: several plausible routes, prompts, or copy variants using Best-of-N lite and reranking.
+- `verify`: material factual or technical claims use CoVe with sources/tests;
+  evidence-sensitive review uses CQoT (Critical-Questions-of-Thought). The
+  ordinary creative CQoT check stays inside the existing loop even on a direct route.
+- `compare`: requested or genuinely unresolved plausible routes, prompts, or
+  copy variants use Best-of-N lite and reranking; accepted directions need no new candidates.
 - `tool_loop`: local checks or approved tool plans using ReAct-style summaries.
 - `branch`: bounded ToT-lite or GoT-lite when linear planning is insufficient.
 - `search`: bounded prompt/template search only with a budget, fixture, and stop condition.
+
+Use [conditional methods](inference-reasoning-methods.md#one-review-conditional-methods)
+in one shared review. MoE-style selects useful existing specialist roles;
+it is not evidence of separate model or agent execution. No method adds a
+second loop or resets the initial evaluation plus two repair/recheck budget.
+Use clear goals and observable criteria instead of forcing hidden CoT.
 
 Do not store raw chain-of-thought, raw reasoning traces, raw debate transcripts,
 or copied private context. Store only the selected strategy, method list,

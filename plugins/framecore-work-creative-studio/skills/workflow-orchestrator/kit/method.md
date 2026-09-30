@@ -72,6 +72,7 @@ Produce Project State with:
 ## Decision Rules
 
 - Prefer the smallest sufficient route. If one specialist skill can produce the requested bounded artifact from available inputs, route directly to it after intent confirmation.
+- Select reasoning methods through [the shared policy](../../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods). Keep CQoT in the existing output review, add CoVe only for material claims and compare/branch only when needed. Carry the shared loop budget across roles; MoE-style role selection does not claim executed agents.
 - Expand to a multi-stage pipeline only when the user explicitly requests end-to-end work or the task needs dependent artifacts, gates, handoffs, shared state, or QA.
 - An explicit `$workflow-orchestrator` invocation requests visible route selection and state tracking; it does not imply that every workflow stage must run.
 - If the goal is unclear, route back to `intent-confirmation`.

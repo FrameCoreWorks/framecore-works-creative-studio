@@ -69,6 +69,18 @@ export function validateStudio(root, {legacy = false} = {}) {
     const link = relative === 'skills/pipeline-core/SKILL.md' ? 'references/loop-protocol.md#automatic-output-review' : '../pipeline-core/references/loop-protocol.md#automatic-output-review';
     if (!read(relative).includes('automatically apply [output review](' + link + ')')) fail('OUTPUT_REVIEW_ENTRY', relative);
   }
+  // Guard the shared method contract; these checks do not execute model reasoning.
+  const reasoningPolicy = 'skills/pipeline-core/references/inference-reasoning-methods.md';
+  try {
+    const body = read(reasoningPolicy);
+    for (const pattern of [/CQoT means \*\*Critical-Questions-of-Thought\*\*/, /## One review, conditional methods/, /up to three critical questions per pass/, /CoVe is claim verification/, /leave missing evidence Unknown/, /No method\s+or handoff resets this budget/, /Passing work stops unchanged/, /actual delegation capability and task\s+authorization exist/, /do not require a model to reveal or narrate hidden reasoning/, /do not exceed 4 distinct variants/]) {
+      if (!pattern.test(body)) fail('REASONING_METHOD_POLICY', reasoningPolicy + ': ' + pattern);
+    }
+    if (/Concise Quality (?:Of|of) Thought/.test(body)) fail('REASONING_METHOD_POLICY', 'Conflicting CQoT expansion');
+    for (const relative of ['skills/pipeline-core/SKILL.md', 'skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/kit/method.md', 'skills/output-critic-iteration/SKILL.md', 'skills/research-evidence/SKILL.md', loopProfile]) {
+      if (!read(relative).includes('inference-reasoning-methods.md#one-review-conditional-methods')) fail('REASONING_METHOD_ROUTE', relative);
+    }
+  } catch (error) { fail('REASONING_METHOD_POLICY', error.message); }
   // Brand-profile checks guard packaged contracts, not host design or file QA.
   const brandProfile = 'skills/workflow-orchestrator/references/brand-identity-workflow.md';
   const brandPack = 'skills/workflow-orchestrator/assets/brand-identity.template.md';

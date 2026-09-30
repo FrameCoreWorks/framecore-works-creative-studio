@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.2.5
+## Current source: 1.2.9
+
+The [1.2.9 source checks](verification/release-1.2.9.json) passed canonical validation, 72 Node tests, 10 installer tests and 23 asset checks. Three new regression tests cover conflicting CQoT names, lost shared-budget/evidence rules and unreachable conditional-method routes for direct reviewers and research. The package retains 736 files and 37 skill roots. One fresh source-use prompt task retained the accepted direction and exact copy, produced one requested prompt and did not claim current model-version verification or a guaranteed perfect render. This is source-use evidence, not installed-client observation. The 183 planned host cases remain unexecuted. Paired publication status is recorded in [release status](RELEASE_STATUS.md).
+
+## Previous source: 1.2.5
 
 The [1.2.5 source checks](verification/release-1.2.5.json) passed canonical validation, fourteen learning source tests, ten installer tests, complete source-manifest verification, package byte checks and preservation checks for the unchanged 734-file/37-skill inventory. The existing learning entry, mentoring method, integration policy and workstyle owner now require one onboarding question per response and wait for its answer, reusing supplied facts and stopping as soon as a useful plan can begin. The canonical welcome is unchanged. The 183 planned host cases remain unexecuted. One fresh sandbox conversation covered four responses: subject choice, one outcome question, an unknown answer leading to one experience question, and a voluntary complete brief leading directly to the requested plan-only output. The first three responses each contained one question, a numbered choice and a free-text alternative. GitHub CI passed 62 Node tests, 10 installer tests and 23 asset checks. [Publication](verification/github-publication-1.2.5.json) records v1.2.5, five verified assets and all 734 package hashes matching source. [Hosted readback](verification/hosted-release-1.2.5.json) verifies all fourteen changed files byte-for-byte, the complete 734-path/size inventory and the unchanged canonical welcome text; the guarded overlay preserved 720 omitted files. Actual installed-client behavior remains unverified.
 

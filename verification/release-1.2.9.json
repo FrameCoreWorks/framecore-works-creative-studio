@@ -1,0 +1,55 @@
+{
+  "version": "1.2.9",
+  "checked_on": "2026-09-30",
+  "base_commit": "67c92d20e62a6ff784898586b5c5f6dcdcae033d",
+  "status": "PASS",
+  "scope": "Source contracts and local tests; saved-source parity pending, installed-client behavior and actual media QA unverified",
+  "canonical": {
+    "status": "PASS",
+    "files": 736,
+    "owners": 37,
+    "planned_host_cases": 183,
+    "executed_host_cases": 0
+  },
+  "checks": {
+    "node_tests": 72,
+    "installer_tests": 10,
+    "asset_checks": 23,
+    "github_baseline_package_hashes_equal": 736,
+    "hosted_baseline_existing_affected_source_read": 16,
+    "git_diff_check": true,
+    "archive_bytes_verified": 736
+  },
+  "preservation": {
+    "new_shared_paths": [],
+    "changed_existing_shared_paths": 15,
+    "skill_roots": 37,
+    "identity_owner_role_gate_ids_upstream_assets_welcome_menus_and_learning_unchanged": true,
+    "plugin_level_defaultPrompt_preserved": true,
+    "metadata_changes": [
+      "version"
+    ],
+    "test_reports_or_transcripts_added_to_package": false
+  },
+  "source_use": {
+    "status": "PASS",
+    "tasks": 1,
+    "scope": "Fresh source-use prompt task, not installed-client or media execution",
+    "checks": [
+      "One standalone English prompt from an accepted direction, without unwanted alternatives",
+      "Exact Polish strings and 4:5 format preserved",
+      "No added time, address, organizer, CTA or render",
+      "No guarantee of perfect rendered text or claimed current model-version verification",
+      "No fabricated expert or tool execution"
+    ]
+  },
+  "publication": {
+    "status": "pending",
+    "active_client": "unverified"
+  },
+  "archive": {
+    "plugin_sha256": "208bd0cb947824c9aba1a643daac195f725f77920b6a59222e0838d661145da7",
+    "hosted_changed_file_count": 15,
+    "local_repository_banner": "Unavailable locally; preserved by remote base tree; CI builds the complete repository archive."
+  }
+}

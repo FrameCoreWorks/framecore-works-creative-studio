@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "e3be4676333f92850a15b719011de143ec28dcb7071aae277916c57dfb417420"
+      "sha256": "fe993f5468f6e2550f7a68bb17543beb130d94c1f7e3d5493053f8d2b413cf79"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 12576,
-      "sha256": "ef38860040dab7450ebaa85558a4ede5c21e16d8f84313b3b7e3f8010f0b3bcb"
+      "sha256": "e717c72326b535d7ffdcc70bd383429909cbdbcab08b74e95a39239b754a4048"
     },
     {
       "path": "assets/logo.png",
@@ -98,8 +98,8 @@
     },
     {
       "path": "docs/migration-status.md",
-      "bytes": 10847,
-      "sha256": "0a60ac925f3939f93d8ae4dbaef1924af711d000463caf9a3024b0f8b4bbf244"
+      "bytes": 10980,
+      "sha256": "e9816f88c3ed2a45ab417fb3a22f5bf710179d09dedeb4a860f0f12825675af8"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -118,8 +118,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 25441,
-      "sha256": "47a13abe8d05c55ed9740bdbbdce3795cfee98c43f53f8c0a3ff65c30b6b54cb"
+      "bytes": 26305,
+      "sha256": "37492a8cf671bd1c8f2b02f53f8763a5c66ac3131d0cdea7002a385c0ad4b8d3"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2184,7 +2184,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "1afcd13a5639abf710d8ab8fe3e0b8ea1964c967b61b2adbfbeeabef24c84168"
+      "sha256": "9cb90cd0019781c13e563f71bf5f3db8c88cd0f15c22ee410ed1685d98074e89"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2218,8 +2218,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 25735,
-      "sha256": "b3f105f9d0c3720906baa3a6e4a1108e2af51b91b38eaab170a0b710ee108eda"
+      "bytes": 27113,
+      "sha256": "c545c50f45d4d356fd3e997b9d20aa09e0b011b49672c2082dbbd86b3b300f7b"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -2833,8 +2833,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 4951,
-      "sha256": "0d076b271dd8f0b6dd7805d04a92973899d817baccb5ff2e6d9bb6ce6e487ad6"
+      "bytes": 5474,
+      "sha256": "96743ec8d82a022fa9be14c0c7b7840bc653de0d0eb6cdb000a4e52285f2847e"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -2873,8 +2873,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 18164,
-      "sha256": "43acd8e12546203202753419d372256e70d867d94da2db23f5b88cc0095d3d2b"
+      "bytes": 18631,
+      "sha256": "308239fa9edd0bd7e5129c3932a67add55382b226254dde80d1a354b568bba3c"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -2938,13 +2938,13 @@
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
-      "bytes": 6590,
-      "sha256": "827324a3a19e97b208dc42e6aa5cfda14ce017dc757a31e6f494a09feb4625f3"
+      "bytes": 10799,
+      "sha256": "46f593176a9a28b7670aefa2071033aa974f94ebea65aec1ff26b0fa38ceb722"
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
-      "bytes": 12303,
-      "sha256": "20f38cf952e2041cfb907823f20759b3ca4796cab3c3a4106b296d65171783ab"
+      "bytes": 12988,
+      "sha256": "0366cb930be93caa6021867c1eb531faa60129391fa83d5acb095caaac54d8f8"
     },
     {
       "path": "skills/pipeline-core/references/project-recovery.md",
@@ -2978,8 +2978,8 @@
     },
     {
       "path": "skills/pipeline-core/references/workflow-operating-model.md",
-      "bytes": 7226,
-      "sha256": "b8c7a89d22c3c49f2bc8b840bd17f498b6cadb681cfb2fc5f81bad380f95883d"
+      "bytes": 7842,
+      "sha256": "59f5956c312382ade1d487dd3b8770835e2721b1b258dacee25d428dc0e4798d"
     },
     {
       "path": "skills/pipeline-core/templates/artifact-templates.md",
@@ -3058,8 +3058,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 11568,
-      "sha256": "71bf7d25171e4ea94a658ab18dfc1b12a0341ec7ac6e49e866691c8d7e3a44e7"
+      "bytes": 12121,
+      "sha256": "6cbfcfaf615d29f768e01956ebbb7d2d8ea6b2543f54baf986b11802f56c4de3"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -3578,8 +3578,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 25519,
-      "sha256": "1f20e971faf12086f2688a7199d99f6a174cb3637bf88a4e4818b0b889f27803"
+      "bytes": 26184,
+      "sha256": "0966e14bd8689d4c4fb795429c43cb73d79b373874a02afbe1411d7f7601cdc5"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -3623,8 +3623,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/kit/method.md",
-      "bytes": 6404,
-      "sha256": "080329f180d3863952916d2b4a0ae47a6b53e2740d5434adce29670542b10470"
+      "bytes": 6766,
+      "sha256": "e1ed93a6e18b17aa903536d9c09fa0cb63a1579686a88e309ac84a91c472231b"
     },
     {
       "path": "skills/workflow-orchestrator/references/asset-change-routing.md",
@@ -3723,8 +3723,8 @@
     },
     {
       "path": "tests/workflow-kit.test.mjs",
-      "bytes": 6757,
-      "sha256": "0a5a57320b40843d939616603d4835312ff2faf2b0f6812d21dae410e5dc7278"
+      "bytes": 8148,
+      "sha256": "e0aad182cce7a54140aab49201fce99f70227157045ec90c137ad47afd79f160"
     }
   ]
 }

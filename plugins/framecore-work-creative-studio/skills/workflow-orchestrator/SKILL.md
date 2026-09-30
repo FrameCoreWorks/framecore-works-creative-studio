@@ -127,6 +127,15 @@ Use Pipeline Core as the canonical operating contract. For a complete video rout
 
 ## Compact routes and creative feedback
 
+Use [conditional method selection](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods)
+for the current artifact. MoE-style selects only useful existing owner knowledge;
+CQoT (Critical-Questions-of-Thought) supplies a compact check inside the same
+automatic output review. CoVe checks material claims with evidence; compare
+variants only for a requested or unresolved choice and branch only when needed.
+Use clear goals and acceptance criteria, not mandatory hidden-CoT narration.
+Keep one review and repair budget across handoffs; roles are not proof that
+separate agents ran. Direct specialist work follows the same policy.
+
 Use [compact routing and optional project review](references/compact-routing-and-pilot.md) to load only the current owner and useful resources. Route weak concepts to the creative decision library, temporal defects to Sequence/Video and taste feedback to Studio Workstyle Profile. Do not create extra agents or worksheets for a small task.
 
 For plugin improvement requests, continue authorized development without making a pilot or client project a prerequisite. An explicit refusal of pilots also excludes disguised fresh-use exercises. Use bounded integrity checks for the changed package and report their scope honestly.
