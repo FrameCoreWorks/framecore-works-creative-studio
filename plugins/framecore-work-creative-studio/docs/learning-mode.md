@@ -1,11 +1,13 @@
-# Tryb nauki i Tryb tworzenia
+# Tryb kreatywny i Tryb nauki
 
 Od wersji 1.2.0 Studio rozpoznaje dwa równorzędne cele pracy:
 
 - **Tryb nauki**: krótki onboarding, osobisty program, lekcja, samodzielne ćwiczenie i omówienie próby.
-- **Tryb tworzenia**: dotychczasowy workflow prowadzący do zamówionego materiału.
+- **Tryb kreatywny**: dotychczasowy workflow prowadzący do zamówionego materiału; „Tryb tworzenia” pozostaje obsługiwanym aliasem.
 
-Przy powitaniu lub niejasnym celu zobaczysz krótki wybór. Jeśli od razu opiszesz projekt albo poprosisz o naukę, Studio przejdzie do właściwej ścieżki. Przyciski zależą od faktycznych możliwości hosta; zawsze może działać wybór tekstowy. Quick/Deep nadal określa tempo i głębokość pracy, niezależnie od celu.
+Od 1.2.1 przy powitaniu lub uruchomieniu bez briefu zobaczysz pełny opis Studio i jego możliwości, a następnie **1. Tryb kreatywny / 2. Tryb nauki**. Po samym wyborze kreatywnym Studio pokazuje **1. Tryb szybki / 2. Tryb rozbudowany**, następnie wcześniejsze menu obszarów pracy i dopiero potrzebne pytanie o zadanie. Numer dotyczy ostatnio pokazanego menu. [Kontrakt wejścia](../skills/workflow-orchestrator/references/startup-and-creative-menus.md) obejmuje również wznowienie starszej rozmowy i pomijanie już podanych decyzji.
+
+Jeśli od razu opiszesz projekt albo poprosisz o naukę, Studio przejdzie do właściwej ścieżki bez zbędnych wyborów. Przyciski zależą od faktycznych możliwości hosta; zawsze może działać wybór tekstowy. Quick/Deep nadal określa tempo i głębokość pracy, niezależnie od celu.
 
 ## Początek nauki
 

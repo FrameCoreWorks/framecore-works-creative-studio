@@ -2,6 +2,7 @@
 
 - interaction_mode: learning | creation | undecided
 - pace: quick | deep | user_defined
+- entry_context: optional; stage (intent_choice | pace_choice | area_choice | brief | working), last menu actually shown, selected work area and next unresolved choice. Use [startup and creative menus](../../workflow-orchestrator/references/startup-and-creative-menus.md); keep numeric interpretation tied to the displayed menu, not a global shortcut.
 - learning_context: optional; goal, selected domains, level evidence, plan revision, current module/lesson, completed/skipped lessons, strengths, practice needs, constraints, next action and persistence evidence. Use the [progress card](../../workflow-orchestrator/assets/learning-progress.template.md) for a portable view of this same state.
 
 - workflow_blueprint:

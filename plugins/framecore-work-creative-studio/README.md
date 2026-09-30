@@ -1,14 +1,16 @@
 # FrameCore Works Creative Studio
 
-Wersja: 1.2.0.
+Wersja: 1.2.1.
 
 Pierwsze stabilne wydanie udokumentowanego zakresu Studio. [Zakres 1.0](docs/release-1.0.md) opisuje zawartość i granice wydania. Kod, instrukcje i dokumentacja FrameCore Works są objęte [Apache-2.0](LICENSE); zachowano licencje i oznaczenia źródeł.
 
 Creative Studio prowadzi pracę od briefu i materiałów wejściowych do kierunku, storyboardu, promptów i planu montażu dla obrazu, wideo, dźwięku i tekstu. Odpowiedzi dopasowuje do trybu szybkiego lub pogłębionego; przy nowej decyzji kreatywnej obowiązuje celowany publiczny research. Generowanie, analiza mediów i integracje zależą od faktycznie dostępnych, wybranych przez użytkownika narzędzi.
 
-## Tryb nauki i Tryb tworzenia
+## Powitanie, Tryb kreatywny i Tryb nauki
 
-**Tryb nauki** prowadzi przez krótki onboarding, spersonalizowany plan, ćwiczenia i omówienie Twojej pracy w 14 obszarach istniejących skilli. **Tryb tworzenia** zachowuje dotychczasową pracę nad projektem. Jasna prośba omija menu, a Quick/Deep określa tempo niezależnie od trybu. Przy braku trwałego zapisu możesz przenieść Kartę postępu do kolejnej rozmowy. [Opis trybów, zakres i ograniczenia](docs/learning-mode.md).
+Pełne powitanie wyjaśnia, czym jest Studio i co potrafi, a następnie pokazuje **1. Tryb kreatywny / 2. Tryb nauki**. Po samym wyborze kreatywnym otrzymasz **1. Tryb szybki / 2. Tryb rozbudowany**, a potem wcześniejsze menu obszarów i doprecyzowanie zadania. **Tryb tworzenia** pozostaje aliasem trybu kreatywnego. Jasna prośba omija zbędne wybory; numer odnosi się do ostatnio pokazanego menu. [Powitanie i dalsze kroki](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
+
+**Tryb nauki** zachowuje krótki onboarding, spersonalizowany plan, ćwiczenia i omówienie Twojej pracy w 14 obszarach istniejących skilli. Quick/Deep określa tempo niezależnie od celu. Przy braku trwałego zapisu możesz przenieść Kartę postępu do kolejnej rozmowy. [Opis trybów, zakres i ograniczenia](docs/learning-mode.md).
 
 ## Instalacja i aktualizacja
 

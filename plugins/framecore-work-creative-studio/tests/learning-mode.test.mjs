@@ -55,6 +55,28 @@ test('both intent labels and immediate production entry remain discoverable', ()
   });
 });
 
+test('startup cannot lose its welcome, creative pace step or displayed-menu number binding', () => {
+  const startup = 'skills/workflow-orchestrator/references/startup-and-creative-menus.md';
+  for (const phrase of ['## Complete welcome', '1. **Tryb kreatywny**', '2. **Tryb nauki**', '## Creative pace choice', '## Established work-area menu', 'bare number only against the last menu actually shown', 'concrete project request bypasses menus']) fixture(root => {
+    edit(root, startup, text => text.replaceAll(phrase, 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), phrase);
+  });
+});
+
+test('orchestrator and shared intake cannot bypass the creative pace transition', () => {
+  for (const [path, phrase] of [
+    ['skills/workflow-orchestrator/SKILL.md', 'After a mode-only creative choice'],
+    ['skills/workflow-orchestrator/references/intake-and-reference-authority.md', 'mode-only creative choice gets Quick/Deep pace selection'],
+    ['skills/pipeline-core/templates/project-state.md', 'last menu actually shown']
+  ]) fixture(root => {
+    edit(root, path, text => text.replaceAll(phrase, 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), path);
+  });
+  const start = loadEffectiveEvals(source).cases.find(c => c.id === 'LM01');
+  assert.deepEqual(start.follow_up_sequences.map(item => item.id), ['creative_quick', 'creative_deep', 'learning', 'direct_brief']);
+  assert.ok(start.follow_up_sequences.every(item => item.execution_status === 'not_run'));
+});
+
 test('lesson contract retains bounded onboarding, full plan, learner attempt and adaptive feedback', () => {
   for (const phrase of ['at most six short questions', 'optional blanks do not block', 'all requested supported specializations', 'begin the first lesson', 'Stop for the learner\'s attempt', 'one or two priority improvements']) fixture(root => {
     edit(root, method, text => text.replaceAll(phrase, 'removed'));

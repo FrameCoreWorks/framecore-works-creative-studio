@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1, 2026-09-30
+
+- Restores the complete Studio welcome, capability overview and optional asset invitation.
+- Uses 1. Tryb kreatywny / 2. Tryb nauki at startup, keeping Tryb tworzenia as an alias.
+- Restores quick/expanded pace selection and the established seven creative work areas after a mode-only choice.
+- Binds numeric replies to the last menu actually shown; preserves explicit decisions, older-session numbering and direct-task bypass.
+- Keeps the learning method, existing owners, pinned sources, identity, assets and execution limits; adds focused source regression checks.
+
 ## 1.2.0, 2026-09-30
 
 - Adds optional Tryb nauki / Tryb tworzenia intent routing while keeping Quick/Deep as pace.

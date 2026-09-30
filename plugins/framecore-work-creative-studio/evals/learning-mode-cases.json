@@ -28,14 +28,66 @@
       "research_expectation": "not_applicable",
       "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
       "checks": [
-        "Show only the short Tryb nauki / Tryb tworzenia choice and wait.",
-        "Use a genuine choice control if exposed; otherwise numbered text; do not invent buttons.",
-        "No domain default, onboarding, research or generation before intent is known."
+        "Complete welcome explains the Studio, non-exhaustive capabilities and optional uploads before 1. Tryb kreatywny / 2. Tryb nauki; wait.",
+        "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany; a pace-only choice then shows the established work-area menu.",
+        "Interpret numbers against the last displayed menu, preserve pace, and do not send a learner through creative menus.",
+        "A concrete supplied brief bypasses redundant choices; no default domain, onboarding, research or generation before a substantive task.",
+        "Use a genuine choice control if exposed; otherwise numbered text; do not invent buttons."
       ],
       "required_evidence": [
         "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
         "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
         "Reviewer decision against each check; declared fixture states are not observations."
+      ],
+      "follow_up_sequences": [
+        {
+          "id": "creative_quick",
+          "execution_status": "not_run",
+          "user_messages": [
+            "1",
+            "1",
+            "1"
+          ],
+          "expected_steps": [
+            "creative_pace_menu",
+            "creative_work_area_menu_quick",
+            "missing_graphic_brief_quick"
+          ]
+        },
+        {
+          "id": "creative_deep",
+          "execution_status": "not_run",
+          "user_messages": [
+            "1",
+            "2",
+            "2"
+          ],
+          "expected_steps": [
+            "creative_pace_menu",
+            "creative_work_area_menu_deep",
+            "missing_video_brief_deep"
+          ]
+        },
+        {
+          "id": "learning",
+          "execution_status": "not_run",
+          "user_messages": [
+            "2"
+          ],
+          "expected_steps": [
+            "learning_onboarding"
+          ]
+        },
+        {
+          "id": "direct_brief",
+          "execution_status": "not_run",
+          "user_messages": [
+            "1, napisz tylko prompt plakatu 4:5 z napisem Wspólne czytanie, jedną książką i płaskimi kolorami."
+          ],
+          "expected_steps": [
+            "direct_creation_prompt_no_generation"
+          ]
+        }
       ]
     },
     {

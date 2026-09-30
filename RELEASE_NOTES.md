@@ -1,13 +1,13 @@
-# Creative Studio 1.2.0
+# Creative Studio 1.2.1
 
-Adds optional learning mode to the existing creative studio.
+Restores the full welcome and the established creative entry sequence while retaining learning mode.
 
-- Short Tryb nauki / Tryb tworzenia choice for unclear intent; direct learning or project requests bypass that menu.
-- At most six initial learning questions, reusing known answers and allowing optional omissions.
-- Personalized ordered modules, practical exercises, assessment criteria, tool/cost boundaries and estimated effort.
-- Fourteen supported creative areas, shared foundations for broad goals and an integrative project.
-- Short lessons with learner participation, adaptive feedback and a portable progress card.
-- Immediate switching between learning and the existing production workflow; Quick/Deep remains pace.
+- Complete Studio introduction, non-exhaustive capabilities and optional asset invitation.
+- Startup choice: 1. Tryb kreatywny / 2. Tryb nauki. Tryb tworzenia remains an alias.
+- Creative mode-only choice: quick/expanded pace, then the established seven work areas and relevant brief.
+- Numeric replies follow the last displayed menu, including older-session order.
+- Concrete requests, supplied decisions and resumed projects skip redundant menus.
+- Learning onboarding, curriculum, exercises, feedback and progress remain intact.
 - Existing 37 skills, source archives, identity, logo, starter prompts and execution boundaries are retained.
 
-Sixteen added behavior specifications are planned, not executed host tests. Source regression tests check the mentoring contract, mapped owners, progress references, scenario integrity and production entry. They do not establish real lesson quality, UI behavior or educational effectiveness. See VERIFICATION.md and RELEASE_STATUS.md for source checks and separate publication/hosted-save evidence.
+Source regression tests protect the welcome, creative-menu transitions, number interpretation and direct production bypass. Planned behavior cases remain planned; a bounded text-only probe is separate from installed-client behavior. See VERIFICATION.md and RELEASE_STATUS.md for source checks and paired publication evidence. No media generation, provider setup or educational effectiveness test is included.

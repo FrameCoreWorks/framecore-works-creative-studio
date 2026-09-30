@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.2.0
+## Current source: 1.2.1
+
+This update restores the complete welcome and the creative entry sequence. Current deterministic source checks, package inventory, bounded text-only entry probe and paired release readback are recorded in `verification/release-1.2.1.json` once performed. The probe is an attributed source-use exercise, not observed behavior of a newly installed ChatGPT/Codex client. The 183 planned cases remain unexecuted host specifications.
+
+## Previous source: 1.2.0
 
 The learning-mode source checks are recorded in [1.2.0 verification](verification/release-1.2.0.json). They cover the 37-skill package, mapped learning domains, menu/production-entry instructions, lesson/progress contracts, source-guarded greeting override, existing production checks, native wrapper and complete source inventory. These are deterministic source and filesystem checks, not executed conversations or educational outcome measurements.
 

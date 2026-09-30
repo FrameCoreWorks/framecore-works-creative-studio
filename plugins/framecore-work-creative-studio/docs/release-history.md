@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.2.1, 2026-09-30
+
+Restored the full Studio welcome and capability overview. Startup now offers 1. Tryb kreatywny / 2. Tryb nauki; a mode-only creative choice leads to quick/expanded pace, the established seven work areas and a relevant brief. Numeric replies bind to the last displayed menu, including older-session order. Concrete briefs bypass redundant selections. The learning curriculum, 37 skill identities, original sources, logo, starter prompts and execution boundaries remain intact. Updated source guards check these entry contracts; planned cases remain unexecuted host specifications. Source checks and a bounded text-only probe do not prove installed-client behavior.
+
 The following notes preserve earlier checkpoints and their evidence limits. Their version numbers, fixture counts, external project paths and pending statuses describe those checkpoints, not the current release. See migration-status.md and the root README for current scope.
 
 Punkt kontrolny dev.7 dodał cross-cutting intake/reference authority synthesis. Dev.8 doprecyzowuje aktywny research i naprawia sprzeczne expectationy w fixtures. Wstępny source map znajduje się poza runtime w `Execution/audit/codex-skill-agent-crosswalk.md`; pełny transfer wiedzy z Codex jest nieukończony.

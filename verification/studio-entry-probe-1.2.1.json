@@ -1,0 +1,41 @@
+{
+  "version": "1.2.1",
+  "checked_on": "2026-09-30",
+  "surface": "Isolated source-use agent conversation; not an installed-client UI test",
+  "source_path": "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/SKILL.md",
+  "status": "PASS",
+  "scope": "Full welcome and creative quick/graphic entry only; no teaching, research, generation or provider execution.",
+  "turns": [
+    {
+      "user": "Uruchom FrameCore Works Creative Studio.",
+      "observed": "Complete Studio introduction and capability overview; 1. Tryb kreatywny / 2. Tryb nauki; optional asset invitation; waits."
+    },
+    {
+      "user": "1",
+      "observed": "Tryb kreatywny. 1. Tryb szybki / 2. Tryb rozbudowany; waits."
+    },
+    {
+      "user": "1",
+      "observed": "Tryb szybki. Seven established work areas, including graphics, video, storyboard, campaigns, copy, music/audio and media review; waits."
+    },
+    {
+      "user": "1",
+      "observed": "Grafika statyczna, tryb szybki. Asks the missing graphic brief and optional inputs without restarting modes."
+    }
+  ],
+  "acceptance": {
+    "full_welcome": true,
+    "creative_option_1": true,
+    "pace_menu_after_creative": true,
+    "areas_after_quick": true,
+    "number_resolved_by_displayed_menu": true,
+    "quick_preserved_at_brief": true,
+    "no_generation_or_forced_default": true
+  },
+  "not_observed": [
+    "Fresh installed ChatGPT/Codex client behavior",
+    "Expanded branch and learning lessons",
+    "Native host choice buttons",
+    "Automatic welcome without a sent message"
+  ]
+}

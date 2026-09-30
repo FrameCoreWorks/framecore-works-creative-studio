@@ -1,0 +1,73 @@
+{
+  "version": "1.2.1",
+  "checked_on": "2026-09-30",
+  "base_commit": "441eb8668c53ad0765332d64cb0146c36b46e597",
+  "status": "PASS",
+  "scope": "Deterministic package and source regression checks; bounded entry text probe reported separately.",
+  "canonical": {
+    "status": "PASS",
+    "files": 733,
+    "owners": 37,
+    "total_planned": 183,
+    "executed_host_cases": 0
+  },
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "TMPDIR=/tmp node --test --test-isolation=none plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs plugins/framecore-work-creative-studio/tests/studio.test.mjs plugins/framecore-work-creative-studio/tests/workflow-kit.test.mjs",
+      "exit_code": 0,
+      "runner_passed": 48
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 TMPDIR=/tmp python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "exit_code": 0,
+      "passed": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 TMPDIR=/tmp python3 -m unittest discover -s tests -p test_codex_install.py -v",
+      "exit_code": 0,
+      "passed": 7
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "local_execution_limits": "Node child-process helpers return EPERM on this Work surface. Local runner outcomes do not establish child-process execution; full release suites will run in GitHub CI. No legacy or installed-client behavior claim.",
+  "guarded_hosted_baseline": {
+    "release_id": "pluginrel_6abc36f46814819181a10e363b210117",
+    "existing_changed_files_byte_equal": 16,
+    "path_inventory": 732
+  },
+  "preservation": {
+    "skill_roots": 37,
+    "unchanged_identity_logo_starters": true,
+    "unchanged_vendored_sources": true,
+    "new_reference_files": 1,
+    "changed_existing_package_files": 16
+  },
+  "archive": {
+    "plugin_files": 733,
+    "plugin_sha256": "4047d34456d1b1eb7dfaab9315ad79215bcdf60042280bb811c8dff4c860925e",
+    "verified_against_complete_install_inventory": true,
+    "local_repository_zip_limitation": "Unchanged repository-only banner unavailable through source tools. GitHub CI must produce complete repository archive from the preserved remote tree."
+  },
+  "entry_probe": "studio-entry-probe-1.2.1.json",
+  "publication": "Pending source commit and hosted guarded update at report creation; subsequent evidence is recorded in RELEASE_STATUS.md.",
+  "not_run": [
+    "183 planned host behavior cases",
+    "Fresh installed-client UI/lesson behavior",
+    "Media generation and paid providers"
+  ]
+}

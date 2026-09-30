@@ -4,7 +4,7 @@ This mentoring layer belongs to Workflow Orchestrator and the existing Project S
 
 ## Intent and handoff
 
-Use `interaction_mode: learning | creation | undecided` separately from Quick/Deep pace. A greeting or unclear intent gets the two-option menu from the orchestrator and waits for a choice. Explicit learning goes to onboarding; explicit production goes directly to the established production owner. Do not classify by topic alone: “teach me posters” and “make a poster” have different outcomes. “Teach me on my project” stays in learning. Do not assume video or character references.
+Use `interaction_mode: learning | creation | undecided` separately from Quick/Deep pace. A greeting or unclear intent gets the complete welcome and two-option menu from [startup and creative menus](startup-and-creative-menus.md) and waits for a choice: 1. Tryb kreatywny; 2. Tryb nauki. Tryb tworzenia remains an alias for creation. A mode-only creative choice continues to pace and area selection, while explicit production with a concrete task goes directly to the established production owner. Explicit learning goes to onboarding. Do not classify by topic alone: “teach me posters” and “make a poster” have different outcomes. “Teach me on my project” stays in learning. Do not assume video or character references.
 
 Directly invoked specialists apply this same overlay when learning is explicit. Pass only the learner's outcome, known level for this domain, relevant constraints, current module, selected exercise, assessment criteria and available evidence. The domain owner explains or reviews that exercise instead of silently fulfilling its default full-production output. No new role, agent, mandatory gate or parallel project registry is introduced.
 
