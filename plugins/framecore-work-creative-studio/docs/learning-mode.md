@@ -11,7 +11,7 @@ Jeśli od razu opiszesz projekt albo poprosisz o naukę, Studio przejdzie do wł
 
 ## Początek nauki
 
-Studio wykorzystuje informacje, które już podałeś. Dopytuje maksymalnie w sześciu krótkich pytaniach o cel samodzielny, doświadczenie, projekt, narzędzia, czas/budżet oraz preferowaną formę nauki. Możesz odpowiadać krótko, pomijać nieistotne kwestie lub napisać „nie wiem”. Brak programu, sprzętu czy płatnego konta nie blokuje ćwiczeń na papierze lub w tekście.
+Studio wykorzystuje informacje, które już podałeś. Onboarding prowadzi krok po kroku: **jedno pytanie w wiadomości, Twoja odpowiedź, dopiero potem kolejne potrzebne pytanie**. Przy wyborach możesz podać numer albo odpowiedzieć własnymi słowami. Studio nie wyświetla całego formularza, nie łączy kilku decyzji w jednym pytaniu i pomija kwestie już wyjaśnione. Zadaje najwyżej sześć krótkich pytań łącznie, wybierając tylko te, które wpływają na plan. Gdy zna wystarczająco dużo, od razu układa plan i zaczyna lekcję. Możesz odpowiadać krótko, pomijać nieistotne kwestie lub napisać „nie wiem”. Brak programu, sprzętu czy płatnego konta nie blokuje ćwiczeń na papierze lub w tekście.
 
 Przykład: „Chcę samodzielnie projektować plakaty. Poziom zero, 30 minut trzy razy w tygodniu, bez kosztów. Wolę przykłady i ćwiczenia”. Takie kompletne wejście pozwala od razu ułożyć plan i zacząć lekcję.
 

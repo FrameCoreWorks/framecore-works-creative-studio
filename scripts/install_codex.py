@@ -83,6 +83,10 @@ and copy verbatim the entire fixed welcome with its final 1. Tryb kreatywny /
 sent Studio-only invocation, even in an existing conversation. Follow the
 orchestrator's explicit-language rule; preserve project and learning checkpoints.
 Concrete tasks and actual resume requests bypass the welcome.
+In learning onboarding, ask exactly one question about one missing decision,
+accept its numbered option or free text, then wait for the answer. Never show a
+question batch; reuse supplied facts and skip known questions. Sufficient context
+goes directly to the plan and first lesson at every host reasoning setting.
 A mode-only creative choice must show 1. Tryb szybki / 2. Tryb rozbudowany;
 a pace-only choice shows the seven work areas. These steps apply at every host
 reasoning setting. Bind choice tokens only to currently pending displayed groups.

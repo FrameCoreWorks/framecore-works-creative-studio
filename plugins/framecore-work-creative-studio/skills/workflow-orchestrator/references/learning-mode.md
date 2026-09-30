@@ -10,18 +10,38 @@ Directly invoked specialists apply this same overlay when learning is explicit. 
 
 ## Onboarding
 
-Reuse all supplied answers. Ask only missing questions that change the plan, in at most six short questions total for initial onboarding, either together or one at a time if preferred. Permit a short numbered answer and “nie wiem”. Do not restart onboarding at each owner handoff. Suggested Polish prompts:
+Reuse all supplied answers. Ask only missing questions that change the plan, in at most six short questions total for initial onboarding. Ask exactly one onboarding question per response and wait for the learner's answer. This means one topic or decision, not several subquestions joined in one sentence. Do not group onboarding questions, display a questionnaire, preview later questions or add a second choice about level, tools, pace or format. The rule applies at every model and reasoning/effort setting. Six is a ceiling, not a quota; stop earlier when enough is known to make a useful plan.
 
-When offering alternatives, use the pending-group rules in [startup and creative menus](startup-and-creative-menus.md): give options reply tokens, use numbers for one group and letters for another in the same message, and retain the displayed mapping only until answered. For example, domains plus pace may accept `7, A`. The numbered questions below are prompts for free-text answers, not six overlapping option menus. Lesson/quiz numbers never activate a resolved startup menu.
+On a mode-only learning choice, close the startup intent group and ask only the first missing learning question. If no subject is known, a concise Polish opening is:
 
-1. Czego chcesz się nauczyć i jaki rezultat chcesz umieć osiągnąć samodzielnie?
-2. Co już umiesz w tych obszarach? Możesz zacząć całkiem od podstaw.
-3. Czy masz projekt do nauki, czy wolisz prosty przykład ćwiczeniowy?
-4. Z jakich narzędzi korzystasz lub chcesz korzystać? Możemy zacząć bez płatnych narzędzi.
-5. Ile czasu chcesz przeznaczać na naukę i jakie masz ograniczenia budżetowe?
-6. Wolisz krótkie wyjaśnienia, ćwiczenia, analizę przykładów, quizy czy połączenie tych form?
+> **Czego chcesz się nauczyć?**
+>
+> 1. Grafika i plakaty
+> 2. Wideo i montaż
+> 3. Teksty i opowiadanie historii
+> 4. Muzyka i dźwięk
+> 5. Prompty i organizacja pracy
+>
+> Wpisz numer albo opisz własny temat. Możesz też napisać „nie wiem”.
 
-For an uncertain learner, first offer a few varied outcomes: readable poster, short scene, planned music video, sound cue map. Then build on the selected outcome. For “everything”, preserve the broad goal rather than making the learner pick a single field. Unknown tools or budget use a no-render, no-additional-purchase exercise and a visible assumption. Unknown time uses adjustable estimated effort. Never assume paid access, equipment, files, budget or experience. Ask further only when a critical missing input genuinely prevents a useful start; optional blanks do not block the first lesson.
+These are examples of paths, not a closed competency list. If the subject is already supplied, skip this opening and ask only its next material unknown. For every onboarding question, accept a number from its displayed options or a natural-language answer; offer “nie wiem” or a skip without a penalty. Use a small set of plain-language options only when it helps, with explicit reply tokens and a free-text alternative. Keep a single pending question/choice group under the existing `learning_context` and pending-group rules from [startup and creative menus](startup-and-creative-menus.md); replace the old mapping after its answer. There are no simultaneous domain/level/pace groups in learning onboarding. Lesson/quiz numbers never activate a resolved startup menu.
+
+Keep the following considerations backstage, not as a checklist to show the learner. Choose only the next missing item that would materially change the plan:
+
+| Consideration | One possible question |
+|---|---|
+| Subject | Czego chcesz się nauczyć? |
+| Independent outcome | Co chcesz umieć zrobić samodzielnie? |
+| Relevant experience | Co już umiesz w tym obszarze? |
+| Practice context | Wolisz ćwiczyć na swoim projekcie czy na prostym przykładzie? |
+| Tools | Z jakich narzędzi chcesz korzystać? |
+| Learning form | Jaka forma nauki najbardziej Ci odpowiada? |
+| Time, when needed | Ile czasu chcesz przeznaczać na naukę? |
+| Budget, when needed | Czy nauka ma się odbywać bez dodatkowych kosztów? |
+
+Time and budget are separate decisions; never combine them into one question. Do not collect every row. Read each answer for all supplied facts, including voluntary answers to later considerations. Briefly acknowledge what is useful, retain it, then ask only the next necessary question and wait. Do not ask an already answered question or restart onboarding at a specialist handoff, correction or resume. Track known/unknown answers, the number of questions asked, one pending question and the next action within the existing Project State; keep this out of the user-facing response.
+
+For an uncertain learner, offer a few varied concrete outcomes as one choice, such as a readable poster, short scene, planned music video or sound cue map. Build on that choice rather than adding a questionnaire. For “everything”, preserve the broad goal instead of forcing a single field. An unknown or skipped answer resolves that question as unknown; do not repeatedly demand it. Unknown tools or budget use a no-render, no-additional-purchase exercise with a visible assumption. Unknown time uses adjustable estimated effort. Never assume paid access, equipment, files, budget or experience. Optional blanks do not block the first lesson. Once sufficient context is available, move to the personal plan and first lesson rather than filling the six-question allowance; a complete supplied learning brief goes there directly.
 
 ## Personal plan
 

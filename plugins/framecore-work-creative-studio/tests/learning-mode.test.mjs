@@ -83,8 +83,11 @@ test('orchestrator and shared intake cannot bypass the creative pace transition'
 });
 
 test('lesson contract retains bounded onboarding, full plan, learner attempt and adaptive feedback', () => {
-  for (const phrase of ['at most six short questions', 'optional blanks do not block', 'all requested supported specializations', 'begin the first lesson', 'Stop for the learner\'s attempt', 'one or two priority improvements']) fixture(root => {
-    edit(root, method, text => text.replaceAll(phrase, 'removed'));
+  for (const [file, phrase] of [
+    ...['at most six short questions', 'Ask exactly one onboarding question per response and wait', 'Do not group onboarding questions', 'a natural-language answer', 'Do not ask an already answered question', 'Optional blanks do not block', 'all requested supported specializations', 'begin the first lesson', 'Stop for the learner\'s attempt', 'one or two priority improvements'].map(phrase => [method, phrase]),
+    ...['skills/workflow-orchestrator/SKILL.md', 'skills/studio-workstyle-profile/SKILL.md', 'skills/pipeline-core/references/studio-integration-policy.md'].map(file => [file, 'Ask exactly one onboarding question per response and wait'])
+  ]) fixture(root => {
+    edit(root, file, text => text.replaceAll(phrase, 'removed'));
     assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), phrase);
   });
 });
