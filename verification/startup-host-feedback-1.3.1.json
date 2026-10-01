@@ -88,6 +88,21 @@
     "Current saved-plugin source is still 1.3.1 and contains the complete startup excerpt; a saved-source readback does not identify the release or skill content loaded by each active client."
   ],
   "root_cause": "Unknown",
+  "explicit_request_followup": {
+    "received_at": "2026-10-01T15:14:04+02:00",
+    "screenshots": ["1000032844.jpg", "1000032845.jpg", "1000032846.jpg", "1000032847.jpg"],
+    "input_visible": "Wczytaj skill workflow-orchestrator i wyświetl dosłownie pełne powitanie z assets/startup-welcome.pl.md",
+    "plugin_selection": "No Studio selection; owner confirms pasting only the instruction",
+    "surface_and_model": "Not independently shown in these screenshots",
+    "visible_assistant_claim": "The skill is not exposed in the catalog under workflow-orchestrator; the assistant will inspect the installed plugin files.",
+    "visible_activity": "Host displays activity labels for plugin-file inspection, inventory pagination and searches for the startup asset, followed by rendered welcome text. Actual tool arguments and returned file contents are not exposed in the screenshots.",
+    "canonical_content_observation": "Visible introduction, capability entries, optional-material invitation and final intent menu align with the canonical asset. Parts are obscured by mobile UI or fall outside the supplied views.",
+    "asset_readback": "PARTIAL_OUTPUT_OBSERVED: rendered welcome content is consistent with the asset; raw file-read result unavailable",
+    "exact_full_response_match": "Unknown: no raw response transcript; screenshots show preliminary narration and tool activity",
+    "normal_skill_activation": "NOT_ESTABLISHED",
+    "controlled_comparison": "NOT_RUN: Studio selection differs from the earlier bare-invocation trials",
+    "conclusion": "The asset can be recovered with a separate file-inspection route. This trial does not establish skill-catalog absence when Studio is selected, normal startup compliance, or the cause of the earlier shortened replies."
+  },
   "diagnostic_hypotheses": [
     "Ordinary ChatGPT did not load the workflow-orchestrator instruction body.",
     "Ordinary ChatGPT loaded an older or incomplete instruction set.",
@@ -102,7 +117,7 @@
   "next_diagnostic": {
     "status": "NOT_RUN",
     "goal": "Compare bare invocation with an explicit request to read the existing workflow-orchestrator and copy its canonical startup text in the same ordinary-ChatGPT surface and model.",
-    "conditions": "Fresh conversations, same account, model, reasoning, plugin selection and saved release; no creative task or resumed state.",
+    "conditions": "Fresh conversations, same account, model, reasoning and saved release; explicitly select FrameCore Works Creative Studio through the host @ menu before sending the diagnostic instruction. No creative task or resumed state. The first submitted explicit-request trial omitted that selection and is not a controlled comparison.",
     "success_criterion": "Actual response text exactly equals assets/startup-welcome.pl.md, allowing only omission of its final file-terminal LF.",
     "trace_requirement": "Use a real skill-read trace if exposed. Do not treat the assistant's claim that it read a skill as proof.",
     "interpretation": "Explicit-request success with bare-invocation failure narrows the investigation toward activation or entry routing. Explicit-request failure still requires a real loading trace to distinguish unavailable source from noncompliance."
