@@ -5,7 +5,7 @@
   "domains": [
     {
       "id": "static_graphics",
-      "title": "Grafika, ilustracja i key visual",
+      "title": "Graphics, illustration and key visuals",
       "owners": [
         "static-graphic-design-creator",
         "image-prompt-architect",
@@ -18,26 +18,26 @@
         "skills/workflow-orchestrator/references/brand-identity-workflow.md"
       ],
       "topics": [
-        "kompozycja",
-        "relacja obrazu z komunikatem",
-        "plakat",
-        "ilustracja",
+        "composition",
+        "image-message relationship",
+        "poster",
+        "illustration",
         "key visual",
-        "system logo",
-        "identyfikacja wizualna",
-        "księga znaku"
+        "logo system",
+        "visual identity",
+        "logo usage guide"
       ],
-      "exercise_no_render": "Narysuj trzy miniatury plakatu dla fikcyjnego spotkania wymiany książek; w każdej uzasadnij jeden punkt skupienia.",
+      "exercise_no_render": "Draw three poster thumbnails for a fictional book-exchange meeting; justify one focal point in each.",
       "assessment_criteria": [
-        "Komunikat ma czytelną hierarchię.",
-        "Warianty zmieniają zasadę kompozycji, nie tylko kolor.",
-        "Rozróżnia koncepcję logo, sprawdzony materiał cyfrowy i zweryfikowany master produkcyjny."
+        "The message has a clear hierarchy.",
+        "Variants change the composition principle, not only color.",
+        "Distinguishes a logo concept, checked digital material and a verified production master."
       ],
-      "support_boundary": "Ćwiczenie papierowe nie dowodzi jakości renderu ani gotowości do druku."
+      "support_boundary": "A paper exercise does not establish render quality or print readiness."
     },
     {
       "id": "typography_layout",
-      "title": "Typografia, układ i kolor",
+      "title": "Typography, layout and color",
       "owners": [
         "static-graphic-design-creator",
         "commercial-visual-campaign-director"
@@ -47,22 +47,22 @@
         "skills/commercial-visual-campaign-director/SKILL.md"
       ],
       "topics": [
-        "hierarchia",
-        "czytelność",
-        "kontrast",
-        "dobór pisma",
-        "kolor"
+        "hierarchy",
+        "readability",
+        "contrast",
+        "type selection",
+        "color"
       ],
-      "exercise_no_render": "Ułóż na papierze dokładne teksty „Wspólne czytanie”, „Sobota 12:00”, „Wstęp wolny”; opisz kolejność czytania.",
+      "exercise_no_render": "Arrange the exact Polish texts “Wspólne czytanie”, “Sobota 12:00”, “Wstęp wolny” on paper; describe the reading order.",
       "assessment_criteria": [
-        "Wszystkie wymagane teksty pozostają dokładne.",
-        "Rozmiar i odstępy wspierają zamierzoną kolejność."
+        "All required text remains exact.",
+        "Size and spacing support the intended reading order."
       ],
-      "support_boundary": "Ocena planu nie jest pomiarem kontrastu ani certyfikacją przygotowania do druku."
+      "support_boundary": "Plan review is not a contrast measurement or print-preparation certification."
     },
     {
       "id": "story_screenplay",
-      "title": "Opowieść, scena i scenariusz",
+      "title": "Story, scene and screenplay",
       "owners": [
         "screenplay-story-architect",
         "storytelling"
@@ -72,23 +72,23 @@
         "skills/storytelling/SKILL.md"
       ],
       "topics": [
-        "cel postaci",
-        "konflikt",
-        "emocja",
-        "subtekst",
-        "scena",
-        "struktura dłuższej fabuły"
+        "character goal",
+        "conflict",
+        "emotion",
+        "subtext",
+        "scene",
+        "long-form story structure"
       ],
-      "exercise_no_render": "Napisz scenę sześciu kwestii: jedna osoba chce oddać pożyczoną rzecz, druga chce zatrzymać rozmówcę; zakończ zmianą sytuacji.",
+      "exercise_no_render": "Write a six-line scene: one person wants to return a borrowed item, while the other wants them to stay; end with a change in the situation.",
       "assessment_criteria": [
-        "Postacie podejmują działania wynikające z różnych celów.",
-        "Ostatnia kwestia zmienia relację lub decyzję."
+        "Characters act from different goals.",
+        "The final line changes the relationship or decision."
       ],
-      "support_boundary": "Wsparcie obejmuje warsztat pisania i planowanie scen, nie kompletną organizację planu filmowego."
+      "support_boundary": "Support covers writing craft and scene planning, not complete film-set organization."
     },
     {
       "id": "performance",
-      "title": "Intencja, aktor i postać AI",
+      "title": "Intent, actor and AI character",
       "owners": [
         "creative-music-video-director",
         "cinematography",
@@ -100,23 +100,23 @@
         "skills/screenplay-story-architect/SKILL.md"
       ],
       "topics": [
-        "intencja",
-        "działanie",
+        "intent",
+        "action",
         "blocking",
-        "gest",
-        "ekspresja",
-        "notatki do wykonania"
+        "gesture",
+        "expression",
+        "performance notes"
       ],
-      "exercise_no_render": "Dla zdania „Możesz zostać” zapisz dwa różne cele postaci oraz gest, pauzę i działanie wspierające każdy cel.",
+      "exercise_no_render": "For the exact Polish line “Możesz zostać”, write two different character goals and a gesture, pause and action supporting each goal.",
       "assessment_criteria": [
-        "Intencje różnią się działaniem, nie tylko przymiotnikiem.",
-        "Wskazówki wykonawcze są obserwowalne."
+        "Intentions differ through action, not only adjectives.",
+        "Performance directions are observable."
       ],
-      "support_boundary": "Nauka obejmuje intencję, blocking i opis wykonania; nie zastępuje praktycznych zajęć aktorskich, klinicznej pracy z głosem ani oceny nieobejrzanego występu."
+      "support_boundary": "Learning covers intent, blocking and performance descriptions; it does not replace practical acting classes, clinical voice work or review of an unseen performance."
     },
     {
       "id": "character_reference",
-      "title": "Postać, referencje i ciągłość",
+      "title": "Character, references and continuity",
       "owners": [
         "character-design",
         "reference-pack-curator",
@@ -128,22 +128,22 @@
         "skills/image-prompt-architect/SKILL.md"
       ],
       "topics": [
-        "karta postaci",
-        "tożsamość",
-        "widoki",
-        "autorytet referencji",
-        "ciągłość"
+        "character sheet",
+        "identity",
+        "views",
+        "reference authority",
+        "continuity"
       ],
-      "exercise_no_render": "Dla hipotetycznej postaci z samym widokiem frontalnym rozdziel cechy widoczne, nieznane i wymagające kolejnego ujęcia; przypisz rolę każdej referencji.",
+      "exercise_no_render": "For a hypothetical character with only a frontal view, separate visible, unknown and additional-view-dependent traits; assign a role to each reference.",
       "assessment_criteria": [
-        "Niewidoczny profil pozostaje nieznany.",
-        "Styl nie zastępuje źródła tożsamości; brak nośnika nie osłabia strict."
+        "An unseen profile remains unknown.",
+        "Style does not replace the identity source; missing carriers do not weaken strict identity."
       ],
-      "support_boundary": "Nie ma gwarancji identyczności postaci ani możliwości odtworzenia niewidocznych cech."
+      "support_boundary": "Character identity is not guaranteed, and unseen traits cannot be reliably reconstructed."
     },
     {
       "id": "storyboard_sequence",
-      "title": "Storyboard i sekwencja",
+      "title": "Storyboard and sequence",
       "owners": [
         "storyboard-sequence-architect",
         "storyboard-board-architect"
@@ -154,21 +154,21 @@
       ],
       "topics": [
         "beat",
-        "karta ujęcia",
+        "shot card",
         "timing",
-        "następstwo",
-        "plansza"
+        "sequence",
+        "board"
       ],
-      "exercise_no_render": "Rozpisz trzy ujęcia odkładania mokrego parasola: stan wejścia, działanie, stan wyjścia i połączenie z następnym ujęciem.",
+      "exercise_no_render": "Plan three shots of putting away a wet umbrella: entry state, action, exit state and the connection to the next shot.",
       "assessment_criteria": [
-        "Każde przejście ma czytelny związek.",
-        "Timing jest oznaczony jako proponowany, a plansza nie udaje dowodu ruchu."
+        "Every transition has a clear relationship.",
+        "Timing is labeled as proposed; the board is not presented as motion evidence."
       ],
-      "support_boundary": "Plan dłuższej sekwencji nie dowodzi ciągłości wygenerowanych klipów."
+      "support_boundary": "A long-sequence plan does not establish continuity of generated clips."
     },
     {
       "id": "cinematography",
-      "title": "Kadr, kamera i światło",
+      "title": "Framing, camera and light",
       "owners": [
         "cinematography",
         "image-prompt-architect"
@@ -178,22 +178,22 @@
         "skills/image-prompt-architect/SKILL.md"
       ],
       "topics": [
-        "kadrowanie",
-        "perspektywa",
-        "obiektyw",
-        "światło",
-        "ruch kamery"
+        "framing",
+        "perspective",
+        "lens",
+        "light",
+        "camera movement"
       ],
-      "exercise_no_render": "Opisz ten sam kubek przy oknie w szerokim planie i zbliżeniu; wybierz jeden wariant dla pokazania sposobu użycia i uzasadnij kierunek światła.",
+      "exercise_no_render": "Describe the same cup by a window in a wide shot and close-up; select one version to demonstrate its use and justify the light direction.",
       "assessment_criteria": [
-        "Kadr realizuje konkretny cel.",
-        "Ruch i światło mają funkcję; deklaracje parametrów nie udają pomiaru."
+        "The frame serves a specific purpose.",
+        "Movement and lighting have a function; parameter declarations are not measurements."
       ],
-      "support_boundary": "Opis optyki nie gwarantuje fizycznej wierności modelu ani dostępności parametrów w interfejsie."
+      "support_boundary": "Describing optics does not guarantee physical model accuracy or parameter availability in the interface."
     },
     {
       "id": "commercial_video",
-      "title": "Reklama, film produktowy i prezentacja",
+      "title": "Advertising, product film and presentation",
       "owners": [
         "commercial-video-campaign-director",
         "creative-video-producer",
@@ -205,22 +205,22 @@
         "skills/storyboard-sequence-architect/SKILL.md"
       ],
       "topics": [
-        "teza ruchu",
-        "dowód",
-        "reklama",
-        "film produktowy",
-        "struktura prezentacji lub webinaru"
+        "motion thesis",
+        "proof",
+        "advertising",
+        "product film",
+        "presentation or webinar structure"
       ],
-      "exercise_no_render": "Zaplanuj 15-sekundowe pokazanie funkcji fikcyjnego pudełka przez otwarcie, użycie i zamknięcie; podaj rolę każdego zdarzenia.",
+      "exercise_no_render": "Plan a 15-second demonstration of a fictional box through opening, use and closing; state the role of each event.",
       "assessment_criteria": [
-        "Zdarzenia tworzą związek przyczynowy.",
-        "Pokaz nie dodaje niepodanych właściwości produktu."
+        "Events form a causal relationship.",
+        "The demonstration adds no unspecified product properties."
       ],
-      "support_boundary": "Webinary są wspierane w zakresie struktury, narracji i planu materiałów; technika transmisji na żywo i realizacja wielokamerowa nie są pełną kompetencją pakietu."
+      "support_boundary": "Webinar support covers structure, narrative and material planning; live-broadcast engineering and multicamera production are not complete package competencies."
     },
     {
       "id": "music_video",
-      "title": "Teledysk i relacja muzyki z obrazem",
+      "title": "Music video and song-to-image relationships",
       "owners": [
         "creative-music-video-director",
         "audio-production-director",
@@ -234,20 +234,20 @@
       "topics": [
         "persona",
         "performance",
-        "motyw",
-        "rytm",
-        "relacja utwór-obraz"
+        "motif",
+        "rhythm",
+        "song-image relationship"
       ],
-      "exercise_no_render": "Do fikcyjnego utworu o rozstaniu wybierz jeden powracający gest i opisz jego różne znaczenie w zwrotce oraz finale, bez przypisywania BPM.",
+      "exercise_no_render": "For a fictional song about separation, select one recurring gesture and explain its different meanings in the verse and ending without assigning BPM.",
       "assessment_criteria": [
-        "Motyw wynika z emocjonalnego przebiegu.",
-        "Nie zakładasz, że każde uderzenie wymaga cięcia ani że utwór został odsłuchany."
+        "The motif follows the emotional progression.",
+        "Do not assume every beat requires a cut or that the song was actually heard."
       ],
-      "support_boundary": "Bez dostępnego utworu timing jest hipotezą, a nie pomiarem."
+      "support_boundary": "Without an accessible song, timing is a hypothesis rather than a measurement."
     },
     {
       "id": "copy_voice",
-      "title": "Tekst, narracja i głos marki",
+      "title": "Copy, narration and brand voice",
       "owners": [
         "copy-voice",
         "humanizer",
@@ -259,23 +259,23 @@
         "skills/screenplay-story-architect/SKILL.md"
       ],
       "topics": [
-        "nagłówek",
-        "narracja",
-        "dialog",
-        "ton",
+        "headline",
+        "narration",
+        "dialogue",
+        "tone",
         "VO",
-        "głos marki"
+        "brand voice"
       ],
-      "exercise_no_render": "Napisz dwie krótkie zapowiedzi fikcyjnego spotkania czytelniczego: rzeczową i serdeczną, zachowując te same trzy podane fakty.",
+      "exercise_no_render": "Write two short announcements for a fictional reading meeting, one factual and one warm, preserving the same three supplied facts.",
       "assessment_criteria": [
-        "Fakty i dokładne wymagane słowa pozostają niezmienione.",
-        "Różnica tonu wynika z wyborów językowych, bez dopisanej biografii lub obietnic."
+        "Facts and required exact words remain unchanged.",
+        "Tone changes through language choices without invented biography or promises."
       ],
-      "support_boundary": "Narracyjne dialogi pozostają ze scenarzystą; tekst VO nie jest dowodem wykonania głosowego."
+      "support_boundary": "Narrative dialogue remains with the screenplay owner; VO text is not evidence of a voice performance."
     },
     {
       "id": "prompting",
-      "title": "Prompty obrazu, wideo i dźwięku",
+      "title": "Image, video and audio prompts",
       "owners": [
         "image-prompt-architect",
         "video-prompt-architect",
@@ -287,22 +287,22 @@
         "skills/audio-production-director/SKILL.md"
       ],
       "topics": [
-        "intencja",
-        "referencje",
-        "ograniczenia",
-        "czas",
-        "test wyniku"
+        "intent",
+        "references",
+        "constraints",
+        "time",
+        "result test"
       ],
-      "exercise_no_render": "Zamień „zrób klimatyczny klip” na cel, jedno działanie, źródła, ograniczenia i dwa kryteria oceny. Wyjaśnij wpływ każdej części.",
+      "exercise_no_render": "Turn “make an atmospheric clip” into a goal, one action, sources, constraints and two review criteria. Explain the effect of each part.",
       "assessment_criteria": [
-        "Instrukcja opisuje sprawdzalne decyzje.",
-        "Składnia i funkcje nazwanego narzędzia wymagają aktualnej weryfikacji."
+        "The instruction describes verifiable decisions.",
+        "Syntax and capabilities of a named tool require current verification."
       ],
-      "support_boundary": "Prompt nie uruchamia narzędzia i nie zapewnia pełnej kontroli nad modelem."
+      "support_boundary": "A prompt does not invoke a tool or provide complete control over the model."
     },
     {
       "id": "audio_music",
-      "title": "Głos, muzyka i projektowanie dźwięku",
+      "title": "Voice, music and sound design",
       "owners": [
         "audio-production-director",
         "copy-voice"
@@ -312,24 +312,24 @@
         "skills/copy-voice/SKILL.md"
       ],
       "topics": [
-        "paleta brzmień",
-        "pauza",
-        "akcent",
-        "interpretacja",
+        "sound palette",
+        "pause",
+        "emphasis",
+        "interpretation",
         "cue",
-        "muzyka",
+        "music",
         "Foley"
       ],
-      "exercise_no_render": "Dla sceny zamknięcia drzwi rozpisz głos, odgłos, tło i ciszę; na kartce zaznacz akcent w krótkim zdaniu oraz jego cel.",
+      "exercise_no_render": "For a door-closing scene, plan voice, effects, ambience and silence; mark the emphasis in a short sentence on paper and explain its purpose.",
       "assessment_criteria": [
-        "Każdy dźwięk wspiera działanie lub znaczenie.",
-        "Szacowany cue, realny odsłuch i zweryfikowane prawa są rozróżnione."
+        "Each sound supports action or meaning.",
+        "Estimated cues, actual listening and verified rights are distinguished."
       ],
-      "support_boundary": "Wsparcie obejmuje intencję głosu, tempo, pauzy, akcenty i plan muzyczny; nie obejmuje diagnozy głosu, profesjonalnego treningu emisji ani certyfikacji licencji."
+      "support_boundary": "Support covers voice intent, pace, pauses, emphasis and music planning; it does not cover voice diagnosis, professional vocal training or license certification."
     },
     {
       "id": "editing_motion",
-      "title": "Montaż, napisy i animacja",
+      "title": "Editing, captions and animation",
       "owners": [
         "opencut-video-studio",
         "caption-studio",
@@ -345,23 +345,23 @@
         "skills/video-prompt-architect/SKILL.md"
       ],
       "topics": [
-        "cięcie",
-        "przejście",
-        "napisy",
-        "rytm montażu",
-        "animacja kodowana",
-        "plan VFX"
+        "cut",
+        "transition",
+        "captions",
+        "editing rhythm",
+        "coded animation",
+        "VFX plan"
       ],
-      "exercise_no_render": "Na papierowej osi czasu połącz trzy opisane ujęcia; zaznacz jedną przerwę, napis i plan przejścia. Wyjaśnij rolę każdego.",
+      "exercise_no_render": "Connect three described shots on a paper timeline; mark one pause, caption and transition plan. Explain each role.",
       "assessment_criteria": [
-        "Czasy i przejścia są spójne.",
-        "Czytelność napisów i zachowane fragmenty mają jawne kryteria."
+        "Timing and transitions are consistent.",
+        "Caption readability and protected segments have explicit criteria."
       ],
-      "support_boundary": "VFX obejmuje plan efektu i jego rolę w przejściu, nie pełny kurs compositingu, symulacji czy konkretnej aplikacji. Wykonanie kodu wymaga dostępnego środowiska."
+      "support_boundary": "VFX covers effect planning and its role in a transition, not a complete compositing, simulation or application course. Code execution requires an available environment."
     },
     {
       "id": "campaign_workflow",
-      "title": "Kampania, social media i cały workflow",
+      "title": "Campaign, social media and complete workflow",
       "owners": [
         "ecommerce-campaign-strategy-director",
         "marketing",
@@ -390,23 +390,23 @@
         "skills/workflow-orchestrator/references/brand-identity-workflow.md"
       ],
       "topics": [
-        "cel i odbiorca",
-        "formaty",
-        "strategia",
+        "goal and audience",
+        "formats",
+        "strategy",
         "social",
         "QA",
-        "wersje",
-        "dostawa",
-        "fundament i pozycjonowanie marki",
-        "księga identyfikacji"
+        "versions",
+        "delivery",
+        "brand foundation and positioning",
+        "identity guide"
       ],
-      "exercise_no_render": "Dla fikcyjnego warsztatu rozpisz rolę plakatu, krótkiego filmu i tekstu, wspólne fakty oraz oddzielne kryteria odbioru i wersje.",
+      "exercise_no_render": "For a fictional workshop, describe the roles of a poster, short film and text, their shared facts and separate acceptance criteria and revisions.",
       "assessment_criteria": [
-        "Każdy materiał ma inną uzasadnioną funkcję.",
-        "Fakty, wersje, plan i rzeczywista ocena pozostają rozdzielone.",
-        "Strategia, logo i księga odnoszą się do tych samych zatwierdzonych decyzji i rewizji."
+        "Each material has a distinct justified role.",
+        "Facts, revisions, plans and actual reviews remain separate.",
+        "Strategy, logo and identity guide use the same accepted decisions and revisions."
       ],
-      "support_boundary": "Nie gwarantuje skuteczności kampanii; emisja, upload, aktualne specyfikacje platform i prawa wymagają osobnej weryfikacji lub autoryzacji."
+      "support_boundary": "Campaign performance is not guaranteed; publication, uploads, current platform specifications and rights require separate verification or authorization."
     }
   ]
 }

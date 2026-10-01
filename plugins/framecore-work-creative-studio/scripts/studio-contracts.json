@@ -272,7 +272,7 @@
     }
   ],
   "release_documents": {
-    "README.md": "Wersja:",
+    "README.md": "Version:",
     "docs/migration-status.md": "Version:"
   },
   "legacy_policy": "Legacy validator is optional and separately reported. Its errors are never suppressed or converted to PASS."

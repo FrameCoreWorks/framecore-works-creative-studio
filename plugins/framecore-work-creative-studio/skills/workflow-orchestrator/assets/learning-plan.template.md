@@ -1,22 +1,22 @@
-# Plan nauki
+# Learning plan
 
 Use only relevant fields; present the complete plan compactly in the user's language.
 
-- Cel samodzielny / independent_outcome:
-- Wybrane obszary / domain_ids:
-- Poziom per obszar / level_by_domain: self_reported | observed | unknown, with evidence
-- Projekt ćwiczeniowy / practice_project: supplied | synthetic | none
-- Narzędzia / available_tools: actual user statements or unknown
-- Ograniczenia / constraints: time, budget, accessibility, language, no-render preference
-- Założenia / assumptions: visible, reversible, never paid access by default
-- Kolejność / sequence_reason:
+- Independent outcome / independent_outcome:
+- Selected domains / domain_ids:
+- Level by domain / level_by_domain: self_reported | observed | unknown, with evidence
+- Practice project / practice_project: supplied | synthetic | none
+- Available tools / available_tools: actual user statements or unknown
+- Constraints / constraints: time, budget, accessibility, language, no-render preference
+- Assumptions / assumptions: visible, reversible, never paid access by default
+- Sequence / sequence_reason:
 
-| Moduł / module | Umiejętność / skill_outcome | Dlaczego teraz / prerequisite | Ćwiczenie / learner_action | Kryteria / assessment | Narzędzia i koszty / tools_costs | Bez renderu / no_render_alternative | Orientacyjny czas / estimated_effort |
+| Module / module | Skill outcome / skill_outcome | Why now / prerequisite | Exercise / learner_action | Criteria / assessment | Tools and costs / tools_costs | Without rendering / no_render_alternative | Estimated effort / estimated_effort |
 |---|---|---|---|---|---|---|---|
 | Fill from the selected existing domain owner | Observable independent action | Actual prerequisite or none | A learner decision, not just copying a finished prompt | Evidence and check of understanding | Verified or unknown | Always available first | Estimate, not a promise |
 
-- Projekt łączący / integrative_project and criteria:
-- Pierwsza lekcja / first_lesson: start now unless plan_only
-- Następny przegląd / next_review: learner attempt, not automatic passage of time
+- Integrative project / integrative_project and criteria:
+- First lesson / first_lesson: start now unless plan_only
+- Next review / next_review: learner attempt, not automatic passage of time
 
 For broad goals include shared foundations, selected specializations and a combining project. Do not duplicate an entire reference chapter in the plan. Keep output quality, production approval and learner progress separate.

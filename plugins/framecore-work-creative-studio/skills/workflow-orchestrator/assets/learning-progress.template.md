@@ -1,4 +1,4 @@
-# Karta postępu
+# Progress card
 
 - interaction_mode: learning | creation
 - learning_status: onboarding | planned | in_progress | paused | completed

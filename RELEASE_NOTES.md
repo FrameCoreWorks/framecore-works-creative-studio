@@ -1,5 +1,7 @@
-# Creative Studio 1.3.2
+# Creative Studio 1.3.3
 
-Repairs missing skill interface descriptions after ordinary ChatGPT reported Workflow Orchestrator unavailable. Fourteen included agents/openai.yaml files now carry the required interface.short_description; the canonical gate and negative regression tests reject invalid descriptions across all 37 skill roots.
+README installation sections now link to complete ChatGPT Work and Codex guides without copy-paste prompts. The guides contain source pinning, actual capability checks, authorization, existing-installation handling, complete-bundle installation and readback. A repository URL alone does not grant installation permission.
 
-All existing skill instructions, IDs, display names, prompts, invocation policies, the complete canonical welcome, menus, learning, assets and pinned sources are preserved. The metadata defect is confirmed; its causal role in the ordinary-ChatGPT failure is not yet proven. Post-update client verification remains NOT_RUN until an actual host trial is recorded.
+Maintained package documentation, learning-domain guidance and plan/progress labels are English. The canonical Polish welcome and embedded excerpt, localized menus and starters, exact-copy teaching examples, multilingual fixtures, all skill identities, routing, provider boundaries, assets and pinned sources are preserved. Studio's response-language behavior remains unchanged.
+
+Source checks and saved-package readback remain separate from fresh-account installation and active-client startup tests.

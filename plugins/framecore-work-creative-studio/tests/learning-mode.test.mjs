@@ -168,9 +168,9 @@ test('domain coverage includes broad creative competence and no-render exercises
     assert.ok(domain.support_boundary.trim());
     for (const owner of domain.owners) assert.ok(fs.existsSync(path.join(source, 'skills', owner, 'SKILL.md')));
   }
-  assert.match(map.domains.find(d => d.id === 'commercial_video').support_boundary, /Webinary/);
+  assert.match(map.domains.find(d => d.id === 'commercial_video').support_boundary, /Webinar/);
   assert.match(map.domains.find(d => d.id === 'editing_motion').support_boundary, /VFX/);
-  assert.match(map.domains.find(d => d.id === 'audio_music').support_boundary, /diagnozy głosu/);
+  assert.match(map.domains.find(d => d.id === 'audio_music').support_boundary, /voice diagnosis/);
 });
 
 test('lost domain, exercise or owner is rejected', () => {

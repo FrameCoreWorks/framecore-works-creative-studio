@@ -1,65 +1,34 @@
 # Install Creative Studio in Codex
 
-In **Codex**, use `$plugin-creator` and select the matching available skill from completion, then paste the complete prompt below. ChatGPT Work uses `@plugin-creator`; do not assume that the same prefix applies to Codex. Confirm the capability is available rather than treating copied text as proof of activation.
+This is the complete native direct-source procedure for the assistant performing a user-requested installation in Codex with filesystem access. ChatGPT Work installations follow [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md).
 
-Plugin Creator assists with package checks here. The actual installation remains the native source route below. If Plugin Creator is not available in this host, omit only the invocation line and use the same request; the installer does not require that capability. Do not claim that a connector was enabled.
+## 1. Confirm intent and host capabilities
 
-```text
-$plugin-creator
+1. Use the user's explicit installation request as authorization for the described local Studio installation. Do not ask again for unchanged scope. A bare repository link without installation intent is source context; clarify the intended action before writing an installation.
+2. Resolve the actual Codex host, filesystem access and supported skill locations. Use Plugin Creator for package checks when available; its documented Codex invocation is `$plugin-creator`, selected from completion. Pasted text alone does not establish availability.
+3. The native helper below does not depend on Plugin Creator. If that capability is absent, report it and continue with the supported local route. Do not create a hosted plugin copy, register a plugin catalog or claim a connector was enabled.
+4. Continue in the user's language. Repository documentation is English; the user's response language and protected Studio startup remain unchanged.
 
-Install FrameCore Works Creative Studio from:
-https://github.com/FrameCoreWorks/framecore-works-creative-studio
+## 2. Pin and verify the complete source
 
-Use Plugin Creator for package checks when available. Follow the native source-install route
-below; do not create a hosted plugin copy or register a plugin catalog. Report unavailable capabilities.
-Read CODEX_INSTALL.md and config/install-sources.json. Resolve main once to a full commit and use
-that immutable source throughout. Follow this host's actual skill installation rules and inspect
-scripts/install_codex.py before execution.
+Source repository: <https://github.com/FrameCoreWorks/framecore-works-creative-studio>.
 
-Install one native Creative Studio entry backed by the complete, verified Studio bundle.
-Keep all 37 modules and shared resources together. Resolve and show the actual native skills
-location and a persistent bundle directory outside every active skill discovery root.
-This request authorizes the stated installation; do not repeat approval for unchanged scope.
-Check existing Studio plugins, native entries and overlapping Workflow Kit skills in all active
-scopes. For existing content use CODEX_UPDATE.md; do not duplicate or overwrite personal changes.
+1. Resolve the requested release or, by default, `main` once to a full immutable Git commit. Obtain an exact temporary checkout/archive. Use the same commit for this guide, source reads and [config/install-sources.json](config/install-sources.json).
+2. Fetch every declared file, including binary assets and pinned source archives. Verify the complete path set and SHA-256 hashes. Inspect [scripts/install_codex.py](scripts/install_codex.py) before execution. Python 3 is required; the helper uses only the standard library and makes no network requests.
+3. Keep all 37 modules, references, templates, shared resources, source bundles and the logo together. A generic installer copying one specialist folder breaks cross-folder dependencies.
 
-Run plan, install and verify with the same full source commit. Do not copy isolated specialist
-folders or add a second orchestrator. Continue in my language. Report saved-file verification
-separately from observed host activation. Do not modify unrelated configuration, connect providers,
-generate media, upload client assets or publish anything.
+## 3. Resolve destinations and existing content
 
-After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
-skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
-tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
-API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
-```
+1. Follow the observed host's actual skill-installation rules. OpenAI documents repository `.agents/skills` and user `~/.agents/skills`; managed installers may use other destinations. Do not assume a path merely from the client name.
+2. Inspect every active scope for an existing Studio plugin, native entry or overlapping Workflow Kit skills. The helper checks only its selected destination. For existing, changed, partial or ambiguous content, follow [CODEX_UPDATE.md](CODEX_UPDATE.md); preserve personal edits and avoid duplicates.
+3. Select a persistent bundle directory outside **every** active skill-discovery root. Do not place the bundle in a user's project unless that scope was requested. A transient checkout is preparation, not a persistent installation destination.
+4. Show the resolved native-entry and bundle destinations, then proceed under the existing installation authorization. Ask only about material unresolved scope or conflicts.
 
-## Complete bundle and native entry
+## 4. Install one entry and verify
 
-Studio modules link to sibling skills, shared contracts and pinned sources. A generic skill installer
-copying one specialist folder would break these dependencies.
+The helper creates one native skill named `framecore-work-creative-studio` backed by the complete bundle outside skill discovery. Codex reads the original orchestrator and specialists from their canonical locations; the nested modules remain supporting instructions, not separately installed personal skills. This preserves relative references and avoids a second orchestrator.
 
-The supplied local helper creates one native skill named `framecore-work-creative-studio`, pointing
-to the complete bundle stored **outside skill discovery**. Codex reads the existing orchestrator and
-specialists from their original locations. All 37 canonical modules and relative links stay intact.
-The modules are supporting instructions, not separately installed personal skills. No provider,
-persistent agent roster or project configuration is installed.
-
-This is the same Studio knowledge through a local native entry, not the hosted ChatGPT UI.
-Installation does not synchronize history, preferences or provider connections.
-
-## Preflight
-
-1. Resolve main or the requested release to one full commit. Obtain an exact temporary checkout/archive. Read this guide, the inventory and helper from that source.
-2. Resolve actual host rules and skill locations. OpenAI documents repository `.agents/skills` and user `~/.agents/skills`; some managed installers use other destinations. Use the observed host location. ChatGPT Work uses CHATGPT_INSTALL.md, not this local helper.
-3. Inspect every active scope for an existing Studio entry/plugin or overlapping module identities. The helper checks its selected destination only; the assistant must check other scopes. Existing or ambiguous content routes to [CODEX_UPDATE.md](CODEX_UPDATE.md).
-4. Select an empty persistent bundle directory outside **all** discovery roots, such as an application-data folder. Do not write into a user's project unless that scope was requested.
-5. Verify the exact source path set and SHA-256 inventory. The helper repeats this check and rejects symlinks, unsafe overlap, partial installations and conflicts.
-6. Show native-entry and bundle destinations, then reuse the explicit installation request as authorization. Ask only about unresolved scope/conflicts.
-
-## Install and verify
-
-The assistant fills the placeholders with verified absolute paths. The user need not run commands:
+The assistant fills these placeholders with verified absolute paths and the same full source commit. The user does not need to run the commands:
 
 ```sh
 python3 scripts/install_codex.py plan --skills-dir "<observed-skills-dir>" --bundle-dir "<persistent-bundle-dir>" --source-commit "<full-commit>"
@@ -67,25 +36,24 @@ python3 scripts/install_codex.py install --skills-dir "<observed-skills-dir>" --
 python3 scripts/install_codex.py verify --skills-dir "<observed-skills-dir>" --bundle-dir "<persistent-bundle-dir>" --source-commit "<full-commit>"
 ```
 
-Python 3 is required. The helper uses only the standard library, makes no network requests and changes
-no global configuration. It saves a receipt next to the native entry and verifies every bundle file.
-A byte-identical repeat is read-only `already_up_to_date`. It is not an updater: changed source,
-personal edits or partial state require CODEX_UPDATE.md.
+1. Run `plan`, inspect the destinations and source checks, then run `install` and `verify` sequentially.
+2. The helper repeats inventory checks, rejects symlinks, unsafe overlaps, partial installations and conflicts, saves a receipt next to the entry and verifies every bundle file. A byte-identical repeat reports read-only `already_up_to_date`. Changed source or personal edits require the update guide.
+3. On a copy failure, inspect the actual entry, bundle and receipt before recovery. Report partial state; never blindly delete or overwrite an existing installation.
+4. Report saved-file verification separately from actual host discovery/invocation. If activation is unobserved, say so; a new turn or refreshing the skills view may be needed. Check an ordinary Studio invocation when the host permits it, preserving the full canonical welcome contract.
 
-On copy failure inspect the actual entry, bundle and receipt before recovery. Partial state is
-reported; no existing directory is overwritten or blindly deleted.
+This installs the same Studio knowledge through a local native entry. It does not install the hosted ChatGPT UI, a provider, a persistent agent roster or unrelated project configuration, and it does not synchronize history, preferences or connections.
 
-Report file verification separately from actual host discovery/invocation. If activation is unobserved,
-say so and suggest a new turn or refreshing the skills view. Start with:
+## 5. Offer optional tools after installation
 
-```text
-Use $framecore-work-creative-studio. Quick mode: give me three short directions for my brief.
-```
+After the Studio save succeeds, read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.
 
-Mechanism reference, checked 2026-09-29: [OpenAI, Build skills](https://learn.chatgpt.com/docs/build-skills).
-Invocation references, checked 2026-09-29: [OpenAI, Package your plugin](https://developers.openai.com/plugins/build/plugins) explicitly distinguishes `@plugin-creator` in Work from `$plugin-creator` in Codex; [Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins) documents Codex `$` skill mentions. A mention does not grant permissions or connect external accounts.
-The Work/Codex source-install pattern comes from
-[Workflow Kit](https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/tree/55c8bf19962c7bf7fb43648637ee433d990eb2a9).
-Studio keeps its complete linked bundle rather than copying independent skills.
+Installation does not connect providers, modify unrelated settings, generate media, spend credits, upload client assets or publish anything. Skipping provider setup leaves the Studio installation complete. On updates, preserve private preferences and do not repeat onboarding unless requested or materially needed.
 
-Optional provider setup: [guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md). Skipping setup leaves the Studio installation complete.
+## References
+
+- [OpenAI: Build skills](https://learn.chatgpt.com/docs/build-skills).
+- [OpenAI: Package your plugin](https://developers.openai.com/plugins/build/plugins).
+- [OpenAI: Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins).
+- [Pinned Workflow Kit installation pattern](https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/tree/55c8bf19962c7bf7fb43648637ee433d990eb2a9).
+
+The mechanism and invocation references were checked on 2026-09-29. Use the observed host's actual installation rules and preserve the complete Studio bundle.

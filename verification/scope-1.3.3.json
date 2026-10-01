@@ -1,0 +1,56 @@
+{
+  "packet_id": "HIPSON-STUDIO-ENGLISH-INSTALL-1.3.3",
+  "date": "2026-10-01",
+  "authorization": "Owner explicitly requests README installation links without copy-paste prompts, full host-specific installation instructions in their linked files and English repository content. Existing paired source publication authorization applies.",
+  "baseline_local_commit": "7e3193131fe533f85df08f1356c4684fefb45a55",
+  "baseline_remote_commit": "a7619b09c1d63538eef69c6d30bebc871a3f0879",
+  "baseline_host_release": "pluginrel_6abe61f7ab2c8191a5548f4fae4eb010",
+  "allowed_paths": [
+    "README.md",
+    "INSTALL.md",
+    "CHATGPT_INSTALL.md",
+    "CODEX_INSTALL.md",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_STATUS.md",
+    "verification/scope-1.3.3.json",
+    "verification/release-1.3.3.json",
+    "verification/hosted-release-1.3.3.json",
+    "config/install-sources.json",
+    "plugins/framecore-work-creative-studio/plugin.json",
+    "plugins/framecore-work-creative-studio/.codex-plugin/plugin.json",
+    "plugins/framecore-work-creative-studio/README.md",
+    "plugins/framecore-work-creative-studio/docs/installation.md",
+    "plugins/framecore-work-creative-studio/docs/learning-mode.md",
+    "plugins/framecore-work-creative-studio/docs/provider-setup-guide.md",
+    "plugins/framecore-work-creative-studio/docs/release-history.md",
+    "plugins/framecore-work-creative-studio/docs/migration-status.md",
+    "plugins/framecore-work-creative-studio/scripts/studio-contracts.json",
+    "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/learning-domains.json",
+    "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/learning-plan.template.md",
+    "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/learning-progress.template.md",
+    "plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs"
+  ],
+  "changes": [
+    "Remove README installation prompts and host setup duplication; link the complete environment guides.",
+    "Make installation guides self-contained procedural instructions with explicit user-intent and actual-tool checks.",
+    "Translate authored package documentation, learning index and plan/progress template labels into English without changing ownership or methods.",
+    "Update the English README version-prefix guard, release markers and generated inventory.",
+    "Update only two existing domain-boundary assertions to their English equivalents; keep the same coverage requirements."
+  ],
+  "protected": [
+    "Canonical Polish welcome and early embedded excerpt, startup/menu/onboarding language and ordering, starter prompts and skill metadata.",
+    "All skill roots, IDs, providers, runtime execution logic, assets and exact multilingual copy.",
+    "Multilingual evaluation inputs, historical observed replies, regression-test meaning and pinned upstream snapshots; only two translated boundary assertions change.",
+    "Existing plugin identity, scope, private audience and personal edits."
+  ],
+  "language_policy": "English is the authoring language of maintained documentation, operational instructions, comments and learning-template guidance. Localized UI, exact-copy teaching examples and multilingual fixtures are language data; upstream snapshots preserve provenance. Translate general guidance, not exact locked strings or historical evidence.",
+  "checks": [
+    "Canonical source validator",
+    "Existing serial Node, filesystem-installer, GEPA-adapter and asset-manifest suites",
+    "Changed Markdown link resolution, complete learning-domain metadata preservation, README prompt removal and full protected-file byte comparison",
+    "Regenerated inventory, packaging, GitHub publication and same-plugin guarded update/readback"
+  ],
+  "evidence_boundary": "No live installation on a new account or active-client startup test is performed by editing instructions or comparing saved sources."
+}

@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.3.2**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.3.3**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -10,7 +10,7 @@ Creative Studio supports creative direction and production planning across image
 
 ## Learning or creation
 
-Startup restores the complete Studio introduction and capability overview, then offers **1. Tryb kreatywny / 2. Tryb nauki**. A creative-only choice leads to **1. Tryb szybki / 2. Tryb rozbudowany**, then the established work-area menu and a relevant brief. **Tryb tworzenia** remains an accepted creative alias. A concrete request bypasses redundant menus, and numeric answers follow the last menu actually shown. Learning retains its personal plan, lessons, exercises, feedback and portable progress card. See [entry menus](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md) and [learning mode and limits](plugins/framecore-work-creative-studio/docs/learning-mode.md).
+Startup restores the complete Studio introduction and capability overview, then offers **1. Creative mode / 2. Learning mode** in the startup language. A creative-only choice leads to **1. Quick mode / 2. Expanded mode**, then the established work-area menu and a relevant brief. The existing localized creation alias remains supported. A concrete request bypasses redundant menus, and numeric answers follow the last menu actually shown. Learning retains its personal plan, lessons, exercises, feedback and portable progress card. See [entry menus](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md) and [learning mode and limits](plugins/framecore-work-creative-studio/docs/learning-mode.md).
 
 ## What it includes
 
@@ -27,59 +27,14 @@ The package supplies instructions, knowledge, templates and local verification h
 
 ## Install through ChatGPT Work or Codex
 
-Use the prompt for your environment. The assistant reads the exact source and performs the supported installation. You do not need to add a registry or run installation commands yourself.
+| Environment | Complete installation instructions | Result |
+|---|---|---|
+| ChatGPT Work | [ChatGPT Work installation guide](CHATGPT_INSTALL.md) | Your own private Studio plugin |
+| Codex | [Codex installation guide](CODEX_INSTALL.md) | One native Studio entry backed by the complete local knowledge bundle |
 
-### ChatGPT Work
+Each guide contains the full environment-specific procedure, capability checks, existing-installation handling and verification steps.
 
-Open **Work**, type `@`, search for **Plugin Creator**, and select it from the menu. Paste the prompt below with that selection attached. If pasting leaves `@plugin-creator` as plain text, select Plugin Creator through the menu before sending; the text alone is not proof that its tools are available.
-
-```text
-@plugin-creator
-
-Use Plugin Creator to install my private FrameCore Works Creative Studio from:
-https://github.com/FrameCoreWorks/framecore-works-creative-studio
-Read CHATGPT_INSTALL.md and config/install-sources.json first. Pin main to one commit and verify
-all declared files. Install the complete 37-module bundle with its shared resources and logo.
-If my copy already exists, follow CHATGPT_UPDATE.md and update that same entry without duplicating
-it or overwriting conflicting personal changes. Use the actual save workflow and verify the result.
-This request authorizes installation. Continue in my language. Do not connect providers or publish
-my copy publicly. If saving is unavailable, explain the concrete blocker instead of claiming success.
-
-After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
-skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
-tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
-API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
-```
-
-### Codex
-
-In **Codex**, use `$plugin-creator` and select the available matching skill from completion. Paste the prompt below. This is the documented Codex invocation, while Work uses `@plugin-creator`. If this Codex host does not expose Plugin Creator, omit only the invocation line and use the same native installation request; the local installer does not depend on Plugin Creator.
-
-```text
-$plugin-creator
-
-Install FrameCore Works Creative Studio from:
-https://github.com/FrameCoreWorks/framecore-works-creative-studio
-Use Plugin Creator for package checks when available. Follow the native installation below;
-do not create a hosted plugin copy or register a plugin catalog. Report unavailable capabilities.
-Read CODEX_INSTALL.md and config/install-sources.json first. Pin main to one full commit.
-Inspect the local installer, resolve and show the actual native skills location and persistent
-bundle directory, then run plan, install and verify. Keep the complete 37-module bundle together
-outside skill discovery and install its native Studio entry. This request authorizes installation.
-Check existing entries across scopes; follow CODEX_UPDATE.md for conflicts or updates rather than
-duplicating or overwriting personal changes. Continue in my language. Do not connect providers,
-change unrelated configuration or publish anything. Report actual saved-file verification and
-whether host activation was observed.
-
-After the Studio save succeeds, read the bundled docs/provider-setup-guide.md and
-skills/tool-routing-cost/references/provider-setup.md. Offer one optional question about additional
-tools, existing accounts or skipping setup. Match the actual host and distinguish native apps from
-API/MCP/CLI and their billing. Do not connect a provider or spend credits from this install request.
-```
-
-[Installation details](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
-Invocation syntax checked on 2026-09-29 against [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins) and [ChatGPT's Plugin Creator selection steps](https://learn.chatgpt.com/docs/build-plugins).
-ChatGPT Work creates the user's own private plugin. Codex installs the same Studio knowledge through a native local entry. Availability of actual image, video, audio and research tools depends on the user's environment.
+[Installation overview](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
 
 ## Optional creative tools
 
@@ -89,7 +44,7 @@ Read the [provider setup guide](plugins/framecore-work-creative-studio/docs/prov
 
 | Path | Purpose |
 |---|---|
-| `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md` | Direct source installation prompts and contracts |
+| `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md` | Complete environment-specific installation procedures |
 | `CHATGPT_UPDATE.md`, `CODEX_UPDATE.md` | Existing-entry updates preserving user changes |
 | `config/install-sources.json` | Complete plugin file inventory with SHA-256 hashes |
 | `scripts/install_codex.py` | Native Codex entry and intact backing bundle |

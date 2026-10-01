@@ -1,86 +1,86 @@
-# Narzędzia dodatkowe: ChatGPT, Work i Codex
+# Optional tools: ChatGPT, Work and Codex
 
-Stan wiedzy: **29.09.2026**. Studio pomaga dobrać i skonfigurować wybraną ścieżkę. Samo zainstalowanie Studio daje wiedzę i instrukcje, nie konta dostawców ani kredyty. Możesz pracować wyłącznie nad pomysłami, storyboardami i promptami.
+Knowledge snapshot: **2026-09-29**. Studio helps select and configure a chosen route. Installing Studio supplies knowledge and instructions, not provider accounts or credits. Work can remain limited to concepts, storyboards and prompts.
 
-## 1. Wybierz sposób dostępu
+## 1. Choose the access route
 
-| Ścieżka | Co podłączasz | Gdzie można jej użyć |
+| Route | What you connect | Where it can be used |
 |---|---|---|
-| Gotowa aplikacja/plugin | Istniejącą integrację z katalogu i, jeśli wymagane, konto dostawcy | ChatGPT Chat, Work lub obsługiwany klient Codexa, zależnie od konkretnej integracji i konta |
-| Własny MCP | Udokumentowany serwer narzędzi i jego autoryzację | Codex z obsługą MCP; w ChatGPT tylko przy dostępnej i dozwolonej konfiguracji własnych aplikacji |
-| CLI | Program dostawcy uruchamiany w środowisku z terminalem | Zwykle lokalny Codex; instalacja w chwilowym środowisku Work nie zapewnia stałego dostępu z telefonu |
-| API/SDK | Integrację kodową, klucz i rozliczenie API | Codex lub inny właściwy runtime; sam klucz nie tworzy aplikacji w ChatGPT |
-| Strona dostawcy | Ręczną pracę z promptem i plikami | Przeglądarka użytkownika |
+| Available app/plugin | An existing catalog integration and, when required, a provider account | ChatGPT Chat, Work or a supported Codex client, depending on the integration and account |
+| Custom MCP | A documented tool server and its authorization | MCP-capable Codex; ChatGPT only when custom-app configuration is available and permitted |
+| CLI | A provider program in a terminal-capable environment | Usually local Codex; installation in a transient Work environment does not provide permanent phone access |
+| API/SDK | Code integration, a key and API billing | Codex or another suitable runtime; a key alone does not create a ChatGPT app |
+| Provider website | Manual work with prompts and files | The user's browser |
 
-To nie jest podział „ChatGPT tylko pluginy, Codex tylko API”. Możliwości należy sprawdzić w używanej aplikacji. [Podstawy OpenAI](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex), [MCP w Codexie](https://developers.openai.com/codex/mcp), [własne MCP w ChatGPT](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt).
+Check capabilities in the actual client; ChatGPT is not limited to plugins, nor Codex to APIs. See [OpenAI's overview](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex), [Codex MCP](https://developers.openai.com/codex/mcp) and [custom MCP in ChatGPT](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt).
 
-## 2. Jakie usługi uwzględnia Studio
+## 2. Services covered by Studio
 
-Poniższe gotowe integracje potwierdzono w katalogu lub oficjalnej dokumentacji. To lista wybranych usług, nie pełny katalog. Dostępność w konkretnym planie, regionie, telefonie i widoku rozmowy wymaga sprawdzenia. Szczegóły dowodów i ograniczeń zawiera [rejestr źródeł](../skills/tool-routing-cost/references/provider-sources.md).
+The following integrations were confirmed in the catalog or official documentation for this dated snapshot. This is a selection, not the complete catalog. Verify availability for the actual plan, region, phone and conversation surface. The [source record](../skills/tool-routing-cost/references/provider-sources.md) documents evidence and limitations.
 
-| Usługa | Główne zastosowanie gotowej integracji | Konto i koszty |
+| Service | Main integration use | Account and costs |
 |---|---|---|
-| fal | Obraz, wideo, audio, 3D i przetwarzanie mediów | Konto fal; płatne wykonania modeli. Abonament ChatGPT ich nie finansuje. |
-| Higgsfield | Generowanie obrazu i wideo, workflow kreatywne | Konto Higgsfield; warunki ścieżki konsumenckiej opisano poniżej. |
-| Runway | Generowanie i edycja obrazu, wideo oraz audio | Konto/workspace Runway; właściwy plan i kredyty do sprawdzenia. |
-| OpenArt | Generowanie obrazu i wideo | Konto i kredyty OpenArt; wymagany plan: **Unknown**. |
-| HeyGen | Wideo z awatarami, głosami i tłumaczeniem | Uprawnienia konta i koszty konkretnej operacji: **Unknown**. |
-| Descript | Montaż, transkrypcja, napisy, krótkie klipy | Plan i limity operacji: **Unknown**. |
-| Adobe | Obróbka obrazu, materiały graficzne, wideo i dokumenty | Katalog opisuje tryb gościa oraz dodatkowe możliwości po zalogowaniu; warunki operacji trzeba sprawdzić. |
-| Adobe Express | Projekty z szablonów i ich edycja | Katalog opisuje bezpłatny start; nie oznacza to bezpłatności wszystkich assetów i eksportów. |
-| Canva | Projekty graficzne i prezentacje | Wymagania konta, planu i wybranej funkcji: **Unknown**. |
-| Figma | Edytowalne projekty i praca z designem | Zakres dostępu i koszty: **Unknown**. |
-| Replit | Budowanie aplikacji i stron | Oddzielna kategoria. Nie należy zakładać, że jest generatorem ujęć wideo. Koszty budowania/hostingu do sprawdzenia. |
+| fal | Image, video, audio, 3D and media processing | fal account; paid model execution. A ChatGPT subscription does not fund it. |
+| Higgsfield | Image/video generation and creative workflows | Higgsfield account; consumer-account conditions are described below. |
+| Runway | Image, video and audio generation/editing | Runway account/workspace; verify the relevant plan and credits. |
+| OpenArt | Image/video generation | OpenArt account and credits; required plan: **Unknown**. |
+| HeyGen | Avatar, voice and translation video | Account entitlements and operation costs: **Unknown**. |
+| Descript | Editing, transcription, captions and short clips | Plan and operation limits: **Unknown**. |
+| Adobe | Image processing, graphic materials, video and documents | The catalog describes guest access and additional signed-in features; verify operation conditions. |
+| Adobe Express | Template-based designs and editing | The catalog describes a free start; this does not make every asset/export free. |
+| Canva | Graphics and presentations | Account, plan and feature requirements: **Unknown**. |
+| Figma | Editable designs and design workflows | Access scope and costs: **Unknown**. |
+| Replit | Application and website building | A separate category; do not assume video-shot generation. Verify build/hosting costs. |
 
-**ElevenLabs:** potwierdzone oficjalne narzędzia API/MCP i skille. Gotowa aplikacja w katalogu ChatGPT: **Unknown** w tym przeglądzie. Brak wyniku wyszukiwania nie dowodzi, że taka aplikacja nie istnieje. Przy wyborze trzeba ponowić wyszukiwanie. To samo dotyczy innych nowych usług, np. MuAPI i POYO.
+**ElevenLabs:** official API/MCP tools and skills were confirmed. An available ChatGPT catalog app is **Unknown** in this review. A missing search result does not prove that an app does not exist; search again when selecting it. The same applies to other new services, such as MuAPI and POYO.
 
-## 3. fal: gotowy plugin lub integracja programistyczna
+## 3. fal: available plugin or developer integration
 
-[Oficjalny plugin fal](https://chatgpt.com/plugins/fal) jest opisany dla ChatGPT i Codexa. Zainstaluj go w obsługiwanym widoku, połącz konto fal i wybierz go w rozmowie. Weryfikację zacznij od wyszukania modeli bez generowania. Wybór konta OAuth w fal przez **Use for MCP** jest niezależny od zwykłego przełącznika konta na stronie. Klucz API wskazuje konto powiązane z tym kluczem. [Instrukcja fal](https://fal.ai/docs/documentation/setting-up/codex-plugin).
+The [official fal plugin](https://chatgpt.com/plugins/fal) is described for ChatGPT and Codex. Install it in a supported surface, connect a fal account and select it in the conversation. Begin verification with model discovery without generation. Selecting a fal OAuth account through **Use for MCP** is independent of the website account switcher. An API key identifies its associated account. See [fal's instructions](https://fal.ai/docs/documentation/setting-up/codex-plugin).
 
-W Codexie możesz zamiast gotowego pluginu wybrać inference MCP, API/SDK lub udokumentowane CLI. Nie instaluj równocześnie kilku ścieżek bez potrzeby. Model, schemat wejść i stawkę sprawdź dla konkretnego zadania. [Run MCP](https://fal.ai/docs/documentation/setting-up/mcp), [cennik](https://fal.ai/pricing). MCP do generowania i Platform MCP do administracji/deployu to różne serwery.
+Codex can instead use inference MCP, API/SDK or a documented CLI. Avoid installing multiple routes without a need. Verify the model, input schema and rate for the specific task. See [Run MCP](https://fal.ai/docs/documentation/setting-up/mcp) and [pricing](https://fal.ai/pricing). Generation MCP and administrative/deployment Platform MCP are different servers.
 
-Logowanie nie oznacza zakupu abonamentu. fal rozlicza użycie modeli; oferuje też opcjonalne plany kredytowe. Uprawnienia, saldo i rabaty zależą od konta oraz ścieżki, nie od samej nazwy modelu. Nie zakładaj, że rabat strony obejmuje API. [Plany fal](https://fal.ai/docs/documentation/agent/access-and-pricing).
+Signing in does not purchase a subscription. fal bills model usage and also offers optional credit plans. Entitlements, balance and discounts depend on the account and route, not the model name alone. Do not assume website discounts cover API usage. See [fal plans](https://fal.ai/docs/documentation/agent/access-and-pricing).
 
-## 4. Higgsfield: dwa odrębne rozliczenia
+## 4. Higgsfield: two separate billing routes
 
-| Ścieżka | Uwierzytelnienie | Rozliczenie |
+| Route | Authentication | Billing |
 |---|---|---|
-| Gotowy plugin ChatGPT / MCP / oficjalne CLI | Logowanie do konta Higgsfield | Ścieżka konta konsumenckiego; przewodnik wymaga aktywnego płatnego planu. Aktualne wyjątki trial/free wymagają potwierdzenia. |
-| Higgsfield API, konsola **open.higgsfield.ai** | Własne poświadczenia API | Osobne saldo w USD, płatność za użycie; abonament strony nie jest wymagany i nie zastępuje salda API. |
+| Available ChatGPT plugin / MCP / official CLI | Higgsfield account sign-in | Consumer-account route; the guide requires an active paid plan. Verify any current trial/free exceptions. |
+| Higgsfield API, **open.higgsfield.ai** console | Separate API credentials | Separate USD balance and usage billing; a website subscription is not required and does not replace the API balance. |
 
-[Połączenie pluginu/MCP](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent), [oficjalne CLI](https://higgsfield.ai/cli), [wyjaśnienie API](https://higgsfield.ai/creator-hub/help-center/integrations/what-is-the-higgsfield-api).
+See [plugin/MCP connection](https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent), [official CLI](https://higgsfield.ai/cli) and [API explanation](https://higgsfield.ai/creator-hub/help-center/integrations/what-is-the-higgsfield-api).
 
-**Open Higgsfield** w powyższej tabeli oznacza oficjalną konsolę API. Projekty `wide-trace/open-higgsfield`, `openhiggsfield.ai` oraz `openhiggsfield.com` mają podobne nazwy, ale nie są tą konsolą. Jeśli chodzi o zewnętrzny projekt, trzeba wskazać jego dokładny adres; uruchomienie interfejsu nie daje darmowego dostępu do modeli.
+**Open Higgsfield** above means the official API console. Projects named `wide-trace/open-higgsfield`, `openhiggsfield.ai` and `openhiggsfield.com` are not that console. Identify an external project's exact URL before using it; launching an interface does not grant free model access.
 
-W źródłach występuje rozbieżność: starszy poradnik Higgsfield ogranicza audio, strony i darmowe wykonania w ChatGPT, natomiast obecnie udostępnione opisy narzędzi obejmują te funkcje oraz pola uprawnień trial/free. Studio ma sprawdzać narzędzie i uprawnienie konkretnego konta, zamiast obiecywać działanie. Nie przenoś automatycznie „Unlimited” ze strony do pluginu lub API.
+Sources conflict: an older Higgsfield guide limits audio, websites and free execution in ChatGPT, while currently exposed tool descriptions include those features and trial/free entitlement fields. Studio checks the specific tool and account entitlement instead of promising execution. Do not automatically transfer website “Unlimited” claims to the plugin or API.
 
-## 5. Instalacja krok po kroku
+## 5. Step-by-step setup
 
-**ChatGPT Chat / Work, gotowa integracja:**
+**ChatGPT Chat / Work, available integration:**
 
-1. Otwórz dostępny na swoim koncie katalog **Plugins** lub **Apps**. Wyszukaj usługę i sprawdź wydawcę, zakres oraz wymagania.
-2. Wybierz instalację/połączenie i ukończ logowanie w oknie dostawcy, jeśli jest wymagane.
-3. W rozmowie wybierz integrację przez `@` lub dostępne menu. Wklejona nazwa nie potwierdza aktywacji.
-4. Poproś o obsługiwany odczyt bez generowania. Dopiero potem ustal model, referencje i koszt właściwego zadania.
+1. Open the **Plugins** or **Apps** catalog available to the account. Find the service and check its publisher, scope and requirements.
+2. Select installation/connection and complete provider sign-in if required.
+3. Select the integration through `@` or the available conversation menu. A pasted name does not establish activation.
+4. Request a supported read without generation. Then establish the model, references and cost for the actual task.
 
 **Codex, API/MCP/CLI:**
 
-1. Wskaż dokładny klient Codexa i preferowaną ścieżkę. Gdy gotowy plugin jest dostępny i wystarcza, nie trzeba pisać API.
-2. Dla MCP/CLI sprawdź oficjalny endpoint/pakiet i sposób logowania. Dla API ustal produkt, konto rozliczeniowe i miejsce prywatnego przechowania sekretu.
-3. Konfiguruj tylko wybraną integrację, po poleceniu użytkownika. Zachowaj istniejące ustawienia; nie wpisuj kluczy do czatu ani repozytorium.
-4. Zweryfikuj połączenie odczytem, potem osobno uzgodnij płatną operację i przesłanie referencji. Wynik instalacji i wynik generowania to dwa oddzielne potwierdzenia.
+1. Identify the exact Codex client and preferred route. If an available plugin is sufficient, an API integration is unnecessary.
+2. For MCP/CLI, verify the official endpoint/package and authentication. For API access, identify the product, billing account and private secret-storage location.
+3. Configure only the selected integration after a user request. Preserve existing settings; never enter keys into chat or the repository.
+4. Verify the connection through a read, then separately authorize any paid operation and reference transfer. Installation and generation are separate outcomes.
 
-Przy instalacji Studio możesz wybrać „mam konto”, „chcę poradnik” lub „pomiń”. Podanie preferencji nie instaluje dodatkowego programu ani nie upoważnia do zakupu, aktywacji triala, uploadu lub generowania. Twoje ustawienia nie trafiają do wspólnego pluginu.
+During Studio setup, the user can choose an existing account, request a guide or skip. A preference does not install additional software or authorize a purchase, trial activation, upload or generation. Private settings do not enter the shared plugin.
 
-## 6. Najczęstsze blokady
+## 6. Common blockers
 
-| Problem | Następny krok |
+| Problem | Next step |
 |---|---|
-| Plugin jest w katalogu, ale brak narzędzia | Sprawdź instalację, wybór w rozmowie i obsługę danej funkcji w tym kliencie. |
-| Logowanie działa, generowanie odrzucone | Sprawdź konto/workspace, plan, saldo i dostęp do modelu. Nie zmieniaj konta ani ścieżki bez uzgodnienia. |
-| Referencja jest w ChatGPT, ale serwis jej nie widzi | Ustal obsługiwany transfer. Lokalna ścieżka i identyfikator załącznika nie są publicznym URL-em. |
-| Wywołanie zakończyło się timeoutem | Sprawdź istniejący identyfikator zadania. Ponowne wysłanie może naliczyć drugi koszt. |
-| Brak integracji lub użytkownik pomija konfigurację | Kontynuuj koncepcję i przygotuj gotowy prompt do ręcznego użycia. |
+| Plugin is listed but its tool is unavailable | Check installation, conversation selection and support for the feature in this client. |
+| Sign-in works but generation is rejected | Check the account/workspace, plan, balance and model access. Do not switch account or route without authorization. |
+| Reference exists in ChatGPT but is inaccessible to the service | Establish a supported transfer. A local path or attachment ID is not a public URL. |
+| The call timed out | Check the existing job ID; resubmission may incur a second charge. |
+| No integration is available or the user skips setup | Continue concept work and prepare a complete prompt for manual use. |
 
-Niektóre narzędzia wyceny importują pliki referencyjne. Studio sprawdza skutki operacji przed jej użyciem. Wybrana nazwa modelu u różnych dostawców nie gwarantuje takich samych parametrów, cennika ani praw do wyników.
+Some pricing tools import reference files. Check operation effects before using them. A model name shared by multiple providers does not establish identical controls, pricing or output rights.

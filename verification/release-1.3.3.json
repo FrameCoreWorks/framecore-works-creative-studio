@@ -1,0 +1,181 @@
+{
+  "version": "1.3.3",
+  "date": "2026-10-01",
+  "scope_packet": "scope-1.3.3.json",
+  "baseline_remote_commit": "a7619b09c1d63538eef69c6d30bebc871a3f0879",
+  "baseline_host_release": "pluginrel_6abe61f7ab2c8191a5548f4fae4eb010",
+  "changes": [
+    "README installation links only; full procedural host guides",
+    "English maintained documentation and general learning guidance",
+    "Protected multilingual UI and exact-copy data retained"
+  ],
+  "checks": {
+    "node_regressions": {
+      "status": "PASS",
+      "tests": 99,
+      "concurrency": 1
+    },
+    "targeted_learning": {
+      "status": "PASS",
+      "tests": 23,
+      "subset_of_node_regressions": true
+    },
+    "filesystem_installer": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "gepa_adapter": {
+      "status": "PASS",
+      "tests": 8,
+      "skipped": 0,
+      "official_source_commit": "3f160c295000dd31db3d438c3d17553c23cc5f81",
+      "scope": "Synthetic offline integration; no external provider/model calls"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "total_full_checks": 140,
+    "canonical_validation": {
+      "status": "PASS",
+      "files": 743,
+      "owners": 37,
+      "planned_cases": 183,
+      "executed_planned_cases": 0,
+      "legacy": "NOT_RUN"
+    },
+    "packaging": {
+      "status": "PASS",
+      "files": 743,
+      "plugin_zip_sha256": "b1007b313b8a1d9ab2d5235acc5f9da852163c83426cc556c92ea9e44dc1f727"
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "files": 743,
+    "changed_existing": 13,
+    "unchanged": 730,
+    "added": 0,
+    "deleted": 0,
+    "outside_allowlist": 0,
+    "all_37_skill_roots_and_metadata_byte_equal": true,
+    "upstream_and_evaluation_inputs_byte_equal": true,
+    "manifests_except_version_equal": true,
+    "canonical_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+    "learning_domain_identity_ownership_and_structure_equal": true,
+    "readme_installation_links_only": true,
+    "changed_document_local_links_checked": 88,
+    "changed_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/installation.md",
+      "docs/learning-mode.md",
+      "docs/migration-status.md",
+      "docs/provider-setup-guide.md",
+      "docs/release-history.md",
+      "plugin.json",
+      "scripts/studio-contracts.json",
+      "skills/workflow-orchestrator/assets/learning-domains.json",
+      "skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "tests/learning-mode.test.mjs"
+    ]
+  },
+  "publication": {
+    "github": "NOT_PUBLISHED",
+    "host": "NOT_PUBLISHED"
+  },
+  "fresh_account_installation": "NOT_RUN",
+  "active_client_behavior_after_update": "NOT_RUN",
+  "baseline_startup_feedback": "Ordinary ChatGPT full welcome PASS_REPORTED for 1.3.2; recorded separately in startup-host-feedback-1.3.2.json.",
+  "language_scope": "English maintained prose; localized UI, exact-copy examples, multilingual fixtures, historical observed replies and pinned upstream snapshots retained.",
+  "hipson_review": {
+    "scope_fit": "PASS",
+    "protected_contracts": "PASS",
+    "evidence_boundary": "Source and package checks do not establish live installation or active-client behavior.",
+    "release_gate": "PASS: serial checks, bounded allowlist and protected-file comparison; publication/readback pending"
+  },
+  "iteration_notes": [
+    "Initial Node run: 98/99; two domain-boundary assertions used Polish wording. Updated only their English expectations, preserving coverage requirements."
+  ],
+  "language_review": {
+    "status": "PASS",
+    "maintained_translated_documents": [
+      "README.md",
+      "INSTALL.md",
+      "CHATGPT_INSTALL.md",
+      "CODEX_INSTALL.md",
+      "plugins/framecore-work-creative-studio/README.md",
+      "plugins/framecore-work-creative-studio/docs/installation.md",
+      "plugins/framecore-work-creative-studio/docs/learning-mode.md",
+      "plugins/framecore-work-creative-studio/docs/provider-setup-guide.md",
+      "plugins/framecore-work-creative-studio/docs/release-history.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/learning-progress.template.md"
+    ],
+    "remaining_non_english": "Localized UI and onboarding samples, exact-copy examples, proper names/terminology, multilingual fixture inputs and observed historical replies. Pinned upstream snapshots excluded from translation.",
+    "reviewed_paths_with_polish_characters": [
+      "config/gepa-cases.json",
+      "plugins/framecore-work-creative-studio/docs/knowledge-map.md",
+      "plugins/framecore-work-creative-studio/docs/workflow-kit-verification.json",
+      "plugins/framecore-work-creative-studio/evals/campaign-cases.json",
+      "plugins/framecore-work-creative-studio/evals/effective-overrides.json",
+      "plugins/framecore-work-creative-studio/evals/learning-mode-cases.json",
+      "plugins/framecore-work-creative-studio/evals/producer-cases.json",
+      "plugins/framecore-work-creative-studio/evals/static-cases.json",
+      "plugins/framecore-work-creative-studio/evals/story-cases.json",
+      "plugins/framecore-work-creative-studio/evals/storyboard-cases.json",
+      "plugins/framecore-work-creative-studio/evals/studio-behavior-cases.json",
+      "plugins/framecore-work-creative-studio/evals/video-cases.json",
+      "plugins/framecore-work-creative-studio/plugin.json",
+      "plugins/framecore-work-creative-studio/scripts/validate-learning-mode.mjs",
+      "plugins/framecore-work-creative-studio/scripts/validate-package.mjs",
+      "plugins/framecore-work-creative-studio/skills/audio-production-director/references/audio-arrangement-vo-and-mix-workbook.md",
+      "plugins/framecore-work-creative-studio/skills/commercial-video-campaign-director/assets/decision-examples.json",
+      "plugins/framecore-work-creative-studio/skills/commercial-video-campaign-director/assets/slad-campaign-example.md",
+      "plugins/framecore-work-creative-studio/skills/commercial-video-campaign-director/references/applied-premise-and-proof.md",
+      "plugins/framecore-work-creative-studio/skills/commercial-visual-campaign-director/assets/half-turn-adaptation-example.md",
+      "plugins/framecore-work-creative-studio/skills/commercial-visual-campaign-director/references/direction-and-composition.md",
+      "plugins/framecore-work-creative-studio/skills/commercial-visual-campaign-director/references/typography.md",
+      "plugins/framecore-work-creative-studio/skills/commercial-visual-campaign-director/references/worked-examples.md",
+      "plugins/framecore-work-creative-studio/skills/copy-voice/references/copy-development-and-human-voice.md",
+      "plugins/framecore-work-creative-studio/skills/humanizer/assets/slad-copy-example.md",
+      "plugins/framecore-work-creative-studio/skills/humanizer/references/applied-voice-workshop.md",
+      "plugins/framecore-work-creative-studio/skills/humanizer/references/copy-and-voice.md",
+      "plugins/framecore-work-creative-studio/skills/image-prompt-architect/kit/references/typography-and-text-feasibility.md",
+      "plugins/framecore-work-creative-studio/skills/output-critic-iteration/assets/quality-review.example.json",
+      "plugins/framecore-work-creative-studio/skills/output-critic-iteration/references/diagnosis-and-repair-lab.md",
+      "plugins/framecore-work-creative-studio/skills/output-critic-iteration/references/review-and-repair.md",
+      "plugins/framecore-work-creative-studio/skills/pipeline-core/references/project-recovery.md",
+      "plugins/framecore-work-creative-studio/skills/producer-ai-task-builder/references/audio-arrangement-vo-and-mix-workbook.md",
+      "plugins/framecore-work-creative-studio/skills/screenplay-story-architect/assets/slad-scene-example.md",
+      "plugins/framecore-work-creative-studio/skills/screenplay-story-architect/references/applied-scene-workshop.md",
+      "plugins/framecore-work-creative-studio/skills/storyboard-board-architect/assets/reference-sheet-worked-example.md",
+      "plugins/framecore-work-creative-studio/skills/storyboard-board-architect/assets/slad-board-examples.md",
+      "plugins/framecore-work-creative-studio/skills/storyboard-board-architect/references/applied-board-workshop.md",
+      "plugins/framecore-work-creative-studio/skills/storyboard-sequence-architect/assets/slad-sequence-example.md",
+      "plugins/framecore-work-creative-studio/skills/storyboard-sequence-architect/references/applied-sequence-workshop.md",
+      "plugins/framecore-work-creative-studio/skills/storyboard-sequence-architect/references/sequence-contract-and-continuity.md",
+      "plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md",
+      "plugins/framecore-work-creative-studio/skills/video-prompt-architect/references/video-craft.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/SKILL.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/learning-domains.json",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/startup-welcome.pl.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/brand-identity-workflow.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/learning-mode.md",
+      "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs",
+      "plugins/framecore-work-creative-studio/tests/package.test.mjs",
+      "plugins/framecore-work-creative-studio/tests/quality-methods.test.mjs",
+      "plugins/framecore-work-creative-studio/tests/workflow-kit.test.mjs",
+      "verification/startup-host-feedback-1.3.1.json"
+    ],
+    "locale_and_response_language_preserved": true
+  },
+  "sufficiency_gate": {
+    "objective": "README guide links and English maintained repository content",
+    "decision": "source_and_serial_checks_complete",
+    "remaining": "Paired publication and saved-source readback; fresh-account install and active-client tests are separate and NOT_RUN."
+  }
+}

@@ -6,6 +6,12 @@ This repository publishes FrameCore Works Creative Studio. The editable plugin i
 
 Follow `plugins/framecore-work-creative-studio/docs/skill-naming.md` for all current and new skills. Keep technical IDs, paths, invocations and routing stable. Every canonical skill requires `agents/openai.yaml` with `interface.display_name`: English words separated by spaces, an uppercase first letter for each word, and preserved AI/UGC/HyperFrames/OpenCut spelling. Also require a nonempty `interface.short_description`, using the repository's validated 25–64 character, double-quoted scalar format. Do not put display metadata under `metadata` or replace a technical ID with a title.
 
+## Repository language and installation documentation
+
+Write maintained repository documentation, operational instructions, comments and general learning-template guidance in English. Preserve localized UI resources, exact-copy teaching examples, multilingual evaluation inputs and historical observed replies in their original language; they are data, not untranslated general guidance. Keep pinned upstream snapshots byte-identical and preserve provenance. Repository language does not change Studio's response-language or protected Polish startup contract.
+
+Keep README installation sections as links to the complete `CHATGPT_INSTALL.md` and `CODEX_INSTALL.md` procedures. Do not duplicate installation prompts or add a short copy-paste command to README. Keep host selection, capability checks, source pinning, authorization, installation/update handling and verification in those guides. A repository URL identifies source; it does not itself grant installation permission or provide missing host capabilities.
+
 ## Protected Studio startup
 
 Preserve the working startup integration as a permanent product contract. `workflow-orchestrator` owns startup and must remain an exposed, readable skill with complete interface metadata. Resolve skill resources from the host's catalog; do not invent a resource URI or treat presence in an archive as proof of registration.
