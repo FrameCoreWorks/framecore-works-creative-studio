@@ -18,7 +18,10 @@
     "archive_path_layout": "Saved TAR uses package-relative paths; uploaded ZIP has the single canonical plugin-directory prefix. Contents equal without text normalization.",
     "plugin_zip_sha256": "2a78d53776a67d88d724263c38850e56acd5f9a710e820856111d1298e59a28b"
   },
-  "post_update_active_client_behavior": "NOT_RUN",
+  "post_update_active_client_behavior": "PASS_REPORTED",
   "actual_ordinary_chat_registration_cause": "Unknown",
-  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351"
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "active_client_feedback": "startup-host-feedback-1.3.2.json",
+  "active_client_at_publication": "NOT_RUN",
+  "ordinary_chat_exact_canonical_match": "Unknown"
 }

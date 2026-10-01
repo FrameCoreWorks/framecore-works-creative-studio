@@ -6,7 +6,7 @@
   "baseline_host_release": "pluginrel_6abe544d0b288191bf4ca18f9ef98398",
   "diagnosis": {
     "confirmed": "14 required short_description fields missing from included skill metadata files.",
-    "ordinary_chat_root_cause": "Unknown; a candidate explanation to verify after this metadata repair.",
+    "ordinary_chat_root_cause": "Unknown; owner reports successful welcome after the metadata repair, without a raw registration trace.",
     "owner_followup": "Owner supplies a missing-workflow-orchestrator/Resource-not-found reply from the requested diagnostic. Raw skill-list and read-call results are not provided.",
     "reported_resource": "skills://plugins/framecore-work-creative-studio/workflow-orchestrator",
     "current_work_observation": "Native Work catalog exposes framecore-work-creative-studio:workflow-orchestrator and its provider-supplied resource can be read.",
@@ -137,12 +137,12 @@
       "plugin_zip_sha256": "2a78d53776a67d88d724263c38850e56acd5f9a710e820856111d1298e59a28b"
     }
   },
-  "active_client_behavior_after_update": "NOT_RUN",
+  "active_client_behavior_after_update": "PASS_REPORTED",
   "actual_host_registration_cause": "Unknown",
   "hipson_review": {
     "scope_fit": "PASS",
     "protected_contracts": "PASS",
-    "evidence_boundary": "PASS: metadata defect confirmed; ordinary-ChatGPT causality and post-update behavior unverified",
+    "evidence_boundary": "PASS: metadata defect confirmed; ordinary-ChatGPT welcome PASS_REPORTED by owner; precise causality and exact-byte response match Unknown",
     "release_gate": "PASS: scoped source, serial release checks, same-plugin guarded update and full package readback"
   },
   "iteration_notes": [
@@ -150,7 +150,10 @@
   ],
   "sufficiency_gate": {
     "objective": "Repair required skill interface descriptions and paired saved sources",
-    "decision": "source_fix_and_publication_complete",
-    "remaining_behavior": "Ordinary-ChatGPT registration and complete welcome after 1.3.2 update NOT_RUN; root cause not yet proven."
-  }
+    "decision": "source_fix_publication_and_owner_reported_startup_complete",
+    "remaining_behavior": "Owner reports the welcome now loads correctly in ordinary ChatGPT; exact-byte match, reasoning setting and actual registration cause remain Unknown."
+  },
+  "active_client_feedback": "startup-host-feedback-1.3.2.json",
+  "active_client_at_publication": "NOT_RUN",
+  "ordinary_chat_exact_canonical_match": "Unknown"
 }

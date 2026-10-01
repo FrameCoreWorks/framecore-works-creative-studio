@@ -1,0 +1,33 @@
+{
+  "version": "1.3.2",
+  "date": "2026-10-01",
+  "host_release": "pluginrel_6abe61f7ab2c8191a5548f4fae4eb010",
+  "source": "Owner feedback after the paired metadata repair and saved-package readback",
+  "ordinary_chatgpt": {
+    "startup_welcome": "PASS_REPORTED",
+    "owner_observation": "The welcome now loads correctly in ordinary ChatGPT.",
+    "reasoning_setting": "Unknown",
+    "model": "Unknown",
+    "fresh_conversation": "Unknown",
+    "exact_canonical_match": "Unknown",
+    "raw_skill_registration_trace": "Not supplied",
+    "raw_response_transcript": "Not supplied"
+  },
+  "status_at_publication": "NOT_RUN",
+  "actual_host_registration_cause": "Unknown",
+  "evidence_boundary": "Owner-reported successful welcome after the repair; no raw response or registration trace, and no claim of exact-byte equality or universal future host compliance.",
+  "permanent_contract": "Preserve the exposed Workflow Orchestrator, complete interface metadata and early byte-matched canonical welcome excerpt; test ordinary ChatGPT separately from Work after relevant changes.",
+  "maintenance_scope": {
+    "authorization": "Owner explicitly requests permanent recording of the working welcome integration.",
+    "repository_files": [
+      "AGENTS.md",
+      "RELEASE_STATUS.md",
+      "verification/release-1.3.2.json",
+      "verification/hosted-release-1.3.2.json",
+      "verification/startup-host-feedback-1.3.2.json"
+    ],
+    "project_book": "Targeted timeless startup contract in the existing project book; book contents remain outside the public repository.",
+    "protected": "Runtime package, version, welcome text, menu, skill IDs, prompts, policies, assets and plugin identity unchanged.",
+    "checks": "Canonical validator, focused documentation diff and GitHub readback; no repeated full suite or redundant hosted release for repository-only records."
+  }
+}
