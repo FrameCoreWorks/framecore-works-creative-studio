@@ -1,0 +1,36 @@
+{
+  "packet_id": "HIPSON-STUDIO-STARTUP-1.3.1",
+  "packet_type": "Bounded Instruction Packet",
+  "target_role": "workflow-orchestrator",
+  "goal": "Restore the complete unchanged welcome for each sent bare Studio invocation instead of a mode-only reply.",
+  "authorization": "Owner reported the recurring mode-only startup failure and requested enforcement of the existing protected welcome contract; standing paired-update authorization applies.",
+  "baseline_commit": "8a48261d47adf875b076686f36a799536719a9e2",
+  "baseline_host_release": "pluginrel_6abe2caf03848191bd1d21c3b27dc418",
+  "observed_failure": "Owner reports a reply containing only the intent selection, without the full capability introduction.",
+  "diagnosis": "Source has the full asset and instructions, but the bootstrap requires a separate asset read and a later instruction emphasizes a short choice. The actual host retrieval trace is unavailable; this is a bounded diagnosis, not a proven runtime cause.",
+  "package_allowlist": [
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "scripts/validate-learning-mode.mjs",
+    "tests/learning-mode.test.mjs",
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md"
+  ],
+  "allowed_sections": {
+    "orchestrator": "Invocation trigger description, immediate full-response projection, removal of mode-only ambiguity; existing craft routes preserved.",
+    "startup_reference": "Canonical asset and synchronized excerpt relationship only; menu text and transitions unchanged.",
+    "validator_and_tests": "Full welcome integrity, excerpt equality/placement and rejection of supplied truncated replies; no claimed host interception.",
+    "release_metadata": "Version markers and one factual release note."
+  },
+  "repository_only_scope": ["README.md", "RELEASE_STATUS.md", "RELEASE_NOTES.md", "config/install-sources.json", "verification/scope-1.3.1.json", "verification/release-1.3.1.json", "verification/hosted-release-1.3.1.json"],
+  "exclusions": ["canonical welcome wording or layout changes", "menu/onboarding/state redesign", "new owners or agents", "provider/model calls", "upstream changes", "new permissions", "unrelated creative changes"],
+  "acceptance_criteria": ["Canonical welcome bytes unchanged", "Full welcome present at the start of the entry owner and exactly equal to its source", "Mode-only and shortened supplied replies fail exact response checks", "Concrete-task/resume routes remain unchanged", "Required serial release checks pass", "GitHub and existing saved plugin are read back from the same package"],
+  "evidence_boundary": "Owner report, source checks and supplied-response checks are distinct from active-client behavior; active-client verification remains NOT_RUN unless actually observed.",
+  "external_model_budget_usd": 0,
+  "deletions_allowed": false,
+  "rollback": "Selective revert of this startup patch and version dependencies; preserve later edits and existing package identity.",
+  "handoff_target": "existing Studio maintainer"
+}

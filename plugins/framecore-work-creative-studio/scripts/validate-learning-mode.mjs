@@ -1,9 +1,21 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {isDeepStrictEqual as equal} from 'node:util';
+import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
 export const learningCaseIds = Array.from({length: 16}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
+export const canonicalWelcomeSha256 = 'ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943';
+
+// Checks caller-supplied response text only. This does not invoke or observe a host.
+// A single file-terminal LF is optional in a conversation response; nothing else
+// is normalized, omitted or rewritten.
+export function evaluateStartupReply(reply, expectedWelcome) {
+  if (typeof expectedWelcome !== 'string' || !expectedWelcome.endsWith('\n') || !expectedWelcome.trim()) throw new Error('A complete canonical welcome file is required');
+  if (typeof reply !== 'string') return {status: 'Unknown', scope: 'supplied_response_text', reason: 'No observed response text supplied'};
+  const matches = reply === expectedWelcome || reply + '\n' === expectedWelcome;
+  return {status: matches ? 'PASS' : 'FAIL', scope: 'supplied_response_text', matches_full_welcome: matches};
+}
 
 // Package-source checks only. This does not run the host, classify user messages,
 // assess learner work, or establish that the model follows the teaching method.
@@ -20,10 +32,19 @@ export function validateLearningMode(root, packageFiles) {
   };
   const strings = values => Array.isArray(values) && values.length > 0 && values.every(v => typeof v === 'string' && v.trim());
   try {
-    need('skills/workflow-orchestrator/SKILL.md', [/Tryb nauki/, /Tryb tworzenia/, /references\/learning-mode\.md/, /creation immediately/, /show this short choice and wait/, /Quick\/Deep are a separate pace/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/Tryb nauki/, /Tryb tworzenia/, /references\/learning-mode\.md/, /creation immediately/, /never deliver the menu by itself/, /Quick\/Deep are a separate pace/]);
     need('skills/workflow-orchestrator/SKILL.md', [/references\/startup-and-creative-menus\.md/, /complete welcome/, /After a mode-only creative choice/, /After a pace-only choice/, /bare number only against a currently pending displayed choice group/]);
     need('skills/workflow-orchestrator/SKILL.md', [/assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/]);
     need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /Wpisz \*\*1\*\* albo \*\*2\*\*\.\s*$/]);
+    const welcome = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
+    if (createHash('sha256').update(welcome).digest('hex') !== canonicalWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected canonical welcome has changed');
+    const entry = read('skills/workflow-orchestrator/SKILL.md');
+    const begin = '<!-- BEGIN CANONICAL STARTUP RESPONSE -->\n';
+    const end = '<!-- END CANONICAL STARTUP RESPONSE -->';
+    const beginAt = entry.indexOf(begin), endAt = entry.indexOf(end);
+    if (beginAt < 0 || endAt < beginAt || entry.indexOf(begin, beginAt + begin.length) >= 0 || entry.indexOf(end, endAt + end.length) >= 0 || entry.slice(beginAt + begin.length, endAt) !== welcome) fail('STARTUP_RESPONSE_PROJECTION', 'The complete startup excerpt must equal the canonical asset exactly');
+    if (endAt < 0 || endAt >= entry.indexOf('Before final delivery') || endAt >= entry.indexOf('## Entry response first')) fail('STARTUP_RESPONSE_PLACEMENT', 'The full startup response must precede general review and routing instructions');
+    need('skills/workflow-orchestrator/SKILL.md', [/@FrameCore Works Creative Studio/, /never return only the two-mode choice/, /A two-option menu alone is a failed startup response/, /Concrete tasks and actual resume requests bypass this startup response/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Complete welcome/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/, /## Creative pace choice/, /1\. \*\*Tryb szybki\*\*/, /2\. \*\*Tryb rozbudowany\*\*/, /## Established work-area menu/, /1\. Grafika statyczna/, /2\. Wideo i prompty/, /7\. Analiza dostarczonej/, /bare number only against a currently pending displayed choice group/, /older 1\.2\.0 order/, /concrete project request bypasses menus/, /neither a concrete task nor a pace is supplied/]);
     need('skills/workflow-orchestrator/references/intake-and-reference-authority.md', [/startup-and-creative-menus\.md/, /mode-only creative choice gets Quick\/Deep pace selection/]);
     need('skills/pipeline-core/references/studio-integration-policy.md', [/direct specialist invocation/, /learning overlay/, /Creation keeps the established production route/, /Ask exactly one onboarding question per response and wait/]);

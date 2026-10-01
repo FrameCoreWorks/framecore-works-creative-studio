@@ -1,0 +1,94 @@
+{
+  "version": "1.3.1",
+  "date": "2026-10-01",
+  "scope_packet": "scope-1.3.1.json",
+  "baseline_commit": "8a48261d47adf875b076686f36a799536719a9e2",
+  "baseline_host_release": "pluginrel_6abe2caf03848191bd1d21c3b27dc418",
+  "baseline_archive_readback": {
+    "status": "PASS",
+    "files": 743,
+    "all_git_blob_hashes_equal": true,
+    "range_completed": true
+  },
+  "checks": {
+    "node_regressions": {
+      "status": "PASS",
+      "tests": 96,
+      "concurrency": 1
+    },
+    "targeted_startup_learning": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "filesystem_installer": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "gepa_adapter": {
+      "status": "PASS",
+      "tests": 8,
+      "skipped": 0,
+      "official_source_commit": "3f160c295000dd31db3d438c3d17553c23cc5f81",
+      "scope": "Existing adapter and synthetic offline integration; no external model calls"
+    },
+    "canonical_validation": {
+      "status": "PASS",
+      "files": 743,
+      "owners": 37,
+      "planned_cases": 183,
+      "executed_planned_cases": 0,
+      "legacy": "NOT_RUN"
+    },
+    "packaging": {
+      "status": "PASS",
+      "files": 743,
+      "plugin_zip_sha256": "966a4decb2544aa70865ec35fc10da2aac66b25a6e6ced2cbe72f42a471a0f2b"
+    }
+  },
+  "preservation": {
+    "package_files": 743,
+    "changed_existing": 9,
+    "added": 0,
+    "deleted": 0,
+    "unchanged": 734,
+    "changed_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "plugin.json",
+      "scripts/validate-learning-mode.mjs",
+      "skills/workflow-orchestrator/SKILL.md",
+      "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "tests/learning-mode.test.mjs"
+    ],
+    "outside_allowlist": 0,
+    "canonical_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+    "logo_registry_display_names_learning_upstream_qa_budget": "unchanged",
+    "creative_pace_area_and_state_contract": "byte-equal after its existing section heading"
+  },
+  "supplied_response_checks": {
+    "status": "PASS",
+    "scope": "Caller-supplied full, mode-only, truncated, paraphrased, prefixed and fenced text. No host was invoked."
+  },
+  "active_client_behavior": "NOT_RUN",
+  "actual_host_retrieval_cause": "Unknown",
+  "publication": {
+    "github": "pending",
+    "host": "pending"
+  },
+  "hipson_review": {
+    "scope_fit": "PASS",
+    "protected_contracts": "PASS",
+    "evidence_boundaries": "PASS",
+    "release_gate": "pending"
+  },
+  "iteration_notes": [
+    "Initial archive download ended at the transport 8 MiB limit; fetched its remaining declared byte range and verified the complete 743-file baseline.",
+    "The asset test produced a transient Python cache; removed that generated file before packaging. No source test failed."
+  ]
+}

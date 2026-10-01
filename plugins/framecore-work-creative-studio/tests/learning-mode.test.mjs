@@ -6,7 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateStudio} from '../scripts/validate-studio.mjs';
 import {loadEffectiveEvals, caseDigest} from '../scripts/load-effective-evals.mjs';
-import {learningDomainIds, learningCaseIds} from '../scripts/validate-learning-mode.mjs';
+import {learningDomainIds, learningCaseIds, evaluateStartupReply} from '../scripts/validate-learning-mode.mjs';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const method = 'skills/workflow-orchestrator/references/learning-mode.md';
@@ -92,6 +92,56 @@ test('orchestrator and shared intake cannot bypass the creative pace transition'
   const start = loadEffectiveEvals(source).cases.find(c => c.id === 'LM01');
   assert.deepEqual(start.follow_up_sequences.map(item => item.id), ['creative_quick', 'creative_deep', 'learning', 'direct_brief']);
   assert.ok(start.follow_up_sequences.every(item => item.execution_status === 'not_run'));
+});
+
+test('the complete startup excerpt is available before general review instructions', () => {
+  const entry = read('skills/workflow-orchestrator/SKILL.md');
+  const begin = '<!-- BEGIN CANONICAL STARTUP RESPONSE -->\n';
+  const end = '<!-- END CANONICAL STARTUP RESPONSE -->';
+  const response = entry.slice(entry.indexOf(begin) + begin.length, entry.indexOf(end));
+  assert.equal(response, read('skills/workflow-orchestrator/assets/startup-welcome.pl.md'));
+  assert.ok(entry.indexOf(end) < entry.indexOf('Before final delivery'));
+});
+
+test('truncating the startup excerpt fails even when the canonical asset remains intact', () => fixture(root => {
+  edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('Mogę pomóc Ci w:\n', ''));
+  assert.ok(codes(root).includes('STARTUP_RESPONSE_PROJECTION'));
+}));
+
+test('a protected-word change fails even when the excerpt and asset are changed together', () => fixture(root => {
+  for (const file of ['skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/assets/startup-welcome.pl.md']) edit(root, file, text => text.replace('Pomagam rozwijać pomysły', 'Pomagam rozwijać idee'));
+  assert.ok(codes(root).includes('STARTUP_WELCOME_INTEGRITY'));
+}));
+
+test('moving the full welcome below general instructions fails startup placement', () => fixture(root => {
+  edit(root, 'skills/workflow-orchestrator/SKILL.md', text => {
+    const begin = text.indexOf('<!-- BEGIN CANONICAL STARTUP RESPONSE -->');
+    const end = text.indexOf('<!-- END CANONICAL STARTUP RESPONSE -->') + '<!-- END CANONICAL STARTUP RESPONSE -->'.length;
+    const block = text.slice(begin, end);
+    return text.slice(0, begin) + text.slice(end) + '\n' + block + '\n';
+  });
+  assert.ok(codes(root).includes('STARTUP_RESPONSE_PLACEMENT'));
+}));
+
+test('supplied mode-only, shortened, paraphrased and prefixed startup replies fail', () => {
+  const welcome = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
+  const replies = [
+    '**Wybierz tryb pracy:**\n\n1. **Tryb kreatywny**\n2. **Tryb nauki**',
+    welcome.slice(welcome.indexOf('**Wybierz tryb pracy:**')),
+    welcome.replace(/- \*\*Grafice i materiałach reklamowych\*\*[^\n]+\n/, ''),
+    welcome.replace('Pomagam rozwijać pomysły', 'Pomagam rozwijać idee'),
+    'Cześć!\n\n' + welcome,
+    '```markdown\n' + welcome + '```',
+    welcome + '\nCo chcesz zrobić?'
+  ];
+  for (const reply of replies) assert.equal(evaluateStartupReply(reply, welcome).status, 'FAIL');
+});
+
+test('supplied full repeated replies pass; unavailable actual reply remains Unknown', () => {
+  const welcome = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
+  for (const reply of [welcome, welcome.slice(0, -1), welcome]) assert.equal(evaluateStartupReply(reply, welcome).status, 'PASS');
+  assert.equal(evaluateStartupReply(undefined, welcome).status, 'Unknown');
+  assert.equal(evaluateStartupReply('', welcome).status, 'FAIL');
 });
 
 test('lesson contract retains bounded onboarding, full plan, learner attempt and adaptive feedback', () => {

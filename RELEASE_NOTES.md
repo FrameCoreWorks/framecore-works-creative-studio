@@ -1,5 +1,5 @@
-# Creative Studio 1.3.0
+# Creative Studio 1.3.1
 
-Adds five conditional quality improvements: relevant few-shot examples, tool-backed verification, anchor-based pairwise evaluation, explicitly adopted scoped Reflexion lessons and an offline official-GEPA development pilot. Aligns explained corrections and selected static handoffs with current owner policy. Preserves the welcome, menus, onboarding, 37 skill IDs and one bounded review budget.
+Repairs the startup instructions after a reported reply containing only the mode choice. Workflow Orchestrator now includes the entire unchanged canonical welcome before other instructions and explicitly rejects a mode-only response. The source validator checks full protected-text integrity and exact excerpt equality. Direct tasks, resume, menus, onboarding and the shared QA budget retain their existing behavior.
 
-Verification: 90 Node, 8 GEPA adapter, 10 installer and 23 asset tests pass, plus three serial fresh text-use tasks. The complete 743-file package matches GitHub source and the saved existing ChatGPT plugin. The 183 historical planned scenarios remain unexecuted. GEPA's zero-cost synthetic pilot tests integration only; actual creative improvement, user calibration, active-client behavior and media QA are not established.
+Source and supplied-response checks are distinct from active-client observation. Active-client verification remains NOT_RUN unless recorded separately; this release does not claim deterministic control of host skill loading.
