@@ -98,14 +98,59 @@
     ]
   },
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING"
+    "github": "PUBLISHED_AND_VERIFIED",
+    "source_commit": "7234f02bdca05c29c57ade13796e40a224eb30ea",
+    "package_tree": "12aa0f4d8b1c389a1b54edcf5ecc8e85cef71b3b",
+    "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.3.2",
+    "github_workflows": [
+      {
+        "id": 36869967525,
+        "name": "Refresh current release notes",
+        "conclusion": "success"
+      },
+      {
+        "id": 36869967557,
+        "name": "Publish verified Studio release",
+        "conclusion": "success"
+      }
+    ],
+    "release_assets": {
+      "count": 5,
+      "plugin_zip_digest": "sha256:2a78d53776a67d88d724263c38850e56acd5f9a710e820856111d1298e59a28b",
+      "matches_local": true,
+      "tag_commit_equal": true
+    },
+    "release_notes_readback": "PASS",
+    "host": "PUBLISHED_AND_VERIFIED",
+    "host_release": "pluginrel_6abe61f7ab2c8191a5548f4fae4eb010",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "full_saved_package_readback": {
+      "status": "PASS",
+      "files": 743,
+      "full_saved_archive_equal": true,
+      "uploaded_zip_equal": true,
+      "github_blob_hashes_equal": true,
+      "unreadable_files": 0,
+      "all_37_saved_interface_descriptions_valid": true,
+      "archive_bytes": 8660375,
+      "archive_path_layout": "Saved TAR uses package-relative paths; uploaded ZIP has the single canonical plugin-directory prefix. Contents equal without text normalization.",
+      "plugin_zip_sha256": "2a78d53776a67d88d724263c38850e56acd5f9a710e820856111d1298e59a28b"
+    }
   },
   "active_client_behavior_after_update": "NOT_RUN",
   "actual_host_registration_cause": "Unknown",
   "hipson_review": {
     "scope_fit": "PASS",
     "protected_contracts": "PASS",
-    "evidence_boundary": "PASS: metadata defect confirmed; ordinary-ChatGPT causality and post-update behavior unverified"
+    "evidence_boundary": "PASS: metadata defect confirmed; ordinary-ChatGPT causality and post-update behavior unverified",
+    "release_gate": "PASS: scoped source, serial release checks, same-plugin guarded update and full package readback"
+  },
+  "iteration_notes": [
+    "Owned TAR uses flat package-relative paths; compared them with the ZIP canonical directory prefix, without changing file bytes or normalizing text."
+  ],
+  "sufficiency_gate": {
+    "objective": "Repair required skill interface descriptions and paired saved sources",
+    "decision": "source_fix_and_publication_complete",
+    "remaining_behavior": "Ordinary-ChatGPT registration and complete welcome after 1.3.2 update NOT_RUN; root cause not yet proven."
   }
 }
