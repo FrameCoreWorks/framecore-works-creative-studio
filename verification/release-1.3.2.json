@@ -1,0 +1,111 @@
+{
+  "version": "1.3.2",
+  "date": "2026-10-01",
+  "scope_packet": "scope-1.3.2.json",
+  "baseline_commit": "051d22b392bfa6fab65f745b74a6e68c8b8e5caa",
+  "baseline_host_release": "pluginrel_6abe544d0b288191bf4ca18f9ef98398",
+  "diagnosis": {
+    "confirmed": "14 required short_description fields missing from included skill metadata files.",
+    "ordinary_chat_root_cause": "Unknown; a candidate explanation to verify after this metadata repair.",
+    "owner_followup": "Owner supplies a missing-workflow-orchestrator/Resource-not-found reply from the requested diagnostic. Raw skill-list and read-call results are not provided.",
+    "reported_resource": "skills://plugins/framecore-work-creative-studio/workflow-orchestrator",
+    "current_work_observation": "Native Work catalog exposes framecore-work-creative-studio:workflow-orchestrator and its provider-supplied resource can be read.",
+    "source_zip_and_saved_release": "Entry instructions, asset, both manifests and relevant metadata exactly match across local source, the 1.3.1 ZIP and current saved source.",
+    "reference": "https://developers.openai.com/plugins/deploy/submission-errors#skill-agent-metadata-errors"
+  },
+  "checks": {
+    "node_regressions": {
+      "status": "PASS",
+      "tests": 99,
+      "concurrency": 1
+    },
+    "targeted_metadata": {
+      "status": "PASS",
+      "tests": 27,
+      "subset_of_node_regressions": true
+    },
+    "filesystem_installer": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "gepa_adapter": {
+      "status": "PASS",
+      "tests": 8,
+      "skipped": 0,
+      "official_source_commit": "3f160c295000dd31db3d438c3d17553c23cc5f81",
+      "scope": "Existing synthetic offline integration; no external provider/model calls"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "total_full_checks": 140,
+    "canonical_validation": {
+      "status": "PASS",
+      "files": 743,
+      "owners": 37,
+      "planned_cases": 183,
+      "executed_planned_cases": 0,
+      "legacy": "NOT_RUN"
+    },
+    "short_description_coverage": {
+      "status": "PASS",
+      "all_37_valid": true,
+      "added": 14,
+      "existing_preserved": 23
+    },
+    "packaging": {
+      "status": "PASS",
+      "files": 743,
+      "plugin_zip_sha256": "2a78d53776a67d88d724263c38850e56acd5f9a710e820856111d1298e59a28b"
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "files": 743,
+    "changed_existing": 22,
+    "unchanged": 721,
+    "added": 0,
+    "deleted": 0,
+    "outside_allowlist": 0,
+    "all_37_skill_instructions_byte_equal": true,
+    "existing_metadata_except_added_blurbs_equal": true,
+    "manifest_except_version_equal": true,
+    "canonical_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+    "changed_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "docs/skill-naming.md",
+      "plugin.json",
+      "scripts/validate-studio.mjs",
+      "skills/commercial-video-campaign-director/agents/openai.yaml",
+      "skills/commercial-visual-campaign-director/agents/openai.yaml",
+      "skills/creative-music-video-director/agents/openai.yaml",
+      "skills/delivery-documentation/agents/openai.yaml",
+      "skills/humanizer/agents/openai.yaml",
+      "skills/image-prompt-architect/agents/openai.yaml",
+      "skills/output-critic-iteration/agents/openai.yaml",
+      "skills/producer-ai-task-builder/agents/openai.yaml",
+      "skills/research-evidence/agents/openai.yaml",
+      "skills/screenplay-story-architect/agents/openai.yaml",
+      "skills/storyboard-board-architect/agents/openai.yaml",
+      "skills/storyboard-sequence-architect/agents/openai.yaml",
+      "skills/video-prompt-architect/agents/openai.yaml",
+      "skills/workflow-orchestrator/agents/openai.yaml",
+      "tests/studio.test.mjs"
+    ]
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "active_client_behavior_after_update": "NOT_RUN",
+  "actual_host_registration_cause": "Unknown",
+  "hipson_review": {
+    "scope_fit": "PASS",
+    "protected_contracts": "PASS",
+    "evidence_boundary": "PASS: metadata defect confirmed; ordinary-ChatGPT causality and post-update behavior unverified"
+  }
+}

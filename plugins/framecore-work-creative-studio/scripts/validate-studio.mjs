@@ -165,6 +165,13 @@ export function validateStudio(root, {legacy = false} = {}) {
     try { if (sections.length === 1 && entries.length === 1) title = JSON.parse(entries[0][1]); } catch { /* invalid scalar fails below */ }
     const expected = id.split('-').map(word => nameSpellings.get(word) ?? word[0].toUpperCase() + word.slice(1)).join(' ');
     if (title !== expected) fail('SKILL_DISPLAY_NAME', relative + ': expected interface.display_name ' + JSON.stringify(expected));
+    // Included agent metadata also requires a short UI description. Enforce the
+    // repository's quoted-scalar format and the 25–64 character authoring range.
+    // This checks source compatibility, not registration in an active client.
+    const blurbs = [...(sections[0]?.[1] ?? '').matchAll(/^  short_description:[ \t]*("(?:[^"\\\r\n]|\\[^\r\n])*")[ \t]*$/gm)];
+    let blurb;
+    try { if (sections.length === 1 && blurbs.length === 1) blurb = JSON.parse(blurbs[0][1]); } catch { /* invalid scalar fails below */ }
+    if (typeof blurb !== 'string' || !blurb.trim() || [...blurb].length < 25 || [...blurb].length > 64) fail('SKILL_SHORT_DESCRIPTION', relative + ': expected one interface.short_description string of 25–64 characters');
     if (typeof title === 'string') {
       if (displayNames.has(title)) fail('SKILL_DISPLAY_NAME_DUPLICATE', title);
       displayNames.add(title);

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "8f38f8416118d95d19722f23de5a8ea0e40ff79cfed5c3a2ec614f4a0b9f62bb"
+      "sha256": "46efbec1cb36c42f8a1d77368532e87fd42aafd141f4ea70cc297b36fe131abe"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 12576,
-      "sha256": "4d62fefe57dd3dc31a72755b51cf3e1d5c096e578e1953872ed7f69d691c91fe"
+      "sha256": "2f6a54d858e015d3bb89c7a7cf8e03f7474a3dbdbf382ea913155a8c9f7d641d"
     },
     {
       "path": "assets/logo.png",
@@ -99,7 +99,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 10980,
-      "sha256": "f437d1f4d5a3a59faa8ffad639e2937b23d627c2a77ee1442719e763eb3490c8"
+      "sha256": "769f8a8de578ca70edb8bdef950a2901f5d83c81be84c84c9f18afe994048907"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -118,8 +118,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 28434,
-      "sha256": "e3ed2712bb35def40060ee84eef52e7a20c13ba49a4f0c04c2e63982a93620b3"
+      "bytes": 29190,
+      "sha256": "05d55ca4596c9f0add6b6e988e5ec943dd2153c4eec3220d5bcfe03cb7e8aa16"
     },
     {
       "path": "docs/research-ledger.json",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/skill-naming.md",
-      "bytes": 3548,
-      "sha256": "a5c7dabbbc5dfe05904b71751e5c9e1cf40e0c5176bbe8168c65a2e3319a516a"
+      "bytes": 4070,
+      "sha256": "c05b832dfb6eeae0e8fa51d720f1daf5a35198b70a6f04037dad4ecf33e49172"
     },
     {
       "path": "docs/workflow-kit-integration.md",
@@ -2184,7 +2184,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "d24804e325674c76ff14b233cdee0bab81f530ac5c5424109e2e880beb865f42"
+      "sha256": "1d1befca3f49a1549d1769530c6bb1cd0fbe7e15f958db35c8d791678bd00b82"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2228,8 +2228,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 27492,
-      "sha256": "11726968682de9e6aa031bf5060832e219eba6a15072379ba8463b495b0e48df"
+      "bytes": 28241,
+      "sha256": "2c05d49d46d0d904a68bc3a2eae9048152b7a58b7f5e4dd551a19e239b4f01f8"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -2393,8 +2393,8 @@
     },
     {
       "path": "skills/commercial-video-campaign-director/agents/openai.yaml",
-      "bytes": 64,
-      "sha256": "b0dc4d9c6b196436515b6d64282032121288c0598b62d708d01c3490e45ea182"
+      "bytes": 133,
+      "sha256": "58606f002fba4d712d728adea1208d19194de927b13d0995235e1106d7b05281"
     },
     {
       "path": "skills/commercial-video-campaign-director/assets/creative-decision-card.json",
@@ -2453,8 +2453,8 @@
     },
     {
       "path": "skills/commercial-visual-campaign-director/agents/openai.yaml",
-      "bytes": 65,
-      "sha256": "03bf7e6e92316cc0586073a53e1fe5211ea1be494723b0e5de7edee61bc20271"
+      "bytes": 135,
+      "sha256": "04ccd6a12b23d9b7dfc2a7287cf5103876ada77982dff2d09c79f2a071d4d3d0"
     },
     {
       "path": "skills/commercial-visual-campaign-director/assets/copy-and-format-card.md",
@@ -2568,8 +2568,8 @@
     },
     {
       "path": "skills/creative-music-video-director/agents/openai.yaml",
-      "bytes": 59,
-      "sha256": "2cd9440c79018ccfc5ad88184a061ddb6ec69b2d7f554decc824f6f64f357e54"
+      "bytes": 123,
+      "sha256": "936cd6695547c63ea8e0efd30b69b9149c7493b94a7bc0398e1a83ad0fb06743"
     },
     {
       "path": "skills/creative-music-video-director/kit/method.md",
@@ -2618,8 +2618,8 @@
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
-      "bytes": 52,
-      "sha256": "2d663748ad863825721e76701820590f11b5d0cf37a9308820be79d42739f618"
+      "bytes": 126,
+      "sha256": "d7b0c2e74b3b98a3506d0a82aaa430950f0c56e1df2bb65e037c0840919b3a0c"
     },
     {
       "path": "skills/delivery-documentation/assets/project-manifest.example.json",
@@ -2698,8 +2698,8 @@
     },
     {
       "path": "skills/humanizer/agents/openai.yaml",
-      "bytes": 39,
-      "sha256": "5c54ac0a410c2d1a2b51a10a51ee666e83b659ad0a91b69889a82cce93eaab75"
+      "bytes": 113,
+      "sha256": "b79295f66865b9428da0b1fb1abc134fada07031add0b52890861d5970f035f7"
     },
     {
       "path": "skills/humanizer/assets/slad-copy-example.md",
@@ -2743,8 +2743,8 @@
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
-      "bytes": 52,
-      "sha256": "f058bd603272c47726af76ee013fc627b58a9ac8f49283ec11ac4059a4f7ce64"
+      "bytes": 124,
+      "sha256": "7f5bb3e6d3848b053310b210bb14db4abbdd86b29a38639d1d3c732d6fb3e527"
     },
     {
       "path": "skills/image-prompt-architect/assets/human-reference-capture-card.md",
@@ -2853,8 +2853,8 @@
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
-      "bytes": 53,
-      "sha256": "bb2c1630c7aebd619656817ccfbea4844e77e82d97ea2d10bf70aa606275d53b"
+      "bytes": 127,
+      "sha256": "d54ed77ba755d84e092e73d67b720ae922eeed72ecbd9fed25f1ae9e897a433f"
     },
     {
       "path": "skills/output-critic-iteration/assets/quality-review.example.json",
@@ -3028,8 +3028,8 @@
     },
     {
       "path": "skills/producer-ai-task-builder/agents/openai.yaml",
-      "bytes": 54,
-      "sha256": "d7fb741a2408784781a9804efe72778f35e31cffdc20d944f88ab4e58a74abec"
+      "bytes": 132,
+      "sha256": "e34281a25854b8d833274cf0371fc449b68d2a35f15d2d9ca5bc926c41d111e2"
     },
     {
       "path": "skills/producer-ai-task-builder/references/audio-arrangement-vo-and-mix-workbook.md",
@@ -3088,8 +3088,8 @@
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
-      "bytes": 47,
-      "sha256": "f0288566fe955fbf239fcb9b5ad2e45562329d065aa94c101f51d3e40df1a768"
+      "bytes": 127,
+      "sha256": "673aa5e43bebc58680495e8d0bab45d752f7f867cebcb9a056ae49b75e4b25c9"
     },
     {
       "path": "skills/research-evidence/assets/research-decision-card.md",
@@ -3138,8 +3138,8 @@
     },
     {
       "path": "skills/screenplay-story-architect/agents/openai.yaml",
-      "bytes": 56,
-      "sha256": "d4d8db781581fa311f497a1bc89d9ca4eb5360d17c738130f1bab91e0c39cbdf"
+      "bytes": 130,
+      "sha256": "2e1eaa27fd651e6a394af4a3959abcd820c948c8ec53d6d03f14e41de643b41c"
     },
     {
       "path": "skills/screenplay-story-architect/assets/scene-worksheet.md",
@@ -3378,8 +3378,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/agents/openai.yaml",
-      "bytes": 56,
-      "sha256": "9f05692a895165c826f35c9b53c3ea268cb1fa513925f85f1ec3d8dca465120a"
+      "bytes": 126,
+      "sha256": "4c9952d1799c7e8f8568a1b29e0b38fde4c1b783fde52517c2c56d44d7de3321"
     },
     {
       "path": "skills/storyboard-board-architect/assets/panel-map.md",
@@ -3433,8 +3433,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
-      "bytes": 59,
-      "sha256": "be651ae5591ab77ef2c4eeeeb9bcb37423842d2da667249500c7ec498446270b"
+      "bytes": 127,
+      "sha256": "ce288cec5e0b4fa89989f8b8652d0674e58bd51cc3dddebcecffdafbd8bc2802"
     },
     {
       "path": "skills/storyboard-sequence-architect/assets/shot-plan.example.json",
@@ -3583,8 +3583,8 @@
     },
     {
       "path": "skills/video-prompt-architect/agents/openai.yaml",
-      "bytes": 52,
-      "sha256": "620469146b017f3ea44480b37d76d056ec37588308272a8c890876bb26955305"
+      "bytes": 125,
+      "sha256": "dfef2bd6d0e56c4f171f15f35200cdda760427a7cc00176eaf18bce43388bef9"
     },
     {
       "path": "skills/video-prompt-architect/kit/method.md",
@@ -3608,8 +3608,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
-      "bytes": 51,
-      "sha256": "2d4a3c25652fbda13463b7cf60ffa3bfce42726703f384a17e54a5a45bb970f4"
+      "bytes": 125,
+      "sha256": "a05098c92eb405d9f4bf8047bbbe0b4ead252f60ca42209e72e826ce71c66b84"
     },
     {
       "path": "skills/workflow-orchestrator/assets/brand-identity.template.md",
@@ -3753,8 +3753,8 @@
     },
     {
       "path": "tests/studio.test.mjs",
-      "bytes": 15236,
-      "sha256": "93002ec010e5975867ec0ba4c8ba4831ba109ce24fd949d30459141a08e11cd1"
+      "bytes": 17562,
+      "sha256": "dee9d3176603ff45083e89a82a570e489d06b264c83bfb37888447d8413437c8"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

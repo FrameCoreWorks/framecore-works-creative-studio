@@ -1,2 +1,3 @@
 interface:
   display_name: "Output Critic Iteration"
+  short_description: "Review supplied images and propose scoped repairs."

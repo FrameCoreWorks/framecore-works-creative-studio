@@ -1,2 +1,3 @@
 interface:
   display_name: "Delivery Documentation"
+  short_description: "Package accepted work with actual delivery status."

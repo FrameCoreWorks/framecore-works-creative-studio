@@ -1,2 +1,3 @@
 interface:
   display_name: "Workflow Orchestrator"
+  short_description: "Start Studio, show its welcome and route the work."

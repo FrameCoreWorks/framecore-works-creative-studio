@@ -1,5 +1,5 @@
-# Creative Studio 1.3.1
+# Creative Studio 1.3.2
 
-Repairs the startup instructions after a reported reply containing only the mode choice. Workflow Orchestrator now includes the entire unchanged canonical welcome before other instructions and explicitly rejects a mode-only response. The source validator checks full protected-text integrity and exact excerpt equality. Direct tasks, resume, menus, onboarding and the shared QA budget retain their existing behavior.
+Repairs missing skill interface descriptions after ordinary ChatGPT reported Workflow Orchestrator unavailable. Fourteen included agents/openai.yaml files now carry the required interface.short_description; the canonical gate and negative regression tests reject invalid descriptions across all 37 skill roots.
 
-Source and supplied-response checks are distinct from active-client observation. Active-client verification remains NOT_RUN unless recorded separately; this release does not claim deterministic control of host skill loading.
+All existing skill instructions, IDs, display names, prompts, invocation policies, the complete canonical welcome, menus, learning, assets and pinned sources are preserved. The metadata defect is confirmed; its causal role in the ordinary-ChatGPT failure is not yet proven. Post-update client verification remains NOT_RUN until an actual host trial is recorded.

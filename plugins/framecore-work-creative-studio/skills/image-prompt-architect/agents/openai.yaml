@@ -1,2 +1,3 @@
 interface:
   display_name: "Image Prompt Architect"
+  short_description: "Compile still-image generation and edit prompts."

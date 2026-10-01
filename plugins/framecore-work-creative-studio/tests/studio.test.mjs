@@ -28,6 +28,39 @@ test('canonical validation passes with explicit structural scope and no legacy e
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
+test('missing short descriptions fail for the entry owner and existing specialists', () => {
+  for (const owner of ['workflow-orchestrator', 'pipeline-core', 'commercial-video-campaign-director']) withFixture(root => {
+    edit(root, 'skills/' + owner + '/agents/openai.yaml', text => text.replace(/^  short_description:.*\n/m, ''));
+    assert.ok(codes(validateStudio(root)).includes('SKILL_SHORT_DESCRIPTION'), owner);
+  });
+});
+
+test('blank, non-string, malformed and duplicate interface descriptions fail closed', () => {
+  for (const value of ['""', '"   "', 'null', 'true', '42', '[]', '{}', '"unterminated', '"Invalid \\q escape"']) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/agents/openai.yaml', text => text.replace(/^  short_description:.*$/m, '  short_description: ' + value));
+    assert.ok(codes(validateStudio(root)).includes('SKILL_SHORT_DESCRIPTION'), value);
+  });
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/agents/openai.yaml', text => text.replace(/^(  short_description:.*\n)/m, '$1$1'));
+    assert.ok(codes(validateStudio(root)).includes('SKILL_SHORT_DESCRIPTION'));
+  });
+});
+
+test('short descriptions must belong to interface and retain the authoring length range', () => {
+  for (const replacement of ['short_description: "A top-level field cannot describe the interface."', 'metadata:\n  short_description: "Metadata is not the skill interface mapping."']) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/agents/openai.yaml', text => text.replace(/^  short_description:.*$/m, replacement));
+    assert.ok(codes(validateStudio(root)).includes('SKILL_SHORT_DESCRIPTION'));
+  });
+  for (const length of [24, 65]) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/agents/openai.yaml', text => text.replace(/^  short_description:.*$/m, '  short_description: ' + JSON.stringify('x'.repeat(length))));
+    assert.ok(codes(validateStudio(root)).includes('SKILL_SHORT_DESCRIPTION'), String(length));
+  });
+  for (const length of [25, 64]) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/agents/openai.yaml', text => text.replace(/^  short_description:.*$/m, '  short_description: ' + JSON.stringify('x'.repeat(length))));
+    assert.equal(validateStudio(root).status, 'PASS', String(length));
+  });
+});
+
 test('automatic output review cannot disappear from a directly invoked owner', () => {
   for (const owner of ['workflow-orchestrator', 'pipeline-core', 'static-graphic-design-creator', 'image-prompt-architect', 'commercial-video-campaign-director']) withFixture(root => {
     edit(root, 'skills/' + owner + '/SKILL.md', text => text.replace('automatically apply [output review]', 'optionally apply [output review]'));

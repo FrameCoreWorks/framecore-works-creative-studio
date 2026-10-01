@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.3.2, 2026-10-01
+
+Adds the required interface.short_description to fourteen included skill metadata files, including Workflow Orchestrator. Extends the canonical source gate and negative tests to reject missing, blank, mistyped, duplicated, mislocated and out-of-range descriptions. Preserves all 37 IDs, display names, existing starter prompts and invocation policies; every skill instruction body, canonical welcome, menu, onboarding, asset and pinned source is unchanged. The metadata defect is confirmed against current OpenAI package-check documentation. Its role in the reported ordinary-ChatGPT missing-skill behavior remains a diagnosis to verify in the active client; saved-package equality does not prove registration or startup compliance.
+
 ## 1.3.1, 2026-10-01
 
 Restores the complete existing startup contract after an owner-reported mode-only reply. Places a synchronized byte-identical welcome excerpt before general review/routing instructions in Workflow Orchestrator, strengthens its bare-invocation trigger, and removes the short-choice ambiguity. The canonical welcome asset, menu wording, onboarding, checkpoints, direct-task/resume routes, 37 IDs, upstream and shared QA budget are unchanged. Adds protected-text and excerpt-integrity checks plus supplied-response negative cases. These checks do not establish that the active ChatGPT client loaded or followed the saved release.

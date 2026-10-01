@@ -1,2 +1,3 @@
 interface:
   display_name: "Humanizer"
+  short_description: "Polish existing copy for natural rhythm and voice."
