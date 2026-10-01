@@ -125,7 +125,14 @@
       "github_git_blob_hashes_equal": true,
       "unreadable_files": 0
     },
-    "release_description": "Repository notes corrected; guarded metadata refresh workflow pending"
+    "release_description": {
+      "status": "PASS",
+      "body_byte_equal_to_repository_notes": true,
+      "workflow_id": 36846025973,
+      "workflow_conclusion": "success",
+      "tag_and_assets_preserved": true,
+      "metadata_commit": "59437cc4eeac8c6d76cffbfac0f2912ad5f690f0"
+    }
   },
   "hipson_review": {
     "instruction_packet_fit": "PASS",
@@ -136,10 +143,10 @@
   },
   "sufficiency_gate": {
     "objective": "Implement five scoped quality directions and paired release",
-    "current_evidence": "Required checks, three source-use tasks, CI success, 743-file equality",
-    "remaining_gap": "Release-description metadata refresh",
-    "next_patch_scope": "Repository-only notes/workflow and verification records; no plugin-source edits",
-    "decision": "patch_one_gap",
-    "stop_reason": "No further runtime improvement justified"
+    "current_evidence": "Required checks, three serial source-use tasks, successful CI, full 743-file source/host equality and corrected release body",
+    "remaining_gap": "none within authorized scope",
+    "decision": "stop_sufficient",
+    "no_action_option": "Retain tested runtime package",
+    "stop_reason": "All required gates met; no additional runtime patch or paid model run authorized"
   }
 }

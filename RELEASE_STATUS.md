@@ -13,7 +13,7 @@ Source version: **1.3.0**. Date: 2026-10-01.
 | GitHub publication | [v1.3.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.3.0), source b3182ad397f19d06d01cc05d0df0a13b347c1d0a; CI 36845188294 passed, five assets published |
 | Hosted update | Same private personal plugin, 1.3.0; pluginrel_6abe2caf03848191bd1d21c3b27dc418 |
 | Readback | All 743 GitHub blob hashes match; full owned-release archive and uploaded ZIP are byte-equal to source, no unreadable files |
-| Release description | Repository notes corrected; guarded metadata refresh pending |
+| Release description | Correct 1.3.0 body read back byte-for-byte; metadata workflow 36846025973 passed, tag and five assets preserved |
 | Evidence | [Scope](verification/scope-1.3.0.json), [checks](verification/release-1.3.0.json), [development method](docs/quality-development-1.3.0.md) |
 
 The shared package is `plugins/framecore-work-creative-studio/`. Development tools

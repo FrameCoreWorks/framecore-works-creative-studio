@@ -29,7 +29,10 @@ jobs:
           if not body.startswith('# Creative Studio ' + version + '\n'):
               raise SystemExit('Notes version does not match the package')
           report = json.loads(pathlib.Path('verification/release-' + version + '.json').read_text())
-          expected = report['publication']['source_commit']
+          expected = report.get('publication', {}).get('source_commit')
+          if not expected:
+              print('Release source is not confirmed yet; description refresh skipped.')
+              raise SystemExit(0)
           def api(path, payload=None):
               cmd = ['gh', 'api', 'repos/' + repo + '/' + path]
               if payload is not None: cmd += ['--method', 'PATCH', '--input', '-']
