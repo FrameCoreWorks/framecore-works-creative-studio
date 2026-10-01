@@ -1,0 +1,49 @@
+name: Refresh current release notes
+
+on:
+  push:
+    branches: [main]
+    paths: [RELEASE_NOTES.md]
+
+permissions:
+  contents: write
+
+jobs:
+  notes:
+    if: github.repository == 'FrameCoreWorks/framecore-works-creative-studio'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Update description only after version and source checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, subprocess
+          repo = 'FrameCoreWorks/framecore-works-creative-studio'
+          version = json.loads(pathlib.Path('plugins/framecore-work-creative-studio/plugin.json').read_text())['version']
+          body = pathlib.Path('RELEASE_NOTES.md').read_text()
+          if not body.startswith('# Creative Studio ' + version + '\n'):
+              raise SystemExit('Notes version does not match the package')
+          report = json.loads(pathlib.Path('verification/release-' + version + '.json').read_text())
+          expected = report['publication']['source_commit']
+          def api(path, payload=None):
+              cmd = ['gh', 'api', 'repos/' + repo + '/' + path]
+              if payload is not None: cmd += ['--method', 'PATCH', '--input', '-']
+              result = subprocess.run(cmd, input=json.dumps(payload) if payload is not None else None, text=True, capture_output=True, timeout=30, check=True)
+              return json.loads(result.stdout)
+          release = api('releases/tags/v' + version)
+          tag = api('git/ref/tags/v' + version)
+          if release['draft'] or release['target_commitish'] != expected or tag['object']['type'] != 'commit' or tag['object']['sha'] != expected:
+              raise SystemExit('Release/tag source mismatch; no edit performed')
+          saved = api('releases/' + str(release['id']), {'body': body})
+          for key in ['id', 'tag_name', 'target_commitish', 'name', 'draft', 'prerelease']:
+              if saved[key] != release[key]: raise SystemExit('Unrelated release metadata drift: ' + key)
+          def assets(value): return sorted((a['id'], a['name'], a['digest'], a['size'], a['state']) for a in value['assets'])
+          if assets(saved) != assets(release): raise SystemExit('Release assets changed')
+          if saved['body'] != body: raise SystemExit('Description readback mismatch')
+          print('Release description updated and read back; tag and all assets preserved.')
+          PY

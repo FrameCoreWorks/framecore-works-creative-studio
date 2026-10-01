@@ -28,7 +28,7 @@
     "scripts/quality-harness.mjs", "scripts/validate-studio.mjs", "scripts/validate-quality-methods.mjs",
     "tests/quality-methods.test.mjs"
   ],
-  "repository_only_scope": ["scripts/gepa_studio_pilot.py", "tests/test_gepa_studio_pilot.py", "config/gepa-pilot.json", "config/gepa-cases.json", "requirements-gepa-pilot.txt", "docs/quality-development-1.3.0.md", ".github/workflows/release.yml", "README.md", "RELEASE_STATUS.md", "config/install-sources.json", "verification/scope-1.3.0.json", "verification/release-1.3.0.json", "verification/gepa-offline-1.3.0.json", "verification/hosted-release-1.3.0.json"],
+  "repository_only_scope": ["scripts/gepa_studio_pilot.py", "tests/test_gepa_studio_pilot.py", "config/gepa-pilot.json", "config/gepa-cases.json", "requirements-gepa-pilot.txt", "docs/quality-development-1.3.0.md", ".github/workflows/release.yml", ".github/workflows/refresh-release-notes.yml", "README.md", "RELEASE_STATUS.md", "RELEASE_NOTES.md", "config/install-sources.json", "verification/scope-1.3.0.json", "verification/release-1.3.0.json", "verification/gepa-offline-1.3.0.json", "verification/hosted-release-1.3.0.json"],
   "sections": {
     "existing_skills": "Only correction handling, selected static handoff and conditional links to quality/Reflexion resources",
     "existing_evals": "Only expected_owners for H01, H02 and KP02; preserve not_run",

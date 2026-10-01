@@ -91,7 +91,9 @@
   },
   "iteration_notes": [
     "Initial duration assertion selected the count record; corrected to select the duration criterion. Final helper tests pass.",
-    "Initial installer run preceded manifest regeneration; rebuilt inventory and reran installer checks successfully."
+    "Initial installer run preceded manifest regeneration; rebuilt inventory and reran installer checks successfully.",
+    "Shell push had no GitHub credentials; published an identical Git tree through the authorized connector.",
+    "Release body inherited separate 1.2.10 notes; correcting only repository notes and guarded release description."
   ],
   "limitations": [
     "No actual media generation/inspection/playback/listening.",
@@ -100,21 +102,44 @@
     "No paid/real-model GEPA optimization; meaningful candidate adoption needs actual owner review."
   ],
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING",
-    "full_saved_package_readback": "PENDING"
+    "github": "PUBLISHED_AND_VERIFIED",
+    "source_commit": "b3182ad397f19d06d01cc05d0df0a13b347c1d0a",
+    "package_tree": "19ff9a66faa52f68c6bec215aecf98776febda1c",
+    "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.3.0",
+    "github_workflow": {
+      "id": 36845188294,
+      "conclusion": "success"
+    },
+    "release_assets": {
+      "count": 5,
+      "plugin_zip_digest": "sha256:e0f7a8ec9fef0da1942da62094bd9a8634606a8e39f9c0dd8a16c469c9458f5f",
+      "matches_local_plugin_zip": true
+    },
+    "host": "PUBLISHED_AND_VERIFIED",
+    "host_release": "pluginrel_6abe2caf03848191bd1d21c3b27dc418",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "full_saved_package_readback": {
+      "status": "PASS",
+      "files": 743,
+      "all_sha256_equal": true,
+      "github_git_blob_hashes_equal": true,
+      "unreadable_files": 0
+    },
+    "release_description": "Repository notes corrected; guarded metadata refresh workflow pending"
   },
   "hipson_review": {
     "instruction_packet_fit": "PASS",
     "diff_scope": "PASS",
     "evidence_boundaries": "PASS",
-    "release_gate": "Local checks pass; paired publication/readback required",
+    "release_gate": "PASS: authorized target, precise diff, required checks, both saved packages byte-equal",
     "supervision": "Hipson Adapter method; no full Hipson service or supervising agent"
   },
   "sufficiency_gate": {
-    "objective": "Implement five scoped quality directions",
-    "remaining_gap": "Paired publication and full readback",
+    "objective": "Implement five scoped quality directions and paired release",
+    "current_evidence": "Required checks, three source-use tasks, CI success, 743-file equality",
+    "remaining_gap": "Release-description metadata refresh",
+    "next_patch_scope": "Repository-only notes/workflow and verification records; no plugin-source edits",
     "decision": "patch_one_gap",
-    "next_patch_scope": "Authorized release operations and repository-only records; no further runtime changes"
+    "stop_reason": "No further runtime improvement justified"
   }
 }
