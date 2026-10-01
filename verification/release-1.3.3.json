@@ -82,8 +82,49 @@
     ]
   },
   "publication": {
-    "github": "NOT_PUBLISHED",
-    "host": "NOT_PUBLISHED"
+    "github": "PUBLISHED_AND_VERIFIED",
+    "source_commit": "afb9f1e3799557c953dee7c03b066349d027391e",
+    "package_tree": "df9e652cdc6e7a4dab81ffdc98284f2ce430671f",
+    "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.3.3",
+    "github_workflows": [
+      {
+        "id": 36897418367,
+        "name": "Refresh current release notes",
+        "head_sha": "afb9f1e3799557c953dee7c03b066349d027391e",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 36897418257,
+        "name": "Publish verified Studio release",
+        "head_sha": "afb9f1e3799557c953dee7c03b066349d027391e",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "release_assets": {
+      "count": 5,
+      "plugin_zip_digest": "sha256:b1007b313b8a1d9ab2d5235acc5f9da852163c83426cc556c92ea9e44dc1f727",
+      "matches_local": true,
+      "tag_commit_equal": true
+    },
+    "release_notes_readback": "PASS",
+    "host": "PUBLISHED_AND_VERIFIED",
+    "host_release": "pluginrel_6abe940399608191b973c9d2067c16ea",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "full_saved_package_readback": {
+      "status": "PASS",
+      "files": 743,
+      "full_saved_archive_equal": true,
+      "uploaded_zip_equal": true,
+      "github_blob_hashes_equal": true,
+      "unreadable_files": 0,
+      "all_37_saved_interface_descriptions_valid": true,
+      "canonical_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+      "archive_bytes": 8655245,
+      "archive_path_layout": "Saved TAR has package-relative paths; uploaded ZIP has one canonical plugin-directory prefix. File contents equal without normalization.",
+      "plugin_zip_sha256": "b1007b313b8a1d9ab2d5235acc5f9da852163c83426cc556c92ea9e44dc1f727"
+    }
   },
   "fresh_account_installation": "NOT_RUN",
   "active_client_behavior_after_update": "NOT_RUN",
@@ -93,7 +134,7 @@
     "scope_fit": "PASS",
     "protected_contracts": "PASS",
     "evidence_boundary": "Source and package checks do not establish live installation or active-client behavior.",
-    "release_gate": "PASS: serial checks, bounded allowlist and protected-file comparison; publication/readback pending"
+    "release_gate": "PASS: scoped source, serial checks, GitHub release/tag/digest readback, same-plugin guarded update and full 743-file package comparison"
   },
   "iteration_notes": [
     "Initial Node run: 98/99; two domain-boundary assertions used Polish wording. Updated only their English expectations, preserving coverage requirements."
@@ -175,7 +216,7 @@
   },
   "sufficiency_gate": {
     "objective": "README guide links and English maintained repository content",
-    "decision": "source_and_serial_checks_complete",
-    "remaining": "Paired publication and saved-source readback; fresh-account install and active-client tests are separate and NOT_RUN."
+    "decision": "paired_publication_and_saved_source_readback_complete",
+    "remaining": "Fresh-account installation and post-update active-client behavior NOT_RUN; documentation and saved-source task complete."
   }
 }

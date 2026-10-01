@@ -1,0 +1,25 @@
+{
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "version": "1.3.3",
+  "release_id": "pluginrel_6abe940399608191b973c9d2067c16ea",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "source_commit": "afb9f1e3799557c953dee7c03b066349d027391e",
+  "package_tree": "df9e652cdc6e7a4dab81ffdc98284f2ce430671f",
+  "readback": {
+    "status": "PASS",
+    "files": 743,
+    "full_saved_archive_equal": true,
+    "uploaded_zip_equal": true,
+    "github_blob_hashes_equal": true,
+    "unreadable_files": 0,
+    "all_37_saved_interface_descriptions_valid": true,
+    "canonical_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+    "archive_bytes": 8655245,
+    "archive_path_layout": "Saved TAR has package-relative paths; uploaded ZIP has one canonical plugin-directory prefix. File contents equal without normalization.",
+    "plugin_zip_sha256": "b1007b313b8a1d9ab2d5235acc5f9da852163c83426cc556c92ea9e44dc1f727"
+  },
+  "post_update_active_client_behavior": "NOT_RUN",
+  "fresh_account_installation": "NOT_RUN",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351"
+}
