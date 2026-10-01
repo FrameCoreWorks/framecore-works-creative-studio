@@ -1,0 +1,111 @@
+{
+  "record_id": "STUDIO-STARTUP-HOST-FOLLOWUP-2026-10-01",
+  "packet_type": "Review Packet",
+  "target_role": "Studio maintainer",
+  "reported_at": "2026-10-01T14:59:33+02:00",
+  "version_under_test_reported": "1.3.1",
+  "current_saved_release_verified": "pluginrel_6abe544d0b288191bf4ca18f9ef98398",
+  "source_baseline_commit": "49d4edfce41d9edc7b978182ca4b8b70098064f1",
+  "protected_contract": "P01: complete canonical startup welcome before the intent menu",
+  "status": "OPEN",
+  "scope": {
+    "goal": "Record actual startup feedback and correct the current behavioral status without guessing a runtime repair.",
+    "allowed_paths": [
+      "RELEASE_STATUS.md",
+      "verification/release-1.3.1.json",
+      "verification/hosted-release-1.3.1.json",
+      "verification/startup-host-feedback-1.3.1.json"
+    ],
+    "runtime_changes": false,
+    "deletions": false,
+    "screenshots_published": false,
+    "external_model_budget_usd": 0
+  },
+  "observations": [
+    {
+      "case": "work_highest_reasoning",
+      "surface_reported": "ChatGPT Work",
+      "model_reported": "GPT-6.1 Sol",
+      "reasoning_reported": "very high",
+      "conversation_freshness": "Unknown",
+      "input_reported": "Bare Studio invocation",
+      "evidence": "Owner describes a complete capability introduction followed by the intent choices; no Work response transcript or screenshot supplied.",
+      "semantic_completion": "PASS_REPORTED",
+      "exact_canonical_match": "Unknown"
+    },
+    {
+      "case": "ordinary_chat_basic_reasoning",
+      "surface_reported": "Ordinary ChatGPT",
+      "model_reported": "Unknown",
+      "reasoning_reported": "Basic; intensive thinking disabled",
+      "conversation_freshness": "Fresh conversation after update, confirmed by owner",
+      "input_reported": "Bare Studio invocation",
+      "evidence": "Owner reports a modes-only response. Both supplied ordinary-ChatGPT screenshots show shortened responses; no image-to-reasoning-setting mapping was supplied.",
+      "complete_welcome": "FAIL",
+      "client_loaded_release": "Unknown",
+      "skill_loading_trace": "Unknown"
+    },
+    {
+      "case": "ordinary_chat_highest_reasoning",
+      "surface_reported": "Ordinary ChatGPT",
+      "model_reported": "Unknown",
+      "reasoning_reported": "Think harder; very high",
+      "conversation_freshness": "Fresh conversation after update, confirmed by owner",
+      "input_reported": "Bare Studio invocation",
+      "evidence": "Owner reports a modes-only response. Both supplied ordinary-ChatGPT screenshots show shortened responses; no image-to-reasoning-setting mapping was supplied.",
+      "complete_welcome": "FAIL",
+      "client_loaded_release": "Unknown",
+      "skill_loading_trace": "Unknown"
+    }
+  ],
+  "screenshot_evidence": [
+    {
+      "file_name": "1000032840.jpg",
+      "sha256": "4b1488416f75babada2ce165e1b9ce623c68bceb9332b925cb379a13adddc2f6",
+      "visible_clock": "14:58",
+      "visible_input": "Selected FrameCore Works Creative Studio mention without an additional task",
+      "visible_response_structure": "Studio heading, choose work mode, creative mode with one-line explanation, learning mode with one-line explanation, reply 1 or 2.",
+      "complete_welcome": "FAIL",
+      "reason": "The visible response begins with a Studio heading rather than the canonical introduction and omits the six-item capability overview and optional-material invitation.",
+      "settings_visible": false
+    },
+    {
+      "file_name": "1000032839.jpg",
+      "sha256": "e3f93243c29f1a238fd282e15ce9b56f542afac24a54796131ad4353a25c82e1",
+      "visible_clock": "14:57",
+      "visible_input": "Selected FrameCore Works Creative Studio mention without an additional task",
+      "visible_response_structure": "Studio is active, choose mode, short creative-domain summary, learning-onboarding summary, invitation to describe a task without choosing a mode.",
+      "complete_welcome": "FAIL",
+      "reason": "The visible response rewrites the first sentence, omits the full capability overview and material invitation, and changes the prescribed closing instruction.",
+      "settings_visible": false
+    }
+  ],
+  "findings": [
+    "The 1.3.1 source repair is insufficient for the ordinary-ChatGPT startup behavior shown in these tests.",
+    "Increasing ordinary-ChatGPT reasoning did not restore the complete welcome in the owner's two reported trials.",
+    "Prior conversation context does not explain these two trials because both ordinary-ChatGPT conversations were fresh.",
+    "The successful Work report is evidence of a complete introduction and menu in that trial, not proof of byte-exact canonical wording or all-host reliability.",
+    "Current saved-plugin source is still 1.3.1 and contains the complete startup excerpt; a saved-source readback does not identify the release or skill content loaded by each active client."
+  ],
+  "root_cause": "Unknown",
+  "diagnostic_hypotheses": [
+    "Ordinary ChatGPT did not load the workflow-orchestrator instruction body.",
+    "Ordinary ChatGPT loaded an older or incomplete instruction set.",
+    "Ordinary ChatGPT loaded the correct body but did not follow its complete-response requirement."
+  ],
+  "documentation": {
+    "source": "https://developers.openai.com/plugins/concepts/skills",
+    "accessed": "2026-10-01",
+    "supported_fact": "Skill activation first exposes name and description, then loads complete instructions for matching or direct requests.",
+    "inference_boundary": "This makes activation versus instruction-following a useful diagnostic distinction; it does not establish which occurred in these ChatGPT trials."
+  },
+  "next_diagnostic": {
+    "status": "NOT_RUN",
+    "goal": "Compare bare invocation with an explicit request to read the existing workflow-orchestrator and copy its canonical startup text in the same ordinary-ChatGPT surface and model.",
+    "conditions": "Fresh conversations, same account, model, reasoning, plugin selection and saved release; no creative task or resumed state.",
+    "success_criterion": "Actual response text exactly equals assets/startup-welcome.pl.md, allowing only omission of its final file-terminal LF.",
+    "trace_requirement": "Use a real skill-read trace if exposed. Do not treat the assistant's claim that it read a skill as proof.",
+    "interpretation": "Explicit-request success with bare-invocation failure narrows the investigation toward activation or entry routing. Explicit-request failure still requires a real loading trace to distinguish unavailable source from noncompliance."
+  },
+  "evidence_boundary": "These are ad hoc owner trials and screenshot observations, not agent-executed host runs or completed cases from the 183-case planned evaluation inventory. Source and publication checks remain separate."
+}

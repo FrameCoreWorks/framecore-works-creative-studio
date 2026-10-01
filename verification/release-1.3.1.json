@@ -75,7 +75,9 @@
     "status": "PASS",
     "scope": "Caller-supplied full, mode-only, truncated, paraphrased, prefixed and fenced text. No host was invoked."
   },
-  "active_client_behavior": "NOT_RUN",
+  "active_client_behavior_at_publication": "NOT_RUN",
+  "active_client_behavior": "PARTIAL_FAIL: ordinary ChatGPT; Work semantic completion owner-reported, exact match Unknown",
+  "active_client_followup": "startup-host-feedback-1.3.1.json",
   "actual_host_retrieval_cause": "Unknown",
   "publication": {
     "github": "PUBLISHED_AND_VERIFIED",
@@ -115,7 +117,7 @@
   ],
   "sufficiency_gate": {
     "objective": "Repair existing startup instructions and paired saved sources",
-    "decision": "stop_sufficient",
-    "remaining_behavioral_confirmation": "Active-client full welcome NOT_RUN; do not claim host behavior from saved-source equality"
+    "decision": "source_update_complete_behavioral_issue_open",
+    "remaining_behavioral_confirmation": "Ordinary ChatGPT startup failed in two owner tests after publication; host skill loading and loaded release Unknown. Work exact canonical match remains unverified. See the dated follow-up report."
   }
 }
