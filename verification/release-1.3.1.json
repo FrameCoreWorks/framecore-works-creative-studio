@@ -78,17 +78,44 @@
   "active_client_behavior": "NOT_RUN",
   "actual_host_retrieval_cause": "Unknown",
   "publication": {
-    "github": "pending",
-    "host": "pending"
+    "github": "PUBLISHED_AND_VERIFIED",
+    "source_commit": "aefb86755fa4f21dc24b09784e0a4b16ab57b3e6",
+    "package_tree": "6bcd38227f04fe9663d0293e7e8d9c473b7d540d",
+    "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.3.1",
+    "github_workflow": {
+      "id": 36863085798,
+      "conclusion": "success"
+    },
+    "release_assets": {
+      "count": 5,
+      "plugin_zip_digest": "sha256:966a4decb2544aa70865ec35fc10da2aac66b25a6e6ced2cbe72f42a471a0f2b",
+      "matches_local": true
+    },
+    "host": "PUBLISHED_AND_VERIFIED",
+    "host_release": "pluginrel_6abe544d0b288191bf4ca18f9ef98398",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "full_saved_package_readback": {
+      "status": "PASS",
+      "files": 743,
+      "all_sha256_equal": true,
+      "github_git_blob_hashes_equal": true,
+      "unreadable_files": 0
+    },
+    "release_notes_readback": "PASS"
   },
   "hipson_review": {
     "scope_fit": "PASS",
     "protected_contracts": "PASS",
     "evidence_boundaries": "PASS",
-    "release_gate": "pending"
+    "release_gate": "PASS: exact scoped source, serial checks, guarded existing-plugin update and full saved-package readback"
   },
   "iteration_notes": [
     "Initial archive download ended at the transport 8 MiB limit; fetched its remaining declared byte range and verified the complete 743-file baseline.",
     "The asset test produced a transient Python cache; removed that generated file before packaging. No source test failed."
-  ]
+  ],
+  "sufficiency_gate": {
+    "objective": "Repair existing startup instructions and paired saved sources",
+    "decision": "stop_sufficient",
+    "remaining_behavioral_confirmation": "Active-client full welcome NOT_RUN; do not claim host behavior from saved-source equality"
+  }
 }

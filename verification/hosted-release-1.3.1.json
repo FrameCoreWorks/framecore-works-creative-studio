@@ -1,0 +1,20 @@
+{
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "version": "1.3.1",
+  "release_id": "pluginrel_6abe544d0b288191bf4ca18f9ef98398",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "source_commit": "aefb86755fa4f21dc24b09784e0a4b16ab57b3e6",
+  "package_tree": "6bcd38227f04fe9663d0293e7e8d9c473b7d540d",
+  "readback": {
+    "source": "Complete owned-release archive",
+    "files": 743,
+    "all_sha256_equal": true,
+    "uploaded_zip_equal": true,
+    "github_blob_equal": true,
+    "unreadable_files": 0
+  },
+  "active_client_behavior": "NOT_RUN",
+  "actual_host_retrieval_cause": "Unknown",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351"
+}
