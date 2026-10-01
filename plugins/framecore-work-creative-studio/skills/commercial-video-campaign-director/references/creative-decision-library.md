@@ -79,6 +79,21 @@ Keep Quick delivery to a title and one or two concrete sentences per idea. Prese
 
 Review with named findings: product relevance, causal clarity, distinctness from nearby alternatives, visual feasibility and fit to this user/project. Use pass, repair or unresolved for specific criteria. Do not invent a numeric originality score, a predicted scroll-stop rate or a claim of unprecedented originality.
 
-## Adding a real project
+## Retrieval and few-shot use
+
+Use the [small synthetic case bank](../assets/decision-examples.json) when one
+specific decision is unresolved. Match domain, stage, problem tags and supported
+locks; select one to three examples, or none when there is no relevant match.
+The read-only `scripts/quality-harness.mjs` helper supplies deterministic tag
+selection when local tools are available; a chat-only host uses the same criteria.
+Transfer each example's decision and consequence, never its copy or subject as
+new project facts. Preserve this library's public-source/Unknown distinctions.
+The good, bad and borderline anchors make evaluation criteria explicit. They
+are not real renders or confirmed user preferences. Use [conditional quality
+methods](../../pipeline-core/references/quality-improvement-methods.md) for
+pairwise judging and evidence boundaries. Static examples stay in the full
+Static Graphic Design Creator; other domains retain their existing owner.
+
+## Adding a real project record
 
 Use the [decision card](../assets/creative-decision-card.json) only when useful. Record the supplied brief, proposal, exact revision, user's actual decision and stated reason. Mark an assistant hypothesis as such. Keep approved client material in its authorised project store, not in this shared plugin. Add a public teaching case only from a suitable public source or an explicitly permitted, redacted project. Keep failed ideas with their cause when that helps future decisions; do not relabel them as successes.

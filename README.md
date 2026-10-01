@@ -2,7 +2,9 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.2.10**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.3.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+
+The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
 Creative Studio supports creative direction and production planning across image, video, audio and text. Brand-identity work connects strategy, logo/visual-system design and scoped logo/identity guides through existing owners, with revision-aware handoffs and explicit acceptance/file status. Work can begin with a brief, a product photo, a character reference, an existing clip, a script or a concrete correction.
 

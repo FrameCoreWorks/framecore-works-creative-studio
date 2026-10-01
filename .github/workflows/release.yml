@@ -29,7 +29,9 @@ jobs:
           PYTHONDONTWRITEBYTECODE: "1"
         run: |
           python3 -m unittest discover -s tests -p 'test_codex_install.py' -v
-          node --test plugins/framecore-work-creative-studio/tests/studio.test.mjs plugins/framecore-work-creative-studio/tests/workflow-kit.test.mjs plugins/framecore-work-creative-studio/tests/creative-upgrade.test.mjs plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs
+          node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/studio.test.mjs plugins/framecore-work-creative-studio/tests/workflow-kit.test.mjs plugins/framecore-work-creative-studio/tests/creative-upgrade.test.mjs plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs plugins/framecore-work-creative-studio/tests/quality-methods.test.mjs
+          python3 -m pip install --no-deps -r requirements-gepa-pilot.txt
+          python3 -m unittest discover -s tests -p 'test_gepa_studio_pilot.py' -v
           python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py
           python3 scripts/package_release.py
       - name: Upload, verify and publish the source commit

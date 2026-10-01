@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "Synthetic static-direction pilot. Offline callbacks test adapter plumbing, not creative quality. Holdout never enters reflective feedback.",
+  "cases": [
+    {"id": "GP-T1", "split": "train", "input": "One seed-exchange poster direction; preserve Wspólne nasiona; no rendering.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Specific event relationship"},
+    {"id": "GP-T2", "split": "train", "input": "Approved poster; correct one glyph only; preserve layout.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Minimal repair"},
+    {"id": "GP-T3", "split": "train", "input": "Square adaptation with unchanged copy and explicitly allowed recomposition.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Same concept and semantic pairing"},
+    {"id": "GP-T4", "split": "train", "input": "Keep the selected concept, remove stars and enlarge the title; apply explained feedback.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "No redundant clarification"},
+    {"id": "GP-V1", "split": "validation", "input": "One lecture-poster idea; supplied facts only, title unchanged.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Purposeful hierarchy"},
+    {"id": "GP-V2", "split": "validation", "input": "Crop-only adaptation; geometry unavailable. Do only independent work.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Honest geometry uncertainty"},
+    {"id": "GP-V3", "split": "validation", "input": "Requested direction is already accepted; compile it without inventing alternatives.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Accepted direction preserved"},
+    {"id": "GP-H1", "split": "holdout", "input": "Fictional repair café poster; one clear visual relationship and fixed event title.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Transfer mechanism, not seed imagery"},
+    {"id": "GP-H2", "split": "holdout", "input": "Change only the event date in an approved image; no new style or copy.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Local scope preservation"},
+    {"id": "GP-H3", "split": "holdout", "input": "No relevant example for an abstract one-mark poster; no extra discovery questions.", "hard_gates": ["scope", "copy", "evidence"], "criterion": "Proceed without mismatched example"}
+  ]
+}

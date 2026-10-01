@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.2.10",
+  "version": "1.3.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -48,8 +48,8 @@
   "files": [
     {
       "path": ".codex-plugin/plugin.json",
-      "bytes": 2284,
-      "sha256": "2cadb2090bbfb8bdd27b7774ac3128e31c196f504cad6a37e6e6fd00233b0060"
+      "bytes": 2283,
+      "sha256": "25b7935f67f59f30a8eb4615b2537356011c4479bfb7b52eee01b795104ec1d6"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12577,
-      "sha256": "c51f97aa2e37319583fdc490b61b84fa257958ccb831388c38d962d4d0261b44"
+      "bytes": 12576,
+      "sha256": "52bcfe0fc03a7ec556fff00f3e3bd5d2d19af903eb1b6cd681476064b1b1d47b"
     },
     {
       "path": "assets/logo.png",
@@ -98,8 +98,8 @@
     },
     {
       "path": "docs/migration-status.md",
-      "bytes": 10981,
-      "sha256": "37156f2b0433ffa103933d11fed9b51f5a3bfc45d8a508201d870dea1469d788"
+      "bytes": 10980,
+      "sha256": "fdc8b37ce090fe7a599f6746f8029f2da22a269edb286ff41d4add8e28b3838c"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -118,8 +118,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 26813,
-      "sha256": "ce005de58e54bacbc0c581bb2ded031f0619d334c7eae1335756cd7ee30820c0"
+      "bytes": 27784,
+      "sha256": "7b7f0c7af6725cced921c9bdce576d6e5786ce5c081e770d00e684f1eef555ef"
     },
     {
       "path": "docs/research-ledger.json",
@@ -153,8 +153,8 @@
     },
     {
       "path": "evals/knowledge-practice-cases.json",
-      "bytes": 12791,
-      "sha256": "202cd110109cb7f2f611086a2e273d724b53d712543e6cb2378a973958f791fa"
+      "bytes": 12757,
+      "sha256": "897e4d42477958e324b49028dac4f559bb86d226ecb07c978eb44f47b64b737c"
     },
     {
       "path": "evals/learning-mode-cases.json",
@@ -183,8 +183,8 @@
     },
     {
       "path": "evals/studio-behavior-cases.json",
-      "bytes": 49760,
-      "sha256": "aad64aa5c93b9abd5775e36f582083f5eb07fc33466021d1b8d47bf8b24f05e2"
+      "bytes": 49768,
+      "sha256": "2664b4d2517aa80f0a618a108e3a31b9e3f08ba9b9f21949fd357be0e591c440"
     },
     {
       "path": "evals/video-cases.json",
@@ -2183,8 +2183,8 @@
     },
     {
       "path": "plugin.json",
-      "bytes": 2407,
-      "sha256": "5accc21fc6b7ac12c368d0de5957b0d835617e056f0828da1a19917a047403a3"
+      "bytes": 2406,
+      "sha256": "56ad31c7cd569fbfed8f74c78d2f3f1cb4dcb56acd36d4bf320d2be0d28d2675"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2195,6 +2195,11 @@
       "path": "scripts/load-effective-evals.mjs",
       "bytes": 5181,
       "sha256": "5ef32bdf20f0e730315f147f2e4051bb5756ec0509bbf0c583759099cc9e6337"
+    },
+    {
+      "path": "scripts/quality-harness.mjs",
+      "bytes": 11762,
+      "sha256": "abfc54a45ac86bf5fb901b81c30b7d33872c49dc84c8fdbd4fc56e187db9464d"
     },
     {
       "path": "scripts/review-creative-plan.mjs",
@@ -2217,9 +2222,14 @@
       "sha256": "1826b902ccb8defd5745ec582a992fb655aaf12a682a663008dc50657c771497"
     },
     {
+      "path": "scripts/validate-quality-methods.mjs",
+      "bytes": 3684,
+      "sha256": "88c50d855434b05923f87483e9d6841e249945d62dde537e845e5b3da76aa5c0"
+    },
+    {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 27373,
-      "sha256": "f18df04cc44b109f1d2f4a1b7a6adaa80fa4c3555c43df5e2d6f0cf0fbe92162"
+      "bytes": 27492,
+      "sha256": "11726968682de9e6aa031bf5060832e219eba6a15072379ba8463b495b0e48df"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -2392,6 +2402,11 @@
       "sha256": "1e7048da6136bf46ec11908097b9a364ad71d03e87267c90fa0539fef6f37672"
     },
     {
+      "path": "skills/commercial-video-campaign-director/assets/decision-examples.json",
+      "bytes": 10732,
+      "sha256": "0f134cfde1c98d1bec043e81fbe9a713a9262f6399f256728693c7bfb5c50a68"
+    },
+    {
       "path": "skills/commercial-video-campaign-director/assets/premise-proof-worksheet.md",
       "bytes": 1137,
       "sha256": "a9acee51176182525b1751f4309db3436779702a248bd811ff317936dfb51ef1"
@@ -2423,8 +2438,8 @@
     },
     {
       "path": "skills/commercial-video-campaign-director/references/creative-decision-library.md",
-      "bytes": 9339,
-      "sha256": "35992f9bc6a99ed6c964261481533b03b07e5a53176a402b8e3c95263d37ef50"
+      "bytes": 10314,
+      "sha256": "2a62732768af2b52a42b41d0241665c32657ef2b988d30387f42f4d8ee9eeb91"
     },
     {
       "path": "skills/commercial-video-campaign-director/references/short-form-motion-bridge-workbook.md",
@@ -2433,8 +2448,8 @@
     },
     {
       "path": "skills/commercial-visual-campaign-director/SKILL.md",
-      "bytes": 4921,
-      "sha256": "6be8ba223b56272adc1c844af640dce65fc8e9d914358bb277d2614927bc138b"
+      "bytes": 5092,
+      "sha256": "a2972b4f85bb9ef1aa236f3d229f0065ba4c0e7feaf143642c8e2521d67e4c77"
     },
     {
       "path": "skills/commercial-visual-campaign-director/agents/openai.yaml",
@@ -2833,13 +2848,18 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 5474,
-      "sha256": "96743ec8d82a022fa9be14c0c7b7840bc653de0d0eb6cdb000a4e52285f2847e"
+      "bytes": 5887,
+      "sha256": "695bddb7029db61b79526c9b9c08eb73bed3a94a4bb3f3ac324ffb6ed9f91e71"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
       "bytes": 53,
       "sha256": "bb2c1630c7aebd619656817ccfbea4844e77e82d97ea2d10bf70aa606275d53b"
+    },
+    {
+      "path": "skills/output-critic-iteration/assets/quality-review.example.json",
+      "bytes": 1179,
+      "sha256": "4643a8b3857238077dc166090ae5bc2c30583217ad6eda35ef364302b61febe0"
     },
     {
       "path": "skills/output-critic-iteration/assets/review-record.md",
@@ -2938,8 +2958,8 @@
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
-      "bytes": 10799,
-      "sha256": "46f593176a9a28b7670aefa2071033aa974f94ebea65aec1ff26b0fa38ceb722"
+      "bytes": 11127,
+      "sha256": "615cc38506265006ff7aad65cd197932e914ed9010cc4e0c1284cdf90ee626f9"
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
@@ -2955,6 +2975,11 @@
       "path": "skills/pipeline-core/references/prompt-format-and-continuity.md",
       "bytes": 3596,
       "sha256": "bb54c88ba129ea384965a975cb866bc36acfb644273b8a01c94de739306bdf43"
+    },
+    {
+      "path": "skills/pipeline-core/references/quality-improvement-methods.md",
+      "bytes": 9091,
+      "sha256": "42661adf6bb8b2c02f5dac1efab2f02d0b3c268550f507185d0cc0f818091e37"
     },
     {
       "path": "skills/pipeline-core/references/role-skill-map.md",
@@ -3158,8 +3183,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 8014,
-      "sha256": "d6a8651377215d60042b77f3109f00f690c0c8148ccfc33b3a48f6d3923c843c"
+      "bytes": 7998,
+      "sha256": "8f2328f419bbd0c7dc13bdbe7cc6e64e223aa29f7295aa7afea748c2693ec2d3"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -3678,13 +3703,18 @@
     },
     {
       "path": "skills/workflow-self-improvement/SKILL.md",
-      "bytes": 5164,
-      "sha256": "fc7d4f23d73d62f30fa998889d4011d3363fff5fa4b5429b1aa5927c2eaff960"
+      "bytes": 5736,
+      "sha256": "016dfa1774f484843fe98793085113b71d5c44a656d5a7268d3300293528e0f9"
     },
     {
       "path": "skills/workflow-self-improvement/agents/openai.yaml",
       "bytes": 305,
       "sha256": "f926d9e09ed773d0c4c5f5430f9ecd94e622258455f9278146a948659622e7f5"
+    },
+    {
+      "path": "skills/workflow-self-improvement/assets/reflexion-lesson.template.json",
+      "bytes": 607,
+      "sha256": "00365176596a493ec75783b8907fcdad7ad899960030d2917d3a5752b2aff3c3"
     },
     {
       "path": "skills/workflow-self-improvement/templates/change-proposal.md",
@@ -3715,6 +3745,11 @@
       "path": "tests/package.test.mjs",
       "bytes": 74021,
       "sha256": "ca2cbc5978c03a6aeff551a72a561e0b5fc74e7fbed3917cf93246ba34b83349"
+    },
+    {
+      "path": "tests/quality-methods.test.mjs",
+      "bytes": 8012,
+      "sha256": "db3fcb8b2728e24748a55530f231145c86acf595c726810c95774c0e1455c138"
     },
     {
       "path": "tests/studio.test.mjs",

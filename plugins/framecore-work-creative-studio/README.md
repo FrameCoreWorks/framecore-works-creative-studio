@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Wersja: 1.2.10.
+Wersja: 1.3.0.
 
 Pierwsze stabilne wydanie udokumentowanego zakresu Studio. [Zakres 1.0](docs/release-1.0.md) opisuje zawartość i granice wydania. Kod, instrukcje i dokumentacja FrameCore Works są objęte [Apache-2.0](LICENSE); zachowano licencje i oznaczenia źródeł.
 

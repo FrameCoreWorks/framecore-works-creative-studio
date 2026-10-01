@@ -1,0 +1,41 @@
+{
+  "baseline_commit": "c2eb7ac16111486a8332c66739ec36938cb52ad6",
+  "baseline_host_release": "pluginrel_6abd46ba764081919143789f037c71ba",
+  "authorization": "User requested sequential implementation of all five proposed directions; repository standing authorization includes paired GitHub and existing hosted-plugin update.",
+  "packet_id": "HIPSON-STUDIO-QUALITY-1.3.0",
+  "target_role": "workflow-orchestrator",
+  "packet_type": "Bounded Instruction Packet",
+  "goal": "Improve relevance, observable correctness and evaluation without widening creative scope.",
+  "context": "Public Studio 1.2.10 source; one state, existing owners and bounded output review.",
+  "exclusions": ["welcome/menu/onboarding redesign", "new skill owners or provider integration", "vendored upstream changes", "hidden learning or automatic prompt adoption", "paid model calls without a separately approved budget"],
+  "source_rules": ["Primary method papers and current official GEPA API/source", "Synthetic public examples only", "No private context or raw reasoning traces"],
+  "acceptance_criteria": ["F01-F03 aligned with active integration policy", "Relevant example selection returns at most three compatible cases", "Missing or stale evidence never passes a hard requirement", "Pairwise evaluation preserves hard gates and handles order disagreement", "Reflexion requires a tested correction and explicit scoped adoption", "GEPA generates proposals for one section without mutating source", "All changes are allowlisted; full package matches both saved destinations"],
+  "output_schema": ["changed paths and bounded sections", "checks and evidence scope", "remaining limitations", "publication and readback records"],
+  "handoff_target": "existing Studio maintainers",
+  "package_allowlist": [
+    "plugin.json", ".codex-plugin/plugin.json", "README.md", "docs/migration-status.md", "docs/release-history.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/commercial-visual-campaign-director/SKILL.md",
+    "evals/studio-behavior-cases.json", "evals/knowledge-practice-cases.json",
+    "skills/pipeline-core/references/inference-reasoning-methods.md",
+    "skills/pipeline-core/references/quality-improvement-methods.md",
+    "skills/commercial-video-campaign-director/references/creative-decision-library.md",
+    "skills/commercial-video-campaign-director/assets/decision-examples.json",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/output-critic-iteration/assets/quality-review.example.json",
+    "skills/workflow-self-improvement/SKILL.md",
+    "skills/workflow-self-improvement/assets/reflexion-lesson.template.json",
+    "scripts/quality-harness.mjs", "scripts/validate-studio.mjs", "scripts/validate-quality-methods.mjs",
+    "tests/quality-methods.test.mjs"
+  ],
+  "repository_only_scope": ["scripts/gepa_studio_pilot.py", "tests/test_gepa_studio_pilot.py", "config/gepa-pilot.json", "config/gepa-cases.json", "requirements-gepa-pilot.txt", "docs/quality-development-1.3.0.md", ".github/workflows/release.yml", "README.md", "RELEASE_STATUS.md", "config/install-sources.json", "verification/scope-1.3.0.json", "verification/release-1.3.0.json", "verification/gepa-offline-1.3.0.json", "verification/hosted-release-1.3.0.json"],
+  "sections": {
+    "existing_skills": "Only correction handling, selected static handoff and conditional links to quality/Reflexion resources",
+    "existing_evals": "Only expected_owners for H01, H02 and KP02; preserve not_run",
+    "reasoning_reference": "One conditional quality-method entry, no budget reset",
+    "validator": "Read-only validation of the new contracts and assets",
+    "release_files": "Current version marker and one new release entry"
+  },
+  "review_packet": {"execution": "serial checks", "external_model_budget": 0, "scope": ["deterministic helper defects and negative cases", "source preservation", "official GEPA engine with synthetic offline callbacks", "fresh text-use checks separately from installed-client behavior"], "stop": "Stop when required gates pass; no speculative polish"},
+  "deletions_allowed": false
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "evidence_scope": "Original synthetic teaching anchors; not observed renders, user preferences or executed experiments.",
+  "examples": [
+    {
+      "id": "STATIC-HIERARCHY", "domain": "static", "stages": ["direction", "review"],
+      "problem_tags": ["hierarchy", "ornament", "specificity"], "supported_locks": ["exact_copy", "selected_concept"],
+      "brief": "Fictional seed-exchange poster. Locked title: Wspólne nasiona. One static direction, no new copy.",
+      "decision": "Make the exchange visible in one hand-to-hand relation; give the exact title the first read.",
+      "consequence": "The organizing relationship serves the event; typography and feasibility remain with Static Graphic Design Creator.",
+      "exclusions": ["Do not reuse the seed subject for an unrelated brief", "No rendered legibility claim from a plan"],
+      "anchors": {
+        "good": {"output": "Two hands pass one seed packet; Wspólne nasiona is the largest text, with supporting shapes subordinate to the exchange.", "hard_gates": "PASS", "criterion": "One specific event relationship and clear reading intent; actual glyphs still require inspection."},
+        "bad": {"output": "Replace the title with Ziarno przyszłości and add flowers, stars and three competing headlines.", "hard_gates": "FAIL", "criterion": "Changes locked copy and replaces the requested hierarchy."},
+        "borderline": {"output": "Keep Wspólne nasiona large over a decorative field of seed packets.", "hard_gates": "PASS", "criterion": "Copy is preserved, but the exchange mechanism is missing; specific event communication needs repair."}
+      }
+    },
+    {
+      "id": "STATIC-LOCAL-EDIT", "domain": "static", "stages": ["edit", "review"],
+      "problem_tags": ["local_edit", "scope", "exact_copy"], "supported_locks": ["exact_copy", "selected_concept", "layout"],
+      "brief": "Approved fictional poster; correct only the misspelled word Środa. All other copy and layout are locked.",
+      "decision": "Repair only the affected word and inspect nearby text and cumulative layout drift.",
+      "consequence": "Preserves approved work; no discovery restart or unrequested alternatives.",
+      "exclusions": ["Do not infer an available edit tool", "No automatic generation permission"],
+      "anchors": {
+        "good": {"output": "Correct Środa in place, preserve all other elements, then check the word and unchanged adjacent text in the actual result.", "hard_gates": "PASS", "criterion": "Exact minimal scope with an observable acceptance test."},
+        "bad": {"output": "Replace the heading, recolor the poster and make three new layouts.", "hard_gates": "FAIL", "criterion": "Violates local scope and approved locks."},
+        "borderline": {"output": "Request the correct glyph but check only the corrected crop.", "hard_gates": "PASS", "criterion": "The repair intent is scoped; unchanged full-image properties remain Unknown until checked."}
+      }
+    },
+    {
+      "id": "STATIC-FORMAT", "domain": "static", "stages": ["adapt", "review"],
+      "problem_tags": ["format", "geometry", "pairing"], "supported_locks": ["exact_copy", "selected_concept"],
+      "brief": "Approved horizontal lecture poster to square; copy and concept fixed, recomposition expressly allowed.",
+      "decision": "Recompose the same information hierarchy for the target; preserve each date/location pairing.",
+      "consequence": "Changes layout only within permission; target dimensions and readability are separate checks.",
+      "exclusions": ["Recomposition permission does not transfer to crop-only tasks", "No print readiness claim"],
+      "anchors": {
+        "good": {"output": "Retain title, date and location; move their unchanged group inside the square safe area and verify every pairing.", "hard_gates": "PASS", "criterion": "Uses permitted geometry without changing message or facts."},
+        "bad": {"output": "Remove the location to make the square cleaner.", "hard_gates": "FAIL", "criterion": "Drops required information; aesthetic improvement cannot compensate."},
+        "borderline": {"output": "Scale the full horizontal poster into the square, keeping all text.", "hard_gates": "PASS", "criterion": "Information is retained, but intended-size readability is unresolved."}
+      }
+    },
+    {
+      "id": "STATIC-EXPLAINED-FEEDBACK", "domain": "static", "stages": ["direction", "edit"],
+      "problem_tags": ["feedback", "scope", "hierarchy"], "supported_locks": ["exact_copy", "selected_concept"],
+      "brief": "User says: keep the concept, remove decorative stars and enlarge the title. Copy is unchanged.",
+      "decision": "Apply the stated correction directly and preserve the approved mechanism.",
+      "consequence": "Avoids a redundant clarification or another concept batch.",
+      "exclusions": ["An unexplained rejection still needs one directional question", "Do not infer a permanent dislike of stars"],
+      "anchors": {
+        "good": {"output": "Keep the chosen concept, remove only stars and enlarge the same title within allowed layout changes.", "hard_gates": "PASS", "criterion": "Follows the already explained correction."},
+        "bad": {"output": "Ask what the user dislikes and propose three unrelated concepts.", "hard_gates": "FAIL", "criterion": "Restarts discovery despite explicit feedback and an approved concept."},
+        "borderline": {"output": "Remove stars but keep the title size unchanged.", "hard_gates": "PASS", "criterion": "Preserves locks but leaves one requested correction incomplete."}
+      }
+    },
+    {
+      "id": "VIDEO-CAUSAL-ACTION", "domain": "video", "stages": ["direction", "review"],
+      "problem_tags": ["causality", "ornament", "product_relevance"], "supported_locks": ["product_truth", "selected_concept"],
+      "brief": "Fictional bottle reel, one direction. No unsupported product benefit.",
+      "decision": "Use one credible action and its visible material consequence instead of interchangeable glamour cues.",
+      "consequence": "The event can be followed; supplied product truth governs contact and claims.",
+      "exclusions": ["No promised conversion uplift", "No unseen material or feature invention"],
+      "anchors": {
+        "good": {"output": "A hand places the bottle on a wet table; a contact ripple leads attention to its supplied shape and label.", "hard_gates": "PASS", "criterion": "A visible cause/consequence belongs to the product scene."},
+        "bad": {"output": "Invent a self-cooling bottle and claim it keeps drinks cold all day.", "hard_gates": "FAIL", "criterion": "Adds an unsupported feature and outcome."},
+        "borderline": {"output": "Show the correct bottle rotating among particles.", "hard_gates": "PASS", "criterion": "Product truth may be preserved, but the relationship is interchangeable."}
+      }
+    },
+    {
+      "id": "VIDEO-TIMING", "domain": "video", "stages": ["plan", "review"],
+      "problem_tags": ["timing", "continuity", "evidence"], "supported_locks": ["duration", "selected_concept"],
+      "brief": "A 12-second two-shot plan with a continuous hand action; no rendered video supplied.",
+      "decision": "Allocate contiguous intervals and a readable action handoff; keep render continuity uninspected.",
+      "consequence": "Plan timing can be calculated, while movement and sound await actual media.",
+      "exclusions": ["No exact-sync promise", "No video verdict from a still frame"],
+      "anchors": {
+        "good": {"output": "Shot 1: 0–5 s, grasp begins. Shot 2: 5–12 s, grasp continues from the same state. Plan sums to 12 s; render not inspected.", "hard_gates": "PASS", "criterion": "Correct planned timing and honest media boundary."},
+        "bad": {"output": "Two 8-second shots, called a verified 12-second seamless render.", "hard_gates": "FAIL", "criterion": "Wrong total and fabricated inspection."},
+        "borderline": {"output": "Two 6-second shots, with no defined outgoing/incoming hand state.", "hard_gates": "PASS", "criterion": "Duration fits; action continuity remains unresolved."}
+      }
+    },
+    {
+      "id": "COPY-SUPPORTED-CLAIM", "domain": "copy", "stages": ["draft", "review"],
+      "problem_tags": ["claim", "specificity", "evidence"], "supported_locks": ["exact_copy", "source_truth"],
+      "brief": "Fictional beginner pottery workshop. Supplied facts: clay, glazing and firing included. Three short lines requested.",
+      "decision": "Use supplied concrete inclusions and distinct angles without inventing results or credentials.",
+      "consequence": "Copy Voice authors; Humanizer supports review. Style does not authorize new facts.",
+      "exclusions": ["No inferred permanent brand voice", "Do not reuse sample lines as locked client copy"],
+      "anchors": {
+        "good": {"output": "Three lines focus respectively on starting with clay, glazing a first piece and the included firing, without claims of guaranteed mastery.", "hard_gates": "PASS", "criterion": "Three supported, distinct angles."},
+        "bad": {"output": "Become a master in one afternoon with the city's best teacher.", "hard_gates": "FAIL", "criterion": "Unsupported outcome and superiority."},
+        "borderline": {"output": "Create together. Discover creativity. Make something special.", "hard_gates": "PASS", "criterion": "No invented fact, but generic interchangeable wording."}
+      }
+    },
+    {
+      "id": "AUDIO-ACTION-CUE", "domain": "audio", "stages": ["plan", "review"],
+      "problem_tags": ["action_cue", "timing", "evidence"], "supported_locks": ["selected_concept", "source_truth"],
+      "brief": "Sound plan for a fictional paper-folding scene; no audio or measured tempo supplied.",
+      "decision": "Tie one paper sound to the visible fold and use quiet space deliberately.",
+      "consequence": "Audio Production Director owns the cue; planned placement is not observed sync or rights clearance.",
+      "exclusions": ["No invented BPM measurement", "No commercial-rights certification"],
+      "anchors": {
+        "good": {"output": "Place a dry paper crease on the fold action and leave the following pause quiet; actual sync awaits playback.", "hard_gates": "PASS", "criterion": "Cue belongs to the action and evidence scope is honest."},
+        "bad": {"output": "Certify 120 BPM, perfect sync and cleared commercial music without listening or rights evidence.", "hard_gates": "FAIL", "criterion": "Fabricates measurement, inspection and permissions."},
+        "borderline": {"output": "Use a generic rise and impact around the fold.", "hard_gates": "PASS", "criterion": "May fit a chosen treatment, but no action-specific reason is established."}
+      }
+    }
+  ]
+}

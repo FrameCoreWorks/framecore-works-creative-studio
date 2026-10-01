@@ -12,6 +12,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 This skill turns completed work into auditable workflow improvements. It creates logs and proposals, not adopted rules.
 
+For an explicitly requested retrospective, use [controlled Reflexion lessons](../pipeline-core/references/quality-improvement-methods.md#controlled-reflexion-lessons) and the [lesson template](assets/reflexion-lesson.template.json). A tested correction may support a scoped proposal; reuse as a confirmed lesson requires explicit adoption. This does not authorize persistence or instruction changes. The [offline GEPA pilot](../pipeline-core/references/quality-improvement-methods.md#offline-gepa-pilot) belongs to separately scoped development, not background learning.
+
 Use only when explicitly requested or when an opted-in report-only recurring review asks for it.
 
 ## Language Policy

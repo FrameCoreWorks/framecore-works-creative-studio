@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "REPLACE_WITH_PROJECT_LESSON_ID",
+  "status": "proposed",
+  "scope": {"type": "project", "id": "REPLACE_WITH_PRIVATE_SCOPE_ID"},
+  "domain": "REPLACE_WITH_DOMAIN",
+  "trigger": "REPLACE_WITH_SPECIFIC_APPLICABILITY",
+  "error": "REPLACE_WITH_OBSERVED_ERROR",
+  "cause": "REPLACE_WITH_CAUSE_HYPOTHESIS",
+  "cause_status": "hypothesis",
+  "correction": "REPLACE_WITH_TESTED_CORRECTION",
+  "test": {"result": "NOT_RUN", "evidence_id": "", "revision": ""},
+  "exclusions": [],
+  "adoption": {"explicit": false, "owner": "", "evidence_id": ""},
+  "persistence": "not_performed"
+}

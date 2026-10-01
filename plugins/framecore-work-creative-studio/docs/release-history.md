@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.3.0, 2026-10-01
+
+Implements five conditional quality directions through existing owners: relevant few-shot examples, CRITIC-inspired declared-evidence checks, anchor-based pairwise judging with reversed order, explicitly adopted scoped Reflexion lessons, and an offline official-GEPA development pilot in the repository. Adds eight original teaching cases, a read-only quality helper and source/regression guards. Aligns explained rejection handling, selected static execution and H01/H02/KP02 owner expectations with active policy. Preserves all 37 skill IDs, interface assets/starters, welcome, menus, onboarding, pinned source bundles and the shared initial-review-plus-two-repairs budget. The 183 planned fixtures remain unexecuted. Declared-record checks and a zero-cost synthetic GEPA integration do not establish actual creative improvement, user calibration, active-client behavior or media quality. Publication evidence remains outside the shared package.
+
 ## 1.2.10, 2026-09-30
 
 Fixes four audited regressions: lexical exact-copy matching, missing blueprint/operation/music-handoff validation, a grouped-choice example that conflicted with sequential learning onboarding, and missing pending onboarding context in the portable progress card. Adds six source regression tests. Existing routing, skill identities, provider rules, assets, starter prompts, canonical welcome and pinned sources are unchanged. Source checks do not establish installed-client behavior.

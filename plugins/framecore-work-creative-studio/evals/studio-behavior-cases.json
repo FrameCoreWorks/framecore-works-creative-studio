@@ -26,7 +26,7 @@
       },
       "research_expectation": "required",
       "expected_owners": [
-        "humanizer"
+        "copy-voice"
       ],
       "expected_branch": "copy_only",
       "checks": [
@@ -64,7 +64,7 @@
       },
       "research_expectation": "required",
       "expected_owners": [
-        "image-prompt-architect"
+        "static-graphic-design-creator"
       ],
       "expected_branch": "still_prompt",
       "checks": [

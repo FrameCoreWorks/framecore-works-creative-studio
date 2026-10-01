@@ -43,7 +43,6 @@
       "expected_branch": "type_adaptation",
       "expected_owners": [
         "commercial-visual-campaign-director",
-        "image-prompt-architect",
         "static-graphic-design-creator"
       ],
       "tool_state": {

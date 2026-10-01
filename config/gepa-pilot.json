@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "mode": "offline_integration",
+  "component": {
+    "id": "example_selection",
+    "path": "plugins/framecore-work-creative-studio/skills/pipeline-core/references/quality-improvement-methods.md",
+    "heading": "Relevant examples",
+    "max_chars": 2200,
+    "protected_sentences": ["A locked direction needs no new alternatives.", "If no example fits, proceed without one.", "Do not force video examples into a", "not a trained retriever or proven creative uplift."]
+  },
+  "budget": {"max_task_calls": 40, "max_metric_calls": 24, "max_proposal_calls": 3, "max_seconds": 30, "max_cost_usd": 0, "task_call_cost_cap_usd": 0, "proposal_call_cost_cap_usd": 0},
+  "authorization": {"external_execution": false, "provider": "", "model": "", "evidence_id": ""},
+  "adoption": "proposal_only; separate holdout, regression review and owner decision required",
+  "gepa_source_commit": "3f160c295000dd31db3d438c3d17553c23cc5f81",
+  "data_boundary": "Bundled original synthetic public cases only"
+}

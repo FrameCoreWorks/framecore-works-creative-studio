@@ -1,0 +1,20 @@
+{
+  "scope": "Synthetic plan evidence only; this file is not a probe or image inspection.",
+  "contract": {
+    "revision": "synthetic-plan-r1",
+    "copy": [{"id": "title", "text": "Wspólne nasiona"}],
+    "dimensions": {"width": 1080, "height": 1350},
+    "numbers": [{"id": "price", "value": 25, "unit": "PLN"}],
+    "counts": {"hands": 2},
+    "exact_copy_only": true
+  },
+  "observation": {
+    "artifact_revision": "synthetic-plan-r1", "kind": "plan",
+    "evidence": [
+      {"property": "copy", "id": "title", "value": "Wspólne nasiona", "method": "authored_text", "locator": "synthetic specification/title", "revision": "synthetic-plan-r1"},
+      {"property": "dimensions", "value": {"width": 1080, "height": 1350}, "method": "document_spec", "locator": "synthetic specification/canvas", "revision": "synthetic-plan-r1"},
+      {"property": "number", "id": "price", "value": 25, "unit": "PLN", "method": "approved_source", "locator": "synthetic supplied price", "revision": "synthetic-plan-r1"},
+      {"property": "count", "id": "hands", "value": 2, "method": "document_spec", "locator": "synthetic specification/scene", "revision": "synthetic-plan-r1"}
+    ]
+  }
+}

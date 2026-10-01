@@ -1,0 +1,2 @@
+# Optional development-only dependency. No provider SDK, key or runtime plugin dependency.
+gepa @ git+https://github.com/gepa-ai/gepa.git@3f160c295000dd31db3d438c3d17553c23cc5f81

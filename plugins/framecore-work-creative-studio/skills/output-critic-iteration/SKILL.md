@@ -32,6 +32,8 @@ Stop when accepted criteria are met. Repeated failure requires a changed diagnos
 
 ## Applied practice
 
+For objectively checkable locks use [tool-backed verification](../pipeline-core/references/quality-improvement-methods.md#tool-backed-verification-critic-inspired). For a justified comparison use [calibrated pairwise evaluation](../pipeline-core/references/quality-improvement-methods.md#calibrated-pairwise-evaluation). Both stay within the existing review and its budget; unavailable evidence remains Unknown.
+
 For repeated defects, disputed causes or a changed derivative, use [diagnosis and repair lab](references/diagnosis-and-repair-lab.md) and the [review record](assets/review-record.md). Pin findings to the inspected revision and keep observations distinct from cause hypotheses.
 
 ## Integrated workflow contracts

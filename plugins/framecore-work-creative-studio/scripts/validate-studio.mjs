@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {validateWorkflowKit} from './validate-workflow-kit.mjs';
 import {loadEffectiveEvals} from './load-effective-evals.mjs';
 import {validateLearningMode} from './validate-learning-mode.mjs';
+import {validateQualityMethods} from './validate-quality-methods.mjs';
 
 const expectedOwnerCount = 37;
 const criticalIds = ['research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
@@ -57,6 +58,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   };
   errors.push(...validateWorkflowKit(base, files));
   errors.push(...validateLearningMode(base, files));
+  errors.push(...validateQualityMethods(base));
   // Contract reachability and evidence boundaries; this does not execute model QA.
   const loopProfile = 'skills/pipeline-core/references/loop-protocol.md';
   try {

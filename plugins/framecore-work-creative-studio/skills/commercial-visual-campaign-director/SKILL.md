@@ -23,7 +23,7 @@ Each route contains a concrete communicative mechanism, exact or proposed copy w
 
 Before handing a static direction to the prompt compiler, run the blocking pre-prompt anti-slop review in [direction and composition](references/direction-and-composition.md#9-authorial-and-anti-slop-pre-prompt-gate). A material failure means the direction is not ready: withhold the final prompt, repair the direction at its source, and recheck the affected criteria. If a source fact essential to specificity is missing, ask one narrow question instead of inventing a differentiator. Do not report a numeric score. A valid type-led concept, justified maximalism, centering, texture, ornament, chrome or glow may pass when its role is clear. This gate assesses direction coherence only; it does not certify rendered pixels.
 
-Hand a selected direction to [image-prompt-architect](../image-prompt-architect/SKILL.md) without changing copy or restarting discovery. Carry source roles, allowed changes, format and review conditions. A directed local edit never becomes unsolicited concept exploration.
+Hand a selected direction for static execution to [Static Graphic Design Creator](../static-graphic-design-creator/SKILL.md) without changing copy or restarting discovery. Carry source roles, allowed changes, format and review conditions. Image Prompt Architect remains available for its separate requested image operations; it does not replace the complete static workflow. A directed local edit never becomes unsolicited concept exploration.
 
 ## Integrated workflow contracts
 

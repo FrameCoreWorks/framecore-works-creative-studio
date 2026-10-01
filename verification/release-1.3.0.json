@@ -1,0 +1,120 @@
+{
+  "version": "1.3.0",
+  "date": "2026-10-01",
+  "baseline_commit": "c2eb7ac16111486a8332c66739ec36938cb52ad6",
+  "baseline_host_release": "pluginrel_6abd46ba764081919143789f037c71ba",
+  "scope_packet": "scope-1.3.0.json",
+  "checks": {
+    "canonical_source_validation": {
+      "status": "PASS",
+      "files": 743,
+      "owners": 37,
+      "planned_cases": 183,
+      "executed_planned_cases": 0,
+      "legacy_validator": "NOT_RUN"
+    },
+    "node_regressions": {
+      "status": "PASS",
+      "tests": 90,
+      "concurrency": 1
+    },
+    "gepa_adapter_tests": {
+      "status": "PASS",
+      "tests": 8,
+      "skipped": 0,
+      "official_source_commit": "3f160c295000dd31db3d438c3d17553c23cc5f81"
+    },
+    "filesystem_installer": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "script_cli_checks": {
+      "status": "PASS",
+      "scope": "Declared synthetic evidence and official GEPA offline callbacks only"
+    },
+    "gepa_offline_pilot": {
+      "status": "offline_integration_only",
+      "task_calls": 16,
+      "proposal_calls": 1,
+      "cost_usd": 0,
+      "external_model_calls": 0,
+      "source_unchanged": true,
+      "candidate_adopted": false,
+      "evidence": "gepa-offline-1.3.0.json"
+    },
+    "packaging": {
+      "status": "PASS",
+      "archive_entries": 743,
+      "plugin_zip_sha256": "e0f7a8ec9fef0da1942da62094bd9a8634606a8e39f9c0dd8a16c469c9458f5f"
+    }
+  },
+  "fresh_source_use": {
+    "scope": "Three serial fresh native-agent text tasks using local source, parent reviewed returned outputs. Not installed-client behavior, media QA, user calibration or execution of historical fixtures.",
+    "runtime": "Native agent; exact model/effort not recorded",
+    "cases": [
+      {
+        "id": "SU-STATIC-CORRECTION",
+        "result": "PASS",
+        "input": "One English prompt for fictional plant-exchange poster, fixed title Zielona wymiana, accepted hand-to-hand concept; remove stars and enlarge title; no browse or media.",
+        "observed": "One prompt preserved title/concept, removed stars and enlarged title; no new question, alternatives or render claim."
+      },
+      {
+        "id": "SU-PAIR-HARD-GATE",
+        "result": "PASS",
+        "input": "Compare two repair-cafe plans with fixed Naprawiamy razem title and supplied facts; second adds superiority and instant-repair claims. No browse or render.",
+        "observed": "Selected A for shared action and supported wording; rejected B's claims despite visual appeal; verdict explicitly limited to text plans and one review."
+      },
+      {
+        "id": "SU-REFLEXION",
+        "result": "PASS",
+        "input": "Fictional single-word edit drift in r2; r3 restored approved base and passed comparison recorded as SYN-QA-3. Cause unknown, no persistence/global-edit approval.",
+        "observed": "Scoped proposed lesson tied to r3 and supplied notes; cause unestablished, no adoption/persistence or cross-project effectiveness claim."
+      }
+    ]
+  },
+  "preservation": {
+    "baseline_full_archive_comparison": "736/736 byte-identical before changes",
+    "package_files": 743,
+    "changed_existing": 14,
+    "added": 7,
+    "unchanged": 722,
+    "deleted": 0,
+    "outside_allowlist": 0,
+    "interface_and_starters": "unchanged except version",
+    "logo_welcome_menus_onboarding_skill_ids_display_names_upstream": "unchanged",
+    "eval_edits": "Only expected_owners for H01, H02 and KP02",
+    "qa_budget": "Initial evaluation plus at most two repair/rechecks; stricter domain budget preserved"
+  },
+  "iteration_notes": [
+    "Initial duration assertion selected the count record; corrected to select the duration criterion. Final helper tests pass.",
+    "Initial installer run preceded manifest regeneration; rebuilt inventory and reran installer checks successfully."
+  ],
+  "limitations": [
+    "No actual media generation/inspection/playback/listening.",
+    "No active-client routing/learning test.",
+    "Synthetic anchors do not establish owner calibration or measured creative improvement.",
+    "No paid/real-model GEPA optimization; meaningful candidate adoption needs actual owner review."
+  ],
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING",
+    "full_saved_package_readback": "PENDING"
+  },
+  "hipson_review": {
+    "instruction_packet_fit": "PASS",
+    "diff_scope": "PASS",
+    "evidence_boundaries": "PASS",
+    "release_gate": "Local checks pass; paired publication/readback required",
+    "supervision": "Hipson Adapter method; no full Hipson service or supervising agent"
+  },
+  "sufficiency_gate": {
+    "objective": "Implement five scoped quality directions",
+    "remaining_gap": "Paired publication and full readback",
+    "decision": "patch_one_gap",
+    "next_patch_scope": "Authorized release operations and repository-only records; no further runtime changes"
+  }
+}

@@ -63,6 +63,11 @@ not private reasoning.
 
 ## Reasoning Route Contract
 
+Use [conditional quality improvements](quality-improvement-methods.md) for relevant
+few-shot examples, tool-backed verification, calibrated comparison, explicitly
+requested Reflexion lessons and the offline GEPA development pilot. These extend
+the current method selection and one review; they add no routine intake or critic.
+
 Record a `reasoning_route` inside Project State when a task needs more than
 direct execution.
 

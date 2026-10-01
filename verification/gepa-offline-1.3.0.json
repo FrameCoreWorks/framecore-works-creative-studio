@@ -1,0 +1,45 @@
+{
+  "mode": "offline_integration",
+  "engine": "official gepa.optimize",
+  "target": {
+    "id": "example_selection",
+    "path": "plugins/framecore-work-creative-studio/skills/pipeline-core/references/quality-improvement-methods.md",
+    "heading": "Relevant examples",
+    "max_chars": 2200,
+    "protected_sentences": [
+      "A locked direction needs no new alternatives.",
+      "If no example fits, proceed without one.",
+      "Do not force video examples into a",
+      "not a trained retriever or proven creative uplift."
+    ]
+  },
+  "seed_sha256": "098e99ec17047aa0aab3033109dd1a6ad5923fc7cb86e1943bf7278961445c8b",
+  "candidate": {
+    "example_selection": "Before an unresolved creative decision, select one to three compatible examples\nfrom the [decision library](../../commercial-video-campaign-director/references/creative-decision-library.md#retrieval-and-few-shot-use).\nMatch domain, requested stage, problem and hard constraints before superficial style.\nTransfer the decision mechanism and its reason, not the example's title, copy,\nclient facts or aesthetic. A locked direction needs no new alternatives.\nIf no example fits, proceed without one. Do not force video examples into a\nstatic workflow or expand a narrow edit into exploration. This is bounded\nretrieval and few-shot guidance, not a trained retriever or proven creative uplift.\n\nRecord only `example_ids`, `fit_reason` and `transferred_decision` when useful.\nDo not embed the whole bank in every prompt or expose a worksheet in Quick delivery.\n\nOffline integration marker."
+  },
+  "holdout": {
+    "baseline_scores": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "candidate_scores": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "hard_gates_pass": true,
+    "improved": true
+  },
+  "calls": {
+    "task": 16,
+    "proposal": 1
+  },
+  "cost_usd": 0.0,
+  "source_unchanged": true,
+  "status": "offline_integration_only",
+  "adopted": false,
+  "protected_regressions": "NOT_RUN by this optimizer",
+  "creative_effectiveness": "NOT_ESTABLISHED",
+  "raw_traces_saved": false
+}
