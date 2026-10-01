@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.3.3.
+Version: 1.3.4.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -8,11 +8,11 @@ Creative Studio takes a brief and source materials through direction, storyboard
 
 ## Welcome, creative mode and learning mode
 
-The full welcome explains what Studio does and its capabilities, then offers **1. Creative mode / 2. Learning mode** in the startup language. A creative-only selection leads to **1. Quick mode / 2. Expanded mode**, followed by the established work-area menu and task clarification. The existing localized creation alias remains supported. A clear request bypasses redundant choices; numeric replies apply to the last displayed menu. See [startup and next steps](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
+The full welcome explains what Studio does and its capabilities, then offers **1. Creative mode / 2. Learning mode** in the user's automatically selected language. A creative-only selection leads to **1. Quick mode / 2. Expanded mode**, followed by the established work-area menu and task clarification. The existing localized creation alias remains supported. A clear request bypasses redundant choices; numeric replies apply to the last displayed menu. See [startup and next steps](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
 
 **Learning mode** retains short onboarding, a personalized plan, exercises and feedback on the learner's work across 14 existing skill domains. Quick/Deep controls pace independently of intent. When persistent saving is unavailable, a progress card can carry context into another conversation. See [modes, coverage and limitations](docs/learning-mode.md).
 
-Repository documentation and operational guidance are English. The protected Polish welcome, localized menus, exact-copy examples and multilingual test inputs retain their original text; Studio still responds in the user's requested language.
+Repository documentation and operational guidance are English. The full welcome and later menus automatically follow the user's language without a translation request. Explicit preferences, meaningful user text, available host language context and conversation language determine the response; country and repository language do not. The approved Polish welcome, exact-copy examples and multilingual fixtures remain localized data.
 
 ## Brand strategy and identity
 

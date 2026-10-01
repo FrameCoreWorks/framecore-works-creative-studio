@@ -1,0 +1,143 @@
+{
+  "version": "1.3.4",
+  "date": "2026-10-01",
+  "scope_packet": "scope-1.3.4.json",
+  "baseline_remote_commit": "9caa098c8d147d4bc1ceada2c9bc6d64f25d8afc",
+  "baseline_host_release": "pluginrel_6abe940399608191b973c9d2067c16ea",
+  "changes": [
+    "Automatic user-language full welcome without a translation request",
+    "Complete English and Polish excerpts and early synchronized language policy",
+    "Same language policy for later menus, onboarding and native Codex entry"
+  ],
+  "checks": {
+    "node_regressions": {
+      "status": "PASS",
+      "tests": 105,
+      "concurrency": 1
+    },
+    "filesystem_installer": {
+      "status": "PASS",
+      "tests": 11
+    },
+    "gepa_adapter": {
+      "status": "PASS",
+      "tests": 8,
+      "skipped": 0,
+      "official_source_commit": "3f160c295000dd31db3d438c3d17553c23cc5f81",
+      "scope": "Synthetic offline integration; no external provider/model calls"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "total_full_checks": 147,
+    "canonical_validation": {
+      "status": "PASS",
+      "files": 744,
+      "owners": 37,
+      "planned_cases": 183,
+      "executed_planned_cases": 0,
+      "legacy": "NOT_RUN"
+    },
+    "packaging": {
+      "status": "PASS",
+      "files": 744,
+      "plugin_zip_sha256": "4f1b845099aa15148d33e7cc7a7ec639301dc0342c1c4bf7eebaa4df5abc4e8f"
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "files": 744,
+    "changed_existing": 10,
+    "unchanged": 733,
+    "added": 1,
+    "deleted": 0,
+    "outside_allowlist": 0,
+    "all_37_skill_metadata_byte_equal": true,
+    "other_36_skill_roots_byte_equal": true,
+    "upstream_and_evaluation_inputs_byte_equal": true,
+    "manifests_except_version_equal": true,
+    "polish_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+    "english_welcome_sha256": "79b4db46877f091edb4b019fa3e5858d8b0b5655ed18ea3e065575a33abc4a06",
+    "readme_installation_links_only": true,
+    "changed_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/learning-mode.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "plugin.json",
+      "scripts/validate-learning-mode.mjs",
+      "skills/workflow-orchestrator/SKILL.md",
+      "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "tests/learning-mode.test.mjs",
+      "skills/workflow-orchestrator/assets/startup-welcome.en.md"
+    ],
+    "changed_document_local_links_checked": 148
+  },
+  "isolated_source_use": {
+    "scope": "Independent agents read the candidate skill source. These are bounded source-use observations, not normal ChatGPT/Work/Codex client tests or executed planned fixtures.",
+    "cases": [
+      {
+        "id": "supplied_host_de_bare",
+        "input": "@FrameCore Works Creative Studio",
+        "host_context": "Actually supplied response language: Deutsch",
+        "observed_language": "German",
+        "status": "PASS_SOURCE_USE",
+        "observed_checks": [
+          "Identity introduction",
+          "Six complete capability bullets",
+          "Tool qualification and optional materials",
+          "Creative/learning options 1/2 and final reply instruction",
+          "No extra language question"
+        ]
+      },
+      {
+        "id": "de_numeric_pace",
+        "input": "1",
+        "context": "Continuation of supplied_host_de_bare",
+        "observed_language": "German",
+        "status": "PASS_SOURCE_USE",
+        "observed_checks": [
+          "Creative pace menu",
+          "Quick/expanded options 1/2",
+          "No Polish or open-brief substitution"
+        ]
+      },
+      {
+        "id": "fr_natural_text",
+        "input": "Bonjour, je lance FrameCore Works Creative Studio.",
+        "observed_language": "French",
+        "status": "PASS_SOURCE_USE",
+        "observed_checks": [
+          "Complete introduction, six bullets, qualifications, optional materials and modes",
+          "No translation request required"
+        ]
+      },
+      {
+        "id": "fr_to_es_restart",
+        "input": "Hola, inicio FrameCore Works Creative Studio.",
+        "context": "Continuation of fr_natural_text",
+        "observed_language": "Spanish",
+        "status": "PASS_SOURCE_USE",
+        "observed_checks": [
+          "Complete translated welcome",
+          "Language changes with user conversational text",
+          "All six capabilities and optional materials retained"
+        ]
+      }
+    ]
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "permanent_project_instructions": {
+    "status": "SAVED_AND_BYTE_VERIFIED",
+    "scope": "Private version-free project record; startup language rule, protected-contract index, validation map and startup appendix aligned; approved Polish appendix unchanged"
+  },
+  "fresh_account_installation": "NOT_RUN",
+  "active_client_behavior_after_update": "NOT_RUN",
+  "baseline_startup_feedback": "Ordinary ChatGPT full welcome PASS_REPORTED for 1.3.2; no post-update locale client test is inferred.",
+  "language_limit": "Host UI/response language is usable only when actually supplied. User/conversation language is used otherwise; no country inference or hidden-setting access. English fallback only when all signals are absent."
+}

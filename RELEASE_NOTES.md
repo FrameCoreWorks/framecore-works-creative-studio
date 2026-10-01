@@ -1,7 +1,9 @@
-# Creative Studio 1.3.3
+# Creative Studio 1.3.4
 
-README installation sections now link to complete ChatGPT Work and Codex guides without copy-paste prompts. The guides contain source pinning, actual capability checks, authorization, existing-installation handling, complete-bundle installation and readback. A repository URL alone does not grant installation permission.
+The complete welcome and later pace, work-area and learning menus automatically use the user's language. A translation request is no longer required, and Polish is no longer a fixed startup default.
 
-Maintained package documentation, learning-domain guidance and plan/progress labels are English. The canonical Polish welcome and embedded excerpt, localized menus and starters, exact-copy teaching examples, multilingual fixtures, all skill identities, routing, provider boundaries, assets and pinned sources are preserved. Studio's response-language behavior remains unchanged.
+Explicit language preferences take precedence. Otherwise Studio uses meaningful user text, host response/UI language when actually supplied for bare or numeric inputs, then conversation language. It never infers nationality or claims access to hidden host settings. English is a provisional fallback only when all language signals are absent.
 
-Source checks and saved-package readback remain separate from fresh-account installation and active-client startup tests.
+Full English and approved Polish greetings and their language policy are embedded before routing. Other languages translate the entire English source. All six capability bullets, optional materials, tool qualifications, numbered choices, checkpoints and direct-task/resume paths remain intact. The native Codex entry follows the same policy; all 37 skill identities, metadata, starters, logo and pinned sources are preserved.
+
+Source checks and isolated source-use observations are separate from ordinary ChatGPT, Work and Codex client behavior.

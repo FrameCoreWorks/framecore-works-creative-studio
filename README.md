@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.3.3**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.3.4**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -10,7 +10,7 @@ Creative Studio supports creative direction and production planning across image
 
 ## Learning or creation
 
-Startup restores the complete Studio introduction and capability overview, then offers **1. Creative mode / 2. Learning mode** in the startup language. A creative-only choice leads to **1. Quick mode / 2. Expanded mode**, then the established work-area menu and a relevant brief. The existing localized creation alias remains supported. A concrete request bypasses redundant menus, and numeric answers follow the last menu actually shown. Learning retains its personal plan, lessons, exercises, feedback and portable progress card. See [entry menus](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md) and [learning mode and limits](plugins/framecore-work-creative-studio/docs/learning-mode.md).
+Startup restores the complete Studio introduction and capability overview, then offers **1. Creative mode / 2. Learning mode** in the user's automatically selected language. A creative-only choice leads to **1. Quick mode / 2. Expanded mode**, then the established work-area menu and a relevant brief. The existing localized creation alias remains supported. A concrete request bypasses redundant menus, and numeric answers follow the last menu actually shown. Learning retains its personal plan, lessons, exercises, feedback and portable progress card. See [entry menus](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md) and [learning mode and limits](plugins/framecore-work-creative-studio/docs/learning-mode.md).
 
 ## What it includes
 

@@ -144,6 +144,67 @@ test('supplied full repeated replies pass; unavailable actual reply remains Unkn
   assert.equal(evaluateStartupReply('', welcome).status, 'FAIL');
 });
 
+test('both full localized sources are early byte-matched excerpts', () => {
+  const entry = read('skills/workflow-orchestrator/SKILL.md');
+  for (const [locale, marker] of [['en', 'ENGLISH'], ['pl', 'CANONICAL']]) {
+    const begin = '<!-- BEGIN ' + marker + ' STARTUP RESPONSE -->\n';
+    const end = '<!-- END ' + marker + ' STARTUP RESPONSE -->';
+    assert.equal(entry.slice(entry.indexOf(begin) + begin.length, entry.indexOf(end)), read('skills/workflow-orchestrator/assets/startup-welcome.' + locale + '.md'));
+    assert.ok(entry.indexOf(end) < entry.indexOf('Before final delivery'));
+  }
+});
+
+test('English truncation and synchronized English rewriting fail source guards', () => {
+  fixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('I can help you with:\n', ''));
+    assert.ok(codes(root).includes('STARTUP_RESPONSE_PROJECTION'));
+  });
+  fixture(root => {
+    for (const file of ['skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/assets/startup-welcome.en.md']) edit(root, file, text => text.replace('I help develop ideas', 'I help develop concepts'));
+    assert.ok(codes(root).includes('STARTUP_WELCOME_INTEGRITY'));
+  });
+});
+
+test('language policy cannot drift between entry and reference or follow the excerpts', () => {
+  fixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('most recent meaningful user conversation language', 'previous assistant response language'));
+    assert.ok(codes(root).includes('STARTUP_LANGUAGE_PROJECTION'));
+  });
+  fixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => {
+      const a = text.indexOf('<!-- BEGIN STARTUP LANGUAGE POLICY -->');
+      const b = text.indexOf('<!-- END STARTUP LANGUAGE POLICY -->') + '<!-- END STARTUP LANGUAGE POLICY -->'.length;
+      return text.slice(0, a) + text.slice(b) + '\n' + text.slice(a, b) + '\n';
+    });
+    assert.ok(codes(root).includes('STARTUP_LANGUAGE_PLACEMENT'));
+  });
+});
+
+test('automatic language signals and full translation remain mandatory in both owners', () => {
+  const resources = ['skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/references/startup-and-creative-menus.md'];
+  for (const phrase of ['explicit response-language preference', 'current user-authored conversational text', "host's response/UI language only when actually supplied", 'most recent meaningful user conversation language', 'A user does not need to request translation', 'all six capability bullets', 'When the language changes, deliver the full welcome in the new language', 'Apply the same language selection to subsequent pace/area menus and learning onboarding']) fixture(root => {
+    for (const file of resources) edit(root, file, text => text.replaceAll(phrase, 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), phrase);
+  });
+});
+
+test('reintroducing a fixed Polish default fails even beside the automatic language rule', () => fixture(root => {
+  edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text + '\nPolish is the default for bare invocations.\n');
+  assert.ok(codes(root).includes('STARTUP_FIXED_LANGUAGE'));
+}));
+
+test('supplied replies must match the complete selected-language source', () => {
+  const en = read('skills/workflow-orchestrator/assets/startup-welcome.en.md');
+  const pl = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
+  for (const expected of [en, pl]) {
+    assert.equal(evaluateStartupReply(expected, expected).status, 'PASS');
+    assert.equal(evaluateStartupReply(expected.slice(0, -1), expected).status, 'PASS');
+    assert.equal(evaluateStartupReply(expected === en ? pl : en, expected).status, 'FAIL');
+    assert.equal(evaluateStartupReply(expected.replace(/^- \*\*[^\n]+\n/m, ''), expected).status, 'FAIL');
+    assert.equal(evaluateStartupReply(expected + '\nChoose your language.', expected).status, 'FAIL');
+  }
+});
+
 test('lesson contract retains bounded onboarding, full plan, learner attempt and adaptive feedback', () => {
   for (const [file, phrase] of [
     ...['at most six short questions', 'Ask exactly one onboarding question per response and wait', 'Do not group onboarding questions', 'a natural-language answer', 'Do not ask an already answered question', 'Optional blanks do not block', 'all requested supported specializations', 'begin the first lesson', 'Stop for the learner\'s attempt', 'one or two priority improvements'].map(phrase => [method, phrase]),

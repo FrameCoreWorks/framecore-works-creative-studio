@@ -1,0 +1,38 @@
+{
+  "packet_id": "STUDIO-AUTOMATIC-STARTUP-LANGUAGE-1.3.4",
+  "date": "2026-10-01",
+  "authorization": "Owner explicitly requires the complete greeting to use each user's ChatGPT or Codex language automatically. This supersedes the former Polish-default startup rule. Standing paired repository and existing-plugin update authorization applies.",
+  "baseline_local_commit": "2444a778172b9794afd3088051b5844c4a944d09",
+  "baseline_remote_commit": "9caa098c8d147d4bc1ceada2c9bc6d64f25d8afc",
+  "baseline_host_release": "pluginrel_6abe940399608191b973c9d2067c16ea",
+  "allowed_paths": [
+    "AGENTS.md", "README.md", "CHATGPT_INSTALL.md", "CODEX_INSTALL.md",
+    "CHANGELOG.md", "RELEASE_NOTES.md", "RELEASE_STATUS.md",
+    "scripts/install_codex.py", "tests/test_codex_install.py", "config/install-sources.json",
+    "verification/scope-1.3.4.json", "verification/release-1.3.4.json", "verification/hosted-release-1.3.4.json",
+    "plugins/framecore-work-creative-studio/plugin.json",
+    "plugins/framecore-work-creative-studio/.codex-plugin/plugin.json",
+    "plugins/framecore-work-creative-studio/README.md",
+    "plugins/framecore-work-creative-studio/docs/learning-mode.md",
+    "plugins/framecore-work-creative-studio/docs/migration-status.md",
+    "plugins/framecore-work-creative-studio/docs/release-history.md",
+    "plugins/framecore-work-creative-studio/scripts/validate-learning-mode.mjs",
+    "plugins/framecore-work-creative-studio/tests/learning-mode.test.mjs",
+    "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/SKILL.md",
+    "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/startup-welcome.en.md"
+  ],
+  "changes": [
+    "Select response language automatically from explicit preferences, user conversation and available host language context; never infer it from country, plugin title or repository language.",
+    "Keep complete English and approved Polish greetings embedded before routing; translate the complete English source for other languages.",
+    "Localize subsequent menus while preserving numbered options, meanings, direct-task/resume bypasses and checkpoints.",
+    "Align native Codex entry, source guards, documentation and permanent private project instructions."
+  ],
+  "protected": [
+    "Approved Polish welcome bytes, complete greeting content and ordering, all capability bullets and optional materials.",
+    "All 37 skill identities and interface metadata, logo, starter prompts, providers, routing owners, assets and pinned source provenance.",
+    "Historical evaluation inputs and observations; no fabricated active-client or executed-fixture evidence.",
+    "Existing plugin identity, private personal audience and concurrent edits."
+  ],
+  "evidence_boundary": "Source checks and isolated source-use observations do not establish ordinary ChatGPT, Work or Codex client behavior. Host UI language can only be used when actually exposed to the assistant."
+}

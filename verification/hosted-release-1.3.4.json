@@ -1,0 +1,13 @@
+{
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "version": "1.3.4",
+  "status": "PENDING",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "readback": {
+    "status": "PENDING"
+  },
+  "post_update_active_client_behavior": "NOT_RUN",
+  "fresh_account_installation": "NOT_RUN",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351"
+}

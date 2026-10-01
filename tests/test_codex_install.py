@@ -52,6 +52,24 @@ class InstallationChecks(unittest.TestCase):
         self.run_helper('install', success=False)
         self.assertTrue(changed.read_text().endswith('Personal addition.\n'))
 
+    def test_native_entry_carries_automatic_language_and_both_complete_sources(self):
+        self.run_helper('install')
+        entry = (self.skills / 'framecore-work-creative-studio/SKILL.md').read_text()
+        for phrase in [
+            'automatic language policy', 'actually supplied host response/UI language',
+            'Do not require an\nexplicit translation request',
+            'automatically translate the full English source',
+            'switch the entire response when the language changes',
+            'Localize later menus without changing reply tokens',
+        ]:
+            self.assertIn(phrase, entry)
+        for locale in ['en', 'pl']:
+            relative = Path('skills/workflow-orchestrator/assets') / ('startup-welcome.' + locale + '.md')
+            self.assertIn(str(self.bundle / relative), entry)
+            self.assertEqual((self.bundle / relative).read_bytes(), (ROOT / 'plugins/framecore-work-creative-studio' / relative).read_bytes())
+        self.assertNotIn('explicit-language rule', entry)
+        self.assertNotIn('entire fixed welcome', entry)
+
     def test_existing_skill_identity_blocks_before_writes(self):
         existing = self.skills / 'my-custom-folder/SKILL.md'
         existing.parent.mkdir(parents=True)

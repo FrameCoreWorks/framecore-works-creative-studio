@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.4, 2026-10-01
+
+Automatically selects the full welcome and subsequent menu language from explicit preferences, meaningful user text, actually supplied host language and conversation context. Removes the fixed Polish default and explicit-translation requirement. Embeds complete, protected English and approved Polish texts plus a synchronized language policy before routing; other languages translate the complete English source. Preserves all capabilities, optional materials, numbered choices, checkpoints, direct-task/resume behavior, 37 skill identities, metadata, starters, assets and pinned sources. Native Codex entry and negative source guards follow the same policy. Source checks and isolated source-use observations do not establish active-client behavior.
+
 ## 1.3.3, 2026-10-01
 
 Replaces README installation prompts with links to complete ChatGPT Work and Codex procedures. Translates maintained package documentation and learning guidance into English while preserving localized startup/menu resources, exact copy, multilingual fixtures, routing and pinned sources. Adds a permanent English authoring and installation-documentation policy to repository maintenance instructions.

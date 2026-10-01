@@ -76,18 +76,27 @@ personal skills or proof that other agents ran. This native entry preserves the
 same creative routing as the hosted plugin. Use the user's language and requested
 pace. Resolve learning versus creation through the orchestrator: clear learning
 requests use its mentoring overlay, and concrete projects bypass learning intake.
-For every sent Studio-only invocation, greeting or startup request, read
-`{bundle / 'skills/workflow-orchestrator/assets/startup-welcome.pl.md'}`
-and copy verbatim the entire fixed welcome with its final 1. Tryb kreatywny /
-2. Tryb nauki menu. Add no salutation or other text. Repeat it unchanged on every
-sent Studio-only invocation, even in an existing conversation. Follow the
-orchestrator's explicit-language rule; preserve project and learning checkpoints.
-Concrete tasks and actual resume requests bypass the welcome.
+For every sent Studio-only invocation, greeting or startup request, apply the
+automatic language policy at the beginning of the orchestrator before answering.
+Follow an explicit preference, otherwise meaningful user text; for bare or numeric
+inputs use an actually supplied host response/UI language, then conversation
+language. English is only a provisional fallback when every signal is absent.
+Never infer country or claim access to hidden host settings. Do not require an
+explicit translation request. Copy the entire matching embedded English/Polish
+welcome or automatically translate the full English source for another language:
+`{bundle / 'skills/workflow-orchestrator/assets/startup-welcome.en.md'}`
+`{bundle / 'skills/workflow-orchestrator/assets/startup-welcome.pl.md'}`.
+Preserve the introduction, all six capability bullets, optional-material invitation,
+qualifications and final 1. Creative mode / 2. Learning mode choice in the user's
+language. Add no salutation or other text. Repeat the full welcome unchanged while
+the language is unchanged; switch the entire response when the language changes.
+Preserve project and learning checkpoints. Concrete tasks and actual resume
+requests bypass the welcome. Localize later menus without changing reply tokens.
 In learning onboarding, ask exactly one question about one missing decision,
 accept its numbered option or free text, then wait for the answer. Never show a
 question batch; reuse supplied facts and skip known questions. Sufficient context
 goes directly to the plan and first lesson at every host reasoning setting.
-A mode-only creative choice must show 1. Tryb szybki / 2. Tryb rozbudowany;
+A mode-only creative choice must show 1. Quick mode / 2. Expanded mode in the user's language;
 a pace-only choice shows the seven work areas. These steps apply at every host
 reasoning setting. Bind choice tokens only to currently pending displayed groups.
 An explicit specialist learning request follows that same overlay. Quick/Deep
