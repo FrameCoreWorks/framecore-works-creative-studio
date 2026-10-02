@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.4.0, 2026-10-02
+
+- Add diagnostic first practice within the lesson, with no extra onboarding and optional skipping.
+- Graduate and fade assistance, honoring full-explanation requests and keeping one pending attempt.
+- Track criterion-specific support and independence separately from completion and generated-output quality.
+- Revisit earlier skills with retrieval and changed-context transfer tasks in relevant learning sessions.
+- Diagnose craft, instruction, reference, generator and tool causes from evidence; insufficient evidence remains Unknown.
+- Link exercises through one evolving learning project and preserve evidence in the existing state and handoff.
+- Add eight planned scenarios and source-contract regressions; no active-client or educational-outcome claim.
+
 ## 1.3.4, 2026-10-01
 
 Automatically selects the full welcome and subsequent menu language from explicit preferences, meaningful user text, actually supplied host language and conversation context. Removes the fixed Polish default and explicit-translation requirement. Embeds complete, protected English and approved Polish texts plus a synchronized language policy before routing; other languages translate the complete English source. Preserves all capabilities, optional materials, numbered choices, checkpoints, direct-task/resume behavior, 37 skill identities, metadata, starters, assets and pinned sources. Native Codex entry and negative source guards follow the same policy. Source checks and isolated source-use observations do not establish active-client behavior.

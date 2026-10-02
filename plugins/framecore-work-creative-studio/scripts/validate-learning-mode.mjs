@@ -4,7 +4,7 @@ import {isDeepStrictEqual as equal} from 'node:util';
 import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
-export const learningCaseIds = Array.from({length: 16}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
+export const learningCaseIds = Array.from({length: 24}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
 export const canonicalWelcomeSha256 = 'ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943';
 export const englishWelcomeSha256 = '79b4db46877f091edb4b019fa3e5858d8b0b5655ed18ea3e065575a33abc4a06';
 
@@ -90,6 +90,11 @@ export function validateLearningMode(root, packageFiles) {
     need(method, [/## Onboarding/, /at most six short questions/, /Ask exactly one onboarding question per response and wait/, /Do not group onboarding questions/, /a natural-language answer/, /Do not ask an already answered question/, /optional blanks do not block/i, /## Personal plan/, /shared foundations/, /all requested supported specializations/, /begin the first lesson/, /plan-only/, /## Lesson cycle/, /Stop for the learner's attempt/, /one or two priority improvements/, /## Switching and project work/, /switches to creation immediately/, /## Progress and recovery/, /Do not mark a lesson completed merely because it was displayed/, /Do not promise persistent memory or cross-host sync/, /## Research, costs and limits/, /first offers a no-render alternative/, /Learning alone authorizes no generation/, /No free-use guarantee follows from a ChatGPT subscription/]);
     need('skills/workflow-orchestrator/assets/learning-plan.template.md', [/independent_outcome/, /domain_ids/, /sequence_reason/, /learner_action/, /assessment/, /tools_costs/, /no_render_alternative/, /estimated_effort/, /integrative_project/, /plan_only/]);
     need('skills/workflow-orchestrator/assets/learning-progress.template.md', [/level_by_domain/, /current_module/, /completed_lessons/, /skipped_lessons/, /strengths/, /practice_needs/, /next_action/, /persistence/, /onboarding_context/, /known\/unknown\/skipped answers/, /questions asked/, /six-question limit/, /at most one pending question/, /displayed token-to-option mapping/, /Remove answered\/skipped\/replaced pending questions/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/learning-mode\.md#diagnostic-first-attempt/, /at most one pending learner exercise/]);
+    need(method, [/## Diagnostic first attempt/, /inside the first lesson, not in additional onboarding/, /plan-only receives no diagnostic exercise/, /Reuse a relevant supplied attempt/, /keep the unobserved skill Unknown/, /## Graduated assistance/, /Honor a request for a full explanation immediately/, /Fade assistance after successful attempts/, /strongest solution-bearing help/, /## Evidence of independence/, /independent_familiar/, /independent_transfer/, /Keep learner-reported performance labelled separately/, /Keep lesson completion, output quality and independence separate/, /## Retrieval and transfer/, /at most one `pending_practice`/, /before revealing the answer/, /not a reminder/, /## Feedback and causal diagnosis/, /cause_category/, /A failed render alone proves no specific cause/, /## One evolving learning project/, /short new-context tasks/, /Missing or older fields|missing or older fields/]);
+    const practiceFields = ['diagnostic_attempt', 'competency_evidence', 'assistance_used', 'review_queue', 'pending_practice', 'feedback_diagnosis', 'learning_project'];
+    for (const view of [...stateViews, 'skills/workflow-orchestrator/assets/cross-host-handoff.template.md', 'skills/workflow-orchestrator/assets/learning-progress.template.md']) need(view, practiceFields.map(field => new RegExp(field)));
+    need('skills/workflow-orchestrator/assets/learning-plan.template.md', [/diagnostic_attempt/, /assistance_plan/, /learning_project/, /review_queue/, /competency_evidence/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/when a production task calls for grouped choices/, /Learning onboarding still asks exactly one question at a time/]);
     const map = JSON.parse(read('skills/workflow-orchestrator/assets/learning-domains.json'));
     if (map.schema_version !== 1 || map.path_base !== 'plugin_root' || !Array.isArray(map.domains)) throw new Error('Invalid learning domain map');
@@ -107,7 +112,7 @@ export function validateLearningMode(root, packageFiles) {
     }
     const suite = JSON.parse(read('evals/learning-mode-cases.json'));
     if (suite.schema_version !== 1 || !Array.isArray(suite.cases)) throw new Error('Invalid learning scenario suite');
-    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM16 once each');
+    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM24 once each');
     for (const item of suite.cases) {
       if (item.status !== 'planned' || item.execution_status !== 'not_run' || !strings(item.required_evidence) || !strings(item.expected_owners) || !strings(item.checks) || !['learning', 'creation', 'undecided'].includes(item.expected_interaction_mode)) fail('LEARNING_EVAL', String(item.id));
       for (const owner of item.expected_owners ?? []) if (!packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('LEARNING_EVAL_OWNER', item.id + ': ' + owner);

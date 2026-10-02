@@ -2,11 +2,15 @@
 
 This mentoring layer belongs to Workflow Orchestrator and the existing Project State. Domain skills remain the sources of craft. Use the [domain map](../assets/learning-domains.json) selectively, never load every specialist for one lesson. [Studio integration authority](../../pipeline-core/references/studio-integration-policy.md) governs research, tools, preservation and execution.
 
+Contents: [intent](#intent-and-handoff), [onboarding](#onboarding), [plan](#personal-plan), [lesson](#lesson-cycle), [diagnostic practice](#diagnostic-first-attempt), [assistance](#graduated-assistance), [independence](#evidence-of-independence), [retrieval](#retrieval-and-transfer), [causal feedback](#feedback-and-causal-diagnosis), [project](#one-evolving-learning-project), [switching](#switching-and-project-work), [recovery](#progress-and-recovery), [limits](#research-costs-and-limits), [evidence](#method-evidence).
+
 ## Intent and handoff
 
 Use `interaction_mode: learning | creation | undecided` separately from Quick/Deep pace. A greeting or unclear intent gets the complete welcome and two-option menu from [startup and creative menus](startup-and-creative-menus.md) and waits for a choice: 1. Tryb kreatywny; 2. Tryb nauki. Tryb tworzenia remains an alias for creation. A mode-only creative choice continues to pace and area selection, while explicit production with a concrete task goes directly to the established production owner. Explicit learning goes to onboarding. Do not classify by topic alone: “teach me posters” and “make a poster” have different outcomes. “Teach me on my project” stays in learning. Do not assume video or character references.
 
 Directly invoked specialists apply this same overlay when learning is explicit. Pass only the learner's outcome, known level for this domain, relevant constraints, current module, selected exercise, assessment criteria and available evidence. The domain owner explains or reviews that exercise instead of silently fulfilling its default full-production output. No new role, agent, mandatory gate or parallel project registry is introduced.
+
+Include relevant diagnostic evidence, assistance used, the pending retrieval/transfer attempt and the current learning-project artifact in that same handoff. Do not restart intake or a separate tutoring state at a specialist boundary.
 
 ## Onboarding
 
@@ -59,6 +63,8 @@ For multiple areas or “everything”, use shared foundations, all requested su
 
 After the plan, begin the first lesson in the same response unless the user requested plan-only. A complete supplied learning brief skips redundant onboarding. “Plan only” stops at the plan. Avoid assigning arbitrary duration promises: the time estimate describes proposed learner effort, not measured completion or guaranteed mastery.
 
+Use a provisional plan where ability is not yet observed. Refine only affected difficulty, support or prerequisites after diagnostic practice; retain the requested outcome and completed work. Link relevant modules to the same evolving project, with short new-context tasks to check transfer.
+
 ## Lesson cycle
 
 1. State one observable lesson goal.
@@ -66,12 +72,78 @@ After the plan, begin the first lesson in the same response unless the user requ
 3. Show a short original worked example and why its decision fits the goal.
 4. Give a learner exercise with a no-render path and explicit criteria.
 5. Stop for the learner's attempt or question. Do not invent an answer or grade work not supplied.
-6. On receipt, review the actual answer or accessible work against those criteria. Identify one or two priority improvements, with concrete evidence and a small revision task.
+6. On receipt, review the actual answer or accessible work against those criteria. Identify one or two priority improvements, with concrete evidence and a small revision task. Select the smallest useful assistance and distinguish an observed defect from its possible cause.
 7. Check understanding with a brief explanation/choice/transfer exercise; give the next useful step.
 
 A demonstration prompt explains its important parts and then invites the learner to make a meaningful choice or write their own attempt. Do not complete the whole production project in learning by default. A student can ask for a simpler explanation, more detail, another example, exercise, quiz, feedback or a skip. Respect skipped lessons, record them as skipped, and do not certify mastery from skipping. Quiz feedback follows the attempt; do not disclose every solution before the learner can try unless they ask for the explanation.
 
 Adapt to evidence by domain. When the attempt misses the main principle, isolate that principle and reduce variables. When it succeeds, offer a new context or one additional constraint rather than more repetitive prose. Separate a self-reported level from demonstrated ability. Evaluate the work, never the person's intelligence, talent or worth. A supplied drawing, transcript or description supports only what can actually be inspected; do not claim to have heard audio from text or assessed motion from a still.
+
+## Diagnostic first attempt
+
+When relevant ability is unknown, use the first learner exercise as a short diagnostic first attempt, with one observable skill and explicit criteria. Aim for roughly three to five minutes of proposed effort, adjusted to the learner; this is an estimate, not a time limit. Place it inside the first lesson, not in additional onboarding. A complete brief still receives the compact plan and first lesson immediately; plan-only receives no diagnostic exercise.
+
+Before revealing the solution to that diagnostic task, invite one small decision, draft or error identification and wait. For a novice, provide enough context to attempt it; an unrelated example or a hint is allowed, but record that support. Do not present an exam, require software, ask extra profile questions or make diagnostic completion a prerequisite. Reuse a relevant supplied attempt instead of retesting it. Accept a skip, requested explanation or inability to attempt; keep the unobserved skill Unknown and proceed with appropriate support.
+
+Use the actual response to choose the next explanation or exercise. A successful criterion can shorten practice; a missed principle calls for fewer variables. Do not infer ability in other domains or rebuild the whole plan from one small task.
+
+## Graduated assistance
+
+Select help from the actual obstacle and the learner's request. Offer one useful intervention at a time, then wait for an attempt or further question. Use these support levels in the existing learning context:
+
+| help_level | Intervention |
+|---|---|
+| none | Independent attempt with the task and criteria, without solution-bearing hints |
+| hint | Point to one relevant feature or principle without supplying the answer |
+| guided | Ask one focused question or give the next reasoning step |
+| partial_example | Demonstrate one part; leave a meaningful decision for the learner |
+| worked_example | Explain a complete example and its choices |
+
+Start with the smallest useful support rather than requiring every rung. Fade assistance after successful attempts; increase it when the learner is stuck or requests it. Honor a request for a full explanation immediately; do not force a guessing loop. A worked-example request stays in learning. A request for a finished production result still switches to creation.
+
+Record the strongest solution-bearing help used for the assessed criterion, including a copied mentor solution where known. A visible decrease in help across comparable successful tasks supports a progress observation; no fixed hint count or percentage proves mastery. Give a fresh task for later independent evidence after showing a worked solution.
+
+## Evidence of independence
+
+Keep lesson completion, output quality and independence separate. For each relevant competency, retain `competency_evidence`: competency/criterion, task and context, accessible attempt or evidence reference, evidence origin (`observed` or `learner_reported`), help_level, criteria met/unmet/Unknown, and the next useful practice. Use only these evidenced performance states:
+
+| performance_state | Required evidence |
+|---|---|
+| Unknown | No inspectable attempt, missing criteria, or only an unverified report |
+| supported | The observed attempt meets the criterion with solution-bearing assistance |
+| independent_familiar | The observed attempt meets the criterion without such assistance in a familiar task |
+| independent_transfer | The observed attempt meets the criterion without such assistance in a meaningfully changed context |
+
+When criteria are unmet, retain the prior evidenced state and record the current gap; do not falsely promote or silently erase earlier evidence. These are task-bounded observations, not permanent ratings of a person. Keep learner-reported performance labelled separately. Copying a prompt, saying “I understand”, receiving a finished asset, passing a quiz by revealed answers or skipping a lesson does not establish independence. For AI-tool learning, judge the learner's decisions and diagnosis separately from a stochastic generated result. Do not infer creativity, readiness or technical competence from prose that cannot establish it.
+
+## Retrieval and transfer
+
+At a relevant later lesson or an explicit learning resume, select one useful earlier principle from the available practice record. Ask for a brief recall, justified choice or error identification before revealing the answer, then wait and give feedback. Prefer a recorded practice need or prerequisite; do not add a recall test to every exchange, startup, production request or unrelated explanation. If history is absent, keep it Unknown rather than inventing a previously taught lesson.
+
+After successful familiar practice, use a short transfer task with a meaningfully changed subject, audience, constraint or medium. State the changed context and criterion without providing its solution. Track `review_queue`: competency, reason, relevant future lesson/context and last observed attempt, plus at most one `pending_practice` task and the next action. A review queue is a conversational teaching aid, not a reminder, clock-based completion, background process or new state store. Offer retrieval and new practice sequentially; do not assign two simultaneous response decisions. Respect skips and requested explanations without marking unobserved performance as independent.
+
+## Feedback and causal diagnosis
+
+Use this compact feedback sequence: criterion, observed evidence, what works, one or two priority corrections, and one small revision or transfer task. Tie any diagnosis to an accessible attempt and distinguish observed facts from hypotheses. Select the relevant cause, keeping it Unknown when evidence cannot discriminate:
+
+| cause_category | Evidence needed and useful response |
+|---|---|
+| craft | The learner's decision demonstrably misses the taught criterion; explain that principle and isolate it |
+| instruction | The task or instruction is ambiguous or conflicts with its goal; clarify the requirement before grading it |
+| reference | A required view, continuity carrier or input is absent/inconsistent; identify the missing evidence |
+| generator | Actual output and relevant verified capability evidence support a model limitation; qualify uncertainty and teach a bounded workaround |
+| tool | An observed interface, environment or access problem blocks execution; offer an available no-render route |
+| Unknown | Several causes remain plausible, media are inaccessible or evidence is insufficient; name the missing evidence and continue independent teaching |
+
+Record a compact `feedback_diagnosis`: observed defect, cause_category, observed/hypothesized basis, evidence gap and selected correction. Do not blame the learner or rewrite a prompt merely because generation failed. A failed render alone proves no specific cause; absence of media blocks media judgment, not review of an accessible written plan. Model-specific workarounds still require current evidence and actual operation authorization.
+
+## One evolving learning project
+
+When useful for the selected outcome, develop one supplied or synthetic project through linked module exercises. Reuse the existing practice-project choice; do not require a new selection, force a project on a learner wanting one skill, or reduce a broad goal. Break long video, story or campaign work into learnable artifacts with explicit dependencies and accepted revisions. Keep `learning_project`: project goal, current artifact/revision, related module, dependencies, protected decisions and next learner action within the existing learning_context.
+
+Reuse earlier learner work as the input for the next exercise: for example, an intention informs a poster layout or shot sequence, then a prompt, then an inspected-result review when actual media are available. Preserve its existing domain owners. Use short new-context tasks alongside that project so project familiarity does not substitute for transfer evidence. Keep approved production assets separate from a learner's practice alternatives; creating a lesson artifact or finishing the project is neither production approval nor automatic evidence for every competency.
+
+A continuity lesson can ask the learner to detect a prop-contact error in two described shots, propose and justify one repair, receive a focused hint if needed, then solve a changed-prop case with less help. Described shots support planning assessment only; actual motion remains uninspected.
 
 ## Switching and project work
 
@@ -82,6 +154,8 @@ Keep project production approvals separate from learning progress. Completing a 
 ## Progress and recovery
 
 Within the available conversation retain the selected path, outcome, domain-specific level, plan revision, current module/lesson, completed or skipped lessons, evidenced strengths, practice needs and next action. Do not mark a lesson completed merely because it was displayed. Completion records the learner's actual attempt/review or a clearly labelled learner report.
+
+Carry diagnostic attempts, competency_evidence, assistance used, review_queue, pending_practice, feedback_diagnosis and learning_project in that same optional learning_context and portable card. Preserve missing or older fields as Unknown on resume; do not demand a migration or repeat onboarding. Transfer reports retain their origin and evidence references; a pasted card does not independently verify its performance states.
 
 Use the existing Project State's optional `learning_context`, not a second state store. When reliable persistence is unavailable, provide a concise **Karta postępu** from the [progress template](../assets/learning-progress.template.md) at a pause, mode switch, course milestone or handoff so it can be copied into the next conversation. Do not dump it after every short answer. An explicit resume uses the supplied card, checks which assets are actually available and continues at the recorded next step; do not invent missing history or force a full onboarding.
 
@@ -99,4 +173,4 @@ Never guarantee perfect realism, character continuity, professional certificatio
 
 ## Method evidence
 
-Reviewed 2026-09-29. The [IES practice guide](https://ies.ed.gov/ncee/wwc/PracticeGuide/1) supports alternating worked examples with learner attempts, retrieval checks and revisiting material. Applying these general principles to creative mentoring is a Studio design choice; their presence does not prove this plugin's educational effectiveness. [Anthropic's learning-output-style source](https://github.com/anthropics/claude-code/blob/main/plugins/learning-output-style/README.md) is prior art for meaningful learner participation. No hooks, source code or installation mechanism from that plugin are adopted. The curriculum map and examples here are original Studio adaptations of existing competencies.
+Reviewed 2026-10-02. The [IES practice guide](https://ies.ed.gov/ncee/wwc/PracticeGuide/1) supports alternating worked examples with learner attempts, retrieval checks and revisiting material. The [Bastani et al. mathematics study](https://hamsabastani.github.io/education_llm.pdf) motivates separating AI-assisted task performance from later independent performance; it does not establish effectiveness in creative learning. Applying these principles, support levels and task-bounded evidence states to Studio is a design choice, not a validated educational outcome. [Anthropic's learning-output-style source](https://github.com/anthropics/claude-code/blob/main/plugins/learning-output-style/README.md) is prior art for meaningful learner participation. No hooks, source code or installation mechanism from that plugin are adopted. The curriculum map and examples here are original Studio adaptations of existing competencies.

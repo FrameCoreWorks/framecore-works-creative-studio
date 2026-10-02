@@ -1,0 +1,144 @@
+{
+  "version": "1.4.0",
+  "date": "2026-10-02",
+  "scope_packet": "scope-1.4.0.json",
+  "baseline_remote_commit": "b41fcb162f476a6cfedd7f1e92c07a161d161885",
+  "baseline_host_release": "pluginrel_6abeafced8708191b43613900eced4d3",
+  "checks": {
+    "node_regressions": {
+      "status": "PASS_AFTER_FOCUSED_RECHECK",
+      "tests": 108,
+      "initial_passed": 107,
+      "initial_failed": 1,
+      "learning_recheck_passed": 32,
+      "unaffected_passed": 76,
+      "concurrency": 1,
+      "repair": "New mutation test now removes all duplicated occurrences of the transfer guard; no weakened assertion or product repair."
+    },
+    "filesystem_installer": {
+      "status": "PASS",
+      "tests": 11,
+      "concurrency": 1,
+      "preparation_correction": "Initial run used stale install inventory; rebuilt inventory before the passing run."
+    },
+    "canonical_validation": {
+      "status": "PASS",
+      "files": 744,
+      "owners": 37,
+      "planned_cases": 191,
+      "executed_planned_cases": 0,
+      "legacy": "NOT_RUN"
+    },
+    "packaging": {
+      "status": "PASS",
+      "files": 744,
+      "plugin_zip_sha256": "e873c6c502a00bed08d7ba6914d2c1e734732d521b2b53c7b6a57fb4870239b1"
+    }
+  },
+  "baseline_full_saved_package_equality": {
+    "status": "PASS",
+    "files": 744,
+    "unreadable_files": 0
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "active_client_behavior": "NOT_RUN",
+  "educational_effectiveness": "Unknown",
+  "preservation": {
+    "status": "PASS",
+    "files": 744,
+    "changed_existing": 17,
+    "unchanged": 727,
+    "added": 0,
+    "deleted": 0,
+    "outside_allowlist": 0,
+    "all_37_skill_metadata_byte_equal": true,
+    "welcome_assets_language_policy_and_early_excerpts_byte_equal": true,
+    "learning_onboarding_byte_equal": true,
+    "upstream_and_logo_byte_equal": true,
+    "existing_16_learning_cases_equal": true,
+    "manifests_except_version_equal": true,
+    "archive_source_equal": true,
+    "changed_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/learning-mode.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "evals/learning-mode-cases.json",
+      "plugin.json",
+      "scripts/validate-learning-mode.mjs",
+      "skills/pipeline-core/assets/project-state.md",
+      "skills/pipeline-core/templates/project-state.md",
+      "skills/workflow-orchestrator/SKILL.md",
+      "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
+      "skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "skills/workflow-orchestrator/references/learning-mode.md",
+      "tests/learning-mode.test.mjs",
+      "tests/studio.test.mjs"
+    ]
+  },
+  "scope_review": {
+    "status": "PASS",
+    "approved_changes": 6,
+    "all_six_present": true,
+    "new_roles": 0,
+    "new_dependencies": 0,
+    "protected_startup_and_onboarding": "BYTE_EQUAL",
+    "decision": "stop_sufficient_after_paired_publication",
+    "remaining": "Saved-destination equality and CI; active-client teaching and educational effectiveness remain unverified."
+  },
+  "isolated_source_use": {
+    "status": "PASS_SOURCE_USE",
+    "turns": 7,
+    "execution": "Sequential isolated mentor conversation using candidate source instructions; no writes, tools, paid providers or media generation.",
+    "observations": [
+      {
+        "turn": 1,
+        "request": "Complete novice learning brief; poster, synthetic reading event, no software/budget, 15-minute sessions, no browsing.",
+        "observed": "Compact four-session plan, short original other-event example, one diagnostic task with criteria, no additional onboarding, honest offline disclosure.",
+        "status": "PASS_SOURCE_USE"
+      },
+      {
+        "turn": 2,
+        "request": "Equal emphasis on all texts; ask for one hint only.",
+        "response": "Wskazówka: jednakowa wielkość i pięć mocnych kolorów mogą sprawić, że napisy będą konkurować o uwagę. Sprawdź, czy przy krótkim spojrzeniu wiesz, od którego zacząć czytanie.",
+        "status": "PASS_SOURCE_USE"
+      },
+      {
+        "turn": 3,
+        "request": "Supply revised hierarchy and ask for a changed-context exercise without solution.",
+        "observed": "Evidence-based feedback labels the revision as after a hint; transfer task changes the audience's need to a room change and withholds the solution.",
+        "status": "PASS_SOURCE_USE"
+      },
+      {
+        "turn": 4,
+        "request": "Supply the changed-context hierarchy and request a progress card at a pause.",
+        "observed": "Assesses the accessible written choice as independent transfer; distinguishes future layout/readability checks, preserves the original project texts, assistance history and next review.",
+        "status": "PASS_SOURCE_USE"
+      },
+      {
+        "turn": 5,
+        "request": "Resume from that card with ten minutes and no browsing.",
+        "response": "Kontynuujemy offline. Dziś mamy około 10 minut na układ i odstępy, zaczynając od krótkiego przypomnienia poprzedniej zasady. Pierwszy krok: z pamięci napisz jednym zdaniem, czym kierujesz się przy wyborze największego napisu na plakacie. Po Twojej odpowiedzi przejdziemy do rozmieszczenia tekstów spotkania czytelniczego.",
+        "status": "PASS_SOURCE_USE"
+      },
+      {
+        "turn": 6,
+        "request": "Reported vanishing cup in an inaccessible clip; ask whether stronger prohibitions would certainly fix it, no tools.",
+        "observed": "Keeps cause unverified, distinguishes possible occlusion/frame/continuity issues, requires actual media and prompt evidence, makes any example repair conditional and performs no execution.",
+        "status": "PASS_SOURCE_USE"
+      },
+      {
+        "turn": 7,
+        "request": "Ask for a complete spacing explanation and worked example, no quiz, browsing or graphics execution.",
+        "observed": "Explains proximity and gives a complete worked layout table using the same project texts; no forced hint ladder, learner exercise, generation or independent-performance claim.",
+        "status": "PASS_SOURCE_USE"
+      }
+    ],
+    "limits": "Not execution of planned LM fixtures, a normal active-client startup, or evidence of educational effectiveness."
+  }
+}

@@ -44,7 +44,7 @@ test('learning is integrated with the same 37 skills and unexecuted evidence sco
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical.errors));
   assert.equal(result.canonical.owners, 37);
-  assert.equal(result.canonical.evaluations.learning_scenarios, 16);
+  assert.equal(result.canonical.evaluations.learning_scenarios, 24);
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
@@ -290,4 +290,42 @@ test('missing cases and fabricated executed outcomes fail closed', () => {
 test('learning fixtures cannot imply generation or omit required research', () => {
   fixture(root => { editJSON(root, casesPath, d => d.cases[0].tool_state.external_provider_authorized = true); assert.ok(codes(root).includes('LEARNING_EVAL_AUTHORITY')); });
   fixture(root => { editJSON(root, casesPath, d => { const c = d.cases.find(c => c.research_expectation === 'required'); c.expected_owners = c.expected_owners.filter(o => o !== 'research-evidence'); }); assert.ok(codes(root).includes('LEARNING_RESEARCH_OWNER')); });
+});
+
+test('each teaching method retains its material safety and evidence boundary', () => {
+  const boundaries = [
+    'inside the first lesson, not in additional onboarding',
+    'plan-only receives no diagnostic exercise',
+    'Honor a request for a full explanation immediately',
+    'Keep lesson completion, output quality and independence separate',
+    'Keep learner-reported performance labelled separately',
+    'at most one `pending_practice`',
+    'A failed render alone proves no specific cause',
+    'short new-context tasks'
+  ];
+  for (const boundary of boundaries) fixture(root => {
+    edit(root, method, text => text.replaceAll(boundary, 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), boundary);
+  });
+});
+
+test('practice evidence survives every existing state and handoff projection', () => {
+  const views = ['skills/pipeline-core/templates/project-state.md', 'skills/pipeline-core/assets/project-state.md', 'skills/workflow-orchestrator/assets/cross-host-handoff.template.md', 'skills/workflow-orchestrator/assets/learning-progress.template.md'];
+  for (const view of views) fixture(root => {
+    edit(root, view, text => text.replaceAll('competency_evidence', 'removed'));
+    assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), view);
+  });
+});
+
+test('new teaching scenarios preserve no-execution and unexecuted-outcome contracts', () => {
+  const suite = JSON.parse(read(casesPath));
+  const added = suite.cases.filter(c => Number(c.id.slice(2)) >= 17);
+  assert.equal(added.length, 8);
+  for (const family of ['diagnostic_practice', 'graduated_assistance', 'independence_evidence', 'transfer_practice', 'retrieval_resume', 'causal_diagnosis', 'evolving_project', 'requested_explanation']) assert.ok(added.some(c => c.family === family), family);
+  assert.ok(added.every(c => c.execution_status === 'not_run' && c.tool_state.external_provider_authorized === false));
+  assert.equal(added.find(c => c.id === 'LM21').research_expectation, 'prohibited_by_user');
+  fixture(root => {
+    editJSON(root, casesPath, suite => suite.cases.find(c => c.id === 'LM20').execution_status = 'passed');
+    assert.ok(codes(root).includes('LEARNING_EVAL'));
+  });
 });

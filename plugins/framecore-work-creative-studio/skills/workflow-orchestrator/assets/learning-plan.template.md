@@ -10,6 +10,9 @@ Use only relevant fields; present the complete plan compactly in the user's lang
 - Constraints / constraints: time, budget, accessibility, language, no-render preference
 - Assumptions / assumptions: visible, reversible, never paid access by default
 - Sequence / sequence_reason:
+- Diagnostic practice / diagnostic_attempt: first lesson only when relevant ability is unknown; reuse supplied work, allow skipping, no extra onboarding or plan-only exercise
+- Assistance / assistance_plan: none | hint | guided | partial_example | worked_example; choose and fade from attempts, honor requested explanation
+- Project links / learning_project: optional single evolving project and artifact dependencies, alongside changed-context practice
 
 | Module / module | Skill outcome / skill_outcome | Why now / prerequisite | Exercise / learner_action | Criteria / assessment | Tools and costs / tools_costs | Without rendering / no_render_alternative | Estimated effort / estimated_effort |
 |---|---|---|---|---|---|---|---|
@@ -18,5 +21,7 @@ Use only relevant fields; present the complete plan compactly in the user's lang
 - Integrative project / integrative_project and criteria:
 - First lesson / first_lesson: start now unless plan_only
 - Next review / next_review: learner attempt, not automatic passage of time
+- Retrieval and transfer / review_queue: one useful earlier competency, relevant future lesson/context and a changed-context task; offer one pending practice at a time
+- Independence evidence / competency_evidence: explicit criteria, attempt origin, support used and task-bounded performance, separate from course completion
 
 For broad goals include shared foundations, selected specializations and a combining project. Do not duplicate an entire reference chapter in the plan. Keep output quality, production approval and learner progress separate.

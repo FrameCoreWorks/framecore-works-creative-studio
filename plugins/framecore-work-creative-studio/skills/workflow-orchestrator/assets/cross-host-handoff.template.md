@@ -18,7 +18,7 @@ Use this only when the user asks for a handoff or portable brief. If they provid
 - Work mode / pace: Quick / Deep / user-defined / changed during project:
 - interaction_mode: learning / creation / undecided:
 - entry_context: current stage, known choices, and only unresolved pending_choice_groups with the exact displayed token-to-option mapping; answered, skipped or replaced menus remain history:
-- learning_context: known onboarding answers, at most one pending question and its exact displayed token mapping, plan revision, current module/lesson, reviewed or self-reported progress, and next action; include the [progress card](learning-progress.template.md) when learning is active or paused:
+- learning_context: known onboarding answers, at most one pending question and its exact displayed token mapping, plan revision, current module/lesson, reviewed or self-reported progress, and next action; retain optional diagnostic_attempt, competency_evidence, assistance_used, review_queue, one pending_practice, feedback_diagnosis and learning_project with evidence origins; missing older fields stay Unknown; include the [progress card](learning-progress.template.md) when learning is active or paused:
 - Selected concept and its reason:
 - Rejected routes and the user's stated reason:
 - Approved copy, exact punctuation, language and line-break locks:

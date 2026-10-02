@@ -1,9 +1,11 @@
-# Creative Studio 1.3.4
+# Creative Studio 1.4.0
 
-The complete welcome and later pace, work-area and learning menus automatically use the user's language. A translation request is no longer required, and Polish is no longer a fixed startup default.
+Learning mode now uses diagnostic first practice, graduated assistance, evidence of independence, retrieval and transfer, causal feedback and one evolving learning project across the existing supported creative domains.
 
-Explicit language preferences take precedence. Otherwise Studio uses meaningful user text, host response/UI language when actually supplied for bare or numeric inputs, then conversation language. It never infers nationality or claims access to hidden host settings. English is a provisional fallback only when all language signals are absent.
+A short diagnostic task belongs to the first lesson, with optional skipping and no extra onboarding. Support ranges from a hint to a worked example, fades with successful practice and honors a request for a complete explanation. One pending learner attempt keeps each step focused.
 
-Full English and approved Polish greetings and their language policy are embedded before routing. Other languages translate the entire English source. All six capability bullets, optional materials, tool qualifications, numbered choices, checkpoints and direct-task/resume paths remain intact. The native Codex entry follows the same policy; all 37 skill identities, metadata, starters, logo and pinned sources are preserved.
+Progress separates course completion, output quality and task-bounded performance: supported, independent in a familiar task, or independent in a changed context. Evidence origin and assistance stay visible in the existing portable state. Uninspected work and unsupported causes remain Unknown; older progress cards resume without migration or repeated onboarding.
 
-Source checks and isolated source-use observations are separate from ordinary ChatGPT, Work and Codex client behavior.
+Brief retrieval and changed-context tasks revisit earlier skills in relevant learning sessions. Linked exercises can develop one project while preserving its domain owners, dependencies and approved production decisions. These are teaching instructions, not scheduled reminders or automatic persistence.
+
+Full welcomes, automatic response language, one-question onboarding, all 37 owner identities and metadata, starter prompts, assets, pinned sources and execution boundaries are preserved. Eight additional learning scenarios remain planned. Source and isolated source-use checks do not establish active-client behavior or educational effectiveness.

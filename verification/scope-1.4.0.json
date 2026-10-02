@@ -1,0 +1,43 @@
+{
+  "packet_id": "STUDIO-LEARNING-PRACTICE-1.4.0",
+  "packet_type": "Bounded Instruction and Review Packet",
+  "target_role": "workflow-orchestrator",
+  "date": "2026-10-02",
+  "authorization": "The owner explicitly approved all six proposed learning improvements, one for one. Standing paired repository and existing-plugin update authorization applies.",
+  "baseline_remote_commit": "b41fcb162f476a6cfedd7f1e92c07a161d161885",
+  "baseline_host_release": "pluginrel_6abeafced8708191b43613900eced4d3",
+  "goal": "Teach through observed practice, graduated support, evidence of independence, retrieval, causal feedback and one evolving learning project.",
+  "changes": [
+    "Use a short diagnostic learner attempt inside the first lesson, with optional skipping and no extra onboarding.",
+    "Graduate and fade assistance while honoring requests for examples or full explanation.",
+    "Record criterion-specific evidence and supported, independent familiar-task or independent new-context performance.",
+    "Revisit earlier skills through one brief retrieval or transfer task in a relevant learning session.",
+    "Distinguish craft, instruction, reference, generator and tool causes; unsupported causes remain Unknown.",
+    "Build one evolving project with linked exercises and separate new-context tasks."
+  ],
+  "allowed_sections": {
+    "skills/workflow-orchestrator/SKILL.md": "Learning-method navigation only; startup blocks and metadata unchanged",
+    "skills/workflow-orchestrator/references/learning-mode.md": "Teaching cycle, diagnostic practice, assistance, assessment, retrieval, diagnosis, project work and evidence",
+    "skills/workflow-orchestrator/assets/learning-plan.template.md": "Optional teaching plan fields",
+    "skills/workflow-orchestrator/assets/learning-progress.template.md": "Optional practice evidence and recovery fields",
+    "skills/pipeline-core/templates/project-state.md": "learning_context field only",
+    "skills/pipeline-core/assets/project-state.md": "Same learning_context field projection",
+    "skills/workflow-orchestrator/assets/cross-host-handoff.template.md": "learning_context field only",
+    "scripts/validate-learning-mode.mjs": "Learning-practice guards and expanded case inventory",
+    "tests/learning-mode.test.mjs": "Focused teaching-contract regressions and case count",
+    "tests/studio.test.mjs": "Expanded learning and total case counts only",
+    "evals/learning-mode-cases.json": "Append LM17-LM24; preserve existing cases",
+    "docs/learning-mode.md": "Teaching improvements and planned-case count",
+    "docs/migration-status.md": "Version marker and learning summary",
+    "plugin.json": "Version only",
+    ".codex-plugin/plugin.json": "Version only",
+    "README.md": "Version only",
+    "docs/release-history.md": "New release entry only"
+  },
+  "repository_dependencies": ["README.md", "CHANGELOG.md", "RELEASE_NOTES.md", "RELEASE_STATUS.md", "config/install-sources.json", "verification/scope-1.4.0.json", "verification/release-1.4.0.json", "verification/hosted-release-1.4.0.json"],
+  "protected": ["Complete welcomes and language policy", "One onboarding question per turn and six-question ceiling", "37 owner identities, metadata, starters, assets and pinned sources", "Existing project locks, creation route and shared QA budget", "Existing eval cases and all historical reports", "Plugin identity and private personal audience"],
+  "acceptance": ["All six methods are reachable from the existing learning owner", "Evidence and assistance survive a portable handoff without automatic persistence", "No fabricated independent performance or learning outcomes", "All checks run sequentially", "One guarded paired update and readback from the same source"],
+  "execution_budget": "Local checks and bounded source-use tests; no paid providers, media generation or private learner data",
+  "rollback": "Revert only this patch on the current source and publish a guarded versioned correction; preserve later edits",
+  "evidence_boundary": "Source tests and isolated source-use tests are distinct from active-client behavior and measured educational effectiveness."
+}

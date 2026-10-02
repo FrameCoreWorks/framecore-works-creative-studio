@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Sixteen planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
+  "scope": "Twenty-four planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
   "execution_rule": "Use a fresh attributed host session, actual input and available assets; save response, tool trace and reviewer results separately. Source tests do not execute these cases.",
   "cases": [
     {
@@ -719,6 +719,388 @@
         "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
         "Reviewer decision against each check; declared fixture states are not observations."
       ]
+    },
+    {
+      "id": "LM17",
+      "family": "diagnostic_practice",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Tryb nauki. Chcę samodzielnie projektować czytelne plakaty. Poziom początkujący, bez programów i kosztów, 15 minut na sesję. Zacznij od ćwiczenia, nie podawaj jego rozwiązania.",
+      "context": {},
+      "available_assets": [],
+      "expected_branch": "diagnostic_practice",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Deliver the compact provisional plan and one short no-render diagnostic task inside the first lesson; do not add onboarding.",
+        "State one observable criterion and wait for an actual attempt without revealing its solution.",
+        "A skipped or unavailable attempt stays Unknown; refine only affected learning support."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM18",
+      "family": "graduated_assistance",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Nie rozwiązuj tego za mnie. Daj jedną wskazówkę.",
+      "context": {
+        "interaction_mode": "learning",
+        "learning_context": {
+          "current_lesson": "Poster hierarchy",
+          "pending_practice": {
+            "task": "Arrange title, date and venue by reading order",
+            "learner_attempt": "I made all three equally large",
+            "criterion": "Clear reading priority"
+          }
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "graduated_assistance",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Give one relevant hint without a completed layout or another questionnaire; wait for the learner.",
+        "Retain assistance_used for this criterion and do not mark the task independent.",
+        "Use the actual obstacle; do not require every support rung."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM19",
+      "family": "independence_evidence",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Przepisałem gotowy prompt od Ciebie i dostałem ładny obraz. Czy możesz zapisać, że umiem już samodzielnie projektować plakaty?",
+      "context": {
+        "interaction_mode": "learning"
+      },
+      "available_assets": [],
+      "expected_branch": "independence_evidence",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Distinguish output quality, lesson completion and independent competence.",
+        "Keep the unverified learner report labelled; no unsupported promotion, mastery score or image inspection.",
+        "Offer a fresh relevant task for independent evidence; do not erase prior evidence."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM20",
+      "family": "transfer_practice",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Poprzednie zadanie zrobiłem samodzielnie. Daj podobne ćwiczenie w innym kontekście, bez odpowiedzi.",
+      "context": {
+        "interaction_mode": "learning",
+        "learning_context": {
+          "current_lesson": "Shot continuity",
+          "competency_evidence": [
+            {
+              "competency": "Prop contact",
+              "task": "Cup held through two described shots",
+              "origin": "observed",
+              "help_level": "none",
+              "criteria": "met",
+              "performance_state": "independent_familiar"
+            }
+          ]
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "transfer_practice",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "storyboard-sequence-architect",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Change one meaningful context or constraint and state its criterion; wait without a solution.",
+        "Do not mark independent_transfer before reviewing an actual unassisted attempt.",
+        "Described shots support planning assessment only, not motion inspection."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM21",
+      "family": "retrieval_resume",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Wróćmy do nauki. Nie przeglądaj internetu. Mam dziś 10 minut.",
+      "context": {
+        "interaction_mode": "learning",
+        "learning_context": {
+          "current_lesson": "Poster layout",
+          "practice_needs": [
+            "Reading hierarchy"
+          ],
+          "review_queue": [
+            {
+              "competency": "Reading hierarchy",
+              "reason": "Needs another attempt",
+              "relevant_context": "Next poster lesson"
+            }
+          ],
+          "research_status": {
+            "status": "not_attempted",
+            "scope": "Stable craft only",
+            "limitation_disclosed": true
+          }
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "retrieval_resume",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "prohibited_by_user",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "prohibited_by_user",
+      "checks": [
+        "Reuse supplied progress and select one short relevant recall/error-identification task without showing its answer.",
+        "Keep at most one pending_practice and wait; do not combine recall and a new response decision.",
+        "No browsing, reminders, automatic completion or repeated onboarding; missing fields remain Unknown."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM22",
+      "family": "causal_diagnosis",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Generator zrobił źle: filiżanka znika w klipie. Nie mogę teraz załączyć filmu ani promptu. Czy to na pewno mój błąd?",
+      "context": {
+        "interaction_mode": "learning"
+      },
+      "available_assets": [],
+      "expected_branch": "causal_diagnosis",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "video-prompt-architect",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "The reported failed render does not establish a craft error or a model limitation; keep cause Unknown.",
+        "Identify evidence needed to discriminate instruction, reference, generator and tool causes.",
+        "Do not claim temporal inspection, blame the learner or automatically rewrite an unseen prompt; offer useful no-render learning."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM23",
+      "family": "evolving_project",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Kontynuujmy naukę na naszym projekcie. Co mam teraz zrobić samodzielnie?",
+      "context": {
+        "interaction_mode": "learning",
+        "learning_context": {
+          "independent_outcome": "Plan a three-shot scene",
+          "learning_project": {
+            "goal": "Returning a borrowed umbrella",
+            "artifact": "Learner scene outline r1",
+            "dependencies": [
+              "Character goal"
+            ],
+            "protected_decisions": [
+              "Umbrella stays folded"
+            ],
+            "next_learner_action": "Plan a causal shot transition"
+          }
+        },
+        "project_context": {
+          "accepted_revision": "scene-r1",
+          "exact_copy": [
+            "Możesz zostać"
+          ]
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "evolving_project",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "storyboard-sequence-architect",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Give one linked exercise using the existing learner project and relevant artifact dependencies.",
+        "Preserve exact copy and folded-umbrella lock; no new project selection or intake.",
+        "Keep practice alternatives distinct from approved production and preserve the existing owner."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
+    },
+    {
+      "id": "LM24",
+      "family": "requested_explanation",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Nie rozumiem i teraz chcę pełnego wyjaśnienia z rozwiązanym przykładem, zamiast kolejnej zagadki.",
+      "context": {
+        "interaction_mode": "learning",
+        "learning_context": {
+          "current_lesson": "Poster hierarchy",
+          "pending_practice": {
+            "task": "Arrange title, date and venue"
+          }
+        }
+      },
+      "available_assets": [],
+      "expected_branch": "requested_explanation",
+      "expected_interaction_mode": "learning",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "static-graphic-design-creator",
+        "research-evidence"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "required",
+      "checks": [
+        "Honor the requested worked example immediately and stay in learning; no compulsory hint ladder.",
+        "Record worked_example support without claiming independent performance from the shown solution.",
+        "A later independent check uses a fresh task; no forced quiz or automatic creation switch."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations.",
+        "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
+      ],
+      "research_exemption_reason": ""
     }
   ]
 }
