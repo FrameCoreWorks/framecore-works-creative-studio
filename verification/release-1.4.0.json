@@ -33,6 +33,23 @@
       "status": "PASS",
       "files": 744,
       "plugin_zip_sha256": "e873c6c502a00bed08d7ba6914d2c1e734732d521b2b53c7b6a57fb4870239b1"
+    },
+    "github_ci": {
+      "status": "PASS",
+      "tests": 150,
+      "node_regressions": 108,
+      "filesystem_installer": 11,
+      "gepa_pilot": 8,
+      "asset_manifest": 23,
+      "concurrency": 1,
+      "run": {
+        "id": 36986608570,
+        "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/36986608570",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "eb80f0b0649aa2b23b12e9dde971295934a363d9"
+      },
+      "canonical_validation_and_packaging": "PASS"
     }
   },
   "baseline_full_saved_package_equality": {
@@ -41,8 +58,42 @@
     "unreadable_files": 0
   },
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING"
+    "github": "PASS",
+    "host": "PASS",
+    "source_commit": "eb80f0b0649aa2b23b12e9dde971295934a363d9",
+    "package_tree": "07c01ff528cf2a0a8f1074e6c744108ffd19a58b",
+    "release": {
+      "id": 401664784,
+      "tag": "v1.4.0",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.4.0",
+      "digest": "sha256:e873c6c502a00bed08d7ba6914d2c1e734732d521b2b53c7b6a57fb4870239b1"
+    },
+    "ci": {
+      "id": 36986608570,
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/36986608570",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "eb80f0b0649aa2b23b12e9dde971295934a363d9"
+    },
+    "host_release": "pluginrel_6abf7146b30c8191b8aa6e022d3819ce",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "saved_readback": {
+      "status": "PASS",
+      "files": 744,
+      "full_saved_archive_equal": true,
+      "uploaded_zip_equal": true,
+      "github_blob_hashes_equal": true,
+      "changed_text_files_equal": 17,
+      "unreadable_files": 0,
+      "all_37_saved_interface_descriptions_preserved": true,
+      "polish_welcome_sha256": "ec8422f9611c58f10706b9b71d5f0990d586f644e5d15f59121560cb6a71c943",
+      "english_welcome_sha256": "79b4db46877f091edb4b019fa3e5858d8b0b5655ed18ea3e065575a33abc4a06",
+      "language_policy_and_both_early_excerpts_equal": true,
+      "archive_bytes": 8669371,
+      "archive_path_layout": "Saved TAR uses package-relative paths; uploaded ZIP has the canonical plugin-directory prefix. File contents equal without normalization.",
+      "plugin_zip_sha256": "e873c6c502a00bed08d7ba6914d2c1e734732d521b2b53c7b6a57fb4870239b1"
+    },
+    "audience_preserved": true
   },
   "active_client_behavior": "NOT_RUN",
   "educational_effectiveness": "Unknown",
@@ -89,7 +140,7 @@
     "new_dependencies": 0,
     "protected_startup_and_onboarding": "BYTE_EQUAL",
     "decision": "stop_sufficient_after_paired_publication",
-    "remaining": "Saved-destination equality and CI; active-client teaching and educational effectiveness remain unverified."
+    "remaining": "Active-client teaching and educational effectiveness remain unverified; paired publication and full saved-destination equality PASS."
   },
   "isolated_source_use": {
     "status": "PASS_SOURCE_USE",
