@@ -1,0 +1,79 @@
+{
+  "version": "1.7.0",
+  "date": "2026-10-03",
+  "source_commit": "b14f1d76c0e71b815d61cbf29ea40f4473a15427",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6ac154446c688191a49f86c622d3e088",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "status": "SAVED_WITH_BOUNDED_READBACK",
+  "github_package_files_equal": 772,
+  "host_inventory_files": 772,
+  "host_inventory_equal": true,
+  "host_text_files_bytes_equal": 761,
+  "changed_and_added_files_bytes_equal": 13,
+  "differences": [],
+  "full_archive": {
+    "status": "UNAVAILABLE",
+    "http_status": 403
+  },
+  "unread_files": [
+    {
+      "path": "assets/logo.png",
+      "reason": "binary requires archive",
+      "size_bytes": 1603136
+    },
+    {
+      "path": "evals/static-cases.json",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 96290
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 138877
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 70529
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "reason": "binary requires archive",
+      "size_bytes": 2378951
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "reason": "binary requires archive",
+      "size_bytes": 221290
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "reason": "binary requires archive",
+      "size_bytes": 3064074
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 87462
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 70529
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 70529
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "reason": "text exceeds reader file limit",
+      "size_bytes": 74021
+    }
+  ],
+  "preservation": "Only 13 changed/new files uploaded as an overlay; the 11 unread files are outside this change and were omitted.",
+  "active_client_behavior": "NOT_RUN"
+}

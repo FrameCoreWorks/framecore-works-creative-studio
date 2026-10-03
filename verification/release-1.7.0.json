@@ -28,7 +28,8 @@
     },
     "gepa_pilot": {
       "status": "NOT_RUN_LOCALLY",
-      "reason": "Unchanged pilot; the existing release workflow runs its declared checks."
+      "reason": "Unchanged pilot; the existing release workflow runs its declared checks.",
+      "ci_release_job": "PASS: complete existing release workflow passed without local dependency installation."
     }
   },
   "preservation": {
@@ -66,8 +67,59 @@
     "reason": "Only changed/new files are uploaded; unchanged hosted files remain intact."
   },
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING"
+    "source_commit": "b14f1d76c0e71b815d61cbf29ea40f4473a15427",
+    "github": {
+      "status": "PASS",
+      "release": {
+        "id": 402654430,
+        "tag": "v1.7.0",
+        "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.7.0",
+        "target": "b14f1d76c0e71b815d61cbf29ea40f4473a15427",
+        "draft": false,
+        "assets": [
+          {
+            "name": "framecore-work-creative-studio-1.7.0.zip",
+            "size": 9229575,
+            "digest": "sha256:ddb22040de7abbd3e14a0cbae70325bdedce22bce11c265c8f767cd368e63edb"
+          },
+          {
+            "name": "framecore-work-creative-studio-1.7.0.zip.inventory.json",
+            "size": 156310,
+            "digest": "sha256:6b456a851cdeca91e458ad707f151eeef95baa310a051ee116d33a5215f4e80b"
+          },
+          {
+            "name": "framecore-works-creative-studio-1.7.0-repository.zip",
+            "size": 11230673,
+            "digest": "sha256:0d39ab51498f715fbdff2e968df8a5d0ec33aff9d857ce627076a2adda4ccafc"
+          },
+          {
+            "name": "framecore-works-creative-studio-1.7.0-repository.zip.inventory.json",
+            "size": 203685,
+            "digest": "sha256:4c411b46b8021072e7072e16a490c82913f2094ffc694ecfa7628892bc213acd"
+          },
+          {
+            "name": "SHA256SUMS.txt",
+            "size": 482,
+            "digest": "sha256:a27c80c0e952bfb0fb8353bfb72872fe03fa33b9e53f47bf999f1b7cfa402d41"
+          }
+        ]
+      },
+      "ci": {
+        "id": 37147128228,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/37147128228",
+        "head_sha": "b14f1d76c0e71b815d61cbf29ea40f4473a15427"
+      }
+    },
+    "host": {
+      "status": "SAVED_WITH_BOUNDED_READBACK",
+      "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+      "release_id": "pluginrel_6ac154446c688191a49f86c622d3e088",
+      "version": "1.7.0",
+      "scope": "USER",
+      "discoverability": "PRIVATE"
+    }
   },
   "active_client_behavior": "NOT_RUN",
   "generated_ad_quality": "NOT_RUN",
@@ -76,5 +128,22 @@
   "limits": [
     "Source verification does not establish active-client behavior or advertising effectiveness.",
     "No live ad data, generated client assets, publishing or budget changes were executed."
-  ]
+  ],
+  "saved_host_readback": {
+    "inventory_files": 772,
+    "inventory_equal": true,
+    "text_files_bytes_equal": 761,
+    "changed_and_added_files_bytes_equal": 13,
+    "unread_files": 11,
+    "full_archive": {
+      "status": "UNAVAILABLE",
+      "http_status": 403
+    },
+    "report": "verification/hosted-release-1.7.0.json"
+  },
+  "remote_package_comparison": {
+    "status": "PASS",
+    "source_commit": "b14f1d76c0e71b815d61cbf29ea40f4473a15427",
+    "files_equal": 772
+  }
 }
