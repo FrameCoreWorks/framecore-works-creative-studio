@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "bc585680d7769895505f22360587199e9651e9adda5128f4b4730b33bb30f56c"
+      "sha256": "85707877a35087a52b907f1876b741301e48a3f5bbfb1d2734cc82f3c56e745c"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12692,
-      "sha256": "fc32ccefb7f48ec2362b78dc9b9c62d670332c5465995bdd61ce80de6fa8ed01"
+      "bytes": 13367,
+      "sha256": "fd88b37163191a5b45600ce9170423c4f53532301664ccb537cba2a0390df622"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 11468,
-      "sha256": "128ab19f4459297bdbaddbb2210793542e337642228583781b910777d6b87bad"
+      "sha256": "05a21c751dc1481ff6bc0ddb0b5dc4e575a9b32e0742f2a2be600a3eb51ea811"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 31167,
-      "sha256": "0f0da54972cfb1cfa80c833ffe5405fdae1d2ee9cfed3aeda46a31bdbda77613"
+      "bytes": 31901,
+      "sha256": "8cfe4ee43c98b1e35626c6beb34746ae10f417670e941b49adafe9bbaa94e6a1"
     },
     {
       "path": "docs/research-ledger.json",
@@ -205,6 +205,26 @@
       "path": "evals/workflow-kit-cases.json",
       "bytes": 13619,
       "sha256": "c2d5771ed0a4731ccb5c06a0800c490c92de348cb34d0167e6b23d8df7948949"
+    },
+    {
+      "path": "integrations/motion-designer-studio/LICENSE",
+      "bytes": 1094,
+      "sha256": "9c93d59bdb93687e9593e4c138c486f752238858e0669f83b3db6adf8e311255"
+    },
+    {
+      "path": "integrations/motion-designer-studio/README.md",
+      "bytes": 756,
+      "sha256": "1aa2155e2a89f3daf5f27df166bb72d9ac84e318a3b6c08b0b114a387944f935"
+    },
+    {
+      "path": "integrations/motion-designer-studio/THIRD_PARTY_NOTICES.md",
+      "bytes": 1347,
+      "sha256": "60a0a67033e6e25bd2c51ec1703dfad7783a4a64cc5799a37c6a9f5267d7a032"
+    },
+    {
+      "path": "integrations/motion-designer-studio/source-manifest.json",
+      "bytes": 4907,
+      "sha256": "d62e2e0bea5ee908fe5872d9f64e14b25b0ef350d4c18355ff1be28a68224a11"
     },
     {
       "path": "integrations/workflow-kit/source-manifest.json",
@@ -2194,7 +2214,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "7992ef7bb6d3cdf65a9a2e7a25fbe10cd2fff08eb9336102470b2ffbcb09f194"
+      "sha256": "3c71bf4ce4ca2ceb75348bfddeb470d41364b27e8820f33cf71f8fd7c69907de"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2613,8 +2633,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 8995,
-      "sha256": "8831372726f23a6752b3915af186f7bd9b40bf10f7262f321455da54c438fe23"
+      "bytes": 9368,
+      "sha256": "8ba068caeb53ebd17ffac72e32e2b28187cd995868adb608bdaa20a6f684f39b"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -2768,13 +2788,63 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 6019,
-      "sha256": "f20e3804f479f202b8ebe9a6e6db85ad51970d40bb83ee48b2f753665dbcbdd8"
+      "bytes": 6936,
+      "sha256": "028b0330fea6c56398158e1e78deabb3edea282036c666eae75c09356641ef4a"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
       "bytes": 333,
       "sha256": "0623a2f2fca15093c65775e157a6360cc33c08bad74ee53913148613e69daafa"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/README.md",
+      "bytes": 3058,
+      "sha256": "5bed75c1b72a2f85b0da07cde147dca96b212ade57995fcb148df927cd6a87d2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs",
+      "bytes": 1446,
+      "sha256": "8ca81a8331e455a86685785fc59df87e547de90482704dcae771365b93f40e92"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs",
+      "bytes": 3107,
+      "sha256": "306d8a9136d95fdd79a6cb0aae65019696682ee2c03e526d0fa2d29a6c7857c2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/preview.html",
+      "bytes": 3212,
+      "sha256": "b238aa0409321a250ccad7cbc3258d7337ee0a84e7687b4886e8cd520531d5d5"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+      "bytes": 10228,
+      "sha256": "4016aa158f315de938399346f69ba5d74554ed1eb35b00bf607618e88f6bfea4"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-motion-evidence.md",
+      "bytes": 4107,
+      "sha256": "68ca40d1fee593b56350257f8545b8fcf440b55ca24e3b1f0c6e68938a012cbd"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+      "bytes": 4139,
+      "sha256": "e907927842d6583c139590e1923c5e0bb72e03b77b229bb6bdd8b40d9cfbe778"
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
+      "bytes": 5303,
+      "sha256": "253085045b7f9fcd9e05ab3abb217d8c25e8d0bf1c73c8550391b60e8673286c"
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
+      "bytes": 1990,
+      "sha256": "b0f9abbdda7a0d18e89619b456ca58778103e743e42b7ca00b9100bfab3cf9d8"
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
+      "bytes": 3043,
+      "sha256": "13c4d4532f243863cd8f23ce822c5f12ceb636a02b05a49fecd8381541805796"
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
@@ -3103,8 +3173,8 @@
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
-      "bytes": 8180,
-      "sha256": "7a8266eca4444d8d9993fb1a629c1ce211fe8e9cded89161e44720041bc42ccd"
+      "bytes": 8634,
+      "sha256": "1727c46dacea7b59c3e7cc1de967c8101b6e03213b5992e10d5a3ba8e60f9e47"
     },
     {
       "path": "skills/remotion-video-production/agents/openai.yaml",
@@ -3468,8 +3538,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 6655,
-      "sha256": "d1dbbd6683970c73a86a6ee319294ee22869a52e14899dcee46f8efcbb6946aa"
+      "bytes": 7197,
+      "sha256": "f5220cbb81515f265e7f1446bf5f617b61dc8571d3c1be22bd4833b8d26db0ab"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -3643,8 +3713,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 34324,
-      "sha256": "68a8e694add1788784fe78a8ea2e0a49304c1860f518dc83e831cc136bd56ace"
+      "bytes": 34407,
+      "sha256": "716d235f65c8df110b044790e67c50e46f2d4671002cc0b53242934b977684e6"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",

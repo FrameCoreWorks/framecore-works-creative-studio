@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/aievolutionpl/motion-designer-studio",
+  "source_commit": "7c215ed50355ca6ad592a3a4ed88e2ef49bb4bb3",
+  "retrieved_on": "2026-10-03",
+  "license": "MIT",
+  "attribution": "Copyright (c) 2026 Tabasco Creatives / AI Evolution Labs",
+  "activation": "reference_only_no_skill_installation_or_execution",
+  "adaptation": "../../skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+  "retained_files": [
+    {
+      "source_path": "LICENSE",
+      "destination_path": "LICENSE",
+      "sha256": "9c93d59bdb93687e9593e4c138c486f752238858e0669f83b3db6adf8e311255",
+      "meaning": "Unchanged upstream notice; statements describe the upstream plugin."
+    },
+    {
+      "source_path": "THIRD_PARTY_NOTICES.md",
+      "destination_path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "60a0a67033e6e25bd2c51ec1703dfad7783a4a64cc5799a37c6a9f5267d7a032",
+      "meaning": "Unchanged upstream notice; statements describe the upstream plugin."
+    }
+  ],
+  "reviewed_sources": [
+    {
+      "path": "AGENTS.md",
+      "git_blob_sha": "bda040bebb10b6e239e072fbe76841f070718bf5"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "ec123d9f5a01598fe3bbcf5d0ae345f1637a23e8"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "git_blob_sha": "8f67e99d9f6700819d249d57ef634c835c08df38"
+    },
+    {
+      "path": "skills/motion-director/SKILL.md",
+      "git_blob_sha": "46482dcc423612d7d66826fff86acb696ebfb487"
+    },
+    {
+      "path": "skills/motion-director/references/motion-project.schema.json",
+      "git_blob_sha": "d29710b4f2795ffedf5a1f1794fb232cc96beba9"
+    },
+    {
+      "path": "skills/motion-director/references/motion-scene.schema.json",
+      "git_blob_sha": "c450de7b7a5ccd624c4191231c55194fb9ff5117"
+    },
+    {
+      "path": "skills/motion-director/references/personal-defaults.md",
+      "git_blob_sha": "2f9a56c8394e6667077d89e35f1cce7498278144"
+    },
+    {
+      "path": "skills/motion-build/SKILL.md",
+      "git_blob_sha": "56f674733ef071c56b0180449ead3ade21eeccc2"
+    },
+    {
+      "path": "skills/motion-style-engine/SKILL.md",
+      "git_blob_sha": "f9e899a74513e66d70ec36bd4fee3249f24372ca"
+    },
+    {
+      "path": "skills/motion-style-engine/references/style-profiles.json",
+      "git_blob_sha": "da36c60779a60a2c382e4c969524b42442b9d2d0"
+    },
+    {
+      "path": "skills/motion-reviewer/SKILL.md",
+      "git_blob_sha": "b7f8e23a3a57b6660a9ae0787328d24054cfc2c8"
+    },
+    {
+      "path": "skills/engine-router/SKILL.md",
+      "git_blob_sha": "8ffd522f0a4cd5d5760ee61327873efc7ce17da7"
+    },
+    {
+      "path": "skills/motion-director/references/codex-runtime.md",
+      "git_blob_sha": "6c5b7beaeab2af82cfee722728d8b70fa7b78909"
+    },
+    {
+      "path": "skills/engine-router/references/routing.md",
+      "git_blob_sha": "a31b872da23fa988512bdb18855e8c4c6a347338"
+    },
+    {
+      "path": "skills/motion-build/references/remotion.md",
+      "git_blob_sha": "d57978092d4e6463a9ea3625e184585ae51874aa"
+    },
+    {
+      "path": "skills/motion-build/references/hyperframes.md",
+      "git_blob_sha": "337a4d1c39e38d4153442cb9ef4b50278c95f420"
+    },
+    {
+      "path": "skills/motion-build/references/motion-canvas.md",
+      "git_blob_sha": "e60fdd1ba4ac2dcd9266b95e30e7d5df27c34cb9"
+    },
+    {
+      "path": "skills/motion-build/references/threejs.md",
+      "git_blob_sha": "54bf85af2255628b597c01c7cfc9f17d78bf9703"
+    },
+    {
+      "path": "skills/motion-build/references/ffmpeg.md",
+      "git_blob_sha": "63faef7546e11727e8e4577e6badd6c42964b053"
+    },
+    {
+      "path": "skills/audio-design/SKILL.md",
+      "git_blob_sha": "0216f36963789d75ab4641178dc1742d5c9a9e23"
+    },
+    {
+      "path": "skills/reference-scout/SKILL.md",
+      "git_blob_sha": "07d402342ea3172be52cffacfba23590217701be"
+    },
+    {
+      "path": "skills/storyboard/SKILL.md",
+      "git_blob_sha": "f0273f0f8d9e8cafc0018e1096f508c223f13316"
+    },
+    {
+      "path": "skills/motion-style-engine/references/style-library.md",
+      "git_blob_sha": "b64eafc0d00b2831473ca793d6f5fb13f5531ccc"
+    }
+  ],
+  "boundaries": [
+    "Existing Studio owners and one Project State remain authoritative.",
+    "No upstream engine, provider, slash-command registry or personal aesthetic installed.",
+    "Upstream schemas and review limits are reviewed sources, not active validators."
+  ],
+  "adapted_files": [
+    "../../skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "../../skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+    "../../skills/hyperframes-workflow/templates/motion-storyboard-contract.md"
+  ],
+  "omitted": [
+    "Upstream skill entrypoints and slash commands",
+    "Upstream project/scene schemas",
+    "Personal defaults and style-profile catalogue",
+    "Upstream banner and manifests",
+    "Runtime engines and dependencies"
+  ]
+}

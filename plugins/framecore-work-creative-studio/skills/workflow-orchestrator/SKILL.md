@@ -183,7 +183,7 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 | Video project spanning several production stages or edit/cutdown work | [creative-video-producer](../creative-video-producer/SKILL.md) | Shared video production pack and specialist handoffs |
 | Product/offer/channel strategy, proof needs or creative test plan | [ecommerce-campaign-strategy-director](../ecommerce-campaign-strategy-director/SKILL.md) | Campaign strategy before visual/motion direction |
 | Explicit Hipson-style research or review packet | [hipson-adapter](../hipson-adapter/SKILL.md) | Lightweight bounded packet; full Hipson remains separate |
-| User-selected HTML/GSAP or HyperFrames video composition | [hyperframes-workflow](../hyperframes-workflow/SKILL.md) | Production brief and capability-checked implementation handoff |
+| Motion graphics from code, HTML/SVG/GSAP or HyperFrames composition | [hyperframes-workflow](../hyperframes-workflow/SKILL.md) | Versioned motion contract, existing-runtime selection, implementation and evidence-bounded review; preserve an explicit Remotion route |
 | Bounded delegation or transfer to a named responsibility | [instruction-packet-factory](../instruction-packet-factory/SKILL.md) | Input/output contract, acceptance criteria and stop condition |
 | General campaign positioning or channel planning beyond ecommerce | [marketing](../marketing/SKILL.md) | Supporting marketing plan and asset roles |
 | Footage-first edit or OpenCut timeline plan | [opencut-video-studio](../opencut-video-studio/SKILL.md) | Edit decision list, protected windows and export QA plan |

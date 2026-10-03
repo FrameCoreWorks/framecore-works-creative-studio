@@ -37,6 +37,8 @@ For a dialogue-led scene, a difficult action handoff or a revision that changes 
 
 ## Deliver the requested structure
 
+For explicitly coded motion graphics, use the [motion storyboard contract](../hyperframes-workflow/templates/motion-storyboard-contract.md) and [code-motion method](../hyperframes-workflow/references/code-based-motion-graphics.md). Define integer total frames, master [start,end) intervals, overlaps, fully readable holds and scene entry/action/exit states as designed timing. Carry the approved revision, Style Lock, exact copy and asset IDs to the selected existing runtime owner; planned frame precision does not imply a measured render.
+
 Use only fields that help the next decision. A useful sequence package can
 include:
 

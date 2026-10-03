@@ -53,6 +53,8 @@ Produce one or more of:
 
 Use [templates/remotion-production-brief.md](templates/remotion-production-brief.md) for nontrivial work. Read [references/remotion-implementation-notes.md](references/remotion-implementation-notes.md) before implementing or reviewing Remotion code.
 
+For code-based motion graphics, kinetic typography, animated diagrams or brand motion, also use the shared [storyboard → build → review method](../hyperframes-workflow/references/code-based-motion-graphics.md). Reuse its versioned frame/Style Lock contract, exact-copy and asset ledger, approval evidence, three stage prompts and QA record. Keep the installed Remotion APIs and one shared QA budget; do not restart onboarding for an approved build.
+
 ## Process
 
 1. Confirm whether the task is planning-only, implementation, repair, review, or render verification.

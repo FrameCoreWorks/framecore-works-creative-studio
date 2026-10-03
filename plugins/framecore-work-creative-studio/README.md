@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.5.0.
+Version: 1.6.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -17,6 +17,12 @@ Repository documentation and operational guidance are English. The full welcome 
 ## Brand strategy and identity
 
 Studio develops brand strategy, logo systems, logo usage guides and identity guides through existing owners, with shared decisions, revisions and acceptance criteria. Request the full workflow or a specific stage. Concepts and digital materials have a separate status from verified production files; actual exports depend on available tools. See [the workflow contract](skills/workflow-orchestrator/references/brand-identity-workflow.md).
+
+## Code-based motion graphics
+
+Use the existing HyperFrames/HTML/SVG or Remotion path for an approved storyboard, frame-driven implementation, actual-output review and delivery. The workflow includes a versioned motion/Style Lock contract, three stage prompts, source-bound asset/copy locks, a dependency-free synthetic frame starter and separate preview, temporal/audio and encoded-export evidence. Local execution depends on the available host tools.
+
+See [the code-motion workflow](skills/hyperframes-workflow/references/code-based-motion-graphics.md) and [the attributed Motion Designer adaptation](skills/hyperframes-workflow/references/motion-designer-adaptation.md).
 
 ## Installation and updates
 

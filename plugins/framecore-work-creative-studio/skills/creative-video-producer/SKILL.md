@@ -77,6 +77,7 @@ Use [templates/creative-video-production-pack.md](templates/creative-video-produ
 - Use `opencut-video-studio` for footage-first or timeline-first local edit planning.
 - Use `remotion-video-production` for deterministic React/TypeScript compositions, reusable props, data-driven variants, and frame-accurate renders.
 - Use HyperFrames skills when the requested runtime is specifically HyperFrames or the route is centered on HTML/GSAP composition.
+- For motion graphics from code, coordinate the [shared motion contract and stages](../hyperframes-workflow/references/code-based-motion-graphics.md). Preserve existing runtime/approval decisions; connect direction and sequence only when unresolved. Require separate preview, temporal/audio review and encoded-export evidence without adding another state store or QA loop.
 - Critical product, packaging, logo, face, character, claim, CTA, or visible-text shots require sequential QA before the route advances.
 - A continuation shot may use rewrite-forward only from an accepted actual output, never from a planned end frame.
 - A short cutdown is a re-authored variant, not merely a trim of the master.

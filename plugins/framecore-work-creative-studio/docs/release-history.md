@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.6.0, 2026-10-03
+
+- Connect code-based motion graphics through the existing HyperFrames, Remotion, sequence and production owners.
+- Add a versioned frame/approval/Style Lock contract, three stage prompts and evidence-bounded review/delivery templates.
+- Add an original dependency-free HTML/SVG frame example with shared preview and SVG-sequence export logic.
+- Adapt selected Motion Designer Studio methods with pinned source attribution and MIT notices; install no additional engine, provider or owner.
+- Preserve startup, learning, exact-copy/asset locks, 37 skill identities and one shared QA budget.
+- Recorded source checks and SVG execution are separate from active-client, temporal/audio and encoded-video verification.
+
 ## 1.5.0, 2026-10-03
 
 - Connect website evidence, incremental business discovery, positioning, substantiated claims and commerce campaign planning through the existing owners.

@@ -1,6 +1,6 @@
 ---
 name: hyperframes-workflow
-description: Use this skill for HyperFrames coded-video workflow planning, production prompting, GSAP/timeline guidance, caption and overlay timing, render QA, and delivery manifest requirements.
+description: Plan, implement, review or repair code-based motion graphics with HTML, SVG, GSAP or HyperFrames, including approved storyboards, deterministic frame state, local previews, render QA and delivery handoffs.
 ---
 
 # HyperFrames Workflow
@@ -11,6 +11,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 
 Use this when the output is a coded video composition or HTML-to-video production. This is the single public HyperFrames skill: it covers structure, production brief, implementation prompt, GSAP/timeline notes, captions, overlays, render QA, and delivery handoff.
+
+For motion graphics from code, use the [three-stage motion workflow](references/code-based-motion-graphics.md), [storyboard contract](templates/motion-storyboard-contract.md) and [stage prompts](templates/code-motion-stage-prompts.md). Start at the requested stage and preserve actual approval. The [synthetic frame starter](assets/code-motion-starter/README.md) demonstrates shared preview/SVG-export logic without installing a renderer. Research and upstream attribution are linked from the workflow.
 
 ## Language Policy
 
@@ -66,6 +68,8 @@ Produce a HyperFrames Production Brief with:
 5. Convert the structure into an implementation prompt or component brief with clear inputs, props, layout rules, and acceptance criteria.
 6. Add render QA checks for blank frames, overlap, readability, clipping, dropped assets, broken animation states, and duration drift.
 7. Hand off to production only after the structure, prompt, motion plan, and QA checklist are complete.
+
+For an authorized build or repair in a capable host, implement the approved contract in the actual project, including frame seeking and shared preview/export state. Follow the motion profile for source inspection, fonts/assets, overlaps, readable holds and separate project, temporal-review and encoded-export evidence. A planning-only request still ends at its requested brief or prompt.
 
 ## Decision Rules
 

@@ -1,15 +1,13 @@
-# Creative Studio 1.5.0
+# Creative Studio 1.6.0
 
-Creative Studio now connects a business/store URL to source-based diagnosis, one-question business discovery, brand and offer foundations, substantiated claims, a commerce campaign, asset briefs and measurement. Complete briefs proceed directly; narrow asset requests keep their existing scope.
+Code-based motion graphics now connects storyboard approval, implementation and actual-output review through the existing HyperFrames/HTML/SVG and Remotion owners. The versioned contract carries exact copy, authoritative assets, Style Lock, frame intervals, overlaps, readable holds and observable acceptance criteria.
 
-The existing strategy pack now includes website coverage, business capacity, priorities, rollout, destinations, asset dependencies and reporting definitions. New asset cards carry exact product and copy locks, reference revisions, person status and observable QA to the existing graphic, UGC and video owners.
+Three stage prompts support brief/storyboard, approved build and bounded review/repair. A new original, dependency-free example shares frame state between an interactive HTML preview and SVG-sequence export. SVG output is not encoded video; production video still requires an available authorized capture/encoding toolchain.
 
-Product and lifestyle graphics, website banners, social/carousel ads and creator-style campaigns can share a coherent direction. Realistic synthetic presenters are distinct from real customers; unsupported efficacy or testimonial claims cannot become valid through approval or softer wording. Native/external generation, tracking installation and ad publication still depend on actual capability and explicit scoped authorization.
+Selected Creative DNA, Style Lock, repository-fit and multi-format methods from Motion Designer Studio are adapted at commit `7c215ed50355ca6ad592a3a4ed88e2ef49bb4bb3`, with original MIT copyright/notices and an explicit adaptation map. No additional owner, engine, provider or dependency is installed. Public research supports frame-driven rendering, not superiority claims for a particular coding model.
 
-Measurement records source, time period, attribution and denominators. ROAS is not profit and uncertain comparisons remain inconclusive. Current placement limits and disclosure requirements must be checked for the actual market and surface.
+All 37 skill identities, complete welcomes, automatic language selection, menus, learning instructions, existing upstream sources and one shared QA budget remain protected. The 742 original package files outside the allowlist are byte-identical.
 
-All 37 skill identities, complete welcomes, automatic language selection, menus, learning instructions, upstream craft and shared review boundaries are preserved. Eight campaign scenarios are planned; no host behavior, generated-media fidelity or sales lift is asserted by their existence.
+Local checks passed: canonical validation, 111 Node source tests, 11 isolated installer tests and 23 asset checks. The starter passed syntax/frame checks and exported 180 SVG files; selected first/middle/final frames and preview controls were inspected in the local browser. Full normal-speed audiovisual review, encoded-video export, active ChatGPT-client behavior and model comparisons remain unverified. The existing 199 planned evaluation cases were not executed.
 
-Verification: canonical checks and all 153 sequential CI tests passed (111 Node, 11 installer, 8 GEPA pilot, 23 asset-manifest). Three sequential source-use turns covered partial discovery, a full offline campaign and a selected product/model ad brief. These are separate from the 199 planned, unexecuted evaluation fixtures.
-
-Published source: `7fc17cddeb547bec86cc68344494f7b4f5a3e852`. The existing private personal plugin is saved as `pluginrel_6ac0cbcb1484819192133b09324c8458`. All 752 package files match the remote Git blobs, local source, uploaded ZIP and saved hosted archive byte for byte. Active-client behavior, generated-media quality and campaign sales effectiveness have not been tested in this release.
+Publication and saved-host readback are recorded separately in [release status](RELEASE_STATUS.md) and [the verification report](verification/release-1.6.0.json).

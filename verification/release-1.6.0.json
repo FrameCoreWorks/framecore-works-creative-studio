@@ -1,0 +1,107 @@
+{
+  "version": "1.6.0",
+  "date": "2026-10-03",
+  "scope": "Code-based motion graphics through existing owners",
+  "baseline_commit": "7c1eafd23102f29b599f1f20a524d890bd57b4f5",
+  "source_validation": {
+    "status": "PASS",
+    "files": 766,
+    "owners": 37,
+    "planned_evaluations": 199,
+    "executed_planned_evaluations": 0,
+    "legacy": "NOT_RUN"
+  },
+  "existing_tests": {
+    "node": {
+      "status": "PASS",
+      "tests": 111,
+      "concurrency": 1
+    },
+    "installer": {
+      "status": "PASS",
+      "tests": 11,
+      "initial_attempt": "Default macOS temporary directory passed through the /var symlink and was rejected by existing installer safety checks.",
+      "successful_environment": "TMPDIR=/private/tmp; no installer code changes"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "gepa_pilot": {
+      "status": "NOT_RUN_LOCALLY",
+      "scope": "Unchanged pilot; existing CI release job runs it in its declared environment."
+    }
+  },
+  "starter": {
+    "syntax": "PASS",
+    "pure_frame_checks": {
+      "status": "PASS",
+      "frames": 180,
+      "checks": [
+        "Forward/backward/repeated SVG state equality",
+        "Master scene coverage",
+        "Crossfade label opacity sum",
+        "Invalid frame rejection",
+        "Final label hold"
+      ]
+    },
+    "svg_export": {
+      "status": "PASS",
+      "frames": 180,
+      "encoded_video": false
+    },
+    "browser": {
+      "status": "PASS_BOUNDED",
+      "surface": "Codex in-app browser, localhost",
+      "observed": [
+        "Exact-frame input updates the timeline to frame 90 and frame 179",
+        "Screenshots inspected at frames 0, 90 and 179",
+        "Replay entered playing state and subsequently returned to the final frame"
+      ],
+      "full_normal_speed_review": "NOT VERIFIED",
+      "audio": "N/A: intentional silence",
+      "encoded_export": "NOT VERIFIED"
+    },
+    "environment_note": "Initial sandbox blocked local-server binding; approved loopback server was used and stopped after inspection."
+  },
+  "review": {
+    "method": "Hipson bounded scope plus upstream adaptation review; Olga independent read-only source review",
+    "finding": "Preview stopped its playback clock at N-1 rather than allowing the final frame interval to complete.",
+    "repair": "Display min(N-1, elapsedFrame), stop at elapsedFrame >= N; source checked and browser replay observed afterward.",
+    "shared_passes": 2
+  },
+  "preservation": {
+    "status": "PASS",
+    "unchanged_original_files": 742,
+    "canonical_skill_ids": 37,
+    "manifest_identity_interface_assets_and_default_prompts": "unchanged except version",
+    "scope_diff": "PASS"
+  },
+  "upstream": {
+    "repository": "aievolutionpl/motion-designer-studio",
+    "commit": "7c215ed50355ca6ad592a3a4ed88e2ef49bb4bb3",
+    "method": "Partial attributed adaptation; original license/notices preserved; no upstream runtime/skills installed"
+  },
+  "baseline_host": {
+    "release": "pluginrel_6ac0cbcb1484819192133b09324c8458",
+    "inventory_match": 752,
+    "changed_existing_text_files_match": 10,
+    "full_archive_readback": "UNAVAILABLE: download returned HTTP 403; no alternative access route used."
+  },
+  "package": {
+    "status": "PASS",
+    "source_zip_file_hashes_equal": 766
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "active_client_behavior": "NOT_RUN",
+  "actual_Remotion_or_HyperFrames_video_render": "NOT_RUN",
+  "model_comparison": "NOT_RUN",
+  "provider_operations": "NONE",
+  "limits": [
+    "Packaged instructions and an SVG starter do not supply an installed video renderer.",
+    "Source and bounded preview evidence do not establish encoded-video, full audiovisual or active ChatGPT-client quality."
+  ]
+}

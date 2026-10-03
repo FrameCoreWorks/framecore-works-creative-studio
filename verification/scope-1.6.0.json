@@ -1,0 +1,78 @@
+{
+  "packet_id": "STUDIO-CODE-MOTION-1.6.0",
+  "packet_type": "Bounded Instruction and Review Packet",
+  "date": "2026-10-03",
+  "baseline_remote_commit": "7c1eafd23102f29b599f1f20a524d890bd57b4f5",
+  "baseline_host_release": "pluginrel_6ac0cbcb1484819192133b09324c8458",
+  "authorization": "The owner requested research and implementation of code-based motion graphics in the existing repository and ChatGPT plugin, using three supplied stage prompts and Motion Designer Studio as an additional reference. Standing paired update authorization applies.",
+  "target_role": "hyperframes-workflow with existing Remotion and sequence owners",
+  "goal": "Connect storyboard approval, deterministic implementation, actual-output review and delivery through existing owners.",
+  "protected": [
+    "37 canonical skill IDs and all interface metadata",
+    "Complete welcome, language selection and menus",
+    "Learning and workstyle onboarding",
+    "Pinned existing upstream sources, static raster policy and provider gates",
+    "One Project State and the existing bounded QA loop",
+    "Plugin identity, scope, audience and default prompts"
+  ],
+  "allowed_plugin_files": [
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "skills/hyperframes-workflow/references/code-motion-evidence.md",
+    "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+    "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
+    "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
+    "skills/hyperframes-workflow/templates/motion-qa-record.md",
+    "skills/hyperframes-workflow/assets/code-motion-starter/README.md",
+    "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs",
+    "skills/hyperframes-workflow/assets/code-motion-starter/preview.html",
+    "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs",
+    "integrations/motion-designer-studio/README.md",
+    "integrations/motion-designer-studio/LICENSE",
+    "integrations/motion-designer-studio/THIRD_PARTY_NOTICES.md",
+    "integrations/motion-designer-studio/source-manifest.json"
+  ],
+  "repository_dependencies": [
+    "README.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_STATUS.md",
+    "config/install-sources.json",
+    "verification/scope-1.6.0.json",
+    "verification/release-1.6.0.json",
+    "verification/hosted-release-1.6.0.json"
+  ],
+  "acceptance": [
+    "General coded motion reaches existing runtime owners and starts at the requested stage.",
+    "Actual approval/Style Lock/copy/asset locks survive handoffs.",
+    "One integer master frame count and half-open intervals preserve overlaps and holds.",
+    "Preview and export share frame-derived state; missing media evidence remains unverified.",
+    "Model claims are source-bound; no comparative quality or renderer availability is inferred.",
+    "Upstream method adaptation is pinned, attributed and subordinate to Studio authority.",
+    "No unrelated protected change; paired source publication and honest readback."
+  ],
+  "review_plan": [
+    "Canonical structural validation and relevant existing release checks",
+    "Inspect changed-source and preservation diffs",
+    "Syntax and bounded deterministic SVG starter checks, separately from visual/temporal/encoded output",
+    "Independent Olga source review",
+    "Guarded publication and current saved-file readback"
+  ],
+  "not_authorized_by_this_patch": [
+    "Paid media/model provider execution",
+    "Client asset uploads",
+    "New dependencies or global skill/plugin installation",
+    "Unrequested broad architecture or installer/security refactors"
+  ],
+  "evidence_boundary": "Packaged knowledge, syntax/source checks and SVG export do not prove active-client behavior, temporal/audio quality or encoded-video readiness.",
+  "rollback": "Revert only this scoped change on current source and issue a guarded correction; preserve subsequent work."
+}

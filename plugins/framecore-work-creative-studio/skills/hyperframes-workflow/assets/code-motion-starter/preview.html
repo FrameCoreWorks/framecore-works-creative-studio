@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code motion frame example</title>
+<style>
+body{margin:32px auto;padding:0 20px;max-width:760px;font:16px system-ui;background:#faf9f6;color:#182023}
+#stage svg{display:block;width:100%;height:auto}button,input{font:inherit}button{padding:8px 14px}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0}
+#frame{flex:1;min-width:160px}#exact{width:80px}p{line-height:1.5}
+</style>
+<h1>Plan, build, review</h1>
+<p>Synthetic frame example. The preview and SVG exporter share the same scene code. This is not an encoded video.</p>
+<div id="stage" role="img" aria-label="Three geometric blocks align, connect and receive a review frame."></div>
+<div class="controls">
+<button id="play" type="button">Play</button><button id="replay" type="button">Replay</button>
+<label for="frame">Frame</label><input id="frame" type="range" min="0" max="179" value="0">
+<input id="exact" type="number" aria-label="Exact frame" min="0" max="179" value="0">
+<output id="time"></output>
+</div>
+<p>Intentional silence. Generic system typography is illustrative and varies by environment; use approved local fonts in production.</p>
+<script type="module">
+import {contract, stateAtFrame, svgAtFrame} from './motion.mjs';
+const stage = document.querySelector('#stage');
+const slider = document.querySelector('#frame');
+const exact = document.querySelector('#exact');
+const label = document.querySelector('#time');
+const play = document.querySelector('#play');
+let current = 0, running = false, originTime = 0, originFrame = 0, raf;
+slider.max = exact.max = contract.totalFrames - 1;
+function show(frame) {
+  current = frame;
+  stage.innerHTML = svgAtFrame(frame);
+  slider.value = exact.value = frame;
+  label.textContent = (frame / contract.fps).toFixed(3) + ' s';
+}
+function pause() { running = false; cancelAnimationFrame(raf); play.textContent = 'Play'; }
+function tick(now) {
+  if (!running) return;
+  // This clock chooses a frame only; stateAtFrame never reads it.
+  const elapsedFrame = originFrame + Math.floor((now - originTime) * contract.fps / 1000);
+  const frame = Math.min(contract.totalFrames - 1, elapsedFrame);
+  show(frame);
+  if (elapsedFrame >= contract.totalFrames) pause();
+  else raf = requestAnimationFrame(tick);
+}
+function start() {
+  if (current === contract.totalFrames - 1) show(0);
+  originFrame = current; originTime = performance.now(); running = true;
+  play.textContent = 'Pause'; raf = requestAnimationFrame(tick);
+}
+function seek(frame) { pause(); stateAtFrame(frame); show(frame); }
+play.addEventListener('click', () => running ? pause() : start());
+document.querySelector('#replay').addEventListener('click', () => { seek(0); start(); });
+slider.addEventListener('input', () => seek(Number(slider.value)));
+exact.addEventListener('change', () => {
+  const frame = Number(exact.value);
+  if (Number.isInteger(frame) && frame >= 0 && frame < contract.totalFrames) seek(frame);
+  else exact.value = current;
+});
+await document.fonts.ready;
+show(0);
+window.motionExample = {seekFrame: seek, stateAtFrame, svgAtFrame, contract};
+</script>
+</html>

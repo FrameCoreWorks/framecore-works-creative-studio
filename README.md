@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.5.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.6.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -24,6 +24,12 @@ Startup restores the complete Studio introduction and capability overview, then 
 - 37 canonical skill entrypoints: 35 specialist routes, the orchestrator and a retained audio compatibility alias.
 
 The package supplies instructions, knowledge, templates and local verification helpers. Generation, media inspection and editing require the user's available tools and authorization. No credentials, paid-provider account, persistent memory service or automatic cross-environment synchronization is bundled.
+
+## Code-based motion graphics
+
+Use the existing HyperFrames/HTML/SVG or Remotion path for an approved storyboard, frame-driven implementation, actual-output review and delivery. The workflow includes a versioned motion/Style Lock contract, three stage prompts, source-bound asset/copy locks, a dependency-free synthetic frame starter and separate preview, temporal/audio and encoded-export evidence. Local execution depends on the available host tools.
+
+See [the code-motion workflow](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/code-based-motion-graphics.md).
 
 ## Install through ChatGPT Work or Codex
 
