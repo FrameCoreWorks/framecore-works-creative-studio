@@ -12,6 +12,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill to connect product and offer truth to a practical creative campaign plan. It owns strategy and downstream handoff fields, not prompt writing or media execution.
 
+For a company/store URL, website audit, social sales campaign or an end-to-end offer-to-assets request, use [website to campaign](references/website-to-campaign.md). Inspect accessible evidence before asking one material missing question at a time; a complete brief goes directly to the requested stage. Use the [website audit](templates/website-audit.md), existing strategy pack and [asset card](templates/campaign-asset-card.md) only as needed. Apply [campaign production](references/campaign-production.md) to product fidelity, realistic people, truthful UGC and placement handoffs. [Campaign evidence sources](references/campaign-evidence-sources.md) record dated support and current-specification gaps.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
@@ -43,11 +45,13 @@ Optional:
 Produce an Ecommerce Campaign Strategy Pack containing:
 
 - assumptions and missing evidence
+- website/source audit when requested, commercial constraints, brand basis and prioritized opportunities
 - product and offer truth
 - audience / JTBD snapshot
 - campaign thesis and creative angles
 - channel and asset matrix
 - creative testing plan
+- staged rollout, measurement definitions, actual data limits and reporting decisions
 - copy and claim ledger
 - static, motion, UGC, storyboard, and prompt handoffs
 - risks, approvals, QA gates, and next action
@@ -56,12 +60,12 @@ Use [templates/ecommerce-campaign-strategy-pack.md](templates/ecommerce-campaign
 
 ## Process
 
-1. Separate confirmed product facts, offer facts, user claims, assumptions, and unknowns.
+1. Inspect the relevant supplied website or evidence within available read-only capabilities; record actual coverage and access limits. Separate confirmed product facts, offer facts, user claims, assumptions, and unknowns.
 2. Define the audience trigger, desired progress, objection, anxiety, and proof need.
 3. Write one campaign thesis, then derive up to four materially different creative angles.
 4. Build a channel and asset matrix with one business role for every proposed asset.
 5. Define the first test batch: hypothesis, fixed variables, tested variable, success signal, and failure meaning.
-6. Build a claim ledger and remove unsupported proof, testimonials, certifications, or performance promises.
+6. Build the claim ledger before downstream use and remove unsupported proof, testimonials, certifications, or performance promises. Copy approval and softer wording do not substantiate factual claims.
 7. Prepare bounded handoffs for the roles and skills that will produce direction, copy, storyboards, prompts, QA, and delivery.
 
 ## Decision Rules
@@ -69,13 +73,14 @@ Use [templates/ecommerce-campaign-strategy-pack.md](templates/ecommerce-campaign
 - Prefer one clear campaign thesis over a list of unrelated concepts.
 - Vary one meaningful creative axis at a time in the first test batch.
 - Use `commercial-visual-campaign-director` for static direction and `commercial-video-campaign-director` for motion direction.
+- Use `commercial-visual-campaign-director` for a shared campaign family; each static-only execution belongs to `static-graphic-design-creator`, including its integrated copy and prompt compilation.
 - Use `ugc` and `copy-voice`, with `humanizer` for polish, for creator scripts, proof framing, VO, supers, and CTAs.
-- Use `image-prompt-architect` or `video-prompt-architect` only after product truth, claims, asset role, and acceptance criteria are stable.
+- Use `video-prompt-architect` for the selected video unit and `image-prompt-architect` for a separately requested image operation or target adaptation only after product truth, claims, asset role, and acceptance criteria are stable. Do not bypass the integrated static owner for banners or static ads.
 - If a user asks for a single prompt and strategy is already complete, hand off instead of expanding the plan.
 
 ## Guardrails
 
-- Planning is provider-neutral and does not activate generation, API calls, uploads, publishing, or external tools.
+- Planning is provider-neutral and does not authorize generation, provider API calls, uploads or publishing. Read-only public research follows the shared Research Evidence gate and the user's boundary.
 - Do not invent claims, reviews, certifications, test results, scarcity, endorsements, or customer evidence.
 - Keep private sales data, customer data, credentials, and unpublished client context out of public artifacts.
 - Preserve packaging, product count, logos, approved copy, and material details as explicit fidelity locks.
@@ -100,12 +105,13 @@ Hand off with:
 - `qa_observables`
 - `blocked_items`
 - `next_role`
+- `audit_revision`, `strategy_revision`, `asset_ids`, `destination_map`, `measurement_plan` and relevant `campaign_context`
 
 ## QA Checklist
 
 - Every asset has a channel, business role, message, proof need, and acceptance criterion.
 - Product and offer facts are separated from assumptions.
-- Claims are sourced, observable, user-approved, or removed.
+- Factual claims have applicable substantiation or are withheld; copy approval is recorded separately.
 - Creative angles are meaningfully different and testable.
 - The first test batch does not change several strategic variables at once.
 - Downstream roles can act without reconstructing the strategy.

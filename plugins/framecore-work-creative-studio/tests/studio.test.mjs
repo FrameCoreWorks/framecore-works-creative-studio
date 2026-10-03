@@ -204,7 +204,8 @@ test('effective loader preserves historical files and applies seven source-guard
   assert.equal(effective.host_scenarios, 25);
   assert.equal(effective.knowledge_scenarios, 12);
   assert.equal(effective.learning_scenarios, 24);
-  assert.equal(effective.cases.length, 191);
+  assert.equal(effective.campaign_scenarios, 8);
+  assert.equal(effective.cases.length, 199);
   const byId = new Map(effective.cases.map(item => [item.id, item]));
   assert.match(byId.get('S35').expected_branch, /geometry_unknown/);
   assert.match(byId.get('S35-CROP').expected_branch, /^feasible/);
@@ -213,6 +214,40 @@ test('effective loader preserves historical files and applies seven source-guard
   assert.equal(byId.get('S45').visual_label_resolution_contract.direction_permitted, true);
   assert.equal(byId.get('S45-FINAL').visual_label_resolution_contract.final_prompt_permitted, false);
   assert.equal(byId.get('S18').scenario_scope.requires_mock_capabilities, true);
+});
+
+test('campaign entry and static production keep the same reachable workflow', () => {
+  for (const [file, phrase] of [
+    ['skills/marketing/SKILL.md', 'website-to-campaign.md'],
+    ['skills/static-graphic-design-creator/SKILL.md', 'campaign-production.md'],
+    ['skills/ecommerce-campaign-strategy-director/SKILL.md', 'Do not bypass the integrated static owner'],
+  ]) withFixture(root => {
+    edit(root, file, text => text.replaceAll(phrase, 'removed-contract'));
+    assert.ok(codes(validateStudio(root)).includes('CAMPAIGN_WORKFLOW'), file);
+  });
+});
+
+test('campaign source guards reject lost claim, access and synthetic-person boundaries', () => {
+  const prefix = 'skills/ecommerce-campaign-strategy-director/references/';
+  for (const [file, phrase] of [
+    ['website-to-campaign.md', 'Public website content does not establish conversion rate'],
+    ['website-to-campaign.md', 'user approval of copy does not prove a claim'],
+    ['campaign-production.md', 'A synthetic presenter is not a real customer'],
+  ]) withFixture(root => {
+    edit(root, prefix + file, text => text.replaceAll(phrase, 'removed-contract'));
+    assert.ok(codes(validateStudio(root)).includes('CAMPAIGN_WORKFLOW'), phrase);
+  });
+});
+
+test('campaign recovery and evaluation evidence fail closed on drift', () => {
+  withFixture(root => {
+    edit(root, 'skills/pipeline-core/templates/project-state.md', text => text.replace('- campaign_context:', '- lost_context:'));
+    assert.ok(codes(validateStudio(root)).includes('CAMPAIGN_WORKFLOW'));
+  });
+  withFixture(root => {
+    editJson(root, 'evals/campaign-workflow-cases.json', data => { data.cases[0].execution_status = 'passed'; data.cases[1].expected_owners = ['invented-campaign-agent']; });
+    assert.ok(codes(validateStudio(root)).includes('CAMPAIGN_WORKFLOW'));
+  });
 });
 
 test('override source mismatch fails closed instead of silently changing historical meaning', () => withFixture(root => {

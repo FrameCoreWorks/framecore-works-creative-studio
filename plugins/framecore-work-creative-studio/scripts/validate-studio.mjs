@@ -8,6 +8,7 @@ import {validateWorkflowKit} from './validate-workflow-kit.mjs';
 import {loadEffectiveEvals} from './load-effective-evals.mjs';
 import {validateLearningMode} from './validate-learning-mode.mjs';
 import {validateQualityMethods} from './validate-quality-methods.mjs';
+import {validateCampaignWorkflow} from './validate-campaign-workflow.mjs';
 
 const expectedOwnerCount = 37;
 const criticalIds = ['research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
@@ -59,6 +60,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   errors.push(...validateWorkflowKit(base, files));
   errors.push(...validateLearningMode(base, files));
   errors.push(...validateQualityMethods(base));
+  errors.push(...validateCampaignWorkflow(base, files));
   // Contract reachability and evidence boundaries; this does not execute model QA.
   const loopProfile = 'skills/pipeline-core/references/loop-protocol.md';
   try {
@@ -279,7 +281,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     for (const item of integrationCases) if (item.execution_status !== 'not_run' || !Array.isArray(item.required_evidence) || !item.required_evidence.length || !Array.isArray(item.expected_owners) || !item.expected_owners.length || item.expected_owners.some(id => !ownerIds.includes(id))) fail('INTEGRATION_EVIDENCE', item.id);
     const activeOwnerIds = owners.filter(owner => owner.route_required || owner.id === 'workflow-orchestrator').map(owner => owner.id);
     if (!isDeepStrictEqual([...new Set([...practiceCases, ...integrationCases].flatMap(item => item.expected_owners ?? []))].sort(), [...activeOwnerIds].sort())) fail('KNOWLEDGE_OWNERS', 'Planned knowledge and integration cases must cover every active owner');
-    evaluations = {legacy: effective.legacy_cases, overrides: effective.overrides_applied, added_variants: effective.additional_cases, host_scenarios: effective.host_scenarios, knowledge_scenarios: effective.knowledge_scenarios, integration_scenarios: effective.integration_scenarios, learning_scenarios: effective.learning_scenarios, total_planned: effective.cases.length, executed: 0};
+    evaluations = {legacy: effective.legacy_cases, overrides: effective.overrides_applied, added_variants: effective.additional_cases, host_scenarios: effective.host_scenarios, knowledge_scenarios: effective.knowledge_scenarios, integration_scenarios: effective.integration_scenarios, learning_scenarios: effective.learning_scenarios, campaign_scenarios: effective.campaign_scenarios, total_planned: effective.cases.length, executed: 0};
   } catch (error) { fail('EFFECTIVE_EVALS', error.message); }
   warnings.push('Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed.');
   const canonical = {...result(), files: files.length, owners: owners.length, evaluations};

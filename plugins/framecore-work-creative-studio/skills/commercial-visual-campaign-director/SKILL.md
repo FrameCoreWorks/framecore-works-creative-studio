@@ -32,3 +32,5 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 ## Specific creative mechanisms
 
 Use the [creative decision library](../commercial-video-campaign-director/references/creative-decision-library.md) when a campaign lacks a meaningful product or story relationship. Static-only execution stays with Static Graphic Design Creator.
+
+For commerce campaign families, retain the strategy and claim revisions through the [campaign production contract](../ecommerce-campaign-strategy-director/references/campaign-production.md). Define each asset's message, product/person locks, destination and placement adaptation; pass its card to the integrated static owner. Product truth and credible human presentation survive changes of scene, crop and format.

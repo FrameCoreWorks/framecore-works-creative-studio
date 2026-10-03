@@ -43,6 +43,8 @@ Roles are responsibilities, not proof that agents have run. Use the role map and
 
 ## Resource rules
 
+For website-led commerce campaigns, use the [website-to-campaign profile](../../ecommerce-campaign-strategy-director/references/website-to-campaign.md) within the same route and Project State. Ecommerce Campaign Strategy Director owns offer/campaign strategy, Marketing supplies missing brand foundations, and existing static, UGC and video owners retain production. Carry source/claim revisions, asset cards and measurement context; this adds no owner, renderer, account integration or new QA loop.
+
 The pinned source archive keeps all tracked upstream file contents intact. Its expanded reference mirror uses SKILL.source.md names; legacy SKILL.md paths are non-skill pointers to the active owners. Active adapted copies and the source-to-owner mapping are listed in the integration manifest. Public examples remain synthetic. Private project state and profiles are stored only through a genuinely available user-scoped mechanism; do not write client material into the shared plugin. A private handoff may include task-needed user-provided context, but public exports require redaction of private details. Secrets and hidden reasoning never enter either.
 
 Use [project recovery](project-recovery.md) for Context, Memory Cache, local indexing and cross-host transfer. Use [role-to-skill map](role-skill-map.md), [handoff matrix](handoff-matrix.md) and [gate registry](gate-registry.md) together. The source’s project installer and native standalone-skill installer are optional maintenance workflows, not steps required to use this plugin.

@@ -1,13 +1,11 @@
-# Creative Studio 1.4.0
+# Creative Studio 1.5.0
 
-Learning mode now uses diagnostic first practice, graduated assistance, evidence of independence, retrieval and transfer, causal feedback and one evolving learning project across the existing supported creative domains.
+Creative Studio now connects a business/store URL to source-based diagnosis, one-question business discovery, brand and offer foundations, substantiated claims, a commerce campaign, asset briefs and measurement. Complete briefs proceed directly; narrow asset requests keep their existing scope.
 
-A short diagnostic task belongs to the first lesson, with optional skipping and no extra onboarding. Support ranges from a hint to a worked example, fades with successful practice and honors a request for a complete explanation. One pending learner attempt keeps each step focused.
+The existing strategy pack now includes website coverage, business capacity, priorities, rollout, destinations, asset dependencies and reporting definitions. New asset cards carry exact product and copy locks, reference revisions, person status and observable QA to the existing graphic, UGC and video owners.
 
-Progress separates course completion, output quality and task-bounded performance: supported, independent in a familiar task, or independent in a changed context. Evidence origin and assistance stay visible in the existing portable state. Uninspected work and unsupported causes remain Unknown; older progress cards resume without migration or repeated onboarding.
+Product and lifestyle graphics, website banners, social/carousel ads and creator-style campaigns can share a coherent direction. Realistic synthetic presenters are distinct from real customers; unsupported efficacy or testimonial claims cannot become valid through approval or softer wording. Native/external generation, tracking installation and ad publication still depend on actual capability and explicit scoped authorization.
 
-Brief retrieval and changed-context tasks revisit earlier skills in relevant learning sessions. Linked exercises can develop one project while preserving its domain owners, dependencies and approved production decisions. These are teaching instructions, not scheduled reminders or automatic persistence.
+Measurement records source, time period, attribution and denominators. ROAS is not profit and uncertain comparisons remain inconclusive. Current placement limits and disclosure requirements must be checked for the actual market and surface.
 
-Full welcomes, automatic response language, one-question onboarding, all 37 owner identities and metadata, starter prompts, assets, pinned sources and execution boundaries are preserved. Eight additional learning scenarios remain planned. Source and isolated source-use checks do not establish active-client behavior or educational effectiveness.
-
-Verification: 150 serial CI regressions passed, followed by full equality of all 744 files between the GitHub source, published plugin ZIP and saved hosted plugin 1.4.0. Seven sequential isolated source-use turns covered diagnostic practice, hinting, transfer, progress recovery, retrieval, causal uncertainty and a requested worked example. Ordinary post-update client behavior and educational effectiveness remain unverified.
+All 37 skill identities, complete welcomes, automatic language selection, menus, learning instructions, upstream craft and shared review boundaries are preserved. Eight campaign scenarios are planned; no host behavior, generated-media fidelity or sales lift is asserted by their existence.

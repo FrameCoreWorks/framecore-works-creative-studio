@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.5.0, 2026-10-03
+
+- Connect website evidence, incremental business discovery, positioning, substantiated claims and commerce campaign planning through the existing owners.
+- Add staged rollout, campaign asset cards, realistic product/human production guidance and source-aware measurement with inconclusive outcomes.
+- Preserve one Project State, one QA loop, integrated static ownership and separate execution authorization.
+- Add eight planned campaign cases and focused source-contract regressions; no client media, ad spend or sales-outcome claims.
+
 ## 1.4.0, 2026-10-02
 
 - Add diagnostic first practice within the lesson, with no extra onboarding and optional skipping.

@@ -12,6 +12,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill to plan UGC-style creator ads, talking-head scripts, social proof concepts, direct-response hooks, objection handling, and creator-read copy while keeping claims honest and provider-neutral.
 
+For campaign production with people, use [campaign production](../ecommerce-campaign-strategy-director/references/campaign-production.md) and carry the campaign asset card. Distinguish an authorized real speaker, an actor portrayal and a synthetic presenter. A synthetic presenter is not a real customer; creator-style presentation does not establish purchase, personal use, results or endorsement. Preserve product references, claim IDs, exact copy, contact/continuity and actual inspection status in downstream handoffs.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
@@ -64,7 +66,7 @@ Produce a UGC Script Pack with:
 
 ## Decision Rules
 
-- If proof is missing, write softer framing instead of inventing authority.
+- If proof is missing, replace the promise with a supported fact or clearly subjective creative framing, or withhold it. Softer wording does not substantiate an unsupported factual claim.
 - Use first-person only when the user authorizes that voice and facts support it.
 - Keep short-form scripts tight and concrete.
 - If visual production is needed, hand off to direction or storyboard roles.
@@ -92,7 +94,7 @@ Hand off to `copy-voice`, `motion-direction`, `storyboard-architect`, or `video-
 
 ## QA Checklist
 
-- Claims are supported or softened.
+- Factual claims are supported within scope or withheld; subjective framing does not imply unsupported performance.
 - Hooks are distinct and plausible.
 - CTA matches the brief.
 - No fake testimonial or identity is implied.

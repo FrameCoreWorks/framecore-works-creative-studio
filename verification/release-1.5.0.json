@@ -1,0 +1,147 @@
+{
+  "version": "1.5.0",
+  "date": "2026-10-03",
+  "scope_packet": "scope-1.5.0.json",
+  "baseline_remote_commit": "3d6efbe8b19135f5ef10fc4bb328c503a3adf6b2",
+  "baseline_host_release": "pluginrel_6abf7146b30c8191b8aa6e022d3819ce",
+  "checks": {
+    "canonical": {
+      "status": "PASS",
+      "canonical": {
+        "status": "PASS",
+        "scope": "Structural and planned-contract checks only; not host behavior, media QA, or legacy test equivalence.",
+        "errors": [],
+        "warnings": [
+          "Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed."
+        ],
+        "files": 752,
+        "owners": 37,
+        "evaluations": {
+          "legacy": 114,
+          "overrides": [
+            "S18",
+            "S32",
+            "S35",
+            "S45",
+            "S50",
+            "S51",
+            "S01"
+          ],
+          "added_variants": 4,
+          "host_scenarios": 25,
+          "knowledge_scenarios": 12,
+          "integration_scenarios": 12,
+          "learning_scenarios": 24,
+          "campaign_scenarios": 8,
+          "total_planned": 199,
+          "executed": 0
+        }
+      },
+      "legacy": {
+        "status": "NOT_RUN",
+        "scope": "Historical validator, separate from canonical checks"
+      }
+    },
+    "node_regressions": {
+      "status": "PASS",
+      "tests": 111,
+      "concurrency": 1,
+      "initial_attempt": "Sandbox EPERM blocked a child Node CLI; full unchanged suite passed with permitted child-process execution."
+    },
+    "isolated_installer": {
+      "status": "PASS",
+      "tests": 11
+    },
+    "source_use": {
+      "status": "PASS_SOURCE_USE",
+      "observations": [
+        {
+          "turn": 1,
+          "status": "PASS_SOURCE_USE",
+          "request": "Offline partial fictitious perfume-store copy; initial diagnosis and guidance.",
+          "observed": "States text-only/offline scope; keeps product facts separate across SKUs; withholds unsupported 24h longevity and equivalent hedges; does not pretend to inspect missing images/site; identifies a hypothesis and asks one goal question."
+        },
+        {
+          "turn": 2,
+          "status": "PASS_SOURCE_USE",
+          "request": "Complete offline fictional-fragrance sales brief: two static ads, mobile banner, fictional-presenter script, two-week pilot and a capped media budget.",
+          "observed": "Delivers the full requested plan without further onboarding; preserves supplied price/delivery and distinguishes scent notes from composition. Withholds unsupported longevity. Defines exact copy and asset roles/destinations, provisional placement specs, separate production cost, bounded proposed spend, meaningful comparable tests, missing tracking/margin evidence and inconclusive outcomes. No generation, upload or ad launch. The presenter makes no personal-use testimonial."
+        },
+        {
+          "turn": 3,
+          "result": "PASS",
+          "scope": "Selected ST01 production brief only, no images or generation authorized",
+          "observations": [
+            "Preserved approved copy and 4:5 layout without repeated strategy/intake",
+            "Synthetic adult presenter explicitly distinguished from customer",
+            "Realistic grip, product scale, contact shadows and visible label specified",
+            "Exact bottle depiction blocked pending actual product references; no false generation/inspection claims"
+          ]
+        }
+      ],
+      "scope": "Three sequential turns in an isolated source-reading agent. Not active ChatGPT client, generated media or executed planned-eval fixtures."
+    },
+    "github_ci": "PENDING",
+    "packaging": {
+      "status": "PASS",
+      "files": 752,
+      "zip_equal_to_source": true,
+      "plugin_zip_sha256": "d34953d92c399bb73a902b12de5de3405adacaa84efaf797b9a608691751531f"
+    }
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "active_client_behavior": "NOT_RUN",
+  "generated_media_qa": "NOT_RUN",
+  "sales_effectiveness": "Unknown",
+  "preservation": {
+    "status": "PASS",
+    "baseline_saved_archive_files_equal_to_git": 744,
+    "baseline_archive_reuse": "Previously verified saved 1.4.0 archive; current metadata/source inventory still names the same release.",
+    "candidate_files": 752,
+    "changed_existing": 19,
+    "added": 8,
+    "deleted": 0,
+    "unchanged": 725,
+    "out_of_allowlist": 0,
+    "all_37_skill_metadata_byte_equal": true,
+    "welcome_language_and_all_other_orchestrator_content_byte_equal": true,
+    "learning_byte_equal": true,
+    "all_existing_eval_files_byte_equal": true,
+    "upstream_integrations_and_root_assets_byte_equal": true,
+    "manifests_except_version_equal": true,
+    "changed_paths": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "plugin.json",
+      "scripts/load-effective-evals.mjs",
+      "scripts/validate-studio.mjs",
+      "skills/commercial-visual-campaign-director/SKILL.md",
+      "skills/ecommerce-campaign-strategy-director/SKILL.md",
+      "skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+      "skills/marketing/SKILL.md",
+      "skills/pipeline-core/assets/project-state.md",
+      "skills/pipeline-core/references/studio-integration-policy.md",
+      "skills/pipeline-core/templates/project-state.md",
+      "skills/static-graphic-design-creator/SKILL.md",
+      "skills/ugc/SKILL.md",
+      "skills/workflow-orchestrator/SKILL.md",
+      "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
+      "tests/studio.test.mjs"
+    ],
+    "added_paths": [
+      "docs/campaign-workflow.md",
+      "evals/campaign-workflow-cases.json",
+      "scripts/validate-campaign-workflow.mjs",
+      "skills/ecommerce-campaign-strategy-director/references/campaign-evidence-sources.md",
+      "skills/ecommerce-campaign-strategy-director/references/campaign-production.md",
+      "skills/ecommerce-campaign-strategy-director/references/website-to-campaign.md",
+      "skills/ecommerce-campaign-strategy-director/templates/campaign-asset-card.md",
+      "skills/ecommerce-campaign-strategy-director/templates/website-audit.md"
+    ]
+  }
+}

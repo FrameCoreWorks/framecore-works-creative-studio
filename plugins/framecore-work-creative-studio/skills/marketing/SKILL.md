@@ -12,6 +12,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill to plan campaign-level positioning, offer framing, audience fit, asset matrices, channel adaptation, launch kits, and campaign QA without locking final creative execution too early.
 
+For a website/store-led commercial campaign, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md). Supply only missing brand foundations to the existing Ecommerce Campaign Strategy Director's pack: source-based diagnosis, positioning, buying situations, differentiation/proof and voice. Reuse accepted strategy, inspect accessible website facts before questioning and ask one material missing question per response. Do not create duplicate plans or expand brand-only work into a campaign.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

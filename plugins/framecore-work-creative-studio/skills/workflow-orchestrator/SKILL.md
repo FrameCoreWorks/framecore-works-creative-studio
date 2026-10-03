@@ -197,6 +197,8 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 
 Use Pipeline Core as the canonical operating contract. For a complete video route, Creative Video Producer coordinates specialists within this same project state. Keep Quick pitches short, start at the requested stage and route only when the next artifact needs it. Source role IDs resolve through the active role map; they are not names of missing skills or proof of agent execution.
 
+For a business/store URL with a marketing or sales campaign request, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md). Start from actual public evidence or an honest access limit, ask one material missing question at a time and connect the audit, brand basis, claim ledger, campaign, asset cards and measurement plan. Ecommerce Campaign Strategy Director owns the commerce strategy; Marketing supplies missing foundations and existing static/UGC/video owners produce requested assets. Retain optional campaign_context in this same Project State. Do not force startup menus, repeat accepted strategy or generate media from a planning-only request.
+
 ## Compact routes and creative feedback
 
 Use [conditional method selection](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods)

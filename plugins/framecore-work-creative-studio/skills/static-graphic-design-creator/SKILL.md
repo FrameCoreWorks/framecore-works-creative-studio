@@ -43,6 +43,8 @@ The source bundle and its release metadata are part of this plugin, so static-de
 
 Follow [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for shared state, ownership, prompt contracts, capability checks and bounded repair.
 
+For a campaign banner, product visual, lifestyle image or static ad, reuse the [campaign production contract](../ecommerce-campaign-strategy-director/references/campaign-production.md) and supplied asset card. Keep SKU/label/claim locks, source revisions, person status and intended placement while owning the entire static method. A selected campaign direction does not need another strategy intake. Realistic rendering, exact product fidelity and export properties require inspection of the actual output.
+
 ## Optional creative decision exercises
 
 For an interchangeable concept, borrow only the relevant [decision exercise](../commercial-video-campaign-director/references/creative-decision-library.md). Keep this skill’s complete static design logic, catalog, typography and exact-copy contract authoritative. Do not route a static design through a video workflow.
