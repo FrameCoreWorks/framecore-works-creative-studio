@@ -47,4 +47,6 @@ For a campaign banner, product visual, lifestyle image or static ad, reuse the [
 
 ## Optional creative decision exercises
 
+For an advertising asset whose persuasive structure is unresolved, use [ad evidence and format selection](../ecommerce-campaign-strategy-director/references/ad-creative-analysis.md#choose-a-communication-job-then-an-eligible-format). Carry the selected job, supported claims and qualifiers into the existing design contract. A selected direction or narrow edit proceeds without another strategy pass; image QA and business-performance evidence remain separate.
+
 For an interchangeable concept, borrow only the relevant [decision exercise](../commercial-video-campaign-director/references/creative-decision-library.md). Keep this skill’s complete static design logic, catalog, typography and exact-copy contract authoritative. Do not route a static design through a video workflow.

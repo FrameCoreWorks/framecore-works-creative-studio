@@ -1,19 +1,18 @@
 # Release status
 
-Source version: **1.6.0**. Date: 2026-10-03.
+Source version: **1.7.0**. Date: 2026-10-03.
 
 | Field | Value |
 |---|---|
-| Changes | Code-based motion contract, three stage prompts, Style Lock adaptation, deterministic SVG example and evidence-bounded QA |
-| Protected content | Welcomes/language policy, menus, learning, 37 owners and all interface metadata, existing upstream, one state/review loop |
-| Source verification | PASS: canonical checks; 111 Node + 11 installer + 23 asset tests |
-| Starter execution | PASS: deterministic frame checks and 180 SVG files; bounded browser frame/control inspection |
-| Planned evaluations | 199 planned, 0 executed |
-| GitHub publication | PASS: source `dd4409d49ce5c07018ee9f98339d1482d6f940ef`; [v1.6.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.6.0); release CI passed |
-| Existing hosted plugin | SAVED: 1.6.0, `pluginrel_6ac14e4cf12c81918ceab0cd0b3fbbac`; USER/PRIVATE identity preserved |
-| Saved-package readback | PASS for all 24 changed/added files and complete 766-path/size inventory; full byte readback unavailable (archive HTTP 403) |
-| Active ChatGPT client | NOT_RUN |
-| Full temporal/audio review and encoded-video export | NOT VERIFIED; starter intentionally silent |
-| Scope and evidence | [Motion scope](verification/scope-1.6.0.json), [release checks](verification/release-1.6.0.json), [saved-host readback](verification/hosted-release-1.6.0.json) |
+| Changes | Selective ad evidence, format selection, competitor observation and results-to-next-brief methods |
+| Protected content | Welcomes, menus, language policy, learning, 37 owners and interface metadata, upstream sources, one state/review loop |
+| Source verification | PASS: canonical validation, 111 Node + 11 installer + 23 asset checks; scope/license/ZIP checks; independent review accepted |
+| Planned evaluations | 199 planned, 0 executed; unchanged |
+| GitHub publication | PENDING |
+| Existing hosted plugin | Baseline 1.6.0; guarded update pending |
+| Saved-package readback | Baseline seven touched text files and 766-path/size inventory match; updated readback pending |
+| Active ChatGPT/Codex client | NOT_RUN |
+| Generated advertising assets and campaign outcomes | NOT_RUN |
+| Scope and evidence | [Scope](verification/scope-1.7.0.json), [release checks](verification/release-1.7.0.json) |
 
-The package adds instructions, templates and a local SVG teaching example. It does not install Remotion/HyperFrames, switch models, run paid providers or claim an inspected encoded video.
+This extension supplies optional instructions and a worksheet. It does not access ad accounts, run image providers, publish ads or change budgets.

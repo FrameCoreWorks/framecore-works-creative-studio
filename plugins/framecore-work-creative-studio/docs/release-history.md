@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.7.0, 2026-10-03
+
+- Selectively adapt Meta Ads Designer methods into existing campaign strategy and static-design owners.
+- Add proof-led ad structures, observed-versus-inferred competitor analysis and a creative experiment card tied to asset revisions.
+- Turn supplied campaign results into bounded hypotheses and next briefs, preserving metric definitions, comparable cohorts and inconclusive outcomes.
+- Preserve 37 skill identities, startup, learning, provider gates, pinned sources and one shared review loop.
+- Import no provider wrapper, diagnostic code, style catalogue, fixed platform constants or automatic performance verdicts.
+- Keep source verification separate from active-host behavior, generated imagery and campaign outcomes.
+
 ## 1.6.0, 2026-10-03
 
 - Connect code-based motion graphics through the existing HyperFrames, Remotion, sequence and production owners.

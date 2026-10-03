@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "85707877a35087a52b907f1876b741301e48a3f5bbfb1d2734cc82f3c56e745c"
+      "sha256": "0c597873609a253dd7815e77d94bce89b40510a8ea446302a2ba2251c106cb7c"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13367,
-      "sha256": "fd88b37163191a5b45600ce9170423c4f53532301664ccb537cba2a0390df622"
+      "bytes": 14009,
+      "sha256": "262268fafae6937bd211d76a2cb1ed66cbd08dcaf78d1cc39bb8c6ca7b9bf8b2"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 11468,
-      "sha256": "05a21c751dc1481ff6bc0ddb0b5dc4e575a9b32e0742f2a2be600a3eb51ea811"
+      "sha256": "dc063cab6bed890c08229c1780a29836753d3be1ca8b1de3a9de4b09b6907756"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 31901,
-      "sha256": "8cfe4ee43c98b1e35626c6beb34746ae10f417670e941b49adafe9bbaa94e6a1"
+      "bytes": 32649,
+      "sha256": "48f2644b00395f7c34ab9173b5b6a3ced52e39f27393d88c5b18275728689a58"
     },
     {
       "path": "docs/research-ledger.json",
@@ -205,6 +205,21 @@
       "path": "evals/workflow-kit-cases.json",
       "bytes": 13619,
       "sha256": "c2d5771ed0a4731ccb5c06a0800c490c92de348cb34d0167e6b23d8df7948949"
+    },
+    {
+      "path": "integrations/meta-ads-designer/LICENSE",
+      "bytes": 1074,
+      "sha256": "47220978aed447ac4560ab21eb5cfd7a3d07feae0d0e077308edf9eace0d386a"
+    },
+    {
+      "path": "integrations/meta-ads-designer/README.md",
+      "bytes": 5173,
+      "sha256": "93233697bc8437d8375570ceaa1576f243fd49d618711781fc0ac2ef8d193cf1"
+    },
+    {
+      "path": "integrations/meta-ads-designer/source-manifest.json",
+      "bytes": 4895,
+      "sha256": "26a270b1b3d4876862bbd21426ff170dc6055262abfed4712d1f86d362164ec5"
     },
     {
       "path": "integrations/motion-designer-studio/LICENSE",
@@ -2214,7 +2229,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "3c71bf4ce4ca2ceb75348bfddeb470d41364b27e8820f33cf71f8fd7c69907de"
+      "sha256": "509b09096e8a77584f67cf0509d177d741ab34933249c8cd429fcb6f50e65b0c"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2688,13 +2703,18 @@
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
-      "bytes": 7622,
-      "sha256": "00e1b9960d91e5707f98a06f93630818918e5ed7b16d708595baa34817e6df13"
+      "bytes": 8173,
+      "sha256": "e7662437098f68d8ca6bb96e07f2434df5389d002297fef87b2f1176fd3fc03d"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
       "bytes": 367,
       "sha256": "d275a8a46f58b38ca9a484b601ca533da57d49e5aff8332abb9c4ab44f73f11e"
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md",
+      "bytes": 6302,
+      "sha256": "a44d03abbe8a1a3884d6217cfe263cdba47b5a4f6c448a45968c1b9fa5616f5e"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/references/campaign-evidence-sources.md",
@@ -2707,6 +2727,11 @@
       "sha256": "01f3c7dfbcd8150586686e9115851758d0823ab1e99cf84ae4bdd9d420a74e99"
     },
     {
+      "path": "skills/ecommerce-campaign-strategy-director/references/creative-performance-feedback.md",
+      "bytes": 6678,
+      "sha256": "870ec9cf4f975a5a67ecbbb578de8e89a5025d542c583dfb5f3928a182b2a10c"
+    },
+    {
       "path": "skills/ecommerce-campaign-strategy-director/references/website-to-campaign.md",
       "bytes": 15739,
       "sha256": "e8c1ee25ac0474040de3e0f5900772b7c2b4e049a7ea97b8dca9d454e190c545"
@@ -2715,6 +2740,11 @@
       "path": "skills/ecommerce-campaign-strategy-director/templates/campaign-asset-card.md",
       "bytes": 1751,
       "sha256": "4cf048606f832c88cb06a5b07344c808462a1740b54d4d04be29e595d0b32022"
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/creative-experiment-card.md",
+      "bytes": 2878,
+      "sha256": "3f7003d20d980570beadb1a179cc9f5fba8d0906b1d9f94d50f8c7cb84fc3db0"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
@@ -3293,8 +3323,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 8507,
-      "sha256": "ccb04fb59f184d351af18e808875ac441f81b17a995d7c36abbde0b95517cbd7"
+      "bytes": 8969,
+      "sha256": "d8c724009bb04f8e4063350e7afa19cbc19488eda79fe155f4d15a8b6724cfd3"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",

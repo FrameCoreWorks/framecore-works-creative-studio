@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.6.0.
+Version: 1.7.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -17,6 +17,12 @@ Repository documentation and operational guidance are English. The full welcome 
 ## Brand strategy and identity
 
 Studio develops brand strategy, logo systems, logo usage guides and identity guides through existing owners, with shared decisions, revisions and acceptance criteria. Request the full workflow or a specific stage. Concepts and digital materials have a separate status from verified production files; actual exports depend on available tools. See [the workflow contract](skills/workflow-orchestrator/references/brand-identity-workflow.md).
+
+## Ad evidence and creative feedback
+
+For social-ad work, choose a persuasive structure from supported proof, record observed competitor mechanisms separately from performance guesses, and connect supplied campaign results to the next bounded brief. An optional experiment card binds baseline/variant asset revisions, fixed conditions and actual evidence. These methods use existing owners and do not access ad accounts, publish campaigns or spend budget.
+
+See [the ad analysis method](skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md) and [the attributed adaptation](integrations/meta-ads-designer/README.md).
 
 ## Code-based motion graphics
 

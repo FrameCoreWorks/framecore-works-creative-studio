@@ -1,0 +1,80 @@
+{
+  "version": "1.7.0",
+  "date": "2026-10-03",
+  "scope": "Selective Meta Ads Designer method assimilation",
+  "baseline_commit": "4e933abcc06913103274d264589a00f6648129de",
+  "source_validation": {
+    "status": "PASS",
+    "files": 772,
+    "owners": 37,
+    "planned_evaluations": 199,
+    "executed_planned_evaluations": 0,
+    "legacy": "NOT_RUN"
+  },
+  "existing_tests": {
+    "node": {
+      "status": "PASS",
+      "tests": 111,
+      "concurrency": 1
+    },
+    "installer": {
+      "status": "PASS",
+      "tests": 11,
+      "environment": "TMPDIR=/private/tmp; PYTHONDONTWRITEBYTECODE=1"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "gepa_pilot": {
+      "status": "NOT_RUN_LOCALLY",
+      "reason": "Unchanged pilot; the existing release workflow runs its declared checks."
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "original_unchanged": 759,
+    "changed_existing": 7,
+    "added": 6,
+    "manifest_except_version": "unchanged",
+    "license_git_blob_equal": true,
+    "new_relative_links": "PASS"
+  },
+  "source_review": {
+    "repository": "aievolutionpl/meta-ads-designer",
+    "commit": "656ce907380448389559958f055c8b43d71ab26e",
+    "version": "6.5.0",
+    "method": "Selective read-only method/code review and local coverage comparison; no provider or upstream code execution",
+    "adoption_map": "plugins/framecore-work-creative-studio/integrations/meta-ads-designer/README.md"
+  },
+  "review": {
+    "status": "ACCEPT",
+    "method": "Hipson bounded coverage packet and independent Olga read-only review",
+    "findings_P1_P2": 0,
+    "passes": 1
+  },
+  "baseline_host": {
+    "release": "pluginrel_6ac14e4cf12c81918ceab0cd0b3fbbac",
+    "changed_existing_text_bytes_equal": 7,
+    "inventory_files": 766,
+    "inventory_equal": true
+  },
+  "package": {
+    "status": "PASS",
+    "complete_zip_files_equal": 772,
+    "host_update_overlay_files": 13,
+    "reason": "Only changed/new files are uploaded; unchanged hosted files remain intact."
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "active_client_behavior": "NOT_RUN",
+  "generated_ad_quality": "NOT_RUN",
+  "campaign_outcomes": "NOT_RUN",
+  "provider_operations": "NONE",
+  "limits": [
+    "Source verification does not establish active-client behavior or advertising effectiveness.",
+    "No live ad data, generated client assets, publishing or budget changes were executed."
+  ]
+}

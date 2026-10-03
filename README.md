@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.6.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.7.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -24,6 +24,12 @@ Startup restores the complete Studio introduction and capability overview, then 
 - 37 canonical skill entrypoints: 35 specialist routes, the orchestrator and a retained audio compatibility alias.
 
 The package supplies instructions, knowledge, templates and local verification helpers. Generation, media inspection and editing require the user's available tools and authorization. No credentials, paid-provider account, persistent memory service or automatic cross-environment synchronization is bundled.
+
+## Ad evidence and creative feedback
+
+For social-ad work, choose a persuasive structure from supported proof, record observed competitor mechanisms separately from performance guesses, and connect supplied campaign results to the next bounded brief. An optional experiment card binds baseline/variant asset revisions, fixed conditions and actual evidence. These methods use existing owners and do not access ad accounts, publish campaigns or spend budget.
+
+See [the ad analysis method](plugins/framecore-work-creative-studio/skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md) and [the attributed adaptation](plugins/framecore-work-creative-studio/integrations/meta-ads-designer/README.md).
 
 ## Code-based motion graphics
 

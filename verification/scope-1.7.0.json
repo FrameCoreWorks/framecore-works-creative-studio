@@ -1,0 +1,65 @@
+{
+  "packet_id": "STUDIO-AD-EVIDENCE-1.7.0",
+  "packet_type": "Hipson bounded assimilation and review packet",
+  "date": "2026-10-03",
+  "baseline_remote_commit": "4e933abcc06913103274d264589a00f6648129de",
+  "baseline_host_release": "pluginrel_6ac14e4cf12c81918ceab0cd0b3fbbac",
+  "authorization": "Owner requested analysis and assimilation of concrete useful elements from meta-ads-designer. Standing paired GitHub and existing ChatGPT update applies.",
+  "classification": "repo_assimilation",
+  "goal": "Add proof-to-format selection, structured competitor observation and results-to-next-brief worksheets through existing strategy and static owners.",
+  "protected": [
+    "37 skill IDs, interface metadata and routing ownership",
+    "Startup, language policy, menus, learning and workstyle",
+    "Existing upstream snapshots, providers, exact-copy and product locks",
+    "One Project State and one bounded QA loop",
+    "Plugin identity, scope, audience, prompts and existing assets"
+  ],
+  "allowed_plugin_files": [
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "skills/ecommerce-campaign-strategy-director/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md",
+    "skills/ecommerce-campaign-strategy-director/references/creative-performance-feedback.md",
+    "skills/ecommerce-campaign-strategy-director/templates/creative-experiment-card.md",
+    "integrations/meta-ads-designer/README.md",
+    "integrations/meta-ads-designer/LICENSE",
+    "integrations/meta-ads-designer/source-manifest.json"
+  ],
+  "repository_dependencies": [
+    "README.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_STATUS.md",
+    "config/install-sources.json",
+    "verification/scope-1.7.0.json",
+    "verification/release-1.7.0.json",
+    "verification/hosted-release-1.7.0.json"
+  ],
+  "acceptance": [
+    "Only observed competitor evidence becomes fact; longevity does not prove performance.",
+    "Proof requirements govern format eligibility, preserving qualifiers and approved copy.",
+    "Results are matched to actual asset IDs, metric definitions and comparable cohorts.",
+    "Alternative explanations, undefined rates and inconclusive outcomes remain explicit.",
+    "Exploration and controlled tests stay separate; no automatic spend/publication or global learning.",
+    "New references are optional and reachable through existing owners.",
+    "Preserve unrelated bytes; validate and publish paired source with bounded honest readback."
+  ],
+  "not_adopted": [
+    "Upstream orchestrator, intake questionnaire, style atlas and provider wrapper",
+    "Global benchmark thresholds, causal metric labels and automatic winner labels",
+    "Universal placement geometry, unverified 2026 platform claims and numerical creative scores"
+  ],
+  "review_plan": [
+    "Relevant existing source tests and canonical validator",
+    "Scope and manifest preservation checks",
+    "Independent Olga review of changed references and wiring",
+    "Package manifest and ZIP verification",
+    "GitHub release and guarded host readback"
+  ],
+  "evidence_boundary": "Documentation and source checks do not establish active host behavior, generated ad quality or campaign performance.",
+  "rollback": "Revert only this scoped source change on current main and issue a guarded correction; preserve concurrent work."
+}

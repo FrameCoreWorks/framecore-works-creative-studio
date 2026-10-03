@@ -14,6 +14,8 @@ Use this skill to connect product and offer truth to a practical creative campai
 
 For a company/store URL, website audit, social sales campaign or an end-to-end offer-to-assets request, use [website to campaign](references/website-to-campaign.md). Inspect accessible evidence before asking one material missing question at a time; a complete brief goes directly to the requested stage. Use the [website audit](templates/website-audit.md), existing strategy pack and [asset card](templates/campaign-asset-card.md) only as needed. Apply [campaign production](references/campaign-production.md) to product fidelity, realistic people, truthful UGC and placement handoffs. [Campaign evidence sources](references/campaign-evidence-sources.md) record dated support and current-specification gaps.
 
+For social-ad analysis or proof-led format selection, use [ad creative analysis](references/ad-creative-analysis.md). For supplied campaign results, use [performance feedback](references/creative-performance-feedback.md) to form hypotheses and the smallest next brief. The optional [creative experiment card](templates/creative-experiment-card.md) records observed ads, baseline/variant revisions and results inside the existing campaign state. Reuse known strategy; these tools add no mandatory questions, generation, account access or publication.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

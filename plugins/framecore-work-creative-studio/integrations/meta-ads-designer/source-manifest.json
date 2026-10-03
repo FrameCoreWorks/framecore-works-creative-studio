@@ -1,0 +1,139 @@
+{
+  "source_repository": "https://github.com/aievolutionpl/meta-ads-designer",
+  "source_commit": "656ce907380448389559958f055c8b43d71ab26e",
+  "source_version": "6.5.0",
+  "reviewed_date": "2026-10-03",
+  "integration_type": "selective_method_adaptation",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 AI Evolution Labs",
+  "retained_files": [
+    {
+      "path": "LICENSE",
+      "source_path": "LICENSE",
+      "git_blob_sha": "c1205ce190cc1d2a08268908d6879ffb18f99f32"
+    }
+  ],
+  "reviewed_sources": [
+    {
+      "path": "references/competitor-ad-teardown.md",
+      "git_blob_sha": "23dc1c45909191b122b53f8de87ad8597b151f6c",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "README.en.md",
+      "git_blob_sha": "7ee2924b8226aa98fc17b8009fd1555d1bfbb3ed",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/variation-matrix.md",
+      "git_blob_sha": "32f41bdbd94290803423a2256f4cb5e82633b95c",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/creative-performance-loop.md",
+      "git_blob_sha": "2a1e2e653940624e21a219503924b774108b665f",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "SKILL.md",
+      "git_blob_sha": "1bf6a78ecd634155cc77b46b5c2cbd31821ee0c3",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/platform-compliance.md",
+      "git_blob_sha": "10552d9fbe8eff05e5bf5560ed1ad8f184669fe8",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "c1205ce190cc1d2a08268908d6879ffb18f99f32",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/creative-diagnostics.md",
+      "git_blob_sha": "90fe6d90b98dea4d606a642d301d34470869cd2e",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "scripts/creative_diagnostics.py",
+      "git_blob_sha": "79140027782bd12cf2e3a1df10943e6ee51a21d7",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/static-ad-formats.md",
+      "git_blob_sha": "c1432aecc2a3b31b87630aa6712dc4af5f31ea51",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/headline-system.md",
+      "git_blob_sha": "6139f71db8c26295fc403429fe8695da04ef397f",
+      "scope": "selected sections for overlap/conflicts"
+    },
+    {
+      "path": "scripts/generate_fal.py",
+      "git_blob_sha": "6dc01e6ee352cb79541a25656674111ebe532dee",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "scripts/qa.py",
+      "git_blob_sha": "329b741fba998aa14398502568b4559dac141df0",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/qa-gate.md",
+      "git_blob_sha": "b9c18e700613f60955e7f638f09204e4fd4efc7c",
+      "scope": "selected sections for overlap/conflicts"
+    },
+    {
+      "path": "references/art-direction.md",
+      "git_blob_sha": "94b85e4695fc6a621a9f9c1dc6d393e54986dd71",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob_sha": "540c6840f5c9ea361f037763407f63ae11240303",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/artifact-control.md",
+      "git_blob_sha": "244056546ac0e30327896ab1dfbc7802d1279b5e",
+      "scope": "selected sections for overlap/conflicts"
+    },
+    {
+      "path": "scripts/test_diagnostics.py",
+      "git_blob_sha": "ab9e8779b6a03d35f5dd1ed577b948a4a4c67236",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "design-rules.md",
+      "git_blob_sha": "84f800e8d9eedcb36470873ba28d085307783c43",
+      "scope": "selected sections for overlap/conflicts"
+    },
+    {
+      "path": "references/discovery-and-research.md",
+      "git_blob_sha": "78a3edb794307ecf09bd6b67a04e80c24046aae9",
+      "scope": "relevant method or code"
+    },
+    {
+      "path": "references/model-routing.md",
+      "git_blob_sha": "b38eae10a1173f8dfb2029b4cd0afc0cbbd3ee41",
+      "scope": "selected sections for overlap/conflicts"
+    },
+    {
+      "path": "references/style-atlas-2026.md",
+      "git_blob_sha": "5b4d707a22ba3f0df5266cdf816b406112f44300",
+      "scope": "selected sections for overlap/conflicts"
+    }
+  ],
+  "adapted_files": [
+    "../../skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md",
+    "../../skills/ecommerce-campaign-strategy-director/references/creative-performance-feedback.md",
+    "../../skills/ecommerce-campaign-strategy-director/templates/creative-experiment-card.md"
+  ],
+  "boundaries": [
+    "Existing Studio owners, one Project State and one QA loop remain authoritative.",
+    "No upstream code, providers, artwork, rules registry, or catalogue installed.",
+    "Metrics support scoped observations and hypotheses, not automatic causal diagnoses.",
+    "No current Meta placement specification or campaign-performance claim certified."
+  ]
+}

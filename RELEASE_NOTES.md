@@ -1,15 +1,9 @@
-# Creative Studio 1.6.0
+# Creative Studio 1.7.0
 
-Code-based motion graphics now connects storyboard approval, implementation and actual-output review through the existing HyperFrames/HTML/SVG and Remotion owners. The versioned contract carries exact copy, authoritative assets, Style Lock, frame intervals, overlaps, readable holds and observable acceptance criteria.
+Selected Meta Ads Designer methods now support the existing campaign-strategy and integrated static-design owners. Proof-led format selection, structured competitor observation and a creative experiment card connect observed ads and actual asset revisions to the next brief.
 
-Three stage prompts support brief/storyboard, approved build and bounded review/repair. A new original, dependency-free example shares frame state between an interactive HTML preview and SVG-sequence export. SVG output is not encoded video; production video still requires an available authorized capture/encoding toolchain.
+Performance feedback preserves metric definitions, comparable cohorts, valid zeros, undefined rates and alternative explanations. It makes no causal claim from ordinary campaign comparisons and adds no universal fatigue/winner thresholds. Existing exploration and testing rules remain authoritative.
 
-Selected Creative DNA, Style Lock, repository-fit and multi-format methods from Motion Designer Studio are adapted at commit `7c215ed50355ca6ad592a3a4ed88e2ef49bb4bb3`, with original MIT copyright/notices and an explicit adaptation map. No additional owner, engine, provider or dependency is installed. Public research supports frame-driven rendering, not superiority claims for a particular coding model.
+The source is pinned to `aievolutionpl/meta-ads-designer@656ce907380448389559958f055c8b43d71ab26e`, with the original MIT license and an explicit adoption/rejection map. No upstream provider wrapper, diagnostic executable, style catalogue, second owner or dependency is installed.
 
-All 37 skill identities, complete welcomes, automatic language selection, menus, learning instructions, existing upstream sources and one shared QA budget remain protected. The 742 original package files outside the allowlist are byte-identical.
-
-Local checks passed: canonical validation, 111 Node source tests, 11 isolated installer tests and 23 asset checks. The starter passed syntax/frame checks and exported 180 SVG files; selected first/middle/final frames and preview controls were inspected in the local browser. Full normal-speed audiovisual review, encoded-video export, active ChatGPT-client behavior and model comparisons remain unverified. The existing 199 planned evaluation cases were not executed.
-
-Publication and saved-host readback are recorded separately in [release status](RELEASE_STATUS.md) and [the verification report](verification/release-1.6.0.json).
-
-Published source: `dd4409d49ce5c07018ee9f98339d1482d6f940ef`. The existing USER/PRIVATE plugin is saved as `pluginrel_6ac14e4cf12c81918ceab0cd0b3fbbac`. Release CI passed. All 766 local/GitHub/ZIP files match; saved-host readback confirms all 24 changed/added source files and the 766-path/size inventory. Full saved-host byte comparison remains unavailable because its archive download returns HTTP 403. Active-client behavior remains NOT_RUN.
+Startup, menus, language selection, learning, 37 skill identities, existing upstream sources, exact-copy and provider gates remain protected. Source checks, GitHub publication, saved-host readback and active-client behavior are recorded separately in [release status](RELEASE_STATUS.md) and [the verification report](verification/release-1.7.0.json).
