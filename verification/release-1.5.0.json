@@ -81,7 +81,20 @@
       ],
       "scope": "Three sequential turns in an isolated source-reading agent. Not active ChatGPT client, generated media or executed planned-eval fixtures."
     },
-    "github_ci": "PENDING",
+    "github_ci": {
+      "status": "PASS",
+      "run_id": 37113317091,
+      "job_id": 111175253093,
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/37113317091",
+      "tests": 153,
+      "breakdown": {
+        "node": 111,
+        "installer": 11,
+        "gepa_pilot": 8,
+        "asset_manifest": 23
+      },
+      "sequential_execution": true
+    },
     "packaging": {
       "status": "PASS",
       "files": 752,
@@ -90,8 +103,27 @@
     }
   },
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING"
+    "github": "PASS",
+    "host": "PASS",
+    "source_commit": "7fc17cddeb547bec86cc68344494f7b4f5a3e852",
+    "source_root_tree": "c12a2dea2e967c72c37116c226c887e3202374a1",
+    "package_tree": "24e2dd72364bbd8bbd8d716b49e37bb3362378e1",
+    "release_tag": "v1.5.0",
+    "github_release": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.5.0",
+    "host_release": "pluginrel_6ac0cbcb1484819192133b09324c8458",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "paired_package_readback": {
+      "status": "PASS",
+      "files": 752,
+      "full_saved_archive_equal": true,
+      "uploaded_zip_equal": true,
+      "github_blob_hashes_equal": true,
+      "changed_text_files_equal": 27,
+      "unreadable_files": 0,
+      "archive_bytes": 8688831,
+      "archive_path_layout": "Saved TAR uses package-relative paths; uploaded ZIP has the canonical plugin-directory prefix. File contents equal without normalization.",
+      "plugin_zip_sha256": "d34953d92c399bb73a902b12de5de3405adacaa84efaf797b9a608691751531f"
+    }
   },
   "active_client_behavior": "NOT_RUN",
   "generated_media_qa": "NOT_RUN",
