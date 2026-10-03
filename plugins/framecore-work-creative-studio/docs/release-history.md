@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.8.0, 2026-10-03
+
+- Add an optional teacher profile for lessons, worksheets, games, quizzes, slide content, classroom guidance, career exploration and teacher documents.
+- Supply an original twelve-activity bank, three complete Polish lesson packs with student tasks and teacher keys, and reusable pack/administration templates.
+- Align objectives, prerequisites, support, answers and delivery checks; distinguish plans, observations, synthetic data and verified facts.
+- Separate classroom-material creation from personal Learning Mode through existing owners and one review budget.
+- Preserve 37 canonical skills, startup, menus, provider rules, prior methods and upstream sources.
+- Separate content/source verification from actual exports, active-client behavior and untested classroom outcomes.
+
 ## 1.7.0, 2026-10-03
 
 - Selectively adapt Meta Ads Designer methods into existing campaign strategy and static-design owners.

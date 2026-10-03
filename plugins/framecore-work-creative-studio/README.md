@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.7.0.
+Version: 1.8.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -17,6 +17,12 @@ Repository documentation and operational guidance are English. The full welcome 
 ## Brand strategy and identity
 
 Studio develops brand strategy, logo systems, logo usage guides and identity guides through existing owners, with shared decisions, revisions and acceptance criteria. Request the full workflow or a specific stage. Concepts and digital materials have a separate status from verified production files; actual exports depend on available tools. See [the workflow contract](skills/workflow-orchestrator/references/brand-identity-workflow.md).
+
+## Teacher Studio
+
+Create original lesson scenarios, worksheets, games, quizzes, slide content, classroom guidance, career-exploration activities and teacher documents through existing owners. The profile includes a twelve-activity bank, three complete Polish teaching examples with keys and adaptations, and reusable pack/administration templates. It aligns objectives, student work and feedback while separating factual evidence, synthetic examples and unverified curriculum claims.
+
+Creating school materials uses creation mode; learning how to create them remains optional Learning Mode. Actual documents, slides and graphics depend on available tools and require their own output checks. The examples are not classroom-tested or curriculum-certified. See [the teacher workflow](skills/workflow-orchestrator/references/teacher-workflow.md).
 
 ## Ad evidence and creative feedback
 

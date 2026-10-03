@@ -29,6 +29,8 @@ polish must not silently change selected words.
 
 ## Inputs
 
+For teacher-facing lesson content, worksheets, quizzes, games, explanations, answer keys, rubrics or school communications, use the [teacher profile](../workflow-orchestrator/references/teacher-workflow.md) and [material methods](../workflow-orchestrator/references/teacher-material-methods.md). Own complete original educational text and its content/answer review with Research Evidence inside the same bounded loop. Preserve objectives, prerequisites and supplied facts; do not turn a classroom-material request into Learning Mode or route pedagogical correctness to the static-image critic. Keep student tasks separate from teacher answers.
+
 - Brief, audience, platform, format, language, and desired tone.
 - Locked facts, product claims, offer terms, disclaimers, and banned wording.
 - Existing copy drafts, hooks, scripts, VO, captions, subtitles, or supers.

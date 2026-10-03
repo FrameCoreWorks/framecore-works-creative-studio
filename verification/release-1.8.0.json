@@ -1,0 +1,97 @@
+{
+  "version": "1.8.0",
+  "date": "2026-10-03",
+  "scope": "Original broad teacher domain profile through existing owners",
+  "baseline_commit": "3ce3407936ff168040727a30c60d43213785db71",
+  "source_validation": {
+    "status": "PASS",
+    "files": 781,
+    "owners": 37,
+    "planned_evaluations": 199,
+    "executed_planned_evaluations": 0,
+    "legacy": "NOT_RUN"
+  },
+  "existing_tests": {
+    "node": {
+      "status": "PASS",
+      "tests": 111,
+      "concurrency": 1
+    },
+    "installer": {
+      "status": "PASS",
+      "tests": 11,
+      "environment": "TMPDIR=/private/tmp; PYTHONDONTWRITEBYTECODE=1"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "gepa_pilot": {
+      "status": "NOT_RUN_LOCALLY",
+      "reason": "Unchanged pilot; existing CI runs declared checks without new local dependencies."
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "original_unchanged": 763,
+    "changed_existing": 9,
+    "added": 9,
+    "baseline_host_inventory_equal": true,
+    "manifest_except_version": "unchanged",
+    "new_relative_links_and_anchors": "PASS",
+    "commercial_source_strings_in_changed_material": "NONE",
+    "canonical_skills": 37,
+    "markdown_whitespace": "PASS after removing extra EOF lines and replacing Markdown hard breaks with paragraphs"
+  },
+  "teacher_content": {
+    "original_activities": 12,
+    "complete_lesson_examples": 3,
+    "estimated_lesson_minutes": [
+      35,
+      40,
+      45
+    ],
+    "answer_and_timing_review": "PASS: independent read-only source review",
+    "curriculum_mapping": "NOT_CLAIMED",
+    "classroom_effectiveness": "NOT_RUN"
+  },
+  "review": {
+    "status": "ACCEPT",
+    "method": "Hipson scope packet and independent Olga read-only review",
+    "findings_P1_P2": 0,
+    "material_P3": 0,
+    "passes": 1,
+    "scope": "Nine new files and four skill-root connections; bounded originality/source review, not an exhaustive plagiarism search."
+  },
+  "baseline_host": {
+    "release": "pluginrel_6ac154446c688191a49f86c622d3e088",
+    "changed_existing_text_bytes_equal": 9,
+    "inventory_files": 772,
+    "inventory_equal": true
+  },
+  "package": {
+    "status": "PASS",
+    "complete_zip_files_equal": 781,
+    "host_update_overlay_files": 18,
+    "archive": "framecore-work-creative-studio-1.8.0.zip",
+    "archive_bytes": 9255657,
+    "archive_sha256": "2d16ebc8e66359a30dd303e37ad503c2d4effc97bdd4f904710918b8e0ad9149",
+    "reason": "Only changed/new files are uploaded; unchanged hosted files remain intact."
+  },
+  "publication": {
+    "github": {
+      "status": "PENDING"
+    },
+    "host": {
+      "status": "PENDING"
+    }
+  },
+  "active_client_behavior": "NOT_RUN",
+  "document_exports": "NOT_RUN",
+  "classroom_outcomes": "NOT_RUN",
+  "provider_operations": "NONE",
+  "limits": [
+    "Source/content checks do not establish active-client retrieval, actual document export or educational effectiveness.",
+    "No pupil records, external generation, accounts, publishing of classroom content or communications were used."
+  ]
+}

@@ -1,7 +1,7 @@
 # Current release scope
 
-Version: 1.7.0.
-Date: 2026-10-01.
+Version: 1.8.0.
+Date: 2026-10-03.
 Release scope: 1.0 core plus optional provider setup in 1.1.0, consistent skill display names in 1.1.1, aligned research, music and operation-specific image routing in 1.1.2, route-aware structural checks with a synchronized source inventory in 1.1.3, optional learning/creation mentoring in 1.2.0, and the restored full welcome with staged creative pace and work-area menus in 1.2.1, and strengthened entry, expiring choice groups and concise offline-learning evidence boundaries in 1.2.2, plus ordinary-language poster format intake in 1.2.3, a single fixed, verbatim welcome for every sent Studio-only invocation in 1.2.4, and step-by-step learning onboarding with one question per response in 1.2.5, plus consistent checkpoint fields, integrated static ownership and conditional copy repair in 1.2.6, plus the existing-owner brand strategy, logo system and identity-guide profile in 1.2.7. Version 1.2.8 adds automatic shared output review and 1.2.9 defines CQoT and conditional evidence-led methods inside that same loop. GitHub distribution and hosted plugin updates are separate publication operations.
 
 This release contains thirty-seven skill roots: thirty-five active specialist routes, the workflow orchestrator, and the legacy `producer-ai-task-builder` forwarding entrypoint. The skills are packaged instructions and knowledge, not a promise of host retrieval, automatic tool execution or complete migration of every private Custom GPT. Historical checkpoint claims remain in [release history](release-history.md).
@@ -25,6 +25,10 @@ This release contains thirty-seven skill roots: thirty-five active specialist ro
 | delivery-documentation | Static/print and audio/video delivery specifications and inspection boundaries | Requirements, user reports and verified export properties stay separate |
 | research-evidence | Public research, privacy, source authority, source-to-decision mapping and tool-error recovery | Dated snapshots are leads, not current or exhaustive coverage |
 | studio-workstyle-profile | Per-domain pace/detail adaptation and portable, user-editable preference schema | No inferred personal traits or guaranteed memory/sync across environments |
+
+## Teacher domain profile in 1.8.0
+
+The optional [teacher profile](../skills/workflow-orchestrator/references/teacher-workflow.md) adds original school-material authoring through the existing owners: Copy Voice for educational content and keys, Research Evidence for facts, existing design/media owners for requested assets and Delivery Documentation for actual files. It includes twelve short activities, three complete localized teaching examples and pack/administration templates. Teacher creation is separate from personal Learning Mode. It adds no canonical skill or gate and makes no curriculum certification, active-client or classroom-effectiveness claim.
 
 ## Source lineage
 

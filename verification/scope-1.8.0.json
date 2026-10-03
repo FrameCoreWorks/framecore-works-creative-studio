@@ -1,0 +1,65 @@
+{
+  "packet_id": "STUDIO-TEACHER-1.8.0",
+  "packet_type": "Hipson bounded domain-profile implementation packet",
+  "date": "2026-10-03",
+  "baseline_remote_commit": "3ce3407936ff168040727a30c60d43213785db71",
+  "baseline_host_release": "pluginrel_6ac154446c688191a49f86c622d3e088",
+  "authorization": "Owner requested an original broad school module and confirmed the broad scope. Standing paired GitHub and existing ChatGPT publication applies.",
+  "classification": "original_domain_profile",
+  "goal": "Create teacher materials through existing owners with complete original examples, checked keys, age/prerequisite adaptation and honest delivery/evidence status.",
+  "protected": [
+    "37 canonical skills, interface metadata, existing role/gate map and one Project State",
+    "Complete startup, menus, language policy, Learning Mode and workstyle",
+    "Pinned upstream, motion/ad methods, providers and exact-copy policies",
+    "Plugin identity, scope, audience, assets and default prompts"
+  ],
+  "allowed_plugin_files": [
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/copy-voice/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/delivery-documentation/SKILL.md",
+    "skills/workflow-orchestrator/references/teacher-workflow.md",
+    "skills/workflow-orchestrator/references/teacher-material-methods.md",
+    "skills/workflow-orchestrator/references/teacher-method-evidence.md",
+    "skills/workflow-orchestrator/assets/teacher-studio/lesson-pack.template.md",
+    "skills/workflow-orchestrator/assets/teacher-studio/teacher-admin.template.md",
+    "skills/workflow-orchestrator/assets/teacher-studio/lesson-01-instructions.pl.md",
+    "skills/workflow-orchestrator/assets/teacher-studio/lesson-02-evidence.pl.md",
+    "skills/workflow-orchestrator/assets/teacher-studio/lesson-03-decisions.pl.md",
+    "skills/workflow-orchestrator/assets/teacher-studio/activity-bank.md"
+  ],
+  "repository_dependencies": [
+    "README.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_STATUS.md",
+    "config/install-sources.json",
+    "verification/scope-1.8.0.json",
+    "verification/release-1.8.0.json",
+    "verification/hosted-release-1.8.0.json"
+  ],
+  "acceptance": [
+    "Teacher deliverables enter creation; personal mentoring requires learning intent.",
+    "Complete original student inputs, answer keys and open-response criteria.",
+    "Age/prerequisite support preserves or explicitly changes the assessed construct.",
+    "No unsupported curriculum alignment, educational efficacy or diagnostic claims.",
+    "Separate plans, observations and unknown facts; no identifying pupil data in examples.",
+    "No commercial source names, URLs, product titles or copied material in published files.",
+    "Use existing owners, one review budget and genuinely available document/media tools.",
+    "Read back GitHub and saved host, with unreadable files and active-client limits explicit."
+  ],
+  "review_plan": [
+    "Existing canonical validator and relevant source tests",
+    "Scope preservation, link, answer and completeness checks",
+    "Independent Olga review",
+    "Package ZIP and GitHub/source comparison",
+    "Guarded hosted update and exact readback scope"
+  ],
+  "evidence_boundary": "Source and content review do not establish active-client retrieval, print/accessibility output or classroom effectiveness.",
+  "rollback": "Revert only this scoped source change on current main and issue a guarded correction, preserving concurrent work."
+}
