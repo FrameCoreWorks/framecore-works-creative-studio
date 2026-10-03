@@ -1,0 +1,155 @@
+{
+  "version": "1.6.0",
+  "date": "2026-10-03",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "baseline_release": "pluginrel_6ac0cbcb1484819192133b09324c8458",
+  "saved_release": "pluginrel_6ac14e4cf12c81918ceab0cd0b3fbbac",
+  "scope": "USER",
+  "audience": "PRIVATE",
+  "source_commit": "dd4409d49ce5c07018ee9f98339d1482d6f940ef",
+  "archive_uploaded": "framecore-work-creative-studio-1.6.0.zip",
+  "uploaded_archive_sha256": "175b16125a2191573076799426bdc1a37f63e2b97cafd9f65cbbde438946d998",
+  "github_and_local": {
+    "source_commit": "dd4409d49ce5c07018ee9f98339d1482d6f940ef",
+    "local_files": 766,
+    "remote_files": 766,
+    "all_match": true,
+    "missing": [],
+    "extra": [],
+    "different": []
+  },
+  "saved_source_readback": {
+    "inventory_files": 766,
+    "inventory_equal": true,
+    "text_files_compared": 24,
+    "text_equal": true,
+    "compared": [
+      {
+        "path": "plugin.json",
+        "sha256": "3c71bf4ce4ca2ceb75348bfddeb470d41364b27e8820f33cf71f8fd7c69907de",
+        "equal": true
+      },
+      {
+        "path": ".codex-plugin/plugin.json",
+        "sha256": "85707877a35087a52b907f1876b741301e48a3f5bbfb1d2734cc82f3c56e745c",
+        "equal": true
+      },
+      {
+        "path": "README.md",
+        "sha256": "fd88b37163191a5b45600ce9170423c4f53532301664ccb537cba2a0390df622",
+        "equal": true
+      },
+      {
+        "path": "docs/migration-status.md",
+        "sha256": "05a21c751dc1481ff6bc0ddb0b5dc4e575a9b32e0742f2a2be600a3eb51ea811",
+        "equal": true
+      },
+      {
+        "path": "docs/release-history.md",
+        "sha256": "8cfe4ee43c98b1e35626c6beb34746ae10f417670e941b49adafe9bbaa94e6a1",
+        "equal": true
+      },
+      {
+        "path": "skills/workflow-orchestrator/SKILL.md",
+        "sha256": "716d235f65c8df110b044790e67c50e46f2d4671002cc0b53242934b977684e6",
+        "equal": true
+      },
+      {
+        "path": "skills/creative-video-producer/SKILL.md",
+        "sha256": "8ba068caeb53ebd17ffac72e32e2b28187cd995868adb608bdaa20a6f684f39b",
+        "equal": true
+      },
+      {
+        "path": "skills/storyboard-sequence-architect/SKILL.md",
+        "sha256": "f5220cbb81515f265e7f1446bf5f617b61dc8571d3c1be22bd4833b8d26db0ab",
+        "equal": true
+      },
+      {
+        "path": "skills/remotion-video-production/SKILL.md",
+        "sha256": "1727c46dacea7b59c3e7cc1de967c8101b6e03213b5992e10d5a3ba8e60f9e47",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/SKILL.md",
+        "sha256": "028b0330fea6c56398158e1e78deabb3edea282036c666eae75c09356641ef4a",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+        "sha256": "4016aa158f315de938399346f69ba5d74554ed1eb35b00bf607618e88f6bfea4",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/references/code-motion-evidence.md",
+        "sha256": "68ca40d1fee593b56350257f8545b8fcf440b55ca24e3b1f0c6e68938a012cbd",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+        "sha256": "e907927842d6583c139590e1923c5e0bb72e03b77b229bb6bdd8b40d9cfbe778",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
+        "sha256": "13c4d4532f243863cd8f23ce822c5f12ceb636a02b05a49fecd8381541805796",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
+        "sha256": "253085045b7f9fcd9e05ab3abb217d8c25e8d0bf1c73c8550391b60e8673286c",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
+        "sha256": "b0f9abbdda7a0d18e89619b456ca58778103e743e42b7ca00b9100bfab3cf9d8",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/assets/code-motion-starter/README.md",
+        "sha256": "5bed75c1b72a2f85b0da07cde147dca96b212ade57995fcb148df927cd6a87d2",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs",
+        "sha256": "306d8a9136d95fdd79a6cb0aae65019696682ee2c03e526d0fa2d29a6c7857c2",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/assets/code-motion-starter/preview.html",
+        "sha256": "b238aa0409321a250ccad7cbc3258d7337ee0a84e7687b4886e8cd520531d5d5",
+        "equal": true
+      },
+      {
+        "path": "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs",
+        "sha256": "8ca81a8331e455a86685785fc59df87e547de90482704dcae771365b93f40e92",
+        "equal": true
+      },
+      {
+        "path": "integrations/motion-designer-studio/README.md",
+        "sha256": "1aa2155e2a89f3daf5f27df166bb72d9ac84e318a3b6c08b0b114a387944f935",
+        "equal": true
+      },
+      {
+        "path": "integrations/motion-designer-studio/LICENSE",
+        "sha256": "9c93d59bdb93687e9593e4c138c486f752238858e0669f83b3db6adf8e311255",
+        "equal": true
+      },
+      {
+        "path": "integrations/motion-designer-studio/THIRD_PARTY_NOTICES.md",
+        "sha256": "60a0a67033e6e25bd2c51ec1703dfad7783a4a64cc5799a37c6a9f5267d7a032",
+        "equal": true
+      },
+      {
+        "path": "integrations/motion-designer-studio/source-manifest.json",
+        "sha256": "d62e2e0bea5ee908fe5872d9f64e14b25b0ef350d4c18355ff1be28a68224a11",
+        "equal": true
+      }
+    ]
+  },
+  "saved_full_archive": {
+    "status": "UNAVAILABLE",
+    "http_status": 403
+  },
+  "limit": "All 24 changed/added source files were read and matched byte-for-byte; all 766 paths and sizes matched. A fresh full byte readback of 742 unchanged files was unavailable because the archive download returned HTTP 403. Do not claim full saved-host byte equality from inventory alone.",
+  "active_client_behavior": "NOT_RUN"
+}

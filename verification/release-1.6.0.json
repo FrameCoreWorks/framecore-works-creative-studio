@@ -29,7 +29,8 @@
     },
     "gepa_pilot": {
       "status": "NOT_RUN_LOCALLY",
-      "scope": "Unchanged pilot; existing CI release job runs it in its declared environment."
+      "scope": "Unchanged pilot; existing CI release job runs it in its declared environment.",
+      "ci_release_job": "PASS: existing complete release workflow finished successfully; no local dependency installation."
     }
   },
   "starter": {
@@ -93,8 +94,59 @@
     "source_zip_file_hashes_equal": 766
   },
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING"
+    "github": {
+      "status": "PASS",
+      "source_commit": "dd4409d49ce5c07018ee9f98339d1482d6f940ef",
+      "release": {
+        "id": 402645614,
+        "tag": "v1.6.0",
+        "draft": false,
+        "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.6.0",
+        "target": "dd4409d49ce5c07018ee9f98339d1482d6f940ef",
+        "assets": [
+          {
+            "name": "framecore-work-creative-studio-1.6.0.zip",
+            "size": 9215183,
+            "digest": "sha256:175b16125a2191573076799426bdc1a37f63e2b97cafd9f65cbbde438946d998"
+          },
+          {
+            "name": "framecore-work-creative-studio-1.6.0.zip.inventory.json",
+            "size": 155125,
+            "digest": "sha256:f37bf97ac68a9aba7e2d2ac39303bbb2967e7dc57c4f96c4dd92f794ebf86d24"
+          },
+          {
+            "name": "framecore-works-creative-studio-1.6.0-repository.zip",
+            "size": 11209069,
+            "digest": "sha256:857f0de69d86e1ca1fcda3d9d13ccf6457f34653c2aa2c7fc613b52df4b74fc1"
+          },
+          {
+            "name": "framecore-works-creative-studio-1.6.0-repository.zip.inventory.json",
+            "size": 201763,
+            "digest": "sha256:bda76ade7d9b16012e1f5d73be404ce1c2e466bc3766160421bcd839180d02be"
+          },
+          {
+            "name": "SHA256SUMS.txt",
+            "size": 482,
+            "digest": "sha256:320d09ad5ace1ad408d21c4a2a3f08addf276052badc464574639a2dd6de9d26"
+          }
+        ]
+      },
+      "ci": {
+        "id": 37145563852,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/37145563852",
+        "head_sha": "dd4409d49ce5c07018ee9f98339d1482d6f940ef"
+      }
+    },
+    "host": {
+      "status": "SAVED_WITH_BOUNDED_READBACK",
+      "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+      "release_id": "pluginrel_6ac14e4cf12c81918ceab0cd0b3fbbac",
+      "version": "1.6.0",
+      "scope": "USER",
+      "discoverability": "PRIVATE"
+    }
   },
   "active_client_behavior": "NOT_RUN",
   "actual_Remotion_or_HyperFrames_video_render": "NOT_RUN",
@@ -103,5 +155,25 @@
   "limits": [
     "Packaged instructions and an SVG starter do not supply an installed video renderer.",
     "Source and bounded preview evidence do not establish encoded-video, full audiovisual or active ChatGPT-client quality."
-  ]
+  ],
+  "remote_package_comparison": {
+    "source_commit": "dd4409d49ce5c07018ee9f98339d1482d6f940ef",
+    "local_files": 766,
+    "remote_files": 766,
+    "all_match": true,
+    "missing": [],
+    "extra": [],
+    "different": []
+  },
+  "saved_host_readback": {
+    "inventory_files": 766,
+    "inventory_equal": true,
+    "changed_and_added_files": 24,
+    "changed_and_added_bytes_equal": true,
+    "full_archive": {
+      "status": "UNAVAILABLE",
+      "http_status": 403
+    },
+    "unchanged_files_without_new_full_byte_readback": 742
+  }
 }
