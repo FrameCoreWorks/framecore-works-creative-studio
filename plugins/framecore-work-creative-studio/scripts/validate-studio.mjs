@@ -182,6 +182,19 @@ export function validateStudio(root, {legacy = false} = {}) {
     }
   }
   const routing = texts.get('skills/workflow-orchestrator/SKILL.md') ?? '';
+  const identityBegin = '<!-- BEGIN PACKAGE IDENTITY -->', identityEnd = '<!-- END PACKAGE IDENTITY -->';
+  const start = routing.indexOf(identityBegin), end = routing.indexOf(identityEnd);
+  let entryIdentity;
+  try {
+    if (routing.split(identityBegin).length === 2 && routing.split(identityEnd).length === 2 && start >= 0 && end > start) {
+      entryIdentity = JSON.parse(routing.slice(start + identityBegin.length, end));
+    }
+  } catch { /* malformed projection fails below */ }
+  if (!isDeepStrictEqual(entryIdentity, {name: portable.name, version: portable.version})) fail('PACKAGE_IDENTITY', 'Entry identity must match the current manifests exactly');
+  if (start < 0 || end < 0 || end >= routing.indexOf('## Immediate complete startup response')) fail('PACKAGE_IDENTITY_PLACEMENT', 'Read package identity before resolving version or startup requests');
+  for (const phrase of ['plugin-version/installation-status request', 'Reread this entry through the active host', 'read package version', 'host-supplied skill revision', 'current sources for the same bundle conflict', 'saved hosted release', 'latest GitHub release', 'Never report a version from memory', 'current version cannot be confirmed']) {
+    if (!routing.includes(phrase)) fail('VERSION_REPORTING_POLICY', phrase);
+  }
   const routeRows = routing.split(/\r?\n/).filter(line => line.startsWith('|') && line.includes('/SKILL.md)'));
   const linkedOwnersByRow = new Map();
   const seenRouteRows = new Set();

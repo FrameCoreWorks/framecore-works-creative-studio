@@ -70,6 +70,13 @@ class InstallationChecks(unittest.TestCase):
         self.assertNotIn('explicit-language rule', entry)
         self.assertNotIn('entire fixed welcome', entry)
 
+    def test_native_version_question_rereads_the_same_bundle_entry(self):
+        self.run_helper('install')
+        entry = (self.skills / 'framecore-work-creative-studio/SKILL.md').read_text()
+        self.assertIn('plugin version or installation-status question, reread that entry', entry)
+        self.assertIn('Do not infer the installed version from conversation history', entry)
+        self.assertNotIn('BEGIN PACKAGE IDENTITY', entry)
+
     def test_existing_skill_identity_blocks_before_writes(self):
         existing = self.skills / 'my-custom-folder/SKILL.md'
         existing.parent.mkdir(parents=True)

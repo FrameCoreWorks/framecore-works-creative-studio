@@ -28,6 +28,34 @@ test('canonical validation passes with explicit structural scope and no legacy e
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
+test('entry package identity rejects stale, wrong, malformed, absent and duplicate evidence', () => {
+  const block = /<!-- BEGIN PACKAGE IDENTITY -->\n[\s\S]*?\n<!-- END PACKAGE IDENTITY -->/;
+  for (const mutation of [
+    text => text.replace(block, ''),
+    text => text.replace(block, value => value + '\n' + value),
+    text => text.replace(block, value => value.replace(currentVersion, '0.0.0')),
+    text => text.replace(block, value => value.replace('framecore-work-creative-studio', 'another-plugin')),
+    text => text.replace(block, value => value.replace('{', '{broken')),
+  ]) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', mutation);
+    assert.ok(codes(validateStudio(root)).includes('PACKAGE_IDENTITY'));
+  });
+});
+
+test('version identity must precede startup and preserve truthful source reporting', () => {
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => {
+      const block = text.match(/<!-- BEGIN PACKAGE IDENTITY -->\n[\s\S]*?\n<!-- END PACKAGE IDENTITY -->/)[0];
+      return text.replace(block, '') + '\n' + block + '\n';
+    });
+    assert.ok(codes(validateStudio(root)).includes('PACKAGE_IDENTITY_PLACEMENT'));
+  });
+  for (const phrase of ['plugin-version/installation-status request', 'Reread this entry through the active host', 'saved hosted release', 'current version cannot be confirmed', 'Never report a version from memory']) withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace(phrase, 'removed rule'));
+    assert.ok(codes(validateStudio(root)).includes('VERSION_REPORTING_POLICY'));
+  });
+});
+
 test('missing short descriptions fail for the entry owner and existing specialists', () => {
   for (const owner of ['workflow-orchestrator', 'pipeline-core', 'commercial-video-campaign-director']) withFixture(root => {
     edit(root, 'skills/' + owner + '/agents/openai.yaml', text => text.replace(/^  short_description:.*\n/m, ''));

@@ -1,0 +1,22 @@
+{
+  "version": "1.9.3",
+  "date": "2026-10-04",
+  "baseline": "b65a4e0e0de988a713808bc74ab88443bb882994",
+  "shared_files": 808,
+  "changed_files": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_files": 800,
+  "new_files": [],
+  "scope": "Version-reporting entry, projection validation and tests, release metadata only",
+  "welcome_assets": "BYTE_IDENTICAL",
+  "other_skill_entrypoints": "BYTE_IDENTICAL",
+  "dependencies": "UNCHANGED"
+}

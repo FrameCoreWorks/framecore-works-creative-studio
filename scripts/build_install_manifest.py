@@ -7,6 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / 'plugins' / 'framecore-work-creative-studio'
 MANIFEST = ROOT / 'config' / 'install-sources.json'
+IDENTITY_BEGIN = '<!-- BEGIN PACKAGE IDENTITY -->'
+IDENTITY_END = '<!-- END PACKAGE IDENTITY -->'
 
 
 def files_at(root):
@@ -29,6 +31,27 @@ def inventory(root):
             for p in files_at(root)]
 
 
+def sync_package_identity(root=PLUGIN):
+    """Explicit release-authoring step; build/verify/install remain read-only."""
+    files_at(root)  # Reject symlinks before any write.
+    plugin = json.loads((root / 'plugin.json').read_text())
+    compatibility = json.loads((root / '.codex-plugin/plugin.json').read_text())
+    identity = {key: plugin[key] for key in ('name', 'version')}
+    if any(compatibility.get(key) != value for key, value in identity.items()):
+        raise ValueError('Resolve manifest identity mismatch before synchronizing the entry')
+    entry = root / 'skills/workflow-orchestrator/SKILL.md'
+    text = entry.read_text()
+    if text.count(IDENTITY_BEGIN) != 1 or text.count(IDENTITY_END) != 1:
+        raise ValueError('Expected exactly one package identity block')
+    start = text.index(IDENTITY_BEGIN) + len(IDENTITY_BEGIN)
+    end = text.index(IDENTITY_END)
+    if end < start:
+        raise ValueError('Package identity markers are out of order')
+    projected = text[:start] + '\n' + json.dumps(identity, separators=(',', ':')) + '\n' + text[end:]
+    if projected != text:
+        entry.write_text(projected)
+
+
 def build():
     plugin = json.loads((PLUGIN / 'plugin.json').read_text())
     entries = sorted(p.parent.name for p in (PLUGIN / 'skills').glob('*/SKILL.md'))
@@ -49,6 +72,7 @@ def verify_source():
 
 
 if __name__ == '__main__':
+    sync_package_identity()
     MANIFEST.parent.mkdir(exist_ok=True)
     MANIFEST.write_text(json.dumps(build(), indent=2) + '\n')
     print(str(MANIFEST))

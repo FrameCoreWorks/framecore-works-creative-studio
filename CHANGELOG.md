@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.3, 2026-10-04
+
+- Route plugin version and installation-status questions to the existing entry owner before creative intake.
+- Project the current manifest identity into the readable entry and regenerate it during explicit release preparation.
+- Require current evidence and distinguish the read package, saved hosted release and newest published release; report unknown or conflicting evidence without guessing from history.
+- Add drift, missing/duplicate identity, read-only verification and native-wrapper regression checks.
+- Preserve the complete welcome, existing creative routes, all 37 skill identities and provider boundaries.
+
 ## 1.9.2, 2026-10-04
 
 - Tighten the existing Artifact Guard adaptation after live text probes: restrict exclusions to reported defects and keep uninspected identity findings unverified.

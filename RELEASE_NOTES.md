@@ -1,11 +1,9 @@
-# Creative Studio 1.9.2
+# Creative Studio 1.9.3
 
-Existing image owners gain conditional Artifact Guard knowledge for periodic microtexture, false detail, intentional patterns and preview ambiguity. A small material-specific prompt correction can be proposed while preserving the approved scene, exact copy, identity and required detail.
+Plugin version and installation-status questions now use the existing entry owner in Codex, ChatGPT Work and ordinary ChatGPT. The entry carries an identity block generated from the current manifest, so hosts that expose skills without the package root have a readable version source.
 
-Review keeps photographic plausibility and source preservation separate and compares the person even after a clothing or background edit. An optional context-isolation trial retains actual reference assets and uses the existing shared authorization and iteration budget.
+Reports name the evidence and distinguish the read package, saved hosted release and newest GitHub release. Missing or conflicting evidence stays explicitly unconfirmed; historical answers cannot substitute for an installed-version read. This introduces no automatic update, cache mutation or restart.
 
-The complete welcome, 37 skill identities, motion/teacher/ad modules, upstream sources and provider boundaries are preserved. The adaptation adds no dependencies, cleaner, provider or additional QA stage. [Provenance](plugins/framecore-work-creative-studio/integrations/artifact-guard/README.md) records the pinned source and owner authorization.
+The release preparation step synchronizes the identity block; validation rejects drift, missing or duplicate blocks. Read-only installation/verification remains read-only. The complete welcome, 37 skill identities, creative modules and provider boundaries are preserved.
 
-See [release status](RELEASE_STATUS.md) for observed verification and publication evidence. Instruction/source checks do not demonstrate image-quality improvement; controlled visual effectiveness remains unmeasured.
-
-Version 1.9.2 tightens the conditional instructions after initial host probes expanded exclusions and overstated an unseen identity finding. See release evidence for original outcomes and retest limits.
+See [release status](RELEASE_STATUS.md) for source checks, publication, saved-package readback and separate host observations. Publishing instructions cannot force an already-running chat to reload its skill snapshot.

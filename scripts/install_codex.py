@@ -66,6 +66,9 @@ Use the intact Studio bundle at `{bundle}`. It contains 37 linked modules,
 their knowledge, references, templates, original source bundles and logo.
 
 Start by reading `{bundle / 'skills/workflow-orchestrator/SKILL.md'}`.
+For a plugin version or installation-status question, reread that entry and
+apply its package-version reporting contract before any welcome or creative intake.
+Do not infer the installed version from conversation history or the latest release.
 For an explicit specialist request, read that module's SKILL.md directly under
 `{bundle / 'skills'}` and apply its research and preservation requirements.
 Follow relative references from the actual module location inside the bundle,

@@ -1,0 +1,52 @@
+{
+  "version": "1.9.3",
+  "date": "2026-10-04",
+  "source_baseline": "b65a4e0e0de988a713808bc74ab88443bb882994",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 808,
+      "skill_roots": 37,
+      "planned_host_cases": 199,
+      "executed_planned_cases": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 121
+    },
+    {
+      "command": "TMPDIR=/private/tmp python3 -B -m unittest discover -s tests -p test_codex_install.py -v",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "python3 -B -m unittest discover -s tests -p test_package_identity.py -v",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "python3 -B plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY",
+      "files": 808
+    }
+  ],
+  "independent_source_review": {
+    "reviewer": "Olga",
+    "status": "PASS",
+    "blocking_findings": []
+  },
+  "plugin_zip_sha256": "ac62158587de675b54ec0285639a79c7c4eda0f70819dd2e552ce7a4f505316e",
+  "host_behavior": "PENDING",
+  "evidence_boundary": "Source checks do not prove active-host loading. Test each host separately; never replace an unread installed version with saved-server or GitHub metadata."
+}

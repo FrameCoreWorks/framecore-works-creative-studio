@@ -1,9 +1,27 @@
 ---
 name: workflow-orchestrator
-description: Entry owner for a sent bare @FrameCore Works Creative Studio or app-linked Studio invocation, greeting, start or menu request. Load this skill before answering that input. Automatically use the user's language for the complete canonical welcome with the capability list, optional-material invitation and intent menu; never return only the two-mode choice. Repeated bare invocations return the same complete welcome. A mode-only creative answer proceeds to quick/expanded pace, then work area. Concrete creative tasks and actual resume requests use their existing direct routes. Coordinate learning or creation across graphics, story, video, audio, copy, campaigns and prompts. Not for unrelated coding or concrete production already owned by a selected specialist.
+description: Entry owner for a sent bare @FrameCore Works Creative Studio or app-linked Studio invocation, greeting, start, menu or plugin-version/installation-status request. Load this skill before answering that input. Automatically use the user's language for the complete canonical welcome with the capability list, optional-material invitation and intent menu; never return only the two-mode choice. Repeated bare invocations return the same complete welcome. A mode-only creative answer proceeds to quick/expanded pace, then work area. Concrete creative tasks and actual resume requests use their existing direct routes. Coordinate learning or creation across graphics, story, video, audio, copy, campaigns and prompts. Not for unrelated coding or concrete production already owned by a selected specialist.
 ---
 
 # FrameCore Works Creative Studio
+
+## Plugin version and installation status
+
+For questions about the plugin's version or installation status, use this contract in Codex, ChatGPT Work and ordinary ChatGPT before any welcome, research or creative intake. Project progress questions still use the existing checkpoint/resume route.
+
+<!-- BEGIN PACKAGE IDENTITY -->
+{"name":"framecore-work-creative-studio","version":"1.9.3"}
+<!-- END PACKAGE IDENTITY -->
+
+This block is generated from `plugin.json` during release preparation and checked against both manifests. It identifies this packaged skill revision, not the model, a dependency or the newest release.
+
+1. Reread this entry through the active host's skill catalog or its actual installed path on each version question. Do not invent a resource URI, scan for the highest cache directory, or substitute a repository checkout for the installed entry. The generated block in that freshly read entry is sufficient to report the **read package version**, even when the host does not expose the root manifest. If the host supplies this complete entry as the current skill resource without a read tool, identify that evidence as the **host-supplied skill revision**.
+2. When available, read `plugin.json` from that same installed bundle (two directories above this entry), or version metadata explicitly bound to the active loaded plugin. A root manifest does not need to be a separate exposed skill. If current sources for the same bundle conflict, show both versions and sources and leave its version unresolved. Never choose the larger number as a repair.
+3. Keep **read/loaded package**, **saved hosted release** and **latest GitHub release** separate. Backend editor metadata confirms the saved package, not which revision an existing chat loaded. A catalog path alone is a catalog declaration, not a content read. Another host's readback does not prove this host's state.
+4. Answer briefly in the user's language with the exact full version, evidence source and scope. Cite the actual skill/resource or manifest that supplied it, using a real path/link only when available; a plain relative file name is enough when no link is exposed. On uncertainty, say which layer is confirmed and which is not. Never report a version from memory, previous answers, historical documentation, filenames of old reports or an unverified screenshot as the currently installed version.
+5. If no current package/version evidence is accessible, state that the current version cannot be confirmed. Do not replace this with the last known number or claim a source was read. Offer a fresh chat/reload only as a possible diagnostic, never as a verified update. A version question authorizes no installation, cache mutation, restart or publishing.
+
+For a simple version question, stop after that report. Do not append the welcome or alter pending creative/learning choices. Bare invocations and explicit menu requests retain the complete welcome below; do not add a version footer to it.
 
 ## Immediate complete startup response
 
