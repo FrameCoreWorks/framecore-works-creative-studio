@@ -1,0 +1,95 @@
+{
+  "version": "1.9.3",
+  "date": "2026-10-04",
+  "saved_release_id": "pluginrel_6ac290c27ef48191b9616c82b49d3beb",
+  "method": "Synthetic text-only UI probes after publishing 1.9.3; normal account personalization retained. No model parameters changed, generation or uploads performed. Source and behavior observations remain separate.",
+  "ordinary_chatgpt": {
+    "client": "Chrome, temporary Chat",
+    "reasoning": "Extra High, 4 of 5 displayed; backend model not exposed",
+    "cases": [
+      {
+        "id": "version_direct",
+        "input": "Studio mention from the picker + podaj zainstalowana wersje",
+        "version_value": "PASS_OBSERVED",
+        "evidence_scope": "PARTIAL",
+        "response_excerpt": "Zainstalowana wersja FrameCore Works Creative Studio to v1.9.3.",
+        "observed": "Returned exact current release ID and said it read Plugin Creator metadata. Correct saved version; the response called it installed without explicitly separating loaded and saved scope. No retrieval trace captured."
+      },
+      {
+        "id": "historical_version",
+        "input": "Wcześniej podawałeś v1.3. Czy to nadal moja bieżąca wersja? Podaj wersję i źródło jej ustalenia.",
+        "version_value": "PASS_OBSERVED",
+        "evidence_scope": "PARTIAL",
+        "observed": "Kept 1.9.3 with the correct metadata/release ID, not 1.3. Again called backend metadata installed-state proof. Claimed an origin for the old 1.3 answer that was not independently established by this probe."
+      },
+      {
+        "id": "startup_pl",
+        "input": "Bare Studio mention in a separate fresh temporary chat",
+        "result": "PASS_OBSERVED",
+        "observed": "Full Polish welcome with six capabilities, tool/optional-input qualifications and all three options including motion. No version footer."
+      },
+      {
+        "id": "version_after_startup",
+        "input": "podaj zainstalowana wersje",
+        "version_value": "PASS_OBSERVED",
+        "evidence_scope": "PASS_OBSERVED_RESPONSE",
+        "response": "Zainstalowana i aktualnie odczytana wersja FrameCore Works Creative Studio to 1.9.3. Źródło: aktywnie załadowany skill workflow-orchestrator/skill.md, blok PACKAGE IDENTITY: framecore-work-creative-studio, wersja 1.9.3. To potwierdza wersję pakietu odczytanego w tej rozmowie, nie najnowszy release na GitHubie.",
+        "observed": "Named the generated block and limited its conclusion to the read package. This tests the response; no hidden tool/reasoning trace was inspected."
+      }
+    ]
+  },
+  "chatgpt_work": {
+    "client": "Chrome, fresh projectless Work chat; Work selected visibly",
+    "reasoning": "Bardzo wysoki, 4 of 6 displayed; fast mode off; backend model not exposed",
+    "cases": [
+      {
+        "id": "version_direct",
+        "input": "Studio mention from the picker + podaj zainstalowana wersje",
+        "version_value": "PASS_OBSERVED",
+        "evidence_scope": "PARTIAL",
+        "response": "Zainstalowana i aktywna w tej sesji wersja FrameCore Works Creative Studio to 1.9.3. Potwierdziłem ją w manifestach pluginu.",
+        "observed": "Correct version with claimed manifest source, but initial wording overstated active-session evidence."
+      },
+      {
+        "id": "source_scope_diagnostic",
+        "input": "Podaj dokładne źródła tego odczytu. Czy odczytałeś pliki pakietu załadowanego w tej sesji, czy metadane zapisanej wersji przez Plugin Creator? Jeśli aktywnej wersji nie potwierdziłeś, zaznacz to.",
+        "result": "CORRECTED_SCOPE_OBSERVED",
+        "observed": "Said local plugin.json and .codex-plugin/plugin.json were read, linked the files and pipeline-core/SKILL.md, confirmed the available package declared 1.9.3 and withdrew the stronger active-installation claim. Diagnostic prompting is not an unprompted scope pass.",
+        "response_excerpts": [
+          "Odczytałem lokalne pliki pakietu udostępnionego w tej sesji. Nie pobierałem metadanych przez Plugin Creator.",
+          "Potwierdzone: dostępny w tej sesji pakiet deklaruje wersję 1.9.3.",
+          "Moje wcześniejsze określenie „zainstalowana i aktywna” było zbyt stanowcze."
+        ]
+      }
+    ]
+  },
+  "codex": {
+    "client": "Current desktop session and a fresh context-isolated named-agent probe",
+    "catalog_revision": "1.9.2",
+    "probe_result": "ACTIVE_ENTRY_UNAVAILABLE",
+    "observed": "The catalog supplied the 1.9.2 entry path, but it had been removed by the client's package refresh. The probe reported that mismatch without substituting the highest cache directory or repository copy. No 1.9.3 skill could be loaded through that stale catalog, so this is not a runtime pass for the new instructions.",
+    "cache_readback": {
+      "version": "1.9.3",
+      "files_compared": 808,
+      "equal": 808,
+      "entry_identity": {
+        "name": "framecore-work-creative-studio",
+        "version": "1.9.3"
+      },
+      "source": "Direct read of the known published version path in the managed plugin cache; no cache writes or duplicate installations",
+      "active_session_catalog_refresh": "UNCONFIRMED"
+    },
+    "new_rule_live_behavior": "NOT_VERIFIED_IN_REFRESHED_CODEX_SESSION"
+  },
+  "summary": {
+    "correct_version_observed": "Ordinary ChatGPT and Work returned 1.9.3",
+    "scope_precision": "PASS after ordinary startup; PARTIAL in direct version requests; Work corrected after diagnostic",
+    "codex": "808 cached package files match source, but current session catalog remains stale"
+  },
+  "limitations": [
+    "Finite observations do not guarantee behavior in every chat or reasoning setting",
+    "An already-running chat can retain a previous catalog or instruction snapshot",
+    "No-source and conflicting-source model responses were not live-tested; structural regression cases cover the package invariants",
+    "The 199 planned host scenarios remain not_run; these ad hoc probes do not change their status"
+  ]
+}
