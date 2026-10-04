@@ -17,6 +17,5 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 
 1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.
 2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
-3. **Code-based motion graphics**: we design animated text, logos, diagrams and graphic sequences, from storyboard through code to animation review. We use HTML/SVG, GSAP, HyperFrames or Remotion (React/TypeScript); preview and export depend on tools available in the conversation.
 
-Enter **1**, **2** or **3**.
+Enter **1** or **2**.

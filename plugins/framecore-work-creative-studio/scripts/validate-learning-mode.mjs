@@ -5,8 +5,8 @@ import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
 export const learningCaseIds = Array.from({length: 24}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
-export const canonicalWelcomeSha256 = '509afb18477debb7c4bf97be9d67d2dc086175b89a77755e9eed54072d5545b0';
-export const englishWelcomeSha256 = 'e926662229b03b447bde8eebfe5024b9a07a1dadc8990a91b3765a9b87d3c378';
+export const canonicalWelcomeSha256 = 'e227a35f73089ee7437b471598814bec0849f5f78a54d7357c78a418d80de671';
+export const englishWelcomeSha256 = 'c501fd86372785400175b3047c4c2b7a2cf5161a015ec6920771b1b533776b2d';
 
 // Checks caller-supplied response text only. This does not invoke or observe a host.
 // A single file-terminal LF is optional in a conversation response; nothing else
@@ -36,12 +36,12 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/workflow-orchestrator/SKILL.md', [/Tryb nauki/, /Tryb tworzenia/, /references\/learning-mode\.md/, /creation immediately/, /never deliver the menu by itself/, /Quick\/Deep are a separate pace/]);
     need('skills/workflow-orchestrator/SKILL.md', [/references\/startup-and-creative-menus\.md/, /complete welcome/, /After a mode-only creative choice/, /After a pace-only choice/, /bare number only against a currently pending displayed choice group/]);
     need('skills/workflow-orchestrator/SKILL.md', [/assets\/startup-welcome\.en\.md/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/]);
-    need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /3\. \*\*Motion graphics z kodu\*\*/, /HTML\/SVG, GSAP, HyperFrames lub Remotion/, /podgląd i eksport zależą od narzędzi/, /Wpisz \*\*1\*\*, \*\*2\*\* albo \*\*3\*\*\.\s*$/]);
+    need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /Wpisz \*\*1\*\* albo \*\*2\*\*\.\s*$/]);
     const welcome = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
     if (createHash('sha256').update(welcome).digest('hex') !== canonicalWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected Polish welcome has changed');
     const english = read('skills/workflow-orchestrator/assets/startup-welcome.en.md');
     if (createHash('sha256').update(english).digest('hex') !== englishWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected English welcome has changed');
-    need('skills/workflow-orchestrator/assets/startup-welcome.en.md', [/^I am FrameCore Works Creative Studio\./, /I can help you with:/, /you can add them now or later/, /1\. \*\*Creative mode\*\*/, /2\. \*\*Learning mode\*\*/, /3\. \*\*Code-based motion graphics\*\*/, /HTML\/SVG, GSAP, HyperFrames or Remotion/, /preview and export depend on tools/, /Enter \*\*1\*\*, \*\*2\*\* or \*\*3\*\*\.\s*$/]);
+    need('skills/workflow-orchestrator/assets/startup-welcome.en.md', [/^I am FrameCore Works Creative Studio\./, /I can help you with:/, /you can add them now or later/, /1\. \*\*Creative mode\*\*/, /2\. \*\*Learning mode\*\*/, /Enter \*\*1\*\* or \*\*2\*\*\.\s*$/]);
     const entry = read('skills/workflow-orchestrator/SKILL.md');
     const begin = '<!-- BEGIN CANONICAL STARTUP RESPONSE -->\n';
     const end = '<!-- END CANONICAL STARTUP RESPONSE -->';
@@ -71,8 +71,8 @@ export function validateLearningMode(root, packageFiles) {
     }
     need('skills/workflow-orchestrator/SKILL.md', [/@FrameCore Works Creative Studio/, /never return only the two-mode choice/, /A two-option menu alone is a failed startup response/, /Concrete tasks and actual resume requests bypass this startup response/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Complete welcome/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/, /## Creative pace choice/, /1\. \*\*Tryb szybki\*\*/, /2\. \*\*Tryb rozbudowany\*\*/, /## Established work-area menu/, /1\. Grafika statyczna/, /2\. Wideo i prompty/, /7\. Analiza dostarczonej/, /bare number only against a currently pending displayed choice group/, /older 1\.2\.0 order/, /concrete project request bypasses menus/, /neither a concrete task nor a pace is supplied/]);
-    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Motion graphics shortcut/, /not a third interaction mode/, /keep motion selected and skip the area menu/, /Preserve a runtime explicitly supplied/, /explicit request to learn motion graphics follows Learning Mode/, /8\. Motion graphics z kodu/, /Area `3` still selects storyboards/, /older still-pending two-option startup menu/, /Selecting the shortcut authorizes no installation/]);
-    need('skills/workflow-orchestrator/SKILL.md', [/Motion shortcut answer/, /eight numbered work areas/, /If the motion shortcut already selected the area/, /motion shortcut.*references\/startup-and-creative-menus\.md#motion-graphics-shortcut/]);
+    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Motion graphics in creative work/, /choose Creative Mode, Expanded Mode, then area `8`/, /After area `8`, ask only the missing motion brief/, /Preserve a runtime explicitly supplied/, /explicit request to learn motion graphics follows Learning Mode/, /8\. Motion graphics z kodu/, /Area `3` still selects storyboards/, /A `3` from the two-option startup menu asks for clarification without selecting motion/, /Selecting the area authorizes no installation/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/eight numbered work areas/, /If an area was already supplied/, /Area `8` follows.*references\/startup-and-creative-menus\.md#motion-graphics-in-creative-work/]);
     need('skills/workflow-orchestrator/references/intake-and-reference-authority.md', [/startup-and-creative-menus\.md/, /mode-only creative choice gets Quick\/Deep pace selection/]);
     need('skills/pipeline-core/references/studio-integration-policy.md', [/direct specialist invocation/, /learning overlay/, /Creation keeps the established production route/, /Ask exactly one onboarding question per response and wait/]);
     need('skills/studio-workstyle-profile/SKILL.md', [/learning overlay/, /ordinary one-question rule/, /Ask exactly one onboarding question per response and wait/]);

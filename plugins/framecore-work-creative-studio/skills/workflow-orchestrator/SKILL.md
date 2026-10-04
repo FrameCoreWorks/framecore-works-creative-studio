@@ -10,7 +10,7 @@ description: Entry owner for a sent bare @FrameCore Works Creative Studio or app
 For questions about the plugin's version or installation status, use this contract in Codex, ChatGPT Work and ordinary ChatGPT before any welcome, research or creative intake. Project progress questions still use the existing checkpoint/resume route.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.9.3"}
+{"name":"framecore-work-creative-studio","version":"1.9.4"}
 <!-- END PACKAGE IDENTITY -->
 
 This block is generated from `plugin.json` during release preparation and checked against both manifests. It identifies this packaged skill revision, not the model, a dependency or the newest release.
@@ -63,9 +63,8 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 
 1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.
 2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
-3. **Code-based motion graphics**: we design animated text, logos, diagrams and graphic sequences, from storyboard through code to animation review. We use HTML/SVG, GSAP, HyperFrames or Remotion (React/TypeScript); preview and export depend on tools available in the conversation.
 
-Enter **1**, **2** or **3**.
+Enter **1** or **2**.
 <!-- END ENGLISH STARTUP RESPONSE -->
 
 ### Approved Polish welcome
@@ -90,9 +89,8 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 
 1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.
 2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
-3. **Motion graphics z kodu**: projektujemy animowane napisy, logotypy, diagramy i sekwencje graficzne, od storyboardu przez kod po sprawdzenie animacji. Korzystamy z HTML/SVG, GSAP, HyperFrames lub Remotion (React/TypeScript); podgląd i eksport zależą od narzędzi dostępnych w rozmowie.
 
-Wpisz **1**, **2** albo **3**.
+Wpisz **1** albo **2**.
 <!-- END CANONICAL STARTUP RESPONSE -->
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
@@ -101,12 +99,11 @@ Before final delivery of a substantive authored, revised or generated creative a
 
 Resolve entry before loading craft, researching or asking for a project. The following sequence is required even at the lowest/instant reasoning setting; deeper reasoning changes depth, not which menus exist. Do not rely on a later reference being loaded to recover these steps.
 
-- **Greeting, sent Studio-only invocation or start:** apply the automatic language policy above, then deliver the complete selected welcome or full translation. No rewriting within the selected English/Polish text, shortening, salutation, preamble or additional text. Preserve its introduction, capability overview, optional-material invitation and bottom **1. Creative mode; 2. Learning mode; 3. Code-based motion graphics** choice in the user's language. Preserve checkpoints and reopen only the startup choice. Follow [startup and creative menus](references/startup-and-creative-menus.md) for the same language and entry contract.
-- **Motion shortcut answer (`3` in the pending startup menu):** use [the motion shortcut](references/startup-and-creative-menus.md#motion-graphics-shortcut), set creation and retain the selected motion area in the existing entry context. Ask for missing pace only when no concrete task or pace is supplied; after pace, keep motion selected and skip the area menu. Preserve an explicit runtime such as Remotion. Explicit intent to learn motion graphics stays in Learning Mode. This is not a third interaction mode or permission to render.
+- **Greeting, sent Studio-only invocation or start:** apply the automatic language policy above, then deliver the complete selected welcome or full translation. No rewriting within the selected English/Polish text, shortening, salutation, preamble or additional text. Preserve its introduction, capability overview, optional-material invitation and bottom **1. Creative mode; 2. Learning mode** choice in the user's language. Preserve checkpoints and reopen only the startup choice. Follow [startup and creative menus](references/startup-and-creative-menus.md) for the same language and entry contract.
 - **Learning answer:** enter [the mentoring method](references/learning-mode.md). Ask exactly one onboarding question per response and wait; never show the full questionnaire or two independent choices. Accept a numbered option or free text, reuse every supplied fact and skip known questions. When sufficient context is already supplied, go directly to the plan and first lesson.
 - **Mode-only creative answer:** show **1. Quick mode; 2. Expanded mode** in the user's language and wait. Do not replace this with an open brief question.
-- **Pace-only answer:** if no area is selected, show the eight numbered work areas from [startup and creative menus](references/startup-and-creative-menus.md) and wait. If the motion shortcut already selected the area, retain it and ask only the missing motion brief.
-- **Area answer:** retain mode, pace and area, close that choice group, then ask only the missing brief. A later bare number cannot reopen a resolved menu.
+- **Pace-only answer:** if no area is selected, show the eight numbered work areas from [startup and creative menus](references/startup-and-creative-menus.md) and wait. If an area was already supplied, retain it and ask only the missing brief.
+- **Area answer:** retain mode, pace and area, close that choice group, then ask only the missing brief. Area `8` follows [motion graphics in creative work](references/startup-and-creative-menus.md#motion-graphics-in-creative-work). A later bare number cannot reopen a resolved menu.
 
 Bind tokens to currently pending displayed choice groups, not a historic menu. Give every offered alternative a token; separate groups in one message use distinct namespaces, for example areas `1–8` and pace `A–B`, with a reply such as `7, A`. A quiz answer belongs to the pending quiz. An ambiguous token asks one clarification without changing resolved choices. Concrete briefs and resume requests use their supplied decisions immediately and do not repeat the welcome.
 

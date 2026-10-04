@@ -17,6 +17,5 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 
 1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.
 2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
-3. **Motion graphics z kodu**: projektujemy animowane napisy, logotypy, diagramy i sekwencje graficzne, od storyboardu przez kod po sprawdzenie animacji. Korzystamy z HTML/SVG, GSAP, HyperFrames lub Remotion (React/TypeScript); podgląd i eksport zależą od narzędzi dostępnych w rozmowie.
 
-Wpisz **1**, **2** albo **3**.
+Wpisz **1** albo **2**.

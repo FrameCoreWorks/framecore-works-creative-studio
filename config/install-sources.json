@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "a28deabe3f288f7320303967f0843a965bbb4b884aacc65164fa3073f62a4442"
+      "sha256": "86e988c9c144282e9cf469e26941b94c184e2591c7c70282d56b9f50c31b335e"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 16096,
-      "sha256": "18218770ca095de1ec85391a16104a6666abf089d522b923aa4bc6b1f9028ea5"
+      "bytes": 16028,
+      "sha256": "6f93c18fff35eb53677d6efe27c217e9c274663981134a60be488125fc197e2e"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13882,
-      "sha256": "ff7bd8d3c3a1fecb255b7efba84b890c4013b7aee2a62c5bba0dd9b1d3d06fc9"
+      "sha256": "59993a265e6d1036e93fa5b9c456ee73e27ef1fd5c0d72cee9b9b356fcb58b33"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 36612,
-      "sha256": "2fa9b25ef1ccb29c5f24e84e6ed58c8a3ece237a9c74c129071f6c6eba7ae61b"
+      "bytes": 37254,
+      "sha256": "f4cae842a4094b00c543b8255d7191731528d01ec3b7481eb7ed269e6b19867d"
     },
     {
       "path": "docs/research-ledger.json",
@@ -158,8 +158,8 @@
     },
     {
       "path": "evals/effective-overrides.json",
-      "bytes": 29861,
-      "sha256": "a2324c8ed7d592e3635743f3751d4fdd7f8ff51391bbd64a1f528ff9d9700dca"
+      "bytes": 29871,
+      "sha256": "8031c025d2178b1e793617170108f5d7cc3e5a4ca2f3a4277500e6f3b5c45255"
     },
     {
       "path": "evals/knowledge-practice-cases.json",
@@ -168,8 +168,8 @@
     },
     {
       "path": "evals/learning-mode-cases.json",
-      "bytes": 49294,
-      "sha256": "533599ee2d1457e50a08a2744b9467430427453f285fd47ecd200f234d08a584"
+      "bytes": 49156,
+      "sha256": "4b49e6c7f114d91933259a2f2bf92d888a620d5d27f47c2e0c561b58f6cc4bb7"
     },
     {
       "path": "evals/producer-cases.json",
@@ -2234,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "2cc09029890544ca46e0d9677f9d6da05de070c51c797f12cea618920f262ca6"
+      "sha256": "a4ff8c4a0ae220d9c27815e5931ece4719ce46b25e081283dd3bfe9ee3a30a8f"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2268,8 +2268,8 @@
     },
     {
       "path": "scripts/validate-learning-mode.mjs",
-      "bytes": 17923,
-      "sha256": "27ef44bdabc28454e83257c820c17204584fb464e3a85a48f430568dc4fac1f5"
+      "bytes": 17691,
+      "sha256": "7b6dd6a9f12f88288b9137e68634255483d197a9cbd58d0a58938b67b635c901"
     },
     {
       "path": "scripts/validate-motion-toolkit.mjs",
@@ -3228,8 +3228,8 @@
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 11698,
-      "sha256": "f5f220555cc23a0c42d7e19e7c7fefa2b7da8fde2d4728c0d4d453edaf1632c2"
+      "bytes": 11511,
+      "sha256": "130d00ff89dc771c98075f68749e422b80864f0f768627848d0a9a20b7a07fc5"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -3873,8 +3873,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 39521,
-      "sha256": "e8edfbd2b5e918dc8808bab8b015331ff3aaf002622e0e05c90d7ea381c7ebce"
+      "bytes": 38467,
+      "sha256": "a886796ea5b4ddd8e3f4b2bb637c9dd8f12ba61541ea578b164f77ba4f3230a1"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -3913,13 +3913,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
-      "bytes": 1794,
-      "sha256": "e926662229b03b447bde8eebfe5024b9a07a1dadc8990a91b3765a9b87d3c378"
+      "bytes": 1505,
+      "sha256": "c501fd86372785400175b3047c4c2b7a2cf5161a015ec6920771b1b533776b2d"
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
-      "bytes": 1959,
-      "sha256": "509afb18477debb7c4bf97be9d67d2dc086175b89a77755e9eed54072d5545b0"
+      "bytes": 1659,
+      "sha256": "e227a35f73089ee7437b471598814bec0849f5f78a54d7357c78a418d80de671"
     },
     {
       "path": "skills/workflow-orchestrator/assets/teacher-studio/activity-bank.md",
@@ -3978,13 +3978,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
-      "bytes": 15259,
-      "sha256": "7b490fb786501371f72fb43b354656ea981e1c7eb41b37a35596d7a7486c6725"
+      "bytes": 15120,
+      "sha256": "17c4c750ff90141c18940c3ba7fb17ebdf9c6c5a1f0832cbedff7bb15b20107b"
     },
     {
       "path": "skills/workflow-orchestrator/references/learning-mode.md",
-      "bytes": 24944,
-      "sha256": "abf44b512ce092ba708ff1748cf89a7bec130ef00293c44b8ab36f60ef7cdc84"
+      "bytes": 24814,
+      "sha256": "ca6b060fc0ccf1ee3e69687834067674c0be67f8122550a199e8b65e303512be"
     },
     {
       "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
@@ -3993,8 +3993,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
-      "bytes": 14589,
-      "sha256": "f3c93fe46f1175dc852a990543cb2c916646ecf0dfd850d4c21615d78d2c4910"
+      "bytes": 14312,
+      "sha256": "a043f0e30be6c022a4eab1127b0413852d6e7f39b4939d4a1de483bd53410aa4"
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
@@ -4058,8 +4058,8 @@
     },
     {
       "path": "tests/learning-mode.test.mjs",
-      "bytes": 21337,
-      "sha256": "b8068c3cbbc3c70315d92ec73183fba8bacd44b253d926b8a7e74f2239ca04dd"
+      "bytes": 21369,
+      "sha256": "7624bf0e180614af0cb1746cc1b88960bd18d1916e0272f059bdc0eac1ec89ef"
     },
     {
       "path": "tests/motion-toolkit.test.mjs",

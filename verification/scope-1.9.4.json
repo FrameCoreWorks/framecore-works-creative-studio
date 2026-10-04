@@ -1,0 +1,31 @@
+{
+  "version": "1.9.4",
+  "date": "2026-10-04",
+  "baseline": "ec45b210befc86337564f6c4262dc7584af462e5",
+  "shared_files": 808,
+  "changed_files": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "evals/effective-overrides.json",
+    "evals/learning-mode-cases.json",
+    "plugin.json",
+    "scripts/validate-learning-mode.mjs",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/startup-welcome.en.md",
+    "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
+    "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+    "skills/workflow-orchestrator/references/learning-mode.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "tests/learning-mode.test.mjs"
+  ],
+  "unchanged_files": 792,
+  "new_files": [],
+  "scope": "Welcome option removal, related current routing/guards/fixtures and release metadata only",
+  "welcome_assets": "ONLY_OPTION_3_AND_REPLY_TOKEN_REMOVED",
+  "other_skill_entrypoints": "BYTE_IDENTICAL",
+  "motion_module": "BYTE_IDENTICAL",
+  "dependencies": "UNCHANGED"
+}

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.4, 2026-10-04
+
+- Remove only option 3 from the complete English and Polish welcome; preserve the introduction, six capability bullets, qualifications and original two modes.
+- Keep code-based motion graphics in creative work area 8, including the Creative / Expanded / Motion path and existing runtime descriptions.
+- Remove the active startup shortcut and clarify an unmatched startup 3 without selecting motion; honor genuinely pending older menus on actual resume.
+- Synchronize embedded welcome copies, protected hashes and existing entry regression fixtures. Preserve other owners, modules, dependencies and provider boundaries.
+
 ## 1.9.3, 2026-10-04
 
 - Route plugin version and installation-status questions to the existing entry owner before creative intake.

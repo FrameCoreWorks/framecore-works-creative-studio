@@ -71,8 +71,8 @@ test('startup cannot lose its welcome, creative pace step or displayed-menu numb
   const startup = 'skills/workflow-orchestrator/references/startup-and-creative-menus.md';
   const welcome = 'skills/workflow-orchestrator/assets/startup-welcome.pl.md';
   for (const [file, phrase] of [
-    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Creative pace choice', '## Established work-area menu', '## Motion graphics shortcut', 'keep motion selected and skip the area menu', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'older still-pending two-option startup menu', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
-    ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **Tryb nauki**', '3. **Motion graphics z kodu**'].map(phrase => [welcome, phrase]),
+    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Creative pace choice', '## Established work-area menu', '## Motion graphics in creative work', 'choose Creative Mode, Expanded Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the two-option startup menu asks for clarification without selecting motion', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
+    ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **Tryb nauki**'].map(phrase => [welcome, phrase]),
     ['skills/workflow-orchestrator/SKILL.md', 'copy verbatim the entire file']
   ]) fixture(root => {
     edit(root, file, text => text.replaceAll(phrase, 'removed'));
@@ -90,7 +90,7 @@ test('orchestrator and shared intake cannot bypass the creative pace transition'
     assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), path);
   });
   const start = loadEffectiveEvals(source).cases.find(c => c.id === 'LM01');
-  assert.deepEqual(start.follow_up_sequences.map(item => item.id), ['creative_quick', 'creative_deep', 'learning', 'direct_brief', 'motion_shortcut', 'motion_area', 'motion_learning']);
+  assert.deepEqual(start.follow_up_sequences.map(item => item.id), ['creative_quick', 'creative_deep', 'learning', 'direct_brief', 'invalid_startup_choice', 'motion_area', 'motion_learning']);
   assert.ok(start.follow_up_sequences.every(item => item.execution_status === 'not_run'));
 });
 
