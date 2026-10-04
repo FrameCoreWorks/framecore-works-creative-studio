@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.9.1, 2026-10-04
+
+- Selectively adapt Artifact Guard diagnostic knowledge into Image Prompt Architect, Static Graphic Design Creator and Output Critic.
+- Distinguish periodic microtexture, large repeated patches, false detail, intentional patterns and uncertain preview effects.
+- Assess photographic plausibility and source preservation separately; compare faces after clothing/background edits.
+- Keep optional context-isolation experiments inside the existing reference and repair contracts.
+- Preserve the complete startup, all 37 skill identities, motion/teacher/ad modules, upstream sources and provider boundaries.
+- Record source provenance and unmeasured visual effectiveness; add no cleaner, provider, universal prompt suffix or extra QA loop.
+
 ## 1.9.0, 2026-10-04
 
 - Add optional Three.js/R3F, PixiJS, D3, Mediabunny Canvas export, Lottie JSON playback and a local Manim clip bridge through existing owners.

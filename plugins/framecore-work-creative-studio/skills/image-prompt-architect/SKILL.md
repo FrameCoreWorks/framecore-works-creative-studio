@@ -23,6 +23,8 @@ For a finished text-bearing raster compile one integrated instruction for the en
 
 The actual generation tool owns callable parameters and model selection. Semantic requests are not API fields. Never import flags from a different family or wrap prose in JSON and call it official syntax. Do not ask about API/wrapper unless the user raises it.
 
+When the request names unwanted microtexture or a concrete artifact-prevention problem, read [periodic microtexture and preservation](../output-critic-iteration/references/periodic-microtexture-and-preservation.md). Apply only relevant material requirements in the complete prompt; do not add a universal suffix or claim an unseen render was inspected.
+
 ## Before release
 
 Check exact text inventory, source binding, preserved concept, plausible proportions, attention order, useful detail, compatible instructions, method and next review test. Resolve a failed critical gate instead of merely adding “professional quality” or a long negative list.

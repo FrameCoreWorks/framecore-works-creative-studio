@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "7349a390386ea2a6a8cb6adaa4e44a4ae6cd9a1b345887d76b62da914c342d7d"
+      "sha256": "abccdf15c5ffa76eb6903b40e698cd7b54ad0d34d0d5824b7a4141cb70cf478f"
     },
     {
       "path": "LICENSE",
@@ -58,13 +58,13 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 2902,
-      "sha256": "1b972e33ef5e9c70dbb9a664c6e384973f553a924e9cc64e6e854547958302b4"
+      "bytes": 3347,
+      "sha256": "68baf163396a58a6ab24454249420d140ddf11d1d8642df92324d36aad38ebf4"
     },
     {
       "path": "README.md",
-      "bytes": 15552,
-      "sha256": "552b82a9b6533eef6a6c36b301824b4784f0e7ccb9428b65824db24cd466379c"
+      "bytes": 16096,
+      "sha256": "1e38fc8a75af02559e9165e0edd6b004c0358ca86bac6586c3aee947b3d92d1f"
     },
     {
       "path": "assets/logo.png",
@@ -103,8 +103,8 @@
     },
     {
       "path": "docs/migration-status.md",
-      "bytes": 13201,
-      "sha256": "08f1eafec1410f63278c8832b33da7138dde2ef89232c8ab349a698633ff5cf9"
+      "bytes": 13882,
+      "sha256": "bdfb8fa2df8922d117d4b82e8527504b5d3922b0df4255a02ac1bd237e836bee"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 34751,
-      "sha256": "af28637f7b5241ff7f7153cf95dd0ed2f49224f9153dc54d9dea58975561f78a"
+      "bytes": 35510,
+      "sha256": "4c6bbe257b9c357066b561d77b220fb53ea9ac1c4f077773db4148fed3c13f86"
     },
     {
       "path": "docs/research-ledger.json",
@@ -205,6 +205,11 @@
       "path": "evals/workflow-kit-cases.json",
       "bytes": 13619,
       "sha256": "c2d5771ed0a4731ccb5c06a0800c490c92de348cb34d0167e6b23d8df7948949"
+    },
+    {
+      "path": "integrations/artifact-guard/README.md",
+      "bytes": 4349,
+      "sha256": "9da4997e1b57b0fd9ec5522050f09c944bc83086433f40c5b7a6c83d611c2f53"
     },
     {
       "path": "integrations/meta-ads-designer/LICENSE",
@@ -2229,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "5db91fefe5a29f4bf8c802d717a43976698f7f727d930b165ca2c85d0979a3c3"
+      "sha256": "0d8d16591d5b8233cdcd6fb5f640927ff90eab47c863e171df8b4437f008daa9"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2968,8 +2973,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 7434,
-      "sha256": "dd4ce039d6aa7a6306e3b35e6fd04710cf86ea238215df3a5589eee274a753af"
+      "bytes": 7788,
+      "sha256": "f9e240819510c5ee79c37a9adde733f75ea0eff9b37d5e77d40b93b0be99dfda"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -3078,8 +3083,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 5887,
-      "sha256": "695bddb7029db61b79526c9b9c08eb73bed3a94a4bb3f3ac324ffb6ed9f91e71"
+      "bytes": 6181,
+      "sha256": "8c2ec20755fc5fafd32291c1bd5e31ea2da8d6510de836656349c70d14621bb8"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -3115,6 +3120,11 @@
       "path": "skills/output-critic-iteration/references/diagnosis-and-repair-lab.md",
       "bytes": 6698,
       "sha256": "66561dac6a183dc94ce1c5abf282368050497235db8dd33bb3fa8aaee6c743e3"
+    },
+    {
+      "path": "skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md",
+      "bytes": 6276,
+      "sha256": "ac2f0977326e52b9dc99a79bc552b6c9cd6448e2e4fbc5e46d9a9ce3be3e32dd"
     },
     {
       "path": "skills/output-critic-iteration/references/review-and-repair.md",
@@ -3443,8 +3453,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 9521,
-      "sha256": "1a87489f13eb0233205d653a7f8b15de5117919fa20862ad1be974b5fecfe24d"
+      "bytes": 9905,
+      "sha256": "e206dd87698625ab5acc994f04a6009b4e3af10d1acf4152a9a55f0eaa70bda8"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",

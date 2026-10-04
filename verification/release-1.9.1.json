@@ -1,0 +1,53 @@
+{
+  "version": "1.9.1",
+  "date": "2026-10-04",
+  "source_baseline": "a3fad8f17e54be5b23b727e356898565eea9d9a0",
+  "artifact_guard_source": "18cbe8e907d8508ba9bb284af27ef61402097297",
+  "scope": "Conditional knowledge adaptation only; existing owners and shared review budget",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 808,
+      "skill_roots": 37,
+      "planned_host_cases": 199,
+      "executed_planned_cases": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 119
+    },
+    {
+      "command": "TMPDIR=/private/tmp python3 -B -m unittest discover -s tests -p test_codex_install.py -v",
+      "status": "PASS",
+      "tests": 11,
+      "note": "Initial run under macOS default /var temporary path failed the existing symlink destination guard. Rerun used a real temporary path; no installer change."
+    },
+    {
+      "command": "python3 -B plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY",
+      "files": 808
+    }
+  ],
+  "independent_source_review": {
+    "status": "PASS",
+    "reviewer": "Olga",
+    "scope": "Source diff and integration contracts; no host or visual test",
+    "blocking_findings": []
+  },
+  "host_behavior": "PENDING",
+  "visual_mitigation_benchmark": "NOT_RUN",
+  "generation": "NOT_RUN",
+  "evidence_boundary": "Structural validity and instruction behavior do not establish image-quality improvement.",
+  "plugin_zip_sha256": "4ddf742e38b60da158499d123c92bc61f3aaf9892fa60250b0534a1a7cf0546b"
+}

@@ -30,6 +30,8 @@ Do not generate merely to complete a QA loop. Respect the user's authorized scop
 
 Stop when accepted criteria are met. Repeated failure requires a changed diagnosis or method, not renamed symptoms and more adjectives. Never promise 100% human appearance, conversion or a flawless render.
 
+For suspected repeating microtexture, false detail, face changes after an edit or reference carryover, selectively read [periodic microtexture and preservation](references/periodic-microtexture-and-preservation.md). Keep its diagnosis inside this review and its existing shared repair budget.
+
 ## Applied practice
 
 For objectively checkable locks use [tool-backed verification](../pipeline-core/references/quality-improvement-methods.md#tool-backed-verification-critic-inspired). For a justified comparison use [calibrated pairwise evaluation](../pipeline-core/references/quality-improvement-methods.md#calibrated-pairwise-evaluation). Both stay within the existing review and its budget; unavailable evidence remains Unknown.

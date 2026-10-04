@@ -1,9 +1,9 @@
-# Creative Studio 1.9.0
+# Creative Studio 1.9.1
 
-The motion module gains optional tools for 3D, GPU 2D, animated data, Canvas video encoding, Lottie JSON reuse and mathematical animation clips. Existing HyperFrames and Remotion owners select these tools according to the actual task and host. Original examples use pinned dependency graphs and one frame authority.
+Existing image owners gain conditional Artifact Guard knowledge for periodic microtexture, false detail, intentional patterns and preview ambiguity. A small material-specific prompt correction can be proposed while preserving the approved scene, exact copy, identity and required detail.
 
-The Canvas lab provides three scenes, seeking checks, MP4/WebM encoding, encoded preview and decoded-output inspection. A separate Remotion example demonstrates 3D; the portable Manim scene uses an existing authorized local runtime. `.lottie` archive guidance is conditional and is not a bundled player.
+Review keeps photographic plausibility and source preservation separate and compares the person even after a clothing or background edit. An optional context-isolation trial retains actual reference assets and uses the existing shared authorization and iteration budget.
 
-The complete welcome, 37 skill identities, teacher/ad modules, upstream sources and provider boundaries are preserved. Dependencies are installed only in authorized project copies.
+The complete welcome, 37 skill identities, motion/teacher/ad modules, upstream sources and provider boundaries are preserved. The adaptation adds no dependencies, cleaner, provider or additional QA stage. [Provenance](plugins/framecore-work-creative-studio/integrations/artifact-guard/README.md) records the pinned source and owner authorization.
 
-See [release status](RELEASE_STATUS.md) for observed verification and publication evidence. Local examples do not certify execution in another host or general creative quality.
+See [release status](RELEASE_STATUS.md) for observed verification and publication evidence. Instruction/source checks do not demonstrate image-quality improvement; controlled visual effectiveness remains unmeasured.

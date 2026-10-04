@@ -1,0 +1,26 @@
+{
+  "version": "1.9.1",
+  "date": "2026-10-04",
+  "baseline_commit": "a3fad8f17e54be5b23b727e356898565eea9d9a0",
+  "package_files": 808,
+  "changed_existing": [
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md"
+  ],
+  "added": [
+    "integrations/artifact-guard/README.md",
+    "skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md"
+  ],
+  "unchanged_count": 797,
+  "all_other_package_files_byte_equal": true,
+  "manifest_change": "version_only",
+  "startup_and_upstream": "byte_equal_to_baseline",
+  "canonical_skill_roots": 37
+}

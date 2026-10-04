@@ -2,6 +2,8 @@ FrameCore Works Creative Studio
 Version 1.0.0
 Copyright 2026 FrameCore Works
 
+Studio 1.9.1 includes an owner-authorized adaptation of selected knowledge from FrameCoreWorks/gpt-image-2-artifact-guard, commit 18cbe8e907d8508ba9bb284af27ef61402097297. Authorization was given on 2026-10-04 for the existing public Studio distribution. The Studio adaptation is covered by this package's existing terms; no upstream repository-wide license is asserted. See integrations/artifact-guard/README.md for scope and evidence limits.
+
 FrameCore Works original code, instructions and documentation are licensed under Apache-2.0. See LICENSE. Original component attribution and license notices are retained below.
 
 This package adapts creative workflow and static design methods from:
