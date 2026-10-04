@@ -329,26 +329,69 @@
       "visual_review": "Representative 3-second frame inspected; editable Rotate source preserves geometry"
     },
     "dotlottie_archive": "NOT_RUN; guidance only; no archive player bundled",
-    "model_comparison": "NOT_RUN"
+    "model_comparison": "NOT_RUN",
+    "browser_evidence": "Local screenshot retained outside the shared package under dist/motion-toolkit-evidence/browser-proof.jpg"
   },
   "provider_operations": "NONE",
   "publication": {
     "github": {
-      "status": "PENDING"
+      "status": "PUBLISHED",
+      "source_commit": "cc4132b8f419e72a6bee05a53e41353fa73ebea7",
+      "tag": "v1.9.0",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.9.0",
+      "release_workflow": {
+        "id": 37199813887,
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "published_plugin_archive_sha256": "51ea4579e6eddb394d2b21ddbf733391ead6bafc69cffa53b671ce189998e9af",
+      "archive_hash_matches_local": true,
+      "tag_targets_source_commit": true
     },
     "host": {
-      "status": "PENDING"
+      "status": "SAVED_WITH_BOUNDED_READBACK",
+      "version": "1.9.0",
+      "release_id": "pluginrel_6ac23c81685481918c6e04e52baae976",
+      "report": "hosted-release-1.9.0.json",
+      "inventory_equal": 806,
+      "readable_texts_equal": 794,
+      "changed_readable_equal": 36,
+      "changed_total": 37,
+      "unread_total": 12,
+      "new_unread_file": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "archive_http": 403,
+      "full_byte_equality": false
     }
   },
   "active_ordinary_chatgpt": {
-    "status": "PENDING"
+    "status": "PASS_OBSERVED",
+    "date": "2026-10-04",
+    "client": "Chrome; ordinary chatgpt.com Chat; temporary conversation, not Work",
+    "language": "pl",
+    "reasoning_setting": "Bardzo wysoki, 4 z 5",
+    "model_id": "NOT_EXPOSED_BY_SELECTOR",
+    "welcome": "Complete six capability bullets, qualifications, optional assets, options 1/2/3 and the motion tools/availability description observed",
+    "motion_selection": "3 retains motion and requests quick/expanded pace",
+    "new_tool_selection": {
+      "status": "PASS_OBSERVED",
+      "input": "Quick pace; planning only: data chart and simple 3D sequence to MP4, requested tool choice and final-export checks; no code/install/render",
+      "observed": "Recommended Remotion master timeline/native export, D3 data geometry and Three.js/R3F through @remotion/three; one clock, deterministic seeks, actual decoded-frame inspection with ffprobe and visual/full-playback QA before acceptance. Optional tools remain requirement-driven.",
+      "execution": "No code, installation or rendering requested or observed",
+      "limit": "Response was lengthy for Quick pace; this check confirms route/content recognition, not broad response-quality certification."
+    },
+    "scope": "Bounded live observation; 199 planned scenarios remain unexecuted; no media generation requested"
   },
-  "other_active_clients": "NOT_RUN; installed Codex cache may retain prior version until host refresh",
+  "other_active_clients": {
+    "status": "NOT_RUN",
+    "codex_cache_observed": "1.8.1",
+    "note": "The active session still exposes the existing 1.8.1 cache; no manual cache rewrite or parallel native Skill installation was performed."
+  },
   "package": {
     "all_plugin_files_bytes_equal": 806,
     "overlay_files": 37,
     "archive_bytes": 9335694,
     "archive_sha256": "51ea4579e6eddb394d2b21ddbf733391ead6bafc69cffa53b671ce189998e9af",
     "overlay_sha256": "56721b1e46a5a0d92bc69812a13bc36fee7f3a691f7117696d2744b06ef85274"
-  }
+  },
+  "source_commit": "cc4132b8f419e72a6bee05a53e41353fa73ebea7"
 }

@@ -1,0 +1,4054 @@
+{
+  "version": "1.9.0",
+  "date": "2026-10-04",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6ac23c81685481918c6e04e52baae976",
+  "source_commit": "cc4132b8f419e72a6bee05a53e41353fa73ebea7",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "inventory": {
+    "status": "PASS",
+    "files": 806,
+    "all_paths_and_sizes_equal": true
+  },
+  "text_readback": {
+    "status": "PASS",
+    "files": 794,
+    "mismatches": 0,
+    "method": "UTF-8 SHA-256 compared with the source inventory; hash helper checked against standard abc vector"
+  },
+  "changed_readback": {
+    "total": 37,
+    "bytes_equal": 36,
+    "unread_new_file": "skills/remotion-video-production/assets/three-motion-example/package-lock.json"
+  },
+  "full_archive": {
+    "status": "UNAVAILABLE",
+    "http": 403,
+    "large_file_read_http": 413,
+    "full_byte_equality": false
+  },
+  "unread": [
+    {
+      "path": "assets/logo.png",
+      "size_bytes": 1603136
+    },
+    {
+      "path": "evals/static-cases.json",
+      "size_bytes": 96290
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "size_bytes": 138877
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "size_bytes": 70529
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "size_bytes": 2378951
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "size_bytes": 221290
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "size_bytes": 3064074
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "size_bytes": 87462
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "size_bytes": 70529
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "size_bytes": 151821
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "size_bytes": 70529
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "size_bytes": 74021
+    }
+  ],
+  "readable_hashes": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "7349a390386ea2a6a8cb6adaa4e44a4ae6cd9a1b345887d76b62da914c342d7d",
+      "equal": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "6e0ec7b0e818a95eb253d4b94d2bf309afcbfde8492a762c8bfc9d9182a49688",
+      "equal": true
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "1b972e33ef5e9c70dbb9a664c6e384973f553a924e9cc64e6e854547958302b4",
+      "equal": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "552b82a9b6533eef6a6c36b301824b4784f0e7ccb9428b65824db24cd466379c",
+      "equal": true
+    },
+    {
+      "path": "docs/campaign-workflow.md",
+      "sha256": "6aed66cd7d54f62841ed15e6499a7a458ccf0b76e13907688af5c80da7afb9d5",
+      "equal": true
+    },
+    {
+      "path": "docs/creative-upgrade-verification.json",
+      "sha256": "c331ff550eb96bc7c882c13eb3d691884f03a5cc8f8379983f34b0a455aae6e3",
+      "equal": true
+    },
+    {
+      "path": "docs/creative-upgrade.md",
+      "sha256": "4474d8855162d16b76f9ea6d76a62049fb1108e1714bab064f08b354f9ebd933",
+      "equal": true
+    },
+    {
+      "path": "docs/installation.md",
+      "sha256": "0911422764dfa19fc2959efed5864bc68be5eebe948210d1ffb2ef77195e6127",
+      "equal": true
+    },
+    {
+      "path": "docs/knowledge-map.md",
+      "sha256": "f2f16c09642147a0ac5b7145dda9d93776be39660b846a7624606381de68c22d",
+      "equal": true
+    },
+    {
+      "path": "docs/learning-mode.md",
+      "sha256": "1e2215d9ab3821ca76685fcc6bd09b02ed2e27496a03cb8be45a8499a272708d",
+      "equal": true
+    },
+    {
+      "path": "docs/migration-status.md",
+      "sha256": "08f1eafec1410f63278c8832b33da7138dde2ef89232c8ab349a698633ff5cf9",
+      "equal": true
+    },
+    {
+      "path": "docs/provider-setup-guide.md",
+      "sha256": "d39cb41a490f4395695c5da8d6ac5863b305a63735dee68d3a0a8bb8f1ed1514",
+      "equal": true
+    },
+    {
+      "path": "docs/reference-audio-expansion.md",
+      "sha256": "48bf4221c66576e0df48ae1b66105d7261b46b5ce4ec3fcdd6d98222eef109ac",
+      "equal": true
+    },
+    {
+      "path": "docs/release-1.0.md",
+      "sha256": "d7b7698d3ec1852b3f8f5891acbab8e167fa8efc2816a18df6d487b460126265",
+      "equal": true
+    },
+    {
+      "path": "docs/release-history.md",
+      "sha256": "af28637f7b5241ff7f7153cf95dd0ed2f49224f9153dc54d9dea58975561f78a",
+      "equal": true
+    },
+    {
+      "path": "docs/research-ledger.json",
+      "sha256": "6734148c1cf3fcc0ccb18045a6de1a2ade46379cfd6c5b82df8ff46474cb9669",
+      "equal": true
+    },
+    {
+      "path": "docs/skill-naming.md",
+      "sha256": "c05b832dfb6eeae0e8fa51d720f1daf5a35198b70a6f04037dad4ecf33e49172",
+      "equal": true
+    },
+    {
+      "path": "docs/workflow-kit-integration.md",
+      "sha256": "bea3116efdd8fb6d1e183076e088427af2a3f9521601c167f2633aba8478a4aa",
+      "equal": true
+    },
+    {
+      "path": "docs/workflow-kit-verification.json",
+      "sha256": "9325a06c3191db0f9eb62b9191b2c3c6659e23c2248fcbb2d0e70cc8fe67cd17",
+      "equal": true
+    },
+    {
+      "path": "evals/campaign-cases.json",
+      "sha256": "5d4d6b520996ad116e5f2b9a9f244f5bccbe01e4a32aff545410bab81b6c643e",
+      "equal": true
+    },
+    {
+      "path": "evals/campaign-workflow-cases.json",
+      "sha256": "9e7d39144484bcd2007de885e0a9759cdbe40819b18d74fc7cf06300a00132d4",
+      "equal": true
+    },
+    {
+      "path": "evals/effective-overrides.json",
+      "sha256": "a2324c8ed7d592e3635743f3751d4fdd7f8ff51391bbd64a1f528ff9d9700dca",
+      "equal": true
+    },
+    {
+      "path": "evals/knowledge-practice-cases.json",
+      "sha256": "897e4d42477958e324b49028dac4f559bb86d226ecb07c978eb44f47b64b737c",
+      "equal": true
+    },
+    {
+      "path": "evals/learning-mode-cases.json",
+      "sha256": "533599ee2d1457e50a08a2744b9467430427453f285fd47ecd200f234d08a584",
+      "equal": true
+    },
+    {
+      "path": "evals/producer-cases.json",
+      "sha256": "b7c2187c079ef3041b83cc968aac0f8d16e6076588fdf0b74e158de8b73e0450",
+      "equal": true
+    },
+    {
+      "path": "evals/story-cases.json",
+      "sha256": "39f571cc0180507c170748fc5d0a768583e0251351bd8d940806415f62375300",
+      "equal": true
+    },
+    {
+      "path": "evals/storyboard-cases.json",
+      "sha256": "54db12d389298747afc7464b86b507316f477aa88921099d57e940ed0463a04e",
+      "equal": true
+    },
+    {
+      "path": "evals/studio-behavior-cases.json",
+      "sha256": "2664b4d2517aa80f0a618a108e3a31b9e3f08ba9b9f21949fd357be0e591c440",
+      "equal": true
+    },
+    {
+      "path": "evals/video-cases.json",
+      "sha256": "285da320cd458ed5e6180ace5b1c79e03c300f14227aefb06e06bdbbc88626ac",
+      "equal": true
+    },
+    {
+      "path": "evals/workflow-kit-cases.json",
+      "sha256": "c2d5771ed0a4731ccb5c06a0800c490c92de348cb34d0167e6b23d8df7948949",
+      "equal": true
+    },
+    {
+      "path": "integrations/meta-ads-designer/LICENSE",
+      "sha256": "47220978aed447ac4560ab21eb5cfd7a3d07feae0d0e077308edf9eace0d386a",
+      "equal": true
+    },
+    {
+      "path": "integrations/meta-ads-designer/README.md",
+      "sha256": "93233697bc8437d8375570ceaa1576f243fd49d618711781fc0ac2ef8d193cf1",
+      "equal": true
+    },
+    {
+      "path": "integrations/meta-ads-designer/source-manifest.json",
+      "sha256": "26a270b1b3d4876862bbd21426ff170dc6055262abfed4712d1f86d362164ec5",
+      "equal": true
+    },
+    {
+      "path": "integrations/motion-designer-studio/LICENSE",
+      "sha256": "9c93d59bdb93687e9593e4c138c486f752238858e0669f83b3db6adf8e311255",
+      "equal": true
+    },
+    {
+      "path": "integrations/motion-designer-studio/README.md",
+      "sha256": "1aa2155e2a89f3daf5f27df166bb72d9ac84e318a3b6c08b0b114a387944f935",
+      "equal": true
+    },
+    {
+      "path": "integrations/motion-designer-studio/THIRD_PARTY_NOTICES.md",
+      "sha256": "60a0a67033e6e25bd2c51ec1703dfad7783a4a64cc5799a37c6a9f5267d7a032",
+      "equal": true
+    },
+    {
+      "path": "integrations/motion-designer-studio/source-manifest.json",
+      "sha256": "d62e2e0bea5ee908fe5872d9f64e14b25b0ef350d4c18355ff1be28a68224a11",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/SKILL.md",
+      "sha256": "0053765d5a8ac78c6bc186eacf8f734877c80dc6b114bfdd4c604ff0c413bacb",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/SKILL.source.md",
+      "sha256": "28cc9585819067e86ed6ee137239dbef732a402fcbe371a2407c2578567779ee",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/agents/openai.yaml",
+      "sha256": "d3aea7a0641acd0786eaba27cd003bf33ee10485583ce25726a01d2995752d88",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/references/static-design-components.md",
+      "sha256": "199dab1321c0f480e572ca90e9be86dab207c789da80ce94a8e88004cafe90f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/templates/static-design-components.md",
+      "sha256": "bd2bc1dd8ab7f13f265ef0af537b54ef5f0a1b66a75e201aadeab21fc1297506",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/brief-architect/SKILL.md",
+      "sha256": "410ba3307e04dda3fdf0ce106f7949fc0119f47478385984803eae18686a0db2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/brief-architect/SKILL.source.md",
+      "sha256": "4ed05860eaf10ec747863b6ecccb9d5dbd91483460bfe19cbdd498ee0bb28359",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/brief-architect/agents/openai.yaml",
+      "sha256": "355600763d92d36d5c7dbd411f2aa06c37fb56021e8309a2095f0270b03b66e7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/SKILL.md",
+      "sha256": "77972f0bd182cc6f4582db0998f0256082578409b866fc516a05b3aadae3df8a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/SKILL.source.md",
+      "sha256": "4245770e1bf9f7b58bfef0f469632e7eddc8f68f0d211663c149ade05cfb517c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/agents/openai.yaml",
+      "sha256": "da4f606cd496be9d378e0182a57813e6183b900baa35853571ac9df2ff0c23d9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/templates/caption-task-pack.md",
+      "sha256": "1b3f309528001f44f4ea4dbc38a01c7bfedaa7bd981a1ffffb0394684cbb71cc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/SKILL.md",
+      "sha256": "3bf314340465f6ee92a0587c69040cb1c2df34e5cc0f87a83eda609a7706662e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/SKILL.source.md",
+      "sha256": "cce4a5bc5ca49b34879b74a443447b8a1bc5ccf5168ca705fe7571bbe835b57c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/agents/openai.yaml",
+      "sha256": "b28c8d1ccaf4eb49e21486cde995ec7597cb153175bf5bade4cf5df67f752262",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/cinematography/SKILL.md",
+      "sha256": "5d9703d5e9c34a9da322ff249ab35047662d9ce7f5bbbe875b1a0dc05a57cbfc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/cinematography/SKILL.source.md",
+      "sha256": "545464d43c534cf6bc70289631df750877d5b8478124bf40a38140a529ded06a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/cinematography/agents/openai.yaml",
+      "sha256": "9c700c7259d801fc9b4918a91b7159bc52e15df5487b89b45a8755527b73465d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-video-campaign-director/SKILL.md",
+      "sha256": "4d662e697a2f4242e5b484d861702f537c70ecaa5cc282dcfcb31399cadc5330",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-video-campaign-director/SKILL.source.md",
+      "sha256": "00f6170e460bbb4fb2e962d683cfd111ad32d79d4e115a89158274deca582504",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-video-campaign-director/agents/openai.yaml",
+      "sha256": "323eac07458638c6e80352f734dcda0c9ed568b43a0a221a6bef6e363f347dd5",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/SKILL.md",
+      "sha256": "f08227425037a95eadce7c08d1665caa8fae68bf1bf34ded1f12fbcfc9daa816",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/SKILL.source.md",
+      "sha256": "42546fbb8735b3514d17daf817d47adc04634c1e84ba69ce0bfadf273fc03e3d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/agents/openai.yaml",
+      "sha256": "3b755e2cc843e701e33f0552c6d5f84cd19edb1ab0308eb38c5fd76ffc279c19",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/concept-development-and-originality.md",
+      "sha256": "6d7eac0bcb9de9993bae45d497b6f7371f7b0232088bdf10bc91a95e8682d149",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/deliverable-profiles.md",
+      "sha256": "d14bd5864d55eced0cd84231b3f1eac631edebe03f8a2562cb21fffcf2920ab6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-code-workflow.md",
+      "sha256": "e574602c5e6cfc6970b971acf80eef16d4420efd64524791a2254c33efbe7299",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/poster-movements-and-production-atlas.md",
+      "sha256": "92211eef13258c528a0e3281912878023f0c2370b7f43501419cdbfb3498a9d5",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/poster-style-and-composition-atlas.md",
+      "sha256": "3d75c828089e952f77f203d7e9ac78178aae0366cf9e5ab48d0c29c6eeb3755e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/poster-style-translation-catalog.md",
+      "sha256": "d27819de26dfed812b5f012352c1d59b661c13ff13a3e27479539a9896443f08",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/static-design-direction.md",
+      "sha256": "b7e0016c781c993d3a44a9bb2cc8e8c0419041a91010d5100b440b13f915dded",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/scripts/poster-codes.mjs",
+      "sha256": "a42f1a6e9891a6e5ab2a07c021464893f7f0bb2b6c104707797421addbd7126f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/SKILL.md",
+      "sha256": "23ff82ec7f27d518d203accf9ee1b9d73753e394b7c1c9aaf016f6c465b48e2a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/SKILL.source.md",
+      "sha256": "f10a2bf2be22a69a9ed66549c64444df724f620f55c398f66312fc9c1068edff",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/agents/openai.yaml",
+      "sha256": "a9ef28b478b9bb3bd274e108b6a81ed992942ab69cadd951987af61f766b8393",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/references/copy-development-and-human-voice.md",
+      "sha256": "3d7a3847fa4f76c43c60262c6ce6cbcb58083ed1e2f3c3158c48870f377cbff7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-music-video-director/SKILL.md",
+      "sha256": "5bd81db22c6cc0eb2dbe18c453198d93405a69fc478cec508796092fbb2062ac",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-music-video-director/SKILL.source.md",
+      "sha256": "2ee8d5f02ffc349ad2b0325ddb74bab19342c6000d26849c4f337d73088d20ae",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-music-video-director/agents/openai.yaml",
+      "sha256": "41cf49b0f21cadcd078f1ffa3ba58a36bf7594920dc24df2a455d1f6b068e332",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/SKILL.md",
+      "sha256": "7b73f93189b6882d3b16486e6c2d5d7d5cd090ca815d0750d7fdfaa63637456d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/SKILL.source.md",
+      "sha256": "79e9fb01bd86eda34a12e3072ec01af6fd59106c5bfba72058c8375d552357b9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/agents/openai.yaml",
+      "sha256": "4d62c554c215240645bb46be7def2010b4f7dd7c591da6ee149d9c5f1c824fb3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/templates/creative-video-production-pack.md",
+      "sha256": "042cd76ad3bc771413c60d06b5b81e5c1676810cecf8590007d69f36cffef764",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/delivery-documentation/SKILL.md",
+      "sha256": "651a0b4187594535656121ecbec6c0001d2fd2670c1977884e9d6c9f84504e51",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/delivery-documentation/SKILL.source.md",
+      "sha256": "7a1c0251cde322d62b1a99d8c4c307e5e7eb0c0e879b46de5e68acf8b18288d1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/delivery-documentation/agents/openai.yaml",
+      "sha256": "156eeb9eda3d8a80f2b469c886a85909f3bd3caaeb760934d14f8976065f6881",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/SKILL.md",
+      "sha256": "c4f24546a8145c0a4d5b29eb765ddd1c1924d0b1a149a5c550ff175894e05fbb",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/SKILL.source.md",
+      "sha256": "6ba5d5de3ee020fdf000ac142bb846079c583a33cf1072ce457044fbf7531d8b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+      "sha256": "d275a8a46f58b38ca9a484b601ca533da57d49e5aff8332abb9c4ab44f73f11e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+      "sha256": "bb5f8fae2b7459da943af623b8ad3f0397062c741dd4f8ac667528e72dc6355b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/SKILL.md",
+      "sha256": "e5f886239fc13d4f159b22ec69e5e59fde9b7a4809a8288e3925e0d2c986779b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/SKILL.source.md",
+      "sha256": "ff649465fe66210499d0db137f7824dc3201237e14459ad1a1397fc9418ede31",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/agents/openai.yaml",
+      "sha256": "745c4b20c7a3973b6e1f96d65267ec6102c328f83c2ce198f4d334bf44144776",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/templates/instruction-packet.md",
+      "sha256": "53d8e5bfa251f12d9fb3d64b5144198a0c01e7df555b3e1ae4d452e7c34a5bb9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/templates/internet-mapping-packet.md",
+      "sha256": "fa2743332c2bfba288ffe9dbbe3553ebcec2504c7e5be58fd97277cfab01204e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/templates/research-map.md",
+      "sha256": "876ed05b6a5614d8a43032ab4ac048adc6a2435917fe538efba71d5beb51cf30",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/humanizer/SKILL.md",
+      "sha256": "0ea889318dd34ff85785581e9acfba2d7ece93d01fa3e8be9f5e3939bcb2869a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/humanizer/SKILL.source.md",
+      "sha256": "db209950c7279e0d65fa9dddb5bb8cab8c22a55d0b021db24327c0a33d264a33",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/humanizer/agents/openai.yaml",
+      "sha256": "0e8076f247c0dfd161778fb87cf557a066dba30113e2f6ff7df757c3fcecf581",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/SKILL.md",
+      "sha256": "51b65c3de2263defe080dee793f0f699d549d9c4fbb30dd37695a2bd99706e90",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/SKILL.source.md",
+      "sha256": "87e1a3fb7b0bca24398e02863f06624865ed0f72647d943fe2d22815ee1183a1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/agents/openai.yaml",
+      "sha256": "0623a2f2fca15093c65775e157a6360cc33c08bad74ee53913148613e69daafa",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/SKILL.md",
+      "sha256": "bbc64735a40ccbac8e65a8dc64c769a4089f1bb5cce0532f8b2b403db93ea838",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/SKILL.source.md",
+      "sha256": "7af71fafc68ffad4e17e714552cf64167ab169e8bc45abfc2fe3a3b8996871fb",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/agents/openai.yaml",
+      "sha256": "cb6cbb6f63b35bf0a8c817239855564873e01d395e25f9f6574c628c2b61c06b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/references/static-design-prompting.md",
+      "sha256": "82afd522cb1d006d832729cbb6a77b5efe1772871e8e71e0f6eba610c94d54f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/references/typography-and-text-feasibility.md",
+      "sha256": "8359609ae5aad78285fbdc64e62b024f707edd242a9854e93ca6b71c0f0cf2f2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/references/unified-static-prompt-contract.md",
+      "sha256": "d5640cb2d19db3b4a6b4dcdfafdf8697c49d4c7b92198a844f3f550f59ce1e49",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/scripts/static-design-preflight.mjs",
+      "sha256": "cfbdfca156ada8b9a7363d4558b5dde253c1a6be76a7530a01d36c9142f8c546",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/templates/static-design-notes.json",
+      "sha256": "33b52fec21590441804c40c950da53992b7a66d4ac0d1657afe9cbbb024d854e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/instruction-packet-factory/SKILL.md",
+      "sha256": "82f7284288a5fee32270728dd7090fdfee26083ff32412936c70b8a1ab0caa53",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/instruction-packet-factory/SKILL.source.md",
+      "sha256": "9c5e86c4064bd9f0649a5bb91be3a4eeadaf539e9401be05a3edfce8f02572cc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/instruction-packet-factory/agents/openai.yaml",
+      "sha256": "479f9f49d5e19952db0aa8b861da37b48ac492178661359dde98c382a627ed0e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/marketing/SKILL.md",
+      "sha256": "6d876094f49bb3dd88042ebca0a09186d3f3d282911caeae24311e9f99701996",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/marketing/SKILL.source.md",
+      "sha256": "dce47f8e1a2978c144ce6314e218d9e95cfc9336f2c856cbabe0a6e5d1bfa2d9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/marketing/agents/openai.yaml",
+      "sha256": "298f7eb327d4b0db2a36d04b88fd1bb2158953df42116e869227406c78c28f32",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/onboarding-preference-tuning/SKILL.md",
+      "sha256": "9a13eb302132c3e7e7155bcebab30f14c30122810b6d7ce1e27eb21196085014",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/onboarding-preference-tuning/SKILL.source.md",
+      "sha256": "55eaa687ad33b537d79749128630d727d32a71aaea2c260eeef535bbf74d7677",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/onboarding-preference-tuning/agents/openai.yaml",
+      "sha256": "678dbf3e8156549be1383a88294e8eaab5a0aaacc4219a6b024311fa57feb4f9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/SKILL.md",
+      "sha256": "da66ce8613a425b826b6ef4ea5fcee468c0222e1974fa6d02bd78d2dd6dcf45a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/SKILL.source.md",
+      "sha256": "3f607ab836a4899cd603b6e1f89d2fbe0bf2392e324f86bea7f788424178b8ae",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/agents/openai.yaml",
+      "sha256": "09e4f989a75ba1287b12b08ca31bd77e9b2e04eab3c197b9e98efb846b6d4427",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/templates/opencut-edit-pack.md",
+      "sha256": "b7b6219802e6965df8c49f2413c347095a66e8c1aee63d4fc1f527c14ddcbcbd",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/SKILL.md",
+      "sha256": "eae74811b8e03761f18bf7d70846519190d26d135ab172f47e9d14ec74d35a39",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/SKILL.source.md",
+      "sha256": "4b4d23c9dac5e2586e293c22c6ef1daf70a5c8fc79ae88e4ad58e945e07ec949",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/agents/openai.yaml",
+      "sha256": "b390fe997df7f6f8ed8d3528dc3b63b5dc64ff90b4c3cf007e65a9c308a880a4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/references/material-artifact-diagnosis.md",
+      "sha256": "623d3624e7f296b6ccc029458c7fc13e092b8f516d9b99bef8adae6a8eae0148",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/references/static-graphic-review.md",
+      "sha256": "eebf0dd26404a79fa492a6bf2d20e4365a904a5aae9cf0eed5c85911925e25b8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/SKILL.md",
+      "sha256": "0c378c5ed2b23327b3a4a4211aac99b905616b7cdfe70262a160a084fdfc6658",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/SKILL.source.md",
+      "sha256": "d636c3c8889909fbb7b5459e01f0caaf261dd744cb751772497c1d0d94d837ea",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/agents/openai.yaml",
+      "sha256": "b1bb207a2c40de2b6c951c59d034fe45f2a53ed5c83b4ce53942fa2a812425b2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/agent-roster.md",
+      "sha256": "41b9c25885a23218749e854b4146cb67e8d2b2947d5cfd9214521b829910402f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/creative-prompting-standard.md",
+      "sha256": "b828429afba14f713eb5a5cb00f0b0c2179669f5b66214ccd0d6ca843c697c3c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/gate-registry.md",
+      "sha256": "6c326c69f59766c7420c2d81768a5932447a38d62de39b24a076485c7352b981",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/handoff-matrix.md",
+      "sha256": "531ab4b38459b02d8e94013b9708fa52c7a92869eb1402e793e239644947bbf9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/human-voice-and-copy-delivery.md",
+      "sha256": "d6863a050cadc4ce82a0159aea2e443ed05958349a9e7949c7bae1adbd90700e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/humanizer-routing.md",
+      "sha256": "788abd32d79f8bbf0def9eae243101f0d23338b1fe30244f3a270d7be4b665ab",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/hyperframes-workflow.md",
+      "sha256": "5d01f9e26140db33f49f24d04b05b2401326268dc6aeb7afc65655f5069fe222",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/inference-reasoning-methods.md",
+      "sha256": "827324a3a19e97b208dc42e6aa5cfda14ce017dc757a31e6f494a09feb4625f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/loop-protocol.md",
+      "sha256": "2b341e75635b5cf87f4c3bc8411951e40d0abc3f9d73a630f07a3c014d0b3979",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/prompt-format-and-continuity.md",
+      "sha256": "317a1f1485a425049131cf7880aafa648364f300d8be0719cb9d2ea83ed2ad68",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/role-skill-map.md",
+      "sha256": "b69d185e1b7c9ff781ab90cf87e988c5cdb35bdc1b1fc3b6d61d548c2ed29c53",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/text-image-generation-policy.md",
+      "sha256": "7ebc3da90f0a3881b12d379df329600d937a80c18a4c0dbf598de06c1ebb24f1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/workflow-blueprints.md",
+      "sha256": "93c580e788169d740c83fb618d0b569f47aabd8b914301ed96c2ba872c3b479f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/workflow-operating-model.md",
+      "sha256": "c52aab5b2ee71c2da5628369dce70ac6c6f336a0c614b209ba7540c23778c2fa",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/templates/artifact-templates.md",
+      "sha256": "478d519631911fa4e32d39c7954f1b128b81a29461568dcffd55caf916fc5322",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/templates/creative-prompt-contract.md",
+      "sha256": "9cc3067c3a153f252593f593ce19efa8c5dcb2cab590b3f9afd713f28a02a140",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/templates/project-state.md",
+      "sha256": "636be323a6f3119128d578b4ee42c9011aed40b85d790450fec7dd0608c4ec3c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/SKILL.md",
+      "sha256": "dc7f58b962a43a86ccfd2aa0ff84ae6e6bee3f0c6f89a8813b2ed5fdbb98b58a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/SKILL.source.md",
+      "sha256": "4c813b2ca0821b2862eb521681776e1ab1d2e933fd806b80f9099b9d0e7916a9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/agents/openai.yaml",
+      "sha256": "459c0dca31ba1af7a304ded5e34fbfef89a2c11a1a2bfed87812d9ba77a6bfe0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/templates/producer-ai-task-packet.md",
+      "sha256": "0a9b3112ee59fab225f38d4990160424133494c4a284ee31c610ee828774cce8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/SKILL.md",
+      "sha256": "0bb5fc1b802fe6dc16dfe04c6806d38e7b4d24fe2f90e6745e21f449f5a887b2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/SKILL.source.md",
+      "sha256": "d08ca11996ee22922b7ba15c37c46bfda6e93fdb4684eb77ee7cada15358574a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/agents/openai.yaml",
+      "sha256": "f8cbb7a101862e9ddd10ca87af74c833d9d8fd75913cb17f10e774b8f787a5a4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/references/static-graphic-source-authority.md",
+      "sha256": "c7022dce6bdc3a903fd5ff819c5685848b25906d6bf26a93b7cc93f7d5597fe1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/SKILL.md",
+      "sha256": "a4f1b47da1bf3180002f5667700e983b3dc2877646aa29be5792aaf43dd50d8c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/SKILL.source.md",
+      "sha256": "95efc1af09ce069d7b4c66a3296bfc34bb769388eb10ee2f29bf1bf3a4e1ae0e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/agents/openai.yaml",
+      "sha256": "e9f524954c630cba5ec53e0bddf2b79df68764ec999dc57a0fcaa36c64b2bdda",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/references/remotion-implementation-notes.md",
+      "sha256": "81c5548fdd79fa108b1fb02d4ee005053c8a49ea296dd5789e68c964884d22a4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/templates/remotion-production-brief.md",
+      "sha256": "8ec6806e5a2d1bf9467e52c1b32abdeceecb1b0b3df0eb4eedf0e2f3f88c5122",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/SKILL.md",
+      "sha256": "fdbf65aecf8feafbf90171f15f1dc51c3bcf55a2f2da0f31b3f8309aefe6eb9e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/SKILL.source.md",
+      "sha256": "328031b6853e6d13e8ee0b4cb2b15c5f615ca83da03ff898c958704661b2c8e7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/agents/openai.yaml",
+      "sha256": "2cedf21ae6e2b5933d2aa1f6b8e1034f0e5fbab2c3c5afa0082d36b97b52a43d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/SKILL.md",
+      "sha256": "8de0a39b16ea26bb707417c71a4e23f3a395314b4f63f7101a9cdae2a8f769e4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/SKILL.source.md",
+      "sha256": "ff343d43eaf298e0ea1eaef6b037f7947f9f0a8282bb7dfa85142bb0e2f92474",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/agents/openai.yaml",
+      "sha256": "134ab85e73d93f187fb219d9a362f76a79bc7d2d4bffbf314d9c53fb60f6d898",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/templates/screenplay-development-pack.md",
+      "sha256": "4401df124d9510321e035b9e41c4205e7aec9f2d6c324843a436a42d0811e8c6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-board-architect/SKILL.md",
+      "sha256": "d7486cc5c80fb182c0db928b52e0540aade65aa1440f956d68da663fc4fdb0a3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-board-architect/SKILL.source.md",
+      "sha256": "fb6887c4252f7251fb724523bdd22329717d7b95e76c23c5c03beccaf91f25d6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-board-architect/agents/openai.yaml",
+      "sha256": "c8ec028ff2d5053a9fec609e5248811eb1c7d27833e2756c84a365480d4d5697",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-director/SKILL.md",
+      "sha256": "ae2cfdbea078ad2af797a256e06c794074645cdc0815473238a4f301b56fd5d1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-director/SKILL.source.md",
+      "sha256": "4f9b4081f58ac6df13faffbd9635a894fe1ed96a16bae478342d3937d45690b0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-director/agents/openai.yaml",
+      "sha256": "8f19fcfc1d1d996ae134eeec97e67a18030c649b6ed8be39952c01e3814951aa",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storytelling/SKILL.md",
+      "sha256": "3357f3aaf9075f75f77962490a8fc160191393f194e679aeb37453272843663a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storytelling/SKILL.source.md",
+      "sha256": "c2a2fb7ff2809d4caa3a1cc0698c8c9b85414c2cdc0235198951283ec03f73f4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storytelling/agents/openai.yaml",
+      "sha256": "694502a817614164c3ef872ccc0c0bf5197d16079d0ea51c1ca4b02e416e991e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/tool-routing-cost/SKILL.md",
+      "sha256": "f223a3ec4b5b7ea4f053b8d26a4691cf6db664712c1170051a0e7fff16fb0ba9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/tool-routing-cost/SKILL.source.md",
+      "sha256": "584bb722ae0a87ed0ed6bcf20af60cf0711024f2e3e963cc9a8bc48ab5208ae3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/tool-routing-cost/agents/openai.yaml",
+      "sha256": "a7272053a4be83ac40a9feb6da367d1818c4e6cd17826364dc1fc9e0123bdeaf",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ugc/SKILL.md",
+      "sha256": "50254db4c8e011cee51d86dbf5b5f35198c2fcd8a924ed6b4ae465cb75cdbdd6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ugc/SKILL.source.md",
+      "sha256": "0fa557c16ed63c731297f589797d3f2e00022cdfbcc7c904dc734253dd6cb284",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ugc/agents/openai.yaml",
+      "sha256": "b35e01b837b0c41640a4a8284788580ea893d33480b83c38ff9dc2fd7f5f06aa",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/video-prompt-architect/SKILL.md",
+      "sha256": "13e5b27a1fad831f715350970636e22373b54fc3cd672191f53669ac0419db08",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/video-prompt-architect/SKILL.source.md",
+      "sha256": "0a040fca1bc4548a228b919c8c6b080c634e238da9f74a51767b47601d4d2ee6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/video-prompt-architect/agents/openai.yaml",
+      "sha256": "7f557804eabc217d5abcadc9b03ee68517c1d51ae6d337a87c7910e2892c9b04",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-orchestrator/SKILL.md",
+      "sha256": "775f01ad6bab03a45180af7fad7ebbc5edcaa8c4bdb9a1879e60a53b1f1148c3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-orchestrator/SKILL.source.md",
+      "sha256": "1ec11ba8c6d049129775b1eaa66e5e3d7112e00cd4a795f4a1934c6da786fa38",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-orchestrator/agents/openai.yaml",
+      "sha256": "a8050a953519acfd8dd71d5959e0cb941c2897673b43437ee5a34c104f98a089",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/SKILL.md",
+      "sha256": "7c9c959b04cdd8c7aa2cf840789e15bd76f1872d50051a0bd813dd7c3886bb6a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/SKILL.source.md",
+      "sha256": "ab8d1092d7311d4a94ea0a6ac3f61775c86cd10d3f9e4dc0fb737df1d3ed2d2f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/agents/openai.yaml",
+      "sha256": "cdfefb76148ac34a5a6d74d1dc11284895eff9faece9cbffd77a5e1caef24317",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/templates/change-proposal.md",
+      "sha256": "31f0827beb6bf85c437bcf52d55be1f7c07c1f2723e94b6c3745507b8636624f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/templates/improvement-log.md",
+      "sha256": "bd14ac5d6ccc259f5b031b4a2d51931e5cb0120acf1983d0cdbbc48e1327671e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/asset-manifest.toml.template",
+      "sha256": "384cb930cc928572070878632d0cf1efbe6eae640fd5c86e9dae1b54a5224c3d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/brief-architect.toml.template",
+      "sha256": "b0dde88ff3ccdd72bd02d4826e569979808447f9675d624b33a696272e7a108d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/copy-voice.toml.template",
+      "sha256": "6f431702dced9f028b508b63d19fa17bcddc2749d2dee0f66ad4e60e4cb92e26",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/delivery-documentation.toml.template",
+      "sha256": "fc7a56ca96f59e87368a4f087bb33f545b846bb79a6c679312f13d34bd43c40a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/execution-manifest.toml.template",
+      "sha256": "e871bffdcc31f6e75bf920af930e498e3422f6b2bbeb589ae821ff57c0a90760",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/hyperframes-producer.toml.template",
+      "sha256": "1b123cf649db6914753c0f62228a00c378c9b7259fbc35219717adc8409b5e56",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/image-prompting.toml.template",
+      "sha256": "fccadddbd6a23ad9bfcd907ea619471ecb90cc2f9d846a34ab645bf2de9556f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/instruction-packet-factory.toml.template",
+      "sha256": "fbc5cb952cec998841ab71ae83792da2003520adda5368ad7df66eb1f8301839",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/intent-confirmation.toml.template",
+      "sha256": "80aa4473e1b49e73bc11de090d89d6027681facadc5d7d8ee409e8410160fa16",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/motion-direction.toml.template",
+      "sha256": "6b6b1b84777de9ef62e451e0199df07afa3f79fbe1821a58aa2cac0f10766ec4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/music-video-direction.toml.template",
+      "sha256": "0691449875e5ce9bb81e20784fcf3adab78bea0035d217760f7f004b57621506",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/qa-iteration.toml.template",
+      "sha256": "cb0dd3300ca79ddc729bdaac3210ea7cd4bd174d53919f5ea0a1463f5b3cdd96",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/reference-curator.toml.template",
+      "sha256": "93c31878a548ce35f6801ef4601130032279da974748e253972df270e23540c8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/research-evidence.toml.template",
+      "sha256": "362cfdb64a41bbb08eed9f39658f3af56fd616011520e67a86c9ec9fb5776905",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/static-direction.toml.template",
+      "sha256": "09e3a8e7ec7fbb7deba86046bc5157121916125438f56f9ee4e1613950c00729",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/storyboard-architect.toml.template",
+      "sha256": "2d0c7db4053168c7cabc28159d25091d31419c34cfa90f4c645222450b570cd0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/storyboard-board-architect.toml.template",
+      "sha256": "56e7a4825dc0212f62d10e4c545aedc81b4753940d0516b9da87bb6eb776c899",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/tool-routing-cost.toml.template",
+      "sha256": "b8a23656554231618de75b3800656ce6c3550adec3fb2cf2bf2e921328bd97d2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/video-prompting.toml.template",
+      "sha256": "a8aa7fe78ebbcff45da0e7dadf22c50681d17301685d84b0267994da8612d544",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/workflow-orchestrator.toml.template",
+      "sha256": "44b3ae73a31e2d1f299c52f73915b3ae697ddf3386b05a24fc4ef5c7a85fbca3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.editorconfig",
+      "sha256": "d6f15793633c2d173ef51d3f6ad3ec042d5d2c462849d661d05aba6491b20328",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.gitattributes",
+      "sha256": "45fc29ff7856ccae067a0371989cb094348df3699f5833f305f65c7159cde344",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/bug_report.yml",
+      "sha256": "f047daed02580b17a892f047afa8607caa9a508ada13a1ef343cf8cb1637e3d1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "e627a1fd4be17590389bd39e0192131c4957c6fa853f977d7e2dd300832225e7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/documentation.yml",
+      "sha256": "cd08f0caa20cb5476e99b9c7ef62d9c862f479720a415e529f23e5483d06e7f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/feature_request.yml",
+      "sha256": "cd891cbc79063d5846849adf9b509490f18ac4d19dee286a2eeb91712ccd5921",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/install_support.yml",
+      "sha256": "9e0af24beab75ba5d7d8b2ce8b2eed1668f5f8717496476fb58fb4db246694f0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/tester_feedback.yml",
+      "sha256": "5e50ce4c93ceacf0fce7d5d8a8413cc8a69a466ee04ff2bc87668985a352f909",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/dependabot.yml",
+      "sha256": "ebc7caf7b7f432ea7481c1f707ececede02c1a746f609690aa79482445d91cc0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/pull_request_template.md",
+      "sha256": "4c36094c8b1a9685571947a42e2ab2a86402b397e1e23d154bc20ca75716744e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/workflows/cross-platform.yml",
+      "sha256": "7d0ae5c7c7133e6bc9f7ea0cca39c2bccf5a09212bb59ef8b7142ddaf8c248db",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/workflows/release-check.yml",
+      "sha256": "a94f3273c6a05e92f20696698d0df0dd7ea62f79bfadde61358fb154b01d78a9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/workflows/validate.yml",
+      "sha256": "c92c6a3b69bd7af1ce2b3af12dce25f8e0069cdcd7eff18f4267a9bce0a4eabc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.gitignore",
+      "sha256": "ca0846448b27eca61469c9594bd5f883dc09d77f52cda85c472f2e0921787931",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/AGENTS.template.md",
+      "sha256": "8e5f57e04084f0b978f04dc620a74342520d45fcf98efd81e0017022a89947f2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CHANGELOG.md",
+      "sha256": "7f370048a7c9a9407ca5200fafbdbf904e8762c5f9ee567c4965140627325aa8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CHATGPT_INSTALL.md",
+      "sha256": "c2e54f4bc7b79242a15a651b98ae6d50a971f17c04ac97afaf4c9ea0cfe3c50f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CHATGPT_UPDATE.md",
+      "sha256": "2d4f85ae1e9e38a6116b552019da57b4eef4ef7a21f4fc20aff68dcea29bd089",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CODEX_INSTALL.md",
+      "sha256": "9aff5a5d3015589a5aa394d62411ae08f7109e2b292f3aa62743f04918f2b2d6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CODEX_UPDATE.md",
+      "sha256": "532ab2ed011bf0d90c5331b73f6d4ac7e649f4107aebbb04e506128061219f2b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CODE_OF_CONDUCT.md",
+      "sha256": "be3f315fd3267ca58cd9de80ba982b0f3e1f886a70358ef006494b7c6bbeeccb",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CONTRIBUTING.md",
+      "sha256": "2cf0766d496fe35b87060a6d5f40d657def2d618fe8336e8286c1631c9b00340",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/LICENSE",
+      "sha256": "25404fb19aa7692f705f842875c0e7df4cae49aadae2376add562bed8928b57c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/MAINTAINERS.md",
+      "sha256": "13903b4f53da0501e2d7dc64bf3b9376b4cd556103388e82175fbb3c0f570085",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/NOTICE",
+      "sha256": "106ce4072b5c98acb372f409cb79ed9eea9a58fd73b9519cbe7488c18a820135",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/README.md",
+      "sha256": "d83ca188c6e13e611c2866af9e862236fc686ca4dda7956bf03f72862e84584b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/SECURITY.md",
+      "sha256": "4650d8e06b0529eef1ef550951a50659666c0acb14d0ba45f822206e55e54cb8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/SUPPORT.md",
+      "sha256": "8db1b565779c626c9f52c4137bbf65fefa7c190b8d9ec07d6a25cf5bd701a515",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/agent-naming.schema.json",
+      "sha256": "7a76ea7bdbbdcd1f318fda6a4793a46f9b2e4053bb88e52f8cc48f09fb22b9b6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/artifact-schemas.json",
+      "sha256": "91fc2dc7cbb907e6108c6ea9cb29cab852ceee98b6a164d3b779d77b5ed30add",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/automation-recipes/workflow-self-improvement-review.example.json",
+      "sha256": "59bec7147c258b475d8a23dc646f26da6945105b5d58f4366585c71c60f64c9d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/bundle-map.json",
+      "sha256": "3d67c3b9901f1ed75bbdb2b9858cfab387990cdb94d15e04acb9c78ca33b11f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/chatgpt-skill-sources.json",
+      "sha256": "1423ac502a8428d0d71da19bca45376244df5752857d88e1cceb733a5e42fd51",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/chatgpt-skills.json",
+      "sha256": "bac661cf8037a7ba3e63b5535f9a3c31a8747e4bb8c87e2d5e7228744e4ac9aa",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/defaults.example.json",
+      "sha256": "6382e91e203e0d1b66ae3a0d2ae66eec2d25f29ff60da8701e4b08bd761e7be4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/hipson.example.json",
+      "sha256": "4000ffe2f3e8ff595df8ec019632767c67cbb19a76b10eca4a7e3f32ce3aab7e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/onboarding.schema.json",
+      "sha256": "88515e0d282bd4b4dfdaff7206ae81471f5e57aec4a4298d22c18332e978289b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/privacy-audit-policy.json",
+      "sha256": "e60a3f8cf687eb8753726223c30d9e0633d1ea4f8a6b184da3a7a78fab9774d7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/provider-neutral-policy.json",
+      "sha256": "2644f8bb272ca6b02f062883b7b56dd01060995aa4a12e236ff6b946fde89b6a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/text-image-policy.json",
+      "sha256": "822614968cab3e7e53f3d21357c349b970a845e9b41aad94cb73a40db98b798f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/agent-roster.md",
+      "sha256": "c5f871d0f0e3349b14d42750cfcc43aa9af7588f0bb5df0f599ca1d98369faf1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/architecture.md",
+      "sha256": "c0c61b387aaed58768d6bd6dec4c8035241df7c975874528dcb70f6616a38e9c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/artifact-schemas.md",
+      "sha256": "3825ac8faaf05fed2535c8b7de3520260fec99f1dccbf509e047c6d24a762f62",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/bundle-readiness.md",
+      "sha256": "b51640744cbaf06a6bf6abbfa74ee5aa09a2507f4a482fe82e3cc198e64c36da",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/chatgpt-skills-onboarding.md",
+      "sha256": "c44e6e79c97d442fddf0ed6f9f81fe1f7d36d527dd51e9df79863c76ca320be1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/cli-reference.md",
+      "sha256": "39afd99326621ec8d3e3832650e18bfb784deb30bd8a7a2053de00a0a6e2ace7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/codex-assisted-install.md",
+      "sha256": "264ffb95aca2fb507a2ae675e6841437410b9ca7e9a8e112884ba0265beadd67",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/codex-project-install.md",
+      "sha256": "197ab36cd814e55a0488c6ebfc5036b2f8aec2bd81732008ed1484767e176f40",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/codex-project-update.md",
+      "sha256": "7809890155c2e7227dccf9a766148ee82701c14c42ec611936c338302f85240c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/compatibility.md",
+      "sha256": "62ffc9950e502de69cfa99c80710c70d9cc526c6f79580eebe99a0e2f73bc22e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/context-folder.md",
+      "sha256": "ccae4c8e482de33a060503d8f81d4f7bacc145ae8f23bf903c6ef246150f147e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/creative-prompting-workflow.md",
+      "sha256": "c2fdad3d1dd754a4463cecaba2c416b00974108c34002f10430604b6579aa8e3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/customization.md",
+      "sha256": "6995f6af7c48304edfbd32040908c7cd9d81fa50b54dac7858d0d6029e216cd2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/e2e-results/README.md",
+      "sha256": "1da73d41adb63bc946badf3cb7263c4930dd73529b9ab22735efec272a21a826",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/e2e-results/TEMPLATE.md",
+      "sha256": "b91d2ea36fe6eab94c6f1cbf271bc532abe81d4c01f0af5c4a3f1dcb495e7a38",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/example-authoring.md",
+      "sha256": "55ec4279ed0f459c49cf01a0e9784c9190318b8197acbdab01390cf99ab5b823",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/faq.md",
+      "sha256": "052128677d2475ffffcc30a4ef92a03cf1618d4de6ce90f1a4f402163f7d388a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/getting-started-5-minutes.md",
+      "sha256": "31539230dd814707ec6c3bac324be2d789c30c14192afeeb03650d88f972a76f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/hipson-integration.md",
+      "sha256": "aaf7d8fde0e04da6140a8a800a51ffd4b380ad94053e9a0c15f77acb68e4179d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/human-voice-and-copy-delivery.md",
+      "sha256": "92bbcdfcfe2f7cc915af8e20d460ed0cbccd13252a34a7de4622bd77fec4c006",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/hyperframes.md",
+      "sha256": "40c6503d43a3ed5bd986c05c296d0e1744e9100b1f2cf150d3bb272b81fe927d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/included-agents-and-skills.md",
+      "sha256": "05377fa79c97629fd59b9d22b7da5ade9be6a2fa098a45e4155d0ae900ac7c3c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/live-codex-e2e-check.md",
+      "sha256": "76fa1779bb3f76c65d56940797684c126e81f3cac0f6840f05cb47607d4da2ea",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/loop-protocol-integration-plan.md",
+      "sha256": "79843de7bfb77c7f67f25f5fc4f67f5264591edb14adbad424756dc318181705",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/loop-protocol.md",
+      "sha256": "c6a488b10b2c6486f4e290e573cdd588adf60f3dcc409526f2520e4619f9da86",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/memory-cache.md",
+      "sha256": "5a2dbfa20fa9c0469ae3ff3911851112ccad5af22d37f560b69804ab7481d2e9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/migration-guide.md",
+      "sha256": "0dcf1bc42e421b637a859ca1eb452e32f09cff19a146e44e08861647e8778d40",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/onboarding.md",
+      "sha256": "09887ebfd692746899f1d91c1602d1616a96cabec620ce655d936e8791c9a58d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/openai-api-policy.md",
+      "sha256": "8d43cb2095a7b4815acd14f3f3f8c58b5cfbf825b3b93ef42f34de6a358bc366",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/provider-neutral-boundary.md",
+      "sha256": "d468fd89bb54193c5bce21dfde15f26529f49e5217c0e839acbe6cc02caf224c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/quickstart.md",
+      "sha256": "dc6fabd3ce0fa385cae44afbfd1754937da969a7f6b4533dbdf85d3736381f80",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/recurring-workflow-review.md",
+      "sha256": "123ff0fef99194bdb81c407a4f2107986a9be30fc1fd2c81be41a8dfbf340531",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-notes-template.md",
+      "sha256": "c9fa599c0c2aec10774cc7504ed9bde7ec255a6feb78a3ac4607058bfddd1f42",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-v1.0.0.md",
+      "sha256": "5a2b2b1ac402c48c11be8de3ad6ea1148d0b1ec1d5a7726791b0598410a59351",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-v1.0.2.md",
+      "sha256": "2919a69ceba33b5537cfa6bd35aa54b57ebc707d6b652ede4077b7f7e51c7e56",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-v1.1.0.md",
+      "sha256": "9a7d830741dcd23c15e916e6146d22aaebd486b7290bc0fd5b229a8a54e08666",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release.md",
+      "sha256": "fc5edf6acb38f16be4fe9f57a10d9866334d7278cda83c22cdec03226778b824",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/repository-evaluation-2026-09-12.md",
+      "sha256": "d6d08d0f917af869a2e1c8ab46510c2f2568ab0c692ce0895bc455dc1db63069",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/repository-settings.md",
+      "sha256": "b82fd9f54e401b914434639273557a305bd81b0cfd32bf11d321723b3d04e0e8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/roadmap.md",
+      "sha256": "11045c485223a2510a35d65e568c15ce29a0ef3717eaa80db9c7ae91e66c1cd9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/self-improvement.md",
+      "sha256": "a865fc7787dbcdaa37d2ea84122e04e3993aaa795220b0cfb9c54ab026a9d83f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/semantic-memory.md",
+      "sha256": "066b70d067750dc49374880588bcc1cfc1c29bedfb58ee1ea88c1d5dee51c04e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/skill-customization.md",
+      "sha256": "e5327d9da7a9da1f13a04d18c0908b462364d5767afee1e6f20295bdac9b781d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/static-graphic-design-provenance.json",
+      "sha256": "d27b57b24a17e293985739d766dcd1651090beac1791aad4958679b85999cef6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/static-graphic-design.md",
+      "sha256": "1fc52fb8eaa25aa37edc23ee63cf5d7d45e55243f5b0594d21f1f4c237d03381",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/team-configuration.md",
+      "sha256": "d4a8f2f4f8d30bb6f72c614ee900bb4bfaaaf27868c2af9c428e5557dd253b28",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/tester-feedback.md",
+      "sha256": "28d42ba21306244014654bfafcd930f4b0651f58994015860176e533e398c7e2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/text-image-policy.md",
+      "sha256": "a05f1d02602a1ca85ce6bed726267fe88ab0202488f2831559d9803a114c146a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/troubleshooting.md",
+      "sha256": "dd150992c1f6ff44979593d874f179d04be1ec777f43bccd5c60e60304a50186",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/using-the-kit.md",
+      "sha256": "fccf2508ea399a4e7c081df01aa35047d5fc0243d823d24ca6b5ceb7d8dcbfcf",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/v1-readiness.md",
+      "sha256": "bb12bbd588afc4d37a2c5bbfbb52a69c921cd00fbf3f56d1ec10a25f73da6c60",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/workflow-map.md",
+      "sha256": "9f2d9d0c2dd84a161309c567b11c85c374c14e6b42c3f4060c09a62729b9baa7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/workflow-self-improvement.md",
+      "sha256": "ed43f1f7511dc726a95f0803301fea9ea8c61262c10a59d3a255d7fd0a6b64f5",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/workflow-stages.md",
+      "sha256": "63109ba211986b576f6f75f126f94cbccc8ae2336294a94077adbe66f0016930",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/README.md",
+      "sha256": "8b67892445bc6ea239f609c4f10559b1eda69ba276d1825c2de9accc382ccae8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/asset-manifest.md",
+      "sha256": "0ad4bd2bcdd0608b19d4b03202d81d7c567a1b5c9a56c0f7a93f43676e8f58b4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/board-artifact-prompt.md",
+      "sha256": "45a2141cc0c1f62ced397803e42b7a493b4249c91dd847acc62e9324419bf153",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/copy-pack.md",
+      "sha256": "b8aad2606b431cb820699cdf3efd51d19fa5a9ffec47c8b21f265db93b79f254",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/creative-prompt-contract.md",
+      "sha256": "d57b31c2e38690064ada79bcfb3b95f664490e647d6ce1df27ac7584f6b836f9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/evidence-note.md",
+      "sha256": "c028215aa45df8d981a350c57059d1786c93e850dde6a33837288f106bb11dc0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/execution-manifest.md",
+      "sha256": "7970dc6e52952ea6a93f2502c6c27b33e4b69f0174039f776e5cb04074b00ab9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/hyperframes-production-brief.md",
+      "sha256": "1797905ccda6c910c37c7705f8187a127b40553b7a0bf7795c482f026296f130",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/image-prompt-contract.md",
+      "sha256": "ed8890f13a54ec70e92b82ebe1aac4817c96674d980345c8746d5a8d5a89a8bb",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/instruction-packet.md",
+      "sha256": "df72437d56c967aab340545c6c52b1389b609f88c7c91a87acee870c4dd36a01",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/loop-state.md",
+      "sha256": "0ec99d7ea175b6d160da6e27c61bb6616c90a8f80a521f844c21b9e3add02c31",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/project-state.md",
+      "sha256": "3aeb7f4e147513055078f97f6237d4f32e0612eb0c715243e5d0dac6e82fc492",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/self-improvement-sufficiency-gate.md",
+      "sha256": "223e2af2262719b9a31014b30c2ea2d1d9219f423d365f686699b48ee42a1eea",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/storyboard-contract.md",
+      "sha256": "011a9e57d869278051731fc34dbae0dd68d6f8c1f6955c025e9b13ff5ed25588",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/tool-routing-plan.md",
+      "sha256": "43f257f3d8850b5735f81d861040f0e3a0c4137d71a94d34b735379d58ad7137",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/workflow-request-diagnostic.md",
+      "sha256": "d8847f30a44b362fbb19913b75ed0dcb75cbbfd3c5ed70a382e2a18f5af85681",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/copy-delivery-contracts.json",
+      "sha256": "df6fc5b4c2c4b4a3939877f445f0feb343d74dcb92ba23a7236132422a93c9b9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/creative-prompt-contracts.json",
+      "sha256": "3c3866cffee0543ba772580c820a8434cd5632438078ed602c78d359f6e51a82",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/document-workflow/README.md",
+      "sha256": "6391e65278521df6b32b9852a2feab2413fa16361ce43860d7938b4082cd2d0f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/document-workflow/workflow.json",
+      "sha256": "d260ee80e6ff707b98195f13fff01f17f787bf8c73e09c6e77102f9294f9ecd6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/ecommerce-product-visual/README.md",
+      "sha256": "7f4c733a1233e42fdf1b0e77d5bf04210e0cbc6dc50f6b02084f93540c49143a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/ecommerce-product-visual/workflow.json",
+      "sha256": "5b8b8f562e65c954964aee3bf757264b55af6b8136ae8bac0d34c1f0e0029983",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/README.md",
+      "sha256": "9199cbea4b4e765300e1837c21d8dcde29bd16483343e4e415871f0783c77823",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/brief-contract.md",
+      "sha256": "8c2f97bd592fcd0d5c1ed68d5d50fdd127a241cbe936a02dede35f0a8096175c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/delivery-manifest.md",
+      "sha256": "1a7ed207f3fd6ee47705983b7ba78fa79b8204a327a97bcc53c59454ade50ad1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/direction-contract.md",
+      "sha256": "bcf4c4599a04e603239797e80b4d610e90bdb804ffafb76ffbd5889a788cf11a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/prompt-pack.md",
+      "sha256": "f49d20c7d44415458b458dc6a9abc73d333a1d42184f87e7054e89048dc449cc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/qa-iteration-report.md",
+      "sha256": "8633fb4ff60cbb9865f132f6ab7a7dd9a4598d3a872918f6a870e87cd4749392",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/reference-pack.md",
+      "sha256": "7a9e81bea6e0252c7412438f153d00bfa41d2ec70796acf61205b3c6b6fc3a9e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/task-confirmation.md",
+      "sha256": "4743734f94ad073d647252a9dbc9c95e985058691286767a565d243a2e3f38ac",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/workflow.json",
+      "sha256": "a9f4b02616e5da4794f1366a28e6f288b13e00c4d71d74d25ffbee8d1d484270",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hipson-adapter-packets/README.md",
+      "sha256": "a78c9c7e8e8ad55914de74e77e88c9844fe041befb7ebef632b4db09148ee447",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hipson-adapter-packets/workflow.json",
+      "sha256": "4d10299a553cf776dc0eded48cc22bc6360ee95aa8da631f30662aecb2c99135",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hyperframes-video/README.md",
+      "sha256": "fc261c224d92e97d3d1d27157f325aff12ced2eef500f8634d91813b194bd924",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hyperframes-video/workflow.json",
+      "sha256": "23497e07d343efd19c2743828c294cea63f2d2e8f89ac484c872c7f442f2eb7d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/image-prompt-pack/README.md",
+      "sha256": "0244559060ac1afccd9d7f7d9ef32136a5d537745451af8d15c06515bdc0c371",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/image-prompt-pack/workflow.json",
+      "sha256": "c6ecf2cbdef912445210962a49de8e881b1231c50333e71a805cbe2d509ac221",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/minimal-workflow/README.md",
+      "sha256": "ce269c8ac3cde9c341aa18c32549e40ca59dce447f6bee290eca72977fa50edf",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/minimal-workflow/workflow.json",
+      "sha256": "85e3d72c2e444fed3827188d69f07e64c12cc08f0dfa34d37513796c604c4a24",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/no-provider-mode/README.md",
+      "sha256": "b58a041941ff80f1a1a95e820b022f3445c2d504067e73742921ca1d8bb28f1c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/no-provider-mode/workflow.json",
+      "sha256": "0d9a1857da71f4f538334c4e87032feadb2ee0281dca0d3a2c3f3372ce157ce4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/qa-delivery-review/README.md",
+      "sha256": "23f8f917ef987c16d491e943537b421cfce719e391e5e221801d586c3e39d83a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/qa-delivery-review/workflow.json",
+      "sha256": "acf526e997cabfb637e6ff9fd73466c47ebffc890b7df4f00f1ee44eaf7f5042",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/static-campaign/README.md",
+      "sha256": "c6f4039b961ed4e125fee4fca6287fde9038e1ebdecaeed6e9bac1ac96e3029a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/static-campaign/static-design-walkthrough.md",
+      "sha256": "c4de085faa83bbc1550c3655e642cac908e4c41ccdac248d8cc6c4a9eb322780",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/static-campaign/workflow.json",
+      "sha256": "fc6b7ccd453575dd50ab4a7f6e5961a8a7c9e0358996762196da45c688648336",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/storyboard-board/README.md",
+      "sha256": "ef444d618ab30cba3ddbbbaa4710f89bd3d5aa3a5d6014aed761ffd5dc9268d1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/storyboard-board/workflow.json",
+      "sha256": "af09af97cdae2d2d460c1e658baaaa8797a1fde2d9926c06a9c1ba965fb4c1ee",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/video-storyboard/README.md",
+      "sha256": "ef956357e7969307b2e976480b61d1b093e9e647b322f2d8a7cf3adb4bb0c7c8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/video-storyboard/workflow.json",
+      "sha256": "50c1440319803062b212fa77cf899f6a6a8d0f8111a35c53d769702b1ef993ff",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/package.json",
+      "sha256": "f64412a5ab4d64aa589edaa568a454af7046214bd413de0500e425e9a5a99ed0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/agent-compliance-check.mjs",
+      "sha256": "6edde2ea28eb84cae63b94796d81c8caf7e60e95af4bfbaa2be200245b79156d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/audit-privacy.mjs",
+      "sha256": "5f4ea428ad95a7faeacccfd793a738b6134fdde7535e161b7386f86bdd149958",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/chatgpt-skill-sources.mjs",
+      "sha256": "09907896ba96e2aedc09d3d626ef93d9e56e8731affaab6b1decff4de8b663cc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/cleanup-appledouble.mjs",
+      "sha256": "f13c19dc92bb6c119db74bdd9858060c7bdcb63c63a8adbbab04136bad7d1920",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/common.mjs",
+      "sha256": "b987d1467c956660899e100df4daa5ab8c9705253c86a0d710fe7459fea06f99",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/config-validation.mjs",
+      "sha256": "e766ba043490d61533a6ce8e118e901fc04a2c7a1f78e3957fd4406ba6996ac1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/doctor.mjs",
+      "sha256": "a86c51bac254372fe68a18e0aacf53d023a75c7d2f58a8903420c92f5f62c6c0",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/guided-install.mjs",
+      "sha256": "e5e614ddec3a0986c205b8f3ad0526f69bc5b776a93f719fef9dc919654b3bb8",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/install.mjs",
+      "sha256": "246a27b8286ee8b8f077ea6d7a959c32afc4cbe6ef0e646c0a0fe510780294d2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/manifest.mjs",
+      "sha256": "fbdbf18c87f99ad91fb1d55e6a66e55eae63c0dc804bca2a443b78220cdd95f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/onboard.mjs",
+      "sha256": "7fa480fc95c6edaff59682c7a7e863f754855b62dcbb34c2af0bde4f3f6227a5",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/package-audit.mjs",
+      "sha256": "ae8ce1522b77edc178c388c6128a57372fc1260f5f83e1b38844ecd5c59b5e5d",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/package-common.mjs",
+      "sha256": "05f37c937d47a859a47f705c93369671cef66efaa0fb1331aa8009fcaed886d3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/package-list.mjs",
+      "sha256": "4e4917d125917105711263882cb64d7d759d30feed216d767e68701ddae837f5",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/release-readiness.mjs",
+      "sha256": "59bba0b8fc75778c7089bf02b7241f3fd02fe57c8737d9fe09274267a2d9cf41",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/render-agents.mjs",
+      "sha256": "a1d55f046f141a3b9f4c4545f8787ad577710a670ac485e254cbac8e36eb3258",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/safety-scan.mjs",
+      "sha256": "f33821772104641a07924f2187a02cf343f634435fd500dc94ca3506e2c5e188",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/smoke-install.mjs",
+      "sha256": "1f29a30f626d0f83f0a9be73b5ee937394cb385b2bba3587c08fa6fb3b419db4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/syntax-check.mjs",
+      "sha256": "e4680a0bceaedd0d06a539bd48a218d3e54fa230475b2942eb6b4df993bcdf2c",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/agents.mjs",
+      "sha256": "a1da18305f79261157da31e07b0f8b45c907165fdea8fa03b9e975b510d7cfa7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/bundles.mjs",
+      "sha256": "6ad0f12ea70b112ae53d5b46310660a283a5f6f81102a520624c8523f4db0f6f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/chatgpt-skills.mjs",
+      "sha256": "ca76fe9c6f49de9cd744d6fa2564976d11263188ce76c68395be7a763769eb5f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/context.mjs",
+      "sha256": "fc12f5d559ef6d70ec4d122c87c5b499a8c93ae9f4bed8acbfda9b09c997049a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/contracts.mjs",
+      "sha256": "9cc160154c3c277b8acb651e01fe7f3a995a2620dd0ef061b32ca091920fc9f3",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/copy-delivery-contracts.mjs",
+      "sha256": "63eed994a5c39aa81284a9c04e70e97e60e42a1ccef1a61903700ddd3c117bcc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/creative-prompt-contracts.mjs",
+      "sha256": "e4541bf145d9202a7eab1677dcdbee3bd9f8657c2d8c902b7f9757397dc992b4",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/docs.mjs",
+      "sha256": "9807d569a37830b71f829437dbeaea6ca595e7e08ff5a045183c5b02def53350",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/examples.mjs",
+      "sha256": "42bae69e67bf4c4fe51c72a52f0e87d45ee7bd7e93c36b7771710f8f8d422d45",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/injection.mjs",
+      "sha256": "3749a34bd8577e62cf5d822db62e32311fc1f71931e0e874cbe13b04e59a426f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/links.mjs",
+      "sha256": "7148de6fe8b81b9f5cbf8bcd150c41540ffd7f0997ce0688f33e652a492039c1",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/repo-governance.mjs",
+      "sha256": "3c1eb702ab0dd49bfad4501389375d13717b9858076e266144023b397b60b51f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/schemas.mjs",
+      "sha256": "6798988c2b3448f335a6d96faa1ad3ba36288096d62d14c4a31ccf1e3ab348aa",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/skills.mjs",
+      "sha256": "b4fc2722a82e9ea5115d6b94012a90eaaa09c9f2d9d29b685cab7875e4713dc6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/static-design.mjs",
+      "sha256": "fc6221523037912a2fc7059df2be2f24350dd206782d66a51a130595e3bdeb8a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate.mjs",
+      "sha256": "dbe70d3a71b41329e5744d39f29b183fd8b6a87b6ec9fdf307616925755c5558",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/artifacts-index.md",
+      "sha256": "cfc002c5bf24065120021338370919ca729848adfe8b33c4c635b9602dd4ebc2",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/change-log.md",
+      "sha256": "681aa2845622d2c984f67aedc2fa77df5c5491fcbaab1da45f51307d217bdaeb",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/chat-compactions/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/decision-log.md",
+      "sha256": "d6606a257ec83b6bc91e9739518e8ffb22b5a1f750d40ce515c1c932d7445973",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/handoffs/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/history/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/open-questions.md",
+      "sha256": "262132ac66d83d2597bfb2acaecd6f564b91336374bd2484c8286e75fd36d9cf",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/project-state.md",
+      "sha256": "964cb09954207b64d9e64a912e206bbdafe6a55d4234f17c7b72c6e69c0e1ae7",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/recovery-prompt.md",
+      "sha256": "ac15a4ed015b5c7a60210666f40e8b13838cf867c045b3adc71080ff9c5cbd90",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/session-heartbeat.md",
+      "sha256": "eb39e8d5fc52b70320a55dfb971dfa8903e8969a7c5ad13a7d9bb6bc3c37fb6f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/source-map.md",
+      "sha256": "3237d3dfc2bf5a25030feb8458b8bf52fa386adc27e57ae0e93f17561361d620",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/audit-security.test.mjs",
+      "sha256": "f2af86af67e4feade435f7ad9a485edd274172dd75caf3e6e433b6450cc1dfa6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/chatgpt-skills.test.mjs",
+      "sha256": "520124c82ecd5ea8ef11323f8a81a0a737dcb446571369e138bbb8ddea175fe6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/config-layers.test.mjs",
+      "sha256": "75ce6652b77fe0f4956761c79d864e22a33ef9c6b5d19ff274d6af0bf9e7fa49",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/docs-validation.test.mjs",
+      "sha256": "1493f76c9f1fad2cc9c8501e14a570cd886e9699a3b185aed40ad1b32d308cee",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/doctor-manifest.test.mjs",
+      "sha256": "d44fa8b802586c4b130ff4b9ad68dd1b4e831fd79e257242ec4f47c7264c1e21",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/governance.test.mjs",
+      "sha256": "9ca7a460315c579ddd79b93db9acc93afbdadec3dc00b0b1d80b5b46dd638340",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/helpers.mjs",
+      "sha256": "2fd278ed656ddf701cfb70ce79bc0d1ed214ec2bca85bd139aa1f1aac00c3bb5",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/install-onboarding.test.mjs",
+      "sha256": "0b153d0cf57ab3b909795f0940fd60979745edfaae6add595e44e0f59db2047e",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/install-safety.test.mjs",
+      "sha256": "25cd8be097ba41b4ff8340ad93fcf1fbdece1b7673901fbdc8fd5a247ea05053",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/lifecycle-language.test.mjs",
+      "sha256": "b1e9670bc66a69a61c7b0e3db1d741ab77e8956d37cd3d48c8db117ccdfd4ab9",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/memory-cache.test.mjs",
+      "sha256": "9779fb76a0a6fac59f585e52838ab541c322c588978220776007537ac8b890ae",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/native-codex-route.test.mjs",
+      "sha256": "7c8007f20fbfe1e25aeebde35990b9f41603d3d3a7cb8c9da42828a9585e809a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/package-cli.test.mjs",
+      "sha256": "4b5a2d682893d786981959aebd701a0025a074331219f7a0e5d6d6848046f683",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/static-design.test.mjs",
+      "sha256": "8593c3015006d4799594b4c903dc5eb5c10333d8902e694cdf7007dd6f8c7428",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/user-profile-installation.test.mjs",
+      "sha256": "202796d50fc1506ec3545945348f628d47ce1a77b39d8b34782e8695c0ae1f52",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/validation-contracts.test.mjs",
+      "sha256": "4147e017d32327e841d81818dc3b48ccaf246d42bec747da03cbc8596d253edf",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/validation-core.test.mjs",
+      "sha256": "95b20b9ad78a2e59e493786134755b2f0b5505ba64461166f23b52ccd32506fc",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/workflow-smoke.test.mjs",
+      "sha256": "dc3a4d3fb988193bb47dd604abab4c360fb9f2c085f38a494468b09d5262e25a",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/cleanup-appledouble.mjs",
+      "sha256": "9e8e50e5d9efa535466bd9c2a073e38d50eb9376ec2d9f88f4bb75de7a31c18f",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/context-budget-audit.mjs",
+      "sha256": "139c5194b898e10d3aeae9c1dec2c5eed7a03dd86b678ac682bcf2303fc87644",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/init-memory-cache.mjs",
+      "sha256": "a0f44ac027a5b88d38969b66cb3d4b2bd3de89f1affd87e0fe3f7a1f76ca4998",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/semantic-memory-index.mjs",
+      "sha256": "9fab4dbcee866517e71a8efcb618969882174a2db6cb02259b76b87b9fe25e56",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/semantic-workspace-evaluate.mjs",
+      "sha256": "906eb92bf8f8bc881324b548e1db4d03292e6cd7e209c1d8de4d06285e9c51c6",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/skill-agent-auditor.mjs",
+      "sha256": "653ab364493067de147effc8ff06135a6750b028a18dc0c40384c63db5a771ae",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/validate-memory-cache.mjs",
+      "sha256": "01b56ce5473a0a12c75abebbed80ff72eab4b8894f94ddc4154e291073f11954",
+      "equal": true
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/workflow-common.mjs",
+      "sha256": "0c8f76b548d958bc99905f498d38bc3afc8deafa81eeec58d688ef1b7f46a7b0",
+      "equal": true
+    },
+    {
+      "path": "licenses/Apache-2.0.txt",
+      "sha256": "6e0ec7b0e818a95eb253d4b94d2bf309afcbfde8492a762c8bfc9d9182a49688",
+      "equal": true
+    },
+    {
+      "path": "plugin.json",
+      "sha256": "5db91fefe5a29f4bf8c802d717a43976698f7f727d930b165ca2c85d0979a3c3",
+      "equal": true
+    },
+    {
+      "path": "scripts/creative-upgrade-contracts.json",
+      "sha256": "1793a4b3c5b3b5bad4421b056aea3a6d729ca33b95166951019928200e03c8c2",
+      "equal": true
+    },
+    {
+      "path": "scripts/load-effective-evals.mjs",
+      "sha256": "46e8936f4bf5d2900e6c131792ed8acb5975b745e84448b56614386d63d8a4de",
+      "equal": true
+    },
+    {
+      "path": "scripts/quality-harness.mjs",
+      "sha256": "abfc54a45ac86bf5fb901b81c30b7d33872c49dc84c8fdbd4fc56e187db9464d",
+      "equal": true
+    },
+    {
+      "path": "scripts/review-creative-plan.mjs",
+      "sha256": "ed9c6939ac941ad5b85f79faa74984c7b17f172d740912a53d1c563d44aed09b",
+      "equal": true
+    },
+    {
+      "path": "scripts/studio-contracts.json",
+      "sha256": "cb84d526565a8e92ecae2132302eed3eeb81cc6184fccb706fd41162a054d14b",
+      "equal": true
+    },
+    {
+      "path": "scripts/validate-campaign-workflow.mjs",
+      "sha256": "576c4e99abd3dbf7f7105e9083b0905efc21d498f275fe933696a18b9ac4ba62",
+      "equal": true
+    },
+    {
+      "path": "scripts/validate-learning-mode.mjs",
+      "sha256": "27ef44bdabc28454e83257c820c17204584fb464e3a85a48f430568dc4fac1f5",
+      "equal": true
+    },
+    {
+      "path": "scripts/validate-motion-toolkit.mjs",
+      "sha256": "bfec89489d203c58bc52b561b3220573b988fb9a44bffa237471e7c11e61956e",
+      "equal": true
+    },
+    {
+      "path": "scripts/validate-quality-methods.mjs",
+      "sha256": "88c50d855434b05923f87483e9d6841e249945d62dde537e845e5b3da76aa5c0",
+      "equal": true
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "sha256": "0b425fe0bd01ed50d77fc691cca683eb5064ecd0117b983a82e6cc8aebf02da0",
+      "equal": true
+    },
+    {
+      "path": "scripts/validate-workflow-kit.mjs",
+      "sha256": "3d9495fcaf51a8cb792addfcd3caf90c6ea4be15b84be94948bff14239a32594",
+      "equal": true
+    },
+    {
+      "path": "scripts/workflow-kit-routes.json",
+      "sha256": "8e9a2fb91d7ba06355ade6b9e88b779fa2e1e1a18b1b23ecae60c5291f072eee",
+      "equal": true
+    },
+    {
+      "path": "skills/asset-manifest/SKILL.md",
+      "sha256": "a5f362541f1ea951ca0cc29b95117522c6de0551d6ecc987d6ae5f4789864a97",
+      "equal": true
+    },
+    {
+      "path": "skills/asset-manifest/agents/openai.yaml",
+      "sha256": "d3aea7a0641acd0786eaba27cd003bf33ee10485583ce25726a01d2995752d88",
+      "equal": true
+    },
+    {
+      "path": "skills/asset-manifest/references/static-design-components.md",
+      "sha256": "199dab1321c0f480e572ca90e9be86dab207c789da80ce94a8e88004cafe90f3",
+      "equal": true
+    },
+    {
+      "path": "skills/asset-manifest/templates/static-design-components.md",
+      "sha256": "bd2bc1dd8ab7f13f265ef0af537b54ef5f0a1b66a75e201aadeab21fc1297506",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/SKILL.md",
+      "sha256": "5c5977c9d2491f107087f85ddafb18aa003e00b416faa37112036789df4f2a2b",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/agents/openai.yaml",
+      "sha256": "23ef87b0b86c1894bfb5a82a6226115c1410744147c54823616bb24e14a0ad1d",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/assets/av-cue-sheet.template.json",
+      "sha256": "96339aad5d988614cf2037345e69f5e8deb09eca41a6c724e87d95fc4bb7faa6",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/assets/music-brief.template.md",
+      "sha256": "65fcc4db3bd4a1d0c6032808291e3fcf598304486795eff10a89217b47024892",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/assets/track-rights-research-card.md",
+      "sha256": "4df580c9ef23e70ea04eaa9fd779113789183b6751a76fe7212e63e587dc97be",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/kit/method.md",
+      "sha256": "926ae730b62ce48f5f9d0a80d66332d2e2a05a37e907df210ff80748a8b96b52",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/kit/templates/producer-ai-task-packet.md",
+      "sha256": "886f505c5d2010024b714cb5166973cabb0d91d05a2f8a5901298c0344c2bce5",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-arrangement-vo-and-mix-workbook.md",
+      "sha256": "bec34db9bcd5f1c3bdc31518de85cf23df0f7db9eff99a52bf1aa630c2e61a7c",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-edit-and-prompt-workbench.md",
+      "sha256": "67ed7c659ad194e64223a50a67ce4ebff8f8aab3772b417f5d164c3b9b1977cf",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-evidence-and-av-handoff.md",
+      "sha256": "453b193656624c9116f4c54e35e75556909a24d8087c96a495145854381cff96",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-to-picture-and-tempo-workbook.md",
+      "sha256": "660a0281fafca39a6f21dd633685b83bec8adcf37a043c89f3df18e384aef9c8",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/references/music-provider-routing-and-rights.md",
+      "sha256": "fd6f4ef6e71887d0b628fbcf92dd658de6d1c36f071a27d306fe47d32ee63831",
+      "equal": true
+    },
+    {
+      "path": "skills/audio-production-director/references/production-task-packet.md",
+      "sha256": "3e1f28b0a51ecec44423931dfb2d22203a41e13a79afb186ce984b3e98c6da08",
+      "equal": true
+    },
+    {
+      "path": "skills/brief-architect/SKILL.md",
+      "sha256": "c899fc3091e71c26373a256d1f588ccbb1618790a2391fbc4246f6c37a1fef0a",
+      "equal": true
+    },
+    {
+      "path": "skills/brief-architect/agents/openai.yaml",
+      "sha256": "355600763d92d36d5c7dbd411f2aa06c37fb56021e8309a2095f0270b03b66e7",
+      "equal": true
+    },
+    {
+      "path": "skills/caption-studio/SKILL.md",
+      "sha256": "e3fbd97decc5be672488e17c11d3de1171c6a77d9bbfa649fc2f8f06860027e1",
+      "equal": true
+    },
+    {
+      "path": "skills/caption-studio/agents/openai.yaml",
+      "sha256": "da4f606cd496be9d378e0182a57813e6183b900baa35853571ac9df2ff0c23d9",
+      "equal": true
+    },
+    {
+      "path": "skills/caption-studio/templates/caption-task-pack.md",
+      "sha256": "1b3f309528001f44f4ea4dbc38a01c7bfedaa7bd981a1ffffb0394684cbb71cc",
+      "equal": true
+    },
+    {
+      "path": "skills/character-design/SKILL.md",
+      "sha256": "33f788f11910281e8928fa275b7f0bbd69e0d0f6df55cf9abfa39456c652220e",
+      "equal": true
+    },
+    {
+      "path": "skills/character-design/agents/openai.yaml",
+      "sha256": "b28c8d1ccaf4eb49e21486cde995ec7597cb153175bf5bade4cf5df67f752262",
+      "equal": true
+    },
+    {
+      "path": "skills/character-design/assets/identity-packet.template.json",
+      "sha256": "15fcdc2df96f273c0903601fb4a139f6fb07a8a99d837994bec835ad9f4d5615",
+      "equal": true
+    },
+    {
+      "path": "skills/character-design/assets/identity-worked-scenarios.md",
+      "sha256": "fcb2d0c8ef7c787be078056997a1d41e2fe9d9c8a9c62e1244a888b1ce0477e0",
+      "equal": true
+    },
+    {
+      "path": "skills/character-design/references/human-identity-workbook.md",
+      "sha256": "24b21f2a03e454f736a4a9301217c8c892d727d5c5496c241b1c9ed71ed38870",
+      "equal": true
+    },
+    {
+      "path": "skills/cinematography/SKILL.md",
+      "sha256": "51cff0d942a77cc8e8147b009c6571775809dea0de170accc6d428e3a8165417",
+      "equal": true
+    },
+    {
+      "path": "skills/cinematography/agents/openai.yaml",
+      "sha256": "9c700c7259d801fc9b4918a91b7159bc52e15df5487b89b45a8755527b73465d",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/SKILL.md",
+      "sha256": "5c47af366333858def32120a7a6a99610c559c4ee406d1f0cbf2c91d9aa973c2",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/agents/openai.yaml",
+      "sha256": "58606f002fba4d712d728adea1208d19194de927b13d0995235e1106d7b05281",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/creative-decision-card.json",
+      "sha256": "1e7048da6136bf46ec11908097b9a364ad71d03e87267c90fa0539fef6f37672",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/decision-examples.json",
+      "sha256": "0f134cfde1c98d1bec043e81fbe9a713a9262f6399f256728693c7bfb5c50a68",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/premise-proof-worksheet.md",
+      "sha256": "a9acee51176182525b1751f4309db3436779702a248bd811ff317936dfb51ef1",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/slad-campaign-example.md",
+      "sha256": "1b112ab300f4a82d0cb2a966117d1c4a49e8a1cd59595b2f268f8d3806089493",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/kit/method.md",
+      "sha256": "cca58c9b80df4a1ebcad28d89d3507ca8f8728b6277371c183889993d2a51531",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/anti-generic-gate-and-handoff.md",
+      "sha256": "060a8a6b33f405997d192e61808427323a9bc72ae59dfecb900160d26123929f",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/applied-premise-and-proof.md",
+      "sha256": "0d89844bfbafb4b25f3fc35199e682b185b4b1903a332cd9d5f3d3a671d23df8",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/campaign-direction-method.md",
+      "sha256": "b4dcd062e9e514dd0a9f1fda699c9a8b64e61c2e7c87ac5fc414306d28765e90",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/creative-decision-library.md",
+      "sha256": "2a62732768af2b52a42b41d0241665c32657ef2b988d30387f42f4d8ee9eeb91",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/short-form-motion-bridge-workbook.md",
+      "sha256": "d33800ba2d3142f6a0a574d62dec1622ad68d90305b85c7362e13d8fe0b297a3",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/SKILL.md",
+      "sha256": "e687ee7199c39bf2ed81180d35fd7d1632c23bfc5f19227707cadabb2da7b0bf",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/agents/openai.yaml",
+      "sha256": "04ccd6a12b23d9b7dfc2a7287cf5103876ada77982dff2d09c79f2a071d4d3d0",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/assets/copy-and-format-card.md",
+      "sha256": "a6ce943933a46cf382cd719891578dadd0b11abe63ca558ca035c0d27593cc5d",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/assets/half-turn-adaptation-example.md",
+      "sha256": "5de9c15019bf60c804c0e03ac25853d816c39a768af5ad418e23ffe9cddb20b4",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/method.md",
+      "sha256": "0fcd28632e62afafd0247fda7ac28773ed85c8cf6c965e72593f27a46b6a0b59",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/concept-development-and-originality.md",
+      "sha256": "6d7eac0bcb9de9993bae45d497b6f7371f7b0232088bdf10bc91a95e8682d149",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/deliverable-profiles.md",
+      "sha256": "d14bd5864d55eced0cd84231b3f1eac631edebe03f8a2562cb21fffcf2920ab6",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-code-workflow.md",
+      "sha256": "e574602c5e6cfc6970b971acf80eef16d4420efd64524791a2254c33efbe7299",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/poster-movements-and-production-atlas.md",
+      "sha256": "92211eef13258c528a0e3281912878023f0c2370b7f43501419cdbfb3498a9d5",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/poster-style-and-composition-atlas.md",
+      "sha256": "3d75c828089e952f77f203d7e9ac78178aae0366cf9e5ab48d0c29c6eeb3755e",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/poster-style-translation-catalog.md",
+      "sha256": "d27819de26dfed812b5f012352c1d59b661c13ff13a3e27479539a9896443f08",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/static-design-direction.md",
+      "sha256": "b7e0016c781c993d3a44a9bb2cc8e8c0419041a91010d5100b440b13f915dded",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/scripts/poster-codes.mjs",
+      "sha256": "4867789eac2429bd4a9c8d7a4368c3cf331637dd1e2b448b15e484458f554488",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/direction-and-composition.md",
+      "sha256": "1190de24c40989e6ad2d2a66234762cab7a7b30198f7c12437d81cb4a120d808",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/format-adaptation.md",
+      "sha256": "207f93393971271e734a0093681dd91f98ac8dec90f4b16d08b6185cd2f7f70c",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/type-and-format-workbench.md",
+      "sha256": "978665ca434c4b5b0fb2d47fe27f9384e9cbeb80db2fd095881470da8d944261",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/typography.md",
+      "sha256": "b8d337eacac26b15500a6bbc98721057f1788b540ec35af79a606cc9f8cb0e95",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/visual-languages.md",
+      "sha256": "80f9aa86f0f92bd9c11325950ad802069cc237df5849e37e64f75fa313f143ea",
+      "equal": true
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/worked-examples.md",
+      "sha256": "df284a0b4ce1fb588320aa9e27861ac138bcb324ea5ee63e935fc4ffc68a1410",
+      "equal": true
+    },
+    {
+      "path": "skills/copy-voice/SKILL.md",
+      "sha256": "17d31b33cd01807970400754c0c8ff2900d095b94312a63856830ebbe7c68b72",
+      "equal": true
+    },
+    {
+      "path": "skills/copy-voice/agents/openai.yaml",
+      "sha256": "e0bf2b213c2404ceb725002256f58840d34e00ce3d06e35751e2028cae7714ae",
+      "equal": true
+    },
+    {
+      "path": "skills/copy-voice/references/copy-development-and-human-voice.md",
+      "sha256": "3d7a3847fa4f76c43c60262c6ce6cbcb58083ed1e2f3c3158c48870f377cbff7",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/SKILL.md",
+      "sha256": "7b14ba690daab0f6c9543f9d11a3d21ea4da7c0cf0e2aaa137a69bcffa70e93c",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/agents/openai.yaml",
+      "sha256": "936cd6695547c63ea8e0efd30b69b9149c7493b94a7bc0398e1a83ad0fb06743",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/kit/method.md",
+      "sha256": "bd011cfd72cc2fb28456001d699e2157c826083aac48fc6096eede80c9535ec0",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/references/direction-method.md",
+      "sha256": "d8280139584bafe57a98ec7eafc20d2d0f472e88012c3889eef7ac97fbf89647",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/references/persona-performance-motifs.md",
+      "sha256": "0714f55fc700126c3dd74aad347a0f053ac5b9edfc1e415830f9d030140e3dcf",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/references/rhythm-motifs-and-performance-workbook.md",
+      "sha256": "ace2ae6de904610fa613941d36fec8ea21f4010d4cde251728e87ebd66b0baec",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-music-video-director/references/rhythm-references-handoff.md",
+      "sha256": "ca3815695fb31367feed4db66146fab6e3053cd213f3ed2e4266a9b7314ee101",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-video-producer/SKILL.md",
+      "sha256": "8ba068caeb53ebd17ffac72e32e2b28187cd995868adb608bdaa20a6f684f39b",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-video-producer/agents/openai.yaml",
+      "sha256": "4d62c554c215240645bb46be7def2010b4f7dd7c591da6ee149d9c5f1c824fb3",
+      "equal": true
+    },
+    {
+      "path": "skills/creative-video-producer/templates/creative-video-production-pack.md",
+      "sha256": "042cd76ad3bc771413c60d06b5b81e5c1676810cecf8590007d69f36cffef764",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/SKILL.md",
+      "sha256": "6fa085badc50515cac53474185993eca1894699cf7e7c420f59ea7d61f68edb2",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/agents/openai.yaml",
+      "sha256": "d7b0c2e74b3b98a3506d0a82aaa430950f0c56e1df2bb65e037c0840919b3a0c",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/assets/project-manifest.example.json",
+      "sha256": "4e413446ed6413ff7e8a44a11f290e29496407f189c379d69f8fd0a110b73da2",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/assets/project-manifest.template.json",
+      "sha256": "d402e7d4db6f1b35de74ec70827abc8341ab0d076c302826a9b1b20e9ae57ccd",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/kit/method.md",
+      "sha256": "d56788a04683f5cb11fe7fd3940e843e95af9baab90c2fef5efc7860812de24f",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/references/asset-lifecycle-and-dependencies.md",
+      "sha256": "61cfe54398728e2ffd4d2b6451eebfef62b3d43420b3450b219feb268ec28c2d",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/references/production-and-delivery.md",
+      "sha256": "b2b8800ebde50e12f691cdd2d57d11019d6320157e2f8344f1fc9be54ad7fb6d",
+      "equal": true
+    },
+    {
+      "path": "skills/delivery-documentation/scripts/asset_manifest.py",
+      "sha256": "7c5075012e8abe13f99c715235acab827d2ada5b2488e577028486439398c172",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
+      "sha256": "e7662437098f68d8ca6bb96e07f2434df5389d002297fef87b2f1176fd3fc03d",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+      "sha256": "d275a8a46f58b38ca9a484b601ca533da57d49e5aff8332abb9c4ab44f73f11e",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md",
+      "sha256": "a44d03abbe8a1a3884d6217cfe263cdba47b5a4f6c448a45968c1b9fa5616f5e",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/campaign-evidence-sources.md",
+      "sha256": "b5995b3af04e556988e3eb8066b4faa7d93a489cb1bb29251e34567e1e6a6483",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/campaign-production.md",
+      "sha256": "01f3c7dfbcd8150586686e9115851758d0823ab1e99cf84ae4bdd9d420a74e99",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/creative-performance-feedback.md",
+      "sha256": "870ec9cf4f975a5a67ecbbb578de8e89a5025d542c583dfb5f3928a182b2a10c",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/website-to-campaign.md",
+      "sha256": "e8c1ee25ac0474040de3e0f5900772b7c2b4e049a7ea97b8dca9d454e190c545",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/campaign-asset-card.md",
+      "sha256": "4cf048606f832c88cb06a5b07344c808462a1740b54d4d04be29e595d0b32022",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/creative-experiment-card.md",
+      "sha256": "3f7003d20d980570beadb1a179cc9f5fba8d0906b1d9f94d50f8c7cb84fc3db0",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+      "sha256": "b59cda606b779b3a9be956c624e3e7c6dabc9a0ff9235fe80e0171e76a752c5f",
+      "equal": true
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/website-audit.md",
+      "sha256": "a1e7fe9afeefb3fb0a4e84175492c618fbcf64c4d7a39b6ac72683f8734f096f",
+      "equal": true
+    },
+    {
+      "path": "skills/hipson-adapter/SKILL.md",
+      "sha256": "de13082827ff57c4a3fa0d94e0ba3963ca16bc70d0ecf465f4700621f59ede67",
+      "equal": true
+    },
+    {
+      "path": "skills/hipson-adapter/agents/openai.yaml",
+      "sha256": "745c4b20c7a3973b6e1f96d65267ec6102c328f83c2ce198f4d334bf44144776",
+      "equal": true
+    },
+    {
+      "path": "skills/hipson-adapter/templates/instruction-packet.md",
+      "sha256": "53d8e5bfa251f12d9fb3d64b5144198a0c01e7df555b3e1ae4d452e7c34a5bb9",
+      "equal": true
+    },
+    {
+      "path": "skills/hipson-adapter/templates/internet-mapping-packet.md",
+      "sha256": "fa2743332c2bfba288ffe9dbbe3553ebcec2504c7e5be58fd97277cfab01204e",
+      "equal": true
+    },
+    {
+      "path": "skills/hipson-adapter/templates/research-map.md",
+      "sha256": "876ed05b6a5614d8a43032ab4ac048adc6a2435917fe538efba71d5beb51cf30",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/SKILL.md",
+      "sha256": "f8a839d9ae91666915aa73d3f2e0eaeecdd9b01d45da488a04b6a6c0805a826d",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/agents/openai.yaml",
+      "sha256": "b79295f66865b9428da0b1fb1abc134fada07031add0b52890861d5970f035f7",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/assets/slad-copy-example.md",
+      "sha256": "300f64c135d8e0edb78938252d197c2c49121481ba0309f49daf844cae7654dd",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/assets/voice-worksheet.md",
+      "sha256": "d61df84c51a5e5937f887041aef0cde09f18523c26c01dcd531de733511de08d",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/kit/method.md",
+      "sha256": "091183bca472b269eea24956a83caf1d797cb39f68c545e831fb846b6b1f0329",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/references/applied-voice-workshop.md",
+      "sha256": "ccc4700bf32a6936c9c238062a3bd1e4c8763d45ae1a9e7cc8e71df0c9466b94",
+      "equal": true
+    },
+    {
+      "path": "skills/humanizer/references/copy-and-voice.md",
+      "sha256": "c15f9cd879b61e3e646cdf18916b8c901d1a6e210518840d70a4d61e08ebbe00",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "sha256": "2fa5fe7055d5ee7562c79a51ee0c14563205b69a5976340aaf0b9f63d96a096a",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/agents/openai.yaml",
+      "sha256": "0623a2f2fca15093c65775e157a6360cc33c08bad74ee53913148613e69daafa",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/README.md",
+      "sha256": "5bed75c1b72a2f85b0da07cde147dca96b212ade57995fcb148df927cd6a87d2",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs",
+      "sha256": "8ca81a8331e455a86685785fc59df87e547de90482704dcae771365b93f40e92",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs",
+      "sha256": "306d8a9136d95fdd79a6cb0aae65019696682ee2c03e526d0fa2d29a6c7857c2",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/preview.html",
+      "sha256": "b238aa0409321a250ccad7cbc3258d7337ee0a84e7687b4886e8cd520531d5d5",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/manim-motion-example.py",
+      "sha256": "9cbb4b4f5040d2d508bd340ee780937376a79d9422e5c82a1a9fd731ba8dda77",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/README.md",
+      "sha256": "651f85594c40aa2837a3455e498c5902c86403e3d01364b8e220d46a92c8a9d1",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/app.mjs",
+      "sha256": "1c9212e068885c5b6914d3288b0ea3835cef4a82e6277d9ee7ab6a45fd67bd48",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/build.mjs",
+      "sha256": "36ea7b32797f208ee83a5e44a03f269730994cac37378dcd9c8bc393a756ab39",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/export.mjs",
+      "sha256": "b051b78acf965f03338da80f447296ef7c545e671bc7125f6a1285f34c2fd1d5",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/index.html",
+      "sha256": "108e2d326b790c33d836f3e4ed1e94163dec56dcc293a5c93c72cf6eb89c7ee5",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/lottie-fixture.mjs",
+      "sha256": "9dffa3f5f1e08edd17d1916e81b3b10168f439cd5d203e6fc7ddec2b0ba94fd8",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/package-lock.json",
+      "sha256": "e7f5ecfa1df311822b9df54a54d6cbe0af947d4dc99464b45a832dcfc69fe8ef",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/package.json",
+      "sha256": "521863f0fe1ab7c87ecd789f6d98374ec0574390869377e748bed43561218912",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/renderers.mjs",
+      "sha256": "581fc2a9af1332e9129ed6af5bf470f91ae203650e990a26e288ac0086d6c898",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/server.mjs",
+      "sha256": "eeb798554f9d632fa782c73d2d4bf175e6e4ee78eb8d56ade3654741a8d8d140",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/timeline.mjs",
+      "sha256": "2c9ccc65a8d447472feb36d6fbf44cb64884b11e2081b8494971368c812dd13f",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs",
+      "sha256": "8d2787e65e79a5afd9cff782e48bd550af01677a1d8c07e1a51be42ecef53501",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+      "sha256": "c57cdf4a5206a21f697929481688dca8c81825f1385a30fd7f39ef6623fde624",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-motion-evidence.md",
+      "sha256": "ea2ca493cc3732c1678b23f4e84bd6e31d693e38834367c36f37765e02a71feb",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+      "sha256": "d77a999e58a02d5c6b910206f8d6a498d00bb37bf978a87cdfd1e187b0730fb7",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+      "sha256": "85587cbaa93ad9c814bb024a527f9148c108fb8dd71f7307d82cb8f292e4e8e0",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+      "sha256": "56a54c1ada6cc5c5e90119fa9e36587f6280ab78ec9d39c2bd0f14eb84813e07",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-sources.md",
+      "sha256": "6c5891f9615ffb710194d967bd9999c408054a9ec432307fc0b905019f307699",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
+      "sha256": "253085045b7f9fcd9e05ab3abb217d8c25e8d0bf1c73c8550391b60e8673286c",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
+      "sha256": "b0f9abbdda7a0d18e89619b456ca58778103e743e42b7ca00b9100bfab3cf9d8",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
+      "sha256": "13c4d4532f243863cd8f23ce822c5f12ceb636a02b05a49fecd8381541805796",
+      "equal": true
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md",
+      "sha256": "ca17d98df86c2c8f4d68f21061d53345eed7ad11ee69cf8aaf6578931dcd8789",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/SKILL.md",
+      "sha256": "dd4ce039d6aa7a6306e3b35e6fd04710cf86ea238215df3a5589eee274a753af",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/agents/openai.yaml",
+      "sha256": "7f5bb3e6d3848b053310b210bb14db4abbdd86b29a38639d1d3c732d6fb3e527",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/assets/human-reference-capture-card.md",
+      "sha256": "509ef1bf8d4425ee0b871a75073230f16c3f29e5723052e93b7ac3b390b0f09c",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/assets/reference-transfer-worked-examples.md",
+      "sha256": "eede1df144fa833b35cde89a0cdeb3fe7d410e6d86a93a41f32861809b326da2",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/assets/still-shot-card.md",
+      "sha256": "ffa9bd37deb2797b318ff7eb66435bd5fcb8e8693e7f03b4edcfa7b534f4e2f2",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/method.md",
+      "sha256": "077aa467fa033b12be05d6a1d689da6046ee1772863a9996704df90e4820e334",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/references/static-design-prompting.md",
+      "sha256": "1e544bf368b7f9105f0bb6690233194ee9e2c88fcf0d318cac8323ebd150af17",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/references/typography-and-text-feasibility.md",
+      "sha256": "8359609ae5aad78285fbdc64e62b024f707edd242a9854e93ca6b71c0f0cf2f2",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/references/unified-static-prompt-contract.md",
+      "sha256": "d5640cb2d19db3b4a6b4dcdfafdf8697c49d4c7b92198a844f3f550f59ce1e49",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/scripts/static-design-preflight.mjs",
+      "sha256": "d25603b88e03c7456ba8c0624564a0a55beb0c098a49712b8cd7584ba940f196",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/templates/static-design-notes.json",
+      "sha256": "33b52fec21590441804c40c950da53992b7a66d4ac0d1657afe9cbbb024d854e",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/references/capture-and-material-recipes.md",
+      "sha256": "ab59176f03340db88c14822db6d54d44064d64fef38d283854a9dc0aba841ecc",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/references/reference-transfer-playbook.md",
+      "sha256": "837b7126a95f9b7822bb946acf1b1bbac889b3c4675331e756b6971ed0d6e691",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/references/static-prompt-compiler.md",
+      "sha256": "4d429c7d5de3afbb5693173befb2c9ed0e6ca379a742f9be721e1bf6d19df976",
+      "equal": true
+    },
+    {
+      "path": "skills/image-prompt-architect/references/visual-subject-craft.md",
+      "sha256": "a1bb10d201090e711b34fa4142f1c4169e3adcf513100c50728ce4df51a1418f",
+      "equal": true
+    },
+    {
+      "path": "skills/instruction-packet-factory/SKILL.md",
+      "sha256": "2b1855d81b6a017c2f3312220f576fee63da968df7282f0243930fa85f8243fb",
+      "equal": true
+    },
+    {
+      "path": "skills/instruction-packet-factory/agents/openai.yaml",
+      "sha256": "479f9f49d5e19952db0aa8b861da37b48ac492178661359dde98c382a627ed0e",
+      "equal": true
+    },
+    {
+      "path": "skills/marketing/SKILL.md",
+      "sha256": "038eaac9a4697e6dc1f6445e7a85eb8bf1ffab3372cb55619332684108e3ccd8",
+      "equal": true
+    },
+    {
+      "path": "skills/marketing/agents/openai.yaml",
+      "sha256": "784ed59d2d6095f82b20d2e20ae18252ce766007da8666c8a28a09ef320481db",
+      "equal": true
+    },
+    {
+      "path": "skills/opencut-video-studio/SKILL.md",
+      "sha256": "0ef3906fadfe049db67c4bcccf116da2e8f17b0555d873f155e90c7deea0334c",
+      "equal": true
+    },
+    {
+      "path": "skills/opencut-video-studio/agents/openai.yaml",
+      "sha256": "09e4f989a75ba1287b12b08ca31bd77e9b2e04eab3c197b9e98efb846b6d4427",
+      "equal": true
+    },
+    {
+      "path": "skills/opencut-video-studio/templates/opencut-edit-pack.md",
+      "sha256": "b7b6219802e6965df8c49f2413c347095a66e8c1aee63d4fc1f527c14ddcbcbd",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/SKILL.md",
+      "sha256": "695bddb7029db61b79526c9b9c08eb73bed3a94a4bb3f3ac324ffb6ed9f91e71",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/agents/openai.yaml",
+      "sha256": "d54ed77ba755d84e092e73d67b720ae922eeed72ecbd9fed25f1ae9e897a433f",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/assets/quality-review.example.json",
+      "sha256": "4643a8b3857238077dc166090ae5bc2c30583217ad6eda35ef364302b61febe0",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/assets/review-record.md",
+      "sha256": "d701973fb9cf475072f7d462bac622cfb65d52bfb5497a7c387f0a9a47398294",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/kit/method.md",
+      "sha256": "44a28cd495d7216359e3c040276ef0cbc6ce85460baa6bc51bcf38abe484ec26",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/kit/references/material-artifact-diagnosis.md",
+      "sha256": "623d3624e7f296b6ccc029458c7fc13e092b8f516d9b99bef8adae6a8eae0148",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/kit/references/static-graphic-review.md",
+      "sha256": "eebf0dd26404a79fa492a6bf2d20e4365a904a5aae9cf0eed5c85911925e25b8",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/references/diagnosis-and-repair-lab.md",
+      "sha256": "66561dac6a183dc94ce1c5abf282368050497235db8dd33bb3fa8aaee6c743e3",
+      "equal": true
+    },
+    {
+      "path": "skills/output-critic-iteration/references/review-and-repair.md",
+      "sha256": "de24e14f60699f8ed0dabb99654ff15fc48c697f49a13889c5fcc64922b0e4d7",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/SKILL.md",
+      "sha256": "308239fa9edd0bd7e5129c3932a67add55382b226254dde80d1a354b568bba3c",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/agents/openai.yaml",
+      "sha256": "b1bb207a2c40de2b6c951c59d034fe45f2a53ed5c83b4ce53942fa2a812425b2",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/assets/artifact-schemas.json",
+      "sha256": "dd0af65c81389f0aeb1c959d600fbaf76a8665aa6c33890efc354f51e03a1dec",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/assets/onboarding.schema.json",
+      "sha256": "a3ff3c0c39b9df1fd242b6bf74bc6e7dd9c87fef723d1c378fbb5cf28fe36aed",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/assets/project-state.md",
+      "sha256": "ccf353ab47f51c19644511dd3bb414cf5f23675a0961f2fb995ecb80aaced013",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/assets/recovery-prompt.md",
+      "sha256": "568a67ee27d13c620978b88f79da53c6174466c1acb07335de8cc0e1665b1bb7",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/agent-roster.md",
+      "sha256": "41b9c25885a23218749e854b4146cb67e8d2b2947d5cfd9214521b829910402f",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/creative-prompting-standard.md",
+      "sha256": "5fc4824c13b00fadd0b4117229c5bc6abcd4809ae1cc052e17d295391dbe5783",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/gate-registry.md",
+      "sha256": "72975b5990da61b7a4d9f09f265f5e81bbe955dbe13cc3f4f7ce0c5add54219e",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/handoff-matrix.md",
+      "sha256": "bfee6e7aa0f9fc3f12670238d1ddc932a631ec9d1ca4f530adf1acf773fe8afc",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/human-voice-and-copy-delivery.md",
+      "sha256": "db90431177bc2e2c64e72b550c5f730e9746894136acab2eff26045666c5d105",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/humanizer-routing.md",
+      "sha256": "15f28c371dd2ab386739adbc5f83f882da6d73ea5ddfc736894821906cc60e02",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/hyperframes-workflow.md",
+      "sha256": "9ed071b8045567dfcc2728df6ec54f2ce0c52e192c7a9cc784d29c4a3b33f5ec",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
+      "sha256": "615cc38506265006ff7aad65cd197932e914ed9010cc4e0c1284cdf90ee626f9",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/loop-protocol.md",
+      "sha256": "0366cb930be93caa6021867c1eb531faa60129391fa83d5acb095caaac54d8f8",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/project-recovery.md",
+      "sha256": "28bc7939eeb3409473817bc1e212c5b4f2eb2e6ca23b8fa1f4e9c6ab1532a5c4",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/prompt-format-and-continuity.md",
+      "sha256": "bb54c88ba129ea384965a975cb866bc36acfb644273b8a01c94de739306bdf43",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/quality-improvement-methods.md",
+      "sha256": "42661adf6bb8b2c02f5dac1efab2f02d0b3c268550f507185d0cc0f818091e37",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/role-skill-map.md",
+      "sha256": "9fc6ea03ecc86bd63e3a48b9f5363c5538c489b6e225dd6af1ea9c560f85390a",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "sha256": "f5f220555cc23a0c42d7e19e7c7fefa2b7da8fde2d4728c0d4d453edaf1632c2",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/text-image-generation-policy.md",
+      "sha256": "e0f76e9b436f3ebe378811fc82f26c00cebc25c517b6e2a9b7971c894d782895",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/workflow-blueprints.md",
+      "sha256": "657301478863157d0c602627ba709c746f578fa2ba7ebc901d8aca9c3cc00579",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/references/workflow-operating-model.md",
+      "sha256": "59f5956c312382ade1d487dd3b8770835e2721b1b258dacee25d428dc0e4798d",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/templates/artifact-templates.md",
+      "sha256": "478d519631911fa4e32d39c7954f1b128b81a29461568dcffd55caf916fc5322",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/templates/creative-prompt-contract.md",
+      "sha256": "efbac48ffc1eea4f5be57946a329f9b292f9337488d72ac87eaf33b975fe0c56",
+      "equal": true
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "sha256": "3f438dcac6d2a0ae942b68102b41a9701ac95eb82eba1934648cf7bea7fde575",
+      "equal": true
+    },
+    {
+      "path": "skills/producer-ai-task-builder/SKILL.md",
+      "sha256": "e844ab8ed2024b25bbdced5b19161f9fc249f2e74e97bea4195f7387912777b1",
+      "equal": true
+    },
+    {
+      "path": "skills/producer-ai-task-builder/agents/openai.yaml",
+      "sha256": "e34281a25854b8d833274cf0371fc449b68d2a35f15d2d9ca5bc926c41d111e2",
+      "equal": true
+    },
+    {
+      "path": "skills/producer-ai-task-builder/references/audio-arrangement-vo-and-mix-workbook.md",
+      "sha256": "7c7aa49e5d5ac59ab47037925060eaf3a41e547408402245aa1ad7936999b551",
+      "equal": true
+    },
+    {
+      "path": "skills/producer-ai-task-builder/references/audio-evidence-and-av-handoff.md",
+      "sha256": "2e0cd803ec43d7c2fd6e0a49968b6e64e88e0b93f16cff8179234d85cad31a6d",
+      "equal": true
+    },
+    {
+      "path": "skills/producer-ai-task-builder/references/production-task-packet.md",
+      "sha256": "3e1f28b0a51ecec44423931dfb2d22203a41e13a79afb186ce984b3e98c6da08",
+      "equal": true
+    },
+    {
+      "path": "skills/reference-pack-curator/SKILL.md",
+      "sha256": "224e1de05a9441075d4e4b36b99863862a9cc50a21cf0529a7e148f7c2fb3af2",
+      "equal": true
+    },
+    {
+      "path": "skills/reference-pack-curator/agents/openai.yaml",
+      "sha256": "f8cbb7a101862e9ddd10ca87af74c833d9d8fd75913cb17f10e774b8f787a5a4",
+      "equal": true
+    },
+    {
+      "path": "skills/reference-pack-curator/references/static-graphic-source-authority.md",
+      "sha256": "c7022dce6bdc3a903fd5ff819c5685848b25906d6bf26a93b7cc93f7d5597fe1",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/SKILL.md",
+      "sha256": "dea2273601abb5bb40dea82c8422ef1226cca1685e77d2ba40051c8e7aa8d0c2",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/agents/openai.yaml",
+      "sha256": "e9f524954c630cba5ec53e0bddf2b79df68764ec999dc57a0fcaa36c64b2bdda",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/README.md",
+      "sha256": "aa6dca058bd16f8ede217426039bfdb29944fef77990236b1171204474d12de3",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package.json",
+      "sha256": "95db820ffc2524fe6f95adcc45a8c3d52e53d8a72f31824c1b71659830da9f79",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/remotion.config.ts",
+      "sha256": "b4ebfbca2dd3897205cb60796fc41400560dfe90681f66ba72266c05b24a6541",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/src/index.tsx",
+      "sha256": "f6b414792511e6109620f9944d2d9ffcb5fe84f4854a0f0ef87aaea4cb063176",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/tsconfig.json",
+      "sha256": "7ebd65725b42ed4012d08141b9d3eb266e70f54d599cbef64ccbc895d65a5129",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/references/remotion-implementation-notes.md",
+      "sha256": "e97c64cc041d1373674ddbfe30bf9299e73705c633fed5b432a0db1df0003b91",
+      "equal": true
+    },
+    {
+      "path": "skills/remotion-video-production/templates/remotion-production-brief.md",
+      "sha256": "8ec6806e5a2d1bf9467e52c1b32abdeceecb1b0b3df0eb4eedf0e2f3f88c5122",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/SKILL.md",
+      "sha256": "6cbfcfaf615d29f768e01956ebbb7d2d8ea6b2543f54baf986b11802f56c4de3",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/agents/openai.yaml",
+      "sha256": "673aa5e43bebc58680495e8d0bab45d752f7f867cebcb9a056ae49b75e4b25c9",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/assets/research-decision-card.md",
+      "sha256": "68224eb6052461b1087cbf1d90f1bf4fba8ece2d7a7c4353aa6b42279f562b8b",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/kit/method.md",
+      "sha256": "315a70969bad3180fb19c7d18eaf58f96d1e71628e17d49af4290fea096dc665",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/references/creative-upgrade-sources.md",
+      "sha256": "8106b30604bab0b47d8d2b423398ac0869ac3c63c7568367a339a391bd960024",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/references/deep-research-method.md",
+      "sha256": "ffea944d9642d1df1a59e989362f610965e9a7ae0cb26501f66f58fe8a98af38",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/references/image-generator-snapshot.md",
+      "sha256": "64d5f1492149e1f01f2aae87d9a8d403b06ca41bb277636844a99710b7fb47f9",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/references/initial-source-register.md",
+      "sha256": "18b384a25d9ae914f96ebe53059b28d56c5f51cd7351aea3c61a15609e1527dd",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/references/model-mapping.md",
+      "sha256": "1fbe3bdaae37d468462e9a37d2d652f09731fea5c9a4f153428b70d8f864c8b4",
+      "equal": true
+    },
+    {
+      "path": "skills/research-evidence/references/reference-audio-expansion-sources.md",
+      "sha256": "18b49aff0e728afea9417a158ad8ba7423e2fc865912fef416d84e49e2e63551",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/SKILL.md",
+      "sha256": "836e9d8dced3c8e725c53ba24e0824ba420c77e8e7dd7e54a821a8a23fa60a68",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/agents/openai.yaml",
+      "sha256": "2e1eaa27fd651e6a394af4a3959abcd820c948c8ec53d6d03f14e41de643b41c",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/assets/scene-worksheet.md",
+      "sha256": "7cbf86c93c12e55af034a554d496093a1921dbd76fb64d6f8903ad5441173099",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/assets/slad-scene-example.md",
+      "sha256": "6f4147ffc069e4e584d302ef3f127c3627acb3e1de1dc25a039452f9f56bfc35",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/kit/method.md",
+      "sha256": "4d992c28cd1631d322d2ff294ac0f812970125e30951358e716816ffbab91305",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/kit/templates/screenplay-development-pack.md",
+      "sha256": "4401df124d9510321e035b9e41c4205e7aec9f2d6c324843a436a42d0811e8c6",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/applied-scene-workshop.md",
+      "sha256": "9e6d017a74307a2695be2690c4d7e662e99be942c71fbe8ef7ccdbc21ebf81f7",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/narrative-forms-and-development.md",
+      "sha256": "8a8769382d51c6920fe89638fea98f3531f89ce3afdd7d97192adaee2e229f73",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/scene-craft-and-revision.md",
+      "sha256": "0618be925cc3f40bf0199a7e0288f83053f7adcdb34d7671646b1433e0a04253",
+      "equal": true
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/script-to-production-handoff.md",
+      "sha256": "20a79804a816ae592a088dc72c3a2259d6b584c8f04ad1e5e408c63753261349",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/SKILL.md",
+      "sha256": "1a87489f13eb0233205d653a7f8b15de5117919fa20862ad1be974b5fecfe24d",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/agents/openai.yaml",
+      "sha256": "c72c02ffadbcb052a4315dced06ac60cdbacea498558eaaf8a17d8ae90ab3eec",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/source-provenance.json",
+      "sha256": "721c08e2c007aa880b043680f51ad296936252eac4335e723ba711da9e5cb209",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/LICENSE",
+      "sha256": "1d33d64da56a8883a9f2f7377ee2bd6d844f304787bf1c4a574b0077d5ad77c3",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/SKILL.source.md",
+      "sha256": "da0b0d11da3299785595a1b3d229e7d0bdb8b16eb0e454b1e9cb181b541e0edb",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/agents/openai.yaml",
+      "sha256": "b964ffa3993be641cf1f53425e915e868c07f9ffc20d8ff89811671edbdef726",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/capability-and-reference-contract.md",
+      "sha256": "911357ed66fa93af48c32876fcffe6af23a40ab0b69def7c58d7f968c9a9538c",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/concept-development-and-originality.md",
+      "sha256": "b50516654c07844a5e489778cf3fd1f2111d0567fe549a8714111a22cf48b8df",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/copy-development-and-human-voice.md",
+      "sha256": "6afac39cd439f9246d102a1a292cafbfecde467258ab9df989bdad10f84fe275",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/deliverable-profiles.md",
+      "sha256": "04db46e5ca4d0887a76fd5784f637862a02fee17ed7c4b47116d636004bb3094",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/design-archive-directory.md",
+      "sha256": "010149057c1627c9fd41b07a1b5e11254a7f2dd789c1db3f8fc04a90ef247323",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/design-contract.schema.json",
+      "sha256": "6ee93a946ccbc881e7852faec542842a4841024e3fcecac36b0485f20f1bc707",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/design-reviewed-archive.md",
+      "sha256": "63d3f4fb817473ddef9e799b8328e600ecd6677a7f0d3ef50761489985440ba4",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/evaluation-scenarios.md",
+      "sha256": "91afda19f7058cc753010bf1775cfd1579c39a0be177547888961629a99d5914",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-code-workflow.md",
+      "sha256": "ad8ff7a58e991710bd0be5f2f874ef7601d7d90d3517df27ecf18ce8fe220e90",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/first-use-onboarding.md",
+      "sha256": "91620084d7f4e45d98b3966ae97531a1185fc49af69d67ce3fbd06c6116618fb",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/gpt-image-2-5.md",
+      "sha256": "766a42efc33843ab68097c197eaf89aff63f03749d2e7bb63a58c62be9cdd47c",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/layered-assets-workflow.md",
+      "sha256": "d596bcca03869bf039f343c7b02ce6fd736bfe154fbc37ce66b9f79a8b4191f2",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/material-artifact-diagnosis.md",
+      "sha256": "967b2110c63605ffea5121a37b534f9809f696ade0c4faeebc35d70a03b19ac3",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/poster-movements-and-production-atlas.md",
+      "sha256": "f5415e4e25531cd8ccdf9e132aca06ae9febbb5011150999ae3dd8321c511984",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/poster-style-and-composition-atlas.md",
+      "sha256": "c329051930efe0f5d11959071e7b8bcef7a3e6fe2ad2f3c160a0b03ae7727055",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/poster-style-translation-catalog.md",
+      "sha256": "afc2c5a640eca38c166a12b9b0fc7ca142ce38a2c3206479f53354e2af0b1361",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/production-walkthroughs.md",
+      "sha256": "31f4fb41c662de7df14e36e468808a5e78e04c43c8053758892f501cf74dc886",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/qa-and-repair.md",
+      "sha256": "3350121ff2b17aa6cda3b74b8a1880ea4e07564650129f656472f2b9a0702811",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/skill-maintenance.md",
+      "sha256": "edd8bf70c2e9b35fda87b518e5684d1250ec1595dea6689a3abad6df4bd8cc4c",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/source-release.json",
+      "sha256": "3505b0e0df200bd87e862d4333d040d4af2d0be52905ce6a6a00f6ba8485f522",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/typography-and-text-feasibility.md",
+      "sha256": "f3f3a62b2bc75adbb45e4f7465144d958552bf72532d329c7577fed2a6920464",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/unified-static-prompt-contract.md",
+      "sha256": "70931d43f1a477e0e39fe6a2ab6b603f89751598138e9d291e206b2e1086fe72",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/workflow-integration.md",
+      "sha256": "7d0e3c17e0cea547b1cab55464f2666c765e94159495d44bf5812ce95ece58d3",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/scripts/event_poster_codes.py",
+      "sha256": "025c6bedc890f3a5a615806d22a77f43e7e84dcadf319d2fd4d316b478cb8a86",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/scripts/layer_assets.py",
+      "sha256": "a25e7d990d3596835a8fd6952bd8d93a7a29348e53ce2931e4d0714d38ddaebd",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/scripts/skill_lifecycle.py",
+      "sha256": "7cd95e4706ac71cc798b8d926049c8389a8c3172cbeafe9898ff968618add3ce",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/templates/design-intake.md",
+      "sha256": "5b31e4ad61e53c416b46f102c4b17fe40d41d7fd8ac898db28aa384c6f836364",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/templates/layer-plan.json",
+      "sha256": "e34f9c4a7951669cab2546704124b9055c43e479a92176880a5c2f3dba87ea47",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/templates/prompt-pack.md",
+      "sha256": "d3c58df9acc67295e9d59fda15c19805830e14ddb12f95fb31ad650c180d0ac3",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/tests/test_event_poster_codes.py",
+      "sha256": "2f6ccee3b4baa4e22eba47d904692263da7e80ca0da298d4797b9fb28f165a7a",
+      "equal": true
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/tests/test_layer_assets.py",
+      "sha256": "b73c2bae4c26227f8937f49113b2f611812ffbdd012a88a1dbaba1f480eb5590",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/SKILL.md",
+      "sha256": "c8e622d7231d430bd4f4cae904891630e4f2656e4ce41046b101e568b714c385",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/agents/openai.yaml",
+      "sha256": "4c9952d1799c7e8f8568a1b29e0b38fde4c1b783fde52517c2c56d44d7de3321",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/panel-map.md",
+      "sha256": "ab488b7a32374bbcc23c6a2f6500bb9ffa21db5efb871996c56fc3974466e7f2",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/reference-sheet-worked-example.md",
+      "sha256": "874c6346815f04ceb31a28050d4771f2cae6457852fba9097155264b44f96f69",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/reference-sheet.template.json",
+      "sha256": "5d2a6bb8219acb8a7a65eb340ef406b4cc7c92daf18d96e984101336f2ccde42",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/slad-board-examples.md",
+      "sha256": "fe5621fc3b62e30209dae526ee6c5435154d51fd1846db22f55ff7c07d61e73c",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/kit/method.md",
+      "sha256": "6daeffd2a95a3ea99293c4d10e986b0a6a36c95e91c0d25e78ae80db6d5a7480",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/applied-board-workshop.md",
+      "sha256": "0875864b535c3e719cd8a8cde81a5db06fff2439f94e389fd62a28f03d2fbb73",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/board-delivery-and-handoffs.md",
+      "sha256": "d1270c64cd38f40e3c093c5490043629ec0fa4f71880a5261302f5524ab9ca54",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/board-layout-and-copy.md",
+      "sha256": "2f4bd3a7ad8b855af467daa5ed62446f7b2c40da83ff044d23cc86671bf07dfe",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/production-reference-sheets.md",
+      "sha256": "7aca3e92b38c651ec8165d256225b43b8219eccff9152b53d09d2d516e2856cb",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/SKILL.md",
+      "sha256": "f5220cbb81515f265e7f1446bf5f617b61dc8571d3c1be22bd4833b8d26db0ab",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
+      "sha256": "ce288cec5e0b4fa89989f8b8652d0674e58bd51cc3dddebcecffdafbd8bc2802",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/assets/shot-plan.example.json",
+      "sha256": "f8ec69bb556817ff8b090c133f90b8c263144792711417eed6813af28c1b996b",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/assets/slad-sequence-example.md",
+      "sha256": "dceecc8a3b1adcbd62797a3046056763ec482c5ead0fd77daed2e8c7beac943a",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/assets/state-and-speech-ledger.md",
+      "sha256": "51c267879534088a04dea59e9831fcd905bb2e0e6f70096c7876c7e0c5ea2159",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/kit/method.md",
+      "sha256": "90475a482a6e7c787d07dce1d6dfe1fcaa89570855d886180dbb617382de5e63",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/applied-sequence-workshop.md",
+      "sha256": "51701123eddfe63b2ae27e2098d4dc64c22fcb9d30ec8a7c2ebf5c0e7437a06d",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/reference-authority-and-carriers.md",
+      "sha256": "f2874f6bc55ebf54cd8e25e040fcc3d3e2f26176144936231b3c0621a9295cb9",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/sequence-contract-and-continuity.md",
+      "sha256": "c25aac04e49e5b89f87bb9770e14c3f1183880a5362ef286f478245151765276",
+      "equal": true
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/shot-adjacency-workbook.md",
+      "sha256": "be02da637a21f6882df6aa7eca8caee5d29487adf072fa137e5049f62218a73c",
+      "equal": true
+    },
+    {
+      "path": "skills/storytelling/SKILL.md",
+      "sha256": "1c0db5f39fc201c7190c04fc9d8262453e6fe24f7ce79cfa17eba64279c2ff17",
+      "equal": true
+    },
+    {
+      "path": "skills/storytelling/agents/openai.yaml",
+      "sha256": "694502a817614164c3ef872ccc0c0bf5197d16079d0ea51c1ca4b02e416e991e",
+      "equal": true
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "sha256": "23fb15eeb70feb2e20a6c16e89c5969e4f6d807d2180b1482acbef7467f11b90",
+      "equal": true
+    },
+    {
+      "path": "skills/studio-workstyle-profile/agents/openai.yaml",
+      "sha256": "20ce5ddec83e587c77834b3be18bc21f0344b12f1bf3fe99d6358f5b78fc5cae",
+      "equal": true
+    },
+    {
+      "path": "skills/studio-workstyle-profile/assets/profile.template.json",
+      "sha256": "f90bed47c27a2ddd319067bc815817004bedbf2ed405b812ec04c57e9bef5ef5",
+      "equal": true
+    },
+    {
+      "path": "skills/studio-workstyle-profile/assets/taste-profile.example.json",
+      "sha256": "9a1f842cd6ccc0f02af7d6dec7954fe568cb831fe6fa2d87d862d412ee819d22",
+      "equal": true
+    },
+    {
+      "path": "skills/studio-workstyle-profile/kit/method.md",
+      "sha256": "06231db85ec31706570cec8a38cfc451fbdb9762392efb7bd160543fd76354f2",
+      "equal": true
+    },
+    {
+      "path": "skills/studio-workstyle-profile/references/taste-learning.md",
+      "sha256": "7964c744229c7f67139d30d83828107f6e2fe7bab89ca821d4dd4b2423729e65",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/SKILL.md",
+      "sha256": "358d23196347ac087b6662e43e8afd555bd94f9b536345fd74990a1bae7c85f9",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/agents/openai.yaml",
+      "sha256": "c19dbf98f1b31d8d78ea835a3f96b30fb196320474bba07224363bdbf5684332",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/execution-plan.template.json",
+      "sha256": "31a09b9ca60db8d7762297bdbf43abf6b719670ca552f166fc091e89497fd914",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/provider-catalog.json",
+      "sha256": "1f5b1895032bb3063c3a27aa6d7a5f511591aebe603acff02424c29b9cab7ccb",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/provider-profile.template.json",
+      "sha256": "510b0bd4d8dd006807f6c70d8b2f96cf46c4daba9ddc5df115b48b61fdc9c015",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/reference-capability-card.template.json",
+      "sha256": "802507b7ab0bbfe4a7f6bb754a8039f0a3872cc03e66a1e03fd9e4ea04df58c4",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/references/execution-adapter-contract.md",
+      "sha256": "920e2e9b2cf0388c13976cfb41e4feceb890d682e801fe21495cebb1b7a59315",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/references/provider-setup.md",
+      "sha256": "1fdb7ba31fe634012ce4d02cb7216fbe8642ab7f5d5b93cbfe515f6cd2633d36",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/references/provider-sources.md",
+      "sha256": "277f5ff1cf7eab433b96406fabcebf05917699571736797d9c14880f0e0fe8a7",
+      "equal": true
+    },
+    {
+      "path": "skills/tool-routing-cost/references/reference-capability-routing.md",
+      "sha256": "0639e3136d2ad0cffb56644de5a3d47474648ed41acdf86bfb513fa3fcdc0b3a",
+      "equal": true
+    },
+    {
+      "path": "skills/ugc/SKILL.md",
+      "sha256": "bb7556474c77da944402f69b7934c977dc81710f08a544c0b3f19bc731155a7c",
+      "equal": true
+    },
+    {
+      "path": "skills/ugc/agents/openai.yaml",
+      "sha256": "b35e01b837b0c41640a4a8284788580ea893d33480b83c38ff9dc2fd7f5f06aa",
+      "equal": true
+    },
+    {
+      "path": "skills/video-prompt-architect/SKILL.md",
+      "sha256": "2b7e2bb608b2a08769ce2c0bb9433b8626cd14293d1c06d752e972f604e7daab",
+      "equal": true
+    },
+    {
+      "path": "skills/video-prompt-architect/agents/openai.yaml",
+      "sha256": "dfef2bd6d0e56c4f171f15f35200cdda760427a7cc00176eaf18bce43388bef9",
+      "equal": true
+    },
+    {
+      "path": "skills/video-prompt-architect/kit/method.md",
+      "sha256": "a10a5c4c40a7b4523b653a4b04a0010ebaf01da55ae5adcc673fb77cf1a08efe",
+      "equal": true
+    },
+    {
+      "path": "skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md",
+      "sha256": "fad94403a1c8762f7e4eb5384361fc092008397170ab49e056ec6b514ab66ad6",
+      "equal": true
+    },
+    {
+      "path": "skills/video-prompt-architect/references/video-craft.md",
+      "sha256": "383f0e5b9e23b067e136cde754dd21f2c843025293fb3107a37c4dc0d738bb47",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "356141e5909aa4ec4e2686ae3a899e1c11f0636358272f76a0801fa3afb7a332",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/agents/openai.yaml",
+      "sha256": "a05098c92eb405d9f4bf8047bbbe0b4ead252f60ca42209e72e826ce71c66b84",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/brand-identity.template.md",
+      "sha256": "296f9620d28dcae5296aafebac30f446ebe771d9cc459211a33c7f3da35b2c42",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
+      "sha256": "d7492574e9c25d3effeeb990472393f8fcf2626f6bd1c24efbb0b6dc33b7bd0f",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-domains.json",
+      "sha256": "5f5bb9739393912759bb251877d9c691e8bd56cda822557b42d11eedab727f65",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "sha256": "14268f41880f6b44c3b20001852ccd190a33127881e6f451a21debce9cad6601",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "sha256": "523f7555e5915eed693749593ea9860b6e2fb4f3234e21830db950c78a040afe",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/project-pilot.template.json",
+      "sha256": "56dde5a0f22ced705c0b0e7cbc024bd801146cdd9fd37bc02846ba4742243628",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
+      "sha256": "e926662229b03b447bde8eebfe5024b9a07a1dadc8990a91b3765a9b87d3c378",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
+      "sha256": "509afb18477debb7c4bf97be9d67d2dc086175b89a77755e9eed54072d5545b0",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/activity-bank.md",
+      "sha256": "06e01f688e979c1696084e3839eafd90b6ee0bc3093a442c49823830e429ecc4",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-01-instructions.pl.md",
+      "sha256": "95ce63049927aa24c0ba6017eee2cdf4ef08fc178761afa4cdbcd7d4e1953d3f",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-02-evidence.pl.md",
+      "sha256": "5037e739ebdd52a103060f5c62f5d5a8eadea293c06cb208a63650d19cecee52",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-03-decisions.pl.md",
+      "sha256": "0660887c432ac574381f08417c09edba97386db3ce4bc18601be8522b9b396dc",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-pack.template.md",
+      "sha256": "71ac0c0070cdb1dda639ea71bb042091531e983715c97f2f4a4d58661485dc1b",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/teacher-admin.template.md",
+      "sha256": "db2574c99f9ffda77ec7f4c78e1f4967b2f16264918c2cd4a3b68bbb35ad08a9",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/kit/method.md",
+      "sha256": "e1ed93a6e18b17aa903536d9c09fa0cb63a1579686a88e309ac84a91c472231b",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/asset-change-routing.md",
+      "sha256": "0775a55121aa72d06645aeccfe58663d829bb2451ce394476339ce23838d55f5",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/brand-identity-workflow.md",
+      "sha256": "269132944e48952a58eb53684d77bb94a84a31aa60aab1ae1f6466e0e9e41b06",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+      "sha256": "4d5840739da17cb8a0f7969a16a1b5a996579a6ab295fe0ada61b2043d8b8616",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
+      "sha256": "8273922fd887e34f9d33cc0c31c2db00adb6b8d6b1148263f59740f9de1f4fab",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+      "sha256": "7b490fb786501371f72fb43b354656ea981e1c7eb41b37a35596d7a7486c6725",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/learning-mode.md",
+      "sha256": "abf44b512ce092ba708ff1748cf89a7bec130ef00293c44b8ab36f60ef7cdc84",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
+      "sha256": "8b50f27264fe76ff8a5d38cab96b0b121447d7241dd29dff731567cf3129269d",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "sha256": "f3c93fe46f1175dc852a990543cb2c916646ecf0dfd850d4c21615d78d2c4910",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/studio-contract.md",
+      "sha256": "166cc8dceaf1832b973f061da2dabe882a949329b15e084297bdc2d249535a6b",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/teacher-material-methods.md",
+      "sha256": "d47a1246718ce577eb487fb39bc79741019f831bb39dcd1714090461162d229e",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/teacher-method-evidence.md",
+      "sha256": "e00b5777be7ab8f76ba7ef024193f8fe381e317fb6677e33673135717d3f0bc0",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/teacher-workflow.md",
+      "sha256": "0f56b67f45ae9a1104d7b04db910b2535a1612cb3977fed3b12b7a84f1ac4951",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/thread-link-and-cross-host-resume.md",
+      "sha256": "062b41d0bb292240f0a0c3373c3e1baa9c706605e4c18bb49c1adae379b0ec21",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-self-improvement/SKILL.md",
+      "sha256": "016dfa1774f484843fe98793085113b71d5c44a656d5a7268d3300293528e0f9",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-self-improvement/agents/openai.yaml",
+      "sha256": "f926d9e09ed773d0c4c5f5430f9ecd94e622258455f9278146a948659622e7f5",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-self-improvement/assets/reflexion-lesson.template.json",
+      "sha256": "00365176596a493ec75783b8907fcdad7ad899960030d2917d3a5752b2aff3c3",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-self-improvement/templates/change-proposal.md",
+      "sha256": "31f0827beb6bf85c437bcf52d55be1f7c07c1f2723e94b6c3745507b8636624f",
+      "equal": true
+    },
+    {
+      "path": "skills/workflow-self-improvement/templates/improvement-log.md",
+      "sha256": "bd14ac5d6ccc259f5b031b4a2d51931e5cb0120acf1983d0cdbbc48e1327671e",
+      "equal": true
+    },
+    {
+      "path": "tests/asset_manifest_test.py",
+      "sha256": "45e2fa140fa026fe39aefa77f41aa8f902275880add80caadd552c2c111ecffd",
+      "equal": true
+    },
+    {
+      "path": "tests/creative-upgrade.test.mjs",
+      "sha256": "ad54600b840c8db84a90aa2cd0c973d212fc7795c1d7ec45ca182c8f7f800bcf",
+      "equal": true
+    },
+    {
+      "path": "tests/learning-mode.test.mjs",
+      "sha256": "b8068c3cbbc3c70315d92ec73183fba8bacd44b253d926b8a7e74f2239ca04dd",
+      "equal": true
+    },
+    {
+      "path": "tests/motion-toolkit.test.mjs",
+      "sha256": "d9eebb0267a9a28d4ca801b2ed50c7e6f2eb23333fb9f0d2cc0996b512914404",
+      "equal": true
+    },
+    {
+      "path": "tests/quality-methods.test.mjs",
+      "sha256": "db3fcb8b2728e24748a55530f231145c86acf595c726810c95774c0e1455c138",
+      "equal": true
+    },
+    {
+      "path": "tests/studio.test.mjs",
+      "sha256": "f18e71353cdf531b5f588208e3eb40c77f6381a7deb8d536e9d3124b83259707",
+      "equal": true
+    },
+    {
+      "path": "tests/workflow-kit.test.mjs",
+      "sha256": "be3988d7276af4633e1ff2c9181f626d41f9348f825e0b31832946d00179d722",
+      "equal": true
+    }
+  ]
+}
+
