@@ -1,0 +1,3550 @@
+{
+  "version": "1.10.1",
+  "date": "2026-10-04",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2",
+  "scope": "USER",
+  "audience": "PRIVATE",
+  "inventory": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "size_bytes": 2284
+    },
+    {
+      "path": "LICENSE",
+      "size_bytes": 11346
+    },
+    {
+      "path": "NOTICE",
+      "size_bytes": 3347
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 16506
+    },
+    {
+      "path": "assets/logo.png",
+      "size_bytes": 1603136
+    },
+    {
+      "path": "docs/campaign-workflow.md",
+      "size_bytes": 4146
+    },
+    {
+      "path": "docs/creative-upgrade-verification.json",
+      "size_bytes": 3897
+    },
+    {
+      "path": "docs/creative-upgrade.md",
+      "size_bytes": 4818
+    },
+    {
+      "path": "docs/installation.md",
+      "size_bytes": 2831
+    },
+    {
+      "path": "docs/knowledge-map.md",
+      "size_bytes": 12095
+    },
+    {
+      "path": "docs/learning-mode.md",
+      "size_bytes": 8365
+    },
+    {
+      "path": "docs/migration-status.md",
+      "size_bytes": 13883
+    },
+    {
+      "path": "docs/provider-setup-guide.md",
+      "size_bytes": 8502
+    },
+    {
+      "path": "docs/reference-audio-expansion.md",
+      "size_bytes": 3756
+    },
+    {
+      "path": "docs/release-1.0.md",
+      "size_bytes": 2882
+    },
+    {
+      "path": "docs/release-history.md",
+      "size_bytes": 38783
+    },
+    {
+      "path": "docs/research-ledger.json",
+      "size_bytes": 14163
+    },
+    {
+      "path": "docs/skill-naming.md",
+      "size_bytes": 4446
+    },
+    {
+      "path": "docs/workflow-kit-integration.md",
+      "size_bytes": 6399
+    },
+    {
+      "path": "docs/workflow-kit-verification.json",
+      "size_bytes": 4048
+    },
+    {
+      "path": "evals/campaign-cases.json",
+      "size_bytes": 13468
+    },
+    {
+      "path": "evals/campaign-workflow-cases.json",
+      "size_bytes": 14608
+    },
+    {
+      "path": "evals/effective-overrides.json",
+      "size_bytes": 29871
+    },
+    {
+      "path": "evals/knowledge-practice-cases.json",
+      "size_bytes": 12757
+    },
+    {
+      "path": "evals/learning-mode-cases.json",
+      "size_bytes": 49156
+    },
+    {
+      "path": "evals/producer-cases.json",
+      "size_bytes": 14160
+    },
+    {
+      "path": "evals/static-cases.json",
+      "size_bytes": 96290
+    },
+    {
+      "path": "evals/story-cases.json",
+      "size_bytes": 14819
+    },
+    {
+      "path": "evals/storyboard-cases.json",
+      "size_bytes": 29624
+    },
+    {
+      "path": "evals/studio-behavior-cases.json",
+      "size_bytes": 49768
+    },
+    {
+      "path": "evals/video-cases.json",
+      "size_bytes": 26272
+    },
+    {
+      "path": "evals/workflow-kit-cases.json",
+      "size_bytes": 13619
+    },
+    {
+      "path": "integrations/artifact-guard/README.md",
+      "size_bytes": 4349
+    },
+    {
+      "path": "integrations/meta-ads-designer/LICENSE",
+      "size_bytes": 1074
+    },
+    {
+      "path": "integrations/meta-ads-designer/README.md",
+      "size_bytes": 5173
+    },
+    {
+      "path": "integrations/meta-ads-designer/source-manifest.json",
+      "size_bytes": 4895
+    },
+    {
+      "path": "integrations/motion-designer-studio/LICENSE",
+      "size_bytes": 1094
+    },
+    {
+      "path": "integrations/motion-designer-studio/README.md",
+      "size_bytes": 756
+    },
+    {
+      "path": "integrations/motion-designer-studio/THIRD_PARTY_NOTICES.md",
+      "size_bytes": 1347
+    },
+    {
+      "path": "integrations/motion-designer-studio/source-manifest.json",
+      "size_bytes": 4907
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "size_bytes": 138877
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/SKILL.md",
+      "size_bytes": 472
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/SKILL.source.md",
+      "size_bytes": 4594
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/agents/openai.yaml",
+      "size_bytes": 271
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/references/static-design-components.md",
+      "size_bytes": 3056
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/asset-manifest/templates/static-design-components.md",
+      "size_bytes": 1085
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/brief-architect/SKILL.md",
+      "size_bytes": 474
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/brief-architect/SKILL.source.md",
+      "size_bytes": 3826
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/brief-architect/agents/openai.yaml",
+      "size_bytes": 261
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/SKILL.md",
+      "size_bytes": 472
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/SKILL.source.md",
+      "size_bytes": 5792
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/agents/openai.yaml",
+      "size_bytes": 304
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/templates/caption-task-pack.md",
+      "size_bytes": 425
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/SKILL.md",
+      "size_bytes": 476
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/SKILL.source.md",
+      "size_bytes": 4045
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/agents/openai.yaml",
+      "size_bytes": 260
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/cinematography/SKILL.md",
+      "size_bytes": 472
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/cinematography/SKILL.source.md",
+      "size_bytes": 4089
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/cinematography/agents/openai.yaml",
+      "size_bytes": 264
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-video-campaign-director/SKILL.md",
+      "size_bytes": 512
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-video-campaign-director/SKILL.source.md",
+      "size_bytes": 3467
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-video-campaign-director/agents/openai.yaml",
+      "size_bytes": 280
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/SKILL.md",
+      "size_bytes": 514
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/SKILL.source.md",
+      "size_bytes": 4376
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/agents/openai.yaml",
+      "size_bytes": 357
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/concept-development-and-originality.md",
+      "size_bytes": 6403
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/deliverable-profiles.md",
+      "size_bytes": 5433
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-code-workflow.md",
+      "size_bytes": 3418
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "size_bytes": 70529
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/poster-movements-and-production-atlas.md",
+      "size_bytes": 21773
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/poster-style-and-composition-atlas.md",
+      "size_bytes": 12471
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/poster-style-translation-catalog.md",
+      "size_bytes": 18508
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/static-design-direction.md",
+      "size_bytes": 4147
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/scripts/poster-codes.mjs",
+      "size_bytes": 6012
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/SKILL.md",
+      "size_bytes": 464
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/SKILL.source.md",
+      "size_bytes": 6187
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/agents/openai.yaml",
+      "size_bytes": 232
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/copy-voice/references/copy-development-and-human-voice.md",
+      "size_bytes": 9250
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-music-video-director/SKILL.md",
+      "size_bytes": 502
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-music-video-director/SKILL.source.md",
+      "size_bytes": 3505
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-music-video-director/agents/openai.yaml",
+      "size_bytes": 290
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/SKILL.md",
+      "size_bytes": 490
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/SKILL.source.md",
+      "size_bytes": 6973
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/agents/openai.yaml",
+      "size_bytes": 355
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/creative-video-producer/templates/creative-video-production-pack.md",
+      "size_bytes": 607
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/delivery-documentation/SKILL.md",
+      "size_bytes": 488
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/delivery-documentation/SKILL.source.md",
+      "size_bytes": 3938
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/delivery-documentation/agents/openai.yaml",
+      "size_bytes": 266
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/SKILL.md",
+      "size_bytes": 516
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/SKILL.source.md",
+      "size_bytes": 5237
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+      "size_bytes": 367
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+      "size_bytes": 665
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/SKILL.md",
+      "size_bytes": 472
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/SKILL.source.md",
+      "size_bytes": 3588
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/agents/openai.yaml",
+      "size_bytes": 260
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/templates/instruction-packet.md",
+      "size_bytes": 184
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/templates/internet-mapping-packet.md",
+      "size_bytes": 158
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hipson-adapter/templates/research-map.md",
+      "size_bytes": 140
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/humanizer/SKILL.md",
+      "size_bytes": 462
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/humanizer/SKILL.source.md",
+      "size_bytes": 5413
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/humanizer/agents/openai.yaml",
+      "size_bytes": 267
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/SKILL.md",
+      "size_bytes": 484
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/SKILL.source.md",
+      "size_bytes": 5448
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/agents/openai.yaml",
+      "size_bytes": 333
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/SKILL.md",
+      "size_bytes": 488
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/SKILL.source.md",
+      "size_bytes": 6734
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/agents/openai.yaml",
+      "size_bytes": 279
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/references/static-design-prompting.md",
+      "size_bytes": 5633
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/references/typography-and-text-feasibility.md",
+      "size_bytes": 8470
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/references/unified-static-prompt-contract.md",
+      "size_bytes": 9400
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/scripts/static-design-preflight.mjs",
+      "size_bytes": 6551
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/templates/static-design-notes.json",
+      "size_bytes": 1231
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/instruction-packet-factory/SKILL.md",
+      "size_bytes": 496
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/instruction-packet-factory/SKILL.source.md",
+      "size_bytes": 3624
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/instruction-packet-factory/agents/openai.yaml",
+      "size_bytes": 288
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/marketing/SKILL.md",
+      "size_bytes": 462
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/marketing/SKILL.source.md",
+      "size_bytes": 3521
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/marketing/agents/openai.yaml",
+      "size_bytes": 259
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/onboarding-preference-tuning/SKILL.md",
+      "size_bytes": 492
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/onboarding-preference-tuning/SKILL.source.md",
+      "size_bytes": 7528
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/onboarding-preference-tuning/agents/openai.yaml",
+      "size_bytes": 339
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/SKILL.md",
+      "size_bytes": 484
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/SKILL.source.md",
+      "size_bytes": 5559
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/agents/openai.yaml",
+      "size_bytes": 336
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/templates/opencut-edit-pack.md",
+      "size_bytes": 551
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/SKILL.md",
+      "size_bytes": 490
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/SKILL.source.md",
+      "size_bytes": 5971
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/agents/openai.yaml",
+      "size_bytes": 286
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/references/material-artifact-diagnosis.md",
+      "size_bytes": 4953
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/references/static-graphic-review.md",
+      "size_bytes": 3729
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/SKILL.md",
+      "size_bytes": 470
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/SKILL.source.md",
+      "size_bytes": 14704
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/agents/openai.yaml",
+      "size_bytes": 281
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/agent-roster.md",
+      "size_bytes": 1895
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/creative-prompting-standard.md",
+      "size_bytes": 9945
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/gate-registry.md",
+      "size_bytes": 1511
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/handoff-matrix.md",
+      "size_bytes": 6181
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/human-voice-and-copy-delivery.md",
+      "size_bytes": 5639
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/humanizer-routing.md",
+      "size_bytes": 1570
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/hyperframes-workflow.md",
+      "size_bytes": 395
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/inference-reasoning-methods.md",
+      "size_bytes": 6590
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/loop-protocol.md",
+      "size_bytes": 7086
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/prompt-format-and-continuity.md",
+      "size_bytes": 3486
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/role-skill-map.md",
+      "size_bytes": 7451
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/text-image-generation-policy.md",
+      "size_bytes": 970
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/workflow-blueprints.md",
+      "size_bytes": 8680
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/references/workflow-operating-model.md",
+      "size_bytes": 6987
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/templates/artifact-templates.md",
+      "size_bytes": 4118
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/templates/creative-prompt-contract.md",
+      "size_bytes": 2226
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/pipeline-core/templates/project-state.md",
+      "size_bytes": 355
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/SKILL.md",
+      "size_bytes": 494
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/SKILL.source.md",
+      "size_bytes": 5552
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/agents/openai.yaml",
+      "size_bytes": 345
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/producer-ai-task-builder/templates/producer-ai-task-packet.md",
+      "size_bytes": 389
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/SKILL.md",
+      "size_bytes": 488
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/SKILL.source.md",
+      "size_bytes": 4244
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/agents/openai.yaml",
+      "size_bytes": 290
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/reference-pack-curator/references/static-graphic-source-authority.md",
+      "size_bytes": 2584
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/SKILL.md",
+      "size_bytes": 494
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/SKILL.source.md",
+      "size_bytes": 7529
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/agents/openai.yaml",
+      "size_bytes": 294
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/references/remotion-implementation-notes.md",
+      "size_bytes": 3390
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/templates/remotion-production-brief.md",
+      "size_bytes": 1646
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/SKILL.md",
+      "size_bytes": 478
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/SKILL.source.md",
+      "size_bytes": 4440
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/agents/openai.yaml",
+      "size_bytes": 243
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/SKILL.md",
+      "size_bytes": 496
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/SKILL.source.md",
+      "size_bytes": 5933
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/agents/openai.yaml",
+      "size_bytes": 342
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/screenplay-story-architect/templates/screenplay-development-pack.md",
+      "size_bytes": 605
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-board-architect/SKILL.md",
+      "size_bytes": 496
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-board-architect/SKILL.source.md",
+      "size_bytes": 3671
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-board-architect/agents/openai.yaml",
+      "size_bytes": 288
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-director/SKILL.md",
+      "size_bytes": 502
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-director/SKILL.source.md",
+      "size_bytes": 4406
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storyboard-director/agents/openai.yaml",
+      "size_bytes": 277
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storytelling/SKILL.md",
+      "size_bytes": 468
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storytelling/SKILL.source.md",
+      "size_bytes": 3316
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/storytelling/agents/openai.yaml",
+      "size_bytes": 264
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/tool-routing-cost/SKILL.md",
+      "size_bytes": 478
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/tool-routing-cost/SKILL.source.md",
+      "size_bytes": 4823
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/tool-routing-cost/agents/openai.yaml",
+      "size_bytes": 250
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ugc/SKILL.md",
+      "size_bytes": 450
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ugc/SKILL.source.md",
+      "size_bytes": 3746
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/ugc/agents/openai.yaml",
+      "size_bytes": 262
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/video-prompt-architect/SKILL.md",
+      "size_bytes": 488
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/video-prompt-architect/SKILL.source.md",
+      "size_bytes": 6087
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/video-prompt-architect/agents/openai.yaml",
+      "size_bytes": 279
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-orchestrator/SKILL.md",
+      "size_bytes": 486
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-orchestrator/SKILL.source.md",
+      "size_bytes": 6454
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-orchestrator/agents/openai.yaml",
+      "size_bytes": 281
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/SKILL.md",
+      "size_bytes": 494
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/SKILL.source.md",
+      "size_bytes": 4593
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/agents/openai.yaml",
+      "size_bytes": 305
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/templates/change-proposal.md",
+      "size_bytes": 910
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/workflow-self-improvement/templates/improvement-log.md",
+      "size_bytes": 815
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/asset-manifest.toml.template",
+      "size_bytes": 1319
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/brief-architect.toml.template",
+      "size_bytes": 1186
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/copy-voice.toml.template",
+      "size_bytes": 2101
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/delivery-documentation.toml.template",
+      "size_bytes": 2030
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/execution-manifest.toml.template",
+      "size_bytes": 1400
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/hyperframes-producer.toml.template",
+      "size_bytes": 1327
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/image-prompting.toml.template",
+      "size_bytes": 2727
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/instruction-packet-factory.toml.template",
+      "size_bytes": 1509
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/intent-confirmation.toml.template",
+      "size_bytes": 1190
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/motion-direction.toml.template",
+      "size_bytes": 1160
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/music-video-direction.toml.template",
+      "size_bytes": 1192
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/qa-iteration.toml.template",
+      "size_bytes": 4129
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/reference-curator.toml.template",
+      "size_bytes": 1398
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/research-evidence.toml.template",
+      "size_bytes": 1115
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/static-direction.toml.template",
+      "size_bytes": 1501
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/storyboard-architect.toml.template",
+      "size_bytes": 1481
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/storyboard-board-architect.toml.template",
+      "size_bytes": 1164
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/tool-routing-cost.toml.template",
+      "size_bytes": 1474
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/video-prompting.toml.template",
+      "size_bytes": 2064
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.codex/agents/workflow-orchestrator.toml.template",
+      "size_bytes": 4069
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.editorconfig",
+      "size_bytes": 222
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.gitattributes",
+      "size_bytes": 100
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/bug_report.yml",
+      "size_bytes": 1530
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/config.yml",
+      "size_bytes": 579
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/documentation.yml",
+      "size_bytes": 804
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/feature_request.yml",
+      "size_bytes": 1379
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/install_support.yml",
+      "size_bytes": 2589
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/ISSUE_TEMPLATE/tester_feedback.yml",
+      "size_bytes": 3770
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "size_bytes": 2378951
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "size_bytes": 221290
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/dependabot.yml",
+      "size_bytes": 328
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/pull_request_template.md",
+      "size_bytes": 1646
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/workflows/cross-platform.yml",
+      "size_bytes": 1937
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/workflows/release-check.yml",
+      "size_bytes": 485
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/workflows/validate.yml",
+      "size_bytes": 907
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.gitignore",
+      "size_bytes": 177
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/AGENTS.template.md",
+      "size_bytes": 6406
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CHANGELOG.md",
+      "size_bytes": 19760
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CHATGPT_INSTALL.md",
+      "size_bytes": 21277
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CHATGPT_UPDATE.md",
+      "size_bytes": 4266
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CODEX_INSTALL.md",
+      "size_bytes": 7761
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CODEX_UPDATE.md",
+      "size_bytes": 6238
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CODE_OF_CONDUCT.md",
+      "size_bytes": 1079
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/CONTRIBUTING.md",
+      "size_bytes": 3362
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/LICENSE",
+      "size_bytes": 9018
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/MAINTAINERS.md",
+      "size_bytes": 1428
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/NOTICE",
+      "size_bytes": 1240
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/README.md",
+      "size_bytes": 42447
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/SECURITY.md",
+      "size_bytes": 2597
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/SUPPORT.md",
+      "size_bytes": 1087
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/agent-naming.schema.json",
+      "size_bytes": 675
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/artifact-schemas.json",
+      "size_bytes": 9103
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/automation-recipes/workflow-self-improvement-review.example.json",
+      "size_bytes": 537
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/bundle-map.json",
+      "size_bytes": 13247
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/chatgpt-skill-sources.json",
+      "size_bytes": 56577
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/chatgpt-skills.json",
+      "size_bytes": 8750
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/defaults.example.json",
+      "size_bytes": 1189
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/hipson.example.json",
+      "size_bytes": 281
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/onboarding.schema.json",
+      "size_bytes": 306
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/privacy-audit-policy.json",
+      "size_bytes": 698
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/provider-neutral-policy.json",
+      "size_bytes": 1048
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/config/text-image-policy.json",
+      "size_bytes": 1351
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/agent-roster.md",
+      "size_bytes": 9215
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/architecture.md",
+      "size_bytes": 9038
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/artifact-schemas.md",
+      "size_bytes": 6017
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/bundle-readiness.md",
+      "size_bytes": 9659
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/chatgpt-skills-onboarding.md",
+      "size_bytes": 21112
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/cli-reference.md",
+      "size_bytes": 9839
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/codex-assisted-install.md",
+      "size_bytes": 10186
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/codex-project-install.md",
+      "size_bytes": 4723
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/codex-project-update.md",
+      "size_bytes": 5231
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/compatibility.md",
+      "size_bytes": 6215
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/context-folder.md",
+      "size_bytes": 2202
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/creative-prompting-workflow.md",
+      "size_bytes": 4565
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/customization.md",
+      "size_bytes": 8768
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/e2e-results/README.md",
+      "size_bytes": 2065
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/e2e-results/TEMPLATE.md",
+      "size_bytes": 2635
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/example-authoring.md",
+      "size_bytes": 4446
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/faq.md",
+      "size_bytes": 10652
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/getting-started-5-minutes.md",
+      "size_bytes": 4770
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/hipson-integration.md",
+      "size_bytes": 3259
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/human-voice-and-copy-delivery.md",
+      "size_bytes": 7528
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/hyperframes.md",
+      "size_bytes": 3354
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/included-agents-and-skills.md",
+      "size_bytes": 15931
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/live-codex-e2e-check.md",
+      "size_bytes": 5902
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/loop-protocol-integration-plan.md",
+      "size_bytes": 4802
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/loop-protocol.md",
+      "size_bytes": 2948
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/memory-cache.md",
+      "size_bytes": 3933
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/migration-guide.md",
+      "size_bytes": 8044
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/onboarding.md",
+      "size_bytes": 10426
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/openai-api-policy.md",
+      "size_bytes": 2585
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/provider-neutral-boundary.md",
+      "size_bytes": 5474
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/quickstart.md",
+      "size_bytes": 17106
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/recurring-workflow-review.md",
+      "size_bytes": 2766
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-notes-template.md",
+      "size_bytes": 2289
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-v1.0.0.md",
+      "size_bytes": 3473
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-v1.0.2.md",
+      "size_bytes": 4008
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release-v1.1.0.md",
+      "size_bytes": 5484
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/release.md",
+      "size_bytes": 9755
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/repository-evaluation-2026-09-12.md",
+      "size_bytes": 15540
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/repository-settings.md",
+      "size_bytes": 4357
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/roadmap.md",
+      "size_bytes": 4631
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/self-improvement.md",
+      "size_bytes": 1877
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/semantic-memory.md",
+      "size_bytes": 2251
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/skill-customization.md",
+      "size_bytes": 5396
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/static-graphic-design-provenance.json",
+      "size_bytes": 4454
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/static-graphic-design.md",
+      "size_bytes": 6621
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/team-configuration.md",
+      "size_bytes": 4561
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/tester-feedback.md",
+      "size_bytes": 5915
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/text-image-policy.md",
+      "size_bytes": 4269
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/troubleshooting.md",
+      "size_bytes": 12557
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/using-the-kit.md",
+      "size_bytes": 12776
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/v1-readiness.md",
+      "size_bytes": 6439
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/workflow-map.md",
+      "size_bytes": 17714
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/workflow-self-improvement.md",
+      "size_bytes": 5592
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/docs/workflow-stages.md",
+      "size_bytes": 7395
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/README.md",
+      "size_bytes": 4611
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/asset-manifest.md",
+      "size_bytes": 637
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/board-artifact-prompt.md",
+      "size_bytes": 749
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/copy-pack.md",
+      "size_bytes": 1720
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/creative-prompt-contract.md",
+      "size_bytes": 997
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/evidence-note.md",
+      "size_bytes": 926
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/execution-manifest.md",
+      "size_bytes": 545
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/hyperframes-production-brief.md",
+      "size_bytes": 840
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/image-prompt-contract.md",
+      "size_bytes": 1329
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/instruction-packet.md",
+      "size_bytes": 1103
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/loop-state.md",
+      "size_bytes": 1373
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/project-state.md",
+      "size_bytes": 1969
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/self-improvement-sufficiency-gate.md",
+      "size_bytes": 626
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/storyboard-contract.md",
+      "size_bytes": 642
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/tool-routing-plan.md",
+      "size_bytes": 581
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/artifacts/workflow-request-diagnostic.md",
+      "size_bytes": 607
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/copy-delivery-contracts.json",
+      "size_bytes": 21816
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/contract-fixtures/creative-prompt-contracts.json",
+      "size_bytes": 14689
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/document-workflow/README.md",
+      "size_bytes": 1645
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/document-workflow/workflow.json",
+      "size_bytes": 919
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/ecommerce-product-visual/README.md",
+      "size_bytes": 3078
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/ecommerce-product-visual/workflow.json",
+      "size_bytes": 1363
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/README.md",
+      "size_bytes": 3473
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/brief-contract.md",
+      "size_bytes": 1158
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/delivery-manifest.md",
+      "size_bytes": 1263
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/direction-contract.md",
+      "size_bytes": 1062
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/prompt-pack.md",
+      "size_bytes": 2717
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/qa-iteration-report.md",
+      "size_bytes": 2315
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/reference-pack.md",
+      "size_bytes": 1020
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/artifacts/task-confirmation.md",
+      "size_bytes": 516
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/end-to-end-creative-workflow/workflow.json",
+      "size_bytes": 1354
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hipson-adapter-packets/README.md",
+      "size_bytes": 4636
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hipson-adapter-packets/workflow.json",
+      "size_bytes": 1168
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hyperframes-video/README.md",
+      "size_bytes": 1880
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/hyperframes-video/workflow.json",
+      "size_bytes": 1630
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/image-prompt-pack/README.md",
+      "size_bytes": 1799
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/image-prompt-pack/workflow.json",
+      "size_bytes": 1237
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/minimal-workflow/README.md",
+      "size_bytes": 1484
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/minimal-workflow/workflow.json",
+      "size_bytes": 695
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/no-provider-mode/README.md",
+      "size_bytes": 2007
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/no-provider-mode/workflow.json",
+      "size_bytes": 1345
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/qa-delivery-review/README.md",
+      "size_bytes": 3347
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/qa-delivery-review/workflow.json",
+      "size_bytes": 929
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/static-campaign/README.md",
+      "size_bytes": 2209
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/static-campaign/static-design-walkthrough.md",
+      "size_bytes": 4111
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/static-campaign/workflow.json",
+      "size_bytes": 1343
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/storyboard-board/README.md",
+      "size_bytes": 2924
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/storyboard-board/workflow.json",
+      "size_bytes": 1528
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/video-storyboard/README.md",
+      "size_bytes": 1906
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/examples/video-storyboard/workflow.json",
+      "size_bytes": 1457
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/package.json",
+      "size_bytes": 3888
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/agent-compliance-check.mjs",
+      "size_bytes": 6647
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/audit-privacy.mjs",
+      "size_bytes": 5640
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/chatgpt-skill-sources.mjs",
+      "size_bytes": 25140
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/cleanup-appledouble.mjs",
+      "size_bytes": 923
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/common.mjs",
+      "size_bytes": 4958
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/config-validation.mjs",
+      "size_bytes": 7229
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/doctor.mjs",
+      "size_bytes": 10822
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/guided-install.mjs",
+      "size_bytes": 7604
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/install.mjs",
+      "size_bytes": 16847
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/manifest.mjs",
+      "size_bytes": 4376
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/onboard.mjs",
+      "size_bytes": 12383
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/package-audit.mjs",
+      "size_bytes": 3116
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/package-common.mjs",
+      "size_bytes": 2402
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/package-list.mjs",
+      "size_bytes": 846
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/release-readiness.mjs",
+      "size_bytes": 4731
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/render-agents.mjs",
+      "size_bytes": 7758
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/safety-scan.mjs",
+      "size_bytes": 3749
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/smoke-install.mjs",
+      "size_bytes": 2565
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/syntax-check.mjs",
+      "size_bytes": 1794
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/agents.mjs",
+      "size_bytes": 2559
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/bundles.mjs",
+      "size_bytes": 6335
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/chatgpt-skills.mjs",
+      "size_bytes": 356
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/context.mjs",
+      "size_bytes": 2886
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/contracts.mjs",
+      "size_bytes": 14623
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/copy-delivery-contracts.mjs",
+      "size_bytes": 9801
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/creative-prompt-contracts.mjs",
+      "size_bytes": 13023
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/docs.mjs",
+      "size_bytes": 45418
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/examples.mjs",
+      "size_bytes": 9377
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/injection.mjs",
+      "size_bytes": 911
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/links.mjs",
+      "size_bytes": 1264
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/repo-governance.mjs",
+      "size_bytes": 20900
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/schemas.mjs",
+      "size_bytes": 6352
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/skills.mjs",
+      "size_bytes": 3242
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate/static-design.mjs",
+      "size_bytes": 2502
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/scripts/validate.mjs",
+      "size_bytes": 8947
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/artifacts-index.md",
+      "size_bytes": 519
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/change-log.md",
+      "size_bytes": 395
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/chat-compactions/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/decision-log.md",
+      "size_bytes": 464
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/handoffs/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/history/.gitkeep",
+      "size_bytes": 1
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/open-questions.md",
+      "size_bytes": 362
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/project-state.md",
+      "size_bytes": 1050
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/recovery-prompt.md",
+      "size_bytes": 510
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/session-heartbeat.md",
+      "size_bytes": 433
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/templates/Memory Cache/source-map.md",
+      "size_bytes": 579
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/audit-security.test.mjs",
+      "size_bytes": 8999
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/chatgpt-skills.test.mjs",
+      "size_bytes": 13717
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/config-layers.test.mjs",
+      "size_bytes": 4839
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/docs-validation.test.mjs",
+      "size_bytes": 22534
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/doctor-manifest.test.mjs",
+      "size_bytes": 10544
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/governance.test.mjs",
+      "size_bytes": 1959
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/helpers.mjs",
+      "size_bytes": 2410
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/install-onboarding.test.mjs",
+      "size_bytes": 29268
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/install-safety.test.mjs",
+      "size_bytes": 13323
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/lifecycle-language.test.mjs",
+      "size_bytes": 6118
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/memory-cache.test.mjs",
+      "size_bytes": 7350
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/native-codex-route.test.mjs",
+      "size_bytes": 6518
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/package-cli.test.mjs",
+      "size_bytes": 3624
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/static-design.test.mjs",
+      "size_bytes": 13692
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/user-profile-installation.test.mjs",
+      "size_bytes": 7819
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/validation-contracts.test.mjs",
+      "size_bytes": 23267
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/validation-core.test.mjs",
+      "size_bytes": 6417
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tests/workflow-smoke.test.mjs",
+      "size_bytes": 5402
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/cleanup-appledouble.mjs",
+      "size_bytes": 1315
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/context-budget-audit.mjs",
+      "size_bytes": 1629
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/init-memory-cache.mjs",
+      "size_bytes": 1423
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/semantic-memory-index.mjs",
+      "size_bytes": 5077
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/semantic-workspace-evaluate.mjs",
+      "size_bytes": 2303
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/skill-agent-auditor.mjs",
+      "size_bytes": 4577
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/validate-memory-cache.mjs",
+      "size_bytes": 958
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/tools/workflow-common.mjs",
+      "size_bytes": 9785
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "size_bytes": 3064074
+    },
+    {
+      "path": "licenses/Apache-2.0.txt",
+      "size_bytes": 11346
+    },
+    {
+      "path": "plugin.json",
+      "size_bytes": 2407
+    },
+    {
+      "path": "scripts/creative-upgrade-contracts.json",
+      "size_bytes": 1661
+    },
+    {
+      "path": "scripts/load-effective-evals.mjs",
+      "size_bytes": 5482
+    },
+    {
+      "path": "scripts/quality-harness.mjs",
+      "size_bytes": 11762
+    },
+    {
+      "path": "scripts/review-creative-plan.mjs",
+      "size_bytes": 8713
+    },
+    {
+      "path": "scripts/studio-contracts.json",
+      "size_bytes": 7822
+    },
+    {
+      "path": "scripts/validate-campaign-workflow.mjs",
+      "size_bytes": 4426
+    },
+    {
+      "path": "scripts/validate-learning-mode.mjs",
+      "size_bytes": 17691
+    },
+    {
+      "path": "scripts/validate-motion-quality.mjs",
+      "size_bytes": 2721
+    },
+    {
+      "path": "scripts/validate-motion-toolkit.mjs",
+      "size_bytes": 2647
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "size_bytes": 87462
+    },
+    {
+      "path": "scripts/validate-quality-methods.mjs",
+      "size_bytes": 3684
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "size_bytes": 30069
+    },
+    {
+      "path": "scripts/validate-workflow-kit.mjs",
+      "size_bytes": 16486
+    },
+    {
+      "path": "scripts/workflow-kit-routes.json",
+      "size_bytes": 15926
+    },
+    {
+      "path": "skills/asset-manifest/SKILL.md",
+      "size_bytes": 5649
+    },
+    {
+      "path": "skills/asset-manifest/agents/openai.yaml",
+      "size_bytes": 271
+    },
+    {
+      "path": "skills/asset-manifest/references/static-design-components.md",
+      "size_bytes": 3056
+    },
+    {
+      "path": "skills/asset-manifest/templates/static-design-components.md",
+      "size_bytes": 1085
+    },
+    {
+      "path": "skills/audio-production-director/SKILL.md",
+      "size_bytes": 7248
+    },
+    {
+      "path": "skills/audio-production-director/agents/openai.yaml",
+      "size_bytes": 275
+    },
+    {
+      "path": "skills/audio-production-director/assets/av-cue-sheet.template.json",
+      "size_bytes": 1073
+    },
+    {
+      "path": "skills/audio-production-director/assets/music-brief.template.md",
+      "size_bytes": 1861
+    },
+    {
+      "path": "skills/audio-production-director/assets/track-rights-research-card.md",
+      "size_bytes": 1365
+    },
+    {
+      "path": "skills/audio-production-director/kit/method.md",
+      "size_bytes": 5463
+    },
+    {
+      "path": "skills/audio-production-director/kit/templates/producer-ai-task-packet.md",
+      "size_bytes": 394
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-arrangement-vo-and-mix-workbook.md",
+      "size_bytes": 16903
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-edit-and-prompt-workbench.md",
+      "size_bytes": 6314
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-evidence-and-av-handoff.md",
+      "size_bytes": 8527
+    },
+    {
+      "path": "skills/audio-production-director/references/audio-to-picture-and-tempo-workbook.md",
+      "size_bytes": 3900
+    },
+    {
+      "path": "skills/audio-production-director/references/music-provider-routing-and-rights.md",
+      "size_bytes": 6814
+    },
+    {
+      "path": "skills/audio-production-director/references/production-task-packet.md",
+      "size_bytes": 23439
+    },
+    {
+      "path": "skills/brief-architect/SKILL.md",
+      "size_bytes": 5287
+    },
+    {
+      "path": "skills/brief-architect/agents/openai.yaml",
+      "size_bytes": 261
+    },
+    {
+      "path": "skills/caption-studio/SKILL.md",
+      "size_bytes": 6395
+    },
+    {
+      "path": "skills/caption-studio/agents/openai.yaml",
+      "size_bytes": 304
+    },
+    {
+      "path": "skills/caption-studio/templates/caption-task-pack.md",
+      "size_bytes": 425
+    },
+    {
+      "path": "skills/character-design/SKILL.md",
+      "size_bytes": 5502
+    },
+    {
+      "path": "skills/character-design/agents/openai.yaml",
+      "size_bytes": 260
+    },
+    {
+      "path": "skills/character-design/assets/identity-packet.template.json",
+      "size_bytes": 859
+    },
+    {
+      "path": "skills/character-design/assets/identity-worked-scenarios.md",
+      "size_bytes": 2692
+    },
+    {
+      "path": "skills/character-design/references/human-identity-workbook.md",
+      "size_bytes": 6680
+    },
+    {
+      "path": "skills/cinematography/SKILL.md",
+      "size_bytes": 5244
+    },
+    {
+      "path": "skills/cinematography/agents/openai.yaml",
+      "size_bytes": 264
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/SKILL.md",
+      "size_bytes": 10029
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/agents/openai.yaml",
+      "size_bytes": 133
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/creative-decision-card.json",
+      "size_bytes": 755
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/decision-examples.json",
+      "size_bytes": 10732
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/premise-proof-worksheet.md",
+      "size_bytes": 1137
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/assets/slad-campaign-example.md",
+      "size_bytes": 2589
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/kit/method.md",
+      "size_bytes": 3297
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/anti-generic-gate-and-handoff.md",
+      "size_bytes": 9840
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/applied-premise-and-proof.md",
+      "size_bytes": 3630
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/campaign-direction-method.md",
+      "size_bytes": 13704
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/creative-decision-library.md",
+      "size_bytes": 10314
+    },
+    {
+      "path": "skills/commercial-video-campaign-director/references/short-form-motion-bridge-workbook.md",
+      "size_bytes": 6907
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/SKILL.md",
+      "size_bytes": 5508
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/agents/openai.yaml",
+      "size_bytes": 135
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/assets/copy-and-format-card.md",
+      "size_bytes": 2772
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/assets/half-turn-adaptation-example.md",
+      "size_bytes": 7536
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/method.md",
+      "size_bytes": 4087
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/concept-development-and-originality.md",
+      "size_bytes": 6403
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/deliverable-profiles.md",
+      "size_bytes": 5433
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-code-workflow.md",
+      "size_bytes": 3418
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "size_bytes": 70529
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/poster-movements-and-production-atlas.md",
+      "size_bytes": 21773
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/poster-style-and-composition-atlas.md",
+      "size_bytes": 12471
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/poster-style-translation-catalog.md",
+      "size_bytes": 18508
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/static-design-direction.md",
+      "size_bytes": 4147
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/scripts/poster-codes.mjs",
+      "size_bytes": 6055
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/direction-and-composition.md",
+      "size_bytes": 15944
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/format-adaptation.md",
+      "size_bytes": 7599
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/type-and-format-workbench.md",
+      "size_bytes": 11553
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/typography.md",
+      "size_bytes": 11195
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/visual-languages.md",
+      "size_bytes": 12579
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/references/worked-examples.md",
+      "size_bytes": 12002
+    },
+    {
+      "path": "skills/copy-voice/SKILL.md",
+      "size_bytes": 7983
+    },
+    {
+      "path": "skills/copy-voice/agents/openai.yaml",
+      "size_bytes": 231
+    },
+    {
+      "path": "skills/copy-voice/references/copy-development-and-human-voice.md",
+      "size_bytes": 9250
+    },
+    {
+      "path": "skills/creative-music-video-director/SKILL.md",
+      "size_bytes": 11697
+    },
+    {
+      "path": "skills/creative-music-video-director/agents/openai.yaml",
+      "size_bytes": 123
+    },
+    {
+      "path": "skills/creative-music-video-director/kit/method.md",
+      "size_bytes": 3366
+    },
+    {
+      "path": "skills/creative-music-video-director/references/direction-method.md",
+      "size_bytes": 5938
+    },
+    {
+      "path": "skills/creative-music-video-director/references/persona-performance-motifs.md",
+      "size_bytes": 4550
+    },
+    {
+      "path": "skills/creative-music-video-director/references/rhythm-motifs-and-performance-workbook.md",
+      "size_bytes": 13705
+    },
+    {
+      "path": "skills/creative-music-video-director/references/rhythm-references-handoff.md",
+      "size_bytes": 6762
+    },
+    {
+      "path": "skills/creative-video-producer/SKILL.md",
+      "size_bytes": 9368
+    },
+    {
+      "path": "skills/creative-video-producer/agents/openai.yaml",
+      "size_bytes": 355
+    },
+    {
+      "path": "skills/creative-video-producer/templates/creative-video-production-pack.md",
+      "size_bytes": 607
+    },
+    {
+      "path": "skills/delivery-documentation/SKILL.md",
+      "size_bytes": 5157
+    },
+    {
+      "path": "skills/delivery-documentation/agents/openai.yaml",
+      "size_bytes": 126
+    },
+    {
+      "path": "skills/delivery-documentation/assets/project-manifest.example.json",
+      "size_bytes": 3811
+    },
+    {
+      "path": "skills/delivery-documentation/assets/project-manifest.template.json",
+      "size_bytes": 510
+    },
+    {
+      "path": "skills/delivery-documentation/kit/method.md",
+      "size_bytes": 3832
+    },
+    {
+      "path": "skills/delivery-documentation/references/asset-lifecycle-and-dependencies.md",
+      "size_bytes": 13841
+    },
+    {
+      "path": "skills/delivery-documentation/references/production-and-delivery.md",
+      "size_bytes": 9490
+    },
+    {
+      "path": "skills/delivery-documentation/scripts/asset_manifest.py",
+      "size_bytes": 9162
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
+      "size_bytes": 8173
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
+      "size_bytes": 367
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md",
+      "size_bytes": 6302
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/campaign-evidence-sources.md",
+      "size_bytes": 2873
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/campaign-production.md",
+      "size_bytes": 7595
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/creative-performance-feedback.md",
+      "size_bytes": 6678
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/references/website-to-campaign.md",
+      "size_bytes": 15739
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/campaign-asset-card.md",
+      "size_bytes": 1751
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/creative-experiment-card.md",
+      "size_bytes": 2878
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
+      "size_bytes": 2922
+    },
+    {
+      "path": "skills/ecommerce-campaign-strategy-director/templates/website-audit.md",
+      "size_bytes": 1340
+    },
+    {
+      "path": "skills/hipson-adapter/SKILL.md",
+      "size_bytes": 4259
+    },
+    {
+      "path": "skills/hipson-adapter/agents/openai.yaml",
+      "size_bytes": 260
+    },
+    {
+      "path": "skills/hipson-adapter/templates/instruction-packet.md",
+      "size_bytes": 184
+    },
+    {
+      "path": "skills/hipson-adapter/templates/internet-mapping-packet.md",
+      "size_bytes": 158
+    },
+    {
+      "path": "skills/hipson-adapter/templates/research-map.md",
+      "size_bytes": 140
+    },
+    {
+      "path": "skills/humanizer/SKILL.md",
+      "size_bytes": 4142
+    },
+    {
+      "path": "skills/humanizer/agents/openai.yaml",
+      "size_bytes": 113
+    },
+    {
+      "path": "skills/humanizer/assets/slad-copy-example.md",
+      "size_bytes": 2191
+    },
+    {
+      "path": "skills/humanizer/assets/voice-worksheet.md",
+      "size_bytes": 1124
+    },
+    {
+      "path": "skills/humanizer/kit/method.md",
+      "size_bytes": 5180
+    },
+    {
+      "path": "skills/humanizer/references/applied-voice-workshop.md",
+      "size_bytes": 3814
+    },
+    {
+      "path": "skills/humanizer/references/copy-and-voice.md",
+      "size_bytes": 12595
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "size_bytes": 8482
+    },
+    {
+      "path": "skills/hyperframes-workflow/agents/openai.yaml",
+      "size_bytes": 333
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/README.md",
+      "size_bytes": 3058
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs",
+      "size_bytes": 1446
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs",
+      "size_bytes": 3107
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/code-motion-starter/preview.html",
+      "size_bytes": 3212
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/manim-motion-example.py",
+      "size_bytes": 1024
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+      "size_bytes": 4427
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/SOURCE-NOTICE.md",
+      "size_bytes": 1838
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+      "size_bytes": 5081
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-audio.json",
+      "size_bytes": 22255
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-brand.json",
+      "size_bytes": 22063
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-data.json",
+      "size_bytes": 21441
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-editorial.json",
+      "size_bytes": 22082
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-education.json",
+      "size_bytes": 21922
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-explainers.json",
+      "size_bytes": 21562
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-procedural.json",
+      "size_bytes": 22021
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-product.json",
+      "size_bytes": 22241
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-social.json",
+      "size_bytes": 22080
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-spatial.json",
+      "size_bytes": 22477
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-transitions.json",
+      "size_bytes": 21602
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-typography.json",
+      "size_bytes": 22149
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-explainers.json",
+      "size_bytes": 26365
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-films.json",
+      "size_bytes": 56126
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-interactive-extra.json",
+      "size_bytes": 46391
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-interactive.json",
+      "size_bytes": 42837
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-launch.json",
+      "size_bytes": 27199
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-motion.json",
+      "size_bytes": 30199
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-quality/README.md",
+      "size_bytes": 2710
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-quality/example-score.json",
+      "size_bytes": 1237
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-quality/inspect-encode.py",
+      "size_bytes": 3468
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-quality/score.mjs",
+      "size_bytes": 4981
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/README.md",
+      "size_bytes": 4368
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/app.mjs",
+      "size_bytes": 5701
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/build.mjs",
+      "size_bytes": 307
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/export.mjs",
+      "size_bytes": 3266
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/index.html",
+      "size_bytes": 2609
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/lottie-fixture.mjs",
+      "size_bytes": 959
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/package-lock.json",
+      "size_bytes": 23766
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/package.json",
+      "size_bytes": 440
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/renderers.mjs",
+      "size_bytes": 4767
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/server.mjs",
+      "size_bytes": 955
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/timeline.mjs",
+      "size_bytes": 1841
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs",
+      "size_bytes": 1571
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+      "size_bytes": 12517
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-motion-evidence.md",
+      "size_bytes": 4273
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+      "size_bytes": 4223
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-quality-direction.md",
+      "size_bytes": 5622
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-quality-research.md",
+      "size_bytes": 8227
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+      "size_bytes": 6206
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+      "size_bytes": 10340
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-sources.md",
+      "size_bytes": 6315
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
+      "size_bytes": 5778
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-model-comparison.md",
+      "size_bytes": 2585
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
+      "size_bytes": 2301
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
+      "size_bytes": 3043
+    },
+    {
+      "path": "skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md",
+      "size_bytes": 4649
+    },
+    {
+      "path": "skills/image-prompt-architect/SKILL.md",
+      "size_bytes": 7922
+    },
+    {
+      "path": "skills/image-prompt-architect/agents/openai.yaml",
+      "size_bytes": 124
+    },
+    {
+      "path": "skills/image-prompt-architect/assets/human-reference-capture-card.md",
+      "size_bytes": 2221
+    },
+    {
+      "path": "skills/image-prompt-architect/assets/reference-transfer-worked-examples.md",
+      "size_bytes": 7021
+    },
+    {
+      "path": "skills/image-prompt-architect/assets/still-shot-card.md",
+      "size_bytes": 3024
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/method.md",
+      "size_bytes": 6649
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/references/static-design-prompting.md",
+      "size_bytes": 5690
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/references/typography-and-text-feasibility.md",
+      "size_bytes": 8470
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/references/unified-static-prompt-contract.md",
+      "size_bytes": 9400
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/scripts/static-design-preflight.mjs",
+      "size_bytes": 6985
+    },
+    {
+      "path": "skills/image-prompt-architect/kit/templates/static-design-notes.json",
+      "size_bytes": 1231
+    },
+    {
+      "path": "skills/image-prompt-architect/references/capture-and-material-recipes.md",
+      "size_bytes": 8900
+    },
+    {
+      "path": "skills/image-prompt-architect/references/reference-transfer-playbook.md",
+      "size_bytes": 10560
+    },
+    {
+      "path": "skills/image-prompt-architect/references/static-prompt-compiler.md",
+      "size_bytes": 15859
+    },
+    {
+      "path": "skills/image-prompt-architect/references/visual-subject-craft.md",
+      "size_bytes": 44737
+    },
+    {
+      "path": "skills/instruction-packet-factory/SKILL.md",
+      "size_bytes": 4281
+    },
+    {
+      "path": "skills/instruction-packet-factory/agents/openai.yaml",
+      "size_bytes": 288
+    },
+    {
+      "path": "skills/marketing/SKILL.md",
+      "size_bytes": 5408
+    },
+    {
+      "path": "skills/marketing/agents/openai.yaml",
+      "size_bytes": 290
+    },
+    {
+      "path": "skills/opencut-video-studio/SKILL.md",
+      "size_bytes": 6162
+    },
+    {
+      "path": "skills/opencut-video-studio/agents/openai.yaml",
+      "size_bytes": 336
+    },
+    {
+      "path": "skills/opencut-video-studio/templates/opencut-edit-pack.md",
+      "size_bytes": 551
+    },
+    {
+      "path": "skills/output-critic-iteration/SKILL.md",
+      "size_bytes": 6360
+    },
+    {
+      "path": "skills/output-critic-iteration/agents/openai.yaml",
+      "size_bytes": 127
+    },
+    {
+      "path": "skills/output-critic-iteration/assets/quality-review.example.json",
+      "size_bytes": 1179
+    },
+    {
+      "path": "skills/output-critic-iteration/assets/review-record.md",
+      "size_bytes": 848
+    },
+    {
+      "path": "skills/output-critic-iteration/kit/method.md",
+      "size_bytes": 5994
+    },
+    {
+      "path": "skills/output-critic-iteration/kit/references/material-artifact-diagnosis.md",
+      "size_bytes": 4953
+    },
+    {
+      "path": "skills/output-critic-iteration/kit/references/static-graphic-review.md",
+      "size_bytes": 3729
+    },
+    {
+      "path": "skills/output-critic-iteration/references/diagnosis-and-repair-lab.md",
+      "size_bytes": 6698
+    },
+    {
+      "path": "skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md",
+      "size_bytes": 7048
+    },
+    {
+      "path": "skills/output-critic-iteration/references/review-and-repair.md",
+      "size_bytes": 10553
+    },
+    {
+      "path": "skills/pipeline-core/SKILL.md",
+      "size_bytes": 18631
+    },
+    {
+      "path": "skills/pipeline-core/agents/openai.yaml",
+      "size_bytes": 281
+    },
+    {
+      "path": "skills/pipeline-core/assets/artifact-schemas.json",
+      "size_bytes": 10078
+    },
+    {
+      "path": "skills/pipeline-core/assets/onboarding.schema.json",
+      "size_bytes": 474
+    },
+    {
+      "path": "skills/pipeline-core/assets/project-state.md",
+      "size_bytes": 3323
+    },
+    {
+      "path": "skills/pipeline-core/assets/recovery-prompt.md",
+      "size_bytes": 1041
+    },
+    {
+      "path": "skills/pipeline-core/references/agent-roster.md",
+      "size_bytes": 1895
+    },
+    {
+      "path": "skills/pipeline-core/references/creative-prompting-standard.md",
+      "size_bytes": 10032
+    },
+    {
+      "path": "skills/pipeline-core/references/gate-registry.md",
+      "size_bytes": 1532
+    },
+    {
+      "path": "skills/pipeline-core/references/handoff-matrix.md",
+      "size_bytes": 7940
+    },
+    {
+      "path": "skills/pipeline-core/references/human-voice-and-copy-delivery.md",
+      "size_bytes": 5843
+    },
+    {
+      "path": "skills/pipeline-core/references/humanizer-routing.md",
+      "size_bytes": 1742
+    },
+    {
+      "path": "skills/pipeline-core/references/hyperframes-workflow.md",
+      "size_bytes": 1251
+    },
+    {
+      "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
+      "size_bytes": 11127
+    },
+    {
+      "path": "skills/pipeline-core/references/loop-protocol.md",
+      "size_bytes": 12988
+    },
+    {
+      "path": "skills/pipeline-core/references/project-recovery.md",
+      "size_bytes": 4768
+    },
+    {
+      "path": "skills/pipeline-core/references/prompt-format-and-continuity.md",
+      "size_bytes": 3596
+    },
+    {
+      "path": "skills/pipeline-core/references/quality-improvement-methods.md",
+      "size_bytes": 9091
+    },
+    {
+      "path": "skills/pipeline-core/references/role-skill-map.md",
+      "size_bytes": 8361
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "size_bytes": 11511
+    },
+    {
+      "path": "skills/pipeline-core/references/text-image-generation-policy.md",
+      "size_bytes": 962
+    },
+    {
+      "path": "skills/pipeline-core/references/workflow-blueprints.md",
+      "size_bytes": 13141
+    },
+    {
+      "path": "skills/pipeline-core/references/workflow-operating-model.md",
+      "size_bytes": 7842
+    },
+    {
+      "path": "skills/pipeline-core/templates/artifact-templates.md",
+      "size_bytes": 4118
+    },
+    {
+      "path": "skills/pipeline-core/templates/creative-prompt-contract.md",
+      "size_bytes": 2652
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "size_bytes": 2552
+    },
+    {
+      "path": "skills/producer-ai-task-builder/SKILL.md",
+      "size_bytes": 1402
+    },
+    {
+      "path": "skills/producer-ai-task-builder/agents/openai.yaml",
+      "size_bytes": 132
+    },
+    {
+      "path": "skills/producer-ai-task-builder/references/audio-arrangement-vo-and-mix-workbook.md",
+      "size_bytes": 16886
+    },
+    {
+      "path": "skills/producer-ai-task-builder/references/audio-evidence-and-av-handoff.md",
+      "size_bytes": 8509
+    },
+    {
+      "path": "skills/producer-ai-task-builder/references/production-task-packet.md",
+      "size_bytes": 23439
+    },
+    {
+      "path": "skills/reference-pack-curator/SKILL.md",
+      "size_bytes": 5226
+    },
+    {
+      "path": "skills/reference-pack-curator/agents/openai.yaml",
+      "size_bytes": 290
+    },
+    {
+      "path": "skills/reference-pack-curator/references/static-graphic-source-authority.md",
+      "size_bytes": 2584
+    },
+    {
+      "path": "skills/remotion-video-production/SKILL.md",
+      "size_bytes": 9594
+    },
+    {
+      "path": "skills/remotion-video-production/agents/openai.yaml",
+      "size_bytes": 294
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/README.md",
+      "size_bytes": 2715
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "size_bytes": 151821
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package.json",
+      "size_bytes": 769
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/remotion.config.ts",
+      "size_bytes": 182
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/src/index.tsx",
+      "size_bytes": 2070
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/tsconfig.json",
+      "size_bytes": 282
+    },
+    {
+      "path": "skills/remotion-video-production/references/remotion-implementation-notes.md",
+      "size_bytes": 4075
+    },
+    {
+      "path": "skills/remotion-video-production/templates/remotion-production-brief.md",
+      "size_bytes": 1646
+    },
+    {
+      "path": "skills/research-evidence/SKILL.md",
+      "size_bytes": 12121
+    },
+    {
+      "path": "skills/research-evidence/agents/openai.yaml",
+      "size_bytes": 127
+    },
+    {
+      "path": "skills/research-evidence/assets/research-decision-card.md",
+      "size_bytes": 878
+    },
+    {
+      "path": "skills/research-evidence/kit/method.md",
+      "size_bytes": 4243
+    },
+    {
+      "path": "skills/research-evidence/references/creative-upgrade-sources.md",
+      "size_bytes": 7473
+    },
+    {
+      "path": "skills/research-evidence/references/deep-research-method.md",
+      "size_bytes": 9123
+    },
+    {
+      "path": "skills/research-evidence/references/image-generator-snapshot.md",
+      "size_bytes": 44901
+    },
+    {
+      "path": "skills/research-evidence/references/initial-source-register.md",
+      "size_bytes": 6910
+    },
+    {
+      "path": "skills/research-evidence/references/model-mapping.md",
+      "size_bytes": 10324
+    },
+    {
+      "path": "skills/research-evidence/references/reference-audio-expansion-sources.md",
+      "size_bytes": 4011
+    },
+    {
+      "path": "skills/screenplay-story-architect/SKILL.md",
+      "size_bytes": 6334
+    },
+    {
+      "path": "skills/screenplay-story-architect/agents/openai.yaml",
+      "size_bytes": 130
+    },
+    {
+      "path": "skills/screenplay-story-architect/assets/scene-worksheet.md",
+      "size_bytes": 1192
+    },
+    {
+      "path": "skills/screenplay-story-architect/assets/slad-scene-example.md",
+      "size_bytes": 2714
+    },
+    {
+      "path": "skills/screenplay-story-architect/kit/method.md",
+      "size_bytes": 5670
+    },
+    {
+      "path": "skills/screenplay-story-architect/kit/templates/screenplay-development-pack.md",
+      "size_bytes": 605
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/applied-scene-workshop.md",
+      "size_bytes": 4072
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/narrative-forms-and-development.md",
+      "size_bytes": 11674
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/scene-craft-and-revision.md",
+      "size_bytes": 9335
+    },
+    {
+      "path": "skills/screenplay-story-architect/references/script-to-production-handoff.md",
+      "size_bytes": 7302
+    },
+    {
+      "path": "skills/static-graphic-design-creator/SKILL.md",
+      "size_bytes": 10050
+    },
+    {
+      "path": "skills/static-graphic-design-creator/agents/openai.yaml",
+      "size_bytes": 349
+    },
+    {
+      "path": "skills/static-graphic-design-creator/source-provenance.json",
+      "size_bytes": 11703
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/LICENSE",
+      "size_bytes": 11345
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/SKILL.source.md",
+      "size_bytes": 18361
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/agents/openai.yaml",
+      "size_bytes": 393
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/capability-and-reference-contract.md",
+      "size_bytes": 8967
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/concept-development-and-originality.md",
+      "size_bytes": 6111
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/copy-development-and-human-voice.md",
+      "size_bytes": 8828
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/deliverable-profiles.md",
+      "size_bytes": 5164
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/design-archive-directory.md",
+      "size_bytes": 3041
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/design-contract.schema.json",
+      "size_bytes": 36049
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/design-reviewed-archive.md",
+      "size_bytes": 4355
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/evaluation-scenarios.md",
+      "size_bytes": 8811
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-code-workflow.md",
+      "size_bytes": 26145
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "size_bytes": 70529
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/first-use-onboarding.md",
+      "size_bytes": 12170
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/gpt-image-2-5.md",
+      "size_bytes": 9398
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/layered-assets-workflow.md",
+      "size_bytes": 17729
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/material-artifact-diagnosis.md",
+      "size_bytes": 4670
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/poster-movements-and-production-atlas.md",
+      "size_bytes": 21487
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/poster-style-and-composition-atlas.md",
+      "size_bytes": 12124
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/poster-style-translation-catalog.md",
+      "size_bytes": 18224
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/production-walkthroughs.md",
+      "size_bytes": 17383
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/qa-and-repair.md",
+      "size_bytes": 10091
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/skill-maintenance.md",
+      "size_bytes": 13342
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/source-release.json",
+      "size_bytes": 876
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/typography-and-text-feasibility.md",
+      "size_bytes": 8076
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/unified-static-prompt-contract.md",
+      "size_bytes": 9132
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/workflow-integration.md",
+      "size_bytes": 11372
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/scripts/event_poster_codes.py",
+      "size_bytes": 4999
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/scripts/layer_assets.py",
+      "size_bytes": 18922
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/scripts/skill_lifecycle.py",
+      "size_bytes": 17903
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/templates/design-intake.md",
+      "size_bytes": 2610
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/templates/layer-plan.json",
+      "size_bytes": 3800
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/templates/prompt-pack.md",
+      "size_bytes": 4276
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/tests/test_event_poster_codes.py",
+      "size_bytes": 8608
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/tests/test_layer_assets.py",
+      "size_bytes": 17172
+    },
+    {
+      "path": "skills/storyboard-board-architect/SKILL.md",
+      "size_bytes": 7002
+    },
+    {
+      "path": "skills/storyboard-board-architect/agents/openai.yaml",
+      "size_bytes": 126
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/panel-map.md",
+      "size_bytes": 1317
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/reference-sheet-worked-example.md",
+      "size_bytes": 2448
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/reference-sheet.template.json",
+      "size_bytes": 1064
+    },
+    {
+      "path": "skills/storyboard-board-architect/assets/slad-board-examples.md",
+      "size_bytes": 2871
+    },
+    {
+      "path": "skills/storyboard-board-architect/kit/method.md",
+      "size_bytes": 3544
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/applied-board-workshop.md",
+      "size_bytes": 3458
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/board-delivery-and-handoffs.md",
+      "size_bytes": 9273
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/board-layout-and-copy.md",
+      "size_bytes": 11524
+    },
+    {
+      "path": "skills/storyboard-board-architect/references/production-reference-sheets.md",
+      "size_bytes": 5238
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/SKILL.md",
+      "size_bytes": 7197
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
+      "size_bytes": 127
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/assets/shot-plan.example.json",
+      "size_bytes": 3533
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/assets/slad-sequence-example.md",
+      "size_bytes": 2810
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/assets/state-and-speech-ledger.md",
+      "size_bytes": 1448
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/kit/method.md",
+      "size_bytes": 4393
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/applied-sequence-workshop.md",
+      "size_bytes": 3688
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/reference-authority-and-carriers.md",
+      "size_bytes": 10685
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/sequence-contract-and-continuity.md",
+      "size_bytes": 11682
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/references/shot-adjacency-workbook.md",
+      "size_bytes": 6784
+    },
+    {
+      "path": "skills/storytelling/SKILL.md",
+      "size_bytes": 4295
+    },
+    {
+      "path": "skills/storytelling/agents/openai.yaml",
+      "size_bytes": 264
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "size_bytes": 6891
+    },
+    {
+      "path": "skills/studio-workstyle-profile/agents/openai.yaml",
+      "size_bytes": 260
+    },
+    {
+      "path": "skills/studio-workstyle-profile/assets/profile.template.json",
+      "size_bytes": 2090
+    },
+    {
+      "path": "skills/studio-workstyle-profile/assets/taste-profile.example.json",
+      "size_bytes": 1424
+    },
+    {
+      "path": "skills/studio-workstyle-profile/kit/method.md",
+      "size_bytes": 2321
+    },
+    {
+      "path": "skills/studio-workstyle-profile/references/taste-learning.md",
+      "size_bytes": 4585
+    },
+    {
+      "path": "skills/tool-routing-cost/SKILL.md",
+      "size_bytes": 6656
+    },
+    {
+      "path": "skills/tool-routing-cost/agents/openai.yaml",
+      "size_bytes": 249
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/execution-plan.template.json",
+      "size_bytes": 1157
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/provider-catalog.json",
+      "size_bytes": 13933
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/provider-profile.template.json",
+      "size_bytes": 1011
+    },
+    {
+      "path": "skills/tool-routing-cost/assets/reference-capability-card.template.json",
+      "size_bytes": 749
+    },
+    {
+      "path": "skills/tool-routing-cost/references/execution-adapter-contract.md",
+      "size_bytes": 4026
+    },
+    {
+      "path": "skills/tool-routing-cost/references/provider-setup.md",
+      "size_bytes": 7131
+    },
+    {
+      "path": "skills/tool-routing-cost/references/provider-sources.md",
+      "size_bytes": 5572
+    },
+    {
+      "path": "skills/tool-routing-cost/references/reference-capability-routing.md",
+      "size_bytes": 4420
+    },
+    {
+      "path": "skills/ugc/SKILL.md",
+      "size_bytes": 5033
+    },
+    {
+      "path": "skills/ugc/agents/openai.yaml",
+      "size_bytes": 262
+    },
+    {
+      "path": "skills/video-prompt-architect/SKILL.md",
+      "size_bytes": 16970
+    },
+    {
+      "path": "skills/video-prompt-architect/agents/openai.yaml",
+      "size_bytes": 125
+    },
+    {
+      "path": "skills/video-prompt-architect/kit/method.md",
+      "size_bytes": 6009
+    },
+    {
+      "path": "skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md",
+      "size_bytes": 17194
+    },
+    {
+      "path": "skills/video-prompt-architect/references/video-craft.md",
+      "size_bytes": 51337
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "size_bytes": 38541
+    },
+    {
+      "path": "skills/workflow-orchestrator/agents/openai.yaml",
+      "size_bytes": 125
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/brand-identity.template.md",
+      "size_bytes": 2693
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
+      "size_bytes": 5327
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-domains.json",
+      "size_bytes": 15394
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-plan.template.md",
+      "size_bytes": 2359
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/learning-progress.template.md",
+      "size_bytes": 3318
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/project-pilot.template.json",
+      "size_bytes": 649
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
+      "size_bytes": 1505
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
+      "size_bytes": 1659
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/activity-bank.md",
+      "size_bytes": 9756
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-01-instructions.pl.md",
+      "size_bytes": 4656
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-02-evidence.pl.md",
+      "size_bytes": 5584
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-03-decisions.pl.md",
+      "size_bytes": 5692
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/lesson-pack.template.md",
+      "size_bytes": 1929
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/teacher-studio/teacher-admin.template.md",
+      "size_bytes": 2715
+    },
+    {
+      "path": "skills/workflow-orchestrator/kit/method.md",
+      "size_bytes": 6766
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/asset-change-routing.md",
+      "size_bytes": 4186
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/brand-identity-workflow.md",
+      "size_bytes": 9904
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+      "size_bytes": 7572
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
+      "size_bytes": 4272
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+      "size_bytes": 15120
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/learning-mode.md",
+      "size_bytes": 24814
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
+      "size_bytes": 7556
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "size_bytes": 14670
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/studio-contract.md",
+      "size_bytes": 11813
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/teacher-material-methods.md",
+      "size_bytes": 6859
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/teacher-method-evidence.md",
+      "size_bytes": 2597
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/teacher-workflow.md",
+      "size_bytes": 7423
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/thread-link-and-cross-host-resume.md",
+      "size_bytes": 2316
+    },
+    {
+      "path": "skills/workflow-self-improvement/SKILL.md",
+      "size_bytes": 5736
+    },
+    {
+      "path": "skills/workflow-self-improvement/agents/openai.yaml",
+      "size_bytes": 305
+    },
+    {
+      "path": "skills/workflow-self-improvement/assets/reflexion-lesson.template.json",
+      "size_bytes": 607
+    },
+    {
+      "path": "skills/workflow-self-improvement/templates/change-proposal.md",
+      "size_bytes": 910
+    },
+    {
+      "path": "skills/workflow-self-improvement/templates/improvement-log.md",
+      "size_bytes": 815
+    },
+    {
+      "path": "tests/asset_manifest_test.py",
+      "size_bytes": 7800
+    },
+    {
+      "path": "tests/creative-upgrade.test.mjs",
+      "size_bytes": 7750
+    },
+    {
+      "path": "tests/learning-mode.test.mjs",
+      "size_bytes": 21369
+    },
+    {
+      "path": "tests/motion-quality.test.mjs",
+      "size_bytes": 4141
+    },
+    {
+      "path": "tests/motion-toolkit.test.mjs",
+      "size_bytes": 1895
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "size_bytes": 74021
+    },
+    {
+      "path": "tests/quality-methods.test.mjs",
+      "size_bytes": 8012
+    },
+    {
+      "path": "tests/studio.test.mjs",
+      "size_bytes": 22283
+    },
+    {
+      "path": "tests/workflow-kit.test.mjs",
+      "size_bytes": 12363
+    }
+  ],
+  "checks": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "match": true,
+      "sha256": "977a432f364a8e466b96555fa4966d6afe6e05708def13b11dee3dbd927da4c5",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "README.md",
+      "match": true,
+      "sha256": "ff13cfe5ad65d0445dae832db833fda94b7cce98e4bba158a68dbdc655b944c5",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "match": true,
+      "sha256": "4d150cad72b32c099129664076bc549b7017aee640e360e0cd1136e3efe290e1",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "docs/release-history.md",
+      "match": true,
+      "sha256": "62fc3baacdb0f86c095cc7dd1f7e2d9c3f3ab2974b4f152f3b2a637c3fc89e73",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "docs/skill-naming.md",
+      "match": true,
+      "sha256": "feec0112137a09112afdaecad97e139e4b6b9f78c5467923b13d994215df2cb3",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "plugin.json",
+      "match": true,
+      "sha256": "d10f3155353c1a76d21c7616a568e1343d3838c18f038a998aee971147974198",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "scripts/validate-studio.mjs",
+      "match": true,
+      "sha256": "8ba6e4ed5f2eb3bcc7ef644afd70c75baeb0a35df2b0c7c5f773f444277b2f36",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "match": true,
+      "sha256": "b3f8a13d5b8691b66f80d611d2ef9bc7872c17b1b9145c0f067e76d644b6c96f",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/agents/openai.yaml",
+      "match": true,
+      "sha256": "2289c53f2029250087af177b4c73ba99e042e5afdd9e9d0cecfe508f578d3f09",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+      "match": true,
+      "sha256": "36b061a8364f8810a5087e3da712f7986cbee6df95eb72f27b1423bb5f9ee18a",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+      "match": true,
+      "sha256": "dfd8255d7984e1ed812227b8cefc2a0abbc4ce2ffef5c741c3dea75521c88a41",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+      "match": true,
+      "sha256": "16e33b3a2dfeb4a81111b3961d3eb7e70c9f65ec8dc1f87b5bf842ce24bb87df",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/pipeline-core/references/hyperframes-workflow.md",
+      "match": true,
+      "sha256": "2817e71acc9ecc1104771e6173c006b4a0e8f6b1277f2666f932d1449e5206a1",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/remotion-video-production/SKILL.md",
+      "match": true,
+      "sha256": "c3e48d5fc7573c28d51994970e076019fe396c7219a27653ec49cf5df4aa4f3a",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "match": true,
+      "sha256": "94fbcc231ef829053633b854a5f5f612b1ff14450d4d72f38cc2a09d4736f569",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
+      "match": true,
+      "sha256": "fa3f3e061a338e78cef4a66dacf4f00f75f14de751395c2cbcf09a4ad88a7d54",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+      "match": true,
+      "sha256": "d4a6969501310790e498e869c2ec006962c1944829d1f07394cefb6f80809b42",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    },
+    {
+      "path": "tests/studio.test.mjs",
+      "match": true,
+      "sha256": "31f8a5ab62c72938c79a90dbccad09e3869393076c532ca57f3eb4c08e75a1f7",
+      "release_id": "pluginrel_6ac2c21132208191a080edf3449316e2"
+    }
+  ],
+  "summary": {
+    "inventory_count": 838,
+    "changed_read_and_byte_matched": 18,
+    "unchanged_preserved_by_overlay": 820,
+    "mismatches": 0,
+    "full_hosted_byte_parity": "not_independently_reread",
+    "prior_readback": "hosted-release-1.10.0.json"
+  },
+  "unread_large_or_binary": [
+    {
+      "path": "assets/logo.png",
+      "bytes": 1603136,
+      "sha256": "3af68fe37c368e0a87c7189c6f2f94769f3e2bbe9ed22a99b5d4f9f8de355aa4"
+    },
+    {
+      "path": "evals/static-cases.json",
+      "bytes": 96290,
+      "sha256": "cfe699841fc0c72cf83edf2828cae5adb68b869280cd569e79979897b6fbd2eb"
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "bytes": 138877,
+      "sha256": "d193b35f5a0d57dcde3195635a8f1bd1b6585457ca415d0b8c9e740751422a3b"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "bytes": 70529,
+      "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "bytes": 2378951,
+      "sha256": "d151c08b9e7ad7cd930c1282a3644c4bf4d2a063c60e31133a3033fe18166693"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "bytes": 221290,
+      "sha256": "50186dff82b5a6613301434cc67aeff1a1f4cff8cf607926d6b0d8b2db7e6ad9"
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "bytes": 3064074,
+      "sha256": "42aad7cd568277d1690030f7b2d6e055469b8df76f2dcc321a19379175b0904d"
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "bytes": 87462,
+      "sha256": "1826b902ccb8defd5745ec582a992fb655aaf12a682a663008dc50657c771497"
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "bytes": 70529,
+      "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "bytes": 151821,
+      "sha256": "b445abdc8394a8b29f7d09265f88e2654246576227b4cb9f24d30357eb756877"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "bytes": 70529,
+      "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "bytes": 74021,
+      "sha256": "ca2cbc5978c03a6aeff551a72a561e0b5fc74e7fbed3917cf93246ba34b83349"
+    }
+  ],
+  "codex_managed_cache": {
+    "version": "1.10.1",
+    "files": 838,
+    "sha256_mismatches": 0,
+    "extra_files": [],
+    "refresh": "Observed automatic managed cache refresh; no manual writes",
+    "active_session_behavior": "not_tested"
+  }
+}

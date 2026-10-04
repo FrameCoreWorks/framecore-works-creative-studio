@@ -1,0 +1,54 @@
+{
+  "version": "1.10.1",
+  "date": "2026-10-04",
+  "method": "Manual browser UI probes through CUA; plugin explicitly selected; existing model and reasoning settings preserved.",
+  "probes": [
+    {
+      "host": "ChatGPT Work",
+      "phase": "first conversation after publication",
+      "loaded_version": "1.10.0",
+      "loaded_version_evidence": "Follow-up read-only source diagnostic reported the 1.10.0 package path and HyperFrames Workflow display name.",
+      "observations": {
+        "complete_canonical_welcome": "FAIL: abbreviated welcome",
+        "canonical_area_menu": "FAIL: an invented 10-area menu after a follow-up request",
+        "area_8_response": "Neutral motion intake without naming an engine"
+      },
+      "attribution": "Stale loaded package observed. These results do not verify or disprove 1.10.1 behavior; exact host cache mechanism not established."
+    },
+    {
+      "host": "Ordinary ChatGPT",
+      "phase": "new conversation after publication",
+      "loaded_version": "1.10.1",
+      "loaded_display_name": "Motion Graphics Workflow",
+      "loaded_version_evidence": "Follow-up source diagnostic reported .codex-plugin/plugin.json and skills/hyperframes-workflow/agents/openai.yaml from the current release.",
+      "observations": {
+        "complete_canonical_welcome": "PASS: six capabilities, qualifications and two modes",
+        "runtime_recommendation": "PASS: independently recommended Remotion + React + TypeScript + D3/SVG for 40 CSV-driven 15-second chart variants, reusable components and repeatable MP4 export",
+        "implementation": "Not requested or performed; no installation or render"
+      },
+      "boundary": "One bounded task and source diagnostic; not a complete host certification."
+    },
+    {
+      "host": "ChatGPT Work",
+      "phase": "second fresh conversation",
+      "loaded_version": "1.10.1",
+      "loaded_display_name": "Motion Graphics Workflow",
+      "technical_skill_id": "hyperframes-workflow",
+      "observations": {
+        "source_identity": "PASS: read-only diagnostic reported 1.10.1 and Motion Graphics Workflow",
+        "compatibility": "Response explained that the retained technical ID does not impose an engine"
+      },
+      "boundary": "Source identity diagnostic only. Full welcome, area-8 routing and rendering were not tested in this fresh conversation."
+    }
+  ],
+  "codex": {
+    "managed_cache_version": "1.10.1",
+    "files_compared": 838,
+    "byte_mismatches": 0,
+    "extra_files": 0,
+    "refresh": "Observed automatic managed-cache refresh; no manual cache modification",
+    "active_session_behavior": "not_tested"
+  },
+  "suite_boundary": "The existing 199 planned host scenarios remain not_run. These bounded manual probes are recorded separately.",
+  "media": "No rendering or media download."
+}
