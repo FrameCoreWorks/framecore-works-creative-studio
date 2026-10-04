@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.8.1.
+Version: 1.9.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -31,6 +31,8 @@ For social-ad work, choose a persuasive structure from supported proof, record o
 See [the ad analysis method](skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md) and [the attributed adaptation](integrations/meta-ads-designer/README.md).
 
 ## Code-based motion graphics
+
+The optional [motion toolkit](skills/hyperframes-workflow/references/motion-toolkit-routing.md) adds Three.js/R3F through Remotion, PixiJS effects, D3 data geometry, Mediabunny Canvas export, Lottie JSON playback and an existing-local-Manim clip bridge. Original examples include exact dependency pins and lockfiles, frame-seeking checks and explicit host/export boundaries. Install dependencies only inside an authorized project copy.
 
 Use the existing HyperFrames/HTML/SVG or Remotion path for an approved storyboard, frame-driven implementation, actual-output review and delivery. The workflow includes a versioned motion/Style Lock contract, three stage prompts, source-bound asset/copy locks, a dependency-free synthetic frame starter and separate preview, temporal/audio and encoded-export evidence. Local execution depends on the available host tools.
 

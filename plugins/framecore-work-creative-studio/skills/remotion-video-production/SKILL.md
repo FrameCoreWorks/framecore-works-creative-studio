@@ -55,6 +55,8 @@ Use [templates/remotion-production-brief.md](templates/remotion-production-brief
 
 For code-based motion graphics, kinetic typography, animated diagrams or brand motion, also use the shared [storyboard → build → review method](../hyperframes-workflow/references/code-based-motion-graphics.md). Reuse its versioned frame/Style Lock contract, exact-copy and asset ledger, approval evidence, three stage prompts and QA record. Keep the installed Remotion APIs and one shared QA budget; do not restart onboarding for an approved build.
 
+For 3D, use the [Three.js/R3F example](assets/three-motion-example/README.md) and [runtime cards](../hyperframes-workflow/references/motion-toolkit-runtime-cards.md). D3 data geometry, approved Lottie assets and rendered Manim clips keep this composition owner and Remotion frame/export authority. See [toolkit routing](../hyperframes-workflow/references/motion-toolkit-routing.md) before adding a dependency.
+
 ## Process
 
 1. Confirm whether the task is planning-only, implementation, repair, review, or render verification.

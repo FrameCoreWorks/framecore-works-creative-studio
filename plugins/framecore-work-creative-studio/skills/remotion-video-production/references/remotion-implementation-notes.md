@@ -54,3 +54,7 @@ Do not treat a successful command exit as sufficient visual QA. Inspect the prod
 - License and compliance guidance: https://www.remotion.dev/docs/licensing
 
 These links are source references, not permission to fetch remote private media, install packages, use hosted rendering, or bypass workspace approval rules.
+
+## Optional 3D and imported motion
+
+The [Three motion example](../assets/three-motion-example/README.md) provides an isolated composition using ThreeCanvas and frame-derived transforms. Keep all Remotion package versions aligned and inspect peer dependencies before installation. Follow [runtime cards](../../hyperframes-workflow/references/motion-toolkit-runtime-cards.md) for 3D, D3, Lottie and local Manim clip handoff; preserve one Remotion clock and native rendering. Apply [toolkit acceptance](../../hyperframes-workflow/templates/motion-toolkit-acceptance.md) within the existing QA loop. A rendered imported clip needs explicit FPS and trim mapping before composition review.

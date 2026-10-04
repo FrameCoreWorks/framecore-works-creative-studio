@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.9.0, 2026-10-04
+
+- Add optional Three.js/R3F, PixiJS, D3, Mediabunny Canvas export, Lottie JSON playback and a local Manim clip bridge through existing owners.
+- Supply original runnable examples with pinned dependency graphs, one frame authority, seeking checks, local encoded preview and decoded-output inspection.
+- Add source attribution, runtime cards, bounded acceptance guidance and structural/regression checks.
+- Preserve the complete startup, all 37 skill identities, teacher/ad modules, provider gates and pinned upstream sources.
+- Keep source, local render, saved-host readback and active-client evidence separate. No automatic engine installation or external generation is introduced.
+
 ## 1.8.1, 2026-10-04
 
 - Add a selectable code-based motion graphics shortcut to the complete Polish/English welcome, with supported tools and preview/export availability limits.

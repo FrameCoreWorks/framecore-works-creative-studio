@@ -1,0 +1,27 @@
+{
+  "name": "framecore-three-motion-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "render": "remotion render src/index.tsx FrameCoreThree out/framecore-three.mp4 --concurrency=1",
+    "still": "remotion still src/index.tsx FrameCoreThree out/frame-90.png --frame=90",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.1",
+    "@remotion/cli": "4.0.530",
+    "@remotion/three": "4.0.530",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.530",
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/three": "0.186.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {"node": ">=20"}
+}

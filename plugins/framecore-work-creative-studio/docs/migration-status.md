@@ -1,6 +1,6 @@
 # Current release scope
 
-Version: 1.8.1.
+Version: 1.9.0.
 Date: 2026-10-04.
 Release scope: 1.0 core plus optional provider setup in 1.1.0, consistent skill display names in 1.1.1, aligned research, music and operation-specific image routing in 1.1.2, route-aware structural checks with a synchronized source inventory in 1.1.3, optional learning/creation mentoring in 1.2.0, and the restored full welcome with staged creative pace and work-area menus in 1.2.1, and strengthened entry, expiring choice groups and concise offline-learning evidence boundaries in 1.2.2, plus ordinary-language poster format intake in 1.2.3, a single fixed, verbatim welcome for every sent Studio-only invocation in 1.2.4, and step-by-step learning onboarding with one question per response in 1.2.5, plus consistent checkpoint fields, integrated static ownership and conditional copy repair in 1.2.6, plus the existing-owner brand strategy, logo system and identity-guide profile in 1.2.7. Version 1.2.8 adds automatic shared output review and 1.2.9 defines CQoT and conditional evidence-led methods inside that same loop. GitHub distribution and hosted plugin updates are separate publication operations.
 
@@ -25,6 +25,10 @@ This release contains thirty-seven skill roots: thirty-five active specialist ro
 | delivery-documentation | Static/print and audio/video delivery specifications and inspection boundaries | Requirements, user reports and verified export properties stay separate |
 | research-evidence | Public research, privacy, source authority, source-to-decision mapping and tool-error recovery | Dated snapshots are leads, not current or exhaustive coverage |
 | studio-workstyle-profile | Per-domain pace/detail adaptation and portable, user-editable preference schema | No inferred personal traits or guaranteed memory/sync across environments |
+
+## Optional motion toolkit in 1.9.0
+
+Existing HyperFrames and Remotion owners gain optional Three.js/R3F, PixiJS, D3, Mediabunny and Lottie JSON examples, plus a portable Manim scene and conditional local bridge. The source includes dependency graphs, frame checks, explicit capability/rights rules and an acceptance attachment to the existing QA record. See [routing](../skills/hyperframes-workflow/references/motion-toolkit-routing.md). Installed tools and observed renders are recorded separately in release verification; other hosts, alpha/audio export and `.lottie` archive playback are not implied. All 37 skill identities and the complete 1.8.1 startup remain intact.
 
 ## Motion entry in 1.8.1
 

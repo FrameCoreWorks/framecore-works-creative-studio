@@ -1,0 +1,354 @@
+{
+  "version": "1.9.0",
+  "date": "2026-10-04",
+  "baseline_commit": "b6008a292898c1a1fe047f21a481aacb9032e224",
+  "source_validation": {
+    "status": "PASS",
+    "files": 806,
+    "owners": 37,
+    "planned_evaluations": 199,
+    "executed": 0
+  },
+  "tests": {
+    "node": {
+      "status": "PASS",
+      "tests": 119
+    },
+    "installer": {
+      "status": "PASS",
+      "tests": 11,
+      "environment": "TMPDIR=/private/tmp; PYTHONDONTWRITEBYTECODE=1",
+      "initial_attempt": "Failed on macOS /var symlink destination; repeated with canonical /private/tmp, no source patch."
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "gepa": "NOT_RUN_LOCALLY; unchanged pilot remains in release CI"
+  },
+  "preservation": {
+    "status": "PASS",
+    "unchanged_files": 769,
+    "modified_files": 12,
+    "added_files": 25,
+    "changed": [
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/migration-status.md",
+      "docs/release-history.md",
+      "plugin.json",
+      "scripts/validate-studio.mjs",
+      "skills/hyperframes-workflow/SKILL.md",
+      "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+      "skills/hyperframes-workflow/references/code-motion-evidence.md",
+      "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+      "skills/remotion-video-production/SKILL.md",
+      "skills/remotion-video-production/references/remotion-implementation-notes.md"
+    ],
+    "added": [
+      "tests/motion-toolkit.test.mjs",
+      "scripts/validate-motion-toolkit.mjs",
+      "skills/hyperframes-workflow/references/motion-toolkit-sources.md",
+      "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+      "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+      "skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md",
+      "skills/hyperframes-workflow/assets/manim-motion-example.py",
+      "skills/hyperframes-workflow/assets/motion-toolkit/index.html",
+      "skills/hyperframes-workflow/assets/motion-toolkit/timeline.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/README.md",
+      "skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/package-lock.json",
+      "skills/hyperframes-workflow/assets/motion-toolkit/package.json",
+      "skills/hyperframes-workflow/assets/motion-toolkit/build.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/app.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/server.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/export.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/renderers.mjs",
+      "skills/hyperframes-workflow/assets/motion-toolkit/lottie-fixture.mjs",
+      "skills/remotion-video-production/assets/three-motion-example/README.md",
+      "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "skills/remotion-video-production/assets/three-motion-example/package.json",
+      "skills/remotion-video-production/assets/three-motion-example/tsconfig.json",
+      "skills/remotion-video-production/assets/three-motion-example/remotion.config.ts",
+      "skills/remotion-video-production/assets/three-motion-example/src/index.tsx"
+    ],
+    "startup": "byte-unchanged",
+    "manifest_except_version": "byte-unchanged",
+    "teacher_ads_upstream": "byte-unchanged"
+  },
+  "review": {
+    "status": "ACCEPT",
+    "method": "Hipson runtime/source cards; Olga independent source review and bounded repair readback",
+    "resolved_findings": [
+      "Cancellation checked before and after finalization",
+      "Observed decoded mismatches report FAIL; missing capability reports NOT VERIFIED"
+    ]
+  },
+  "local_execution": {
+    "host": "macOS arm64; local Node/npm, Chrome and Manim runtime; no external generation",
+    "browser_build": "PASS esbuild 0.28.2",
+    "seek_pixels": {
+      "status": "PASS_OBSERVED",
+      "scenes": [
+        "D3",
+        "PixiJS",
+        "Lottie JSON"
+      ],
+      "frames": [
+        0,
+        24,
+        81,
+        132,
+        179
+      ],
+      "orders": [
+        "direct",
+        "forward",
+        "backward"
+      ],
+      "scope": "Canvas pixels on this host; not every imported asset"
+    },
+    "encoded_blobs": {
+      "status": "PASS_OBSERVED",
+      "cases": [
+        {
+          "scene": "D3",
+          "format": "MP4",
+          "codec": "avc"
+        },
+        {
+          "scene": "PixiJS",
+          "format": "MP4",
+          "codec": "avc"
+        },
+        {
+          "scene": "Lottie JSON",
+          "format": "WebM",
+          "codec": "vp9"
+        }
+      ],
+      "decoded_frames_each": 180,
+      "dimensions": [
+        640,
+        360
+      ],
+      "timestamp_fps": 30,
+      "duration_seconds": 6,
+      "audio_tracks": 0,
+      "inspection": "Mediabunny VideoSampleSink decodes finalized bytes in browser; dimensions, frame count, timestamps and end duration checked",
+      "external_ffprobe": "NOT_RUN for Canvas blobs; browser download callback timed out",
+      "limits": "Other scene/codec combinations, alpha, audio, other hosts and full continuous playback review NOT_RUN"
+    },
+    "three": {
+      "typecheck": "PASS",
+      "render": "PASS",
+      "composition": "FrameCoreThree",
+      "browser": "Installed Chrome; angle; concurrency 1",
+      "probe": {
+        "file": "framecore-three.mp4",
+        "sha256": "4291d9de932a263c821b51949b4dc9ccd31b7affede8e65c2366e572b314b794",
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+              "profile": "High",
+              "codec_type": "video",
+              "codec_tag_string": "avc1",
+              "codec_tag": "0x31637661",
+              "mime_codec_string": "avc1.64001e",
+              "width": 640,
+              "height": 360,
+              "coded_width": 640,
+              "coded_height": 368,
+              "has_b_frames": 2,
+              "pix_fmt": "yuv420p",
+              "level": 30,
+              "chroma_location": "left",
+              "field_order": "progressive",
+              "refs": 4,
+              "is_avc": "true",
+              "nal_length_size": "4",
+              "id": "0x1",
+              "r_frame_rate": "30/1",
+              "avg_frame_rate": "30/1",
+              "time_base": "1/90000",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 540000,
+              "duration": "6.000000",
+              "bit_rate": "97857",
+              "bits_per_raw_sample": "8",
+              "nb_frames": "180",
+              "nb_read_frames": "180",
+              "extradata_size": 46,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "und",
+                "handler_name": "VideoHandler",
+                "encoder": "Lavc61.19.100 libx264"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "6.000000",
+            "size": "76453",
+            "bit_rate": "101937",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "isom",
+              "minor_version": "512",
+              "compatible_brands": "isomiso2avc1mp41",
+              "encoder": "Lavf61.7.100",
+              "comment": "Made with Remotion 4.0.530"
+            }
+          }
+        }
+      },
+      "visual_review": "Representative frames at 0, 3, 5.9 seconds inspected; no clipping observed",
+      "warning": "R3F internal THREE.Clock deprecation; no render failure"
+    },
+    "manim": {
+      "doctor": "PASS regular render; LaTeX unavailable and not used",
+      "runtime": "ManimCE 0.20.1 / Python 3.12.13",
+      "render": "PASS existing registered local wrapper",
+      "probe": {
+        "file": "scene-studio-toolkit-190.mp4",
+        "sha256": "2a043af06310685c180ee7fb023477ebfbf8b3b5085069a40af541ac6573efe2",
+        "probe": {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+              "profile": "High",
+              "codec_type": "video",
+              "codec_tag_string": "avc1",
+              "codec_tag": "0x31637661",
+              "mime_codec_string": "avc1.64001f",
+              "width": 1280,
+              "height": 720,
+              "coded_width": 1280,
+              "coded_height": 720,
+              "has_b_frames": 2,
+              "pix_fmt": "yuv420p",
+              "level": 31,
+              "chroma_location": "left",
+              "field_order": "progressive",
+              "refs": 4,
+              "is_avc": "true",
+              "nal_length_size": "4",
+              "id": "0x1",
+              "r_frame_rate": "30/1",
+              "avg_frame_rate": "30/1",
+              "time_base": "1/15360",
+              "start_pts": 0,
+              "start_time": "0.000000",
+              "duration_ts": 92160,
+              "duration": "6.000000",
+              "bit_rate": "150505",
+              "bits_per_raw_sample": "8",
+              "nb_frames": "180",
+              "nb_read_frames": "180",
+              "extradata_size": 46,
+              "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "non_diegetic": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0,
+                "multilayer": 0
+              },
+              "tags": {
+                "language": "und",
+                "handler_name": "VideoHandler"
+              }
+            }
+          ],
+          "format": {
+            "nb_streams": 1,
+            "nb_programs": 0,
+            "nb_stream_groups": 0,
+            "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+            "format_long_name": "QuickTime / MOV",
+            "start_time": "0.000000",
+            "duration": "6.000000",
+            "size": "115915",
+            "bit_rate": "154553",
+            "probe_score": 100,
+            "tags": {
+              "major_brand": "isom",
+              "minor_version": "512",
+              "compatible_brands": "isomiso2avc1mp41",
+              "encoder": "Lavf62.12.102",
+              "comment": "Rendered with Manim Community v0.20.1"
+            }
+          }
+        }
+      },
+      "visual_review": "Representative 3-second frame inspected; editable Rotate source preserves geometry"
+    },
+    "dotlottie_archive": "NOT_RUN; guidance only; no archive player bundled",
+    "model_comparison": "NOT_RUN"
+  },
+  "provider_operations": "NONE",
+  "publication": {
+    "github": {
+      "status": "PENDING"
+    },
+    "host": {
+      "status": "PENDING"
+    }
+  },
+  "active_ordinary_chatgpt": {
+    "status": "PENDING"
+  },
+  "other_active_clients": "NOT_RUN; installed Codex cache may retain prior version until host refresh",
+  "package": {
+    "all_plugin_files_bytes_equal": 806,
+    "overlay_files": 37,
+    "archive_bytes": 9335694,
+    "archive_sha256": "51ea4579e6eddb394d2b21ddbf733391ead6bafc69cffa53b671ce189998e9af",
+    "overlay_sha256": "56721b1e46a5a0d92bc69812a13bc36fee7f3a691f7117696d2744b06ef85274"
+  }
+}

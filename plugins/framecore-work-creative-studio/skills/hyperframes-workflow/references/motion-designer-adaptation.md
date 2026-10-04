@@ -32,6 +32,6 @@ Do not import upstream's fixed premium/minimalist preference, compulsory new sty
 
 Upstream's schema is descriptive and does not enforce all required child fields, approval evidence, integer frame coverage or overlap accounting. Its seconds-based timing and configurable review limits are not Studio's active contract. Use [the frame contract](../templates/motion-storyboard-contract.md) and the existing shared three-pass maximum; unresolved defects do not automatically extend it.
 
-Motion Canvas, Three.js, After Effects and FFmpeg are upstream candidate tools, not newly installed or certified Studio adapters. Research and use them only when the actual requested project and available tools justify it. Referenced engines retain their own terms. This release installs no engine and makes no live-provider claim.
+Motion Canvas and After Effects remain upstream candidate tools. The separately researched [motion toolkit](motion-toolkit-routing.md) now provides an optional Three.js/Remotion example and FFmpeg inspection guidance. These do not install engines automatically or certify every host. Research and use tools only when the requested project and actual capabilities justify them; their own terms remain applicable.
 
 Source instructions were read as input material. The retained license/notices preserve attribution; the active implementation is the scoped Studio method linked from its existing skills.

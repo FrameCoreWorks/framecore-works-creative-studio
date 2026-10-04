@@ -1,0 +1,19 @@
+{
+  "name": "framecore-motion-toolkit-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node server.mjs",
+    "test": "node --test timeline.test.mjs"
+  },
+  "dependencies": {
+    "d3-scale": "4.0.2",
+    "lottie-web": "5.13.0",
+    "mediabunny": "1.61.1",
+    "pixi.js": "8.22.0"
+  },
+  "devDependencies": {"esbuild": "0.28.2"},
+  "engines": {"node": ">=20"}
+}

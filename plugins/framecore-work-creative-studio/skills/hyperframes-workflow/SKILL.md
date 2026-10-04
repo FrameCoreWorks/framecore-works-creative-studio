@@ -14,6 +14,8 @@ Use this when the output is a coded video composition or HTML-to-video productio
 
 For motion graphics from code, use the [three-stage motion workflow](references/code-based-motion-graphics.md), [storyboard contract](templates/motion-storyboard-contract.md) and [stage prompts](templates/code-motion-stage-prompts.md). Start at the requested stage and preserve actual approval. The [synthetic frame starter](assets/code-motion-starter/README.md) demonstrates shared preview/SVG-export logic without installing a renderer. Research and upstream attribution are linked from the workflow.
 
+For optional 3D, GPU 2D, data animation, Canvas encoding, local Manim clips or Lottie assets, consult [motion toolkit routing](references/motion-toolkit-routing.md) and the selected [runtime card](references/motion-toolkit-runtime-cards.md). Keep one frame authority and use [toolkit acceptance](templates/motion-toolkit-acceptance.md) inside the current QA record. Check actual host capabilities before implementation.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

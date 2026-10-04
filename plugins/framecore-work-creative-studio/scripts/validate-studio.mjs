@@ -4,6 +4,7 @@ import {spawnSync} from 'node:child_process';
 import {isDeepStrictEqual} from 'node:util';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {validateMotionToolkit} from './validate-motion-toolkit.mjs';
 import {validateWorkflowKit} from './validate-workflow-kit.mjs';
 import {loadEffectiveEvals} from './load-effective-evals.mjs';
 import {validateLearningMode} from './validate-learning-mode.mjs';
@@ -57,6 +58,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     try { const data = JSON.parse(read(relative)); if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Expected a JSON object'); return data; }
     catch (error) { fail('JSON', relative + ': ' + error.message); return {}; }
   };
+  errors.push(...validateMotionToolkit(base));
   errors.push(...validateWorkflowKit(base, files));
   errors.push(...validateLearningMode(base, files));
   errors.push(...validateQualityMethods(base));

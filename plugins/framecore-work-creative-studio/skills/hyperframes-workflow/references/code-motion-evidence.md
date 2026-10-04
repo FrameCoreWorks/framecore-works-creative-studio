@@ -13,7 +13,7 @@ Research date: 2026-10-03. Scope: official documentation read for this integrati
 | [GSAP seek](https://gsap.com/docs/v3/GSAP/Timeline/seek%28%29/) | Timelines can move to a specified position; event suppression affects callbacks. | Scene correctness must not rely on callbacks that seeking can skip. |
 | [HyperFrames rendering guide](https://github.com/heygen-com/hyperframes/blob/main/docs/guides/rendering.mdx) | Local rendering has explicit format, quality and FPS settings. | Verify installed CLI options and actual encoded properties; no automatic cloud/render service. |
 
-Links to mutable documentation are retrieval pointers, not pinned dependency versions. Recheck only changed APIs or requirements. This package adds no npm/runtime dependencies and does not silently upgrade an existing project.
+Links to mutable documentation are retrieval pointers, not pinned dependency versions. Recheck only changed APIs or requirements. The original frame starter has no runtime dependency. Optional [motion toolkit examples](motion-toolkit-routing.md) declare their own pinned dependencies and lockfiles; install only in an authorized project copy. They do not silently upgrade an existing project.
 
 ## Model evidence and selection
 

@@ -1,0 +1,55 @@
+{
+  "packet_id": "STUDIO-MOTION-TOOLKIT-1.9.0",
+  "date": "2026-10-04",
+  "baseline_commit": "b6008a292898c1a1fe047f21a481aacb9032e224",
+  "baseline_host_release": "pluginrel_6ac2290f04048191bb607ea071f5c9eb",
+  "authorization": "Owner approved implementation of the researched motion extensions; standing paired publication applies.",
+  "goal": "Add bounded 3D, Pixi 2D, D3 data, Canvas encoding, Lottie import and Manim handoff capabilities with runnable examples and separate evidence.",
+  "existing_plugin_files": [
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "skills/hyperframes-workflow/references/code-motion-evidence.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/remotion-video-production/references/remotion-implementation-notes.md",
+    "scripts/validate-studio.mjs",
+    "skills/hyperframes-workflow/references/motion-designer-adaptation.md"
+  ],
+  "new_plugin_paths": [
+    "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+    "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+    "skills/hyperframes-workflow/references/motion-toolkit-sources.md",
+    "skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md",
+    "skills/hyperframes-workflow/assets/motion-toolkit/",
+    "skills/hyperframes-workflow/assets/manim-motion-example.py",
+    "skills/remotion-video-production/assets/three-motion-example/",
+    "scripts/validate-motion-toolkit.mjs",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "repository_dependencies": [
+    "README.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_STATUS.md",
+    "config/install-sources.json",
+    ".github/workflows/release.yml",
+    "verification/scope-1.9.0.json",
+    "verification/release-1.9.0.json",
+    "verification/hosted-release-1.9.0.json"
+  ],
+  "preserve": [
+    "37 skill identities and interface metadata",
+    "Complete startup assets and numeric intent mappings",
+    "All teacher/ad/source snapshots and unrelated skills",
+    "Existing provider/upload/approval gates",
+    "Existing project state and frame contract"
+  ],
+  "dependency_scope": "Pinned project examples only; verification installs copied examples under ignored dist, never within the shared plugin, globally, or over existing projects.",
+  "new_owners": 0,
+  "provider_calls": 0,
+  "live_evidence": "Record only observed results; no source-only claim of render readiness."
+}

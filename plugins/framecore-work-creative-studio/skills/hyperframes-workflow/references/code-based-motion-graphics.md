@@ -71,3 +71,7 @@ Separate objective defects from preferences. Each defect records criterion, expe
 Report project readiness, creative/temporal review, audio inspection and encoded-export readiness separately using [the QA record](../templates/motion-qa-record.md). PASS requires evidence for every applicable mandatory criterion; FAIL means an observed failure; NOT VERIFIED displays an existing Unknown or NOT_RUN state. N/A needs a reason. Do not introduce another shared status machine.
 
 Delivery includes the editable project, available review/final exports, exact commands actually supported, dependencies/versions, locations of tokens/copy/timing/assets, safe-edit notes, unresolved blockers and the reviewed revision. An older render cannot certify newer source. A requested deliverable needs no extra ceremonial delivery approval. Publication and external transfers remain separately scoped operations.
+
+## Optional implementation toolkit
+
+Use [motion toolkit routing](motion-toolkit-routing.md) for Three.js/R3F, PixiJS, D3, Mediabunny Canvas encoding, a discoverable local Manim bridge or supported Lottie imports. Read only the selected [runtime card](motion-toolkit-runtime-cards.md); attach [toolkit acceptance](../templates/motion-toolkit-acceptance.md) to the existing QA record. Tool choice does not change approval, ownership, frame intervals or exact-copy locks. Native Remotion export remains first for Remotion projects.
