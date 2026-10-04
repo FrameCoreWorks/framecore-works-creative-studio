@@ -47,6 +47,16 @@
     "blocking_findings": []
   },
   "plugin_zip_sha256": "26654b9a0d7e7cafa0d5d9f757c09854ca75f17e66fa326f90fed88c6c5da1bd",
-  "host_behavior": "NOT_YET_TESTED",
-  "evidence_boundary": "Source checks do not prove active-host loading. Preserve all 199 unexecuted planned host scenarios."
+  "host_behavior": "TWO_OPTION_MENU_OBSERVED_CHAT_AND_WORK; CREATIVE_EXPANDED_MOTION_PATH_OBSERVED_ORDINARY_CHAT",
+  "evidence_boundary": "Source checks do not prove active-host loading. Preserve all 199 unexecuted planned host scenarios.",
+  "host_behavior_record": "host-behavior-1.9.4.json",
+  "saved_host_readback": "hosted-release-1.9.4.json",
+  "github_publication": "github-publication-1.9.4.json",
+  "codex_cache_readback": {
+    "version": "1.9.4",
+    "cache": "NOT_YET_PRESENT",
+    "active_session_catalog": "1.9.3",
+    "active_session_behavior": "NOT_OBSERVED",
+    "note": "No available managed refresh operation was exposed. No manual cache write or duplicate native installation performed."
+  }
 }

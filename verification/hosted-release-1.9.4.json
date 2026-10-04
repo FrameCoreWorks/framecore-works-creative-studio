@@ -1,0 +1,74 @@
+{
+  "version": "1.9.4",
+  "date": "2026-10-04",
+  "baseline": "pluginrel_6ac290c27ef48191b9616c82b49d3beb",
+  "release_id": "pluginrel_6ac296ec171c81919fa011fa852a92b9",
+  "shared_files": 808,
+  "paths_and_sizes": "MATCH",
+  "readable_text_files": 796,
+  "all_readable_sha256_equal": true,
+  "changed_files_read": 16,
+  "unread_files": [
+    {
+      "path": "assets/logo.png",
+      "bytes": 1603136,
+      "sha256": "3af68fe37c368e0a87c7189c6f2f94769f3e2bbe9ed22a99b5d4f9f8de355aa4"
+    },
+    {
+      "path": "evals/static-cases.json",
+      "bytes": 96290,
+      "sha256": "cfe699841fc0c72cf83edf2828cae5adb68b869280cd569e79979897b6fbd2eb"
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "bytes": 138877,
+      "sha256": "d193b35f5a0d57dcde3195635a8f1bd1b6585457ca415d0b8c9e740751422a3b"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "bytes": 70529,
+      "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "bytes": 2378951,
+      "sha256": "d151c08b9e7ad7cd930c1282a3644c4bf4d2a063c60e31133a3033fe18166693"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "bytes": 221290,
+      "sha256": "50186dff82b5a6613301434cc67aeff1a1f4cff8cf607926d6b0d8b2db7e6ad9"
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "bytes": 3064074,
+      "sha256": "42aad7cd568277d1690030f7b2d6e055469b8df76f2dcc321a19379175b0904d"
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "bytes": 87462,
+      "sha256": "1826b902ccb8defd5745ec582a992fb655aaf12a682a663008dc50657c771497"
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "bytes": 70529,
+      "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "bytes": 151821,
+      "sha256": "b445abdc8394a8b29f7d09265f88e2654246576227b4cb9f24d30357eb756877"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "bytes": 70529,
+      "sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2"
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "bytes": 74021,
+      "sha256": "ca2cbc5978c03a6aeff551a72a561e0b5fc74e7fbed3917cf93246ba34b83349"
+    }
+  ],
+  "evidence_boundary": "12 unchanged large/binary files lack direct hosted content readback; omitted files were preserved by the guarded overlay. This is not full hosted byte equality."
+}

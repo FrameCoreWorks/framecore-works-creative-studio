@@ -1,0 +1,46 @@
+{
+  "version": "1.9.4",
+  "date": "2026-10-04",
+  "source_commit": "1d089cebbc2c64bc2669a21a8f35f1735602ce63",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.9.4",
+  "workflows": [
+    {
+      "id": 37223464594,
+      "name": "Refresh current release notes",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37223464603,
+      "name": "Publish verified Studio release",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "release_plugin_zip_sha256": "26654b9a0d7e7cafa0d5d9f757c09854ca75f17e66fa326f90fed88c6c5da1bd",
+  "assets": [
+    {
+      "name": "framecore-work-creative-studio-1.9.4.zip",
+      "digest": "sha256:26654b9a0d7e7cafa0d5d9f757c09854ca75f17e66fa326f90fed88c6c5da1bd"
+    },
+    {
+      "name": "framecore-work-creative-studio-1.9.4.zip.inventory.json",
+      "digest": "sha256:3ffd9b585263b994a0bb4a14c9a9689722af661fbaeafdcfd3076b074f297f36"
+    },
+    {
+      "name": "framecore-works-creative-studio-1.9.4-repository.zip",
+      "digest": "sha256:38517f3ee50bae369e10b195ee6be3ba9cff72dc2bbb0e80dfdc8d9006d90374"
+    },
+    {
+      "name": "framecore-works-creative-studio-1.9.4-repository.zip.inventory.json",
+      "digest": "sha256:9e9df06ed56f03e4af80a66be3c7a633d530e921c6a878a1067fb0a71d8c9bff"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:9e84e7c16d3e1b7897d4bb1a76c6321980dfb342e516045864bebe9468a9ed1e"
+    }
+  ],
+  "github_package_blobs": 808,
+  "local_release_zip_digest_match": true,
+  "github_package_inventory": "808 blobs; full release plugin ZIP SHA256 matches local package"
+}

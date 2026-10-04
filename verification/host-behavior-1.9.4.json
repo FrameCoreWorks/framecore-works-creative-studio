@@ -1,0 +1,55 @@
+{
+  "version": "1.9.4",
+  "date": "2026-10-04",
+  "saved_release_id": "pluginrel_6ac296ec171c81919fa011fa852a92b9",
+  "planned_evaluations": "NOT_RUN; separate bounded manual UI probes",
+  "ordinary_chatgpt": {
+    "client": "Chrome, temporary ordinary ChatGPT conversation",
+    "reasoning_setting": "Extra High, 4 of 5 (observed selector)",
+    "model_id": "NOT_EXPOSED",
+    "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+    "status": "PASS_OBSERVED_MENU_SCOPE",
+    "inputs": [
+      "bare Studio mention",
+      "3",
+      "1",
+      "2",
+      "8"
+    ],
+    "observations": [
+      {
+        "input": "bare Studio mention",
+        "result": "Complete Polish welcome, six capability bullets, availability qualification and optional inputs; exactly choices 1 Creative / 2 Learning, ending Wpisz 1 albo 2."
+      },
+      {
+        "input": "3",
+        "reply": "W tym menu są tylko dwie opcje:\n1. Tryb kreatywny\n2. Tryb nauki\nWpisz 1 albo 2.",
+        "result": "No motion selection."
+      },
+      {
+        "input": "1",
+        "result": "Quick / Expanded pace choice; no motion preselection."
+      },
+      {
+        "input": "2",
+        "result": "Work areas 1–8; area 3 storyboards, area 8 motion, with HTML/SVG, GSAP, HyperFrames, Remotion and preview/export qualification."
+      },
+      {
+        "input": "8",
+        "reply": "Wybrano 8. Motion graphics z kodu w trybie rozbudowanym. Opisz teraz, co chcesz stworzyć. Możesz podać np. cel animacji, długość, format, teksty, logo/assety i ewentualny runtime, jeśli masz preferencję: HTML/SVG/GSAP, HyperFrames albo Remotion.",
+        "result": "Selected motion and retained expanded pace; waited for brief."
+      }
+    ],
+    "limitations": "Semantic menu observations, not raw Markdown byte comparison. Pace wording differed from source localized example. No media generation/render/export tested."
+  },
+  "chatgpt_work": {
+    "client": "Chrome, projectless ChatGPT Work conversation",
+    "reasoning_setting": "Bardzo wysoki, 4 of 6 (observed selector)",
+    "model_id": "NOT_EXPOSED",
+    "status": "PASS_OBSERVED_TWO_OPTION_MENU; VERBATIM_WELCOME_PARTIAL",
+    "input": "bare Studio mention",
+    "observation": "Complete Polish welcome with six capability bullets, qualification and optional materials; exactly choices 1 Creative / 2 Learning and Wpisz 1 albo 2. Final visible wording replaced source dashes with colons/commas.",
+    "limitations": "Follow-up motion path and all reasoning settings not tested in Work. Active loaded package version not independently reported by host."
+  },
+  "execution_boundary": "No provider calls, media generation, installations, uploads or publication inside the probe conversations."
+}
