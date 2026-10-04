@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.8.0.
+Version: 1.8.1.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -8,7 +8,7 @@ Creative Studio takes a brief and source materials through direction, storyboard
 
 ## Welcome, creative mode and learning mode
 
-The full welcome explains what Studio does and its capabilities, then offers **1. Creative mode / 2. Learning mode** in the user's automatically selected language. A creative-only selection leads to **1. Quick mode / 2. Expanded mode**, followed by the established work-area menu and task clarification. The existing localized creation alias remains supported. A clear request bypasses redundant choices; numeric replies apply to the last displayed menu. See [startup and next steps](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
+The full welcome explains what Studio does and its capabilities, then offers **1. Creative mode / 2. Learning mode / 3. Code-based motion graphics** in the user's automatically selected language. A creative-only selection leads to **1. Quick mode / 2. Expanded mode**, followed by the established work-area menu and task clarification. The existing localized creation alias remains supported. The motion shortcut describes animated text, logos, diagrams, HTML/SVG, GSAP, HyperFrames and Remotion, with preview/export dependent on available tools. It retains motion through pace selection and skips the general area menu. A clear request bypasses redundant choices; numeric replies apply to the last displayed menu. See [startup and next steps](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
 
 **Learning mode** retains short onboarding, a personalized plan, exercises and feedback on the learner's work across 14 existing skill domains. Quick/Deep controls pace independently of intent. When persistent saving is unavailable, a progress card can carry context into another conversation. See [modes, coverage and limitations](docs/learning-mode.md).
 

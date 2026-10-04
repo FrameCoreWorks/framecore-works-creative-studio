@@ -1,0 +1,67 @@
+{
+  "version": "1.8.1",
+  "date": "2026-10-04",
+  "baseline_commit": "a9b4b2624b1464f8ca607eab4ff263440e307f71",
+  "source_validation": {
+    "status": "PASS",
+    "files": 781,
+    "owners": 37,
+    "planned_evaluations": 199,
+    "executed": 0
+  },
+  "existing_tests": {
+    "node": {
+      "status": "PASS",
+      "tests": 111
+    },
+    "installer": {
+      "status": "PASS",
+      "tests": 11,
+      "environment": "TMPDIR=/private/tmp; PYTHONDONTWRITEBYTECODE=1"
+    },
+    "asset_manifest": {
+      "status": "PASS",
+      "tests": 23
+    },
+    "gepa": "NOT_RUN_LOCALLY; existing release CI runs the unchanged pilot"
+  },
+  "preservation": {
+    "status": "PASS",
+    "unchanged_files": 764,
+    "modified_files": 17,
+    "added_files": 0,
+    "canonical_skills": 37,
+    "original_capability_bullets_and_options": "byte-unchanged",
+    "work_areas_1_to_7": "byte-unchanged",
+    "manifest_except_version": "unchanged"
+  },
+  "review": {
+    "status": "ACCEPT",
+    "method": "Hipson scope check and Olga independent source review",
+    "material_findings": 0
+  },
+  "baseline_host": {
+    "release_id": "pluginrel_6ac15c99b4f08191bf6d2eebbd611225",
+    "modified_files_bytes_equal": 17,
+    "inventory_equal": 781
+  },
+  "publication": {
+    "github": "PENDING",
+    "host": "PENDING"
+  },
+  "active_ordinary_chatgpt": {
+    "status": "NOT_RUN",
+    "client": "Chrome, chatgpt.com",
+    "reasoning_setting": "Unknown",
+    "reason": "Plugin detail page is still loading; capability check pending."
+  },
+  "other_active_clients": "NOT_RUN",
+  "video_render": "NOT_RUN",
+  "provider_operations": "NONE",
+  "package": {
+    "all_plugin_files_bytes_equal": 781,
+    "overlay_files": 17,
+    "archive_bytes": 9258535,
+    "archive_sha256": "0789b2941e70872b6453ba6412e47bc002857ba7bd69601b42f7594f5ea7ba34"
+  }
+}

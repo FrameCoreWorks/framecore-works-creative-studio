@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.1, 2026-10-04
+
+- Add a selectable code-based motion graphics shortcut to the complete Polish/English welcome, with supported tools and preview/export availability limits.
+- Retain the selected motion area and explicit runtime through pace selection; add creative area 8 while preserving areas 1–7 and both original intents.
+- Synchronize embedded welcome copies, shared entry guidance, protected hashes and existing regression checks/fixtures.
+- Preserve all six capability bullets, 37 skill identities, existing motion/teacher/ad content, provider boundaries and upstream sources.
+
 ## 1.8.0, 2026-10-03
 
 - Add an optional teacher profile for lessons, worksheets, games, quizzes, slide content, classroom guidance, career exploration and teacher documents.

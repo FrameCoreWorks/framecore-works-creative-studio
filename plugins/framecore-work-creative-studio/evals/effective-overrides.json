@@ -354,7 +354,7 @@
       "id": "S01",
       "source_file": "static-cases.json",
       "source_record_sha256": "b4d7c0220848df03dd08560151db2bfeca5587f88ac119d60a17e996bd4ef79f",
-      "reason": "1.2.1 retains learning/creation intent and restores the complete Studio welcome plus staged creative pace and work-area menus. Preserve the historical source fixture and its guard.",
+      "reason": "1.2.1 retains learning/creation intent and restores the complete Studio welcome plus staged creative pace and work-area menus. Preserve the historical source fixture and its guard. 1.8.1 adds a motion-graphics creation shortcut without changing the original two intents.",
       "replacement": {
         "id": "S01",
         "status": "planned",
@@ -362,7 +362,7 @@
         "research_exemption_reason": "non_creative_intake",
         "user_request": "Cześć, co umiesz?",
         "checks": [
-          "Complete Studio introduction, non-exhaustive capabilities and optional inputs before 1. Tryb kreatywny / 2. Tryb nauki; wait for unclear intent.",
+          "Complete Studio introduction, non-exhaustive capabilities and optional inputs before 1. Tryb kreatywny / 2. Tryb nauki / 3. Motion graphics z kodu with supported tools and availability limits; wait for unclear intent.",
           "Tryb tworzenia remains a creation alias. Mode-only creative selection shows the quick/expanded pace menu next.",
           "Interpret a numeric answer against the menu actually shown; preserve the selected pace and existing project context.",
           "Does not begin Polish welcome with Cześć.",

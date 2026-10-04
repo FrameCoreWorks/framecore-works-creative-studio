@@ -1,0 +1,51 @@
+{
+  "packet_id": "STUDIO-MOTION-MENU-1.8.1",
+  "date": "2026-10-04",
+  "baseline_remote_commit": "a9b4b2624b1464f8ca607eab4ff263440e307f71",
+  "baseline_host_release": "pluginrel_6ac15c99b4f08191bf6d2eebbd611225",
+  "goal": "Expose code-based motion graphics as welcome option 3 and creative area 8, with scope/tool descriptions and preserved creation/learning semantics.",
+  "authorization": "Owner requested selectable motion module in welcome. Standing paired GitHub and existing hosted plugin update applies.",
+  "allowed_plugin_files": [
+    "plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "docs/learning-mode.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/startup-welcome.en.md",
+    "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "skills/workflow-orchestrator/references/learning-mode.md",
+    "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "scripts/validate-learning-mode.mjs",
+    "tests/learning-mode.test.mjs",
+    "evals/learning-mode-cases.json",
+    "evals/effective-overrides.json"
+  ],
+  "repository_dependencies": [
+    "README.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES.md",
+    "RELEASE_STATUS.md",
+    "config/install-sources.json",
+    "verification/scope-1.8.1.json",
+    "verification/release-1.8.1.json",
+    "verification/hosted-release-1.8.1.json"
+  ],
+  "protected": [
+    "Six original capability bullets; intent options 1/2 and creative areas 1–7",
+    "37 canonical skills, interface metadata, one Project State and existing mode schema",
+    "All motion/teacher/ad content, runtimes, provider gates and upstream sources",
+    "Plugin identity, audience, prompts, icons and unrelated files"
+  ],
+  "acceptance": [
+    "English/Polish welcome assets match early embedded projections and approved hashes.",
+    "Welcome option3 preselects motion in creation, preserves runtime choice and skips resolved area after pace.",
+    "Work-area3 remains storyboard; area8 is motion; only pending choice groups bind numbers.",
+    "Explicit learning intent stays learning; shortcut is not a third mode.",
+    "No automatic rendering, installation, provider execution or implied availability.",
+    "Keep source checks, host observations and saved-source readback distinct."
+  ]
+}

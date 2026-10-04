@@ -1,9 +1,7 @@
-# Creative Studio 1.8.0
+# Creative Studio 1.8.1
 
-Teacher Studio adds an original school-material profile through existing owners: lesson scenarios, worksheets, games, quizzes, presentation content, guidance/career activities and teacher documents. It includes twelve short activities, three complete Polish teaching examples, answer keys, support/extension notes and reusable templates.
+The complete welcome now offers option 3, Code-based motion graphics. It describes animated text, logos, diagrams and graphic sequences plus HTML/SVG, GSAP, HyperFrames and Remotion routes. Preview and export remain dependent on actual available tools.
 
-Requests for classroom materials enter creation directly. Personal Learning Mode remains available when the user wants to learn the authoring process. Content review aligns goals, tasks and answers, preserves factual record boundaries, and separates synthetic examples from verified facts. No commercial lesson content is imported and no new skill, agent, dependency, provider or global state field is introduced.
+The shortcut enters creation, retains motion and an explicitly selected runtime through pace selection, then asks only for the missing brief. Creative area 8 reaches the same route. Original intent options 1/2, areas 1–7, all six capability bullets, automatic language, explicit learning requests and provider authorization remain intact. No new renderer, dependency, owner or state schema is added.
 
-Original examples are complete text resources, not inspected PDF/PPTX exports or proven classroom interventions. See [release status](RELEASE_STATUS.md) for source checks, paired publication and remaining evidence limits.
-
-Verification: 111 Node source tests, 11 installer tests and 23 asset tests passed locally; the complete release CI passed. Independent content review accepted all three lesson packs and twelve activities with no material findings. All 781 local/GitHub/plugin-ZIP files match. Saved-host readback confirms 770 text files, including every changed/added file, and the complete path/size inventory. Eleven unchanged large/binary files remain byte-unverified because archive download returned HTTP 403. Active-client behavior, document exports and classroom outcomes remain NOT_RUN. The original 763 untouched package files remain byte-identical.
+See [release status](RELEASE_STATUS.md) for source verification, publication and actual-client evidence boundaries.
