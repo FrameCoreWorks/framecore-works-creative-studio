@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "category": "social",
+  "entries": [
+    {
+      "id": "FC-SOCIAL-01",
+      "category": "social",
+      "title": "One insight vertical",
+      "tags": [
+        "social",
+        "one",
+        "insight",
+        "vertical"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Place one sourced insight in the upper visual focus of a vertical frame",
+        "Use one supporting graphic to demonstrate it while the full headline remains visible",
+        "End on a quiet restatement or approved action"
+      ],
+      "prompt_text": "Create an original code-based motion study: one insight vertical. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place one sourced insight in the upper visual focus of a vertical frame. Use one supporting graphic to demonstrate it while the full headline remains visible. End on a quiet restatement or approved action. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for insight is singular; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Insight is singular",
+        "Text survives small display",
+        "Graphic supports rather than repeats every word"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-02",
+      "category": "social",
+      "title": "Three step recipe",
+      "tags": [
+        "social",
+        "three",
+        "step",
+        "recipe"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Arrange three real steps in a vertical stack",
+        "Activate one step at a time and carry a small progress marker down the stack",
+        "Hold the completed process without replacing earlier instructions"
+      ],
+      "prompt_text": "Create an original code-based motion study: three step recipe. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Arrange three real steps in a vertical stack. Activate one step at a time and carry a small progress marker down the stack. Hold the completed process without replacing earlier instructions. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for order matches actual process; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Order matches actual process",
+        "All steps receive reading time",
+        "Progress marker never becomes the subject"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-03",
+      "category": "social",
+      "title": "Poll result reveal",
+      "tags": [
+        "social",
+        "poll",
+        "result",
+        "reveal"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Show the exact question and the real response options",
+        "Reveal sourced results using a common scale and visible sample context",
+        "End with the complete result and date"
+      ],
+      "prompt_text": "Create an original code-based motion study: poll result reveal. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show the exact question and the real response options. Reveal sourced results using a common scale and visible sample context. End with the complete result and date. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for numbers sum correctly where applicable; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Numbers sum correctly where applicable",
+        "No fabricated sample size",
+        "Options remain tied to values"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-04",
+      "category": "social",
+      "title": "Event essentials",
+      "tags": [
+        "social",
+        "event",
+        "essentials"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Start with the event's approved title as the dominant element",
+        "Reveal date location and time in a stable information block",
+        "Hold the whole invitation and an optional supplied CTA"
+      ],
+      "prompt_text": "Create an original code-based motion study: event essentials. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start with the event's approved title as the dominant element. Reveal date location and time in a stable information block. Hold the whole invitation and an optional supplied CTA. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for all event facts are supplied; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "All event facts are supplied",
+        "Details fit small viewing size",
+        "CTA is not invented"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-05",
+      "category": "social",
+      "title": "Portrait quote card",
+      "tags": [
+        "social",
+        "portrait",
+        "quote",
+        "card"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Keep the supplied portrait in an approved crop",
+        "Reveal a short authorized quotation beside it in complete phrases",
+        "End on quote attribution with the portrait motion stopped"
+      ],
+      "prompt_text": "Create an original code-based motion study: portrait quote card. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep the supplied portrait in an approved crop. Reveal a short authorized quotation beside it in complete phrases. End on quote attribution with the portrait motion stopped. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for crop preserves identity; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Crop preserves identity",
+        "Quotation is exact",
+        "Portrait never competes with reading"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-06",
+      "category": "social",
+      "title": "Carousel continuity",
+      "tags": [
+        "social",
+        "carousel",
+        "continuity"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Treat adjacent cards as states of one wider composition",
+        "Move a persistent anchor between them while each card explains one point",
+        "End on a compact summary linking back to the opening"
+      ],
+      "prompt_text": "Create an original code-based motion study: carousel continuity. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Treat adjacent cards as states of one wider composition. Move a persistent anchor between them while each card explains one point. End on a compact summary linking back to the opening. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for each card works as a still; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Each card works as a still",
+        "Anchor stays recognizable",
+        "No point depends on unreadable microcopy"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-07",
+      "category": "social",
+      "title": "Countdown without pressure",
+      "tags": [
+        "social",
+        "countdown",
+        "without",
+        "pressure"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Show a real scheduled time or launch date with explicit context",
+        "Animate only the requested countdown interval using accurate units",
+        "End with the exact date rather than a fabricated urgency claim"
+      ],
+      "prompt_text": "Create an original code-based motion study: countdown without pressure. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a real scheduled time or launch date with explicit context. Animate only the requested countdown interval using accurate units. End with the exact date rather than a fabricated urgency claim. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for countdown math matches timing; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Countdown math matches timing",
+        "No invented deadline",
+        "Date stays visible"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-08",
+      "category": "social",
+      "title": "Small screen product loop",
+      "tags": [
+        "social",
+        "small",
+        "screen",
+        "product",
+        "loop"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Keep the approved product large within the vertical safe composition",
+        "Demonstrate one feature through a modest reversible motion",
+        "Return smoothly to the same initial pose for looping"
+      ],
+      "prompt_text": "Create an original code-based motion study: small screen product loop. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep the approved product large within the vertical safe composition. Demonstrate one feature through a modest reversible motion. Return smoothly to the same initial pose for looping. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for product stays within bounds; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Product stays within bounds",
+        "Feature is factual",
+        "Loop seam has no flash"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-09",
+      "category": "social",
+      "title": "Myth and correction",
+      "tags": [
+        "social",
+        "myth",
+        "and",
+        "correction"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Present a supplied misconception explicitly labeled as such",
+        "Replace it with the sourced correction using a stable comparison layout",
+        "Hold the correction and necessary qualification longer than the misconception"
+      ],
+      "prompt_text": "Create an original code-based motion study: myth and correction. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Present a supplied misconception explicitly labeled as such. Replace it with the sourced correction using a stable comparison layout. Hold the correction and necessary qualification longer than the misconception. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for false statement is visibly labeled; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "False statement is visibly labeled",
+        "Correction is sourced",
+        "Transition never implies endorsement"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SOCIAL-10",
+      "category": "social",
+      "title": "Community thank you",
+      "tags": [
+        "social",
+        "community",
+        "thank",
+        "you"
+      ],
+      "runtime": "Remotion",
+      "objective": "A compact social sequence understood at its intended small viewing size",
+      "inputs": [
+        "exact copy",
+        "authorized assets",
+        "destination aspect and viewing size"
+      ],
+      "beats": [
+        "Build a simple arrangement from approved community contributions or counts",
+        "Resolve it into one concise thank-you message using generous negative space",
+        "Hold any required credit or attribution beneath it"
+      ],
+      "prompt_text": "Create an original code-based motion study: community thank you. The purpose is a compact social sequence understood at its intended small viewing size. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Build a simple arrangement from approved community contributions or counts. Resolve it into one concise thank-you message using generous negative space. Hold any required credit or attribution beneath it. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no private contributor data appears; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "No private contributor data appears",
+        "Counts are real",
+        "End card is clear without celebratory clutter"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

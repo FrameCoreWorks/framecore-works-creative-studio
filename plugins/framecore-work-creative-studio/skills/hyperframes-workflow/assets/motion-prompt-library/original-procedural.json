@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "category": "procedural",
+  "entries": [
+    {
+      "id": "FC-PROCEDURAL-01",
+      "category": "procedural",
+      "title": "Trace a Seeded Flow Field",
+      "tags": [
+        "particles",
+        "flow-field",
+        "trajectories"
+      ],
+      "runtime": "Canvas",
+      "objective": "Reveal the structure of a vector field through reproducible particle trajectories.",
+      "inputs": [
+        "Vector-field definition",
+        "Seeded particle starting positions",
+        "Approved simulation steps and trail length"
+      ],
+      "beats": [
+        "Expose a sparse set of field arrows.",
+        "Release identifiable particles and build their trails.",
+        "Fade the arrows and hold the completed flow structure with a restrained final drift."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use a quiet full-frame field with a small number of orientation arrows before particles appear. Release seeded particles from the supplied positions and trace their paths through the defined vector field. Precompute fixed-step trajectories or use an analytic solution so direct frame seeking retrieves the same positions. Introduce trail length gradually, retaining a few clear routes instead of filling every pixel. Finish with the major flow structure visible and a controlled settling state, preserving particle density and stroke readability at the smallest format. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Direct seeking retrieves the same particle positions as playback.",
+        "Particle count and seeds remain fixed across revisions unless approved.",
+        "The field direction agrees with the visible trajectories."
+      ],
+      "avoid": [
+        "Accumulating positions from an uncontrolled animation loop",
+        "Adding particles until the flow structure becomes unreadable"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-02",
+      "category": "procedural",
+      "title": "Grow Reaction-Diffusion Islands",
+      "tags": [
+        "reaction-diffusion",
+        "simulation",
+        "pattern-growth"
+      ],
+      "runtime": "Canvas or WebGL2 with precomputed states",
+      "objective": "Show a bounded evolving pattern from a reproducible initial condition.",
+      "inputs": [
+        "Approved reaction-diffusion parameters",
+        "Seeded initial condition",
+        "Simulation budget and cached state sequence"
+      ],
+      "beats": [
+        "Reveal the initial seeded patches.",
+        "Advance through the cached growth states at an intentional pace.",
+        "Slow toward the selected mature pattern and hold its structure."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Fill a simple rectangular field with the supplied initial patches and reserve a small parameter rail outside it. Use a bounded fixed-step reaction-diffusion simulation prepared under the approved compute budget, storing the states needed for random-access playback. Reveal the pattern's growth in a steady progression, then ease only the mapping from project time to simulation time near the selected endpoint. Keep the color transfer function fixed. Finish on a stable cached state that exposes islands and boundaries without claiming a physical biological process. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The initial condition and simulation parameters are recorded.",
+        "Every requested frame maps deterministically to cached simulation state.",
+        "The palette mapping stays fixed throughout growth."
+      ],
+      "avoid": [
+        "Running an unbounded simulation during export",
+        "Presenting the synthetic pattern as measured biology"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-03",
+      "category": "procedural",
+      "title": "Relax Voronoi Cells into Balance",
+      "tags": [
+        "voronoi",
+        "relaxation",
+        "tessellation"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Make an iterative spatial relaxation legible through stable cell identities.",
+      "inputs": [
+        "Seed points with stable IDs",
+        "Bounded domain",
+        "Approved iteration count and centroid rule"
+      ],
+      "beats": [
+        "Display the initial seed points and Voronoi cells.",
+        "Move points toward their computed centroids one iteration at a time.",
+        "Hold the final tessellation with selected before-and-after cell outlines."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a bounded tessellation at the center of the frame with stable IDs for a small selection of cells. Begin with the supplied seeds and display their initial Voronoi regions. At each approved iteration, mark computed centroids, move the seeds toward them, then reveal the newly computed boundaries. Treat interpolated boundary motion as a visual transition rather than an exact intermediate tessellation. End with the final cells and selected initial outlines, making the change in spatial distribution visible. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Cell identities follow their generating seeds.",
+        "Displayed checkpoints use the correct bounded tessellation.",
+        "The number of iterations and centroid rule match the input contract."
+      ],
+      "avoid": [
+        "Reassigning identities to whichever cell looks nearest",
+        "Claiming interpolated polygon edges are exact solver states"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-04",
+      "category": "procedural",
+      "title": "Unfold a Branching Grammar",
+      "tags": [
+        "l-system",
+        "grammar",
+        "branching"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Translate a bounded symbolic growth rule into a readable branching structure.",
+      "inputs": [
+        "Approved grammar and initial axiom",
+        "Angle, segment scale and depth limit",
+        "Selected rule labels"
+      ],
+      "beats": [
+        "Show the initial segment and its rule token.",
+        "Expand one generation at a time while marking the replaced tokens.",
+        "Hold the final branch structure beside a compact derivation trail."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Set a branching structure above a small symbolic rule strip. Start from the supplied axiom and reveal only the initial segment. Expand each approved grammar generation in sequence, briefly highlighting the tokens that are being replaced. Keep branch angles and segment scaling tied to the declared parameters. Reserve enough space for the deepest generation before growth begins, avoiding camera zooms that disguise scale changes. Finish with the final structure and a short derivation trail, explicitly identifying the result as procedural geometry. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each generation follows the supplied production rules.",
+        "Branch angles and segment scales remain consistent.",
+        "The depth limit prevents runaway geometry or unreadable density."
+      ],
+      "avoid": [
+        "Adding ornamental branches outside the grammar",
+        "Changing the camera scale to conceal inconsistent segment lengths"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-05",
+      "category": "procedural",
+      "title": "Sweep Contours Through a Scalar Field",
+      "tags": [
+        "contours",
+        "scalar-field",
+        "threshold"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Reveal how level sets change as a threshold moves through a fixed field.",
+      "inputs": [
+        "Scalar-field definition or grid",
+        "Threshold schedule",
+        "Fixed domain and value legend"
+      ],
+      "beats": [
+        "Establish the field with a restrained value legend.",
+        "Move the threshold and reveal its contour lines.",
+        "Hold selected threshold contours together with distinct labels."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a fixed scalar field inside a clean frame and keep its value legend visible. Introduce a single threshold marker, then reveal the corresponding contour lines from the supplied field. Advance through the approved threshold schedule so loops appear, merge or disappear according to the data. Keep previous contours faint only when comparison is useful. End by holding a small set of selected thresholds with direct labels. Distinguish an illustrative mathematical field from measured terrain or other real-world data. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Contour locations correspond to the supplied field and thresholds.",
+        "The domain and value scale stay fixed.",
+        "Topology changes follow the field rather than decorative morph targets."
+      ],
+      "avoid": [
+        "Inventing contour loops for visual balance",
+        "Labeling a synthetic field as measured geography"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-06",
+      "category": "procedural",
+      "title": "Translate Tone into a Halftone Screen",
+      "tags": [
+        "halftone",
+        "sampling",
+        "dot-area"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Show a tonal image becoming a structured dot representation with a documented mapping.",
+      "inputs": [
+        "Rights-cleared grayscale image or procedural tonal field",
+        "Sampling grid and tone-to-dot-area mapping",
+        "Approved output scale and dot limits"
+      ],
+      "beats": [
+        "Show the source tone alongside the sampling grid.",
+        "Replace each sample with a dot whose area follows the mapping.",
+        "Pull back to the complete halftone and hold a magnified sample comparison."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place the approved tonal source on one side and an equally sized sampling field on the other. Reveal the sampling grid, then turn each sample into a dot whose area follows the supplied mapping. Keep dot centers fixed so the transformation reads as a change in representation rather than a particle explosion. Move a magnifier over one selected region to show how local tone becomes dot area. End with the complete halftone and a small labeled source comparison at the intended viewing scale. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Dot area follows the declared tone mapping.",
+        "Sampling centers remain fixed and reproducible.",
+        "The smallest output retains the intended tonal hierarchy."
+      ],
+      "avoid": [
+        "Mapping tone to radius while claiming proportional area",
+        "Using animated random dots that alter the source structure"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-07",
+      "category": "procedural",
+      "title": "Reveal Moire from Two Structured Screens",
+      "tags": [
+        "moire",
+        "interference",
+        "sampling-artifacts"
+      ],
+      "runtime": "Canvas or WebGL2",
+      "objective": "Make an interference pattern emerge from a controlled relative transform.",
+      "inputs": [
+        "Two grid definitions",
+        "Approved rotation or spacing schedule",
+        "Contrast and motion-speed limits"
+      ],
+      "beats": [
+        "Show each screen separately with its spacing marked.",
+        "Overlay them and change one relative transform slowly.",
+        "Hold a selected interference pattern, then separate the screens for explanation."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Present two simple line screens side by side with their spacing labeled. Bring them into the same viewport, then apply only the approved rotation or spacing change to one screen. Keep the underlying lines visible enough to explain the resulting larger interference pattern. Use restrained contrast and slow movement appropriate to the requested viewing conditions. End by briefly holding the chosen pattern and separating the two screens again, showing that the apparent large waves arise from their combination. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Only the declared relative transform changes.",
+        "The underlying grids remain identifiable at explanation checkpoints.",
+        "Authorized playback QA checks shimmer and discomfort at the delivery resolution."
+      ],
+      "avoid": [
+        "Using aggressive flashing to exaggerate the interference",
+        "Treating the resulting pattern as an independently drawn object"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-08",
+      "category": "procedural",
+      "title": "Explain a Cellular Automaton Generation",
+      "tags": [
+        "cellular-automaton",
+        "discrete-simulation",
+        "local-rules"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Show how one local rule produces a reproducible sequence of grid states.",
+      "inputs": [
+        "Initial grid",
+        "Explicit neighborhood and update rules",
+        "Bounded generation count"
+      ],
+      "beats": [
+        "Display the initial grid and highlight one neighborhood.",
+        "Compute the next state for selected cells using the rule.",
+        "Advance complete generations and hold the final state with its generation index."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use a finite grid with a clear boundary policy and a compact rule key. Start from the supplied state. Highlight one cell's neighborhood, show the relevant count or pattern, then reveal its next state in a separate preview cell. After the rule is understood, advance whole generations synchronously using precomputed states. Keep the generation number visible and allow the animation to pause on meaningful changes. Finish on the approved final generation, with the initial state available as a small comparison. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "All cells update synchronously under the supplied rule.",
+        "Boundary handling is explicit and consistent.",
+        "Direct frame seeking selects the correct precomputed generation."
+      ],
+      "avoid": [
+        "Updating cells in place and changing the automaton semantics",
+        "Calling the pattern a validated model of living systems"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-09",
+      "category": "procedural",
+      "title": "Pack Points with a Minimum-Distance Rule",
+      "tags": [
+        "point-packing",
+        "poisson-disk",
+        "sampling"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Explain a spacing constraint through accepted and rejected candidate points.",
+      "inputs": [
+        "Bounded domain",
+        "Minimum separation and seed",
+        "Approved candidate sequence or bounded sampling budget"
+      ],
+      "beats": [
+        "Place the first accepted points with distance halos.",
+        "Show candidate points being accepted or rejected against nearby halos.",
+        "Remove the construction guides and hold the final distribution."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Draw the bounded domain with a few initial accepted points and faint minimum-distance halos. Step through a seeded candidate sequence, showing only a small number of representative rejections so the explanation stays readable. Accept a point when it meets the supplied distance rule; otherwise fade it into a brief rejection mark without adding it to the final set. After reaching the approved limit, remove most construction guides. End on the final distribution with point count, minimum separation and seed recorded. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every accepted pair satisfies the minimum separation within declared tolerance.",
+        "Rejected candidates are absent from the final set.",
+        "The seed and candidate-order policy reproduce the same distribution."
+      ],
+      "avoid": [
+        "Claiming optimal packing from a sampling heuristic",
+        "Changing the spacing rule midway to fill visual gaps"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PROCEDURAL-10",
+      "category": "procedural",
+      "title": "Morph a Signed-Distance Silhouette",
+      "tags": [
+        "signed-distance-field",
+        "shape-morph",
+        "shader"
+      ],
+      "runtime": "WebGL2 fragment shader",
+      "objective": "Create a controlled silhouette transformation from explicit distance-field operations.",
+      "inputs": [
+        "Approved source and target primitives",
+        "Distance-field blend schedule",
+        "Edge treatment, bounds and final hold"
+      ],
+      "beats": [
+        "Establish the source silhouette with a clear boundary.",
+        "Vary the supplied field operation while preserving a stable framing.",
+        "Resolve the target silhouette and hold its exact final geometry."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place one silhouette at the center of a fixed orthographic field. Construct the approved source and target from explicit signed-distance primitives, using the declared blend or smooth-union operation. Animate the operation parameter from project time while keeping edge treatment and framing stable. Show a faint construction contour briefly if it helps explain a neck forming or two lobes joining. End on the exact target parameter with a clean hold. Inspect boundary stability at export scale, especially narrow bridges and disappearing holes. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Start and end silhouettes match their approved primitive parameters.",
+        "The field operation is reproducible from the requested frame.",
+        "Thin features remain stable and intentional at the delivery resolution."
+      ],
+      "avoid": [
+        "Claiming a distance-field blend preserves area unless constrained to do so",
+        "Hiding edge failures behind heavy glow"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

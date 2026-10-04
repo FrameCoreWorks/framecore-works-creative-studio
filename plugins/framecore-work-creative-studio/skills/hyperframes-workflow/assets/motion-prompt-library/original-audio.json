@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "category": "audio",
+  "entries": [
+    {
+      "id": "FC-AUDIO-01",
+      "category": "audio",
+      "title": "Shape an Impact with an Amplitude Envelope",
+      "tags": [
+        "envelope",
+        "sound-design",
+        "impact"
+      ],
+      "runtime": "Tone.js offline + SVG",
+      "objective": "Pair one original synthesized impact with an explicit amplitude-envelope gesture.",
+      "inputs": [
+        "Approved synthesis parameters",
+        "Attack, decay, sustain and release durations",
+        "Cue frame and audio sample rate"
+      ],
+      "beats": [
+        "Reveal the envelope outline before the impact.",
+        "Trigger the sound and trace its amplitude phases from the shared cue.",
+        "Let both sound and graphic decay fully, then hold the labeled envelope."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a large amplitude envelope across the frame with a small impact marker at its start. Prepare one original synthesized sound in an offline audio buffer using the supplied parameters. Convert the cue frame to seconds using the project FPS, then align the visible trace with attack, decay, sustain and release. A restrained shape expands with the same amplitude curve. End only after the release has reached silence, leaving the full labeled envelope visible. Listen for clicks and unintended residual sound during authorized QA. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The audible onset and visual cue align on the shared timeline.",
+        "Envelope phase lengths match the supplied durations.",
+        "The ending contains neither a clipped release nor a discontinuity click."
+      ],
+      "avoid": [
+        "Scheduling sound from wall-clock playback time",
+        "Normalizing the visual envelope independently of the intended sound shape"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-02",
+      "category": "audio",
+      "title": "Choreograph Accents on a Beat Grid",
+      "tags": [
+        "beat-grid",
+        "accents",
+        "rhythm"
+      ],
+      "runtime": "Tone.js offline + SVG + GSAP",
+      "objective": "Build motion phrasing from a supplied accent pattern rather than moving on every beat.",
+      "inputs": [
+        "Tempo and meter",
+        "Cue frames or reviewed beat map",
+        "Approved accent pattern and original sound palette"
+      ],
+      "beats": [
+        "Establish the beat grid with quiet subdivisions.",
+        "Assign distinct object gestures to strong, weak and silent positions.",
+        "Resolve the phrase on its final accent and preserve a deliberate still interval."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange three geometric performers on a sparse stage above a compact beat grid. Use the supplied accent pattern to assign a different gesture to each performer: compression for a strong beat, a short lateral step for a weak beat and stillness for rests. Prepare approved original sounds offline and schedule them from the same cue frames. Let gestures settle before the next phrase instead of maintaining constant activity. Finish on the final designated accent, followed by a readable still interval with the completed beat pattern visible. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Strong, weak and rest positions match the approved pattern.",
+        "Audio and motion share the same cue-frame mapping.",
+        "Rests remain visually and audibly meaningful."
+      ],
+      "avoid": [
+        "Adding motion to every subdivision",
+        "Resetting phase separately for audio and graphics"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-03",
+      "category": "audio",
+      "title": "Build a Mix from Independent Stems",
+      "tags": [
+        "stems",
+        "mixing",
+        "layering"
+      ],
+      "runtime": "Offline audio mix + Canvas/SVG",
+      "objective": "Show how separate supplied stems combine without confusing visual prominence with measured loudness.",
+      "inputs": [
+        "Rights-cleared audio stems",
+        "Gain and entry cue map",
+        "Approved visual role for each stem"
+      ],
+      "beats": [
+        "Introduce each stem alone with a stable visual lane.",
+        "Add stems at the supplied cues and show their active gain states.",
+        "Hold the complete mix, then fade all stems according to the shared ending."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Give each supplied audio stem a horizontal lane with a distinct geometric motif and a clearly labeled gain state. Introduce stems one at a time using the approved cue map, then combine them into an offline mix. Keep each motif's identity stable as the arrangement becomes fuller. Use measured features only if they have actually been computed; otherwise make the motion cue-driven and label it accordingly. Finish with the complete arrangement and a coordinated fade that preserves the supplied tail lengths. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Stem entries and gain changes follow the cue map.",
+        "No visual meter claims measured loudness without corresponding analysis.",
+        "The combined mix is checked for clipping during authorized playback QA."
+      ],
+      "avoid": [
+        "Automatically increasing gain whenever a stem is highlighted",
+        "Truncating ambience or reverb tails at the last visual cue"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-04",
+      "category": "audio",
+      "title": "Read Sound Through a Spectrogram Window",
+      "tags": [
+        "spectrogram",
+        "frequency",
+        "audio-analysis"
+      ],
+      "runtime": "Offline audio analysis + Canvas",
+      "objective": "Connect a supplied sound to its time-frequency structure using an honest analysis display.",
+      "inputs": [
+        "Rights-cleared audio clip",
+        "Analysis window and hop settings",
+        "Frequency scale, amplitude scale and display range"
+      ],
+      "beats": [
+        "Show the full spectrogram with labeled axes.",
+        "Move a playhead while a local frequency slice updates beside it.",
+        "Pause the visual emphasis on a supplied feature and finish with the complete overview."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a computed spectrogram across most of the frame, with time along the bottom and frequency on the side. Reserve a narrow panel for the frequency slice at the current playhead. Analyze the supplied clip with documented window, hop and amplitude settings before constructing the animation. Drive playback position and the slice from the same frame-derived time. Highlight one approved feature without inventing its cause. End with the full spectrogram, analysis settings and clip attribution visible. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The displayed analysis is derived from the supplied audio.",
+        "Frequency and amplitude scales remain fixed and labeled.",
+        "The playhead and local slice correspond to the same audio time."
+      ],
+      "avoid": [
+        "Using decorative noise as a purported spectrogram",
+        "Naming an acoustic source from an unverified visual pattern"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-05",
+      "category": "audio",
+      "title": "Move a Sound Across a Stereo Stage",
+      "tags": [
+        "stereo",
+        "panning",
+        "spatial-audio"
+      ],
+      "runtime": "Tone.js offline + SVG",
+      "objective": "Associate a controlled stereo pan with a visible source moving between left and right.",
+      "inputs": [
+        "Approved original or rights-cleared mono sound",
+        "Pan curve and cue frames",
+        "Headphone or speaker review target"
+      ],
+      "beats": [
+        "Locate the source at the starting pan position.",
+        "Move it across the stage while the offline pan follows the approved curve.",
+        "Settle at the final position and show the full pan path with its timing."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Draw a simple stage with clearly marked left and right positions and a single visible sound source. Prepare the mono source in an offline stereo render using the supplied pan curve. Move the graphic horizontally according to that same curve, with a small persistent trace showing its traveled path. Keep distance, elevation and loudness symbolism separate unless those controls are explicitly supplied. End on the final position with the pan trajectory visible. Review the actual stereo output and identify any mono-fold-down limitation. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The audible pan direction matches the visible movement.",
+        "The pan curve follows the shared cue timing.",
+        "The final report identifies the actual listening configuration used for QA."
+      ],
+      "avoid": [
+        "Claiming three-dimensional localization from simple stereo panning",
+        "Using uncontrolled browser spatialization defaults"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-06",
+      "category": "audio",
+      "title": "Show Phase Addition and Cancellation",
+      "tags": [
+        "phase",
+        "interference",
+        "waveforms"
+      ],
+      "runtime": "Tone.js offline + Canvas/SVG",
+      "objective": "Make the sum of two controlled signals visible and audible.",
+      "inputs": [
+        "Two approved periodic signal definitions",
+        "Phase-offset schedule",
+        "Shared amplitude scale and sample rate"
+      ],
+      "beats": [
+        "Display the two component waveforms separately.",
+        "Vary their relative phase while drawing the resulting sum.",
+        "Hold the selected reinforcement or cancellation state with phase and amplitude labels."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use three aligned waveform lanes: signal A, signal B and their exact sum. Keep frequency and amplitude controls visible in a compact side panel. Prepare the two signals offline and vary only the supplied phase offset during the demonstration. Update the summed waveform from those same signal definitions, not from an unrelated decorative curve. Use a fixed display scale so cancellation is apparent. End with the chosen phase relationship and resulting amplitude held long enough to compare by sight and sound. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The sum curve equals the two displayed signals under the chosen definitions.",
+        "Phase changes affect the audio and visual model consistently.",
+        "Amplitude scale stays fixed during cancellation and reinforcement."
+      ],
+      "avoid": [
+        "Changing gain while attributing the result solely to phase",
+        "Calling all partial cancellation complete silence"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-07",
+      "category": "audio",
+      "title": "Place Syllables on Reviewed Speech Cues",
+      "tags": [
+        "speech",
+        "syllables",
+        "caption-timing"
+      ],
+      "runtime": "HTML/SVG + frame-based audio playback",
+      "objective": "Synchronize a restrained text gesture to reviewed speech boundaries.",
+      "inputs": [
+        "Rights-cleared speech recording",
+        "Exact transcript and reviewed syllable timings",
+        "Approved emphasis words and caption layout"
+      ],
+      "beats": [
+        "Present the first readable phrase before its spoken onset.",
+        "Emphasize the active syllable through a small baseline or weight gesture.",
+        "Settle the complete phrase, preserve a reading hold and transition to the next phrase."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Typeset the exact approved transcript in stable phrase blocks with sufficient reading space. Use the reviewed syllable boundaries to drive a small emphasis gesture on the active syllable while the supplied recording plays. Preserve word shapes and line breaks; do not split complex-script grapheme clusters mechanically. Keep previous syllables readable rather than making them vanish on the next sound. End each phrase with a short settled hold and finish on the full final phrase. Review synchronization against the actual recording rather than estimated reading speed. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Visible text exactly matches the approved transcript.",
+        "Emphasis uses reviewed audio boundaries and preserves character shaping.",
+        "Every phrase receives its required readable hold."
+      ],
+      "avoid": [
+        "Inferring word timing from character count alone",
+        "Stretching or bouncing all letters independently of speech phrasing"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-08",
+      "category": "audio",
+      "title": "Resolve a Polyrhythm at Its Shared Cycle",
+      "tags": [
+        "polyrhythm",
+        "cycle",
+        "rhythmic-counterpoint"
+      ],
+      "runtime": "Tone.js offline + SVG",
+      "objective": "Make two rhythmic subdivisions legible before they reunite at a common boundary.",
+      "inputs": [
+        "Two integer pulse counts per shared cycle",
+        "Cycle duration and number of repetitions",
+        "Approved original percussion sounds"
+      ],
+      "beats": [
+        "Establish the shared cycle and each rhythm's separate track.",
+        "Advance both pulse patterns while marking their coincidences.",
+        "Resolve at the common boundary and hold the complete cycle diagram."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place two circular tracks around a common center, one for each supplied pulse count. Mark each track's pulse locations clearly and use a shared cycle cursor derived from project time. Prepare distinct original percussion sounds offline so the two patterns can be heard separately. Highlight coincidences with a restrained central marker instead of adding a third invented rhythm. Repeat only the approved number of cycles. Finish exactly on a shared boundary and hold the complete diagram with pulse counts and cycle duration readable. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Both patterns complete the declared pulse count within the same cycle.",
+        "Coincidence markers occur only at mathematically shared pulse times.",
+        "The ending lands on the supplied common boundary."
+      ],
+      "avoid": [
+        "Using separately drifting timers for the two tracks",
+        "Calling a tempo change a polyrhythm"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-09",
+      "category": "audio",
+      "title": "Sweep a Filter with a Frequency Response Trace",
+      "tags": [
+        "filter",
+        "frequency-response",
+        "sound-design"
+      ],
+      "runtime": "Tone.js offline + Canvas/SVG",
+      "objective": "Connect an audible filter sweep to its declared cutoff and response.",
+      "inputs": [
+        "Approved source sound",
+        "Filter type, cutoff and resonance schedule",
+        "Frequency range and gain scale"
+      ],
+      "beats": [
+        "Show the unfiltered reference briefly.",
+        "Move the cutoff control while the response trace and offline sound change together.",
+        "Hold the final response and fade the source without clipping its tail."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange a frequency-response plot above a compact source label and cutoff control. Prepare the supplied sound offline through the specified filter and automation curve. Move the cutoff marker from the same cue schedule, drawing an actual computed response when available; otherwise label the diagram as schematic. Keep resonance and gain scales explicit so a peak cannot be mistaken for extra source content. End at the final cutoff with a controlled fade and the complete parameter state visible. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Cutoff movement and audible filtering follow the same schedule.",
+        "Computed and schematic response displays are labeled accurately.",
+        "The output is checked for clipping and unintended resonance during authorized QA."
+      ],
+      "avoid": [
+        "Presenting a generic curve as a measured response",
+        "Letting resonance create an unreviewed level spike"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-AUDIO-10",
+      "category": "audio",
+      "title": "Sonify Events with an Explicit Mapping",
+      "tags": [
+        "sonification",
+        "event-stream",
+        "data-mapping"
+      ],
+      "runtime": "Tone.js offline + SVG",
+      "objective": "Translate an event sequence into sound while keeping the mapping inspectable.",
+      "inputs": [
+        "Timestamped approved events",
+        "Defined mappings for pitch, duration and gain",
+        "Cue-frame conversion rule and sound palette"
+      ],
+      "beats": [
+        "Introduce the event-to-sound legend.",
+        "Advance the event rail and sound each event under the declared mapping.",
+        "Replay a selected short segment visually, then hold the mapping and event summary."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Lay out a timestamped event rail above a legend showing exactly how each supplied field maps to pitch, duration or gain. Convert event times to the shared timeline under the declared rounding rule and prepare the sound offline. At each cue, illuminate the event and its relevant legend entries together. Use an accessible visual distinction for categories so sound is supplemental. End with the event summary and mapping visible. Describe the sonification as an encoding choice, not an intrinsic sound contained in the data. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every sounded event follows the documented mapping.",
+        "Events outside the render interval are handled explicitly.",
+        "The visual explanation remains understandable without hearing the sound."
+      ],
+      "avoid": [
+        "Using loudness to imply importance without an approved mapping",
+        "Rounding timestamps differently in audio and animation"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

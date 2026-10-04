@@ -1,0 +1,74 @@
+{
+  "version": "1.10.0",
+  "date": "2026-10-04",
+  "source_baseline": "1f48b5890c8242d7bf42a00ea7726cac68921761",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 838,
+      "skill_roots": 37,
+      "planned_host_cases": 199,
+      "executed_planned_cases": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 130
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 9,
+      "note": "Included in 130; rerun after Polish alias correction."
+    },
+    {
+      "command": "TMPDIR=/private/tmp python3 -B -m unittest discover -s tests -p test_codex_install.py -v",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "python3 -B -m unittest discover -s tests -p test_package_identity.py -v",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "python3 -B plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY",
+      "files": 838
+    }
+  ],
+  "prompt_library": {
+    "records": 320,
+    "original_not_run": 120,
+    "curator_reconstructions": 172,
+    "creator_links_only": 28,
+    "prompt_texts": 292,
+    "validation_errors": 0
+  },
+  "inspection_helper": {
+    "status": "PASS_LOCAL_SMOKE",
+    "existing_input_sha256": "4b721a9edf421733a80b4714a68477d63ce1dd67307d1cbca1ff8d8a019eac51",
+    "decoded_frames": 900,
+    "sampled_frames": 30,
+    "contact_sheet_observed": true,
+    "full_playback": "not_run",
+    "audio_listening": "not_run",
+    "note": "Existing local sample. No additional media download. Subsequent explicit first-video stream map was source-reviewed."
+  },
+  "adapters": {
+    "Paper": "mock_verified; actual runtime not_run",
+    "Tone": "mock_verified; actual runtime not_run"
+  },
+  "plugin_zip_sha256": "14d7d815639db5dab2166d6ff03c3d698a8f91931cebfbe971c89b3237a044a5",
+  "cross_model_generation": "not_run",
+  "host_behavior": "pending",
+  "saved_host_readback": "pending",
+  "github_publication": "pending",
+  "evidence_boundary": "169 passing source tests do not establish visual quality, active-client loading or model superiority."
+}

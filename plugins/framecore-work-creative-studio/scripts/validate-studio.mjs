@@ -5,6 +5,7 @@ import {isDeepStrictEqual} from 'node:util';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {validateMotionToolkit} from './validate-motion-toolkit.mjs';
+import {validateMotionQuality} from './validate-motion-quality.mjs';
 import {validateWorkflowKit} from './validate-workflow-kit.mjs';
 import {loadEffectiveEvals} from './load-effective-evals.mjs';
 import {validateLearningMode} from './validate-learning-mode.mjs';
@@ -59,6 +60,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     catch (error) { fail('JSON', relative + ': ' + error.message); return {}; }
   };
   errors.push(...validateMotionToolkit(base));
+  errors.push(...validateMotionQuality(base));
   errors.push(...validateWorkflowKit(base, files));
   errors.push(...validateLearningMode(base, files));
   errors.push(...validateQualityMethods(base));

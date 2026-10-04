@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "category": "brand",
+  "entries": [
+    {
+      "id": "FC-BRAND-01",
+      "category": "brand",
+      "title": "Registration rails",
+      "tags": [
+        "brand",
+        "registration",
+        "rails"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Two thin rails guide the intact mark into its approved position",
+        "Rails retract along the mark's outer bounds while its geometry stays fixed",
+        "Hold the complete mark and lockup on a quiet field"
+      ],
+      "prompt_text": "Create an original code-based motion study: registration rails. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Two thin rails guide the intact mark into its approved position. Rails retract along the mark's outer bounds while its geometry stays fixed. Hold the complete mark and lockup on a quiet field. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mark never deforms; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Mark never deforms",
+        "Lockup spacing matches supplied geometry",
+        "Rails are absent in the final hold"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-02",
+      "category": "brand",
+      "title": "Negative space aperture",
+      "tags": [
+        "brand",
+        "negative",
+        "space",
+        "aperture"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Begin with an uninterrupted color field and a small aperture",
+        "Expand the aperture along the actual negative space around the mark",
+        "Resolve the full untouched artwork with generous surrounding space"
+      ],
+      "prompt_text": "Create an original code-based motion study: negative space aperture. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with an uninterrupted color field and a small aperture. Expand the aperture along the actual negative space around the mark. Resolve the full untouched artwork with generous surrounding space. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for aperture does not redraw the mark; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Aperture does not redraw the mark",
+        "Silhouette resolves cleanly",
+        "Final field remains still"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-03",
+      "category": "brand",
+      "title": "Single thread signature",
+      "tags": [
+        "brand",
+        "single",
+        "thread",
+        "signature"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "A thread travels outside the mark following an original path",
+        "Its last turn becomes an underline or supporting frame without touching protected artwork",
+        "The thread relaxes into a stable brand composition"
+      ],
+      "prompt_text": "Create an original code-based motion study: single thread signature. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A thread travels outside the mark following an original path. Its last turn becomes an underline or supporting frame without touching protected artwork. The thread relaxes into a stable brand composition. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for thread and mark never overlap accidentally; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Thread and mark never overlap accidentally",
+        "Endpoint aligns with grid",
+        "Final path has no discontinuity"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-04",
+      "category": "brand",
+      "title": "Modular alignment",
+      "tags": [
+        "brand",
+        "modular",
+        "alignment"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Unbranded modules occupy an intentionally uneven grid",
+        "They align to establish a visual rhythm and make room for the complete mark",
+        "Modules become a restrained border while the mark remains the focal point"
+      ],
+      "prompt_text": "Create an original code-based motion study: modular alignment. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Unbranded modules occupy an intentionally uneven grid. They align to establish a visual rhythm and make room for the complete mark. Modules become a restrained border while the mark remains the focal point. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for modules are not counterfeit logo parts; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Modules are not counterfeit logo parts",
+        "Alignment has a readable cause",
+        "Border does not compete with name"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-05",
+      "category": "brand",
+      "title": "Window of color",
+      "tags": [
+        "brand",
+        "window",
+        "of",
+        "color"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Neutral panels separate to reveal the brand accent behind them",
+        "The approved mark appears in the resulting window without changing scale",
+        "Panels settle into a balanced frame and leave a clear lockup"
+      ],
+      "prompt_text": "Create an original code-based motion study: window of color. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Neutral panels separate to reveal the brand accent behind them. The approved mark appears in the resulting window without changing scale. Panels settle into a balanced frame and leave a clear lockup. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no palette invention; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "No palette invention",
+        "Reveal mask has clean edges",
+        "Artwork scale is stable"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-06",
+      "category": "brand",
+      "title": "Scale relay",
+      "tags": [
+        "brand",
+        "scale",
+        "relay"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "A small neutral disc hands focal attention to a larger outline",
+        "The outline expands to the safe-area frame as the intact mark fades in",
+        "Both supporting shapes withdraw to leave the identity alone"
+      ],
+      "prompt_text": "Create an original code-based motion study: scale relay. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A small neutral disc hands focal attention to a larger outline. The outline expands to the safe-area frame as the intact mark fades in. Both supporting shapes withdraw to leave the identity alone. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for disc is not mistaken for a logo component; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Disc is not mistaken for a logo component",
+        "Attention transfers once",
+        "End lockup is fully readable"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-07",
+      "category": "brand",
+      "title": "Material to mark",
+      "tags": [
+        "brand",
+        "material",
+        "to",
+        "mark"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "An abstract material swatch fills one portion of the frame",
+        "Its boundary straightens into the same grid used by the identity system",
+        "Place the unchanged mark beside the swatch and hold the relationship"
+      ],
+      "prompt_text": "Create an original code-based motion study: material to mark. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. An abstract material swatch fills one portion of the frame. Its boundary straightens into the same grid used by the identity system. Place the unchanged mark beside the swatch and hold the relationship. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for material supports a supplied identity trait; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Material supports a supplied identity trait",
+        "Logo is not textured",
+        "Light does not lower type contrast"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-08",
+      "category": "brand",
+      "title": "Counterform echo",
+      "tags": [
+        "brand",
+        "counterform",
+        "echo"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Echo the mark's broad counterform using separate original geometry",
+        "Let the echo recede to reveal the complete approved mark behind it",
+        "Remove all echo shapes before the final identity hold"
+      ],
+      "prompt_text": "Create an original code-based motion study: counterform echo. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Echo the mark's broad counterform using separate original geometry. Let the echo recede to reveal the complete approved mark behind it. Remove all echo shapes before the final identity hold. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no protected vector points are altered; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "No protected vector points are altered",
+        "Counterform remains an interpretation outside the asset",
+        "End contains one clear identity"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-09",
+      "category": "brand",
+      "title": "Baseline arrival",
+      "tags": [
+        "brand",
+        "baseline",
+        "arrival"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Thin baseline ticks reveal a typographic grid",
+        "The complete approved wordmark translates along that grid as one object",
+        "Ticks collapse to one accent then disappear"
+      ],
+      "prompt_text": "Create an original code-based motion study: baseline arrival. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Thin baseline ticks reveal a typographic grid. The complete approved wordmark translates along that grid as one object. Ticks collapse to one accent then disappear. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for letters never arrive separately; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Letters never arrive separately",
+        "Tracking stays locked",
+        "Motion ends before reading hold"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-BRAND-10",
+      "category": "brand",
+      "title": "Quiet repeat loop",
+      "tags": [
+        "brand",
+        "quiet",
+        "repeat",
+        "loop"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "inputs": [
+        "locked vector mark",
+        "brand colors",
+        "approved lockup"
+      ],
+      "beats": [
+        "Start from the complete mark in its approved composition",
+        "One peripheral accent makes a slow orbit that communicates continuity",
+        "Return that accent to its initial phase without moving the mark"
+      ],
+      "prompt_text": "Create an original code-based motion study: quiet repeat loop. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start from the complete mark in its approved composition. One peripheral accent makes a slow orbit that communicates continuity. Return that accent to its initial phase without moving the mark. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mark remains static; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Mark remains static",
+        "Loop seam has continuous position and velocity",
+        "Accent never crosses copy"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

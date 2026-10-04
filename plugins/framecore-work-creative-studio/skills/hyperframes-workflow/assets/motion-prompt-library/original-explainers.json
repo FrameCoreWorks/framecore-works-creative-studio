@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "category": "explainers",
+  "entries": [
+    {
+      "id": "FC-EXPLAINERS-01",
+      "category": "explainers",
+      "title": "Make Backpressure Visible",
+      "tags": [
+        "queue",
+        "throughput",
+        "backpressure"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain how a limited consumer slows an upstream producer.",
+      "inputs": [
+        "Producer and consumer rates",
+        "Queue capacity",
+        "Approved event schedule and labels"
+      ],
+      "beats": [
+        "Send identifiable jobs from the producer into a bounded queue.",
+        "Slow the consumer, fill the queue and propagate a pause signal upstream.",
+        "Drain the queue and resume production with the final rate relationship visible."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Draw a producer, a finite row of queue slots and a consumer on one horizontal track. Give each job a stable ID. Introduce jobs according to the supplied schedule, then reduce the consumer rate so occupied slots accumulate visibly. When capacity is reached, send a return signal and stop new arrivals under the stated backpressure rule. Resume only when space becomes available. Finish with a readable queue state and separate indicators for arrival rate, processing rate and capacity. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Queue occupancy never exceeds the supplied capacity.",
+        "Jobs preserve their identity and declared order.",
+        "The pause and resume events follow the stated capacity rule."
+      ],
+      "avoid": [
+        "Discarding jobs without showing a drop policy",
+        "Using decorative speed changes unrelated to the event schedule"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-02",
+      "category": "explainers",
+      "title": "Separate Cache Hits from Misses",
+      "tags": [
+        "cache",
+        "request-routing",
+        "latency"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain the different request paths for cached and uncached content.",
+      "inputs": [
+        "Ordered request keys",
+        "Initial cache contents and capacity",
+        "Approved retrieval and replacement policy"
+      ],
+      "beats": [
+        "Trace an uncached key through storage and populate its cache slot.",
+        "Send the same key through the shorter cache-hit path.",
+        "Introduce a new key that triggers the stated replacement rule and hold the resulting cache."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a request rail above two clearly separated destinations: cache nearby and source storage farther away. Use key labels as moving tokens. On a miss, carry the request to storage, return its content and populate the correct cache slot. On the next matching request, show the shorter hit path without touching storage. Add one replacement event only if capacity requires it. Finish on the final cache contents, with hit and miss paths distinguished by both shape and labels. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each hit corresponds to a key actually present in the cache.",
+        "Replacement follows the supplied policy.",
+        "Illustrative travel time is not presented as measured latency."
+      ],
+      "avoid": [
+        "Treating every repeated request as a guaranteed hit",
+        "Changing cache contents invisibly between requests"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-03",
+      "category": "explainers",
+      "title": "Narrow a Binary Search Window",
+      "tags": [
+        "binary-search",
+        "algorithm",
+        "interval"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show how each comparison eliminates a defined part of a sorted search interval.",
+      "inputs": [
+        "Sorted value list",
+        "Target value",
+        "Midpoint and equality conventions"
+      ],
+      "beats": [
+        "Bracket the full sorted list and mark its midpoint.",
+        "Display the comparison, then collapse the discarded interval.",
+        "End on the found index or the explicit empty-interval outcome."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange the sorted values in evenly spaced cells with index labels underneath. A pair of brackets marks the active search interval while a distinct pointer marks the chosen midpoint. Display one comparison at a time, then dim exactly the excluded cells before moving the brackets. Keep discarded values visible enough to explain the narrowing history. Finish with a stable found index or a clearly labeled unsuccessful search; do not manufacture a matching value to provide a satisfying ending. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every midpoint and interval update follows the chosen convention.",
+        "The original list remains sorted and unchanged.",
+        "An absent target ends with the correct empty interval."
+      ],
+      "avoid": [
+        "Skipping comparisons that justify interval changes",
+        "Searching an unsorted list while presenting the method as valid"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-04",
+      "category": "explainers",
+      "title": "Trace a Finite State Machine",
+      "tags": [
+        "state-machine",
+        "events",
+        "transition-guards"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain permitted transitions through explicit events and guards.",
+      "inputs": [
+        "State graph",
+        "Ordered event sequence",
+        "Transition guards and action labels"
+      ],
+      "beats": [
+        "Illuminate the initial state and show available transitions.",
+        "Move each event toward the current state and reveal the guard decision.",
+        "Traverse valid edges or show a rejected event, then hold the final state."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Lay out the supplied state graph as a compact diagram with one visibly active node. Deliver event tokens from a separate rail. For each event, show its name and the relevant guard before moving along an allowed edge. Keep rejected events outside the graph with a short reason rather than teleporting to another state. Label any transition action near its edge. End by holding the final active state and an ordered event history, making the diagram readable without replay. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Only supplied transitions can change the active state.",
+        "Guard decisions are visible before traversal.",
+        "The event history explains the final state."
+      ],
+      "avoid": [
+        "Activating several exclusive states simultaneously",
+        "Using an attractive transition unsupported by the graph"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-05",
+      "category": "explainers",
+      "title": "Close a Feedback Control Loop",
+      "tags": [
+        "feedback",
+        "control-loop",
+        "setpoint"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Show the relationship between target, measurement, error and control action.",
+      "inputs": [
+        "Approved sampled response data",
+        "Target and disturbance schedule",
+        "Controller description and units"
+      ],
+      "beats": [
+        "Establish the target, measurement and signed error.",
+        "Introduce the supplied disturbance and trace the controller response around the loop.",
+        "Hold the response plot and final residual error with the loop diagram."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a feedback-loop diagram above a response plot using the same time cursor. Keep target, measured value, signed error and control action in separate labeled stations. Introduce a supplied disturbance at a marked time, then advance the approved response data so each plotted change agrees with the loop indicators. Use directional pulses to explain information flow, not as a substitute for values. Finish with the complete response curve and residual error visible, including whether the example is measured or illustrative. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The signed error matches target minus measurement under the stated convention.",
+        "All indicators follow the same response sample time.",
+        "Measured and illustrative data are identified correctly."
+      ],
+      "avoid": [
+        "Inventing perfect settling absent from the supplied data",
+        "Confusing the control signal with the measured output"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-06",
+      "category": "explainers",
+      "title": "Explain a Three-Way Merge",
+      "tags": [
+        "version-control",
+        "merge",
+        "conflict"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show how a shared base distinguishes independent changes from conflicts.",
+      "inputs": [
+        "Base content",
+        "Two branch revisions",
+        "Approved merge result or unresolved-conflict marker"
+      ],
+      "beats": [
+        "Split the shared base into two branch panels with stable line identities.",
+        "Highlight independent edits and one overlapping edit.",
+        "Bring compatible changes together and isolate the conflict for an explicit decision."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use three aligned document panels: shared base at the top, branch revisions below. Preserve line identities as the base splits into the two branches. Highlight inserted, removed and modified content with separate marks. First combine nonoverlapping edits into a result panel. Then align an overlapping edit against its base and show why it remains unresolved or how the supplied resolution selects content. End with the resulting document and conflict status; preserve exact supplied text throughout. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "All displayed edits are traceable to the supplied revisions.",
+        "Independent edits and conflicting edits are distinguished.",
+        "The ending preserves unresolved conflicts when no resolution is supplied."
+      ],
+      "avoid": [
+        "Resolving a conflict by silently deleting one side",
+        "Animating decorative code unrelated to the actual revisions"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-07",
+      "category": "explainers",
+      "title": "Distinguish Encoding from Encryption",
+      "tags": [
+        "encoding",
+        "encryption",
+        "conceptual-comparison"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain the different roles of a public transformation and a key-dependent transformation.",
+      "inputs": [
+        "Approved example text",
+        "Correct encoded representation",
+        "Supplied illustrative ciphertext and key-state labels"
+      ],
+      "beats": [
+        "Transform the text through a publicly labeled encoding rule.",
+        "Run the same input through a separate key-dependent encryption lane.",
+        "Hold both return paths with the required information for reversal clearly identified."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Build two parallel lanes with the same supplied input at the left. In the encoding lane, expose the public transformation rule and its supplied output. In the encryption lane, show a distinct key input entering the transform before the supplied ciphertext appears. Animate reversal in each lane using only the information required by that lane. End with the two paths side by side and their purposes labeled. Mark abstract locks and ciphertext as illustrative rather than claiming a working cryptographic implementation. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Encoding and encryption use distinct labels and required inputs.",
+        "All displayed representations match the supplied examples.",
+        "The scene makes no unsupported security-strength claim."
+      ],
+      "avoid": [
+        "Suggesting encoding alone provides confidentiality",
+        "Displaying a secret or real credential as an example key"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-08",
+      "category": "explainers",
+      "title": "Show Packet Loss and Retransmission",
+      "tags": [
+        "networking",
+        "packet-loss",
+        "acknowledgment"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Make delivery confirmation and retry behavior understandable through one missing packet.",
+      "inputs": [
+        "Packet IDs and send schedule",
+        "Loss and acknowledgment events",
+        "Declared retry policy"
+      ],
+      "beats": [
+        "Send numbered packets along a network lane.",
+        "Stop one packet at the declared loss point and show the missing acknowledgment.",
+        "Retransmit under the supplied policy and finish on receiver order and confirmation state."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place sender and receiver at opposite ends of a horizontal lane, with an acknowledgment lane beneath it. Move numbered packets according to the supplied event schedule. At the declared loss event, remove only that packet into a labeled loss marker and keep the receiver's missing position visible. Trigger a retry only when the stated timeout or acknowledgment rule permits it. Finish with receiver order, duplicate handling and final acknowledgments shown explicitly, without implying that every transport protocol behaves identically. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Retry timing follows the stated protocol example.",
+        "Packet IDs remain stable across retransmission.",
+        "Receiver order and duplicate handling match the supplied events."
+      ],
+      "avoid": [
+        "Treating a missing animation frame as packet loss",
+        "Claiming one retry behavior applies to all networking protocols"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-09",
+      "category": "explainers",
+      "title": "Slide a Convolution Kernel",
+      "tags": [
+        "convolution",
+        "image-processing",
+        "kernel"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Explain how local weighted samples produce an output value.",
+      "inputs": [
+        "Small numeric input grid",
+        "Kernel coefficients",
+        "Padding and stride rules"
+      ],
+      "beats": [
+        "Position the kernel over the first valid input region.",
+        "Pair input values with coefficients and accumulate their products.",
+        "Write the output cell and move to the next region, ending on the completed output grid."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange the input grid on the left, a calculation rail in the middle and the output grid on the right. A transparent kernel window highlights the exact sampled cells. Reveal coefficient-value products in a consistent order, accumulate their sum, then place the result into the correct output cell. Advance the window by the declared stride. Show padded cells explicitly where applicable. Finish with both grids, the kernel and the padding rule visible; keep numeric calculation distinct from any display normalization. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every output value follows the supplied coefficients, stride and padding.",
+        "The highlighted input region matches the current calculation.",
+        "Display normalization does not alter the shown arithmetic."
+      ],
+      "avoid": [
+        "Clipping negative results without explanation",
+        "Sliding the kernel continuously while implying uncomputed intermediate outputs"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EXPLAINERS-10",
+      "category": "explainers",
+      "title": "Reveal Join Cardinality with Row Matches",
+      "tags": [
+        "database",
+        "join",
+        "cardinality"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain how matching keys can produce multiple result rows.",
+      "inputs": [
+        "Two small tables",
+        "Join type and key fields",
+        "Expected result rows"
+      ],
+      "beats": [
+        "Align the two input tables and identify join keys.",
+        "Connect one key group at a time and emit every permitted row pairing.",
+        "Show unmatched-row behavior and hold the result count beside the source tables."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place two compact tables side by side, with a result table below. Highlight the key columns and retain stable row IDs. Select one key group, draw temporary match connectors and emit each permitted pair into the result area. Use repeated-key examples to make one-to-many or many-to-many expansion visible. Handle unmatched rows according to the supplied join type, including explicit null markers when required. Finish with the full result and row count while keeping the source tables readable. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The result contains exactly the pairings allowed by the supplied join.",
+        "Repeated keys produce the correct number of rows.",
+        "Unmatched rows follow the selected join type."
+      ],
+      "avoid": [
+        "Assuming a shared key is unique",
+        "Removing duplicate-looking rows without an explicit distinct operation"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

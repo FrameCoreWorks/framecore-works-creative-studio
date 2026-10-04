@@ -10,6 +10,8 @@ Establish objective, audience, message, format, FPS, duration, exact copy, autho
 
 Develop one visual mechanism tied to the message. Set composition, hierarchy, numeric margins, palette, type and motion behavior. Record Creative DNA and a Style Lock where helpful; keep them inside this contract. Do not impose a stock aesthetic or mandatory CTA, voiceover, bounce, 3D or camera move.
 
+For nontrivial work, include representative style frames in this same storyboard review and use the [quality direction](../references/motion-quality-direction.md). Select a relevant library mechanism without copying its aesthetic or treating it as tested output.
+
 Create a versioned storyboard with stable scene IDs, purpose, exact copy, asset IDs, entry/action/exit states, composition, motion/easing, persistence, transitions, fully readable holds and audio cues. Use one master timeline, integer N, frames 0..N-1 and [start,end) intervals. Resolve incompatible duration/FPS with an explicit proposal. Account for overlaps without increasing duration.
 
 Define at least three observable concept criteria plus hard copy/asset/timing requirements. Deliver the brief, visual/motion system, storyboard, asset gaps and compact handoff. Request approval for the proposed revision before first implementation. Never claim approval or measured render timing that does not exist.
@@ -19,6 +21,8 @@ Define at least three observable concept criteria plus hard copy/asset/timing re
 Act as the selected existing runtime owner. Identify the latest approved contract and its evidence. Preserve concept, copy, assets, scene order, Style Lock and user edits. Do not restart onboarding. Resolve only blocking conflicts and continue unaffected work.
 
 Inspect the actual project, package manager, available runtime, fonts, media, scripts and export requirements. Reuse existing versions. Choose the simplest available compatible engine if no runtime is locked. Do not add dependencies or install tools without applicable authorization. Missing tools or assets must be visible blockers.
+
+Within the authorized build, implement and inspect the central motion mechanism or hardest transition before expanding the whole sequence. Keep visual and audio cue frames together. Reuse the shared QA budget.
 
 Centralize tokens, copy, timing, assets and render settings. Derive scene state from the requested frame with one master timeline. Use the same scene logic for preview and export. Provide play/pause, replay and exact-frame seeking where preview controls are available. Avoid state accumulated from playback, uncontrolled clocks and unseeded randomness. Wait for fonts/assets before capture.
 

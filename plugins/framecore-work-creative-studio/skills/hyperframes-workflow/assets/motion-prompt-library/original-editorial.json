@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "category": "editorial",
+  "entries": [
+    {
+      "id": "FC-EDITORIAL-01",
+      "category": "editorial",
+      "title": "Source headline reveal",
+      "tags": [
+        "editorial",
+        "source",
+        "headline",
+        "reveal"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Show a cropped source page with enough context to identify it",
+        "Reveal an approved headline using a precise highlight that follows line breaks",
+        "Pull the headline into an editorial frame while retaining attribution"
+      ],
+      "prompt_text": "Create an original code-based motion study: source headline reveal. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a cropped source page with enough context to identify it. Reveal an approved headline using a precise highlight that follows line breaks. Pull the headline into an editorial frame while retaining attribution. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for headline is verbatim; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Headline is verbatim",
+        "Highlight does not alter meaning",
+        "Source attribution remains readable"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-02",
+      "category": "editorial",
+      "title": "Chronology ribbon",
+      "tags": [
+        "editorial",
+        "chronology",
+        "ribbon"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Lay dated events on a restrained horizontal ribbon",
+        "Advance the focus along it while prior events remain visible in reduced emphasis",
+        "Finish with the whole relevant period in view"
+      ],
+      "prompt_text": "Create an original code-based motion study: chronology ribbon. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Lay dated events on a restrained horizontal ribbon. Advance the focus along it while prior events remain visible in reduced emphasis. Finish with the whole relevant period in view. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for dates retain order; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Dates retain order",
+        "Gaps are not disguised as equal time",
+        "Final overview is readable"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-03",
+      "category": "editorial",
+      "title": "Two voices",
+      "tags": [
+        "editorial",
+        "two",
+        "voices"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Set two authorized quotations in distinct columns with equal typographic dignity",
+        "Alternate focus by changing surrounding contrast rather than moving text",
+        "Hold both quotations with their correct speakers"
+      ],
+      "prompt_text": "Create an original code-based motion study: two voices. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Set two authorized quotations in distinct columns with equal typographic dignity. Alternate focus by changing surrounding contrast rather than moving text. Hold both quotations with their correct speakers. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for speaker attribution never swaps; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Speaker attribution never swaps",
+        "Quotes remain exact",
+        "Equal treatment does not imply factual equivalence"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-04",
+      "category": "editorial",
+      "title": "Footnote arrives with claim",
+      "tags": [
+        "editorial",
+        "footnote",
+        "arrives",
+        "with",
+        "claim"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Reveal a sourced assertion with reserved room below",
+        "Bring its qualification and citation in during the same reading beat",
+        "Hold all context together before transitioning"
+      ],
+      "prompt_text": "Create an original code-based motion study: footnote arrives with claim. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal a sourced assertion with reserved room below. Bring its qualification and citation in during the same reading beat. Hold all context together before transitioning. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for qualification is not delayed past claim; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Qualification is not delayed past claim",
+        "Citation stays legible",
+        "No unsupported paraphrase"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-05",
+      "category": "editorial",
+      "title": "Chapter edge",
+      "tags": [
+        "editorial",
+        "chapter",
+        "edge"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "A narrow page-edge stripe establishes a chapter marker",
+        "The chapter title aligns with it while the previous section recedes",
+        "Hold the title and carry the stripe into the first content frame"
+      ],
+      "prompt_text": "Create an original code-based motion study: chapter edge. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A narrow page-edge stripe establishes a chapter marker. The chapter title aligns with it while the previous section recedes. Hold the title and carry the stripe into the first content frame. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for marker position persists; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Marker position persists",
+        "Title has reading time",
+        "No decorative page flip obscures content"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-06",
+      "category": "editorial",
+      "title": "Document comparison",
+      "tags": [
+        "editorial",
+        "document",
+        "comparison"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Place two approved revisions side by side",
+        "Highlight actual changed phrases and connect corresponding lines",
+        "Resolve to a concise summary of the real differences"
+      ],
+      "prompt_text": "Create an original code-based motion study: document comparison. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two approved revisions side by side. Highlight actual changed phrases and connect corresponding lines. Resolve to a concise summary of the real differences. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for changes come from supplied revisions; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Changes come from supplied revisions",
+        "Unchanged text is not falsely marked",
+        "Summary does not add a claim"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-07",
+      "category": "editorial",
+      "title": "Quote pause",
+      "tags": [
+        "editorial",
+        "quote",
+        "pause"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Reveal an authorized quotation in complete semantic phrases",
+        "Keep the frame otherwise still during its reading interval",
+        "Introduce author and context gently before the transition"
+      ],
+      "prompt_text": "Create an original code-based motion study: quote pause. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal an authorized quotation in complete semantic phrases. Keep the frame otherwise still during its reading interval. Introduce author and context gently before the transition. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order preserves syntax; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Reading order preserves syntax",
+        "No phrase disappears early",
+        "Attribution fits final frame"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-08",
+      "category": "editorial",
+      "title": "Cover to spread",
+      "tags": [
+        "editorial",
+        "cover",
+        "to",
+        "spread"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Begin with an approved publication cover",
+        "Translate its graphic system into an original contents spread without imitating page physics",
+        "End on one chapter and its exact title"
+      ],
+      "prompt_text": "Create an original code-based motion study: cover to spread. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with an approved publication cover. Translate its graphic system into an original contents spread without imitating page physics. End on one chapter and its exact title. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for cover artwork remains intact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Cover artwork remains intact",
+        "Spread uses authorized text",
+        "Transition preserves hierarchy"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-09",
+      "category": "editorial",
+      "title": "Annotation trail",
+      "tags": [
+        "editorial",
+        "annotation",
+        "trail"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Show a supplied image or diagram at readable scale",
+        "Introduce three sourced annotations one at a time with noncrossing leaders",
+        "Hold the full annotated view and remove transient attention marks"
+      ],
+      "prompt_text": "Create an original code-based motion study: annotation trail. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a supplied image or diagram at readable scale. Introduce three sourced annotations one at a time with noncrossing leaders. Hold the full annotated view and remove transient attention marks. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for leaders point correctly; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Leaders point correctly",
+        "Annotations do not hide source evidence",
+        "All three fit without crowding"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDITORIAL-10",
+      "category": "editorial",
+      "title": "End credits rhythm",
+      "tags": [
+        "editorial",
+        "end",
+        "credits",
+        "rhythm"
+      ],
+      "runtime": "HTML/SVG",
+      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "inputs": [
+        "approved headlines",
+        "source excerpts",
+        "dates and credits"
+      ],
+      "beats": [
+        "Arrange required credits into semantically grouped blocks",
+        "Advance each block with consistent alignment and sufficient hold",
+        "Finish with the final credit fully on screen rather than cropped mid-scroll"
+      ],
+      "prompt_text": "Create an original code-based motion study: end credits rhythm. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Arrange required credits into semantically grouped blocks. Advance each block with consistent alignment and sufficient hold. Finish with the final credit fully on screen rather than cropped mid-scroll. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for all names are exact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "All names are exact",
+        "No credit is skipped",
+        "Final block receives equal reading time"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

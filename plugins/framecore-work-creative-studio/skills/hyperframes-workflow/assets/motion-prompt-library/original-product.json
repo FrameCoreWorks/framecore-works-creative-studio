@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "category": "product",
+  "entries": [
+    {
+      "id": "FC-PRODUCT-01",
+      "category": "product",
+      "title": "One task completed",
+      "tags": [
+        "product",
+        "one",
+        "task",
+        "completed"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Show a simplified approved interface with one pending task",
+        "A single deliberate action changes it to the truthful completed state",
+        "Pull back just enough to show the resulting benefit and hold"
+      ],
+      "prompt_text": "Create an original code-based motion study: one task completed. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a simplified approved interface with one pending task. A single deliberate action changes it to the truthful completed state. Pull back just enough to show the resulting benefit and hold. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for only real product behavior is shown; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Only real product behavior is shown",
+        "Before and after are comparable",
+        "Completion copy remains visible"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-02",
+      "category": "product",
+      "title": "Exploded assembly",
+      "tags": [
+        "product",
+        "exploded",
+        "assembly"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Present the supplied product as intact geometry",
+        "Separate authorized components along a clear axis to explain their relationship",
+        "Reassemble to the exact original configuration"
+      ],
+      "prompt_text": "Create an original code-based motion study: exploded assembly. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Present the supplied product as intact geometry. Separate authorized components along a clear axis to explain their relationship. Reassemble to the exact original configuration. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for only approved separable parts move; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Only approved separable parts move",
+        "No invented interior detail",
+        "Final geometry matches source"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-03",
+      "category": "product",
+      "title": "Before after divider",
+      "tags": [
+        "product",
+        "before",
+        "after",
+        "divider"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Place two truthful states at the same scale and camera angle",
+        "Move a divider between them while preserving aligned reference points",
+        "End with both states labeled and the meaningful difference clear"
+      ],
+      "prompt_text": "Create an original code-based motion study: before after divider. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two truthful states at the same scale and camera angle. Move a divider between them while preserving aligned reference points. End with both states labeled and the meaningful difference clear. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no retouching exaggerates benefit; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "No retouching exaggerates benefit",
+        "Labels stay paired with states",
+        "Divider never hides required context"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-04",
+      "category": "product",
+      "title": "Feature microscope",
+      "tags": [
+        "product",
+        "feature",
+        "microscope"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Keep the product in a stable overview",
+        "Open a local magnified inset around one verified feature with a connector line",
+        "Close the inset and leave the full product with a concise factual label"
+      ],
+      "prompt_text": "Create an original code-based motion study: feature microscope. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep the product in a stable overview. Open a local magnified inset around one verified feature with a connector line. Close the inset and leave the full product with a concise factual label. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for inset uses actual source detail; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Inset uses actual source detail",
+        "Connector points to correct feature",
+        "Magnification is disclosed"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-05",
+      "category": "product",
+      "title": "Workflow handoff",
+      "tags": [
+        "product",
+        "workflow",
+        "handoff"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Represent three real workflow steps as distinct objects",
+        "Carry one persistent data object through the approved steps showing state change",
+        "End on the completed artifact and its owner"
+      ],
+      "prompt_text": "Create an original code-based motion study: workflow handoff. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Represent three real workflow steps as distinct objects. Carry one persistent data object through the approved steps showing state change. End on the completed artifact and its owner. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for persistent object is trackable; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Persistent object is trackable",
+        "Step order matches product",
+        "No impossible automation claim"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-06",
+      "category": "product",
+      "title": "Package opening",
+      "tags": [
+        "product",
+        "package",
+        "opening"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Show the approved package on a neutral stage",
+        "Open only physically plausible authorized parts to reveal the actual contents",
+        "Arrange contents in a simple inventory then restore the hero pack"
+      ],
+      "prompt_text": "Create an original code-based motion study: package opening. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show the approved package on a neutral stage. Open only physically plausible authorized parts to reveal the actual contents. Arrange contents in a simple inventory then restore the hero pack. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for contents match supplied inventory; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Contents match supplied inventory",
+        "Packaging proportions stay fixed",
+        "Objects do not intersect"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-07",
+      "category": "product",
+      "title": "Comparison without ranking tricks",
+      "tags": [
+        "product",
+        "comparison",
+        "without",
+        "ranking",
+        "tricks"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Align two products or plans on identical visual baselines",
+        "Reveal one sourced comparison dimension at a time using equal scales",
+        "Hold the complete comparison including limitations"
+      ],
+      "prompt_text": "Create an original code-based motion study: comparison without ranking tricks. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Align two products or plans on identical visual baselines. Reveal one sourced comparison dimension at a time using equal scales. Hold the complete comparison including limitations. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for scale does not bias a side; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Scale does not bias a side",
+        "All labels remain visible",
+        "No unsupported best claim"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-08",
+      "category": "product",
+      "title": "Material cross section",
+      "tags": [
+        "product",
+        "material",
+        "cross",
+        "section"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Start with an approved material surface",
+        "Transition to an explicitly illustrative cross-section explaining a sourced property",
+        "Return to the real surface with the property clearly qualified"
+      ],
+      "prompt_text": "Create an original code-based motion study: material cross section. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start with an approved material surface. Transition to an explicitly illustrative cross-section explaining a sourced property. Return to the real surface with the property clearly qualified. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for illustration is labeled; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Illustration is labeled",
+        "No invented physical precision",
+        "Surface identity is preserved"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-09",
+      "category": "product",
+      "title": "Configuration dial",
+      "tags": [
+        "product",
+        "configuration",
+        "dial"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Place the real configurable product beside an unobtrusive control",
+        "Change one supported parameter and show the corresponding genuine product variant",
+        "Stop at the selected variant and reveal its exact specification"
+      ],
+      "prompt_text": "Create an original code-based motion study: configuration dial. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place the real configurable product beside an unobtrusive control. Change one supported parameter and show the corresponding genuine product variant. Stop at the selected variant and reveal its exact specification. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for variants are authorized; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Variants are authorized",
+        "Control has one effect",
+        "Selected specification matches image"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-PRODUCT-10",
+      "category": "product",
+      "title": "Product in use diagram",
+      "tags": [
+        "product",
+        "product",
+        "in",
+        "use",
+        "diagram"
+      ],
+      "runtime": "Remotion",
+      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "inputs": [
+        "approved product assets",
+        "factual feature description",
+        "required copy"
+      ],
+      "beats": [
+        "Show a product with a simplified human-free usage context",
+        "Animate one causal interaction using arrows or geometry tied to its real function",
+        "Hold the resulting state and necessary usage limitation"
+      ],
+      "prompt_text": "Create an original code-based motion study: product in use diagram. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a product with a simplified human-free usage context. Animate one causal interaction using arrows or geometry tied to its real function. Hold the resulting state and necessary usage limitation. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for directions match actual function; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "acceptance": [
+        "Directions match actual function",
+        "Diagram is not a safety certification",
+        "Product remains recognizable"
+      ],
+      "avoid": [
+        "Decorative effects unrelated to the stated mechanism",
+        "Changing approved content or timing to fit a template"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

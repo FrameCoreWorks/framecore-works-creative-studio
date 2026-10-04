@@ -2,6 +2,8 @@
 
 Use this profile for explicitly requested coded motion graphics, kinetic typography, animated diagrams, title systems, brand motion or programmatic video. It extends existing owners and the existing Project State. It does not select a different model, create a new agent, or supply a rendering environment.
 
+For substantive art direction, use [motion quality direction](motion-quality-direction.md) and selectively retrieve the [prompt library](../assets/motion-prompt-library/README.md). Include style frames in the existing storyboard review and a focused motion proof during an authorized build. These refine the current method; they add no owner, separate gate or QA budget.
+
 ## Start at the requested stage
 
 Reuse supplied decisions and inspect accessible assets or the existing project. Identify the latest contract revision and actual approval evidence. A build or repair request with an already approved contract continues there. Do not repeat onboarding, rewrite successful scenes or invent approval.

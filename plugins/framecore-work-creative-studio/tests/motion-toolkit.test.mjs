@@ -6,6 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateMotionToolkit} from '../scripts/validate-motion-toolkit.mjs';
 import '../skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs';
+import './motion-quality.test.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const canvas = 'skills/hyperframes-workflow/assets/motion-toolkit';
 function withCopy(action) {

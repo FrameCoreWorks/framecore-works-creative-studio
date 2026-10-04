@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "original-motion-score",
+  "revision": 1,
+  "approval": "example-not-client-approved",
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 360,
+  "scenes": [
+    {
+      "id": "gather",
+      "start": 0,
+      "end": 120,
+      "purpose": "Separate parts acquire a shared alignment",
+      "holds": [
+        [
+          75,
+          108
+        ]
+      ]
+    },
+    {
+      "id": "connect",
+      "start": 120,
+      "end": 240,
+      "purpose": "One connection explains the relation",
+      "holds": [
+        [
+          186,
+          228
+        ]
+      ]
+    },
+    {
+      "id": "resolve",
+      "start": 240,
+      "end": 360,
+      "purpose": "Stable structure and final readable statement",
+      "holds": [
+        [
+          270,
+          360
+        ]
+      ]
+    }
+  ],
+  "cues": [
+    {
+      "id": "alignment",
+      "frame": 75,
+      "durationFrames": 12,
+      "frequency": 440,
+      "gainDb": -18
+    },
+    {
+      "id": "connection",
+      "frame": 186,
+      "durationFrames": 18,
+      "frequency": 660,
+      "gainDb": -21
+    },
+    {
+      "id": "resolution",
+      "frame": 270,
+      "durationFrames": 24,
+      "frequency": 330,
+      "gainDb": -20
+    }
+  ]
+}

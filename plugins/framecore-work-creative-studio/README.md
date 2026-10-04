@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.9.4.
+Version: 1.10.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -139,3 +139,7 @@ The [new-material map](docs/creative-upgrade.md) and [verification report](docs/
 Added five chapters and seven resources covering realistic identity, precise character/product/storyboard sheets, individual-frame binding, model selection by actual capability and audio/music in both workflow directions. The expansion and fixes affect thirteen existing skills. They distinguish strict identity requirements from execution readiness, correct video-review routing and handle explained audio criticism.
 
 A pilot is not a prerequisite for plugin development; project review remains optional and requires an explicit request. That update ran no pilots or media generation. The [expansion map](docs/reference-audio-expansion.md) lists the added resources and evidence boundaries.
+
+## Motion quality and prompt library
+
+Use the [motion prompt library](skills/hyperframes-workflow/assets/motion-prompt-library/README.md), [quality method](skills/hyperframes-workflow/references/motion-quality-direction.md) and [research dossier](skills/hyperframes-workflow/references/motion-quality-research.md) through the existing motion owners. The library records origin and unexecuted status separately; selected references do not authorize execution or switch models.

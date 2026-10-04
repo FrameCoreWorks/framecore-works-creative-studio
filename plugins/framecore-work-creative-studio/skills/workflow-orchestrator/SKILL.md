@@ -10,7 +10,7 @@ description: Entry owner for a sent bare @FrameCore Works Creative Studio or app
 For questions about the plugin's version or installation status, use this contract in Codex, ChatGPT Work and ordinary ChatGPT before any welcome, research or creative intake. Project progress questions still use the existing checkpoint/resume route.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.9.4"}
+{"name":"framecore-work-creative-studio","version":"1.10.0"}
 <!-- END PACKAGE IDENTITY -->
 
 This block is generated from `plugin.json` during release preparation and checked against both manifests. It identifies this packaged skill revision, not the model, a dependency or the newest release.

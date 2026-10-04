@@ -1,7 +1,15 @@
-# Creative Studio 1.9.4
+# Creative Studio 1.10.0
 
-The complete welcome now offers only Creative Mode and Learning Mode. The English and Polish wording, capability overview and optional-material invitation are preserved except for removal of option 3 and its reply token.
+Motion quality and a large provenance-aware prompt library through the existing motion routes.
 
-Code-based motion graphics remains in creative work area 8: Creative Mode, Expanded Mode, then Motion Graphics. Its tools, examples and runtime owners are unchanged. A 3 typed against the new two-option welcome requests clarification; area 3 still means storyboards. Direct tasks, learning requests and actual recovery of previously displayed pending menus retain their existing behavior.
+- 120 original blueprints in 12 families, 172 permitted curator starters and 28 link-only creator records.
+- Focused retrieval, Polish search aliases, concrete choreography and observable acceptance criteria.
+- Style-frame planning, motion proof, shared frame/audio score and output inspection.
+- Optional Paper Shaders/Tone Offline adapters, without added installed dependencies.
+- Primary research, five viewing links, rights-aware additional catalogs and controlled evaluation design.
 
-The entry excerpts, protected hashes and related regression fixtures follow the same contract. See [release status](RELEASE_STATUS.md) for source validation, paired publication and separate host observations. Existing conversations can retain an earlier loaded skill snapshot.
+The two-option welcome and Creative / Expanded / Motion area 8 remain unchanged. All 37 skill IDs, other modules, selected model, provider gates and pinned upstream sources are preserved.
+
+Prompt counts are not completed evaluations. The original blueprints are not_run; imported starters are reconstructions. Paper/Tone scheduling is unit-tested with mocks, not a live renderer/audio certification. No controlled Claude/OpenAI quality comparison has been run.
+
+See [development plan](docs/MOTION_GRAPHICS_DEVELOPMENT_PLAN.md), [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

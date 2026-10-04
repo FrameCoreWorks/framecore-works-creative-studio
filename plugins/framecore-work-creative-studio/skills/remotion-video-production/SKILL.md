@@ -57,6 +57,8 @@ For code-based motion graphics, kinetic typography, animated diagrams or brand m
 
 For 3D, use the [Three.js/R3F example](assets/three-motion-example/README.md) and [runtime cards](../hyperframes-workflow/references/motion-toolkit-runtime-cards.md). D3 data geometry, approved Lottie assets and rendered Manim clips keep this composition owner and Remotion frame/export authority. See [toolkit routing](../hyperframes-workflow/references/motion-toolkit-routing.md) before adding a dependency.
 
+For motion quality and reusable ideas, use [quality direction](../hyperframes-workflow/references/motion-quality-direction.md) and the [prompt library](../hyperframes-workflow/assets/motion-prompt-library/README.md). Preserve Remotion frame/export authority and current approvals; optional sound/material adapters do not add another clock.
+
 ## Process
 
 1. Confirm whether the task is planning-only, implementation, repair, review, or render verification.

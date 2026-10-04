@@ -15,6 +15,10 @@
 | Overlaps, first/last frame and readable holds | | | |
 | Font readiness, margins, clipping and protected geometry | | | |
 | Same selected frames after forward playback/replay/direct/backward seeking | | | |
+| Reference observations separated from source claims and reconstructions | | | |
+| Style-frame hierarchy and exact copy at intended viewing size | | | |
+| Focused motion proof: central mechanism and hardest transition | | | |
+| Motion score: purposeful intensity, readable pauses and shared cue frames | | | |
 | Full normal-speed temporal review | | | |
 | Required audio content, sync, gain/fades and clipping | | | |
 | Actual encoded file: dimensions/FPS/frame count/duration/audio/alpha | | | |

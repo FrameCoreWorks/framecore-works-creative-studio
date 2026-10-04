@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "category": "spatial",
+  "entries": [
+    {
+      "id": "FC-SPATIAL-01",
+      "category": "spatial",
+      "title": "Raise a Plan into an Axonometric Model",
+      "tags": [
+        "axonometric",
+        "extrusion",
+        "plan-to-volume"
+      ],
+      "runtime": "Three.js / React Three Fiber",
+      "objective": "Connect a supplied two-dimensional plan to its corresponding three-dimensional volumes.",
+      "inputs": [
+        "Approved plan polygons",
+        "Heights, units and feature IDs",
+        "Orthographic camera and annotation rules"
+      ],
+      "beats": [
+        "Show the plan flat with a scale reference.",
+        "Tilt the view and extrude each polygon to its supplied height.",
+        "Hold the completed axonometric model with plan outlines and selected dimensions."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Begin with the approved plan on a flat ground plane, preserving polygon IDs and a visible scale reference. Move the orthographic camera to the supplied axonometric angle while keeping the plan centered. Extrude each polygon vertically to its actual supplied height, revealing one logical group at a time. Retain faint plan outlines beneath the volumes so their origin remains legible. End with a stable model, selected dimensions and a clear unit label. Flag missing heights instead of inventing architectural measurements. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each volume preserves its source polygon footprint.",
+        "Extrusion heights match the supplied units and values.",
+        "Orthographic framing keeps the complete required plan readable."
+      ],
+      "avoid": [
+        "Inventing dimensions from a visual reference",
+        "Changing polygon footprints to create a more attractive skyline"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-02",
+      "category": "spatial",
+      "title": "Open a Section Through a Layered Object",
+      "tags": [
+        "cutaway",
+        "section-plane",
+        "internal-structure"
+      ],
+      "runtime": "Three.js / React Three Fiber",
+      "objective": "Reveal supplied internal geometry with a clearly controlled cutting plane.",
+      "inputs": [
+        "Rights-cleared model with actual internal parts",
+        "Approved section-plane path",
+        "Part labels and protected surfaces"
+      ],
+      "beats": [
+        "Establish the intact object and cutting-plane marker.",
+        "Move the section plane through the model while identifying newly exposed parts.",
+        "Hold the selected cross-section with the intact silhouette as a reference."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place the supplied layered model against a quiet background using a fixed camera that reveals its overall form. Introduce a thin cutting-plane marker before any geometry disappears. Move the plane through the approved path, exposing actual internal parts and adding labels only after they are visible. Use a distinct section-edge treatment so a cut surface cannot be mistaken for the exterior. End at the selected cross-section with a faint intact outline and readable part labels. Report absent interior geometry as an asset gap. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Only real supplied interior parts appear in the cutaway.",
+        "Section caps and edges follow the chosen clipping plane.",
+        "Part labels point to exposed geometry without hiding the cross-section."
+      ],
+      "avoid": [
+        "Fabricating internal structure to fill an empty model",
+        "Letting clipping artifacts appear as designed cavities"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-03",
+      "category": "spatial",
+      "title": "Separate Depth with a Controlled Parallax Move",
+      "tags": [
+        "parallax",
+        "depth-planes",
+        "camera"
+      ],
+      "runtime": "Three.js / React Three Fiber",
+      "objective": "Show spatial layering through one measured camera translation.",
+      "inputs": [
+        "Rights-cleared foreground, middle and background planes",
+        "Approved plane depths and bounds",
+        "Camera path and protected content regions"
+      ],
+      "beats": [
+        "Establish a balanced view of the aligned planes.",
+        "Translate the camera laterally so near and far layers separate at different rates.",
+        "Settle on the final view with all protected content retained."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange supplied foreground, middle and background artwork on explicit depth planes. Begin with a composed view in which their relationships are understandable, then move the perspective camera laterally along the approved path. Let apparent displacement arise from actual depth and projection rather than separate arbitrary layer speeds. Provide enough artwork beyond the initial crop to prevent exposed edges. End on a stable alternate view with protected content still visible. Treat the construction as layered artwork, not a reconstructed full three-dimensional scene. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Parallax direction and magnitude follow the declared depths and camera path.",
+        "No unintended plane edge enters the frame.",
+        "Required content remains readable at both endpoints."
+      ],
+      "avoid": [
+        "Claiming missing viewpoints exist in flat source artwork",
+        "Using incompatible independent layer motion that contradicts the camera"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-04",
+      "category": "spatial",
+      "title": "Trace a Route Across an Isometric Network",
+      "tags": [
+        "isometric",
+        "route",
+        "wayfinding"
+      ],
+      "runtime": "Three.js / SVG overlay",
+      "objective": "Explain a connected route while preserving topology and legible waypoints.",
+      "inputs": [
+        "Approved node and edge coordinates",
+        "Ordered route and stop labels",
+        "Isometric projection and speed profile"
+      ],
+      "beats": [
+        "Establish the network and starting waypoint.",
+        "Advance a route marker along connected edges, pausing at approved stops.",
+        "Hold the entire completed route with start, destination and stop sequence visible."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Draw the supplied network in a fixed isometric view with one unobtrusive ground reference. Keep inactive edges muted while the chosen route is progressively revealed. Move a marker only along the supplied connected edges and pause at each approved stop long enough for its label to settle. Place labels in an overlay rail when geometry becomes crowded. End with the full route, start and destination visible together. Clearly identify whether edge lengths represent real distances or a schematic arrangement. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The marker follows connected edges in the correct order.",
+        "Waypoint labels match the supplied route.",
+        "The distance interpretation is explicit and consistent."
+      ],
+      "avoid": [
+        "Jumping between unconnected nodes to shorten the animation",
+        "Implying geographic accuracy from a schematic isometric layout"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-05",
+      "category": "spatial",
+      "title": "Change Coordinate Frames Without Moving the Point",
+      "tags": [
+        "coordinate-frames",
+        "transforms",
+        "spatial-reasoning"
+      ],
+      "runtime": "Three.js / SVG overlay",
+      "objective": "Distinguish a fixed world-space point from its coordinates in changing reference frames.",
+      "inputs": [
+        "World point and two valid coordinate transforms",
+        "Axis conventions and units",
+        "Approved coordinate labels"
+      ],
+      "beats": [
+        "Show the point and first reference frame.",
+        "Introduce the second frame and transform the displayed coordinates.",
+        "Hold both coordinate descriptions beside the same unchanged world-space point."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place one clearly marked point in a simple three-dimensional scene with a fixed world grid. Show the first coordinate frame and its numeric description of that point. Introduce the second approved frame through its translation and rotation while keeping the world point stationary. Update coordinate labels from the actual inverse transform rather than moving the point to match the numbers. End with both axis triads and both coordinate descriptions visible, using distinct frame labels and consistent units. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The world-space point remains fixed throughout the frame change.",
+        "Both coordinate descriptions agree under the supplied transforms.",
+        "Axis handedness and units are explicit."
+      ],
+      "avoid": [
+        "Moving the point while claiming only the reference frame changed",
+        "Mixing local and world coordinates in one label"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-06",
+      "category": "spatial",
+      "title": "Explain a Mirror Reflection with Ray Geometry",
+      "tags": [
+        "reflection",
+        "ray-diagram",
+        "geometry"
+      ],
+      "runtime": "Three.js / SVG overlay",
+      "objective": "Connect a visible reflection direction to the supplied surface normal and incident ray.",
+      "inputs": [
+        "Surface plane and normal",
+        "Incident ray direction",
+        "Approved angle notation and camera framing"
+      ],
+      "beats": [
+        "Establish the surface, normal and incoming ray.",
+        "Construct the reflected ray and mark the equal-angle relationship.",
+        "Hold the ray diagram beside a restrained rendered reflection preview."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Set a simple mirror plane in an uncluttered three-dimensional scene and draw its surface normal at the contact point. Advance an incident-ray marker toward that point, then reveal the reflected direction computed from the supplied geometry. Add angle arcs in the plane of incidence and label them under the chosen convention. A small secondary preview may show a rendered reflection, but the ray diagram remains the explanatory focus. End with both rays, the normal and angle labels readable from the fixed camera. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The reflected direction follows the geometric reflection rule.",
+        "Both angle labels use the same reference convention.",
+        "The camera does not collapse the angle arcs into an unreadable projection."
+      ],
+      "avoid": [
+        "Measuring one angle from the surface and the other from the normal",
+        "Using a decorative reflection that contradicts the ray geometry"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-07",
+      "category": "spatial",
+      "title": "Keep Labels Honest During an Object Orbit",
+      "tags": [
+        "occlusion",
+        "annotation",
+        "camera-orbit"
+      ],
+      "runtime": "Three.js / HTML or SVG overlay",
+      "objective": "Maintain readable annotations without suggesting that hidden features are visible.",
+      "inputs": [
+        "Rights-cleared model and annotation anchors",
+        "Approved orbit path",
+        "Visibility and label-priority rules"
+      ],
+      "beats": [
+        "Show the front-facing annotated features.",
+        "Orbit the camera while labels respond to actual anchor visibility.",
+        "Settle on the final view and hold only the appropriate visible annotations."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place the supplied model in a restrained lighting setup and attach annotations to explicit geometry anchors. Begin from a view with a small readable set of labels. Move the camera along the approved orbit while testing anchor visibility against the model. Fade or relocate labels according to the declared policy when features become occluded; do not let leader lines imply an exposed surface that is actually hidden. End with a stable final view and a clean annotation arrangement that preserves exact supplied wording. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each leader line remains attached to its actual model anchor.",
+        "Occluded features follow the declared visibility policy.",
+        "Labels remain readable without changing model geometry or anchor identity."
+      ],
+      "avoid": [
+        "Drawing every annotation through the object without explanation",
+        "Reassigning labels to visually convenient but incorrect features"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-08",
+      "category": "spatial",
+      "title": "Reveal a Second Space Through a Portal",
+      "tags": [
+        "portal",
+        "stencil",
+        "spatial-continuity"
+      ],
+      "runtime": "Three.js / WebGL stencil",
+      "objective": "Create a controlled spatial reveal whose view remains consistent through a moving aperture.",
+      "inputs": [
+        "Two approved scene layouts",
+        "Portal plane and aperture path",
+        "Camera mapping and depth-order rules"
+      ],
+      "beats": [
+        "Establish the foreground scene and closed aperture.",
+        "Open the portal while revealing the mapped second space only inside its boundary.",
+        "Hold the open view with clear foreground occlusion and a readable destination."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Compose a foreground scene around a simple portal plane with a closed aperture. Open the aperture along the approved path and reveal the second scene only within that boundary, using a consistent camera mapping and explicit depth ordering. Keep foreground objects capable of occluding the portal so the reveal has believable spatial placement. Use one intentional object or landmark inside the destination to carry the viewer's attention. End with the portal open and both spatial relationships readable, without a last-frame camera teleport. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The second scene appears only within the intended aperture.",
+        "Camera mapping remains consistent throughout the reveal.",
+        "Foreground occlusion and portal depth behave as declared."
+      ],
+      "avoid": [
+        "Treating the portal as a flat unrelated video pasted over foreground objects",
+        "Changing destination scale invisibly while the aperture opens"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-09",
+      "category": "spatial",
+      "title": "Reassemble a Point Cloud Through Stable Correspondence",
+      "tags": [
+        "point-cloud",
+        "instancing",
+        "shape-correspondence"
+      ],
+      "runtime": "Three.js / React Three Fiber",
+      "objective": "Transform between supplied point configurations while preserving identifiable correspondences.",
+      "inputs": [
+        "Equal-sized source and target point sets",
+        "Stable point correspondence",
+        "Approved transition paths and framing"
+      ],
+      "beats": [
+        "Establish the source form with a few tracked point IDs.",
+        "Move points along their assigned paths while retaining the overall mass.",
+        "Resolve the target form and hold the tracked correspondences."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Render the supplied source point set as restrained instanced marks in a fixed spatial frame. Highlight a small number of stable IDs so the viewer can understand correspondence. Move each point toward its assigned target along the approved path, using a shared time parameter and a controlled stagger only where specified. Keep the camera simple enough that the transformation itself remains the subject. End with the exact target point set and selected IDs visible. Flag unequal point counts or missing correspondences before implementation. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every source point maps to the assigned target identity.",
+        "The ending reaches the exact supplied target coordinates.",
+        "Direct seeking reproduces point positions independently of playback history."
+      ],
+      "avoid": [
+        "Randomly rematching points on every render",
+        "Using camera motion to conceal an unresolved target shape"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-SPATIAL-10",
+      "category": "spatial",
+      "title": "Resolve an Anamorphic Alignment",
+      "tags": [
+        "anamorphosis",
+        "perspective",
+        "viewpoint"
+      ],
+      "runtime": "Three.js / React Three Fiber",
+      "objective": "Reveal how a fragmented spatial arrangement forms a coherent image from one approved viewpoint.",
+      "inputs": [
+        "Approved target silhouette or graphic",
+        "Fragment geometry and alignment camera",
+        "Approach camera path and final hold"
+      ],
+      "beats": [
+        "Show separated fragments from an oblique viewpoint.",
+        "Move the camera toward the defined alignment position.",
+        "Hold the resolved image, then optionally expose a slight offset to explain the construction."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange the supplied fragments in depth so they project into the approved target graphic from one specified alignment camera. Begin from an oblique view where their separation is apparent. Move the camera along the approved approach while preserving the fragments' fixed geometry. Let the image resolve through projection rather than snapping pieces into place. Hold the aligned view long enough to read the target. If authorized, finish with a small offset that reveals the construction while retaining a final reference thumbnail of the resolved image. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Fragments remain fixed while the camera creates the alignment.",
+        "The projection at the target camera matches the approved graphic.",
+        "The aligned hold lasts long enough for the intended reading task."
+      ],
+      "avoid": [
+        "Secretly morphing fragments to force the target image",
+        "Distorting protected artwork without explicit approval"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

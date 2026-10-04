@@ -2,7 +2,13 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.9.4
+## Current source: 1.10.0
+
+The [1.10.0 source checks](verification/release-1.10.0.json) pass canonical validation and 169 tests: 130 Node, 12 installer, 4 package identity and 23 asset checks. The nine new Node checks cover score timing, review boundaries, optional adapter scheduling, provenance, retrieval and Polish aliases. The [bounded scope](verification/scope-1.10.0.json) contains 838 package files: 30 added, 14 changed and 794 byte-identical to 1.9.4. Both complete welcome resources, 37 skill identities and vendored snapshots are preserved.
+
+The library contains 120 original not_run blueprints, 172 permitted curator reconstructions and 28 creator link records. An existing local encode was inspected with the new helper: 900 decoded frames and 30 contact-sheet samples. This is not continuous playback or listening evidence. Paper/Tone adapters have mock verification only; no new dependency was installed. No controlled Claude/OpenAI comparison was run. All 199 planned host cases remain not_run. Paired publication and active-client observations are recorded separately in [release status](RELEASE_STATUS.md).
+
+## Previous source: 1.9.4
 
 The [1.9.4 source checks](verification/release-1.9.4.json) pass the canonical validator and 160 existing tests. [Scope checks](verification/scope-1.9.4.json) confirm 808 package paths, 37 skills, 16 changed files and 792 byte-identical files. The welcome changes are exactly deletion of option 3 and its reply token in both languages; motion modules and all other skill entrypoints remain unchanged. Saved-host and active-client evidence is recorded separately in release status. The 199 planned host scenarios remain not_run.
 

@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "category": "education",
+  "entries": [
+    {
+      "id": "FC-EDUCATION-01",
+      "category": "education",
+      "title": "Prove Fraction Equivalence by Repartitioning",
+      "tags": [
+        "fractions",
+        "equivalence",
+        "area-model"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show that finer subdivision changes numerator and denominator without changing the represented amount.",
+      "inputs": [
+        "Valid fraction and integer subdivision factor",
+        "Grade-appropriate wording",
+        "Approved exact equation"
+      ],
+      "beats": [
+        "Shade the supplied fraction of one fixed whole.",
+        "Subdivide every original part equally while preserving the shaded region.",
+        "Count the smaller shaded parts and hold both equivalent fraction labels."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Center one rectangle representing a fixed whole, with a fraction label beneath it. Partition the rectangle into equal original parts and shade the supplied numerator. Add the same number of subdivisions inside every part, keeping the shaded geometry unchanged. Count the smaller shaded cells in a deliberate order, then update numerator and denominator together. Finish with the original and refined partition outlines over the same area and the exact equivalence equation below. Keep the whole's size constant throughout. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "All parts within each partition have equal area.",
+        "The shaded area is unchanged by subdivision.",
+        "Numerator and denominator scale by the same integer factor."
+      ],
+      "avoid": [
+        "Resizing the whole to make fractions appear equal",
+        "Subdividing only the shaded portion"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-02",
+      "category": "education",
+      "title": "Regroup Base-Ten Blocks",
+      "tags": [
+        "place-value",
+        "regrouping",
+        "arithmetic"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain the exchange between ten units of one place and one unit of the next.",
+      "inputs": [
+        "Whole-number example",
+        "Declared addition or subtraction step",
+        "Place-value labels and exact result"
+      ],
+      "beats": [
+        "Arrange blocks in labeled ones, tens and hundreds columns.",
+        "Exchange exactly ten units for one higher-place block or reverse that exchange.",
+        "Recount each column and hold the unchanged numeric value of the exchange."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Lay out place-value columns with a numeral rail underneath. Use unit squares, ten-unit rods and hundred-unit flats at consistent geometric scale. Begin with the supplied number. For the selected arithmetic step, gather exactly ten lower-place units into an outlined group, then replace the group with one higher-place block; reverse the action for borrowing. Update the numeral rail only after the exchange is complete. End by counting the resulting columns and showing that the exchange itself preserved total value. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each exchange preserves numeric value.",
+        "Block dimensions represent the correct base-ten proportions.",
+        "The numeral rail matches the visible blocks at every completed step."
+      ],
+      "avoid": [
+        "Removing units before showing where their value went",
+        "Mixing regrouping with an unexplained arithmetic operation"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-03",
+      "category": "education",
+      "title": "Add Vectors Head to Tail",
+      "tags": [
+        "vectors",
+        "addition",
+        "coordinate-system"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show vector addition as translation of a vector without changing its magnitude or direction.",
+      "inputs": [
+        "Two vectors in one coordinate system",
+        "Axis scale and units",
+        "Exact resultant components"
+      ],
+      "beats": [
+        "Show both vectors from the origin.",
+        "Translate the second vector so its tail meets the first vector's head.",
+        "Draw the resultant from the original tail to the final head and hold component projections."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use an equal-scale coordinate grid with two clearly labeled vectors initially anchored at the origin. Keep a faint original copy of the second vector while translating its active copy to the head of the first. The copied arrow must retain its angle and length during the move. Draw the resultant from the original origin to the translated arrow's head. End with dashed component projections and the supplied component equation, preserving enough empty space around arrowheads and labels. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The translated vector retains its components.",
+        "The resultant endpoint equals the component-wise sum.",
+        "Both axes use the same geometric scale unless distortion is explicitly stated."
+      ],
+      "avoid": [
+        "Rotating the translated vector to fit the layout",
+        "Confusing a movement path with the resultant vector"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-04",
+      "category": "education",
+      "title": "Maintain Equality Through Balanced Operations",
+      "tags": [
+        "algebra",
+        "equality",
+        "inverse-operations"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain why the same valid operation must be applied to both sides of an equation.",
+      "inputs": [
+        "Approved solvable equation",
+        "Sequence of equivalent transformations",
+        "Learner level and exact explanatory copy"
+      ],
+      "beats": [
+        "Place both equation sides in matched containers.",
+        "Apply one visible operation to both sides together.",
+        "Simplify matching terms and hold the transformed equation with an equivalence trail."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place the two sides of the supplied equation in equal-sized containers separated by a persistent equals sign. Represent terms as labeled tiles while retaining the exact symbolic equation below. Apply each approved operation to both containers simultaneously, then simplify only after the operation is visible on both sides. Use matched motion to show cancellation without treating negative numbers as physical negative weights. End with the solution and a short trail of equivalent equations that the learner can read independently of the animation. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every intermediate equation is equivalent under the supplied conditions.",
+        "The same operation is visibly applied to both sides.",
+        "Tile actions agree with the exact symbolic notation."
+      ],
+      "avoid": [
+        "Using a balance metaphor to imply invalid negative mass",
+        "Dividing by a value that may be zero without stating conditions"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-05",
+      "category": "education",
+      "title": "Multiply Probabilities Along a Tree",
+      "tags": [
+        "probability",
+        "tree-diagram",
+        "conditional-probability"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Distinguish probabilities along a path from sums across mutually exclusive outcomes.",
+      "inputs": [
+        "Approved branching probabilities",
+        "Conditional-event labels",
+        "Target event and calculation"
+      ],
+      "beats": [
+        "Reveal the first branching level with outgoing probabilities.",
+        "Extend a selected path and multiply its conditional probabilities.",
+        "Combine the appropriate terminal paths and hold the target event probability."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange a probability tree from left to right with enough space for conditional labels. Reveal one branching level at a time, checking that each outgoing set sums to one. Follow a selected path with a moving marker while its probability is multiplied in a separate calculation strip. Then highlight the mutually exclusive terminal paths that belong to the target event and sum those results. Finish with the entire tree and calculation visible, keeping conditional and unconditional probabilities distinctly labeled. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each outgoing branch set sums to one within stated precision.",
+        "Path calculations multiply the correct conditional probabilities.",
+        "Only the appropriate mutually exclusive outcomes are summed."
+      ],
+      "avoid": [
+        "Assuming independence when probabilities are conditional",
+        "Adding probabilities along one path"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-06",
+      "category": "education",
+      "title": "Reveal Sentence Structure with Nested Brackets",
+      "tags": [
+        "grammar",
+        "syntax",
+        "language-learning"
+      ],
+      "runtime": "HTML/SVG + GSAP",
+      "objective": "Make the grouping of a supplied sentence visible without changing its wording.",
+      "inputs": [
+        "Approved sentence",
+        "Teacher-reviewed constituent analysis",
+        "Target language and grammatical terminology"
+      ],
+      "beats": [
+        "Set the complete sentence in a readable line.",
+        "Grow brackets around small constituents, then combine them into larger groups.",
+        "Hold the full nesting with one selected phrase expanded in a labeled rail."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Typeset the exact supplied sentence with generous spacing and preserve its word order. Build small brackets under the teacher-reviewed constituents, then extend higher-level brackets to reveal how those groups combine. Animate one level at a time so the learner can follow the nesting. Use a side rail for terminology instead of placing every label over the sentence. End with the complete sentence, its structure and one selected phrase's role readable together. Preserve punctuation and language-specific character shaping. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every word and punctuation mark matches the approved sentence.",
+        "Bracket spans match the teacher-reviewed analysis.",
+        "Labels describe grouping without implying that all languages share identical structure."
+      ],
+      "avoid": [
+        "Rewriting the sentence to fit the diagram",
+        "Presenting an unreviewed grammatical interpretation as settled fact"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-07",
+      "category": "education",
+      "title": "Balance a Reaction with Atom Tokens",
+      "tags": [
+        "chemistry",
+        "stoichiometry",
+        "conservation"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Explain conservation of each element when balancing an approved chemical equation.",
+      "inputs": [
+        "Teacher-approved reactants and products",
+        "Correct integer coefficients",
+        "Atom-color legend and notation"
+      ],
+      "beats": [
+        "Display reactant and product molecule groups with an element count ledger.",
+        "Adjust whole-molecule counts according to the approved coefficient sequence.",
+        "Connect equal element totals and hold the balanced equation."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place reactants and products on opposite sides of a reaction arrow. Draw molecules as labeled atom groups using a persistent element legend. Keep a count ledger below each side. Add or remove complete molecule instances as the approved coefficients change, updating each element's total. Use subtle matching pulses between equal ledger rows to explain conservation. End with the balanced symbolic equation and final counts. Describe this as bookkeeping for the reaction, not a literal depiction of molecular collision dynamics. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every molecule retains its correct internal atom count.",
+        "Final element totals agree on both sides.",
+        "Only coefficients change; chemical subscripts stay fixed."
+      ],
+      "avoid": [
+        "Changing subscripts to force balance",
+        "Implying atom tokens demonstrate the real reaction mechanism"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-08",
+      "category": "education",
+      "title": "Measure Elapsed Time Across an Hour Boundary",
+      "tags": [
+        "time",
+        "clock",
+        "elapsed-duration"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Connect movement on a clock to a linear elapsed-time calculation.",
+      "inputs": [
+        "Start and end times",
+        "Clock convention and day-boundary status",
+        "Approved elapsed-time breakdown"
+      ],
+      "beats": [
+        "Set the start time on a clock and a aligned linear timeline.",
+        "Move to the next hour boundary, then continue to the end time.",
+        "Hold the two intervals and their sum beside the final clock."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place an analog clock beside a linear timeline, with a digital time label below each. Start from the supplied time. Advance the hands and timeline cursor together, first to the next whole-hour boundary and then to the end time. Show each interval as a separately labeled span before combining them. Keep hour-hand motion continuous rather than jumping between numerals. Finish with start, end and elapsed duration readable, including a day change when the supplied example crosses midnight. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Clock hands and digital labels agree at every checkpoint.",
+        "The interval sum equals the supplied elapsed duration.",
+        "Midnight or noon crossings are labeled under the chosen convention."
+      ],
+      "avoid": [
+        "Treating clock-face angle as a complete duration across multiple rotations",
+        "Leaving the hour hand fixed while minutes advance"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-09",
+      "category": "education",
+      "title": "Dissect a Shape to Explain Area",
+      "tags": [
+        "geometry",
+        "area",
+        "dissection"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Demonstrate an area relationship through rigid movement of conserved pieces.",
+      "inputs": [
+        "Approved source polygon and dimensions",
+        "Valid dissection pieces",
+        "Target arrangement and exact area statement"
+      ],
+      "beats": [
+        "Outline the original shape and mark the cutting boundaries.",
+        "Separate the pieces slightly, then translate or rotate them into the target arrangement.",
+        "Hold source outline and reconstructed target with matching dimensions and area."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Center the supplied polygon and show its approved dimensions. Reveal the valid cutting boundaries before separating the pieces by a small distance. Move each piece through rigid translations or rotations into the supplied target arrangement, keeping its identity and area unchanged. Leave a faint source outline as a spatial reference. End with the reconstructed shape, aligned dimension markers and exact area statement. Keep cuts and joins visible long enough for a learner to reconstruct the argument without relying on narration. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The pieces conserve total area and retain their geometry.",
+        "The target arrangement has no overlaps or unexplained gaps.",
+        "Dimensions support the exact stated area relationship."
+      ],
+      "avoid": [
+        "Stretching pieces during rearrangement",
+        "Using perspective that hides gaps or overlaps"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-EDUCATION-10",
+      "category": "education",
+      "title": "Compare Event Order with Historical Duration",
+      "tags": [
+        "timeline",
+        "history",
+        "scale-literacy"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show the difference between an ordered list of events and a time-proportional timeline.",
+      "inputs": [
+        "Verified event dates or ranges",
+        "Approved event labels and sources",
+        "Calendar convention and uncertainty markers"
+      ],
+      "beats": [
+        "Present events as equally spaced cards in chronological order.",
+        "Slide those cards to their date-proportional positions on a fixed time axis.",
+        "Hold compressed clusters and long gaps with callouts explaining the scale."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Begin with a row of equally spaced event cards labeled with the supplied dates. Introduce a time axis underneath and move each card to its correct date-proportional position. Use leader lines when events cluster so labels remain legible without changing the dates. Represent uncertain ranges as spans rather than precise points. End on the full time scale, calling attention to one long gap and one dense period. Preserve source notes and the chosen calendar convention in a readable footer. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Event positions follow the declared time scale.",
+        "Uncertain dates remain visibly uncertain.",
+        "Label collision handling does not alter chronological positions."
+      ],
+      "avoid": [
+        "Presenting equal card spacing as equal elapsed time",
+        "Inventing exact dates from broad historical ranges"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "category": "data",
+  "entries": [
+    {
+      "id": "FC-DATA-01",
+      "category": "data",
+      "title": "Reconcile a Total with a Waterfall",
+      "tags": [
+        "waterfall",
+        "accounting",
+        "signed-values"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show exactly how signed contributions connect an opening balance to a closing balance.",
+      "inputs": [
+        "Opening and closing values",
+        "Ordered signed contributions with units",
+        "Approved labels and source note"
+      ],
+      "beats": [
+        "Establish the opening total and fixed zero axis.",
+        "Attach each signed contribution to the preceding subtotal with a thin connector.",
+        "Resolve the final subtotal into the closing column and hold the reconciliation."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Build an SVG waterfall on a quiet plotting field, with values aligned to a single vertical scale and a reserved footer for units. Reveal the opening column first. Each contribution travels from its label into its exact additive or subtractive position while a connector preserves the running balance. Show the cumulative number only after its column settles. Finish by aligning the computed result with the supplied closing total; visibly flag any mismatch instead of forcing agreement. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The displayed arithmetic reconciles or explicitly reports the discrepancy.",
+        "Negative contributions descend from the correct subtotal.",
+        "All value labels remain readable during the final hold."
+      ],
+      "avoid": [
+        "Starting every contribution from zero",
+        "Changing the axis range between contributions"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-02",
+      "category": "data",
+      "title": "Unfold a Forecast Fan",
+      "tags": [
+        "forecast",
+        "uncertainty",
+        "time-series"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Distinguish observed measurements from increasingly uncertain projections.",
+      "inputs": [
+        "Observed series",
+        "Projection horizon and median",
+        "Ordered interval bounds and interval labels"
+      ],
+      "beats": [
+        "Draw observations until the forecast boundary.",
+        "Advance the projected median while nested interval ribbons open behind it.",
+        "Hold the whole horizon with a clear observed/projected boundary and legend."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place a time series in the upper two thirds of the frame and a compact interval legend below. Draw measured values as a solid path, ending at an explicit forecast boundary. Continue with a visually distinct median and reveal nested uncertainty ribbons from that boundary toward the horizon. Each ribbon uses supplied bounds rather than decorative expansion. Keep the camera still while the fan opens. End on the full range with the last observed value, horizon and interval meanings simultaneously readable. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The observed and projected portions are distinguishable without relying only on color.",
+        "Nested intervals use their supplied bounds in the correct order.",
+        "The forecast boundary and interval labels survive the smallest requested format."
+      ],
+      "avoid": [
+        "Presenting an interval as a guaranteed outcome",
+        "Animating bounds through impossible crossings"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-03",
+      "category": "data",
+      "title": "Read a Cohort Heatmap Diagonally",
+      "tags": [
+        "cohort",
+        "heatmap",
+        "retention"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Explain the difference between cohort age and calendar time.",
+      "inputs": [
+        "Cohort matrix with missing-value markers",
+        "Row and column definitions",
+        "Locked color scale and selected cohort"
+      ],
+      "beats": [
+        "Establish cohort rows and elapsed-period columns.",
+        "Sweep one cohort horizontally, then illuminate a calendar-time diagonal.",
+        "Return to the full matrix with the selected readings labeled."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use Canvas for a cohort matrix and SVG for crisp labels. Reserve equal space for row names, elapsed-period headings and the numeric legend. First introduce one row so the viewer follows a cohort aging from left to right. Then sweep a diagonal to show a shared calendar period across different cohorts. Give missing cells a separate hatch or neutral mark, never a zero color. Finish with both reading directions annotated and the complete matrix held still for comparison. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Calendar diagonals match the supplied cohort dates.",
+        "Missing values remain distinct from numerical zero.",
+        "The scale remains unchanged across all highlighted readings."
+      ],
+      "avoid": [
+        "Interpolating missing observations into invented values",
+        "Recoloring each cohort against a different scale"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-04",
+      "category": "data",
+      "title": "Balance a Flow Split",
+      "tags": [
+        "sankey",
+        "flow",
+        "conservation"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Make branching quantities readable while conserving the total at every junction.",
+      "inputs": [
+        "Directed flow graph",
+        "Edge quantities in one compatible unit",
+        "Node labels and imbalance policy"
+      ],
+      "beats": [
+        "Reveal the source width and its total.",
+        "Divide the ribbon at one junction at a time while showing outgoing quantities.",
+        "Hold all destinations with a conservation check at each junction."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange a supplied acyclic flow graph from left to right with generous gutters between stages. Encode quantity through ribbon width on one global scale. Introduce the source as a single ribbon, then reveal its branches sequentially so the viewer can follow where the total goes. Show a small subtotal at each split before advancing downstream. Route labels outside ribbons. End with the complete flow and explicit residual nodes wherever the supplied quantities do not balance. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Each junction balances or exposes a labeled residual.",
+        "Ribbon width uses one scale throughout the graph.",
+        "Labels stay outside crossing or densely packed ribbons."
+      ],
+      "avoid": [
+        "Decorative ribbon widths unrelated to values",
+        "Hiding losses to create visual symmetry"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-05",
+      "category": "data",
+      "title": "Rebin a Histogram Without Losing Samples",
+      "tags": [
+        "histogram",
+        "binning",
+        "distribution"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Reveal how bin width changes the appearance of the same observations.",
+      "inputs": [
+        "Raw observations or approved weighted samples",
+        "Two binning schemes",
+        "Fixed axis domain and unit"
+      ],
+      "beats": [
+        "Place sample marks over the fixed measurement axis.",
+        "Collect the marks into the first set of bins.",
+        "Move boundaries to the second scheme, redistribute the same marks and hold both summaries."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Put a measurement axis across the lower half and a narrow sample strip above it. Represent the supplied observations as stable identities with deterministic stacking. Let each mark drop into its first bin, growing the bar by the correct count. Next slide the bin boundaries and redistribute those same marks into a second histogram without changing the measurement domain. Preserve a small first-pass outline for comparison. End with sample count, bin width and both interpretations visible. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The sample count or summed weights stay constant.",
+        "Observations on bin boundaries follow one documented inclusion rule.",
+        "The two summaries share the same measurement scale."
+      ],
+      "avoid": [
+        "Creating new samples during redistribution",
+        "Changing both binning and axis domain at once"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-06",
+      "category": "data",
+      "title": "Compare Paired Change with a Slopegraph",
+      "tags": [
+        "slopegraph",
+        "paired-change",
+        "ranking"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Show individual paired changes without confusing rank with magnitude.",
+      "inputs": [
+        "Matched entities at two times",
+        "Comparable values and units",
+        "Approved label priority"
+      ],
+      "beats": [
+        "Lay out the two fixed time axes and initial values.",
+        "Connect each entity to its second value while keeping identity visible.",
+        "Emphasize selected increases and decreases, then hold the complete comparison."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Create two vertical value axes separated by an open central gutter. Place each entity at its first value, then draw a direct connector toward its matching second value. Keep the numeric scale identical on both sides. Introduce connectors in an order that minimizes simultaneous crossings; dim settled lines rather than removing them. Use a label rail for crowded endpoints and keep identity attached during any label adjustment. Finish with the selected changes annotated and all comparison lines available in context. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Every connector joins the same entity at both times.",
+        "Endpoint positions use an identical value scale.",
+        "Collision handling moves labels without moving data points."
+      ],
+      "avoid": [
+        "Sorting endpoints independently without identity tracking",
+        "Using line angle as an unlabelled measure of percentage change"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-07",
+      "category": "data",
+      "title": "Follow Identical Points Through a Scatter Shift",
+      "tags": [
+        "scatterplot",
+        "identity",
+        "paired-data"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Compare two measurements of the same entities while preserving individual identity.",
+      "inputs": [
+        "Paired x/y coordinates with stable IDs",
+        "Axis units and domains",
+        "Selected entities and annotation text"
+      ],
+      "beats": [
+        "Establish the first scatter and highlight a few named entities.",
+        "Move each point to its second coordinates with a faint start-position trail.",
+        "Clear motion trails selectively and hold final positions beside a compact change key."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Set a scatterplot inside a fixed rectangular frame with persistent axis labels and units. Give every supplied entity a stable identity and reserve a side rail for a few selected names. Display the first measurement, then move points to their second measurement along simple straight trajectories, leaving faint start markers. Stagger selected annotations so crossing paths remain intelligible. End with final positions and an explicit key distinguishing observed change from the illustrative path between measurements; avoid causal language. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Stable IDs connect the correct coordinate pairs.",
+        "Axes remain fixed during the shift.",
+        "The trajectory key makes interpolation distinct from measured intermediate values."
+      ],
+      "avoid": [
+        "Suggesting causation from simultaneous movement",
+        "Replacing entity identity with random point reassignment"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-08",
+      "category": "data",
+      "title": "Divide a Treemap by Measured Area",
+      "tags": [
+        "treemap",
+        "hierarchy",
+        "area"
+      ],
+      "runtime": "SVG + GSAP",
+      "objective": "Expose a hierarchy through proportional partitioning of a fixed whole.",
+      "inputs": [
+        "Positive leaf weights",
+        "Parent-child hierarchy",
+        "Approved label thresholds and units"
+      ],
+      "beats": [
+        "Show the bounding rectangle as the full total.",
+        "Partition one hierarchy level at a time, retaining the parent boundary.",
+        "Hold leaves with selected parent outlines and an area legend."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Place one large rectangle at the center, with the total and unit outside its boundary. Subdivide it according to the supplied hierarchy and weights, revealing one level at a time. Child rectangles emerge inside their actual parent rather than flying from unrelated screen positions. Keep parent outlines visible until the next level is understood. Omit in-cell labels below a defined readable size and list those items in a keyed rail. End on a stable partition whose areas sum to the full rectangle. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Leaf areas are proportional to the supplied positive weights.",
+        "Every child remains inside the correct parent.",
+        "Small items remain identifiable through the keyed rail."
+      ],
+      "avoid": [
+        "Treating negative weights as areas",
+        "Scaling each parent independently and implying a shared global area"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-09",
+      "category": "data",
+      "title": "Locate Quantiles Along a Distribution",
+      "tags": [
+        "quantiles",
+        "boxplot",
+        "distribution"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Show how median and quartiles arise from ordered observations.",
+      "inputs": [
+        "Ordered observations",
+        "Chosen quantile convention",
+        "Approved sample and summary labels"
+      ],
+      "beats": [
+        "Arrange observations along a measurement axis.",
+        "Sweep cumulative count and stop at the selected quantile positions.",
+        "Lift the quartile markers into a compact box summary while retaining the observations."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Arrange supplied observations on a fixed measurement axis with a deterministic vertical stack for repeated values. Move a cumulative-count cursor through the ordered samples, pausing at the first quartile, median and third quartile under the chosen convention. Add markers without shifting the samples. Build a box summary in a separate aligned lane, connecting its edges to those markers. End with both raw distribution and summary visible, including the sample count and the named quantile convention. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "Quantile locations match the selected calculation convention.",
+        "Repeated values retain their correct multiplicity.",
+        "The box summary aligns exactly with the raw-data axis."
+      ],
+      "avoid": [
+        "Assuming one quantile convention is universal",
+        "Inventing whisker endpoints without a stated rule"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    },
+    {
+      "id": "FC-DATA-10",
+      "category": "data",
+      "title": "Reveal Communities by Reordering a Matrix",
+      "tags": [
+        "network",
+        "adjacency-matrix",
+        "permutation"
+      ],
+      "runtime": "Canvas + SVG",
+      "objective": "Show how node order reveals structure without changing relationships.",
+      "inputs": [
+        "Adjacency matrix with stable node IDs",
+        "Initial and target permutations",
+        "Directed or undirected relationship definition"
+      ],
+      "beats": [
+        "Display the matrix in its original order.",
+        "Move row and column identities through the same visible permutation.",
+        "Highlight resulting blocks and hold the unchanged relationship count."
+      ],
+      "prompt_text": "Follow the existing approved contract; if absent, propose one before implementation. Make duration, aspect ratio and FPS configurable. Use a square adjacency matrix with row and column identity rails. Establish the original order and show the number of relationships. Animate a supplied permutation by moving labeled rows and corresponding columns in staged swaps, preserving the identity of each relationship. For an undirected graph, keep the visual symmetry legible during each completed swap. Once the target order is reached, outline the emerging blocks without claiming that proximity proves community membership. End on the reordered matrix with its original relationship count. Wait for fonts and supplied assets. Derive state from integer frames on one timeline; seed randomness. Perform actual playback and acceptance review only when authorized, and mark unperformed QA NOT VERIFIED.",
+      "acceptance": [
+        "The permutation preserves all node IDs and relationships.",
+        "Undirected data remains symmetric at completed reorder checkpoints.",
+        "Highlighted blocks are described as visual structure unless community labels are supplied."
+      ],
+      "avoid": [
+        "Adding edges to make clusters look stronger",
+        "Reordering rows without the corresponding column permutation"
+      ],
+      "prompt_origin": "framecore_original",
+      "verification": "not_run",
+      "rights": "FrameCore original; repository license"
+    }
+  ]
+}
