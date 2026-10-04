@@ -1,0 +1,73 @@
+{
+  "version": "1.10.0",
+  "date": "2026-10-04",
+  "hosted_release_id": "pluginrel_6ac2a3a713d88191939b5d9f073a3d3f",
+  "method": "Fresh browser conversations using the installed plugin through the @ selector. Startup sent as bare invocation before any source diagnostic.",
+  "clients": [
+    {
+      "client": "ordinary ChatGPT, Chrome",
+      "reasoning": "Bardzo wysoki, 4 of 5; unchanged",
+      "model_id": "not exposed in observed selector",
+      "startup": {
+        "status": "PASS_OBSERVED",
+        "six_capability_bullets": true,
+        "qualifications_and_optional_materials": true,
+        "options": [
+          1,
+          2
+        ],
+        "third_option": false
+      },
+      "follow_up": {
+        "kind": "Read-only version and library probe",
+        "reported_version": "1.10.0",
+        "blueprint": "FC-TYPOGRAPHY-02",
+        "title": "Shared letter hinge",
+        "origin": "framecore_original",
+        "verification": "not_run",
+        "criteria_match_local": true,
+        "status": "PASS_OBSERVED"
+      }
+    },
+    {
+      "client": "ChatGPT Work, Chrome",
+      "reasoning": "Bardzo wysoki, 4 of 6; fast mode off; unchanged",
+      "model_id": "not exposed in observed selector",
+      "startup": {
+        "status": "PASS_OBSERVED_CONTENT",
+        "six_capability_bullets": true,
+        "qualifications_and_optional_materials": true,
+        "options": [
+          1,
+          2
+        ],
+        "third_option": false,
+        "verbatim_fidelity": "PARTIAL: colon/comma punctuation substitutions, as previously observed in 1.9.4"
+      },
+      "follow_up": {
+        "kind": "Read-only version and library probe",
+        "reported_version": "1.10.0",
+        "blueprint": "FC-DATA-04",
+        "title": "Balance a Flow Split",
+        "origin": "framecore_original",
+        "verification": "not_run",
+        "criteria_match_local": true,
+        "status": "PASS_OBSERVED"
+      }
+    }
+  ],
+  "codex": {
+    "cached_manifest_version": "1.9.4",
+    "current_session_catalog": "1.9.3",
+    "new_release_cache": "not_present_at_final_read",
+    "active_client_behavior": "NOT_OBSERVED",
+    "refresh_attempt": "No managed refresh tool exposed; native Codex UI control is unavailable. No cache copying or duplicate installation.",
+    "boundary": "A saved hosted release does not refresh an existing session automatically."
+  },
+  "planned_suite_execution_count": 0,
+  "limitations": [
+    "No actual generated motion artifact from this release was reviewed.",
+    "No cross-model experiment, Paper runtime or Tone runtime was executed.",
+    "Four targeted host responses do not execute the 199 planned scenarios."
+  ]
+}

@@ -41,6 +41,10 @@
       "command": "python3 scripts/package_release.py",
       "status": "PACKAGED_LOCALLY",
       "files": 838
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
     }
   ],
   "prompt_library": {
@@ -67,8 +71,9 @@
   },
   "plugin_zip_sha256": "14d7d815639db5dab2166d6ff03c3d698a8f91931cebfbe971c89b3237a044a5",
   "cross_model_generation": "not_run",
-  "host_behavior": "pending",
-  "saved_host_readback": "pending",
-  "github_publication": "pending",
-  "evidence_boundary": "169 passing source tests do not establish visual quality, active-client loading or model superiority."
+  "host_behavior": "PASS_OBSERVED_CHAT_AND_WORK_VERSION_AND_LIBRARY; WORK_WELCOME_PUNCTUATION_PARTIAL",
+  "saved_host_readback": "hosted-release-1.10.0.json",
+  "github_publication": "github-publication-1.10.0.json",
+  "evidence_boundary": "169 passing source tests do not establish visual quality, active-client loading or model superiority.",
+  "host_behavior_record": "host-behavior-1.10.0.json"
 }
