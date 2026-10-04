@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.2, 2026-10-04
+
+- Tighten the existing Artifact Guard adaptation after live text probes: restrict exclusions to reported defects and keep uninspected identity findings unverified.
+- Add concise release checks at the three existing retrieval paths; preserve all other runtime owners, menus and budgets.
+- Retain the initial 1.9.1 behavior findings separately from subsequent retests; source availability does not prove consistent instruction adherence.
+
 ## 1.9.1, 2026-10-04
 
 - Selectively adapt Artifact Guard diagnostic knowledge into Image Prompt Architect, Static Graphic Design Creator and Output Critic.

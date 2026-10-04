@@ -30,7 +30,7 @@ Do not generate merely to complete a QA loop. Respect the user's authorized scop
 
 Stop when accepted criteria are met. Repeated failure requires a changed diagnosis or method, not renamed symptoms and more adjectives. Never promise 100% human appearance, conversion or a flawless render.
 
-For suspected repeating microtexture, false detail, face changes after an edit or reference carryover, selectively read [periodic microtexture and preservation](references/periodic-microtexture-and-preservation.md). Keep its diagnosis inside this review and its existing shared repair budget.
+For suspected repeating microtexture, false detail, face changes after an edit or reference carryover, selectively read [periodic microtexture and preservation](references/periodic-microtexture-and-preservation.md). Keep its diagnosis inside this review and its existing shared repair budget. With only a user report, decline unsupported acceptance while keeping pixel/identity findings unverified; describe a possible violation conditionally, not as an observed failure.
 
 ## Applied practice
 

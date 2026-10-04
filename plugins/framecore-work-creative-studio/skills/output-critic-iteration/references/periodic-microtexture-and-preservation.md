@@ -20,7 +20,7 @@ A pattern spanning unrelated materials strengthens suspicion, but a local defect
 
 Dense droplets and sparks are not defective merely because they form bright clusters. A fabric repeat may be essential. A checkerboard visible behind an image may belong to a transparency viewer; establish whether it is in the actual file before prescribing an edit. Enlarging a thumbnail does not establish native-pixel inspection.
 
-If no output is visible, discuss prompt risk or the user's report. Keep image-review status unverified.
+If no output is visible, discuss prompt risk or the user's report. Keep image-review status unverified. Decline acceptance when a critical property is unverified, but do not label the unseen image's identity or edit scope as an observed failure. State conditionally that confirmed identity drift would fail; request the source/result pair only if actual comparison is part of the requested task.
 
 ## Preserve the person as well as the surface
 
@@ -41,6 +41,8 @@ If an essential source is missing, keep identity preservation unverified and req
 ## Compile one relevant correction
 
 Keep the existing brief and source bindings. Describe the desired material locally: where detail belongs, how it follows form, and what scale is appropriate. Add a narrow exclusion only when justified by the task. Do not concatenate an anti-artifact suffix with an existing equivalent constraint.
+
+Before returning the prompt, remove exclusions for patterns or defects not identified by the brief or available evidence. A reported diagonal micro-lattice does not justify adding bans on halftone, honeycomb, herringbone, all geometry or all repeating detail. If its location is unknown, target only that unwanted tonal structure without inventing an affected region. Use one concise correction clause where sufficient; the complete scene prompt can retain its necessary detail.
 
 Keep required scene complexity. Reducing foliage, droplets, fabric pattern, person count or protected detail is a brief change requiring the user's choice. Do not silently use simplification as proof of repair.
 

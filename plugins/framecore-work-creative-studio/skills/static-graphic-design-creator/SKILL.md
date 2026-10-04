@@ -41,7 +41,7 @@ For substantive static work, read the mandatory shared [Research Evidence](../re
 
 The source bundle and its release metadata are part of this plugin, so static-design users do not need to install another plugin or fetch the upstream repository. See [source provenance](source-provenance.json). The original source's own licence and all third-party rights stay distinct from this combined plugin's other materials.
 
-For an artifact-specific prompt or observed unwanted repetition, false detail or face changes after an edit, use [periodic microtexture and preservation](../output-critic-iteration/references/periodic-microtexture-and-preservation.md) within this integrated static workflow. Preserve its single intake and shared repair budget; intentional patterns and stylization remain protected.
+For an artifact-specific prompt or observed unwanted repetition, false detail or face changes after an edit, use [periodic microtexture and preservation](../output-critic-iteration/references/periodic-microtexture-and-preservation.md) within this integrated static workflow. Preserve its single intake and shared repair budget; intentional patterns and stylization remain protected. Before returning an artifact-prevention prompt, remove exclusions for unreported patterns rather than expanding the correction into a blacklist.
 
 ## Shared workflow authority
 

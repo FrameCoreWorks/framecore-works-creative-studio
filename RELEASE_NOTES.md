@@ -1,4 +1,4 @@
-# Creative Studio 1.9.1
+# Creative Studio 1.9.2
 
 Existing image owners gain conditional Artifact Guard knowledge for periodic microtexture, false detail, intentional patterns and preview ambiguity. A small material-specific prompt correction can be proposed while preserving the approved scene, exact copy, identity and required detail.
 
@@ -7,3 +7,5 @@ Review keeps photographic plausibility and source preservation separate and comp
 The complete welcome, 37 skill identities, motion/teacher/ad modules, upstream sources and provider boundaries are preserved. The adaptation adds no dependencies, cleaner, provider or additional QA stage. [Provenance](plugins/framecore-work-creative-studio/integrations/artifact-guard/README.md) records the pinned source and owner authorization.
 
 See [release status](RELEASE_STATUS.md) for observed verification and publication evidence. Instruction/source checks do not demonstrate image-quality improvement; controlled visual effectiveness remains unmeasured.
+
+Version 1.9.2 tightens the conditional instructions after initial host probes expanded exclusions and overstated an unseen identity finding. See release evidence for original outcomes and retest limits.

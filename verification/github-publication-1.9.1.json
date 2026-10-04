@@ -1,0 +1,21 @@
+{
+  "version": "1.9.1",
+  "date": "2026-10-04",
+  "source_commit": "8dbdd0387f5312b8c053fcdb8bcc342ec5e8cd45",
+  "tag": "v1.9.1",
+  "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.9.1",
+  "draft": false,
+  "workflow": {
+    "id": 37214117212,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/37214117212"
+  },
+  "plugin_archive": {
+    "name": "framecore-work-creative-studio-1.9.1.zip",
+    "sha256": "4ddf742e38b60da158499d123c92bc61f3aaf9892fa60250b0534a1a7cf0546b",
+    "github_asset_digest": "sha256:4ddf742e38b60da158499d123c92bc61f3aaf9892fa60250b0534a1a7cf0546b",
+    "matches_local": true
+  },
+  "asset_count": 5
+}

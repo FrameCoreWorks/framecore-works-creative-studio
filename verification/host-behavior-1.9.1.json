@@ -1,0 +1,55 @@
+{
+  "version": "1.9.1",
+  "date": "2026-10-04",
+  "client": "Ordinary ChatGPT in Chrome, temporary chats, Chat (not Work)",
+  "reasoning": "Extra High, 4 of 5 as displayed; backend model identifier not exposed",
+  "saved_release_id": "pluginrel_6ac27458aa9c81919fa5078093388f0d",
+  "method": "Manual UI observation of synthetic text-only requests. Personalized mode and normal account instructions remained active. Parent judged responses. No image generation.",
+  "cases": [
+    {
+      "id": "startup_pl",
+      "input": "Bare Studio mention selected from @ picker",
+      "result": "PASS_OBSERVED",
+      "observed": "Full Polish introduction, six capability bullets, tools/optional-input qualifications, three numbered choices including code motion."
+    },
+    {
+      "id": "forest_followup",
+      "input": "Chcę gotowy prompt po polsku, bez generowania obrazu. Scena: gęsty las sosnowy z wodospadem i podświetlonymi kroplami, zachowaj całe bogactwo igieł i kropel. W poprzednim wyniku zauważyłem drobną ukośną trójkątno-rombową mikrosiatkę. Nie załączam tamtego obrazu. Przygotuj tylko kompletny prompt do następnej próby.",
+      "result": "FAIL_NARROW_EXCLUSION",
+      "observed": "Retained needles/droplets, returned Polish prompt, no image generated. Expanded correction into a broad blacklist.",
+      "response_excerpt": "Nie twórz drobnej ukośnej siatki, rombów, trójkątów, kratek, diagonalnego crosshatchingu, tessellacji, wzoru typu herringbone, plastra miodu, screen-door pattern",
+      "context": "Follow-up after bare startup; no renewed mention."
+    },
+    {
+      "id": "forest_direct",
+      "input": "Same forest request with explicit Studio mention in a fresh temporary chat",
+      "result": "FAIL_NARROW_EXCLUSION",
+      "response_excerpt": "Brak ukośnej siatki, trójkątnej siatki, rombowej siatki, wzoru kratowego, struktury komórkowej, powtarzalnych geometrycznych mikroelementów, regularnego crosshatchingu, halftonu",
+      "observed": "Detail retained but correction again over-expanded. This reduces confidence that only missing renewed invocation explains the first failure."
+    },
+    {
+      "id": "reference_diagnostic",
+      "input": "Explicitly request actual read of periodic-microtexture-and-preservation.md, first sentence and exclusion rule; no web search or image generation.",
+      "result": "EXACT_EXCERPTS_MATCHED",
+      "observed": "Host supplied the exact first sentence and narrow-exclusion rule. This is a diagnostic probe, not an ordinary activation test; no tool trace was captured."
+    },
+    {
+      "id": "unseen_identity_report",
+      "input": "Oceń tylko sytuację, bez generowania i bez naprawy: zleciłem zmianę koloru kurtki na zdjęciu. Skóra po edycji wygląda naturalnie, ale twarz przypomina inną osobę. Nie załączam oryginału ani wyniku. Czy można już zaakceptować ten wynik jako poprawny?",
+      "result": "PARTIAL",
+      "observed": "Correctly declined acceptance and acknowledged missing originals/results, but categorical identity/edit-scope fail labels overstated the unverified report.",
+      "response_excerpts": [
+        "nie mogę samodzielnie zweryfikować skali zmiany",
+        "zachowanie tożsamości: fail",
+        "zgodność z zakresem edycji: fail"
+      ]
+    }
+  ],
+  "decision": "Targeted 1.9.2 clarification in the same reference and three retrieval paragraphs; retain failures, then retest. No broad workflow rewrite.",
+  "limitations": [
+    "No controlled visual benchmark",
+    "No measured artifact cure rate",
+    "Not the 199 planned host-fixture suite",
+    "Root cause of all host instruction adherence failures not established"
+  ]
+}

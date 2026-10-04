@@ -1,0 +1,159 @@
+{
+  "version": "1.9.1",
+  "date": "2026-10-04",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "source_commit": "8dbdd0387f5312b8c053fcdb8bcc342ec5e8cd45",
+  "previous_release_id": "pluginrel_6ac23c81685481918c6e04e52baae976",
+  "release_id": "pluginrel_6ac27458aa9c81919fa5078093388f0d",
+  "saved": "UPDATED",
+  "inventory": {
+    "paths": 808,
+    "paths_equal": true,
+    "sizes_equal": true
+  },
+  "text_readback": {
+    "compared": 796,
+    "equal": 796,
+    "mismatches": []
+  },
+  "all_changed_files_byte_equal": true,
+  "changed_files": [
+    {
+      "path": ".codex-plugin/plugin.json",
+      "equal": true,
+      "sha256": "abccdf15c5ffa76eb6903b40e698cd7b54ad0d34d0d5824b7a4141cb70cf478f"
+    },
+    {
+      "path": "NOTICE",
+      "equal": true,
+      "sha256": "68baf163396a58a6ab24454249420d140ddf11d1d8642df92324d36aad38ebf4"
+    },
+    {
+      "path": "README.md",
+      "equal": true,
+      "sha256": "1e38fc8a75af02559e9165e0edd6b004c0358ca86bac6586c3aee947b3d92d1f"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "equal": true,
+      "sha256": "bdfb8fa2df8922d117d4b82e8527504b5d3922b0df4255a02ac1bd237e836bee"
+    },
+    {
+      "path": "docs/release-history.md",
+      "equal": true,
+      "sha256": "4c6bbe257b9c357066b561d77b220fb53ea9ac1c4f077773db4148fed3c13f86"
+    },
+    {
+      "path": "integrations/artifact-guard/README.md",
+      "equal": true,
+      "sha256": "9da4997e1b57b0fd9ec5522050f09c944bc83086433f40c5b7a6c83d611c2f53"
+    },
+    {
+      "path": "plugin.json",
+      "equal": true,
+      "sha256": "0d8d16591d5b8233cdcd6fb5f640927ff90eab47c863e171df8b4437f008daa9"
+    },
+    {
+      "path": "skills/image-prompt-architect/SKILL.md",
+      "equal": true,
+      "sha256": "f9e240819510c5ee79c37a9adde733f75ea0eff9b37d5e77d40b93b0be99dfda"
+    },
+    {
+      "path": "skills/output-critic-iteration/SKILL.md",
+      "equal": true,
+      "sha256": "8c2ec20755fc5fafd32291c1bd5e31ea2da8d6510de836656349c70d14621bb8"
+    },
+    {
+      "path": "skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md",
+      "equal": true,
+      "sha256": "ac2f0977326e52b9dc99a79bc552b6c9cd6448e2e4fbc5e46d9a9ce3be3e32dd"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/SKILL.md",
+      "equal": true,
+      "sha256": "e206dd87698625ab5acc994f04a6009b4e3af10d1acf4152a9a55f0eaa70bda8"
+    }
+  ],
+  "archive_readback": {
+    "status": "UNAVAILABLE",
+    "http": 403
+  },
+  "unread_files": [
+    {
+      "path": "assets/logo.png",
+      "size_bytes": 1603136,
+      "expected_source_sha256": "3af68fe37c368e0a87c7189c6f2f94769f3e2bbe9ed22a99b5d4f9f8de355aa4",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "evals/static-cases.json",
+      "size_bytes": 96290,
+      "expected_source_sha256": "cfe699841fc0c72cf83edf2828cae5adb68b869280cd569e79979897b6fbd2eb",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "size_bytes": 138877,
+      "expected_source_sha256": "d193b35f5a0d57dcde3195635a8f1bd1b6585457ca415d0b8c9e740751422a3b",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "size_bytes": 70529,
+      "expected_source_sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "size_bytes": 2378951,
+      "expected_source_sha256": "d151c08b9e7ad7cd930c1282a3644c4bf4d2a063c60e31133a3033fe18166693",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "size_bytes": 221290,
+      "expected_source_sha256": "50186dff82b5a6613301434cc67aeff1a1f4cff8cf607926d6b0d8b2db7e6ad9",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "size_bytes": 3064074,
+      "expected_source_sha256": "42aad7cd568277d1690030f7b2d6e055469b8df76f2dcc321a19379175b0904d",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "size_bytes": 87462,
+      "expected_source_sha256": "1826b902ccb8defd5745ec582a992fb655aaf12a682a663008dc50657c771497",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "size_bytes": 70529,
+      "expected_source_sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+      "size_bytes": 151821,
+      "expected_source_sha256": "b445abdc8394a8b29f7d09265f88e2654246576227b4cb9f24d30357eb756877",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "size_bytes": 70529,
+      "expected_source_sha256": "bd83b741b49dbdb11d8b3aac375e1cb2f8b1cb44b61e5cf90fede3ea604f9af2",
+      "changed_in_this_release": false
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "size_bytes": 74021,
+      "expected_source_sha256": "ca2cbc5978c03a6aeff551a72a561e0b5fc74e7fbed3917cf93246ba34b83349",
+      "changed_in_this_release": false
+    }
+  ],
+  "full_package_byte_parity": "UNVERIFIED_FOR_12_UNREAD_FILES",
+  "note": "All unread files are unchanged from the guarded baseline and omitted from the overlay. Path/size equality does not establish their byte equality."
+}

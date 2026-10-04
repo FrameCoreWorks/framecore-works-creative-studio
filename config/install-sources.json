@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2283,
-      "sha256": "abccdf15c5ffa76eb6903b40e698cd7b54ad0d34d0d5824b7a4141cb70cf478f"
+      "sha256": "c04408de43d8dbc4d98fcb65f33a6076e4f1b50ccadcafb568f62ed2cfd324bf"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 16096,
-      "sha256": "1e38fc8a75af02559e9165e0edd6b004c0358ca86bac6586c3aee947b3d92d1f"
+      "sha256": "1c2508fe66b1ee9b5875b3b67394a97e101c929a55680ce8541fb2a2ffa949a5"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13882,
-      "sha256": "bdfb8fa2df8922d117d4b82e8527504b5d3922b0df4255a02ac1bd237e836bee"
+      "sha256": "c36929be7533f6eb855377810e240683522e80becda73bdc6b376654b0ec1918"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 35510,
-      "sha256": "4c6bbe257b9c357066b561d77b220fb53ea9ac1c4f077773db4148fed3c13f86"
+      "bytes": 35969,
+      "sha256": "e010ce80def330db5080c9a0a06ff68eb36a9fc59eed778cef41361bff13c645"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2234,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2406,
-      "sha256": "0d8d16591d5b8233cdcd6fb5f640927ff90eab47c863e171df8b4437f008daa9"
+      "sha256": "826d9c9fa8b9762f18b42f4e4736952a52125d8ae9227e71088a3ebe4f0c4eff"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2973,8 +2973,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 7788,
-      "sha256": "f9e240819510c5ee79c37a9adde733f75ea0eff9b37d5e77d40b93b0be99dfda"
+      "bytes": 7922,
+      "sha256": "b6cd321d49b204170c1db09d367ce7f0177f3aa3aa4928ba1f36e984da7030bb"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -3083,8 +3083,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 6181,
-      "sha256": "8c2ec20755fc5fafd32291c1bd5e31ea2da8d6510de836656349c70d14621bb8"
+      "bytes": 6360,
+      "sha256": "844b00b5f4a4913d0066b5265596a36d5621a11c686d1a2c488f81b7293830dd"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -3123,8 +3123,8 @@
     },
     {
       "path": "skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md",
-      "bytes": 6276,
-      "sha256": "ac2f0977326e52b9dc99a79bc552b6c9cd6448e2e4fbc5e46d9a9ce3be3e32dd"
+      "bytes": 7048,
+      "sha256": "25c530d5cec362adcf35ff10c46acfe325b71ebd320fdda8b4b0fc12eaa01b1a"
     },
     {
       "path": "skills/output-critic-iteration/references/review-and-repair.md",
@@ -3453,8 +3453,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 9905,
-      "sha256": "e206dd87698625ab5acc994f04a6009b4e3af10d1acf4152a9a55f0eaa70bda8"
+      "bytes": 10050,
+      "sha256": "b8531050abb94ed79c9d8f733a25b100525c54efdc734798ff682519f4021bd5"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
