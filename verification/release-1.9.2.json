@@ -44,10 +44,14 @@
     "scope": "Narrow follow-up source diff only",
     "blocking_findings": []
   },
-  "host_behavior": "PENDING",
+  "host_behavior": "STARTUP_PASS_OBSERVED; FOREST_PARTIAL_IMPROVED; UNSEEN_IDENTITY_PARTIAL",
   "visual_mitigation_benchmark": "NOT_RUN",
   "generation": "NOT_RUN",
   "evidence_boundary": "Structural validity and instruction behavior do not establish image-quality improvement.",
   "prior_host_findings": "host-behavior-1.9.1.json",
-  "plugin_zip_sha256": "04d90ce6963383d2bb438ed41dafbf4e93006fc6f5087ec3e7bba6b68e265eb0"
+  "plugin_zip_sha256": "04d90ce6963383d2bb438ed41dafbf4e93006fc6f5087ec3e7bba6b68e265eb0",
+  "host_behavior_record": "host-behavior-1.9.2.json",
+  "saved_host_readback": "hosted-release-1.9.2.json",
+  "github_publication": "github-publication-1.9.2.json",
+  "codex_client_activation": "UNVERIFIED; existing cache remains 1.9.0"
 }

@@ -1,0 +1,53 @@
+{
+  "version": "1.9.2",
+  "date": "2026-10-04",
+  "client": "Ordinary ChatGPT in Chrome, temporary chats, Chat (not Work)",
+  "reasoning": "Extra High, 4 of 5 as displayed; backend model identifier not exposed",
+  "saved_release_id": "pluginrel_6ac277d2a5d48191a0bab37eedf502bf",
+  "method": "Manual UI observation of synthetic text-only requests after saving 1.9.2. Personalized mode and normal account instructions remained active. Parent judged visible responses; Olga independently assessed the supplied forest summary and full identity response. No image generation or hidden reasoning was inspected.",
+  "cases": [
+    {
+      "id": "startup_pl",
+      "input": "Bare Studio mention selected from @ picker in a fresh temporary chat",
+      "result": "PASS_OBSERVED",
+      "observed": "Full Polish introduction, six capability bullets, tools/optional-input qualifications, three numbered choices including code motion."
+    },
+    {
+      "id": "forest_direct",
+      "input": "Chcę gotowy prompt po polsku, bez generowania obrazu. Scena: gęsty las sosnowy z wodospadem i podświetlonymi kroplami, zachowaj całe bogactwo igieł i kropel. W poprzednim wyniku zauważyłem drobną ukośną trójkątno-rombową mikrosiatkę. Nie załączam tamtego obrazu. Przygotuj tylko kompletny prompt do następnej próby.",
+      "context": "Explicit Studio mention and task in a separate fresh temporary chat; no reference path or evaluation rubric supplied.",
+      "result": "PARTIAL_IMPROVED",
+      "observed": "Returned only a complete Polish prompt, retained needles/droplets and omitted the earlier unrelated honeycomb/herringbone/halftone bans. Correction still expanded to unreported sharpening, microcontrast and detail-noise defects. Length alone is not the failure; unsupported scope expansion remains.",
+      "response_excerpts": [
+        "W szczególności unikaj drobnej ukośnej struktury układającej się w powtarzalne trójkątne lub rombowe komórki, regularnej diagonalnej mikrosiatki oraz powtarzalnego rytmu jasnych i ciemnych mikrowzorów niezależnego od kształtu obiektów.",
+        "Jednocześnie NIE usuwaj ani nie wygładzaj prawdziwego drobnego detalu w celu uniknięcia artefaktów.",
+        "Unikaj nadmiernego wyostrzania, kruchego cyfrowego mikrokontrastu, sztucznie generowanych drobinek oraz jednolitego „szumu detalu” nakładanego na różne materiały."
+      ]
+    },
+    {
+      "id": "unseen_identity_report",
+      "input": "Oceń tylko sytuację, bez generowania i bez naprawy: zleciłem zmianę koloru kurtki na zdjęciu. Skóra po edycji wygląda naturalnie, ale twarz przypomina inną osobę. Nie załączam oryginału ani wyniku. Czy można już zaakceptować ten wynik jako poprawny?",
+      "context": "Follow-up after bare Studio startup; no forced reference read or renewed mention.",
+      "result": "PARTIAL",
+      "acceptance_refusal": "PASS_OBSERVED",
+      "unverified_status": "PARTIAL",
+      "response": "Nie. Na podstawie opisu wynik nie powinien zostać zaakceptowany jako poprawny. Zmiana dotyczyła wyłącznie koloru kurtki, więc twarz i tożsamość osoby powinny pozostać praktycznie niezmienione. Naturalnie wyglądająca skóra nie rekompensuje zmiany rysów twarzy. Jeśli twarz zaczyna przypominać inną osobę, jest to istotne naruszenie identity lock i zakresu edycji. Bez oryginału i wyniku nie mogę ocenić skali odchylenia wizualnie, więc dokładny poziom błędu: Unknown. Jednak według samego opisu kryterium akceptacji nie jest spełnione.",
+      "observed": "Declined acceptance, qualified the assessment as based on the user's report, used conditional drift language and did not claim inspection. Unknown attaches to severity rather than clearly to whether drift occurred; the closing sentence remains ambiguous. Improved over 1.9.1 categorical fail labels, but not a full unverified-status pass."
+    }
+  ],
+  "decision": "Keep the bounded source integration and preserve partial host outcomes. No further patch based on these single retests. Require a repeatable host evaluation before claiming reliable instruction adherence.",
+  "independent_interpretation_review": {
+    "reviewer": "Olga",
+    "forest": "PARTIAL_IMPROVED",
+    "identity": "PARTIAL",
+    "acceptance_refusal": "PASS"
+  },
+  "limitations": [
+    "No controlled visual benchmark or image generation",
+    "No measured artifact mitigation or identity-preservation rate",
+    "No automatic skill-retrieval trace or backend model identifier",
+    "Host responses do not prove which saved revision supplied each instruction",
+    "Personalized account settings and ordinary host behavior can affect results",
+    "Ad hoc probes are separate from the 199 planned host-fixture cases, which remain not_run"
+  ]
+}
