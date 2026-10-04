@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.10.1, 2026-10-04
+
+- Present the existing motion owner as Motion Graphics Workflow while retaining its technical ID, invocation, files and internal handoff types.
+- Clarify that creative area 8 chooses a work area, not HyperFrames or another engine.
+- Select or recommend a runtime from the brief, working project, delivery needs and verified capabilities; Remotion does not require the user to name it first.
+- Preserve all 37 skills, the two-option welcome, motion prompt library, existing approval boundaries and dependencies.
+
 ## 1.10.0, 2026-10-04
 
 - Add a provenance-aware motion library: 120 original blueprints, 172 expressly permitted curator starters and 28 creator link records, with category retrieval and optional local search.

@@ -1,15 +1,10 @@
-# Creative Studio 1.10.0
+# Creative Studio 1.10.1
 
-Motion quality and a large provenance-aware prompt library through the existing motion routes.
+A focused correction to motion graphics naming and runtime selection.
 
-- 120 original blueprints in 12 families, 172 permitted curator starters and 28 link-only creator records.
-- Focused retrieval, Polish search aliases, concrete choreography and observable acceptance criteria.
-- Style-frame planning, motion proof, shared frame/audio score and output inspection.
-- Optional Paper Shaders/Tone Offline adapters, without added installed dependencies.
-- Primary research, five viewing links, rights-aware additional catalogs and controlled evaluation design.
+- The existing `hyperframes-workflow` skill now displays as **Motion Graphics Workflow**. Its technical identity and links remain stable.
+- Choosing creative work area 8 does not select an engine.
+- Runtime recommendations follow the brief, current project, delivery requirements and verified host capabilities. Remotion may be recommended without an explicit tool-name request.
+- HTML/SVG/Canvas/GSAP, HyperFrames, Remotion and specialized toolkit layers retain their existing implementation owners and execution boundaries.
 
-The two-option welcome and Creative / Expanded / Motion area 8 remain unchanged. All 37 skill IDs, other modules, selected model, provider gates and pinned upstream sources are preserved.
-
-Prompt counts are not completed evaluations. The original blueprints are not_run; imported starters are reconstructions. Paper/Tone scheduling is unit-tested with mocks, not a live renderer/audio certification. No controlled Claude/OpenAI quality comparison has been run.
-
-See [development plan](docs/MOTION_GRAPHICS_DEVELOPMENT_PLAN.md), [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+The complete two-option welcome, 320-record library, all 37 skill IDs, internal artifact types and dependencies are preserved. Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

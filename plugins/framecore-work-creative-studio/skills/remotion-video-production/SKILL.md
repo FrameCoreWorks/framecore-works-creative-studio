@@ -25,7 +25,7 @@ Use this skill when:
 - Existing Remotion code needs timing, layout, media, render, or maintainability review.
 - A storyboard or Creative Video Production Pack must become a Remotion implementation contract.
 
-Use `opencut-video-studio` for footage-first timeline editing. Use HyperFrames skills when the requested runtime is specifically HyperFrames or the route is centered on HTML/GSAP composition.
+Use `opencut-video-studio` for footage-first timeline editing. Use [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) for general motion planning and HTML/SVG/Canvas/GSAP composition, including HyperFrames when selected. Remotion may be recommended from project requirements and available capabilities without the user naming it; preserve explicit choices and existing project constraints.
 
 ## Inputs
 

@@ -22,7 +22,7 @@ The inspected repository contains eight skills, schemas and adapter guidance. It
 | Creative DNA / Style Lock | Appropriate visual/video direction owner; recorded in the motion contract |
 | Reference scout | Research Evidence + Reference Pack Curator |
 | Storyboard | Storyboard Sequence Architect |
-| Engine routing and build | Existing HyperFrames Workflow / Remotion Video Production; Tool Routing Cost for actual capabilities |
+| Engine routing and build | Existing Motion Graphics Workflow / Remotion Video Production; Tool Routing Cost for actual capabilities |
 | Audio design | Audio Production Director |
 | Review and delivery | Runtime/domain QA within the shared loop; Delivery Documentation |
 

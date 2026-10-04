@@ -20,6 +20,24 @@ function edit(root, relative, fn) { const p = path.join(root, relative); fs.writ
 function editJson(root, relative, fn) { edit(root, relative, text => { const data = JSON.parse(text); fn(data); return JSON.stringify(data, null, 2) + '\n'; }); }
 const codes = result => (result.canonical ?? result).errors.map(item => item.code);
 
+test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
+  const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
+  const motion = read('skills/hyperframes-workflow/SKILL.md');
+  assert.match(motion, /name: hyperframes-workflow\n/);
+  assert.match(motion, /# Motion Graphics Workflow/);
+  const selection = read('skills/hyperframes-workflow/references/code-based-motion-graphics.md');
+  assert.match(selection, /does not select HyperFrames or any other engine/);
+  assert.match(selection, /Remotion may be recommended/);
+  assert.match(selection, /Preserve the user's explicit runtime choice and an established working project/);
+  const entry = read('skills/workflow-orchestrator/references/startup-and-creative-menus.md');
+  assert.match(entry, /Area `8` selects motion graphics from code, not an engine/);
+  assert.doesNotMatch(entry, /owns an explicitly selected React/);
+  withFixture(root => {
+    edit(root, 'skills/hyperframes-workflow/agents/openai.yaml', text => text.replace('Motion Graphics Workflow', 'HyperFrames Workflow'));
+    assert.ok(codes(validateStudio(root)).includes('SKILL_DISPLAY_NAME'));
+  });
+});
+
 test('canonical validation passes with explicit structural scope and no legacy execution', () => {
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical?.errors));

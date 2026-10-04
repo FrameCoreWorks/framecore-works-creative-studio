@@ -158,6 +158,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.
   const nameSpellings = new Map([['ai', 'AI'], ['ugc', 'UGC'], ['hyperframes', 'HyperFrames'], ['opencut', 'OpenCut']]);
+  const displayOverrides = new Map([['hyperframes-workflow', 'Motion Graphics Workflow']]);
   const displayNames = new Set();
   for (const id of actualOwners) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) fail('SKILL_ID_FORMAT', id);
@@ -169,7 +170,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     const entries = [...(sections[0]?.[1] ?? '').matchAll(/^  display_name:[ \t]*("(?:[^"\\\r\n]|\\[^\r\n])*")[ \t]*$/gm)];
     let title;
     try { if (sections.length === 1 && entries.length === 1) title = JSON.parse(entries[0][1]); } catch { /* invalid scalar fails below */ }
-    const expected = id.split('-').map(word => nameSpellings.get(word) ?? word[0].toUpperCase() + word.slice(1)).join(' ');
+    const expected = displayOverrides.get(id) ?? id.split('-').map(word => nameSpellings.get(word) ?? word[0].toUpperCase() + word.slice(1)).join(' ');
     if (title !== expected) fail('SKILL_DISPLAY_NAME', relative + ': expected interface.display_name ' + JSON.stringify(expected));
     // Included agent metadata also requires a short UI description. Enforce the
     // repository's quoted-scalar format and the 25–64 character authoring range.

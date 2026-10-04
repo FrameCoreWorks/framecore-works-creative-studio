@@ -1,16 +1,16 @@
 ---
 name: hyperframes-workflow
-description: Plan, implement, review or repair code-based motion graphics with HTML, SVG, GSAP or HyperFrames, including approved storyboards, deterministic frame state, local previews, render QA and delivery handoffs.
+description: Plan code-based motion graphics, select a suitable runtime from the brief and host capabilities, implement HTML/SVG/Canvas/GSAP or HyperFrames, and hand React/TypeScript compositions to Remotion Video Production. Includes storyboard, frame timing, preview and render QA.
 ---
 
-# HyperFrames Workflow
+# Motion Graphics Workflow
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
 Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, run the mandatory [Research Evidence](../research-evidence/SKILL.md) preflight; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
-Use this when the output is a coded video composition or HTML-to-video production. This is the single public HyperFrames skill: it covers structure, production brief, implementation prompt, GSAP/timeline notes, captions, overlays, render QA, and delivery handoff.
+Use this for general code-based motion graphics planning and the existing HTML/SVG/Canvas/GSAP implementation route, including HyperFrames when suitable. The technical ID `hyperframes-workflow` is retained for compatibility; it does not select the HyperFrames engine. Present the area as motion graphics from code. For runtime selection, follow the [shared selection policy](references/code-based-motion-graphics.md#runtime-selection). React/TypeScript composition remains with Remotion Video Production.
 
 For motion graphics from code, use the [three-stage motion workflow](references/code-based-motion-graphics.md), [storyboard contract](templates/motion-storyboard-contract.md) and [stage prompts](templates/code-motion-stage-prompts.md). Start at the requested stage and preserve actual approval. The [synthetic frame starter](assets/code-motion-starter/README.md) demonstrates shared preview/SVG-export logic without installing a renderer. Research and upstream attribution are linked from the workflow.
 
@@ -51,7 +51,7 @@ Optional:
 
 ## Outputs
 
-Produce a HyperFrames Production Brief with:
+Produce a motion production brief with the selected or proposed runtime stated explicitly. Preserve the existing `HyperFrames Production Brief` internal handoff type where required for compatibility; this type is not an engine selection or a user-facing restriction. Include:
 
 - scene list and timing
 - composition size and visual hierarchy
@@ -80,9 +80,9 @@ For an authorized build or repair in a capable host, implement the approved cont
 - If scene structure is missing, route to `storyboard-architect`.
 - If copy is not locked, route to `copy-voice` before finalizing captions or visible overlays.
 - If source assets are unclear, route to `asset-manifest` or `reference-curator`.
-- If the request is deterministic React/TypeScript video rather than HyperFrames, consider `remotion-video-production`.
-- Keep coded-video planning provider-neutral and tool-agnostic until the user chooses a runtime.
-- Prefer one integrated HyperFrames brief over separate workflow, prompting, and GSAP handoffs.
+- Route a selected React/TypeScript composition to `remotion-video-production`, including when recommended from the brief rather than named by the user.
+- A work-area choice or this skill name never selects a runtime. Preserve explicit user choices and the working project; otherwise recommend from requirements and verified capabilities.
+- Prefer one integrated motion brief with a justified runtime over separate workflow, prompting, and timing handoffs.
 
 ## Guardrails
 

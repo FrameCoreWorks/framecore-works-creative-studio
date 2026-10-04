@@ -10,7 +10,7 @@ description: Entry owner for a sent bare @FrameCore Works Creative Studio or app
 For questions about the plugin's version or installation status, use this contract in Codex, ChatGPT Work and ordinary ChatGPT before any welcome, research or creative intake. Project progress questions still use the existing checkpoint/resume route.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.10.0"}
+{"name":"framecore-work-creative-studio","version":"1.10.1"}
 <!-- END PACKAGE IDENTITY -->
 
 This block is generated from `plugin.json` during release preparation and checked against both manifests. It identifies this packaged skill revision, not the model, a dependency or the newest release.
@@ -204,7 +204,7 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 | Video project spanning several production stages or edit/cutdown work | [creative-video-producer](../creative-video-producer/SKILL.md) | Shared video production pack and specialist handoffs |
 | Product/offer/channel strategy, proof needs or creative test plan | [ecommerce-campaign-strategy-director](../ecommerce-campaign-strategy-director/SKILL.md) | Campaign strategy before visual/motion direction |
 | Explicit Hipson-style research or review packet | [hipson-adapter](../hipson-adapter/SKILL.md) | Lightweight bounded packet; full Hipson remains separate |
-| Motion graphics from code, HTML/SVG/GSAP or HyperFrames composition | [hyperframes-workflow](../hyperframes-workflow/SKILL.md) | Versioned motion contract, existing-runtime selection, implementation and evidence-bounded review; preserve an explicit Remotion route |
+| Motion graphics from code, runtime undecided or HTML/SVG/Canvas/GSAP/HyperFrames composition | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) | Versioned motion contract and requirement-led runtime selection; preserve existing choices and hand a recommended or requested React/TypeScript route to Remotion Video Production |
 | Bounded delegation or transfer to a named responsibility | [instruction-packet-factory](../instruction-packet-factory/SKILL.md) | Input/output contract, acceptance criteria and stop condition |
 | General campaign positioning or channel planning beyond ecommerce | [marketing](../marketing/SKILL.md) | Supporting marketing plan and asset roles |
 | Footage-first edit or OpenCut timeline plan | [opencut-video-studio](../opencut-video-studio/SKILL.md) | Edit decision list, protected windows and export QA plan |

@@ -1,6 +1,6 @@
 interface:
-  display_name: "HyperFrames Workflow"
-  short_description: "Plan coded video structure, prompts, GSAP timing, and render QA"
+  display_name: "Motion Graphics Workflow"
+  short_description: "Plan coded motion, select tools, build and review animation"
   default_prompt: "Use $hyperframes-workflow to plan this coded video from scene structure through implementation prompt, motion timing, and render QA."
 
 policy:

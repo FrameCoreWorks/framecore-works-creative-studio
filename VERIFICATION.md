@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.10.0
+## Current source: 1.10.1
+
+The [1.10.1 source checks](verification/release-1.10.1.json) pass canonical validation and 170 tests: 131 Node, 12 installer, 4 identity and 23 asset checks. The focused fix retains the `hyperframes-workflow` ID while displaying Motion Graphics Workflow, makes work-area selection independent of engine selection, and allows requirement-led Remotion recommendations. [Scope](verification/scope-1.10.1.json) records 18 changed shared files and 820 byte-identical files. The 320-record library, complete welcome, dependency files and upstream snapshots are unchanged. Publication and actual client behavior are recorded separately in [release status](RELEASE_STATUS.md).
+
+## Previous source: 1.10.0
 
 The [1.10.0 source checks](verification/release-1.10.0.json) pass canonical validation and 169 tests: 130 Node, 12 installer, 4 package identity and 23 asset checks. The nine new Node checks cover score timing, review boundaries, optional adapter scheduling, provenance, retrieval and Polish aliases. The [bounded scope](verification/scope-1.10.0.json) contains 838 package files: 30 added, 14 changed and 794 byte-identical to 1.9.4. Both complete welcome resources, 37 skill identities and vendored snapshots are preserved.
 

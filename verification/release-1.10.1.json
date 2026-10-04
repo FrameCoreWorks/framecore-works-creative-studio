@@ -1,0 +1,53 @@
+{
+  "version": "1.10.1",
+  "date": "2026-10-04",
+  "baseline": "dc6ce351f6e88af66e6f6ad66ac31e870ebeb889",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 838,
+      "owners": 37,
+      "planned_host_cases": 199,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 131
+    },
+    {
+      "command": "TMPDIR=/private/tmp python3 -B -m unittest discover -s tests -p test_codex_install.py -v",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "python3 -B -m unittest discover -s tests -p test_package_identity.py -v",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "python3 -B plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "reviewer": "Oskar",
+    "status": "PASS",
+    "note": "One wording correction applied after review; no blocking findings."
+  },
+  "plugin_zip_sha256": "e21a7c37d3c1fb1a70f475367542856d9f84d2713a18bc277c7a575641d86727",
+  "github_publication": "pending",
+  "saved_host_readback": "pending",
+  "host_behavior": "pending",
+  "boundary": "Source checks do not establish active-client routing or actual rendering. Existing 199 planned cases remain not_run."
+}

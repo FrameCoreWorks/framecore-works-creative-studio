@@ -4,11 +4,19 @@ Use this profile for explicitly requested coded motion graphics, kinetic typogra
 
 For substantive art direction, use [motion quality direction](motion-quality-direction.md) and selectively retrieve the [prompt library](../assets/motion-prompt-library/README.md). Include style frames in the existing storyboard review and a focused motion proof during an authorized build. These refine the current method; they add no owner, separate gate or QA budget.
 
+## Runtime selection
+
+Choosing motion area `8` or loading `hyperframes-workflow` does not select HyperFrames or any other engine. Introduce the work as motion graphics from code; mention a specific engine as selected only when the current contract supports it.
+
+Preserve the user's explicit runtime choice and an established working project. If neither decides the route, recommend the simplest suitable available stack from the brief, visual mechanism, editable-delivery needs, variants, export requirements and verified host capabilities. The user need not name a library. Remotion may be recommended for reusable React/TypeScript compositions and variants; HTML/SVG/Canvas with GSAP may suit lightweight vector or 2D scenes; HyperFrames is one optional HTML-video route. Use the [toolkit decision table](motion-toolkit-routing.md#choose-by-the-required-result) for Three.js/R3F, PixiJS, D3 and other specialized layers.
+
+Before the brief is sufficient, leave the runtime Proposed or Unknown and ask only the next consequential brief question. Do not default to HyperFrames, display a mandatory technical questionnaire, or infer installation from a supported route. Explain the chosen stack briefly when it helps the user understand the deliverable. Keep the existing approval, installation, execution and export boundaries; a recommendation grants none of those permissions.
+
 ## Start at the requested stage
 
 Reuse supplied decisions and inspect accessible assets or the existing project. Identify the latest contract revision and actual approval evidence. A build or repair request with an already approved contract continues there. Do not repeat onboarding, rewrite successful scenes or invent approval.
 
-For an unresolved concept, Brief Architect resolves material brief gaps, the appropriate direction owner defines the visual mechanism, and Storyboard Sequence Architect owns timed scenes. HyperFrames Workflow implements HTML/GSAP or plain seekable HTML/SVG; Remotion Video Production implements React/TypeScript. Creative Video Producer coordinates only when several outputs need it. Audio, copy, references and delivery remain with their existing owners.
+For an unresolved concept, Brief Architect resolves material brief gaps, the appropriate direction owner defines the visual mechanism, and Storyboard Sequence Architect owns timed scenes. Motion Graphics Workflow implements HTML/GSAP or plain seekable HTML/SVG; Remotion Video Production implements React/TypeScript. Creative Video Producer coordinates only when several outputs need it. Audio, copy, references and delivery remain with their existing owners.
 
 Ask only the next consequential missing question under the existing workstyle rules. Learning retains exactly one onboarding question per turn and its exercise/feedback method. Do not import a mandatory grouped questionnaire from an example prompt. A complete brief needs no questionnaire. Optional choices may receive clearly marked proposals; a missing required logo, font or approval blocks only dependent production.
 
@@ -46,7 +54,7 @@ Inspect actual files, runtime versions, scripts and user edits first. Preserve a
 | Need | Existing owner and route |
 | --- | --- |
 | React/TypeScript, reusable props, data-driven variants | Remotion Video Production |
-| HTML/SVG, GSAP timelines or explicit HyperFrames | HyperFrames Workflow |
+| HTML/SVG, GSAP timelines or explicit HyperFrames | Motion Graphics Workflow |
 | Small code demonstration with no dependencies | The local [frame starter](../assets/code-motion-starter/README.md); SVG sequence export is not encoded video |
 | No filesystem, shell or renderer | Complete contract and implementation source when requested, with execution and export marked NOT VERIFIED |
 
