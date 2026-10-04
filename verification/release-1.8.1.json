@@ -46,14 +46,61 @@
     "inventory_equal": 781
   },
   "publication": {
-    "github": "PENDING",
-    "host": "PENDING"
+    "github": {
+      "status": "PUBLISHED",
+      "source_commit": "dd785f433328dd0227cb466dfbf7f70249312787",
+      "tag": "v1.8.1",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.8.1",
+      "release_workflow": {
+        "id": 37195182896,
+        "status": "completed",
+        "conclusion": "success"
+      }
+    },
+    "host": {
+      "status": "SAVED_WITH_BOUNDED_READBACK",
+      "version": "1.8.1",
+      "release_id": "pluginrel_6ac2290f04048191bb607ea071f5c9eb",
+      "report": "hosted-release-1.8.1.json"
+    }
   },
   "active_ordinary_chatgpt": {
-    "status": "NOT_RUN",
-    "client": "Chrome, chatgpt.com",
-    "reasoning_setting": "Unknown",
-    "reason": "Plugin detail page is still loading; capability check pending."
+    "status": "PASS_OBSERVED",
+    "date": "2026-10-04",
+    "client": "Chrome, ordinary chatgpt.com Chat, temporary conversation; not Work",
+    "language": "pl",
+    "reasoning_setting": "Bardzo wysoki, 4 z 5",
+    "model_id": "NOT_EXPOSED_BY_OBSERVED_SELECTOR",
+    "invocation": "Bare invocation of the existing FrameCore Works Creative Studio plugin",
+    "welcome": {
+      "status": "PASS_OBSERVED",
+      "evidence": "Accessibility tree and rendered screenshot show the complete six capability bullets, original options 1/2, new option 3 with scope/tools/availability qualification, and 1/2/3 input instruction.",
+      "raw_markdown_byte_equality": "NOT_MEASURED; source assets and embedded projections were byte-validated separately."
+    },
+    "steps": [
+      {
+        "input": "3",
+        "observed": "Motion graphics z kodu. Wybierz tempo pracy: followed by Tryb szybki and Tryb rozbudowany options.",
+        "result": "PASS_OBSERVED"
+      },
+      {
+        "input": "1",
+        "observed": "Opisz krótko, co chcesz stworzyć w motion graphics. Możesz też od razu wkleić tekst, logo, assety lub referencję. Jeśli masz preferencję techniczną, podaj też: HTML/SVG + GSAP, HyperFrames albo Remotion.",
+        "result": "PASS_OBSERVED",
+        "generic_work_area_menu_repeated": false
+      }
+    ],
+    "scope": "Bounded independent host observation only. The 199 planned evaluation records remain unexecuted. No creative brief, upload, renderer or paid provider was invoked.",
+    "not_run": [
+      "English host welcome",
+      "Creative area 8 live selection",
+      "Explicit learning override live selection",
+      "Runtime retention live selection",
+      "Other reasoning settings or models",
+      "Work",
+      "Codex active reload",
+      "Video render"
+    ]
   },
   "other_active_clients": "NOT_RUN",
   "video_render": "NOT_RUN",
@@ -63,5 +110,6 @@
     "overlay_files": 17,
     "archive_bytes": 9258535,
     "archive_sha256": "0789b2941e70872b6453ba6412e47bc002857ba7bd69601b42f7594f5ea7ba34"
-  }
+  },
+  "source_commit": "dd785f433328dd0227cb466dfbf7f70249312787"
 }

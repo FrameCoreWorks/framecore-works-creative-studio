@@ -1,0 +1,83 @@
+{
+  "version": "1.8.1",
+  "date": "2026-10-04",
+  "source_commit": "dd785f433328dd0227cb466dfbf7f70249312787",
+  "status": "SAVED_WITH_BOUNDED_READBACK",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6ac2290f04048191bb607ea071f5c9eb",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "github_package_files_equal": 781,
+  "host_inventory_files": 781,
+  "host_inventory_equal": true,
+  "host_text_files_bytes_equal": 770,
+  "changed_files_bytes_equal": 17,
+  "differences": [],
+  "full_archive": {
+    "status": "UNAVAILABLE",
+    "http_status": 403
+  },
+  "unread_files": [
+    {
+      "path": "assets/logo.png",
+      "size_bytes": 1603136,
+      "reason": "binary requires archive"
+    },
+    {
+      "path": "evals/static-cases.json",
+      "size_bytes": 96290,
+      "reason": "text exceeds reader file limit"
+    },
+    {
+      "path": "integrations/workflow-kit/source-manifest.json",
+      "size_bytes": 138877,
+      "reason": "text exceeds reader file limit"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.agents/skills/commercial-visual-campaign-director/references/event-poster-design-codes.json",
+      "size_bytes": 70529,
+      "reason": "text exceeds reader file limit"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/readme-banner.png",
+      "size_bytes": 2378951,
+      "reason": "binary requires archive"
+    },
+    {
+      "path": "integrations/workflow-kit/upstream/.github/assets/social-preview.jpg",
+      "size_bytes": 221290,
+      "reason": "binary requires archive"
+    },
+    {
+      "path": "integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz",
+      "size_bytes": 3064074,
+      "reason": "binary requires archive"
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "size_bytes": 87462,
+      "reason": "text exceeds reader file limit"
+    },
+    {
+      "path": "skills/commercial-visual-campaign-director/kit/references/event-poster-design-codes.json",
+      "size_bytes": 70529,
+      "reason": "text exceeds reader file limit"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/upstream/references/event-poster-design-codes.json",
+      "size_bytes": 70529,
+      "reason": "text exceeds reader file limit"
+    },
+    {
+      "path": "tests/package.test.mjs",
+      "size_bytes": 74021,
+      "reason": "text exceeds reader file limit"
+    }
+  ],
+  "preservation": "Only the 17 changed files were uploaded as an overlay. All 11 unread files were unchanged locally and omitted from the update.",
+  "active_client_behavior": {
+    "status": "PASS_OBSERVED",
+    "client": "Ordinary ChatGPT, Polish, temporary conversation",
+    "scope": "Complete welcome and 3 -> quick pace -> motion-specific brief only. See release-1.8.1.json."
+  }
+}
