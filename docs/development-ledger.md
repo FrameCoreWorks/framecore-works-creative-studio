@@ -111,6 +111,6 @@ Decision:
 
 Cross-host state:
 
-- GitHub: pending until pushed
+- GitHub: synchronized; `main` fast-forwarded to `9df70f5` on owner instruction (no release: package unchanged)
 - ChatGPT Work: not affected (no package change)
 - Codex: not affected (no package change)
