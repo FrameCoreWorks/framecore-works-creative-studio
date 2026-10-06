@@ -192,3 +192,26 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `65609d5` on owner instruction; [v1.14.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.14.0) published by workflow 37499901576; 862 blobs and plugin ZIP hash match ([record](../verification/github-publication-1.14.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261006-08
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-08-library-index`
+- Baseline: `f507d82bd20bd1848e556e0e10392b6c0c73ebbe` (main, package 1.14.0)
+- Result: `7ef7be2c78a6e03af66d15eff995c2074c97f432` (package 1.15.0)
+- Package version: 1.14.0 -> 1.15.0
+- Scope: motion prompt library brief index and record-specific objectives for 60 blueprints (motion direction 6)
+- Shared package changed: yes; 17 changed, 1 added, 0 removed ([scope](../verification/scope-1.15.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 145, motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- library validate: 320 entries, 19 brief types, no errors
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
