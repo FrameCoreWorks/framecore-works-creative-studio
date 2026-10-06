@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "15d4f102248a1ed3d23988d6c0bd45ce76a2c9262c6e484dfa28a2ffb0d626fa"
+      "sha256": "f03ac32b7c25f63966d14bff49f8770b74265692aa4ef376869ce6a15a8fdc3a"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 16506,
-      "sha256": "3797ea698d8e7b595e61150c627c1e891fcdadc59840429d98403d363d48e6e2"
+      "sha256": "e3f06eb0608a5eb1544122894ae8c651ee81eebd5e943595f60fc6732886cb41"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "732706b7b05866dd40424222861182531c2a266f02680b648509e2f06f1085a7"
+      "sha256": "5261670da3d641d04f2b863561fe1cbaa12a1e06e5e40b394519ff08b4cc1554"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 40897,
-      "sha256": "b54829da4299f4f4ccdee604380c61af301c8064719bfcad83618c34e4164aa8"
+      "bytes": 41809,
+      "sha256": "367239ff4aaa4c8a6507105b9d818591e05379075cc4a21ec5d9764c0845fba8"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2234,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "d009fc2c5349ccc945a0711b5428d54c3f1171ff14bd2d60acbfee0350924521"
+      "sha256": "bf6e02ae292ef260e0184a64bfa2492c8376f6ce2bd5e9afd561c075b1973b5e"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2293,8 +2293,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 32094,
-      "sha256": "f2ea30e30b5c6342541f9ca3fea1969ab4355c53717bf749e8b456ca5628d846"
+      "bytes": 33326,
+      "sha256": "7ca930be4f7eac75be5ec20b10d773b3071996de30b8fd7a03f96aac1940ad71"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -2393,8 +2393,8 @@
     },
     {
       "path": "skills/brief-architect/SKILL.md",
-      "bytes": 5335,
-      "sha256": "60a95b924935a7559e17d430183b16f932b6af5190432cb13899bcfeed4ef2ba"
+      "bytes": 5407,
+      "sha256": "d45e0bcda069bf4b2fa11092fc47a34712378d9b27edc02125201c91cb07d600"
     },
     {
       "path": "skills/brief-architect/agents/openai.yaml",
@@ -2718,8 +2718,8 @@
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
-      "bytes": 8221,
-      "sha256": "7c2da1c65ed07a550f991d80efce85e74bf61f60bb3152e86f92047c90c54deb"
+      "bytes": 8281,
+      "sha256": "3a298a42b203393685bd529b600e44b6cc467a42a111cac9227320407808c3fe"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
@@ -2773,8 +2773,8 @@
     },
     {
       "path": "skills/hipson-adapter/SKILL.md",
-      "bytes": 4307,
-      "sha256": "164e46784ea8d1ccd7c35761979a2539b4a99ad31f10e7fe96b4f395429f573f"
+      "bytes": 4342,
+      "sha256": "3b934bdd80c5c8a81c5f2f1db8a700b2f841de83cff4792963cc51a8b7707a03"
     },
     {
       "path": "skills/hipson-adapter/agents/openai.yaml",
@@ -3193,8 +3193,8 @@
     },
     {
       "path": "skills/instruction-packet-factory/SKILL.md",
-      "bytes": 4329,
-      "sha256": "a91c49a614fdd0d135f984a890346da38af301b05eb7f26199147bf1aa466916"
+      "bytes": 4470,
+      "sha256": "8736893c99dcc9613a945ccd00bda214748f09d34fc5e5b05f77f092e493b9a0"
     },
     {
       "path": "skills/instruction-packet-factory/agents/openai.yaml",
@@ -3203,8 +3203,8 @@
     },
     {
       "path": "skills/marketing/SKILL.md",
-      "bytes": 5456,
-      "sha256": "d86c0054a2abf7e7c0006029df20017948d55f23b8145d341e1108d9e5068bea"
+      "bytes": 5549,
+      "sha256": "f44828859a407ccf29da8e4dc6aea16cef2a5bdf8beee5b47c95089052f40bd2"
     },
     {
       "path": "skills/marketing/agents/openai.yaml",
@@ -3278,8 +3278,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 18679,
-      "sha256": "0496b85346c5d0d54120aa2812de8b33996600c3d5db76c90f6211210ea95262"
+      "bytes": 18766,
+      "sha256": "d16981393c623e3371fafc9857e5e02b6dedeeb8c15c51ec1730c6096339fb6e"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -3413,8 +3413,8 @@
     },
     {
       "path": "skills/producer-ai-task-builder/agents/openai.yaml",
-      "bytes": 132,
-      "sha256": "e34281a25854b8d833274cf0371fc449b68d2a35f15d2d9ca5bc926c41d111e2"
+      "bytes": 176,
+      "sha256": "10f6314e21db9126d0c2159e8c91a0c180860502bec6ece5abc3b9de03b20566"
     },
     {
       "path": "skills/producer-ai-task-builder/references/audio-arrangement-vo-and-mix-workbook.md",
@@ -3893,8 +3893,8 @@
     },
     {
       "path": "skills/storytelling/SKILL.md",
-      "bytes": 4343,
-      "sha256": "35f6ef3f68923c01a4ba1550510e8a149b5635dee4d9c39b5f571d18e05eb618"
+      "bytes": 4546,
+      "sha256": "d6267039035c120d7d2479a147f7e829f65a718115f4f57efe3f072549036ca2"
     },
     {
       "path": "skills/storytelling/agents/openai.yaml",
@@ -4019,7 +4019,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 29255,
-      "sha256": "5494d9e2fb498232c6cddd8fbdec956df1fff52fcee87455422f0f355f48d029"
+      "sha256": "c31eed2b9b3d49dd6cf91d765d01fea8a345bf507187203f1e9201df742fe093"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4238,8 +4238,8 @@
     },
     {
       "path": "tests/studio.test.mjs",
-      "bytes": 25632,
-      "sha256": "eff4b2554b7c1f39523d0d459bd26e3d905ea59950949a23efda2be35f355e58"
+      "bytes": 26469,
+      "sha256": "70b028a230e4de3ddc1cf63a8b9c643bbbe2b7a702f81c763657ee8698a2e8c4"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

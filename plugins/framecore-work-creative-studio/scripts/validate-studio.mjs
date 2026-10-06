@@ -185,6 +185,16 @@ export function validateStudio(root, {legacy = false} = {}) {
       displayNames.add(title);
     }
   }
+  // Overlapping owners must name their neighbor in the catalog description, and the
+  // legacy audio alias stays explicit-only so it never competes with its replacement.
+  const descriptionOf = id => (texts.get('skills/' + id + '/SKILL.md') ?? '').match(/^description:\s*(.+)$/m)?.[1] ?? '';
+  for (const [id, neighbors] of [['storytelling', ['Screenplay Story Architect', 'Storyboard Sequence Architect']], ['marketing', ['Ecommerce Campaign Strategy Director']], ['ecommerce-campaign-strategy-director', ['Marketing']], ['instruction-packet-factory', ['Brief Architect', 'Hipson Adapter']], ['hipson-adapter', ['Instruction Packet Factory']], ['brief-architect', ['Instruction Packet Factory']], ['pipeline-core', ['Workflow Orchestrator']]]) {
+    for (const neighbor of neighbors) if (!descriptionOf(id).includes(neighbor)) fail('ROUTING_BOUNDARY', id + ' -> ' + neighbor);
+  }
+  for (const id of ['producer-ai-task-builder', 'hipson-adapter', 'workflow-self-improvement']) {
+    const metadata = files.includes('skills/' + id + '/agents/openai.yaml') ? read('skills/' + id + '/agents/openai.yaml') : '';
+    if (!/^policy:\r?\n  allow_implicit_invocation: false[ \t]*$/m.test(metadata)) fail('EXPLICIT_ONLY_POLICY', id);
+  }
   const routing = texts.get('skills/workflow-orchestrator/SKILL.md') ?? '';
   const identityBegin = '<!-- BEGIN PACKAGE IDENTITY -->', identityEnd = '<!-- END PACKAGE IDENTITY -->';
   const start = routing.indexOf(identityBegin), end = routing.indexOf(identityEnd);

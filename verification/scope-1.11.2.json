@@ -1,0 +1,44 @@
+{
+  "version": "1.11.2",
+  "baseline": "3abbd6dc5ad509c2f9dc1500fe0c41da380a433c",
+  "change_id": "CC-20261006-03",
+  "origin": "cloud-code",
+  "files": 840,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/brief-architect/SKILL.md",
+    "skills/ecommerce-campaign-strategy-director/SKILL.md",
+    "skills/hipson-adapter/SKILL.md",
+    "skills/instruction-packet-factory/SKILL.md",
+    "skills/marketing/SKILL.md",
+    "skills/pipeline-core/SKILL.md",
+    "skills/producer-ai-task-builder/agents/openai.yaml",
+    "skills/storytelling/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 824,
+  "added": [],
+  "removed": [],
+  "invocation": {
+    "implicit_before": 35,
+    "implicit_after": 34,
+    "explicit_only_after": [
+      "hipson-adapter",
+      "producer-ai-task-builder",
+      "workflow-self-improvement"
+    ],
+    "implicit_description_chars_before": 9134,
+    "implicit_description_chars_after": 9644
+  },
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

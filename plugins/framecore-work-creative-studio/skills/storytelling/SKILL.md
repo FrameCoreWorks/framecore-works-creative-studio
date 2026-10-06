@@ -1,6 +1,6 @@
 ---
 name: storytelling
-description: Use this skill for provider-neutral narrative structure, story beats, emotional arcs, scene logic, continuity, and multi-shot workflows.
+description: 'Supporting narrative logic for other Studio owners: story beats, emotional arcs, scene logic and continuity checks across multi-shot work. Use when a campaign, video or sequence owner needs structure support; authored stories, scenes and scripts go to Screenplay Story Architect, and timed shot cards go to Storyboard Sequence Architect.'
 ---
 
 # Storytelling

@@ -163,6 +163,21 @@ test('compact entry keeps its budget and the moved rare-path rules', () => {
   });
 });
 
+test('overlapping owners name their neighbors and explicit-only owners stay explicit', () => {
+  withFixture(root => {
+    edit(root, 'skills/storytelling/SKILL.md', text => text.replace('Screenplay Story Architect', 'another owner'));
+    assert.ok(codes(validateStudio(root)).includes('ROUTING_BOUNDARY'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/producer-ai-task-builder/agents/openai.yaml', text => text.replace('allow_implicit_invocation: false', 'allow_implicit_invocation: true'));
+    assert.ok(codes(validateStudio(root)).includes('EXPLICIT_ONLY_POLICY'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/hipson-adapter/agents/openai.yaml', text => text.replace(/\npolicy:\n  allow_implicit_invocation: false\n?/, '\n'));
+    assert.ok(codes(validateStudio(root)).includes('EXPLICIT_ONLY_POLICY'));
+  });
+});
+
 test('every routed specialist appears in at least one orchestrator table route', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8'));
   assert.equal(registry.owners.length, 37);

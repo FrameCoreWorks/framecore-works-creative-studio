@@ -1,3 +1,6 @@
 interface:
   display_name: "Producer AI Task Builder"
   short_description: "Route legacy audio tasks to Audio Production Director."
+
+policy:
+  allow_implicit_invocation: false

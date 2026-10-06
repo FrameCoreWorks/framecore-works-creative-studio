@@ -1,6 +1,6 @@
 ---
 name: marketing
-description: Use this skill for brand strategy and positioning, audience and offer foundations, values and voice principles, or provider-neutral campaign planning, asset matrices, channel adaptation, launch kits and campaign QA. Brand visual systems and logo execution stay with Static Graphic Design Creator.
+description: 'Use for brand strategy and positioning, audience and offer foundations, values and voice principles, and general campaign or channel planning, asset matrices and launch kits without a commerce goal. Product, store, PDP, marketplace or paid-social sales campaigns go to Ecommerce Campaign Strategy Director; brand visual systems and logo execution stay with Static Graphic Design Creator.'
 ---
 
 # Marketing

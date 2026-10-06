@@ -1,6 +1,6 @@
 ---
 name: hipson-adapter
-description: Use this skill for lightweight Hipson-style research maps, internet mapping packets, bounded instruction packets, review packets, and execution packets. Full Hipson is optional and maintained at https://github.com/Hipson47/Hipson.git.
+description: 'Explicit-only adapter for lightweight Hipson-format research maps, internet mapping packets and review or execution packets. General delegation packets go to Instruction Packet Factory. Full Hipson is optional and maintained at https://github.com/Hipson47/Hipson.git.'
 ---
 
 # Hipson Adapter

@@ -1,10 +1,9 @@
-# Creative Studio 1.11.1
+# Creative Studio 1.11.2
 
-A smaller Studio entry with the same behavior.
+Clearer skill selection between owners with overlapping topics.
 
-- The main `workflow-orchestrator` instructions are about a quarter shorter, and the catalog description is under 400 characters, so hosts read less before answering.
-- Startup is unchanged: the same complete welcome in the user's language, the same Creative/Learning choice, pace and work-area menus, and direct handling of concrete tasks and resume requests.
-- Detailed version reporting and rare routing cases moved into two linked references; the entry keeps a compact rule and says when to read them.
-- All 37 skill IDs, routes and the conditional research gate from 1.11.0 are preserved.
+- Skills whose topics overlap now say in their catalog description which neighbor handles the other case: story structure vs written screenplay vs timed shot cards, general marketing vs ecommerce sales campaigns, briefs vs delegation packets vs Hipson-format packets, and the shared operating contract vs the Studio entry.
+- The legacy Producer AI Task Builder alias is no longer offered automatically; Audio Production Director handles new audio work. Calling the alias explicitly still works.
+- Startup, the complete welcome, all 37 skill IDs and the route tables are unchanged.
 
 Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

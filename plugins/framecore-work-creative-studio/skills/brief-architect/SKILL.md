@@ -1,6 +1,6 @@
 ---
 name: brief-architect
-description: Use this skill to convert messy notes, user requests, source material, and scattered constraints into a structured Brief Contract for a Codex or ChatGPT workflow.
+description: 'Use to convert messy notes, user requests, source material and scattered constraints into a structured Brief Contract before creative work starts. Delegation packets for another agent or environment go to Instruction Packet Factory.'
 ---
 
 # Brief Architect

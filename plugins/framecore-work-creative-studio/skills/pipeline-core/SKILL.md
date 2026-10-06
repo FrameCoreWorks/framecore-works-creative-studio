@@ -1,6 +1,6 @@
 ---
 name: pipeline-core
-description: Use this skill for portable Codex or ChatGPT workflow routing, bounded roles, gates, handoffs, visible state, artifact templates, reasoning routes, request diagnostics, QA loops, delivery discipline, and provider-neutral governance.
+description: 'Shared Studio operating contract used by other owners: project state, bounded roles, gates, handoffs, artifact templates, reasoning routes, QA loops and delivery discipline. Use directly for workflow state, recovery, gate or governance questions; creative requests and Studio startup begin with Workflow Orchestrator.'
 ---
 
 # Pipeline Core

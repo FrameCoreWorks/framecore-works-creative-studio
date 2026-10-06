@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.11.1
+## Current source: 1.11.2
+
+The [1.11.2 source checks](verification/release-1.11.2.json) pass canonical validation and 192 tests: 136 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The legacy audio alias is explicit-only and seven overlapping owners name their neighbors in catalog descriptions; new checks guard both. Automatically available owners drop from 35 to 34 while their combined descriptions grow from 9,134 to 9,644 characters. [Scope](verification/scope-1.11.2.json) records 16 changed shared files out of 840. Host behavior is not run.
+
+## Previous source: 1.11.1
 
 The [1.11.1 source checks](verification/release-1.11.1.json) pass canonical validation and 191 tests: 135 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The `workflow-orchestrator` entry shrinks from 38,834 to 29,255 bytes and its description from about 800 to 397 characters. The welcome excerpts, language policy and route rows are byte-identical; the full version procedure and rare routing boundaries moved verbatim to two linked references, guarded by a new budget and reference check. [Scope](verification/scope-1.11.1.json) records 8 changed and 2 added shared files out of 840. Host behavior is not run.
 

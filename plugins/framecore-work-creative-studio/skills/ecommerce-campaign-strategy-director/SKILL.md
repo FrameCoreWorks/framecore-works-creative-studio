@@ -1,6 +1,6 @@
 ---
 name: ecommerce-campaign-strategy-director
-description: Use this skill to turn product, service, brand, store, PDP, marketplace, landing-page, paid-social, UGC, or launch briefs into an evidence-aware ecommerce campaign strategy before creative direction, prompting, generation, or delivery.
+description: 'Use to turn a product, service, store, PDP, marketplace, landing-page, paid-social, UGC or product-launch brief into an evidence-aware sales campaign strategy before creative direction, prompting, generation or delivery. Brand foundations and campaigns without a commerce goal go to Marketing.'
 ---
 
 # Ecommerce Campaign Strategy Director

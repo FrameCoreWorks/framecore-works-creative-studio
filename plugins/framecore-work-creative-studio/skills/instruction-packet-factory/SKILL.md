@@ -1,6 +1,6 @@
 ---
 name: instruction-packet-factory
-description: Use this skill to create bounded instruction packets, research maps, internet mapping packets, review packets, and execution packets for role-based workflow agents.
+description: 'Use when a task must be handed to another responsibility, agent or environment as a bounded packet with an input/output contract, acceptance criteria and stop condition. Messy notes that need a structured brief go to Brief Architect; Hipson-format research maps go to Hipson Adapter on explicit request.'
 ---
 
 # Instruction Packet Factory

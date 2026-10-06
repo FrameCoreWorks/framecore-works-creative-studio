@@ -1,0 +1,68 @@
+{
+  "version": "1.11.2",
+  "date": "2026-10-06",
+  "baseline": "3abbd6dc5ad509c2f9dc1500fe0c41da380a433c",
+  "change_id": "CC-20261006-03",
+  "origin": "cloud-code",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 840,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 136
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 9
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "c24e8aa42f1f7d1f29faca08e8a0a28cf08abdc3167147e52cf9ec57c73d9da2",
+  "policy_source": "openai/codex codex-rs/skills/src/assets/samples/skill-creator/references/openai_yaml.md, read 2026-10-06: false means not injected by default but still explicitly invocable; default true.",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks do not establish that hosts select the intended owner or hide the alias from their catalog. All 201 planned cases remain not_run."
+}
