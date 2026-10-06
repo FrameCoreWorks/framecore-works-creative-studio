@@ -261,3 +261,26 @@ Cross-host state:
 - GitHub: pending (committed locally; not pushed)
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261006-11
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-11-formats` (stacked on the unpushed CC-20261006-10 branch)
+- Baseline: `659f31f95aba386a6d253f3fe881dce881930cf1` (CC-20261006-10 head, package 1.17.0)
+- Result: `e5e2ee3ef6b4774d07c398b5694dda4155eb29eb` (package 1.18.0)
+- Package version: 1.17.0 -> 1.18.0
+- Scope: output formats in the motion contract (16:9, 9:16, 1:1 from one timeline) and true-size review screenshots (motion direction 9, second round)
+- Shared package changed: yes; 25 changed, 0 added, 0 removed ([scope](../verification/scope-1.18.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 150 (+1 opt-in browser test passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- container: starter reviewed in three formats without findings; base format pixel-identical to 1.17.0; preview and Remotion stills pixel-identical per format; no full per-format video render
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
