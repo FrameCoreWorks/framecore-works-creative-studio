@@ -60,7 +60,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "78feeda1384996e783b3cde639b5f3531d4471a9faf63bfa4019b617a7a9a44f",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.11.1.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks confirm byte-identical welcome blocks, language policy and route rows; they do not establish that hosts load the shorter entry or behave identically. All 201 planned cases remain not_run."
