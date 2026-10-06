@@ -88,3 +88,29 @@ Notes:
 
 - Not changed on purpose: pipeline-core, asset-manifest, instruction-packet-factory and storytelling stay automatically available. All 36 other owners read pipeline-core references, and host access to files of a non-injected skill is unverified.
 - Prior evidence: the dev.31 host catalog listed 35 entries and hid the two explicit-only owners ([migration status](../plugins/framecore-work-creative-studio/docs/migration-status.md)).
+
+## CC-20261006-04
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-04-no-delete-rule`
+- Baseline: `d48e05280eafdd6e036b223db38498f727d8ab6a` (main, package 1.11.2)
+- Package version: unchanged (1.11.2)
+- Scope: record the no-delete constraint of ChatGPT Work plugin updates in `AGENTS.md` (roadmap item 5 outcome)
+- Shared package changed: no
+
+Evidence (owner-run Plugin Creator diagnostic in ChatGPT Work, 2026-10-06, reported to Cloud Code):
+
+- existing plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, saved version 1.11.1, current release `pluginrel_6ac4e07da2508191b1627b6f53b82f21`
+- `update_plugin` documentation: "This tool cannot delete files"; archive updates overlay the current release and keep omitted files; no full-replacement parameter
+- full file listing: 840 files, 394 under `integrations/workflow-kit/upstream/`
+
+Decision:
+
+- Keep `integrations/workflow-kit` unchanged (option 1 of the roadmap item 5 analysis). Removing the 4.36 MB expanded mirror would leave its 394 files in the hosted plugin and break inventory parity without reducing hosted size.
+- Retire package files only by stubbing in place; never delete, rename or move package paths.
+
+Cross-host state:
+
+- GitHub: pending until pushed
+- ChatGPT Work: not affected (no package change)
+- Codex: not affected (no package change)
