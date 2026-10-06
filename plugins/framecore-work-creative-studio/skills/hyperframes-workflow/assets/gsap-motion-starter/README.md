@@ -4,7 +4,7 @@ An original, synthetic starter for the HTML route of the [Motion Graphics Workfl
 
 ## Same contract as the Remotion starter
 
-[`motion-score.json`](motion-score.json) is identical to the [Remotion kinetic type starter](../../../remotion-video-production/assets/kinetic-type-starter/README.md) contract: 1920 × 1080, 30 FPS, N = 300 frames, three scenes, readable holds, exact copy, tokens and motion values from [motion craft](../../references/motion-craft.md). The same storyboard can therefore be implemented in either runtime and reviewed against the same frames. `check-score.mjs` validates the contract without dependencies.
+[`motion-score.json`](motion-score.json) is identical to the [Remotion kinetic type starter](../../../remotion-video-production/assets/kinetic-type-starter/README.md) contract: 1920 × 1080, 30 FPS, N = 300 frames, three scenes, readable holds, exact copy, tokens and motion values from [motion craft](../../references/motion-craft.md). The same storyboard can therefore be implemented in either runtime and reviewed against the same frames. `check-score.mjs` validates the contract without dependencies and prints it as a storyboard with `npm run storyboard`; see [motion contract JSON](../../references/motion-contract-json.md).
 
 ## How it stays deterministic
 
@@ -20,6 +20,7 @@ Copy this folder to a new authorized project outside the installed plugin. Requi
 ```sh
 npm ci
 npm run check
+npm run storyboard
 npm run preview
 ```
 

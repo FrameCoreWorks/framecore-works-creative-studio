@@ -20,7 +20,7 @@ For an unresolved concept, Brief Architect resolves material brief gaps, the app
 
 Ask only the next consequential missing question under the existing workstyle rules. Learning retains exactly one onboarding question per turn and its exercise/feedback method. Do not import a mandatory grouped questionnaire from an example prompt. A complete brief needs no questionnaire. Optional choices may receive clearly marked proposals; a missing required logo, font or approval blocks only dependent production.
 
-Keep three states explicit: Confirmed, Proposed and Unknown. Use [the contract template](../templates/motion-storyboard-contract.md). The three [stage prompts](../templates/code-motion-stage-prompts.md) are optional instruction packets, not a forced sequence for every small repair.
+Keep three states explicit: Confirmed, Proposed and Unknown. Use [the contract template](../templates/motion-storyboard-contract.md) as the checklist and keep the contract itself in one [motion contract JSON](motion-contract-json.md) file that the storyboard view, runtimes and review share. The three [stage prompts](../templates/code-motion-stage-prompts.md) are optional instruction packets, not a forced sequence for every small repair.
 
 ## 1. Brief, concept and storyboard
 

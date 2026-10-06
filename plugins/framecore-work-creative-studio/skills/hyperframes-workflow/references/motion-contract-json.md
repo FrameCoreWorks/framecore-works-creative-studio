@@ -1,0 +1,52 @@
+# Motion contract JSON
+
+One file, `motion-score.json`, carries the storyboard, the approval state and the technical timeline. The same file is presented to the user as a storyboard, approved, read by the runtime starters and the single-file preview, and used for review. This replaces keeping a Markdown storyboard and a separate code timeline in sync by hand. The Markdown [storyboard contract](../templates/motion-storyboard-contract.md) remains the full field checklist and the human-readable view.
+
+## Lifecycle
+
+1. **Draft.** Write the contract with `approval.status: "proposed"`. Keep unknown brand decisions in `decisions.unknown` and proposals in `decisions.proposed`.
+2. **Present.** Show the storyboard as a table. In a shell-capable host run `node check-score.mjs motion-score.json --markdown`; elsewhere render the same table in the reply. Do not show raw JSON to a non-technical user unless asked.
+3. **Approve.** On the user's explicit approval set `approval.status: "approved"`, `approval.revision` to the current `revision`, and `approval.evidence` to where and when approval was given. Any change to copy, locks, timing or concept increments `revision`, which invalidates the old approval for the affected decisions.
+4. **Check.** `node check-score.mjs motion-score.json --storyboard` requires a complete storyboard; without the flag it checks timeline, copy references and reading holds only.
+5. **Build and review.** Runtimes read the same file. Review compares the output with `acceptance`, scene `acceptance` and the readable holds.
+
+## Fields
+
+Top level:
+
+| Field | Meaning |
+| --- | --- |
+| `schema_version`, `id`, `revision` | Format version, contract ID and its current revision |
+| `approval` | `{status, revision, evidence}`; status is `proposed`, `approved`, `blocked` or `example-not-client-approved`; an approved contract needs evidence for its current revision |
+| `stage` | Requested stage: `storyboard`, `build`, `review` or `repair` |
+| `goal`, `audience`, `message`, `concept` | What the film must achieve, for whom, the one message and the communicative mechanism |
+| `runtime` | `{status, value}`; status is `selected`, `proposed` or `unknown`; a work-area choice never selects it |
+| `viewing`, `audio` | Intended viewing size or placement, and the audio plan or intentional silence |
+| `decisions` | `{confirmed, proposed, unknown}` lists keep the three states explicit |
+| `fps`, `totalFrames`, `width`, `height` | Rational FPS `{num, den}`, integer frame count N (frames 0..N-1) and size |
+| `tokens` | Colours, font family and margin ratio used by the code |
+| `motion` | Tempo family, entry/exit frames, staggers, easing names and transition set from [motion craft](motion-craft.md) |
+| `copy`, `copyStatus` | Exact copy by ID, verbatim; `copyStatus` such as `approved`, `proposed` or `illustrative` |
+| `assets` | Asset ledger entries `{id, file, revision, role, authority}`; an empty list when none are used |
+| `acceptance` | At least three observable, concept-specific criteria |
+| `cues` | Optional sound cues `{id, frame, durationFrames, frequency, gainDb}` for the existing sound adapter |
+
+Each scene:
+
+| Field | Meaning |
+| --- | --- |
+| `id`, `purpose` | Stable scene ID and what the scene communicates |
+| `start`, `end` | Master-frame interval `[start, end)`; overlaps are intentional transitions |
+| `copy` | Copy IDs shown in the scene |
+| `holds` | Readable holds `[start, end)` inside the scene |
+| `focalPoint`, `entry`, `action`, `exit` | Where the eye goes and how the scene enters, acts and leaves |
+| `transition`, `persistence`, `audio` | Link to the next scene, what carries over, and the sound cue or silence |
+| `acceptance` | Optional scene-level observable criteria |
+
+The file stays compatible with `validateScore` in [the motion quality helpers](../assets/motion-quality/README.md); extra fields are ignored by runtimes and by that validator.
+
+## Where the tools are
+
+- `check-score.mjs` ships identically in the [Remotion kinetic type starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) and the [GSAP motion starter](../assets/gsap-motion-starter/README.md), with `npm run check` and `npm run storyboard`.
+- The [single-file preview](../assets/single-file-preview/README.md) embeds the same JSON.
+- Without a shell, follow the same field rules by hand and state that the automatic check did not run.

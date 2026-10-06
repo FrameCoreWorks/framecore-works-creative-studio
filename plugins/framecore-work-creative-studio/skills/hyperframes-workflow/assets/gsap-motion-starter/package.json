@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "check": "node check-score.mjs motion-score.json",
+    "storyboard": "node check-score.mjs motion-score.json --markdown",
     "preview": "python3 -m http.server 8767 --bind 127.0.0.1"
   },
   "dependencies": {

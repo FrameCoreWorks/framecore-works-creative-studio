@@ -69,3 +69,25 @@ test('single-file preview stays offline and embeds the shared contract', () => {
     assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('score differs')));
   });
 });
+test('starter contract is a complete storyboard and renders for approval', async () => {
+  const {checkScore, toMarkdown} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
+  assert.deepEqual(checkScore(score, {storyboard: true}), {errors: [], warnings: []});
+  const markdown = toMarkdown(score);
+  assert.match(markdown, /\| title: State the idea/);
+  assert.match(markdown, /\[205,300\)/);
+  assert.match(markdown, /## Acceptance criteria/);
+});
+test('storyboard check rejects incomplete scenes and unsupported approval', async () => {
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
+  const missing = structuredClone(score); delete missing.scenes[1].focalPoint; missing.acceptance = ['one'];
+  const found = checkScore(missing, {storyboard: true}).errors.join('\n');
+  assert.match(found, /steps: storyboard field focalPoint/);
+  assert.match(found, /three observable acceptance criteria/);
+  assert.deepEqual(checkScore(missing).errors, []);
+  const approved = structuredClone(score); approved.approval = {status: 'approved', revision: 1, evidence: null};
+  assert.ok(checkScore(approved).errors.some(error => error.includes('approval evidence')));
+  const stale = structuredClone(score); stale.revision = 2; stale.approval = {status: 'approved', revision: 1, evidence: 'Owner approval in chat'};
+  assert.ok(checkScore(stale).errors.some(error => error.includes('current revision')));
+});

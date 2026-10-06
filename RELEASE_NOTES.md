@@ -1,9 +1,9 @@
-# Creative Studio 1.13.0
+# Creative Studio 1.14.0
 
-Watch motion designs without installing anything.
+One motion contract from storyboard to finished animation.
 
-- When Studio works where it cannot render video, such as ordinary ChatGPT, it now delivers a single HTML file that plays the animation in any browser: save it, double-click it, and use Play, Replay, frame stepping or the slider to review timing and readable holds.
-- The file needs no internet, libraries or server, and it reads the same motion contract as the Remotion and GSAP starters, so the preview and a later video match.
-- It is a preview for review, not a video export; Studio does not claim to have seen it play unless the host actually displayed it.
+- The storyboard, its approval and the technical timeline now live in one file, `motion-score.json`. The same file is shown to you as a storyboard table for approval, drives the Remotion and GSAP starters and the browser preview, and is used for the final review.
+- Approval is tied to a revision: when copy, timing or concept changes, the contract gets a new revision and needs approval again.
+- A dependency-free check prints the storyboard for approval and reports missing storyboard fields, unsupported approvals and holds that are too short to read.
 
-Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome, all 37 skill IDs and the visual output of the starters and preview are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

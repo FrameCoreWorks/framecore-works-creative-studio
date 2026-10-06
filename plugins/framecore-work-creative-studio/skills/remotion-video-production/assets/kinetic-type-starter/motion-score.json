@@ -2,7 +2,35 @@
   "schema_version": 1,
   "id": "kinetic-type-starter",
   "revision": 1,
-  "approval": "example-not-client-approved",
+  "approval": {
+    "status": "example-not-client-approved",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "build",
+  "goal": "Show how a short kinetic typography statement is planned, built and reviewed from one contract",
+  "audience": "Studio users learning code-based motion graphics",
+  "message": "Clear motion starts with one idea",
+  "concept": "Each scene reveals one part of the statement: the idea, the three steps that realize it, and a calm resolved ending",
+  "runtime": {
+    "status": "proposed",
+    "value": "Remotion kinetic type starter or GSAP motion starter; single-file preview where no renderer exists"
+  },
+  "viewing": "16:9 on a laptop or larger screen",
+  "audio": "intentional silence",
+  "decisions": {
+    "confirmed": [
+      "1920 x 1080, 30 FPS, 300 frames",
+      "Exact illustrative copy in the copy ledger"
+    ],
+    "proposed": [
+      "Arial as an illustrative system font",
+      "Accent colour #FF5A36"
+    ],
+    "unknown": [
+      "Final brand font and colours for a real project"
+    ]
+  },
   "fps": {
     "num": 30,
     "den": 1
@@ -41,6 +69,13 @@
     "step-3": "Review",
     "end": "Ready to render"
   },
+  "copyStatus": "illustrative",
+  "assets": [],
+  "acceptance": [
+    "The title is fully readable from frame 24 until its exit begins",
+    "The connector grows at constant speed and reaches the last step before its hold",
+    "The final card is stable and unchanged from frame 230 to frame 299"
+  ],
   "scenes": [
     {
       "id": "title",
@@ -56,6 +91,16 @@
           24,
           117
         ]
+      ],
+      "focalPoint": "First headline line, left aligned on the margin",
+      "entry": "Lines rise from their masks, 6 frames apart",
+      "action": "Hold",
+      "exit": "Fade and lift over the last 10 frames",
+      "transition": "Overlaps the steps entry for 10 frames",
+      "persistence": "None",
+      "audio": "Silence",
+      "acceptance": [
+        "Both lines readable for at least 92 frames"
       ]
     },
     {
@@ -73,6 +118,16 @@
           149,
           205
         ]
+      ],
+      "focalPoint": "The step that is currently entering, then the whole row",
+      "entry": "Items rise and fade in, 8 frames apart",
+      "action": "Connector grows linearly behind the items",
+      "exit": "Fade and lift over the last 10 frames",
+      "transition": "Overlaps the end card for 10 frames",
+      "persistence": "Accent colour continues into the end card rule",
+      "audio": "Silence",
+      "acceptance": [
+        "All three steps readable together for at least 55 frames"
       ]
     },
     {
@@ -88,6 +143,16 @@
           230,
           300
         ]
+      ],
+      "focalPoint": "Centered end statement",
+      "entry": "Fade and settle from 94% scale with ease-out expo",
+      "action": "Accent rule grows under the statement",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Final state holds to frame 299",
+      "audio": "Silence",
+      "acceptance": [
+        "Frame 299 equals the settled end state"
       ]
     }
   ],

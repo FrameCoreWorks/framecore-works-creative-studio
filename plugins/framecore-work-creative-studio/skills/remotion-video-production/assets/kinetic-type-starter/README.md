@@ -27,6 +27,7 @@ Copy this folder to a new authorized project outside the installed plugin before
 ```sh
 npm ci
 npm run check
+npm run storyboard
 npm run typecheck
 npm run still
 npm run render
@@ -36,7 +37,7 @@ npm run render
 
 ## Adapting it
 
-1. Replace copy, tokens and scenes in `motion-score.json` with the approved contract, then run `npm run check`; fix every FAIL and review every WARN.
+1. Replace the storyboard fields, copy, tokens and scenes in `motion-score.json` with the project contract (see [motion contract JSON](../../../hyperframes-workflow/references/motion-contract-json.md)). Run `npm run storyboard` to show it for approval and `node check-score.mjs motion-score.json --storyboard` before building; fix every FAIL and review every WARN.
 2. Keep scene components small and derive every state from the frame. Do not add CSS transitions, timers or unseeded randomness.
 3. Load real brand fonts before rendering and check the longest strings and diacritics at target size.
 4. Inspect stills at the first frame, each scene boundary, each hold and the last frame, then watch the full render.

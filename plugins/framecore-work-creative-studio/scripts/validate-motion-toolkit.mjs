@@ -17,6 +17,7 @@ export function validateMotionToolkit(root) {
     ...['README.md','package.json','package-lock.json','tsconfig.json','remotion.config.ts','check-score.mjs','motion-score.json','src/index.ts','src/Root.tsx','src/motion.ts','src/KineticType.tsx'].map(name => `${kinetic}/${name}`),
     ...['README.md','package.json','package-lock.json','index.html','main.mjs','check-score.mjs','motion-score.json'].map(name => `${gsapStarter}/${name}`),
     'skills/hyperframes-workflow/references/motion-craft.md',
+    'skills/hyperframes-workflow/references/motion-contract-json.md',
     `${singleFile}/README.md`,
     `${singleFile}/motion-preview.html`,
     ...['motion-toolkit-routing.md','motion-toolkit-runtime-cards.md','motion-toolkit-sources.md'].map(name => `skills/hyperframes-workflow/references/${name}`),

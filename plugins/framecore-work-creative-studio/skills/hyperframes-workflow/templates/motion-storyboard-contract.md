@@ -1,6 +1,6 @@
 # Motion storyboard contract
 
-Use the smallest complete contract for the requested work. Retain this as part of existing Project State/handoff, not a second state store. Replace illustrative fields with actual decisions. A template never proves approval.
+Use the smallest complete contract for the requested work. Its machine-readable form is one `motion-score.json`; see [motion contract JSON](../references/motion-contract-json.md) for the field mapping, approval rules and storyboard rendering. Retain this as part of existing Project State/handoff, not a second state store. Replace illustrative fields with actual decisions. A template never proves approval.
 
 ## Identity and brief
 

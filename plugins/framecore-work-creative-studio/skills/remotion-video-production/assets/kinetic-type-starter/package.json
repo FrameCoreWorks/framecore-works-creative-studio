@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "check": "node check-score.mjs motion-score.json",
+    "storyboard": "node check-score.mjs motion-score.json --markdown",
     "studio": "remotion studio src/index.ts",
     "still": "remotion still src/index.ts KineticType out/frame-150.png --frame=150",
     "render": "remotion render src/index.ts KineticType out/kinetic-type.mp4",

@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.13.0
+## Current source: 1.14.0
+
+The [1.14.0 source checks](verification/release-1.14.0.json) pass canonical validation and 198 tests: 142 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The shared `motion-score.json` now carries the storyboard and approval state; the packaged contract passes the strict storyboard check and renders as a Markdown storyboard. Packaged starters were reinstalled and rerun, and frame 140 from the GSAP starter and the single-file preview is pixel-identical to the previous release. [Scope](verification/scope-1.14.0.json) records 20 changed and 1 added shared files out of 862. Host behavior is not run.
+
+## Previous source: 1.13.0
 
 The [1.13.0 source checks](verification/release-1.13.0.json) pass canonical validation and 196 tests: 140 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new single-file preview was opened from disk in headless Chromium without a server or network; six frames were inspected and direct, forward and backward seeks produced pixel-identical frames. Interactive Play was not exercised automatically. An owner-run ordinary ChatGPT diagnostic reported Canvas unavailable in that conversation, so the mode does not depend on it. [Scope](verification/scope-1.13.0.json) records 10 changed and 2 added shared files out of 861. Host behavior is not run.
 
