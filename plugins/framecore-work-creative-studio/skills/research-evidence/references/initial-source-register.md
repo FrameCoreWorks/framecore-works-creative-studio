@@ -18,7 +18,7 @@ Official documentation rechecked on 2026-09-23. Describes the portable root plug
 
 P04. OpenAI, Skills: https://developers.openai.com/plugins/concepts/skills
 
-Official documentation opened and checked on 2026-09-23. Skill metadata is initially used for matching; full instructions load when a request matches or explicitly invokes a skill. Skills can work without bundled MCP when packaged instructions/resources suffice. Implementation consequence: each directly callable creative skill must link to the shared mandatory research workflow; a local link/manifest check still does not prove live retrieval.
+Official documentation opened and checked on 2026-09-23. Skill metadata is initially used for matching; full instructions load when a request matches or explicitly invokes a skill. Skills can work without bundled MCP when packaged instructions/resources suffice. Implementation consequence: each directly callable creative skill must link to the shared research workflow (conditional since 1.11.0); a local link/manifest check still does not prove live retrieval.
 
 ## Image targets
 

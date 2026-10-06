@@ -22,7 +22,7 @@ Read the existing [production task packet](references/production-task-packet.md)
 
 Quick returns a concise sonic direction or a small set of distinct prompt-ready concepts, not an unnecessary complete album brief. Deep develops rhythm, arrangement, sound palette, voice, cues and mix intent step by step. Keep first ideas short when the user is choosing a direction. A complete request for a prompt already establishes the requested deliverable; do not force another selection step. After unexplained rejection, ask one material question; apply an already explained correction directly.
 
-For every substantive request, follow the mandatory [Research Evidence](../research-evidence/SKILL.md) preflight. Search current documentation for the exact chosen model, interface and operation, plus attributable practitioner evidence where available. Search public creator/platform sources for relevant music/video practice. Keep research proportional and turn it into a sound decision; do not copy a creator or use generic mood adjectives as the whole brief.
+For every substantive request, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate. When a model, interface or provider is chosen, search current documentation for the exact model, interface and operation, plus attributable practitioner evidence where available. Search public creator/platform sources only when rights, platform terms, real-world facts or a request for references or inspiration trigger research. Keep research proportional and turn it into a sound decision; do not copy a creator or use generic mood adjectives as the whole brief.
 
 ## Convert the intent into a usable packet
 

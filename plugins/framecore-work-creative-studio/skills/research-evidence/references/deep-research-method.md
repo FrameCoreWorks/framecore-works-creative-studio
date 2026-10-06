@@ -1,6 +1,6 @@
 # Research that changes a creative decision
 
-Use for a requested deep study, new compendium chapter, disputed production rule, or unfamiliar workflow. This extends the mandatory preflight; it does not replace actual artifact inspection. Sources checked 2026-09-28. Procedures and examples below are Studio synthesis unless explicitly attributed.
+Use for a requested deep study, new compendium chapter, disputed production rule, or unfamiliar workflow. This extends the triggered research gate; it does not replace actual artifact inspection. Sources checked 2026-09-28. Procedures and examples below are Studio synthesis unless explicitly attributed.
 
 ## Contents
 

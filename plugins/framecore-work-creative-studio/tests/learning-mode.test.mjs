@@ -289,7 +289,7 @@ test('missing cases and fabricated executed outcomes fail closed', () => {
 
 test('learning fixtures cannot imply generation or omit required research', () => {
   fixture(root => { editJSON(root, casesPath, d => d.cases[0].tool_state.external_provider_authorized = true); assert.ok(codes(root).includes('LEARNING_EVAL_AUTHORITY')); });
-  fixture(root => { editJSON(root, casesPath, d => { const c = d.cases.find(c => c.research_expectation === 'required'); c.expected_owners = c.expected_owners.filter(o => o !== 'research-evidence'); }); assert.ok(codes(root).includes('LEARNING_RESEARCH_OWNER')); });
+  fixture(root => { editJSON(root, casesPath, d => { const c = d.cases.find(c => c.id === 'LM12'); c.research_expectation = 'required'; c.research_trigger = 'named_tool_or_model'; delete c.research_exemption_reason; c.expected_owners = c.expected_owners.filter(o => o !== 'research-evidence'); }); assert.ok(codes(root).includes('LEARNING_RESEARCH_OWNER')); });
 });
 
 test('each teaching method retains its material safety and evidence boundary', () => {

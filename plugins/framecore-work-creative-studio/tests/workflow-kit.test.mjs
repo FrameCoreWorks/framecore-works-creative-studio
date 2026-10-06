@@ -147,13 +147,18 @@ test('all mapped roles are reachable through the formal handoff graph', () => fi
   assert.ok(codes(root).includes('KIT_ROLE_REACHABILITY'));
 }));
 test('a required research route cannot disappear from a planned case', () => fixture(root => {
-  editJson(root,'evals/workflow-kit-cases.json',m=>{const c=m.cases.find(c=>c.id==='WK01');c.expected_owners=c.expected_owners.filter(owner=>owner!=='research-evidence');});
+  editJson(root,'evals/workflow-kit-cases.json',m=>{const c=m.cases.find(c=>c.id==='WK11');c.expected_owners=c.expected_owners.filter(owner=>owner!=='research-evidence');});
   assert.ok(codes(root).includes('KIT_RESEARCH_OWNER'));
 }));
 test('supplied images route by reference, edit-base, and review operation', () => fixture(root => {
   edit(root,'skills/workflow-orchestrator/references/capabilities-and-handoffs.md',t=>t.replace('Approved base image supplied for an edit','Actual still/raster image'));
   assert.ok(codes(root).includes('KIT_IMAGE_OPERATION_ROUTE'));
 }));
+test('research policy keeps explicit triggers, untriggered and unavailable rules', () => {
+  fixture(root => { editJson(root,'scripts/workflow-kit-routes.json',m=>{m.research_policy.triggers.pop();}); assert.ok(codes(root).includes('KIT_RESEARCH_POLICY')); });
+  fixture(root => { editJson(root,'scripts/workflow-kit-routes.json',m=>{delete m.research_policy.unavailable_rule;}); assert.ok(codes(root).includes('KIT_RESEARCH_POLICY')); });
+  fixture(root => { edit(root,'skills/pipeline-core/references/studio-integration-policy.md',t=>t.replace('only when a research trigger applies','for every request')); assert.ok(codes(root).includes('KIT_RESEARCH_AUTHORITY')); });
+});
 test('research preflight has a reachable request, return handoff, and shared blueprint gate', () => fixture(root => {
   editJson(root,'scripts/workflow-kit-routes.json',m=>{m.handoffs=m.handoffs.filter(h=>!(h.from==='research-evidence'&&h.to==='workflow-orchestrator'));});
   assert.ok(codes(root).includes('KIT_RESEARCH_ROUTE'));

@@ -6,7 +6,7 @@ Use these blueprints as starting routes. The workflow-orchestrator may shorten o
 
 ## Shared Research Preflight
 
-Every new substantive creative route includes `research-evidence` before direction, factual claims, model recommendations, promptability decisions, or diagnosis. It produces an Evidence Note or an explicit No-Browse Receipt. Honor an explicit user no-browse boundary and mark mutable claims unverified. Reuse prior evidence only while the question and source basis remain unchanged within the active project. Include the `evidence_fit` gate on each substantive route; mechanical maintenance and project-state recovery without changing advice may record a specific exemption.
+Every new substantive creative route includes the `research-evidence` trigger decision before direction, factual claims, model recommendations, promptability decisions, or diagnosis. Triggered research produces an Evidence Note; an untriggered decision records no search and makes no current-verification claim; a user restriction produces an explicit No-Browse Receipt. Honor an explicit user no-browse boundary and mark mutable claims unverified. Reuse prior evidence only while the question and source basis remain unchanged within the active project. Include the `evidence_fit` gate on each substantive route; it passes for untriggered work when no statement exceeds stable craft and supplied facts; mechanical maintenance and project-state recovery without changing advice may record a specific exemption.
 
 ## Minimal Planning Route
 

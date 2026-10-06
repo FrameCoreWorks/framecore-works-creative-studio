@@ -24,7 +24,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "copy-voice"
       ],
@@ -32,7 +33,7 @@
       "checks": [
         "Exactly three supported distinct drafts",
         "No forced questionnaire, image prompt or execution",
-        "Research trace matches actual source claims"
+        "No research trigger applies to supplied facts; no search, research claim or no-research disclaimer"
       ],
       "required_evidence": [
         "Package version and host/tool capability snapshot",
@@ -62,7 +63,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "static-graphic-design-creator"
       ],
@@ -107,7 +109,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "image-prompt-architect"
       ],
@@ -145,7 +148,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "commercial-visual-campaign-director"
       ],
@@ -183,7 +187,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "commercial-video-campaign-director",
         "storyboard-sequence-architect",
@@ -193,7 +198,7 @@
       "checks": [
         "One direction feeds three shot IDs and standalone prompts without silent redesign",
         "Preserve exact slogan and no invented thermal duration",
-        "Reuse unchanged research evidence across handoffs; update only materially changed scope"
+        "Do not start research at each handoff; research only if a later stage adds a trigger such as a named generator"
       ],
       "required_evidence": [
         "Package version and host/tool capability snapshot",
@@ -223,7 +228,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "creative-music-video-director",
         "storyboard-sequence-architect",
@@ -263,7 +269,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "audio-production-director"
       ],
@@ -301,7 +308,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "storyboard-board-architect",
         "image-prompt-architect"
@@ -426,7 +434,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "video-prompt-architect"
       ],
@@ -503,14 +512,14 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
-        "research-evidence",
         "commercial-visual-campaign-director"
       ],
       "expected_branch": "research_unavailable",
       "checks": [
-        "Disclose no active research and continue stable craft where useful",
+        "No research trigger applies; continue stable craft without a no-research disclaimer or limitation essay",
         "No invented current verification or external-provider fallback",
         "Do not block all original concept work solely because browsing is unavailable"
       ],
@@ -543,6 +552,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "expected_owners": [
         "research-evidence",
         "video-prompt-architect"
@@ -582,6 +592,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "expected_owners": [
         "research-evidence"
       ],
@@ -620,6 +631,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "real_world_subject",
       "expected_owners": [
         "research-evidence",
         "workflow-orchestrator"
@@ -658,7 +670,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "static-graphic-design-creator"
       ],
@@ -666,7 +679,7 @@
       "checks": [
         "Static-only graphics route to the complete Static Graphic Design Creator method",
         "Quick returns only concise distinct concepts and the next selection",
-        "Mandatory public research happens without exposing a research essay",
+        "No search for untriggered fictional work; no research ceremony or essay",
         "No prompt or image generation before selection"
       ],
       "required_evidence": [
@@ -697,7 +710,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "commercial-video-campaign-director"
       ],
@@ -736,7 +750,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "commercial-video-campaign-director"
       ],
@@ -774,7 +789,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "image-prompt-architect"
       ],
@@ -813,7 +829,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "audio-production-director"
       ],
@@ -853,6 +870,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "platform_requirements",
       "expected_owners": [
         "audio-production-director"
       ],
@@ -979,6 +997,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "expected_owners": [
         "workflow-orchestrator",
         "commercial-video-campaign-director",

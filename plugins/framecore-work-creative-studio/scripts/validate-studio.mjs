@@ -13,8 +13,9 @@ import {validateQualityMethods} from './validate-quality-methods.mjs';
 import {validateCampaignWorkflow} from './validate-campaign-workflow.mjs';
 
 const expectedOwnerCount = 37;
-const criticalIds = ['research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
+const criticalIds = ['research_conditional_triggers', 'research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
 const webStates = new Set(['available_read_only', 'prohibited_by_user', 'unavailable', 'blocked', 'timeout', 'error']);
+const researchTriggers = new Set(['named_tool_or_model', 'platform_requirements', 'public_claim', 'capability_claim', 'reference_or_verification_request', 'real_world_subject']);
 
 function anchors(text) {
   const out = new Set(), occurrences = new Map();
@@ -219,7 +220,11 @@ export function validateStudio(root, {legacy = false} = {}) {
     if (owner.id !== 'research-evidence') {
       const instructions = texts.get(owner.entrypoint), index = instructions.indexOf('../research-evidence/SKILL.md');
       if (index < 0) fail('RESEARCH_HANDOFF', owner.id);
-      else if (!/\bmandatory\b/i.test(instructions.slice(Math.max(0, index - 220), index))) fail('RESEARCH_MANDATORY', owner.id);
+      else {
+        // Specialists keep the shared gate and describe it as trigger-based, not as an unconditional search.
+        const lead = instructions.slice(Math.max(0, index - 220), index);
+        if (!/\bconditional\b/i.test(lead) || /\bmandatory\b/i.test(lead)) fail('RESEARCH_CONDITIONAL', owner.id);
+      }
     }
   }
   const operationRoutes = Array.isArray(registry.operation_routes) ? registry.operation_routes : [];
@@ -279,8 +284,10 @@ export function validateStudio(root, {legacy = false} = {}) {
       if (typeof item.user_request !== 'string' || !item.user_request.trim() || !Array.isArray(item.checks) || !item.checks.length || item.checks.some(check => typeof check !== 'string' || !check.trim()) || typeof item.expected_branch !== 'string' || !item.expected_branch.trim() || !item.context || typeof item.context !== 'object' || Array.isArray(item.context) || !Array.isArray(item.available_assets)) fail('EVAL_SCHEMA', item.id);
       if (!['textual_fixture_no_execution', 'planned_fixture_only'].includes(item.tool_state?.mode)) fail('EVAL_TOOL_EXECUTION', item.id);
       if (!webStates.has(item.tool_state?.web_search)) fail('EVAL_WEB_STATE', item.id);
-      if (!['required', 'not_applicable', 'prohibited_by_user'].includes(item.research_expectation)) fail('EVAL_RESEARCH', item.id);
-      if (item.research_expectation === 'not_applicable' && !item.research_exemption_reason) fail('EVAL_EXEMPTION', item.id);
+      if (!['required', 'not_triggered', 'not_applicable', 'prohibited_by_user'].includes(item.research_expectation)) fail('EVAL_RESEARCH', item.id);
+      if (['not_applicable', 'not_triggered'].includes(item.research_expectation) && !item.research_exemption_reason) fail('EVAL_EXEMPTION', item.id);
+      if ((item.research_expectation === 'required') !== researchTriggers.has(item.research_trigger)) fail('EVAL_RESEARCH_TRIGGER', item.id);
+      if (item.research_expectation === 'not_triggered' && item.expected_owners?.includes('research-evidence')) fail('EVAL_UNTRIGGERED_OWNER', item.id);
       if ((item.research_expectation === 'prohibited_by_user') !== (item.tool_state?.web_search === 'prohibited_by_user')) fail('EVAL_BROWSE_BOUNDARY', item.id);
     }
     if (!isDeepStrictEqual([...effective.overrides_applied].sort(), ['S01', 'S18', 'S32', 'S35', 'S45', 'S50', 'S51'])) fail('OVERRIDE_COVERAGE', 'The seven reviewed inherited cases require their effective overrides');
@@ -288,6 +295,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     const hostCases = effective.cases.filter(item => item.provenance.source_file === 'studio-behavior-cases.json');
     if (hostCases.length !== 25 || new Set(hostCases.map(item => item.family)).size !== 25) fail('HOST_SCENARIO_COVERAGE', 'Expected twenty-five distinct planned families');
     for (const state of ['unavailable', 'timeout', 'error']) if (!hostCases.some(item => item.tool_state.web_search === state)) fail('RESEARCH_FAILURE_COVERAGE', state);
+    if (!hostCases.some(item => item.research_expectation === 'not_triggered' && item.tool_state.web_search === 'unavailable') || !effective.cases.some(item => item.research_expectation === 'required' && item.tool_state?.web_search === 'unavailable')) fail('RESEARCH_CONDITIONAL_COVERAGE', 'Unavailable research needs untriggered and triggered planned cases');
     for (const item of hostCases) {
       if (item.execution_status !== 'not_run' || !Array.isArray(item.required_evidence) || !item.required_evidence.length || !Array.isArray(item.expected_owners) || item.expected_owners.some(id => !ownerIds.includes(id))) fail('HOST_EVIDENCE_CONTRACT', item.id);
     }
@@ -295,7 +303,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     if (practiceCases.length !== 12 || new Set(practiceCases.map(item => item.family)).size !== 12) fail('KNOWLEDGE_COVERAGE', 'Expected twelve distinct knowledge-practice families');
     for (const item of practiceCases) if (item.execution_status !== 'not_run' || !Array.isArray(item.required_evidence) || !item.required_evidence.length || !Array.isArray(item.expected_owners) || !item.expected_owners.length || item.expected_owners.some(id => !ownerIds.includes(id))) fail('KNOWLEDGE_EVIDENCE', item.id);
     const integrationCases = effective.cases.filter(item => item.provenance.source_file === 'workflow-kit-cases.json');
-    if (integrationCases.length !== 12 || new Set(integrationCases.map(item => item.family)).size !== 12) fail('INTEGRATION_COVERAGE', 'Expected twelve planned integration families');
+    if (integrationCases.length !== 14 || new Set(integrationCases.map(item => item.family)).size !== 14) fail('INTEGRATION_COVERAGE', 'Expected fourteen planned integration families');
     for (const item of integrationCases) if (item.execution_status !== 'not_run' || !Array.isArray(item.required_evidence) || !item.required_evidence.length || !Array.isArray(item.expected_owners) || !item.expected_owners.length || item.expected_owners.some(id => !ownerIds.includes(id))) fail('INTEGRATION_EVIDENCE', item.id);
     const activeOwnerIds = owners.filter(owner => owner.route_required || owner.id === 'workflow-orchestrator').map(owner => owner.id);
     if (!isDeepStrictEqual([...new Set([...practiceCases, ...integrationCases].flatMap(item => item.expected_owners ?? []))].sort(), [...activeOwnerIds].sort())) fail('KNOWLEDGE_OWNERS', 'Planned knowledge and integration cases must cover every active owner');

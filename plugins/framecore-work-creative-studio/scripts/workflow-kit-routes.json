@@ -505,6 +505,16 @@
     "scope": "every_new_substantive_creative_request",
     "role": "research-evidence",
     "gate": "evidence_fit",
+    "triggers": [
+      "named_tool_or_model",
+      "platform_requirements",
+      "public_claim",
+      "capability_claim",
+      "reference_or_verification_request",
+      "real_world_subject"
+    ],
+    "untriggered_rule": "Stable craft on supplied or fictional facts needs no search and no research disclaimer; make no current-verification claim.",
+    "unavailable_rule": "When triggered research is unavailable, including ChatGPT without search or Codex with network disabled, disclose briefly, keep mutable claims unverified and withhold only dependent artifacts.",
     "reuse_rule": "Reuse evidence only while the question and source basis are unchanged within the active project.",
     "no_browse_rule": "Honor explicit user no-browse boundaries, record the restriction, and keep mutable claims unverified."
   }

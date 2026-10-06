@@ -11,7 +11,7 @@ Read [copy and voice](references/copy-and-voice.md) for focused voice polish and
 
 For a voice that needs calibration across contexts, evidence-sensitive editorial work or a revision that risks adding claims, use [the applied voice workshop](references/applied-voice-workshop.md) and its optional worksheet/example. Do not require a voice system for a single mechanical correction.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) before substantive drafting or revision. Search relevant audience, medium, language, or genre context; verify material factual claims with authoritative sources. Use findings to sharpen original wording, never to lift another writer's lines or disclose private copy.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) before substantive drafting or revision. Verify material public factual claims with authoritative sources; search audience, medium, language or genre context only when a trigger applies. Use findings to sharpen original wording, never to lift another writer's lines or disclose private copy.
 
 Understand speaker, audience relationship, purpose, facts, medium and requested extent. Ask only for a missing fact that changes the message. Write the requested artifact, not a list of headings. A CTA can be plain; a scene or VO may need spoken cadence; neither needs manufactured informality.
 

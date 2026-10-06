@@ -7,7 +7,7 @@ description: Develop original music-video direction from a song, artist persona,
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) for substantive music-video direction. Research useful cultural, visual or production context; separate sourced context from creative interpretation. If a generator is named for a later prompt, its current model, surface and operation must be mapped by [video-prompt-architect](../video-prompt-architect/SKILL.md), not guessed here.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) for substantive music-video direction. Research cultural, visual or production context when a trigger applies, such as real-world subjects, requested references or rights questions; separate sourced context from creative interpretation. If a generator is named for a later prompt, its current model, surface and operation must be mapped by [video-prompt-architect](../video-prompt-architect/SKILL.md), not guessed here.
 
 Own the music-video creative direction between intake and shot/prompt execution. The direction should feel specific to this song, artist and user's intention. It must remain concrete enough to develop, but need not use a fixed export or pretend the song has been heard when it has not.
 

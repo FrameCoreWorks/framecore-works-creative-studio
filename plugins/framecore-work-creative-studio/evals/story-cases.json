@@ -5,7 +5,8 @@
     {
       "id": "SC01",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Chcę zrobić krótki film o poczuciu, że czas przecieka. Nie wiem jeszcze jak.",
       "checks": [
         "Does not jump to a stock tragedy or reveal",
@@ -29,7 +30,8 @@
     {
       "id": "SC02",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Napisz gotową krótką scenę: techniczka zamyka po godzinach małą drukarnię, a praktykant próbuje uratować błędny wydruk, który chce wykorzystać na własny szyld. Ma być powściągliwie i bez VO.",
       "checks": [
         "Writes an actual scene with playable action and any dialogue needed",
@@ -61,7 +63,8 @@
     {
       "id": "SC03",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Rozpisz obserwacyjną scenę 40 sekund: dyżurna na basenie powoli zwija linę torową po zamknięciu. Bez dialogu.",
       "checks": [
         "Uses attention, repeat and duration rather than manufacturing conflict",
@@ -87,7 +90,8 @@
     {
       "id": "SC04",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zaproponuj esej filmowy o zamkniętym kinie w moim mieście. Nie podam jeszcze miasta ani źródeł.",
       "checks": [
         "Labels any proposed imagery and voice as provisional",
@@ -112,7 +116,8 @@
     {
       "id": "SC05",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Napisz 20-sekundowy film reklamowy dla mojego termicznego kubka. Użyj zatwierdzonego claimu: ‘Ciepło tam, gdzie go potrzebujesz.’ Nie dodawaj ceny ani liczby godzin.",
       "checks": [
         "Preserves exact approved claim",
@@ -146,7 +151,8 @@
     {
       "id": "SC06",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Popraw naturalność tej sceny, ale zachowaj dokładnie zdanie: ‘Jutro będzie za późno.’",
       "checks": [
         "Keeps the exact locked sentence character-for-character",
@@ -180,7 +186,8 @@
     {
       "id": "SC07",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Napisz scenariusz, nie sam konspekt, na podstawie zatwierdzonego treatmentu poniżej.",
       "checks": [
         "Produces actual formatted scene action/dialogue for the requested scope",
@@ -250,7 +257,8 @@
     {
       "id": "SC09",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj pitch filmu na podstawie tej idei i zakończ trzema decyzjami, które muszę zatwierdzić.",
       "checks": [
         "Returns a decision-ready pitch rather than a full screenplay",
@@ -276,7 +284,8 @@
     {
       "id": "SC10",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób storyboard z timecodami i kartami ujęć z tego zaakceptowanego scenariusza.",
       "checks": [
         "Routes time-based sequence and shot-card structure to storyboard-sequence-architect, separately from any board layout",

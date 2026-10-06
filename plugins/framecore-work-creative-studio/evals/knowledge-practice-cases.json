@@ -20,7 +20,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Assign property authority without blending identities.",
         "Keep the unseen back Unknown; preserve strict requirement.",
@@ -49,7 +50,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Retain every supplied string and semantic pairing.",
         "Explain format-specific layout changes.",
@@ -77,7 +79,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Return an actual scene with a consequential turn.",
         "Separate selected dialogue from production estimates.",
@@ -106,7 +109,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Preserve exact dialogue and start/end states.",
         "Label timing as estimated when no recording exists.",
@@ -134,7 +138,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Use only supported facts.",
         "Provide a useful draft without inventing testimonials or user style.",
@@ -156,14 +161,14 @@
       "available_assets": [],
       "expected_branch": "campaign_proof",
       "expected_owners": [
-        "commercial-video-campaign-director",
-        "research-evidence"
+        "commercial-video-campaign-director"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Separate authored premise from product/business evidence.",
         "Use original hypothetical staging with no fake case-study results.",
@@ -191,7 +196,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Label user-report-only evidence.",
         "Plan listening/arrangement alternatives without measured claims.",
@@ -220,7 +226,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Tie image decisions to supplied material.",
         "Mark structural timing as reported or estimated.",
@@ -249,7 +256,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Deliver complete conditional prompts.",
         "Keep strict continuity distinct from execution readiness and observed outcome.",
@@ -278,7 +286,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Find transitive affected assets and preserve the unrelated artifact.",
         "Old acceptance is not current acceptance.",
@@ -307,7 +316,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Bound observations to the supplied crop.",
         "Obtain full evidence before prescribing a full artwork rebuild.",
@@ -338,6 +348,7 @@
         "web_search": "available_read_only"
       },
       "research_expectation": "required",
+      "research_trigger": "reference_or_verification_request",
       "checks": [
         "Open and compare scope of both sources.",
         "Do not turn contextual recommendations into universal hard limits.",

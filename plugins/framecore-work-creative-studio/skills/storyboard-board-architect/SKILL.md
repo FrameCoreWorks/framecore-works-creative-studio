@@ -32,7 +32,7 @@ generation, transfer the completed visual specification to
 [image-prompt-architect](../image-prompt-architect/SKILL.md); respect that
 skill's model-aware research and actual tool boundaries.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) before committing to substantive board design. Search relevant board, film, or presentation references and fact-check material production claims; synthesize the principle rather than copying a board layout.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to substantive board design. Search board, film or presentation references when the user asks for them, and fact-check material production claims; synthesize the principle rather than copying a board layout.
 
 When choosing panels, reconciling a locked camera, comparing references or reserving space for captions, use [the applied board workshop](references/applied-board-workshop.md). Its optional panel map and three-purpose example produce a board specification, not extra story events or an automatically bound video carrier.
 

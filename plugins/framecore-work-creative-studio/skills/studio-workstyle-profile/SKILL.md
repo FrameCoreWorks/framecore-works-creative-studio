@@ -12,7 +12,7 @@ Mirror the user's working style so they can spend attention on creative decision
 
 ## Research boundary
 
-When workstyle tuning accompanies a substantive creative request, run the mandatory [Research Evidence](../research-evidence/SKILL.md) preflight through the relevant creative owner. Profile maintenance by itself does not need unrelated public research.
+When workstyle tuning accompanies a substantive creative request, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate through the relevant creative owner. Profile maintenance by itself does not need unrelated public research.
 
 ## Learn without turning work into onboarding
 
@@ -28,7 +28,7 @@ For an explicit learning request, follow the orchestrator's [learning overlay](.
 
 For a mode-only creative choice without a task or supplied pace, follow [startup and creative menus](../workflow-orchestrator/references/startup-and-creative-menus.md): show 1. Tryb szybki / 2. Tryb rozbudowany, wait, then offer work areas if unknown. Choosing creation does not itself select Quick, establish a brief or authorize production. Reuse a concrete brief, explicit pace or resumed state instead of repeating supplied decisions.
 
-Quick begins with a small set of short, clean directions. Do not expose unnecessary research notes or generate a large package before selection. Deep develops the chosen method step by step. A user can switch modes at any point. Keep the research preflight and factual checks in force in either mode.
+Quick begins with a small set of short, clean directions. Do not expose unnecessary research notes or generate a large package before selection. Deep develops the chosen method step by step. A user can switch modes at any point. Keep the conditional research gate and factual checks in force in either mode.
 
 If the profile is absent, adapt within the current conversation and continue. Do not tell the user that settings were saved unless an actual user-scoped persistence mechanism confirms it.
 

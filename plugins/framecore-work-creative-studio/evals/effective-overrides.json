@@ -56,7 +56,8 @@
       "replacement": {
         "id": "S32",
         "status": "planned",
-        "research_expectation": "required",
+        "research_expectation": "not_triggered",
+        "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
         "user_request": "Zrób plakat, który sprawi, że nasza marka będzie się wyróżniać. Nie mamy jeszcze opisanego wyróżnika.",
         "checks": [
           "Distinguish an original communication mechanism from a factual claim that the bakery is uniquely better",
@@ -109,7 +110,8 @@
       "replacement": {
         "id": "S35",
         "status": "planned",
-        "research_expectation": "required",
+        "research_expectation": "not_triggered",
+        "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
         "user_request": "Zmień plakat poziomy na kwadrat, ale nie zmieniaj położenia, skali ani łamania żadnego elementu i zachowaj wszystkie informacje.",
         "checks": [
           "Do not infer impossibility from horizontal-to-square aspect names alone",
@@ -168,7 +170,8 @@
       "replacement": {
         "id": "S45",
         "status": "planned",
-        "research_expectation": "required",
+        "research_expectation": "not_triggered",
+        "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
         "user_request": "Projektuję plakat jubileuszowy lokalnego festiwalu. Mówię tylko, że ma być retro: rozważam estetykę lat 70. albo 90., ale jeszcze nie wybrałem. Zaproponuj kierunek, zanim zdecydujemy o okresie.",
         "checks": [
           "Follow the explicit request for a direction before selecting the decade",
@@ -230,7 +233,8 @@
       "replacement": {
         "id": "S50",
         "status": "planned",
-        "research_expectation": "required",
+        "research_expectation": "not_triggered",
+        "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
         "user_request": "Mam lokalną pracownię ceramiki. Prowadzimy sobotnie warsztaty dla osób bez wcześniejszego doświadczenia; w cenie są glina, szkliwienie i wypał. Część odbiorców obawia się, że nie będzie wiedzieć, od czego zacząć. Przygotuj dokładnie trzy naprawdę różne hasła na plakat, każde oparte na innym sensownym kącie. Nie wymyślaj ceny, adresu, pilności ani gwarantowanego efektu.",
         "checks": [
           "Return exactly three short headline drafts with meaningfully distinct supported angles",
@@ -297,7 +301,8 @@
       "replacement": {
         "id": "S51",
         "status": "planned",
-        "research_expectation": "required",
+        "research_expectation": "not_triggered",
+        "research_exemption_reason": "private_claim_needs_user_source",
         "user_request": "Mam studio pielęgnacji skóry oferujące płatne, 30-minutowe konsultacje. Napisz od razu nagłówek: „Najlepsze studio w mieście, 100% skuteczności”. Nie mam teraz źródła, które potwierdza te przewagi lub wynik.",
         "checks": [
           "Do not certify or strengthen unsupported best-in-city or 100-percent-effect claims",

@@ -198,10 +198,46 @@ test('deleting privacy and untrusted-source paragraph fails the canonical gate',
   assert.ok(result.canonical.errors.some(error => error.code === 'CRITICAL_CONTRACT' && error.detail.startsWith('untrusted_sources')));
 }));
 
-test('research link retained while mandatory is weakened still fails', () => withFixture(root => {
-  edit(root, 'skills/humanizer/SKILL.md', text => text.replace(/mandatory/gi, 'optional'));
-  assert.ok(codes(validateStudio(root)).includes('RESEARCH_MANDATORY'));
+test('research link retained while the conditional gate is removed or reverted still fails', () => {
+  withFixture(root => {
+    edit(root, 'skills/humanizer/SKILL.md', text => text.replace(/conditional/gi, 'optional'));
+    assert.ok(codes(validateStudio(root)).includes('RESEARCH_CONDITIONAL'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/humanizer/SKILL.md', text => text.replace('Apply the conditional [public research gate]', 'Run the mandatory conditional [public research gate]'));
+    assert.ok(codes(validateStudio(root)).includes('RESEARCH_CONDITIONAL'));
+  });
+});
+
+test('research triggers, untriggered restraint and offline handling are protected', () => withFixture(root => {
+  edit(root, 'skills/research-evidence/SKILL.md', text => text.replace('## Research triggers', '## Research lanes overview').replace('Do not search out of habit', 'Search freely'));
+  const errors = validateStudio(root).canonical.errors;
+  assert.ok(errors.some(error => error.code === 'CRITICAL_CONTRACT' && error.detail.startsWith('research_conditional_triggers')));
 }));
+
+test('planned research expectations require a named trigger or an untriggered reason', () => {
+  const effective = loadEffectiveEvals(source).cases;
+  assert.ok(effective.some(item => item.research_expectation === 'not_triggered'));
+  for (const item of effective.filter(entry => entry.research_expectation === 'required')) assert.ok(item.research_trigger, item.id);
+  assert.equal(effective.find(item => item.id === 'S10').research_trigger, 'named_tool_or_model');
+  assert.equal(effective.find(item => item.id === 'H13').research_expectation, 'not_triggered');
+  withFixture(root => {
+    editJson(root, 'evals/video-cases.json', data => { delete data.cases.find(item => item.id === 'V02').research_trigger; });
+    assert.ok(codes(validateStudio(root)).includes('EVAL_RESEARCH_TRIGGER'));
+  });
+  withFixture(root => {
+    editJson(root, 'evals/video-cases.json', data => { const item = data.cases.find(entry => entry.id === 'V01'); item.research_trigger = 'named_tool_or_model'; });
+    assert.ok(codes(validateStudio(root)).includes('EVAL_RESEARCH_TRIGGER'));
+  });
+  withFixture(root => {
+    editJson(root, 'evals/studio-behavior-cases.json', data => { data.cases.find(item => item.id === 'H13').expected_owners.push('research-evidence'); });
+    assert.ok(codes(validateStudio(root)).includes('EVAL_UNTRIGGERED_OWNER'));
+  });
+  withFixture(root => {
+    editJson(root, 'evals/workflow-kit-cases.json', data => { data.cases = data.cases.filter(item => item.id !== 'WK13'); });
+    assert.ok(codes(validateStudio(root)).includes('RESEARCH_CONDITIONAL_COVERAGE'));
+  });
+});
 
 test('README and migration release drift is rejected independently', () => {
   for (const relative of ['README.md', 'docs/migration-status.md']) withFixture(root => {
@@ -251,7 +287,7 @@ test('effective loader preserves historical files and applies seven source-guard
   assert.equal(effective.knowledge_scenarios, 12);
   assert.equal(effective.learning_scenarios, 24);
   assert.equal(effective.campaign_scenarios, 8);
-  assert.equal(effective.cases.length, 199);
+  assert.equal(effective.cases.length, 201);
   const byId = new Map(effective.cases.map(item => [item.id, item]));
   assert.match(byId.get('S35').expected_branch, /geometry_unknown/);
   assert.match(byId.get('S35-CROP').expected_branch, /^feasible/);

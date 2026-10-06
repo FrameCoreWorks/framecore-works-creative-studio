@@ -37,7 +37,7 @@ A usable task needs its source text/data/cards, instructions and a way to check 
 
 Direct specialist invocation loads this profile when relevant; it does not force a second intake. Copy Voice owns educational prose and small original task stimuli; a standalone story or scripted scene goes to the existing story owner. Static-only classroom posters retain integrated static ownership rather than acquiring a second copy pipeline.
 
-Use the mandatory Research Evidence preflight proportionally. Reuse evidence for the unchanged question. Keep source-verified facts, user-supplied information, original design proposals, assumptions and Unknown distinct. The [method evidence](teacher-method-evidence.md) supports selected design choices; it is not a current curriculum or proof that a lesson works.
+Apply the conditional Research Evidence gate proportionally: curriculum, policy, statistics and other public facts trigger it; stable craft does not. Reuse evidence for the unchanged question. Keep source-verified facts, user-supplied information, original design proposals, assumptions and Unknown distinct. The [method evidence](teacher-method-evidence.md) supports selected design choices; it is not a current curriculum or proof that a lesson works.
 
 ## Work sequence
 

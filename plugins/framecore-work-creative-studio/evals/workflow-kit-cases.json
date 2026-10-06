@@ -14,7 +14,6 @@
       "available_assets": [],
       "expected_branch": "quick_direction",
       "expected_owners": [
-        "research-evidence",
         "workflow-orchestrator",
         "pipeline-core",
         "brief-architect"
@@ -23,9 +22,10 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
-        "Return only brief concrete directions after focused research.",
+        "Return only brief concrete directions; search only if the user asks for references or inspiration.",
         "No onboarding barrier, fake generation or full production pack."
       ],
       "required_evidence": [
@@ -44,7 +44,6 @@
       "available_assets": [],
       "expected_branch": "rejected_ideas",
       "expected_owners": [
-        "research-evidence",
         "workflow-orchestrator",
         "studio-workstyle-profile"
       ],
@@ -52,7 +51,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Ask one specific creative-direction question before another batch.",
         "Preserve known preferences and distinguish taste feedback from an output defect."
@@ -73,7 +73,6 @@
       "available_assets": [],
       "expected_branch": "campaign_strategy",
       "expected_owners": [
-        "research-evidence",
         "ecommerce-campaign-strategy-director",
         "marketing",
         "commercial-visual-campaign-director"
@@ -82,7 +81,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Separate hypothesis from verified claim.",
         "Resolve useful strategy before asset-matrix expansion; use SGDC for individual static graphics."
@@ -103,7 +103,6 @@
       "available_assets": [],
       "expected_branch": "strict_character",
       "expected_owners": [
-        "research-evidence",
         "character-design",
         "reference-pack-curator",
         "image-prompt-architect"
@@ -112,7 +111,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Bind source authority by property; missing profiles are Unknown.",
         "Keep strict requirement, mark generation blocked, allow requested conditional prompts."
@@ -134,14 +134,14 @@
       "expected_branch": "copy_delivery",
       "expected_owners": [
         "copy-voice",
-        "humanizer",
-        "research-evidence"
+        "humanizer"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Preserve facts, approved words and author truth.",
         "Review once and stop if sufficient; no forced rewrite or CTA."
@@ -162,7 +162,6 @@
       "available_assets": [],
       "expected_branch": "end_to_end_reel",
       "expected_owners": [
-        "research-evidence",
         "creative-video-producer",
         "cinematography",
         "storytelling",
@@ -176,7 +175,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "pinned_local_tool_documentation",
       "checks": [
         "Use specialist outputs within one project state.",
         "Respect timing, product truth and shot adjacency; actual media needed for measured QA."
@@ -197,7 +197,6 @@
       "available_assets": [],
       "expected_branch": "coded_edit_routes",
       "expected_owners": [
-        "research-evidence",
         "remotion-video-production",
         "hyperframes-workflow"
       ],
@@ -205,7 +204,8 @@
         "mode": "planned_fixture_only",
         "web_search": "available_read_only"
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "pinned_local_tool_documentation",
       "checks": [
         "Route by actual requested runtime and exposed capabilities.",
         "Preserve edit, caption and sound locks; no claim of a render without actual output."
@@ -324,6 +324,7 @@
         "web_search": "available_read_only"
       },
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "checks": [
         "Verify current surface fields and record unbound inputs.",
         "No paid calls, private upload or provider fallback; strict readiness remains blocked."
@@ -360,6 +361,68 @@
         "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
       ],
       "research_exemption_reason": "Mechanical state, packet or source-contract maintenance, without creative or changing provider advice."
+    },
+    {
+      "id": "WK13",
+      "family": "research_triggered_offline",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Codex session with network access disabled: write a prompt for Kling for one approved product shot.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result.",
+        "host": "Codex with network access disabled and no web search tool"
+      },
+      "available_assets": [],
+      "expected_branch": "research_unavailable_triggered",
+      "expected_owners": [
+        "research-evidence",
+        "workflow-orchestrator",
+        "video-prompt-architect"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "unavailable"
+      },
+      "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
+      "checks": [
+        "State once and briefly that current Kling documentation could not be checked; do not try to bypass the network restriction.",
+        "Use dated bundled model notes only as labeled leads; mark current syntax and controls unverified and keep the prompt conservative.",
+        "Ask about enabling network only as one option because exact current syntax depends on it."
+      ],
+      "required_evidence": [
+        "Actual response, retrieved sources when required, tool observations and reviewer result saved separately."
+      ]
+    },
+    {
+      "id": "WK14",
+      "family": "research_not_triggered",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Write three original headline options for a fictional bakery using only these facts: sourdough, open from 6 a.m., family-run.",
+      "context": {
+        "scenario": "Synthetic integration specification; not a model-run result."
+      },
+      "available_assets": [],
+      "expected_branch": "copy_from_supplied_facts",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "copy-voice"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only"
+      },
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
+      "checks": [
+        "No web search: fictional subject, supplied facts and no named tool, platform, public claim or reference request.",
+        "No research claim and no no-research disclaimer.",
+        "Headlines add no facts beyond the supplied three."
+      ],
+      "required_evidence": [
+        "Actual response, tool trace showing whether search ran, and reviewer result saved separately."
+      ]
     }
   ]
 }

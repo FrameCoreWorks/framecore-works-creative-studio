@@ -95,7 +95,7 @@ export function validateWorkflowKit(root, packageFiles) {
       if (!routes.handoffs.some(item => item.from === 'music-video-direction' && item.to === target)) fail('KIT_MUSIC_HANDOFF', 'music-video-direction -> ' + target);
     }
     const researchPolicy = routes.research_policy;
-    if (!researchPolicy || researchPolicy.scope !== 'every_new_substantive_creative_request' || researchPolicy.role !== 'research-evidence' || researchPolicy.gate !== 'evidence_fit' || !researchPolicy.reuse_rule || !researchPolicy.no_browse_rule) fail('KIT_RESEARCH_POLICY', 'Targeted preflight, reuse and no-browse behavior must be explicit');
+    if (!researchPolicy || researchPolicy.scope !== 'every_new_substantive_creative_request' || researchPolicy.role !== 'research-evidence' || researchPolicy.gate !== 'evidence_fit' || !Array.isArray(researchPolicy.triggers) || researchPolicy.triggers.length !== 6 || !researchPolicy.untriggered_rule || !researchPolicy.unavailable_rule || !researchPolicy.reuse_rule || !researchPolicy.no_browse_rule) fail('KIT_RESEARCH_POLICY', 'Conditional triggers, untriggered, unavailable, reuse and no-browse behavior must be explicit');
     if (!routes.handoffs.some(item => item.from === 'workflow-orchestrator' && item.to === 'research-evidence') || !routes.handoffs.some(item => item.from === 'research-evidence' && item.to === 'workflow-orchestrator')) fail('KIT_RESEARCH_ROUTE', 'Research must receive the request from and return evidence to the orchestrator');
     const evidenceGate = routes.gates.find(item => item.id === 'evidence_fit');
     if (!evidenceGate || !evidenceGate.owners.includes('research-evidence') || !/Evidence Note/.test(evidenceGate.artifact)) fail('KIT_RESEARCH_GATE', 'Research output must be gated or record an explicit no-browse receipt');
@@ -150,11 +150,11 @@ export function validateWorkflowKit(root, packageFiles) {
       if (!block.includes('`research-evidence`') || !block.includes('`evidence_fit`')) fail('KIT_ROUTE_RESEARCH_STAGE', heading);
     }
     const policy = text(refs + 'studio-integration-policy.md');
-    if (!policy.includes('every substantive creative task') || !policy.includes('No-Browse Receipt')) fail('KIT_RESEARCH_AUTHORITY', 'Mandatory research and explicit no-browse handling must be active policy');
+    if (!policy.includes('every substantive creative task') || !policy.includes('only when a research trigger applies') || !policy.includes('No-Browse Receipt')) fail('KIT_RESEARCH_AUTHORITY', 'Conditional research and explicit no-browse handling must be active policy');
     const workflowCases = json('evals/workflow-kit-cases.json').cases;
     for (const item of workflowCases) {
       if (item.research_expectation === 'required' && !item.expected_owners?.includes('research-evidence')) fail('KIT_RESEARCH_OWNER', item.id);
-      if (item.research_expectation === 'not_applicable' && !item.research_exemption_reason) fail('KIT_RESEARCH_EXEMPTION', item.id);
+      if (['not_applicable', 'not_triggered'].includes(item.research_expectation) && !item.research_exemption_reason) fail('KIT_RESEARCH_EXEMPTION', item.id);
     }
     const capabilities = text('skills/workflow-orchestrator/references/capabilities-and-handoffs.md');
     for (const phrase of ['Image supplied as a reference for a new asset','Approved base image supplied for an edit','Existing image explicitly supplied for review']) if (!capabilities.includes(phrase)) fail('KIT_IMAGE_OPERATION_ROUTE', phrase);

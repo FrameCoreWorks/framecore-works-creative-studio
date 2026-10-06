@@ -6,6 +6,7 @@
       "id": "M01",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "platform_requirements",
       "user_request": "Mam zatwierdzone opakowanie nowego miodu i dokładne hasło „Łyżka lata”. Zaproponuj kampanię video na Instagram Reels, stronę produktu i poziomy ekran na targach. Nie zmieniaj copy.",
       "checks": [
         "Binds approved package and exact phrase as locked inputs",
@@ -39,7 +40,8 @@
     {
       "id": "M02",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób reklamę, która stanie się viralem. Mój produkt jest świetny. Wymyśl coś mocnego.",
       "checks": [
         "Does not promise or imply viral reach or sales performance",
@@ -70,6 +72,7 @@
       "id": "M03",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Mam zatwierdzone ujęcie produktu. Napisz tylko gotowy prompt do Seedance dla tego jednego ujęcia.",
       "checks": [
         "Routes directly to video-prompt-architect for a single generator prompt",
@@ -97,7 +100,8 @@
     {
       "id": "M04",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Rozpisz tę zatwierdzoną reklamę na beaty, czas i karty ujęć. Nie wymyślaj nowej koncepcji.",
       "checks": [
         "Routes time-based beat map and shot-card authoring to storyboard-sequence-architect",
@@ -122,7 +126,8 @@
     {
       "id": "M05",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Potrzebuję statycznego plakatu dla tej kampanii. Nie ma być żadnej animacji ani filmu.",
       "checks": [
         "Routes the static-only deliverable to commercial-visual-campaign-director",
@@ -148,6 +153,7 @@
       "id": "M06",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "platform_requirements",
       "user_request": "Sprawdź aktualne limity i safe zones dla konkretnej konfiguracji TikTok Auction In-Feed Non-Spark i przygotuj zwięzłą rekomendację kampanijną.",
       "checks": [
         "Searches current official documentation for the exact placement and ad workflow",
@@ -204,7 +210,8 @@
     {
       "id": "M08",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób kampanię teledyskową do mojego utworu, nie reklamę produktu.",
       "checks": [
         "Does not misclassify the work as commercial product or paid-social campaign direction",
@@ -231,7 +238,8 @@
     {
       "id": "M09",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "W trybie rozbudowanym chcę trzy różne pomysły na reklamę nowego napoju. Fakty: ma naturalnie mętny wygląd; nie mamy badań ani zatwierdzonych claimów. Możesz wykorzystać moją obserwację, że klienci pytają, czy to wada.",
       "checks": [
         "Builds three materially distinct idea mechanisms, not palette-only variations",
@@ -263,7 +271,8 @@
     {
       "id": "M10",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób reklamę jak każdy premium brand: szybki dronowy orbit, makro, slow motion, głośny drop i szybkie cięcia. Produkt ma być najważniejszy.",
       "checks": [
         "Does not accept an adjective/effect list as a complete idea",

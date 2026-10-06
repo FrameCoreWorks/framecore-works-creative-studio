@@ -9,7 +9,7 @@ Before final delivery of a substantive authored, revised or generated creative a
 
 Read [production and delivery](references/production-and-delivery.md). Return the actual requested artifact plus the minimum information the next operator needs.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) before substantive production advice or claims about changing channel, accessibility, or print requirements. Prefer official specifications. If the handoff is purely a record of already verified facts, do not invent a new spec or imply one was rechecked.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) before production advice or claims about changing channel, accessibility, or print requirements; those requirements trigger it. Prefer official specifications. If the handoff is purely a record of already verified facts, do not invent a new spec or imply one was rechecked.
 
 Distinguish prompt, concept raster, reviewed digital raster and production master. State verified properties separately from assumptions and remaining checks. Do not equate a filename extension with editable vectors, transparency, valid QR code or print readiness.
 

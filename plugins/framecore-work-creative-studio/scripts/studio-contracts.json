@@ -211,6 +211,16 @@
   ],
   "critical_contracts": [
     {
+      "id": "research_conditional_triggers",
+      "path": "skills/research-evidence/SKILL.md",
+      "required_patterns": [
+        "## Research triggers",
+        "Search only when one does",
+        "Do not search out of habit",
+        "network access disabled"
+      ]
+    },
+    {
       "id": "research_privacy",
       "path": "skills/research-evidence/SKILL.md",
       "required_patterns": [

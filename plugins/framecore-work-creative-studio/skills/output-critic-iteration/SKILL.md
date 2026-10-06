@@ -11,7 +11,7 @@ First identify the supplied artifact. This owner reviews actual static images. A
 
 Read [review and repair](references/review-and-repair.md). Inspect the actual available image, not its name or a remembered prompt. State limitations of screenshots, unreadable text, unavailable references or unmeasured delivery properties. When the image materially depends on identity, anatomy, wardrobe, product truth, grip/contact, camera/light/material coherence or an I2V start state, also read only the relevant checks and correction guidance in [visual subject craft](../image-prompt-architect/references/visual-subject-craft.md#9-observable-anti-artifact-and-acceptance-checks). Do not load that craft for unrelated pure typography or abstract graphics, and do not mistake deliberate stylization for a defect.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) for substantive reviews. Inspect the supplied pixels first, then search only relevant visual standards, contextual references, or current technical facts that could change the diagnosis. Web evidence never substitutes for the actual render or authorizes generation.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) for substantive reviews. Inspect the supplied pixels first, then search only when a trigger applies, for current tool limits, technical facts or requested references that could change the diagnosis. Web evidence never substitutes for the actual render or authorizes generation.
 
 Judge separately: meaning and specificity; factual/copy/source correctness; visual craft and reading; requested delivery properties. A single critical mismatch blocks acceptance. An attractive image cannot compensate for wrong required text or a changed product.
 

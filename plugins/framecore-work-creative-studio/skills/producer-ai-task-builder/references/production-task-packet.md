@@ -113,7 +113,7 @@ Record: the artifact actually available; the user's target; the observed failure
 
 ## 5. Google Flow Music / Lyria evidence-sensitive notes
 
-This is a historical evidence snapshot, not the live source of truth. Its exact original check date is `Unknown` in the portable package; the external development log is not runtime evidence. Re-run the mandatory research preflight and record the current access date and scope before current claims. Search leads include the [Lyria prompt guide](https://deepmind.google/models/lyria/prompt-guide/), the [Lyria 3.5 model card](https://deepmind.google/models/model-cards/lyria-3-5/), the [Flow Music song workflow](https://support.google.com/flow/answer/17084348?hl=en), and the [Flow Music music-video help page](https://support.google.com/flow/answer/17084421?hl=en).
+This is a historical evidence snapshot, not the live source of truth. Its exact original check date is `Unknown` in the portable package; the external development log is not runtime evidence. Current claims trigger research: re-run it and record the current access date and scope before current claims. Search leads include the [Lyria prompt guide](https://deepmind.google/models/lyria/prompt-guide/), the [Lyria 3.5 model card](https://deepmind.google/models/model-cards/lyria-3-5/), the [Flow Music song workflow](https://support.google.com/flow/answer/17084348?hl=en), and the [Flow Music music-video help page](https://support.google.com/flow/answer/17084421?hl=en).
 
 ### Historical notes to recheck
 

@@ -30,7 +30,8 @@
     {
       "id": "S02",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Tylko prompt po angielsku. Plakat 4:5. Finalny tekst: PRÓG. Płaska czarno-biała typografia, bez ilustracji.",
       "checks": [
         "One complete prompt",
@@ -55,7 +56,8 @@
     {
       "id": "S03",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Mam tylko pomysł na wieczór napraw. Wymyśl hasło i wygeneruj plakat.",
       "checks": [
         "Draft copy remains unselected",
@@ -80,7 +82,8 @@
     {
       "id": "S04",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Chcę trzy naprawdę różne kierunki.",
       "checks": [
         "Different communication mechanisms",
@@ -235,6 +238,7 @@
       "id": "S10",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Zrób prompt pod FLUX.2 pro.",
       "checks": [
         "Current official mapping",
@@ -283,7 +287,8 @@
     {
       "id": "S12",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przenieś ten KV na 9:16 i 3:1, nie zmieniaj tekstu.",
       "checks": [
         "Recomposition not blind crop",
@@ -315,7 +320,8 @@
     {
       "id": "S13",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Sprawdź kierunek i przygotuj prompt, jeśli przejdzie: chcę maksymalistyczny plakat z ornamentem na wystawę botaniczną.",
       "checks": [
         "No automatic minimalist rewrite",
@@ -355,7 +361,8 @@
     {
       "id": "S14",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Wygeneruj plakat, a jeśli narzędzie nie zadziała, sam wybierz inny serwis.",
       "checks": [
         "Checks current provider authorization",
@@ -408,7 +415,8 @@
     {
       "id": "S16",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Wygeneruj tło, a tekst chcę składać ręcznie w edytorze.",
       "checks": [
         "Explicit separated route respected",
@@ -434,7 +442,8 @@
     {
       "id": "S17",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób copy bardziej ludzkie, ale zachowaj zatwierdzony nagłówek.",
       "checks": [
         "Headline unchanged",
@@ -494,7 +503,8 @@
     {
       "id": "S19",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "private_claim_needs_user_source",
       "user_request": "Napisz plakat ze zdaniem o 70% oszczędności, nie mamy badań.",
       "checks": [
         "Flags unsupported material claim",
@@ -676,7 +686,8 @@
     {
       "id": "S26",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Mam trzy nieudane próby poprawienia jednej literówki. Przebuduj całość i wymyśl nowe logo.",
       "context": {
         "same_defect_attempts": 3,
@@ -706,7 +717,8 @@
     {
       "id": "S27",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Sprawdź ten kierunek plakatu otwarcia i przygotuj prompt tylko wtedy, jeśli przejdzie.",
       "checks": [
         "Interchangeable effects do not count as a brief-specific visual mechanism",
@@ -741,7 +753,8 @@
     {
       "id": "S28",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj finalny prompt z tego kierunku, ale oceń wcześniej rolę wszystkich elementów.",
       "checks": [
         "Unmotivated decoration blocks final prompt release",
@@ -775,7 +788,8 @@
     {
       "id": "S29",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Oceń relację nagłówka i obrazu. Jeśli jej mechanizm nie jest swoisty dla tego wydarzenia, nie dawaj jeszcze promptu.",
       "checks": [
         "Test the complete word/form relation rather than deleting the title",
@@ -809,7 +823,8 @@
     {
       "id": "S30",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Sprawdź kierunek typograficzny i przygotuj prompt, jeśli nie wymaga ilustracyjnego bohatera.",
       "checks": [
         "A type-led concept can pass without an image hero",
@@ -843,7 +858,8 @@
     {
       "id": "S31",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Oceń kierunek materiałowy. Nie usuwaj chromu ani poświaty, jeśli wynikają z prawdy produktu.",
       "checks": [
         "Purposeful chrome/glow is not rejected by a word list",
@@ -915,7 +931,8 @@
     {
       "id": "S33",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Mamy dwa kierunki. Nie wybieram jeszcze jednego, ale przygotuj teraz finalny prompt.",
       "checks": [
         "Track concept state as needs_selection",
@@ -957,7 +974,8 @@
     {
       "id": "S34",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj kwadratową adaptację tego zatwierdzonego kierunku. Możesz zmienić układ i skalę, ale nie zmieniaj mechanizmu ani tekstu.",
       "checks": [
         "Track the supplied concept as locked without repeating approval",
@@ -1033,7 +1051,8 @@
     {
       "id": "S36",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj koncepcję wizytówki członkowskiej jako podgląd rastrowy, nie plik do druku. Zachowaj dokładnie podane dane i nie dodawaj logo.",
       "checks": [
         "Treat the deliverable as a concept raster only; do not claim it is print-ready",
@@ -1072,6 +1091,7 @@
       "id": "S37",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "public_claim",
       "user_request": "Zrób finalny plakat informacyjny o konsultacjach w sprawie Parku Nadbrzeżnego. Dodaj, że 72% mieszkańców popiera projekt, ale nie znamy źródła tej liczby ani tego, kto oficjalnie przemawia.",
       "checks": [
         "Identify the intended public understanding/action and the authorized speaker before finalizing the claim-bearing direction",
@@ -1242,7 +1262,8 @@
     {
       "id": "S40",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj trzy osobne prompty do niezależnego wygenerowania trzech editorial stilli dla fikcyjnej herbaty cold brew. Nie chcę planszy ani kampanii w różnych formatach, tylko trzy osobne pliki: (1) hero butelki na kamieniu o świcie; (2) makro kropli kondensacji i zamknięcia; (3) osoba odpoczywająca po biegu i pijąca napój. Marka i produkt są fikcyjne. Zaproponuj raz wspólny, prosty kształt butelki i powtórz go w każdym promptcie; ścisłej foto-identyczności nie oczekuję. Styl: autorska, oszczędna fotografia ze światłem świtu i chłodną paletą. Każdy prompt kompletny samodzielnie, bez widocznych napisów i logotypów. Generator dobiorę później.",
       "checks": [
         "Return exactly three separately numbered image prompts, not a grid, board, contact sheet, or extra variants",
@@ -1298,7 +1319,8 @@
     {
       "id": "S41",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Edytuj załączony fikcyjny packshot szklanej butelki. Zmień wyłącznie białe studyjne tło i płaszczyznę podparcia na ciepły, jasny kamień. Zachowaj geometrię, pozę, kamerę, kadr, ostrość butelki, dokładny napis na etykiecie i jej lokalny kolor. Nowe odbicia w szkle, kolor otoczenia i cień kontaktowy mogą zmienić się tylko w zakresie fizycznie koniecznym dla nowego otoczenia. Przygotuj prompt do edycji.",
       "checks": [
         "Treat the bottle image as a fictional source supplied only inside this synthetic fixture scenario, not as an image reviewed during fixture validation",
@@ -1346,7 +1368,8 @@
     {
       "id": "S42",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "W fikcyjnym packshocie szklanej butelki podmień białe studyjne tło i podparcie na ciemnozielone kamienne otoczenie. Jednocześnie zachowaj piksel w piksel stare białe odbicia studia w szkle i dokładny stary cień kontaktowy. Nie zmieniaj produktu ani etykiety. Od razu przygotuj finalny prompt.",
       "checks": [
         "Detect that the new environment conflicts with exact preservation of old-environment reflections and contact-shadow pixels",
@@ -1395,7 +1418,8 @@
     {
       "id": "S43",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Chcę osobno tło, figurę i ziarnistą nakładkę, nie jednej planszy. W poprzedniej części tej rozmowy wyraźnie zaakceptowałem dokładnie wersję background-v001, ale sam plik nie jest dołączony w tej turze. Zmień wyłącznie fakturę tła na delikatny papier; nie zmieniaj uzgodnionej geometrii, palety ani pustej strefy na tekst. Przygotuj poprawkę background-v002, po rzeczywistym obrazie zapytaj o akceptację, a dopiero później przejdź do figury.",
       "checks": [
         "Activate the separate-asset route only because the user explicitly requested separate assets",
@@ -1448,7 +1472,8 @@
     {
       "id": "S44",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotowuję mały pokaz współczesnej ceramiki. Chcę, żeby plakat miał trochę premium charakter, ale nie mam konkretnej referencji. Możesz zaproponować roboczą interpretację bez dodatkowych pytań i bez blokowania jej jako finalnej. Na razie chcę jeden kierunek, nie prompt.",
       "checks": [
         "Interprets the broad premium label through specific, brief-grounded visual choices instead of copying luxury clichés",
@@ -1535,7 +1560,8 @@
     {
       "id": "S46",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj koncepcję plakatu wydarzenia botanicznego: siatka inspirowana stylem szwajcarskim ma porządkować tytuł, datę i informacje, a centralny obraz ma wyglądać jak ilustracja wycięta w linoleum. Chcę opis kierunku, nie promptu ani deklaracji o technice druku.",
       "checks": [
         "Preserves the explicitly requested hybrid instead of forcing a single style label",
@@ -1584,7 +1610,8 @@
     {
       "id": "S47",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób plakat z elementami szwajcarskimi, cyberpunkowymi, glassmorphism, wiktoriańskimi i risograph. Wszystko jest równie ważne, nie mam przypisanych ról. Od razu opracuj pełny kierunek.",
       "checks": [
         "Recognizes the unassigned equal-priority stack as an unresolved composition decision, not a finished art direction",
@@ -1629,7 +1656,8 @@
     {
       "id": "S48",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Pracujemy na jawnie oddzielonych assetach. Zmień wyłącznie sylwetkę poster_figure na bardziej boczny profil. Z zaakceptowanego planu wynika, że shadow_v001 zależy od geometrii postaci; to warstwa wcześniej zaakceptowana i nie chcę jej zmieniać bez osobnego uzgodnienia. Tło background_v001 jest niezależne, zachowaj je. Przygotuj tylko kierunek dla sylwetki, bez promptu i bez generowania obrazu.",
       "checks": [
         "Uses the separate-asset route only because the user explicitly requested separate assets",
@@ -1687,7 +1715,8 @@
     {
       "id": "S49",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "To osobne warstwy. Zmień wyłącznie warstwę poster_background z chłodnego błękitu na ciepłą oliwkową zieleń. Odbicie floor_reflection_v001 jest już zaakceptowane i plan oznacza je jako zależne od tła; zachowaj je, a jeśli po obejrzeniu nowego tła będzie potrzebna zmiana odbicia, najpierw uzgodnij ją ze mną. Przygotuj kierunek tylko dla tła, bez promptu i bez generowania obrazu.",
       "checks": [
         "Uses the separate-asset route only because the user explicitly requested separate layers",
@@ -1895,6 +1924,7 @@
       "id": "S53",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Przygotuj prompt do plakatu w Qwen Image 3.0. Uwzględnij aktualne najlepsze praktyki tego modelu i to, jak faktycznie wypadają u użytkowników.",
       "checks": [
         "Runs a fresh, focused search of current official Qwen Image 3.0 documentation and attributable first-hand practitioner evidence",

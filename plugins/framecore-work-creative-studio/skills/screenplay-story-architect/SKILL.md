@@ -12,7 +12,7 @@ story artifact. Write actual scenes when asked for a script; do not substitute
 a logline, outline or list of headings. Keep the user's language unless the
 requested deliverable specifies otherwise.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) before substantive story development or revision. Search relevant context, factual grounding, form, or craft inspiration; verify material real-world claims. Use sources to inform original choices, not to imitate a living creator or import unverified story facts.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) before substantive story development or revision. Search factual grounding or craft inspiration when real-world subjects, material claims or a request for references trigger it; verify material real-world claims. Use sources to inform original choices, not to imitate a living creator or import unverified story facts.
 
 ## Route the work
 

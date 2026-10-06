@@ -23,6 +23,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "reference_or_verification_request",
       "expected_owners": [
         "workflow-orchestrator",
         "research-evidence",
@@ -59,6 +60,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "reference_or_verification_request",
       "expected_owners": [
         "research-evidence",
         "ecommerce-campaign-strategy-director"
@@ -167,7 +169,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "expected_owners": [
         "static-graphic-design-creator"
       ],
@@ -237,6 +240,7 @@
         "uploads_authorized": false
       },
       "research_expectation": "required",
+      "research_trigger": "reference_or_verification_request",
       "expected_owners": [
         "research-evidence",
         "ecommerce-campaign-strategy-director"

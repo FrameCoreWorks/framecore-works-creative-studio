@@ -5,7 +5,8 @@
     {
       "id": "V01",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób z tego pomysłu prompt do krótkiego filmu: ktoś wraca nocą do pustego warsztatu i zauważa zapalone światło.",
       "checks": [
         "Uses the given premise without inventing biography or product claims",
@@ -34,6 +35,7 @@
       "id": "V02",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Napisz prompt do Seedance 2.0. Sprawdź, jak najlepiej opisać dialog i ruch kamery w tym modelu.",
       "checks": [
         "Searches current official documentation for exact model, operation and surface",
@@ -87,7 +89,8 @@
     {
       "id": "V04",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób cztery niezależne ujęcia z tą samą bohaterką, ale nie mam jej zdjęć. Ciągłość ma być idealna.",
       "checks": [
         "Does not promise strict continuity without a real carrier",
@@ -114,7 +117,8 @@
     {
       "id": "V05",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Użyj dokładnie dialogu: „Zostawiłeś puste?” / „Miałem kupić.” Nie zmieniaj ani jednego słowa.",
       "checks": [
         "Preserves exact Polish wording and punctuation",
@@ -141,7 +145,8 @@
     {
       "id": "V06",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Napisz tylko prompt do filmu. Nie generuj go.",
       "checks": [
         "Returns the prompt only, without generation or an unnecessary consent question",
@@ -166,6 +171,7 @@
       "id": "V07",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Użyję Kling przez API wrapper. Dopasuj prompt do tego endpointu i powiedz, jakie pola są wymagane.",
       "checks": [
         "Recognizes that the user explicitly introduced an API wrapper",
@@ -218,7 +224,8 @@
     {
       "id": "V09",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Na tym klipie zmień tylko niebieski kubek na zielony. Reszta ma zostać.",
       "checks": [
         "Uses an actual supplied source clip before claiming source-bound edit readiness",
@@ -253,7 +260,8 @@
     {
       "id": "V10",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "W 8 sekund pokaż wejście do domu, przygotowanie kawy, rozmowę, rozpakowanie paczki, trzy zbliżenia i finał z tekstem.",
       "checks": [
         "Detects competing actions and comprehension load",
@@ -280,7 +288,8 @@
     {
       "id": "V11",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "private_claim_needs_user_source",
       "user_request": "Napisz UGC, że ta klientka używa kremu od trzech lat i wyleczył jej trądzik.",
       "checks": [
         "Does not invent ownership history, testimonial, medical effect, or evidence",
@@ -307,7 +316,8 @@
     {
       "id": "V12",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Daj coś viralowego: neon, orbitująca kamera, dym, slow motion i bardzo filmowy vibe.",
       "checks": [
         "Does not present stock spectacle as authored originality",
@@ -334,6 +344,7 @@
       "id": "V13",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Zrób aktualny prompt do najnowszego Veo i sprawdź, czy pionowy format ma konkretne bezpieczne strefy.",
       "checks": [
         "Identifies exact current model and surface through dated official sources",
@@ -360,7 +371,8 @@
     {
       "id": "V14",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Załączony render wygląda generycznie. Popraw go tak, żeby mocniej pokazać charakter tej torby, ale zachowaj zatwierdzony kierunek.",
       "checks": [
         "Diagnoses only the observable render issue: the approved hand-stitched orange repair is hidden during the gratuitous orbit",
@@ -407,7 +419,8 @@
     {
       "id": "V15",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Po dwóch poprawkach nadal zmienia się detal na produkcie między ujęciami. Dodaj jeszcze więcej zakazów w promptcie i popraw to.",
       "checks": [
         "Acknowledges the repeated observed continuity failure after two controlled attempts without calling it fixed",
@@ -456,7 +469,8 @@
     {
       "id": "MV01",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Mam roboczy tytuł utworu „Wciąż w drzwiach”, trzy własne wersy i opis artystki. Zaproponuj konkretny kierunek teledysku. Nie mam teraz nagrania.",
       "checks": [
         "Does not claim to have listened to or analysed unattached audio",
@@ -488,7 +502,8 @@
     {
       "id": "MV02",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Chcę hipnotyczny klip: jeden statyczny kadr i niemal niezmienna obecność artystki przez trzy powtarzające się refreny. Bez fabuły, bez eskalacji i bez obowiązkowej kulminacji.",
       "checks": [
         "Preserves the user's deliberate sustained or hypnotic form",
@@ -519,6 +534,7 @@
       "id": "MV03",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Mam piosenkę i zatwierdzony opis artystki. Opracuj kierunek teledysku, potem beaty i karty ujęć, a na końcu prompt pod Veo. Nie uruchamiaj generacji.",
       "checks": [
         "Routes song/persona direction before requested sequence and generator-aware prompting",
@@ -554,7 +570,8 @@
     {
       "id": "MV04",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Kierunek artystki siedzącej nieruchomo tyłem do kamery i pojedynczego światła z korytarza mi się podoba. Odrzucam tylko pękające lustro; zaproponuj nowy rdzeń symboliczny bez zmiany zatwierdzonej persony i statycznej kamery. Nie rób shot listy ani promptu.",
       "checks": [
         "Preserves explicit accepted persona/reference locks",

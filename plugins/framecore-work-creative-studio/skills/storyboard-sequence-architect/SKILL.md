@@ -12,7 +12,7 @@ camera position, and what state carries into the next shot. This is a practical
 creative artifact, not a claim that a future render, edit, or continuity result
 has been tested.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) before substantive sequence or shot-planning decisions. Search relevant cinematic grammar, production context, or current generator limits; distinguish sourced facts from local creative inference and do not copy a reference sequence shot for shot.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) before substantive sequence or shot-planning decisions. Search production context or current generator limits when a trigger applies; stable cinematic grammar needs no search; distinguish sourced facts from local creative inference and do not copy a reference sequence shot for shot.
 
 Start at the user's requested stage. A clear script and deliverable do not need
 another intake form. For a vague request, ask only for the decision that changes

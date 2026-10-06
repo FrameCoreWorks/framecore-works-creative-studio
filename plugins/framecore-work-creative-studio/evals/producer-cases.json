@@ -6,6 +6,7 @@
       "id": "PA01",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Chcę prosty, intymny utwór po polsku o nocnej zmianie w piekarni. Bez naśladowania konkretnego artysty. Przygotuj kompletny prompt i krótką checklistę odsłuchu do Google Flow Music.",
       "checks": [
         "Produces a complete copy-ready song task packet rather than a loose collection of adjectives",
@@ -51,6 +52,7 @@
       "id": "PA02",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "named_tool_or_model",
       "user_request": "Czy Flow Music nadal używa Gemini Omni Flash do teledysków? Zbuduj prompt dopiero pod model, który jest teraz dostępny.",
       "checks": [
         "Checks current official product/help evidence instead of relying on the old Gemini Omni Flash announcement",
@@ -214,14 +216,15 @@
     {
       "id": "PA06",
       "status": "planned",
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Mam piosenkę o powrotach do rodzinnego miasta. Wymyśl tylko autorski kierunek teledysku, bez promptu i shot listy.",
       "checks": [
         "Routes a direction-only request to creative-music-video-director",
         "Does not emit an execution packet, generator prompt or shot sequence the user did not request",
         "Preserves the distinction between song-to-image direction and prompt preparation",
         "Does not claim to have listened to an unattached or unanalysed song",
-        "Uses the mandatory public research preflight for substantive creative direction"
+        "Applies the conditional research gate: no search for an original direction built on supplied facts, and no research claimed"
       ],
       "context": {
         "owner": "workflow-orchestrator",
@@ -253,6 +256,7 @@
       "id": "PA07",
       "status": "planned",
       "research_expectation": "required",
+      "research_trigger": "capability_claim",
       "user_request": "To mój własny tekst: „Światło wraca / pod drzwiami”. Zachowaj go dokładnie. Przygotuj prompt do wideo ze śpiewającą fikcyjną postacią, tak żeby usta idealnie zgadzały się z każdym słowem. Gdy po generacji coś będzie nie tak, popraw tylko synchronizację.",
       "checks": [
         "Preserves the user-approved lyric wording verbatim in its own labeled block",

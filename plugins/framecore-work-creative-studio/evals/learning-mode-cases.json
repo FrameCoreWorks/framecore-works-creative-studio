@@ -137,8 +137,7 @@
       "expected_interaction_mode": "creation",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -149,7 +148,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Enter creation without learning onboarding or a menu barrier.",
         "Briefly mention the optional learning switch once, then deliver the requested prompt.",
@@ -209,8 +209,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -221,7 +220,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Reuse all six supplied onboarding answers without another questionnaire.",
         "Return a personalized ordered plan with outcomes, exercises, criteria, tools/cost limits, no-render work and estimated effort.",
@@ -248,8 +248,7 @@
         "static-graphic-design-creator",
         "screenplay-story-architect",
         "audio-production-director",
-        "storyboard-sequence-architect",
-        "research-evidence"
+        "storyboard-sequence-architect"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -260,7 +259,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Represent all four requested supported fields using the existing domain map.",
         "State support boundaries and offer varied learner outcomes; do not default to video or character reference.",
@@ -284,8 +284,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "studio-workstyle-profile",
-        "research-evidence"
+        "studio-workstyle-profile"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -296,7 +295,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Preserve the broad goal with shared foundations, all requested supported specializations and an integrative project.",
         "Identify transferable skills, prerequisites, concrete exercises, criteria and realistic labelled effort estimates.",
@@ -323,8 +323,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "image-prompt-architect",
-        "research-evidence"
+        "image-prompt-architect"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -335,7 +334,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Assign a meaningful independent choice or draft with a plain explanation and criteria.",
         "Do not substitute a finished prompt for the learner's attempt.",
@@ -367,8 +367,7 @@
       "expected_owners": [
         "workflow-orchestrator",
         "static-graphic-design-creator",
-        "studio-workstyle-profile",
-        "research-evidence"
+        "studio-workstyle-profile"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -379,7 +378,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Discuss the actual attempt, focusing on one or two concrete changes, without personal judgment.",
         "Explain hierarchy more simply, reduce variables and offer a retry or short understanding check.",
@@ -417,8 +417,7 @@
       "expected_interaction_mode": "creation",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -429,7 +428,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Switch immediately, without requiring another lesson or user permission to stop learning.",
         "Preserve the selected concept, exact text and learning checkpoint.",
@@ -471,8 +471,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -483,7 +482,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Reuse the project and supplied learner details without full onboarding.",
         "Teach one decision and invite an attempt instead of generating another final variant.",
@@ -507,8 +507,7 @@
       "expected_interaction_mode": "creation",
       "expected_owners": [
         "workflow-orchestrator",
-        "commercial-video-campaign-director",
-        "research-evidence"
+        "commercial-video-campaign-director"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -519,7 +518,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "checks": [
         "Keep Quick as pace inside creation; give three brief distinct directions.",
         "Preserve the existing research, product-truth and requested-stage boundaries.",
@@ -552,8 +552,7 @@
       "expected_owners": [
         "workflow-orchestrator",
         "audio-production-director",
-        "tool-routing-cost",
-        "research-evidence"
+        "tool-routing-cost"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -564,7 +563,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Offer a no-render cue/arrangement or prompt exercise first.",
         "No provider, API/MCP, paid job, upload or assumption of external credits.",
@@ -696,8 +696,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "screenplay-story-architect",
-        "research-evidence"
+        "screenplay-story-architect"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -708,7 +707,8 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_learning",
       "checks": [
         "Match the stated intermediate writing experience and schedule.",
         "Deliver a complete ordered curriculum with exercises, assessment and estimated effort.",
@@ -767,8 +767,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -779,7 +778,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "Deliver the compact provisional plan and one short no-render diagnostic task inside the first lesson; do not add onboarding.",
         "State one observable criterion and wait for an actual attempt without revealing its solution.",
@@ -791,7 +790,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     },
     {
       "id": "LM18",
@@ -815,8 +814,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -827,7 +825,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "Give one relevant hint without a completed layout or another questionnaire; wait for the learner.",
         "Retain assistance_used for this criterion and do not mark the task independent.",
@@ -839,7 +837,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     },
     {
       "id": "LM19",
@@ -855,8 +853,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -867,7 +864,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "Distinguish output quality, lesson completion and independent competence.",
         "Keep the unverified learner report labelled; no unsupported promotion, mastery score or image inspection.",
@@ -879,7 +876,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     },
     {
       "id": "LM20",
@@ -908,8 +905,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "storyboard-sequence-architect",
-        "research-evidence"
+        "storyboard-sequence-architect"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -920,7 +916,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "Change one meaningful context or constraint and state its criterion; wait without a solution.",
         "Do not mark independent_transfer before reviewing an actual unassisted attempt.",
@@ -932,7 +928,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     },
     {
       "id": "LM21",
@@ -1005,8 +1001,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "video-prompt-architect",
-        "research-evidence"
+        "video-prompt-architect"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -1017,7 +1012,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "The reported failed render does not establish a craft error or a model limitation; keep cause Unknown.",
         "Identify evidence needed to discriminate instruction, reference, generator and tool causes.",
@@ -1029,7 +1024,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     },
     {
       "id": "LM23",
@@ -1065,8 +1060,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "storyboard-sequence-architect",
-        "research-evidence"
+        "storyboard-sequence-architect"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -1077,7 +1071,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "Give one linked exercise using the existing learner project and relevant artifact dependencies.",
         "Preserve exact copy and folded-umbrella lock; no new project selection or intake.",
@@ -1089,7 +1083,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     },
     {
       "id": "LM24",
@@ -1111,8 +1105,7 @@
       "expected_interaction_mode": "learning",
       "expected_owners": [
         "workflow-orchestrator",
-        "static-graphic-design-creator",
-        "research-evidence"
+        "static-graphic-design-creator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",
@@ -1123,7 +1116,7 @@
         "external_provider_authorized": false,
         "uploads_authorized": false
       },
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
       "checks": [
         "Honor the requested worked example immediately and stay in learning; no compulsory hint ladder.",
         "Record worked_example support without claiming independent performance from the shown solution.",
@@ -1135,7 +1128,7 @@
         "Reviewer decision against each check; declared fixture states are not observations.",
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
-      "research_exemption_reason": ""
+      "research_exemption_reason": "stable_craft_learning"
     }
   ]
 }

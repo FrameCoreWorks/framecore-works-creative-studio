@@ -11,7 +11,7 @@ Read [direction and composition](references/direction-and-composition.md) for an
 
 When exact copy needs a concrete reading plan, difficult line breaks or a meaningful change of ratio, use the [type and format workbench](references/type-and-format-workbench.md). Its [copy/format card](assets/copy-and-format-card.md) is optional; [two complete adaptations](assets/half-turn-adaptation-example.md) show how one selected mechanism survives recomposition. Do not load this extension for an unrelated narrow image correction or repeat its worksheet as an intake.
 
-Run the mandatory [public research preflight](../research-evidence/SKILL.md) before committing to substantive work. Search relevant visual context and original references; fact-check material claims. Keep research bounded to the design question and translate inspiration into an original mechanism, not a copied layout or style.
+Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to substantive work. Search visual context and original references when the user asks for inspiration or references or the work depicts real-world subjects; fact-check material public claims. Keep research bounded to the design question and translate inspiration into an original mechanism, not a copied layout or style.
 
 Start with purpose and reading conditions, then visual thesis, composition, type-image relation and material. These bundled references govern campaign-level visual direction and format adaptation. For a static-only deliverable, route execution to the complete, pinned [Static Graphic Design Creator](../static-graphic-design-creator/SKILL.md) rather than repeating a second full design workflow here. Never substitute a stack of fashionable effects.
 

@@ -22,7 +22,7 @@ Record artifact ID/revision and original approved base; view size, crop and acce
 | Repair objective | Restore the two words while preserving the selected slogan | Rebuilding the visual concept automatically |
 | Acceptance test | Inspect exact string and reading order at the intended size | Treating a prompt or script exit code as proof |
 
-Research only the principle or current technical fact that could change this diagnosis, under the mandatory preflight. A source supports a method; actual pixels support an observation. Accessibility guidance must be applied in its medium and context, not used as a blanket numerical poster certification. See the visual director's relevant typography guidance when needed.
+Research only the principle or current technical fact that could change this diagnosis, under the conditional research gate. A source supports a method; actual pixels support an observation. Accessibility guidance must be applied in its medium and context, not used as a blanket numerical poster certification. See the visual director's relevant typography guidance when needed.
 
 ## Choose the repair unit
 

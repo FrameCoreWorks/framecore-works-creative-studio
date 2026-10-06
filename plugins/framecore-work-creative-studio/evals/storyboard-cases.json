@@ -9,7 +9,8 @@
         "sequence_only",
         "no_story_invention"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Mam tylko pomysł: po latach ktoś wraca do zamkniętej pływalni. Zrób wstępny sequence plan, jeszcze nie wiem jaki format będzie najlepszy.",
       "checks": [
         "Creates a sequence/beat plan rather than a screenplay or another intake form",
@@ -43,7 +44,8 @@
         "timing_estimate",
         "screen_direction"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Z tego zaakceptowanego opisu rozpisz dokładnie 6 kart ujęć. Zachowaj kolejność. Czas ma być orientacyjny, nie mierzyliśmy montażu.",
       "checks": [
         "Uses only the sequence/storyboard contract and returns exactly six actionable shot cards",
@@ -94,7 +96,8 @@
         "board_layout_fit",
         "safe_zones"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Przygotuj kompletny prompt planszy 3x2 z dokładnymi podpisami Shot 1, Shot 2, Shot 3, Shot 4, Shot 5, Shot 6. Na razie tylko prompt, bez generowania.",
       "checks": [
         "Returns a complete Board Artifact Prompt, not only a vague grid description",
@@ -159,7 +162,8 @@
         "no_generation_without_tool",
         "native_tool_available"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Wygeneruj teraz tę gotową planszę. Zaakceptowałem już prompt i dokładne podpisy.",
       "checks": [
         "Recognizes explicit generation intent and checks that a native image-generation tool is actually available",
@@ -243,7 +247,8 @@
         "board_only",
         "reference_roles"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób reference board dla tego opakowania. Uwzględnij product truth, moodboard i typografię, ale nie rozpisuj żadnej sekwencji ani kadrów.",
       "checks": [
         "Produces a Reference Board Contract, not invented storyboard shots",
@@ -292,7 +297,8 @@
         "property_authority_conflict",
         "reference_roles"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Product source pokazuje czarne opakowanie, moodboard białe. Zachowaj poprawny produkt. Jeśli są dwa równie mocne źródła prawdy, zapytaj mnie.",
       "checks": [
         "Does not let lower-authority moodboard override authoritative product source",
@@ -338,7 +344,8 @@
         "board_layout_fit",
         "safe_zones"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Na planszy mają być tylko dwie polskie etykiety: 'Przed otwarciem' pod kadrem 1 i 'Po zamknięciu' pod kadrem 2. Żadnych innych napisów.",
       "checks": [
         "Preserves exactly the two supplied Polish strings including diacritics and punctuation",
@@ -390,7 +397,8 @@
         "exact_copy",
         "board_only"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Te długie akapity mają zostać dokładnie na planszy. Nie skracaj ich. Jeśli będzie nieczytelnie, pokaż problem albo zapytaj o zgodę na notatki obok.",
       "checks": [
         "Locks both exact supplied paragraphs and does not shorten or paraphrase",
@@ -431,7 +439,8 @@
         "sequence_board_separation",
         "handoff"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zrób story sheet z siedmioma beatami. Nie potrzebuję pełnego storyboardu z coverage, kamerą i continuity.",
       "checks": [
         "Returns a seven-beat story sheet contract, not a full storyboard",
@@ -483,7 +492,8 @@
         "strict_missing_carrier",
         "reference_roles"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Z jednego nieostrego portretu zrób character sheet dla postaci, którą będę powtarzać w kolejnych scenach.",
       "checks": [
         "States what the single blurry portrait can and cannot establish",
@@ -533,7 +543,8 @@
         "strict_missing_carrier",
         "continuity"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zachowaj ścisłą identyczność postaci i produktu przez sześć niezależnych paneli, ale nie mam teraz żadnych referencji. Możesz po prostu dopisać 'same' przy każdym?",
       "checks": [
         "Marks strict identity/product continuity not ready without actual carriers",
@@ -613,7 +624,8 @@
         "aspect_nondefault",
         "board_layout_fit"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zaadaptuj zaakceptowaną poziomą planszę do 9:16. Shot IDs i ich kolejność muszą zostać bez zmian; możesz rekomponować układ.",
       "checks": [
         "Preserves exact shot IDs and their approved sequence order",
@@ -664,7 +676,8 @@
         "camera_feasibility",
         "generator_handoff"
       ],
-      "research_expectation": "required",
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
       "user_request": "Zatwierdzony storyboard zamień na gotowy video prompt pack. Jedno ujęcie nie mieści się w zablokowanym czasie, jeśli zachowamy ruch kamery. Nie zmieniaj po cichu kierunku ani nie uruchamiaj generatora.",
       "checks": [
         "Hands off approved shot IDs/order, time basis, exact copy/dialogue, carrier roles and continuity commitments to video-prompt-architect",
