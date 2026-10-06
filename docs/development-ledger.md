@@ -169,3 +169,26 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `bc631cf` on owner instruction; [v1.13.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.13.0) published by workflow 37492623075; 861 blobs and plugin ZIP hash match ([record](../verification/github-publication-1.13.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261006-07
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-07-motion-contract`
+- Baseline: `6c1f8023641a9b1df9ebaba13dda209e8cfe8e17` (main, package 1.13.0)
+- Result: `45e0cbfa56c03b70e4f582c904ea7c1a2253a9cf` (package 1.14.0)
+- Package version: 1.13.0 -> 1.14.0
+- Scope: one motion contract JSON for storyboard, approval and timeline (motion direction 4)
+- Shared package changed: yes; 20 changed, 1 added, 0 removed ([scope](../verification/scope-1.14.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 142, motion-quality 9, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- packaged starters reinstalled and rerun; strict storyboard check PASS; GSAP and single-file preview frame 140 pixel-identical to the previous release
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
