@@ -66,7 +66,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "4f8a9a2dc848dd02d808107d79c01bd88a2e829610929e919af2f3c779ecab38",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.14.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks cover the synthetic contract and templates only; whether hosts present storyboards or record approvals as specified is not verified. All 201 planned cases remain not_run."
