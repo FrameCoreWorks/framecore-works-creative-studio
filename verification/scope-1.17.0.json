@@ -1,0 +1,32 @@
+{
+  "version": "1.17.0",
+  "baseline": "f16c18e55c6ac187890e5f35a038dc520a1f669f",
+  "change_id": "CC-20261006-10",
+  "origin": "cloud-code",
+  "files": 869,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 856,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs"
+  ],
+  "removed": [],
+  "visual_regression": "normal single-file preview frames 20, 140 and 299 pixel-identical to 1.16.0",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

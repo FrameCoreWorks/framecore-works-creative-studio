@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.16.0
+## Current source: 1.17.0
+
+The [1.17.0 source checks](verification/release-1.17.0.json) pass canonical validation and 208 tests: 149 Node in the CI set (plus 1 opt-in browser test, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new automated frame review ran in headless Chromium: no findings on the starter contract (31 frames) and the all-kinds example (53 frames), and clipping and out-of-frame errors with exit code 1 on a deliberately broken contract. Normal preview output is pixel-identical to 1.16.0. [Scope](verification/scope-1.17.0.json) records 11 changed and 2 added shared files out of 869. Host behavior is not run.
+
+## Previous source: 1.16.0
 
 The [1.16.0 source checks](verification/release-1.16.0.json) pass canonical validation and 207 tests: 148 Node in the CI set, 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. A declarative scene engine with six kinds now drives both the single-file preview and the Remotion starter. The preview renders the starter contract pixel-identically to 1.15.0; Remotion frames match the earlier render except for a 6-frame connector timing difference that the shared engine removes. The all-kinds example rendered in both, including a 775-frame H.264 file. Full playback review was not run. [Scope](verification/scope-1.16.0.json) records 21 changed and 4 added shared files out of 867. Host behavior is not run.
 

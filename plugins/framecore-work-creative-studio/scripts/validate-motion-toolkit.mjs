@@ -21,6 +21,8 @@ export function validateMotionToolkit(root) {
     'skills/hyperframes-workflow/references/motion-contract-json.md',
     `${singleFile}/README.md`,
     `${scenesDir}/README.md`,
+    'skills/hyperframes-workflow/assets/motion-review/README.md',
+    'skills/hyperframes-workflow/assets/motion-review/review-frames.mjs',
     `${scenesDir}/motion-scenes.mjs`,
     `${scenesDir}/examples/all-kinds.motion-score.json`,
     `${kinetic}/src/motion-scenes.mjs`,

@@ -386,20 +386,21 @@ function nodesByKey(node, map = {}) {
   Object.assign(stage.style, {width: score.width + 'px', height: score.height + 'px', background: t.background, color: t.foreground, fontFamily: t.fontFamily});
 
   // Generic DOM renderer: build each scene's element tree once, then apply per-frame styles.
-  const create = (node, elements) => {
+  const create = (node, elements, texts = []) => {
     const el = document.createElement(node.type === 'image' ? 'img' : 'div');
     Object.assign(el.style, node.style || {});
     if (node.type === 'text') el.textContent = node.text;
     if (node.type === 'image') { el.src = node.src; el.alt = node.alt || ''; }
-    for (const child of node.children || []) el.append(create(child, elements));
+    for (const child of node.children || []) el.append(create(child, elements, texts));
     elements[node.key] = el;
+    if (node.type === 'text') texts.push({key: node.key, el});
     return el;
   };
   const scenes = score.scenes.map(scene => {
-    const elements = {}, root = create(buildScene(scene, score), elements);
+    const elements = {}, texts = [], root = create(buildScene(scene, score), elements, texts);
     root.style.visibility = 'hidden';
     stage.append(root);
-    return {scene, root, elements};
+    return {scene, root, elements, texts};
   });
 
   /** Draw exactly one frame. Visible scenes satisfy start <= frame < end. */
@@ -462,9 +463,71 @@ function nodesByKey(node, map = {}) {
   window.seekFrame = seekFrame;
   window.motionScore = score;
 
+  // Review mode (?review=1): measure settled text during readable holds and publish a report.
+  // Checks: outside the frame, inside the margin, WCAG contrast, overlapping text, partial opacity
+  // in a hold and, for vertical formats, small text. Frames outside holds are reported as not checked.
+  const rgb = value => (value.match(/[\d.]+/g) || []).map(Number);
+  const luminance = ([r, g, b]) => [r, g, b].map(c => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }).reduce((sum, c, i) => sum + c * [0.2126, 0.7152, 0.0722][i], 0);
+  const contrast = (a, b) => { const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+  const backgroundOf = el => { for (let node = el; node && node !== document.body; node = node.parentElement) { const c = getComputedStyle(node).backgroundColor; const v = rgb(c); if (v.length >= 3 && (v.length < 4 || v[3] > 0)) return v.slice(0, 3); } return rgb(getComputedStyle(stage).backgroundColor).slice(0, 3); };
+  const opacityOf = el => { let o = 1; for (let node = el; node && node !== stage.parentElement; node = node.parentElement) o *= Number(getComputedStyle(node).opacity); return o; };
+  function reviewFrame(frame) {
+    seekFrame(frame);
+    const issues = [], s = stage.getBoundingClientRect(), k = s.width / score.width;
+    const marginX = score.width * (t.marginRatio ?? 0.08), marginY = score.height * (t.marginRatio ?? 0.08) * 0.5;
+    let held = false;
+    for (const {scene, texts} of scenes) {
+      if (!(frame >= scene.start && frame < scene.end)) continue;
+      if (!(scene.holds || []).some(([a, b]) => frame >= a && frame < b)) continue;
+      held = true;
+      const boxes = [];
+      for (const {key, el} of texts) {
+        if (!el.textContent.trim()) continue;
+        // Horizontal extent from the rendered glyphs (catches overflowing words); vertical extent from
+        // the line box, because glyph boxes include ascender/descender space beyond tight line heights.
+        const range = document.createRange(); range.selectNodeContents(el);
+        const rects = [...range.getClientRects()].filter(q => q.width > 0 && q.height > 0);
+        if (!rects.length) continue;
+        const line = el.getBoundingClientRect();
+        const r = {left: Math.min(...rects.map(q => q.left)), top: line.top, right: Math.max(...rects.map(q => q.right)), bottom: line.bottom};
+        const box = {left: (r.left - s.left) / k, top: (r.top - s.top) / k, right: (r.right - s.left) / k, bottom: (r.bottom - s.top) / k};
+        const style = getComputedStyle(el), size = parseFloat(style.fontSize), bold = Number(style.fontWeight) >= 700;
+        const add = (severity, check, detail) => issues.push({severity, check, scene: scene.id, element: key, detail});
+        for (let node = el.parentElement; node && node !== stage; node = node.parentElement) {
+          if (getComputedStyle(node).overflow !== 'hidden') continue;
+          const c = node.getBoundingClientRect();
+          if (r.left < c.left - 0.5 || r.top < c.top - 0.5 || r.right > c.right + 0.5 || r.bottom > c.bottom + 0.5) { add('error', 'clipped', 'text extends beyond a clipping mask during a readable hold'); break; }
+        }
+        if (box.left < 0 || box.top < 0 || box.right > score.width || box.bottom > score.height) add('error', 'outside-frame', `text box ${Math.round(box.left)},${Math.round(box.top)} to ${Math.round(box.right)},${Math.round(box.bottom)} leaves the ${score.width}x${score.height} frame`);
+        else if (box.left < marginX - 0.5 || box.right > score.width - marginX + 0.5 || box.top < marginY - 0.5 || box.bottom > score.height - marginY + 0.5) add('warning', 'margin', `text is closer to the edge than the ${Math.round(marginX)} px side or ${Math.round(marginY)} px top/bottom margin`);
+        const ratio = contrast(rgb(style.color).slice(0, 3), backgroundOf(el)), large = size >= 24 || (bold && size >= 18.66);
+        if (ratio < (large ? 3 : 4.5)) add('error', 'contrast', `contrast ${ratio.toFixed(2)}:1 is below WCAG ${large ? '3' : '4.5'}:1 for ${large ? 'large' : 'normal'} text`);
+        const opacity = opacityOf(el);
+        if (opacity < 0.99) add('warning', 'hold-opacity', `text opacity is ${opacity.toFixed(2)} during a readable hold`);
+        if (score.height > score.width && size < score.height / 48) add('warning', 'small-text', `${Math.round(size)} px text may be hard to read on a phone`);
+        for (const other of boxes) if (box.left < other.box.right && other.box.left < box.right && box.top < other.box.bottom && other.box.top < box.bottom) add('warning', 'overlap', `overlaps ${other.key}`);
+        boxes.push({key, box});
+      }
+    }
+    return {frame, checked: held, issues};
+  }
+  window.reviewFrame = reviewFrame;
+
   // ?frame=140 opens one frame; ?frames=299,0,140 replays a seek sequence for review comparisons.
   const query = new URLSearchParams(location.search);
+  if (query.has('review')) {
+    document.getElementById('controls').style.display = 'none';
+    document.getElementById('viewport').style.height = '100vh';
+    document.body.style.background = t.background || '#000';
+    fit();
+  }
   for (const frame of (query.get('frames') || query.get('frame') || '0').split(',')) seekFrame(frame);
+  if (query.has('review')) {
+    const report = document.createElement('script');
+    report.type = 'application/json'; report.id = 'review-report';
+    report.textContent = JSON.stringify({id: score.id, revision: score.revision, ...reviewFrame(current)});
+    document.body.append(report);
+  }
   document.documentElement.dataset.ready = 'true';
 })();
 </script>

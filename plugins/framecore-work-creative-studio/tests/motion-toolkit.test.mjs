@@ -134,3 +134,31 @@ test('diverging scene engine copies fail the toolkit check', () => {
     assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('Single-file preview scene engine differs')));
   });
 });
+
+const reviewTool = 'skills/hyperframes-workflow/assets/motion-review/review-frames.mjs';
+test('frame review selects contract frames and embeds the score in the preview', async () => {
+  const {selectFrames, previewFor, contactSheet} = await import(path.join(root, reviewTool));
+  const {reviewFrames} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
+  const scorePath = path.join(root, kinetic, 'motion-score.json'), score = JSON.parse(fs.readFileSync(scorePath, 'utf8'));
+  assert.deepEqual(selectFrames(score), reviewFrames(score));
+  const {html, score: embedded} = previewFor(scorePath);
+  assert.deepEqual(embedded, score);
+  assert.match(html, /window\.reviewFrame = reviewFrame/);
+  assert.match(html, /report.id = 'review-report'/);
+  const sheet = contactSheet({id: 'x<y', revision: 1, frames: [{frame: 3, image: 'frames/a.png', scenes: ['s'], checked: true, issues: [{severity: 'error', check: 'contrast', scene: 's', element: 'e', detail: '<b>'}]}], summary: {errors: 1, warnings: 0, checkedFrames: 1}});
+  assert.match(sheet, /x&lt;y/); assert.match(sheet, /&lt;b&gt;/); assert.match(sheet, /class="error"/);
+});
+// Opt-in: runs a real headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
+test('frame review finds no issues in the starter and errors in a broken contract', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {runReview} = await import(path.join(root, reviewTool));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-review-test-'));
+  try {
+    const good = runReview(path.join(root, kinetic, 'motion-score.json'), {out: path.join(tmp, 'good'), browser: process.env.MOTION_REVIEW_BROWSER});
+    assert.equal(good.summary.errors, 0); assert.ok(good.summary.checkedFrames > 0);
+    const broken = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
+    broken.copy['title-1'] = 'Clearmotionwithoutanybreakthatrunsfarbeyondtherightedgeofthisframe';
+    fs.writeFileSync(path.join(tmp, 'broken.json'), JSON.stringify(broken));
+    const bad = runReview(path.join(tmp, 'broken.json'), {out: path.join(tmp, 'bad'), browser: process.env.MOTION_REVIEW_BROWSER});
+    assert.ok(bad.frames.some(frame => frame.issues.some(issue => issue.check === 'outside-frame')));
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
