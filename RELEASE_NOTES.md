@@ -1,10 +1,10 @@
-# Creative Studio 1.11.0
+# Creative Studio 1.11.1
 
-Research now runs when it can change the result, not on every creative task.
+A smaller Studio entry with the same behavior.
 
-- Studio searches for current sources when the work names a generator or tool, depends on platform requirements, states a public fact, promises a current tool capability, depicts a real place, person, brand or event, or when the user asks for inspiration, references or verification.
-- Stable craft on the user's facts or a fictional brief (composition, copy, scripts, storyboards, model-agnostic prompts, lessons) proceeds without a search and without a no-research disclaimer.
-- Without search or network access, as in ChatGPT without search or Codex with network disabled, untriggered work is unaffected. Triggered work states the limitation once and marks current claims unverified.
-- Privacy, untrusted-source handling and the rule that research never authorizes generation or another provider are unchanged.
+- The main `workflow-orchestrator` instructions are about a quarter shorter, and the catalog description is under 400 characters, so hosts read less before answering.
+- Startup is unchanged: the same complete welcome in the user's language, the same Creative/Learning choice, pace and work-area menus, and direct handling of concrete tasks and resume requests.
+- Detailed version reporting and rare routing cases moved into two linked references; the entry keeps a compact rule and says when to read them.
+- All 37 skill IDs, routes and the conditional research gate from 1.11.0 are preserved.
 
-The complete welcome, automatic language policy, startup menus and all 37 skill IDs are preserved. Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

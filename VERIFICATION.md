@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.11.0
+## Current source: 1.11.1
+
+The [1.11.1 source checks](verification/release-1.11.1.json) pass canonical validation and 191 tests: 135 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The `workflow-orchestrator` entry shrinks from 38,834 to 29,255 bytes and its description from about 800 to 397 characters. The welcome excerpts, language policy and route rows are byte-identical; the full version procedure and rare routing boundaries moved verbatim to two linked references, guarded by a new budget and reference check. [Scope](verification/scope-1.11.1.json) records 8 changed and 2 added shared files out of 840. Host behavior is not run.
+
+## Previous source: 1.11.0
 
 The [1.11.0 source checks](verification/release-1.11.0.json) pass canonical validation and 190 tests (3 skipped): 134 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot (3 skipped without the optional dependency) and 23 asset checks. The research gate is now conditional on six named triggers; validators reject a reverted mandatory gate, missing triggers and untriggered cases that expect the research owner. [Scope](verification/scope-1.11.0.json) records 75 changed shared files, 763 unchanged and no added or removed paths; the welcome assets and 441 vendored or upstream files are byte-identical. The planned suite has 201 cases, all not_run. GitHub release, saved-host readback and active-client behavior are not run for this source; see [release status](RELEASE_STATUS.md).
 

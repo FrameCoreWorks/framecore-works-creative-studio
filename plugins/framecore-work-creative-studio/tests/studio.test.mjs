@@ -146,6 +146,23 @@ test('installed version directory and authoring slug accept both equivalent skil
   }, name);
 });
 
+test('compact entry keeps its budget and the moved rare-path rules', () => {
+  const entry = fs.readFileSync(path.join(source, 'skills/workflow-orchestrator/SKILL.md'), 'utf8');
+  assert.ok(Buffer.byteLength(entry) <= 32000);
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text + '\n' + 'x'.repeat(4000) + '\n');
+    assert.ok(codes(validateStudio(root)).includes('ORCHESTRATOR_BUDGET'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/references/routing-boundaries.md', text => text.replace('The sequence and board owners are distinct', 'Owners'));
+    assert.ok(codes(validateStudio(root)).includes('ORCHESTRATOR_REFERENCE'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('](references/version-reporting.md)', '](references/missing.md)'));
+    assert.ok(codes(validateStudio(root)).includes('ORCHESTRATOR_REFERENCE'));
+  });
+});
+
 test('every routed specialist appears in at least one orchestrator table route', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8'));
   assert.equal(registry.owners.length, 37);

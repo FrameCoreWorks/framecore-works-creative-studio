@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.11.1, 2026-10-06
+
+- Shorten the `workflow-orchestrator` entry from 38.7 KB to about 29 KB and its description from about 800 to under 400 characters, without changing behavior.
+- Keep the package identity block, compact version rule, automatic language policy, both complete welcome excerpts, entry sequence and both route tables in the entry.
+- Move the full version-reporting procedure and rare routing boundaries verbatim into `references/version-reporting.md` and `references/routing-boundaries.md`, linked with the conditions that require them; merge duplicated entry and menu instructions.
+- Add an entry size and description budget and checks that the moved rules and links remain.
+- Preserve 37 skill IDs, startup menus, welcome bytes, routes and vendored snapshots.
+
 ## 1.11.0, 2026-10-06
 
 - Make the shared research gate conditional: search only when a named tool or model, platform requirement, material public claim, current capability claim, real-world subject or request for inspiration, references or verification makes current sources decision-relevant.

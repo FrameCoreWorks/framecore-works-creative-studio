@@ -1,0 +1,35 @@
+{
+  "version": "1.11.1",
+  "baseline": "41e6bc9e1cb74cb0cca862595196995217291bcb",
+  "change_id": "CC-20261006-02",
+  "origin": "cloud-code",
+  "files": 840,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 830,
+  "added": [
+    "skills/workflow-orchestrator/references/routing-boundaries.md",
+    "skills/workflow-orchestrator/references/version-reporting.md"
+  ],
+  "removed": [],
+  "entry": {
+    "skill_md_bytes_before": 38834,
+    "skill_md_bytes_after": 29255,
+    "description_chars_before": 800,
+    "description_chars_after": 397
+  },
+  "welcome": "byte_identical",
+  "language_policy": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Moved paragraphs are verbatim except for relative link adjustment; config/install-sources.json regenerated."
+}

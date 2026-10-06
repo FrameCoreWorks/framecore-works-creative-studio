@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "e0f886f523c06b6152ee6bb45c0c0e23c1bd1b14b8cf290f361b69404cb64d99"
+      "sha256": "15d4f102248a1ed3d23988d6c0bd45ce76a2c9262c6e484dfa28a2ffb0d626fa"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 16506,
-      "sha256": "fe590b822ed1294555899882b55c4aaf436e072ec3f0788d15fc9ad76dd64aaa"
+      "sha256": "3797ea698d8e7b595e61150c627c1e891fcdadc59840429d98403d363d48e6e2"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "48f46fd5a896791919b2126002a4ab3b14f3f2de4a08ba3cb2cdb11c09cd38ee"
+      "sha256": "732706b7b05866dd40424222861182531c2a266f02680b648509e2f06f1085a7"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 40116,
-      "sha256": "3ef9dfb3a5d709a519127d9777b60fbd8db4a73d71789f98295e6dc4f8b40dd2"
+      "bytes": 40897,
+      "sha256": "b54829da4299f4f4ccdee604380c61af301c8064719bfcad83618c34e4164aa8"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2234,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "5b4ca3fa1d3ac43600c80e5b55df8c3bf4650604a68963703cf0d26e1665f86c"
+      "sha256": "d009fc2c5349ccc945a0711b5428d54c3f1171ff14bd2d60acbfee0350924521"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2293,8 +2293,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 31171,
-      "sha256": "f5d6ac4e469aa13fa24bdad89445e421981f7a7e56aefa9ee8107d2dd7726f42"
+      "bytes": 32094,
+      "sha256": "f2ea30e30b5c6342541f9ca3fea1969ab4355c53717bf749e8b456ca5628d846"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -4018,8 +4018,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 38834,
-      "sha256": "fe41b1c06d1226c491fdcad471cc7cd106b976ba60b899fbd0f758c55bda480d"
+      "bytes": 29255,
+      "sha256": "5494d9e2fb498232c6cddd8fbdec956df1fff52fcee87455422f0f355f48d029"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4137,6 +4137,11 @@
       "sha256": "fa3f3e061a338e78cef4a66dacf4f00f75f14de751395c2cbcf09a4ad88a7d54"
     },
     {
+      "path": "skills/workflow-orchestrator/references/routing-boundaries.md",
+      "bytes": 4959,
+      "sha256": "98219844369fe8e0093f67cdc06e5433ce89b4ff5b484dd0d8d2e2059e68542d"
+    },
+    {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
       "bytes": 14719,
       "sha256": "d7778987d22ba8f991a565a16192d2f9eb0186ff536e09b3633165532a792666"
@@ -4165,6 +4170,11 @@
       "path": "skills/workflow-orchestrator/references/thread-link-and-cross-host-resume.md",
       "bytes": 2316,
       "sha256": "062b41d0bb292240f0a0c3373c3e1baa9c706605e4c18bb49c1adae379b0ec21"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/version-reporting.md",
+      "bytes": 2830,
+      "sha256": "81a2aa648e3212299a2578e520b5b97b950bea69d3475db0716569159b9ee67e"
     },
     {
       "path": "skills/workflow-self-improvement/SKILL.md",
@@ -4228,8 +4238,8 @@
     },
     {
       "path": "tests/studio.test.mjs",
-      "bytes": 24669,
-      "sha256": "96119a19eebffd9ed2c24016b291f2f121c2313d2132cbd8225a0c06efd98bac"
+      "bytes": 25632,
+      "sha256": "eff4b2554b7c1f39523d0d459bd26e3d905ea59950949a23efda2be35f355e58"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

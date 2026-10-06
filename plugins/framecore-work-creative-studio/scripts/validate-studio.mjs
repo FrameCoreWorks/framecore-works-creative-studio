@@ -199,6 +199,13 @@ export function validateStudio(root, {legacy = false} = {}) {
   for (const phrase of ['plugin-version/installation-status request', 'Reread this entry through the active host', 'read package version', 'host-supplied skill revision', 'current sources for the same bundle conflict', 'saved hosted release', 'latest GitHub release', 'Never report a version from memory', 'current version cannot be confirmed']) {
     if (!routing.includes(phrase)) fail('VERSION_REPORTING_POLICY', phrase);
   }
+  // Keep the entry compact: rare paths live in linked references that must keep their rules.
+  const entryDescription = routing.match(/^---\r?\n[\s\S]*?^description:\s*(.+)$/m)?.[1] ?? '';
+  if (Buffer.byteLength(routing) > 32000 || entryDescription.length > 450) fail('ORCHESTRATOR_BUDGET', 'Entry SKILL.md must stay within 32000 bytes and a 450-character description');
+  for (const [reference, phrases] of [['references/version-reporting.md', ['Never choose the larger number', 'A version question authorizes no installation']], ['references/routing-boundaries.md', ['The sequence and board owners are distinct', 'Music-video direction is a separate route', 'For an unsupported module']]]) {
+    const body = texts.get('skills/workflow-orchestrator/' + reference) ?? '';
+    if (!routing.includes('](' + reference + ')') || phrases.some(phrase => !body.includes(phrase))) fail('ORCHESTRATOR_REFERENCE', reference);
+  }
   const routeRows = routing.split(/\r?\n/).filter(line => line.startsWith('|') && line.includes('/SKILL.md)'));
   const linkedOwnersByRow = new Map();
   const seenRouteRows = new Set();
