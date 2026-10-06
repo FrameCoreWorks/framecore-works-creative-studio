@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "76e3e06213642d08d1ab97287bd4d416fcf011df8af1a33fe0a4f11ffd036c65"
+      "sha256": "69777e400d15b68c597b0149b23c743a3d3b08ccec8e40b6b014b4fead56225c"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 17197,
-      "sha256": "54674fb27bc61aee15bb9285e12817381b0ae9ca1d27c3518d4e9c366c5d412a"
+      "sha256": "07e5a044ca08befdcfa28649e5cd5de2a55b6c42bd2be34973e1a2287228e19a"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "f4364f290b1266b613fb5a577bb4327e726b7609a5088131c0f93193643cf4fe"
+      "sha256": "7659bec12cbc75e08b860667f511966d69ae01d66aa4f258e616557420c570cd"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 44568,
-      "sha256": "592e4dfc6fd8fbc438bc2a396527c62b718593f8c142887efd0fe5435ba046a3"
+      "bytes": 45453,
+      "sha256": "6b2cf42065269538b5c28a79a197f0b907ab97d4891c8f5f46dbd1e6c9cb4301"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2234,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "2ac892bba1c499fe77cf009093e50b54a49e7cb7c90db1cf2d4040637c8b0f86"
+      "sha256": "f7c36e2abd447f67f2251bdc5902c770ac016a5e921bfb5ae33331a16589cb09"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2273,8 +2273,8 @@
     },
     {
       "path": "scripts/validate-motion-quality.mjs",
-      "bytes": 2721,
-      "sha256": "2e590afc643d7fb9f5bb9ef34619f9bb9727b05c115c78785bc8ac14c01dbe89"
+      "bytes": 3892,
+      "sha256": "a951e0dcd1b42f22b03f9e1bc16d419e0bc11203b06c1ac863ebe224b48a3f42"
     },
     {
       "path": "scripts/validate-motion-toolkit.mjs",
@@ -2833,8 +2833,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 7843,
-      "sha256": "6a2fd03797b8e41658873c7a7c0433f12118a78d083832789f3d80bb1940477e"
+      "bytes": 7933,
+      "sha256": "0f57b517ae5c3081af731f400c840671ee8d8b1ffa03ad9f193c3dda12950b95"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -2903,8 +2903,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
-      "bytes": 4427,
-      "sha256": "444adb6b1d389f55e792d62ca1d4281d84f70dd42255d9f75e076071b4576920"
+      "bytes": 5256,
+      "sha256": "51081312bed6c04dc4133beabc2f8d568878b04da375dae7db2642cbc81c4796"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/SOURCE-NOTICE.md",
@@ -2912,9 +2912,14 @@
       "sha256": "6eb1879d836fda053dbc1df461a9dd40a77226df477d841475cf9231d8a02e8a"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/brief-index.json",
+      "bytes": 13396,
+      "sha256": "a544d55eaac14d28cd04d31289073a7696da9034ad13b2ab64456b4a088b0c57"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
-      "bytes": 5081,
-      "sha256": "81aac83e8c0dc063c55dfab472433486ffe511a75d1c8d8e46d89e9c4f12db16"
+      "bytes": 8323,
+      "sha256": "0932db003f5a4f02590647381fa5b8362929f41230a1c23917e0d071887e0708"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-audio.json",
@@ -2923,8 +2928,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-brand.json",
-      "bytes": 22063,
-      "sha256": "51246aa43c7b38fbc3094cf97f851294ff461da21aa795574f50a95a2fb01864"
+      "bytes": 22281,
+      "sha256": "c53a337ff5fc4215c79ecd79895773f7f3bbfa363e2a93e6ada83e34214b143e"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-data.json",
@@ -2933,8 +2938,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-editorial.json",
-      "bytes": 22082,
-      "sha256": "418da91939169897cd33f23428736755c74f911bae3b9d7451b95beed4cc3766"
+      "bytes": 22212,
+      "sha256": "f37e518d6fc292259c48f4e70408ed301c03104440b927835661845eaf4c3085"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-education.json",
@@ -2953,13 +2958,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-product.json",
-      "bytes": 22241,
-      "sha256": "a7a5f34ad147a2e7e8f612c1ad14ed2222571ccba2ff910406e32589a723717c"
+      "bytes": 22533,
+      "sha256": "976c1ad7e8fc6018df0a9581bfe6301115bee10f0e78dc8491777319de778f1f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-social.json",
-      "bytes": 22080,
-      "sha256": "05ea136e3ae4963b146164fd4d095ba392c08ea1b89fbfbd2879f2ef9c93e9a6"
+      "bytes": 22298,
+      "sha256": "0a5b417b3886604377d926caf1394fe2172398900e9772065b7d2ee3a4029a86"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-spatial.json",
@@ -2968,13 +2973,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-transitions.json",
-      "bytes": 21602,
-      "sha256": "c71036801471149457a9455abf66817eee3c27d719b90cae2f095112c170806c"
+      "bytes": 21826,
+      "sha256": "c2bf9cc3c55511f9cab9fda8c003d0d20a255d899607ca96367613b7bc5c19b6"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-typography.json",
-      "bytes": 22149,
-      "sha256": "90a549b41d11b8d900ae459e28e1b3ae0f247a566cd4bc9c3485088f596c60f0"
+      "bytes": 22345,
+      "sha256": "550243186a27eebbafaa1e62189e2de61bb95dc850d34c38fbf99d9963f4b14f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-explainers.json",
@@ -4129,7 +4134,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 29255,
-      "sha256": "9fe80e77eefca2501e25c8dfaab9d60111c232af9deb63a8801f02b0dd02fa9f"
+      "sha256": "01ead43c002e0fcdbc5839d74ea961a93568799137df8538ac271a424a253747"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4328,8 +4333,8 @@
     },
     {
       "path": "tests/motion-quality.test.mjs",
-      "bytes": 4141,
-      "sha256": "f9a9d22d5e16998fb5b3b0ffd2d5029d97d9c37a59d721d3b91e2dd66ec788fa"
+      "bytes": 5915,
+      "sha256": "be2021c39d6b3cb06bf02c79eee53c82106e7f0d34780f80ac9e7b5f6137f2fe"
     },
     {
       "path": "tests/motion-toolkit.test.mjs",

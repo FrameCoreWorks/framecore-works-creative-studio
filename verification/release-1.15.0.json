@@ -1,0 +1,80 @@
+{
+  "version": "1.15.0",
+  "date": "2026-10-06",
+  "baseline": "f507d82bd20bd1848e556e0e10392b6c0c73ebbe",
+  "change_id": "CC-20261006-08",
+  "origin": "cloud-code",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 863,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 145
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "node skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs validate",
+      "status": "PASS",
+      "entries": 320,
+      "briefs": 19
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "matching_examples": {
+    "animowane logo do intro": "logo-reveal",
+    "rolka na instagram z wykresem sprzeda\u017cy": "social-vertical, data-story",
+    "jak dzia\u0142a nasza aplikacja": "tech-explainer, app-workflow",
+    "lekcja dla uczni\u00f3w o u\u0142amkach": "education-lesson",
+    "abstrakcyjne t\u0142o z cz\u0105stkami": "generative-background"
+  },
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "384f2aff1630a852cfc1e8d902db50814e3473f0a0153c5eabb13585b345fea3",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Index selections and rewritten objectives are curation, not tested motion results; all 120 original blueprints remain not_run. All 201 planned host cases remain not_run."
+}

@@ -48,12 +48,52 @@ export function validateLibrary(entries) {
   }
   return errors;
 }
+// Curated brief index: brief type -> a few original records, runtime hint and starter.
+export function loadBriefIndex(directory=here) {
+  return JSON.parse(fs.readFileSync(path.join(directory,'brief-index.json'),'utf8'));
+}
+export function matchBrief(index,query='',{limit=3}={}) {
+  const q=' '+norm(query).replace(/[^a-z0-9]+/g,' ').trim()+' ', words=q.trim().split(' ');
+  // Single-word aliases of four or more letters also match inflected forms (wykres -> wykresem).
+  const hit=alias=>{const a=norm(alias); return a.includes(' ')?q.includes(' '+a+' '):words.some(w=>w===a||(a.length>=4&&w.startsWith(a)));};
+  return index.briefs.map(b=>({b,score:b.aliases.reduce((n,a)=>n+(hit(a)?(a.includes(' ')?3:2):0),0)}))
+    .filter(r=>r.score>0).sort((x,y)=>y.score-x.score||x.b.id.localeCompare(y.b.id)).slice(0,limit).map(r=>r.b);
+}
+export function presentBrief(brief,entries) {
+  if (!brief) throw new Error('Unknown brief type');
+  const byId=new Map(entries.map(e=>[e.id,e]));
+  return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,use:brief.use,avoid:brief.avoid,
+    records:brief.records.map(id=>({id,title:byId.get(id)?.title,objective:byId.get(id)?.objective,runtime:byId.get(id)?.runtime})),
+    authority:'A proposal for the current brief. It selects no runtime, approves no contract and runs nothing.'};
+}
+export function validateBriefIndex(index,entries) {
+  const errors=[],ids=new Set(),byId=new Map(entries.map(e=>[e.id,e]));
+  const starters=new Set(['kinetic-type-starter','gsap-motion-starter']);
+  if (index?.schema_version!==1 || !Array.isArray(index.briefs) || index.briefs.length<10) return ['brief index needs schema_version 1 and at least 10 brief types'];
+  for (const b of index.briefs) {
+    const fail=m=>errors.push((b.id||'?')+': '+m);
+    if (!/^[a-z0-9-]+$/.test(b.id||'') || ids.has(b.id)) fail('missing or duplicate id'); ids.add(b.id);
+    for (const key of ['label','runtime_hint','use','avoid']) if (typeof b[key]!=='string' || !b[key].trim()) fail('missing '+key);
+    if (!Array.isArray(b.aliases) || b.aliases.length<3) fail('needs at least three aliases');
+    if (!starters.has(b.starter)) fail('unknown starter');
+    if (!Array.isArray(b.records) || b.records.length<2 || b.records.length>4 || new Set(b.records).size!==b.records.length) fail('needs two to four distinct records');
+    for (const id of b.records||[]) { const e=byId.get(id); if (!e) fail('unknown record '+id); else if (e.prompt_origin!=='framecore_original') fail('record '+id+' must be a FrameCore original'); }
+  }
+  return errors;
+}
 if (process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
   try {
     const [command,arg,...flags]=process.argv.slice(2),entries=loadLibrary();
     if(command==='search') console.log(JSON.stringify(searchLibrary(entries,arg||'',{includeRelated:flags.includes('--include-related')}).map(e=>({id:e.id,title:e.title,file:e.file,origin:e.prompt_origin,verification:e.verification})),null,2));
     else if(command==='show') console.log(JSON.stringify(presentEntry(entries.find(e=>e.id===arg)),null,2));
-    else if(command==='validate') {const errors=validateLibrary(entries);console.log(JSON.stringify({entries:entries.length,prompts:entries.filter(e=>e.prompt_text).length,errors},null,2));if(errors.length)process.exitCode=1;}
-    else {console.error('Usage: node library.mjs search "query" [--include-related] | show ID | validate');process.exitCode=2;}
+    else if(command==='brief') {
+      const index=loadBriefIndex();
+      if(!arg||arg==='list') console.log(JSON.stringify(index.briefs.map(b=>({id:b.id,label:b.label})),null,2));
+      else { const exact=index.briefs.find(b=>b.id===arg); const found=exact?[exact]:matchBrief(index,[arg,...flags].join(' '));
+        if(!found.length){console.error('No brief type matched; run: node library.mjs brief list');process.exitCode=1;}
+        else console.log(JSON.stringify(found.map(b=>presentBrief(b,entries)),null,2)); }
+    }
+    else if(command==='validate') {const errors=[...validateLibrary(entries),...validateBriefIndex(loadBriefIndex(),entries)];console.log(JSON.stringify({entries:entries.length,prompts:entries.filter(e=>e.prompt_text).length,briefs:loadBriefIndex().briefs.length,errors},null,2));if(errors.length)process.exitCode=1;}
+    else {console.error('Usage: node library.mjs search "query" [--include-related] | show ID | brief [list | ID | "brief words"] | validate');process.exitCode=2;}
   } catch(error){console.error(error.message);process.exitCode=1;}
 }

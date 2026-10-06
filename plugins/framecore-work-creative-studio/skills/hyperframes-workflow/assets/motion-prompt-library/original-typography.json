@@ -12,7 +12,7 @@
         "breath"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Let a short phrase breathe through controlled tracking and whitespace, then settle to read.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -23,7 +23,7 @@
         "Let surrounding whitespace expand while only approved tracking changes within a safe range",
         "Return to the intended reading layout and hold"
       ],
-      "prompt_text": "Create an original code-based motion study: tracking breath. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Set a short locked phrase on one baseline. Let surrounding whitespace expand while only approved tracking changes within a safe range. Return to the intended reading layout and hold. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no word is split incorrectly; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: tracking breath. The purpose is to let a short phrase breathe through controlled tracking and whitespace, then settle to read. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Set a short locked phrase on one baseline. Let surrounding whitespace expand while only approved tracking changes within a safe range. Return to the intended reading layout and hold. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no word is split incorrectly; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "No word is split incorrectly",
         "Tracking range preserves readability",
@@ -48,7 +48,7 @@
         "hinge"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Pivot between two phrases on a shared letter that stays in place.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -59,7 +59,7 @@
         "Hold that letter in place as the surrounding words change through masks",
         "Reveal the second full phrase before any next action"
       ],
-      "prompt_text": "Create an original code-based motion study: shared letter hinge. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Find an actual repeated letter in two approved phrases. Hold that letter in place as the surrounding words change through masks. Reveal the second full phrase before any next action. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for shared letter is truly present in both phrases; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: shared letter hinge. The purpose is to pivot between two phrases on a shared letter that stays in place. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Find an actual repeated letter in two approved phrases. Hold that letter in place as the surrounding words change through masks. Reveal the second full phrase before any next action. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for shared letter is truly present in both phrases; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Shared letter is truly present in both phrases",
         "No misleading intermediate word",
@@ -84,7 +84,7 @@
         "meaning"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Express contrast between two clauses by animating weight on the emphasized one.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -95,7 +95,7 @@
         "Increase weight on the authorized emphasis while the quieter clause stays readable",
         "Resolve both into their intended hierarchy"
       ],
-      "prompt_text": "Create an original code-based motion study: weight carries meaning. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two contrasted clauses on a common grid. Increase weight on the authorized emphasis while the quieter clause stays readable. Resolve both into their intended hierarchy. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for font supports the requested weights; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: weight carries meaning. The purpose is to express contrast between two clauses by animating weight on the emphasized one. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two contrasted clauses on a common grid. Increase weight on the authorized emphasis while the quieter clause stays readable. Resolve both into their intended hierarchy. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for font supports the requested weights; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Font supports the requested weights",
         "Emphasis does not alter wording",
@@ -120,7 +120,7 @@
         "underline"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Reveal a statement line by line and underline the key phrase with a travelling baseline.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -131,7 +131,7 @@
         "A short baseline segment travels to underline the next important phrase",
         "Hold the complete statement without further letter motion"
       ],
-      "prompt_text": "Create an original code-based motion study: line becomes underline. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal the first line with a clean horizontal mask. A short baseline segment travels to underline the next important phrase. Hold the complete statement without further letter motion. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for underline matches semantic emphasis; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: line becomes underline. The purpose is to reveal a statement line by line and underline the key phrase with a travelling baseline. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal the first line with a clean horizontal mask. A short baseline segment travels to underline the next important phrase. Hold the complete statement without further letter motion. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for underline matches semantic emphasis; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Underline matches semantic emphasis",
         "Mask does not cut diacritics",
@@ -155,7 +155,7 @@
         "cascade"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Build a two-column list phrase by phrase to set up a final comparison.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -166,7 +166,7 @@
         "Reveal whole phrases in order using a restrained offset rather than individual letter scattering",
         "Let the last reveal establish the final comparison"
       ],
-      "prompt_text": "Create an original code-based motion study: column cascade. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Arrange a list in two aligned columns with generous gutters. Reveal whole phrases in order using a restrained offset rather than individual letter scattering. Let the last reveal establish the final comparison. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order is unambiguous; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: column cascade. The purpose is to build a two-column list phrase by phrase to set up a final comparison. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Arrange a list in two aligned columns with generous gutters. Reveal whole phrases in order using a restrained offset rather than individual letter scattering. Let the last reveal establish the final comparison. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order is unambiguous; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Reading order is unambiguous",
         "Gutters survive target aspect",
@@ -190,7 +190,7 @@
         "pivot"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Use a question mark's space as the pivot that brings in the answer.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -201,7 +201,7 @@
         "Use the question mark's surrounding space as the pivot for the answer reveal",
         "Keep the answer stationary after its complete arrival"
       ],
-      "prompt_text": "Create an original code-based motion study: punctuation pivot. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Display a complete question with its punctuation clearly visible. Use the question mark's surrounding space as the pivot for the answer reveal. Keep the answer stationary after its complete arrival. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for question and answer remain exact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: punctuation pivot. The purpose is to use a question mark's space as the pivot that brings in the answer. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Display a complete question with its punctuation clearly visible. Use the question mark's surrounding space as the pivot for the answer reveal. Keep the answer stationary after its complete arrival. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for question and answer remain exact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Question and answer remain exact",
         "Punctuation is not converted into false text",
@@ -226,7 +226,7 @@
         "reflow"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Reflow a long title from a wide measure into a narrow layout by whole words.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -237,7 +237,7 @@
         "Reflow whole words into a narrower composition using explicit alternate line breaks",
         "Hold the narrow layout at the target display size"
       ],
-      "prompt_text": "Create an original code-based motion study: long title reflow. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with the full title in a wide editorial measure. Reflow whole words into a narrower composition using explicit alternate line breaks. Hold the narrow layout at the target display size. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no token is lost or duplicated; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: long title reflow. The purpose is to reflow a long title from a wide measure into a narrow layout by whole words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with the full title in a wide editorial measure. Reflow whole words into a narrower composition using explicit alternate line breaks. Hold the narrow layout at the target display size. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no token is lost or duplicated; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "No token is lost or duplicated",
         "Line break changes are deliberate",
@@ -262,7 +262,7 @@
         "axis"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Animate one axis of a real variable font to express compression or expansion.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -273,7 +273,7 @@
         "Animate one supported axis to express compression or expansion while other axes stay fixed",
         "Settle at the approved final font instance"
       ],
-      "prompt_text": "Create an original code-based motion study: variable font axis. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show an approved short title using a real variable font. Animate one supported axis to express compression or expansion while other axes stay fixed. Settle at the approved final font instance. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for axis exists in loaded font; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: variable font axis. The purpose is to animate one axis of a real variable font to express compression or expansion. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show an approved short title using a real variable font. Animate one supported axis to express compression or expansion while other axes stay fixed. Settle at the approved final font instance. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for axis exists in loaded font; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Axis exists in loaded font",
         "Glyph widths do not clip",
@@ -298,7 +298,7 @@
         "window"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Use a large word as a window onto a moving field while the statement completes around it.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -309,7 +309,7 @@
         "Slow the field as the rest of the statement appears outside the word",
         "Freeze the mask and leave sufficient contrast for reading"
       ],
-      "prompt_text": "Create an original code-based motion study: word as window. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A large approved word masks an abstract moving field. Slow the field as the rest of the statement appears outside the word. Freeze the mask and leave sufficient contrast for reading. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for word stays decipherable throughout; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: word as window. The purpose is to use a large word as a window onto a moving field while the statement completes around it. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A large approved word masks an abstract moving field. Slow the field as the rest of the statement appears outside the word. Freeze the mask and leave sufficient contrast for reading. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for word stays decipherable throughout; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Word stays decipherable throughout",
         "Interior detail never substitutes for message",
@@ -334,7 +334,7 @@
         "qualifier"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A typographic sequence where motion clarifies the meaning of the words",
+      "objective": "Present a sourced number with its unit and qualifier aligned before the value changes.",
       "inputs": [
         "exact text",
         "licensed available font files",
@@ -345,7 +345,7 @@
         "Bring its unit and qualifier into fixed alignment before changing the number",
         "Hold the final value with source context in a smaller but readable line"
       ],
-      "prompt_text": "Create an original code-based motion study: number and qualifier. The purpose is a typographic sequence where motion clarifies the meaning of the words. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal a sourced numeric value at dominant scale. Bring its unit and qualifier into fixed alignment before changing the number. Hold the final value with source context in a smaller but readable line. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for unit never disappears during value change; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: number and qualifier. The purpose is to present a sourced number with its unit and qualifier aligned before the value changes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal a sourced numeric value at dominant scale. Bring its unit and qualifier into fixed alignment before changing the number. Hold the final value with source context in a smaller but readable line. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for unit never disappears during value change; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Unit never disappears during value change",
         "Number matches source",

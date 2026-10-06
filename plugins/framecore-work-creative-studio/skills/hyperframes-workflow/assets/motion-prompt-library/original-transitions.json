@@ -13,7 +13,7 @@
         "wipe"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Use a meaningful vertical edge of one scene as the mask that reveals the next.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -23,7 +23,7 @@
         "Extend that edge into a mask revealing the next scene on the same alignment",
         "Let the edge become part of the incoming composition"
       ],
-      "prompt_text": "Create an original code-based motion study: shared edge wipe. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Identify a meaningful vertical edge in the outgoing scene. Extend that edge into a mask revealing the next scene on the same alignment. Let the edge become part of the incoming composition. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for edge alignment is continuous; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: shared edge wipe. The purpose is to use a meaningful vertical edge of one scene as the mask that reveals the next. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Identify a meaningful vertical edge in the outgoing scene. Extend that edge into a mask revealing the next scene on the same alignment. Let the edge become part of the incoming composition. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for edge alignment is continuous; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Edge alignment is continuous",
         "Mask never leaves a blank seam",
@@ -48,7 +48,7 @@
         "cut"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Cut between scenes on a shared shape matched in position and scale.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -58,7 +58,7 @@
         "Match position and scale before replacing scene context",
         "Continue the incoming motion along the same direction"
       ],
-      "prompt_text": "Create an original code-based motion study: shape match cut. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Find an authorized round or angular focal shape in both scenes. Match position and scale before replacing scene context. Continue the incoming motion along the same direction. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for shared shape remains identifiable; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: shape match cut. The purpose is to cut between scenes on a shared shape matched in position and scale. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Find an authorized round or angular focal shape in both scenes. Match position and scale before replacing scene context. Continue the incoming motion along the same direction. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for shared shape remains identifiable; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Shared shape remains identifiable",
         "No surprise axis flip",
@@ -82,7 +82,7 @@
         "corridor"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Move from one scene to the next through a shallow spatial corridor on one camera path.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -92,7 +92,7 @@
         "Bring the incoming plane forward along a continuous camera path",
         "Flatten into the incoming composition before reading begins"
       ],
-      "prompt_text": "Create an original code-based motion study: depth corridor. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Move the outgoing plane into a shallow spatial corridor. Bring the incoming plane forward along a continuous camera path. Flatten into the incoming composition before reading begins. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for camera does not whip; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: depth corridor. The purpose is to move from one scene to the next through a shallow spatial corridor on one camera path. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Move the outgoing plane into a shallow spatial corridor. Bring the incoming plane forward along a continuous camera path. Flatten into the incoming composition before reading begins. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for camera does not whip; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Camera does not whip",
         "Perspective is stable",
@@ -117,7 +117,7 @@
         "reveal"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Reveal the next scene from its focal point with one controlled ink-like boundary.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -127,7 +127,7 @@
         "Let it uncover the incoming subject from its focal point outward",
         "Remove all transient texture from required text areas"
       ],
-      "prompt_text": "Create an original code-based motion study: ink spread reveal. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Use a single controlled abstract ink boundary as a mask. Let it uncover the incoming subject from its focal point outward. Remove all transient texture from required text areas. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mask is deterministic; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: ink spread reveal. The purpose is to reveal the next scene from its focal point with one controlled ink-like boundary. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Use a single controlled abstract ink boundary as a mask. Let it uncover the incoming subject from its focal point outward. Remove all transient texture from required text areas. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mask is deterministic; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Mask is deterministic",
         "Texture does not obscure copy",
@@ -152,7 +152,7 @@
         "relay"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Hand focus through grid cells as the incoming scene fills them.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -162,7 +162,7 @@
         "Hand the focal point through adjacent cells as incoming content occupies them",
         "Resolve all cells into one coherent new scene"
       ],
-      "prompt_text": "Create an original code-based motion study: grid cell relay. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Divide the outgoing composition into a meaningful grid. Hand the focal point through adjacent cells as incoming content occupies them. Resolve all cells into one coherent new scene. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order is preserved; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: grid cell relay. The purpose is to hand focus through grid cells as the incoming scene fills them. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Divide the outgoing composition into a meaningful grid. Hand the focal point through adjacent cells as incoming content occupies them. Resolve all cells into one coherent new scene. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order is preserved; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Reading order is preserved",
         "Cells do not shuffle arbitrarily",
@@ -186,7 +186,7 @@
         "passage"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Hide a scene change behind a foreground object that then exits.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -196,7 +196,7 @@
         "Replace the background only while it is genuinely occluded",
         "Let the object exit to reveal the incoming composition"
       ],
-      "prompt_text": "Create an original code-based motion study: occluder passage. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Use an approved foreground object to cover the cut. Replace the background only while it is genuinely occluded. Let the object exit to reveal the incoming composition. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for occluder belongs to the scene; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: occluder passage. The purpose is to hide a scene change behind a foreground object that then exits. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Use an approved foreground object to cover the cut. Replace the background only while it is genuinely occluded. Let the object exit to reveal the incoming composition. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for occluder belongs to the scene; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Occluder belongs to the scene",
         "Cut is fully concealed",
@@ -221,7 +221,7 @@
         "horizon"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Turn an outgoing line into the horizon or baseline of the next scene.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -231,7 +231,7 @@
         "Use that line as the horizon or baseline of the incoming scene",
         "Reveal new content around the persistent anchor"
       ],
-      "prompt_text": "Create an original code-based motion study: line to horizon. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Extend an outgoing diagram line across the frame. Use that line as the horizon or baseline of the incoming scene. Reveal new content around the persistent anchor. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for anchor height is consistent; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: line to horizon. The purpose is to turn an outgoing line into the horizon or baseline of the next scene. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Extend an outgoing diagram line across the frame. Use that line as the horizon or baseline of the incoming scene. Reveal new content around the persistent anchor. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for anchor height is consistent; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Anchor height is consistent",
         "Line thickness changes deliberately",
@@ -255,7 +255,7 @@
         "exchange"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Shift attention between two scenes by exchanging contrast and sharpness, not position.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -265,7 +265,7 @@
         "Transfer contrast and sharpness from outgoing to incoming content without moving copy",
         "Remove the obsolete group once attention has transferred"
       ],
-      "prompt_text": "Create an original code-based motion study: focus exchange. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep both scene groups spatially present for a short overlap. Transfer contrast and sharpness from outgoing to incoming content without moving copy. Remove the obsolete group once attention has transferred. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for overlap is explicitly timed; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: focus exchange. The purpose is to shift attention between two scenes by exchanging contrast and sharpness, not position. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep both scene groups spatially present for a short overlap. Transfer contrast and sharpness from outgoing to incoming content without moving copy. Remove the obsolete group once attention has transferred. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for overlap is explicitly timed; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Overlap is explicitly timed",
         "Required text is never simultaneously illegible",
@@ -290,7 +290,7 @@
         "boundary"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Fold a neutral plane along a crease to reveal the next scene on its back.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -300,7 +300,7 @@
         "Use the back face to reveal the next scene without distorting protected assets",
         "Settle flat before presenting detailed text"
       ],
-      "prompt_text": "Create an original code-based motion study: paper fold boundary. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Fold a neutral graphic plane along a defined crease. Use the back face to reveal the next scene without distorting protected assets. Settle flat before presenting detailed text. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for crease geometry is coherent; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: paper fold boundary. The purpose is to fold a neutral plane along a crease to reveal the next scene on its back. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Fold a neutral graphic plane along a defined crease. Use the back face to reveal the next scene without distorting protected assets. Settle flat before presenting detailed text. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for crease geometry is coherent; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Crease geometry is coherent",
         "Logo never bends",
@@ -324,7 +324,7 @@
         "continuation"
       ],
       "runtime": "Canvas",
-      "objective": "A transition connecting the meaning and composition of two scenes",
+      "objective": "Carry one motion vector from an object in the first scene to a new object in the next.",
       "inputs": [
         "approved incoming and outgoing scene frames",
         "shared focal point"
@@ -334,7 +334,7 @@
         "Begin the second with a different meaningful object sharing that trajectory",
         "Decelerate into the new focal state"
       ],
-      "prompt_text": "Create an original code-based motion study: motion continuation. The purpose is a transition connecting the meaning and composition of two scenes. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. End the first scene with one object traveling on a known vector. Begin the second with a different meaningful object sharing that trajectory. Decelerate into the new focal state. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for speed and direction match at cut; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: motion continuation. The purpose is to carry one motion vector from an object in the first scene to a new object in the next. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. End the first scene with one object traveling on a known vector. Begin the second with a different meaningful object sharing that trajectory. Decelerate into the new focal state. Use Canvas only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for speed and direction match at cut; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Speed and direction match at cut",
         "Object substitution has narrative reason",

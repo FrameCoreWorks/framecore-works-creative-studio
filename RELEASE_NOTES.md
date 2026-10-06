@@ -1,9 +1,9 @@
-# Creative Studio 1.14.0
+# Creative Studio 1.15.0
 
-One motion contract from storyboard to finished animation.
+Find the right motion idea for a brief faster.
 
-- The storyboard, its approval and the technical timeline now live in one file, `motion-score.json`. The same file is shown to you as a storyboard table for approval, drives the Remotion and GSAP starters and the browser preview, and is used for the final review.
-- Approval is tied to a revision: when copy, timing or concept changes, the contract gets a new revision and needs approval again.
-- A dependency-free check prints the storyboard for approval and reports missing storyboard fields, unsupported approvals and holds that are too short to read.
+- **Brief index.** Describe the job in Polish or English, for example "animowane logo do intro" or "rolka z wykresem sprzedaży", and Studio matches it to one of 19 brief types with the two to four most relevant blueprints, a suggested runtime and starter, and what to keep and avoid.
+- **Clearer blueprints.** Sixty brand, editorial, product, social, transition and typography blueprints that shared one generic purpose now each state their own, so search results and recommendations distinguish them.
+- Blueprints remain unexecuted starting points; a match is a proposal, not an approval or runtime choice.
 
-Startup, the complete welcome, all 37 skill IDs and the visual output of the starters and preview are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

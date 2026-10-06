@@ -16,6 +16,18 @@ node library.mjs validate
 ```
 Run from this asset directory, or use its actual discovered path. The helper reads text and prints records; it never runs a prompt or installs anything.
 
+## Pick by brief
+
+Start from the [brief index](brief-index.json) instead of browsing all families. It maps 19 common brief types (logo reveal, kinetic statement, product feature, app workflow, social reel, event, quote, data, poll, explainer, lesson, editorial, transitions, music sync, 3D, generative background, end card and more) to two to four original records, a runtime hint, a starter, what to keep and what to avoid. Polish and English words both match, including inflected forms.
+
+```sh
+node library.mjs brief list
+node library.mjs brief "animowane logo do intro"
+node library.mjs brief data-story
+```
+
+In a host without a shell, read `brief-index.json` directly and pick the matching brief type. A match is a proposal for the current brief; it selects no runtime and approves nothing.
+
 ## Original blueprint families
 
 | Family | File | Use |
@@ -33,7 +45,7 @@ Run from this asset directory, or use its actual discovered path. The helper rea
 | Spatial | [spatial](original-spatial.json) | Camera, depth and geometric relationships |
 | Social | [social](original-social.json) | Compact mobile compositions |
 
-Each has ten distinct mechanisms, explicit inputs, choreography, acceptance criteria and a complete starting prompt. The original blueprints are not_run. They are not claims of performance on any model.
+Each has ten distinct mechanisms with a record-specific objective, explicit inputs, choreography, acceptance criteria and a complete starting prompt. The original blueprints are not_run. They are not claims of performance on any model.
 
 ## Imported references
 

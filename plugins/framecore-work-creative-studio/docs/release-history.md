@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.15.0, 2026-10-06
+
+- Add a motion prompt library brief index: 19 common brief types (logo reveal, kinetic statement, product feature, app workflow, social reel, event, quote, data, poll, explainer, lesson, editorial, transitions, music sync, 3D, generative background, end card and others) mapped to two to four original blueprints, a runtime hint, a starter and keep/avoid rules.
+- Add `node library.mjs brief` (list, brief ID or free text) with Polish and English matching, including inflected forms.
+- Replace the shared family-level objective of 60 original blueprints (brand, editorial, product, social, transitions, typography) with a record-specific objective, also in each prompt's purpose sentence, so search and selection can tell records apart.
+- The canonical gate now requires record-specific objectives and an index that points only to existing FrameCore originals.
+
 ## 1.14.0, 2026-10-06
 
 - Make `motion-score.json` the single motion contract: storyboard fields (goal, audience, message, concept, runtime state, confirmed/proposed/unknown decisions, acceptance criteria, asset ledger and per-scene focal point, entry, action, exit, transition, persistence and audio) sit beside the existing timeline, copy, tokens and motion values.

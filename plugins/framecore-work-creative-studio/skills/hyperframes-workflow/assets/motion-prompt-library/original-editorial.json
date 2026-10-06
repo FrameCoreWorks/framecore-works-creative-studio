@@ -13,7 +13,7 @@
         "reveal"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Lift a sourced headline from its page into an editorial frame while keeping attribution.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -24,7 +24,7 @@
         "Reveal an approved headline using a precise highlight that follows line breaks",
         "Pull the headline into an editorial frame while retaining attribution"
       ],
-      "prompt_text": "Create an original code-based motion study: source headline reveal. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a cropped source page with enough context to identify it. Reveal an approved headline using a precise highlight that follows line breaks. Pull the headline into an editorial frame while retaining attribution. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for headline is verbatim; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: source headline reveal. The purpose is to lift a sourced headline from its page into an editorial frame while keeping attribution. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a cropped source page with enough context to identify it. Reveal an approved headline using a precise highlight that follows line breaks. Pull the headline into an editorial frame while retaining attribution. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for headline is verbatim; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Headline is verbatim",
         "Highlight does not alter meaning",
@@ -48,7 +48,7 @@
         "ribbon"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Walk through dated events on a timeline while earlier events stay visible as context.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -59,7 +59,7 @@
         "Advance the focus along it while prior events remain visible in reduced emphasis",
         "Finish with the whole relevant period in view"
       ],
-      "prompt_text": "Create an original code-based motion study: chronology ribbon. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Lay dated events on a restrained horizontal ribbon. Advance the focus along it while prior events remain visible in reduced emphasis. Finish with the whole relevant period in view. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for dates retain order; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: chronology ribbon. The purpose is to walk through dated events on a timeline while earlier events stay visible as context. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Lay dated events on a restrained horizontal ribbon. Advance the focus along it while prior events remain visible in reduced emphasis. Finish with the whole relevant period in view. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for dates retain order; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Dates retain order",
         "Gaps are not disguised as equal time",
@@ -83,7 +83,7 @@
         "voices"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Present two quoted voices with equal dignity by shifting contrast instead of moving text.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -94,7 +94,7 @@
         "Alternate focus by changing surrounding contrast rather than moving text",
         "Hold both quotations with their correct speakers"
       ],
-      "prompt_text": "Create an original code-based motion study: two voices. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Set two authorized quotations in distinct columns with equal typographic dignity. Alternate focus by changing surrounding contrast rather than moving text. Hold both quotations with their correct speakers. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for speaker attribution never swaps; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: two voices. The purpose is to present two quoted voices with equal dignity by shifting contrast instead of moving text. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Set two authorized quotations in distinct columns with equal typographic dignity. Alternate focus by changing surrounding contrast rather than moving text. Hold both quotations with their correct speakers. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for speaker attribution never swaps; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Speaker attribution never swaps",
         "Quotes remain exact",
@@ -120,7 +120,7 @@
         "claim"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Show a claim together with its qualification and citation in the same reading beat.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -131,7 +131,7 @@
         "Bring its qualification and citation in during the same reading beat",
         "Hold all context together before transitioning"
       ],
-      "prompt_text": "Create an original code-based motion study: footnote arrives with claim. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal a sourced assertion with reserved room below. Bring its qualification and citation in during the same reading beat. Hold all context together before transitioning. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for qualification is not delayed past claim; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: footnote arrives with claim. The purpose is to show a claim together with its qualification and citation in the same reading beat. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal a sourced assertion with reserved room below. Bring its qualification and citation in during the same reading beat. Hold all context together before transitioning. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for qualification is not delayed past claim; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Qualification is not delayed past claim",
         "Citation stays legible",
@@ -155,7 +155,7 @@
         "edge"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Mark a new chapter with a page-edge stripe that carries into the next content frame.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -166,7 +166,7 @@
         "The chapter title aligns with it while the previous section recedes",
         "Hold the title and carry the stripe into the first content frame"
       ],
-      "prompt_text": "Create an original code-based motion study: chapter edge. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A narrow page-edge stripe establishes a chapter marker. The chapter title aligns with it while the previous section recedes. Hold the title and carry the stripe into the first content frame. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for marker position persists; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: chapter edge. The purpose is to mark a new chapter with a page-edge stripe that carries into the next content frame. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A narrow page-edge stripe establishes a chapter marker. The chapter title aligns with it while the previous section recedes. Hold the title and carry the stripe into the first content frame. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for marker position persists; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Marker position persists",
         "Title has reading time",
@@ -190,7 +190,7 @@
         "comparison"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Compare two document revisions by highlighting only the phrases that actually changed.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -201,7 +201,7 @@
         "Highlight actual changed phrases and connect corresponding lines",
         "Resolve to a concise summary of the real differences"
       ],
-      "prompt_text": "Create an original code-based motion study: document comparison. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two approved revisions side by side. Highlight actual changed phrases and connect corresponding lines. Resolve to a concise summary of the real differences. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for changes come from supplied revisions; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: document comparison. The purpose is to compare two document revisions by highlighting only the phrases that actually changed. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two approved revisions side by side. Highlight actual changed phrases and connect corresponding lines. Resolve to a concise summary of the real differences. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for changes come from supplied revisions; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Changes come from supplied revisions",
         "Unchanged text is not falsely marked",
@@ -225,7 +225,7 @@
         "pause"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Give an authorized quotation a still, uninterrupted reading interval before attribution.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -236,7 +236,7 @@
         "Keep the frame otherwise still during its reading interval",
         "Introduce author and context gently before the transition"
       ],
-      "prompt_text": "Create an original code-based motion study: quote pause. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal an authorized quotation in complete semantic phrases. Keep the frame otherwise still during its reading interval. Introduce author and context gently before the transition. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order preserves syntax; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: quote pause. The purpose is to give an authorized quotation a still, uninterrupted reading interval before attribution. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Reveal an authorized quotation in complete semantic phrases. Keep the frame otherwise still during its reading interval. Introduce author and context gently before the transition. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for reading order preserves syntax; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Reading order preserves syntax",
         "No phrase disappears early",
@@ -261,7 +261,7 @@
         "spread"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Translate a publication cover's graphic system into a contents spread that lands on one chapter.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -272,7 +272,7 @@
         "Translate its graphic system into an original contents spread without imitating page physics",
         "End on one chapter and its exact title"
       ],
-      "prompt_text": "Create an original code-based motion study: cover to spread. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with an approved publication cover. Translate its graphic system into an original contents spread without imitating page physics. End on one chapter and its exact title. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for cover artwork remains intact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: cover to spread. The purpose is to translate a publication cover's graphic system into a contents spread that lands on one chapter. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with an approved publication cover. Translate its graphic system into an original contents spread without imitating page physics. End on one chapter and its exact title. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for cover artwork remains intact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Cover artwork remains intact",
         "Spread uses authorized text",
@@ -296,7 +296,7 @@
         "trail"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Explain an image or diagram with sourced annotations introduced one at a time.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -307,7 +307,7 @@
         "Introduce three sourced annotations one at a time with noncrossing leaders",
         "Hold the full annotated view and remove transient attention marks"
       ],
-      "prompt_text": "Create an original code-based motion study: annotation trail. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a supplied image or diagram at readable scale. Introduce three sourced annotations one at a time with noncrossing leaders. Hold the full annotated view and remove transient attention marks. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for leaders point correctly; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: annotation trail. The purpose is to explain an image or diagram with sourced annotations introduced one at a time. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a supplied image or diagram at readable scale. Introduce three sourced annotations one at a time with noncrossing leaders. Hold the full annotated view and remove transient attention marks. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for leaders point correctly; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Leaders point correctly",
         "Annotations do not hide source evidence",
@@ -332,7 +332,7 @@
         "rhythm"
       ],
       "runtime": "HTML/SVG",
-      "objective": "An editorial sequence that preserves meaning while revealing information in order",
+      "objective": "Pace end credits in grouped blocks with readable holds and a fully visible final credit.",
       "inputs": [
         "approved headlines",
         "source excerpts",
@@ -343,7 +343,7 @@
         "Advance each block with consistent alignment and sufficient hold",
         "Finish with the final credit fully on screen rather than cropped mid-scroll"
       ],
-      "prompt_text": "Create an original code-based motion study: end credits rhythm. The purpose is an editorial sequence that preserves meaning while revealing information in order. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Arrange required credits into semantically grouped blocks. Advance each block with consistent alignment and sufficient hold. Finish with the final credit fully on screen rather than cropped mid-scroll. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for all names are exact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: end credits rhythm. The purpose is to pace end credits in grouped blocks with readable holds and a fully visible final credit. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Arrange required credits into semantically grouped blocks. Advance each block with consistent alignment and sufficient hold. Finish with the final credit fully on screen rather than cropped mid-scroll. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for all names are exact; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "All names are exact",
         "No credit is skipped",

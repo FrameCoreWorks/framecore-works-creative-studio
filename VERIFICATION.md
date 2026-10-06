@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.14.0
+## Current source: 1.15.0
+
+The [1.15.0 source checks](verification/release-1.15.0.json) pass canonical validation and 204 tests: 145 Node in the CI set, 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The motion prompt library gains a 19-type brief index whose records the canonical gate checks against existing FrameCore originals, and 60 original blueprints receive record-specific objectives; imported records are unchanged. Brief matching was checked with Polish queries including inflected forms. [Scope](verification/scope-1.15.0.json) records 17 changed and 1 added shared files out of 863. All blueprints remain not_run; host behavior is not run.
+
+## Previous source: 1.14.0
 
 The [1.14.0 source checks](verification/release-1.14.0.json) pass canonical validation and 198 tests: 142 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The shared `motion-score.json` now carries the storyboard and approval state; the packaged contract passes the strict storyboard check and renders as a Markdown storyboard. Packaged starters were reinstalled and rerun, and frame 140 from the GSAP starter and the single-file preview is pixel-identical to the previous release. [Scope](verification/scope-1.14.0.json) records 20 changed and 1 added shared files out of 862. Host behavior is not run.
 

@@ -1,0 +1,50 @@
+{
+  "version": "1.15.0",
+  "baseline": "f507d82bd20bd1848e556e0e10392b6c0c73ebbe",
+  "change_id": "CC-20261006-08",
+  "origin": "cloud-code",
+  "files": 863,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-quality.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/original-brand.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/original-editorial.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/original-product.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/original-social.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/original-transitions.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/original-typography.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-quality.test.mjs"
+  ],
+  "unchanged_count": 845,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-prompt-library/brief-index.json"
+  ],
+  "removed": [],
+  "library": {
+    "records": 320,
+    "rewritten_objectives": 60,
+    "rewritten_families": [
+      "brand",
+      "editorial",
+      "product",
+      "social",
+      "transitions",
+      "typography"
+    ],
+    "brief_types": 19,
+    "imported_records": "byte_identical"
+  },
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Each rewritten record changes only its objective and the matching purpose sentence in prompt_text. workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

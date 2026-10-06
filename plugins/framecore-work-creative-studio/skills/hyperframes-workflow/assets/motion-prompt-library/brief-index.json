@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "scope": "Curated starting points by brief type. Records are not_run blueprints; selection is a proposal, not approval or a runtime choice.",
+  "briefs": [
+    {
+      "id": "logo-reveal",
+      "label": "Logo reveal or brand ident",
+      "aliases": [
+        "logo",
+        "logotyp",
+        "ident",
+        "brand",
+        "marka",
+        "reveal",
+        "odslona",
+        "znak"
+      ],
+      "records": [
+        "FC-BRAND-02",
+        "FC-BRAND-01",
+        "FC-BRAND-09",
+        "FC-BRAND-05"
+      ],
+      "runtime_hint": "HTML/SVG or GSAP; Remotion when the project already uses it",
+      "starter": "gsap-motion-starter",
+      "use": "A protected mark keeps its geometry; animate surrounding shapes or approved parts only.",
+      "avoid": "Animating letters of a protected logo or inventing parts that were not supplied."
+    },
+    {
+      "id": "brand-loop",
+      "label": "Looping brand animation or idle ident",
+      "aliases": [
+        "loop",
+        "petla",
+        "idle",
+        "brand",
+        "marka",
+        "zapetl"
+      ],
+      "records": [
+        "FC-BRAND-10",
+        "FC-BRAND-04",
+        "FC-TRANSITIONS-07"
+      ],
+      "runtime_hint": "HTML/SVG or GSAP",
+      "starter": "gsap-motion-starter",
+      "use": "Make the first and last frames identical and keep the mark still.",
+      "avoid": "Constant motion that competes with the mark."
+    },
+    {
+      "id": "kinetic-statement",
+      "label": "Kinetic typography statement, title or slogan",
+      "aliases": [
+        "typography",
+        "typografia",
+        "kinetic",
+        "kinetyczna",
+        "napis",
+        "napisy",
+        "slogan",
+        "tytul",
+        "title",
+        "statement",
+        "text"
+      ],
+      "records": [
+        "FC-TYPOGRAPHY-04",
+        "FC-TYPOGRAPHY-03",
+        "FC-TYPOGRAPHY-09",
+        "FC-TYPOGRAPHY-02"
+      ],
+      "runtime_hint": "Remotion or GSAP",
+      "starter": "kinetic-type-starter",
+      "use": "Reveal whole lines or phrases and give each a full reading hold.",
+      "avoid": "Per-letter animation of sentences or text moving while it should be read."
+    },
+    {
+      "id": "product-feature",
+      "label": "Single product feature highlight",
+      "aliases": [
+        "product",
+        "produkt",
+        "feature",
+        "funkcja",
+        "cecha",
+        "zoom",
+        "detal",
+        "detail"
+      ],
+      "records": [
+        "FC-PRODUCT-04",
+        "FC-PRODUCT-03",
+        "FC-PRODUCT-09"
+      ],
+      "runtime_hint": "Remotion",
+      "starter": "kinetic-type-starter",
+      "use": "Show only verified behaviour of the supplied product.",
+      "avoid": "Inventing features or exaggerating results."
+    },
+    {
+      "id": "app-workflow",
+      "label": "App, software or UI workflow demo",
+      "aliases": [
+        "app",
+        "aplikacja",
+        "software",
+        "ui",
+        "interface",
+        "interfejs",
+        "saas",
+        "workflow",
+        "demo",
+        "onboarding"
+      ],
+      "records": [
+        "FC-PRODUCT-01",
+        "FC-PRODUCT-05",
+        "FC-EXPLAINERS-04"
+      ],
+      "runtime_hint": "Remotion",
+      "starter": "kinetic-type-starter",
+      "use": "Use the real interface states supplied or approved; simplify, do not invent.",
+      "avoid": "Fake screens or functionality the product does not have."
+    },
+    {
+      "id": "physical-product",
+      "label": "Physical product explainer, packaging or materials",
+      "aliases": [
+        "packaging",
+        "opakowanie",
+        "unboxing",
+        "material",
+        "materialy",
+        "przekroj",
+        "assembly",
+        "montaz",
+        "physical",
+        "opakowan",
+        "rozpakow"
+      ],
+      "records": [
+        "FC-PRODUCT-02",
+        "FC-PRODUCT-06",
+        "FC-PRODUCT-08",
+        "FC-PRODUCT-10"
+      ],
+      "runtime_hint": "Remotion; Three.js through Remotion for true 3D",
+      "starter": "kinetic-type-starter",
+      "use": "Keep the product geometry, label and colour locked to the source.",
+      "avoid": "Physically implausible opening or invented internal structure."
+    },
+    {
+      "id": "social-vertical",
+      "label": "Short vertical social reel",
+      "aliases": [
+        "social",
+        "reel",
+        "rolka",
+        "rolki",
+        "vertical",
+        "pionowy",
+        "tiktok",
+        "instagram",
+        "shorts",
+        "story"
+      ],
+      "records": [
+        "FC-SOCIAL-01",
+        "FC-SOCIAL-02",
+        "FC-SOCIAL-08",
+        "FC-SOCIAL-09"
+      ],
+      "runtime_hint": "Remotion",
+      "starter": "kinetic-type-starter",
+      "use": "Design for the phone: large type, one idea, and current platform overlays checked through research.",
+      "avoid": "Dense layouts or invented platform safe zones."
+    },
+    {
+      "id": "event-announcement",
+      "label": "Event announcement or countdown",
+      "aliases": [
+        "event",
+        "wydarzenie",
+        "announcement",
+        "ogloszenie",
+        "countdown",
+        "odliczanie",
+        "premiera",
+        "launch",
+        "invitation",
+        "zaproszenie",
+        "wydarzen",
+        "ogloszen",
+        "odliczan",
+        "zaprosz"
+      ],
+      "records": [
+        "FC-SOCIAL-04",
+        "FC-SOCIAL-07",
+        "FC-TYPOGRAPHY-07"
+      ],
+      "runtime_hint": "Remotion or GSAP",
+      "starter": "kinetic-type-starter",
+      "use": "Keep title, date, place and time stable and readable together.",
+      "avoid": "Fake urgency or moving the key facts during the hold."
+    },
+    {
+      "id": "quote-testimonial",
+      "label": "Quote or testimonial card",
+      "aliases": [
+        "quote",
+        "cytat",
+        "testimonial",
+        "opinia",
+        "referencja",
+        "review",
+        "recenzja",
+        "opini"
+      ],
+      "records": [
+        "FC-SOCIAL-05",
+        "FC-EDITORIAL-07",
+        "FC-EDITORIAL-03"
+      ],
+      "runtime_hint": "HTML/SVG, GSAP or Remotion",
+      "starter": "gsap-motion-starter",
+      "use": "Use only authorized quotations with correct attribution and a still reading interval.",
+      "avoid": "Animating the quotation word by word or editing its wording."
+    },
+    {
+      "id": "data-story",
+      "label": "Animated chart, statistic or number",
+      "aliases": [
+        "data",
+        "dane",
+        "chart",
+        "wykres",
+        "statistic",
+        "statystyka",
+        "number",
+        "liczba",
+        "kpi",
+        "growth",
+        "wzrost",
+        "statystyk",
+        "liczb"
+      ],
+      "records": [
+        "FC-DATA-06",
+        "FC-DATA-01",
+        "FC-TYPOGRAPHY-10",
+        "FC-DATA-02"
+      ],
+      "runtime_hint": "SVG with GSAP or D3; Remotion for data-driven variants",
+      "starter": "gsap-motion-starter",
+      "use": "Use real data with units and source; keep scales stable.",
+      "avoid": "Truncated axes, smooth growth implying a claim, or numbers without source."
+    },
+    {
+      "id": "poll-results",
+      "label": "Survey or poll results",
+      "aliases": [
+        "poll",
+        "ankieta",
+        "survey",
+        "badanie",
+        "wyniki",
+        "results",
+        "sondaz"
+      ],
+      "records": [
+        "FC-SOCIAL-03",
+        "FC-DATA-08",
+        "FC-DATA-06"
+      ],
+      "runtime_hint": "SVG with GSAP or Remotion",
+      "starter": "gsap-motion-starter",
+      "use": "Show the exact question, sample size and date with the results.",
+      "avoid": "Rounding or ordering that changes the meaning."
+    },
+    {
+      "id": "tech-explainer",
+      "label": "Technical or process explainer",
+      "aliases": [
+        "explainer",
+        "explainers",
+        "wyjasnienie",
+        "jak dziala",
+        "how it works",
+        "process",
+        "proces",
+        "system",
+        "diagram",
+        "schemat",
+        "wyjasn"
+      ],
+      "records": [
+        "FC-EXPLAINERS-04",
+        "FC-EXPLAINERS-02",
+        "FC-EXPLAINERS-01",
+        "FC-PRODUCT-05"
+      ],
+      "runtime_hint": "SVG with GSAP; Remotion for longer sequences",
+      "starter": "gsap-motion-starter",
+      "use": "One causal step at a time with persistent labels.",
+      "avoid": "Decorative motion that hides the cause and effect."
+    },
+    {
+      "id": "education-lesson",
+      "label": "Educational concept for a lesson",
+      "aliases": [
+        "education",
+        "edukacja",
+        "lekcja",
+        "lesson",
+        "szkola",
+        "school",
+        "math",
+        "matematyka",
+        "nauka",
+        "teaching",
+        "lekcj",
+        "szkol",
+        "uczni"
+      ],
+      "records": [
+        "FC-EDUCATION-01",
+        "FC-EDUCATION-04",
+        "FC-EDUCATION-10",
+        "FC-EDUCATION-09"
+      ],
+      "runtime_hint": "SVG with GSAP",
+      "starter": "gsap-motion-starter",
+      "use": "Conserve quantities visibly and give learners time to read each state.",
+      "avoid": "Skipping steps or changing values between frames."
+    },
+    {
+      "id": "editorial-news",
+      "label": "Editorial, news or document story",
+      "aliases": [
+        "editorial",
+        "redakcja",
+        "news",
+        "wiadomosci",
+        "article",
+        "artykul",
+        "document",
+        "dokument",
+        "headline",
+        "naglowek",
+        "timeline",
+        "os czasu"
+      ],
+      "records": [
+        "FC-EDITORIAL-01",
+        "FC-EDITORIAL-04",
+        "FC-EDITORIAL-06",
+        "FC-EDITORIAL-02"
+      ],
+      "runtime_hint": "HTML/SVG or GSAP",
+      "starter": "gsap-motion-starter",
+      "use": "Keep sources and qualifications on screen with the claim.",
+      "avoid": "Pulling quotes out of context or hiding citations."
+    },
+    {
+      "id": "scene-transition",
+      "label": "Transition between scenes",
+      "aliases": [
+        "transition",
+        "transitions",
+        "przejscie",
+        "przejscia",
+        "cut",
+        "ciecie",
+        "wipe",
+        "match"
+      ],
+      "records": [
+        "FC-TRANSITIONS-02",
+        "FC-TRANSITIONS-01",
+        "FC-TRANSITIONS-10",
+        "FC-TRANSITIONS-06"
+      ],
+      "runtime_hint": "Same runtime as the surrounding scenes",
+      "starter": "gsap-motion-starter",
+      "use": "Pick two or three transition types per project and repeat them consistently.",
+      "avoid": "A different transition direction for every cut."
+    },
+    {
+      "id": "music-sync",
+      "label": "Motion synced to music, beat or voiceover",
+      "aliases": [
+        "music",
+        "muzyka",
+        "beat",
+        "rytm",
+        "rhythm",
+        "sound",
+        "dzwiek",
+        "audio",
+        "voiceover",
+        "lektor",
+        "lyrics",
+        "tekst piosenki",
+        "muzyk",
+        "piosen"
+      ],
+      "records": [
+        "FC-AUDIO-02",
+        "FC-AUDIO-07",
+        "FC-AUDIO-01"
+      ],
+      "runtime_hint": "GSAP or Remotion with the approved audio",
+      "starter": "kinetic-type-starter",
+      "use": "Place major events on downbeats from a beat grid computed on the master timeline.",
+      "avoid": "Cutting on every beat or estimating speech timing."
+    },
+    {
+      "id": "spatial-3d",
+      "label": "3D product, architecture or spatial explanation",
+      "aliases": [
+        "3d",
+        "three",
+        "spatial",
+        "przestrzen",
+        "przestrzenny",
+        "architecture",
+        "architektura",
+        "isometric",
+        "izometryczny",
+        "model"
+      ],
+      "records": [
+        "FC-SPATIAL-01",
+        "FC-SPATIAL-02",
+        "FC-SPATIAL-03",
+        "FC-SPATIAL-07"
+      ],
+      "runtime_hint": "Three.js / React Three Fiber through Remotion",
+      "starter": "kinetic-type-starter",
+      "use": "Use supplied geometry and one measured camera move; keep labels honest.",
+      "avoid": "Adding 3D to a brief that a 2D layout explains better."
+    },
+    {
+      "id": "generative-background",
+      "label": "Abstract or generative background",
+      "aliases": [
+        "generative",
+        "generatywny",
+        "abstract",
+        "abstrakcyjny",
+        "background",
+        "tlo",
+        "particles",
+        "czastki",
+        "pattern",
+        "wzor",
+        "texture",
+        "tekstura",
+        "czastk",
+        "abstrakc",
+        "generatyw"
+      ],
+      "records": [
+        "FC-PROCEDURAL-01",
+        "FC-PROCEDURAL-03",
+        "FC-PROCEDURAL-05"
+      ],
+      "runtime_hint": "Canvas or WebGL with a seeded, frame-driven state",
+      "starter": "gsap-motion-starter",
+      "use": "Seed randomness and derive every frame from the frame number; keep text areas calm.",
+      "avoid": "Busy patterns behind text or unseeded randomness."
+    },
+    {
+      "id": "credits-endcard",
+      "label": "End card, credits or thank-you",
+      "aliases": [
+        "credits",
+        "napisy koncowe",
+        "end card",
+        "plansza koncowa",
+        "outro",
+        "thank you",
+        "podziekowanie",
+        "cta",
+        "podziek",
+        "koncow"
+      ],
+      "records": [
+        "FC-EDITORIAL-10",
+        "FC-SOCIAL-10",
+        "FC-BRAND-10"
+      ],
+      "runtime_hint": "HTML/SVG, GSAP or Remotion",
+      "starter": "kinetic-type-starter",
+      "use": "Give the final card the longest hold and a stable last frame.",
+      "avoid": "Cropping the last credit mid-scroll or a moving final frame."
+    }
+  ]
+}

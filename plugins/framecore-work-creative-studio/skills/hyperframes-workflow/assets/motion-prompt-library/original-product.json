@@ -13,7 +13,7 @@
         "completed"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Show one real task changing from pending to completed to demonstrate a product benefit.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -24,7 +24,7 @@
         "A single deliberate action changes it to the truthful completed state",
         "Pull back just enough to show the resulting benefit and hold"
       ],
-      "prompt_text": "Create an original code-based motion study: one task completed. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a simplified approved interface with one pending task. A single deliberate action changes it to the truthful completed state. Pull back just enough to show the resulting benefit and hold. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for only real product behavior is shown; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: one task completed. The purpose is to show one real task changing from pending to completed to demonstrate a product benefit. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a simplified approved interface with one pending task. A single deliberate action changes it to the truthful completed state. Pull back just enough to show the resulting benefit and hold. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for only real product behavior is shown; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Only real product behavior is shown",
         "Before and after are comparable",
@@ -48,7 +48,7 @@
         "assembly"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Explain how a product is built by separating and reassembling its authorized components.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -59,7 +59,7 @@
         "Separate authorized components along a clear axis to explain their relationship",
         "Reassemble to the exact original configuration"
       ],
-      "prompt_text": "Create an original code-based motion study: exploded assembly. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Present the supplied product as intact geometry. Separate authorized components along a clear axis to explain their relationship. Reassemble to the exact original configuration. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for only approved separable parts move; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: exploded assembly. The purpose is to explain how a product is built by separating and reassembling its authorized components. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Present the supplied product as intact geometry. Separate authorized components along a clear axis to explain their relationship. Reassemble to the exact original configuration. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for only approved separable parts move; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Only approved separable parts move",
         "No invented interior detail",
@@ -84,7 +84,7 @@
         "divider"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Compare two truthful before and after states at the same scale with a moving divider.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -95,7 +95,7 @@
         "Move a divider between them while preserving aligned reference points",
         "End with both states labeled and the meaningful difference clear"
       ],
-      "prompt_text": "Create an original code-based motion study: before after divider. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two truthful states at the same scale and camera angle. Move a divider between them while preserving aligned reference points. End with both states labeled and the meaningful difference clear. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no retouching exaggerates benefit; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: before after divider. The purpose is to compare two truthful before and after states at the same scale with a moving divider. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place two truthful states at the same scale and camera angle. Move a divider between them while preserving aligned reference points. End with both states labeled and the meaningful difference clear. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no retouching exaggerates benefit; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "No retouching exaggerates benefit",
         "Labels stay paired with states",
@@ -119,7 +119,7 @@
         "microscope"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Magnify one verified feature in an inset while the whole product stays in view.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -130,7 +130,7 @@
         "Open a local magnified inset around one verified feature with a connector line",
         "Close the inset and leave the full product with a concise factual label"
       ],
-      "prompt_text": "Create an original code-based motion study: feature microscope. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep the product in a stable overview. Open a local magnified inset around one verified feature with a connector line. Close the inset and leave the full product with a concise factual label. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for inset uses actual source detail; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: feature microscope. The purpose is to magnify one verified feature in an inset while the whole product stays in view. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Keep the product in a stable overview. Open a local magnified inset around one verified feature with a connector line. Close the inset and leave the full product with a concise factual label. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for inset uses actual source detail; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Inset uses actual source detail",
         "Connector points to correct feature",
@@ -154,7 +154,7 @@
         "handoff"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Follow one data object through three real workflow steps to a completed artifact.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -165,7 +165,7 @@
         "Carry one persistent data object through the approved steps showing state change",
         "End on the completed artifact and its owner"
       ],
-      "prompt_text": "Create an original code-based motion study: workflow handoff. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Represent three real workflow steps as distinct objects. Carry one persistent data object through the approved steps showing state change. End on the completed artifact and its owner. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for persistent object is trackable; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: workflow handoff. The purpose is to follow one data object through three real workflow steps to a completed artifact. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Represent three real workflow steps as distinct objects. Carry one persistent data object through the approved steps showing state change. End on the completed artifact and its owner. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for persistent object is trackable; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Persistent object is trackable",
         "Step order matches product",
@@ -189,7 +189,7 @@
         "opening"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Open the package in physically plausible steps to show its real contents as an inventory.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -200,7 +200,7 @@
         "Open only physically plausible authorized parts to reveal the actual contents",
         "Arrange contents in a simple inventory then restore the hero pack"
       ],
-      "prompt_text": "Create an original code-based motion study: package opening. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show the approved package on a neutral stage. Open only physically plausible authorized parts to reveal the actual contents. Arrange contents in a simple inventory then restore the hero pack. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for contents match supplied inventory; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: package opening. The purpose is to open the package in physically plausible steps to show its real contents as an inventory. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show the approved package on a neutral stage. Open only physically plausible authorized parts to reveal the actual contents. Arrange contents in a simple inventory then restore the hero pack. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for contents match supplied inventory; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Contents match supplied inventory",
         "Packaging proportions stay fixed",
@@ -226,7 +226,7 @@
         "tricks"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Compare two products or plans one sourced dimension at a time on equal scales.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -237,7 +237,7 @@
         "Reveal one sourced comparison dimension at a time using equal scales",
         "Hold the complete comparison including limitations"
       ],
-      "prompt_text": "Create an original code-based motion study: comparison without ranking tricks. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Align two products or plans on identical visual baselines. Reveal one sourced comparison dimension at a time using equal scales. Hold the complete comparison including limitations. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for scale does not bias a side; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: comparison without ranking tricks. The purpose is to compare two products or plans one sourced dimension at a time on equal scales. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Align two products or plans on identical visual baselines. Reveal one sourced comparison dimension at a time using equal scales. Hold the complete comparison including limitations. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for scale does not bias a side; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Scale does not bias a side",
         "All labels remain visible",
@@ -262,7 +262,7 @@
         "section"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Explain a sourced material property with an illustrative cross-section, then return to the real surface.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -273,7 +273,7 @@
         "Transition to an explicitly illustrative cross-section explaining a sourced property",
         "Return to the real surface with the property clearly qualified"
       ],
-      "prompt_text": "Create an original code-based motion study: material cross section. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start with an approved material surface. Transition to an explicitly illustrative cross-section explaining a sourced property. Return to the real surface with the property clearly qualified. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for illustration is labeled; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: material cross section. The purpose is to explain a sourced material property with an illustrative cross-section, then return to the real surface. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start with an approved material surface. Transition to an explicitly illustrative cross-section explaining a sourced property. Return to the real surface with the property clearly qualified. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for illustration is labeled; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Illustration is labeled",
         "No invented physical precision",
@@ -297,7 +297,7 @@
         "dial"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Change one supported configuration parameter and show the genuine resulting variant.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -308,7 +308,7 @@
         "Change one supported parameter and show the corresponding genuine product variant",
         "Stop at the selected variant and reveal its exact specification"
       ],
-      "prompt_text": "Create an original code-based motion study: configuration dial. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place the real configurable product beside an unobtrusive control. Change one supported parameter and show the corresponding genuine product variant. Stop at the selected variant and reveal its exact specification. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for variants are authorized; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: configuration dial. The purpose is to change one supported configuration parameter and show the genuine resulting variant. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Place the real configurable product beside an unobtrusive control. Change one supported parameter and show the corresponding genuine product variant. Stop at the selected variant and reveal its exact specification. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for variants are authorized; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Variants are authorized",
         "Control has one effect",
@@ -334,7 +334,7 @@
         "diagram"
       ],
       "runtime": "Remotion",
-      "objective": "A product sequence showing a real benefit without inventing functionality",
+      "objective": "Diagram one causal interaction of the product in use without people, with its usage limits.",
       "inputs": [
         "approved product assets",
         "factual feature description",
@@ -345,7 +345,7 @@
         "Animate one causal interaction using arrows or geometry tied to its real function",
         "Hold the resulting state and necessary usage limitation"
       ],
-      "prompt_text": "Create an original code-based motion study: product in use diagram. The purpose is a product sequence showing a real benefit without inventing functionality. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a product with a simplified human-free usage context. Animate one causal interaction using arrows or geometry tied to its real function. Hold the resulting state and necessary usage limitation. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for directions match actual function; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: product in use diagram. The purpose is to diagram one causal interaction of the product in use without people, with its usage limits. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Show a product with a simplified human-free usage context. Animate one causal interaction using arrows or geometry tied to its real function. Hold the resulting state and necessary usage limitation. Use Remotion only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for directions match actual function; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Directions match actual function",
         "Diagram is not a safety certification",

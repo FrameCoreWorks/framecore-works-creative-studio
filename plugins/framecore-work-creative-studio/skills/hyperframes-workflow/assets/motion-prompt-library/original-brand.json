@@ -12,7 +12,7 @@
         "rails"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Bring an intact mark into its approved position with guide rails that express precision.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -23,7 +23,7 @@
         "Rails retract along the mark's outer bounds while its geometry stays fixed",
         "Hold the complete mark and lockup on a quiet field"
       ],
-      "prompt_text": "Create an original code-based motion study: registration rails. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Two thin rails guide the intact mark into its approved position. Rails retract along the mark's outer bounds while its geometry stays fixed. Hold the complete mark and lockup on a quiet field. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mark never deforms; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: registration rails. The purpose is to bring an intact mark into its approved position with guide rails that express precision. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Two thin rails guide the intact mark into its approved position. Rails retract along the mark's outer bounds while its geometry stays fixed. Hold the complete mark and lockup on a quiet field. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mark never deforms; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Mark never deforms",
         "Lockup spacing matches supplied geometry",
@@ -48,7 +48,7 @@
         "aperture"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Reveal a mark through its own negative space so the identity emerges from the field.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -59,7 +59,7 @@
         "Expand the aperture along the actual negative space around the mark",
         "Resolve the full untouched artwork with generous surrounding space"
       ],
-      "prompt_text": "Create an original code-based motion study: negative space aperture. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with an uninterrupted color field and a small aperture. Expand the aperture along the actual negative space around the mark. Resolve the full untouched artwork with generous surrounding space. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for aperture does not redraw the mark; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: negative space aperture. The purpose is to reveal a mark through its own negative space so the identity emerges from the field. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Begin with an uninterrupted color field and a small aperture. Expand the aperture along the actual negative space around the mark. Resolve the full untouched artwork with generous surrounding space. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for aperture does not redraw the mark; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Aperture does not redraw the mark",
         "Silhouette resolves cleanly",
@@ -84,7 +84,7 @@
         "signature"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Draw one original thread that becomes a supporting frame for the mark without touching it.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -95,7 +95,7 @@
         "Its last turn becomes an underline or supporting frame without touching protected artwork",
         "The thread relaxes into a stable brand composition"
       ],
-      "prompt_text": "Create an original code-based motion study: single thread signature. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A thread travels outside the mark following an original path. Its last turn becomes an underline or supporting frame without touching protected artwork. The thread relaxes into a stable brand composition. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for thread and mark never overlap accidentally; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: single thread signature. The purpose is to draw one original thread that becomes a supporting frame for the mark without touching it. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A thread travels outside the mark following an original path. Its last turn becomes an underline or supporting frame without touching protected artwork. The thread relaxes into a stable brand composition. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for thread and mark never overlap accidentally; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Thread and mark never overlap accidentally",
         "Endpoint aligns with grid",
@@ -119,7 +119,7 @@
         "alignment"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Express order and system by aligning loose modules into a grid that frames the mark.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -130,7 +130,7 @@
         "They align to establish a visual rhythm and make room for the complete mark",
         "Modules become a restrained border while the mark remains the focal point"
       ],
-      "prompt_text": "Create an original code-based motion study: modular alignment. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Unbranded modules occupy an intentionally uneven grid. They align to establish a visual rhythm and make room for the complete mark. Modules become a restrained border while the mark remains the focal point. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for modules are not counterfeit logo parts; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: modular alignment. The purpose is to express order and system by aligning loose modules into a grid that frames the mark. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Unbranded modules occupy an intentionally uneven grid. They align to establish a visual rhythm and make room for the complete mark. Modules become a restrained border while the mark remains the focal point. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for modules are not counterfeit logo parts; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Modules are not counterfeit logo parts",
         "Alignment has a readable cause",
@@ -155,7 +155,7 @@
         "color"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Open neutral panels onto the brand accent colour to reveal the mark in a clean window.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -166,7 +166,7 @@
         "The approved mark appears in the resulting window without changing scale",
         "Panels settle into a balanced frame and leave a clear lockup"
       ],
-      "prompt_text": "Create an original code-based motion study: window of color. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Neutral panels separate to reveal the brand accent behind them. The approved mark appears in the resulting window without changing scale. Panels settle into a balanced frame and leave a clear lockup. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no palette invention; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: window of color. The purpose is to open neutral panels onto the brand accent colour to reveal the mark in a clean window. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Neutral panels separate to reveal the brand accent behind them. The approved mark appears in the resulting window without changing scale. Panels settle into a balanced frame and leave a clear lockup. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no palette invention; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "No palette invention",
         "Reveal mask has clean edges",
@@ -190,7 +190,7 @@
         "relay"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Pass focus from small to large shapes so attention arrives at the intact mark.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -201,7 +201,7 @@
         "The outline expands to the safe-area frame as the intact mark fades in",
         "Both supporting shapes withdraw to leave the identity alone"
       ],
-      "prompt_text": "Create an original code-based motion study: scale relay. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A small neutral disc hands focal attention to a larger outline. The outline expands to the safe-area frame as the intact mark fades in. Both supporting shapes withdraw to leave the identity alone. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for disc is not mistaken for a logo component; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: scale relay. The purpose is to pass focus from small to large shapes so attention arrives at the intact mark. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. A small neutral disc hands focal attention to a larger outline. The outline expands to the safe-area frame as the intact mark fades in. Both supporting shapes withdraw to leave the identity alone. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for disc is not mistaken for a logo component; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Disc is not mistaken for a logo component",
         "Attention transfers once",
@@ -226,7 +226,7 @@
         "mark"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Connect a brand material or texture to the identity grid and the unchanged mark.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -237,7 +237,7 @@
         "Its boundary straightens into the same grid used by the identity system",
         "Place the unchanged mark beside the swatch and hold the relationship"
       ],
-      "prompt_text": "Create an original code-based motion study: material to mark. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. An abstract material swatch fills one portion of the frame. Its boundary straightens into the same grid used by the identity system. Place the unchanged mark beside the swatch and hold the relationship. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for material supports a supplied identity trait; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: material to mark. The purpose is to connect a brand material or texture to the identity grid and the unchanged mark. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. An abstract material swatch fills one portion of the frame. Its boundary straightens into the same grid used by the identity system. Place the unchanged mark beside the swatch and hold the relationship. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for material supports a supplied identity trait; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Material supports a supplied identity trait",
         "Logo is not textured",
@@ -261,7 +261,7 @@
         "echo"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Echo the mark's counterform with original shapes that clear away to reveal the real mark.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -272,7 +272,7 @@
         "Let the echo recede to reveal the complete approved mark behind it",
         "Remove all echo shapes before the final identity hold"
       ],
-      "prompt_text": "Create an original code-based motion study: counterform echo. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Echo the mark's broad counterform using separate original geometry. Let the echo recede to reveal the complete approved mark behind it. Remove all echo shapes before the final identity hold. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no protected vector points are altered; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: counterform echo. The purpose is to echo the mark's counterform with original shapes that clear away to reveal the real mark. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Echo the mark's broad counterform using separate original geometry. Let the echo recede to reveal the complete approved mark behind it. Remove all echo shapes before the final identity hold. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for no protected vector points are altered; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "No protected vector points are altered",
         "Counterform remains an interpretation outside the asset",
@@ -296,7 +296,7 @@
         "arrival"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Slide a complete wordmark along a revealed typographic grid into its final lockup.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -307,7 +307,7 @@
         "The complete approved wordmark translates along that grid as one object",
         "Ticks collapse to one accent then disappear"
       ],
-      "prompt_text": "Create an original code-based motion study: baseline arrival. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Thin baseline ticks reveal a typographic grid. The complete approved wordmark translates along that grid as one object. Ticks collapse to one accent then disappear. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for letters never arrive separately; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: baseline arrival. The purpose is to slide a complete wordmark along a revealed typographic grid into its final lockup. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Thin baseline ticks reveal a typographic grid. The complete approved wordmark translates along that grid as one object. Ticks collapse to one accent then disappear. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for letters never arrive separately; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Letters never arrive separately",
         "Tracking stays locked",
@@ -332,7 +332,7 @@
         "loop"
       ],
       "runtime": "HTML/SVG",
-      "objective": "A brand ident that expresses identity through a meaningful geometric action",
+      "objective": "Create a seamless brand loop where only one peripheral accent moves around a still mark.",
       "inputs": [
         "locked vector mark",
         "brand colors",
@@ -343,7 +343,7 @@
         "One peripheral accent makes a slow orbit that communicates continuity",
         "Return that accent to its initial phase without moving the mark"
       ],
-      "prompt_text": "Create an original code-based motion study: quiet repeat loop. The purpose is a brand ident that expresses identity through a meaningful geometric action. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start from the complete mark in its approved composition. One peripheral accent makes a slow orbit that communicates continuity. Return that accent to its initial phase without moving the mark. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mark remains static; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
+      "prompt_text": "Create an original code-based motion study: quiet repeat loop. The purpose is to create a seamless brand loop where only one peripheral accent moves around a still mark. Use the existing approved contract, or propose timing and aspect ratio before first implementation; a 12-second study is an adjustable starting point, not a new lock. Start from the complete mark in its approved composition. One peripheral accent makes a slow orbit that communicates continuity. Return that accent to its initial phase without moving the mark. Use HTML/SVG only if it fits the available project; preserve its working runtime otherwise. Keep exact copy and authorized assets intact, use available licensed fonts, and derive every state from the master frame. Reserve fully readable holds at the intended viewing size. Use approved sound cues or explicit silence. Inspect the actual result for mark remains static; record unobserved playback, audio or export as not verified. Keep all installations, external services and publishing under existing user authorization.",
       "acceptance": [
         "Mark remains static",
         "Loop seam has continuous position and velocity",

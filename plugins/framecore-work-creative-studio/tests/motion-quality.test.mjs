@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateScore,secondsAtFrame,reviewFrames,cueTimes,renderPaperFrame,renderToneCues} from '../skills/hyperframes-workflow/assets/motion-quality/score.mjs';
-import {loadLibrary,searchLibrary,presentEntry,validateLibrary} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
+import {loadLibrary,searchLibrary,presentEntry,validateLibrary,loadBriefIndex,matchBrief,presentBrief,validateBriefIndex} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
 const score=JSON.parse(fs.readFileSync(new URL('../skills/hyperframes-workflow/assets/motion-quality/example-score.json',import.meta.url),'utf8'));
 test('rational frame time and half-open end are respected',()=>{
   assert.equal(secondsAtFrame(30,{fps:{num:30000,den:1001},totalFrames:60}),1.001);
@@ -54,4 +54,27 @@ test('creator-only records cannot silently gain redistributed text or tested sta
   const e=structuredClone(loadLibrary().find(e=>e.prompt_origin==='creator_prompt_link_only'));
   e.prompt_text='Unauthorized creator text';e.verification='PASS';
   const errors=validateLibrary([e]);assert.ok(errors.some(e=>e.includes('link-only')));assert.ok(errors.some(e=>e.includes('verification')));
+});
+test('brief index points to existing original records and matches Polish briefs',()=>{
+  const entries=loadLibrary(),index=loadBriefIndex();
+  assert.deepEqual(validateBriefIndex(index,entries),[]);
+  assert.equal(matchBrief(index,'animowane logo do intro')[0].id,'logo-reveal');
+  assert.ok(matchBrief(index,'rolka na instagram z wykresem sprzedaży').some(b=>b.id==='data-story'));
+  assert.equal(matchBrief(index,'lekcja dla uczniów o ułamkach')[0].id,'education-lesson');
+  assert.deepEqual(matchBrief(index,'zupełnie inny temat'),[]);
+  const view=presentBrief(index.briefs[0],entries);
+  assert.ok(view.records.every(r=>r.title&&r.objective));assert.match(view.authority,/selects no runtime/);
+});
+test('brief index rejects unknown, imported or excessive records',()=>{
+  const entries=loadLibrary(),index=structuredClone(loadBriefIndex());
+  index.briefs[0].records=['FC-NOPE-01',entries.find(e=>e.prompt_origin==='curator_reconstruction').id,'FC-BRAND-01','FC-BRAND-02','FC-BRAND-03'];
+  const errors=validateBriefIndex(index,entries).join('\n');
+  assert.match(errors,/two to four/);assert.match(errors,/unknown record FC-NOPE-01/);assert.match(errors,/FrameCore original/);
+});
+test('original blueprints have record-specific objectives',()=>{
+  const originals=loadLibrary().filter(e=>e.prompt_origin==='framecore_original');
+  assert.equal(new Set(originals.map(e=>e.objective)).size,originals.length);
+  const rewritten=originals.filter(e=>['brand','editorial','product','social','transitions','typography'].includes(e.category));
+  assert.equal(rewritten.length,60);
+  assert.ok(rewritten.every(e=>e.prompt_text.includes('The purpose is to '+e.objective[0].toLowerCase()+e.objective.slice(1))));
 });
