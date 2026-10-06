@@ -64,12 +64,13 @@
     "note": "No independent human review recorded for this change."
   },
   "plugin_zip_sha256": "3a48e6a7397f294e31cc2838615e7ba0fa90f3dd1f48726bb52099c602d5c1ec",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.11.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks do not establish active-client research behavior in ChatGPT or Codex. All 201 planned cases remain not_run. No search, rendering, provider call or media inspection was performed.",
   "codex_cache": {
     "version": "unknown",
     "active_session_behavior": "not_tested"
-  }
+  },
+  "ci_note": "The release workflow installed the optional GEPA dependency; the 3 locally skipped GEPA tests were also run locally with it before publication: 8/8 PASS."
 }

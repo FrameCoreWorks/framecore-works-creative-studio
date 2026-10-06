@@ -1,0 +1,43 @@
+{
+  "version": "1.11.0",
+  "change_id": "CC-20261006-01",
+  "origin": "cloud-code",
+  "commit": "391fa79006c16d1776bf842559d5ee4d25f43eb7",
+  "package_commit": "91f80c96445df0120f2415615b849c1dbd0124b0",
+  "integration": "Fast-forward of main from 928199a to 391fa79 on owner instruction; no merge commit",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.11.0",
+  "workflow_id": 37453689737,
+  "workflow_conclusion": "success",
+  "source_blobs_checked": 838,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "3a48e6a7397f294e31cc2838615e7ba0fa90f3dd1f48726bb52099c602d5c1ec",
+  "repository_zip_note": "Repository ZIP differs from the earlier local build because the local build preceded the ledger and AGENTS.md commit; the plugin ZIP is byte-identical.",
+  "assets": [
+    {
+      "name": "framecore-work-creative-studio-1.11.0.zip",
+      "digest": "sha256:3a48e6a7397f294e31cc2838615e7ba0fa90f3dd1f48726bb52099c602d5c1ec",
+      "size": 9483027
+    },
+    {
+      "name": "framecore-work-creative-studio-1.11.0.zip.inventory.json",
+      "digest": "sha256:74841cac6f1b7c72c9d7c3b5016038d60e60ac9a42813bfaa680f3eb77c98ffc",
+      "size": 169720
+    },
+    {
+      "name": "framecore-works-creative-studio-1.11.0-repository.zip",
+      "digest": "sha256:3eff0de81ac2abff905a7536ebb4649ad5e50076189ec7afef706ba1fc00a839",
+      "size": 11670986
+    },
+    {
+      "name": "framecore-works-creative-studio-1.11.0-repository.zip.inventory.json",
+      "digest": "sha256:4c8d7cf93c613e2a0b157b91690e0892848d89df17dec1c81474be2db1775c41",
+      "size": 227307
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:c81fe2513283d83cbbfb6c32e4aefc14156a4b48f13cd01475bb74b82eedb748",
+      "size": 486
+    }
+  ]
+}

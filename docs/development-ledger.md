@@ -23,8 +23,8 @@ Verification:
 
 Cross-host state:
 
-- GitHub: branch pushed for review; not merged to `main`; no tag or GitHub release
-- ChatGPT Work: pending (hosted plugin remains 1.10.1)
+- GitHub: synchronized; `main` fast-forwarded to `391fa79` on owner instruction; [v1.11.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.11.0) published by workflow 37453689737; 838 blobs and plugin ZIP hash match ([record](../verification/github-publication-1.11.0.json))
+- ChatGPT Work: pending; the owner updates the hosted plugin through ChatGPT Work (hosted plugin was 1.10.1 at publication)
 - Codex: pending
 
 Notes:
