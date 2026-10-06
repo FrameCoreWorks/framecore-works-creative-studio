@@ -73,7 +73,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "384f2aff1630a852cfc1e8d902db50814e3473f0a0153c5eabb13585b345fea3",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.15.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Index selections and rewritten objectives are curation, not tested motion results; all 120 original blueprints remain not_run. All 201 planned host cases remain not_run."
