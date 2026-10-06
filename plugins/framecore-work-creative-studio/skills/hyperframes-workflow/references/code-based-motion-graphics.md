@@ -30,7 +30,7 @@ Choose one communicative mechanism: what changes, why it expresses the message, 
 
 For nontrivial art direction, record Creative DNA and a revisioned Style Lock using the [Motion Designer adaptation](motion-designer-adaptation.md). Reuse an approved style instead of exploring again. Keep these fields inside this motion contract and existing Project State. Recompose each requested aspect ratio and assess its copy/holds independently.
 
-Describe motion by function: direction, transform origin, velocity, acceleration, easing, settling, overlap and hold. Constant-speed motion can be linear. Springs, bounce, 3D and camera moves require a reason; they are not quality defaults.
+Describe motion by function: direction, transform origin, velocity, acceleration, easing, settling, overlap and hold. Use [motion craft](motion-craft.md) for concrete easing presets, frame durations, staggers, reading holds, beat grids and transition choices, and record the selected values in the contract. Constant-speed motion can be linear. Springs, bounce, 3D and camera moves require a reason; they are not quality defaults.
 
 Inventory assets by stable ID, revision/hash when available, purpose, local availability and authority. Inspiration is not permission to reuse artwork. Protected logos retain geometry, proportions and internal spacing. Animate separate components only when authoritative parts exist and that operation is approved. Record exact copy including diacritics independently of incidental scene code.
 
@@ -53,8 +53,8 @@ Inspect actual files, runtime versions, scripts and user edits first. Preserve a
 
 | Need | Existing owner and route |
 | --- | --- |
-| React/TypeScript, reusable props, data-driven variants | Remotion Video Production |
-| HTML/SVG, GSAP timelines or explicit HyperFrames | Motion Graphics Workflow |
+| React/TypeScript, reusable props, data-driven variants | Remotion Video Production; new 2D projects can start from the [kinetic type starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) |
+| HTML/SVG, GSAP timelines or explicit HyperFrames | Motion Graphics Workflow; new projects can start from the [GSAP motion starter](../assets/gsap-motion-starter/README.md) |
 | Small code demonstration with no dependencies | The local [frame starter](../assets/code-motion-starter/README.md); SVG sequence export is not encoded video |
 | No filesystem, shell or renderer | Complete contract and implementation source when requested, with execution and export marked NOT VERIFIED |
 

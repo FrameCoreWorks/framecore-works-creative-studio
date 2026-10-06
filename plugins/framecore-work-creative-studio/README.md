@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.11.2.
+Version: 1.12.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -142,4 +142,4 @@ A pilot is not a prerequisite for plugin development; project review remains opt
 
 ## Motion quality and prompt library
 
-Use the [motion prompt library](skills/hyperframes-workflow/assets/motion-prompt-library/README.md), [quality method](skills/hyperframes-workflow/references/motion-quality-direction.md) and [research dossier](skills/hyperframes-workflow/references/motion-quality-research.md) through the existing motion owners. The library records origin and unexecuted status separately; selected references do not authorize execution or switch models.
+Use the [motion prompt library](skills/hyperframes-workflow/assets/motion-prompt-library/README.md), [quality method](skills/hyperframes-workflow/references/motion-quality-direction.md) and [research dossier](skills/hyperframes-workflow/references/motion-quality-research.md) through the existing motion owners. The library records origin and unexecuted status separately; selected references do not authorize execution or switch models. [Motion craft](skills/hyperframes-workflow/references/motion-craft.md) supplies concrete easing, timing, stagger, hold and transition values; the [Remotion kinetic type starter](skills/remotion-video-production/assets/kinetic-type-starter/README.md) and [GSAP motion starter](skills/hyperframes-workflow/assets/gsap-motion-starter/README.md) share one motion-score contract.

@@ -1,0 +1,92 @@
+{
+  "version": "1.12.0",
+  "date": "2026-10-06",
+  "baseline": "4044cd74448d2c7d48ccd8fc0daaf88ec6eae043",
+  "change_id": "CC-20261006-05",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, npm 10, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 859,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 139
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 9
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "starter_execution": {
+    "kinetic_type_starter": {
+      "source": "copied from the package into a temporary directory",
+      "steps": [
+        "npm ci",
+        "npm run check: PASS",
+        "npm run typecheck: PASS",
+        "remotion still frames 20, 100, 140, 150, 180, 299: rendered and visually inspected",
+        "remotion render: H.264, 1920x1080, 30/1 FPS, 300 frames, 10.000 s, yuv420p (ffprobe)"
+      ],
+      "full_playback_review": "not_run"
+    },
+    "gsap_motion_starter": {
+      "source": "copied from the package into a temporary directory",
+      "steps": [
+        "npm ci",
+        "npm run check: PASS",
+        "headless Chromium screenshots at frames 20, 100, 140, 180, 299: visually inspected",
+        "frame 140 direct vs seek sequences 299,0,140 and 0,299,60,140: pixel-identical",
+        "frame 127 direct vs 299,127: pixel-identical"
+      ],
+      "video_encoding": "not_run"
+    }
+  },
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "f093cefedd293681f108d2163180b8f72b4dedf8bf9430734fe0ddb85224b406",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Container execution covers only the two synthetic starters; it does not establish rendering or behavior in ChatGPT, Work or a Codex session. Motion craft values are Studio heuristics, not measured quality. All 201 planned cases remain not_run."
+}

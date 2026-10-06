@@ -6,7 +6,7 @@ Use this extension inside the existing [code motion workflow](code-based-motion-
 
 | Required result | Tool and responsibility | Existing implementation owner | Starting point |
 | --- | --- | --- | --- |
-| Typography, simple logo motion, diagrams and lightweight vector scenes | HTML/SVG with frame functions or a paused GSAP timeline; HyperFrames when available | Motion Graphics Workflow | Existing [frame starter](../assets/code-motion-starter/README.md) |
+| Typography, simple logo motion, diagrams and lightweight vector scenes | HTML/SVG with frame functions or a paused GSAP timeline; HyperFrames when available | Motion Graphics Workflow | [GSAP motion starter](../assets/gsap-motion-starter/README.md) or the dependency-free [frame starter](../assets/code-motion-starter/README.md) |
 | Many graphic objects, masks, particles, filters or custom 2D effects | PixiJS draws the scene; the project frame selects every visible state | Motion Graphics Workflow, or Remotion Video Production when a React composition is selected from the brief or existing project | [Canvas toolkit](../assets/motion-toolkit/README.md) and [PixiJS card](motion-toolkit-runtime-cards.md#pixijs-2d-scenes) |
 | Charts, data diagrams and numeric transitions | D3 computes data geometry and interpolation; Canvas, SVG or React draws it | Keep the chosen Motion Graphics Workflow or Remotion owner | [D3 card](motion-toolkit-runtime-cards.md#d3-data-motion) |
 | 3D geometry, materials, lights and camera choreography | Three.js and React Three Fiber through `@remotion/three` | Remotion Video Production | [Three motion example](../../remotion-video-production/assets/three-motion-example/README.md) |

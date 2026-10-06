@@ -51,7 +51,7 @@ Produce one or more of:
 - preview, still, or render verification evidence when commands actually run
 - render QA report, asset manifest updates, and delivery notes
 
-Use [templates/remotion-production-brief.md](templates/remotion-production-brief.md) for nontrivial work. Read [references/remotion-implementation-notes.md](references/remotion-implementation-notes.md) before implementing or reviewing Remotion code.
+Use [templates/remotion-production-brief.md](templates/remotion-production-brief.md) for nontrivial work. For a new 2D project, start from the [kinetic type starter](assets/kinetic-type-starter/README.md): it reads the shared `motion-score.json` contract, uses the [motion craft](../hyperframes-workflow/references/motion-craft.md) easing and timing presets and includes a dependency-free contract check. Read [references/remotion-implementation-notes.md](references/remotion-implementation-notes.md) before implementing or reviewing Remotion code.
 
 For code-based motion graphics, kinetic typography, animated diagrams or brand motion, also use the shared [storyboard → build → review method](../hyperframes-workflow/references/code-based-motion-graphics.md). Reuse its versioned frame/Style Lock contract, exact-copy and asset ledger, approval evidence, three stage prompts and QA record. Keep the installed Remotion APIs and one shared QA budget; do not restart onboarding for an approved build.
 

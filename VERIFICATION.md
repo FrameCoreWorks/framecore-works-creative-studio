@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.11.2
+## Current source: 1.12.0
+
+The [1.12.0 source checks](verification/release-1.12.0.json) pass canonical validation and 195 tests: 139 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new Remotion kinetic type starter was installed from its lockfile in a development container, typechecked, passed its contract check and rendered a 300-frame 1920 × 1080 H.264 file; the GSAP starter's direct, forward and backward seeks produced pixel-identical frames in headless Chromium. Full playback review and GSAP video encoding were not run. [Scope](verification/scope-1.12.0.json) records 12 changed and 19 added shared files out of 859. Host behavior is not run.
+
+## Previous source: 1.11.2
 
 The [1.11.2 source checks](verification/release-1.11.2.json) pass canonical validation and 192 tests: 136 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The legacy audio alias is explicit-only and seven overlapping owners name their neighbors in catalog descriptions; new checks guard both. Automatically available owners drop from 35 to 34 while their combined descriptions grow from 9,134 to 9,644 characters. [Scope](verification/scope-1.11.2.json) records 16 changed shared files out of 840. Host behavior is not run.
 

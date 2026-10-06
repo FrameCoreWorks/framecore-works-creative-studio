@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.11.2**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.12.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -42,6 +42,8 @@ See [the ad analysis method](plugins/framecore-work-creative-studio/skills/ecomm
 The optional [motion toolkit](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md) adds Three.js/R3F through Remotion, PixiJS effects, D3 data geometry, Mediabunny Canvas export, Lottie JSON playback and an existing-local-Manim clip bridge. Original examples include exact dependency pins and lockfiles, frame-seeking checks and explicit host/export boundaries. Install dependencies only inside an authorized project copy.
 
 Use the existing HyperFrames/HTML/SVG or Remotion path for an approved storyboard, frame-driven implementation, actual-output review and delivery. The workflow includes a versioned motion/Style Lock contract, three stage prompts, source-bound asset/copy locks, a dependency-free synthetic frame starter and separate preview, temporal/audio and encoded-export evidence. Local execution depends on the available host tools.
+
+[Motion craft](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-craft.md) gives concrete easing presets, frame durations, staggers, reading holds, beat grids and transition choices. Two runtime starters, a [Remotion kinetic type starter](plugins/framecore-work-creative-studio/skills/remotion-video-production/assets/kinetic-type-starter/README.md) and a [GSAP motion starter](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/gsap-motion-starter/README.md), read the same motion-score contract.
 
 See [the code-motion workflow](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/code-based-motion-graphics.md).
 

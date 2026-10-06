@@ -1,0 +1,14 @@
+{
+  "name": "framecore-gsap-motion-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node check-score.mjs motion-score.json",
+    "preview": "python3 -m http.server 8767 --bind 127.0.0.1"
+  },
+  "dependencies": {
+    "gsap": "3.15.0"
+  },
+  "engines": {"node": ">=20"}
+}

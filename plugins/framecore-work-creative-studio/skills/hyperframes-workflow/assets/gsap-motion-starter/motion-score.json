@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "kinetic-type-starter",
+  "revision": 1,
+  "approval": "example-not-client-approved",
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 300,
+  "width": 1920,
+  "height": 1080,
+  "tokens": {
+    "background": "#0F1115",
+    "foreground": "#F4F1EA",
+    "muted": "#9AA0A6",
+    "accent": "#FF5A36",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "marginRatio": 0.08
+  },
+  "motion": {
+    "tempo": "calm",
+    "entryFrames": 15,
+    "exitFrames": 10,
+    "lineStaggerFrames": 6,
+    "itemStaggerFrames": 8,
+    "entryEasing": "easeOutCubic",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo",
+    "transitions": [
+      "mask reveal",
+      "word stagger",
+      "fade-scale resolve"
+    ]
+  },
+  "copy": {
+    "title-1": "Clear motion",
+    "title-2": "starts with one idea",
+    "step-1": "Plan",
+    "step-2": "Build",
+    "step-3": "Review",
+    "end": "Ready to render"
+  },
+  "scenes": [
+    {
+      "id": "title",
+      "start": 0,
+      "end": 127,
+      "purpose": "State the idea with a line mask reveal",
+      "copy": [
+        "title-1",
+        "title-2"
+      ],
+      "holds": [
+        [
+          24,
+          117
+        ]
+      ]
+    },
+    {
+      "id": "steps",
+      "start": 117,
+      "end": 215,
+      "purpose": "Three steps enter with a word stagger and a constant-speed connector",
+      "copy": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "holds": [
+        [
+          149,
+          205
+        ]
+      ]
+    },
+    {
+      "id": "end",
+      "start": 205,
+      "end": 300,
+      "purpose": "End card with the longest readable hold and a stable final frame",
+      "copy": [
+        "end"
+      ],
+      "holds": [
+        [
+          230,
+          300
+        ]
+      ]
+    }
+  ],
+  "cues": []
+}

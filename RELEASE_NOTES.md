@@ -1,9 +1,9 @@
-# Creative Studio 1.11.2
+# Creative Studio 1.12.0
 
-Clearer skill selection between owners with overlapping topics.
+Stronger motion graphics craft and ready starting projects.
 
-- Skills whose topics overlap now say in their catalog description which neighbor handles the other case: story structure vs written screenplay vs timed shot cards, general marketing vs ecommerce sales campaigns, briefs vs delegation packets vs Hipson-format packets, and the shared operating contract vs the Studio entry.
-- The legacy Producer AI Task Builder alias is no longer offered automatically; Audio Production Director handles new audio work. Calling the alias explicitly still works.
-- Startup, the complete welcome, all 37 skill IDs and the route tables are unchanged.
+- **Clearer motion workflow.** The Motion Graphics Workflow entry is now one sequence: stage, storyboard, motion design, runtime, build and review, with links to the real neighboring skills.
+- **Motion craft reference.** Concrete starting values for easing (CSS, GSAP and Remotion equivalents), durations in frames, staggers, how long text must stay readable, syncing to music tempo, choosing transitions and animating type, plus a list of common defects to remove before review.
+- **Two starters, one contract.** A Remotion kinetic typography project and an HTML/GSAP seekable preview read the same `motion-score.json`, so one storyboard can be built in either runtime and reviewed against the same frames. Each includes a dependency-free contract check that warns when a hold is too short to read.
 
-Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome, all 37 skill IDs and existing motion examples are unchanged. Source and container checks do not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
