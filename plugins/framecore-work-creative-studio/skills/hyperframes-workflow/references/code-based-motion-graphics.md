@@ -56,7 +56,7 @@ Inspect actual files, runtime versions, scripts and user edits first. Preserve a
 | React/TypeScript, reusable props, data-driven variants | Remotion Video Production; new 2D projects can start from the [kinetic type starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) |
 | HTML/SVG, GSAP timelines or explicit HyperFrames | Motion Graphics Workflow; new projects can start from the [GSAP motion starter](../assets/gsap-motion-starter/README.md) |
 | Small code demonstration with no dependencies | The local [frame starter](../assets/code-motion-starter/README.md); SVG sequence export is not encoded video |
-| No filesystem, shell or renderer | Complete contract and implementation source when requested, with execution and export marked NOT VERIFIED |
+| No filesystem, shell or renderer | Complete contract plus the self-contained [single-file preview](../assets/single-file-preview/README.md) the user opens in a browser; implementation source when requested; execution and export marked NOT VERIFIED |
 
 Check current [runtime evidence](code-motion-evidence.md) and installed APIs before writing adapter-specific code. A model name does not establish available tools. Keep the user's selected model; compare models only through a separately requested controlled evaluation.
 

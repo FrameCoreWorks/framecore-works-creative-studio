@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.12.0
+## Current source: 1.13.0
+
+The [1.13.0 source checks](verification/release-1.13.0.json) pass canonical validation and 196 tests: 140 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new single-file preview was opened from disk in headless Chromium without a server or network; six frames were inspected and direct, forward and backward seeks produced pixel-identical frames. Interactive Play was not exercised automatically. An owner-run ordinary ChatGPT diagnostic reported Canvas unavailable in that conversation, so the mode does not depend on it. [Scope](verification/scope-1.13.0.json) records 10 changed and 2 added shared files out of 861. Host behavior is not run.
+
+## Previous source: 1.12.0
 
 The [1.12.0 source checks](verification/release-1.12.0.json) pass canonical validation and 195 tests: 139 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new Remotion kinetic type starter was installed from its lockfile in a development container, typechecked, passed its contract check and rendered a 300-frame 1920 × 1080 H.264 file; the GSAP starter's direct, forward and backward seeks produced pixel-identical frames in headless Chromium. Full playback review and GSAP video encoding were not run. [Scope](verification/scope-1.12.0.json) records 12 changed and 19 added shared files out of 859. Host behavior is not run.
 

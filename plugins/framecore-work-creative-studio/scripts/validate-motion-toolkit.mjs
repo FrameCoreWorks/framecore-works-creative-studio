@@ -6,6 +6,7 @@ const canvas = 'skills/hyperframes-workflow/assets/motion-toolkit';
 const three = 'skills/remotion-video-production/assets/three-motion-example';
 const kinetic = 'skills/remotion-video-production/assets/kinetic-type-starter';
 const gsapStarter = 'skills/hyperframes-workflow/assets/gsap-motion-starter';
+const singleFile = 'skills/hyperframes-workflow/assets/single-file-preview';
 export function validateMotionToolkit(root) {
   const errors = [];
   const fail = detail => errors.push({code: 'MOTION_TOOLKIT', detail});
@@ -16,6 +17,8 @@ export function validateMotionToolkit(root) {
     ...['README.md','package.json','package-lock.json','tsconfig.json','remotion.config.ts','check-score.mjs','motion-score.json','src/index.ts','src/Root.tsx','src/motion.ts','src/KineticType.tsx'].map(name => `${kinetic}/${name}`),
     ...['README.md','package.json','package-lock.json','index.html','main.mjs','check-score.mjs','motion-score.json'].map(name => `${gsapStarter}/${name}`),
     'skills/hyperframes-workflow/references/motion-craft.md',
+    `${singleFile}/README.md`,
+    `${singleFile}/motion-preview.html`,
     ...['motion-toolkit-routing.md','motion-toolkit-runtime-cards.md','motion-toolkit-sources.md'].map(name => `skills/hyperframes-workflow/references/${name}`),
     'skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md',
     'skills/hyperframes-workflow/assets/manim-motion-example.py'
@@ -44,5 +47,12 @@ export function validateMotionToolkit(root) {
   for (const file of ['motion-score.json', 'check-score.mjs']) {
     try { if (read(`${kinetic}/${file}`) !== read(`${gsapStarter}/${file}`)) fail(`Starter ${file} differs between runtimes`); } catch {}
   }
+  // The single-file preview must stay offline and embed the same contract as the starters.
+  try {
+    const html = read(`${singleFile}/motion-preview.html`);
+    if (/(?:src|href)\s*=\s*["']?(?:https?:)?\/\/|@import|url\(\s*["']?https?:/i.test(html)) fail('Single-file preview must not load external resources');
+    const embedded = html.match(/<script type="application\/json" id="motion-score">([\s\S]*?)<\/script>/)?.[1];
+    if (!embedded || !isDeepStrictEqual(JSON.parse(embedded), JSON.parse(read(`${kinetic}/motion-score.json`)))) fail('Single-file preview score differs from the starter contract');
+  } catch (error) { fail(`Single-file preview: ${error.message}`); }
   return errors;
 }

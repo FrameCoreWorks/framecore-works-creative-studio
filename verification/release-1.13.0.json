@@ -1,0 +1,87 @@
+{
+  "version": "1.13.0",
+  "date": "2026-10-06",
+  "baseline": "5769ad9288db76842b56104bc78c8e0407abc247",
+  "change_id": "CC-20261006-06",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 861,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 140
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 9
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "preview_execution": {
+    "source": "package file opened via file:// in headless Chromium, no server or network",
+    "frames_inspected": [
+      0,
+      20,
+      100,
+      140,
+      180,
+      299
+    ],
+    "seek_equality": {
+      "140 direct vs 299,0,140": "pixel-identical",
+      "127 direct vs 299,127": "pixel-identical"
+    },
+    "interactive_play": "not_run"
+  },
+  "host_evidence": {
+    "ordinary_chatgpt_canvas_diagnostic_2026-10-06": "owner-reported: Canvas unavailable in that conversation; preview not executed there"
+  },
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "4c507d2c02fe3ecab5087ebe09bad018597a288d373720e29c65f8daa40d0699",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Container checks cover the synthetic template only. Whether a host can create or display the file, and how users open it, is not verified. All 201 planned cases remain not_run."
+}

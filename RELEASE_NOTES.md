@@ -1,9 +1,9 @@
-# Creative Studio 1.12.0
+# Creative Studio 1.13.0
 
-Stronger motion graphics craft and ready starting projects.
+Watch motion designs without installing anything.
 
-- **Clearer motion workflow.** The Motion Graphics Workflow entry is now one sequence: stage, storyboard, motion design, runtime, build and review, with links to the real neighboring skills.
-- **Motion craft reference.** Concrete starting values for easing (CSS, GSAP and Remotion equivalents), durations in frames, staggers, how long text must stay readable, syncing to music tempo, choosing transitions and animating type, plus a list of common defects to remove before review.
-- **Two starters, one contract.** A Remotion kinetic typography project and an HTML/GSAP seekable preview read the same `motion-score.json`, so one storyboard can be built in either runtime and reviewed against the same frames. Each includes a dependency-free contract check that warns when a hold is too short to read.
+- When Studio works where it cannot render video, such as ordinary ChatGPT, it now delivers a single HTML file that plays the animation in any browser: save it, double-click it, and use Play, Replay, frame stepping or the slider to review timing and readable holds.
+- The file needs no internet, libraries or server, and it reads the same motion contract as the Remotion and GSAP starters, so the preview and a later video match.
+- It is a preview for review, not a video export; Studio does not claim to have seen it play unless the host actually displayed it.
 
-Startup, the complete welcome, all 37 skill IDs and existing motion examples are unchanged. Source and container checks do not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

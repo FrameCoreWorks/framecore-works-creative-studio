@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion preview</title>
+<!--
+  Single-file motion preview from the FrameCore Works Creative Studio Motion Graphics Workflow.
+  Self-contained: no network, no libraries, no build step. Save as .html and open in a browser.
+  Every visual state is computed from the frame number, so play, scrub, step and seekFrame()
+  always show the same picture for the same frame. This is a preview, not a video export.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: #1b1c1f; color: #e8eaed; font: 14px system-ui, sans-serif; }
+  #viewport { position: relative; width: 100vw; height: calc(100vh - 64px); overflow: hidden; }
+  #stage { position: absolute; left: 50%; top: 50%; transform-origin: 0 0; overflow: hidden; }
+  .scene { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; visibility: hidden; }
+  .mask { overflow: hidden; line-height: 1.1; }
+  #controls { display: flex; gap: 10px; align-items: center; height: 64px; padding: 0 16px; box-sizing: border-box; }
+  #scrub { flex: 1; }
+  button { font: inherit; }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage"></div></div>
+<div id="controls">
+  <button id="play" type="button">Play</button>
+  <button id="replay" type="button">Replay</button>
+  <button id="back" type="button" aria-label="Previous frame">&lt;</button>
+  <button id="next" type="button" aria-label="Next frame">&gt;</button>
+  <input id="scrub" type="range" min="0" value="0" step="1" aria-label="Frame">
+  <output id="readout">frame 0</output>
+</div>
+
+<!-- The motion contract. Replace it with the approved project score; keep the same field names. -->
+<script type="application/json" id="motion-score">
+{
+  "schema_version": 1,
+  "id": "kinetic-type-starter",
+  "revision": 1,
+  "approval": "example-not-client-approved",
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 300,
+  "width": 1920,
+  "height": 1080,
+  "tokens": {
+    "background": "#0F1115",
+    "foreground": "#F4F1EA",
+    "muted": "#9AA0A6",
+    "accent": "#FF5A36",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "marginRatio": 0.08
+  },
+  "motion": {
+    "tempo": "calm",
+    "entryFrames": 15,
+    "exitFrames": 10,
+    "lineStaggerFrames": 6,
+    "itemStaggerFrames": 8,
+    "entryEasing": "easeOutCubic",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo",
+    "transitions": [
+      "mask reveal",
+      "word stagger",
+      "fade-scale resolve"
+    ]
+  },
+  "copy": {
+    "title-1": "Clear motion",
+    "title-2": "starts with one idea",
+    "step-1": "Plan",
+    "step-2": "Build",
+    "step-3": "Review",
+    "end": "Ready to render"
+  },
+  "scenes": [
+    {
+      "id": "title",
+      "start": 0,
+      "end": 127,
+      "purpose": "State the idea with a line mask reveal",
+      "copy": [
+        "title-1",
+        "title-2"
+      ],
+      "holds": [
+        [
+          24,
+          117
+        ]
+      ]
+    },
+    {
+      "id": "steps",
+      "start": 117,
+      "end": 215,
+      "purpose": "Three steps enter with a word stagger and a constant-speed connector",
+      "copy": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "holds": [
+        [
+          149,
+          205
+        ]
+      ]
+    },
+    {
+      "id": "end",
+      "start": 205,
+      "end": 300,
+      "purpose": "End card with the longest readable hold and a stable final frame",
+      "copy": [
+        "end"
+      ],
+      "holds": [
+        [
+          230,
+          300
+        ]
+      ]
+    }
+  ],
+  "cues": []
+}
+</script>
+
+<script>
+(() => {
+  'use strict';
+  const score = JSON.parse(document.getElementById('motion-score').textContent);
+  const fps = score.fps.num / score.fps.den, N = score.totalFrames, m = score.motion, t = score.tokens;
+
+  // Easing presets from references/motion-craft.md (cubic-bezier control points).
+  const bezier = (x1, y1, x2, y2) => x => {
+    if (x <= 0 || x >= 1) return Math.min(1, Math.max(0, x));
+    let lo = 0, hi = 1, u = x;
+    for (let i = 0; i < 30; i++) {
+      u = (lo + hi) / 2;
+      const bx = 3 * (1 - u) * (1 - u) * u * x1 + 3 * (1 - u) * u * u * x2 + u * u * u;
+      if (bx < x) lo = u; else hi = u;
+    }
+    return 3 * (1 - u) * (1 - u) * u * y1 + 3 * (1 - u) * u * u * y2 + u * u * u;
+  };
+  const easings = {
+    easeOutCubic: bezier(0.33, 1, 0.68, 1), easeOutQuart: bezier(0.25, 1, 0.5, 1),
+    easeOutExpo: bezier(0.16, 1, 0.3, 1), easeInOutCubic: bezier(0.65, 0, 0.35, 1),
+    easeInCubic: bezier(0.32, 0, 0.67, 0), linear: x => Math.min(1, Math.max(0, x)),
+  };
+  /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
+  const progress = (frame, start, duration, easing) => easings[easing]((frame - start) / duration);
+  const exit = (frame, scene) => progress(frame, scene.end - m.exitFrames, m.exitFrames, m.exitEasing);
+
+  // Stage setup: built once; renderFrame() only changes styles.
+  const stage = document.getElementById('stage');
+  Object.assign(stage.style, {width: score.width + 'px', height: score.height + 'px', background: t.background, color: t.foreground, fontFamily: t.fontFamily});
+  const margin = Math.round(score.width * t.marginRatio);
+  const el = (tag, style, text) => { const node = document.createElement(tag); Object.assign(node.style, style || {}); if (text) node.textContent = text; return node; };
+  const sceneBox = () => { const box = el('div', {padding: `0 ${margin}px`}); box.className = 'scene'; stage.append(box); return box; };
+
+  // Scene renderers keyed by scene id. Each one is built from the score and drawn from the frame alone.
+  // For a new project, replace these with one renderer per approved scene.
+  const renderers = {
+    title(scene) {
+      const box = sceneBox();
+      const lines = scene.copy.map((id, i) => {
+        const mask = el('div'); mask.className = 'mask';
+        const line = el('div', {fontSize: i === 0 ? '132px' : '96px', fontWeight: i === 0 ? 700 : 400}, score.copy[id]);
+        mask.append(line); box.append(mask); return line;
+      });
+      return frame => {
+        const out = exit(frame, scene);
+        box.style.opacity = 1 - out; box.style.transform = `translateY(${-24 * out}px)`;
+        lines.forEach((line, i) => {
+          const k = progress(frame, scene.start + i * m.lineStaggerFrames, m.entryFrames, m.entryEasing);
+          line.style.transform = `translateY(${(1 - k) * 110}%)`;
+        });
+      };
+    },
+    steps(scene) {
+      const box = sceneBox();
+      const row = el('div', {position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center'});
+      const connector = el('div', {position: 'absolute', left: 0, right: 0, top: '50%', height: '6px', background: t.accent, transformOrigin: 'left center'});
+      row.append(connector); box.append(row);
+      const items = scene.copy.map(id => { const item = el('div', {position: 'relative', padding: '12px 36px', background: t.background, fontSize: '104px', fontWeight: 700}, score.copy[id]); row.append(item); return item; });
+      const lastEntryEnd = scene.start + (scene.copy.length - 1) * m.itemStaggerFrames + m.entryFrames;
+      return frame => {
+        const out = exit(frame, scene);
+        box.style.opacity = 1 - out; box.style.transform = `translateY(${-24 * out}px)`;
+        connector.style.transform = `scaleX(${progress(frame, scene.start + 6, lastEntryEnd - scene.start - 6, 'linear')})`;
+        items.forEach((item, i) => {
+          const k = progress(frame, scene.start + i * m.itemStaggerFrames, m.entryFrames, m.entryEasing);
+          item.style.opacity = k; item.style.transform = `translateY(${(1 - k) * 32}px)`;
+        });
+      };
+    },
+    end(scene) {
+      const box = sceneBox(); box.style.alignItems = 'center';
+      const word = el('div', {fontSize: '120px', fontWeight: 700}, score.copy[scene.copy[0]]);
+      const rule = el('div', {marginTop: '28px', height: '6px', width: '160px', background: t.accent});
+      box.append(word, rule);
+      return frame => {
+        const k = progress(frame, scene.start, 30, m.resolveEasing);
+        word.style.opacity = k; word.style.transform = `scale(${0.94 + 0.06 * k})`;
+        rule.style.transform = `scaleX(${k})`;
+      };
+    },
+  };
+  const scenes = score.scenes.map(scene => {
+    if (!renderers[scene.id]) throw new Error('No renderer for scene ' + scene.id);
+    const draw = renderers[scene.id](scene);
+    return {scene, draw, box: stage.lastElementChild};
+  });
+
+  /** Draw exactly one frame. Visible scenes satisfy start <= frame < end. */
+  function renderFrame(frame) {
+    for (const {scene, draw, box} of scenes) {
+      const active = frame >= scene.start && frame < scene.end;
+      box.style.visibility = active ? 'visible' : 'hidden';
+      if (active) draw(frame);
+    }
+  }
+
+  // Player: the clock only chooses which frame to draw.
+  const scrub = document.getElementById('scrub'), readout = document.getElementById('readout'), play = document.getElementById('play');
+  scrub.max = String(N - 1);
+  let current = 0, playing = false, startedAt = 0, startFrame = 0;
+  function seekFrame(frame) {
+    current = Math.min(N - 1, Math.max(0, Math.round(Number(frame) || 0)));
+    renderFrame(current);
+    scrub.value = String(current);
+    readout.textContent = `frame ${current} / ${N - 1}`;
+    return current;
+  }
+  const stop = () => { playing = false; play.textContent = 'Play'; };
+  function tick(now) {
+    if (!playing) return;
+    const frame = startFrame + Math.floor((now - startedAt) / 1000 * fps);
+    seekFrame(frame);
+    if (frame >= N - 1) { stop(); return; }
+    requestAnimationFrame(tick);
+  }
+  play.onclick = () => {
+    if (playing) { stop(); return; }
+    playing = true; play.textContent = 'Pause';
+    startFrame = current >= N - 1 ? 0 : current; startedAt = performance.now();
+    requestAnimationFrame(tick);
+  };
+  document.getElementById('replay').onclick = () => { stop(); seekFrame(0); play.click(); };
+  document.getElementById('back').onclick = () => { stop(); seekFrame(current - 1); };
+  document.getElementById('next').onclick = () => { stop(); seekFrame(current + 1); };
+  scrub.oninput = () => { stop(); seekFrame(scrub.value); };
+  addEventListener('keydown', event => {
+    if (event.key === ' ') { event.preventDefault(); play.click(); }
+    if (event.key === 'ArrowLeft') { stop(); seekFrame(current - 1); }
+    if (event.key === 'ArrowRight') { stop(); seekFrame(current + 1); }
+  });
+
+  const fit = () => {
+    const viewport = document.getElementById('viewport');
+    const scale = Math.min(viewport.clientWidth / score.width, viewport.clientHeight / score.height);
+    stage.style.transform = `scale(${scale}) translate(-50%, -50%)`;
+  };
+  addEventListener('resize', fit);
+  fit();
+  window.seekFrame = seekFrame;
+  window.motionScore = score;
+
+  // ?frame=140 opens one frame; ?frames=299,0,140 replays a seek sequence for review comparisons.
+  const query = new URLSearchParams(location.search);
+  for (const frame of (query.get('frames') || query.get('frame') || '0').split(',')) seekFrame(frame);
+  document.documentElement.dataset.ready = 'true';
+})();
+</script>
+</body>
+</html>

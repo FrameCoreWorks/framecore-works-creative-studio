@@ -56,3 +56,16 @@ test('diverging starter contracts fail the toolkit check', () => withCopy(tmp =>
   fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('"Ready to render"', '"Ready"'));
   assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('motion-score.json differs')));
 }));
+test('single-file preview stays offline and embeds the shared contract', () => {
+  assert.deepEqual(validateMotionToolkit(root).filter(error => error.detail.includes('Single-file')), []);
+  withCopy(tmp => {
+    const file = path.join(tmp, 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html');
+    fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('<title>', '<script src="https://cdn.example.com/lib.js"></script><title>'));
+    assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('external resources')));
+  });
+  withCopy(tmp => {
+    const file = path.join(tmp, 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html');
+    fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('"Ready to render"', '"Ready"'));
+    assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('score differs')));
+  });
+});
