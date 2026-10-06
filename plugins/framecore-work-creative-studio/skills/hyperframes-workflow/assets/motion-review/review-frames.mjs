@@ -44,7 +44,7 @@ export function previewFor(input) {
   return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2) + close), score};
 }
 
-function findBrowser(explicit) {
+export function findBrowser(explicit) {
   const candidates = [explicit, process.env.CHROME_PATH,
     ...['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome'].flatMap(name => (process.env.PATH ?? '').split(path.delimiter).map(dir => path.join(dir, name))),
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/Applications/Chromium.app/Contents/MacOS/Chromium',

@@ -1,0 +1,34 @@
+{
+  "version": "1.20.0",
+  "baseline": "a572cb17b5cb7a9dc64d2c74d8da268ec4ae6f0d",
+  "change_id": "CC-20261006-13",
+  "origin": "cloud-code",
+  "files": 875,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+    "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 860,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-export/README.md",
+    "skills/hyperframes-workflow/assets/motion-export/export-video.mjs",
+    "skills/hyperframes-workflow/assets/motion-export/video-export.mjs"
+  ],
+  "removed": [],
+  "visual_regression": "review and preview stage frames pixel-identical to 1.19.0; preview control bar now wraps",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

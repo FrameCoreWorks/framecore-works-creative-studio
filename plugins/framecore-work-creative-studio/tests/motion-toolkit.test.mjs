@@ -167,6 +167,7 @@ test('diverging scene engine copies fail the toolkit check', () => {
 
 const reviewTool = 'skills/hyperframes-workflow/assets/motion-review/review-frames.mjs';
 const syncTool = 'skills/hyperframes-workflow/assets/motion-sync/sync.mjs';
+const exportDir = 'skills/hyperframes-workflow/assets/motion-export';
 test('frame review selects contract frames and embeds the score in the preview', async () => {
   const {selectFrames, previewFor, contactSheet, formatsFor} = await import(path.join(root, reviewTool));
   const {reviewFrames} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
@@ -250,4 +251,78 @@ test('beat grid, caption layer and checks follow the contract', async () => {
   for (const pattern of [/music.bpm/, /music.beatsPerBar/, /music.volume/, /caption caption-2: starts before/, /caption caption-3: copy id nope/, /caption id missing or duplicated: caption-1/]) assert.match(errors, pattern);
   const fast = structuredClone(score); fast.captions[0].end = 40;
   assert.ok(checkScore(fast).warnings.some(w => /caption caption-1: 22 frames is below the reading heuristic/.test(w)));
+});
+
+// Minimal readers for the muxer tests.
+const ebml = (bytes, start = 0, end = bytes.length, out = []) => {
+  for (let i = start; i < end;) {
+    let idLength = 1; while (!(bytes[i] & (0x80 >> (idLength - 1)))) idLength++;
+    const id = [...bytes.subarray(i, i + idLength)].map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+    let sizeLength = 1; while (!(bytes[i + idLength] & (0x80 >> (sizeLength - 1)))) sizeLength++;
+    let size = bytes[i + idLength] & (0xFF >> sizeLength);
+    for (let k = 1; k < sizeLength; k++) size = size * 256 + bytes[i + idLength + k];
+    const body = i + idLength + sizeLength;
+    out.push({id, body, size});
+    if (['18538067', '1654AE6B', 'AE', '1F43B675', '1549A966'].includes(id)) ebml(bytes, body, body + size, out);
+    i = body + size;
+  }
+  return out;
+};
+const boxes = (bytes, start = 0, end = bytes.length, out = []) => {
+  const view = new DataView(bytes.buffer, bytes.byteOffset);
+  for (let i = start; i < end;) {
+    const size = view.getUint32(i), type = String.fromCharCode(...bytes.subarray(i + 4, i + 8));
+    out.push({type, start: i, size, body: i + 8});
+    if (['moov', 'trak', 'mdia', 'minf', 'stbl'].includes(type)) boxes(bytes, i + 8, i + size, out);
+    i += size;
+  }
+  return out;
+};
+const fakeChunks = (count, keyEvery = 60) => Array.from({length: count}, (_, i) => ({timestamp: Math.round(i * 1e6 * 1001 / 30000), key: i % keyEvery === 0, data: new Uint8Array([0, 0, 0, 2, i % 256, 7])}));
+test('WebM muxer writes one block per frame and a cluster per keyframe', async () => {
+  const {muxWebM} = await import(path.join(root, exportDir, 'video-export.mjs'));
+  const bytes = muxWebM({width: 1080, height: 1920, fps: {num: 30000, den: 1001}, codec: 'vp09.00.40.08', chunks: fakeChunks(150)});
+  const elements = ebml(bytes);
+  assert.equal(elements[0].id, '1A45DFA3');
+  const text = id => Buffer.from(bytes.subarray(elements.find(e => e.id === id).body, elements.find(e => e.id === id).body + elements.find(e => e.id === id).size)).toString();
+  assert.equal(text('86'), 'V_VP9');
+  assert.equal(elements.filter(e => e.id === 'A3').length, 150);
+  assert.equal(elements.filter(e => e.id === '1F43B675').length, 3);
+  const blocks = elements.filter(e => e.id === 'A3');
+  assert.deepEqual([bytes[blocks[0].body + 3], bytes[blocks[1].body + 3], bytes[blocks[60].body + 3]], [0x80, 0, 0x80]);
+});
+test('MP4 muxer writes H.264 sample tables that point into mdat', async () => {
+  const {muxMP4, videoCandidates, chooseVideoEncoding} = await import(path.join(root, exportDir, 'video-export.mjs'));
+  assert.equal(videoCandidates[0].container, 'mp4'); assert.equal(await chooseVideoEncoding(1920, 1080, {num: 30, den: 1}), null);
+  const chunks = fakeChunks(90, 30), description = new Uint8Array([1, 100, 0, 40, 255, 225, 0, 0, 1, 0, 0]);
+  const bytes = muxMP4({width: 1920, height: 1080, fps: {num: 30000, den: 1001}, codec: 'avc1.640028', description, chunks});
+  const list = boxes(bytes), view = new DataView(bytes.buffer, bytes.byteOffset), find = type => list.find(b => b.type === type);
+  assert.deepEqual(list.filter(b => b.start === 0 || ['moov', 'mdat'].includes(b.type)).map(b => b.type), ['ftyp', 'moov', 'mdat']);
+  assert.equal(view.getUint32(find('stco').body + 8), find('mdat').body);
+  assert.deepEqual([view.getUint32(find('stts').body + 8), view.getUint32(find('stts').body + 12)], [90, 1001]);
+  assert.equal(view.getUint32(find('stsz').body + 8), 90);
+  assert.equal(view.getUint32(find('stss').body + 4), 3);
+  assert.equal(find('ctts'), undefined);
+  assert.deepEqual([...bytes.subarray(find('mdat').body, find('mdat').body + 6)], [0, 0, 0, 2, 0, 7]);
+  const reordered = chunks.map((chunk, i) => ({...chunk, timestamp: chunks[i % 2 ? i - 1 : Math.min(i + 1, 89)].timestamp}));
+  assert.ok(boxes(muxMP4({width: 1920, height: 1080, fps: {num: 30000, den: 1001}, codec: 'avc1.640028', description, chunks: reordered})).some(b => b.type === 'ctts'));
+  assert.throws(() => muxMP4({width: 2, height: 2, fps: {num: 30, den: 1}, codec: 'vp8', description, chunks}), /H.264 only/);
+  assert.throws(() => muxMP4({width: 2, height: 2, fps: {num: 30, den: 1}, codec: 'avc1.640028', chunks}), /avcC/);
+});
+test('diverging video export copy fails the toolkit check', () => withCopy(tmp => {
+  const file = path.join(tmp, 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html');
+  fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace("keyFrame: frame % keyEvery === 0", "keyFrame: true"));
+  assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('video export differs')));
+}));
+// Opt-in: exports a real file through a headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
+test('browser export writes a playable file for a chosen format', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {exportFile} = await import(path.join(root, exportDir, 'export-video.mjs'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-export-test-'));
+  try {
+    const result = await exportFile(path.join(root, kinetic, 'motion-score.json'), {out: path.join(tmp, 'film'), format: '1x1', browser: process.env.MOTION_REVIEW_BROWSER});
+    assert.equal(result.frames, 300);
+    const head = fs.readFileSync(result.file).subarray(0, 8);
+    assert.ok(result.container === 'webm' ? head.readUInt32BE(0) === 0x1A45DFA3 : head.toString('latin1', 4, 8) === 'ftyp');
+    await assert.rejects(exportFile(path.join(root, kinetic, 'motion-score.json'), {out: result.file, browser: process.env.MOTION_REVIEW_BROWSER}), /already exists/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });

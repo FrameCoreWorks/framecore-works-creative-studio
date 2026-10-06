@@ -2,7 +2,7 @@
 
 [`motion-preview.html`](motion-preview.html) is a self-contained, dependency-free template that lets a user watch a motion design without installing anything. It works where there is no shell or renderer: ordinary ChatGPT, ChatGPT Work and Codex alike. Save the file and open it in any current browser; it needs no server, no internet and no libraries.
 
-It is a preview for reviewing motion, timing and readable holds. It is not a video export and not a substitute for the [Remotion kinetic type starter](../../../remotion-video-production/assets/kinetic-type-starter/README.md) or the [GSAP motion starter](../gsap-motion-starter/README.md) when a video file is required.
+It is a preview for reviewing motion, timing and readable holds. Its **Export video** button writes a video-only MP4 or WebM file in the user's browser through the [browser video export](../motion-export/README.md). For a render with music and voice-over, or where the browser cannot export, use the [Remotion kinetic type starter](../../../remotion-video-production/assets/kinetic-type-starter/README.md); custom choreography lives in the [GSAP motion starter](../gsap-motion-starter/README.md).
 
 ## What the template contains
 
@@ -13,6 +13,7 @@ It is a preview for reviewing motion, timing and readable holds. It is not a vid
 - `window.seekFrame(frame)`, `?frame=140` and `?frames=299,0,140` for exact-frame review and seek comparisons.
 - Captions from the contract drawn above the scenes, and playback of `music.src` and `voiceover.src` from files saved next to the HTML file; while audio plays, the audio clock chooses the frame. See [music and voice-over sync](../motion-sync/README.md).
 - When the contract declares `formats`, a format menu and `?format=9x16` show each [output format](../motion-scenes/README.md#formats) from the same file.
+- An **Export video** button: frame-by-frame MP4 (H.264) where the browser can encode it, otherwise WebM, video only, saved through a download link.
 - Review mode (`?review=1`) for the [automated frame review](../motion-review/README.md); it draws the stage at its true size from the top-left corner.
 
 ## How Studio delivers it
@@ -24,7 +25,7 @@ It is a preview for reviewing motion, timing and readable holds. It is not a vid
    - Otherwise give the complete file in one code block and say: save it as `motion-preview.html` and open it in Chrome, Edge, Firefox or Safari; double-clicking the file is enough.
    - If an interactive preview such as Canvas is actually available in the conversation, the same file may be opened there as an extra; it is never required.
 4. Report honestly. Do not say the animation was seen, played or reviewed unless the host actually displayed it. Without that evidence, preview and temporal review stay NOT VERIFIED and the user is asked what they see.
-5. For a video file, move the same score to a runtime starter and render where execution is available. A screen recording of the preview is not a frame-accurate export.
+5. For a video file without a renderer, ask the user to press **Export video** and save the file; say that it is video only and that MP4 depends on the browser (otherwise WebM). Do not claim an export happened until the user confirms the file. Where execution is available, render the same score with a runtime starter instead. A screen recording of the preview is not a frame-accurate export.
 
 ## Verification boundary
 

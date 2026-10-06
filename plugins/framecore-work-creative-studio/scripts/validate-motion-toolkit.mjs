@@ -24,6 +24,7 @@ export function validateMotionToolkit(root) {
     'skills/hyperframes-workflow/assets/motion-review/README.md',
     'skills/hyperframes-workflow/assets/motion-review/review-frames.mjs',
     ...['README.md','sync.mjs','examples/voice-over.srt'].map(name => `skills/hyperframes-workflow/assets/motion-sync/${name}`),
+    ...['README.md','video-export.mjs','export-video.mjs'].map(name => `skills/hyperframes-workflow/assets/motion-export/${name}`),
     `${scenesDir}/motion-scenes.mjs`,
     `${scenesDir}/examples/all-kinds.motion-score.json`,
     `${kinetic}/src/motion-scenes.mjs`,
@@ -64,6 +65,12 @@ export function validateMotionToolkit(root) {
     const embedded = html.split(/\/\/ BEGIN motion-scenes engine[^\n]*\n/)[1]?.split('// END motion-scenes engine')[0];
     if (embedded !== engine.replaceAll('export const ', 'const ').replaceAll('export function ', 'function ')) fail('Single-file preview scene engine differs from motion-scenes.mjs');
   } catch (error) { fail(`Scene engine: ${error.message}`); }
+  // One video export: the preview embeds video-export.mjs without export keywords.
+  try {
+    const source = read('skills/hyperframes-workflow/assets/motion-export/video-export.mjs');
+    const embedded = read(`${singleFile}/motion-preview.html`).split(/\/\/ BEGIN video export[^\n]*\n/)[1]?.split('// END video export')[0];
+    if (embedded !== source.replaceAll('export const ', 'const ').replaceAll('export async function ', 'async function ').replaceAll('export function ', 'function ')) fail('Single-file preview video export differs from video-export.mjs');
+  } catch (error) { fail(`Video export: ${error.message}`); }
   // The single-file preview must stay offline and embed the same contract as the starters.
   try {
     const html = read(`${singleFile}/motion-preview.html`);
