@@ -60,3 +60,31 @@ Notes:
 
 - Welcome excerpts, language policy and route rows are byte-identical; moved paragraphs are verbatim apart from relative links.
 - Host installation and update checks are handled by the owner, per the owner's instruction on 2026-10-06.
+
+## CC-20261006-03
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-03-skill-routing`
+- Baseline: `3abbd6dc5ad509c2f9dc1500fe0c41da380a433c` (main, package 1.11.1)
+- Result: `aa1d672aa0796344ce7bb664f8a800b50f46142c` (package 1.11.2)
+- Package version: 1.11.1 -> 1.11.2
+- Scope: routing boundaries for overlapping owners; legacy audio alias explicit-only (roadmap item 3)
+- Shared package changed: yes; 16 changed, 0 added, 0 removed ([scope](../verification/scope-1.11.2.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 136, motion-quality 9, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- install inventory regenerated; local package build: PASS
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
+
+Notes:
+
+- Not changed on purpose: pipeline-core, asset-manifest, instruction-packet-factory and storytelling stay automatically available. All 36 other owners read pipeline-core references, and host access to files of a non-injected skill is unverified.
+- Prior evidence: the dev.31 host catalog listed 35 entries and hid the two explicit-only owners ([migration status](../plugins/framecore-work-creative-studio/docs/migration-status.md)).
