@@ -80,7 +80,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "4c507d2c02fe3ecab5087ebe09bad018597a288d373720e29c65f8daa40d0699",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.13.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks cover the synthetic template only. Whether a host can create or display the file, and how users open it, is not verified. All 201 planned cases remain not_run."
