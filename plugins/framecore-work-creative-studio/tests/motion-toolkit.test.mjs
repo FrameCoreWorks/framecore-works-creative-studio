@@ -122,6 +122,36 @@ test('checker kinds match the engine and the all-kinds example is a complete sto
   const errors = checkScore(bad).errors.join('\n');
   assert.match(errors, /logo asset missing/); assert.match(errors, /unknown scene kind spin/); assert.match(errors, /missing copy id nope/);
 });
+test('formats resolve from one contract and keep the 16:9 layout unchanged', async () => {
+  const {buildScene, sceneFrame, resolveFormat, nodesByKey: nodesOf} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
+  assert.equal(resolveFormat(score), score); assert.equal(resolveFormat(score, 'base'), score);
+  assert.throws(() => resolveFormat(score, '4x5'), /Unknown format/);
+  const tall = resolveFormat(score, '9x16'), steps = scene => scene.find(s => s.id === 'steps');
+  assert.deepEqual([tall.width, tall.height, tall.format], [1080, 1920, '9x16']);
+  assert.deepEqual(tall.scenes.find(s => s.id === 'title').params, {lines: ['title-1', 'title-2'], sizes: [112, 80]});
+  assert.equal(score.scenes.find(s => s.id === 'title').params.sizes, undefined);
+  // Base layout: a horizontal row with a scaleX connector; vertical formats stack with a scaleY connector.
+  const wide = nodesOf(buildScene(steps(score.scenes), score));
+  assert.equal(wide.row.style.flexDirection, undefined); assert.equal(wide.connector.style.height, '6px');
+  assert.match(sceneFrame(steps(score.scenes), score, 160).connector.style.transform, /^scaleX/);
+  const stacked = nodesOf(buildScene(steps(tall.scenes), tall));
+  assert.equal(stacked.row.style.flexDirection, 'column'); assert.equal(stacked['item-0'].style.fontSize, '104px');
+  assert.match(sceneFrame(steps(tall.scenes), tall, 160).connector.style.transform, /^scaleY/);
+  const forcedRow = {...steps(tall.scenes), params: {...steps(tall.scenes).params, direction: 'row'}};
+  assert.equal(nodesOf(buildScene(forcedRow, tall)).row.style.flexDirection, undefined);
+  // Safe area is opt-in and becomes column padding.
+  assert.equal(buildScene(score.scenes[0], score).style.padding, '0 154px');
+  const safe = {...tall, tokens: {...tall.tokens, safeArea: {top: 0.1, bottom: 0.2}}};
+  assert.equal(buildScene(safe.scenes[0], safe).style.padding, '192px 86px 384px');
+  // Checker rules for formats.
+  const bad = structuredClone(score);
+  bad.formats.push({id: 'base', width: 10, height: 10}, {id: 'x y', width: 1.5, height: 10, params: {nope: {}}, tokens: {safeArea: {top: 0.7}}});
+  const errors = checkScore(bad).errors.join('\n');
+  assert.match(errors, /reserved or duplicated: base/); assert.match(errors, /invalid.*x y/);
+  assert.match(errors, /format x y: width and height/); assert.match(errors, /unknown scene nope/); assert.match(errors, /format x y: tokens.safeArea/);
+});
 test('diverging scene engine copies fail the toolkit check', () => {
   withCopy(tmp => {
     const file = path.join(tmp, kinetic, 'src/motion-scenes.mjs');
@@ -137,7 +167,7 @@ test('diverging scene engine copies fail the toolkit check', () => {
 
 const reviewTool = 'skills/hyperframes-workflow/assets/motion-review/review-frames.mjs';
 test('frame review selects contract frames and embeds the score in the preview', async () => {
-  const {selectFrames, previewFor, contactSheet} = await import(path.join(root, reviewTool));
+  const {selectFrames, previewFor, contactSheet, formatsFor} = await import(path.join(root, reviewTool));
   const {reviewFrames} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
   const scorePath = path.join(root, kinetic, 'motion-score.json'), score = JSON.parse(fs.readFileSync(scorePath, 'utf8'));
   assert.deepEqual(selectFrames(score), reviewFrames(score));
@@ -146,6 +176,9 @@ test('frame review selects contract frames and embeds the score in the preview',
   assert.match(html, /window\.reviewFrame = reviewFrame/);
   assert.match(html, /report.id = 'review-report'/);
   const sheet = contactSheet({id: 'x<y', revision: 1, frames: [{frame: 3, image: 'frames/a.png', scenes: ['s'], checked: true, issues: [{severity: 'error', check: 'contrast', scene: 's', element: 'e', detail: '<b>'}]}], summary: {errors: 1, warnings: 0, checkedFrames: 1}});
+  assert.deepEqual(formatsFor(score), ['base', '9x16', '1x1']); assert.deepEqual(formatsFor(score, '1x1'), ['1x1']);
+  assert.throws(() => formatsFor(score, '4x5'), /Unknown format 4x5/);
+  assert.match(html, /resolveFormat\(contract, query.get\('format'\)/);
   assert.match(sheet, /x&lt;y/); assert.match(sheet, /&lt;b&gt;/); assert.match(sheet, /class="error"/);
 });
 // Opt-in: runs a real headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
@@ -155,6 +188,7 @@ test('frame review finds no issues in the starter and errors in a broken contrac
   try {
     const good = runReview(path.join(root, kinetic, 'motion-score.json'), {out: path.join(tmp, 'good'), browser: process.env.MOTION_REVIEW_BROWSER});
     assert.equal(good.summary.errors, 0); assert.ok(good.summary.checkedFrames > 0);
+    assert.deepEqual(good.formats, ['base', '9x16', '1x1']); assert.ok(good.frames.some(frame => frame.format === '9x16' && frame.image.startsWith('frames/9x16/')));
     const broken = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
     broken.copy['title-1'] = 'Clearmotionwithoutanybreakthatrunsfarbeyondtherightedgeofthisframe';
     fs.writeFileSync(path.join(tmp, 'broken.json'), JSON.stringify(broken));

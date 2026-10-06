@@ -1,0 +1,83 @@
+{
+  "version": "1.18.0",
+  "date": "2026-10-06",
+  "baseline": "659f31f95aba386a6d253f3fe881dce881930cf1",
+  "change_id": "CC-20261006-11",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 869,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 151,
+      "passed": 150,
+      "skipped": 1,
+      "skip_reason": "Opt-in browser review test; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 32
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "c478487fcf6b36e0bf315c0d9b1fa4458ca3e050311bb96cbd71441fec248077",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Container checks on selected frames and stills; no full per-format video render or playback review, and host behavior is not verified. All 201 planned cases remain not_run.",
+  "format_runs": {
+    "starter_review_all_formats": "93 frames (31 per format: base, 9x16, 1x1), 51 measured, 0 errors, 0 warnings",
+    "all_kinds_example_review": "53 frames, 24 measured, 0 findings",
+    "base_format_regression": "all 31 base-format review frames pixel-identical to the 1.17.0 preview before the review-mode size fix; earlier Remotion 16:9 still at frame 180 byte-identical to the 1.17.0 render",
+    "cross_runtime": "frame 176 Remotion still and preview review screenshot pixel-identical in base, 9x16 and 1x1",
+    "remotion": "typecheck PASS; stills of KineticType, KineticType-9x16 and KineticType-1x1 rendered; full per-format video render not run"
+  }
+}

@@ -30,6 +30,7 @@ export function checkScore(score, {storyboard = false} = {}) {
   const n = score.totalFrames, fps = num / den;
   if (!Number.isSafeInteger(n) || n < 1) errors.push('totalFrames must be a positive integer');
   if (!Number.isSafeInteger(score.width) || !Number.isSafeInteger(score.height)) errors.push('width and height must be integers');
+  checkFormats(score, errors);
   let coverage = 0;
   const ids = new Set();
   for (const scene of score.scenes ?? []) {
@@ -84,6 +85,24 @@ export function checkScore(score, {storyboard = false} = {}) {
   return {errors, warnings};
 }
 
+const safeAreaOk = area => area === undefined || (typeof area === 'object' && area !== null && ['top', 'bottom'].every(side => area[side] === undefined || (Number.isFinite(area[side]) && area[side] >= 0 && area[side] < 0.5)));
+
+// Output formats: score.formats lists variants of the base size; 'base' names the score's own size.
+function checkFormats(score, errors) {
+  if (!safeAreaOk(score.tokens?.safeArea)) errors.push('tokens.safeArea top/bottom must be fractions of the height from 0 to below 0.5');
+  if (score.formats === undefined) return;
+  if (!Array.isArray(score.formats)) { errors.push('formats must be a list'); return; }
+  const ids = new Set(['base']), scenes = new Set((score.scenes ?? []).map(scene => scene.id));
+  for (const format of score.formats) {
+    const id = format?.id;
+    if (typeof id !== 'string' || !/^[A-Za-z0-9-]+$/.test(id) || ids.has(id)) errors.push(`format id missing, invalid, reserved or duplicated: ${id}; use letters, digits and hyphens`);
+    ids.add(id);
+    if (!Number.isSafeInteger(format?.width) || !Number.isSafeInteger(format?.height) || format.width < 1 || format.height < 1) errors.push(`format ${id}: width and height must be positive integers`);
+    if (!safeAreaOk(format?.tokens?.safeArea)) errors.push(`format ${id}: tokens.safeArea top/bottom must be fractions of the height from 0 to below 0.5`);
+    for (const sceneId of Object.keys(format?.params ?? {})) if (!scenes.has(sceneId)) errors.push(`format ${id}: params for unknown scene ${sceneId}`);
+  }
+}
+
 const cell = value => String(value ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
 const list = values => (values?.length ? values.map(value => `- ${value}`).join('\n') : '- none');
 
@@ -101,6 +120,7 @@ export function toMarkdown(score) {
     `- Message: ${score.message ?? ''}`,
     `- Concept: ${score.concept ?? ''}`,
     `- Format: ${score.width} x ${score.height}, ${fps} FPS, ${score.totalFrames} frames (${seconds(score.totalFrames)} s), frames 0..${score.totalFrames - 1}. Viewing: ${score.viewing ?? 'unknown'}. Audio: ${score.audio ?? 'unknown'}.`,
+    ...(score.formats?.length ? [`- Other formats: ${score.formats.map(format => `${format.id} ${format.width} x ${format.height}${format.viewing ? ` (${format.viewing})` : ''}`).join('; ')}.`] : []),
     '',
     '| Scene | Frames [start,end) | Seconds | Copy | Focal point | Entry -> action -> exit | Transition | Readable hold | Audio |',
     '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',

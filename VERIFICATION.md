@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.17.0
+## Current source: 1.18.0
+
+The [1.18.0 source checks](verification/release-1.18.0.json) pass canonical validation and 209 tests: 150 Node in the CI set (plus 1 opt-in browser test, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The starter contract now declares 9:16 and 1:1 formats; the frame review found no issues in any of the three (93 frames). Base-format preview frames are pixel-identical to 1.17.0, and at frame 176 the preview and the Remotion still are pixel-identical in each format. Review screenshots, drawn about 8% small in 1.17.0, are now drawn at true size. Full per-format video renders and playback review were not run. [Scope](verification/scope-1.18.0.json) records 25 changed shared files out of 869. Host behavior is not run.
+
+## Previous source: 1.17.0
 
 The [1.17.0 source checks](verification/release-1.17.0.json) pass canonical validation and 208 tests: 149 Node in the CI set (plus 1 opt-in browser test, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new automated frame review ran in headless Chromium: no findings on the starter contract (31 frames) and the all-kinds example (53 frames), and clipping and out-of-frame errors with exit code 1 on a deliberately broken contract. Normal preview output is pixel-identical to 1.16.0. [Scope](verification/scope-1.17.0.json) records 11 changed and 2 added shared files out of 869. Host behavior is not run.
 

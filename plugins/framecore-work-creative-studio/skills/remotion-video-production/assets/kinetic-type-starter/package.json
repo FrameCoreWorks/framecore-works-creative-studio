@@ -9,6 +9,8 @@
     "studio": "remotion studio src/index.ts",
     "still": "remotion still src/index.ts KineticType out/frame-150.png --frame=150",
     "render": "remotion render src/index.ts KineticType out/kinetic-type.mp4",
+    "render:9x16": "remotion render src/index.ts KineticType-9x16 out/kinetic-type-9x16.mp4",
+    "render:1x1": "remotion render src/index.ts KineticType-1x1 out/kinetic-type-1x1.mp4",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

@@ -37,7 +37,8 @@ export const sceneKinds = {
 /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
 export const progress = (frame, start, duration, easing = 'linear') => easings[easing]((frame - start) / duration);
 
-const scale = score => score.height / 1080;
+// Sizes are authored for a 1080 px short side, so 16:9, 9:16 and 1:1 share one type scale.
+const scale = score => Math.min(score.width, score.height) / 1080;
 const px = (score, value) => Math.round(value * scale(score));
 const motion = score => ({entryFrames: 15, exitFrames: 10, lineStaggerFrames: 6, itemStaggerFrames: 8, entryEasing: 'easeOutCubic', exitEasing: 'easeInCubic', resolveEasing: 'easeOutExpo', ...score.motion});
 const margin = score => Math.round(score.width * (score.tokens?.marginRatio ?? 0.08));
@@ -45,10 +46,33 @@ const list = value => (Array.isArray(value) ? value : value === undefined ? [] :
 const copy = (score, id) => score.copy?.[id] ?? '';
 const isLast = (scene, score) => scene.end >= score.totalFrames;
 
+// Optional tokens.safeArea {top, bottom} (fractions of the height) keeps content clear of platform UI.
+// Take the values from the platform's current documentation or the user; the engine has no defaults.
+const padding = score => {
+  const area = score.tokens?.safeArea;
+  if (!area) return `0 ${margin(score)}px`;
+  return `${Math.round(score.height * (area.top ?? 0))}px ${margin(score)}px ${Math.round(score.height * (area.bottom ?? 0))}px`;
+};
 const column = (score, align = 'left') => ({
   position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', justifyContent: 'center',
-  alignItems: align === 'center' ? 'center' : 'stretch', padding: `0 ${margin(score)}px`, boxSizing: 'border-box',
+  alignItems: align === 'center' ? 'center' : 'stretch', padding: padding(score), boxSizing: 'border-box',
 });
+// item-stagger direction: 'row', 'column' or 'auto' (a row only in clearly landscape frames).
+const vertical = (scene, score) => {
+  const direction = scene.params?.direction ?? 'auto';
+  return direction === 'column' || (direction === 'auto' && score.width < score.height * 1.3);
+};
+
+/** The score in one output format: size, tokens and scene params of score.formats[id] merged over the base. */
+export function resolveFormat(score, id) {
+  if (id === undefined || id === null || id === '' || id === 'base') return score;
+  const format = (score.formats ?? []).find(item => item.id === id);
+  if (!format) throw new Error(`Unknown format: ${id}`);
+  const params = format.params ?? {};
+  return {...score, format: format.id, width: format.width, height: format.height, viewing: format.viewing ?? score.viewing,
+    tokens: {...score.tokens, ...format.tokens},
+    scenes: score.scenes.map(scene => (params[scene.id] ? {...scene, params: {...scene.params, ...params[scene.id]}} : scene))};
+}
 
 /** Describe the scene's elements. Each node: {key, type: 'box' | 'text' | 'image', text?, src?, style, children?}. */
 export function buildScene(scene, score) {
@@ -63,13 +87,19 @@ export function buildScene(scene, score) {
     }
     case 'item-stagger': {
       const items = list(p.items).map((id, i) => ({key: `item-${i}`, type: 'text', text: copy(score, id), style: {position: 'relative', padding: `${px(score, 12)}px ${px(score, 36)}px`, background: t.background, fontSize: `${px(score, p.size ?? 104)}px`, fontWeight: String(p.weight ?? 700)}}));
-      const row = {key: 'row', type: 'box', style: {position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}, children: items};
-      if (p.connector !== false) row.children = [{key: 'connector', type: 'box', style: {position: 'absolute', left: '0', right: '0', top: '50%', height: `${px(score, 6)}px`, background: t.accent, transformOrigin: 'left center'}}, ...items];
+      const down = vertical(scene, score);
+      const row = {key: 'row', type: 'box', children: items, style: down
+        ? {position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: `${px(score, p.gap ?? 56)}px`}
+        : {position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}};
+      const line = down
+        ? {position: 'absolute', top: '0', bottom: '0', left: `calc(50% - ${px(score, 3)}px)`, width: `${px(score, 6)}px`, background: t.accent, transformOrigin: 'center top'}
+        : {position: 'absolute', left: '0', right: '0', top: '50%', height: `${px(score, 6)}px`, background: t.accent, transformOrigin: 'left center'};
+      if (p.connector !== false) row.children = [{key: 'connector', type: 'box', style: line}, ...items];
       return {key: 'container', type: 'box', style: column(score), children: [row]};
     }
     case 'end-card':
       return {key: 'container', type: 'box', style: column(score, 'center'), children: [
-        {key: 'text', type: 'text', text: copy(score, p.text), style: {fontSize: `${px(score, p.size ?? 120)}px`, fontWeight: String(p.weight ?? 700)}},
+        {key: 'text', type: 'text', text: copy(score, p.text), style: {fontSize: `${px(score, p.size ?? 120)}px`, fontWeight: String(p.weight ?? 700), textAlign: 'center'}},
         ...(p.rule === false ? [] : [{key: 'rule', type: 'box', style: {marginTop: `${px(score, 28)}px`, height: `${px(score, 6)}px`, width: `${px(score, 160)}px`, background: t.accent, transformOrigin: 'center'}}]),
       ]};
     case 'counter':
@@ -108,7 +138,7 @@ export function sceneFrame(scene, score, frame) {
       break;
     case 'item-stagger': {
       const n = list(p.items).length, lastEntryEnd = scene.start + (n - 1) * m.itemStaggerFrames + m.entryFrames;
-      if (p.connector !== false) out.connector = {style: {transform: `scaleX(${progress(frame, scene.start + 6, lastEntryEnd - scene.start - 6, 'linear')})`}};
+      if (p.connector !== false) out.connector = {style: {transform: `${vertical(scene, score) ? 'scaleY' : 'scaleX'}(${progress(frame, scene.start + 6, lastEntryEnd - scene.start - 6, 'linear')})`}};
       for (let i = 0; i < n; i++) {
         const k = progress(frame, scene.start + i * m.itemStaggerFrames, m.entryFrames, m.entryEasing);
         out[`item-${i}`] = {style: {opacity: String(k), transform: `translateY(${(1 - k) * px(score, 32)}px)`}};

@@ -8,7 +8,7 @@ An original, synthetic starter for the HTML route of the [Motion Graphics Workfl
 
 ## Custom choreography route
 
-This starter shows hand-written GSAP choreography: `main.mjs` draws the example's three scenes in order and does not interpret `kind` or `params`. Use it when a scene needs choreography the [scene kinds](../motion-scenes/README.md) do not cover. For declared kinds use the single-file preview or the Remotion starter, which share the scene engine.
+This starter shows hand-written GSAP choreography: `main.mjs` draws the example's three scenes in order and does not interpret `kind` or `params`. Use it when a scene needs choreography the [scene kinds](../motion-scenes/README.md) do not cover. For declared kinds use the single-file preview or the Remotion starter, which share the scene engine. This starter draws the base size only and ignores `formats`; for another format, write its choreography against that size or use the shared engine's `resolveFormat`.
 
 ## How it stays deterministic
 

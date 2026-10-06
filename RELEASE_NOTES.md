@@ -1,9 +1,10 @@
-# Creative Studio 1.17.0
+# Creative Studio 1.18.0
 
-Catch layout problems in motion before anyone watches it.
+One animation, several formats.
 
-- **Automated frame review.** One command renders the key frames of an animation (start, end, every scene boundary and every reading pause) and checks the text in them: does it leave the frame, is it cut off by a mask, is the contrast high enough under WCAG, does it respect the margins, is it fully visible while it should be read.
-- **Contact sheet.** The result is a page of all checked frames with problems marked in red or amber, plus a machine-readable report, so Studio can fix errors before showing you the result.
-- It runs where Node.js and a local Chrome or Chromium exist, such as Codex. It checks layout only; watching the full animation is still part of the review.
+- **16:9, 9:16 and 1:1 from one plan.** A motion contract can now list extra formats. The timing, text and reading pauses stay the same; only the frame size and, where needed, a few settings such as type size change. Lists of steps stack vertically on a phone screen automatically.
+- **Preview, video and review know the formats.** The browser preview has a format menu, the Remotion starter renders each format as its own video, and the automated frame review checks every format and shows them in separate sections.
+- **Safe areas without guessing.** Space for platform buttons and captions can be reserved per format, but only with values from the platform's current documentation or from you; Studio does not invent them.
+- **Sharper review screenshots.** Review screenshots are now drawn at the exact frame size and match the rendered video frame for frame.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

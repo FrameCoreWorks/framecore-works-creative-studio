@@ -18,6 +18,8 @@ export type MotionScore = {
   totalFrames: number;
   width: number;
   height: number;
+  format?: string;
+  formats?: {id: string; width: number; height: number; viewing?: string; tokens?: Partial<MotionScore['tokens']>; params?: Record<string, Record<string, unknown>>}[];
   tokens: {
     background: string;
     foreground: string;
@@ -25,6 +27,7 @@ export type MotionScore = {
     accent: string;
     fontFamily: string;
     marginRatio: number;
+    safeArea?: {top?: number; bottom?: number};
   };
   motion: Record<string, unknown>;
   copy: Record<string, string>;

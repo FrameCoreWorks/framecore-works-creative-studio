@@ -7,6 +7,7 @@ An original, synthetic starting project for the most common code-motion route: k
 [`motion-score.json`](motion-score.json) is the single source for size, FPS, frame count, scenes, readable holds, exact copy, brand tokens and motion values. It extends the Motion Graphics Workflow score format, so the same file passes `validateScore` in `hyperframes-workflow/assets/motion-quality/score.mjs`. The composition reads it directly; change the contract, not hard-coded numbers in components.
 
 - 1920 × 1080, 30 FPS, N = 300 frames, 10 seconds, frames 0..299, intentional silence.
+- Two more [formats](../../../hyperframes-workflow/assets/motion-scenes/README.md#formats) from the same contract: `9x16` (1080 × 1920) and `1x1` (1080 × 1080), with smaller title and end-card type; the steps stack vertically there.
 - `title` [0,127): line mask reveal, readable hold [24,117).
 - `steps` [117,215): three items with an 8-frame stagger and a connector growing at constant speed; hold [149,205).
 - `end` [205,300): slow-settling resolve and the longest hold [230,300); the final frame is stable.
@@ -15,7 +16,7 @@ An original, synthetic starting project for the most common code-motion route: k
 
 ## Files
 
-- `src/Root.tsx`: registers `KineticType` from the score.
+- `src/Root.tsx`: registers `KineticType` for the base size and `KineticType-<id>` for each format.
 - `src/motion.ts`: types for the shared motion contract.
 - `src/motion-scenes.mjs`: the shared [scene engine](../../../hyperframes-workflow/assets/motion-scenes/README.md), identical to the plugin copy.
 - `src/KineticType.tsx`: a generic renderer that draws any declared scene kind from the master frame.
@@ -32,6 +33,8 @@ npm run storyboard
 npm run typecheck
 npm run still
 npm run render
+npm run render:9x16
+npm run render:1x1
 ```
 
 `npm run studio` starts a local preview server; stop it after review. Remotion may download a headless browser when none is configured; pass an available browser with `--browser-executable=<path>` to avoid that. Rendering writes into `out/`.

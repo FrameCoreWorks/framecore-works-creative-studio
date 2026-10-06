@@ -25,6 +25,7 @@
     ],
     "proposed": [
       "Arial as an illustrative system font",
+      "9:16 and 1:1 variants of the same contract",
       "Accent colour #FF5A36"
     ],
     "unknown": [
@@ -38,6 +39,36 @@
   "totalFrames": 300,
   "width": 1920,
   "height": 1080,
+  "formats": [
+    {
+      "id": "9x16",
+      "width": 1080,
+      "height": 1920,
+      "viewing": "9:16 full screen on a phone",
+      "params": {
+        "title": {
+          "sizes": [112, 80]
+        },
+        "end": {
+          "size": 96
+        }
+      }
+    },
+    {
+      "id": "1x1",
+      "width": 1080,
+      "height": 1080,
+      "viewing": "1:1 in a social feed",
+      "params": {
+        "title": {
+          "sizes": [112, 80]
+        },
+        "end": {
+          "size": 96
+        }
+      }
+    }
+  ],
   "tokens": {
     "background": "#0F1115",
     "foreground": "#F4F1EA",

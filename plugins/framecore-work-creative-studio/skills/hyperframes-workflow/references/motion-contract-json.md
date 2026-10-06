@@ -23,8 +23,9 @@ Top level:
 | `runtime` | `{status, value}`; status is `selected`, `proposed` or `unknown`; a work-area choice never selects it |
 | `viewing`, `audio` | Intended viewing size or placement, and the audio plan or intentional silence |
 | `decisions` | `{confirmed, proposed, unknown}` lists keep the three states explicit |
-| `fps`, `totalFrames`, `width`, `height` | Rational FPS `{num, den}`, integer frame count N (frames 0..N-1) and size |
-| `tokens` | Colours, font family and margin ratio used by the code |
+| `fps`, `totalFrames`, `width`, `height` | Rational FPS `{num, den}`, integer frame count N (frames 0..N-1) and the base size |
+| `formats` | Optional output variants `{id, width, height, viewing?, tokens?, params?}`; `params` maps scene IDs to param overrides. Timeline, copy and holds are shared; `base` is reserved for the base size. See [formats](../assets/motion-scenes/README.md#formats) |
+| `tokens` | Colours, font family, margin ratio and optional `safeArea {top, bottom}` (fractions of the height, from platform documentation or the user) used by the code |
 | `motion` | Tempo family, entry/exit frames, staggers, easing names and transition set from [motion craft](motion-craft.md) |
 | `copy`, `copyStatus` | Exact copy by ID, verbatim; `copyStatus` such as `approved`, `proposed` or `illustrative` |
 | `assets` | Asset ledger entries `{id, file, revision, role, authority}`; an empty list when none are used |

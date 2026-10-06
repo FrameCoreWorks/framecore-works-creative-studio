@@ -5,7 +5,10 @@
 ```sh
 node review-frames.mjs motion-score.json --out review-out
 node review-frames.mjs motion-preview.html --out review-out --browser /path/to/chrome
+node review-frames.mjs motion-score.json --out review-out --format 9x16
 ```
+
+A contract with [`formats`](../motion-scenes/README.md#formats) is reviewed in every format by default: `base` plus each format ID. `--format` limits the run to one. Screenshots then go to `frames/<format>/`, every frame record carries its `format`, and the contact sheet has one section per format.
 
 ## What it does
 
@@ -18,7 +21,7 @@ node review-frames.mjs motion-preview.html --out review-out --browser /path/to/c
 | `outside-frame` | error | Rendered text leaves the frame |
 | `clipped` | error | Text extends beyond a clipping mask while it should be read |
 | `contrast` | error | Text contrast is below WCAG 2.x 4.5:1, or 3:1 for large text, against its background |
-| `margin` | warning | Text is closer to the edge than the contract's margin ratio (half of it top and bottom) |
+| `margin` | warning | Text is closer to the edge than the contract's margin ratio (half of it top and bottom), or inside `tokens.safeArea` |
 | `hold-opacity` | warning | Text is not fully opaque during a readable hold |
 | `overlap` | warning | Two text elements of a scene overlap |
 | `small-text` | warning | Vertical formats only: text below 1/48 of the frame height |
@@ -35,4 +38,6 @@ These are layout checks on selected frames. They do not judge motion quality, rh
 
 ## Verification boundary
 
-During package preparation the tool ran in a Linux development container with headless Chromium 1194: the starter contract (31 frames) and the all-kinds example (53 frames) produced no findings, and a deliberately broken contract produced clipping and out-of-frame errors with exit code 1. Host behavior is not verified.
+Until 1.18.0, review screenshots were drawn about 8% smaller than the frame because the headless viewport is shorter than the window; measurements were unaffected. Review mode now renders at true size. In a 1.18.0 check, frame 176 of the starter matched the Remotion still of the same frame pixel for pixel in each of the three starter formats.
+
+During package preparation the tool ran in a Linux development container with headless Chromium 1194: the starter contract (31 frames; 93 across its three formats since 1.18.0) and the all-kinds example (53 frames) produced no findings, and a deliberately broken contract produced clipping and out-of-frame errors with exit code 1. Host behavior is not verified.
