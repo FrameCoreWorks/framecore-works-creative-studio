@@ -114,3 +114,31 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `9df70f5` on owner instruction (no release: package unchanged)
 - ChatGPT Work: not affected (no package change)
 - Codex: not affected (no package change)
+
+## CC-20261006-05
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-05-motion-craft`
+- Baseline: `4044cd74448d2c7d48ccd8fc0daaf88ec6eae043` (main, package 1.11.2)
+- Result: `327b7e57f49b5f76500d9fef189d47e311132116` (package 1.12.0)
+- Package version: 1.11.2 -> 1.12.0
+- Scope: Motion Graphics Workflow method rewrite, motion craft reference, Remotion kinetic type and GSAP starters sharing one `motion-score.json`
+- Shared package changed: yes; 12 changed, 19 added, 0 removed ([scope](../verification/scope-1.12.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 139, motion-quality 9, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- packaged starters run in a development container: Remotion typecheck, contract check and 300-frame H.264 render; GSAP direct, forward and backward seeks pixel-identical
+- full playback review, GSAP video encoding and host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
+
+Notes:
+
+- Only new paths were added; no package path was deleted, renamed or moved.
+- Starter dependencies are pinned with lockfiles; no `node_modules` or rendered output is in the package.
