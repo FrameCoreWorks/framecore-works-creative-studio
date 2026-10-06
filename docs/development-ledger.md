@@ -284,3 +284,26 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `e5cf3c5` on owner instruction; [v1.18.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.18.0) published by workflow 37522878932; 869 package files and plugin ZIP hash match ([record](../verification/github-publication-1.18.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261006-12
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-12-audio-sync`
+- Baseline: `d05c38b57376b5482bef552b4a61021d33f62c77` (main, package 1.18.0)
+- Result: `3c42040dc5ee3b80a48a2178062782ba74998c58` (package 1.19.0)
+- Package version: 1.18.0 -> 1.19.0
+- Scope: music beat grid, voice-over caption import, captions and audio in preview and Remotion (motion direction 10, second round)
+- Shared package changed: yes; 25 changed, 3 added, 0 removed ([scope](../verification/scope-1.19.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 152 (+1 opt-in browser test passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- container: captioned starter reviewed in three formats without findings; uncaptioned output pixel-identical to 1.18.0; click-track render with sample-exact beat spacing and a 42.7 ms AAC start delay; preview audio playback not exercised
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
