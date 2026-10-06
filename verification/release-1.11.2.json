@@ -61,7 +61,7 @@
   },
   "plugin_zip_sha256": "c24e8aa42f1f7d1f29faca08e8a0a28cf08abdc3167147e52cf9ec57c73d9da2",
   "policy_source": "openai/codex codex-rs/skills/src/assets/samples/skill-creator/references/openai_yaml.md, read 2026-10-06: false means not injected by default but still explicitly invocable; default true.",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.11.2.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks do not establish that hosts select the intended owner or hide the alias from their catalog. All 201 planned cases remain not_run."
