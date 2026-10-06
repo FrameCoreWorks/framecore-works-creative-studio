@@ -134,7 +134,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (committed locally; not pushed)
+- GitHub: synchronized; `main` fast-forwarded to `ad451ee` on owner instruction; [v1.12.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.12.0) published by workflow 37490293094; 859 blobs and plugin ZIP hash match ([record](../verification/github-publication-1.12.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
 

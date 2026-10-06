@@ -85,7 +85,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "f093cefedd293681f108d2163180b8f72b4dedf8bf9430734fe0ddb85224b406",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.12.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container execution covers only the two synthetic starters; it does not establish rendering or behavior in ChatGPT, Work or a Codex session. Motion craft values are Studio heuristics, not measured quality. All 201 planned cases remain not_run."
