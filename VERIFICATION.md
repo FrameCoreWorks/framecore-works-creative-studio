@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.10.1
+## Current source: 1.11.0
+
+The [1.11.0 source checks](verification/release-1.11.0.json) pass canonical validation and 190 tests (3 skipped): 134 Node in the CI set, 9 motion-quality, 12 installer, 4 identity, 8 GEPA pilot (3 skipped without the optional dependency) and 23 asset checks. The research gate is now conditional on six named triggers; validators reject a reverted mandatory gate, missing triggers and untriggered cases that expect the research owner. [Scope](verification/scope-1.11.0.json) records 75 changed shared files, 763 unchanged and no added or removed paths; the welcome assets and 441 vendored or upstream files are byte-identical. The planned suite has 201 cases, all not_run. GitHub release, saved-host readback and active-client behavior are not run for this source; see [release status](RELEASE_STATUS.md).
+
+## Previous source: 1.10.1
 
 The [1.10.1 source checks](verification/release-1.10.1.json) pass canonical validation and 170 tests: 131 Node, 12 installer, 4 identity and 23 asset checks. The focused fix retains the `hyperframes-workflow` ID while displaying Motion Graphics Workflow, makes work-area selection independent of engine selection, and allows requirement-led Remotion recommendations. [Scope](verification/scope-1.10.1.json) records 18 changed shared files and 820 byte-identical files. The 320-record library, complete welcome, dependency files and upstream snapshots are unchanged. Publication and actual client behavior are recorded separately in [release status](RELEASE_STATUS.md).
 

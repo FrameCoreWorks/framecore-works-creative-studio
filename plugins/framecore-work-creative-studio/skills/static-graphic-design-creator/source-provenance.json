@@ -217,7 +217,7 @@
   "adaptation": {
     "integration_owner": "Creative Studio static graphic design owner",
     "preserved": "All 34 source-bundle files at the immutable commit, including its 200-code catalog, references, templates, scripts, and tests.",
-    "wrapper": "The adjacent SKILL.md applies Creative Studio routing, mandatory shared research, concise Quick mode, and host-specific plugin-maintenance boundaries.",
+    "wrapper": "The adjacent SKILL.md applies Creative Studio routing, the conditional shared research gate, concise Quick mode, and host-specific plugin-maintenance boundaries.",
     "verification": "SHA-256 for each fetched source file was recomputed from transferred UTF-8 bytes and matches the pinned source manifest."
   }
 }

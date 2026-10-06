@@ -1,10 +1,10 @@
-# Creative Studio 1.10.1
+# Creative Studio 1.11.0
 
-A focused correction to motion graphics naming and runtime selection.
+Research now runs when it can change the result, not on every creative task.
 
-- The existing `hyperframes-workflow` skill now displays as **Motion Graphics Workflow**. Its technical identity and links remain stable.
-- Choosing creative work area 8 does not select an engine.
-- Runtime recommendations follow the brief, current project, delivery requirements and verified host capabilities. Remotion may be recommended without an explicit tool-name request.
-- HTML/SVG/Canvas/GSAP, HyperFrames, Remotion and specialized toolkit layers retain their existing implementation owners and execution boundaries.
+- Studio searches for current sources when the work names a generator or tool, depends on platform requirements, states a public fact, promises a current tool capability, depicts a real place, person, brand or event, or when the user asks for inspiration, references or verification.
+- Stable craft on the user's facts or a fictional brief (composition, copy, scripts, storyboards, model-agnostic prompts, lessons) proceeds without a search and without a no-research disclaimer.
+- Without search or network access, as in ChatGPT without search or Codex with network disabled, untriggered work is unaffected. Triggered work states the limitation once and marks current claims unverified.
+- Privacy, untrusted-source handling and the rule that research never authorizes generation or another provider are unchanged.
 
-The complete two-option welcome, 320-record library, all 37 skill IDs, internal artifact types and dependencies are preserved. Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+The complete welcome, automatic language policy, startup menus and all 37 skill IDs are preserved. Source validation does not prove host behavior; see [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
