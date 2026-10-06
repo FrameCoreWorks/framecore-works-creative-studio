@@ -11,6 +11,16 @@ import fs from 'node:fs';
 const approvalStates = ['proposed', 'approved', 'blocked', 'example-not-client-approved'];
 const runtimeStates = ['selected', 'proposed', 'unknown'];
 const sceneFields = ['purpose', 'focalPoint', 'entry', 'action', 'exit', 'transition', 'audio'];
+// Declarative scene kinds; keep in sync with sceneKinds in motion-scenes.mjs.
+const sceneKinds = {
+  'line-reveal': {required: ['lines'], copyParams: ['lines']},
+  'item-stagger': {required: ['items'], copyParams: ['items']},
+  'end-card': {required: ['text'], copyParams: ['text']},
+  'counter': {required: ['to'], copyParams: ['label']},
+  'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
+  'logo-reveal': {required: ['asset'], copyParams: []},
+};
+export const knownSceneKinds = Object.keys(sceneKinds);
 const text = value => typeof value === 'string' && value.trim().length > 0;
 
 export function checkScore(score, {storyboard = false} = {}) {
@@ -41,6 +51,16 @@ export function checkScore(score, {storyboard = false} = {}) {
     }
     if (storyboard) for (const field of sceneFields) if (!text(scene[field])) errors.push(`${scene.id}: storyboard field ${field} is missing`);
     if (scene.acceptance !== undefined && (!Array.isArray(scene.acceptance) || !scene.acceptance.every(text))) errors.push(`${scene.id}: acceptance must be a list of observable criteria`);
+    if (scene.kind !== undefined) {
+      const kind = sceneKinds[scene.kind], params = scene.params ?? {};
+      if (!kind) errors.push(`${scene.id}: unknown scene kind ${scene.kind}; use one of ${knownSceneKinds.join(', ')}`);
+      else {
+        for (const key of kind.required) if (params[key] === undefined) errors.push(`${scene.id}: ${scene.kind} needs params.${key}`);
+        for (const key of kind.copyParams) for (const id of [].concat(params[key] ?? [])) if (typeof score.copy?.[id] !== 'string') errors.push(`${scene.id}: params.${key} references missing copy id ${id}`);
+        if (scene.kind === 'logo-reveal' && !text((score.assets ?? []).find(asset => asset.id === params.asset)?.src)) errors.push(`${scene.id}: logo asset ${params.asset} needs an assets entry with src`);
+        if (scene.kind === 'counter' && ![params.to, params.from ?? 0].every(Number.isFinite)) errors.push(`${scene.id}: counter from/to must be numbers`);
+      }
+    }
   }
   if (!ids.size) errors.push('at least one scene is required');
   if (coverage !== n) errors.push(`scenes cover ${coverage} of ${n} frames`);
@@ -84,7 +104,7 @@ export function toMarkdown(score) {
     '',
     '| Scene | Frames [start,end) | Seconds | Copy | Focal point | Entry -> action -> exit | Transition | Readable hold | Audio |',
     '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
-    ...score.scenes.map(scene => `| ${cell(scene.id)}: ${cell(scene.purpose)} | [${scene.start},${scene.end}) | ${seconds(scene.start)}-${seconds(scene.end)} | ${cell((scene.copy ?? []).map(id => `"${score.copy?.[id] ?? id}"`).join(', '))} | ${cell(scene.focalPoint)} | ${cell([scene.entry, scene.action, scene.exit].filter(Boolean).join(' -> '))} | ${cell(scene.transition)} | ${cell((scene.holds ?? []).map(([a, b]) => `[${a},${b})`).join(', '))} | ${cell(scene.audio)} |`),
+    ...score.scenes.map(scene => `| ${cell(scene.id)}${scene.kind ? ` (${cell(scene.kind)})` : ''}: ${cell(scene.purpose)} | [${scene.start},${scene.end}) | ${seconds(scene.start)}-${seconds(scene.end)} | ${cell((scene.copy ?? []).map(id => `"${score.copy?.[id] ?? id}"`).join(', '))} | ${cell(scene.focalPoint)} | ${cell([scene.entry, scene.action, scene.exit].filter(Boolean).join(' -> '))} | ${cell(scene.transition)} | ${cell((scene.holds ?? []).map(([a, b]) => `[${a},${b})`).join(', '))} | ${cell(scene.audio)} |`),
     '',
     '## Acceptance criteria',
     list([...(score.acceptance ?? []), ...score.scenes.flatMap(scene => (scene.acceptance ?? []).map(item => `${scene.id}: ${item}`))]),

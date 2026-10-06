@@ -36,6 +36,7 @@ Each scene:
 | Field | Meaning |
 | --- | --- |
 | `id`, `purpose` | Stable scene ID and what the scene communicates |
+| `kind`, `params` | Optional declarative [scene kind](../assets/motion-scenes/README.md) and its parameters; the scene engine renders it without custom code |
 | `start`, `end` | Master-frame interval `[start, end)`; overlaps are intentional transitions |
 | `copy` | Copy IDs shown in the scene |
 | `holds` | Readable holds `[start, end)` inside the scene |

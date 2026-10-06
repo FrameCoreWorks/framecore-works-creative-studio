@@ -1,9 +1,9 @@
-# Creative Studio 1.15.0
+# Creative Studio 1.16.0
 
-Find the right motion idea for a brief faster.
+Describe motion scenes instead of coding them.
 
-- **Brief index.** Describe the job in Polish or English, for example "animowane logo do intro" or "rolka z wykresem sprzedaży", and Studio matches it to one of 19 brief types with the two to four most relevant blueprints, a suggested runtime and starter, and what to keep and avoid.
-- **Clearer blueprints.** Sixty brand, editorial, product, social, transition and typography blueprints that shared one generic purpose now each state their own, so search results and recommendations distinguish them.
-- Blueprints remain unexecuted starting points; a match is a proposal, not an approval or runtime choice.
+- **Six ready scene kinds.** A scene in the motion contract can now simply say what it is: lines revealed from masks, items entering in sequence, an end card, a counting number, a quotation with attribution, or a logo revealed by clipping without ever distorting it.
+- **Same picture everywhere.** The browser preview and the Remotion video render these scenes through one shared engine, so a frame looks the same in both. In ordinary ChatGPT, Studio can now write only the contract instead of animation code, which makes results more reliable.
+- **Checks before rendering.** The contract check reports unknown scene kinds, missing parameters, text that does not exist and logos without a source.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

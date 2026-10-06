@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.15.0
+## Current source: 1.16.0
+
+The [1.16.0 source checks](verification/release-1.16.0.json) pass canonical validation and 207 tests: 148 Node in the CI set, 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. A declarative scene engine with six kinds now drives both the single-file preview and the Remotion starter. The preview renders the starter contract pixel-identically to 1.15.0; Remotion frames match the earlier render except for a 6-frame connector timing difference that the shared engine removes. The all-kinds example rendered in both, including a 775-frame H.264 file. Full playback review was not run. [Scope](verification/scope-1.16.0.json) records 21 changed and 4 added shared files out of 867. Host behavior is not run.
+
+## Previous source: 1.15.0
 
 The [1.15.0 source checks](verification/release-1.15.0.json) pass canonical validation and 204 tests: 145 Node in the CI set, 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The motion prompt library gains a 19-type brief index whose records the canonical gate checks against existing FrameCore originals, and 60 original blueprints receive record-specific objectives; imported records are unchanged. Brief matching was checked with Polish queries including inflected forms. [Scope](verification/scope-1.15.0.json) records 17 changed and 1 added shared files out of 863. All blueprints remain not_run; host behavior is not run.
 

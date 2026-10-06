@@ -82,6 +82,13 @@
       "start": 0,
       "end": 127,
       "purpose": "State the idea with a line mask reveal",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "title-1",
+          "title-2"
+        ]
+      },
       "copy": [
         "title-1",
         "title-2"
@@ -108,6 +115,15 @@
       "start": 117,
       "end": 215,
       "purpose": "Three steps enter with a word stagger and a constant-speed connector",
+      "kind": "item-stagger",
+      "params": {
+        "items": [
+          "step-1",
+          "step-2",
+          "step-3"
+        ],
+        "connector": true
+      },
       "copy": [
         "step-1",
         "step-2",
@@ -135,6 +151,11 @@
       "start": 205,
       "end": 300,
       "purpose": "End card with the longest readable hold and a stable final frame",
+      "kind": "end-card",
+      "params": {
+        "text": "end",
+        "rule": true
+      },
       "copy": [
         "end"
       ],

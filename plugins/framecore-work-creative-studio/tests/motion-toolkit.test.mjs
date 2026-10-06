@@ -74,7 +74,7 @@ test('starter contract is a complete storyboard and renders for approval', async
   const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   assert.deepEqual(checkScore(score, {storyboard: true}), {errors: [], warnings: []});
   const markdown = toMarkdown(score);
-  assert.match(markdown, /\| title: State the idea/);
+  assert.match(markdown, /\| title \(line-reveal\): State the idea/);
   assert.match(markdown, /\[205,300\)/);
   assert.match(markdown, /## Acceptance criteria/);
 });
@@ -90,4 +90,47 @@ test('storyboard check rejects incomplete scenes and unsupported approval', asyn
   assert.ok(checkScore(approved).errors.some(error => error.includes('approval evidence')));
   const stale = structuredClone(score); stale.revision = 2; stale.approval = {status: 'approved', revision: 1, evidence: 'Owner approval in chat'};
   assert.ok(checkScore(stale).errors.some(error => error.includes('current revision')));
+});
+
+const scenesDir = 'skills/hyperframes-workflow/assets/motion-scenes';
+test('scene engine renders every kind deterministically and never scales a logo', async () => {
+  const {buildScene, sceneFrame, sceneKinds} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
+  assert.deepEqual(new Set(score.scenes.map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
+  for (const scene of score.scenes) {
+    assert.ok(buildScene(scene, score).children.length > 0, scene.id);
+    for (const frame of [scene.start, Math.floor((scene.start + scene.end) / 2), scene.end - 1]) {
+      assert.deepEqual(sceneFrame(scene, score, frame), sceneFrame(scene, score, frame));
+    }
+  }
+  const logo = score.scenes.find(scene => scene.kind === 'logo-reveal');
+  for (let frame = logo.start; frame < logo.end; frame++) assert.deepEqual(Object.keys(sceneFrame(logo, score, frame).logo.style), ['clipPath']);
+  const counter = score.scenes.find(scene => scene.kind === 'counter');
+  assert.equal(sceneFrame(counter, score, counter.end - 1).number.text, '775');
+  assert.throws(() => buildScene({...logo, kind: 'spin'}, score), /Unknown scene kind/);
+});
+test('checker kinds match the engine and the all-kinds example is a complete storyboard', async () => {
+  const {sceneKinds} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore, knownSceneKinds} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {validateScore} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
+  assert.deepEqual(knownSceneKinds, Object.keys(sceneKinds));
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
+  assert.doesNotThrow(() => validateScore(score));
+  assert.deepEqual(checkScore(score, {storyboard: true}), {errors: [], warnings: []});
+  const bad = structuredClone(score);
+  bad.scenes[0].params.asset = 'missing'; bad.scenes[1].kind = 'spin'; bad.scenes[3].params.label = 'nope';
+  const errors = checkScore(bad).errors.join('\n');
+  assert.match(errors, /logo asset missing/); assert.match(errors, /unknown scene kind spin/); assert.match(errors, /missing copy id nope/);
+});
+test('diverging scene engine copies fail the toolkit check', () => {
+  withCopy(tmp => {
+    const file = path.join(tmp, kinetic, 'src/motion-scenes.mjs');
+    fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('scale(${0.94 + 0.06 * k})', 'scale(1)'));
+    assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('Remotion starter scene engine differs')));
+  });
+  withCopy(tmp => {
+    const file = path.join(tmp, 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html');
+    fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('circle(${k * 75}%', 'circle(${k * 50}%'));
+    assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('Single-file preview scene engine differs')));
+  });
 });

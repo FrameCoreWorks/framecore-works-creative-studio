@@ -16,8 +16,9 @@ An original, synthetic starting project for the most common code-motion route: k
 ## Files
 
 - `src/Root.tsx`: registers `KineticType` from the score.
-- `src/motion.ts`: score types, easing presets and interval helpers driven by the master frame.
-- `src/KineticType.tsx`: three scene components that receive the master frame explicitly.
+- `src/motion.ts`: types for the shared motion contract.
+- `src/motion-scenes.mjs`: the shared [scene engine](../../../hyperframes-workflow/assets/motion-scenes/README.md), identical to the plugin copy.
+- `src/KineticType.tsx`: a generic renderer that draws any declared scene kind from the master frame.
 - `check-score.mjs`: dependency-free contract check, including the reading-hold heuristic.
 
 ## Authorized local use
@@ -38,7 +39,7 @@ npm run render
 ## Adapting it
 
 1. Replace the storyboard fields, copy, tokens and scenes in `motion-score.json` with the project contract (see [motion contract JSON](../../../hyperframes-workflow/references/motion-contract-json.md)). Run `npm run storyboard` to show it for approval and `node check-score.mjs motion-score.json --storyboard` before building; fix every FAIL and review every WARN.
-2. Keep scene components small and derive every state from the frame. Do not add CSS transitions, timers or unseeded randomness.
+2. Declare scenes with the six [scene kinds](../../../hyperframes-workflow/assets/motion-scenes/README.md) where they fit; they render identically in the single-file preview. For a scene no kind covers, add a small component that derives every state from the frame. Do not add CSS transitions, timers or unseeded randomness.
 3. Load real brand fonts before rendering and check the longest strings and diacritics at target size.
 4. Inspect stills at the first frame, each scene boundary, each hold and the last frame, then watch the full render.
 

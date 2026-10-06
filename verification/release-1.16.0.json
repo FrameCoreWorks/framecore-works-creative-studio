@@ -1,0 +1,73 @@
+{
+  "version": "1.16.0",
+  "date": "2026-10-06",
+  "baseline": "b5a2f56d3ce1240eb5a1043253566c740da9d260",
+  "change_id": "CC-20261006-09",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 867,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 148
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "runtime_execution": {
+    "single_file_preview": "file:// in headless Chromium; starter contract frames pixel-identical to 1.15.0; all-kinds example frames 15-774 inspected",
+    "remotion_kinetic_type_starter": "packaged copy: npm ci, storyboard check PASS, typecheck PASS, stills; all-kinds example rendered to H.264 1920x1080 30/1 FPS 775 frames yuv420p (ffprobe)",
+    "full_playback_review": "not_run"
+  },
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "efe4e38d22719f74a94fd9965f762bb5580a9d87a8c5a4fb80438e576587fb13",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Container execution covers the synthetic contracts only; it does not establish that hosts write contracts with scene kinds or render them. All 201 planned cases remain not_run."
+}

@@ -7,6 +7,7 @@ const three = 'skills/remotion-video-production/assets/three-motion-example';
 const kinetic = 'skills/remotion-video-production/assets/kinetic-type-starter';
 const gsapStarter = 'skills/hyperframes-workflow/assets/gsap-motion-starter';
 const singleFile = 'skills/hyperframes-workflow/assets/single-file-preview';
+const scenesDir = 'skills/hyperframes-workflow/assets/motion-scenes';
 export function validateMotionToolkit(root) {
   const errors = [];
   const fail = detail => errors.push({code: 'MOTION_TOOLKIT', detail});
@@ -19,6 +20,10 @@ export function validateMotionToolkit(root) {
     'skills/hyperframes-workflow/references/motion-craft.md',
     'skills/hyperframes-workflow/references/motion-contract-json.md',
     `${singleFile}/README.md`,
+    `${scenesDir}/README.md`,
+    `${scenesDir}/motion-scenes.mjs`,
+    `${scenesDir}/examples/all-kinds.motion-score.json`,
+    `${kinetic}/src/motion-scenes.mjs`,
     `${singleFile}/motion-preview.html`,
     ...['motion-toolkit-routing.md','motion-toolkit-runtime-cards.md','motion-toolkit-sources.md'].map(name => `skills/hyperframes-workflow/references/${name}`),
     'skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md',
@@ -48,6 +53,14 @@ export function validateMotionToolkit(root) {
   for (const file of ['motion-score.json', 'check-score.mjs']) {
     try { if (read(`${kinetic}/${file}`) !== read(`${gsapStarter}/${file}`)) fail(`Starter ${file} differs between runtimes`); } catch {}
   }
+  // One scene engine: the Remotion copy is byte-identical and the preview embeds it without export keywords.
+  try {
+    const engine = read(`${scenesDir}/motion-scenes.mjs`);
+    if (read(`${kinetic}/src/motion-scenes.mjs`) !== engine) fail('Remotion starter scene engine differs from motion-scenes.mjs');
+    const html = read(`${singleFile}/motion-preview.html`);
+    const embedded = html.split(/\/\/ BEGIN motion-scenes engine[^\n]*\n/)[1]?.split('// END motion-scenes engine')[0];
+    if (embedded !== engine.replaceAll('export const ', 'const ').replaceAll('export function ', 'function ')) fail('Single-file preview scene engine differs from motion-scenes.mjs');
+  } catch (error) { fail(`Scene engine: ${error.message}`); }
   // The single-file preview must stay offline and embed the same contract as the starters.
   try {
     const html = read(`${singleFile}/motion-preview.html`);

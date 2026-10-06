@@ -8,13 +8,13 @@ It is a preview for reviewing motion, timing and readable holds. It is not a vid
 
 - The motion contract embedded as JSON in `<script type="application/json" id="motion-score">`, in the same `motion-score.json` format as both starters. The bundled example is the starters' synthetic score.
 - Easing presets from [motion craft](../../references/motion-craft.md), implemented as cubic-bezier functions.
-- One renderer per scene ID. Each renderer builds its elements once and then sets every style from the frame number alone.
+- The embedded [scene engine](../motion-scenes/README.md) with a generic DOM renderer. Each scene declares a `kind` and `params`; the engine builds its elements once and sets every style from the frame number alone.
 - A player with Play/Pause, Replay, previous and next frame, a frame slider, a frame readout and keyboard control (Space, Left, Right). The playback clock only chooses which frame to draw.
 - `window.seekFrame(frame)`, `?frame=140` and `?frames=299,0,140` for exact-frame review and seek comparisons.
 
 ## How Studio delivers it
 
-1. Build the approved contract first. Replace the embedded score with the project's score and write one renderer per scene ID, following the template's pattern. Keep exact copy and locks from the contract.
+1. Build the approved contract first. Replace the embedded score with the project's score and declare each scene with a [scene kind](../motion-scenes/README.md); no scene code is needed when the kinds fit. Add custom rendering only for a scene no kind covers. Keep exact copy and locks from the contract.
 2. Keep it self-contained: no external URLs, CDN libraries, fonts or tracking. Use system fonts unless the user supplies a font whose license allows embedding; embedded images must be supplied or approved and are inlined as data URIs, which increases file size.
 3. Deliver it with the host's real capability:
    - When the host can create files, write `motion-preview.html` and give the user the file or download link.

@@ -6,6 +6,10 @@ An original, synthetic starter for the HTML route of the [Motion Graphics Workfl
 
 [`motion-score.json`](motion-score.json) is identical to the [Remotion kinetic type starter](../../../remotion-video-production/assets/kinetic-type-starter/README.md) contract: 1920 × 1080, 30 FPS, N = 300 frames, three scenes, readable holds, exact copy, tokens and motion values from [motion craft](../../references/motion-craft.md). The same storyboard can therefore be implemented in either runtime and reviewed against the same frames. `check-score.mjs` validates the contract without dependencies and prints it as a storyboard with `npm run storyboard`; see [motion contract JSON](../../references/motion-contract-json.md).
 
+## Custom choreography route
+
+This starter shows hand-written GSAP choreography: `main.mjs` draws the example's three scenes in order and does not interpret `kind` or `params`. Use it when a scene needs choreography the [scene kinds](../motion-scenes/README.md) do not cover. For declared kinds use the single-file preview or the Remotion starter, which share the scene engine.
+
 ## How it stays deterministic
 
 - One GSAP timeline is created paused. Scene visibility, entries and exits are placed at `frame / fps` from the score.

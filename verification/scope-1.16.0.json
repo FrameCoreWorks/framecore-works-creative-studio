@@ -1,0 +1,48 @@
+{
+  "version": "1.16.0",
+  "baseline": "b5a2f56d3ce1240eb5a1043253566c740da9d260",
+  "change_id": "CC-20261006-09",
+  "origin": "cloud-code",
+  "files": 867,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/README.md",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/motion-score.json",
+    "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/hyperframes-workflow/references/motion-contract-json.md",
+    "skills/remotion-video-production/assets/kinetic-type-starter/README.md",
+    "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/motion-score.json",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/KineticType.tsx",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion.ts",
+    "skills/remotion-video-production/assets/kinetic-type-starter/tsconfig.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 842,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-scenes/README.md",
+    "skills/hyperframes-workflow/assets/motion-scenes/examples/all-kinds.motion-score.json",
+    "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs"
+  ],
+  "removed": [],
+  "visual_regression": {
+    "single_file_preview_frames_0_20_100_127_140_180_299": "pixel-identical to 1.15.0",
+    "remotion_frames_20_100_180_299": "pixel-identical to the 1.12.0 render",
+    "remotion_frame_140": "differs only in the connector bar: the old hand-written Remotion scene timed the connector 6 frames differently from GSAP and the preview; the shared engine unifies it"
+  },
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}
