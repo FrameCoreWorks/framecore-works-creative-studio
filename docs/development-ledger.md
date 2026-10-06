@@ -215,3 +215,26 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `2ddc4e5` on owner instruction; [v1.15.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.15.0) published by workflow 37501244215; 863 blobs and plugin ZIP hash match ([record](../verification/github-publication-1.15.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261006-09
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-09-scene-kinds`
+- Baseline: `b5a2f56d3ce1240eb5a1043253566c740da9d260` (main, package 1.15.0)
+- Result: `f06456dc3eea6429fe60733534e49cc7c0f5761c` (package 1.16.0)
+- Package version: 1.15.0 -> 1.16.0
+- Scope: declarative scene kinds rendered by one shared engine in the single-file preview and the Remotion starter (motion direction 7, second round)
+- Shared package changed: yes; 21 changed, 4 added, 0 removed ([scope](../verification/scope-1.16.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 148, motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- preview frames pixel-identical to 1.15.0; all-kinds example rendered in preview and Remotion (775-frame H.264); packaged Remotion starter reinstalled, typechecked and rendered
+- full playback review and host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
