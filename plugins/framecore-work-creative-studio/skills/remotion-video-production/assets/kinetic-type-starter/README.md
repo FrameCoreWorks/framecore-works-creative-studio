@@ -19,7 +19,7 @@ An original, synthetic starting project for the most common code-motion route: k
 - `src/Root.tsx`: registers `KineticType` for the base size and `KineticType-<id>` for each format.
 - `src/motion.ts`: types for the shared motion contract.
 - `src/motion-scenes.mjs`: the shared [scene engine](../../../hyperframes-workflow/assets/motion-scenes/README.md), identical to the plugin copy.
-- `src/KineticType.tsx`: a generic renderer that draws any declared scene kind from the master frame.
+- `src/KineticType.tsx`: a generic renderer that draws any declared scene kind from the master frame, the contract's captions, and its music and voice-over files.
 - `check-score.mjs`: dependency-free contract check, including the reading-hold heuristic.
 
 ## Authorized local use
@@ -43,8 +43,9 @@ npm run render:1x1
 
 1. Replace the storyboard fields, copy, tokens and scenes in `motion-score.json` with the project contract (see [motion contract JSON](../../../hyperframes-workflow/references/motion-contract-json.md)). Run `npm run storyboard` to show it for approval and `node check-score.mjs motion-score.json --storyboard` before building; fix every FAIL and review every WARN.
 2. Declare scenes with the six [scene kinds](../../../hyperframes-workflow/assets/motion-scenes/README.md) where they fit; they render identically in the single-file preview. For a scene no kind covers, add a small component that derives every state from the frame. Do not add CSS transitions, timers or unseeded randomness.
-3. Load real brand fonts before rendering and check the longest strings and diacritics at target size.
-4. Inspect stills at the first frame, each scene boundary, each hold and the last frame, then watch the full render.
+3. For music or voice-over, put the supplied files in a `public/` folder and set `music.src` or `voiceover.src` to their file names; the [sync tool](../../../hyperframes-workflow/assets/motion-sync/README.md) adds the beat grid and imports SRT or WebVTT captions. Check sync in the encoded file: AAC encoding can add a short constant start delay.
+4. Load real brand fonts before rendering and check the longest strings and diacritics at target size.
+5. Inspect stills at the first frame, each scene boundary, each hold and the last frame, then watch the full render.
 
 ## Verification boundary
 

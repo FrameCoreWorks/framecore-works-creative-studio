@@ -180,6 +180,34 @@ export function sceneFrame(scene, score, frame) {
   return out;
 }
 
+/** Beat grid from score.music {bpm, offsetMs, beatsPerBar}: every beat inside the timeline as {beat, bar, beatInBar, frame}. */
+export function beatFrames(score) {
+  const music = score.music;
+  if (!(music?.bpm > 0)) return [];
+  const fps = score.fps.num / score.fps.den, perBar = music.beatsPerBar ?? 4, offset = (music.offsetMs ?? 0) / 1000, beats = [];
+  // Each beat is computed from the master timeline, so rounding never accumulates.
+  for (let beat = 0, frame = Math.round(offset * fps); frame < score.totalFrames; beat++, frame = Math.round((offset + beat * 60 / music.bpm) * fps)) {
+    beats.push({beat, bar: Math.floor(beat / perBar) + 1, beatInBar: (beat % perBar) + 1, frame});
+  }
+  return beats;
+}
+
+/** Caption layer for score.captions [{id, start, end, copy}], drawn above the scenes; null without captions. */
+export function buildCaptions(score) {
+  if (!score.captions?.length) return null;
+  const t = score.tokens ?? {}, c = t.captions ?? {};
+  const bottom = Math.max(Math.round(score.height * (t.safeArea?.bottom ?? 0)), Math.round(score.height * (c.bottom ?? 0.08)));
+  return {key: 'captions', type: 'box', style: {position: 'absolute', left: `${margin(score)}px`, right: `${margin(score)}px`, bottom: `${bottom}px`, display: 'flex', justifyContent: 'center'}, children: [
+    {key: 'caption', type: 'text', text: '', style: {maxWidth: '100%', padding: `${px(score, 10)}px ${px(score, 22)}px`, background: c.background ?? 'rgba(0, 0, 0, 0.8)', color: c.color ?? '#FFFFFF', fontSize: `${px(score, c.size ?? 44)}px`, lineHeight: '1.3', fontWeight: String(c.weight ?? 500), textAlign: 'center', whiteSpace: 'pre-line', borderRadius: `${px(score, 6)}px`}},
+  ]};
+}
+
+/** The caption shown at a frame: captions cut in and out on their exact frames, start <= frame < end. */
+export function captionsFrame(score, frame) {
+  const caption = (score.captions ?? []).find(item => frame >= item.start && frame < item.end);
+  return {captions: {style: {visibility: caption ? 'visible' : 'hidden'}}, caption: {text: caption ? copy(score, caption.copy) : ''}};
+}
+
 /** Index a built scene tree by key. */
 export function nodesByKey(node, map = {}) {
   map[node.key] = node;

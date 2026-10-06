@@ -28,9 +28,13 @@ export type MotionScore = {
     fontFamily: string;
     marginRatio: number;
     safeArea?: {top?: number; bottom?: number};
+    captions?: {size?: number; weight?: number; color?: string; background?: string; bottom?: number};
   };
   motion: Record<string, unknown>;
   copy: Record<string, string>;
   assets?: {id: string; src: string; alt?: string}[];
+  music?: {bpm?: number; offsetMs?: number; beatsPerBar?: number; src?: string; volume?: number};
+  voiceover?: {src?: string; volume?: number};
+  captions?: {id: string; start: number; end: number; copy: string}[];
   scenes: Scene[];
 };

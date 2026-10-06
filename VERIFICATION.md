@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.18.0
+## Current source: 1.19.0
+
+The [1.19.0 source checks](verification/release-1.19.0.json) pass canonical validation and 211 tests: 152 Node in the CI set (plus 1 opt-in browser test, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new sync tool imported the example voice-over SRT into the starter contract at 120 BPM; the frame review of the captioned contract found no issues in three formats (114 frames). Contracts without captions or music render pixel-identically to 1.18.0. A Remotion render with a synthetic 120 BPM click track kept sample-exact beat spacing in the AAC track, with a constant 42.7 ms encoder start delay. Preview audio playback, full per-format renders and host behavior were not run. [Scope](verification/scope-1.19.0.json) records 25 changed and 3 added shared files out of 872.
+
+## Previous source: 1.18.0
 
 The [1.18.0 source checks](verification/release-1.18.0.json) pass canonical validation and 209 tests: 150 Node in the CI set (plus 1 opt-in browser test, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The starter contract now declares 9:16 and 1:1 formats; the frame review found no issues in any of the three (93 frames). Base-format preview frames are pixel-identical to 1.17.0, and at frame 176 the preview and the Remotion still are pixel-identical in each format. Review screenshots, drawn about 8% small in 1.17.0, are now drawn at true size. Full per-format video renders and playback review were not run. [Scope](verification/scope-1.18.0.json) records 25 changed shared files out of 869. Host behavior is not run.
 

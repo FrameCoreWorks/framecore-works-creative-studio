@@ -12,7 +12,7 @@ A contract with [`formats`](../motion-scenes/README.md#formats) is reviewed in e
 
 ## What it does
 
-1. Selects review frames from the contract: frame 0 and N-1, both sides of every scene boundary, the start, middle and end of every readable hold, sound cues and uniform samples. The rules match `reviewFrames` in the [motion quality helpers](../motion-quality/README.md).
+1. Selects review frames from the contract: frame 0 and N-1, both sides of every scene boundary, the start, middle and end of every readable hold, sound cues, the start, middle and end of every caption, and uniform samples. The rules match `reviewFrames` in the [motion quality helpers](../motion-quality/README.md).
 2. Renders each frame through the [single-file preview](../single-file-preview/README.md) in review mode (`?review=1`), which uses the shared [scene engine](../motion-scenes/README.md), so declared scene kinds look as they will in the Remotion starter.
 3. In frames that fall inside a readable hold, measures the settled text:
 
@@ -30,7 +30,7 @@ A contract with [`formats`](../motion-scenes/README.md#formats) is reviewed in e
 
 ## How Studio uses it
 
-Run it after a build and before presenting a motion review; repair every error and judge every warning within the shared review budget, then rerun. Record the result in the [QA record](../../templates/motion-qa-record.md). Frames outside holds are captured but not measured, because text is meant to move there.
+Run it after a build and before presenting a motion review; repair every error and judge every warning within the shared review budget, then rerun. Record the result in the [QA record](../../templates/motion-qa-record.md). Frames outside holds are captured but not measured, because text is meant to move there. Captions are measured whenever they are shown, including overlap with settled scene text.
 
 ## Limits
 

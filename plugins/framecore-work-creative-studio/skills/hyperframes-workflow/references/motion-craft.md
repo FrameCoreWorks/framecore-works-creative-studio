@@ -56,6 +56,7 @@ A hold begins when the whole phrase is legible, not when its animation starts. S
 - Put major events on downbeats or bar starts, and let smaller accents fall between. Cutting on every beat flattens the rhythm.
 - Land the visual impact on the cue frame; start the motion before it so the peak arrives with the sound.
 - Leave silence or a sustained note under the final hold when the message needs attention.
+- The [sync tool](../assets/motion-sync/README.md) records the grid in the contract, reports where scenes and holds fall on it and imports voice-over subtitles as captions.
 
 ## Transition grammar
 

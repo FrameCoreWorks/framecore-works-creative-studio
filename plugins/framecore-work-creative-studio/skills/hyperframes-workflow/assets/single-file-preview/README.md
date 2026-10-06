@@ -11,6 +11,7 @@ It is a preview for reviewing motion, timing and readable holds. It is not a vid
 - The embedded [scene engine](../motion-scenes/README.md) with a generic DOM renderer. Each scene declares a `kind` and `params`; the engine builds its elements once and sets every style from the frame number alone.
 - A player with Play/Pause, Replay, previous and next frame, a frame slider, a frame readout and keyboard control (Space, Left, Right). The playback clock only chooses which frame to draw.
 - `window.seekFrame(frame)`, `?frame=140` and `?frames=299,0,140` for exact-frame review and seek comparisons.
+- Captions from the contract drawn above the scenes, and playback of `music.src` and `voiceover.src` from files saved next to the HTML file; while audio plays, the audio clock chooses the frame. See [music and voice-over sync](../motion-sync/README.md).
 - When the contract declares `formats`, a format menu and `?format=9x16` show each [output format](../motion-scenes/README.md#formats) from the same file.
 - Review mode (`?review=1`) for the [automated frame review](../motion-review/README.md); it draws the stage at its true size from the top-left corner.
 

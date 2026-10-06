@@ -1,0 +1,11 @@
+1
+00:00:00,600 --> 00:00:03,800
+Clear motion starts with one idea.
+
+2
+00:00:04,200 --> 00:00:07,000
+Plan it, build it, review it.
+
+3
+00:00:07,200 --> 00:00:09,900
+Then it is ready to render.

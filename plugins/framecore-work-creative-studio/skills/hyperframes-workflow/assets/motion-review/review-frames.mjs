@@ -27,6 +27,7 @@ export function selectFrames(score, samples = 12) {
     for (const [a, b] of s.holds ?? []) { add(a); add(Math.floor((a + b - 1) / 2)); add(b - 1); }
   }
   for (const c of score.cues ?? []) for (const offset of [-1, 0, 1]) add(c.frame + offset);
+  for (const c of score.captions ?? []) { add(c.start); add(Math.floor((c.start + c.end - 1) / 2)); add(c.end - 1); }
   return [...frames].sort((a, b) => a - b);
 }
 

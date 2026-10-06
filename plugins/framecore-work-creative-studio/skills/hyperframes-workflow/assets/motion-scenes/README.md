@@ -31,6 +31,10 @@ One contract can produce several output formats. `formats` lists variants of the
 
 `tokens.safeArea` (`{top, bottom}` as fractions of the height) adds top and bottom padding to keep content clear of platform interface elements. The engine has no default: take the values from the target platform's current documentation or the user, and record the source in the contract's decisions.
 
+## Captions and beats
+
+`buildCaptions(score)` and `captionsFrame(score, frame)` draw `score.captions` above the scenes; `beatFrames(score)` returns the beat grid from `score.music`. Both renderers use them, and the [sync tool](../motion-sync/README.md) fills the contract fields.
+
 ## Example and checks
 
 [`examples/all-kinds.motion-score.json`](examples/all-kinds.motion-score.json) uses all six kinds with an original synthetic example mark. `check-score.mjs` in both starters validates kinds, required params, copy references and logo assets, and lists the kind in the storyboard table.

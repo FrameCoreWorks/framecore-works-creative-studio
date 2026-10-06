@@ -25,12 +25,15 @@ Top level:
 | `decisions` | `{confirmed, proposed, unknown}` lists keep the three states explicit |
 | `fps`, `totalFrames`, `width`, `height` | Rational FPS `{num, den}`, integer frame count N (frames 0..N-1) and the base size |
 | `formats` | Optional output variants `{id, width, height, viewing?, tokens?, params?}`; `params` maps scene IDs to param overrides. Timeline, copy and holds are shared; `base` is reserved for the base size. See [formats](../assets/motion-scenes/README.md#formats) |
-| `tokens` | Colours, font family, margin ratio and optional `safeArea {top, bottom}` (fractions of the height, from platform documentation or the user) used by the code |
+| `tokens` | Colours, font family, margin ratio and optional `safeArea {top, bottom}` (fractions of the height, from platform documentation or the user) and caption style `captions {size, weight, color, background, bottom}` used by the code |
 | `motion` | Tempo family, entry/exit frames, staggers, easing names and transition set from [motion craft](motion-craft.md) |
 | `copy`, `copyStatus` | Exact copy by ID, verbatim; `copyStatus` such as `approved`, `proposed` or `illustrative` |
 | `assets` | Asset ledger entries `{id, file, revision, role, authority}`; an empty list when none are used |
 | `acceptance` | At least three observable, concept-specific criteria |
 | `cues` | Optional sound cues `{id, frame, durationFrames, frequency, gainDb}` for the existing sound adapter |
+| `music` | Optional beat grid and track `{bpm, offsetMs, beatsPerBar, src?, volume?}`; `offsetMs` is when the first beat sounds |
+| `voiceover` | Optional voice-over track `{src, volume?}` |
+| `captions` | Optional `{id, start, end, copy}` list in order without overlap; `copy` is a copy ID holding the exact text. See [music and voice-over sync](../assets/motion-sync/README.md) |
 
 Each scene:
 

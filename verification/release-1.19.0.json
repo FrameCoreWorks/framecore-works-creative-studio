@@ -1,0 +1,84 @@
+{
+  "version": "1.19.0",
+  "date": "2026-10-06",
+  "baseline": "d05c38b57376b5482bef552b4a61021d33f62c77",
+  "change_id": "CC-20261006-12",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 872,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 153,
+      "passed": 152,
+      "skipped": 1,
+      "skip_reason": "Opt-in browser review test; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 34
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "20773dae48a68d045d828bc823026016a56abe735015924cf8b8b886dbad9d06",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Container checks on selected frames, one synthetic audio render and source tests; preview audio playback, full per-format renders and host behavior are not verified. All 201 planned cases remain not_run.",
+  "sync_runs": {
+    "sync_tool": "example SRT imported into the starter contract at 120 BPM: 3 captions; beat report steps start at bar 3 beat 1, -3 frames",
+    "review_with_captions": "114 frames across base, 9x16 and 1x1, 96 measured, 0 errors, 0 warnings",
+    "regression": "starter without captions or music: 31 base-format review frames pixel-identical to 1.18.0",
+    "cross_runtime": "frame 65 with a caption: Remotion still and preview screenshot pixel-identical in 9x16; in base format one row at y=993 (bottom edge of the caption box, at the headless viewport edge) differs by anti-aliasing",
+    "audio": "Remotion render with a synthetic 120 BPM click track: H.264 + AAC 48 kHz; 20 clicks with sample-exact 0.5 s spacing and a constant 2050-sample (42.7 ms) encoder start delay",
+    "preview_audio": "preview loads with music.src set; audio playback not exercised"
+  }
+}

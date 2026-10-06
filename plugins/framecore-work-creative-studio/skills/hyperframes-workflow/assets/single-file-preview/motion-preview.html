@@ -434,6 +434,34 @@ function sceneFrame(scene, score, frame) {
   return out;
 }
 
+/** Beat grid from score.music {bpm, offsetMs, beatsPerBar}: every beat inside the timeline as {beat, bar, beatInBar, frame}. */
+function beatFrames(score) {
+  const music = score.music;
+  if (!(music?.bpm > 0)) return [];
+  const fps = score.fps.num / score.fps.den, perBar = music.beatsPerBar ?? 4, offset = (music.offsetMs ?? 0) / 1000, beats = [];
+  // Each beat is computed from the master timeline, so rounding never accumulates.
+  for (let beat = 0, frame = Math.round(offset * fps); frame < score.totalFrames; beat++, frame = Math.round((offset + beat * 60 / music.bpm) * fps)) {
+    beats.push({beat, bar: Math.floor(beat / perBar) + 1, beatInBar: (beat % perBar) + 1, frame});
+  }
+  return beats;
+}
+
+/** Caption layer for score.captions [{id, start, end, copy}], drawn above the scenes; null without captions. */
+function buildCaptions(score) {
+  if (!score.captions?.length) return null;
+  const t = score.tokens ?? {}, c = t.captions ?? {};
+  const bottom = Math.max(Math.round(score.height * (t.safeArea?.bottom ?? 0)), Math.round(score.height * (c.bottom ?? 0.08)));
+  return {key: 'captions', type: 'box', style: {position: 'absolute', left: `${margin(score)}px`, right: `${margin(score)}px`, bottom: `${bottom}px`, display: 'flex', justifyContent: 'center'}, children: [
+    {key: 'caption', type: 'text', text: '', style: {maxWidth: '100%', padding: `${px(score, 10)}px ${px(score, 22)}px`, background: c.background ?? 'rgba(0, 0, 0, 0.8)', color: c.color ?? '#FFFFFF', fontSize: `${px(score, c.size ?? 44)}px`, lineHeight: '1.3', fontWeight: String(c.weight ?? 500), textAlign: 'center', whiteSpace: 'pre-line', borderRadius: `${px(score, 6)}px`}},
+  ]};
+}
+
+/** The caption shown at a frame: captions cut in and out on their exact frames, start <= frame < end. */
+function captionsFrame(score, frame) {
+  const caption = (score.captions ?? []).find(item => frame >= item.start && frame < item.end);
+  return {captions: {style: {visibility: caption ? 'visible' : 'hidden'}}, caption: {text: caption ? copy(score, caption.copy) : ''}};
+}
+
 /** Index a built scene tree by key. */
 function nodesByKey(node, map = {}) {
   map[node.key] = node;
@@ -467,6 +495,9 @@ function nodesByKey(node, map = {}) {
     stage.append(root);
     return {scene, root, elements, texts};
   });
+  // Captions sit above every scene and cut on their exact frames.
+  const captionTree = buildCaptions(score), captionElements = {}, captionTexts = [];
+  if (captionTree) stage.append(create(captionTree, captionElements, captionTexts));
 
   /** Draw exactly one frame. Visible scenes satisfy start <= frame < end. */
   function renderFrame(frame) {
@@ -481,7 +512,17 @@ function nodesByKey(node, map = {}) {
         if (value.text !== undefined) el.textContent = value.text;
       }
     }
+    if (captionTree) for (const [key, value] of Object.entries(captionsFrame(score, frame))) {
+      Object.assign(captionElements[key].style, value.style || {});
+      if (value.text !== undefined) captionElements[key].textContent = value.text;
+    }
   }
+
+  // Optional music and voice-over files (src next to this file). While they play, the audio clock
+  // chooses the frame, so picture and sound stay together; otherwise the system clock does.
+  const tracks = [score.music, score.voiceover].filter(track => track && track.src).map(track => {
+    const audio = new Audio(track.src); audio.preload = 'auto'; audio.volume = track.volume ?? 1; return audio;
+  });
 
   // Player: the clock only chooses which frame to draw.
   const scrub = document.getElementById('scrub'), readout = document.getElementById('readout'), play = document.getElementById('play');
@@ -494,10 +535,11 @@ function nodesByKey(node, map = {}) {
     readout.textContent = `frame ${current} / ${N - 1}`;
     return current;
   }
-  const stop = () => { playing = false; play.textContent = 'Play'; };
+  const stop = () => { playing = false; play.textContent = 'Play'; for (const audio of tracks) audio.pause(); };
   function tick(now) {
     if (!playing) return;
-    const frame = startFrame + Math.floor((now - startedAt) / 1000 * fps);
+    const lead = tracks.find(audio => !audio.paused && audio.readyState >= 2);
+    const frame = lead ? Math.floor(lead.currentTime * fps) : startFrame + Math.floor((now - startedAt) / 1000 * fps);
     seekFrame(frame);
     if (frame >= N - 1) { stop(); return; }
     requestAnimationFrame(tick);
@@ -506,6 +548,7 @@ function nodesByKey(node, map = {}) {
     if (playing) { stop(); return; }
     playing = true; play.textContent = 'Pause';
     startFrame = current >= N - 1 ? 0 : current; startedAt = performance.now();
+    for (const audio of tracks) { audio.currentTime = startFrame / fps; audio.play().catch(() => {}); }
     requestAnimationFrame(tick);
   };
   document.getElementById('replay').onclick = () => { stop(); seekFrame(0); play.click(); };
@@ -551,38 +594,47 @@ function nodesByKey(node, map = {}) {
     const marginX = score.width * (t.marginRatio ?? 0.08), marginY = score.height * (t.marginRatio ?? 0.08) * 0.5;
     const top = Math.max(marginY, score.height * (t.safeArea?.top ?? 0)), bottom = Math.max(marginY, score.height * (t.safeArea?.bottom ?? 0));
     let held = false;
+    const measure = (sceneId, key, el, boxes) => {
+      if (!el.textContent.trim()) return;
+      // Horizontal extent from the rendered glyphs (catches overflowing words); vertical extent from
+      // the line box, because glyph boxes include ascender/descender space beyond tight line heights.
+      const range = document.createRange(); range.selectNodeContents(el);
+      const rects = [...range.getClientRects()].filter(q => q.width > 0 && q.height > 0);
+      if (!rects.length) return;
+      const line = el.getBoundingClientRect();
+      const r = {left: Math.min(...rects.map(q => q.left)), top: line.top, right: Math.max(...rects.map(q => q.right)), bottom: line.bottom};
+      const box = {left: (r.left - s.left) / k, top: (r.top - s.top) / k, right: (r.right - s.left) / k, bottom: (r.bottom - s.top) / k};
+      const style = getComputedStyle(el), size = parseFloat(style.fontSize), bold = Number(style.fontWeight) >= 700;
+      const add = (severity, check, detail) => issues.push({severity, check, scene: sceneId, element: key, detail});
+      for (let node = el.parentElement; node && node !== stage; node = node.parentElement) {
+        if (getComputedStyle(node).overflow !== 'hidden') continue;
+        const c = node.getBoundingClientRect();
+        if (r.left < c.left - 0.5 || r.top < c.top - 0.5 || r.right > c.right + 0.5 || r.bottom > c.bottom + 0.5) { add('error', 'clipped', 'text extends beyond a clipping mask during a readable hold'); break; }
+      }
+      if (box.left < 0 || box.top < 0 || box.right > score.width || box.bottom > score.height) add('error', 'outside-frame', `text box ${Math.round(box.left)},${Math.round(box.top)} to ${Math.round(box.right)},${Math.round(box.bottom)} leaves the ${score.width}x${score.height} frame`);
+      else if (box.left < marginX - 0.5 || box.right > score.width - marginX + 0.5 || box.top < top - 0.5 || box.bottom > score.height - bottom + 0.5) add('warning', 'margin', `text is closer to the edge than the ${Math.round(marginX)} px side, ${Math.round(top)} px top or ${Math.round(bottom)} px bottom margin or safe area`);
+      const ratio = contrast(rgb(style.color).slice(0, 3), backgroundOf(el)), large = size >= 24 || (bold && size >= 18.66);
+      if (ratio < (large ? 3 : 4.5)) add('error', 'contrast', `contrast ${ratio.toFixed(2)}:1 is below WCAG ${large ? '3' : '4.5'}:1 for ${large ? 'large' : 'normal'} text`);
+      const opacity = opacityOf(el);
+      if (opacity < 0.99) add('warning', 'hold-opacity', `text opacity is ${opacity.toFixed(2)} during a readable hold`);
+      if (score.height > score.width && size < score.height / 48) add('warning', 'small-text', `${Math.round(size)} px text may be hard to read on a phone`);
+      for (const other of boxes) if (box.left < other.box.right && other.box.left < box.right && box.top < other.box.bottom && other.box.top < box.bottom) add('warning', 'overlap', `overlaps ${other.key}`);
+      boxes.push({key, box});
+    };
+    const sceneBoxes = [];
     for (const {scene, texts} of scenes) {
       if (!(frame >= scene.start && frame < scene.end)) continue;
       if (!(scene.holds || []).some(([a, b]) => frame >= a && frame < b)) continue;
       held = true;
       const boxes = [];
-      for (const {key, el} of texts) {
-        if (!el.textContent.trim()) continue;
-        // Horizontal extent from the rendered glyphs (catches overflowing words); vertical extent from
-        // the line box, because glyph boxes include ascender/descender space beyond tight line heights.
-        const range = document.createRange(); range.selectNodeContents(el);
-        const rects = [...range.getClientRects()].filter(q => q.width > 0 && q.height > 0);
-        if (!rects.length) continue;
-        const line = el.getBoundingClientRect();
-        const r = {left: Math.min(...rects.map(q => q.left)), top: line.top, right: Math.max(...rects.map(q => q.right)), bottom: line.bottom};
-        const box = {left: (r.left - s.left) / k, top: (r.top - s.top) / k, right: (r.right - s.left) / k, bottom: (r.bottom - s.top) / k};
-        const style = getComputedStyle(el), size = parseFloat(style.fontSize), bold = Number(style.fontWeight) >= 700;
-        const add = (severity, check, detail) => issues.push({severity, check, scene: scene.id, element: key, detail});
-        for (let node = el.parentElement; node && node !== stage; node = node.parentElement) {
-          if (getComputedStyle(node).overflow !== 'hidden') continue;
-          const c = node.getBoundingClientRect();
-          if (r.left < c.left - 0.5 || r.top < c.top - 0.5 || r.right > c.right + 0.5 || r.bottom > c.bottom + 0.5) { add('error', 'clipped', 'text extends beyond a clipping mask during a readable hold'); break; }
-        }
-        if (box.left < 0 || box.top < 0 || box.right > score.width || box.bottom > score.height) add('error', 'outside-frame', `text box ${Math.round(box.left)},${Math.round(box.top)} to ${Math.round(box.right)},${Math.round(box.bottom)} leaves the ${score.width}x${score.height} frame`);
-        else if (box.left < marginX - 0.5 || box.right > score.width - marginX + 0.5 || box.top < top - 0.5 || box.bottom > score.height - bottom + 0.5) add('warning', 'margin', `text is closer to the edge than the ${Math.round(marginX)} px side, ${Math.round(top)} px top or ${Math.round(bottom)} px bottom margin or safe area`);
-        const ratio = contrast(rgb(style.color).slice(0, 3), backgroundOf(el)), large = size >= 24 || (bold && size >= 18.66);
-        if (ratio < (large ? 3 : 4.5)) add('error', 'contrast', `contrast ${ratio.toFixed(2)}:1 is below WCAG ${large ? '3' : '4.5'}:1 for ${large ? 'large' : 'normal'} text`);
-        const opacity = opacityOf(el);
-        if (opacity < 0.99) add('warning', 'hold-opacity', `text opacity is ${opacity.toFixed(2)} during a readable hold`);
-        if (score.height > score.width && size < score.height / 48) add('warning', 'small-text', `${Math.round(size)} px text may be hard to read on a phone`);
-        for (const other of boxes) if (box.left < other.box.right && other.box.left < box.right && box.top < other.box.bottom && other.box.top < box.bottom) add('warning', 'overlap', `overlaps ${other.key}`);
-        boxes.push({key, box});
-      }
+      for (const {key, el} of texts) measure(scene.id, key, el, boxes);
+      sceneBoxes.push(...boxes);
+    }
+    // A caption is meant to be read for its whole interval, so it is measured whenever it is shown,
+    // including overlap with settled scene text.
+    if (captionTree && captionTexts.some(({el}) => el.textContent.trim())) {
+      held = true;
+      for (const {key, el} of captionTexts) measure('captions', key, el, [...sceneBoxes]);
     }
     return {frame, checked: held, issues};
   }

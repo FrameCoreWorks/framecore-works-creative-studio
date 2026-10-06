@@ -31,6 +31,7 @@ export function checkScore(score, {storyboard = false} = {}) {
   if (!Number.isSafeInteger(n) || n < 1) errors.push('totalFrames must be a positive integer');
   if (!Number.isSafeInteger(score.width) || !Number.isSafeInteger(score.height)) errors.push('width and height must be integers');
   checkFormats(score, errors);
+  checkSound(score, errors, warnings);
   let coverage = 0;
   const ids = new Set();
   for (const scene of score.scenes ?? []) {
@@ -103,6 +104,49 @@ function checkFormats(score, errors) {
   }
 }
 
+// Music beat grid, voice-over file and captions (exact text in copy, timing in master frames).
+function checkSound(score, errors, warnings) {
+  const music = score.music, n = score.totalFrames, fps = score.fps?.num / score.fps?.den;
+  if (music !== undefined) {
+    if (typeof music !== 'object' || music === null) errors.push('music must be an object');
+    else {
+      if (music.bpm !== undefined && !(Number.isFinite(music.bpm) && music.bpm > 0 && music.bpm <= 400)) errors.push('music.bpm must be a number above 0 and at most 400');
+      if (music.offsetMs !== undefined && !(Number.isFinite(music.offsetMs) && music.offsetMs >= 0)) errors.push('music.offsetMs must be 0 or more');
+      if (music.beatsPerBar !== undefined && !(Number.isSafeInteger(music.beatsPerBar) && music.beatsPerBar >= 1)) errors.push('music.beatsPerBar must be a positive integer');
+    }
+  }
+  for (const [name, track] of [['music', music], ['voiceover', score.voiceover]]) {
+    if (track?.src !== undefined && !text(track.src)) errors.push(`${name}.src must be a file name`);
+    if (track?.volume !== undefined && !(Number.isFinite(track.volume) && track.volume >= 0 && track.volume <= 1)) errors.push(`${name}.volume must be from 0 to 1`);
+  }
+  if (score.captions === undefined) return;
+  if (!Array.isArray(score.captions)) { errors.push('captions must be a list'); return; }
+  const ids = new Set();
+  let previousEnd = 0;
+  for (const caption of score.captions) {
+    const id = caption?.id;
+    if (!text(id) || ids.has(id)) errors.push(`caption id missing or duplicated: ${id}`);
+    ids.add(id);
+    if (!(Number.isSafeInteger(caption?.start) && Number.isSafeInteger(caption?.end) && caption.start >= 0 && caption.end <= n && caption.end > caption.start)) { errors.push(`caption ${id}: invalid [start,end)`); continue; }
+    if (caption.start < previousEnd) errors.push(`caption ${id}: starts before the previous caption ends; captions must be in order without overlap`);
+    previousEnd = caption.end;
+    if (typeof score.copy?.[caption.copy] !== 'string') { errors.push(`caption ${id}: copy id ${caption.copy} is missing`); continue; }
+    const characters = score.copy[caption.copy].length;
+    if (Number.isFinite(fps)) {
+      const needed = Math.ceil(Math.max(1, characters / 13 + 0.5) * fps);
+      if (caption.end - caption.start < needed) warnings.push(`caption ${id}: ${caption.end - caption.start} frames is below the reading heuristic of ${needed} frames for ${characters} characters`);
+    }
+  }
+}
+
+const beatOf = (score, frame) => {
+  const music = score.music, fps = score.fps.num / score.fps.den;
+  if (!(music?.bpm > 0)) return '';
+  const beat = Math.max(0, Math.round((frame / fps - (music.offsetMs ?? 0) / 1000) * music.bpm / 60)), perBar = music.beatsPerBar ?? 4;
+  const offset = frame - Math.round(((music.offsetMs ?? 0) / 1000 + beat * 60 / music.bpm) * fps);
+  return `${Math.floor(beat / perBar) + 1}.${(beat % perBar) + 1}${offset ? ` (${offset > 0 ? '+' : ''}${offset} f)` : ''}`;
+};
+
 const cell = value => String(value ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
 const list = values => (values?.length ? values.map(value => `- ${value}`).join('\n') : '- none');
 
@@ -120,11 +164,15 @@ export function toMarkdown(score) {
     `- Message: ${score.message ?? ''}`,
     `- Concept: ${score.concept ?? ''}`,
     `- Format: ${score.width} x ${score.height}, ${fps} FPS, ${score.totalFrames} frames (${seconds(score.totalFrames)} s), frames 0..${score.totalFrames - 1}. Viewing: ${score.viewing ?? 'unknown'}. Audio: ${score.audio ?? 'unknown'}.`,
+    ...(score.music?.bpm ? [`- Music: ${score.music.bpm} BPM, ${score.music.beatsPerBar ?? 4} beats per bar, first beat at ${score.music.offsetMs ?? 0} ms${score.music.src ? `, file ${score.music.src}` : ''}. Scene starts below show bar.beat and the offset from the nearest beat.`] : []),
+    ...(score.voiceover?.src ? [`- Voice-over: file ${score.voiceover.src}.`] : []),
     ...(score.formats?.length ? [`- Other formats: ${score.formats.map(format => `${format.id} ${format.width} x ${format.height}${format.viewing ? ` (${format.viewing})` : ''}`).join('; ')}.`] : []),
     '',
     '| Scene | Frames [start,end) | Seconds | Copy | Focal point | Entry -> action -> exit | Transition | Readable hold | Audio |',
     '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
-    ...score.scenes.map(scene => `| ${cell(scene.id)}${scene.kind ? ` (${cell(scene.kind)})` : ''}: ${cell(scene.purpose)} | [${scene.start},${scene.end}) | ${seconds(scene.start)}-${seconds(scene.end)} | ${cell((scene.copy ?? []).map(id => `"${score.copy?.[id] ?? id}"`).join(', '))} | ${cell(scene.focalPoint)} | ${cell([scene.entry, scene.action, scene.exit].filter(Boolean).join(' -> '))} | ${cell(scene.transition)} | ${cell((scene.holds ?? []).map(([a, b]) => `[${a},${b})`).join(', '))} | ${cell(scene.audio)} |`),
+    ...score.scenes.map(scene => `| ${cell(scene.id)}${scene.kind ? ` (${cell(scene.kind)})` : ''}: ${cell(scene.purpose)} | [${scene.start},${scene.end})${score.music?.bpm ? `, beat ${beatOf(score, scene.start)}` : ''} | ${seconds(scene.start)}-${seconds(scene.end)} | ${cell((scene.copy ?? []).map(id => `"${score.copy?.[id] ?? id}"`).join(', '))} | ${cell(scene.focalPoint)} | ${cell([scene.entry, scene.action, scene.exit].filter(Boolean).join(' -> '))} | ${cell(scene.transition)} | ${cell((scene.holds ?? []).map(([a, b]) => `[${a},${b})`).join(', '))} | ${cell(scene.audio)} |`),
+    ...(score.captions?.length ? ['', '## Captions', '', '| Caption | Frames [start,end) | Seconds | Text |', '| --- | --- | --- | --- |',
+      ...score.captions.map(caption => `| ${cell(caption.id)} | [${caption.start},${caption.end}) | ${seconds(caption.start)}-${seconds(caption.end)} | ${cell(score.copy?.[caption.copy] ?? caption.copy)} |`)] : []),
     '',
     '## Acceptance criteria',
     list([...(score.acceptance ?? []), ...score.scenes.flatMap(scene => (scene.acceptance ?? []).map(item => `${scene.id}: ${item}`))]),

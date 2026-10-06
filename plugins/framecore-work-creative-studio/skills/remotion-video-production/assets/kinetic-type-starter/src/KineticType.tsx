@@ -1,6 +1,6 @@
-import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Img, staticFile, useCurrentFrame} from 'remotion';
 import type {CSSProperties} from 'react';
-import {buildScene, sceneFrame} from './motion-scenes.mjs';
+import {buildCaptions, buildScene, captionsFrame, sceneFrame} from './motion-scenes.mjs';
 import type {MotionScore, Scene} from './motion';
 
 type Node = {key: string; type: 'box' | 'text' | 'image'; text?: string; src?: string; alt?: string; style?: CSSProperties; children?: Node[]};
@@ -11,11 +11,16 @@ type FrameStyles = Record<string, {style?: CSSProperties; text?: string}>;
 export const KineticType: React.FC<{score: MotionScore}> = ({score}) => {
   const frame = useCurrentFrame();
   const {tokens} = score;
+  // Captions and audio files come from the contract; audio files live in public/ (see README).
+  const captions = buildCaptions(score) as unknown as Node | null;
   return (
     <AbsoluteFill style={{backgroundColor: tokens.background, fontFamily: tokens.fontFamily, color: tokens.foreground}}>
       {score.scenes.filter(scene => frame >= scene.start && frame < scene.end).map(scene => (
         <SceneView key={scene.id} scene={scene} score={score} frame={frame} />
       ))}
+      {captions ? <NodeView node={captions} styles={captionsFrame(score, frame) as unknown as FrameStyles} /> : null}
+      {score.music?.src ? <Audio src={staticFile(score.music.src)} volume={score.music.volume ?? 1} /> : null}
+      {score.voiceover?.src ? <Audio src={staticFile(score.voiceover.src)} volume={score.voiceover.volume ?? 1} /> : null}
     </AbsoluteFill>
   );
 };

@@ -6,7 +6,7 @@ These original, dependency-free adapter functions extend the existing frame cont
 
 - `validateScore(score)`: rational FPS, scene coverage, readable holds and finite sound-cue intervals.
 - `secondsAtFrame(frame,score)`: master time conversion.
-- `reviewFrames(score)`: first/last, uniform samples, neighboring boundary frames, readable holds and cue contacts. Sampling does not certify the entire film.
+- `reviewFrames(score)`: first/last, uniform samples, neighboring boundary frames, readable holds, cue contacts and the start, middle and end of each caption. Sampling does not certify the entire film.
 - `cueTimes(score)`: sound-event seconds from the same master frames.
 - `renderPaperFrame(mount,frame,score)`: stop Paper playback, set its time in milliseconds. Await actual renderer completion separately.
 - `renderToneCues(Tone,score)`: synthesize sine accents into an offline stereo buffer using injected Tone. Cue duration includes the release tail. No Transport, network, provider or autoplay.

@@ -23,6 +23,7 @@ export function validateMotionToolkit(root) {
     `${scenesDir}/README.md`,
     'skills/hyperframes-workflow/assets/motion-review/README.md',
     'skills/hyperframes-workflow/assets/motion-review/review-frames.mjs',
+    ...['README.md','sync.mjs','examples/voice-over.srt'].map(name => `skills/hyperframes-workflow/assets/motion-sync/${name}`),
     `${scenesDir}/motion-scenes.mjs`,
     `${scenesDir}/examples/all-kinds.motion-score.json`,
     `${kinetic}/src/motion-scenes.mjs`,

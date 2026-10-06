@@ -1,10 +1,10 @@
-# Creative Studio 1.18.0
+# Creative Studio 1.19.0
 
-One animation, several formats.
+Animation in time with music and voice-over.
 
-- **16:9, 9:16 and 1:1 from one plan.** A motion contract can now list extra formats. The timing, text and reading pauses stay the same; only the frame size and, where needed, a few settings such as type size change. Lists of steps stack vertically on a phone screen automatically.
-- **Preview, video and review know the formats.** The browser preview has a format menu, the Remotion starter renders each format as its own video, and the automated frame review checks every format and shows them in separate sections.
-- **Safe areas without guessing.** Space for platform buttons and captions can be reserved per format, but only with values from the platform's current documentation or from you; Studio does not invent them.
-- **Sharper review screenshots.** Review screenshots are now drawn at the exact frame size and match the rendered video frame for frame.
+- **Beat grid.** Give the tempo of the music and when its first beat sounds, and Studio shows where every scene and reading pause falls: which bar and beat, and how many frames it is from the nearest beat. Changes to timing stay proposals until you approve a new version of the plan.
+- **Captions from voice-over subtitles.** An SRT or WebVTT file becomes captions in the plan: the exact text goes to the copy list and each caption appears and disappears on its exact frame, in every format.
+- **Hear it with the picture.** The browser preview plays the music and voice-over files saved next to it and follows the sound while playing; the Remotion starter puts both into the rendered video.
+- **Checks.** The plan check catches overlapping or missing captions and warns about captions too short to read; the automated frame review measures captions too.
 
-Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Studio does not detect tempo or align speech by itself: tempo, offset and subtitle timing come from the music source, from you or from a separate tool. Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

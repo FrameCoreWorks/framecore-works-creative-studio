@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "689438e50dad2be74f719951e8d354c33e5e6776d33471ac9aa060929e84df58"
+      "sha256": "fc1412f5340a28b9c2dad73261e91167ffccf6f050621078668aa25b174c5b02"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17645,
-      "sha256": "28a02169d24c433a108b76aaab070a1c20dfe200d6913e014839cce6c414edae"
+      "bytes": 17771,
+      "sha256": "e122fad4886a4c9f30824de4308b6cba8e13f96dc6ab343d47e720ffa9a27e75"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "7ee8cec36676a5f2d7cf9be4a10cd3175244a657bab518c41ce9f5abdf3d919d"
+      "sha256": "de0936375fcfa5b6739fe89a8c987b53cf24f89a9627ba8ab8bb4e13760912ba"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 48545,
-      "sha256": "b84c30e74ed1fa5a1bff18927e277b37515f919e337a833f3f105d7b7dc96a91"
+      "bytes": 49663,
+      "sha256": "698e39d2779aa0aee0ff24be2c6ae99d9ad59034e231b19884c8b1d2ae266980"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2234,7 +2234,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "d09559b9831944866aa9a48aacd55ea8eb98c4d41e75c67c4d906b303ea74f32"
+      "sha256": "40d4b2379771caf36a390a06294bf3265012c725a702ab3d001ff8afc8594a7e"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2278,8 +2278,8 @@
     },
     {
       "path": "scripts/validate-motion-toolkit.mjs",
-      "bytes": 5588,
-      "sha256": "7c4e1df66490fa0326aaa199936ed4de20b21b2b51bf9445f8efdd8616827319"
+      "bytes": 5717,
+      "sha256": "b3fec7eeff7f9b79ba8cf6b9fef3a376edc5aa47cd014fb1d40146bff8365c57"
     },
     {
       "path": "scripts/validate-package.mjs",
@@ -2833,8 +2833,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 8427,
-      "sha256": "5cb4475065e00f9d7581598b5c157d5eb94d634c4fcc2408c5ea0d9342e4cc12"
+      "bytes": 8535,
+      "sha256": "5aa9d877247679d37869babcccc602dc0eddbba99e26422344485ce822e1254e"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -2868,8 +2868,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
-      "bytes": 11422,
-      "sha256": "8ae0e5c80450ef2a08426c3760a32dc320dee669718cec7c2e60c7e6043c711a"
+      "bytes": 15263,
+      "sha256": "329a62cd230da0f798f5c889f62906417288280a01d745019be7f03030e6fdce"
     },
     {
       "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/index.html",
@@ -3013,8 +3013,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/README.md",
-      "bytes": 2710,
-      "sha256": "6ce6d1b6acd22a9ddd4be9bf072fbc2331fda657e2aa8c9e4a3645a83723b534"
+      "bytes": 2753,
+      "sha256": "eaa5e98174bd17a784720a65cdc0f8b8a14b081974982997b3c69caf41094516"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/example-score.json",
@@ -3028,23 +3028,23 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/score.mjs",
-      "bytes": 4981,
-      "sha256": "8580c66c73cd4c01437ebb304b05a5eaacd6e229a7b8d001cf6b234c563a1f7f"
+      "bytes": 5087,
+      "sha256": "f550200c83d5770508ca40eb21c9d7ebc37dd3610a6075194bdc95682418e8f8"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
-      "bytes": 3840,
-      "sha256": "26b14a0458facfc5d2898c7b854fcfe12859d3f083a130fea79db815e56da808"
+      "bytes": 3975,
+      "sha256": "4364b16c780a7098853a413f706e566db2f65a881ece3ec24ba12d690bb53498"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
-      "bytes": 9954,
-      "sha256": "a92e2b60e4c959158256b7e30605413d6131c456fe0e79788999820813e7c94e"
+      "bytes": 10072,
+      "sha256": "d2aafd80596264a8ca0571de3b00c703eaa2188a0a61743ef93c94f82e2af9eb"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-scenes/README.md",
-      "bytes": 4914,
-      "sha256": "d147c86b8c35b94b89d230ddd8837ea33e6d8ccbe58c6b3bb10a1621e72bd4c7"
+      "bytes": 5195,
+      "sha256": "cf441f7620ba8fee12dced9c367e96365355314eefb01a502829a3f06b7a4b00"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/all-kinds.motion-score.json",
@@ -3053,8 +3053,23 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
-      "bytes": 11811,
-      "sha256": "237d18f2dad06785fa2931f46afaff429202c26d2ceea403475c248124f85fa8"
+      "bytes": 13887,
+      "sha256": "6cdf409d024b5d754a23c64ccfe22ff625070893c07c721859d5d582559ec9e7"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
+      "bytes": 3884,
+      "sha256": "336d25dae6a7022cc55e57498d167253d5d5a0b9a70b82d774cde8d11bfe0949"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt",
+      "bytes": 191,
+      "sha256": "6f62827f36b2490f1c2470c8c88f9087637d9c63f266992f2da5c7e97b45fd7a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/sync.mjs",
+      "bytes": 7980,
+      "sha256": "165773932e88895d9d3ad8824627ecab98f62d901849265df05a8072dda9a25b"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-toolkit/README.md",
@@ -3118,13 +3133,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
-      "bytes": 3949,
-      "sha256": "b9468ad53449b4a3ca5a13edfce3c4dabba268aaa6ff2285f37ffa7b08429724"
+      "bytes": 4203,
+      "sha256": "4112d917eec9ba60d5f67774d9e542d15a0d08a378dfc136cf7f464d6e3ea3bc"
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
-      "bytes": 29947,
-      "sha256": "07ec41294f2531aaa2cbf081923b9b747979ff11b662eaca67d64e29e1e2e3d0"
+      "bytes": 33603,
+      "sha256": "a2b50fb2ba2ce15d7b2ae3768e5d5ce9e3e466f8b9238c76e87b1025b9436f94"
     },
     {
       "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
@@ -3138,13 +3153,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-contract-json.md",
-      "bytes": 4940,
-      "sha256": "f8450c808a756e1db0f38208b4a51c540454a366ed6de311db71377b5231d391"
+      "bytes": 5394,
+      "sha256": "04736066437673451b85aad7cccf2334225c287a20653bdd087763188a107b01"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-craft.md",
-      "bytes": 8748,
-      "sha256": "743087e153d4dbac3813d5df5be36f622e46eda2db248ef7819bc503c708e83a"
+      "bytes": 8921,
+      "sha256": "52355b8cf042c56940bc0c530592488739dbafbe2293fbad36da4b9377707909"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
@@ -3543,13 +3558,13 @@
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/README.md",
-      "bytes": 4220,
-      "sha256": "dd172d0e3128cc0bdcfdb1f5a8034c47bb39ed0cc28e380df7528e884de46d40"
+      "bytes": 4628,
+      "sha256": "a166116507c4476bc81323f7987fbe5cb7d882c74b003594f6d25831a2cefab9"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
-      "bytes": 11422,
-      "sha256": "8ae0e5c80450ef2a08426c3760a32dc320dee669718cec7c2e60c7e6043c711a"
+      "bytes": 15263,
+      "sha256": "329a62cd230da0f798f5c889f62906417288280a01d745019be7f03030e6fdce"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/motion-score.json",
@@ -3573,8 +3588,8 @@
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/KineticType.tsx",
-      "bytes": 1942,
-      "sha256": "e7e54a787e05f3a37f2ebd558918e5a3b3bfe301efedc7a6dad882066e77fcbb"
+      "bytes": 2506,
+      "sha256": "5911b74b6fd648e987839931dcdb600e61913983d7ff682f0e644b4d57d444fe"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/Root.tsx",
@@ -3588,13 +3603,13 @@
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
-      "bytes": 11811,
-      "sha256": "237d18f2dad06785fa2931f46afaff429202c26d2ceea403475c248124f85fa8"
+      "bytes": 13887,
+      "sha256": "6cdf409d024b5d754a23c64ccfe22ff625070893c07c721859d5d582559ec9e7"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/motion.ts",
-      "bytes": 1093,
-      "sha256": "9530c0552f02f17166ed067e704b07629066a35b19c7c91cb661b5ce60a28268"
+      "bytes": 1412,
+      "sha256": "27a6363971a6bec89383542c6956f48d1257a314c2088ed670e74346af5d8863"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/tsconfig.json",
@@ -4164,7 +4179,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 29255,
-      "sha256": "212a108110377590f55c3d2d8182d19239d2f90f64cc9828f7a835a42d37f27d"
+      "sha256": "dbe4b7318c869812dc14962a3da2e9a5f336b0f6189accd5cd595e923b228a90"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4368,8 +4383,8 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 14898,
-      "sha256": "19b2cdafecfbebd2ae42a218a09a23f468814c174dc96ffe522cb14e5ac9e7df"
+      "bytes": 20712,
+      "sha256": "40f529d6117e080797dad1570138604c78232199359638972ffb06e5b4508441"
     },
     {
       "path": "tests/package.test.mjs",
