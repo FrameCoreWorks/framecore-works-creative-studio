@@ -11,4 +11,4 @@ Source version: **1.18.0**. Date: 2026-10-06. Change ID: `CC-20261006-11` (origi
 | GitHub publication | NOT_RUN at source preparation; see the [development ledger](docs/development-ledger.md) for the integrated state |
 | Hosted plugin, ChatGPT and Codex | Owner-managed; not tracked by this source release |
 
-See [source verification](verification/release-1.18.0.json) and [bounded scope](verification/scope-1.18.0.json). Source and container checks do not establish host behavior. The 201 planned host cases remain not_run. The previous release, 1.17.0, is recorded in [its verification](verification/release-1.17.0.json); its GitHub publication had not run when 1.18.0 was prepared.
+See [source verification](verification/release-1.18.0.json) and [bounded scope](verification/scope-1.18.0.json). Source and container checks do not establish host behavior. The 201 planned host cases remain not_run. The previous release, 1.17.0, is recorded in [its verification](verification/release-1.17.0.json) and [GitHub publication](verification/github-publication-1.17.0.json).
