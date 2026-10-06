@@ -24,6 +24,12 @@ Keep both localized welcome/excerpt, language-policy projection and skill-metada
 
 Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check. For a release, synchronize both plugin manifests and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
 
+## Development provenance
+
+Several surfaces develop this repository: the owner, ChatGPT Work, Codex and Cloud Code. Before writing, read `docs/development-ledger.md`, `CHANGELOG.md`, `RELEASE_STATUS.md` and current Git history; preserve compatible work from other surfaces and never overwrite it without inspecting its intent. Record the baseline SHA and re-check the branch head before committing or pushing; do not resolve drift with `reset --hard` or a force push.
+
+Treat `main` as protected even without GitHub enforcement. Develop on a working branch, for Cloud Code `cloud-code/<change-id>-<short-scope>` with change ID `CC-YYYYMMDD-NN`, and integrate through review unless the owner decides otherwise. Commits carry the trailers `Origin-Agent`, `Change-ID`, `Baseline-SHA`, `Shared-Package-Changed`, `ChatGPT-Work-Sync` and `Codex-Sync`. Each integrated change adds a ledger entry with origin, baseline, result, version, scope, verification and per-host state. Write `synchronized` only with readback evidence; otherwise use `pending`, `unknown` or `not_run`.
+
 ## Paired GitHub and ChatGPT updates
 
 The user requires the existing ChatGPT plugin and this GitHub repository to remain synchronized. For every explicitly requested plugin implementation or update, complete both operations in the same task: verify the repository changes, commit and push them to GitHub, update the existing hosted plugin from the same source, and read back both destinations. This is standing project authorization for the paired update unless the user's current request explicitly limits the work to review, planning or local-only changes. A metadata-only repository correction needs no redundant hosted release when the plugin package is unchanged.
