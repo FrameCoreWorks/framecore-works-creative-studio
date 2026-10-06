@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "de2298511e98c40bdad10196dc31d35768dff90d1b0acda5e7632b290d905a2e",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.20.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks in one Chromium build; browser H.264 encoding, Chrome or Edge on Windows or macOS, Firefox, Safari and host behavior are not verified. Export is video only. All 201 planned cases remain not_run.",
