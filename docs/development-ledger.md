@@ -238,3 +238,26 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `909c1f0` on owner instruction; [v1.16.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.16.0) published by workflow 37503394895; 867 blobs and plugin ZIP hash match ([record](../verification/github-publication-1.16.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261006-10
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-10-frame-review`
+- Baseline: `f16c18e55c6ac187890e5f35a038dc520a1f669f` (main, package 1.16.0)
+- Result: `47baaab0070e37ece2cd163b3a7784732ce6ec55` (package 1.17.0)
+- Package version: 1.16.0 -> 1.17.0
+- Scope: automated frame review with preview review mode and contact sheet (motion direction 8, second round)
+- Shared package changed: yes; 11 changed, 2 added, 0 removed ([scope](../verification/scope-1.17.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 149 (+1 opt-in browser test passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- review tool in headless Chromium: starter and all-kinds contracts without findings; broken contract flagged with exit code 1
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
