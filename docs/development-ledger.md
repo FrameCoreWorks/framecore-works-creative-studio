@@ -142,3 +142,30 @@ Notes:
 
 - Only new paths were added; no package path was deleted, renamed or moved.
 - Starter dependencies are pinned with lockfiles; no `node_modules` or rendered output is in the package.
+
+## CC-20261006-06
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261006-06-html-preview`
+- Baseline: `5769ad9288db76842b56104bc78c8e0407abc247` (main, package 1.12.0)
+- Result: `4aa8d0319da54a74c7c0cf9609f71727990aeaf5` (package 1.13.0)
+- Package version: 1.12.0 -> 1.13.0
+- Scope: self-contained single-file motion preview for hosts without shell or renderer (motion direction 5)
+- Shared package changed: yes; 10 changed, 2 added, 0 removed ([scope](../verification/scope-1.13.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 140, motion-quality 9, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- template opened via `file://` in headless Chromium; six frames inspected; direct, forward and backward seeks pixel-identical
+- interactive Play and host behavior: not_run
+
+Host evidence:
+
+- Owner-run ordinary ChatGPT diagnostic on 2026-10-06: Canvas unavailable in that conversation; the test files were not executed there. The mode was therefore designed not to depend on Canvas.
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
