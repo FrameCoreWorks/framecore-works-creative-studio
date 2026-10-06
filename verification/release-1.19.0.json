@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "20773dae48a68d045d828bc823026016a56abe735015924cf8b8b886dbad9d06",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.19.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks on selected frames, one synthetic audio render and source tests; preview audio playback, full per-format renders and host behavior are not verified. All 201 planned cases remain not_run.",
