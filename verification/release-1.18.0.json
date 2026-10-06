@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "c478487fcf6b36e0bf315c0d9b1fa4458ca3e050311bb96cbd71441fec248077",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.18.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks on selected frames and stills; no full per-format video render or playback review, and host behavior is not verified. All 201 planned cases remain not_run.",
