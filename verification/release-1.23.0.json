@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "0786964fa764571f6b6924816daaf7b22f65b0e8fd1a66748849ecfd1e7b7958",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.23.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks and one owner click; whether ChatGPT now ends with the one-click link and stops rendering substitute videos is not verified until an owner test. All 201 planned cases remain not_run.",
