@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "about": "The Studio sound base: what direction.py knows when it designs sound for one video. Moods are scored from the contract (style, motion tempo, easing, colours, scene kinds and the brief's own words); every option below carries the moods it suits, and the best-fitting options are chosen for each role, with a seeded choice between near ties so two videos with the same profile still differ. Nothing here is a recording: every option names a synthesized design that is rendered anew for each video. Edit this file to teach Studio new choices; keep weights between 0 and 1.",
+  "moods": {
+    "calm": "quiet, reassuring, unhurried: finance, health, family, care",
+    "bold": "loud, confident, launch energy: announcements, sales, sport",
+    "playful": "light, bouncy, friendly fun: social, games, consumer",
+    "technical": "precise, digital, product: software, apps, data, developer",
+    "organic": "natural, hand-made, warm: food, travel, outdoors, craft",
+    "editorial": "type-led, considered, sparse: statements, manifestos, design-led brands"
+  },
+  "lexicon": {
+    "calm": ["calm", "safe", "secure", "care", "health", "family", "gentle", "soft", "trust", "simple", "peace", "spokoj", "bezpiecz", "zdrow", "rodzin", "opiek", "zaufan", "prost", "lagodn", "miekk"],
+    "bold": ["launch", "new", "now", "bold", "big", "fast", "power", "sale", "win", "loud", "start", "nowy", "nowa", "teraz", "premiera", "mocn", "szybk", "promocj", "wielk", "glosn"],
+    "playful": ["fun", "play", "game", "joy", "friend", "colour", "color", "party", "zabaw", "gra", "radosc", "kolor", "przyjaci", "impreza"],
+    "technical": ["app", "software", "data", "api", "code", "ai", "cloud", "device", "interface", "screen", "tap", "dashboard", "developer", "aplikac", "dane", "kod", "ekran", "interfejs", "program"],
+    "organic": ["food", "coffee", "travel", "nature", "garden", "craft", "wood", "eco", "outdoor", "kawa", "jedzen", "podroz", "natur", "ogrod", "rzemiosl", "eko", "drewn"],
+    "editorial": ["statement", "manifesto", "story", "word", "quote", "type", "design", "idea", "brand", "opowiesc", "slowo", "cytat", "typograf", "pomysl", "marka", "manifest"]
+  },
+  "style_moods": {
+    "meadow": {"calm": 0.9, "organic": 0.6, "playful": 0.3},
+    "warm-ink": {"technical": 0.7, "editorial": 0.6, "calm": 0.4},
+    "midnight": {"technical": 0.9, "bold": 0.5},
+    "field-guide": {"organic": 0.9, "editorial": 0.5},
+    "paper-and-ink": {"editorial": 0.9, "calm": 0.4},
+    "color-block": {"playful": 0.9, "bold": 0.8},
+    "brand-native": {}
+  },
+  "tempo_moods": {
+    "calm": {"calm": 0.8},
+    "friendly": {"playful": 0.4, "calm": 0.3},
+    "bouncy": {"playful": 0.8},
+    "bold": {"bold": 0.8},
+    "snappy": {"bold": 0.4, "technical": 0.4},
+    "precise": {"technical": 0.7},
+    "luminous": {"technical": 0.5},
+    "editorial": {"editorial": 0.8}
+  },
+  "kind_moods": {
+    "device": {"technical": 0.7},
+    "counter": {"technical": 0.4, "bold": 0.3},
+    "quote": {"editorial": 0.6},
+    "logo-reveal": {"bold": 0.3},
+    "line-reveal": {"editorial": 0.3},
+    "item-stagger": {"playful": 0.2}
+  },
+  "roles": {
+    "landing": {
+      "about": "a line, caption, item or quote landing",
+      "options": {
+        "knock": {"design": "knock", "moods": {"organic": 0.9, "calm": 0.4, "editorial": 0.3}, "gain": 0},
+        "tap": {"design": "tap", "moods": {"technical": 0.8, "calm": 0.5, "editorial": 0.5}, "gain": -2},
+        "pop": {"design": "pop", "moods": {"playful": 1.0, "bold": 0.4}, "gain": -3},
+        "swish": {"design": "swish", "moods": {"bold": 0.7, "technical": 0.4, "playful": 0.3}, "gain": -4, "pace": "fast"},
+        "none": {"design": null, "moods": {"editorial": 0.45, "calm": 0.25}, "pace": "slow"}
+      }
+    },
+    "backbeat": {
+      "about": "beats 2 and 4 of the composed music",
+      "options": {
+        "snare": {"moods": {"bold": 0.7, "technical": 0.3}, "kits": ["studio", "electronic", "house", "tight"]},
+        "clap": {"moods": {"playful": 0.9, "bold": 0.7}, "kits": ["studio", "electronic", "house", "tight"]},
+        "snap": {"moods": {"playful": 0.5, "editorial": 0.5, "calm": 0.4}, "kits": ["studio", "tight", "soft", "organic", "sparse"]},
+        "rim": {"moods": {"technical": 0.7, "editorial": 0.5, "organic": 0.3}, "kits": ["studio", "tight", "organic", "sparse"]},
+        "brush": {"moods": {"organic": 0.8, "calm": 0.8}, "kits": ["soft", "organic", "sparse"]},
+        "none": {"moods": {"calm": 0.4, "editorial": 0.5}, "kits": ["studio", "soft", "organic", "sparse", "tight"]}
+      }
+    },
+    "palette": {
+      "about": "the music palette when the style does not fix one (brand-native or no style)",
+      "options": {
+        "studio": {"moods": {"bold": 0.4, "technical": 0.4, "playful": 0.3, "calm": 0.3}},
+        "meadow": {"moods": {"calm": 0.9, "organic": 0.6}},
+        "warm-ink": {"moods": {"technical": 0.7, "editorial": 0.6, "calm": 0.3}},
+        "midnight": {"moods": {"technical": 0.9, "bold": 0.5}},
+        "field-guide": {"moods": {"organic": 0.9, "editorial": 0.4}},
+        "paper-and-ink": {"moods": {"editorial": 0.9, "calm": 0.5}},
+        "color-block": {"moods": {"playful": 0.9, "bold": 0.8}}
+      }
+    }
+  },
+  "keys": {
+    "about": "major keys for light moods, minor for dark or tense ones; the root is chosen from the video's seed",
+    "major": ["C", "D", "E", "F", "G", "A"],
+    "minor": ["A", "B", "C", "D", "E"]
+  },
+  "character": {
+    "about": "how mood shapes the effects: whoosh brightness and intensity, click softness and accent use, each between the listed limits",
+    "whoosh_brightness": [0.75, 1.15],
+    "whoosh_intensity": [0.75, 1.0],
+    "click_softness": [0.0, 0.5],
+    "pitch_spread_semitones": 3
+  }
+}

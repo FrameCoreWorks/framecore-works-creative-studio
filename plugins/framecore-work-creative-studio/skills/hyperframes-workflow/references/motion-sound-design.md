@@ -4,18 +4,19 @@ Sound gives a motion video's actions weight: a line lands with a knock, a screen
 
 ## Studio-grade synthesis, never toy tones
 
-Studio designs its sounds and music with code, at the standard of a sound designer's layered work: band-limited noise shaped by moving filters for air, pitched sub layers for weight, modal resonances for clicks and knocks, tuned bells, saturation for density, a shared room and mastering. It never delivers bare oscillator beeps, a single sine "pop" or untreated noise: they sound like a toy and misrepresent the result. Every delivered track is planned with `sound.py plan`, rendered with `sound.py mix` (or a renderer with the same rules) and checked; the reply states the timing check and loudness.
+Studio designs its sounds and music with code, at the standard of a sound designer's layered work: band-limited noise shaped by moving filters for air, pitched sub layers for weight, modal resonances for clicks and knocks, tuned bells, saturation for density, a shared room and mastering. It never delivers bare oscillator beeps, a single untreated sine or untreated noise (a designed pop glides, breathes and is saturated): they sound like a toy and misrepresent the result. Every delivered track is planned with `sound.py plan`, rendered with `sound.py mix` (or a renderer with the same rules) and checked; the reply states the timing check and loudness.
 
 ## Order of work
 
 1. **Picture first.** Plan sound only after the timing is approved; a change to timing moves the cues, so plan again after it.
-2. **Music sets the energy.** The composed bed plays in the instruments of the video's style ([music palettes](../assets/motion-sound/README.md#music-palettes)). A track the user supplies goes in `music.src` (analyse and cut it with [`beats.py` and `music_edit.py`](../assets/motion-sync/README.md#analysing-a-supplied-track)); otherwise Studio composes a bed. Under words and effects the music is a bed: mixed below the effects, no lead melody over text.
-3. **Then the effects,** one per action that matters, from one central cue list (`sfx`), each named after the event it marks.
-4. **Mix, check, deliver,** with the cue table, and ask the user to listen once with the picture.
+1. **Direct the sound for this video.** Every video is analysed on its own: `sound.py analyze` reads the style, motion tempo and easing, colours, scene kinds, taps, pacing and the brief's words, scores its moods and pace, and chooses from the [sound base](../assets/motion-sound/sound-base.json) how text lands, the music's palette, backbeat and key, and the character of the effects. State the profile and the choices with their reasons in one or two lines; the user can change any of them (`--set landing=pop`). Studio never reuses one fixed set of sounds for every video, and everything is synthesized anew for each one.
+1. **Music sets the energy.** The composed bed plays in the instruments of the video's style ([music palettes](../assets/motion-sound/README.md#music-palettes)). A track the user supplies goes in `music.src` (analyse and cut it with [`beats.py` and `music_edit.py`](../assets/motion-sync/README.md#analysing-a-supplied-track)); otherwise Studio composes a bed. Under words and effects the music is a bed: mixed below the effects, no lead melody over text.
+1. **Then the effects,** one per action that matters, from one central cue list (`sfx`), each named after the event it marks.
+1. **Mix, check, deliver,** with the cue table, and ask the user to listen once with the picture.
 
 ## Choosing and placing sounds
 
-- **Vocabulary from the film type.** A product or brand video uses air (whooshes), weight (impacts, one boom for the final reveal), mechanical foley (clicks, knocks) and one bright tuned accent; never cartoon or game feedback tones unless the story is "the system speaks".
+- **Vocabulary from the film type.** A product or brand video uses air (whooshes), weight (impacts, one boom for the final reveal), mechanical foley (clicks, taps, knocks) and one bright tuned accent; never cartoon or game feedback tones unless the story is "the system speaks". The direction picks the landing sound by mood: a wooden knock for organic, a soft tap for technical or calm, a rounded pop for playful, a short swish for bold and fast, or silence for sparse editorial pieces.
 - **One sound per action that matters,** starting on the frame the thing moves or lands; `density` sets how much.
 - **Loudness says importance.** Clicks and final hits lead; whooshes sit 10 to 17 dB below a hit (the owner judged louder whooshes too strong); landings and ticks stay quiet and step down for later lines and slower counts.
 - **Length follows motion.** A sweep's whoosh lasts as long as the line crosses and peaks in the middle; a wipe's whoosh peaks halfway through the wipe and travels in its direction; a riser ends on the reveal.

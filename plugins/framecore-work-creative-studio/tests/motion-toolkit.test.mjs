@@ -743,12 +743,49 @@ test('sound cues follow the picture: taps, pushes, wipes, landings, a composed b
     assert.equal(blocks.soundDesign.music, undefined);
     const wipe = blocks.sfx.find(cue => cue.event.includes('wipes in'));
     assert.ok(wipe && wipe.params.direction === 1, 'a wipe from the left travels left to right');
-    assert.ok(!blocks.sfx.some(cue => cue.sound === 'knock'), 'minimal density leaves out landings');
+    assert.ok(!blocks.sfx.some(cue => ['knock', 'tap', 'pop', 'swish'].includes(cue.sound)), 'minimal density leaves out landings');
     assert.notEqual(plan('app-film', 'standard', path.join(tmp, 'a.json')).status, 0, 'never overwrites');
     const bad = {...film, sfx: [{frame: film.totalFrames, sound: 'beep'}, {frame: 1, sound: 'click', gain: 12, pan: 2, params: []}]};
     const errors = checkScore(bad).errors.join('\n');
     assert.match(errors, /frame must be an integer inside the timeline/); assert.match(errors, /sound must be one of/); assert.match(errors, /gain must be/); assert.match(errors, /pan must be/); assert.match(errors, /params must be an object/); assert.match(errors, /frame order/);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('sound direction analyses each video and chooses from the sound base, with reasons and overrides', {skip: !(python && numpy) && 'python3 with Pillow and numpy not installed'}, () => {
+  const sound = path.join(root, soundDir, 'sound.py');
+  const analyze = (file, extra = []) => {
+    const run = spawnPython('python3', ['-B', sound, 'analyze', file, ...extra], {encoding: 'utf8'});
+    assert.equal(run.status, 0, run.stderr);
+    return JSON.parse(run.stdout);
+  };
+  const example = name => path.join(root, scenesDir, `examples/${name}.motion-score.json`);
+  const blocks = analyze(example('color-block')), film = analyze(example('app-film'));
+  assert.deepEqual(analyze(example('color-block')), blocks, 'the same contract gets the same direction');
+  assert.ok(blocks.profile.moods.playful > blocks.profile.moods.calm && film.profile.moods.calm > film.profile.moods.playful, 'moods follow style, tempo and words');
+  assert.ok(blocks.profile.evidence.length && blocks.choices.landing.why && blocks.choices.backbeat.why, 'choices carry their evidence and reasons');
+  assert.notDeepEqual(Object.values(blocks.choices).map(choice => choice.option), Object.values(film.choices).map(choice => choice.option), 'different videos get different sound');
+  assert.equal(blocks.choices.palette.option, 'color-block', 'a style that sets its music keeps it');
+  const set = analyze(example('app-film'), ['--set', 'landing=pop', '--set', 'backbeat=clap', '--set', 'key=E minor']);
+  assert.equal(set.choices.landing.option, 'pop'); assert.equal(set.choices.backbeat.option, 'clap'); assert.equal(set.choices.key.option, 'E minor');
+  assert.notEqual(spawnPython('python3', ['-B', sound, 'analyze', example('app-film'), '--set', 'landing=beep'], {encoding: 'utf8'}).status, 0, 'unknown options are refused');
+  // A copy of the same picture with other words and identity is analysed anew.
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-direction-'));
+  try {
+    const source = JSON.parse(fs.readFileSync(example('color-block'), 'utf8'));
+    const variants = new Set();
+    for (const [i, words] of [['calm care for your family', 'safe and simple'], ['launch day', 'new and loud'], ['coffee from the garden', 'hand-made'], ['your data, one dashboard', 'the app for teams']].entries()) {
+      const file = path.join(tmp, `v${i}.json`);
+      fs.writeFileSync(file, JSON.stringify({...source, id: `variant-${i}`, style: 'brand-native', copy: {...source.copy, a1: words[0], a2: words[1]}}));
+      const chosen = analyze(file);
+      variants.add(JSON.stringify(Object.values(chosen.choices).map(choice => choice.option)));
+    }
+    assert.ok(variants.size >= 3, `brand-native videos with different words get different sound: ${[...variants].join(' | ')}`);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+  // Every option in the base names something Studio can render.
+  const base = JSON.parse(fs.readFileSync(path.join(root, soundDir, 'sound-base.json'), 'utf8'));
+  const designs = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'check-score.mjs'), 'utf8').match(/const soundDesigns = (\[[^\]]*\]);/)[1].replaceAll("'", '"'));
+  for (const [name, option] of Object.entries(base.roles.landing.options)) assert.ok(option.design === null || designs.includes(option.design), `landing ${name}`);
+  for (const name of Object.keys(base.roles.palette.options)) assert.ok(base.style_moods[name] !== undefined || name === 'studio', `palette ${name} is a known style palette`);
 });
 
 test('a mastered sound mix puts every hit on its frame', {skip: !(python && numpy && ffmpegLoudnorm) && 'python3 with Pillow and numpy, or ffmpeg with loudnorm, not installed'}, () => {

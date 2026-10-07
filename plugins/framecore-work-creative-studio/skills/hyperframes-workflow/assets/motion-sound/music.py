@@ -171,6 +171,8 @@ def backbeat_hit(kind, seed):
         return synth.snap(seed), 0.3
     if kind == 'rim':
         return rim(seed), 0.2
+    if kind == 'brush':
+        return brush(seed), 0.22
     if kind == 'snare':
         return synth.snare(seed), 0.3
     return None, 0.0
@@ -362,10 +364,10 @@ def play_drums(bed, palette, start, beat, energy, seed, bar_index, swing, into_r
                     if b in (0, 2) or kit == 'soft':
                         k(4 * b, 0.34 if kit == 'soft' else 0.3)
                 if b in (1, 3):
-                    if kit == 'soft':
-                        bed.place(at(4 * b), brush(seed + 7 * b + bar_index), 0.22, 0.05)
-                    else:
-                        bed.place(at(4 * b), rim(seed + 7 * b + bar_index), 0.16, -0.1)
+                    kind = palette['backbeat'] if 'backbeat' in palette else 'brush' if kit == 'soft' else 'rim'
+                    hit, gain = backbeat_hit(kind, seed + 7 * b + bar_index)
+                    if hit is not None:
+                        bed.place(at(4 * b), hit, gain * (0.8 if kind == 'rim' else 1.0), 0.05, width=0.3 if hit.ndim == 1 else 0.0, seed=seed)
     elif kit == 'tight':
         if energy >= 2:
             for s in range(0, 16, 2):
@@ -373,8 +375,11 @@ def play_drums(bed, palette, start, beat, energy, seed, bar_index, swing, into_r
         if energy >= 3:
             for s in (0, 6, 8, 11):
                 k(s, 0.36)
+            hit_kind = palette['backbeat'] if 'backbeat' in palette else 'rim'
             for b in (1, 3):
-                bed.place(at(4 * b), rim(seed + b + bar_index), 0.22, -0.05)
+                hit, gain = backbeat_hit(hit_kind, seed + b + bar_index)
+                if hit is not None:
+                    bed.place(at(4 * b), hit, gain, -0.05, width=0.3 if hit.ndim == 1 else 0.0, seed=seed)
     elif kit in ('electronic', 'house'):
         if energy >= 2:
             for s in range(16):
@@ -386,7 +391,12 @@ def play_drums(bed, palette, start, beat, energy, seed, bar_index, swing, into_r
             for b in range(4):
                 k(4 * b, 0.45)
                 if b in (1, 3):
-                    bed.place(at(4 * b), clap(seed + b + bar_index), 0.2, 0.0, width=0.35, seed=seed)
+                    if 'backbeat' in palette:
+                        hit, gain = backbeat_hit(palette['backbeat'], seed + b + bar_index)
+                        if hit is not None:
+                            bed.place(at(4 * b), hit, gain, 0.0, width=0.35 if hit.ndim == 1 else 0.0, seed=seed)
+                    else:
+                        bed.place(at(4 * b), clap(seed + b + bar_index), 0.2, 0.0, width=0.35, seed=seed)
     if into_reveal and energy >= 3:
         fill, fill_gain = backbeat_hit(palette.get('backbeat', 'snare'), seed + 701)
         if kit in ('studio', 'electronic', 'house', 'tight') and fill is not None:

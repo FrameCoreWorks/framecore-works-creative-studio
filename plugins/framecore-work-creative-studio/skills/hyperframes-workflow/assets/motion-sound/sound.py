@@ -30,6 +30,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 try:
     import numpy as np
+    import direction as directing
     import music
     import synth
 except ImportError as error:  # pragma: no cover
@@ -38,7 +39,9 @@ except ImportError as error:  # pragma: no cover
 
 RATE = synth.RATE
 DENSITIES = ('minimal', 'standard', 'rich')
-SENDS = {'whoosh': 0.18, 'impact': 0.22, 'boom': 0.3, 'riser': 0.25, 'click': 0.05, 'release': 0.04, 'tick': 0.03, 'knock': 0.12, 'shimmer': 0.4}
+SENDS = {'whoosh': 0.18, 'impact': 0.22, 'boom': 0.3, 'riser': 0.25, 'click': 0.05, 'release': 0.04, 'tick': 0.03, 'knock': 0.12,
+         'tap': 0.06, 'pop': 0.1, 'swish': 0.15, 'shimmer': 0.4}
+PACE_POSITION = {'fast': 0.75, 'medium': 0.5, 'slow': 0.25}
 MINOR_STYLES = {'midnight', 'warm-ink', 'brand-native'}
 STYLE_BPM = {'meadow': 100, 'field-guide': 96, 'paper-and-ink': 104, 'warm-ink': 110, 'midnight': 122, 'color-block': 122}
 # The music dips under the hits that must read clearly: (depth in dB, release in seconds).
@@ -76,8 +79,16 @@ def final_reveal(score, r, m=None):
 
 # ---------------------------------------------------------------- planning
 
-def plan_cues(score, density='standard'):
-    """Sound cues for every visible event: [{frame, sound, gain, pan, params, event}] in frame order."""
+def sound_direction(score, overrides=None):
+    """Analyse this video and choose its sounds and music from the sound base (see direction.py)."""
+    profile = directing.analyze(score, engine=load_engine())
+    fixed = music.STYLE_PALETTE.get(score.get('style'))
+    return directing.direct(score, profile, content_seed(score), fixed_palette=fixed, overrides=overrides)
+
+
+def plan_cues(score, density='standard', direction=None):
+    """Sound cues for every visible event: [{frame, sound, gain, pan, params, event}] in frame order. `direction`
+    (from sound_direction) sets how text lands and the character of whooshes and clicks for this video."""
     if density not in DENSITIES:
         raise ValueError(f'density must be one of {", ".join(DENSITIES)}')
     r = load_engine()
@@ -85,9 +96,26 @@ def plan_cues(score, density='standard'):
     fps = score['fps']['num'] / score['fps']['den']
     cues = []
 
+    base = directing.load_base()
+    landing_option = ((direction or {}).get('choices', {}).get('landing') or {}).get('option', 'knock')
+    landing = base['roles']['landing']['options'].get(landing_option, {'design': 'knock', 'gain': 0})
+    character = (direction or {}).get('character') or {}
+    shift = 2 ** (character.get('pitchSemitones', 0) / 12)
+
     def add(frame, sound, event, gain, pan=0.0, params=None, at_least=0):
+        params = dict(params or {})
+        if sound == 'knock':  # a landing: the sound this video's direction chose, or none
+            if not landing.get('design'):
+                return
+            sound, gain = landing['design'], gain + landing.get('gain', 0)
+            params['pitch'] = round(params.get('pitch', 1.0) * shift, 4)
+        elif sound == 'whoosh' and character:
+            params['brightness'] = round(params.get('brightness', 1.0) * character['whooshBrightness'], 3)
+            params['intensity'] = round(params.get('intensity', 0.8) * character['whooshIntensity'], 3)
+        elif sound == 'click' and character:
+            params['softness'] = character['clickSoftness']
         if level >= at_least and frame is not None and 0 <= frame < total:
-            cues.append({'frame': int(frame), 'sound': sound, 'gain': gain, 'pan': round(pan, 2), 'params': params or {}, 'event': event})
+            cues.append({'frame': int(frame), 'sound': sound, 'gain': gain, 'pan': round(pan, 2), 'params': params, 'event': event})
 
     def landed(start, duration, easing, end, limit=0.9):
         return first_frame(start, end, lambda f: r.progress(f, start, duration, easing) >= limit)
@@ -215,7 +243,7 @@ def fit_tempo(target, reveal_s, starts, spread=0.08, low=None, high=None):
     return (best[1], best[2]) if best else (float(target), None)
 
 
-def plan_music(score, r=None):
+def plan_music(score, r=None, direction=None):
     """A composed bed: tempo from the contract's music grid or style, fitted so the final reveal lands on a downbeat;
     key from the style's mood; energy per bar from the scenes, building into the reveal and resolving after it."""
     r = r or load_engine()
@@ -223,9 +251,15 @@ def plan_music(score, r=None):
     total_s = score['totalFrames'] / fps
     style = score.get('style')
     grid = (score.get('music') or {}).get('bpm')
-    target = grid or STYLE_BPM.get(style, 108)
     tempo_range = style_tempo(style) or (None, None)
-    key = 'A minor' if style in MINOR_STYLES else 'D major'
+    pace = ((direction or {}).get('profile') or {}).get('pace', 'medium')
+    if grid:
+        target = grid
+    elif tempo_range[0]:
+        target = tempo_range[0] + PACE_POSITION[pace] * (tempo_range[1] - tempo_range[0])
+    else:
+        target = STYLE_BPM.get(style, 108) * {'fast': 1.06, 'medium': 1.0, 'slow': 0.94}[pace]
+    key = (direction or {}).get('key') or ('A minor' if style in MINOR_STYLES else 'D major')
     scenes = score['scenes']
     reveal = final_reveal(score, r)
     starts = [scene['start'] / fps for scene in scenes if scene['start'] > 0]
@@ -259,9 +293,12 @@ def plan_music(score, r=None):
         else:
             energies.append(2)
     seed = content_seed(score)
-    palette = music.STYLE_PALETTE.get(style, 'studio')
+    palette = (direction or {}).get('palette') or music.STYLE_PALETTE.get(style, 'studio')
+    backbeat = (((direction or {}).get('choices') or {}).get('backbeat') or {}).get('option')
     plan = {'compose': True, 'bpm': round(bpm, 4), 'key': key, 'palette': palette, 'progression': seed % len(music.PROGRESSIONS['major']),
             'seed': 11 + seed % 997, 'energies': energies, 'gain': -9}
+    if backbeat:
+        plan['backbeat'] = backbeat
     if reveal_bar is not None:
         plan.update(revealBar=reveal_bar, revealFrame=reveal)
     return plan
@@ -283,7 +320,8 @@ def render_effects(score, cues):
     key = ((score.get('soundDesign') or {}).get('music') or {}).get('key', 'D major')
     dry, send, hits = np.zeros((length, 2)), np.zeros((length, 2)), []
     for index, cue in enumerate(cues):
-        audio, offset = synth.render_design(cue['sound'], cue.get('params'), 1000 + 7 * index, key)
+        seed = 1000 + ((score.get('soundDesign') or {}).get('seed') or 0) % 9973 + 7 * index
+        audio, offset = synth.render_design(cue['sound'], cue.get('params'), seed, key)
         hit = round(cue['frame'] / fps * RATE)
         start = hit - round(offset * RATE)
         gain = 10 ** (cue.get('gain', 0) / 20)
@@ -364,7 +402,8 @@ def full_mix(score, base_dir):
         bed_track[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
     elif music_plan.get('compose'):
         bed = music.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], music_plan.get('seed', 11),
-                                music_plan.get('revealBar'), music_plan.get('palette', 'studio'), music_plan.get('progression', 0))
+                                music_plan.get('revealBar'), music_plan.get('palette', 'studio'), music_plan.get('progression', 0),
+                                music_plan.get('backbeat'))
         bed_track[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
     voice = np.zeros((length, 2))
@@ -458,6 +497,22 @@ def next_revision(score, evidence):
     return out
 
 
+def overrides(args):
+    """Choices the user fixed on the command line, checked against the sound base."""
+    roles = directing.load_base()['roles']
+    fixed = {'palette': args.palette} if getattr(args, 'palette', None) else {}
+    for item in getattr(args, 'set', None) or []:
+        role, _, option = item.partition('=')
+        role, option = role.strip(), option.strip()
+        if role == 'key':
+            synth.key_root(option)
+        elif role not in roles or option not in roles[role]['options']:
+            known = ', '.join(f'{name}: {"/".join(r["options"])}' for name, r in roles.items())
+            raise ValueError(f'--set {item}: unknown role or option ({known}; or key="E minor")')
+        fixed[role] = option
+    return fixed
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Plan, render and check motion sound design.')
     sub = parser.add_subparsers(dest='command', required=True)
@@ -466,7 +521,12 @@ def main(argv=None):
     plan.add_argument('--out', required=True)
     plan.add_argument('--density', default='standard', choices=DENSITIES)
     plan.add_argument('--no-music', action='store_true', help='effects only (a supplied music.src is always used instead of composing)')
-    plan.add_argument('--palette', choices=sorted(music.PALETTES), help="music palette instead of the style's own")
+    for command in (plan, sub.add_parser('analyze', help="print this video's sound profile and the choices made for it")):
+        if command is not plan:
+            command.add_argument('contract')
+        command.add_argument('--palette', choices=sorted(music.PALETTES), help="music palette instead of the chosen one")
+        command.add_argument('--set', action='append', default=[], metavar='ROLE=OPTION',
+                             help='override a choice: landing=pop, backbeat=clap, palette=midnight, key="E minor"')
     plan.add_argument('--evidence')
     plan.add_argument('--table')
     mix = sub.add_parser('mix')
@@ -486,13 +546,13 @@ def main(argv=None):
         if args.command == 'plan':
             if os.path.exists(args.out):
                 raise ValueError(f'Output file already exists: {args.out}')
-            cues = plan_cues(score, args.density)
+            chosen = sound_direction(score, overrides(args))
+            cues = plan_cues(score, args.density, chosen)
             result = next_revision(score, args.evidence)
-            design = {'engine': 'studio-synth-1', 'density': args.density, 'status': 'planned'}
+            design = {'engine': 'studio-synth-1', 'density': args.density, 'status': 'planned', 'seed': content_seed(score) % 100000,
+                      'direction': {'profile': chosen['profile'], 'choices': chosen['choices'], 'character': chosen['character']}}
             if not args.no_music and not (score.get('music') or {}).get('src'):
-                design['music'] = plan_music(score)
-                if args.palette:
-                    design['music']['palette'] = args.palette
+                design['music'] = plan_music(score, direction=chosen)
             result['soundDesign'] = design
             result['sfx'] = cues
             with open(args.out, 'w', encoding='utf-8') as handle:
@@ -504,7 +564,12 @@ def main(argv=None):
             for cue in cues:
                 counts[cue['sound']] = counts.get(cue['sound'], 0) + 1
             composed = design.get('music', {})
-            print(json.dumps({'cues': len(cues), 'by_sound': counts, 'density': args.density, 'music': composed.get('bpm'), 'palette': composed.get('palette'), 'out': args.out}))
+            print(json.dumps({'cues': len(cues), 'by_sound': counts, 'density': args.density, 'music': composed.get('bpm'), 'palette': composed.get('palette'),
+                              'direction': {role: choice['option'] for role, choice in chosen['choices'].items()}, 'out': args.out}))
+            return 0
+        if args.command == 'analyze':
+            chosen = sound_direction(score, overrides(args))
+            print(json.dumps({'profile': chosen['profile'], 'choices': chosen['choices'], 'character': chosen['character']}, indent=2, ensure_ascii=False))
             return 0
         if args.command == 'check':
             fps = score['fps']['num'] / score['fps']['den']

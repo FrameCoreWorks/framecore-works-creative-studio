@@ -3,16 +3,18 @@
 [`sound.py`](sound.py) gives a motion video a finished sound track from the same timing as the picture. It reads the [motion contract](../../references/motion-contract-json.md), finds every visible event with the [Python renderer](../motion-render/README.md)'s port of the scene engine (lines, items, captions and cards landing, taps, screen pushes, sweeps, canvas wipes, counter steps, camera moves) and designs a sound for each with [`synth.py`](synth.py): its hit, a whoosh's peak or a riser's end lands exactly on the frame, and its length follows the move. A music bed is composed by [`music.py`](music.py) to the video's length, in the instruments of the video's style, with energy that follows the scenes. The method is in [motion sound design](../../references/motion-sound-design.md).
 
 ```sh
+python sound.py analyze video.motion.json
 python sound.py plan video.motion.json --out video-r2.motion.json --table cues.md
 python sound.py mix video-r2.motion.json --video video.mp4 --out video-sound.mp4 --wav mix.wav --stems stems
 python sound.py check stems/effects.wav video-r2.motion.json
 ```
 
-- **`plan`** writes a new revision of the contract with `sfx` (the cue list) and `soundDesign` (`engine`, `density`, `status` and the composed `music`: tempo, key, `palette`, `progression`, `seed`, energy per bar, level). When the video ends on an end card or logo, the tempo is fitted within 8% of the style's so the reveal falls exactly on a downbeat (`revealBar`, `revealFrame`). `--density` is `minimal` (scene changes, sweeps, wipes, taps, final hits), `standard` (also landings, captions, counter ticks, screen pushes, tap releases, accents) or `rich` (also exits, camera moves, a riser and a boom into the final reveal). `--palette` picks a music palette other than the style's own (for example `studio`); `--no-music` plans effects only; a supplied `music.src` is always used instead of composing. The cues are a starting point and stay editable.
+- **`analyze`** prints this video's sound profile and the choices made for it, with the evidence and reasons (see [sound direction](#sound-direction)); nothing is written.
+- **`plan`** writes a new revision of the contract with `sfx` (the cue list) and `soundDesign` (`engine`, `density`, `status` and the composed `music`: tempo, key, `palette`, `progression`, `seed`, energy per bar, level). When the video ends on an end card or logo, the tempo is fitted within 8% of the style's so the reveal falls exactly on a downbeat (`revealBar`, `revealFrame`). `--density` is `minimal` (scene changes, sweeps, wipes, taps, final hits), `standard` (also landings, captions, counter ticks, screen pushes, tap releases, accents) or `rich` (also exits, camera moves, a riser and a boom into the final reveal). `--set ROLE=OPTION` (repeatable) and `--palette` override a choice of the direction (for example `--set landing=pop --set key="E minor"`); `--no-music` plans effects only; a supplied `music.src` is always used instead of composing. The cues are a starting point and stay editable.
 - **`mix`** renders the effects and the music (or the supplied track and voice-over; music ducks 8 dB under the caption intervals of a voice-over and dips 1.5 to 5 dB for a moment under clicks, impacts and the final hit), adds a shared room reverb, high-passes, glues the loudest moments with a gentle bus compressor, sets the loudness to −14 LUFS with a true-peak limiter (ceiling −1.5 dBTP, so AAC encoding stays under −1 dBTP), then copies the picture unchanged into the output MP4 with AAC audio. It checks the timing itself (transients on a track without whooshes, whooshes on a track without transients) and exits 1 when a hit is off.
 - **`check`** measures an effects-only track (`--stems` writes the dry `effects.wav` and `music.wav`): the first sample above half the local peak for transients (within 2 ms), the loudest 10 ms for whooshes (within 15 ms); risers end on their frame by construction; cues masked by a neighbour are reported, not judged.
 
-Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; otherwise only the peak is set and the summary says so). Every random source is seeded, so the same contract always gives the same audio. Keep `sound.py` with `synth.py`, `music.py`, `../motion-render/render.py` and `../motion-styles/styles.json`.
+Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; otherwise only the peak is set and the summary says so). Every random source is seeded, so the same contract always gives the same audio. Keep `sound.py` with `synth.py`, `music.py`, `direction.py`, `sound-base.json`, `../motion-render/render.py` and `../motion-styles/styles.json`.
 
 ## Sound designs
 
@@ -24,8 +26,28 @@ Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; other
 | `riser` | noise through a climbing band and a tone gliding up an octave, swelling to its end; `duration` | its end |
 | `click`, `release` | a 1 ms excitation ringing stiff high modes and a short low body (modal synthesis); `pitch`, `softness` | onset |
 | `tick` | a smaller, drier click for counters; `pitch` rises with the count | onset |
+| `tap` | the click's modal design, higher and softened, for precise landings | onset |
+| `pop` | a short tone gliding up with a breath on top, saturated (a lip or bubble pop) | onset |
+| `swish` | a short air flick climbing to its brightest at the landing | its loudest 5 ms, measured |
 | `knock` | a short low thump falling in pitch for weight, a wooden body of nine inharmonic modes struck by a noise burst, and a soft tap for definition; `pitch` steps up for later lines and items | onset |
 | `shimmer` | bell partials tuned to the music's key, slightly detuned left and right; `degree` in the scale | onset |
+
+## Sound direction
+
+Studio does not reuse one fixed set of sounds. [`direction.py`](direction.py) analyses every video on its own and chooses from the sound base, [`sound-base.json`](sound-base.json), which holds what Studio knows: six moods (calm, bold, playful, technical, organic, editorial), the words, styles, motion tempos and scene kinds that point to each, and for every role the options with the moods they suit.
+
+1. **Profile.** Moods are scored from the style, the motion tempo and easing (an overshoot reads playful), the canvas colour (a dark canvas leans technical), the scene kinds and taps, and the brief's own words in English or Polish (goal, audience, message, concept, copy). Pace comes from scene length and entry speed.
+2. **Choices.** For each role the best-fitting option wins; near ties are settled by a seed from the video's content, so similar videos still sound different and the same contract always sounds the same.
+
+| Role | Options | Notes |
+| --- | --- | --- |
+| landing | knock, tap, pop, swish, none | how lines, captions, items and quotes land |
+| backbeat | snare, clap, snap, rim, brush, none | only the options the palette's drum kit can play |
+| palette | the seven music palettes | the style's own palette when the style sets one |
+| key | major or minor root | minor for dark styles, or a dark canvas with technical or bold moods |
+| character | whoosh brightness and strength, click softness, a pitch offset | follows energy (bold, technical, playful against calm) |
+
+Every effect and the music are then synthesized anew with the video's seed. `soundDesign.direction` records the profile, each choice with its reason and the character; the reply states them briefly, and any choice can be changed with `--set`. To teach Studio a new choice, add an option to `sound-base.json` with the moods it suits.
 
 ## Music palettes
 
