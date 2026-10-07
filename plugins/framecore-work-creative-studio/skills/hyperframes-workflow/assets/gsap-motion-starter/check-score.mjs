@@ -23,7 +23,7 @@ const sceneKinds = {
 };
 export const knownSceneKinds = Object.keys(sceneKinds);
 // Sound designs of motion-sound/synth.py; keep in sync with DESIGNS there.
-const soundDesigns = ['whoosh', 'impact', 'boom', 'riser', 'click', 'release', 'tick', 'knock', 'tap', 'pop', 'swish', 'shimmer'];
+const soundDesigns = ['whoosh', 'impact', 'boom', 'riser', 'click', 'release', 'tick', 'knock', 'landing', 'tap', 'pop', 'swish', 'shimmer'];
 const text = value => typeof value === 'string' && value.trim().length > 0;
 
 export function checkScore(score, {storyboard = false} = {}) {

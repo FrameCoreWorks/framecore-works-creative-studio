@@ -720,7 +720,8 @@ test('sound cues follow the picture: taps, pushes, wipes, landings, a composed b
     const source = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
     assert.equal(film.revision, source.revision + 1);
     assert.equal(film.approval.status, 'proposed');
-    assert.equal(film.soundDesign.engine, 'studio-synth-1');
+    assert.equal(film.soundDesign.engine, 'studio-generative-1');
+    assert.ok(film.soundDesign.recipes.transition.layers.length && film.soundDesign.music.recipe.progression.length === 4, 'effects and music are designed for this video');
     const bar = 4 * 60 / film.soundDesign.music.bpm, seconds = source.totalFrames / 30;
     assert.equal(film.soundDesign.music.energies.length, Math.ceil(seconds / bar));
     const {revealBar, revealFrame, bpm} = film.soundDesign.music, target = 100;
@@ -751,7 +752,7 @@ test('sound cues follow the picture: taps, pushes, wipes, landings, a composed b
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
-test('sound direction analyses each video and chooses from the sound base, with reasons and overrides', {skip: !(python && numpy) && 'python3 with Pillow and numpy not installed'}, () => {
+test('every video gets newly designed sounds and music, with reasons, variations, overrides and a quality gate', {skip: !(python && numpy) && 'python3 with Pillow and numpy not installed'}, () => {
   const sound = path.join(root, soundDir, 'sound.py');
   const analyze = (file, extra = []) => {
     const run = spawnPython('python3', ['-B', sound, 'analyze', file, ...extra], {encoding: 'utf8'});
@@ -760,32 +761,46 @@ test('sound direction analyses each video and chooses from the sound base, with 
   };
   const example = name => path.join(root, scenesDir, `examples/${name}.motion-score.json`);
   const blocks = analyze(example('color-block')), film = analyze(example('app-film'));
-  assert.deepEqual(analyze(example('color-block')), blocks, 'the same contract gets the same direction');
+  assert.deepEqual(analyze(example('color-block')), blocks, 'the same contract gets the same design');
   assert.ok(blocks.profile.moods.playful > blocks.profile.moods.calm && film.profile.moods.calm > film.profile.moods.playful, 'moods follow style, tempo and words');
-  assert.ok(blocks.profile.evidence.length && blocks.choices.landing.why && blocks.choices.backbeat.why, 'choices carry their evidence and reasons');
-  assert.notDeepEqual(Object.values(blocks.choices).map(choice => choice.option), Object.values(film.choices).map(choice => choice.option), 'different videos get different sound');
-  assert.equal(blocks.choices.palette.option, 'color-block', 'a style that sets its music keeps it');
-  const set = analyze(example('app-film'), ['--set', 'landing=pop', '--set', 'backbeat=clap', '--set', 'key=E minor']);
-  assert.equal(set.choices.landing.option, 'pop'); assert.equal(set.choices.backbeat.option, 'clap'); assert.equal(set.choices.key.option, 'E minor');
-  assert.notEqual(spawnPython('python3', ['-B', sound, 'analyze', example('app-film'), '--set', 'landing=beep'], {encoding: 'utf8'}).status, 0, 'unknown options are refused');
-  // A copy of the same picture with other words and identity is analysed anew.
+  for (const role of ['transition', 'landing', 'impact', 'accent', 'music', 'quality']) assert.ok(blocks.designed[role], `the design log names the ${role}`);
+  assert.notDeepEqual(blocks.designed, film.designed, 'different videos get different designs');
+  assert.equal(blocks.choices.palette.option, 'color-block', 'a style that sets its music keeps its families');
+  const again = analyze(example('color-block'), ['--variation', '1']);
+  assert.notDeepEqual(again.designed, blocks.designed, 'a variation designs the same video anew');
+  const set = analyze(example('app-film'), ['--set', 'landing=blip', '--set', 'lead=piano', '--set', 'key=E minor']);
+  assert.match(set.designed.landing, /^blip: set by the user/); assert.match(set.designed.music, /lead piano/); assert.equal(set.choices.key.option, 'E minor');
+  for (const bad of ['landing=beep', 'key=H minor']) assert.notEqual(spawnPython('python3', ['-B', sound, 'analyze', example('app-film'), '--set', bad], {encoding: 'utf8'}).status, 0, `${bad} is refused`);
+  const limits = {landing: 0.7, press: 0.72, release: 0.8, tick: 0.85, impact: 0.75, boom: 0.75, accent: 0.85};
+  for (const part of blocks.designed.quality.split(': ')[1].split(', ')) {
+    const [role, value] = part.split(' ');
+    assert.ok(Number(value) <= limits[role], `${role} passes the gate against near-pure tones: ${value}`);
+  }
+  // Brand-native copies of one picture with other words are designed differently.
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-direction-'));
   try {
     const source = JSON.parse(fs.readFileSync(example('color-block'), 'utf8'));
-    const variants = new Set();
+    const designs = new Set();
     for (const [i, words] of [['calm care for your family', 'safe and simple'], ['launch day', 'new and loud'], ['coffee from the garden', 'hand-made'], ['your data, one dashboard', 'the app for teams']].entries()) {
       const file = path.join(tmp, `v${i}.json`);
       fs.writeFileSync(file, JSON.stringify({...source, id: `variant-${i}`, style: 'brand-native', copy: {...source.copy, a1: words[0], a2: words[1]}}));
-      const chosen = analyze(file);
-      variants.add(JSON.stringify(Object.values(chosen.choices).map(choice => choice.option)));
+      const designed = analyze(file).designed;
+      designs.add(JSON.stringify([designed.transition, designed.landing, designed.music]));
     }
-    assert.ok(variants.size >= 3, `brand-native videos with different words get different sound: ${[...variants].join(' | ')}`);
+    assert.equal(designs.size, 4, 'four briefs, four designs');
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
-  // Every option in the base names something Studio can render.
-  const base = JSON.parse(fs.readFileSync(path.join(root, soundDir, 'sound-base.json'), 'utf8'));
-  const designs = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'check-score.mjs'), 'utf8').match(/const soundDesigns = (\[[^\]]*\]);/)[1].replaceAll("'", '"'));
-  for (const [name, option] of Object.entries(base.roles.landing.options)) assert.ok(option.design === null || designs.includes(option.design), `landing ${name}`);
-  for (const name of Object.keys(base.roles.palette.options)) assert.ok(base.style_moods[name] !== undefined || name === 'studio', `palette ${name} is a known style palette`);
+  // Composed music: new per seed, deterministic per seed, rendered finite at the reference level.
+  const probe = spawnPython('python3', ['-B', '-c', `import sys, json, numpy as np
+sys.path.insert(0, sys.argv[1]); import compose
+profile = {'pace': 'medium', 'moods': {'calm': 0.5, 'bold': 0.5, 'playful': 0.5, 'technical': 0.5, 'organic': 0.5, 'editorial': 0.5}}
+specs = [compose.generate_music(profile, seed, 'D major', 'studio') for seed in range(12)]
+same = compose.generate_music(profile, 3, 'D major', 'studio') == specs[3]
+audio = compose.render_music(specs[0], 10.0, 120, [1, 2, 3, 3, 1], 5, 4)
+loud = 10 * np.log10(np.convolve(np.mean(audio ** 2, axis=1), np.ones(48000) / 48000, mode='valid').max())
+print(json.dumps({'distinct': len({json.dumps([s['progression'], s['parts'], s['rhythm']]) for s in specs}), 'same': same, 'finite': bool(np.isfinite(audio).all()), 'loud': loud}))`, path.join(root, soundDir)], {encoding: 'utf8'});
+  assert.equal(probe.status, 0, probe.stderr);
+  const composed = JSON.parse(probe.stdout);
+  assert.ok(composed.same && composed.finite && composed.distinct === 12 && Math.abs(composed.loud + 17) < 0.5, probe.stdout);
 });
 
 test('a mastered sound mix puts every hit on its frame', {skip: !(python && numpy && ffmpegLoudnorm) && 'python3 with Pillow and numpy, or ffmpeg with loudnorm, not installed'}, () => {

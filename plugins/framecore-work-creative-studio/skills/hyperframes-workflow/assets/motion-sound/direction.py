@@ -150,9 +150,6 @@ def direct(score, profile, seed, base=None, fixed_palette=None, overrides=None):
         choices['palette'] = {'option': palette, 'why': f'the style {score.get("style")} sets its own music'}
     else:
         palette = take('palette', salt=1)
-    take('landing', salt=2)
-    kit = kit_of(palette)
-    take('backbeat', [n for n, o in roles['backbeat']['options'].items() if kit in o.get('kits', [])], salt=3)
     style = score.get('style')
     if 'key' in overrides:
         key = overrides['key']

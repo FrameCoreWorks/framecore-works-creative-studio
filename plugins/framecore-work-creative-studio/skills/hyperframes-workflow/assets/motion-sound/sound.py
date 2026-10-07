@@ -30,8 +30,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 try:
     import numpy as np
+    import compose
     import direction as directing
+    import generate
     import music
+    import recipe as recipes
     import synth
 except ImportError as error:  # pragma: no cover
     sys.stderr.write(f'numpy is required ({error})\n')
@@ -39,7 +42,7 @@ except ImportError as error:  # pragma: no cover
 
 RATE = synth.RATE
 DENSITIES = ('minimal', 'standard', 'rich')
-SENDS = {'whoosh': 0.18, 'impact': 0.22, 'boom': 0.3, 'riser': 0.25, 'click': 0.05, 'release': 0.04, 'tick': 0.03, 'knock': 0.12,
+SENDS = {'landing': 0.12, 'whoosh': 0.18, 'impact': 0.22, 'boom': 0.3, 'riser': 0.25, 'click': 0.05, 'release': 0.04, 'tick': 0.03, 'knock': 0.12,
          'tap': 0.06, 'pop': 0.1, 'swish': 0.15, 'shimmer': 0.4}
 PACE_POSITION = {'fast': 0.75, 'medium': 0.5, 'slow': 0.25}
 MINOR_STYLES = {'midnight', 'warm-ink', 'brand-native'}
@@ -86,7 +89,7 @@ def sound_direction(score, overrides=None):
     return directing.direct(score, profile, content_seed(score), fixed_palette=fixed, overrides=overrides)
 
 
-def plan_cues(score, density='standard', direction=None):
+def plan_cues(score, density='standard', direction=None, designed=None):
     """Sound cues for every visible event: [{frame, sound, gain, pan, params, event}] in frame order. `direction`
     (from sound_direction) sets how text lands and the character of whooshes and clicks for this video."""
     if density not in DENSITIES:
@@ -96,18 +99,16 @@ def plan_cues(score, density='standard', direction=None):
     fps = score['fps']['num'] / score['fps']['den']
     cues = []
 
-    base = directing.load_base()
-    landing_option = ((direction or {}).get('choices', {}).get('landing') or {}).get('option', 'knock')
-    landing = base['roles']['landing']['options'].get(landing_option, {'design': 'knock', 'gain': 0})
+    landing_kind = ((designed or {}).get('landing') or {}).get('kind', 'knock')
     character = (direction or {}).get('character') or {}
     shift = 2 ** (character.get('pitchSemitones', 0) / 12)
 
     def add(frame, sound, event, gain, pan=0.0, params=None, at_least=0):
         params = dict(params or {})
-        if sound == 'knock':  # a landing: the sound this video's direction chose, or none
-            if not landing.get('design'):
+        if sound == 'knock':  # a landing: designed for this video (or none), a knock without a design
+            if landing_kind == 'none':
                 return
-            sound, gain = landing['design'], gain + landing.get('gain', 0)
+            sound = 'landing' if designed else 'knock'
             params['pitch'] = round(params.get('pitch', 1.0) * shift, 4)
         elif sound == 'whoosh' and character:
             params['brightness'] = round(params.get('brightness', 1.0) * character['whooshBrightness'], 3)
@@ -313,6 +314,36 @@ def cue_table(score, cues):
 
 # ---------------------------------------------------------------- rendering
 
+def align_of(score, cue):
+    """Which instant of a cue's sound lands on its frame: from its recipe when the video has designed sounds."""
+    designed = (score.get('soundDesign') or {}).get('recipes') or {}
+    role = generate.ROLE_OF.get(cue['sound'])
+    if role in designed:
+        return designed[role].get('align', 'onset')
+    return synth.DESIGNS[cue['sound']][1]
+
+
+def render_cue(score, cue, seed, key):
+    """A cue's sound: its role's recipe designed for this video, fitted to the cue, or the built-in design."""
+    designed = (score.get('soundDesign') or {}).get('recipes') or {}
+    role = generate.ROLE_OF.get(cue['sound'])
+    if role not in designed:
+        return synth.render_design(cue['sound'], cue.get('params'), seed, key)
+    p, params = cue.get('params') or {}, {}
+    if role in ('transition', 'riser') and p.get('duration'):
+        params['duration'] = p['duration']
+    if role == 'transition':
+        params.update(direction=p.get('direction', 1), intensity=p.get('intensity', 0.8))
+    if role in ('landing', 'press', 'release', 'tick') and p.get('pitch'):
+        params['pitch'] = p['pitch']
+    if role == 'accent':
+        root, minor = synth.key_root(key)
+        scale = [0, 2, 3, 5, 7, 8, 10] if minor else [0, 2, 4, 5, 7, 9, 11]
+        degree = int(p.get('degree', 0))
+        params['pitch'] = 2 ** ((scale[degree % 7] + 12 * (degree // 7)) / 12)
+    return recipes.render(recipes.instantiate(designed[role], params), seed)
+
+
 def render_effects(score, cues):
     """The effects bus and its reverb send, and each cue's hit sample with its alignment kind."""
     fps = score['fps']['num'] / score['fps']['den']
@@ -321,7 +352,7 @@ def render_effects(score, cues):
     dry, send, hits = np.zeros((length, 2)), np.zeros((length, 2)), []
     for index, cue in enumerate(cues):
         seed = 1000 + ((score.get('soundDesign') or {}).get('seed') or 0) % 9973 + 7 * index
-        audio, offset = synth.render_design(cue['sound'], cue.get('params'), seed, key)
+        audio, offset = render_cue(score, cue, seed, key)
         hit = round(cue['frame'] / fps * RATE)
         start = hit - round(offset * RATE)
         gain = 10 ** (cue.get('gain', 0) / 20)
@@ -331,7 +362,7 @@ def render_effects(score, cues):
         if b > a:
             dry[a:b] += audio[a - start:b - start]
             send[a:b] += audio[a - start:b - start] * SENDS.get(cue['sound'], 0.1)
-        hits.append((hit, synth.DESIGNS[cue['sound']][1]))
+        hits.append((hit, align_of(score, cue)))
     return dry, send, hits
 
 
@@ -401,9 +432,12 @@ def full_mix(score, base_dir):
         track = read_wav(os.path.join(base_dir, source))[:length]
         bed_track[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
     elif music_plan.get('compose'):
-        bed = music.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], music_plan.get('seed', 11),
-                                music_plan.get('revealBar'), music_plan.get('palette', 'studio'), music_plan.get('progression', 0),
-                                music_plan.get('backbeat'))
+        if music_plan.get('recipe'):
+            bed = compose.render_music(music_plan['recipe'], length / RATE, music_plan['bpm'], music_plan['energies'], music_plan.get('seed', 11), music_plan.get('revealBar'))
+        else:
+            bed = music.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], music_plan.get('seed', 11),
+                                    music_plan.get('revealBar'), music_plan.get('palette', 'studio'), music_plan.get('progression', 0),
+                                    music_plan.get('backbeat'))
         bed_track[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
     voice = np.zeros((length, 2))
@@ -476,7 +510,7 @@ def timing_check(score):
     cues = score.get('sfx') or []
     report = []
     for kinds in (('onset',), ('peak', 'end')):
-        group = [c for c in cues if synth.DESIGNS[c['sound']][1] in kinds]
+        group = [c for c in cues if align_of(score, c) in kinds]
         if group:
             effects, _, hits = render_effects(score, group)
             report += check_hits(effects, hits)
@@ -497,17 +531,41 @@ def next_revision(score, evidence):
     return out
 
 
+def design_video(score, args):
+    """Direct this video's sound and design its effects anew: (direction, seed, recipes, design log, fixed lead)."""
+    fixed = overrides(args)
+    kinds = {role: fixed.pop(role) for role in list(fixed) if role in generate.KINDS}
+    lead = fixed.pop('lead', None)
+    chosen = sound_direction(score, fixed)
+    seed = (content_seed(score) + 104729 * getattr(args, 'variation', 0)) % 100000
+    designed, log = generate.design_effects(chosen['profile'], seed, chosen['key'], chosen['character'], kinds)
+    return chosen, seed, designed, log, lead
+
+
+def compose_music(chosen, seed, lead, log):
+    """Compose this video's music recipe anew and add a one-line summary to the design log."""
+    composed = compose.generate_music(chosen['profile'], seed + 17, chosen['key'], chosen['palette'], {'lead': lead} if lead else None)
+    parts = ', '.join(f"{part} {spec['family']}" for part, spec in composed['parts'].items() if spec)
+    log['music'] = (f"{' '.join(chord['name'] for chord in composed['progression'])} ({composed['colour']}), {parts}, "
+                    f"lead plays {composed['rhythm']['lead_mode']}, {composed['drums']['kit']} kit, ends with a {composed['ending']}")
+    return composed
+
+
 def overrides(args):
     """Choices the user fixed on the command line, checked against the sound base."""
     roles = directing.load_base()['roles']
+    allowed = {name: list(r['options']) for name, r in roles.items()}
+    allowed.update(generate.KINDS, lead=compose.LEAD_FAMILIES)
     fixed = {'palette': args.palette} if getattr(args, 'palette', None) else {}
     for item in getattr(args, 'set', None) or []:
         role, _, option = item.partition('=')
         role, option = role.strip(), option.strip()
         if role == 'key':
-            synth.key_root(option)
-        elif role not in roles or option not in roles[role]['options']:
-            known = ', '.join(f'{name}: {"/".join(r["options"])}' for name, r in roles.items())
+            name, _, mode = option.partition(' ')
+            if name not in synth.NOTE_NAMES or mode not in ('major', 'minor'):
+                raise ValueError(f'--set {item}: a key is a note and major or minor, for example key="E minor"')
+        elif role not in allowed or option not in allowed[role]:
+            known = '; '.join(f'{name}: {"/".join(options)}' for name, options in allowed.items())
             raise ValueError(f'--set {item}: unknown role or option ({known}; or key="E minor")')
         fixed[role] = option
     return fixed
@@ -526,7 +584,8 @@ def main(argv=None):
             command.add_argument('contract')
         command.add_argument('--palette', choices=sorted(music.PALETTES), help="music palette instead of the chosen one")
         command.add_argument('--set', action='append', default=[], metavar='ROLE=OPTION',
-                             help='override a choice: landing=pop, backbeat=clap, palette=midnight, key="E minor"')
+                             help='fix a choice: palette=midnight, key="E minor", landing=blip, transition=whip, impact=thud, accent=bell, lead=piano')
+        command.add_argument('--variation', type=int, default=0, help='a new design for the same video (0 is the first)')
     plan.add_argument('--evidence')
     plan.add_argument('--table')
     mix = sub.add_parser('mix')
@@ -546,13 +605,18 @@ def main(argv=None):
         if args.command == 'plan':
             if os.path.exists(args.out):
                 raise ValueError(f'Output file already exists: {args.out}')
-            chosen = sound_direction(score, overrides(args))
-            cues = plan_cues(score, args.density, chosen)
+            chosen, seed, designed, log, lead = design_video(score, args)
+            cues = plan_cues(score, args.density, chosen, designed)
             result = next_revision(score, args.evidence)
-            design = {'engine': 'studio-synth-1', 'density': args.density, 'status': 'planned', 'seed': content_seed(score) % 100000,
-                      'direction': {'profile': chosen['profile'], 'choices': chosen['choices'], 'character': chosen['character']}}
+            design = {'engine': 'studio-generative-1', 'density': args.density, 'status': 'planned', 'seed': seed, 'variation': args.variation,
+                      'direction': {'profile': chosen['profile'], 'choices': chosen['choices'], 'character': chosen['character'], 'designed': log},
+                      'recipes': designed}
             if not args.no_music and not (score.get('music') or {}).get('src'):
                 design['music'] = plan_music(score, direction=chosen)
+                design['music']['seed'] = 11 + seed % 997
+                composed = compose_music(chosen, seed, lead, log)
+                design['music']['recipe'] = composed
+                design['music']['palette'] = composed['palette']
             result['soundDesign'] = design
             result['sfx'] = cues
             with open(args.out, 'w', encoding='utf-8') as handle:
@@ -563,18 +627,20 @@ def main(argv=None):
             counts = {}
             for cue in cues:
                 counts[cue['sound']] = counts.get(cue['sound'], 0) + 1
-            composed = design.get('music', {})
-            print(json.dumps({'cues': len(cues), 'by_sound': counts, 'density': args.density, 'music': composed.get('bpm'), 'palette': composed.get('palette'),
-                              'direction': {role: choice['option'] for role, choice in chosen['choices'].items()}, 'out': args.out}))
+            planned_music = design.get('music', {})
+            print(json.dumps({'cues': len(cues), 'by_sound': counts, 'density': args.density, 'music': planned_music.get('bpm'), 'palette': planned_music.get('palette'),
+                              'key': chosen['key'], 'designed': log, 'seed': seed, 'out': args.out}, ensure_ascii=False))
             return 0
         if args.command == 'analyze':
-            chosen = sound_direction(score, overrides(args))
-            print(json.dumps({'profile': chosen['profile'], 'choices': chosen['choices'], 'character': chosen['character']}, indent=2, ensure_ascii=False))
+            chosen, seed, designed, log, lead = design_video(score, args)
+            compose_music(chosen, seed, lead, log)
+            print(json.dumps({'profile': chosen['profile'], 'choices': chosen['choices'], 'character': chosen['character'], 'designed': log, 'seed': seed},
+                             indent=2, ensure_ascii=False))
             return 0
         if args.command == 'check':
             fps = score['fps']['num'] / score['fps']['den']
             cues = score.get('sfx') or []
-            hits = [(round(c['frame'] / fps * RATE), synth.DESIGNS[c['sound']][1]) for c in cues]
+            hits = [(round(c['frame'] / fps * RATE), align_of(score, c)) for c in cues]
             summary = summarize(check_hits(read_wav(args.wav), hits))
             print(json.dumps(summary))
             return 0 if summary['all_ok'] else 1

@@ -292,6 +292,7 @@ DESIGNS = {
     'release': ('the release of a press', 'onset'),
     'tick': ('counter steps and fast repeated steps', 'onset'),
     'knock': ('a wooden landing of a line, caption or item', 'onset'),
+    'landing': ('a landing designed for this video (rendered from its recipe; a knock without one)', 'onset'),
     'tap': ('a soft, precise tap as text lands', 'onset'),
     'pop': ('a rounded pop as text or an item lands', 'onset'),
     'swish': ('a short air flick ending on a landing', 'peak'),
@@ -317,6 +318,8 @@ def render_design(name, params, seed, key='C major'):
         return click(p.get('pitch', 1.25), 0.7, seed)
     if name == 'tick':
         return tick(p.get('pitch', 1.0), seed)
+    if name == 'landing':
+        return knock(p.get('pitch', 1.0), seed)
     if name == 'tap':
         return tap(p.get('pitch', 1.0), seed)
     if name == 'pop':
