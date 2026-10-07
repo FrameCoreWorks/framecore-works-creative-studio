@@ -583,3 +583,25 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `94db9c9` on owner instruction; [v1.31.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.31.0) published by workflow 37629547896; 893 package files, plugin ZIP and player hashes match; Pages republished byte-identical ([record](../verification/github-publication-1.31.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261007-14
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-14-motion-sound`
+- Baseline: `94db9c91c19c444501899d9ab07e5cc1629f6e35` (main, package 1.31.0)
+- Result: `6fd0189d27b54f85954d44fc0d71f45286057bc0` (package 1.32.0; two earlier work-in-progress commits on the branch)
+- Package version: 1.31.0 -> 1.32.0
+- Scope: motion sound design (cue planning from the picture's timing, layered synthesis, composed music bed, mastering, timing check) and the owner's sound-policy change (direction A); a CC0 recording library was built first, rejected by the owner for quality and removed before release
+- Shared package changed: yes; 16 changed, 4 added, 0 removed ([scope](../verification/scope-1.32.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 173 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- three example mixes: hits within 2 ms, -14.1 to -15.7 LUFS, true peak at most -1.05 dBTP; owner listening: music and clicks approved, whooshes lowered; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
