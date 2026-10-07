@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "d575dfb25b33c0f0cce825676c708c3d7932e86213d56121f1e36c22e6916e48",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.26.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and local revise.mjs runs; whether ChatGPT revises from the existing contract and changes only what was asked is not verified until an owner test. All 201 planned cases remain not_run.",
