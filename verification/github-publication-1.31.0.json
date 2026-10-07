@@ -1,0 +1,21 @@
+{
+  "version": "1.31.0",
+  "change_id": "CC-20261007-13",
+  "origin": "cloud-code",
+  "commit": "94db9c91c19c444501899d9ab07e5cc1629f6e35",
+  "package_commit": "e01238c1adb4253ba3ab5a190cdc2e2b4d66712c",
+  "integration": "Fast-forward of main from bcb35c0 to 94db9c9 on owner instruction; no merge commit",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.31.0",
+  "workflow_id": 37629547896,
+  "workflow_conclusion": "success",
+  "source_tree_matches": true,
+  "source_tree": "main at 94db9c9 and the local branch resolve to the same package tree d50b08fa2a2ad40eb12dd51a459e8f71727dc209 (893 files)",
+  "source_blobs_checked": 893,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "85a43d4785b1b462d87d77a3f8377d0dbaaeedeb30319abaef58a6486ea2defe",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_pages": "workflow 37629547779 published gh-pages a2d2cb1; the site serves the 1.31.0 template byte for byte",
+  "pre_push_check": "the release-workflow test and packaging sequence ran in a fresh clone of 94db9c9 and produced the same plugin ZIP hash"
+}

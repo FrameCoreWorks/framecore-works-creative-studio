@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "85a43d4785b1b462d87d77a3f8377d0dbaaeedeb30319abaef58a6486ea2defe",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.31.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and local renders; whether ChatGPT or ChatGPT Work uses taps, the browser frame or scene backgrounds is not verified. All 201 planned cases remain not_run.",
