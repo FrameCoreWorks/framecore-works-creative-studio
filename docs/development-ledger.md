@@ -516,3 +516,25 @@ Cross-host state:
 - GitHub: pending (committed locally; not pushed)
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261007-11
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-11-motion-designer-methods`
+- Baseline: `662bbbef2bc96e33d2b3b8b5fc1ba2d0ee976b17` (unpublished 1.28.0 on `cloud-code/CC-20261007-10-python-renderer`)
+- Result: `7d6e8b7e6000ba4f321ed7d14b5f929a3d3f2d44` (package 1.29.0)
+- Package version: 1.28.0 -> 1.29.0
+- Scope: methods adapted from kaventro/motion-designer (MIT, `7d0b8bb`): motion styles, motion vocabulary and video types, review passes and scores, renderer motion blur and phone-size stills, retained beats.py and music_edit.py with a sound brief; owner request to compare the repository and implement what is new
+- Shared package changed: yes; 14 changed, 8 added, 0 removed ([scope](../verification/scope-1.29.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 166 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- styles checked and rendered; beat analysis and bar cut of a click track exact; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
