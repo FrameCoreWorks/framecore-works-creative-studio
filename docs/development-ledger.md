@@ -494,3 +494,25 @@ Cross-host state:
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
 - Owner decision (2026-10-07): small changes are not owner-tested one by one; source checks remain mandatory, an occasional larger ChatGPT Work test replaces per-change tests, and host results may differ between users' environments
+
+## CC-20261007-10
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-10-python-renderer`
+- Baseline: `3bda5518b69aa6e1ce025acef3b61085c3bad544` (main, package 1.27.0)
+- Result: `65d8bf1d68043f388990c174656fd0b9bcbd92ca` (package 1.28.0)
+- Package version: 1.27.0 -> 1.28.0
+- Scope: bundled Python renderer (`motion-render/render.py`), a port of the scene engine, copied and run by code-execution hosts instead of their own drawing code; owner choice "a" (then "b", styles)
+- Shared package changed: yes; 11 changed, 2 added, 0 removed ([scope](../verification/scope-1.28.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 162 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- renderer versus browser engine on three contracts: mean difference at most 0.86 grey levels; repeated renders byte-identical; ChatGPT Work sandbox run: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
