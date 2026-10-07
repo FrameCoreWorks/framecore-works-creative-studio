@@ -1,0 +1,22 @@
+{
+  "version": "1.20.0",
+  "date": "2026-10-07",
+  "status": "PASS_REPORTED",
+  "reported_by": "owner",
+  "client": "ordinary ChatGPT (not Work); preview opened in an Android phone browser (browser not identified)",
+  "reasoning_setting": "unknown (not reported)",
+  "evidence": "two owner screenshots: the preview after export shows 'Ready · 180 frames · avc1.640028 · video only' and a 'Save MP4' button; the saved file framecore_typographic_6s.mp4 is MP4, 1920 x 1080, 409 kB, and plays; the owner also supplied the delivered HTML file (framecore-typographic-6s-preview.html) for source inspection",
+  "observations": [
+    "First observed browser H.264 export: avc1.640028 (High profile, level 4.0), the first MP4 candidate in video-export.mjs",
+    "Source inspection: the delivered file is not the single-file preview template. It draws on a <canvas> with hand-written scene code (no scene kinds, no shared scene engine, no foreignObject rasterization) and hard-codes the copy as literals split into lines instead of reading the copy ledger",
+    "Its export code reproduces video-export.mjs (same codec candidates, bitrate rule, WebM and MP4 writers) in reformatted form rather than as the verbatim embedded copy",
+    "Its contract passes check-score.mjs except one storyboard error: audio is an object instead of text; scenes declare no kind, so the contract cannot drive the Remotion starter or the frame review",
+    "The brief fits existing kinds (line-reveal with one copy ID per line); the line-sweep transition does not",
+    "The file-manager thumbnail is a centre crop of the 16:9 frame, not evidence of a framing error"
+  ],
+  "not_verified": [
+    "file contents inspected by a tool",
+    "desktop Chrome or Edge, Firefox, Safari",
+    "ChatGPT Work and Codex"
+  ]
+}
