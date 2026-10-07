@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "1defad6e2b9328ada1b9e188a94ac433f54ef6abefd144de88b4ab521ccee57c",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.24.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and inspection of owner-supplied files; whether ChatGPT performs the frame check and omits preview exports is not verified until an owner test. All 201 planned cases remain not_run.",

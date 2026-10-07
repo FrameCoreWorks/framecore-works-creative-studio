@@ -1,0 +1,50 @@
+{
+  "version": "1.24.0",
+  "change_id": "CC-20261007-06",
+  "origin": "cloud-code",
+  "commit": "ddae45305aa63005bc7db7d7c1e2265d521eee72",
+  "package_commit": "6631e693797187f0836bb1d70107c4b3e11871ba",
+  "integration": "Fast-forward of main from 0d5d0de to ddae453 on owner instruction; no merge commit",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.24.0",
+  "workflow_id": 37597377168,
+  "workflow_conclusion": "success",
+  "source_tree_matches": true,
+  "source_blobs_checked": 878,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "1defad6e2b9328ada1b9e188a94ac433f54ef6abefd144de88b4ab521ccee57c",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "84331310b050ba82f09da9b340d12c2256e160d5173ebaea7caafd76394ec6e4",
+  "assets": [
+    {
+      "name": "framecore-motion-player-1.24.0.html",
+      "digest": "sha256:84331310b050ba82f09da9b340d12c2256e160d5173ebaea7caafd76394ec6e4",
+      "size": 55009
+    },
+    {
+      "name": "framecore-work-creative-studio-1.24.0.zip",
+      "digest": "sha256:1defad6e2b9328ada1b9e188a94ac433f54ef6abefd144de88b4ab521ccee57c",
+      "size": 9641197
+    },
+    {
+      "name": "framecore-work-creative-studio-1.24.0.zip.inventory.json",
+      "digest": "sha256:bf124cc0166cc1619f080f2d8be55487c885bf8d575d6bf9961b62875be361d9",
+      "size": 177888
+    },
+    {
+      "name": "framecore-works-creative-studio-1.24.0-repository.zip",
+      "digest": "sha256:664fac0433e0735362f6c820cd39de811dd42066a99fe2e3701be1052dbcb30a",
+      "size": 11902861
+    },
+    {
+      "name": "framecore-works-creative-studio-1.24.0-repository.zip.inventory.json",
+      "digest": "sha256:7f01c156f612600b579f7b80943b6e876d372cf7f8e42f8624ac1b7f31aa785b",
+      "size": 245400
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:11661626a5b24b28e952a4876c6cdb3147362ec1b39a266e50af9d95061734ee",
+      "size": 588
+    }
+  ]
+}

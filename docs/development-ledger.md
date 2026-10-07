@@ -411,7 +411,7 @@ Cross-host state:
 - Result: `6631e693797187f0836bb1d70107c4b3e11871ba` (package 1.24.0)
 - Package version: 1.23.0 -> 1.24.0
 - Scope: MP4-first delivery with a frame check, HTML preview without export, 1.23.0 player-link requirements withdrawn; owner decision after test C ("keep the MP4 download plus an HTML preview; no GitHub Pages link for now")
-- Shared package changed: yes; 12 changed, 0 added, 0 removed ([scope](../verification/scope-1.24.0.json))
+- Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.24.0.json))
 
 Verification:
 
@@ -421,6 +421,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (committed locally; not pushed)
+- GitHub: synchronized; `main` fast-forwarded to `ddae453` on owner instruction; [v1.24.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.24.0) published by workflow 37597377168; 878 package files, plugin ZIP and player hashes match ([record](../verification/github-publication-1.24.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
