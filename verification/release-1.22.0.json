@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "6d23fc59ce728bc73870660b2571569641f4bf5f045ac5deac3a8b29507ad775",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.22.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Container checks; GitHub Pages is not enabled or verified, the Pages workflow has not run on GitHub, and ChatGPT delivering a contract plus the player link is not verified until an owner test. All 201 planned cases remain not_run.",

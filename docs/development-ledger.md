@@ -375,6 +375,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (committed locally; not pushed)
+- GitHub: synchronized; `main` fast-forwarded to `4df37e9` on owner instruction; [v1.22.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.22.0) published by workflow 37585412547 with the motion player file; 877 package files, plugin ZIP and player hashes match ([record](../verification/github-publication-1.22.0.json))
+- GitHub Pages: workflow 37585412460 created `gh-pages` with the template as index.html; site not live (404) until the owner enables Pages
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
