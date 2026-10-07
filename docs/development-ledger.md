@@ -424,3 +424,26 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `ddae453` on owner instruction; [v1.24.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.24.0) published by workflow 37597377168; 878 package files, plugin ZIP and player hashes match ([record](../verification/github-publication-1.24.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261007-07
+
+- Origin: cloud-code
+- Branch: `claude/plugin-cloud-update-vzrtk5` (session-designated branch)
+- Baseline: `f696324049a80030eb9382d78a15c01723efc5f2` (main, package 1.24.0)
+- Result: `feb8c37b56b1c801c03718a273bdf8661a74c21b`
+- Package version: unchanged (1.24.0)
+- Scope: repository-only `scripts/package_claude_plugin.py`, which builds an uploadable Claude plugin ZIP from the shared package with a generated `.claude-plugin/plugin.json` that exists only inside the archive; purpose: update the owner's "Created by you" FrameCore Works Creative Studio plugin in the Claude app
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS
+- Claude ZIP 1.24.0 built locally: 879 entries (878 package files + manifest), 37 skills with frontmatter names matching their folders, 9,587,215 bytes, sha256 `801dd8489497aa860bb54b02eea02bd507db3a91586f3ac684c0de0b4b105f60`
+- Claude app upload and startup: not_run (the plugin is local to the owner's device and cannot be reached from a cloud session)
+
+Cross-host state:
+
+- GitHub: synchronized; `claude/plugin-cloud-update-vzrtk5` at `feb8c37` read back with `git ls-remote`; not merged to `main`
+- Claude app: pending; the owner uploads the ZIP under Customize > Plugins > Add > Upload plugin
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
