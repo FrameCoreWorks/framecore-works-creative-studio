@@ -14,7 +14,7 @@ node revise.mjs extend video.motion.json --scene outro --frames 60 --out video-r
 
 When the user asks to change a video that already has a contract:
 
-1. **Start from the existing contract and render script**, the `.motion.json` and the `.render.py` (named in `runtime.script`) that were delivered or uploaded; never rebuild from memory. If no contract is available, ask for it or say that the result is a new design. If the contract is there but the script is not, ask for it once; without it, write a new script and say that unchanged parts may differ by a few pixels.
+1. **Start from the existing contract and render script**, the `.motion.json` and the `.render.py` (named in `runtime.script`) that were delivered or uploaded; never rebuild from memory. If no contract is available, ask for it or say that the result is a new design. If the contract is there but the script is not, ask for it once; without it, use the bundled [Python renderer](../motion-render/README.md) when the earlier video came from it (its `runtime.value` names it), otherwise write a new script, and say that unchanged parts may differ by a few pixels.
 2. **Change only what was asked.** Keep every other value, including copy, colors, fonts, scene kinds and timing. Timing changes go through `extend` where a shell or code execution is available, or follow its rule by hand: everything after the changed scene moves by the same number of frames.
 3. **Increment `revision`.** A direct, complete change request is approval of the new revision: `approved` with evidence quoting it. A change that needs a creative decision is `proposed` until the user approves.
 4. **Show what changed** as a short list (was → is), from `diff` or written by hand, and state what stayed the same.

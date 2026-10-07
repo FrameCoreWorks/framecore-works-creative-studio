@@ -1,9 +1,9 @@
-# Creative Studio 1.27.0
+# Creative Studio 1.28.0
 
-Revisions that leave the rest of the video exactly as it was.
+The same video, every time.
 
-- **A third file with every video.** Next to the MP4 and the contract you get the small script that drew the video, for example `video-r2.render.py`.
-- **Changes touch only what you asked.** When you ask for a change, attach the contract and the script. Studio runs the same script on the updated contract, so everything you did not change stays identical, down to the pixel.
-- **No script, no problem.** If you only have the contract, Studio asks for the script once; without it, it draws the video anew and tells you that unchanged parts may shift slightly.
+- **Studio now brings its own renderer.** Until now ChatGPT wrote new drawing code for every video, so results varied between users and between versions. Now it runs one tested renderer that ships with the plugin.
+- **It looks like the preview.** The renderer draws every scene type, caption and format exactly as the Studio player does, down to the timing of each frame.
+- **Revisions stay put.** The renderer is delivered with the video, so a change you ask for later leaves everything else identical.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

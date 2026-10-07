@@ -1,0 +1,32 @@
+{
+  "version": "1.28.0",
+  "baseline": "3bda5518b69aa6e1ce025acef3b61085c3bad544",
+  "change_id": "CC-20261007-10",
+  "origin": "cloud-code",
+  "files": 882,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-revise/README.md",
+    "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 869,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-render/README.md",
+    "skills/hyperframes-workflow/assets/motion-render/render.py"
+  ],
+  "removed": [],
+  "visual_regression": "player template and scene engine unchanged",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

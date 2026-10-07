@@ -1,0 +1,83 @@
+{
+  "version": "1.28.0",
+  "date": "2026-10-07",
+  "baseline": "3bda5518b69aa6e1ce025acef3b61085c3bad544",
+  "change_id": "CC-20261007-10",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 882,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 165,
+      "passed": 162,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 46
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "627b85e94f65e90a02019fd2f0602dae32bb1fe8e409292e53f08dd4942c1092",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks and local renderer comparisons; the renderer has not run in a ChatGPT or ChatGPT Work sandbox, and whether those hosts copy and run it is not verified. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "84331310b050ba82f09da9b340d12c2256e160d5173ebaea7caafd76394ec6e4",
+  "runs": {
+    "browser_parity": "render.py stills versus the browser scene engine (review-frames.mjs, Chromium 1194) at the review frames of two-statements, all-kinds (PNG copy of the mark) and the starter contract with imported captions in base and 9x16: mean absolute difference at most 0.86 grey levels per pixel; side-by-side frames show the same layout and timing",
+    "determinism": "two renders of the same contract byte-identical; the two ChatGPT Work revision-test contracts byte-identical at every checked frame before the change",
+    "encode": "2026-10-07 ChatGPT Work revision-2 contract: H.264 yuv420p 1920x1080, 30 FPS, 240 frames, 8.00 s, no audio",
+    "player_template": "motion-preview.html unchanged"
+  }
+}

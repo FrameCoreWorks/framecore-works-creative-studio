@@ -454,3 +454,38 @@ test('a delivered render script is named in the contract and follows each revisi
   assert.equal(nextRevision(withScript('video-r1.render.py'), 'User: change').runtime.script, `video-r${score.revision + 1}.render.py`);
   assert.equal(nextRevision(score).runtime?.script, score.runtime?.script);
 });
+
+// The Python renderer is a port of the scene engine; these checks run when python3 with Pillow is installed.
+const renderDir = 'skills/hyperframes-workflow/assets/motion-render';
+import {spawnSync as spawnPython} from 'node:child_process';
+const python = spawnPython('python3', ['-c', 'import PIL'], {encoding: 'utf8'}).status === 0;
+test('Python renderer matches the engine kinds and easings and renders deterministic stills', {skip: !python && 'python3 with Pillow not installed'}, async () => {
+  const spawnSync = spawnPython;
+  const {easings, sceneKinds} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
+  const script = path.join(root, renderDir, 'render.py');
+  const probe = spawnSync('python3', ['-c', `import importlib.util, json, sys
+spec = importlib.util.spec_from_file_location('render', sys.argv[1]); r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)
+print(json.dumps({'kinds': list(r.KINDS), 'easings': {k: [f(x / 20) for x in range(21)] for k, f in r.EASINGS.items()}, 'numbers': [r.number_text({'decimals': 1, 'suffix': '%'}, 12345.25), r.number_text({'locale': 'pl-PL'}, 1234), r.number_text({'locale': 'pl-PL'}, 12345)]}))`, script], {encoding: 'utf8'});
+  assert.equal(probe.status, 0, probe.stderr);
+  const result = JSON.parse(probe.stdout);
+  assert.deepEqual(result.kinds.sort(), Object.keys(sceneKinds).sort());
+  for (const [name, values] of Object.entries(result.easings)) values.forEach((value, i) => assert.ok(Math.abs(value - easings[name](i / 20)) < 1e-9, `${name} at ${i / 20}`));
+  assert.deepEqual(result.numbers, [
+    new Intl.NumberFormat('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1}).format(12345.25) + '%',
+    new Intl.NumberFormat('pl-PL').format(1234), new Intl.NumberFormat('pl-PL').format(12345)]);
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-render-'));
+  try {
+    const contract = path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json');
+    const run = dir => spawnSync('python3', [script, contract, '--stills', '0,30,93,179', '--stills-dir', path.join(tmp, dir)], {encoding: 'utf8'});
+    const first = run('a'), second = run('b');
+    assert.equal(first.status, 0, first.stderr);
+    const summary = JSON.parse(first.stdout);
+    assert.deepEqual([summary.width, summary.height, summary.frames, summary.stills.length], [1920, 1080, 180, 4]);
+    for (const name of fs.readdirSync(path.join(tmp, 'a'))) assert.ok(fs.readFileSync(path.join(tmp, 'a', name)).equals(fs.readFileSync(path.join(tmp, 'b', name))), name);
+    fs.writeFileSync(path.join(tmp, 'taken.mp4'), '');
+    assert.equal(spawnSync('python3', [script, contract, path.join(tmp, 'taken.mp4')], {encoding: 'utf8'}).status, 2);
+    const broken = path.join(tmp, 'broken.json');
+    fs.writeFileSync(broken, JSON.stringify({...JSON.parse(fs.readFileSync(contract, 'utf8')), scenes: [{id: 'x', start: 0, end: 10}]}));
+    assert.match(spawnSync('python3', [script, broken, '--stills', '0'], {encoding: 'utf8'}).stderr, /no supported kind/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
