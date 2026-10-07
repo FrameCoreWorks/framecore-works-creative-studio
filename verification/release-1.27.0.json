@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "b9052f426e438d0bd2c0830779b905489395fc2060e39faf28a0b97a86a27ef2",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.27.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and local review renders; whether ChatGPT Work delivers and reuses the render script is not verified until an owner test. All 201 planned cases remain not_run.",
