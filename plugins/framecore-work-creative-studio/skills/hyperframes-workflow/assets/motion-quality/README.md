@@ -17,6 +17,6 @@ Example score is synthetic and not approved client content. Overlap layer/blend 
 
 Paper Shaders 0.0.81: use the installed package's real ShaderMount setup and verified API. Versions from 0.0.77 use Apache-2.0; preserve LICENSE/NOTICE if shipping library code. The adapter vendors no library code. Set dimensions, seed and all uniforms explicitly. A feedback simulation may require fixed prerendering, not arbitrary seeking.
 
-Tone.js 15.1.22: MIT. Inject an already authorized installation. Offline returns a ToneAudioBuffer; use its actual channel data with the project's existing WAV/container writer and muxer. This helper supplies sound accents, not a composed score. Check clipping from overlapping voices and listen to the actual mix.
+Tone.js 15.1.22: MIT. Inject an already authorized installation. Offline returns a ToneAudioBuffer; use its actual channel data with the project's existing WAV/container writer and muxer. This helper supplies sound accents for sync tests, not a composed score, and its tones are never delivered as a project's sound. Check clipping from overlapping voices and listen to the actual mix.
 
 No Paper/Tone installation or live runtime test is implied by helper unit tests. Mocks verify unit conversion/scheduling, not GPU drawing or audio quality. Record current API/version, initialization, direct/backward seeks and encoded sync in the existing QA record.
