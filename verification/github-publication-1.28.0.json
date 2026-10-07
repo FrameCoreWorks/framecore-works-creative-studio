@@ -1,0 +1,53 @@
+{
+  "version": "1.28.0",
+  "change_id": "CC-20261007-10",
+  "origin": "cloud-code",
+  "commit": "748404f87317f75c08891ed9140fa3453c1cd402",
+  "package_commit": "65d8bf1d68043f388990c174656fd0b9bcbd92ca",
+  "integration": "Fast-forward of main from c0ae6d7 to 662bbbe, then to 748404f, on owner instruction; no merge commit",
+  "failed_attempt": "workflow 37617018904 on 662bbbe failed its installer checks because the install manifest listed render.py bytecode that Git does not track; fixed in 748404f (tests run the probe with python3 -B)",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.28.0",
+  "workflow_id": 37619690244,
+  "workflow_trigger": "workflow_dispatch on main at 748404f (the fix commit does not change plugin.json)",
+  "workflow_conclusion": "success",
+  "source_tree_matches": true,
+  "source_tree": "main at 748404f and the local branch resolve to the same package tree 0d5551a0e4a4cebeb67c4ed750ee92b569a09dba (882 files)",
+  "source_blobs_checked": 882,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "d0b95c016c2175bcbd5dbadb9fc81d88eb2c5923bd552750358c57a59a2bcce3",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "84331310b050ba82f09da9b340d12c2256e160d5173ebaea7caafd76394ec6e4",
+  "assets": [
+    {
+      "name": "framecore-motion-player-1.28.0.html",
+      "digest": "sha256:84331310b050ba82f09da9b340d12c2256e160d5173ebaea7caafd76394ec6e4",
+      "size": 55009
+    },
+    {
+      "name": "framecore-work-creative-studio-1.28.0.zip",
+      "digest": "sha256:d0b95c016c2175bcbd5dbadb9fc81d88eb2c5923bd552750358c57a59a2bcce3",
+      "size": 9663387
+    },
+    {
+      "name": "framecore-work-creative-studio-1.28.0.zip.inventory.json",
+      "digest": "sha256:2b74a3da25d622269ba771b53d85b968c713ef4ce647dcd30543ca93f52d9111",
+      "size": 178662
+    },
+    {
+      "name": "framecore-works-creative-studio-1.28.0-repository.zip",
+      "digest": "sha256:03b6fd9c773814c9a6776e53d95d821b8d9eb9975cf5aa9c0892459281961fde",
+      "size": 11948105
+    },
+    {
+      "name": "framecore-works-creative-studio-1.28.0-repository.zip.inventory.json",
+      "digest": "sha256:23e10e9b270c70d4da02e9938ca2167361fe7a03fa70488f213ce974357a7573",
+      "size": 249286
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:506f530f1adacb1191c6505722ee6fcd67d6da5eb656d7ab32c1743a9cafda2c",
+      "size": 588
+    }
+  ]
+}

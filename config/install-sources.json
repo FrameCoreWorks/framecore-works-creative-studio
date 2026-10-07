@@ -3067,11 +3067,6 @@
       "sha256": "2f50ce3a0f0c08acc9efb1524ce386fcde28211570fd8db77b2a629dc5686e21"
     },
     {
-      "path": "skills/hyperframes-workflow/assets/motion-render/__pycache__/render.cpython-313.pyc",
-      "bytes": 64400,
-      "sha256": "836242c1fa7c1ca041dbf30a2038aa926a2d609f4f3535452f32e494ddb9291f"
-    },
-    {
       "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
       "bytes": 35907,
       "sha256": "723a2328e356b6c0dec867aeb2a79b2b8ee2b5853a06b6f835a9be334aa1f239"
@@ -4478,8 +4473,8 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 45748,
-      "sha256": "4c516ffb4bf0ddf6fdd2d209fe7d6b05e7d6112dc68b034dee43749356c0e928"
+      "bytes": 45754,
+      "sha256": "726992910893a075dd39b99d6a21a37e88de2ecb7ebaf1c28485e46482eeb3dd"
     },
     {
       "path": "tests/package.test.mjs",

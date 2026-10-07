@@ -68,8 +68,8 @@
   "review": {
     "status": "NOT_RUN"
   },
-  "plugin_zip_sha256": "627b85e94f65e90a02019fd2f0602dae32bb1fe8e409292e53f08dd4942c1092",
-  "github_publication": "NOT_RUN",
+  "plugin_zip_sha256": "d0b95c016c2175bcbd5dbadb9fc81d88eb2c5923bd552750358c57a59a2bcce3",
+  "github_publication": "github-publication-1.28.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and local renderer comparisons; the renderer has not run in a ChatGPT or ChatGPT Work sandbox, and whether those hosts copy and run it is not verified. All 201 planned cases remain not_run.",

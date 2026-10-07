@@ -463,7 +463,7 @@ test('Python renderer matches the engine kinds and easings and renders determini
   const spawnSync = spawnPython;
   const {easings, sceneKinds} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
   const script = path.join(root, renderDir, 'render.py');
-  const probe = spawnSync('python3', ['-c', `import importlib.util, json, sys
+  const probe = spawnSync('python3', ['-B', '-c', `import importlib.util, json, sys
 spec = importlib.util.spec_from_file_location('render', sys.argv[1]); r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)
 print(json.dumps({'kinds': list(r.KINDS), 'easings': {k: [f(x / 20) for x in range(21)] for k, f in r.EASINGS.items()}, 'numbers': [r.number_text({'decimals': 1, 'suffix': '%'}, 12345.25), r.number_text({'locale': 'pl-PL'}, 1234), r.number_text({'locale': 'pl-PL'}, 12345)]}))`, script], {encoding: 'utf8'});
   assert.equal(probe.status, 0, probe.stderr);
