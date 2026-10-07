@@ -679,6 +679,18 @@ x = np.zeros((synth.RATE, 2)); x[1000:1000 + len(c)] = c * 6
 out['limited_true_peak_db'] = synth.true_peak_db(synth.limit(x, -1.0))
 bed = synth.compose_bed(6.0, 120, 'D major', [1, 3, 1], reveal_bar=2)
 out['bed_edges_db'] = [20 * np.log10(np.abs(bed[:2]).max() + 1e-12), 20 * np.log10(np.abs(bed[-2:]).max() + 1e-12)]
+import music
+out['palettes'] = {}
+for palette in music.PALETTES:
+    a = music.compose_bed(10.0, 120, 'A minor', [1, 2, 3, 3, 1], 5, 4, palette, 1)
+    b = music.compose_bed(10.0, 120, 'A minor', [1, 2, 3, 3, 1], 5, 4, palette, 1) if palette in ('studio', 'meadow') else a
+    loud = 10 * np.log10(np.convolve(np.mean(a ** 2, axis=1), np.ones(synth.RATE) / synth.RATE, mode='valid').max())
+    out['palettes'][palette] = {'same': bool(np.array_equal(a, b)), 'finite': bool(np.isfinite(a).all()), 'peak': float(np.abs(a).max()), 'loudest_db': loud}
+root, _ = synth.key_root('A minor')
+scale = {(root + step) % 12 for step in (0, 2, 3, 5, 7, 8, 10, 11)}
+out['minor_chords_in_key'] = all((n % 12) in scale for loop in music.PROGRESSIONS['minor'] for degree, chord in loop
+                                  for n in music.voicing(root + degree, chord, True, degree, True, root + 18))
+out['style_palettes'] = music.STYLE_PALETTE
 print(json.dumps(out))`, path.join(root, soundDir)], {encoding: 'utf8'});
   assert.equal(probe.status, 0, probe.stderr);
   const result = JSON.parse(probe.stdout);
@@ -687,6 +699,13 @@ print(json.dumps(out))`, path.join(root, soundDir)], {encoding: 'utf8'});
   assert.equal(result.riser.offset, result.riser.seconds, 'a riser aligns on its end');
   assert.ok(result.limited_true_peak_db <= -0.95, `the limiter holds true peak within 0.05 dB, between samples too: ${result.limited_true_peak_db}`);
   assert.ok(result.bed_edges_db[0] < -40 && result.bed_edges_db[1] < -40, `the bed fades in and out: ${result.bed_edges_db}`);
+  assert.ok(result.minor_chords_in_key, 'minor progressions stay in the key (natural minor plus the raised seventh of V)');
+  const styles = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-styles/styles.json'), 'utf8')).styles.map(style => style.id);
+  for (const style of styles.filter(id => id !== 'brand-native')) assert.ok(result.style_palettes[style] && result.palettes[result.style_palettes[style]], `style ${style} has a music palette`);
+  for (const [name, palette] of Object.entries(result.palettes)) {
+    assert.ok(palette.same && palette.finite && palette.peak < 1, `${name} renders finite and below full scale (studio and meadow twice, identically)`);
+    assert.ok(Math.abs(palette.loudest_db + 17) < 0.5, `${name} sits at the reference level: ${palette.loudest_db}`);
+  }
   assert.ok(result.whoosh_peak_error_ms < 1, 'a whoosh aligns on its measured peak');
 });
 
@@ -705,6 +724,8 @@ test('sound cues follow the picture: taps, pushes, wipes, landings, a composed b
     const bar = 4 * 60 / film.soundDesign.music.bpm, seconds = source.totalFrames / 30;
     assert.equal(film.soundDesign.music.energies.length, Math.ceil(seconds / bar));
     const {revealBar, revealFrame, bpm} = film.soundDesign.music, target = 100;
+    assert.equal(film.soundDesign.music.palette, 'meadow', 'the music palette follows the style');
+    assert.ok(Number.isInteger(film.soundDesign.music.progression) && Number.isInteger(film.soundDesign.music.seed));
     assert.ok(Math.abs(revealBar * bar - revealFrame / 30) < 0.001, 'the final reveal lands on a downbeat of the composed music');
     assert.ok(Math.abs(bpm / target - 1) <= 0.08, 'the fitted tempo stays near the style tempo');
     assert.ok(film.sfx.some(cue => cue.frame === revealFrame && cue.event.includes('settles')), 'the final hit and the downbeat share the frame');

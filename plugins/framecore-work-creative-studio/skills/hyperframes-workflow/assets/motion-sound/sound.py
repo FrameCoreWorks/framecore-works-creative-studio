@@ -23,12 +23,14 @@ import re
 import subprocess
 import sys
 import tempfile
+import zlib
 
 sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 try:
     import numpy as np
+    import music
     import synth
 except ImportError as error:  # pragma: no cover
     sys.stderr.write(f'numpy is required ({error})\n')
@@ -178,14 +180,32 @@ def plan_cues(score, density='standard'):
     return sorted(kept, key=lambda cue: (cue['frame'], cue['sound']))
 
 
-def fit_tempo(target, reveal_s, starts, spread=0.08):
+def style_tempo(style):
+    """The style's tempo range from ../motion-styles/styles.json, or None when the style or the file is missing."""
+    path = os.path.join(HERE, '..', 'motion-styles', 'styles.json')
+    try:
+        with open(path, encoding='utf-8') as handle:
+            styles = json.load(handle)['styles']
+        low, high = next(item['music']['bpm'] for item in styles if item['id'] == style)
+        return float(low), float(high)
+    except (OSError, ValueError, KeyError, StopIteration, TypeError):
+        return None
+
+
+def content_seed(score):
+    """A stable number from the video's own content, so each video gets its own progression and variations."""
+    text = json.dumps([score.get('title'), score.get('copy'), [scene.get('id') for scene in score['scenes']]], sort_keys=True, ensure_ascii=False)
+    return zlib.crc32(text.encode('utf-8'))
+
+
+def fit_tempo(target, reveal_s, starts, spread=0.08, low=None, high=None):
     """A tempo near the style's that puts the reveal on a downbeat: bar N of the music begins exactly on the reveal.
-    Among the tempos within `spread` of the target, the one that also keeps scene starts nearest to beats wins.
-    Returns (bpm, reveal_bar), or (target, None) when no tempo in range fits."""
+    Candidates lie within `spread` of the target and inside the style's range [low, high] when given; the one closest
+    to the target that also keeps scene starts nearest to beats wins. Returns (bpm, reveal_bar), or (target, None)."""
     best = None
     for bars in range(1, 129):
         bpm = 240.0 * bars / reveal_s
-        if abs(bpm / target - 1) > spread:
+        if abs(bpm / target - 1) > spread or (low and bpm < low - 1e-6) or (high and bpm > high + 1e-6):
             continue
         beat = 60.0 / bpm
         drift = sum(abs((t / beat + 0.5) % 1 - 0.5) for t in starts) / len(starts) if starts else 0.0
@@ -204,6 +224,7 @@ def plan_music(score, r=None):
     style = score.get('style')
     grid = (score.get('music') or {}).get('bpm')
     target = grid or STYLE_BPM.get(style, 108)
+    tempo_range = style_tempo(style) or (None, None)
     key = 'A minor' if style in MINOR_STYLES else 'D major'
     scenes = score['scenes']
     reveal = final_reveal(score, r)
@@ -215,7 +236,9 @@ def plan_music(score, r=None):
             bars = round(reveal / fps / (240.0 / grid))
             reveal_bar = bars if bars >= 1 and abs(reveal / fps - bars * 240.0 / grid) <= 1.0 / fps else None
         else:
-            bpm, reveal_bar = fit_tempo(target, reveal / fps, starts)
+            bpm, reveal_bar = fit_tempo(target, reveal / fps, starts, 0.08, *tempo_range)
+            if reveal_bar is None:
+                bpm, reveal_bar = fit_tempo(target, reveal / fps, starts, 0.08)
     bar = 4 * 60 / bpm
     final = scenes[-1] if scenes and scenes[-1]['kind'] in ('end-card', 'logo-reveal') else None
     energies = []
@@ -235,10 +258,13 @@ def plan_music(score, r=None):
             energies.append(1)
         else:
             energies.append(2)
-    music = {'compose': True, 'bpm': round(bpm, 4), 'key': key, 'energies': energies, 'gain': -9}
+    seed = content_seed(score)
+    palette = music.STYLE_PALETTE.get(style, 'studio')
+    plan = {'compose': True, 'bpm': round(bpm, 4), 'key': key, 'palette': palette, 'progression': seed % len(music.PROGRESSIONS['major']),
+            'seed': 11 + seed % 997, 'energies': energies, 'gain': -9}
     if reveal_bar is not None:
-        music.update(revealBar=reveal_bar, revealFrame=reveal)
-    return music
+        plan.update(revealBar=reveal_bar, revealFrame=reveal)
+    return plan
 
 
 def cue_table(score, cues):
@@ -331,14 +357,15 @@ def full_mix(score, base_dir):
     length = round(score['totalFrames'] / fps * RATE)
     dry, send, hits = render_effects(score, score.get('sfx') or [])
     music_plan = (score.get('soundDesign') or {}).get('music') or {}
-    music = np.zeros((length, 2))
+    bed_track = np.zeros((length, 2))
     source = (score.get('music') or {}).get('src')
     if source:
         track = read_wav(os.path.join(base_dir, source))[:length]
-        music[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
+        bed_track[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
     elif music_plan.get('compose'):
-        bed = synth.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], reveal_bar=music_plan.get('revealBar'))
-        music[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
+        bed = music.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], music_plan.get('seed', 11),
+                                music_plan.get('revealBar'), music_plan.get('palette', 'studio'), music_plan.get('progression', 0))
+        bed_track[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
     voice = np.zeros((length, 2))
     if (score.get('voiceover') or {}).get('src'):
@@ -349,10 +376,10 @@ def full_mix(score, base_dir):
             a, b = round(caption['start'] / fps * RATE), round(caption['end'] / fps * RATE)
             duck[max(0, a - ramp):min(length, b + ramp)] = 10 ** (-8 / 20)
         kernel = np.ones(ramp) / ramp
-        music *= np.convolve(duck, kernel, mode='same')[:, None]
-    music *= hit_ducking(score, length)[:, None]
+        bed_track *= np.convolve(duck, kernel, mode='same')[:, None]
+    bed_track *= hit_ducking(score, length)[:, None]
     wet = synth.convolve(send, synth.reverb_ir())[:length]
-    return dry + music + voice + 0.6 * wet, dry, hits, music
+    return dry + bed_track + voice + 0.6 * wet, dry, hits, bed_track
 
 
 def hit_ducking(score, length):
@@ -439,6 +466,7 @@ def main(argv=None):
     plan.add_argument('--out', required=True)
     plan.add_argument('--density', default='standard', choices=DENSITIES)
     plan.add_argument('--no-music', action='store_true', help='effects only (a supplied music.src is always used instead of composing)')
+    plan.add_argument('--palette', choices=sorted(music.PALETTES), help="music palette instead of the style's own")
     plan.add_argument('--evidence')
     plan.add_argument('--table')
     mix = sub.add_parser('mix')
@@ -463,6 +491,8 @@ def main(argv=None):
             design = {'engine': 'studio-synth-1', 'density': args.density, 'status': 'planned'}
             if not args.no_music and not (score.get('music') or {}).get('src'):
                 design['music'] = plan_music(score)
+                if args.palette:
+                    design['music']['palette'] = args.palette
             result['soundDesign'] = design
             result['sfx'] = cues
             with open(args.out, 'w', encoding='utf-8') as handle:
@@ -473,7 +503,8 @@ def main(argv=None):
             counts = {}
             for cue in cues:
                 counts[cue['sound']] = counts.get(cue['sound'], 0) + 1
-            print(json.dumps({'cues': len(cues), 'by_sound': counts, 'density': args.density, 'music': design.get('music', {}).get('bpm'), 'out': args.out}))
+            composed = design.get('music', {})
+            print(json.dumps({'cues': len(cues), 'by_sound': counts, 'density': args.density, 'music': composed.get('bpm'), 'palette': composed.get('palette'), 'out': args.out}))
             return 0
         if args.command == 'check':
             fps = score['fps']['num'] / score['fps']['den']
@@ -487,7 +518,7 @@ def main(argv=None):
         for path in (args.out, args.wav):
             if path and os.path.exists(path):
                 raise ValueError(f'Output file already exists: {path}')
-        mixed, effects, hits, music = full_mix(score, os.path.dirname(os.path.abspath(args.contract)))
+        mixed, effects, hits, music_stem = full_mix(score, os.path.dirname(os.path.abspath(args.contract)))
         timing = timing_check(score)
         mastered, notes = master(mixed, args.lufs)
         summary = {'cues': len(score.get('sfx') or []), 'timing': timing, 'loudness': notes}
@@ -497,7 +528,7 @@ def main(argv=None):
             if args.stems:
                 os.makedirs(args.stems, exist_ok=True)
                 write_wav(effects, os.path.join(args.stems, 'effects.wav'), 'pcm_f32le')
-                write_wav(music, os.path.join(args.stems, 'music.wav'), 'pcm_f32le')
+                write_wav(music_stem, os.path.join(args.stems, 'music.wav'), 'pcm_f32le')
             if args.out:
                 duration = score['totalFrames'] * score['fps']['den'] / score['fps']['num']
                 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', args.video, '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',

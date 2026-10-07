@@ -390,16 +390,6 @@ def pluck(n, freq):
     return sum(math.exp(-0.45 * (h - 1)) * np.sin(2 * np.pi * freq * h * t) * np.exp(-t / (0.35 / h)) for h in range(1, 7))
 
 
-def kick(seed):
-    """A tuned kick: a body gliding from about 120 to 48 Hz and a short beater click."""
-    n = int(0.42 * RATE)
-    t = seconds(n)
-    freq = 48 + 72 * np.exp(-t / 0.03)
-    body = np.sin(2 * np.pi * np.cumsum(freq) / RATE) * np.exp(-t / 0.16)
-    beater = shaped(colored_noise(n, seed, 0.0), lambda time, f: band(f, 3500, 0.7)) * np.exp(-t / 0.0025)
-    return fades(saturate(body + 0.35 * beater, 1.5), 0.0003, 0.05)
-
-
 def snare(seed):
     """A snare and clap layer: a tuned shell, bright wires and three quick hand bursts."""
     n = int(0.3 * RATE)
@@ -435,112 +425,7 @@ def crash(seed, length=2.6):
     return fades(stereo(mono, 0.0, 0.6, seed), 0.001, 0.3)
 
 
-def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None):
-    """A music bed: bars of a four-chord progression in `key`; `energies` gives each bar a level from 0 to 3.
-    0: a soft pad; 1: pad and bass; 2: plus a plucked arpeggio and hi-hats; 3: plus kick, snare and swung
-    sixteenth hats, with the pad ducking under the kick. With `reveal_bar` the progression is placed so the bar
-    before it closes the loop, a snare fill and a reversed cymbal lead into it, and the reveal lands on the tonic
-    with a crash; the drums stop there and the chord rings out to the end. Returns stereo audio of total_s seconds
-    starting on bar 1, faded in and out so it never starts or stops abruptly."""
-    n_total = int(total_s * RATE) + RATE
-    out = np.zeros((n_total, 2))
-    beat = 60.0 / bpm
-    bar = 4 * beat
-    root, minor = key_root(key)
-    progression = [(0, [0, 3, 7]), (8, [-4, 0, 3]), (3, [0, 4, 7]), (10, [-3, 0, 4])] if minor else [(0, [0, 4, 7]), (7, [0, 4, 7]), (9, [0, 3, 7]), (5, [0, 4, 7])]
-    kick_env = np.zeros(n_total)
-    pads, rhythm = np.zeros((n_total, 2)), np.zeros((n_total, 2))
-    hats = [hat(seed + 41 * i) for i in range(4)]
-    open_hat = hat(seed + 97, True)
-
-    def place(track, at, audio, gain=1.0):
-        if at >= n_total or at + len(audio) <= 0:
-            return
-        a = max(0, at)
-        m = min(n_total - a, len(audio) - (a - at))
-        track[a:a + m] += (audio[a - at:a - at + m] if audio.ndim == 2 else stereo(audio[a - at:a - at + m])) * gain
-
-    def kick_at(at, b, h):
-        place(rhythm, at, kick(seed + 13 * b + h), 0.42)
-        m = min(n_total - at, int(0.25 * RATE))
-        if m > 0:
-            kick_env[at:at + m] = np.maximum(kick_env[at:at + m], np.exp(-seconds(m) / 0.08))
-
-    for b, energy in enumerate(energies):
-        start = int(round(b * bar * RATE))
-        if start >= n_total:
-            break
-        if reveal_bar is not None and b >= reveal_bar:
-            if b == reveal_bar:
-                before = energies[b - 1] if b else 1
-                # The reveal's own hit comes from the effects (an impact or boom); the music adds no kick under it.
-                resolve(start, n_total, root, progression, before, beat, pads, rhythm, place, seed)
-            continue
-        degree, chord = progression[(b - reveal_bar) % 4 if reveal_bar is not None else b % 4]
-        base = root + degree
-        into_reveal = reveal_bar is not None and b == reveal_bar - 1
-        # Pad: the chord, voiced around middle C, held for the bar with an overlapping release.
-        length = min(n_total - start, int((bar + 0.8) * RATE))
-        env = adsr(length, 0.35, 1.2, 0.75, bar - 0.05, 0.25 if into_reveal else 0.6)[:, None]
-        for i, interval in enumerate(chord + [12]):
-            pads[start:start + length] += pad_voice(length, midi_hz(base + 12 + interval), seed + 31 * b + i) * env * (0.11 if energy else 0.08)
-        if energy >= 1:
-            hits = [0, 2] if energy == 1 else [0, 1.5, 2, 3.5] if energy == 2 else [0, 0.5, 1.5, 2, 2.5, 3.5]
-            for h in hits:
-                s = start + int(h * beat * RATE)
-                m = min(n_total - s, int(0.6 * beat * RATE))
-                if m > 0:
-                    place(rhythm, s, bass_note(m, midi_hz(base - 12), release_at=0.5 * beat), 0.36)
-        if energy >= 2:
-            notes = [base + 12 + c for c in chord] + [base + 24 + chord[0]]
-            for step in range(8):
-                s = start + int(step * beat / 2 * RATE)
-                m = min(n_total - s, int(0.9 * RATE))
-                if m > 0:
-                    note = pluck(m, midi_hz(notes[[0, 1, 2, 3, 2, 1, 2, 3][step]] + 12))
-                    place(rhythm, s, stereo(note * (0.10 if step % 2 == 0 else 0.07), -0.35 if step % 2 == 0 else 0.35))
-            if energy == 2:
-                for step in range(8):
-                    place(rhythm, start + int(step * beat / 2 * RATE), stereo(hats[step % 4], 0.25), 0.07 if step % 2 else 0.035)
-        if energy >= 3:
-            for h in range(4):
-                kick_at(start + int(h * beat * RATE), b, h)
-                if h in (1, 3):
-                    place(rhythm, start + int(h * beat * RATE), stereo(snare(seed + 5 * b + h), 0.0, 0.3, seed), 0.3)
-            # Sixteenth hats with a light, fixed swing and accents on the off-beats; an open hat on the last off-beat.
-            for step in range(16):
-                at = start + int((step + (0.08 if step % 2 else 0)) * beat / 4 * RATE)
-                if step == 14:
-                    place(rhythm, at, stereo(open_hat, 0.3), 0.06)
-                elif step < 12 or not into_reveal:
-                    place(rhythm, at, stereo(hats[step % 4], 0.25 if step % 2 else 0.15), (0.075, 0.03, 0.055, 0.03)[step % 4])
-            if into_reveal:
-                for k in range(4):
-                    place(rhythm, start + int((3 + k / 4) * beat * RATE), stereo(snare(seed + 701 + k), 0.0, 0.3, seed), 0.12 + 0.05 * k)
-        if into_reveal and energy >= 2:
-            swell = crash(seed + 3, beat * 1.5)[::-1]
-            place(rhythm, int(round((b + 1) * bar * RATE)) - len(swell), fades(swell, 0.2, 0.004), 0.25)
-    duck = 1 - 0.45 * kick_env
-    out += pads * duck[:, None] + rhythm
-    out = out[:int(total_s * RATE)]
-    tail = min(int(0.5 * RATE), len(out) // 4) if reveal_bar is not None else min(int(1.2 * RATE), len(out) // 4)
-    return fades(out, 0.012, tail / RATE)
-
-
-def resolve(start, n_total, root, progression, before, beat, pads, rhythm, place, seed):
-    """The reveal bar: the tonic struck together with a crash, a falling bass note and a rising broken chord,
-    ringing out to the end of the video instead of being cut off."""
-    remaining = n_total - start
-    ring = max(1.0, remaining / RATE / 2.5)
-    degree, chord = progression[0]
-    base = root + degree
-    env = adsr(remaining, 0.03, 0.8, 0.6, 0.0, ring)[:, None]
-    for i, interval in enumerate(chord + [12]):
-        pads[start:] += pad_voice(remaining, midi_hz(base + 12 + interval), seed + 7001 + i) * env * 0.12
-    place(rhythm, start, bass_note(remaining, midi_hz(base - 12), 0.004, 0.6, 0.35, 0.0, ring), 0.4)
-    if before >= 2:
-        place(rhythm, start, crash(seed + 5), 0.32)
-        notes = [base + 24 + c for c in chord] + [base + 36 + chord[0]]
-        for k, note in enumerate(notes):
-            m = min(remaining, int(1.6 * RATE))
-            place(rhythm, start + int(k * beat / 2 * RATE), stereo(pluck(m, midi_hz(note)) * (0.09 - 0.012 * k), -0.3 + 0.2 * k))
+def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None, palette='studio', progression=0):
+    """A composed music bed; see music.compose_bed (instruments, style palettes and the arranger live in music.py)."""
+    import music
+    return music.compose_bed(total_s, bpm, key, energies, seed, reveal_bar, palette, progression)

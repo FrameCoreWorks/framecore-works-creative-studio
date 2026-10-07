@@ -9,7 +9,7 @@ Studio designs its sounds and music with code, at the standard of a sound design
 ## Order of work
 
 1. **Picture first.** Plan sound only after the timing is approved; a change to timing moves the cues, so plan again after it.
-2. **Music sets the energy.** A track the user supplies goes in `music.src` (analyse and cut it with [`beats.py` and `music_edit.py`](../assets/motion-sync/README.md#analysing-a-supplied-track)); otherwise Studio composes a bed. Under words and effects the music is a bed: mixed below the effects, no lead melody over text.
+2. **Music sets the energy.** The composed bed plays in the instruments of the video's style ([music palettes](../assets/motion-sound/README.md#music-palettes)). A track the user supplies goes in `music.src` (analyse and cut it with [`beats.py` and `music_edit.py`](../assets/motion-sync/README.md#analysing-a-supplied-track)); otherwise Studio composes a bed. Under words and effects the music is a bed: mixed below the effects, no lead melody over text.
 3. **Then the effects,** one per action that matters, from one central cue list (`sfx`), each named after the event it marks.
 4. **Mix, check, deliver,** with the cue table, and ask the user to listen once with the picture.
 
