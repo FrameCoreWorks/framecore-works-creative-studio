@@ -9,7 +9,7 @@ Source version: **1.22.0**. Date: 2026-10-07. Change ID: `CC-20261007-04` (origi
 | Container runs | Player opens valid contracts, including the second ChatGPT test contract, rejects invalid ones and exports; release player byte-identical to the template; Pages steps simulated locally; existing contracts unchanged |
 | Scope | 13 changed shared files, 877 total; 37 skill IDs; repository-only: Pages workflow and release scripts |
 | GitHub publication | PASS: `main` fast-forwarded to `4df37e95cb1b2fa597fbf89a247eb29d07f6683d`; [v1.22.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.22.0) with the motion player file; workflow 37585412547 succeeded; all 877 package files, plugin ZIP and player hashes match local |
-| GitHub Pages | Workflow 37585412460 published `gh-pages` (`52c3af1`, index.html identical to the template); the site returns 404 until the owner enables Settings > Pages > Deploy from a branch > gh-pages, root |
+| GitHub Pages | Live at <https://framecoreworks.github.io/framecore-works-creative-studio/> since the owner enabled it on 2026-10-07: HTTP 200, byte-identical to the template; a contract opened and exported on the live site in Chromium. Published by workflow 37585412460 (`gh-pages` `52c3af1`) |
 | Owner host report (1.20.0) | 2026-10-07, ordinary ChatGPT, Android phone browser: browser export produced a playable MP4 H.264 (`avc1.640028`), 1920 x 1080, 180 frames; PASS_REPORTED ([report](verification/host-report-2026-10-07-browser-export.json)) |
 | Hosted plugin, ChatGPT and Codex | Owner-managed; not tracked by this source release |
 

@@ -24,7 +24,7 @@
       ".nojekyll"
     ],
     "index_identical_to_template": true,
-    "site": "https://framecoreworks.github.io/framecore-works-creative-studio/ returned HTTP 404 after the run: GitHub Pages is not enabled yet; the owner enables it for the gh-pages branch"
+    "site": "https://framecoreworks.github.io/framecore-works-creative-studio/ returned HTTP 404 right after the first run, before GitHub Pages was enabled"
   },
   "assets": [
     {
@@ -57,5 +57,12 @@
       "digest": "sha256:6f0e2d168b58cb950f974d4989bbc9c568145789a0dbf674bed1b924bb8e8c6a",
       "size": 588
     }
-  ]
+  ],
+  "pages_live_check": {
+    "date": "2026-10-07",
+    "enabled_by": "owner (Settings > Pages > Deploy from a branch > gh-pages, root)",
+    "http": 200,
+    "identical_to_template": true,
+    "browser_check": "Chromium 1194 at 390 px width on the live URL: the built-in example loaded; Open contract opened the contract from the second 2026-10-07 ChatGPT test; Export video produced a 180-frame VP9 WebM; no page errors"
+  }
 }
