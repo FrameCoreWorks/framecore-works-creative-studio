@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/kaventro/motion-designer",
+  "source_commit": "7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8",
+  "retrieved_on": "2026-10-07",
+  "license": "MIT",
+  "attribution": "Copyright (c) 2026 kaventro",
+  "activation": "reference_and_two_unchanged_scripts_no_skill_installation",
+  "adaptation": "../../skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
+  "retained_files": [
+    {
+      "source_path": "LICENSE",
+      "destination_path": "LICENSE",
+      "sha256": "d2aa14a6cf9bd8d71c451a6bffd46a3bc0a66c89ef6076d175d9a561c40371fe",
+      "meaning": "Unchanged upstream MIT notice; it covers the two retained scripts and the adapted text and values."
+    },
+    {
+      "source_path": "skills/motion-designer/scripts/beats.py",
+      "destination_path": "../../skills/hyperframes-workflow/assets/motion-sync/beats.py",
+      "sha256": "82b67c3297f2765d2892a0ab390754d6c3ea4c34239181c7d5f879a8dbd9f85f",
+      "meaning": "Unchanged upstream script: tempo, bar 1, drops, breakdowns and texture of a supplied track."
+    },
+    {
+      "source_path": "skills/motion-designer/scripts/music_edit.py",
+      "destination_path": "../../skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
+      "sha256": "a11f61bc0bb3f4d571215393801b32dc12a5f51c4b9064b39edf57d776123340",
+      "meaning": "Unchanged upstream script: cuts a supplied track to whole bars, exact to the frame."
+    }
+  ],
+  "reviewed_sources": [
+    {
+      "path": "README.md",
+      "git_blob_sha": "2ecff720dd81a50c097563cf7787cf1139a8e54c"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "a873db9ca7b26115a018d7daa9ea02ebe9a33234"
+    },
+    {
+      "path": "skills/motion-designer/SKILL.md",
+      "git_blob_sha": "05d6c57c7a9011c0c587712fb94abc3c2f13014f"
+    },
+    {
+      "path": "skills/motion-designer/reference/styles.md",
+      "git_blob_sha": "949d31eac434d20e9478446a914f55280c8d201a"
+    },
+    {
+      "path": "skills/motion-designer/reference/motion.md",
+      "git_blob_sha": "d1cad3ec39e065bfe9baa2fe55d496737d0996e1"
+    },
+    {
+      "path": "skills/motion-designer/reference/effects.md",
+      "git_blob_sha": "2fd6f2df2642a47394b138837f9d139b85a9ac7a"
+    },
+    {
+      "path": "skills/motion-designer/reference/types.md",
+      "git_blob_sha": "03ad5b1c78edc69338179762890d4dbf398db685"
+    },
+    {
+      "path": "skills/motion-designer/reference/qa.md",
+      "git_blob_sha": "1a9fb6fd407a451b738d12c891a0f19a42516a23"
+    },
+    {
+      "path": "skills/motion-designer/reference/reviewer.md",
+      "git_blob_sha": "e9a50d50cd9058f269da510f19b39e16bc667b61"
+    },
+    {
+      "path": "skills/motion-designer/reference/brief.md",
+      "git_blob_sha": "f47f9c722dbd2c60853a9afabad9d10771722426"
+    },
+    {
+      "path": "skills/motion-designer/reference/music.md",
+      "git_blob_sha": "7bebe5dd1be396bf77f3800c66f7b71f85b9139a"
+    },
+    {
+      "path": "skills/motion-designer/reference/rights.md",
+      "git_blob_sha": "74a126ccaced580d586cfafdee7ba3e4556934f0"
+    },
+    {
+      "path": "skills/motion-designer/scripts/beats.py",
+      "git_blob_sha": "58e01a67774730230759da2d001724e9aa114e34"
+    },
+    {
+      "path": "skills/motion-designer/scripts/music_edit.py",
+      "git_blob_sha": "666f480a48c437b8126f5d409712f65f5416259d"
+    }
+  ],
+  "adapted_files": [
+    "../../skills/hyperframes-workflow/assets/motion-styles/styles.json",
+    "../../skills/hyperframes-workflow/assets/motion-styles/README.md",
+    "../../skills/hyperframes-workflow/references/motion-craft.md",
+    "../../skills/hyperframes-workflow/references/motion-quality-direction.md",
+    "../../skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "../../skills/hyperframes-workflow/assets/motion-render/render.py"
+  ],
+  "omitted": [
+    "app-film device templates (iPhone, laptop window), screen capture and SF Symbols packing",
+    "the HTML film engine, check.mjs and the Chrome render pipeline (Studio has its own scene engine, renderers and review)",
+    "music_gen.py (ACE-Step), sfx.py synthesized action sounds and local voice models: Studio's sound policy forbids code-synthesized delivery audio and installing generators unasked",
+    "plan-mode, reviewer-agent dispatch and session-context rules specific to Claude Code and Codex",
+    "doctor.sh, install.sh and automatic tool installation",
+    "example films, fonts, music, posters and videos"
+  ],
+  "boundaries": "Only the two scripts are retained, unchanged; everything else is rewritten guidance mapped to Studio's motion contract, scene engine and existing owners. No upstream skill, command, template, model or installer is activated."
+}

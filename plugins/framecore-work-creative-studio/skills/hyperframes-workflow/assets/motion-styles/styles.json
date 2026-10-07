@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "source": "Adapted from the seven styles of kaventro/motion-designer (MIT), mapped to the Studio motion contract; see README.md",
+  "styles": [
+    {
+      "id": "brand-native",
+      "name": "Brand-native",
+      "feel": "the brand's own look, unchanged",
+      "when": "the brand or product has a strong look of its own",
+      "tokens": null,
+      "tokens_rule": "Take background, foreground, muted, accent and fontFamily from the brand's tokens, theme or approved guidelines; the canvas may be the brand background a shade lighter or darker.",
+      "motion": null,
+      "motion_rule": "Follow the product's own motion (its springs and durations) when known; otherwise start from the closest style below.",
+      "signature": {"move": "the brand's most recognisable shape carries the video from scene to scene", "engine": "custom"},
+      "music": {"bpm": [90, 128], "texture": "from the brand's existing sound or music, if any"}
+    },
+    {
+      "id": "meadow",
+      "name": "Meadow",
+      "feel": "soft and friendly",
+      "when": "finance, health, family, everyday consumer products",
+      "tokens": {"background": "#F5F6F2", "foreground": "#151A16", "muted": "#4E574F", "accent": "#2F7D32", "fontFamily": "Arial, Helvetica, sans-serif", "marginRatio": 0.08},
+      "motion": {"tempo": "calm-friendly", "entryFrames": 18, "exitFrames": 12, "lineStaggerFrames": 6, "itemStaggerFrames": 8, "entryEasing": "easeOutCubic", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "a small brand dot that becomes the subject and returns to the wordmark at the end", "engine": "custom"},
+      "music": {"bpm": [95, 110], "texture": "warm and acoustic: nylon guitar, Rhodes, felt piano, soft drums"}
+    },
+    {
+      "id": "warm-ink",
+      "name": "Warm ink",
+      "feel": "precise and tactile",
+      "when": "developer, professional and productivity tools",
+      "tokens": {"background": "#EEE9E1", "foreground": "#141416", "muted": "#5F5A53", "accent": "#141416", "fontFamily": "Arial, Helvetica, sans-serif", "marginRatio": 0.08},
+      "motion": {"tempo": "firm-precise", "entryFrames": 14, "exitFrames": 10, "lineStaggerFrames": 5, "itemStaggerFrames": 7, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "rows and panels assemble with an ink connector, and the ending closes back into the first shape", "engine": "item-stagger with its connector"},
+      "music": {"bpm": [100, 120], "texture": "dry and clean: muted keys, soft electric bass, tight drums"},
+      "note": "Use the accent only where the subject itself uses colour; ink is the default accent."
+    },
+    {
+      "id": "midnight",
+      "name": "Midnight",
+      "feel": "focused and luminous",
+      "when": "technology, developer tools, launches with a dark interface, games",
+      "tokens": {"background": "#0D0F14", "foreground": "#F2F4F8", "muted": "#9AA3B2", "accent": "#8B7CFF", "fontFamily": "Arial, Helvetica, sans-serif", "marginRatio": 0.08},
+      "motion": {"tempo": "quick-clean", "entryFrames": 12, "exitFrames": 8, "lineStaggerFrames": 4, "itemStaggerFrames": 6, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "a line of light (the accent) that marks now and runs through every scene", "engine": "line-reveal with params.exit 'sweep' and sweepColor set to the accent"},
+      "music": {"bpm": [118, 128], "texture": "synths and a tight kick"},
+      "note": "The accent means one thing: now, or just changed. Keep backgrounds flat; soft gradients on dark band in H.264."
+    },
+    {
+      "id": "field-guide",
+      "name": "Field guide",
+      "feel": "earthy and editorial",
+      "when": "outdoors, travel, food, maps and routes",
+      "tokens": {"background": "#EFE9DD", "foreground": "#1F2A22", "muted": "#56604F", "accent": "#E0602B", "fontFamily": "Georgia, 'Times New Roman', serif", "marginRatio": 0.09},
+      "motion": {"tempo": "unhurried", "entryFrames": 20, "exitFrames": 14, "lineStaggerFrames": 8, "itemStaggerFrames": 10, "entryEasing": "easeOutCubic", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "the route line: a line that draws itself, connects the points and underlines the final statement", "engine": "item-stagger connector for the route; end-card rule for the underline"},
+      "music": {"bpm": [90, 108], "texture": "acoustic and organic: guitar, light percussion, room"}
+    },
+    {
+      "id": "paper-and-ink",
+      "name": "Paper and ink",
+      "feel": "editorial and type-led",
+      "when": "statements, manifestos, design-led brands, announcements",
+      "tokens": {"background": "#FFFFFF", "foreground": "#0E0E10", "muted": "#5E5E63", "accent": "#FF4D2E", "fontFamily": "Arial, Helvetica, sans-serif", "marginRatio": 0.07},
+      "motion": {"tempo": "measured", "entryFrames": 15, "exitFrames": 10, "lineStaggerFrames": 3, "itemStaggerFrames": 6, "entryEasing": "easeOutExpo", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "one oversized line at a time (at most six words) ending in an accent full stop", "engine": "line-reveal at 140-180 px; the coloured full stop needs custom code"},
+      "music": {"bpm": [96, 116], "texture": "sparse: piano or plucked notes with space for the words"}
+    },
+    {
+      "id": "color-block",
+      "name": "Color block",
+      "feel": "bold and playful",
+      "when": "consumer launches, social posts, community, games",
+      "tokens": {"background": "#FFD23F", "foreground": "#111111", "muted": "#3A3A3A", "accent": "#3A86FF", "fontFamily": "Arial, Helvetica, sans-serif", "marginRatio": 0.07},
+      "motion": {"tempo": "bouncy-bold", "entryFrames": 12, "exitFrames": 8, "lineStaggerFrames": 4, "itemStaggerFrames": 6, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "the canvas colour changes on bar lines with a wipe (yellow #FFD23F, blue #3A86FF, pink #FF5D8F)", "engine": "custom (the scene engine has one background per contract)"},
+      "music": {"bpm": [118, 128], "texture": "punchy pop or house"}
+    }
+  ],
+  "choosing": [
+    {"subject": "finance, health, family", "styles": ["meadow", "brand-native"]},
+    {"subject": "developer, professional, productivity", "styles": ["warm-ink", "midnight"]},
+    {"subject": "outdoors, travel, food", "styles": ["field-guide", "color-block"]},
+    {"subject": "community, games", "styles": ["color-block", "midnight"]},
+    {"subject": "consumer launch, social", "styles": ["color-block", "paper-and-ink"]},
+    {"subject": "statement, manifesto, design-led brand", "styles": ["paper-and-ink", "brand-native"]}
+  ]
+}

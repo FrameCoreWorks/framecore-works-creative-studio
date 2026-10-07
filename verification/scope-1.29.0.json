@@ -1,0 +1,41 @@
+{
+  "version": "1.29.0",
+  "baseline": "662bbbef2bc96e33d2b3b8b5fc1ba2d0ee976b17",
+  "change_id": "CC-20261007-11",
+  "origin": "cloud-code",
+  "files": 890,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "skills/hyperframes-workflow/references/motion-contract-json.md",
+    "skills/hyperframes-workflow/references/motion-craft.md",
+    "skills/hyperframes-workflow/references/motion-quality-direction.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 868,
+  "added": [
+    "integrations/kaventro-motion-designer/LICENSE",
+    "integrations/kaventro-motion-designer/README.md",
+    "integrations/kaventro-motion-designer/source-manifest.json",
+    "skills/hyperframes-workflow/assets/motion-styles/README.md",
+    "skills/hyperframes-workflow/assets/motion-styles/styles.json",
+    "skills/hyperframes-workflow/assets/motion-sync/beats.py",
+    "skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
+    "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md"
+  ],
+  "removed": [],
+  "visual_regression": "player template and scene engine unchanged",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

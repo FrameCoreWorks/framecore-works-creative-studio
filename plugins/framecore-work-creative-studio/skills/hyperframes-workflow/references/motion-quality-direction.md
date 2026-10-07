@@ -44,4 +44,27 @@ Keep the shared first review plus at most two repair passes. Repair the identifi
 
 The existing output reviewer should judge against the predeclared criteria, with a frame/time reference for every material finding. Do not accept the builder's praise as evidence. Where a real independent reviewer is available and warranted, keep its review separate from implementation; roles alone do not prove separate execution. Calibrate subjective judgments with the user's accepted references and explicit counterexamples. A later, more complex iteration is not automatically better; retain the strongest compliant revision within the current budget.
 
+## Review passes and scores
+
+Within the existing review budget, look at the video in these passes (adapted from [kaventro/motion-designer](kaventro-motion-designer-adaptation.md)):
+
+1. **Overview** at about two frames a second: does the story read, and does every result hold long enough?
+2. **Transitions** frame by frame from about 0.3 s before to 0.3 s after each cut: flashes, pops, overlaps, mask edges.
+3. **Text at full size:** truncation, clipped descenders, alignment, size.
+4. **Phone size:** the whole video at 360 px wide (`--stills-width 360` in the [Python renderer](../assets/motion-render/README.md)). What cannot be read there cannot be read in a feed.
+5. **Frame 0 and fresh eyes:** frame 0 is the thumbnail most players and feeds show, so it must be a finished frame worth posting. Can someone new to the subject say what it is, what it does, for whom, and where to find it?
+
+Score each stretch from 1 to 10 on hook (the first two seconds), readability, motion, variety, composition, sync and accuracy, and give every score under 8 a finding with a frame reference that would raise it. Scores guide repairs inside the shared budget; they do not extend it.
+
+| You see | Usual fix |
+| --- | --- |
+| A label or word cut short | reframe, shorten with the user's approval, or choose data that fits; never ship a cut word |
+| Descenders cut at the bottom of a mask | a taller mask (about 1.3 times the font size) |
+| Text crossed by a moving element | reorder layers or move the path; hold the text until it passes |
+| A layer flashing in its end position for one frame | show it at the frame its motion starts |
+| A layer popping in or out without motion | give it an entry or tie it to something that moves |
+| An action between beats | move it onto the beat; offsets inside a beat are for secondary motion only |
+| Fast moves strobing | render with motion blur (`--blur 8`) |
+| Banding in dark gradients | flat backgrounds, or dithering at encode time, never per-frame noise |
+
 For a requested model comparison, use [the benchmark packet](../templates/motion-model-comparison.md). Model superiority requires comparable outputs, not provider marketing or selected social examples.

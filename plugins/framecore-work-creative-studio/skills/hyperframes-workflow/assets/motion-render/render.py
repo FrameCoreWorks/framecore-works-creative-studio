@@ -12,6 +12,8 @@ imageio-ffmpeg package); without ffmpeg it can still write stills.
   python render.py video.motion.json video.mp4 --check-dir video-check
   python render.py video.motion.json --stills 0,78,93 --stills-dir stills
   python render.py video.motion.json video-9x16.mp4 --format 9x16 --font MyFont-Regular.ttf --font-bold MyFont-Bold.ttf
+  python render.py video.motion.json video.mp4 --blur 8
+  python render.py video.motion.json --check-dir phone-check --stills-width 360
 
 Prints one JSON summary line (renderer version, frames, size, fonts used, encoder, files).
 Exit code: 0 done, 1 render or encode failure, 2 setup problem.
@@ -34,7 +36,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.0.0'
+VERSION = '1.1.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -628,7 +630,14 @@ class Renderer:
         self.scenes = [Scene(scene, score, self.fonts, base_dir) for scene in score['scenes']]
         self.captions = Captions(score, self.fonts) if score.get('captions') else None
 
-    def frame(self, n):
+    def frame(self, n, blur=1):
+        """Frame n; with blur > 1, the average of `blur` subframes over a 180-degree shutter (n to n + 0.5)."""
+        if blur > 1:
+            average = None
+            for i in range(blur):
+                sub = self.frame(n + 0.5 * i / blur)
+                average = sub if average is None else Image.blend(average, sub, 1 / (i + 1))
+            return average
         image = Image.new('RGBA', (self.score['width'], self.score['height']), self.background)
         for scene in self.scenes:
             if scene.scene['start'] <= n < scene.scene['end']:
@@ -662,7 +671,7 @@ def find_ffmpeg():
         return None
 
 
-def encode(renderer, out, crf):
+def encode(renderer, out, crf, blur=1):
     score = renderer.score
     ffmpeg = find_ffmpeg()
     if not ffmpeg:
@@ -676,7 +685,7 @@ def encode(renderer, out, crf):
     process = subprocess.Popen(command, stdin=subprocess.PIPE)
     try:
         for n in range(score['totalFrames']):
-            process.stdin.write(renderer.frame(n).tobytes())
+            process.stdin.write(renderer.frame(n, blur).tobytes())
     finally:
         process.stdin.close()
     if process.wait() != 0:
@@ -694,6 +703,8 @@ def main(argv=None):
     parser.add_argument('--stills', help='comma-separated frame numbers to save as PNG')
     parser.add_argument('--stills-dir', default='stills')
     parser.add_argument('--check-dir', help='save the frame-check frames (boundaries, hold starts, sweeps) as PNG here')
+    parser.add_argument('--stills-width', type=int, help='scale stills to this width, for example 360 to review at phone size')
+    parser.add_argument('--blur', type=int, default=1, help='motion blur: average this many subframes per frame (8 is typical; renders that many times slower)')
     parser.add_argument('--crf', type=int, default=18)
     parser.add_argument('--version', action='version', version=RENDERER)
     args = parser.parse_args(argv)
@@ -709,7 +720,7 @@ def main(argv=None):
         sys.stderr.write(f'{error}\n')
         return 2
     summary = {'renderer': RENDERER, 'format': score.get('format', 'base'), 'width': score['width'], 'height': score['height'],
-               'fps': score['fps'], 'frames': score['totalFrames'], 'fonts': renderer.fonts.paths, 'stills': []}
+               'fps': score['fps'], 'frames': score['totalFrames'], 'blur': args.blur, 'fonts': renderer.fonts.paths, 'stills': []}
     try:
         wanted = []
         if args.stills:
@@ -719,10 +730,13 @@ def main(argv=None):
         for folder, n in wanted:
             os.makedirs(folder, exist_ok=True)
             path = os.path.join(folder, f'frame-{n:05d}.png')
-            renderer.frame(n).save(path)
+            image = renderer.frame(n, args.blur)
+            if args.stills_width:
+                image = image.resize((args.stills_width, jround(image.height * args.stills_width / image.width)), Image.LANCZOS)
+            image.save(path)
             summary['stills'].append(path)
         if args.out:
-            summary['encoder'] = encode(renderer, args.out, args.crf)
+            summary['encoder'] = encode(renderer, args.out, args.crf, args.blur)
             summary['out'] = args.out
     except (OSError, RuntimeError, ValueError) as error:
         sys.stderr.write(f'{error}\n')

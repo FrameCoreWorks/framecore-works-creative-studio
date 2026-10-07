@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.28.0",
+  "version": "1.29.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "7d8c2a61c2d270a226d6fc41bc0bc20966547bc57a8078fb4747bc2ab0a93974"
+      "sha256": "e2d290d5ed1606b67296eef5ea69ff16a833e443270020bc8890f418c19502f1"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 18065,
-      "sha256": "e5455b0b19db330f5b411e329902703a63a8ed744c470861d918ddf6d2544726"
+      "bytes": 18198,
+      "sha256": "841b2e6bedbf2c5a64220d01ce11b79cc3b00f220012b9822d049529a02eb1ab"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "4e3430e29311a36afe51b05f229d7fa548e48d0f6ef037911ea9142626b9a8ac"
+      "sha256": "d294efeecaaaeac294340f52c417fc65d599da0f25f5be0d018ec16550f9607f"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 58927,
-      "sha256": "192e51190882f183937ad18d26ad0e3be9bc9f23be9def862f7f018569b5887f"
+      "bytes": 60382,
+      "sha256": "e5338c69e6a1b22baa3fed2fcf3af7ca0150540e8b5898f50c62d1aad9172c98"
     },
     {
       "path": "docs/research-ledger.json",
@@ -210,6 +210,21 @@
       "path": "integrations/artifact-guard/README.md",
       "bytes": 4349,
       "sha256": "9da4997e1b57b0fd9ec5522050f09c944bc83086433f40c5b7a6c83d611c2f53"
+    },
+    {
+      "path": "integrations/kaventro-motion-designer/LICENSE",
+      "bytes": 1065,
+      "sha256": "d2aa14a6cf9bd8d71c451a6bffd46a3bc0a66c89ef6076d175d9a561c40371fe"
+    },
+    {
+      "path": "integrations/kaventro-motion-designer/README.md",
+      "bytes": 880,
+      "sha256": "10a012110c7c5c1865770a90f79ea77be3c0fa0ada2cd6f95ac70493c09ba0d0"
+    },
+    {
+      "path": "integrations/kaventro-motion-designer/source-manifest.json",
+      "bytes": 4695,
+      "sha256": "fc7bfb5ff6f8e72ae7b77d886433fdba5755629427397a19fef578579ac61043"
     },
     {
       "path": "integrations/meta-ads-designer/LICENSE",
@@ -2234,7 +2249,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "7a312606d01c7c876cbd9ac4b0d573b9e04f6bb143232ce30286d822bd89f5bc"
+      "sha256": "ffc226800523703102e3195a02096fc4650df517f6ffed83c18e7176b3df3ab2"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2278,8 +2293,8 @@
     },
     {
       "path": "scripts/validate-motion-toolkit.mjs",
-      "bytes": 6828,
-      "sha256": "cdf3b228abf643920bdbc1fe327740c74832098cd227a7d7fb1d469a12b260c7"
+      "bytes": 7244,
+      "sha256": "4a7925cccbca3ddd40ce1b595adcf436469107852e1a45f41a2b5ba69eec4325"
     },
     {
       "path": "scripts/validate-package.mjs",
@@ -2833,8 +2848,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 9738,
-      "sha256": "27d9166d4396c839a5c966db2ecff782efb6a0f412b678411f99335e7f600be5"
+      "bytes": 9906,
+      "sha256": "3d49f42f7c53185dad1de5669993ed37ee8fff7c3890a1eac28dc6858032f39b"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -3053,13 +3068,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/__pycache__/render.cpython-313.pyc",
-      "bytes": 63007,
-      "sha256": "90927e1dc71582e68e8d59021c4f3101cee48e95b8b6aed63ffcd45587dfcc49"
+      "bytes": 64400,
+      "sha256": "836242c1fa7c1ca041dbf30a2038aa926a2d609f4f3535452f32e494ddb9291f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
-      "bytes": 34863,
-      "sha256": "9b7c9869261f669ad595cd3fbe600dbce59a7af23716304d34c0c29cc4aa4f3b"
+      "bytes": 35907,
+      "sha256": "723a2328e356b6c0dec867aeb2a79b2b8ee2b5853a06b6f835a9be334aa1f239"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
@@ -3102,14 +3117,34 @@
       "sha256": "fa7dfeb79b348440bd641574ec3fbc125984ea08fa374c670dd23676d41554ea"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/motion-styles/README.md",
+      "bytes": 3459,
+      "sha256": "8d4e8754ab3579e553be1ed2ff383bda70c3431f9daddc1d9bfaba1641058058"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-styles/styles.json",
+      "bytes": 6823,
+      "sha256": "c327d9ba3e421e7c74863301464cf77fedfd74227355d48ad585a5b5759533e7"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 6016,
-      "sha256": "4243615bc05dc8eab89bc97783cd79363452842cf19170ecedf98bce240fc549"
+      "bytes": 8831,
+      "sha256": "8ef455c997cf8f9f298659695a30473ca7bc5ee47bab29a9cdab4d8ebdda5856"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
+      "bytes": 10120,
+      "sha256": "82b67c3297f2765d2892a0ab390754d6c3ea4c34239181c7d5f879a8dbd9f85f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt",
       "bytes": 191,
       "sha256": "6f62827f36b2490f1c2470c8c88f9087637d9c63f266992f2da5c7e97b45fd7a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
+      "bytes": 2059,
+      "sha256": "a11f61bc0bb3f4d571215393801b32dc12a5f51c4b9064b39edf57d776123340"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/sync.mjs",
@@ -3207,14 +3242,19 @@
       "sha256": "ea2ca493cc3732c1678b23f4e84bd6e31d693e38834367c36f37765e02a71feb"
     },
     {
+      "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
+      "bytes": 3150,
+      "sha256": "2f1277780979a46da15ecb4f896d3f667d246096d588d331de9918c59fe2fad8"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/motion-contract-json.md",
-      "bytes": 6217,
-      "sha256": "ba31ed70fe5da5c1b5d7c6eff1164bbe9ff36b05773abeb4d6b13226c5d65780"
+      "bytes": 6386,
+      "sha256": "f06f67f2733bffaf99b5df67ca202b6c3168e69389cd2bfc40ebb6e204591155"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-craft.md",
-      "bytes": 8921,
-      "sha256": "52355b8cf042c56940bc0c530592488739dbafbe2293fbad36da4b9377707909"
+      "bytes": 12165,
+      "sha256": "5353eb041783d3bb4fe688645c5b93baa75e990e25ce1069246e049add7a8177"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
@@ -3223,8 +3263,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-quality-direction.md",
-      "bytes": 5622,
-      "sha256": "829ae69054d5ad877c009be1db9f40ad0c33ee8a374874494f360a856ba0ff4e"
+      "bytes": 7616,
+      "sha256": "4507675464d02ffb7ed17b355546ef56b23a5b476031591f3b2c64fec636b566"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-quality-research.md",
@@ -4234,7 +4274,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 29255,
-      "sha256": "942cf7264c42391251434bf61b78f2725e3b5f8df5234698bc28cb5dfbee57db"
+      "sha256": "bc2ff0add358888dcceabcbfddf48120f71cacc8503af530ce5d7e46e05078fd"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4438,8 +4478,8 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 40631,
-      "sha256": "29ba0644298935fc46647d5374c6b3ce57290ac8b771515dab4bbff9d4d227f9"
+      "bytes": 45748,
+      "sha256": "4c516ffb4bf0ddf6fdd2d209fe7d6b05e7d6112dc68b034dee43749356c0e928"
     },
     {
       "path": "tests/package.test.mjs",

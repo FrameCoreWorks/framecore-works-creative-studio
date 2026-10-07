@@ -489,3 +489,69 @@ print(json.dumps({'kinds': list(r.KINDS), 'easings': {k: [f(x / 20) for x in ran
     assert.match(spawnSync('python3', [script, broken, '--stills', '0'], {encoding: 'utf8'}).stderr, /no supported kind/);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
+
+test('motion styles apply to a contract, keep text contrast and use known easings', async () => {
+  const {easings} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {styles, choosing} = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-styles/styles.json'), 'utf8'));
+  const base = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8'));
+  const ids = styles.map(style => style.id);
+  assert.equal(new Set(ids).size, ids.length);
+  for (const entry of choosing) for (const id of entry.styles) assert.ok(ids.includes(id), id);
+  const luminance = hex => { const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(v => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  const contrast = (a, b) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05); };
+  for (const style of styles.filter(item => item.tokens)) {
+    const t = style.tokens;
+    assert.ok(contrast(t.foreground, t.background) >= 4.5, `${style.id} foreground`);
+    assert.ok(contrast(t.muted, t.background) >= 3, `${style.id} muted`);
+    for (const key of ['entryEasing', 'exitEasing', 'resolveEasing']) assert.ok(easings[style.motion[key]], `${style.id} ${key}`);
+    const contract = {...base, style: style.id, tokens: {...base.tokens, ...t}, motion: {...style.motion}};
+    assert.deepEqual(checkScore(contract).errors, [], style.id);
+  }
+});
+
+test('retained kaventro/motion-designer scripts match the recorded hashes', async () => {
+  const {createHash} = await import('node:crypto');
+  const dir = path.join(root, 'integrations/kaventro-motion-designer');
+  const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'source-manifest.json'), 'utf8'));
+  assert.equal(manifest.license, 'MIT');
+  for (const item of manifest.retained_files) {
+    const file = path.resolve(dir, item.destination_path);
+    assert.equal(createHash('sha256').update(fs.readFileSync(file)).digest('hex'), item.sha256, item.destination_path);
+  }
+});
+
+const ffmpegSpectral = spawnPython('ffmpeg', ['-hide_banner', '-filters'], {encoding: 'utf8'}).stdout?.includes('aspectralstats');
+test('beats.py finds tempo, bar 1 and the drop of a click track and music_edit.py cuts whole bars', {skip: !ffmpegSpectral && 'ffmpeg with aspectralstats not installed'}, () => {
+  const sync = path.join(root, 'skills/hyperframes-workflow/assets/motion-sync');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-beats-'));
+  try {
+    const track = path.join(tmp, 'track.wav');
+    const expr = "(0.6*between(mod(t-0.25,2),0,0.04)*sin(2*PI*1000*t)+0.35*between(mod(t-0.25,0.5),0,0.03)*sin(2*PI*600*t))*(1+1.5*gte(t,16.25))";
+    assert.equal(spawnPython('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', `aevalsrc='${expr}':s=44100:d=32`, track]).status, 0);
+    const beats = spawnPython('python3', [path.join(sync, 'beats.py'), track, '--json', path.join(tmp, 'grid.json')], {encoding: 'utf8'});
+    assert.equal(beats.status, 0, beats.stderr);
+    const grid = JSON.parse(fs.readFileSync(path.join(tmp, 'grid.json'), 'utf8'));
+    assert.ok(Math.abs(grid.bpm - 120) < 0.05 && Math.abs(grid.bar1 - 0.25) < 0.01, `${grid.bpm} ${grid.bar1}`);
+    assert.equal(grid.bars.find(bar => bar.mark === 'drop')?.bar, 9);
+    const cut = spawnPython('python3', [path.join(sync, 'music_edit.py'), track, path.join(tmp, 'grid.json'), '--from-bar', '2', '--bars', '4', '--fps', '30', '--out', path.join(tmp, 'cut')], {encoding: 'utf8'});
+    assert.equal(cut.status, 0, cut.stderr);
+    assert.match(cut.stdout, /240 frames/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('Python renderer motion blur keeps holds sharp and phone-size stills scale down', {skip: !python && 'python3 with Pillow not installed'}, () => {
+  const script = path.join(root, renderDir, 'render.py');
+  const contract = path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-blur-'));
+  try {
+    for (const [dir, extra] of [['sharp', []], ['blur', ['--blur', '4']], ['phone', ['--stills-width', '360']]]) {
+      const run = spawnPython('python3', [script, contract, '--stills', '30,80', '--stills-dir', path.join(tmp, dir), ...extra], {encoding: 'utf8'});
+      assert.equal(run.status, 0, run.stderr);
+    }
+    const read = (dir, frame) => fs.readFileSync(path.join(tmp, dir, `frame-000${frame}.png`));
+    assert.ok(read('sharp', 30).equals(read('blur', 30)), 'a hold is identical with blur');
+    assert.ok(!read('sharp', 80).equals(read('blur', 80)), 'the sweep is blurred');
+    assert.equal(read('phone', 30).readUInt32BE(16), 360);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});

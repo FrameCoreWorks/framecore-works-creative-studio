@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.28.0
+## Current source: 1.29.0
+
+The [1.29.0 source checks](verification/release-1.29.0.json) pass canonical validation and 225 tests: 166 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the Python and ffmpeg tests skip where those tools are missing. The release adapts knowledge from kaventro/motion-designer (MIT, commit `7d0b8bb`): every token style passed `check-score.mjs`, rendered, and keeps text contrast of at least 12.3:1 (foreground) and 5.5:1 (muted); `beats.py` found 120.002 BPM, bar 1 and the drop of a synthetic click track, and `music_edit.py` cut it to exactly 240 frames; motion blur left holds byte-identical. Host behavior is not verified. [Scope](verification/scope-1.29.0.json) records 14 changed and 8 added shared files out of 890.
+
+## Previous source: 1.28.0
 
 The [1.28.0 source checks](verification/release-1.28.0.json) pass canonical validation and 221 tests: 162 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the new renderer test runs when Python with Pillow is installed and is skipped otherwise. The release adds the bundled Python renderer. At the review frames of three contracts, including captions and a 9:16 format, its frames differed from the browser scene engine by at most 0.86 grey levels per pixel on average, with the same layout and timing; repeated renders were byte-identical. The renderer has not run in a ChatGPT or ChatGPT Work sandbox. [Scope](verification/scope-1.28.0.json) records 11 changed and 2 added shared files out of 882.
 

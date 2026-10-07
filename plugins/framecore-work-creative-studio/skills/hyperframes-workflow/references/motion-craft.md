@@ -47,13 +47,32 @@ Keep the total stagger of a group shorter than its own entry duration so the gro
 
 ## Readable holds
 
-A hold begins when the whole phrase is legible, not when its animation starts. Starting heuristic: about 13 characters per second plus 0.5 seconds to settle, with a minimum of 1 second. Example: a 26-character line needs about 2.5 seconds, 75 frames at 30 FPS. Increase it for small viewing sizes, dense layouts, secondary languages or data that must be compared. Confirm by watching at the intended size; the heuristic is not a reading standard.
+A hold begins when the whole phrase is legible, not when its animation starts. Starting heuristic: about 13 characters per second plus 0.5 seconds to settle, with a minimum of 1 second. Example: a 26-character line needs about 2.5 seconds, 75 frames at 30 FPS. A second check counts words: half a second plus a third of a second per word, from the moment the last word has landed and stopped moving (kaventro/motion-designer); use the longer of the two. Increase it for small viewing sizes, dense layouts, secondary languages or data that must be compared. Confirm by watching at the intended size; the heuristic is not a reading standard.
+
+## Vocabulary and signature
+
+Name moves by feel and keep one set per video (adapted from [kaventro/motion-designer](kaventro-motion-designer-adaptation.md)):
+
+| Feel | How | Scene engine |
+| --- | --- | --- |
+| arrive | ease-out, from below or from what caused it | `entryEasing` (`easeOutCubic`, `easeOutQuart`) |
+| settle | a calm landing for panels, cards and end cards | `resolveEasing` (`easeOutExpo`) |
+| depart | ease-in, faster than the arrival; last in, first out | `exitEasing` (`easeInCubic`), `exitFrames` about 60–75% of `entryFrames` |
+| snap | quick state changes: a list shifting, a value updating | short `entryFrames` (8–12) |
+| glide | camera-like moves over 0.8–1.2 s | `easeInOutCubic` (the sweep line) |
+| drift | 2–3% movement during a hold so a still frame is not frozen | custom code; the engine holds still |
+
+- **One relay object.** A small element (a dot, a line, a shape from the logo) travels through the video and returns at the end, so the first and last frames rhyme.
+- **An accent with one meaning.** The accent marks now or just changed; new values arrive in it. Do not spend it on decoration.
+- **One signature per video.** One move or effect the video is remembered by carries more than five. Name it in the brief; [motion styles](../assets/motion-styles/README.md) each name one.
+- **Effects mark moments.** A glitch on a cut, a shake on a drop; constant textures stay quiet (film grain at about 8–15% opacity). Effects never hide text that must be read.
 
 ## Rhythm and music
 
 - Frames per beat = FPS × 60 / BPM. Example: 120 BPM at 30 FPS = 15 frames per beat; 128 BPM at 30 FPS = 14.0625.
 - Compute every cue from the master timeline as `round(beatIndex × FPS × 60 / BPM)` instead of adding rounded beat lengths, so rounding errors do not accumulate.
-- Put major events on downbeats or bar starts, and let smaller accents fall between. Cutting on every beat flattens the rhythm.
+- Put major events on downbeats or bar starts, and let smaller accents fall between. Cutting on every beat flattens the rhythm: something may move on a beat, but scenes change on bar lines.
+- Land the biggest reveal on the music's drop. Put the drop in the beat map first and plan backwards from it; when the story needs more or less time, change the holds, never the music's speed.
 - Land the visual impact on the cue frame; start the motion before it so the peak arrives with the sound.
 - Leave silence or a sustained note under the final hold when the message needs attention.
 - The [sync tool](../assets/motion-sync/README.md) records the grid in the contract, reports where scenes and holds fall on it and imports voice-over subtitles as captions.
@@ -72,9 +91,22 @@ A hold begins when the whole phrase is legible, not when its animation starts. S
 
 Choose two or three transition types per project and repeat them consistently.
 
+## Video types
+
+Starting shapes for common requests (adapted from kaventro/motion-designer). A social cut of any type runs 15–25 s in 1080 × 1920 and shows its strongest moment in the first two seconds.
+
+| Type | For | Length · format | Scene kinds |
+| --- | --- | --- | --- |
+| Title or sting | an intro, outro, logo or channel open | 3–10 s · any, often looping | `logo-reveal`, `end-card`, one signature move |
+| Kinetic type | a quote, manifesto or announcement | 10–40 s · vertical or square | `line-reveal`, `quote`, a line per beat |
+| Explainer | a topic or an idea, often with voice-over | 30–90 s · landscape or vertical | `item-stagger`, `counter`, captions |
+| Data video | a statistic or result | 8–30 s · any | `counter`, `item-stagger`; sourced numbers only |
+| Feature cards | several features quickly | 15–30 s · vertical or square | `line-reveal` headline per feature, `end-card` |
+| Overlay on footage | lower thirds, captions, end cards over a recording | the footage's length and format | custom code over the user's footage |
+
 ## Typography in motion
 
-- **Line mask reveal:** each line rises from below its own clipping box with an ease-out entrance of 12–18 frames. Reliable default for headlines.
+- **Line mask reveal:** each line rises from below its own clipping box with an ease-out entrance of 12–18 frames. Reliable default for headlines. A mask about 1.3 times the font size keeps descenders whole; the scene engine's 1.1 is tight, so check `g`, `j`, `p`, `q` and `y` at rest.
 - **Word stagger:** words enter 2–4 frames apart with small offsets (about 20–40 px at 1080p) and opacity. Good for short statements.
 - **Emphasis:** change colour, weight, underline or scale (about 1.04–1.08) of one key word after the line is readable. Emphasize one idea per line.
 - **Counters:** animate integers with tabular figures so width does not jitter; hold the final value and show the unit and source.
@@ -95,7 +127,7 @@ Choose two or three transition types per project and repeat them consistently.
 - Bounce or overshoot on serious, corporate or data content.
 - Decorative particles, glow, grain or HUD labels filling empty space without meaning.
 - Transitions in many different directions with no logic.
-- Jitter from fractional positions, unloaded fonts or numbers changing width.
+- Jitter from fractional positions, unloaded fonts or numbers changing width. Round the resting positions of type to whole pixels; keep fractions for motion only.
 - An ending without a stable final frame.
 
 ## Recording the choices

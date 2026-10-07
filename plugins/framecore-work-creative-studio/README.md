@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.28.0.
+Version: 1.29.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -36,7 +36,7 @@ The optional [motion toolkit](skills/hyperframes-workflow/references/motion-tool
 
 Use the existing HyperFrames/HTML/SVG or Remotion path for an approved storyboard, frame-driven implementation, actual-output review and delivery. The workflow includes a versioned motion/Style Lock contract, three stage prompts, source-bound asset/copy locks, a dependency-free synthetic frame starter and separate preview, temporal/audio and encoded-export evidence. Local execution depends on the available host tools.
 
-See [the code-motion workflow](skills/hyperframes-workflow/references/code-based-motion-graphics.md) and [the attributed Motion Designer adaptation](skills/hyperframes-workflow/references/motion-designer-adaptation.md).
+See [the code-motion workflow](skills/hyperframes-workflow/references/code-based-motion-graphics.md), [the attributed Motion Designer adaptation](skills/hyperframes-workflow/references/motion-designer-adaptation.md) and [the attributed kaventro/motion-designer adaptation](skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md).
 
 ## Image artifact diagnosis
 

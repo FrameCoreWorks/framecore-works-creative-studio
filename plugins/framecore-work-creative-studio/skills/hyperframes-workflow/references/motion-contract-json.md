@@ -21,6 +21,7 @@ Top level:
 | `approval` | `{status, revision, evidence}`; status is `proposed`, `approved`, `blocked` or `example-not-client-approved`; an approved contract needs evidence for its current revision |
 | `stage` | Requested stage: `storyboard`, `build`, `review` or `repair` |
 | `goal`, `audience`, `message`, `concept` | What the film must achieve, for whom, the one message and the communicative mechanism |
+| `style` | Optional ID of the [motion style](../assets/motion-styles/README.md) whose tokens and motion values were copied into the contract; renderers never read it |
 | `runtime` | `{status, value}`; status is `selected`, `proposed` or `unknown`; a work-area choice never selects it. Optional `script`: the plain file name of the render script delivered with the video, such as `video-r2.render.py` |
 | `viewing`, `audio` | Intended viewing size or placement, and the audio plan or intentional silence |
 | `decisions` | `{confirmed, proposed, unknown}` lists keep the three states explicit |
