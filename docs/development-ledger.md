@@ -535,6 +535,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (committed locally; not pushed)
+- GitHub: synchronized; `main` fast-forwarded to `fe70de9` (which merges the 1.28.0 bytecode fix) on owner instruction; [v1.29.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.29.0) published by workflow 37620623797; 890 package files, plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.29.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed

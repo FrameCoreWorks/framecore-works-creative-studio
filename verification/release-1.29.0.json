@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "81eca9d7353258aa5c34f0016a80b8fbc37fe85ce3099a9d713108bc52471c92",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.29.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and local runs; style suitability is a design judgement, and whether ChatGPT or ChatGPT Work offers styles, runs the scripts or follows the review passes is not verified. All 201 planned cases remain not_run.",
