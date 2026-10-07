@@ -30,7 +30,7 @@ export function checkPreview(html, template = fs.readFileSync(path.join(here, 'm
     if (state[name] !== 'identical') errors.push(`The ${name} is ${state[name]}; copy it from the template byte for byte`);
   }
   if (!unchanged && !errors.length) errors.push('The player outside the contract differs from the template; replace only the motion contract');
-  if (/\bMediaRecorder\b|captureStream\s*\(/.test(html)) errors.push('The page records video in real time (MediaRecorder or captureStream); exports must be frame by frame through video-export.mjs');
+  if (/\bMediaRecorder\b|captureStream\s*\(/.test(html)) errors.push('The page records video in real time (MediaRecorder or captureStream); a preview page has no export of its own (the rendered MP4 is the video), and only the template keeps its frame-by-frame export');
   let score;
   try { score = JSON.parse(match[2]); } catch (error) { errors.push(`The motion contract is not valid JSON: ${error.message}`); }
   if (score) {

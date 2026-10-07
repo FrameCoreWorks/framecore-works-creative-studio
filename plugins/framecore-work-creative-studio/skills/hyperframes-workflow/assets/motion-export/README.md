@@ -11,7 +11,7 @@ Turns a motion contract into a video file in the user's own browser, without ins
 
 Frames come from the shared [scene engine](../motion-scenes/README.md), one at a time from the master frame number, so the export does not depend on playback speed. Captions are included. The export is **video only**: music and voice-over are not mixed in; add them in an editor or render with Remotion. Keyframes fall every two seconds; the bitrate is 8 Mbit/s at 1920 × 1080 and 30 FPS, scaled with frame size and rate.
 
-The single-file preview embeds `video-export.mjs` (without `export` keywords) and the toolkit validation keeps the copies identical. A page that is not the template must still reproduce this module for its export, never `MediaRecorder` or real-time recording; see the [delivery steps](../single-file-preview/README.md#how-studio-delivers-it).
+The single-file preview embeds `video-export.mjs` (without `export` keywords) and the toolkit validation keeps the copies identical. A self-written preview page has no export at all, since the rendered MP4 is the video file; see the [delivery steps](../single-file-preview/README.md#how-studio-delivers-it). Real-time recording (`MediaRecorder`) is never used.
 
 ## Using it
 

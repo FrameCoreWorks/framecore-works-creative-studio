@@ -1,9 +1,10 @@
-# Creative Studio 1.23.0
+# Creative Studio 1.24.0
 
-One click from the chat to your animation.
+The finished video, straight from the chat.
 
-- **A link that opens the animation.** When Studio finishes an animation in ChatGPT, the last line is a link. Click it and the motion player opens with your animation already loaded, ready to play and to export as a video. Nothing to copy or paste, and your animation is not sent to any server.
-- **The right video, not a lookalike.** Studio no longer makes its own stand-in video with other code. In today's test such a video did not match the plan and showed two texts on top of each other; the player's Export video gives the exact animation.
-- **Cleaner plans.** When you ask directly for an animation, Studio records your request as the approval instead of inventing a status.
+- **MP4 first.** When ChatGPT can run code, Studio gives you the finished MP4 to download, together with the animation plan. That is what worked best in today's tests.
+- **Checked before you get it.** Before handing over the video, Studio looks at the frames around every transition and makes sure no text overlaps, is cut off or leaves the picture, and tells you which frames it checked.
+- **Preview without surprises.** An optional HTML preview is only for watching; it no longer has its own export button, which could produce a different or failed file. The MP4 is the video.
+- **The online player stays available** for opening a plan when ChatGPT cannot run code, but Studio no longer insists on it.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

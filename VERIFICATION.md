@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.23.0
+## Current source: 1.24.0
+
+The [1.24.0 source checks](verification/release-1.24.0.json) pass canonical validation and 218 tests: 159 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release changes delivery instructions only: MP4 first with a frame check, preview pages without export. It follows the inspection of the 2026-10-07 test C files, where ChatGPT's MP4 was clean and its HTML preview differed from it and exported through MediaRecorder ([report](verification/host-report-2026-10-07-test-c.json)). Whether ChatGPT follows the new steps is not verified. [Scope](verification/scope-1.24.0.json) records 10 changed shared files out of 878.
+
+## Previous source: 1.23.0
 
 The [1.23.0 source checks](verification/release-1.23.0.json) pass canonical validation and 218 tests: 159 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. A one-click player link built from the 2026-10-07 test A contract opened and exported on the live GitHub Pages player in Chromium, and the owner reported that it opened the animation on their device (PASS_REPORTED; [report](verification/host-report-2026-10-07-test-a.json)). The same report records that ChatGPT's own substitute MP4 differed from its contract. Whether ChatGPT now ends with the link is not verified. [Scope](verification/scope-1.23.0.json) records 13 changed and 1 added shared files out of 878.
 

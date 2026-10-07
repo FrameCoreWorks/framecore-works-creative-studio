@@ -1,0 +1,15 @@
+{
+  "version": "1.23.0",
+  "date": "2026-10-07",
+  "reported_by": "owner (delivered files); inspection by cloud-code",
+  "client": "ordinary ChatGPT with code execution (about 2 min 33 s of processing); device and reasoning setting not reported",
+  "prompt": "test A prompt repeated on 1.23.0",
+  "delivered": [
+    "framecore_typographic_motion_6s_1080p.mp4 (rendered by ChatGPT's own code, ffmpeg Lavf61.7.103)",
+    "framecore_typographic_motion_preview-2.html (self-written canvas page, no embedded contract, MediaRecorder export)"
+  ],
+  "rules_followed": "no: no one-click player link, a substitute MP4 was rendered and the page exports through MediaRecorder, all contrary to 1.23.0",
+  "mp4": "H.264 High, 1920x1080, 180 frames, 6.00 s, no audio; the first statement fades out before the second enters, no overlapping text in the inspected frames (15, 54, 60, 66, 72, 75, 80, 90, 100)",
+  "html_vs_mp4": "similar design but different code: 17 to 27 dB PSNR between the page and the MP4 at the same frames (text position and line timing differ)",
+  "owner_decision": "keep the MP4 download plus an HTML preview; stop requiring the GitHub Pages link; the HTML preview gets no export button (release 1.24.0)"
+}
