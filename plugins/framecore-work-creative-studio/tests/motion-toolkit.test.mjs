@@ -674,12 +674,19 @@ for name in synth.DESIGNS:
 w, offset = synth.whoosh(0.8, 0.5, 0.8, 1, 1.0, 3)
 env = np.convolve(np.mean(w, axis=1) ** 2, np.ones(480) / 480, mode='same')
 out['whoosh_peak_error_ms'] = abs(int(np.argmax(env)) / synth.RATE - offset) * 1000
+c, _ = synth.render_design('click', {}, 4)
+x = np.zeros((synth.RATE, 2)); x[1000:1000 + len(c)] = c * 6
+out['limited_true_peak_db'] = synth.true_peak_db(synth.limit(x, -1.0))
+bed = synth.compose_bed(6.0, 120, 'D major', [1, 3, 1], reveal_bar=2)
+out['bed_edges_db'] = [20 * np.log10(np.abs(bed[:2]).max() + 1e-12), 20 * np.log10(np.abs(bed[-2:]).max() + 1e-12)]
 print(json.dumps(out))`, path.join(root, soundDir)], {encoding: 'utf8'});
   assert.equal(probe.status, 0, probe.stderr);
   const result = JSON.parse(probe.stdout);
   assert.deepEqual(result.designs, listed);
   for (const name of result.designs) assert.ok(result[name].same && result[name].finite && result[name].stereo && result[name].seconds > 0, name);
   assert.equal(result.riser.offset, result.riser.seconds, 'a riser aligns on its end');
+  assert.ok(result.limited_true_peak_db <= -0.95, `the limiter holds true peak within 0.05 dB, between samples too: ${result.limited_true_peak_db}`);
+  assert.ok(result.bed_edges_db[0] < -40 && result.bed_edges_db[1] < -40, `the bed fades in and out: ${result.bed_edges_db}`);
   assert.ok(result.whoosh_peak_error_ms < 1, 'a whoosh aligns on its measured peak');
 });
 
@@ -697,6 +704,10 @@ test('sound cues follow the picture: taps, pushes, wipes, landings, a composed b
     assert.equal(film.soundDesign.engine, 'studio-synth-1');
     const bar = 4 * 60 / film.soundDesign.music.bpm, seconds = source.totalFrames / 30;
     assert.equal(film.soundDesign.music.energies.length, Math.ceil(seconds / bar));
+    const {revealBar, revealFrame, bpm} = film.soundDesign.music, target = 100;
+    assert.ok(Math.abs(revealBar * bar - revealFrame / 30) < 0.001, 'the final reveal lands on a downbeat of the composed music');
+    assert.ok(Math.abs(bpm / target - 1) <= 0.08, 'the fitted tempo stays near the style tempo');
+    assert.ok(film.sfx.some(cue => cue.frame === revealFrame && cue.event.includes('settles')), 'the final hit and the downbeat share the frame');
     assert.deepEqual(checkScore(film).errors, []);
     const phone = source.scenes.find(scene => scene.id === 'phone'), tap = phone.start + phone.params.taps[0].at;
     assert.ok(film.sfx.some(cue => cue.sound === 'click' && cue.frame === tap), 'the click is on the tap frame');
@@ -729,6 +740,7 @@ test('a mastered sound mix puts every hit on its frame', {skip: !(python && nump
     const summary = JSON.parse(mixed.stdout);
     assert.ok(summary.timing.all_ok && summary.timing.max_offset_ms <= 2, mixed.stdout);
     assert.ok(Math.abs(summary.loudness.lufs + 14) <= 2 && summary.loudness.true_peak_db <= -0.95, mixed.stdout);
+    assert.ok(fs.existsSync(path.join(stems, 'music.wav')), 'the music stem is written next to the effects stem');
     const checked = spawnPython('python3', ['-B', sound, 'check', path.join(stems, 'effects.wav'), planned], {encoding: 'utf8'});
     assert.equal(checked.status, 0, checked.stdout);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }

@@ -38,6 +38,9 @@ RATE = synth.RATE
 DENSITIES = ('minimal', 'standard', 'rich')
 SENDS = {'whoosh': 0.18, 'impact': 0.22, 'boom': 0.3, 'riser': 0.25, 'click': 0.05, 'release': 0.04, 'tick': 0.03, 'knock': 0.12, 'shimmer': 0.4}
 MINOR_STYLES = {'midnight', 'warm-ink', 'brand-native'}
+STYLE_BPM = {'meadow': 100, 'field-guide': 96, 'paper-and-ink': 104, 'warm-ink': 110, 'midnight': 122, 'color-block': 122}
+# The music dips under the hits that must read clearly: (depth in dB, release in seconds).
+DUCKS = {'boom': (5.0, 0.45), 'impact': (3.0, 0.3), 'click': (1.5, 0.12)}
 
 
 def load_engine():
@@ -56,6 +59,17 @@ def first_frame(start, end, test):
         if test(frame):
             return frame
     return None
+
+
+def final_reveal(score, r, m=None):
+    """The frame the closing end card or logo settles on, or None when the video ends without one."""
+    scenes = score['scenes']
+    last = scenes[-1] if scenes else None
+    if not last or last['kind'] not in ('end-card', 'logo-reveal'):
+        return None
+    m = m or r.motion(score)
+    duration = (last.get('params') or {}).get('duration', 30)
+    return first_frame(last['start'], last['end'], lambda f: r.progress(f, last['start'], duration, m['resolveEasing']) >= 0.9)
 
 
 # ---------------------------------------------------------------- planning
@@ -111,13 +125,13 @@ def plan_cues(score, density='standard'):
                 add(landed(begin, m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: item {i + 1} lands', -10 - min(4, i), (i - (len(items) - 1) / 2) * 0.3, {'pitch': steps[i % len(steps)]}, at_least=1)
         elif kind in ('end-card', 'logo-reveal'):
             duration = p.get('duration', 30)
-            frame = landed(start, duration, m['resolveEasing'], end)
+            frame = final_reveal(score, r, m) if final else landed(start, duration, m['resolveEasing'], end)
             if kind == 'logo-reveal':
                 add(start + duration // 4, 'whoosh', f'{sid}: mark opens', -16, 0, {'duration': seconds_of(duration * 0.8, 0.4, 1.0), 'peak': 0.4, 'direction': 0, 'brightness': 0.9})
             if final and level >= 2 and frame is not None:
                 gap = frame - (scenes[index - 1]['start'] if index else 0)
                 add(frame, 'riser', f'{sid}: tension into the reveal', -10, 0, {'duration': seconds_of(min(gap, 45), 0.6, 1.5)})
-            add(frame, 'boom' if final and level >= 2 else 'impact', f'{sid}: {"end card" if kind == "end-card" else "mark"} settles', -3 if final else -6, 0, {'weight': 0.8 if final else 0.5})
+            add(frame, 'boom' if final and level >= 2 else 'impact', f'{sid}: {"end card" if kind == "end-card" else "mark"} settles', -6 if final and level >= 2 else -7 if final else -8, 0, {'weight': 0.8 if final else 0.5})
             add(frame, 'shimmer', f'{sid}: accent', -16, 0, {'degree': 4}, at_least=1)
         elif kind == 'counter':
             count_start, duration = start + m['entryFrames'], p.get('duration', 45)
@@ -164,21 +178,54 @@ def plan_cues(score, density='standard'):
     return sorted(kept, key=lambda cue: (cue['frame'], cue['sound']))
 
 
+def fit_tempo(target, reveal_s, starts, spread=0.08):
+    """A tempo near the style's that puts the reveal on a downbeat: bar N of the music begins exactly on the reveal.
+    Among the tempos within `spread` of the target, the one that also keeps scene starts nearest to beats wins.
+    Returns (bpm, reveal_bar), or (target, None) when no tempo in range fits."""
+    best = None
+    for bars in range(1, 129):
+        bpm = 240.0 * bars / reveal_s
+        if abs(bpm / target - 1) > spread:
+            continue
+        beat = 60.0 / bpm
+        drift = sum(abs((t / beat + 0.5) % 1 - 0.5) for t in starts) / len(starts) if starts else 0.0
+        cost = 6 * abs(math.log(bpm / target)) + drift
+        if best is None or cost < best[0]:
+            best = (cost, bpm, bars)
+    return (best[1], best[2]) if best else (float(target), None)
+
+
 def plan_music(score, r=None):
-    """A composed bed: tempo from the contract's music grid or style, key from the style's mood, energy per bar from the scenes."""
+    """A composed bed: tempo from the contract's music grid or style, fitted so the final reveal lands on a downbeat;
+    key from the style's mood; energy per bar from the scenes, building into the reveal and resolving after it."""
     r = r or load_engine()
     fps = score['fps']['num'] / score['fps']['den']
     total_s = score['totalFrames'] / fps
     style = score.get('style')
-    bpm = (score.get('music') or {}).get('bpm') or {'meadow': 100, 'field-guide': 96, 'paper-and-ink': 104, 'warm-ink': 110, 'midnight': 122, 'color-block': 122}.get(style, 108)
+    grid = (score.get('music') or {}).get('bpm')
+    target = grid or STYLE_BPM.get(style, 108)
     key = 'A minor' if style in MINOR_STYLES else 'D major'
-    bar = 4 * 60 / bpm
     scenes = score['scenes']
+    reveal = final_reveal(score, r)
+    starts = [scene['start'] / fps for scene in scenes if scene['start'] > 0]
+    bpm, reveal_bar = float(target), None
+    if reveal:
+        if grid:
+            # A beat grid the picture was cut to stays as it is; the reveal is anchored only if it already sits on a bar.
+            bars = round(reveal / fps / (240.0 / grid))
+            reveal_bar = bars if bars >= 1 and abs(reveal / fps - bars * 240.0 / grid) <= 1.0 / fps else None
+        else:
+            bpm, reveal_bar = fit_tempo(target, reveal / fps, starts)
+    bar = 4 * 60 / bpm
     final = scenes[-1] if scenes and scenes[-1]['kind'] in ('end-card', 'logo-reveal') else None
     energies = []
-    for b in range(int(math.ceil(total_s / bar))):
+    for b in range(int(math.ceil(total_s / bar - 1e-9))):
         t0, t1 = b * bar * fps, (b + 1) * bar * fps
-        if t1 >= score['totalFrames'] and b > 0:
+        if reveal_bar is not None and b >= reveal_bar:
+            energies.append(1)
+        elif reveal_bar is not None and b == reveal_bar - 1:
+            energies.append(3 if total_s >= 8 else 2)
+        elif t1 >= score['totalFrames'] and b > 0:
             energies.append(0)
         elif final and t0 >= final['start']:
             energies.append(3 if t0 < final['start'] + bar * fps else 1)
@@ -188,7 +235,10 @@ def plan_music(score, r=None):
             energies.append(1)
         else:
             energies.append(2)
-    return {'compose': True, 'bpm': round(float(bpm), 3), 'key': key, 'energies': energies, 'gain': -9}
+    music = {'compose': True, 'bpm': round(bpm, 4), 'key': key, 'energies': energies, 'gain': -9}
+    if reveal_bar is not None:
+        music.update(revealBar=reveal_bar, revealFrame=reveal)
+    return music
 
 
 def cue_table(score, cues):
@@ -222,13 +272,17 @@ def render_effects(score, cues):
 
 
 def master(mix, target_lufs, ceiling_db=-1.0):
-    """High-pass, limit, set loudness with ffmpeg's loudnorm analysis, limit again. Returns (audio, notes)."""
+    """High-pass, glue the loudest moments, limit, set loudness with ffmpeg's loudnorm analysis, limit again. Returns (audio, notes)."""
     spec_len = len(mix)
     for c in range(2):
         mix[:, c] = synth.shaped(mix[:, c], lambda t, f: synth.highpass(f, 28, 2), 4096, 1024)
+    # Glue: the loudest moments (a final hit over the music) are brought 6 dB closer to the rest at 2.5:1.
+    power = np.convolve(np.mean(mix ** 2, axis=1), np.ones(RATE // 100) / (RATE // 100), mode='same')
+    if power.max() > 0:
+        mix = synth.compress(mix, 10 * math.log10(power.max()) - 6, 2.5)
     out = synth.limit(mix, ceiling_db - 0.5)
     notes = {}
-    for _ in range(2):
+    for _ in range(3):
         measured = loudness_of(out)
         if not measured:
             notes['method'] = 'peak only (ffmpeg has no loudnorm filter)'
@@ -243,7 +297,7 @@ def master(mix, target_lufs, ceiling_db=-1.0):
         out = out * 10 ** (-(excess + 0.05) / 20)
     measured = loudness_of(out)
     if measured:
-        notes.update(lufs=measured[0], true_peak_db=round(synth.true_peak_db(out), 2), method='loudnorm analysis, gain and look-ahead limiter')
+        notes.update(lufs=measured[0], true_peak_db=round(synth.true_peak_db(out), 2), method='loudnorm analysis, bus glue and true-peak limiter')
     return out[:spec_len], notes
 
 
@@ -283,7 +337,7 @@ def full_mix(score, base_dir):
         track = read_wav(os.path.join(base_dir, source))[:length]
         music[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
     elif music_plan.get('compose'):
-        bed = synth.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'])
+        bed = synth.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], reveal_bar=music_plan.get('revealBar'))
         music[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
     voice = np.zeros((length, 2))
@@ -296,8 +350,30 @@ def full_mix(score, base_dir):
             duck[max(0, a - ramp):min(length, b + ramp)] = 10 ** (-8 / 20)
         kernel = np.ones(ramp) / ramp
         music *= np.convolve(duck, kernel, mode='same')[:, None]
+    music *= hit_ducking(score, length)[:, None]
     wet = synth.convolve(send, synth.reverb_ir())[:length]
-    return dry + music + voice + 0.6 * wet, dry, hits
+    return dry + music + voice + 0.6 * wet, dry, hits, music
+
+
+def hit_ducking(score, length):
+    """Music gain that dips briefly under booms, louder impacts and clicks, so each hit reads clearly without the
+    music pumping: the dip starts 5 ms before the hit, holds 60 ms and recovers smoothly."""
+    fps = score['fps']['num'] / score['fps']['den']
+    gain = np.ones(length)
+    for cue in score.get('sfx') or []:
+        depth, release = DUCKS.get(cue['sound'], (0, 0))
+        if not depth or cue.get('gain', 0) < -10:
+            continue
+        hit = round(cue['frame'] / fps * RATE)
+        a, hold = max(0, hit - RATE // 200), hit + int(0.06 * RATE)
+        n = min(length, hold + int(4 * release * RATE)) - a
+        if n <= 0:
+            continue
+        k, floor, pre = np.arange(n), 10 ** (-depth / 20), max(1, hit - a)
+        recover = 1 - (1 - floor) * np.exp(-np.maximum(k - (hold - a), 0) / (release * RATE))
+        curve = np.where(k < pre, 1 - (1 - floor) * k / pre, np.where(k < hold - a, floor, recover))
+        gain[a:a + n] = np.minimum(gain[a:a + n], curve)
+    return gain
 
 
 # ---------------------------------------------------------------- checking
@@ -370,7 +446,7 @@ def main(argv=None):
     mix.add_argument('--video')
     mix.add_argument('--out')
     mix.add_argument('--wav')
-    mix.add_argument('--stems', help='folder for effects.wav and music-free stems')
+    mix.add_argument('--stems', help='folder for the dry effects.wav and music.wav stems, before reverb and mastering')
     mix.add_argument('--lufs', type=float, default=-14.0)
     test = sub.add_parser('check')
     test.add_argument('wav', help='an effects-only track, such as stems/effects.wav')
@@ -411,7 +487,7 @@ def main(argv=None):
         for path in (args.out, args.wav):
             if path and os.path.exists(path):
                 raise ValueError(f'Output file already exists: {path}')
-        mixed, effects, hits = full_mix(score, os.path.dirname(os.path.abspath(args.contract)))
+        mixed, effects, hits, music = full_mix(score, os.path.dirname(os.path.abspath(args.contract)))
         timing = timing_check(score)
         mastered, notes = master(mixed, args.lufs)
         summary = {'cues': len(score.get('sfx') or []), 'timing': timing, 'loudness': notes}
@@ -421,6 +497,7 @@ def main(argv=None):
             if args.stems:
                 os.makedirs(args.stems, exist_ok=True)
                 write_wav(effects, os.path.join(args.stems, 'effects.wav'), 'pcm_f32le')
+                write_wav(music, os.path.join(args.stems, 'music.wav'), 'pcm_f32le')
             if args.out:
                 duration = score['totalFrames'] * score['fps']['den'] / score['fps']['num']
                 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', args.video, '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
