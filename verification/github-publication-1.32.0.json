@@ -1,0 +1,21 @@
+{
+  "version": "1.32.0",
+  "change_id": "CC-20261007-14",
+  "origin": "cloud-code",
+  "commit": "c8ac23550c3f317e0140d372f544a2bb328d015e",
+  "package_commit": "6fd0189d27b54f85954d44fc0d71f45286057bc0",
+  "integration": "Fast-forward of main from 861c909 to c8ac235 on owner instruction; the branch also carries two work-in-progress commits; no merge commit",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.32.0",
+  "workflow_id": 37641483672,
+  "workflow_conclusion": "success",
+  "source_tree_matches": true,
+  "source_tree": "main at c8ac235 and the local branch resolve to the same package tree ec5502427c226466acb3d8d9a8b6a91670db391e (897 files)",
+  "source_blobs_checked": 897,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "fc2622de0786ad2146eafe12ae53d66d5049b3d7b376da268ccfbc4ab7d5be24",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "owner_listening": "2026-10-07: lowered whooshes approved ('ok') before publication",
+  "pre_push_check": "the release-workflow test and packaging sequence ran in a fresh clone of c8ac235 and produced the same plugin ZIP hash"
+}

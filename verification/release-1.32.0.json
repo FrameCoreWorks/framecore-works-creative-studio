@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "fc2622de0786ad2146eafe12ae53d66d5049b3d7b376da268ccfbc4ab7d5be24",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.32.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks, container mixes and the owner listening to container renders; how ChatGPT or ChatGPT Work run the sound tools is not verified. All 201 planned cases remain not_run.",
@@ -77,7 +77,7 @@
   "runs": {
     "timing": "app-film, color-block and all-kinds examples planned (standard) and mixed: every judged transient within 2 ms of its frame and every whoosh on its measured peak; whoosh peaks are measured on the rendered sound",
     "loudness": "mastered mixes -14.1 to -15.7 LUFS, true peak (4x oversampled) -1.05 to -1.43 dBTP",
-    "owner_listening": "2026-10-07: music and clicks approved; whooshes judged too strong and lowered by 6 to 7 dB with a softer air layer; the lowered renders were sent for listening",
+    "owner_listening": "2026-10-07: music and clicks approved; whooshes judged too strong and lowered by 6 to 7 dB with a softer air layer; the lowered renders were sent for listening; the owner approved the lowered whooshes before publication",
     "rejected_library": "a 79-file CC0 recording library (Kenney, OpenGameArt) was built first, rejected by the owner for quality and removed before any release",
     "player_template": "motion-preview.html unchanged"
   }
