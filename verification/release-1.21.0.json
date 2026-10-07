@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "93b58ba0d33c443c5dda5df87228266b710025722de732686c0f12580db51007",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.21.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source and container checks; whether ChatGPT now delivers the template unchanged is not verified until an owner test. All 201 planned cases remain not_run.",

@@ -1,0 +1,43 @@
+{
+  "version": "1.21.0",
+  "change_id": "CC-20261007-02",
+  "origin": "cloud-code",
+  "commit": "736e279c880774cd845abc7745e5cc32256e9765",
+  "package_commit": "658946d350ebe55f4af0ac0a3e8f695c492320d5",
+  "integration": "Fast-forward of main from d4068f4 to 736e279 on owner instruction, including the CC-20261007-01 report commit; no merge commit",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.21.0",
+  "workflow_id": 37574652135,
+  "workflow_conclusion": "success",
+  "source_tree_matches": true,
+  "source_blobs_checked": 877,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "93b58ba0d33c443c5dda5df87228266b710025722de732686c0f12580db51007",
+  "assets": [
+    {
+      "name": "framecore-work-creative-studio-1.21.0.zip",
+      "digest": "sha256:93b58ba0d33c443c5dda5df87228266b710025722de732686c0f12580db51007",
+      "size": 9634117
+    },
+    {
+      "name": "framecore-work-creative-studio-1.21.0.zip.inventory.json",
+      "digest": "sha256:f2fb998edb45f1892325945c320c80791b5d419e46632fa5ae41fc6f8f11fbcf",
+      "size": 177683
+    },
+    {
+      "name": "framecore-works-creative-studio-1.21.0-repository.zip",
+      "digest": "sha256:9f5d889d7958b1e2c1260bb4490091dd5ce838b90f8eb1cafb590bb564e6f198",
+      "size": 11878383
+    },
+    {
+      "name": "framecore-works-creative-studio-1.21.0-repository.zip.inventory.json",
+      "digest": "sha256:da2902a8eb6364bb133b3ee67adeebef8801aefe9d604400e3a9264b0489dee8",
+      "size": 243102
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "digest": "sha256:ddfc515de3f7ed1db9ffb74306d79bec6c7cdbad9753ee750bc363cee8b1bce6",
+      "size": 486
+    }
+  ]
+}
