@@ -561,3 +561,25 @@ Cross-host state:
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
 - Owner review: the app-film example renders (16:9, 9:16) approved on 2026-10-07
+
+## CC-20261007-13
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-13-taps-browser-backgrounds`
+- Baseline: `bcb35c07aa47abf9c42f84577905fe990661867e` (main, package 1.30.0)
+- Result: `e01238c1adb4253ba3ab5a190cdc2e2b4d66712c` (package 1.31.0)
+- Package version: 1.30.0 -> 1.31.0
+- Scope: device taps, browser frame and per-scene backgrounds with wipes (engine, its copies, check-score, Python renderer, examples); owner order a, b, c
+- Shared package changed: yes; 21 changed, 1 added, 0 removed ([scope](../verification/scope-1.31.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 170 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- both examples reviewed in Chromium without errors; Python renderer within 0.86 grey levels of the browser; existing contracts byte-identical to 1.30.0; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
