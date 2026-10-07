@@ -424,3 +424,25 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `ddae453` on owner instruction; [v1.24.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.24.0) published by workflow 37597377168; 878 package files, plugin ZIP and player hashes match ([record](../verification/github-publication-1.24.0.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261007-07
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-07-motion-audio-policy`
+- Baseline: `5b7bfa19f0fd859ee196f8a9a220e03432a60d5d` (main, package 1.24.0)
+- Result: `fcf51229b2c35166a58468d1b1135a71e3fdc31d` (package 1.25.0)
+- Package version: 1.24.0 -> 1.25.0
+- Scope: sound policy for motion deliveries (no code-synthesized audio; user file, connected and confirmed provider, or installed local generator), tested mux command, stale skill sentences removed; owner request after test D
+- Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.25.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 159 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- mux command tested on the test D MP4 with a click track; ChatGPT behavior with the policy: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
