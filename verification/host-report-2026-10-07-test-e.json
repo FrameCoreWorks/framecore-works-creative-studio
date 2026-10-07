@@ -1,0 +1,17 @@
+{
+  "version": "1.25.0",
+  "date": "2026-10-07",
+  "reported_by": "owner (delivered files and reply text); inspection by cloud-code",
+  "client": "ordinary ChatGPT with code execution (about 2 min 52 s of processing); device and reasoning setting not reported",
+  "prompt": "test A prompt, including 'Bez muzyki'",
+  "delivered": [
+    "framecore_typografia_6s.mp4",
+    "framecore_typografia_6s_preview.html",
+    "contract JSON (mentioned in the reply, not supplied)"
+  ],
+  "mp4": "H.264, 1920x1080, 180 frames, 6.00 s, no audio; frames 26, 80, 87, 93, 100, 106 and 120 inspected: clean sweep hand-over in the layout of the two-statements example, no overlapping text",
+  "preview": "a page that embeds the same MP4 as a data URI in a <video> element: identical to the video, no export button, no recording code",
+  "frame_check": "reply lists frames 0, 26, 79, 80, 87, 93, 94, 105, 106, 120 and 179",
+  "sound_question": "not asked; the prompt said 'Bez muzyki', which plausibly settled sound (inference)",
+  "owner_decision": "keep the 1.25.0 sound rule as it is; users who want their own voice-over or music will say so, and the plugin should not walk users through every step"
+}

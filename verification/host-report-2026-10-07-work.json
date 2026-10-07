@@ -1,0 +1,18 @@
+{
+  "version": "1.25.0",
+  "date": "2026-10-07",
+  "reported_by": "owner (delivered files and reply text); inspection by cloud-code",
+  "client": "ChatGPT Work (about 6 min 54 s of processing); reasoning setting not reported",
+  "prompt": "test A prompt, including 'Bez muzyki'",
+  "delivered": [
+    "framecore-jeden-pomysl-6s-1080p.mp4",
+    "framecore-jeden-pomysl-podglad.html",
+    "framecore-jeden-pomysl-6s.motion.json"
+  ],
+  "preview": "check-preview.mjs PASS: the player template byte for byte with only the motion contract replaced, the first such delivery in any host; its Export video is the tested WebCodecs export, which 1.24.0 keeps for template copies. Work stated that it did not test the export in a browser",
+  "contract": "check-score --storyboard PASS; approval approved with the request quoted; line-reveal scenes with a sweep exit",
+  "mp4": "H.264 High, 1920x1080, 180 frames, 6.00 s, no audio (ffmpeg Lavf60.16.100); same choreography as the template drawing the same contract, with font rendering, a few pixels of vertical offset and about one frame of entry timing differing (17 to 25 dB PSNR at frames 15 to 120)",
+  "frame_check": "reply lists frames 0, 15, 59-60, 66, 72, 77-79, 84, 89-90, 93, 120 and 179",
+  "sound_question": "not asked; the prompt said 'Bez muzyki'",
+  "status": "PASS (file inspection) for the 1.24.0 and 1.25.0 delivery steps in ChatGPT Work"
+}

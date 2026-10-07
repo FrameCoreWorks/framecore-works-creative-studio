@@ -439,7 +439,9 @@ Verification:
 
 - canonical validator: PASS
 - Node CI set 159 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
-- mux command tested on the test D MP4 with a click track; ChatGPT behavior with the policy: not_run
+- mux command tested on the test D MP4 with a click track
+- owner tests on 1.25.0: ChatGPT Work delivered the unchanged template with its contract (check-preview PASS), a valid contract and a clean MP4 ([report](../verification/host-report-2026-10-07-work.json)); ordinary ChatGPT delivered a clean MP4 and a preview embedding it ([report](../verification/host-report-2026-10-07-test-e.json)); neither asked about sound, the prompt having said "Bez muzyki"
+- owner decision: keep the sound rule as it is, without further step-by-step guidance
 
 Cross-host state:
 
