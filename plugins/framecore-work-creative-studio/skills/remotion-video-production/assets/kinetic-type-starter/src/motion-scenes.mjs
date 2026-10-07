@@ -32,7 +32,7 @@ export const sceneKinds = {
   'counter': {required: ['to'], copyParams: ['label']},
   'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
   'logo-reveal': {required: ['asset'], copyParams: []},
-  'device': {required: ['screens'], copyParams: ['caption']},
+  'device': {required: ['screens'], copyParams: ['caption', 'url']},
 };
 
 /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
@@ -87,7 +87,7 @@ export function deviceLayout(scene, score) {
   const p = scene.params ?? {}, W = score.width, H = score.height, m = margin(score);
   const area = score.tokens?.safeArea ?? {};
   const top = Math.round(H * (area.top ?? 0)), bottom = H - Math.round(H * (area.bottom ?? 0));
-  const phone = (p.frame ?? 'phone') !== 'window';
+  const phone = (p.frame ?? 'phone') === 'phone', browser = p.frame === 'browser';
   const first = (score.assets ?? []).find(item => item.id === list(p.screens)[0]?.asset) ?? {};
   const aspect = first.width > 0 && first.height > 0 ? first.width / first.height : phone ? 9 / 19.5 : 16 / 10;
   const hasCaption = list(p.caption).length > 0, portrait = H > W, gap = px(score, 24);
@@ -101,7 +101,7 @@ export function deviceLayout(scene, score) {
     const left = {x: m, y: top, w: half - gap - m, h: bottom - top}, right = {x: half + gap, y: top, w: W - m - half - gap, h: bottom - top};
     [caption, box] = (p.side ?? 'left') === 'left' ? [left, right] : [right, left];
   }
-  const bezel = phone ? px(score, 14) : 0, bar = phone ? 0 : px(score, 40);
+  const bezel = phone ? px(score, 14) : 0, bar = phone ? 0 : px(score, browser ? 58 : 40);
   let sw, sh;
   if (phone) {
     sh = Math.round(box.h * 0.84); sw = Math.round(sh * aspect);
@@ -112,7 +112,10 @@ export function deviceLayout(scene, score) {
   }
   const dw = sw + 2 * bezel, dh = sh + 2 * bezel + bar;
   const radius = phone ? Math.round(sw * 0.14) : px(score, 14);
-  return {phone, portrait, caption, bezel, bar, sw, sh, dw, dh, radius,
+  const field = px(score, 34);
+  return {phone, browser, portrait, caption, bezel, bar, sw, sh, dw, dh, radius,
+    address: browser ? {x: px(score, 96), y: Math.round((bar - field) / 2), w: dw - px(score, 96) - px(score, 20), h: field} : null,
+    tap: px(score, 28),
     dx: Math.round(box.x + (box.w - dw) / 2), dy: Math.round(box.y + (box.h - dh) / 2),
     island: phone ? {x: Math.round((dw - sw * 0.3) / 2), y: bezel + px(score, 14), w: Math.round(sw * 0.3), h: px(score, 30)} : null};
 }
@@ -120,10 +123,21 @@ export function deviceLayout(scene, score) {
 /** Describe the scene's elements. Each node: {key, type: 'box' | 'text' | 'image', text?, src?, style, children?}. */
 export function buildScene(scene, score) {
   const content = buildContent(scene, score);
-  if (exitMode(scene, score) !== 'sweep') return content;
-  const p = scene.params ?? {}, t = score.tokens ?? {};
-  return {key: 'scene', type: 'box', style: {position: 'absolute', inset: '0'}, children: [content,
-    {key: 'sweep', type: 'box', style: {position: 'absolute', left: '0', top: '16%', bottom: '16%', width: `${px(score, 6)}px`, marginLeft: `-${px(score, 3)}px`, background: p.sweepColor ?? t.accent ?? t.foreground, opacity: '0'}}]};
+  const p = scene.params ?? {}, t = score.tokens ?? {}, sweep = exitMode(scene, score) === 'sweep';
+  if (!sweep && !p.background) return content;
+  // params.background: the scene's own canvas colour, optionally wiped in (params.backgroundWipe).
+  const style = p.background ? {position: 'absolute', inset: '0', background: p.background} : {position: 'absolute', inset: '0'};
+  return {key: 'scene', type: 'box', style, children: [content, ...(sweep ? [
+    {key: 'sweep', type: 'box', style: {position: 'absolute', left: '0', top: '16%', bottom: '16%', width: `${px(score, 6)}px`, marginLeft: `-${px(score, 3)}px`, background: p.sweepColor ?? t.accent ?? t.foreground, opacity: '0'}}] : [])]};
+}
+
+/** The scene canvas wipe as CSS inset() lengths [top, right, bottom, left] in whole pixels, or null. */
+export function backgroundWipe(scene, score, frame) {
+  const p = scene.params ?? {}, side = p.backgroundWipe ?? 'none';
+  if (!p.background || side === 'none') return null;
+  const k = progress(frame, scene.start, p.backgroundFrames ?? 12, 'easeInOutCubic');
+  const x = Math.round((1 - k) * score.width), y = Math.round((1 - k) * score.height);
+  return {left: [0, x, 0, 0], right: [0, 0, 0, x], up: [y, 0, 0, 0], down: [0, 0, y, 0]}[side];
 }
 
 function buildContent(scene, score) {
@@ -175,10 +189,18 @@ function buildContent(scene, score) {
         const asset = (score.assets ?? []).find(item => item.id === shot.asset);
         return {key: `screen-${i}`, type: 'image', src: asset?.src ?? '', alt: asset?.alt ?? asset?.id ?? '', style: {position: 'absolute', left: '0', top: '0', width: `${d.sw}px`, height: `${d.sh}px`, objectFit: 'cover', opacity: '0'}};
       });
+      const r = d.tap, ring = px(score, 3), accent = score.tokens?.accent ?? '#FFFFFF';
+      list(p.taps).forEach((tap, i) => {
+        const at = {position: 'absolute', left: `${Math.round((tap.x ?? 0.5) * d.sw) - r}px`, top: `${Math.round((tap.y ?? 0.5) * d.sh) - r}px`, width: `${2 * r}px`, height: `${2 * r}px`, borderRadius: `${r}px`, boxSizing: 'border-box', opacity: '0'};
+        screens.push({key: `ripple-${i}`, type: 'box', style: {...at, border: `${ring}px solid ${accent}`}});
+        screens.push({key: `tap-${i}`, type: 'box', style: {...at, border: `${ring}px solid rgba(0, 0, 0, 0.35)`, background: 'rgba(255, 255, 255, 0.75)', backgroundClip: 'padding-box'}});
+      });
       const screen = {key: 'screen', type: 'box', children: screens, style: {position: 'absolute', left: `${d.bezel}px`, top: `${d.bezel + d.bar}px`, width: `${d.sw}px`, height: `${d.sh}px`, overflow: 'hidden', background: '#000', borderRadius: d.phone ? `${d.radius}px` : '0'}};
       const parts = d.phone
         ? [screen, {key: 'island', type: 'box', style: {position: 'absolute', left: `${d.island.x}px`, top: `${d.island.y}px`, width: `${d.island.w}px`, height: `${d.island.h}px`, borderRadius: `${Math.round(d.island.h / 2)}px`, background: body}}]
-        : [screen, ...['#FF5F57', '#FEBC2E', '#28C840'].map((dot, i) => ({key: `dot-${i}`, type: 'box', style: {position: 'absolute', left: `${px(score, 20) + i * px(score, 22)}px`, top: `${Math.round((d.bar - px(score, 14)) / 2)}px`, width: `${px(score, 14)}px`, height: `${px(score, 14)}px`, borderRadius: `${px(score, 7)}px`, background: dot}}))];
+        : [screen, ...['#FF5F57', '#FEBC2E', '#28C840'].map((dot, i) => ({key: `dot-${i}`, type: 'box', style: {position: 'absolute', left: `${px(score, 20) + i * px(score, 22)}px`, top: `${Math.round((d.bar - px(score, 14)) / 2)}px`, width: `${px(score, 14)}px`, height: `${px(score, 14)}px`, borderRadius: `${px(score, 7)}px`, background: dot}})),
+          ...(d.browser ? [{key: 'address', type: 'box', style: {position: 'absolute', left: `${d.address.x}px`, top: `${d.address.y}px`, width: `${d.address.w}px`, height: `${d.address.h}px`, borderRadius: `${Math.round(d.address.h / 2)}px`, background: '#FFFFFF', overflow: 'hidden'},
+            children: [{key: 'url', type: 'text', text: copy(score, p.url), style: {position: 'absolute', left: `${px(score, 14)}px`, top: '0', height: `${d.address.h}px`, lineHeight: `${d.address.h}px`, fontSize: `${px(score, 20)}px`, fontWeight: '400', color: '#5F6368', whiteSpace: 'nowrap'}}]}] : [])];
       const device = {key: 'device', type: 'box', style: {position: 'absolute', left: `${d.dx}px`, top: `${d.dy}px`, width: `${d.dw}px`, height: `${d.dh}px`, transformOrigin: '0 0'}, children: [
         {key: 'body', type: 'box', children: parts, style: {position: 'absolute', inset: '0', overflow: 'hidden', borderRadius: `${d.phone ? d.radius + d.bezel : d.radius}px`, background: body}}]};
       const children = [device];
@@ -216,8 +238,16 @@ export function deviceFrame(scene, score, frame) {
     if (i === current - 1 && k < 1) return {opacity: 1, x: mode === 'push' ? -Math.round(k * d.sw) : 0, alpha: 1};
     return {opacity: 0, x: 0, alpha: 1};
   });
+  // A tap: the marker arrives 4 frames before `at`, presses on `at`, a ring spreads, then the marker leaves.
+  const taps = list(p.taps).map(tap => {
+    const at = scene.start + (tap.at ?? 0);
+    const arrive = progress(frame, at - 4, 4, 'easeOutCubic'), press = progress(frame, at, 3, 'easeInCubic') - progress(frame, at + 3, 5, 'easeOutCubic');
+    const spread = progress(frame, at, 14, 'easeOutCubic');
+    return {opacity: arrive * (1 - progress(frame, at + 8, 6, 'linear')), scale: (1.3 - 0.3 * arrive) * (1 - 0.15 * press),
+      ripple: frame >= at ? 1 - spread : 0, rippleScale: 1 + spread};
+  });
   const px0 = d.bezel + focus.x * d.sw, py0 = d.bezel + d.bar + focus.y * d.sh;
-  return {layout: d, entry, focus, screens, tx: px0 * (1 - focus.s), ty: py0 * (1 - focus.s) + (1 - entry) * px(score, 60)};
+  return {layout: d, entry, focus, screens, taps, tx: px0 * (1 - focus.s), ty: py0 * (1 - focus.s) + (1 - entry) * px(score, 60)};
 }
 
 /** Styles and changing text for one frame: {key: {style, text?}}. The scene is visible when start <= frame < end. */
@@ -229,6 +259,8 @@ export function sceneFrame(scene, score, frame) {
   const sweepFrames = p.sweepFrames ?? m.exitFrames + 12;
   const exitStart = mode === 'sweep' ? scene.end - sweepFrames : scene.end - m.exitFrames;
   const e = mode === 'none' ? 0 : progress(frame, exitStart, m.exitFrames, m.exitEasing);
+  const wipe = backgroundWipe(scene, score, frame);
+  if (wipe) out.scene = {style: {clipPath: `inset(${wipe.map(v => `${v}px`).join(' ')})`}};
   out.container = {style: {opacity: String(1 - e), transform: mode === 'sweep' ? `translateX(${-px(score, 150) * e}px)` : `translateY(${-px(score, 24) * e}px)`}};
   if (mode === 'sweep') {
     const k = progress(frame, exitStart, sweepFrames, 'easeInOutCubic'), from = margin(score), to = score.width - margin(score);
@@ -277,6 +309,10 @@ export function sceneFrame(scene, score, frame) {
       const f = deviceFrame(scene, score, frame);
       out.device = {style: {opacity: String(f.entry), transform: `translate(${f.tx}px, ${f.ty}px) scale(${f.focus.s})`}};
       f.screens.forEach((state, i) => { out[`screen-${i}`] = {style: {opacity: String(state.opacity * state.alpha), transform: `translateX(${state.x}px)`}}; });
+      f.taps.forEach((tap, i) => {
+        out[`tap-${i}`] = {style: {opacity: String(tap.opacity), transform: `scale(${tap.scale})`}};
+        out[`ripple-${i}`] = {style: {opacity: String(tap.ripple), transform: `scale(${tap.rippleScale})`}};
+      });
       list(p.caption).forEach((_, i) => {
         const c = progress(frame, scene.start + 10 + i * m.lineStaggerFrames, m.entryFrames, m.entryEasing);
         out[`caption-${i}`] = {style: {transform: `translateY(${(1 - c) * 110}%)`}};

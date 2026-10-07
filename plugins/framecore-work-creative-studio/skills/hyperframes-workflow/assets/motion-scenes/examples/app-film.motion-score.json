@@ -8,10 +8,10 @@
     "evidence": "Package example for the device scene kind"
   },
   "stage": "build",
-  "goal": "Show the device scene kind: screenshots in a phone and a window, with a screen change, a camera focus and a caption.",
+  "goal": "Show the device scene kind: screenshots in a phone and a browser window, with a tap, a screen change, a camera focus and a caption.",
   "audience": "Studio users planning a product film",
   "message": "A real interface, shown step by step",
-  "concept": "A phone logs an expense, the camera moves in on the new row, a desktop window shows the weekly overview, an end card closes.",
+  "concept": "A phone logs an expense with a tap, the camera moves in on the new row, a browser window shows the weekly overview, an end card closes.",
   "runtime": {
     "status": "selected",
     "value": "Studio scene engine"
@@ -65,7 +65,8 @@
     "caption-1": "Log an expense",
     "caption-2": "in two taps",
     "caption-3": "See the whole week",
-    "end": "Your app, step by step"
+    "end": "Your app, step by step",
+    "url": "app.example.com/week"
   },
   "copyStatus": "approved",
   "assets": [
@@ -137,7 +138,14 @@
           "caption-1",
           "caption-2"
         ],
-        "side": "left"
+        "side": "left",
+        "taps": [
+          {
+            "at": 108,
+            "x": 0.5,
+            "y": 0.93
+          }
+        ]
       },
       "purpose": "Show the main action",
       "start": 0,
@@ -158,7 +166,7 @@
       ],
       "focalPoint": "The phone screen",
       "entry": "Phone settles in; caption rises",
-      "action": "Screen pushes to the saved state; camera moves in on the new row",
+      "action": "Tap on Add expense; the screen pushes to the saved state; camera moves in on the new row",
       "exit": "Fade and lift",
       "transition": "Lift",
       "persistence": "Phone frame",
@@ -168,7 +176,7 @@
       "id": "desktop",
       "kind": "device",
       "params": {
-        "frame": "window",
+        "frame": "browser",
         "screens": [
           {
             "asset": "window-1"
@@ -177,9 +185,10 @@
         "caption": [
           "caption-3"
         ],
-        "side": "right"
+        "side": "right",
+        "url": "url"
       },
-      "purpose": "Show the overview on desktop",
+      "purpose": "Show the overview in the web app",
       "start": 200,
       "end": 300,
       "copy": [
@@ -191,12 +200,12 @@
           288
         ]
       ],
-      "focalPoint": "The window",
-      "entry": "Window settles in",
+      "focalPoint": "The browser window",
+      "entry": "Browser window settles in",
       "action": "Readable hold",
       "exit": "Fade and lift",
       "transition": "Lift",
-      "persistence": "Window frame",
+      "persistence": "Browser frame",
       "audio": "Silence"
     },
     {

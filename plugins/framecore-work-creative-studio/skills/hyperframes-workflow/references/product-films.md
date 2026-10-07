@@ -19,6 +19,8 @@ A product film shows a real product working: its screens inside a phone or a win
 ## Rules for the frame
 
 - **The device is always there.** A phone keeps both side edges and its island in frame; a window keeps its title bar and controls in frame. Never show the interface full-bleed. Keep camera focus at about 1.5× or less and aim it so the island or title bar stays visible.
+- **Show the cause.** A tap marker (`taps`) presses the control 3–5 frames before the next screen arrives; a viewer then sees what was touched. Never tap something in the same beat it appears.
+- **Web apps in a browser.** `frame: 'browser'` adds an address field; its `url` copy is interface chrome, so keep it out of the scene's `copy` list and expect a small-text warning in vertical formats.
 - **One action per beat, then a hold.** A screen change takes the transition (12 frames by default); its result holds 1–2 s before the next action. Camera moves happen between actions, never during one.
 - **Captions beside the device, never over it.** The `device` kind puts the caption on the free side in landscape and above the device in vertical formats.
 - **Motion comes from the product.** Screen changes push like the product's own navigation; no crossfades between scenes, glow, 3D flips or particles on the interface.
@@ -30,4 +32,4 @@ App Review Guideline 2.3.4 allows only captures of the app itself (with narratio
 
 ## Contract example
 
-[`examples/app-film.motion-score.json`](../assets/motion-scenes/examples/app-film.motion-score.json) shows a phone with two screens, a push between them, a camera focus on the new row and a caption, a desktop window with a caption on the other side, an end card, and a 9:16 variant. Its screenshots are original and show fictional example data.
+[`examples/app-film.motion-score.json`](../assets/motion-scenes/examples/app-film.motion-score.json) shows a phone with a tap, two screens with a push between them, a camera focus on the new row and a caption, a browser window with an address and a caption on the other side, an end card, and a 9:16 variant. Its screenshots are original and show fictional example data.

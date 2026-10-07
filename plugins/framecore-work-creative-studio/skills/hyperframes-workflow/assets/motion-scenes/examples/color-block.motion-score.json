@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "id": "color-block-example",
+  "revision": 1,
+  "approval": {
+    "status": "approved",
+    "revision": 1,
+    "evidence": "Package example for scene backgrounds"
+  },
+  "stage": "build",
+  "goal": "Show per-scene backgrounds that wipe in on scene changes (the Color block signature).",
+  "audience": "Studio users choosing a style",
+  "message": "One colour per idea",
+  "concept": "Three statements, each on its own colour; every new colour wipes in from the left over the previous one.",
+  "runtime": {
+    "status": "selected",
+    "value": "Studio scene engine"
+  },
+  "viewing": "1920×1080, 16:9; 1080×1920 variant",
+  "audio": "Intentional silence.",
+  "decisions": {
+    "confirmed": [
+      "Color block style"
+    ],
+    "proposed": [],
+    "unknown": []
+  },
+  "style": "color-block",
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 324,
+  "width": 1920,
+  "height": 1080,
+  "tokens": {
+    "background": "#FFD23F",
+    "foreground": "#111111",
+    "muted": "#3A3A3A",
+    "accent": "#3A86FF",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "marginRatio": 0.07
+  },
+  "motion": {
+    "tempo": "bouncy-bold",
+    "entryFrames": 12,
+    "exitFrames": 8,
+    "lineStaggerFrames": 4,
+    "itemStaggerFrames": 6,
+    "entryEasing": "easeOutQuart",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo"
+  },
+  "formats": [
+    {
+      "id": "9x16",
+      "width": 1080,
+      "height": 1920,
+      "viewing": "9:16 full screen on a phone",
+      "params": {
+        "one": {
+          "sizes": [
+            120,
+            60
+          ]
+        },
+        "two": {
+          "sizes": [
+            120,
+            60
+          ]
+        }
+      }
+    }
+  ],
+  "copy": {
+    "a1": "Say it loud",
+    "a2": "with one colour",
+    "b1": "One colour",
+    "b2": "per idea",
+    "end": "Your name here"
+  },
+  "copyStatus": "approved",
+  "assets": [],
+  "acceptance": [
+    "Each new colour wipes in from the left over the previous scene",
+    "Ink text stays readable on every colour",
+    "No frame shows the base canvas between scenes"
+  ],
+  "scenes": [
+    {
+      "id": "one",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "a1",
+          "a2"
+        ],
+        "sizes": [
+          150,
+          72
+        ],
+        "weights": [
+          700,
+          400
+        ],
+        "align": "left",
+        "background": "#FFD23F",
+        "backgroundWipe": "none"
+      },
+      "purpose": "Statement",
+      "start": 0,
+      "end": 120,
+      "copy": [
+        "a1",
+        "a2"
+      ],
+      "holds": [
+        [
+          27,
+          108
+        ]
+      ],
+      "focalPoint": "The statement",
+      "entry": "Canvas wipes in, lines rise",
+      "action": "Readable hold",
+      "exit": "Fade and lift",
+      "transition": "Next canvas wipes over",
+      "persistence": "Ink type",
+      "audio": "Silence"
+    },
+    {
+      "id": "two",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "b1",
+          "b2"
+        ],
+        "sizes": [
+          150,
+          72
+        ],
+        "weights": [
+          700,
+          400
+        ],
+        "align": "left",
+        "background": "#3A86FF",
+        "backgroundWipe": "left"
+      },
+      "purpose": "Statement",
+      "start": 108,
+      "end": 228,
+      "copy": [
+        "b1",
+        "b2"
+      ],
+      "holds": [
+        [
+          135,
+          216
+        ]
+      ],
+      "focalPoint": "The statement",
+      "entry": "Canvas wipes in, lines rise",
+      "action": "Readable hold",
+      "exit": "Fade and lift",
+      "transition": "Next canvas wipes over",
+      "persistence": "Ink type",
+      "audio": "Silence"
+    },
+    {
+      "id": "end",
+      "kind": "end-card",
+      "params": {
+        "text": "end",
+        "background": "#FF5D8F",
+        "backgroundWipe": "left"
+      },
+      "purpose": "Close",
+      "start": 216,
+      "end": 324,
+      "copy": [
+        "end"
+      ],
+      "holds": [
+        [
+          246,
+          324
+        ]
+      ],
+      "focalPoint": "The name",
+      "entry": "Canvas wipes in, name settles",
+      "action": "Hold",
+      "exit": "None",
+      "transition": "None",
+      "persistence": "Accent rule",
+      "audio": "Silence"
+    }
+  ]
+}

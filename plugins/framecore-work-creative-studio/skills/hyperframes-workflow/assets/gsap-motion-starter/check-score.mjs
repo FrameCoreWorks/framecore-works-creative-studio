@@ -19,7 +19,7 @@ const sceneKinds = {
   'counter': {required: ['to'], copyParams: ['label']},
   'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
   'logo-reveal': {required: ['asset'], copyParams: []},
-  'device': {required: ['screens'], copyParams: ['caption']},
+  'device': {required: ['screens'], copyParams: ['caption', 'url']},
 };
 export const knownSceneKinds = Object.keys(sceneKinds);
 const text = value => typeof value === 'string' && value.trim().length > 0;
@@ -62,10 +62,16 @@ export function checkScore(score, {storyboard = false} = {}) {
       else {
         for (const key of kind.required) if (params[key] === undefined) errors.push(`${scene.id}: ${scene.kind} needs params.${key}`);
         for (const key of kind.copyParams) for (const id of [].concat(params[key] ?? [])) if (typeof score.copy?.[id] !== 'string') errors.push(`${scene.id}: params.${key} references missing copy id ${id}`);
+        if (params.background !== undefined && !text(params.background)) errors.push(`${scene.id}: background must be a colour`);
+        if (params.backgroundWipe !== undefined && !['none', 'left', 'right', 'up', 'down'].includes(params.backgroundWipe)) errors.push(`${scene.id}: backgroundWipe must be none, left, right, up or down`);
         if (scene.kind === 'device') {
           const shots = Array.isArray(params.screens) ? params.screens : [];
           if (!shots.length) errors.push(`${scene.id}: device needs at least one screen`);
-          if (params.frame !== undefined && !['phone', 'window'].includes(params.frame)) errors.push(`${scene.id}: device frame must be phone or window`);
+          if (params.frame !== undefined && !['phone', 'window', 'browser'].includes(params.frame)) errors.push(`${scene.id}: device frame must be phone, window or browser`);
+          (Array.isArray(params.taps) ? params.taps : params.taps === undefined ? [] : [null]).forEach((tap, i) => {
+            const inside = value => value === undefined || (Number.isFinite(value) && value >= 0 && value <= 1);
+            if (!(Number.isInteger(tap?.at) && tap.at >= 4 && scene.start + tap.at < scene.end && inside(tap.x) && inside(tap.y))) errors.push(`${scene.id}: tap ${i + 1} needs an integer at (at least 4, inside the scene) and x, y between 0 and 1`);
+          });
           if (params.transition !== undefined && !['push', 'fade', 'cut'].includes(params.transition)) errors.push(`${scene.id}: device transition must be push, fade or cut`);
           shots.forEach((shot, i) => {
             const asset = (score.assets ?? []).find(item => item.id === shot?.asset);

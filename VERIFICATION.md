@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.30.0
+## Current source: 1.31.0
+
+The [1.31.0 source checks](verification/release-1.31.0.json) pass canonical validation and 229 tests: 170 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release adds taps and a browser frame to `device` scenes and per-scene backgrounds with wipes. Both examples passed the frame review in Chromium 1194 in 16:9 and 9:16 without errors; the Python renderer matched the browser within 0.86 grey levels on average and rendered existing contracts byte-identically to 1.30.0. Host behavior is not verified. [Scope](verification/scope-1.31.0.json) records 21 changed and 1 added shared files out of 893.
+
+## Previous source: 1.30.0
 
 The [1.30.0 source checks](verification/release-1.30.0.json) pass canonical validation and 227 tests: 168 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release adds the `device` scene kind for product films. The app-film example passed the frame review in Chromium 1194 in 16:9 and 9:16 without findings, and the Python renderer matched the browser at every review frame within 0.86 grey levels on average; repeated Python renders were byte-identical. It also fixes frame-review screenshots, which lost the bottom 87 pixels of every frame in new headless Chrome. Host behavior is not verified. [Scope](verification/scope-1.30.0.json) records 21 changed and 2 added shared files out of 892.
 

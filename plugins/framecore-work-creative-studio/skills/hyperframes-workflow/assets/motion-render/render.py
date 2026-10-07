@@ -36,7 +36,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.2.0'
+VERSION = '1.3.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -146,7 +146,7 @@ def device_layout(scene, score):
     p, W, H, m = scene.get('params') or {}, score['width'], score['height'], margin(score)
     area = tokens(score).get('safeArea') or {}
     top, bottom = jround(H * area.get('top', 0)), H - jround(H * area.get('bottom', 0))
-    phone = p.get('frame', 'phone') != 'window'
+    phone, browser = p.get('frame', 'phone') == 'phone', p.get('frame') == 'browser'
     shots = as_list(p.get('screens'))
     first = next((a for a in score.get('assets') or [] if shots and a.get('id') == shots[0].get('asset')), {})
     aspect = first['width'] / first['height'] if (first.get('width') or 0) > 0 and (first.get('height') or 0) > 0 else 9 / 19.5 if phone else 16 / 10
@@ -161,7 +161,7 @@ def device_layout(scene, score):
         left = {'x': m, 'y': top, 'w': half - gap - m, 'h': bottom - top}
         right = {'x': half + gap, 'y': top, 'w': W - m - half - gap, 'h': bottom - top}
         caption, box = (left, right) if p.get('side', 'left') == 'left' else (right, left)
-    bezel, bar = (px(score, 14), 0) if phone else (0, px(score, 40))
+    bezel, bar = (px(score, 14), 0) if phone else (0, px(score, 58 if browser else 40))
     if phone:
         sh = jround(box['h'] * 0.84); sw = jround(sh * aspect)
         if sw + 2 * bezel > box['w'] * 0.9:
@@ -171,7 +171,10 @@ def device_layout(scene, score):
         if sh + bar > box['h'] * 0.84:
             sh = jround(box['h'] * 0.84 - bar); sw = jround(sh * aspect)
     dw, dh = sw + 2 * bezel, sh + 2 * bezel + bar
-    return {'phone': phone, 'portrait': portrait, 'caption': caption, 'bezel': bezel, 'bar': bar, 'sw': sw, 'sh': sh, 'dw': dw, 'dh': dh,
+    field = px(score, 34)
+    return {'phone': phone, 'browser': browser, 'tap': px(score, 28),
+            'address': {'x': px(score, 96), 'y': jround((bar - field) / 2), 'w': dw - px(score, 96) - px(score, 20), 'h': field} if browser else None,
+            'portrait': portrait, 'caption': caption, 'bezel': bezel, 'bar': bar, 'sw': sw, 'sh': sh, 'dw': dw, 'dh': dh,
             'radius': jround(sw * 0.14) if phone else px(score, 14),
             'dx': jround(box['x'] + (box['w'] - dw) / 2), 'dy': jround(box['y'] + (box['h'] - dh) / 2),
             'island': {'x': jround((dw - sw * 0.3) / 2), 'y': bezel + px(score, 14), 'w': jround(sw * 0.3), 'h': px(score, 30)} if phone else None}
@@ -202,9 +205,42 @@ def device_frame(scene, score, frame):
             screens.append({'opacity': 1, 'x': -jround(k * d['sw']) if mode == 'push' else 0, 'alpha': 1})
         else:
             screens.append({'opacity': 0, 'x': 0, 'alpha': 1})
+    taps = []
+    for tap in as_list(p.get('taps')):
+        at = scene['start'] + tap.get('at', 0)
+        arrive = progress(frame, at - 4, 4, 'easeOutCubic')
+        press = progress(frame, at, 3, 'easeInCubic') - progress(frame, at + 3, 5, 'easeOutCubic')
+        spread = progress(frame, at, 14, 'easeOutCubic')
+        taps.append({'opacity': arrive * (1 - progress(frame, at + 8, 6, 'linear')), 'scale': (1.3 - 0.3 * arrive) * (1 - 0.15 * press),
+                     'ripple': 1 - spread if frame >= at else 0, 'rippleScale': 1 + spread, 'x': tap.get('x', 0.5), 'y': tap.get('y', 0.5)})
     px0, py0 = d['bezel'] + focus['x'] * d['sw'], d['bezel'] + d['bar'] + focus['y'] * d['sh']
-    return {'layout': d, 'entry': entry, 'focus': focus, 'screens': screens,
+    return {'layout': d, 'entry': entry, 'focus': focus, 'screens': screens, 'taps': taps,
             'tx': px0 * (1 - focus['s']), 'ty': py0 * (1 - focus['s']) + (1 - entry) * px(score, 60)}
+
+
+def ring_image(diameter, ring, ring_rgba, fill_rgba=None, supersample=4):
+    """A circle with a border of `ring` pixels (CSS border-box, background clipped to the padding box)."""
+    size = diameter * supersample
+    outer, inner = Image.new('L', (size, size), 0), Image.new('L', (size, size), 0)
+    ImageDraw.Draw(outer).ellipse([0, 0, size - 1, size - 1], fill=255)
+    pad = ring * supersample
+    ImageDraw.Draw(inner).ellipse([pad, pad, size - 1 - pad, size - 1 - pad], fill=255)
+    outer, inner = outer.resize((diameter, diameter), Image.LANCZOS), inner.resize((diameter, diameter), Image.LANCZOS)
+    band = Image.composite(Image.new('L', outer.size, 0), outer, inner)
+    image = tinted(band, ring_rgba)
+    if fill_rgba:
+        image.alpha_composite(tinted(inner, fill_rgba))
+    return image
+
+
+def background_wipe(scene, score, frame):
+    """Port of backgroundWipe(): CSS inset() lengths [top, right, bottom, left] of the scene canvas, or None."""
+    p, side = scene.get('params') or {}, (scene.get('params') or {}).get('backgroundWipe', 'none')
+    if not p.get('background') or side == 'none':
+        return None
+    k = progress(frame, scene['start'], p.get('backgroundFrames', 12), 'easeInOutCubic')
+    x, y = jround((1 - k) * score['width']), jround((1 - k) * score['height'])
+    return {'left': [0, x, 0, 0], 'right': [0, 0, 0, x], 'up': [y, 0, 0, 0], 'down': [0, 0, y, 0]}[side]
 
 
 def rounded_mask(width, height, radii, supersample=4):
@@ -609,7 +645,20 @@ class Scene:
                 size = px(score, 14)
                 for n, dot in enumerate(('#FF5F57', '#FEBC2E', '#28C840')):
                     overlay.alpha_composite(tinted(rounded_mask(size, size, (px(score, 7),) * 4), color(dot)), (px(score, 20) + n * px(score, 22), jround((d['bar'] - size) / 2)))
+                if d['browser']:
+                    a = d['address']
+                    field = tinted(rounded_mask(a['w'], a['h'], (jround(a['h'] / 2),) * 4), (255, 255, 255, 255))
+                    url = TextBlock(copy_text(score, p.get('url')), self.fonts.get(px(score, 20), 400), 10 ** 6, a['h'])
+                    text = tinted(url.mask(max(1, math.ceil(url.widths[0]))), color('#5F6368'))
+                    clip = Image.new('RGBA', field.size, (0, 0, 0, 0))
+                    clip.paste(text, (px(score, 14), 0))
+                    clip.putalpha(Image.composite(clip.getchannel('A'), Image.new('L', clip.size, 0), field.getchannel('A')))
+                    field.alpha_composite(clip)
+                    overlay.alpha_composite(field, (a['x'], a['y']))
             self.overlay = overlay
+            r, ring = d['tap'], px(score, 3)
+            self.tap_marker = ring_image(2 * r, ring, (0, 0, 0, jround(0.35 * 255)), (255, 255, 255, jround(0.75 * 255)))
+            self.tap_ripple = ring_image(2 * r, ring, color(self.t.get('accent'), (255, 255, 255, 255)))
             self.captions = []
             if d['caption']:
                 area = d['caption']
@@ -700,8 +749,17 @@ class Scene:
                     layer_shot = Image.new('RGBA', screen.size, (0, 0, 0, 0))
                     layer_shot.paste(shot.convert('RGBA'), (state['x'], 0))
                     screen.alpha_composite(faded(layer_shot, state['alpha']))
+            r = d['tap']
+            for tap in f['taps']:
+                cx, cy = jround(tap['x'] * d['sw']), jround(tap['y'] * d['sh'])
+                for image, opacity, scale_by in ((self.tap_ripple, tap['ripple'], tap['rippleScale']), (self.tap_marker, tap['opacity'], tap['scale'])):
+                    if opacity <= 0:
+                        continue
+                    size = max(1, jround(2 * r * scale_by))
+                    scaled = image if size == 2 * r else image.resize((size, size), Image.BICUBIC)
+                    place(screen, scaled, cx - size / 2, cy - size / 2, opacity)
             if self.screen_mask is not None:
-                screen.putalpha(self.screen_mask)
+                screen.putalpha(Image.composite(screen.getchannel('A'), Image.new('L', screen.size, 0), self.screen_mask))
             device = self.body.copy()
             device.alpha_composite(screen, (d['bezel'], d['bezel'] + d['bar']))
             device.alpha_composite(self.overlay)
@@ -736,8 +794,12 @@ class Scene:
             shifted = Image.new('RGBA', layer.size, (0, 0, 0, 0))
             shifted.paste(layer, (jround(dx), jround(dy)))
             layer = faded(shifted, 1 - e)
+        # params.background: the scene draws on its own canvas, which can wipe in; without it, straight onto the frame.
+        target = frame_image
+        if p.get('background'):
+            target = Image.new('RGBA', frame_image.size, color(p['background'])[:3] + (255,))
         if 1 - e > 0:
-            frame_image.alpha_composite(layer)
+            target.alpha_composite(layer)
         if self.mode == 'sweep':
             k = progress(frame, exit_start, sweep_frames, 'easeInOutCubic')
             if 0 < k < 1:
@@ -745,7 +807,16 @@ class Scene:
                 x = jround(start + (end - start) * k) - px(score, 3)
                 top, bottom = jround(score['height'] * 0.16), score['height'] - jround(score['height'] * 0.16)
                 line_color = color(p.get('sweepColor') or self.t.get('accent') or self.t.get('foreground'), self.fg)
-                place(frame_image, solid((px(score, 6), bottom - top), line_color), x, top)
+                place(target, solid((px(score, 6), bottom - top), line_color), x, top)
+        if target is not frame_image:
+            wipe = background_wipe(s, score, frame)
+            if wipe:
+                top_, right, bottom_, left = wipe
+                mask = Image.new('L', target.size, 0)
+                if score['width'] - right > left and score['height'] - bottom_ > top_:
+                    ImageDraw.Draw(mask).rectangle([left, top_, score['width'] - right - 1, score['height'] - bottom_ - 1], fill=255)
+                target.putalpha(Image.composite(target.getchannel('A'), Image.new('L', target.size, 0), mask))
+            frame_image.alpha_composite(target)
 
 
 class Captions:

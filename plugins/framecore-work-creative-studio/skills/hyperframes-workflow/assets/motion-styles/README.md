@@ -10,7 +10,7 @@ A style is a whole decision: canvas, ink, accent, type, how things move and one 
 | Midnight | focused and luminous | technology, dark interfaces, games | `exit: 'sweep'` with the accent as `sweepColor` |
 | Field guide | earthy and editorial | outdoors, travel, food | `item-stagger` connector as a route, `end-card` rule |
 | Paper and ink | editorial, type-led | statements, design-led brands | oversized `line-reveal` lines; the coloured full stop is custom |
-| Color block | bold and playful | consumer launches, social | custom (canvas colour changes) |
+| Color block | bold and playful | consumer launches, social | `params.background` with `backgroundWipe` on every scene |
 
 ## How Studio uses a style
 

@@ -557,7 +557,7 @@ test('Python renderer motion blur keeps holds sharp and phone-size stills scale 
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
-test('device scenes place screenshots in a phone or window, push screens and focus the camera', async () => {
+test('device scenes place screenshots in a phone or browser window, push screens and focus the camera', async () => {
   const {buildScene, deviceFrame, deviceLayout, nodesByKey, resolveFormat, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
@@ -591,7 +591,7 @@ test('device scenes place screenshots in a phone or window, push screens and foc
   const bad = structuredClone(score);
   bad.scenes[0].params.frame = 'tablet'; bad.scenes[0].params.screens[1].at = 0; bad.assets[0].width = undefined;
   const errors = checkScore(bad).errors.join('\n');
-  assert.match(errors, /frame must be phone or window/); assert.match(errors, /screen 2 needs an integer at/); assert.match(errors, /screen 1 needs an assets entry with src, width and height/);
+  assert.match(errors, /frame must be phone, window or browser/); assert.match(errors, /screen 2 needs an integer at/); assert.match(errors, /screen 1 needs an assets entry with src, width and height/);
 });
 
 test('Python renderer draws device scenes deterministically', {skip: !python && 'python3 with Pillow not installed'}, () => {
@@ -605,5 +605,55 @@ test('Python renderer draws device scenes deterministically', {skip: !python && 
     }
     for (const name of fs.readdirSync(path.join(tmp, 'a'))) assert.ok(fs.readFileSync(path.join(tmp, 'a', name)).equals(fs.readFileSync(path.join(tmp, 'b', name))), name);
     assert.equal(fs.readFileSync(path.join(tmp, 'a', 'frame-00060.png')).readUInt32BE(20), 1920);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('device taps press before the screen change, the browser frame shows its address, scene backgrounds wipe in', async () => {
+  const {backgroundWipe, buildScene, deviceFrame, deviceLayout, nodesByKey, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const film = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
+  const phone = film.scenes.find(scene => scene.id === 'phone'), tap = phone.params.taps[0], at = phone.start + tap.at;
+  assert.ok(phone.params.screens[1].at - tap.at >= 3 && phone.params.screens[1].at - tap.at <= 5, 'the tap causes the screen change');
+  const state = frame => deviceFrame(phone, film, frame).taps[0];
+  assert.equal(state(at - 5).opacity, 0);
+  assert.equal(state(at).opacity, 1);
+  assert.ok(state(at + 2).scale < 1, 'the marker presses');
+  assert.ok(state(at + 4).ripple > 0 && state(at + 4).rippleScale > 1, 'a ring spreads');
+  assert.equal(state(at + 14).opacity, 0);
+  const nodes = nodesByKey(buildScene(phone, film));
+  assert.ok(nodes['tap-0'] && nodes['ripple-0'] && nodes.screen.children.indexOf(nodes['tap-0']) > nodes.screen.children.indexOf(nodes['screen-1']), 'taps draw above the screens');
+  assert.equal(sceneFrame(phone, film, at + 2)['tap-0'].style.opacity, '1');
+  const web = film.scenes.find(scene => scene.id === 'desktop'), layout = deviceLayout(web, film);
+  assert.equal(web.params.frame, 'browser');
+  assert.ok(layout.address && layout.address.x + layout.address.w <= layout.dw && layout.address.y + layout.address.h <= layout.bar);
+  assert.equal(nodesByKey(buildScene(web, film)).url.text, film.copy.url);
+  const blocks = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/color-block.motion-score.json'), 'utf8'));
+  assert.deepEqual(checkScore(blocks, {storyboard: true}).errors, []);
+  const [one, two] = blocks.scenes;
+  assert.equal(two.start, one.end - (two.params.backgroundFrames ?? 12), 'the next colour wipes in while the previous scene still covers the frame');
+  assert.equal(buildScene(one, blocks).style.background, one.params.background);
+  assert.equal(backgroundWipe(one, blocks, one.start), null);
+  assert.deepEqual(backgroundWipe(two, blocks, two.start), [0, blocks.width, 0, 0]);
+  assert.deepEqual(backgroundWipe(two, blocks, two.start + 12), [0, 0, 0, 0]);
+  assert.equal(sceneFrame(two, blocks, two.start + 12).scene.style.clipPath, 'inset(0px 0px 0px 0px)');
+  const plain = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+  assert.deepEqual(buildScene(plain.scenes[0], plain).style, {position: 'absolute', inset: '0'}, 'scenes without a background keep their tree');
+  const bad = structuredClone(film);
+  bad.scenes[0].params.taps = [{at: 2, x: 1.5}]; bad.scenes[0].params.frame = 'tablet'; bad.scenes[2].params.backgroundWipe = 'spiral';
+  const errors = checkScore(bad).errors.join('\n');
+  assert.match(errors, /tap 1 needs an integer at/); assert.match(errors, /frame must be phone, window or browser/); assert.match(errors, /backgroundWipe must be/);
+});
+
+test('Python renderer draws taps, the browser frame and wiping backgrounds deterministically', {skip: !python && 'python3 with Pillow not installed'}, () => {
+  const script = path.join(root, renderDir, 'render.py');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-wipe-'));
+  try {
+    for (const [name, frames] of [['color-block', '0,100,114,120,230'], ['app-film', '106,108,110,228']]) {
+      for (const dir of ['a', 'b']) {
+        const run = spawnPython('python3', ['-B', script, path.join(root, scenesDir, `examples/${name}.motion-score.json`), '--stills', frames, '--stills-dir', path.join(tmp, name, dir)], {encoding: 'utf8'});
+        assert.equal(run.status, 0, run.stderr);
+      }
+      for (const file of fs.readdirSync(path.join(tmp, name, 'a'))) assert.ok(fs.readFileSync(path.join(tmp, name, 'a', file)).equals(fs.readFileSync(path.join(tmp, name, 'b', file))), `${name} ${file}`);
+    }
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });

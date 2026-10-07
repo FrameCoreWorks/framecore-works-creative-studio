@@ -1,0 +1,83 @@
+{
+  "version": "1.31.0",
+  "date": "2026-10-07",
+  "baseline": "bcb35c07aa47abf9c42f84577905fe990661867e",
+  "change_id": "CC-20261007-13",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 893,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 173,
+      "passed": 170,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 54
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "85a43d4785b1b462d87d77a3f8377d0dbaaeedeb30319abaef58a6486ea2defe",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks and local renders; whether ChatGPT or ChatGPT Work uses taps, the browser frame or scene backgrounds is not verified. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "runs": {
+    "browser_review": "app-film (tap, browser frame) and color-block examples reviewed with review-frames.mjs in Chromium 1194 in 16:9 and 9:16: 0 errors; 4 expected small-text warnings for the 20 px address in 9:16",
+    "python_parity": "render.py versus the browser engine at every review frame: mean absolute difference at most 0.86 (app-film) and 0.23 (color-block) grey levels; tap and browser frames 106, 108, 110 and 228 within 0.21",
+    "regression": "two-statements, all-kinds (PNG mark) and the 1.30.0 app-film contract render byte-identically with the 1.30.0 and 1.31.0 Python renderers at 11 frames each",
+    "player_template": "motion-preview.html changes only in the embedded scene engine"
+  }
+}

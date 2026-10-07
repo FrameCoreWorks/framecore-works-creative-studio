@@ -73,7 +73,7 @@
       "when": "consumer launches, social posts, community, games",
       "tokens": {"background": "#FFD23F", "foreground": "#111111", "muted": "#3A3A3A", "accent": "#3A86FF", "fontFamily": "Arial, Helvetica, sans-serif", "marginRatio": 0.07},
       "motion": {"tempo": "bouncy-bold", "entryFrames": 12, "exitFrames": 8, "lineStaggerFrames": 4, "itemStaggerFrames": 6, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
-      "signature": {"move": "the canvas colour changes on bar lines with a wipe (yellow #FFD23F, blue #3A86FF, pink #FF5D8F)", "engine": "custom (the scene engine has one background per contract)"},
+      "signature": {"move": "the canvas colour changes on bar lines with a wipe (yellow #FFD23F, blue #3A86FF, pink #FF5D8F)", "engine": "params.background on every scene with backgroundWipe; see examples/color-block.motion-score.json"},
       "music": {"bpm": [118, 128], "texture": "punchy pop or house"}
     }
   ],

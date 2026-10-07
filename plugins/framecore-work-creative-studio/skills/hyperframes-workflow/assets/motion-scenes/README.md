@@ -14,20 +14,25 @@ With kinds, a project is mostly JSON: in a host without a shell, Studio writes t
 | `counter` | `to` | `from`, `decimals`, `prefix`, `suffix`, `label` (copy ID), `locale`, `duration`, `easing` | The label settles first, then the number counts with tabular figures and holds its final value |
 | `quote` | `quote`: copy ID | `attribution` (copy ID), `attributionDelay`, `size`, `align` | The whole quotation enters at once; the attribution follows after the delay |
 | `logo-reveal` | `asset`: asset ID with `src` | `width`, `reveal` (`circle`, `wipe`), `duration` | Reveals the supplied mark by clipping only; it is never scaled, skewed or recoloured |
-| `device` | `screens`: `[{asset, at}]`, assets with `src`, `width`, `height` | `frame` (`phone`, `window`), `transition` (`push`, `fade`, `cut`), `transitionFrames`, `focus`, `caption` (copy IDs), `side` (`left`, `right`), `captionSizes`, `captionWeights`, `deviceColor` | Screenshots inside a drawn phone or window; see [device scenes](#device-scenes) |
+| `device` | `screens`: `[{asset, at}]`, assets with `src`, `width`, `height` | `frame` (`phone`, `window`, `browser`), `url` (copy ID), `transition` (`push`, `fade`, `cut`), `transitionFrames`, `taps`, `focus`, `caption` (copy IDs), `side` (`left`, `right`), `captionSizes`, `captionWeights`, `deviceColor` | Screenshots inside a drawn phone or window; see [device scenes](#device-scenes) |
 
 Every scene exits with a short fade and lift unless it is the last scene or sets `params.exit: false`. `params.exit: 'sweep'` hands over with a vertical line instead: during the scene's last `sweepFrames` (default `exitFrames` + 12) the content fades and slides left over `exitFrames` while a line (`sweepColor`, default the accent) crosses from margin to margin and finishes at the scene end. Start the next scene about 12 frames before that end so it enters behind the line, and end the readable hold before the sweep starts. Sizes are given for a frame whose short side is 1080 pixels and scale with the short side, so 1920 × 1080, 1080 × 1920 and 1080 × 1080 share one type scale. Keep the `copy` list of each scene in sync with its params so the reading-hold check measures the right text.
 
 ## Device scenes
 
-`device` shows the user's screenshots inside a drawn phone (rounded body and island) or window (title bar with three controls), for [product films](../../references/product-films.md).
+`device` shows the user's screenshots inside a drawn phone (rounded body and island), window (title bar with three controls) or browser (a window whose title bar holds an address field showing the `url` copy), for [product films](../../references/product-films.md).
 
 - **Screens.** `screens` lists asset IDs in order; every screen after the first has `at`, its start in frames from the scene start. The next screen pushes in (`transition: 'push'`, the default), fades in (`fade`) or cuts (`cut`) over `transitionFrames` (12). Each screenshot fills the screen like CSS `object-fit: cover`; the first one's `width` and `height` set the screen's aspect.
+- **Taps.** `taps` is a list of `{at, x, y}`: a finger marker arrives 4 frames before `at`, presses on `at` while a ring in the accent colour spreads, and leaves after 8 frames. `x`, `y` are fractions of the screen. Put the next screen's `at` 3–5 frames after the tap's, so the press causes the change.
 - **Camera focus.** `focus` is a list of `{at, scale, x, y, frames}`: from `at` (frames from the scene start) the device eases over `frames` (24) to `scale`, keeping the point `x`, `y` (fractions of the screen, 0.5 is the centre) in place. Keys run in order; use `scale: 1` to return.
 - **Caption.** `caption` lists copy IDs set like `line-reveal` lines (`captionSizes` default `[72, 40]`); they rise 10 frames after the scene starts. In landscape the caption takes the `side` half and the device the other; in vertical formats the caption sits above the device.
 - **Entry and exit.** The device settles in over `entryFrames` + 10 with the resolve easing and leaves with the scene's exit.
 
 `deviceLayout(scene, score)` and `deviceFrame(scene, score, frame)` compute every size and position in whole pixels, so the preview, the Remotion starter and the [Python renderer](../motion-render/README.md) place the device identically. Screenshots must be data URIs for the preview's browser export, which draws the stage into a canvas.
+
+## Scene backgrounds
+
+Any scene can set `params.background` (a colour): the scene then draws on its own canvas of that colour instead of the contract's background. `params.backgroundWipe` (`left`, `right`, `up`, `down`; default `none`) reveals that canvas from the named side over `params.backgroundFrames` (12) with ease-in-out, so a new colour sweeps over the previous scene. Start the next scene `backgroundFrames` before the previous one ends and give every scene a background, or the base canvas shows between them. This is the signature of the Color block [style](../motion-styles/README.md); [`examples/color-block.motion-score.json`](examples/color-block.motion-score.json) shows it in 16:9 and 9:16.
 
 ## Formats
 
