@@ -27,7 +27,9 @@ Audio files must be supplied or licensed for the use; record them in the asset l
 
 ## Adding sound to a delivered video
 
-Studio never synthesizes music, sound effects or voice with code for a delivery. A video is delivered silent first; then Studio asks once whether sound is wanted and offers these routes:
+Studio never synthesizes music, sound effects or voice with code for a delivery. A video is delivered silent first unless the brief asks for sound; then Studio asks once whether sound is wanted and offers these routes:
+
+0. **Sound design from the bundled library.** Recorded CC0 effects (whooshes, knocks, thuds, clicks, ticks) placed on the picture's own events by [motion sound design](../motion-sound/README.md): `sound.py plan`, `mix`, `check`. It needs no upload and can be combined with any route below for music or voice.
 
 1. **The user's own file.** The user uploads music or a recorded voice-over. Record it in `music` or `voiceover` (with `bpm` and `offsetMs` for music when known) and mux it into the rendered MP4 without re-encoding the picture, for example `ffmpeg -i video.mp4 -i voice.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -t <duration> out.mp4`. When the sound should start later, insert real silence with `-af "adelay=<milliseconds>:all=1"`; `-itsoffset` only shifts the stream's start time, which some players and editors ignore. For music, follow the rights checks of [Audio Production Director](../../../audio-production-director/SKILL.md); a library or a "royalty-free" label alone does not clear a use.
 2. **A voice or music provider such as ElevenLabs.** Only when the provider is actually connected in the conversation (a connector or an API key the user supplied) and the user has confirmed the cost and the terms; never call one from documentation alone. Otherwise give the user what they need to generate it themselves: the exact voice-over text from the contract's copy, its timing as an SRT file built from the captions or scene holds, and voice direction (tone, pace, pronunciation). The user generates the file, uploads it, and route 1 applies.

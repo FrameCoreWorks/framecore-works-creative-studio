@@ -96,6 +96,16 @@ export function checkScore(score, {storyboard = false} = {}) {
     if (approval.status === 'approved' && (!text(approval.evidence) || approval.revision !== score.revision)) errors.push('an approved contract needs approval evidence for its current revision');
   } else if (storyboard) errors.push('approval {status, revision, evidence} is required');
   if (score.runtime !== undefined && !runtimeStates.includes(score.runtime?.status)) errors.push(`runtime.status must be one of ${runtimeStates.join(', ')}`);
+  if (score.sfx !== undefined) {
+    if (!Array.isArray(score.sfx)) errors.push('sfx must be a list of {frame, sound, gain, pan} cues');
+    else score.sfx.forEach((cue, i) => {
+      if (!(Number.isInteger(cue?.frame) && cue.frame >= 0 && cue.frame < score.totalFrames)) errors.push(`sfx ${i + 1}: frame must be an integer inside the timeline`);
+      if (!text(cue?.sound)) errors.push(`sfx ${i + 1}: sound must name a family or a sound id`);
+      if (cue?.gain !== undefined && !(Number.isFinite(cue.gain) && cue.gain <= 6)) errors.push(`sfx ${i + 1}: gain must be a number of dB, at most 6`);
+      if (cue?.pan !== undefined && !(Number.isFinite(cue.pan) && cue.pan >= -1 && cue.pan <= 1)) errors.push(`sfx ${i + 1}: pan must be between -1 and 1`);
+      if (i > 0 && Number.isInteger(cue?.frame) && cue.frame < score.sfx[i - 1]?.frame) errors.push(`sfx ${i + 1}: cues must be in frame order`);
+    });
+  }
   if (score.runtime?.script !== undefined && !(text(score.runtime.script) && /^[^/\\:]+\.[A-Za-z0-9]+$/.test(score.runtime.script))) errors.push('runtime.script must be the plain file name of the delivered render script, such as video-r2.render.py');
   if (score.decisions !== undefined && !['confirmed', 'proposed', 'unknown'].every(key => Array.isArray(score.decisions[key]))) errors.push('decisions needs confirmed, proposed and unknown lists');
   if (score.acceptance !== undefined && (!Array.isArray(score.acceptance) || !score.acceptance.every(text))) errors.push('acceptance must be a list of observable criteria');

@@ -657,3 +657,68 @@ test('Python renderer draws taps, the browser frame and wiping backgrounds deter
     }
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
+
+// Motion sound design: library provenance, cue planning from the picture's timing, and a measured mix.
+const soundDir = 'skills/hyperframes-workflow/assets/motion-sound';
+const ffmpegLoudnorm = spawnPython('ffmpeg', ['-hide_banner', '-filters'], {encoding: 'utf8'}).stdout?.includes('loudnorm');
+test('the sound library is CC0, matches its manifest and covers every family', async () => {
+  const {createHash} = await import('node:crypto');
+  const library = JSON.parse(fs.readFileSync(path.join(root, soundDir, 'library.json'), 'utf8'));
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'integrations/motion-sound-sources/source-manifest.json'), 'utf8'));
+  const recorded = new Map(manifest.packs.flatMap(pack => pack.files.map(file => [file.file, file.sha256])));
+  assert.equal(recorded.size, library.sounds.length);
+  for (const sound of library.sounds) {
+    assert.equal(sound.license, 'CC0-1.0', sound.id);
+    const digest = createHash('sha256').update(fs.readFileSync(path.join(root, soundDir, sound.file))).digest('hex');
+    assert.equal(digest, sound.sha256, sound.id);
+    assert.equal(recorded.get(sound.file), digest, `${sound.id} in the manifest`);
+    assert.ok(sound.onset_ms >= 0 && sound.peak_ms >= 0 && sound.duration_ms > sound.onset_ms, sound.id);
+  }
+  for (const family of Object.keys(library.families)) assert.ok(library.sounds.some(sound => sound.family === family), family);
+  assert.ok(manifest.packs.every(pack => pack.license === 'CC0-1.0'));
+});
+
+test('sound cues follow the picture: taps, pushes, wipes, landings and checked contracts', {skip: !python && 'python3 with Pillow not installed'}, async () => {
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-sound-'));
+  try {
+    const plan = (name, density, out) => spawnPython('python3', ['-B', path.join(root, soundDir, 'sound.py'), 'plan', path.join(root, scenesDir, `examples/${name}.motion-score.json`), '--out', out, '--density', density], {encoding: 'utf8'});
+    for (const dir of ['a', 'b']) assert.equal(plan('app-film', 'standard', path.join(tmp, `${dir}.json`)).status, 0);
+    assert.ok(fs.readFileSync(path.join(tmp, 'a.json')).equals(fs.readFileSync(path.join(tmp, 'b.json'))), 'planning is deterministic');
+    const film = JSON.parse(fs.readFileSync(path.join(tmp, 'a.json'), 'utf8'));
+    const source = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
+    assert.equal(film.revision, source.revision + 1);
+    assert.equal(film.approval.status, 'proposed');
+    assert.deepEqual(film.soundDesign, {library: 'studio-cc0-1', density: 'standard', status: 'planned'});
+    assert.deepEqual(checkScore(film).errors, []);
+    const phone = source.scenes.find(scene => scene.id === 'phone'), tap = phone.start + phone.params.taps[0].at;
+    assert.ok(film.sfx.some(cue => cue.sound === 'click' && cue.frame === tap), 'the click is on the tap frame');
+    assert.ok(film.sfx.some(cue => cue.sound === 'release' && cue.frame === tap + 4));
+    assert.ok(film.sfx.some(cue => cue.sound === 'whoosh' && cue.frame === phone.start + phone.params.screens[1].at + 6), 'the push whoosh peaks halfway through the push');
+    film.sfx.forEach((cue, i) => i && assert.ok(cue.frame >= film.sfx[i - 1].frame, 'frame order'));
+    assert.equal(plan('color-block', 'minimal', path.join(tmp, 'blocks.json')).status, 0);
+    const blocks = JSON.parse(fs.readFileSync(path.join(tmp, 'blocks.json'), 'utf8'));
+    const wipe = blocks.sfx.find(cue => cue.event.includes('wipes in'));
+    assert.ok(wipe && wipe.pan < 0, 'a wipe from the left is panned left');
+    assert.ok(!blocks.sfx.some(cue => cue.sound === 'knock'), 'minimal density leaves out landings');
+    assert.notEqual(plan('app-film', 'standard', path.join(tmp, 'a.json')).status, 0, 'never overwrites');
+    const bad = {...film, sfx: [{frame: film.totalFrames, sound: ''}, {frame: 1, sound: 'click', gain: 12, pan: 2}]};
+    const errors = checkScore(bad).errors.join('\n');
+    assert.match(errors, /frame must be an integer inside the timeline/); assert.match(errors, /sound must name/); assert.match(errors, /gain must be/); assert.match(errors, /pan must be/); assert.match(errors, /frame order/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('a sound mix puts every hit on its frame', {skip: !(python && ffmpegLoudnorm) && 'python3 with Pillow or ffmpeg with loudnorm not installed'}, () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-mix-'));
+  try {
+    const sound = path.join(root, soundDir, 'sound.py'), planned = path.join(tmp, 'film.json'), wav = path.join(tmp, 'mix.wav');
+    assert.equal(spawnPython('python3', ['-B', sound, 'plan', path.join(root, scenesDir, 'examples/app-film.motion-score.json'), '--out', planned], {encoding: 'utf8'}).status, 0);
+    const mixed = spawnPython('python3', ['-B', sound, 'mix', planned, '--wav', wav], {encoding: 'utf8'});
+    assert.equal(mixed.status, 0, mixed.stderr);
+    assert.ok(JSON.parse(mixed.stdout).loudness.output_true_peak <= -1.4);
+    const checked = spawnPython('python3', ['-B', sound, 'check', wav, planned], {encoding: 'utf8'});
+    assert.equal(checked.status, 0, checked.stdout);
+    const report = JSON.parse(checked.stdout);
+    assert.ok(report.all_ok && report.max_offset_ms <= 5, checked.stdout);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
