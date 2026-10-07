@@ -163,6 +163,19 @@ def kick(seed, kind='studio'):
     return fades(saturate(body + beater * click, 1.5), 0.0003, 0.05)
 
 
+def backbeat_hit(kind, seed):
+    """The backbeat (beats 2 and 4): snare, layered clap, finger snap or rim; None plays nothing."""
+    if kind == 'clap':
+        return synth.clap_layered(seed), 0.32
+    if kind == 'snap':
+        return synth.snap(seed), 0.3
+    if kind == 'rim':
+        return rim(seed), 0.2
+    if kind == 'snare':
+        return synth.snare(seed), 0.3
+    return None, 0.0
+
+
 def clap(seed):
     n = int(0.3 * RATE)
     bursts = np.zeros(n)
@@ -331,8 +344,9 @@ def play_drums(bed, palette, start, beat, energy, seed, bar_index, swing, into_r
         if energy >= 3:
             for b in range(4):
                 k(4 * b)
-                if b in (1, 3):
-                    bed.place(at(4 * b), synth.snare(seed + 5 * bar_index + b), 0.3, 0.0, width=0.3, seed=seed)
+                hit, gain = backbeat_hit(palette.get('backbeat', 'snare'), seed + 5 * bar_index + b) if b in (1, 3) else (None, 0)
+                if hit is not None:
+                    bed.place(at(4 * b), hit, gain, 0.0, width=0.3 if hit.ndim == 1 else 0.0, seed=seed)
             for s in range(16):
                 if s == 14:
                     bed.place(at(s), hats[4], 0.06, 0.3)
@@ -374,9 +388,11 @@ def play_drums(bed, palette, start, beat, energy, seed, bar_index, swing, into_r
                 if b in (1, 3):
                     bed.place(at(4 * b), clap(seed + b + bar_index), 0.2, 0.0, width=0.35, seed=seed)
     if into_reveal and energy >= 3:
-        if kit in ('studio', 'electronic', 'house', 'tight'):
+        fill, fill_gain = backbeat_hit(palette.get('backbeat', 'snare'), seed + 701)
+        if kit in ('studio', 'electronic', 'house', 'tight') and fill is not None:
             for i in range(4):
-                bed.place(start + int((3 + i / 4) * beat * RATE), synth.snare(seed + 701 + i), 0.12 + 0.05 * i, 0.0, width=0.3, seed=seed)
+                hit, _ = backbeat_hit(palette.get('backbeat', 'snare'), seed + 701 + i)
+                bed.place(start + int((3 + i / 4) * beat * RATE), hit, fill_gain * (0.4 + 0.17 * i), 0.0, width=0.3 if hit.ndim == 1 else 0.0, seed=seed)
         else:
             for i in range(8):
                 bed.place(start + int((2 + i / 4) * beat * RATE), shaker(seed + 801 + i), 0.03 + 0.012 * i, 0.3)
@@ -417,12 +433,14 @@ def resolve(bed, palette, start, root, prog, before, beat, seed):
             bed.place(start + int(i * beat / 2 * RATE), pl, 0.09 - 0.012 * i, -0.3 + 0.2 * i)
 
 
-def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None, palette='studio', progression=0):
+def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None, palette='studio', progression=0, backbeat=None):
     """A music bed in a style's palette: bars of a chord progression in `key`, each played at the energy given in
     `energies` (0 a quiet pad, 1 the core of the palette, 2 its moving parts and light percussion, 3 full drums).
     With `reveal_bar` the progression is placed so the bar before closes the loop and leads in (a fill, a swell),
     and the reveal lands on the tonic and rings out to the end. Faded in and out, never cut off."""
-    style = PALETTES.get(palette, PALETTES['studio'])
+    style = dict(PALETTES.get(palette, PALETTES['studio']))
+    if backbeat:
+        style['backbeat'] = None if backbeat == 'none' else backbeat
     n_total = int(total_s * RATE) + RATE
     bed = Bed(n_total)
     beat = 60.0 / bpm

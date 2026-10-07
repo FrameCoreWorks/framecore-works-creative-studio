@@ -227,6 +227,39 @@ def knock(pitch=1.0, seed=6):
     return fades(out, 0.0003, 0.04), 0.0
 
 
+def tap(pitch=1.0, seed=10):
+    """A soft tap for text landing: the click's modal design, higher and softened, with a faint low body."""
+    out, _ = click(1.15 * pitch, 0.55, seed)
+    return out, 0.0
+
+
+def pop(pitch=1.0, seed=11):
+    """A rounded pop for a landing: a short tone gliding up an octave and a half as it fades (a lip or bubble pop),
+    a tiny breathy burst on top, gently saturated. Onset at 0."""
+    n = int(0.09 * RATE)
+    t = seconds(n)
+    f0 = 260 * pitch
+    freq = f0 * (1 + 1.8 * (1 - np.exp(-t / 0.012)))
+    tone = np.sin(2 * np.pi * np.cumsum(freq) / RATE) * np.minimum(t / 0.0015, 1) * np.exp(-t / 0.022)
+    breath = shaped(colored_noise(n, seed, -0.3), lambda time, f: band(f, 1800, 0.8)) * np.exp(-t / 0.004) * 0.25
+    return fades(stereo(saturate(tone + breath, 1.3)), 0.0002, 0.02), 0.0
+
+
+def swish(pitch=1.0, seed=12, duration=0.14):
+    """A short air flick ending on the landing: noise through a band climbing to its brightest at the end, then
+    stopping quickly. Aligned on its measured peak."""
+    n = int((duration + 0.05) * RATE)
+    t = seconds(n)
+    k = np.clip(t / duration, 0, 1)
+    env = np.where(t < duration, k ** 3, np.exp(-(t - duration) / 0.012))
+    x = shaped(colored_noise(n, seed, -0.2), lambda time, f: band(f, 1200 * pitch * (5 ** min(1.0, time / duration)), 0.7))
+    out = fades(stereo(x * env, 0.0, 0.2, seed), 0.003, 0.01)
+    out /= np.max(np.abs(out)) + 1e-9
+    window = RATE // 200
+    energy = np.convolve(np.mean(out, axis=1) ** 2, np.ones(window) / window, mode='same')
+    return out, int(np.argmax(energy)) / RATE
+
+
 def shimmer(note=76, seed=7, length=1.6):
     """A bright, tuned accent: inharmonic bell partials with long decays, slightly detuned left and right."""
     n = int(length * RATE)
@@ -435,6 +468,33 @@ def snare(seed):
     out = saturate(0.4 * shell + 0.75 * wires + 0.3 * crack + 0.35 * clap, 1.3)
     out *= 0.2 / (np.sqrt(np.mean(out[:int(0.1 * RATE)] ** 2)) + 1e-9)
     return fades(out, 0.0002, 0.05)
+
+
+def snap(seed):
+    """A finger snap: a very short bright crack and a quick 2 kHz ring with a little skin."""
+    n = int(0.12 * RATE)
+    t = seconds(n)
+    crack = shaped(colored_noise(n, seed, 0.0), lambda time, f: band(f, 2600, 0.6)) * np.exp(-t / 0.0018)
+    ring = modes(n, [(2050, 0.016, 0.5), (1150, 0.012, 0.3), (3400, 0.006, 0.2)], seed)
+    skin = shaped(colored_noise(n, seed + 1, -0.5), lambda time, f: band(f, 450, 0.6)) * np.exp(-t / 0.008) * 0.4
+    out = crack / (np.max(np.abs(crack)) + 1e-9) + ring + skin
+    return fades(out / (np.max(np.abs(out)) + 1e-9), 0.0001, 0.02)
+
+
+def clap_layered(seed):
+    """A modern clap: four hands slightly apart in time and space, a bright body and a short room tail."""
+    n = int(0.4 * RATE)
+    out = np.zeros((n, 2))
+    r = rng(seed)
+    for k, offset in enumerate((0.0, 0.007, 0.013, 0.021)):
+        m = n - int(offset * RATE)
+        t = seconds(m)
+        hand = shaped(colored_noise(m, seed + k, 0.0), lambda time, f: band(f, r.uniform(1100, 1700), 0.9)) * np.exp(-t / 0.007)
+        out[int(offset * RATE):] += stereo(hand, r.uniform(-0.35, 0.35))
+    t = seconds(n)
+    tail = shaped(colored_noise(n, seed + 9, 0.0), lambda time, f: band(f, 1500, 1.2)) * np.exp(-np.maximum(t - 0.02, 0) / 0.09) * np.minimum(t / 0.02, 1)
+    out += stereo(tail * 0.35, 0.0, 0.5, seed)
+    return fades(out / (np.max(np.abs(out)) + 1e-9), 0.0002, 0.05)
 
 
 def hat(seed, open_hat=False):
