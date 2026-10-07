@@ -1,0 +1,18 @@
+{
+  "version": "1.26.0",
+  "date": "2026-10-07",
+  "reported_by": "owner (delivered files and reply text); inspection by cloud-code",
+  "client": "ChatGPT Work with code execution (about 6 min of processing); owner correction: the test ran in ChatGPT Work, not ordinary ChatGPT; device and reasoning setting not reported",
+  "prompt": "revision prompt: the 1.25.0 test E contract attached; extend the ending by 2 seconds, change the final text to 'Gotowe do pobrania', change nothing else, list the changes, render a new MP4",
+  "delivered": [
+    "framecore-jeden-pomysl-r2.mp4",
+    "framecore-jeden-pomysl-r2.motion.json"
+  ],
+  "contract": "revise.mjs diff against revision 1: revision and approval 1 -> 2 (approved, evidence quotes the request), totalFrames 180 -> 240, outro end and hold end 180 -> 240, copy.outro changed, and the matching descriptive fields (goal, message, decisions, acceptance, outro purpose and action); nothing else changed; id kept; check-score PASS",
+  "mp4": "H.264 High, yuv420p, 1920x1080, 30 FPS, 240 frames, 8.00 s, no audio; first text gone by frame 72, only the sweep line visible until the new text enters at frame 78, ending stationary from frame 93 to 239 (encoder noise only)",
+  "comparison_with_revision_1_mp4": "frame 0 identical; same layout, font and timing, but the text sits about 3 px higher than in the revision 1 MP4, so intro frames are not pixel-identical; ChatGPT re-implemented its renderer instead of reusing the earlier code (inference)",
+  "reply": "listed the changes in two bullets, stated that other settings were kept and the technical values verified; named pixel equality with the previous MP4 Unknown because only the contract was attached",
+  "file_names": "revision suffix -r2 used for both files",
+  "result": "PASS_REPORTED for the revision rules; small renderer drift between revisions",
+  "owner_note": "The owner expects motion graphics users to work in ChatGPT Work or Claude Code, and will run future tests mainly in ChatGPT Work"
+}
