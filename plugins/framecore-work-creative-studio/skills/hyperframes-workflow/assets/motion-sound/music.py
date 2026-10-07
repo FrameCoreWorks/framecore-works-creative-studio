@@ -139,7 +139,8 @@ def rim(seed):
     n = int(0.12 * RATE)
     t = seconds(n)
     click = shaped(colored_noise(n, seed, 0.0), lambda time, f: band(f, 2500, 0.8)) * np.exp(-t / 0.002)
-    return modes(n, [(1720, 0.018, 0.6), (820, 0.025, 0.35), (3100, 0.008, 0.2)], seed) + 0.5 * click
+    body = synth.struck(n, [(1720, 0.022, 0.6), (820, 0.03, 0.45), (3100, 0.01, 0.25), (530, 0.02, 0.3)], seed, 1.0, 7000)
+    return body / (np.max(np.abs(body)) + 1e-9) + 0.5 * click
 
 
 def brush(seed):

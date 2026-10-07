@@ -195,12 +195,36 @@ def tick(pitch=1.0, seed=5):
     return fades(stereo(excite + ring), 0.0002, 0.008), 0.0
 
 
+def struck(n, partials, seed, excite_ms=2.5, excite_cutoff=4000.0):
+    """A struck resonant body: the modes' impulse response excited by a short burst of filtered noise instead of a
+    click, so the attack is as irregular as a real stick or knuckle and the body rings with texture, not as pure sines."""
+    ir = modes(n, partials, seed, 0.015)
+    m = int(excite_ms / 1000 * RATE) * 4
+    burst = shaped(colored_noise(m, seed + 1, -0.3), lambda t, f: lowpass(f, excite_cutoff, 2)) * np.exp(-seconds(m) / (excite_ms / 1000))
+    size = 1 << (n + m - 1).bit_length()
+    return np.fft.irfft(np.fft.rfft(ir, size) * np.fft.rfft(burst, size), size)[:n]
+
+
 def knock(pitch=1.0, seed=6):
-    """A soft wooden landing for text and cards: low inharmonic wood modes with a muted noise excitation."""
-    n = int(0.25 * RATE)
-    excite = shaped(colored_noise(n, seed, -0.4), lambda time, f: lowpass(f, 2500) * highpass(f, 120)) * np.exp(-seconds(n) / 0.003)
-    ring = modes(n, [(210 * pitch, 0.07, 0.8), (470 * pitch, 0.04, 0.45), (830 * pitch, 0.022, 0.3), (1450 * pitch, 0.012, 0.2)], seed, 0.02)
-    return fades(stereo(saturate(0.6 * excite + ring, 1.2), 0.0, 0.05, seed), 0.0003, 0.03), 0.0
+    """A landing for text and cards with body: a short low thump that drops in pitch (weight), a wooden body of six
+    inharmonic modes struck by a noise burst (tone and texture), a soft felt transient (definition), saturated
+    together. Onset at 0."""
+    n = int(0.32 * RATE)
+    t = seconds(n)
+    f0 = 165 * pitch
+    freq = 68 * pitch + 55 * pitch * np.exp(-t / 0.018)
+    thump = np.sin(2 * np.pi * np.cumsum(freq) / RATE) * np.exp(-t / 0.055)
+    wood = struck(n, [(f0, 0.11, 1.0), (f0 * 1.58, 0.07, 0.6), (f0 * 2.31, 0.05, 0.5), (f0 * 3.12, 0.032, 0.42),
+                      (f0 * 4.18, 0.02, 0.36), (f0 * 5.43, 0.014, 0.3), (f0 * 7.1, 0.012, 0.4), (f0 * 9.6, 0.009, 0.35),
+                      (f0 * 12.8, 0.006, 0.3)], seed, 1.2, 9000)
+    wood /= np.max(np.abs(wood)) + 1e-9
+    tap = shaped(colored_noise(n, seed + 2, -0.2), lambda time, f: band(f, 3000, 1.0)) * np.exp(-t / 0.005)
+    tap /= np.max(np.abs(tap)) + 1e-9
+    mono = saturate(0.5 * thump + 0.8 * wood + 0.9 * tap, 1.4)
+    out = stereo(mono, 0.0, 0.08, seed)
+    head = out[:int(0.1 * RATE)]
+    out *= 0.442 / (np.sqrt(np.mean(np.mean(head, axis=1) ** 2)) + 1e-9)
+    return fades(out, 0.0003, 0.04), 0.0
 
 
 def shimmer(note=76, seed=7, length=1.6):
@@ -391,17 +415,26 @@ def pluck(n, freq):
 
 
 def snare(seed):
-    """A snare and clap layer: a tuned shell, bright wires and three quick hand bursts."""
-    n = int(0.3 * RATE)
+    """A snare with depth: the shell's modes struck by a noise burst with a slight pitch drop, wires that buzz longer
+    than the hit, a short crack and a clap layer of three hand bursts."""
+    n = int(0.36 * RATE)
     t = seconds(n)
-    shell = modes(n, [(185, 0.045, 0.6), (330, 0.03, 0.3)], seed)
-    wires = shaped(colored_noise(n, seed + 1, -0.1), lambda time, f: band(f, 3800, 1.1)) * np.exp(-t / 0.075)
+    drop = 1 + 0.12 * np.exp(-t / 0.012)
+    shell = np.sin(2 * np.pi * np.cumsum(190 * drop) / RATE) * np.exp(-t / 0.06) + 0.6 * struck(n, [(190, 0.07, 1.0), (305, 0.05, 0.6), (472, 0.035, 0.4), (690, 0.02, 0.25)], seed, 1.5, 6000)
+    shell /= np.max(np.abs(shell)) + 1e-9
+    wires = shaped(colored_noise(n, seed + 1, -0.15), lambda time, f: highpass(f, 1800, 2) * lowpass(f, 11000) * (1 + band(f, 5000, 0.8)))
+    wires *= np.minimum(t / 0.002, 1) * np.exp(-t / 0.12)
+    wires /= np.max(np.abs(wires)) + 1e-9
+    crack = shaped(colored_noise(n, seed + 3, 0.0), lambda time, f: band(f, 3200, 0.8)) * np.exp(-t / 0.003)
     bursts = np.zeros(n)
     for k, offset in enumerate((0, 0.009, 0.019)):
         o = int(offset * RATE)
         bursts[o:] += np.exp(-seconds(n - o) / (0.006 if k < 2 else 0.06))
     clap = shaped(colored_noise(n, seed + 2, 0.0), lambda time, f: band(f, 1400, 1.0)) * bursts
-    return fades(0.5 * shell + 0.45 * wires + 0.5 * clap, 0.0002, 0.04)
+    clap /= np.max(np.abs(clap)) + 1e-9
+    out = saturate(0.4 * shell + 0.75 * wires + 0.3 * crack + 0.35 * clap, 1.3)
+    out *= 0.2 / (np.sqrt(np.mean(out[:int(0.1 * RATE)] ** 2)) + 1e-9)
+    return fades(out, 0.0002, 0.05)
 
 
 def hat(seed, open_hat=False):

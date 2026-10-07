@@ -24,7 +24,7 @@ Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; other
 | `riser` | noise through a climbing band and a tone gliding up an octave, swelling to its end; `duration` | its end |
 | `click`, `release` | a 1 ms excitation ringing stiff high modes and a short low body (modal synthesis); `pitch`, `softness` | onset |
 | `tick` | a smaller, drier click for counters; `pitch` rises with the count | onset |
-| `knock` | low inharmonic wood modes; `pitch` steps up for later lines and items | onset |
+| `knock` | a short low thump falling in pitch for weight, a wooden body of nine inharmonic modes struck by a noise burst, and a soft tap for definition; `pitch` steps up for later lines and items | onset |
 | `shimmer` | bell partials tuned to the music's key, slightly detuned left and right; `degree` in the scale | onset |
 
 ## Music palettes
