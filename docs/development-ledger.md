@@ -352,7 +352,7 @@ Verification:
 Cross-host state:
 
 - GitHub: synchronized; `main` fast-forwarded to `736e279` on owner instruction; [v1.21.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.21.0) published by workflow 37574652135; 877 package files and plugin ZIP hash match ([record](../verification/github-publication-1.21.0.json))
-- Owner will repeat the ordinary ChatGPT test after updating the hosted plugin and send the delivered HTML for check-preview
+- Ordinary ChatGPT retest on 1.21.0, 2026-10-07: the delivered HTML fails check-preview (hand-written renderer, MediaRecorder export, no template engine or export) although its contract follows 1.21.0 (kinds, sweep exit); its Export video produced no MP4 on the owner device (FAIL_REPORTED); recorded as FAIL_SOURCE_INSPECTION ([report](../verification/host-report-2026-10-07-template-test.json))
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
 
@@ -363,7 +363,7 @@ Cross-host state:
 - Baseline: `1ded66114406a81639c8299ca2a35af990c57d88` (main, package 1.21.0)
 - Result: `2673475eb3bb5c4e587f8330f543d34c5b65cfd9` (package 1.22.0)
 - Package version: 1.21.0 -> 1.22.0
-- Scope: motion player (Open contract), contract-plus-player delivery with a WebCodecs-only export fallback for self-written pages, player release asset and Pages workflow, export CLI hardening; owner approved after the second 2026-10-07 ChatGPT test (the CC-20261007-03 report stays local at the owner's request)
+- Scope: motion player (Open contract), contract-plus-player delivery with a WebCodecs-only export fallback for self-written pages, player release asset and Pages workflow, export CLI hardening; owner approved after the second 2026-10-07 ChatGPT test (the CC-20261007-03 report was first kept local at the owner's request and published later on 2026-10-07 on owner instruction)
 - Shared package changed: yes; 13 changed, 0 added, 0 removed ([scope](../verification/scope-1.22.0.json)); repository-only: `.github/workflows/pages.yml`, `scripts/package_release.py`, `scripts/publish_github_release.py`
 
 Verification:

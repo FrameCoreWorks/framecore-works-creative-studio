@@ -1,0 +1,16 @@
+{
+  "version": "1.21.0",
+  "date": "2026-10-07",
+  "status": "FAIL_SOURCE_INSPECTION",
+  "reported_by": "owner (delivered HTML file); inspection by cloud-code",
+  "client": "ordinary ChatGPT after the owner updated the hosted plugin; device and reasoning setting not reported",
+  "prompt": "1.21.0 test prompt: 6 s, 1920x1080, 30 FPS, 'Jeden pomysł' then 'Gotowe do eksportu' with a moving-line transition, no music, deliver the single-file preview with Export video",
+  "check_preview": "FAIL: scene engine missing, video export missing, approval.status 'built-from-user-brief' invalid; warning: end hold 48 frames below the 57-frame reading heuristic",
+  "observations": [
+    "The contract followed 1.21.0: both scenes declare kinds (line-reveal, end-card), the intro uses params.exit 'sweep' with sweepFrames, audio is text and schema_version is 1; so the 1.21.0 skill text was read",
+    "The HTML is again hand-written (15.9 KB, canvas drawing of its own) instead of the 48.5 KB template; it ignores its own declared kinds when drawing",
+    "Its export uses MediaRecorder with canvas.captureStream and real-time pacing instead of the WebCodecs frame-by-frame export, so frame accuracy depends on device timing",
+    "Inference (not verified): retyping a 48.5 KB template verbatim is impractical for the model, so it rewrites a shorter file even when instructed not to"
+  ],
+  "export_result": "FAIL_REPORTED by the owner: pressing Export video in this hand-written preview did not produce an MP4 file; the status message was not reported. The same owner device exported a playable MP4 earlier the same day through the WebCodecs export from video-export.mjs (see host-report-2026-10-07-browser-export.json)"
+}
