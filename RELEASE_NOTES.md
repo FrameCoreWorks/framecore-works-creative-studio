@@ -1,11 +1,10 @@
-# Creative Studio 1.29.0
+# Creative Studio 1.30.0
 
-Know-how from another motion design project, built in.
+Films of your app.
 
-- **Seven ready styles.** Meadow, Warm ink, Midnight, Field guide, Paper and ink, Color block, or your brand's own look. Each is a complete set of colours, type and movement with one signature move. When you don't give brand guidelines, Studio offers two or three that suit the subject; your own colours and fonts always win.
-- **Better motion sense.** Moves named by feel, one accent with one meaning, scenes changing on the music's bar lines and the biggest reveal on the drop.
-- **Stricter review.** The video is also checked at phone size, the first frame must work as a thumbnail, and every stretch is scored for hook, readability, motion, variety, composition, sync and accuracy.
-- **Your track, on the beat.** Upload a track and Studio finds its tempo, its first bar and its drops, then cuts it to whole bars that match the video frame for frame.
-- **Smoother fast moves.** Optional motion blur, while held text stays sharp.
+- **Your screens in a phone or a window.** Give Studio screenshots of your app and it puts them in a drawn phone or a desktop window, one step at a time.
+- **Moves that explain.** The next screen slides in like real navigation, the camera moves in on what just changed, and a short caption sits beside the device, never on top of it. Vertical formats put the caption above.
+- **Honest by default.** Only features the app really has, fictional data on every screen, and the device always in frame. For an App Store preview, Studio tells you to record the app itself, as Apple's rules require.
+- **Frame checks see the whole frame.** The automatic frame review used to miss the bottom of each frame; it now captures all of it.
 
-Adapted with attribution from kaventro/motion-designer (MIT). Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

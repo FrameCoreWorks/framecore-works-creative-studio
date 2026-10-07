@@ -96,7 +96,8 @@ const scenesDir = 'skills/hyperframes-workflow/assets/motion-scenes';
 test('scene engine renders every kind deterministically and never scales a logo', async () => {
   const {buildScene, sceneFrame, sceneKinds} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
-  assert.deepEqual(new Set(score.scenes.map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
+  const appFilm = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
+  assert.deepEqual(new Set([...score.scenes, ...appFilm.scenes].map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
   for (const scene of score.scenes) {
     assert.ok(buildScene(scene, score).children.length > 0, scene.id);
     for (const frame of [scene.start, Math.floor((scene.start + scene.end) / 2), scene.end - 1]) {
@@ -553,5 +554,56 @@ test('Python renderer motion blur keeps holds sharp and phone-size stills scale 
     assert.ok(read('sharp', 30).equals(read('blur', 30)), 'a hold is identical with blur');
     assert.ok(!read('sharp', 80).equals(read('blur', 80)), 'the sweep is blurred');
     assert.equal(read('phone', 30).readUInt32BE(16), 360);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('device scenes place screenshots in a phone or window, push screens and focus the camera', async () => {
+  const {buildScene, deviceFrame, deviceLayout, nodesByKey, resolveFormat, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
+  assert.deepEqual(checkScore(score, {storyboard: true}).errors, []);
+  for (const format of ['base', '9x16']) {
+    const view = resolveFormat(score, format);
+    for (const scene of view.scenes.filter(item => item.kind === 'device')) {
+      const d = deviceLayout(scene, view);
+      assert.ok(d.dx >= 0 && d.dy >= 0 && d.dx + d.dw <= view.width && d.dy + d.dh <= view.height, `${format} ${scene.id} inside the frame`);
+      const c = d.caption;
+      const apart = c.x + c.w <= d.dx || d.dx + d.dw <= c.x || c.y + c.h <= d.dy;
+      assert.ok(apart, `${format} ${scene.id}: caption beside or above the device`);
+      for (const value of Object.values(d).filter(Number.isFinite)) assert.ok(Number.isInteger(value), `${scene.id} whole pixels`);
+    }
+  }
+  const phone = score.scenes.find(scene => scene.id === 'phone');
+  const nodes = nodesByKey(buildScene(phone, score));
+  assert.ok(nodes.island && nodes['screen-0'].src.startsWith('data:image/png') && nodes['screen-1']);
+  const at = phone.start + phone.params.screens[1].at;
+  assert.deepEqual(deviceFrame(phone, score, at - 1).screens.map(state => state.opacity), [1, 0]);
+  const mid = deviceFrame(phone, score, at + 6).screens;
+  assert.ok(mid[0].x < 0 && mid[1].x > 0 && mid[1].x < deviceLayout(phone, score).sw, 'push in progress');
+  assert.deepEqual(deviceFrame(phone, score, at + 12).screens.map(state => [state.opacity, state.x]), [[0, 0], [1, 0]]);
+  const focus = phone.params.focus[0], held = deviceFrame(phone, score, phone.start + focus.at + focus.frames);
+  assert.ok(Math.abs(held.focus.s - focus.scale) < 1e-9);
+  const d = held.layout, point = [d.bezel + focus.x * d.sw, d.bezel + d.bar + focus.y * d.sh];
+  assert.ok(Math.abs(held.tx + held.focus.s * point[0] - point[0]) < 1e-6 && Math.abs(held.ty + held.focus.s * point[1] - point[1]) < 1e-6, 'focus keeps its point in place');
+  assert.match(sceneFrame(phone, score, at + 6).device.style.transform, /^translate\(/);
+  const window = score.scenes.find(scene => scene.id === 'desktop');
+  assert.equal(Object.keys(nodesByKey(buildScene(window, score))).filter(key => key.startsWith('dot-')).length, 3);
+  const bad = structuredClone(score);
+  bad.scenes[0].params.frame = 'tablet'; bad.scenes[0].params.screens[1].at = 0; bad.assets[0].width = undefined;
+  const errors = checkScore(bad).errors.join('\n');
+  assert.match(errors, /frame must be phone or window/); assert.match(errors, /screen 2 needs an integer at/); assert.match(errors, /screen 1 needs an assets entry with src, width and height/);
+});
+
+test('Python renderer draws device scenes deterministically', {skip: !python && 'python3 with Pillow not installed'}, () => {
+  const script = path.join(root, renderDir, 'render.py');
+  const contract = path.join(root, scenesDir, 'examples/app-film.motion-score.json');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-device-'));
+  try {
+    for (const dir of ['a', 'b']) {
+      const run = spawnPython('python3', ['-B', script, contract, '--format', '9x16', '--stills', '60,118,170,250', '--stills-dir', path.join(tmp, dir)], {encoding: 'utf8'});
+      assert.equal(run.status, 0, run.stderr);
+    }
+    for (const name of fs.readdirSync(path.join(tmp, 'a'))) assert.ok(fs.readFileSync(path.join(tmp, 'a', name)).equals(fs.readFileSync(path.join(tmp, 'b', name))), name);
+    assert.equal(fs.readFileSync(path.join(tmp, 'a', 'frame-00060.png')).readUInt32BE(20), 1920);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });

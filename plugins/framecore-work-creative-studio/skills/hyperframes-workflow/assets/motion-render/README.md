@@ -1,6 +1,6 @@
 # Python motion renderer
 
-[`render.py`](render.py) renders a [motion contract](../../references/motion-contract-json.md) to an MP4 in a Python sandbox, such as the code execution in ChatGPT or ChatGPT Work. It is a Python port of the [scene engine](../motion-scenes/README.md): the same six scene kinds and params, easings, entries, holds, lift and sweep exits, captions, safe areas and formats. It needs Python 3.8 or newer, Pillow and ffmpeg (on `PATH` or from the `imageio-ffmpeg` package). SVG logos also need `cairosvg`; otherwise supply a PNG of the same mark.
+[`render.py`](render.py) renders a [motion contract](../../references/motion-contract-json.md) to an MP4 in a Python sandbox, such as the code execution in ChatGPT or ChatGPT Work. It is a Python port of the [scene engine](../motion-scenes/README.md): the same seven scene kinds (including `device` screenshots in a phone or window) and params, easings, entries, holds, lift and sweep exits, captions, safe areas and formats. It needs Python 3.8 or newer, Pillow and ffmpeg (on `PATH` or from the `imageio-ffmpeg` package). SVG logos also need `cairosvg`; otherwise supply a PNG of the same mark.
 
 ```sh
 python render.py video.motion.json video.mp4 --check-dir video-check

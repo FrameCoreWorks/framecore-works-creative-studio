@@ -19,6 +19,7 @@ const sceneKinds = {
   'counter': {required: ['to'], copyParams: ['label']},
   'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
   'logo-reveal': {required: ['asset'], copyParams: []},
+  'device': {required: ['screens'], copyParams: ['caption']},
 };
 export const knownSceneKinds = Object.keys(sceneKinds);
 const text = value => typeof value === 'string' && value.trim().length > 0;
@@ -61,6 +62,17 @@ export function checkScore(score, {storyboard = false} = {}) {
       else {
         for (const key of kind.required) if (params[key] === undefined) errors.push(`${scene.id}: ${scene.kind} needs params.${key}`);
         for (const key of kind.copyParams) for (const id of [].concat(params[key] ?? [])) if (typeof score.copy?.[id] !== 'string') errors.push(`${scene.id}: params.${key} references missing copy id ${id}`);
+        if (scene.kind === 'device') {
+          const shots = Array.isArray(params.screens) ? params.screens : [];
+          if (!shots.length) errors.push(`${scene.id}: device needs at least one screen`);
+          if (params.frame !== undefined && !['phone', 'window'].includes(params.frame)) errors.push(`${scene.id}: device frame must be phone or window`);
+          if (params.transition !== undefined && !['push', 'fade', 'cut'].includes(params.transition)) errors.push(`${scene.id}: device transition must be push, fade or cut`);
+          shots.forEach((shot, i) => {
+            const asset = (score.assets ?? []).find(item => item.id === shot?.asset);
+            if (!text(asset?.src) || !(asset.width > 0) || !(asset.height > 0)) errors.push(`${scene.id}: screen ${i + 1} needs an assets entry with src, width and height`);
+            if (i > 0 && !(Number.isInteger(shot.at) && shot.at > (shots[i - 1].at ?? 0) && scene.start + shot.at < scene.end)) errors.push(`${scene.id}: screen ${i + 1} needs an integer at after the previous screen and inside the scene`);
+          });
+        }
         if (scene.kind === 'logo-reveal' && !text((score.assets ?? []).find(asset => asset.id === params.asset)?.src)) errors.push(`${scene.id}: logo asset ${params.asset} needs an assets entry with src`);
         if (scene.kind === 'counter' && ![params.to, params.from ?? 0].every(Number.isFinite)) errors.push(`${scene.id}: counter from/to must be numbers`);
         if (params.exit !== undefined && ![true, false, 'lift', 'sweep'].includes(params.exit)) errors.push(`${scene.id}: params.exit must be true, false, 'lift' or 'sweep'`);

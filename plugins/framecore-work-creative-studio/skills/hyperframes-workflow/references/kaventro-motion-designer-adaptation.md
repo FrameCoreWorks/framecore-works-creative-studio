@@ -18,7 +18,7 @@ The upstream skill builds each film as an HTML page whose every frame is a funct
 
 ## Not adopted
 
-- **App-film machinery:** the iPhone and laptop frames, screen capture and SF Symbols packing. Studio does not rebuild app interfaces; a product shot is an approved asset.
+- **App-film machinery as built upstream:** rebuilding interfaces in HTML from an app's code, screen capture and SF Symbols packing. Studio films the user's screenshots instead: since 1.30.0 the `device` scene kind draws a phone or window around them, and [product films](product-films.md) adapts the upstream rules (real features, fictional data, the device always in frame, one action per beat, captions beside the device, App Store guideline 2.3.4).
 - **Upstream engine and pipeline:** its HTML film engine, `check.mjs` and Chrome renderer. Studio's engine, preview, Python renderer and `review-frames.mjs` cover the same ground and share one contract.
 - **Generated sound:** ACE-Step music generation, synthesized action sounds (`sfx.py`) and local voice models. Studio's [sound policy](../assets/motion-sync/README.md#adding-sound-to-a-delivered-video) never synthesizes delivery audio with code and installs no generator unasked.
 - **Agent mechanics:** plan mode, reviewer-agent dispatch with ten-point loops, session-context rules and automatic installers. Studio keeps its own approval states and the shared review budget of a first review plus at most two repair passes.

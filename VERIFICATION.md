@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.29.0
+## Current source: 1.30.0
+
+The [1.30.0 source checks](verification/release-1.30.0.json) pass canonical validation and 227 tests: 168 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release adds the `device` scene kind for product films. The app-film example passed the frame review in Chromium 1194 in 16:9 and 9:16 without findings, and the Python renderer matched the browser at every review frame within 0.86 grey levels on average; repeated Python renders were byte-identical. It also fixes frame-review screenshots, which lost the bottom 87 pixels of every frame in new headless Chrome. Host behavior is not verified. [Scope](verification/scope-1.30.0.json) records 21 changed and 2 added shared files out of 892.
+
+## Previous source: 1.29.0
 
 The [1.29.0 source checks](verification/release-1.29.0.json) pass canonical validation and 225 tests: 166 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the Python and ffmpeg tests skip where those tools are missing. The release adapts knowledge from kaventro/motion-designer (MIT, commit `7d0b8bb`): every token style passed `check-score.mjs`, rendered, and keeps text contrast of at least 12.3:1 (foreground) and 5.5:1 (muted); `beats.py` found 120.002 BPM, bar 1 and the drop of a synthetic click track, and `music_edit.py` cut it to exactly 240 frames; motion blur left holds byte-identical. Host behavior is not verified. [Scope](verification/scope-1.29.0.json) records 14 changed and 8 added shared files out of 890.
 

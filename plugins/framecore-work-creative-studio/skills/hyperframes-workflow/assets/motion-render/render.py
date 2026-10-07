@@ -36,7 +36,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.1.0'
+VERSION = '1.2.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -69,7 +69,7 @@ EASINGS = {
     'easeInCubic': bezier(0.32, 0, 0.67, 0),
     'linear': lambda x: min(1.0, max(0.0, x)),
 }
-KINDS = ('line-reveal', 'item-stagger', 'end-card', 'counter', 'quote', 'logo-reveal')
+KINDS = ('line-reveal', 'item-stagger', 'end-card', 'counter', 'quote', 'logo-reveal', 'device')
 
 
 def progress(frame, start, duration, easing='linear'):
@@ -139,6 +139,97 @@ def resolve_format(score, format_id):
     out['scenes'] = [dict(scene, params=dict(scene.get('params') or {}, **params[scene['id']])) if scene['id'] in params else scene
                      for scene in score['scenes']]
     return out
+
+
+def device_layout(scene, score):
+    """Port of deviceLayout(): whole-pixel geometry of the device, its screen and the caption area."""
+    p, W, H, m = scene.get('params') or {}, score['width'], score['height'], margin(score)
+    area = tokens(score).get('safeArea') or {}
+    top, bottom = jround(H * area.get('top', 0)), H - jround(H * area.get('bottom', 0))
+    phone = p.get('frame', 'phone') != 'window'
+    shots = as_list(p.get('screens'))
+    first = next((a for a in score.get('assets') or [] if shots and a.get('id') == shots[0].get('asset')), {})
+    aspect = first['width'] / first['height'] if (first.get('width') or 0) > 0 and (first.get('height') or 0) > 0 else 9 / 19.5 if phone else 16 / 10
+    has_caption, portrait, gap = len(as_list(p.get('caption'))) > 0, H > W, px(score, 24)
+    box, caption = {'x': m, 'y': top, 'w': W - 2 * m, 'h': bottom - top}, None
+    if has_caption and portrait:
+        ch = jround((bottom - top) * 0.28)
+        caption = {'x': m, 'y': top, 'w': W - 2 * m, 'h': ch}
+        box = {'x': m, 'y': top + ch, 'w': W - 2 * m, 'h': bottom - top - ch}
+    elif has_caption:
+        half = jround(W / 2)
+        left = {'x': m, 'y': top, 'w': half - gap - m, 'h': bottom - top}
+        right = {'x': half + gap, 'y': top, 'w': W - m - half - gap, 'h': bottom - top}
+        caption, box = (left, right) if p.get('side', 'left') == 'left' else (right, left)
+    bezel, bar = (px(score, 14), 0) if phone else (0, px(score, 40))
+    if phone:
+        sh = jround(box['h'] * 0.84); sw = jround(sh * aspect)
+        if sw + 2 * bezel > box['w'] * 0.9:
+            sw = jround(box['w'] * 0.9 - 2 * bezel); sh = jround(sw / aspect)
+    else:
+        sw = jround(box['w'] * 0.92); sh = jround(sw / aspect)
+        if sh + bar > box['h'] * 0.84:
+            sh = jround(box['h'] * 0.84 - bar); sw = jround(sh * aspect)
+    dw, dh = sw + 2 * bezel, sh + 2 * bezel + bar
+    return {'phone': phone, 'portrait': portrait, 'caption': caption, 'bezel': bezel, 'bar': bar, 'sw': sw, 'sh': sh, 'dw': dw, 'dh': dh,
+            'radius': jround(sw * 0.14) if phone else px(score, 14),
+            'dx': jround(box['x'] + (box['w'] - dw) / 2), 'dy': jround(box['y'] + (box['h'] - dh) / 2),
+            'island': {'x': jround((dw - sw * 0.3) / 2), 'y': bezel + px(score, 14), 'w': jround(sw * 0.3), 'h': px(score, 30)} if phone else None}
+
+
+def device_frame(scene, score, frame):
+    """Port of deviceFrame(): entry, camera focus and each screen's offset and opacity."""
+    p, m, d = scene.get('params') or {}, motion(score), device_layout(scene, score)
+    entry = progress(frame, scene['start'], m['entryFrames'] + 10, m['resolveEasing'])
+    focus = {'s': 1.0, 'x': 0.5, 'y': 0.5}
+    for key in as_list(p.get('focus')):
+        k = progress(frame, scene['start'] + key.get('at', 0), key.get('frames', 24), 'easeInOutCubic')
+        if k <= 0:
+            break
+        to = {'s': key.get('scale', 1), 'x': key.get('x', 0.5), 'y': key.get('y', 0.5)}
+        focus = {name: focus[name] + (to[name] - focus[name]) * k for name in focus}
+    shots, mode, tf = as_list(p.get('screens')), p.get('transition', 'push'), p.get('transitionFrames', 12)
+    current = 0
+    for i, shot in enumerate(shots):
+        if frame >= scene['start'] + shot.get('at', 0):
+            current = i
+    k = 1 if current == 0 or mode == 'cut' else progress(frame, scene['start'] + shots[current].get('at', 0), tf, 'easeInOutCubic')
+    screens = []
+    for i in range(len(shots)):
+        if i == current:
+            screens.append({'opacity': 1, 'x': jround((1 - k) * d['sw']) if mode == 'push' else 0, 'alpha': k if mode == 'fade' else 1})
+        elif i == current - 1 and k < 1:
+            screens.append({'opacity': 1, 'x': -jround(k * d['sw']) if mode == 'push' else 0, 'alpha': 1})
+        else:
+            screens.append({'opacity': 0, 'x': 0, 'alpha': 1})
+    px0, py0 = d['bezel'] + focus['x'] * d['sw'], d['bezel'] + d['bar'] + focus['y'] * d['sh']
+    return {'layout': d, 'entry': entry, 'focus': focus, 'screens': screens,
+            'tx': px0 * (1 - focus['s']), 'ty': py0 * (1 - focus['s']) + (1 - entry) * px(score, 60)}
+
+
+def rounded_mask(width, height, radii, supersample=4):
+    """An antialiased rounded-rectangle mask; radii are (top-left, top-right, bottom-right, bottom-left)."""
+    big = Image.new('L', (width * supersample, height * supersample), 255)
+    draw = ImageDraw.Draw(big)
+    for i, r in enumerate(radii):
+        if r <= 0:
+            continue
+        r = r * supersample
+        corner = Image.new('L', (r, r), 0)
+        ImageDraw.Draw(corner).pieslice([0, 0, 2 * r - 1, 2 * r - 1], 180, 270, fill=255)
+        corner = corner.rotate(-90 * i, expand=False)
+        x = 0 if i in (0, 3) else big.width - r
+        y = 0 if i in (0, 1) else big.height - r
+        big.paste(corner, (x, y))
+    return big.resize((width, height), Image.LANCZOS)
+
+
+def cover(image, width, height):
+    """CSS object-fit: cover."""
+    scale_by = max(width / image.width, height / image.height)
+    resized = image.resize((max(1, jround(image.width * scale_by)), max(1, jround(image.height * scale_by))), Image.LANCZOS)
+    left, top = (resized.width - width) // 2, (resized.height - height) // 2
+    return resized.crop((left, top, left + width, top + height))
 
 
 # ---------------------------------------------------------------- colors and fonts
@@ -497,6 +588,44 @@ class Scene:
             tops = self.stack(heights, gaps)
             self.quote = (tinted(block.mask(block.width), self.fg), self.x_for(block.width, align), tops[0])
             self.attribution = (tinted(attribution.mask(attribution.width), self.muted), self.x_for(attribution.width, align), tops[1]) if attribution else None
+        elif kind == 'device':
+            d = self.device = device_layout(s, score)
+            body_color = color(p.get('deviceColor') or ('#111214' if d['phone'] else '#E9E9EC'))
+            self.shots = []
+            for shot in as_list(p.get('screens')):
+                asset = next((a for a in score.get('assets') or [] if a.get('id') == shot.get('asset')), None)
+                if not asset or not asset.get('src'):
+                    raise ValueError(f"Scene {s['id']}: screen asset {shot.get('asset')} has no src")
+                self.shots.append(cover(load_asset(asset['src'], self.base_dir, asset.get('width') or d['sw']), d['sw'], d['sh']))
+            outer = d['radius'] + d['bezel'] if d['phone'] else d['radius']
+            self.body_mask = rounded_mask(d['dw'], d['dh'], (outer,) * 4)
+            self.body = Image.new('RGBA', (d['dw'], d['dh']), body_color)
+            self.screen_mask = rounded_mask(d['sw'], d['sh'], (d['radius'],) * 4) if d['phone'] else None
+            overlay = Image.new('RGBA', (d['dw'], d['dh']), (0, 0, 0, 0))
+            if d['phone']:
+                i = d['island']
+                overlay.alpha_composite(tinted(rounded_mask(i['w'], i['h'], (jround(i['h'] / 2),) * 4), body_color), (i['x'], i['y']))
+            else:
+                size = px(score, 14)
+                for n, dot in enumerate(('#FF5F57', '#FEBC2E', '#28C840')):
+                    overlay.alpha_composite(tinted(rounded_mask(size, size, (px(score, 7),) * 4), color(dot)), (px(score, 20) + n * px(score, 22), jround((d['bar'] - size) / 2)))
+            self.overlay = overlay
+            self.captions = []
+            if d['caption']:
+                area = d['caption']
+                sizes, weights = p.get('captionSizes') or [72, 40], p.get('captionWeights') or [700, 400]
+                align = 'center' if d['portrait'] else 'left'
+                blocks = []
+                for i, key in enumerate(as_list(p.get('caption'))):
+                    size = px(score, sizes[i] if i < len(sizes) else sizes[-1])
+                    weight = weights[i] if i < len(weights) else weights[-1]
+                    blocks.append(TextBlock(copy_text(score, key), self.fonts.get(size, weight), area['w'], size * 1.2, align))
+                total = sum(b.height for b in blocks)
+                y = area['y'] + (area['h'] - total) / 2
+                for block in blocks:
+                    x = area['x'] + (area['w'] - block.width) / 2 if d['portrait'] else area['x']
+                    self.captions.append((tinted(block.mask(block.width), self.fg), x, y, block.height))
+                    y += block.height
         elif kind == 'logo-reveal':
             asset = next((a for a in score.get('assets') or [] if a.get('id') == p.get('asset')), None)
             if not asset or not asset.get('src'):
@@ -563,6 +692,29 @@ class Scene:
             if self.attribution:
                 image, x, y = self.attribution
                 place(layer, image, x, y, progress(frame, s['start'] + p.get('attributionDelay', 30), m['entryFrames'], m['entryEasing']))
+        elif kind == 'device':
+            f, d = device_frame(s, score, frame), self.device
+            screen = Image.new('RGBA', (d['sw'], d['sh']), (0, 0, 0, 255))
+            for shot, state in zip(self.shots, f['screens']):
+                if state['opacity'] * state['alpha'] > 0 and -d['sw'] < state['x'] < d['sw']:
+                    layer_shot = Image.new('RGBA', screen.size, (0, 0, 0, 0))
+                    layer_shot.paste(shot.convert('RGBA'), (state['x'], 0))
+                    screen.alpha_composite(faded(layer_shot, state['alpha']))
+            if self.screen_mask is not None:
+                screen.putalpha(self.screen_mask)
+            device = self.body.copy()
+            device.alpha_composite(screen, (d['bezel'], d['bezel'] + d['bar']))
+            device.alpha_composite(self.overlay)
+            device.putalpha(Image.composite(device.getchannel('A'), Image.new('L', device.size, 0), self.body_mask))
+            scale_by = f['focus']['s']
+            if abs(scale_by - 1) > 1e-9:
+                device = device.resize((max(1, jround(d['dw'] * scale_by)), max(1, jround(d['dh'] * scale_by))), Image.BICUBIC)
+            place(layer, device, d['dx'] + f['tx'], d['dy'] + f['ty'], f['entry'])
+            for i, (image, x, top, height) in enumerate(self.captions):
+                k = progress(frame, s['start'] + 10 + i * m['lineStaggerFrames'], m['entryFrames'], m['entryEasing'])
+                box = Image.new('RGBA', (image.width, max(1, math.ceil(height))), (0, 0, 0, 0))
+                box.paste(image, (0, jround((1 - k) * 1.1 * height)))
+                place(layer, box, x, top)
         elif kind == 'logo-reveal':
             k = progress(frame, s['start'], p.get('duration', 30), m['resolveEasing'])
             logo = self.logo.copy()

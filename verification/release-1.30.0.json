@@ -1,0 +1,83 @@
+{
+  "version": "1.30.0",
+  "date": "2026-10-07",
+  "baseline": "aadd9e3acfa9f2d2c6a81075af5c1f96b775ec7d",
+  "change_id": "CC-20261007-12",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 892,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 171,
+      "passed": 168,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 52
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "082182596cbd6241e35dbc91fcbb6db3b0ec9e840a861f352491b350aa7db5b2",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks and local renders; whether ChatGPT or ChatGPT Work builds product films from screenshots with the device kind is not verified. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "2bd0df86d906d98d862d8a7fb3cb498e4b26efd82f2d37bf0b3af08bd9b58f8e",
+  "runs": {
+    "device_browser": "app-film example reviewed with review-frames.mjs in Chromium 1194 in 16:9 and 9:16: 0 errors, 0 warnings after retiming the example holds",
+    "device_python_parity": "render.py versus the browser engine at every review frame of the app-film example: mean absolute difference at most 0.86 grey levels (16:9) after the screenshot fix; repeated Python renders byte-identical",
+    "review_fix": "new headless Chrome 1194 viewport was 87 px shorter than --window-size; screenshots lost the bottom 87 px before the fix and capture the whole frame after it",
+    "player_template": "motion-preview.html changes only in the embedded scene engine (device kind); its export code is unchanged"
+  }
+}

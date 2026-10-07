@@ -63,7 +63,7 @@ export function formatsFor(score, format = 'all') {
 const escapeHtml = value => String(value).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
 
 export function contactSheet(review) {
-  const card = f => `<figure class="${f.issues.some(i => i.severity === 'error') ? 'error' : f.issues.length ? 'warning' : ''}"><img src="${escapeHtml(f.image)}" alt="frame ${f.frame}" loading="lazy"><figcaption>frame ${f.frame} - ${escapeHtml(f.scenes.join(', ') || 'no scene')}${f.checked ? '' : ' - not in a hold (not checked)'}${f.issues.map(i => `<br><b>${i.severity}</b> ${escapeHtml(i.check)} ${escapeHtml(i.scene)}/${escapeHtml(i.element)}: ${escapeHtml(i.detail)}`).join('')}</figcaption></figure>`;
+  const card = f => `<figure class="${f.issues.some(i => i.severity === 'error') ? 'error' : f.issues.length ? 'warning' : ''}"><img src="${escapeHtml(f.image)}" alt="frame ${f.frame}" loading="lazy"${f.width && f.height ? ` style="aspect-ratio:${f.width}/${f.height}"` : ''}><figcaption>frame ${f.frame} - ${escapeHtml(f.scenes.join(', ') || 'no scene')}${f.checked ? '' : ' - not in a hold (not checked)'}${f.issues.map(i => `<br><b>${i.severity}</b> ${escapeHtml(i.check)} ${escapeHtml(i.scene)}/${escapeHtml(i.element)}: ${escapeHtml(i.detail)}`).join('')}</figcaption></figure>`;
   const formats = [...new Set(review.frames.map(f => f.format ?? 'base'))];
   const cards = formats.map(format => `${formats.length > 1 || format !== 'base' ? `<h2>Format ${escapeHtml(format)}</h2>\n` : ''}<main>
 ${review.frames.filter(f => (f.format ?? 'base') === format).map(card).join('\n')}
@@ -71,7 +71,7 @@ ${review.frames.filter(f => (f.format ?? 'base') === format).map(card).join('\n'
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Frame review: ${escapeHtml(review.id)}</title><style>
 body{margin:16px;font:14px system-ui,sans-serif;background:#f4f4f4;color:#111}main{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
 h2{margin:20px 0 8px}figure{margin:0;background:#fff;border:2px solid #ddd;border-radius:6px;overflow:hidden}figure.warning{border-color:#d9a400}figure.error{border-color:#c62828}
-img{width:100%;display:block;background:#000}figcaption{padding:8px;line-height:1.4}</style></head><body>
+img{width:100%;display:block;background:#000;object-fit:cover;object-position:top}figcaption{padding:8px;line-height:1.4}</style></head><body>
 <h1>Frame review: ${escapeHtml(review.id)}, revision ${escapeHtml(review.revision)}</h1>
 <p>${review.summary.errors} errors, ${review.summary.warnings} warnings; ${review.summary.checkedFrames} of ${review.frames.length} frames fall in readable holds and were measured. Screenshots are evidence of these frames only, not of motion, rhythm or sound; watch the full sequence before accepting it.</p>
 ${cards}
@@ -96,7 +96,15 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
   try {
     for (const id of formats) {
       const size = id === 'base' ? score : score.formats.find(item => item.id === id);
-      const base = [...flags, `--window-size=${size.width},${size.height}`];
+      // New headless Chrome gives the page less height than --window-size (browser chrome) and fills the rest
+      // of a screenshot with the page background, so measure the difference and enlarge the window by it.
+      const probe = path.join(out, 'viewport-probe.html');
+      fs.writeFileSync(probe, '<!doctype html><title></title><script>document.title = innerHeight</script>');
+      const probed = spawnSync(chrome, [...flags, `--window-size=${size.width},${size.height}`, '--dump-dom', pathToFileURL(probe).href], {encoding: 'utf8', timeout: 60000});
+      fs.rmSync(probe, {force: true});
+      const inner = Number(probed.stdout?.match(/<title>(\d+)<\/title>/)?.[1]);
+      const extra = inner > 0 && inner < size.height ? size.height - inner : 0;
+      const base = [...flags, `--window-size=${size.width},${size.height + extra}`];
       if (nested) fs.mkdirSync(path.join(out, 'frames', id), {recursive: true});
       for (const frame of selectFrames(score, samples)) {
         const url = `${pathToFileURL(path.resolve(previewPath)).href}?frame=${frame}&review=1${id === 'base' ? '' : `&format=${encodeURIComponent(id)}`}`;
@@ -106,7 +114,7 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
         const image = `frames/${nested ? `${id}/` : ''}frame-${String(frame).padStart(5, '0')}.png`;
         spawnSync(chrome, [...base, `--screenshot=${path.resolve(out, image)}`, url], {encoding: 'utf8', timeout: 60000});
         const parsed = JSON.parse(report);
-        frames.push({format: id, frame, image: fs.existsSync(path.join(out, image)) ? image : '', scenes: score.scenes.filter(s => frame >= s.start && frame < s.end).map(s => s.id), checked: parsed.checked, issues: parsed.issues});
+        frames.push({format: id, width: size.width, height: size.height, frame, image: fs.existsSync(path.join(out, image)) ? image : '', scenes: score.scenes.filter(s => frame >= s.start && frame < s.end).map(s => s.id), checked: parsed.checked, issues: parsed.issues});
       }
     }
   } finally {

@@ -102,6 +102,7 @@ Starting shapes for common requests (adapted from kaventro/motion-designer). A s
 | Explainer | a topic or an idea, often with voice-over | 30–90 s · landscape or vertical | `item-stagger`, `counter`, captions |
 | Data video | a statistic or result | 8–30 s · any | `counter`, `item-stagger`; sourced numbers only |
 | Feature cards | several features quickly | 15–30 s · vertical or square | `line-reveal` headline per feature, `end-card` |
+| Product film | a product's real interface at work | 20–60 s · landscape, square or vertical | `device` with screenshots, `end-card`; see [product films](product-films.md) |
 | Overlay on footage | lower thirds, captions, end cards over a recording | the footage's length and format | custom code over the user's footage |
 
 ## Typography in motion

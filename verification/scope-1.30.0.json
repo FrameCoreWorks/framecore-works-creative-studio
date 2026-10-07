@@ -1,0 +1,42 @@
+{
+  "version": "1.30.0",
+  "baseline": "aadd9e3acfa9f2d2c6a81075af5c1f96b775ec7d",
+  "change_id": "CC-20261007-12",
+  "origin": "cloud-code",
+  "files": 892,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "skills/hyperframes-workflow/assets/motion-render/README.md",
+    "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+    "skills/hyperframes-workflow/assets/motion-scenes/README.md",
+    "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
+    "skills/hyperframes-workflow/references/motion-craft.md",
+    "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 869,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-scenes/examples/app-film.motion-score.json",
+    "skills/hyperframes-workflow/references/product-films.md"
+  ],
+  "removed": [],
+  "visual_regression": "existing scene kinds unchanged; the player template changes only in its embedded engine",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

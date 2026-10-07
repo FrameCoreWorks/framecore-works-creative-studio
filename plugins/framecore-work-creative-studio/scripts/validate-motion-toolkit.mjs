@@ -30,6 +30,8 @@ export function validateMotionToolkit(root) {
     ...['README.md','styles.json'].map(name => `skills/hyperframes-workflow/assets/motion-styles/${name}`),
     ...['beats.py','music_edit.py'].map(name => `skills/hyperframes-workflow/assets/motion-sync/${name}`),
     'skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md',
+    'skills/hyperframes-workflow/references/product-films.md',
+    'skills/hyperframes-workflow/assets/motion-scenes/examples/app-film.motion-score.json',
     ...['LICENSE','README.md','source-manifest.json'].map(name => `integrations/kaventro-motion-designer/${name}`),
     `${scenesDir}/motion-scenes.mjs`,
     `${scenesDir}/examples/all-kinds.motion-score.json`,
