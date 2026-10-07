@@ -9,6 +9,7 @@ One file, `motion-score.json`, carries the storyboard, the approval state and th
 3. **Approve.** On the user's explicit approval set `approval.status: "approved"`, `approval.revision` to the current `revision`, and `approval.evidence` to where and when approval was given. A direct request to build a complete brief counts as approval of that revision: use `approved` with evidence quoting the request. Otherwise keep `proposed`. Use only the four listed states; never invent another. Any change to copy, locks, timing or concept increments `revision`, which invalidates the old approval for the affected decisions.
 4. **Check.** `node check-score.mjs motion-score.json --storyboard` requires a complete storyboard; without the flag it checks timeline, copy references and reading holds only.
 5. **Build and review.** Runtimes read the same file. Review compares the output with `acceptance`, scene `acceptance` and the readable holds.
+6. **Revise.** A change to a delivered video starts from its contract, changes only what was asked, increments `revision`, shows the user what changed (was → is) and renders with the same renderer and font. Files carry the revision in their names. See [contract revisions](../assets/motion-revise/README.md), whose `revise.mjs` lists differences and lengthens or shortens a scene while moving everything after it.
 
 ## Fields
 

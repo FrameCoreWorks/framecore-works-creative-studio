@@ -38,6 +38,7 @@ The player is available without the plugin:
 9. If an interactive preview such as Canvas is actually available in the conversation, a preview may be opened there as an extra; it is never required.
 10. Report honestly. Do not say the animation was seen, played or reviewed unless the host actually displayed it. Without that evidence, preview and temporal review stay NOT VERIFIED and the user is asked what they see.
 11. A video file comes from the MP4 render in step 2, a runtime starter where a shell is available, or the player's **Export video** (video only; MP4 depends on the browser, otherwise WebM). Do not claim an export happened until the file exists or the user confirms it. A screen recording of a preview is not a frame-accurate export.
+12. A change request to a delivered video follows [contract revisions](../motion-revise/README.md): start from the existing contract, change only what was asked, increment `revision`, list what changed and name the new files with the revision.
 
 ## Verification boundary
 

@@ -408,3 +408,36 @@ test('the motion player draws a contract from the address fragment', {skip: !pro
     assert.equal(report('#contract=not-base64!').id, 'kinetic-type-starter');
   } finally { fs.rmSync(profile, {recursive: true, force: true}); }
 });
+
+test('contract revisions diff values and extend a scene while moving everything after it', async () => {
+  const {diffContracts, diffMarkdown, extendScene, nextRevision, timingMentions} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-revise/revise.mjs'));
+  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8'));
+  const [first, second] = score.scenes;
+  assert.ok(second.start < first.end, 'example scenes overlap');
+  const longer = extendScene(score, first.id, 15);
+  assert.equal(longer.totalFrames, score.totalFrames + 15);
+  assert.equal(longer.scenes[0].end, first.end + 15);
+  assert.equal(longer.scenes[1].start, second.start + 15);
+  assert.equal(longer.scenes[0].end - longer.scenes[1].start, first.end - second.start, 'overlap preserved');
+  assert.deepEqual(checkScore(longer).errors, []);
+  assert.deepEqual(checkScore(extendScene(score, first.id, -10)).errors, []);
+  const last = score.scenes.at(-1);
+  const outro = extendScene(score, last.id, 30);
+  assert.equal(outro.scenes.at(-1).end, outro.totalFrames);
+  assert.deepEqual(checkScore(outro).errors, []);
+  assert.deepEqual(score, JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8')), 'input untouched');
+  assert.throws(() => extendScene(score, 'missing', 10), /Unknown scene/);
+  assert.throws(() => extendScene(score, first.id, 0), /non-zero integer/);
+  assert.throws(() => extendScene(score, first.id, 1.5), /non-zero integer/);
+  assert.throws(() => extendScene(score, first.id, -(first.end - first.start)), /empty/);
+  const changes = diffContracts(score, outro);
+  assert.ok(changes.some(change => change.path === 'totalFrames' && change.after === score.totalFrames + 30));
+  assert.match(diffMarkdown(changes), /`totalFrames`: \d+ → \d+/);
+  assert.equal(diffMarkdown(diffContracts(score, score)), 'No changes.\n');
+  const approved = nextRevision(score, 'User: longer ending');
+  assert.deepEqual([approved.revision, approved.approval.status, approved.approval.revision], [score.revision + 1, 'approved', score.revision + 1]);
+  assert.equal(nextRevision(score).approval.status, 'proposed');
+  const mentions = timingMentions({id: 'clip-6s', copy: {a: '30 frames'}, acceptance: ['Stable from frame 93'], scenes: [{entry: 'Rise over frames 0–15', purpose: 'Greet'}]});
+  assert.deepEqual(mentions, ['acceptance[0]', 'scenes[0].entry']);
+});

@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.25.0
+## Current source: 1.26.0
+
+The [1.26.0 source checks](verification/release-1.26.0.json) pass canonical validation and 219 tests: 160 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release adds contract revisions and `revise.mjs`. `extend` was run on the `two-statements` example (an overlapping scene lengthened by 15 frames and shortened by 10, the last scene lengthened by 30) and on the contract from the 2026-10-07 ordinary ChatGPT test (ending lengthened by 60 frames); every result passed `check-score.mjs`. Whether ChatGPT follows the revision rules is not verified. [Scope](verification/scope-1.26.0.json) records 11 changed and 2 added shared files out of 880.
+
+## Previous source: 1.25.0
 
 The [1.25.0 source checks](verification/release-1.25.0.json) pass canonical validation and 218 tests: 159 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release adds a sound policy for motion deliveries and a documented mux command, which kept a 120 BPM click track sample-exact and the video stream byte-identical on the test D MP4; `adelay` placed a delayed start exactly, while `-itsoffset` only shifted the stream start. Whether ChatGPT follows the policy is not verified. [Scope](verification/scope-1.25.0.json) records 10 changed shared files out of 878.
 

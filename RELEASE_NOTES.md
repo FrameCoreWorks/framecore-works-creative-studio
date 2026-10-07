@@ -1,9 +1,10 @@
-# Creative Studio 1.25.0
+# Creative Studio 1.26.0
 
-Real sound, or none.
+Change a finished video without starting over.
 
-- **No more robotic beeps.** Studio no longer invents music, effects or voices with code; they sounded poor. Your video comes silent first.
-- **Then one question: do you want sound?** You can upload your own music or voice-over and Studio adds it to the MP4 in sync with the animation. If a voice service such as ElevenLabs is connected and you confirm the cost, Studio can use it; if not, it gives you the exact voice-over text, the timing and voice directions to generate it yourself and upload it back. A voice generator already installed on your computer works too.
-- **Exact sync.** The sound is added without touching the picture, and a delayed start is filled with real silence, so it plays the same in every player.
+- **Ask for a change, get only that change.** "Make the ending two seconds longer" or "change the second sentence": Studio opens the contract of the video you already have and changes only what you asked. Everything else, colors, font, timing and text, stays the same.
+- **You see what changed.** A short list, was → is, before the new video.
+- **Longer or shorter scenes move everything after them.** Lengthening one scene shifts the rest of the video so nothing overlaps or gets cut.
+- **Earlier versions stay.** New files get a version number in the name (`-r2`, `-r3`), so the previous video is never overwritten.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
