@@ -1,0 +1,81 @@
+{
+  "version": "1.27.0",
+  "date": "2026-10-07",
+  "baseline": "45b5548869ac186d963c107386039c3d8316b6ad",
+  "change_id": "CC-20261007-09",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 880,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 164,
+      "passed": 161,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 45
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "b9052f426e438d0bd2c0830779b905489395fc2060e39faf28a0b97a86a27ef2",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks and local review renders; whether ChatGPT Work delivers and reuses the render script is not verified until an owner test. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "84331310b050ba82f09da9b340d12c2256e160d5173ebaea7caafd76394ec6e4",
+  "runs": {
+    "same_renderer_revision": "the 2026-10-07 ChatGPT Work contracts (revision 1 and 2) rendered with the bundled scene engine through review-frames.mjs: all 9 shared review frames before the change (0 to 79) byte-identical, frames 89 onward differ where the text changed; both reviews without errors",
+    "player_template": "motion-preview.html unchanged"
+  }
+}

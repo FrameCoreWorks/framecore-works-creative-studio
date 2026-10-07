@@ -78,6 +78,7 @@ export function checkScore(score, {storyboard = false} = {}) {
     if (approval.status === 'approved' && (!text(approval.evidence) || approval.revision !== score.revision)) errors.push('an approved contract needs approval evidence for its current revision');
   } else if (storyboard) errors.push('approval {status, revision, evidence} is required');
   if (score.runtime !== undefined && !runtimeStates.includes(score.runtime?.status)) errors.push(`runtime.status must be one of ${runtimeStates.join(', ')}`);
+  if (score.runtime?.script !== undefined && !(text(score.runtime.script) && /^[^/\\:]+\.[A-Za-z0-9]+$/.test(score.runtime.script))) errors.push('runtime.script must be the plain file name of the delivered render script, such as video-r2.render.py');
   if (score.decisions !== undefined && !['confirmed', 'proposed', 'unknown'].every(key => Array.isArray(score.decisions[key]))) errors.push('decisions needs confirmed, proposed and unknown lists');
   if (score.acceptance !== undefined && (!Array.isArray(score.acceptance) || !score.acceptance.every(text))) errors.push('acceptance must be a list of observable criteria');
   if (storyboard) {

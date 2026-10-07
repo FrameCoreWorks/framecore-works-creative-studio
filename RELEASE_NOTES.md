@@ -1,10 +1,9 @@
-# Creative Studio 1.26.0
+# Creative Studio 1.27.0
 
-Change a finished video without starting over.
+Revisions that leave the rest of the video exactly as it was.
 
-- **Ask for a change, get only that change.** "Make the ending two seconds longer" or "change the second sentence": Studio opens the contract of the video you already have and changes only what you asked. Everything else, colors, font, timing and text, stays the same.
-- **You see what changed.** A short list, was → is, before the new video.
-- **Longer or shorter scenes move everything after them.** Lengthening one scene shifts the rest of the video so nothing overlaps or gets cut.
-- **Earlier versions stay.** New files get a version number in the name (`-r2`, `-r3`), so the previous video is never overwritten.
+- **A third file with every video.** Next to the MP4 and the contract you get the small script that drew the video, for example `video-r2.render.py`.
+- **Changes touch only what you asked.** When you ask for a change, attach the contract and the script. Studio runs the same script on the updated contract, so everything you did not change stays identical, down to the pixel.
+- **No script, no problem.** If you only have the contract, Studio asks for the script once; without it, it draws the video anew and tells you that unchanged parts may shift slightly.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

@@ -9,7 +9,7 @@ One file, `motion-score.json`, carries the storyboard, the approval state and th
 3. **Approve.** On the user's explicit approval set `approval.status: "approved"`, `approval.revision` to the current `revision`, and `approval.evidence` to where and when approval was given. A direct request to build a complete brief counts as approval of that revision: use `approved` with evidence quoting the request. Otherwise keep `proposed`. Use only the four listed states; never invent another. Any change to copy, locks, timing or concept increments `revision`, which invalidates the old approval for the affected decisions.
 4. **Check.** `node check-score.mjs motion-score.json --storyboard` requires a complete storyboard; without the flag it checks timeline, copy references and reading holds only.
 5. **Build and review.** Runtimes read the same file. Review compares the output with `acceptance`, scene `acceptance` and the readable holds.
-6. **Revise.** A change to a delivered video starts from its contract, changes only what was asked, increments `revision`, shows the user what changed (was → is) and renders with the same renderer and font. Files carry the revision in their names. See [contract revisions](../assets/motion-revise/README.md), whose `revise.mjs` lists differences and lengthens or shortens a scene while moving everything after it.
+6. **Revise.** A change to a delivered video starts from its contract and, when it was delivered, its render script; it changes only what was asked, increments `revision`, shows the user what changed (was → is) and renders with the same script, so unchanged parts stay pixel-identical. Files carry the revision in their names. See [contract revisions](../assets/motion-revise/README.md), whose `revise.mjs` lists differences and lengthens or shortens a scene while moving everything after it.
 
 ## Fields
 
@@ -21,7 +21,7 @@ Top level:
 | `approval` | `{status, revision, evidence}`; status is `proposed`, `approved`, `blocked` or `example-not-client-approved`; an approved contract needs evidence for its current revision |
 | `stage` | Requested stage: `storyboard`, `build`, `review` or `repair` |
 | `goal`, `audience`, `message`, `concept` | What the film must achieve, for whom, the one message and the communicative mechanism |
-| `runtime` | `{status, value}`; status is `selected`, `proposed` or `unknown`; a work-area choice never selects it |
+| `runtime` | `{status, value}`; status is `selected`, `proposed` or `unknown`; a work-area choice never selects it. Optional `script`: the plain file name of the render script delivered with the video, such as `video-r2.render.py` |
 | `viewing`, `audio` | Intended viewing size or placement, and the audio plan or intentional silence |
 | `decisions` | `{confirmed, proposed, unknown}` lists keep the three states explicit |
 | `fps`, `totalFrames`, `width`, `height` | Rational FPS `{num, den}`, integer frame count N (frames 0..N-1) and the base size |

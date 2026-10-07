@@ -441,3 +441,16 @@ test('contract revisions diff values and extend a scene while moving everything 
   const mentions = timingMentions({id: 'clip-6s', copy: {a: '30 frames'}, acceptance: ['Stable from frame 93'], scenes: [{entry: 'Rise over frames 0–15', purpose: 'Greet'}]});
   assert.deepEqual(mentions, ['acceptance[0]', 'scenes[0].entry']);
 });
+
+test('a delivered render script is named in the contract and follows each revision', async () => {
+  const {nextRevision, scriptName} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-revise/revise.mjs'));
+  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8'));
+  const withScript = name => ({...score, runtime: {status: 'selected', value: 'Python frame renderer', script: name}});
+  assert.deepEqual(checkScore(withScript('two-statements.render.py')).errors, []);
+  for (const bad of ['../render.py', 'https://example.com/render.py', 'scripts/render.py', 'render', '']) assert.ok(checkScore(withScript(bad)).errors.some(error => error.includes('runtime.script')), bad);
+  assert.equal(scriptName('video.render.py', 2), 'video-r2.render.py');
+  assert.equal(scriptName('video-r2.render.py', 3), 'video-r3.render.py');
+  assert.equal(nextRevision(withScript('video-r1.render.py'), 'User: change').runtime.script, `video-r${score.revision + 1}.render.py`);
+  assert.equal(nextRevision(score).runtime?.script, score.runtime?.script);
+});

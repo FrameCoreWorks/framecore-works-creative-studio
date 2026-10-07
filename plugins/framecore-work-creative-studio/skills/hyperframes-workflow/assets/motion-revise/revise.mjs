@@ -69,9 +69,18 @@ export function timingMentions(score, at = '') {
   return Object.entries(score).flatMap(([key, value]) => (at === '' && ['copy', 'id', 'runtime', 'approval'].includes(key) ? [] : timingMentions(value, Array.isArray(score) ? `${at}[${key}]` : at ? `${at}.${key}` : key)));
 }
 
+/** The render script's file name for a revision: `video.render.py` or `video-r1.render.py` becomes `video-r2.render.py`. */
+export function scriptName(name, revision) {
+  const dot = name.indexOf('.');
+  const stem = dot < 0 ? name : name.slice(0, dot), rest = dot < 0 ? '' : name.slice(dot);
+  return `${stem.replace(/-r\d+$/, '')}-r${revision}${rest}`;
+}
+
 export function nextRevision(score, evidence) {
   const revision = (score.revision ?? 0) + 1;
-  return {...structuredClone(score), revision, approval: evidence ? {status: 'approved', revision, evidence} : {status: 'proposed', revision: null, evidence: null}};
+  const next = {...structuredClone(score), revision, approval: evidence ? {status: 'approved', revision, evidence} : {status: 'proposed', revision: null, evidence: null}};
+  if (typeof next.runtime?.script === 'string') next.runtime.script = scriptName(next.runtime.script, revision);
+  return next;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
