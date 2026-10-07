@@ -553,7 +553,8 @@ def compose_music(chosen, seed, lead, log):
     composed = compose.generate_music(chosen['profile'], seed + 17, chosen['key'], chosen['palette'], {'lead': lead} if lead else None)
     parts = ', '.join(f"{part} {spec['family']}" for part, spec in composed['parts'].items() if spec)
     log['music'] = (f"{' '.join(chord['name'] for chord in composed['progression'])} ({composed['colour']}), {parts}, "
-                    f"lead plays {composed['rhythm']['lead_mode']}, {composed['drums']['kit']} kit, ends with a {composed['ending']}")
+                    f"lead plays {composed['rhythm']['lead_mode']}, {composed['drums']['kit']} kit, ends with "
+                    f"{ {'strike': 'a struck chord', 'arpeggio': 'a rising arpeggio', 'motif': 'the motif'}[composed['ending']] }")
     return composed
 
 
