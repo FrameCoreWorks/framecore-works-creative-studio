@@ -471,3 +471,25 @@ Cross-host state:
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
 - Owner test on 1.26.0 (ChatGPT Work): revision rules followed; PASS_REPORTED ([report](../verification/host-report-2026-10-07-revision.json))
+
+## CC-20261007-09
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-09-render-script`
+- Baseline: `45b5548869ac186d963c107386039c3d8316b6ad` (main, package 1.26.0)
+- Result: `98702ac093145a300e7360f8fbeb2ebf2395556c` (package 1.27.0)
+- Package version: 1.26.0 -> 1.27.0
+- Scope: render script delivered with the video and named in `runtime.script`, reused unchanged for revisions; check-score and revise.mjs support; owner choice "a" after the ChatGPT Work revision test
+- Shared package changed: yes; 14 changed, 0 added, 0 removed ([scope](../verification/scope-1.27.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 161 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- both ChatGPT Work revision-test contracts rendered with one renderer: frames before the change byte-identical; ChatGPT Work behavior with the script rule: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
