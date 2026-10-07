@@ -362,7 +362,7 @@ def render_effects(score, cues):
         if b > a:
             dry[a:b] += audio[a - start:b - start]
             send[a:b] += audio[a - start:b - start] * SENDS.get(cue['sound'], 0.1)
-        hits.append((hit, align_of(score, cue)))
+        hits.append((hit, align_of(score, cue), start))
     return dry, send, hits
 
 
@@ -481,12 +481,18 @@ def hit_ducking(score, length):
 def check_hits(effects, hits):
     """Where each hit landed in an effects track: the first sample above half the local peak, or a whoosh's loudest
     10 ms. Risers end on their frame by construction and are not measured; a transient within 50 ms of another cue, or a
-    whoosh within 250 ms of one, is reported as masked rather than judged."""
+    swell whose 250 ms window another sound plays into (from its start to 150 ms past its hit), is reported as masked
+    rather than judged."""
     mono = np.mean(effects, axis=1)
     report = []
-    for index, (expected, align) in enumerate(hits):
+    hits = [h if len(h) == 3 else (h[0], h[1], h[0]) for h in hits]
+    for index, (expected, align, _) in enumerate(hits):
         reach = RATE // 4 if align == 'peak' else RATE // 20
-        masked = any(j != index and abs(h - expected) <= reach for j, (h, _) in enumerate(hits))
+        if align == 'peak':
+            # A swell is judged only when no other sound plays in its window: from that sound's start to 150 ms past its hit.
+            masked = any(j != index and start < expected + reach and h + int(0.15 * RATE) > expected - reach for j, (h, _, start) in enumerate(hits))
+        else:
+            masked = any(j != index and abs(h - expected) <= reach for j, (h, _, _) in enumerate(hits))
         if align == 'end':
             report.append({'sample': expected, 'kind': align, 'offset_ms': 0.0, 'ok': True, 'masked': masked, 'measured': False})
             continue

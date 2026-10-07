@@ -20,7 +20,8 @@ Layer types:
 Every layer has `gain`, `env` {a: attack s, h: hold s, d: decay time constant s, curve: attack power}, optional
 `tremolo` {rate, depth, accel}, `delay` s, `pan` (a number or [start, end], moving with the sound) and `lowpass` / `highpass` in Hz.
 
-`align` says which instant lands on the cue's frame: the onset, the measured loudest 10 ms ("peak") or the end.
+`align` says which instant lands on the cue's frame: the onset (the first sample at half the attack's peak, measured),
+the measured loudest 10 ms ("peak") or the end.
 `norm` sets the level the role needs in the mix, so a newly designed sound keeps the approved balance.
 A recipe is a design for one role in one video; `instantiate` fits it to each cue (its duration, pitch step and
 direction) before rendering.
@@ -159,7 +160,10 @@ def render(recipe, seed=1):
         window = RATE // 100
         energy = np.convolve(np.mean(mix, axis=1) ** 2, np.ones(window) / window, mode='same')
         return mix, int(np.argmax(energy)) / RATE
-    return mix, 0.0
+    # Onset: the first sample at half the attack's peak, measured on the rendered sound, so a soft attack still lands
+    # its audible start on the frame.
+    head = np.abs(np.mean(mix[:int(0.03 * RATE)], axis=1))
+    return mix, (int(np.argmax(head >= 0.5 * head.max())) / RATE) if head.max() > 0 else 0.0
 
 
 def scale_times(layer, factor):
