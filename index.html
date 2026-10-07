@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion preview</title>
+<!--
+  Single-file motion preview from the FrameCore Works Creative Studio Motion Graphics Workflow.
+  Self-contained: no network, no libraries, no build step. Save as .html and open in a browser.
+  Scenes are declared in the motion score by kind; the embedded scene engine computes every
+  visual state from the frame number, so play, scrub, step and seekFrame() always show the
+  same picture for the same frame. Export video encodes a video-only file in this browser.
+  Open contract loads another motion contract (pasted JSON or a .json file) into this player;
+  it travels only in the address fragment (#contract=...) and is never uploaded.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: #1b1c1f; color: #e8eaed; font: 14px system-ui, sans-serif; }
+  body { display: flex; flex-direction: column; }
+  #viewport { position: relative; width: 100%; flex: 1; min-height: 0; overflow: hidden; }
+  #stage { position: absolute; left: 50%; top: 50%; transform-origin: 0 0; overflow: hidden; }
+  #controls { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; min-height: 64px; padding: 8px 16px; box-sizing: border-box; }
+  #scrub { flex: 1 1 160px; }
+  button { font: inherit; }
+  #download { color: #8ab4f8; }
+  #open-panel { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.6); }
+  #open-panel[hidden] { display: none; }
+  #open-box { width: min(720px, 100%); max-height: 100%; overflow: auto; padding: 16px; border-radius: 8px; background: #26282c; box-sizing: border-box; }
+  #open-box h2 { margin: 0 0 8px; font-size: 18px; }
+  #open-text { width: 100%; height: 40vh; box-sizing: border-box; font: 12px ui-monospace, monospace; }
+  .open-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+  #open-errors { display: block; margin-top: 8px; color: #f28b82; white-space: pre-line; }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage"></div></div>
+<div id="controls">
+  <button id="play" type="button">Play</button>
+  <button id="replay" type="button">Replay</button>
+  <button id="back" type="button" aria-label="Previous frame">&lt;</button>
+  <button id="next" type="button" aria-label="Next frame">&gt;</button>
+  <input id="scrub" type="range" min="0" value="0" step="1" aria-label="Frame">
+  <output id="readout">frame 0</output>
+  <select id="format" aria-label="Format" hidden></select>
+  <button id="open" type="button">Open contract</button>
+  <button id="export" type="button">Export video</button>
+  <a id="download" hidden></a>
+  <output id="export-status"></output>
+</div>
+<div id="open-panel" hidden>
+  <div id="open-box" role="dialog" aria-modal="true" aria-labelledby="open-title">
+    <h2 id="open-title">Open a motion contract</h2>
+    <p>Paste the motion contract JSON from Studio or choose a .json file; you can also drop the file on this page. It stays in this browser.</p>
+    <textarea id="open-text" spellcheck="false" aria-label="Motion contract JSON"></textarea>
+    <div class="open-row">
+      <button id="open-load" type="button">Open</button>
+      <input id="open-file" type="file" accept=".json,application/json" aria-label="Contract file">
+      <button id="open-example" type="button">Built-in example</button>
+      <button id="open-cancel" type="button">Cancel</button>
+    </div>
+    <output id="open-errors"></output>
+  </div>
+</div>
+
+<!-- The motion contract. Replace it with the approved project score; scenes declare a kind and params. -->
+<script type="application/json" id="motion-score">
+{
+  "schema_version": 1,
+  "id": "kinetic-type-starter",
+  "revision": 1,
+  "approval": {
+    "status": "example-not-client-approved",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "build",
+  "goal": "Show how a short kinetic typography statement is planned, built and reviewed from one contract",
+  "audience": "Studio users learning code-based motion graphics",
+  "message": "Clear motion starts with one idea",
+  "concept": "Each scene reveals one part of the statement: the idea, the three steps that realize it, and a calm resolved ending",
+  "runtime": {
+    "status": "proposed",
+    "value": "Remotion kinetic type starter or GSAP motion starter; single-file preview where no renderer exists"
+  },
+  "viewing": "16:9 on a laptop or larger screen",
+  "audio": "intentional silence",
+  "decisions": {
+    "confirmed": [
+      "1920 x 1080, 30 FPS, 300 frames",
+      "Exact illustrative copy in the copy ledger"
+    ],
+    "proposed": [
+      "Arial as an illustrative system font",
+      "9:16 and 1:1 variants of the same contract",
+      "Accent colour #FF5A36"
+    ],
+    "unknown": [
+      "Final brand font and colours for a real project"
+    ]
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 300,
+  "width": 1920,
+  "height": 1080,
+  "formats": [
+    {
+      "id": "9x16",
+      "width": 1080,
+      "height": 1920,
+      "viewing": "9:16 full screen on a phone",
+      "params": {
+        "title": {
+          "sizes": [112, 80]
+        },
+        "end": {
+          "size": 96
+        }
+      }
+    },
+    {
+      "id": "1x1",
+      "width": 1080,
+      "height": 1080,
+      "viewing": "1:1 in a social feed",
+      "params": {
+        "title": {
+          "sizes": [112, 80]
+        },
+        "end": {
+          "size": 96
+        }
+      }
+    }
+  ],
+  "tokens": {
+    "background": "#0F1115",
+    "foreground": "#F4F1EA",
+    "muted": "#9AA0A6",
+    "accent": "#FF5A36",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "marginRatio": 0.08
+  },
+  "motion": {
+    "tempo": "calm",
+    "entryFrames": 15,
+    "exitFrames": 10,
+    "lineStaggerFrames": 6,
+    "itemStaggerFrames": 8,
+    "entryEasing": "easeOutCubic",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo",
+    "transitions": [
+      "mask reveal",
+      "word stagger",
+      "fade-scale resolve"
+    ]
+  },
+  "copy": {
+    "title-1": "Clear motion",
+    "title-2": "starts with one idea",
+    "step-1": "Plan",
+    "step-2": "Build",
+    "step-3": "Review",
+    "end": "Ready to render"
+  },
+  "copyStatus": "illustrative",
+  "assets": [],
+  "acceptance": [
+    "The title is fully readable from frame 24 until its exit begins",
+    "The connector grows at constant speed and reaches the last step before its hold",
+    "The final card is stable and unchanged from frame 230 to frame 299"
+  ],
+  "scenes": [
+    {
+      "id": "title",
+      "start": 0,
+      "end": 127,
+      "purpose": "State the idea with a line mask reveal",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "title-1",
+          "title-2"
+        ]
+      },
+      "copy": [
+        "title-1",
+        "title-2"
+      ],
+      "holds": [
+        [
+          24,
+          117
+        ]
+      ],
+      "focalPoint": "First headline line, left aligned on the margin",
+      "entry": "Lines rise from their masks, 6 frames apart",
+      "action": "Hold",
+      "exit": "Fade and lift over the last 10 frames",
+      "transition": "Overlaps the steps entry for 10 frames",
+      "persistence": "None",
+      "audio": "Silence",
+      "acceptance": [
+        "Both lines readable for at least 92 frames"
+      ]
+    },
+    {
+      "id": "steps",
+      "start": 117,
+      "end": 215,
+      "purpose": "Three steps enter with a word stagger and a constant-speed connector",
+      "kind": "item-stagger",
+      "params": {
+        "items": [
+          "step-1",
+          "step-2",
+          "step-3"
+        ],
+        "connector": true
+      },
+      "copy": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "holds": [
+        [
+          149,
+          205
+        ]
+      ],
+      "focalPoint": "The step that is currently entering, then the whole row",
+      "entry": "Items rise and fade in, 8 frames apart",
+      "action": "Connector grows linearly behind the items",
+      "exit": "Fade and lift over the last 10 frames",
+      "transition": "Overlaps the end card for 10 frames",
+      "persistence": "Accent colour continues into the end card rule",
+      "audio": "Silence",
+      "acceptance": [
+        "All three steps readable together for at least 55 frames"
+      ]
+    },
+    {
+      "id": "end",
+      "start": 205,
+      "end": 300,
+      "purpose": "End card with the longest readable hold and a stable final frame",
+      "kind": "end-card",
+      "params": {
+        "text": "end",
+        "rule": true
+      },
+      "copy": [
+        "end"
+      ],
+      "holds": [
+        [
+          230,
+          300
+        ]
+      ],
+      "focalPoint": "Centered end statement",
+      "entry": "Fade and settle from 94% scale with ease-out expo",
+      "action": "Accent rule grows under the statement",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Final state holds to frame 299",
+      "audio": "Silence",
+      "acceptance": [
+        "Frame 299 equals the settled end state"
+      ]
+    }
+  ],
+  "cues": []
+}
+</script>
+
+<script>
+(() => {
+'use strict';
+// BEGIN motion-scenes engine (copy of motion-scenes.mjs without export keywords)
+// Declarative motion scene engine for the FrameCore Works Creative Studio motion contract.
+// Dependency-free and runtime-agnostic: buildScene() describes the elements of a scene once,
+// sceneFrame() returns their styles (and changing text) for one frame. DOM and React
+// renderers only apply the result, so every runtime shows the same picture for a frame.
+// Values follow references/motion-craft.md. Keep copies of this file byte-identical.
+
+const bezier = (x1, y1, x2, y2) => x => {
+  if (x <= 0 || x >= 1) return Math.min(1, Math.max(0, x));
+  let lo = 0, hi = 1, u = x;
+  for (let i = 0; i < 30; i++) {
+    u = (lo + hi) / 2;
+    const bx = 3 * (1 - u) * (1 - u) * u * x1 + 3 * (1 - u) * u * u * x2 + u * u * u;
+    if (bx < x) lo = u; else hi = u;
+  }
+  return 3 * (1 - u) * (1 - u) * u * y1 + 3 * (1 - u) * u * u * y2 + u * u * u;
+};
+
+const easings = {
+  easeOutCubic: bezier(0.33, 1, 0.68, 1),
+  easeOutQuart: bezier(0.25, 1, 0.5, 1),
+  easeOutExpo: bezier(0.16, 1, 0.3, 1),
+  easeInOutCubic: bezier(0.65, 0, 0.35, 1),
+  easeInCubic: bezier(0.32, 0, 0.67, 0),
+  linear: x => Math.min(1, Math.max(0, x)),
+};
+
+/** Supported scene kinds and the params each one requires. */
+const sceneKinds = {
+  'line-reveal': {required: ['lines'], copyParams: ['lines']},
+  'item-stagger': {required: ['items'], copyParams: ['items']},
+  'end-card': {required: ['text'], copyParams: ['text']},
+  'counter': {required: ['to'], copyParams: ['label']},
+  'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
+  'logo-reveal': {required: ['asset'], copyParams: []},
+};
+
+/** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
+const progress = (frame, start, duration, easing = 'linear') => easings[easing]((frame - start) / duration);
+
+// Sizes are authored for a 1080 px short side, so 16:9, 9:16 and 1:1 share one type scale.
+const scale = score => Math.min(score.width, score.height) / 1080;
+const px = (score, value) => Math.round(value * scale(score));
+const motion = score => ({entryFrames: 15, exitFrames: 10, lineStaggerFrames: 6, itemStaggerFrames: 8, entryEasing: 'easeOutCubic', exitEasing: 'easeInCubic', resolveEasing: 'easeOutExpo', ...score.motion});
+const margin = score => Math.round(score.width * (score.tokens?.marginRatio ?? 0.08));
+const list = value => (Array.isArray(value) ? value : value === undefined ? [] : [value]);
+const copy = (score, id) => score.copy?.[id] ?? '';
+const isLast = (scene, score) => scene.end >= score.totalFrames;
+// params.exit: true or 'lift' (fade and lift, the default except for the last scene), 'sweep' (fade and
+// slide left while a vertical line sweeps across the frame) or false (no exit).
+const exitMode = (scene, score) => {
+  const exit = scene.params?.exit ?? !isLast(scene, score);
+  return exit === false ? 'none' : exit === 'sweep' ? 'sweep' : 'lift';
+};
+
+// Optional tokens.safeArea {top, bottom} (fractions of the height) keeps content clear of platform UI.
+// Take the values from the platform's current documentation or the user; the engine has no defaults.
+const padding = score => {
+  const area = score.tokens?.safeArea;
+  if (!area) return `0 ${margin(score)}px`;
+  return `${Math.round(score.height * (area.top ?? 0))}px ${margin(score)}px ${Math.round(score.height * (area.bottom ?? 0))}px`;
+};
+const column = (score, align = 'left') => ({
+  position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', justifyContent: 'center',
+  alignItems: align === 'center' ? 'center' : 'stretch', padding: padding(score), boxSizing: 'border-box',
+});
+// item-stagger direction: 'row', 'column' or 'auto' (a row only in clearly landscape frames).
+const vertical = (scene, score) => {
+  const direction = scene.params?.direction ?? 'auto';
+  return direction === 'column' || (direction === 'auto' && score.width < score.height * 1.3);
+};
+
+/** The score in one output format: size, tokens and scene params of score.formats[id] merged over the base. */
+function resolveFormat(score, id) {
+  if (id === undefined || id === null || id === '' || id === 'base') return score;
+  const format = (score.formats ?? []).find(item => item.id === id);
+  if (!format) throw new Error(`Unknown format: ${id}`);
+  const params = format.params ?? {};
+  return {...score, format: format.id, width: format.width, height: format.height, viewing: format.viewing ?? score.viewing,
+    tokens: {...score.tokens, ...format.tokens},
+    scenes: score.scenes.map(scene => (params[scene.id] ? {...scene, params: {...scene.params, ...params[scene.id]}} : scene))};
+}
+
+/** Describe the scene's elements. Each node: {key, type: 'box' | 'text' | 'image', text?, src?, style, children?}. */
+function buildScene(scene, score) {
+  const content = buildContent(scene, score);
+  if (exitMode(scene, score) !== 'sweep') return content;
+  const p = scene.params ?? {}, t = score.tokens ?? {};
+  return {key: 'scene', type: 'box', style: {position: 'absolute', inset: '0'}, children: [content,
+    {key: 'sweep', type: 'box', style: {position: 'absolute', left: '0', top: '16%', bottom: '16%', width: `${px(score, 6)}px`, marginLeft: `-${px(score, 3)}px`, background: p.sweepColor ?? t.accent ?? t.foreground, opacity: '0'}}]};
+}
+
+function buildContent(scene, score) {
+  const p = scene.params ?? {}, t = score.tokens ?? {};
+  switch (scene.kind) {
+    case 'line-reveal': {
+      const sizes = p.sizes ?? [132, 96], weights = p.weights ?? [700, 400];
+      return {key: 'container', type: 'box', style: column(score, p.align), children: list(p.lines).map((id, i) => ({
+        key: `mask-${i}`, type: 'box', style: {overflow: 'hidden', lineHeight: '1.1'},
+        children: [{key: `line-${i}`, type: 'text', text: copy(score, id), style: {fontSize: `${px(score, sizes[i] ?? sizes[sizes.length - 1])}px`, fontWeight: String(weights[i] ?? weights[weights.length - 1])}}],
+      }))};
+    }
+    case 'item-stagger': {
+      const items = list(p.items).map((id, i) => ({key: `item-${i}`, type: 'text', text: copy(score, id), style: {position: 'relative', padding: `${px(score, 12)}px ${px(score, 36)}px`, background: t.background, fontSize: `${px(score, p.size ?? 104)}px`, fontWeight: String(p.weight ?? 700)}}));
+      const down = vertical(scene, score);
+      const row = {key: 'row', type: 'box', children: items, style: down
+        ? {position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: `${px(score, p.gap ?? 56)}px`}
+        : {position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}};
+      const line = down
+        ? {position: 'absolute', top: '0', bottom: '0', left: `calc(50% - ${px(score, 3)}px)`, width: `${px(score, 6)}px`, background: t.accent, transformOrigin: 'center top'}
+        : {position: 'absolute', left: '0', right: '0', top: '50%', height: `${px(score, 6)}px`, background: t.accent, transformOrigin: 'left center'};
+      if (p.connector !== false) row.children = [{key: 'connector', type: 'box', style: line}, ...items];
+      return {key: 'container', type: 'box', style: column(score), children: [row]};
+    }
+    case 'end-card':
+      return {key: 'container', type: 'box', style: column(score, 'center'), children: [
+        {key: 'text', type: 'text', text: copy(score, p.text), style: {fontSize: `${px(score, p.size ?? 120)}px`, fontWeight: String(p.weight ?? 700), textAlign: 'center'}},
+        ...(p.rule === false ? [] : [{key: 'rule', type: 'box', style: {marginTop: `${px(score, 28)}px`, height: `${px(score, 6)}px`, width: `${px(score, 160)}px`, background: t.accent, transformOrigin: 'center'}}]),
+      ]};
+    case 'counter':
+      return {key: 'container', type: 'box', style: column(score, p.align ?? 'center'), children: [
+        {key: 'number', type: 'text', text: '', style: {fontSize: `${px(score, p.size ?? 220)}px`, fontWeight: '700', lineHeight: '1', fontVariantNumeric: 'tabular-nums'}},
+        ...(p.label ? [{key: 'label', type: 'text', text: copy(score, p.label), style: {marginTop: `${px(score, 24)}px`, fontSize: `${px(score, p.labelSize ?? 48)}px`, color: t.muted ?? t.foreground}}] : []),
+      ]};
+    case 'quote':
+      return {key: 'container', type: 'box', style: column(score, p.align ?? 'left'), children: [
+        {key: 'quote', type: 'text', text: copy(score, p.quote), style: {maxWidth: '78%', fontSize: `${px(score, p.size ?? 72)}px`, lineHeight: '1.25', fontWeight: '400'}},
+        ...(p.attribution ? [{key: 'attribution', type: 'text', text: copy(score, p.attribution), style: {marginTop: `${px(score, 36)}px`, fontSize: `${px(score, 40)}px`, color: t.muted ?? t.foreground}}] : []),
+      ]};
+    case 'logo-reveal': {
+      const asset = (score.assets ?? []).find(item => item.id === p.asset);
+      return {key: 'container', type: 'box', style: column(score, 'center'), children: [
+        {key: 'logo', type: 'image', src: asset?.src ?? '', alt: asset?.alt ?? asset?.id ?? '', style: {width: `${px(score, p.width ?? 360)}px`, height: 'auto', display: 'block'}},
+      ]};
+    }
+    default:
+      throw new Error(`Unknown scene kind: ${scene.kind}`);
+  }
+}
+
+/** Styles and changing text for one frame: {key: {style, text?}}. The scene is visible when start <= frame < end. */
+function sceneFrame(scene, score, frame) {
+  const p = scene.params ?? {}, m = motion(score), out = {};
+  const mode = exitMode(scene, score);
+  // A sweep exit lasts sweepFrames: the content leaves during its first exitFrames, then the line finishes
+  // crossing from margin to margin exactly at the scene end, so the next scene can enter behind it.
+  const sweepFrames = p.sweepFrames ?? m.exitFrames + 12;
+  const exitStart = mode === 'sweep' ? scene.end - sweepFrames : scene.end - m.exitFrames;
+  const e = mode === 'none' ? 0 : progress(frame, exitStart, m.exitFrames, m.exitEasing);
+  out.container = {style: {opacity: String(1 - e), transform: mode === 'sweep' ? `translateX(${-px(score, 150) * e}px)` : `translateY(${-px(score, 24) * e}px)`}};
+  if (mode === 'sweep') {
+    const k = progress(frame, exitStart, sweepFrames, 'easeInOutCubic'), from = margin(score), to = score.width - margin(score);
+    out.sweep = {style: {opacity: k > 0 && k < 1 ? '1' : '0', transform: `translateX(${Math.round(from + (to - from) * k)}px)`}};
+  }
+  switch (scene.kind) {
+    case 'line-reveal':
+      list(p.lines).forEach((_, i) => {
+        const k = progress(frame, scene.start + i * m.lineStaggerFrames, m.entryFrames, m.entryEasing);
+        out[`line-${i}`] = {style: {transform: `translateY(${(1 - k) * 110}%)`}};
+      });
+      break;
+    case 'item-stagger': {
+      const n = list(p.items).length, lastEntryEnd = scene.start + (n - 1) * m.itemStaggerFrames + m.entryFrames;
+      if (p.connector !== false) out.connector = {style: {transform: `${vertical(scene, score) ? 'scaleY' : 'scaleX'}(${progress(frame, scene.start + 6, lastEntryEnd - scene.start - 6, 'linear')})`}};
+      for (let i = 0; i < n; i++) {
+        const k = progress(frame, scene.start + i * m.itemStaggerFrames, m.entryFrames, m.entryEasing);
+        out[`item-${i}`] = {style: {opacity: String(k), transform: `translateY(${(1 - k) * px(score, 32)}px)`}};
+      }
+      break;
+    }
+    case 'end-card': {
+      const k = progress(frame, scene.start, p.duration ?? 30, m.resolveEasing);
+      out.text = {style: {opacity: String(k), transform: `scale(${0.94 + 0.06 * k})`}};
+      if (p.rule !== false) out.rule = {style: {transform: `scaleX(${k})`}};
+      break;
+    }
+    case 'counter': {
+      // The label and unit settle first; the number counts only once they are readable.
+      const label = progress(frame, scene.start, m.entryFrames, m.entryEasing);
+      const k = progress(frame, scene.start + m.entryFrames, p.duration ?? 45, p.easing ?? 'easeOutCubic');
+      const value = (p.from ?? 0) + ((p.to ?? 0) - (p.from ?? 0)) * k;
+      const format = new Intl.NumberFormat(p.locale ?? 'en-US', {minimumFractionDigits: p.decimals ?? 0, maximumFractionDigits: p.decimals ?? 0});
+      out.number = {style: {opacity: String(label)}, text: `${p.prefix ?? ''}${format.format(value)}${p.suffix ?? ''}`};
+      if (p.label) out.label = {style: {opacity: String(label), transform: `translateY(${(1 - label) * px(score, 16)}px)`}};
+      break;
+    }
+    case 'quote': {
+      // Whole-phrase reveal; the attribution follows once the quotation has settled.
+      const k = progress(frame, scene.start, m.entryFrames + 5, m.entryEasing);
+      out.quote = {style: {opacity: String(k), transform: `translateY(${(1 - k) * px(score, 24)}px)`}};
+      if (p.attribution) out.attribution = {style: {opacity: String(progress(frame, scene.start + (p.attributionDelay ?? 30), m.entryFrames, m.entryEasing))}};
+      break;
+    }
+    case 'logo-reveal': {
+      // Reveal by clipping only: the mark is never scaled, skewed or recoloured.
+      const k = progress(frame, scene.start, p.duration ?? 30, m.resolveEasing);
+      out.logo = {style: {clipPath: p.reveal === 'wipe' ? `inset(0 ${(1 - k) * 100}% 0 0)` : `circle(${k * 75}% at 50% 50%)`}};
+      break;
+    }
+    default:
+      throw new Error(`Unknown scene kind: ${scene.kind}`);
+  }
+  return out;
+}
+
+/** Beat grid from score.music {bpm, offsetMs, beatsPerBar}: every beat inside the timeline as {beat, bar, beatInBar, frame}. */
+function beatFrames(score) {
+  const music = score.music;
+  if (!(music?.bpm > 0)) return [];
+  const fps = score.fps.num / score.fps.den, perBar = music.beatsPerBar ?? 4, offset = (music.offsetMs ?? 0) / 1000, beats = [];
+  // Each beat is computed from the master timeline, so rounding never accumulates.
+  for (let beat = 0, frame = Math.round(offset * fps); frame < score.totalFrames; beat++, frame = Math.round((offset + beat * 60 / music.bpm) * fps)) {
+    beats.push({beat, bar: Math.floor(beat / perBar) + 1, beatInBar: (beat % perBar) + 1, frame});
+  }
+  return beats;
+}
+
+/** Caption layer for score.captions [{id, start, end, copy}], drawn above the scenes; null without captions. */
+function buildCaptions(score) {
+  if (!score.captions?.length) return null;
+  const t = score.tokens ?? {}, c = t.captions ?? {};
+  const bottom = Math.max(Math.round(score.height * (t.safeArea?.bottom ?? 0)), Math.round(score.height * (c.bottom ?? 0.08)));
+  return {key: 'captions', type: 'box', style: {position: 'absolute', left: `${margin(score)}px`, right: `${margin(score)}px`, bottom: `${bottom}px`, display: 'flex', justifyContent: 'center'}, children: [
+    {key: 'caption', type: 'text', text: '', style: {maxWidth: '100%', padding: `${px(score, 10)}px ${px(score, 22)}px`, background: c.background ?? 'rgba(0, 0, 0, 0.8)', color: c.color ?? '#FFFFFF', fontSize: `${px(score, c.size ?? 44)}px`, lineHeight: '1.3', fontWeight: String(c.weight ?? 500), textAlign: 'center', whiteSpace: 'pre-line', borderRadius: `${px(score, 6)}px`}},
+  ]};
+}
+
+/** The caption shown at a frame: captions cut in and out on their exact frames, start <= frame < end. */
+function captionsFrame(score, frame) {
+  const caption = (score.captions ?? []).find(item => frame >= item.start && frame < item.end);
+  return {captions: {style: {visibility: caption ? 'visible' : 'hidden'}}, caption: {text: caption ? copy(score, caption.copy) : ''}};
+}
+
+/** Index a built scene tree by key. */
+function nodesByKey(node, map = {}) {
+  map[node.key] = node;
+  for (const child of node.children ?? []) nodesByKey(child, map);
+  return map;
+}
+// END motion-scenes engine
+// BEGIN video export (copy of video-export.mjs without export keywords)
+// Browser video export for the motion contract. Each frame of the preview stage is drawn into a canvas
+// through an SVG foreignObject image, encoded with WebCodecs and written as MP4 (H.264) when the browser
+// can encode it, otherwise WebM (VP9 or VP8). Video only. Dependency-free: the muxers are pure functions
+// that also run in Node. The single-file preview embeds this file; keep copies identical.
+
+/** Candidate encodings in order of preference; isConfigSupported() decides what the browser offers. */
+const videoCandidates = [
+  {container: 'mp4', codec: 'avc1.640028', mime: 'video/mp4', extension: 'mp4', maxMacroblocks: 8192},
+  {container: 'mp4', codec: 'avc1.4d0028', mime: 'video/mp4', extension: 'mp4', maxMacroblocks: 8192},
+  {container: 'mp4', codec: 'avc1.640033', mime: 'video/mp4', extension: 'mp4', maxMacroblocks: 36864},
+  {container: 'webm', codec: 'vp09.00.40.08', mime: 'video/webm', extension: 'webm'},
+  {container: 'webm', codec: 'vp8', mime: 'video/webm', extension: 'webm'},
+];
+
+const rate = fps => fps.num / fps.den;
+const macroblocks = (width, height) => Math.ceil(width / 16) * Math.ceil(height / 16);
+
+/** The first supported encoding, preferring `container` ('mp4' or 'webm') when given; null when none. */
+async function chooseVideoEncoding(width, height, fps, {container} = {}) {
+  if (typeof VideoEncoder === 'undefined') return null;
+  const ordered = [...videoCandidates].sort((a, b) => (b.container === container) - (a.container === container));
+  for (const candidate of ordered) {
+    if (candidate.maxMacroblocks && macroblocks(width, height) > candidate.maxMacroblocks) continue;
+    const config = {codec: candidate.codec, width, height, framerate: rate(fps),
+      bitrate: Math.round(8e6 * (width * height) / (1920 * 1080) * Math.min(rate(fps), 60) / 30),
+      ...(candidate.container === 'mp4' ? {avc: {format: 'avc'}} : {})};
+    try { if ((await VideoEncoder.isConfigSupported(config)).supported) return {...candidate, config}; } catch { /* try the next one */ }
+  }
+  return null;
+}
+
+/** Draw the stage element at its true size into a 2D context, through an SVG foreignObject image. */
+async function drawStage(stage, score, context) {
+  const clone = stage.cloneNode(true);
+  Object.assign(clone.style, {position: 'relative', left: '0', top: '0', transform: 'none'});
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${score.width}" height="${score.height}"><foreignObject x="0" y="0" width="${score.width}" height="${score.height}">${new XMLSerializer().serializeToString(clone)}</foreignObject></svg>`;
+  const image = new Image();
+  image.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  await image.decode();
+  context.fillStyle = score.tokens?.background ?? '#000';
+  context.fillRect(0, 0, score.width, score.height);
+  context.drawImage(image, 0, 0);
+}
+
+const bytesOf = data => (ArrayBuffer.isView(data) ? new Uint8Array(data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength)) : new Uint8Array(data.slice(0)));
+
+/** Render every frame through seekFrame(), encode and mux. Returns {blob, bytes, container, codec, extension, frames, ms}. */
+async function exportVideo({stage, score, seekFrame, container, onProgress = () => {}}) {
+  const encoding = await chooseVideoEncoding(score.width, score.height, score.fps, {container});
+  if (!encoding) throw new Error('This browser cannot encode video here (WebCodecs is missing or offers no suitable codec). Use a current Chrome or Edge, or render with the Remotion starter.');
+  const canvas = document.createElement('canvas');
+  canvas.width = score.width; canvas.height = score.height;
+  const context = canvas.getContext('2d');
+  const chunks = [], started = performance.now(), keyEvery = Math.max(1, Math.round(rate(score.fps) * 2));
+  let description = null, failure = null;
+  const encoder = new VideoEncoder({
+    output: (chunk, metadata) => {
+      const data = new Uint8Array(chunk.byteLength); chunk.copyTo(data);
+      chunks.push({timestamp: chunk.timestamp, key: chunk.type === 'key', data});
+      if (metadata?.decoderConfig?.description) description = bytesOf(metadata.decoderConfig.description);
+    },
+    error: error => { failure = error; },
+  });
+  encoder.configure(encoding.config);
+  try {
+    for (let frame = 0; frame < score.totalFrames; frame++) {
+      seekFrame(frame);
+      await drawStage(stage, score, context);
+      if (frame === 0) {
+        try { context.getImageData(0, 0, 1, 1); } catch { throw new Error('This browser does not allow reading the drawn frames back (the canvas is tainted). Use a current Chrome or Edge, or render with the Remotion starter.'); }
+      }
+      const image = new VideoFrame(canvas, {timestamp: Math.round(frame * 1e6 * score.fps.den / score.fps.num), duration: Math.round(1e6 * score.fps.den / score.fps.num)});
+      encoder.encode(image, {keyFrame: frame % keyEvery === 0});
+      image.close();
+      while (encoder.encodeQueueSize > 4 && !failure) await new Promise(resolve => setTimeout(resolve, 1));
+      if (failure) throw failure;
+      onProgress(frame + 1, score.totalFrames);
+    }
+    await encoder.flush();
+    if (failure) throw failure;
+  } finally {
+    if (encoder.state !== 'closed') encoder.close();
+  }
+  const meta = {width: score.width, height: score.height, fps: score.fps, codec: encoding.codec, chunks};
+  const bytes = encoding.container === 'mp4' ? muxMP4({...meta, description}) : muxWebM(meta);
+  return {blob: new Blob([bytes], {type: encoding.mime}), bytes, container: encoding.container, codec: encoding.codec, extension: encoding.extension, frames: chunks.length, ms: Math.round(performance.now() - started)};
+}
+
+const concat = parts => {
+  const out = new Uint8Array(parts.reduce((sum, part) => sum + part.length, 0));
+  let offset = 0;
+  for (const part of parts) { out.set(part, offset); offset += part.length; }
+  return out;
+};
+const ascii = text => new Uint8Array([...text].map(c => c.charCodeAt(0)));
+const uint = (value, length) => { const out = new Uint8Array(length); for (let i = length - 1; i >= 0; i--) { out[i] = value % 256; value = Math.floor(value / 256); } return out; };
+
+/** WebM (Matroska) file from encoded VP8/VP9 chunks {timestamp (µs), key, data}: millisecond timecodes, a cluster per keyframe. */
+function muxWebM({width, height, fps, codec, chunks}) {
+  const id = hex => new Uint8Array(hex.match(/../g).map(byte => parseInt(byte, 16)));
+  const size = length => { const out = uint(length, 8); out[0] = 1; return out; }; // 8-byte EBML size
+  const el = (hex, ...body) => { const data = concat(body); return concat([id(hex), size(data.length), data]); };
+  const num = value => { let length = 1; while (value >= 256 ** length) length++; return uint(value, length); };
+  const float = value => { const out = new Uint8Array(8); new DataView(out.buffer).setFloat64(0, value); return out; };
+  const header = el('1A45DFA3', el('4286', num(1)), el('42F7', num(1)), el('42F2', num(4)), el('42F3', num(8)), el('4282', ascii('webm')), el('4287', num(2)), el('4285', num(2)));
+  const app = ascii('FrameCore Works Creative Studio');
+  const info = el('1549A966', el('2AD7B1', num(1000000)), el('4D80', app), el('5741', app), el('4489', float(chunks.length * 1000 * fps.den / fps.num)));
+  const tracks = el('1654AE6B', el('AE', el('D7', num(1)), el('73C5', num(1)), el('83', num(1)), el('86', ascii(codec === 'vp8' ? 'V_VP8' : 'V_VP9')),
+    el('23E383', num(Math.round(1e9 * fps.den / fps.num))), el('E0', el('B0', num(width)), el('BA', num(height)))));
+  const clusters = [];
+  let cluster = null;
+  for (const chunk of chunks) {
+    const time = Math.round(chunk.timestamp / 1000);
+    if (!cluster || chunk.key || time - cluster.time > 32000) { cluster = {time, blocks: []}; clusters.push(cluster); }
+    const relative = time - cluster.time, block = new Uint8Array(4 + chunk.data.length);
+    block[0] = 0x81; block[1] = (relative >> 8) & 255; block[2] = relative & 255; block[3] = chunk.key ? 0x80 : 0;
+    block.set(chunk.data, 4);
+    cluster.blocks.push(el('A3', block));
+  }
+  return concat([header, el('18538067', info, tracks, ...clusters.map(c => el('1F43B675', el('E7', num(c.time)), ...c.blocks)))]);
+}
+
+/** MP4 file from encoded H.264 chunks in AVCC format and the avcC decoder configuration; moov before mdat. */
+function muxMP4({width, height, fps, codec, description, chunks}) {
+  if (!codec.startsWith('avc1')) throw new Error(`MP4 export supports H.264 only, not ${codec}`);
+  if (!description?.length) throw new Error('The H.264 decoder configuration (avcC) is missing');
+  const box = (type, ...body) => { const data = concat(body); return concat([uint(data.length + 8, 4), ascii(type), data]); };
+  const full = (type, version, flags, ...body) => box(type, uint(version, 1), uint(flags, 3), ...body);
+  const u16 = value => uint(value, 2), u32 = value => uint(value, 4), zeros = length => new Uint8Array(length);
+  const matrix = concat([0x00010000, 0, 0, 0, 0x00010000, 0, 0, 0, 0x40000000].map(u32));
+  const timescale = fps.num, delta = fps.den, count = chunks.length, duration = count * delta;
+  if (chunks.reduce((sum, c) => sum + c.data.length, 0) > 0xFFFFFFFF - 1e6) throw new Error('Video too large for this MP4 writer');
+  // Composition offsets only when the encoder reordered frames; otherwise presentation equals decode order.
+  const offsets = chunks.map((chunk, i) => Math.round(chunk.timestamp * timescale / 1e6) - i * delta);
+  const keys = chunks.flatMap((chunk, i) => (chunk.key ? [i + 1] : []));
+  const moov = dataOffset => box('moov',
+    full('mvhd', 0, 0, u32(0), u32(0), u32(timescale), u32(duration), u32(0x00010000), u16(0x0100), zeros(10), matrix, zeros(24), u32(2)),
+    box('trak',
+      full('tkhd', 0, 3, u32(0), u32(0), u32(1), u32(0), u32(duration), zeros(8), u16(0), u16(0), u16(0), u16(0), matrix, u32(width * 65536), u32(height * 65536)),
+      box('mdia',
+        full('mdhd', 0, 0, u32(0), u32(0), u32(timescale), u32(duration), u16(0x55C4), u16(0)),
+        full('hdlr', 0, 0, u32(0), ascii('vide'), zeros(12), ascii('VideoHandler'), zeros(1)),
+        box('minf',
+          full('vmhd', 0, 1, zeros(8)),
+          box('dinf', full('dref', 0, 0, u32(1), full('url ', 0, 1))),
+          box('stbl',
+            full('stsd', 0, 0, u32(1), box('avc1', zeros(6), u16(1), zeros(16), u16(width), u16(height), u32(0x00480000), u32(0x00480000), u32(0), u16(1), zeros(32), u16(0x18), u16(0xFFFF), box('avcC', description))),
+            full('stts', 0, 0, u32(1), u32(count), u32(delta)),
+            ...(offsets.some(Boolean) ? [full('ctts', 1, 0, u32(count), ...offsets.map(o => u32(o >>> 0)))] : []),
+            full('stss', 0, 0, u32(keys.length), ...keys.map(u32)),
+            full('stsc', 0, 0, u32(1), u32(1), u32(count), u32(1)),
+            full('stsz', 0, 0, u32(0), u32(count), ...chunks.map(c => u32(c.data.length))),
+            full('stco', 0, 0, u32(1), u32(dataOffset)))))));
+  const ftyp = box('ftyp', ascii('isom'), u32(512), ascii('isom'), ascii('iso2'), ascii('avc1'), ascii('mp41'));
+  const offset = ftyp.length + moov(0).length + 8;
+  return concat([ftyp, moov(offset), box('mdat', ...chunks.map(c => c.data))]);
+}
+// END video export
+
+  // An opened contract travels in the address fragment (#contract=<base64url JSON>), which is never sent
+  // to a server; without it the embedded contract is shown. ?format=9x16 shows one of score.formats.
+  const encodeContract = text => { let binary = ''; for (const byte of new TextEncoder().encode(text)) binary += String.fromCharCode(byte); return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const decodeContract = value => new TextDecoder().decode(Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0)));
+  // Problems that stop the player from drawing a contract; check-score.mjs remains the full check.
+  function contractProblems(candidate) {
+    if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) return ['The contract must be a JSON object.'];
+    const problems = [];
+    if (!(Number.isSafeInteger(candidate.fps?.num) && Number.isSafeInteger(candidate.fps?.den) && candidate.fps.num > 0 && candidate.fps.den > 0)) problems.push('fps needs positive integer num and den.');
+    if (!(Number.isSafeInteger(candidate.totalFrames) && candidate.totalFrames > 0)) problems.push('totalFrames must be a positive integer.');
+    if (!(Number.isSafeInteger(candidate.width) && Number.isSafeInteger(candidate.height) && candidate.width > 0 && candidate.height > 0)) problems.push('width and height must be positive integers.');
+    if (!Array.isArray(candidate.scenes) || !candidate.scenes.length) problems.push('scenes must be a non-empty list.');
+    else for (const scene of candidate.scenes) {
+      const kind = sceneKinds[scene?.kind];
+      if (!kind) { problems.push(`Scene ${scene?.id}: kind must be one of ${Object.keys(sceneKinds).join(', ')}.`); continue; }
+      if (!(Number.isSafeInteger(scene.start) && Number.isSafeInteger(scene.end) && scene.start >= 0 && scene.end > scene.start)) problems.push(`Scene ${scene.id}: start and end must be frames with start < end.`);
+      for (const key of kind.required) if (scene.params?.[key] === undefined) problems.push(`Scene ${scene.id}: ${scene.kind} needs params.${key}.`);
+    }
+    if (!problems.length) {
+      try {
+        for (const id of [undefined, ...(candidate.formats || []).map(format => format.id)]) {
+          const view = resolveFormat(candidate, id);
+          for (const scene of view.scenes) { buildScene(scene, view); sceneFrame(scene, view, scene.start); }
+          buildCaptions(view);
+        }
+      } catch (error) { problems.push(error.message); }
+    }
+    return problems;
+  }
+  const query = new URLSearchParams(location.search), carried = new URLSearchParams(location.hash.slice(1)).get('contract');
+  let opened = null, openProblems = [];
+  if (carried) {
+    try { opened = JSON.parse(decodeContract(carried)); openProblems = contractProblems(opened); } catch (error) { openProblems = [`The contract in the address could not be read: ${error.message}`]; }
+    if (openProblems.length) opened = null;
+  }
+  const contract = opened || JSON.parse(document.getElementById('motion-score').textContent);
+  const score = (() => { try { return resolveFormat(contract, query.get('format') || undefined); } catch { return contract; } })();
+  const fps = score.fps.num / score.fps.den, N = score.totalFrames, t = score.tokens || {};
+  const stage = document.getElementById('stage');
+  Object.assign(stage.style, {width: score.width + 'px', height: score.height + 'px', background: t.background, color: t.foreground, fontFamily: t.fontFamily});
+
+  // Generic DOM renderer: build each scene's element tree once, then apply per-frame styles.
+  const create = (node, elements, texts = []) => {
+    const el = document.createElement(node.type === 'image' ? 'img' : 'div');
+    Object.assign(el.style, node.style || {});
+    if (node.type === 'text') el.textContent = node.text;
+    if (node.type === 'image') { el.src = node.src; el.alt = node.alt || ''; }
+    for (const child of node.children || []) el.append(create(child, elements, texts));
+    elements[node.key] = el;
+    if (node.type === 'text') texts.push({key: node.key, el});
+    return el;
+  };
+  const scenes = score.scenes.map(scene => {
+    const elements = {}, texts = [], root = create(buildScene(scene, score), elements, texts);
+    root.style.visibility = 'hidden';
+    stage.append(root);
+    return {scene, root, elements, texts};
+  });
+  // Captions sit above every scene and cut on their exact frames.
+  const captionTree = buildCaptions(score), captionElements = {}, captionTexts = [];
+  if (captionTree) stage.append(create(captionTree, captionElements, captionTexts));
+
+  /** Draw exactly one frame. Visible scenes satisfy start <= frame < end. */
+  function renderFrame(frame) {
+    for (const {scene, root, elements} of scenes) {
+      const active = frame >= scene.start && frame < scene.end;
+      root.style.visibility = active ? 'visible' : 'hidden';
+      if (!active) continue;
+      for (const [key, value] of Object.entries(sceneFrame(scene, score, frame))) {
+        const el = elements[key];
+        if (!el) continue;
+        Object.assign(el.style, value.style || {});
+        if (value.text !== undefined) el.textContent = value.text;
+      }
+    }
+    if (captionTree) for (const [key, value] of Object.entries(captionsFrame(score, frame))) {
+      Object.assign(captionElements[key].style, value.style || {});
+      if (value.text !== undefined) captionElements[key].textContent = value.text;
+    }
+  }
+
+  // Optional music and voice-over files (src next to this file). While they play, the audio clock
+  // chooses the frame, so picture and sound stay together; otherwise the system clock does.
+  const tracks = [score.music, score.voiceover].filter(track => track && track.src).map(track => {
+    const audio = new Audio(track.src); audio.preload = 'auto'; audio.volume = track.volume ?? 1; return audio;
+  });
+
+  // Player: the clock only chooses which frame to draw.
+  const scrub = document.getElementById('scrub'), readout = document.getElementById('readout'), play = document.getElementById('play');
+  scrub.max = String(N - 1);
+  let current = 0, playing = false, startedAt = 0, startFrame = 0;
+  function seekFrame(frame) {
+    current = Math.min(N - 1, Math.max(0, Math.round(Number(frame) || 0)));
+    renderFrame(current);
+    scrub.value = String(current);
+    readout.textContent = `frame ${current} / ${N - 1}`;
+    return current;
+  }
+  const stop = () => { playing = false; play.textContent = 'Play'; for (const audio of tracks) audio.pause(); };
+  function tick(now) {
+    if (!playing) return;
+    const lead = tracks.find(audio => !audio.paused && audio.readyState >= 2);
+    const frame = lead ? Math.floor(lead.currentTime * fps) : startFrame + Math.floor((now - startedAt) / 1000 * fps);
+    seekFrame(frame);
+    if (frame >= N - 1) { stop(); return; }
+    requestAnimationFrame(tick);
+  }
+  play.onclick = () => {
+    if (playing) { stop(); return; }
+    playing = true; play.textContent = 'Pause';
+    startFrame = current >= N - 1 ? 0 : current; startedAt = performance.now();
+    for (const audio of tracks) { audio.currentTime = startFrame / fps; audio.play().catch(() => {}); }
+    requestAnimationFrame(tick);
+  };
+  document.getElementById('replay').onclick = () => { stop(); seekFrame(0); play.click(); };
+  document.getElementById('back').onclick = () => { stop(); seekFrame(current - 1); };
+  document.getElementById('next').onclick = () => { stop(); seekFrame(current + 1); };
+  scrub.oninput = () => { stop(); seekFrame(scrub.value); };
+  addEventListener('keydown', event => {
+    if (!panel.hidden || /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) return;
+    if (event.key === ' ') { event.preventDefault(); play.click(); }
+    if (event.key === 'ArrowLeft') { stop(); seekFrame(current - 1); }
+    if (event.key === 'ArrowRight') { stop(); seekFrame(current + 1); }
+  });
+
+  const fit = () => {
+    // Review mode draws the stage at its true size from the top-left corner, whatever the window size.
+    if (new URLSearchParams(location.search).has('review')) { Object.assign(stage.style, {left: '0', top: '0', transform: 'none'}); return; }
+    const viewport = document.getElementById('viewport');
+    const s = Math.min(viewport.clientWidth / score.width, viewport.clientHeight / score.height);
+    stage.style.transform = `scale(${s}) translate(-50%, -50%)`;
+  };
+  addEventListener('resize', fit);
+  fit();
+  // Format switcher: shown only when the contract declares formats; reloads with ?format=.
+  const picker = document.getElementById('format');
+  if ((contract.formats || []).length) {
+    for (const f of [{id: 'base', width: contract.width, height: contract.height}, ...contract.formats]) picker.append(new Option(`${f.id} (${f.width}x${f.height})`, f.id, false, f.id === (score.format || 'base')));
+    picker.hidden = false;
+    picker.onchange = () => { query.set('format', picker.value); query.set('frame', String(current)); location.search = query.toString(); };
+  }
+  // Video export: every frame is drawn from the engine and encoded in this browser; nothing is uploaded.
+  const exportButton = document.getElementById('export'), download = document.getElementById('download'), exportStatus = document.getElementById('export-status');
+  const runExport = options => exportVideo({stage, score, seekFrame, ...options});
+  exportButton.onclick = async () => {
+    stop();
+    const keep = current, buttons = [...document.querySelectorAll('#controls button, #controls select, #controls input')];
+    for (const control of buttons) control.disabled = true;
+    try {
+      const result = await runExport({onProgress: (done, total) => { exportStatus.textContent = `Exporting frame ${done} of ${total}`; }});
+      if (download.href) URL.revokeObjectURL(download.href);
+      download.href = URL.createObjectURL(result.blob);
+      download.download = `${score.id}${score.format ? '-' + score.format : ''}.${result.extension}`;
+      download.textContent = `Save ${result.extension.toUpperCase()} (${(result.bytes.length / 1048576).toFixed(1)} MB)`;
+      download.hidden = false;
+      exportStatus.textContent = `${result.frames} frames, ${result.codec}, video only`;
+      download.click();
+    } catch (error) {
+      exportStatus.textContent = error.message;
+    } finally {
+      for (const control of buttons) control.disabled = false;
+      seekFrame(keep);
+    }
+  };
+  // Open contract: paste, choose or drop a .json file; a valid contract reloads the player with it.
+  const panel = document.getElementById('open-panel'), openText = document.getElementById('open-text'), openErrors = document.getElementById('open-errors');
+  const showPanel = (problems = []) => { stop(); panel.hidden = false; openErrors.textContent = problems.join('\n'); };
+  const openContract = text => {
+    let parsed;
+    try { parsed = JSON.parse(text); } catch (error) { openErrors.textContent = `This is not valid JSON: ${error.message}`; return; }
+    const problems = contractProblems(parsed);
+    if (problems.length) { openErrors.textContent = problems.join('\n'); return; }
+    location.hash = `contract=${encodeContract(JSON.stringify(parsed))}`;
+    location.reload();
+  };
+  const readFile = file => file && file.text().then(text => { openText.value = text; openContract(text); });
+  document.getElementById('open').onclick = () => showPanel();
+  document.getElementById('open-cancel').onclick = () => { panel.hidden = true; };
+  document.getElementById('open-load').onclick = () => openContract(openText.value);
+  document.getElementById('open-file').onchange = event => readFile(event.target.files[0]);
+  document.getElementById('open-example').onclick = () => { location.hash = ''; location.reload(); };
+  addEventListener('dragover', event => event.preventDefault());
+  addEventListener('drop', event => { event.preventDefault(); showPanel(); readFile(event.dataTransfer.files[0]); });
+  if (opened) exportStatus.textContent = `Contract ${contract.id ?? ''}, revision ${contract.revision ?? '?'}`;
+  if (openProblems.length) showPanel(['The opened contract cannot be shown; the built-in example is displayed instead.', ...openProblems]);
+
+  // Used by export-video.mjs: the encoded file as base64 with its metadata.
+  window.exportVideoBase64 = async options => {
+    const {bytes, blob, ...meta} = await runExport(options || {});
+    let binary = '';
+    for (let i = 0; i < bytes.length; i += 32768) binary += String.fromCharCode(...bytes.subarray(i, i + 32768));
+    return {...meta, base64: btoa(binary)};
+  };
+  window.seekFrame = seekFrame;
+  window.motionScore = score;
+
+  // Review mode (?review=1): measure settled text during readable holds and publish a report.
+  // Checks: outside the frame, inside the margin, WCAG contrast, overlapping text, partial opacity
+  // in a hold and, for vertical formats, small text. Frames outside holds are reported as not checked.
+  const rgb = value => (value.match(/[\d.]+/g) || []).map(Number);
+  const luminance = ([r, g, b]) => [r, g, b].map(c => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }).reduce((sum, c, i) => sum + c * [0.2126, 0.7152, 0.0722][i], 0);
+  const contrast = (a, b) => { const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+  const backgroundOf = el => { for (let node = el; node && node !== document.body; node = node.parentElement) { const c = getComputedStyle(node).backgroundColor; const v = rgb(c); if (v.length >= 3 && (v.length < 4 || v[3] > 0)) return v.slice(0, 3); } return rgb(getComputedStyle(stage).backgroundColor).slice(0, 3); };
+  const opacityOf = el => { let o = 1; for (let node = el; node && node !== stage.parentElement; node = node.parentElement) o *= Number(getComputedStyle(node).opacity); return o; };
+  function reviewFrame(frame) {
+    seekFrame(frame);
+    const issues = [], s = stage.getBoundingClientRect(), k = s.width / score.width;
+    const marginX = score.width * (t.marginRatio ?? 0.08), marginY = score.height * (t.marginRatio ?? 0.08) * 0.5;
+    const top = Math.max(marginY, score.height * (t.safeArea?.top ?? 0)), bottom = Math.max(marginY, score.height * (t.safeArea?.bottom ?? 0));
+    let held = false;
+    const measure = (sceneId, key, el, boxes) => {
+      if (!el.textContent.trim()) return;
+      // Horizontal extent from the rendered glyphs (catches overflowing words); vertical extent from
+      // the line box, because glyph boxes include ascender/descender space beyond tight line heights.
+      const range = document.createRange(); range.selectNodeContents(el);
+      const rects = [...range.getClientRects()].filter(q => q.width > 0 && q.height > 0);
+      if (!rects.length) return;
+      const line = el.getBoundingClientRect();
+      const r = {left: Math.min(...rects.map(q => q.left)), top: line.top, right: Math.max(...rects.map(q => q.right)), bottom: line.bottom};
+      const box = {left: (r.left - s.left) / k, top: (r.top - s.top) / k, right: (r.right - s.left) / k, bottom: (r.bottom - s.top) / k};
+      const style = getComputedStyle(el), size = parseFloat(style.fontSize), bold = Number(style.fontWeight) >= 700;
+      const add = (severity, check, detail) => issues.push({severity, check, scene: sceneId, element: key, detail});
+      for (let node = el.parentElement; node && node !== stage; node = node.parentElement) {
+        if (getComputedStyle(node).overflow !== 'hidden') continue;
+        const c = node.getBoundingClientRect();
+        if (r.left < c.left - 0.5 || r.top < c.top - 0.5 || r.right > c.right + 0.5 || r.bottom > c.bottom + 0.5) { add('error', 'clipped', 'text extends beyond a clipping mask during a readable hold'); break; }
+      }
+      if (box.left < 0 || box.top < 0 || box.right > score.width || box.bottom > score.height) add('error', 'outside-frame', `text box ${Math.round(box.left)},${Math.round(box.top)} to ${Math.round(box.right)},${Math.round(box.bottom)} leaves the ${score.width}x${score.height} frame`);
+      else if (box.left < marginX - 0.5 || box.right > score.width - marginX + 0.5 || box.top < top - 0.5 || box.bottom > score.height - bottom + 0.5) add('warning', 'margin', `text is closer to the edge than the ${Math.round(marginX)} px side, ${Math.round(top)} px top or ${Math.round(bottom)} px bottom margin or safe area`);
+      const ratio = contrast(rgb(style.color).slice(0, 3), backgroundOf(el)), large = size >= 24 || (bold && size >= 18.66);
+      if (ratio < (large ? 3 : 4.5)) add('error', 'contrast', `contrast ${ratio.toFixed(2)}:1 is below WCAG ${large ? '3' : '4.5'}:1 for ${large ? 'large' : 'normal'} text`);
+      const opacity = opacityOf(el);
+      if (opacity < 0.99) add('warning', 'hold-opacity', `text opacity is ${opacity.toFixed(2)} during a readable hold`);
+      if (score.height > score.width && size < score.height / 48) add('warning', 'small-text', `${Math.round(size)} px text may be hard to read on a phone`);
+      for (const other of boxes) if (box.left < other.box.right && other.box.left < box.right && box.top < other.box.bottom && other.box.top < box.bottom) add('warning', 'overlap', `overlaps ${other.key}`);
+      boxes.push({key, box});
+    };
+    const sceneBoxes = [];
+    for (const {scene, texts} of scenes) {
+      if (!(frame >= scene.start && frame < scene.end)) continue;
+      if (!(scene.holds || []).some(([a, b]) => frame >= a && frame < b)) continue;
+      held = true;
+      const boxes = [];
+      for (const {key, el} of texts) measure(scene.id, key, el, boxes);
+      sceneBoxes.push(...boxes);
+    }
+    // A caption is meant to be read for its whole interval, so it is measured whenever it is shown,
+    // including overlap with settled scene text.
+    if (captionTree && captionTexts.some(({el}) => el.textContent.trim())) {
+      held = true;
+      for (const {key, el} of captionTexts) measure('captions', key, el, [...sceneBoxes]);
+    }
+    return {frame, checked: held, issues};
+  }
+  window.reviewFrame = reviewFrame;
+
+  // ?frame=140 opens one frame; ?frames=299,0,140 replays a seek sequence for review comparisons.
+  if (query.has('review')) {
+    document.getElementById('controls').style.display = 'none';
+    Object.assign(document.getElementById('viewport').style, {width: score.width + 'px', height: score.height + 'px', flex: 'none'});
+    document.documentElement.style.background = document.body.style.background = t.background || '#000';
+    fit();
+  }
+  for (const frame of (query.get('frames') || query.get('frame') || '0').split(',')) seekFrame(frame);
+  if (query.has('review')) {
+    const report = document.createElement('script');
+    report.type = 'application/json'; report.id = 'review-report';
+    report.textContent = JSON.stringify({id: score.id, revision: score.revision, format: score.format || 'base', width: score.width, height: score.height, ...reviewFrame(current)});
+    document.body.append(report);
+  }
+  document.documentElement.dataset.ready = 'true';
+})();
+</script>
+</body>
+</html>
