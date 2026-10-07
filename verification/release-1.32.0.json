@@ -1,0 +1,84 @@
+{
+  "version": "1.32.0",
+  "date": "2026-10-07",
+  "baseline": "94db9c91c19c444501899d9ab07e5cc1629f6e35",
+  "change_id": "CC-20261007-14",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 897,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 176,
+      "passed": 173,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 57
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "fc2622de0786ad2146eafe12ae53d66d5049b3d7b376da268ccfbc4ab7d5be24",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks, container mixes and the owner listening to container renders; how ChatGPT or ChatGPT Work run the sound tools is not verified. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "runs": {
+    "timing": "app-film, color-block and all-kinds examples planned (standard) and mixed: every judged transient within 2 ms of its frame and every whoosh on its measured peak; whoosh peaks are measured on the rendered sound",
+    "loudness": "mastered mixes -14.1 to -15.7 LUFS, true peak (4x oversampled) -1.05 to -1.43 dBTP",
+    "owner_listening": "2026-10-07: music and clicks approved; whooshes judged too strong and lowered by 6 to 7 dB with a softer air layer; the lowered renders were sent for listening",
+    "rejected_library": "a 79-file CC0 recording library (Kenney, OpenGameArt) was built first, rejected by the owner for quality and removed before any release",
+    "player_template": "motion-preview.html unchanged"
+  }
+}

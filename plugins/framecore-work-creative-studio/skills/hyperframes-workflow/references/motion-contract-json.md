@@ -35,8 +35,8 @@ Top level:
 | `cues` | Optional sound cues `{id, frame, durationFrames, frequency, gainDb}` for the existing sound adapter |
 | `music` | Optional beat grid and track `{bpm, offsetMs, beatsPerBar, src?, volume?}`; `offsetMs` is when the first beat sounds |
 | `voiceover` | Optional voice-over track `{src, volume?}` |
-| `sfx` | Optional sound-effect cues `{frame, sound, gain?, pan?, event?}` in frame order: `sound` is a family or sound ID of the [motion sound library](../assets/motion-sound/README.md), `gain` in dB (at most +6), `pan` from −1 to 1; written by `sound.py plan` and editable by hand |
-| `soundDesign` | Optional `{library, density, status}` recorded by `sound.py plan` |
+| `sfx` | Optional sound cues `{frame, sound, gain?, pan?, params?, event?}` in frame order: `sound` is a [sound design](../assets/motion-sound/README.md#sound-designs) (`whoosh`, `impact`, `boom`, `riser`, `click`, `release`, `tick`, `knock`, `shimmer`), `gain` in dB (at most +6), `pan` from −1 to 1, `params` its design values; written by `sound.py plan` and editable by hand |
+| `soundDesign` | Optional `{engine, density, status, music?}` from `sound.py plan`; `music` holds the composed bed's `bpm`, `key`, `energies` per bar and `gain` |
 | `captions` | Optional `{id, start, end, copy}` list in order without overlap; `copy` is a copy ID holding the exact text. See [music and voice-over sync](../assets/motion-sync/README.md) |
 
 Each scene:

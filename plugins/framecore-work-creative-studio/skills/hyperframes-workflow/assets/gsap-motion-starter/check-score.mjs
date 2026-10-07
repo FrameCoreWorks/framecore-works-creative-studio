@@ -22,6 +22,8 @@ const sceneKinds = {
   'device': {required: ['screens'], copyParams: ['caption', 'url']},
 };
 export const knownSceneKinds = Object.keys(sceneKinds);
+// Sound designs of motion-sound/synth.py; keep in sync with DESIGNS there.
+const soundDesigns = ['whoosh', 'impact', 'boom', 'riser', 'click', 'release', 'tick', 'knock', 'shimmer'];
 const text = value => typeof value === 'string' && value.trim().length > 0;
 
 export function checkScore(score, {storyboard = false} = {}) {
@@ -100,7 +102,8 @@ export function checkScore(score, {storyboard = false} = {}) {
     if (!Array.isArray(score.sfx)) errors.push('sfx must be a list of {frame, sound, gain, pan} cues');
     else score.sfx.forEach((cue, i) => {
       if (!(Number.isInteger(cue?.frame) && cue.frame >= 0 && cue.frame < score.totalFrames)) errors.push(`sfx ${i + 1}: frame must be an integer inside the timeline`);
-      if (!text(cue?.sound)) errors.push(`sfx ${i + 1}: sound must name a family or a sound id`);
+      if (!soundDesigns.includes(cue?.sound)) errors.push(`sfx ${i + 1}: sound must be one of ${soundDesigns.join(', ')}`);
+      if (cue?.params !== undefined && (typeof cue.params !== 'object' || cue.params === null || Array.isArray(cue.params))) errors.push(`sfx ${i + 1}: params must be an object`);
       if (cue?.gain !== undefined && !(Number.isFinite(cue.gain) && cue.gain <= 6)) errors.push(`sfx ${i + 1}: gain must be a number of dB, at most 6`);
       if (cue?.pan !== undefined && !(Number.isFinite(cue.pan) && cue.pan >= -1 && cue.pan <= 1)) errors.push(`sfx ${i + 1}: pan must be between -1 and 1`);
       if (i > 0 && Number.isInteger(cue?.frame) && cue.frame < score.sfx[i - 1]?.frame) errors.push(`sfx ${i + 1}: cues must be in frame order`);

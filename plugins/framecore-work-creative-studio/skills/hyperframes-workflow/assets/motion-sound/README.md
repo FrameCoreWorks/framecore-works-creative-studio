@@ -1,37 +1,34 @@
 # Motion sound design
 
-[`sound.py`](sound.py) gives a motion video its sound design from the same timing as the picture. It reads the [motion contract](../../references/motion-contract-json.md), finds every visible event (a line or item landing, a card settling, a tap, a screen push, a sweep, a canvas wipe, a counter step) with the [Python renderer](../motion-render/README.md)'s port of the scene engine, and puts a recorded sound on it so that the sound's transient, or a whoosh's loudest moment, falls exactly on that frame. The method is in [motion sound design](../../references/motion-sound-design.md).
+[`sound.py`](sound.py) gives a motion video a finished sound track from the same timing as the picture. It reads the [motion contract](../../references/motion-contract-json.md), finds every visible event with the [Python renderer](../motion-render/README.md)'s port of the scene engine (lines, items, captions and cards landing, taps, screen pushes, sweeps, canvas wipes, counter steps, camera moves) and designs a sound for each with [`synth.py`](synth.py): its hit, a whoosh's peak or a riser's end lands exactly on the frame, and its length follows the move. A music bed is composed to the video's length with energy that follows the scenes. The method is in [motion sound design](../../references/motion-sound-design.md).
 
 ```sh
 python sound.py plan video.motion.json --out video-r2.motion.json --table cues.md
-python sound.py mix video-r2.motion.json --video video.mp4 --out video-sound.mp4 --wav mix.wav
-python sound.py check mix.wav video-r2.motion.json
+python sound.py mix video-r2.motion.json --video video.mp4 --out video-sound.mp4 --wav mix.wav --stems stems
+python sound.py check stems/effects.wav video-r2.motion.json
 ```
 
-- **`plan`** writes a new revision of the contract with `sfx` (the cue list) and `soundDesign` (`library`, `density`, `status`), and optionally a Markdown cue table. `--density` is `minimal` (scene changes, sweeps, wipes, taps, final hits), `standard` (also lines, items, captions, counter ticks, screen pushes, tap releases) or `rich` (also exits, camera moves, accents on end cards and logos). The cues are a starting point: edit, remove or add entries by hand; `sound` can be a family or a sound ID from `library.json`.
-- **`mix`** places every cue, adds `music.src` and `voiceover.src` from next to the contract (the music ducks 8 dB under the caption intervals when there is a voice-over), sets the loudness to −16 LUFS without passing −1.5 dBTP (a sound-effects-only mix stays quieter, limited by its loudest hit), writes a 48 kHz WAV and copies the picture unchanged into the output MP4 with AAC audio.
-- **`check`** measures where each cue's hit landed in a mix (the first sample above half the local peak, or a whoosh's loudest 10 ms) and fails when one is more than 2 ms (10 ms for whooshes) from its frame. Cues within 50 ms of another are reported as masked rather than judged.
+- **`plan`** writes a new revision of the contract with `sfx` (the cue list) and `soundDesign` (`engine`, `density`, `status` and the composed `music`: tempo, key, energy per bar, level). `--density` is `minimal` (scene changes, sweeps, wipes, taps, final hits), `standard` (also landings, captions, counter ticks, screen pushes, tap releases, accents) or `rich` (also exits, camera moves, a riser and a boom into the final reveal). `--no-music` plans effects only; a supplied `music.src` is always used instead of composing. The cues are a starting point and stay editable.
+- **`mix`** renders the effects and the music (or the supplied track and voice-over; music ducks 8 dB under the caption intervals of a voice-over), adds a shared room reverb, high-passes, limits and sets the loudness to −14 LUFS with true peak at most −1 dBTP, then copies the picture unchanged into the output MP4 with AAC audio. It checks the timing itself (transients on a track without whooshes, whooshes on a track without transients) and exits 1 when a hit is off.
+- **`check`** measures an effects-only track (`--stems` writes one): the first sample above half the local peak for transients (within 2 ms), the loudest 10 ms for whooshes (within 15 ms); risers end on their frame by construction; cues masked by a neighbour are reported, not judged.
 
-It needs Python 3.8 or newer and ffmpeg (with `loudnorm` for loudness; otherwise it normalizes the sample peak and says so). There are no Python packages and no randomness: variants of a family are used in turn, so the same contract always gives the same mix. Keep `sound.py` with `library.json`, `library/` and `../motion-render/render.py`.
+Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; otherwise only the peak is set and the summary says so). Every random source is seeded, so the same contract always gives the same audio. Keep `sound.py` with `synth.py` and `../motion-render/render.py`.
 
-## Library
+## Sound designs
 
-`library.json` lists 79 recordings in nine families. [`build_library.py`](build_library.py) measures them (duration, transient, loudest moment, level around it, SHA-256); `--check` confirms the file is current.
-
-| Family | Use | Sounds |
+| Design | Built from | Aligned on |
 | --- | --- | --- |
-| `whoosh` | scene changes, sweeps, wipes, screen pushes, camera moves | 13 swishes of swung wood and metal |
-| `thud` | end cards, logos, a device or heavy result settling | 10 soft low impacts |
-| `knock` | a line, card, caption or item landing | 10 light and medium wood knocks |
-| `ting` | a final value, a highlight, an accent on a reveal | 15 light glass, metal and plate impacts |
-| `click` | a tap, a button press | 11 mechanical clicks |
-| `release` | the release of a press, a few frames after the click | 1 mouse release |
-| `tick` | counter steps, fast repeated steps | 3 ticks |
-| `switch` | a state change, a fade between screens | 11 switches and toggles |
-| `scroll` | scrolling or a growing connector | 5 scroll-wheel ratchets |
+| `whoosh` | pink and brown noise through a band that brightens to the peak and darkens, an air layer and a faint tone, panned with the move; `duration`, `peak`, `direction`, `brightness`, `intensity` | its loudest 10 ms, measured |
+| `impact` | a sub tone falling from about 150 to 50 Hz, a filtered noise body and a short bright transient, saturated together; `weight`, `brightness` | onset |
+| `boom` | a heavy impact with a long sub tail, once per video for the final reveal | onset |
+| `riser` | noise through a climbing band and a tone gliding up an octave, swelling to its end; `duration` | its end |
+| `click`, `release` | a 1 ms excitation ringing stiff high modes and a short low body (modal synthesis); `pitch`, `softness` | onset |
+| `tick` | a smaller, drier click for counters; `pitch` rises with the count | onset |
+| `knock` | low inharmonic wood modes; `pitch` steps up for later lines and items | onset |
+| `shimmer` | bell partials tuned to the music's key, slightly detuned left and right; `degree` in the scale | onset |
 
-Every file is an unchanged recording released under CC0 by Kenney or by artisticdude on OpenGameArt; see [the sources](../../../../integrations/motion-sound-sources/README.md). Synthetic interface tones (confirmations, errors, bleeps, plucks) were left out on purpose: they make a product video sound like a game. The library is small and dry; it is a base layer, not a replacement for music or a sound designer's own library.
+The music bed plays a four-chord progression in the planned key: a warm pad and bass at energy 1, a plucked arpeggio and hats at 2, kick and clap at 3 with the pad ducking under the kick. Tempo and key follow the contract's music grid or [style](../motion-styles/README.md) (for example Midnight 122 BPM in A minor, Meadow 100 BPM in D major); energy rises through the middle scenes and peaks into the final card.
 
 ## Verification boundary
 
-During package preparation, in a Linux development container with ffmpeg 6.1: plans for the `app-film`, `color-block`, `two-statements` and all-kinds examples were mixed and checked. Every unmasked hit landed within 0.06 ms of its frame (whooshes within 5 ms, measured to their loudest 10 ms), also after AAC encoding into the MP4. How the mixes sound has not been judged by listening in this environment; the owner's listening decides.
+During package preparation, in a Linux development container with numpy 2.5 and ffmpeg 6.1, the `app-film`, `color-block` and all-kinds examples were planned and mixed: every judged hit landed within 2 ms of its frame, loudness was −14.1 to −15.7 LUFS and true peak at most −1.05 dBTP, and a 13-second mix took 6 to 13 seconds. The owner listened to the first renders on 2026-10-07: music and clicks approved, whooshes too strong; whooshes were then lowered by 6 to 7 dB and softened. How the sound plays in ChatGPT or ChatGPT Work is not verified.

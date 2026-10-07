@@ -34,7 +34,7 @@ Use actual data and sources for data motion. Keep scales stable unless a change 
 
 Add a procedural material only when it supports an approved surface or metaphor. [Optional adapters](../assets/motion-quality/README.md) cover Paper Shaders and Tone.js without installing either. Use one frame authority. Paper's setFrame argument is milliseconds, not a frame index. GPU output may vary; record actual environment and measured tolerance.
 
-Sound design follows the same cue frames as visual impacts. Use appropriate short transients, restrained layers and deliberate rests. Audio synthesis is not a music generator. Confirm rights for supplied tracks. Offline buffers still need the existing encoder/mixer. Measure peaks and loudness when possible, but reserve audio PASS for actual listening and sync inspection. Silence may be the best direction.
+Sound design follows the same cue frames as visual impacts: plan it from the contract with the [motion sound tools](../assets/motion-sound/README.md), which design layered effects and a composed bed at studio standard and check the timing. Confirm rights for supplied tracks. Measure peaks and loudness, but reserve audio PASS for actual listening and sync inspection. Silence may be the best direction.
 
 ## Review by defects, not effect count
 

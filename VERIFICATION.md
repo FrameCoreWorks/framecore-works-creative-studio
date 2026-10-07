@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.31.0
+## Current source: 1.32.0
+
+The [1.32.0 source checks](verification/release-1.32.0.json) pass canonical validation and 232 tests: 173 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the sound tests run where Python with numpy and ffmpeg are installed. The release adds studio-standard sound design and a composed music bed. In container mixes of three examples every judged hit landed within 2 ms of its frame, loudness was -14.1 to -15.7 LUFS and true peak at most -1.05 dBTP. The owner listened to the first renders: music and clicks approved, whooshes lowered afterwards. Host behavior is not verified. [Scope](verification/scope-1.32.0.json) records 16 changed and 4 added shared files out of 897.
+
+## Previous source: 1.31.0
 
 The [1.31.0 source checks](verification/release-1.31.0.json) pass canonical validation and 229 tests: 170 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The release adds taps and a browser frame to `device` scenes and per-scene backgrounds with wipes. Both examples passed the frame review in Chromium 1194 in 16:9 and 9:16 without errors; the Python renderer matched the browser within 0.86 grey levels on average and rendered existing contracts byte-identically to 1.30.0. Host behavior is not verified. [Scope](verification/scope-1.31.0.json) records 21 changed and 1 added shared files out of 893.
 

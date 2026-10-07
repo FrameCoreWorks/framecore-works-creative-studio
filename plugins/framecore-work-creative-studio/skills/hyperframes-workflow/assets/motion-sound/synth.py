@@ -137,7 +137,7 @@ def whoosh(duration=0.6, peak=0.6, intensity=0.8, direction=1.0, brightness=1.0,
                   lambda time, f: band(f, centre(time), 1.1) * highpass(f, 60))
     air = shaped(colored_noise(n, seed + 2, 0.0), lambda time, f: highpass(f, 4500, 2) * lowpass(f, 14000))
     tone = shaped(colored_noise(n, seed + 3, -0.3), lambda time, f: band(f, centre(time) * 0.5, 0.18))
-    mono = envelope * (body + 0.18 * air * envelope + 0.35 * tone)
+    mono = envelope * (body + 0.1 * air * envelope + 0.3 * tone)
     curve = np.clip(t / (duration + 1e-6), 0, 1)
     curve = 0.5 - 0.5 * np.cos(np.pi * curve)
     out = moving_pan(mono, -0.7 * direction, 0.7 * direction, curve)

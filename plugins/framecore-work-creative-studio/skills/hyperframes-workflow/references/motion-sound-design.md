@@ -1,30 +1,35 @@
 # Motion sound design
 
-Sound design gives a motion video's actions weight: a line lands with a knock, a screen pushes in on air, a tap clicks, the end card settles with a low thud. In Studio it is built from the motion contract's own timing, so it fits the picture frame for frame, with the [motion sound tools](../assets/motion-sound/README.md) and their bundled CC0 recordings. Methods are adapted from [video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) (Apache-2.0) and [kaventro/motion-designer](kaventro-motion-designer-adaptation.md) (MIT); see [the sources](../../../integrations/motion-sound-sources/README.md).
+Sound gives a motion video's actions weight: a line lands with a knock, a screen pushes in on air, a tap clicks, the end card settles with a low hit, and a music bed carries the energy. Studio builds the whole track from the motion contract's own timing with the [motion sound tools](../assets/motion-sound/README.md), so every sound fits the picture to the frame. Methods are adapted from [video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) (Apache-2.0) and [kaventro/motion-designer](kaventro-motion-designer-adaptation.md) (MIT).
+
+## Studio-grade synthesis, never toy tones
+
+Studio designs its sounds and music with code, at the standard of a sound designer's layered work: band-limited noise shaped by moving filters for air, pitched sub layers for weight, modal resonances for clicks and knocks, tuned bells, saturation for density, a shared room and mastering. It never delivers bare oscillator beeps, a single sine "pop" or untreated noise: they sound like a toy and misrepresent the result. Every delivered track is planned with `sound.py plan`, rendered with `sound.py mix` (or a renderer with the same rules) and checked; the reply states the timing check and loudness.
 
 ## Order of work
 
-1. **Picture first.** Plan sound only after the timing is approved; a change to timing moves the cues, so plan again after it (`sound.py plan` on the new revision).
-2. **Music, if any, sets the energy.** A track the user supplied or a connected provider made (never music synthesized with code) goes in `music`; analyse and cut it with [`beats.py` and `music_edit.py`](../assets/motion-sync/README.md#analysing-a-supplied-track). Under words and sound effects it is a bed: mixed low, few instruments, no lead over text.
-3. **Then the effects,** one per action that matters, from one central cue list (`sfx` in the contract), each cue named after the event it marks.
-4. **Mix, check, deliver.** `sound.py mix`, then `sound.py check`, then listen once with the picture before delivery.
+1. **Picture first.** Plan sound only after the timing is approved; a change to timing moves the cues, so plan again after it.
+2. **Music sets the energy.** A track the user supplies goes in `music.src` (analyse and cut it with [`beats.py` and `music_edit.py`](../assets/motion-sync/README.md#analysing-a-supplied-track)); otherwise Studio composes a bed. Under words and effects the music is a bed: mixed below the effects, no lead melody over text.
+3. **Then the effects,** one per action that matters, from one central cue list (`sfx`), each named after the event it marks.
+4. **Mix, check, deliver,** with the cue table, and ask the user to listen once with the picture.
 
-## Choosing sounds
+## Choosing and placing sounds
 
-- **Vocabulary from the film type, not from the event name.** A product or brand video uses air, impacts and real mechanical foley: whooshes for movement, knocks and thuds for landings, clicks for taps, a bright ting for a final value. Synthetic interface tones (bleeps, confirmation chimes, plucks, cartoon pops) make it sound like a game; use them only when the story is deliberately "the system speaks".
-- **One sound per action that matters,** starting on the frame the thing moves or lands. A sound for everything is noise; `density` sets how much (`minimal`, `standard`, `rich`).
-- **Loudness says importance.** Default gains: tap click −4 dB, end-card thud −2 dB, scene whoosh −6 dB, sweep and wipe whooshes −2 dB, landings −10 dB and quieter for later lines, counter ticks −14 to −20 dB as the count slows, a camera move −18 dB.
-- **No machine-gun.** Repeated events use the family's variants in turn, no two cues of one family within two frames, counter ticks at most every four frames and quieter as they go, staggered items panned slightly apart.
-- **Place on the hit, not on the file start.** A sound's transient (or a whoosh's loudest moment) lands on the cue frame; the file starts earlier by its measured offset. Whooshes for a sweep peak at the middle of the line's crossing; a wipe's whoosh peaks halfway through the wipe and is panned toward the side it comes from.
-- **Taps are two sounds:** the click on the press frame and a quiet release four frames later.
+- **Vocabulary from the film type.** A product or brand video uses air (whooshes), weight (impacts, one boom for the final reveal), mechanical foley (clicks, knocks) and one bright tuned accent; never cartoon or game feedback tones unless the story is "the system speaks".
+- **One sound per action that matters,** starting on the frame the thing moves or lands; `density` sets how much.
+- **Loudness says importance.** Clicks and final hits lead; whooshes sit 10 to 17 dB below a hit (the owner judged louder whooshes too strong); landings and ticks stay quiet and step down for later lines and slower counts.
+- **Length follows motion.** A sweep's whoosh lasts as long as the line crosses and peaks in the middle; a wipe's whoosh peaks halfway through the wipe and travels in its direction; a riser ends on the reveal.
+- **No machine-gun.** Variations by seed and pitch, no two cues of one design within two frames, counter ticks at least three frames apart and quieter as the count slows, staggered items panned apart and stepping up a scale.
+- **Taps are two sounds:** the click on the press frame and a soft release four frames later.
+- **Pitched sounds follow the key** of the music, so accents never clash with the bed.
 
 ## Mix
 
-- Integrated loudness −16 LUFS for the full mix with music, true peak at most −1.5 dBTP; a mix of only effects stays quieter, limited by its loudest hit. Platforms normalize loudness; measure the delivered file.
-- Music ducks about 8 dB under a voice-over, with short ramps; the voice stays clearly on top and the music still present between lines.
-- The picture is never re-encoded for sound; the MP4's video stream is copied.
-- Sync tolerance: a cut or hit more than a frame late is noticeable; `sound.py check` holds transients within 2 ms.
+- −14 LUFS integrated for social delivery (−16 with `--lufs -16` for the web), true peak at most −1 dBTP after limiting; measure the delivered file.
+- Music ducks about 8 dB under a voice-over, with short ramps; the voice stays on top.
+- The picture is never re-encoded; the MP4's video stream is copied.
+- A hit more than a frame off is noticeable; `sound.py` holds transients within 2 ms.
 
 ## Rights
 
-Bundled sounds are CC0 recordings and need no credit (credit is appreciated). Any other sound needs a licence that allows the planned use, recorded in the asset ledger; a "free" label is not a licence. Libraries that forbid redistribution (for example Mixkit) can be used by the user in their own project but are never bundled into Studio. Studio never synthesizes music, voices or effects with code for a delivery.
+Synthesized sounds and composed beds are original and need no licence or credit. Any recording or track the user supplies needs a licence that allows the planned use, recorded in the asset ledger; a "free" label is not a licence, and libraries that forbid redistribution are never bundled into Studio. A connected voice or music provider is used only when the user confirms its cost and terms.

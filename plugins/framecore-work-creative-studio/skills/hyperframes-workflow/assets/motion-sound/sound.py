@@ -89,14 +89,14 @@ def plan_cues(score, density='standard'):
         if wipe != 'none':
             frames = p.get('backgroundFrames', 12)
             direction = {'left': 1, 'right': -1, 'up': 0, 'down': 0}[wipe]
-            add(start + frames // 2, 'whoosh', f'{sid}: canvas wipes in from the {wipe}', -3, 0, {'duration': seconds_of(frames * 1.8, 0.35, 0.9), 'peak': 0.55, 'direction': direction, 'intensity': 0.9})
+            add(start + frames // 2, 'whoosh', f'{sid}: canvas wipes in from the {wipe}', -10, 0, {'duration': seconds_of(frames * 1.8, 0.35, 0.9), 'peak': 0.55, 'direction': direction, 'intensity': 0.9})
         elif previous is not None and r.exit_mode(previous, score) != 'sweep' and start > 0:
-            add(start + m['entryFrames'] // 3, 'whoosh', f'{sid}: scene enters', -8, 0, {'duration': seconds_of(m['entryFrames'] * 2, 0.35, 0.7), 'peak': 0.5, 'direction': side, 'intensity': 0.7})
+            add(start + m['entryFrames'] // 3, 'whoosh', f'{sid}: scene enters', -14, 0, {'duration': seconds_of(m['entryFrames'] * 2, 0.35, 0.7), 'peak': 0.5, 'direction': side, 'intensity': 0.7})
         if mode == 'sweep':
             sweep = p.get('sweepFrames', m['exitFrames'] + 12)
-            add(end - sweep + sweep // 2, 'whoosh', f'{sid}: line sweeps across', -3, 0, {'duration': seconds_of(sweep, 0.4, 1.4), 'peak': 0.5, 'direction': 1, 'brightness': 1.15, 'intensity': 0.95})
+            add(end - sweep + sweep // 2, 'whoosh', f'{sid}: line sweeps across', -10, 0, {'duration': seconds_of(sweep, 0.4, 1.4), 'peak': 0.5, 'direction': 1, 'brightness': 1.0, 'intensity': 0.85})
         elif mode == 'lift':
-            add(end - m['exitFrames'] + m['exitFrames'] // 2, 'whoosh', f'{sid}: content lifts out', -16, 0, {'duration': seconds_of(m['exitFrames'] * 2, 0.3, 0.6), 'peak': 0.5, 'direction': -side, 'brightness': 0.7, 'intensity': 0.5}, at_least=2)
+            add(end - m['exitFrames'] + m['exitFrames'] // 2, 'whoosh', f'{sid}: content lifts out', -21, 0, {'duration': seconds_of(m['exitFrames'] * 2, 0.3, 0.6), 'peak': 0.5, 'direction': -side, 'brightness': 0.7, 'intensity': 0.5}, at_least=2)
         kind = scene['kind']
         final = scene is last and kind in ('end-card', 'logo-reveal')
         if kind == 'line-reveal':
@@ -113,7 +113,7 @@ def plan_cues(score, density='standard'):
             duration = p.get('duration', 30)
             frame = landed(start, duration, m['resolveEasing'], end)
             if kind == 'logo-reveal':
-                add(start + duration // 4, 'whoosh', f'{sid}: mark opens', -10, 0, {'duration': seconds_of(duration * 0.8, 0.4, 1.0), 'peak': 0.4, 'direction': 0, 'brightness': 0.9})
+                add(start + duration // 4, 'whoosh', f'{sid}: mark opens', -16, 0, {'duration': seconds_of(duration * 0.8, 0.4, 1.0), 'peak': 0.4, 'direction': 0, 'brightness': 0.9})
             if final and level >= 2 and frame is not None:
                 gap = frame - (scenes[index - 1]['start'] if index else 0)
                 add(frame, 'riser', f'{sid}: tension into the reveal', -10, 0, {'duration': seconds_of(min(gap, 45), 0.6, 1.5)})
@@ -143,16 +143,16 @@ def plan_cues(score, density='standard'):
             for i, shot in enumerate(shots[1:], 1):
                 at = start + shot.get('at', 0)
                 if screen_mode == 'push':
-                    add(at + tf // 2, 'whoosh', f'{sid}: screen {i + 1} pushes in', -11, 0, {'duration': seconds_of(tf * 2, 0.3, 0.6), 'peak': 0.5, 'direction': -1, 'brightness': 0.85, 'intensity': 0.7}, at_least=1)
+                    add(at + tf // 2, 'whoosh', f'{sid}: screen {i + 1} pushes in', -17, 0, {'duration': seconds_of(tf * 2, 0.3, 0.6), 'peak': 0.5, 'direction': -1, 'brightness': 0.85, 'intensity': 0.7}, at_least=1)
                 elif screen_mode == 'fade':
-                    add(at + tf // 2, 'whoosh', f'{sid}: screen {i + 1} fades in', -16, 0, {'duration': seconds_of(tf * 2, 0.3, 0.6), 'peak': 0.5, 'direction': 0, 'brightness': 0.6, 'intensity': 0.5}, at_least=1)
+                    add(at + tf // 2, 'whoosh', f'{sid}: screen {i + 1} fades in', -21, 0, {'duration': seconds_of(tf * 2, 0.3, 0.6), 'peak': 0.5, 'direction': 0, 'brightness': 0.6, 'intensity': 0.5}, at_least=1)
             for i, tap in enumerate(r.as_list(p.get('taps'))):
                 at, pan = start + tap.get('at', 0), round((tap.get('x', 0.5) - 0.5) * 0.6, 2)
                 add(at, 'click', f'{sid}: tap {i + 1}', -6, pan)
                 add(at + 4, 'release', f'{sid}: tap {i + 1} releases', -16, pan, at_least=1)
             for i, key in enumerate(r.as_list(p.get('focus'))):
                 frames = key.get('frames', 24)
-                add(start + key.get('at', 0) + frames // 2, 'whoosh', f'{sid}: camera moves {i + 1}', -17, 0, {'duration': seconds_of(frames, 0.4, 1.2), 'peak': 0.5, 'direction': 0, 'brightness': 0.55, 'intensity': 0.5}, at_least=2)
+                add(start + key.get('at', 0) + frames // 2, 'whoosh', f'{sid}: camera moves {i + 1}', -22, 0, {'duration': seconds_of(frames, 0.4, 1.2), 'peak': 0.5, 'direction': 0, 'brightness': 0.55, 'intensity': 0.5}, at_least=2)
             for i, _ in enumerate(r.as_list(p.get('caption'))):
                 begin = start + 10 + i * m['lineStaggerFrames']
                 add(landed(begin, m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: caption line {i + 1} lands', -14 - 3 * i, 0, {'pitch': 1 + 0.12 * i}, at_least=1)
