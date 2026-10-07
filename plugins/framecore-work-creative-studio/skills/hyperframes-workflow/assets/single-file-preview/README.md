@@ -18,14 +18,16 @@ It is a preview for reviewing motion, timing and readable holds. Its **Export vi
 
 ## How Studio delivers it
 
-1. Build the approved contract first. Replace the embedded score with the project's score and declare each scene with a [scene kind](../motion-scenes/README.md); no scene code is needed when the kinds fit. Add custom rendering only for a scene no kind covers. Keep exact copy and locks from the contract.
-2. Keep it self-contained: no external URLs, CDN libraries, fonts or tracking. Use system fonts unless the user supplies a font whose license allows embedding; embedded images must be supplied or approved and are inlined as data URIs, which increases file size.
-3. Deliver it with the host's real capability:
+1. Build the approved contract first and express every scene with a [scene kind](../motion-scenes/README.md). Give each displayed line its own copy ID: a headline set in two sizes is two IDs in one `line-reveal`. Use `params.exit: 'sweep'` for a line-sweep hand-over. Keep exact copy and locks from the contract.
+2. **Deliver the template unchanged except the contract.** Copy `motion-preview.html` and replace only the JSON inside `<script type="application/json" id="motion-score">`. Do not rewrite, shorten, reformat or restyle the player, the embedded scene engine or the video export, and do not hand-write a separate renderer: a rewritten preview loses the frame review, the Remotion render and the tested export. When the host can read plugin files and run code, copy the file programmatically and substitute the score block rather than retyping it. When no kind fits a scene, say so, offer the closest kind or parameter, and keep the template.
+3. Where Node.js is available, run `node check-preview.mjs motion-preview.html` ([`check-preview.mjs`](check-preview.mjs)): it passes only when everything outside the contract matches the template, the contract passes `check-score.mjs` and every scene declares a kind. Without a shell, state that this check did not run.
+4. Keep it self-contained: no external URLs, CDN libraries, fonts or tracking. Use system fonts unless the user supplies a font whose license allows embedding; embedded images must be supplied or approved and are inlined as data URIs, which increases file size.
+5. Deliver it with the host's real capability:
    - When the host can create files, write `motion-preview.html` and give the user the file or download link.
    - Otherwise give the complete file in one code block and say: save it as `motion-preview.html` and open it in Chrome, Edge, Firefox or Safari; double-clicking the file is enough.
    - If an interactive preview such as Canvas is actually available in the conversation, the same file may be opened there as an extra; it is never required.
-4. Report honestly. Do not say the animation was seen, played or reviewed unless the host actually displayed it. Without that evidence, preview and temporal review stay NOT VERIFIED and the user is asked what they see.
-5. For a video file without a renderer, ask the user to press **Export video** and save the file; say that it is video only and that MP4 depends on the browser (otherwise WebM). Do not claim an export happened until the user confirms the file. Where execution is available, render the same score with a runtime starter instead. A screen recording of the preview is not a frame-accurate export.
+6. Report honestly. Do not say the animation was seen, played or reviewed unless the host actually displayed it. Without that evidence, preview and temporal review stay NOT VERIFIED and the user is asked what they see.
+7. For a video file without a renderer, ask the user to press **Export video** and save the file; say that it is video only and that MP4 depends on the browser (otherwise WebM). Do not claim an export happened until the user confirms the file. Where execution is available, render the same score with a runtime starter instead. A screen recording of the preview is not a frame-accurate export.
 
 ## Verification boundary
 

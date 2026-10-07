@@ -1,10 +1,10 @@
-# Creative Studio 1.20.0
+# Creative Studio 1.21.0
 
-A video file straight from the browser.
+More predictable previews, and a new transition.
 
-- **Export video in the preview.** The browser preview now has an Export video button. It renders every frame exactly as planned, encodes it in your own browser and gives you a file to save, with nothing installed and nothing uploaded. Choose 16:9, 9:16 or 1:1 first; captions are included.
-- **MP4 where possible.** When the browser can encode H.264, the file is MP4, which most social platforms and editors accept; otherwise it is WebM. The export is video only: add music and voice-over in an editor, or render with Remotion for a file with sound.
-- **Also from a shell.** In Codex or a local project with Chrome, one command writes the same file without installing anything.
-- **Usable on a phone screen.** The preview's controls now wrap on narrow screens.
+- **The tested preview, every time.** In yesterday's ChatGPT test the video export worked, but ChatGPT rewrote the preview by hand. Studio now keeps the ready-made preview exactly as it is and only puts your plan into it, so the same animation can be checked automatically, exported in the browser and rendered with Remotion without rewriting.
+- **A check for delivered previews.** Where Node.js is available, one command confirms that a preview is the unchanged template with a valid plan.
+- **Line-sweep transition.** A scene can now hand over with a thin line crossing the frame while its text slides away, and the next scene appears behind the line. ChatGPT invented this in the test; it is now a standard option, identical in the preview and in Remotion.
+- **Clearer plan checks.** Clearer messages when the plan's version, audio description or exit settings are wrong.
 
-Tested in Chromium on Linux, which offers WebM only; MP4 in Chrome or Edge, Firefox and Safari are not verified yet. Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

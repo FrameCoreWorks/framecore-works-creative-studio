@@ -25,6 +25,8 @@ const text = value => typeof value === 'string' && value.trim().length > 0;
 
 export function checkScore(score, {storyboard = false} = {}) {
   const errors = [], warnings = [];
+  if (score.schema_version !== undefined && score.schema_version !== 1) errors.push(`schema_version must be the number 1, not ${JSON.stringify(score.schema_version)}`);
+  if (score.audio !== undefined && typeof score.audio !== 'string') errors.push('audio must be text: the audio plan or "intentional silence"; audio files go in music and voiceover');
   const {num, den} = score.fps ?? {};
   if (!Number.isSafeInteger(num) || !Number.isSafeInteger(den) || num <= 0 || den <= 0) errors.push('fps needs positive integer num/den');
   const n = score.totalFrames, fps = num / den;
@@ -61,6 +63,8 @@ export function checkScore(score, {storyboard = false} = {}) {
         for (const key of kind.copyParams) for (const id of [].concat(params[key] ?? [])) if (typeof score.copy?.[id] !== 'string') errors.push(`${scene.id}: params.${key} references missing copy id ${id}`);
         if (scene.kind === 'logo-reveal' && !text((score.assets ?? []).find(asset => asset.id === params.asset)?.src)) errors.push(`${scene.id}: logo asset ${params.asset} needs an assets entry with src`);
         if (scene.kind === 'counter' && ![params.to, params.from ?? 0].every(Number.isFinite)) errors.push(`${scene.id}: counter from/to must be numbers`);
+        if (params.exit !== undefined && ![true, false, 'lift', 'sweep'].includes(params.exit)) errors.push(`${scene.id}: params.exit must be true, false, 'lift' or 'sweep'`);
+        if (params.sweepFrames !== undefined && !(Number.isSafeInteger(params.sweepFrames) && params.sweepFrames >= 1 && params.sweepFrames <= scene.end - scene.start)) errors.push(`${scene.id}: params.sweepFrames must be a positive integer within the scene`);
       }
     }
   }
@@ -77,7 +81,7 @@ export function checkScore(score, {storyboard = false} = {}) {
   if (score.decisions !== undefined && !['confirmed', 'proposed', 'unknown'].every(key => Array.isArray(score.decisions[key]))) errors.push('decisions needs confirmed, proposed and unknown lists');
   if (score.acceptance !== undefined && (!Array.isArray(score.acceptance) || !score.acceptance.every(text))) errors.push('acceptance must be a list of observable criteria');
   if (storyboard) {
-    for (const field of ['goal', 'audience', 'message', 'concept', 'audio']) if (!text(score[field])) errors.push(`storyboard field ${field} is missing`);
+    for (const field of ['goal', 'audience', 'message', 'concept', 'audio']) if (!text(score[field]) && !(field === 'audio' && score.audio !== undefined)) errors.push(`storyboard field ${field} is missing`);
     if (!score.runtime) errors.push('runtime {status, value} is required');
     if (!score.decisions) errors.push('decisions {confirmed, proposed, unknown} is required');
     if (!Array.isArray(score.acceptance) || score.acceptance.length < 3) errors.push('at least three observable acceptance criteria are required');

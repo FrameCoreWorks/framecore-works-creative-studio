@@ -27,6 +27,8 @@ export function validateMotionToolkit(root) {
     ...['README.md','video-export.mjs','export-video.mjs'].map(name => `skills/hyperframes-workflow/assets/motion-export/${name}`),
     `${scenesDir}/motion-scenes.mjs`,
     `${scenesDir}/examples/all-kinds.motion-score.json`,
+    `${scenesDir}/examples/two-statements.motion-score.json`,
+    `${singleFile}/check-preview.mjs`,
     `${kinetic}/src/motion-scenes.mjs`,
     `${singleFile}/motion-preview.html`,
     ...['motion-toolkit-routing.md','motion-toolkit-runtime-cards.md','motion-toolkit-sources.md'].map(name => `skills/hyperframes-workflow/references/${name}`),

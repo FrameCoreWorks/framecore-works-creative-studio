@@ -15,7 +15,7 @@ With kinds, a project is mostly JSON: in a host without a shell, Studio writes t
 | `quote` | `quote`: copy ID | `attribution` (copy ID), `attributionDelay`, `size`, `align` | The whole quotation enters at once; the attribution follows after the delay |
 | `logo-reveal` | `asset`: asset ID with `src` | `width`, `reveal` (`circle`, `wipe`), `duration` | Reveals the supplied mark by clipping only; it is never scaled, skewed or recoloured |
 
-Every scene exits with a short fade and lift unless it is the last scene or sets `params.exit: false`. Sizes are given for a frame whose short side is 1080 pixels and scale with the short side, so 1920 × 1080, 1080 × 1920 and 1080 × 1080 share one type scale. Keep the `copy` list of each scene in sync with its params so the reading-hold check measures the right text.
+Every scene exits with a short fade and lift unless it is the last scene or sets `params.exit: false`. `params.exit: 'sweep'` hands over with a vertical line instead: during the scene's last `sweepFrames` (default `exitFrames` + 12) the content fades and slides left over `exitFrames` while a line (`sweepColor`, default the accent) crosses from margin to margin and finishes at the scene end. Start the next scene about 12 frames before that end so it enters behind the line, and end the readable hold before the sweep starts. Sizes are given for a frame whose short side is 1080 pixels and scale with the short side, so 1920 × 1080, 1080 × 1920 and 1080 × 1080 share one type scale. Keep the `copy` list of each scene in sync with its params so the reading-hold check measures the right text.
 
 ## Formats
 
@@ -37,7 +37,7 @@ One contract can produce several output formats. `formats` lists variants of the
 
 ## Example and checks
 
-[`examples/all-kinds.motion-score.json`](examples/all-kinds.motion-score.json) uses all six kinds with an original synthetic example mark. `check-score.mjs` in both starters validates kinds, required params, copy references and logo assets, and lists the kind in the storyboard table.
+[`examples/all-kinds.motion-score.json`](examples/all-kinds.motion-score.json) uses all six kinds with an original synthetic example mark. [`examples/two-statements.motion-score.json`](examples/two-statements.motion-score.json) builds the 2026-10-07 ordinary ChatGPT test brief from two `line-reveal` scenes and a sweep exit, with one copy ID per displayed line. `check-score.mjs` in both starters validates kinds, required params, copy references and logo assets, and lists the kind in the storyboard table.
 
 Copies of the engine are kept identical: the Remotion starter's `src/motion-scenes.mjs` byte for byte, and the single-file preview's embedded block without `export` keywords. The toolkit validation enforces both.
 

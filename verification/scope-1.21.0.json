@@ -1,0 +1,37 @@
+{
+  "version": "1.21.0",
+  "baseline": "cd00f85c5291920e97fb95492ee96be4ff602892",
+  "change_id": "CC-20261007-02",
+  "origin": "cloud-code",
+  "files": 877,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-toolkit.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "skills/hyperframes-workflow/assets/motion-scenes/README.md",
+    "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 859,
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json",
+    "skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs"
+  ],
+  "removed": [],
+  "visual_regression": "existing contracts render pixel-identically to 1.20.0",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

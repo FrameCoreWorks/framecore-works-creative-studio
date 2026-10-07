@@ -45,6 +45,12 @@ const margin = score => Math.round(score.width * (score.tokens?.marginRatio ?? 0
 const list = value => (Array.isArray(value) ? value : value === undefined ? [] : [value]);
 const copy = (score, id) => score.copy?.[id] ?? '';
 const isLast = (scene, score) => scene.end >= score.totalFrames;
+// params.exit: true or 'lift' (fade and lift, the default except for the last scene), 'sweep' (fade and
+// slide left while a vertical line sweeps across the frame) or false (no exit).
+const exitMode = (scene, score) => {
+  const exit = scene.params?.exit ?? !isLast(scene, score);
+  return exit === false ? 'none' : exit === 'sweep' ? 'sweep' : 'lift';
+};
 
 // Optional tokens.safeArea {top, bottom} (fractions of the height) keeps content clear of platform UI.
 // Take the values from the platform's current documentation or the user; the engine has no defaults.
@@ -76,6 +82,14 @@ export function resolveFormat(score, id) {
 
 /** Describe the scene's elements. Each node: {key, type: 'box' | 'text' | 'image', text?, src?, style, children?}. */
 export function buildScene(scene, score) {
+  const content = buildContent(scene, score);
+  if (exitMode(scene, score) !== 'sweep') return content;
+  const p = scene.params ?? {}, t = score.tokens ?? {};
+  return {key: 'scene', type: 'box', style: {position: 'absolute', inset: '0'}, children: [content,
+    {key: 'sweep', type: 'box', style: {position: 'absolute', left: '0', top: '16%', bottom: '16%', width: `${px(score, 6)}px`, marginLeft: `-${px(score, 3)}px`, background: p.sweepColor ?? t.accent ?? t.foreground, opacity: '0'}}]};
+}
+
+function buildContent(scene, score) {
   const p = scene.params ?? {}, t = score.tokens ?? {};
   switch (scene.kind) {
     case 'line-reveal': {
@@ -126,9 +140,17 @@ export function buildScene(scene, score) {
 /** Styles and changing text for one frame: {key: {style, text?}}. The scene is visible when start <= frame < end. */
 export function sceneFrame(scene, score, frame) {
   const p = scene.params ?? {}, m = motion(score), out = {};
-  const exits = p.exit ?? !isLast(scene, score);
-  const e = exits ? progress(frame, scene.end - m.exitFrames, m.exitFrames, m.exitEasing) : 0;
-  out.container = {style: {opacity: String(1 - e), transform: `translateY(${-px(score, 24) * e}px)`}};
+  const mode = exitMode(scene, score);
+  // A sweep exit lasts sweepFrames: the content leaves during its first exitFrames, then the line finishes
+  // crossing from margin to margin exactly at the scene end, so the next scene can enter behind it.
+  const sweepFrames = p.sweepFrames ?? m.exitFrames + 12;
+  const exitStart = mode === 'sweep' ? scene.end - sweepFrames : scene.end - m.exitFrames;
+  const e = mode === 'none' ? 0 : progress(frame, exitStart, m.exitFrames, m.exitEasing);
+  out.container = {style: {opacity: String(1 - e), transform: mode === 'sweep' ? `translateX(${-px(score, 150) * e}px)` : `translateY(${-px(score, 24) * e}px)`}};
+  if (mode === 'sweep') {
+    const k = progress(frame, exitStart, sweepFrames, 'easeInOutCubic'), from = margin(score), to = score.width - margin(score);
+    out.sweep = {style: {opacity: k > 0 && k < 1 ? '1' : '0', transform: `translateX(${Math.round(from + (to - from) * k)}px)`}};
+  }
   switch (scene.kind) {
     case 'line-reveal':
       list(p.lines).forEach((_, i) => {

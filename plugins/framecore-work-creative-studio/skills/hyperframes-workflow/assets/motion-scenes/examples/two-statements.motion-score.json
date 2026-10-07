@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "id": "two-statements",
+  "revision": 1,
+  "approval": {
+    "status": "example-not-client-approved",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "build",
+  "goal": "Show the 2026-10-07 ordinary ChatGPT test brief built from scene kinds instead of hand-written rendering",
+  "audience": "Studio users and maintainers comparing a kinds-only build with a custom one",
+  "message": "One idea becomes a finished, exportable statement",
+  "concept": "Two typographic statements; the first leaves behind a sweeping line that hands over to the second",
+  "runtime": {
+    "status": "proposed",
+    "value": "Single-file preview with Export video; the same contract renders in the Remotion starter"
+  },
+  "viewing": "16:9 on a laptop or phone",
+  "audio": "intentional silence",
+  "decisions": {
+    "confirmed": [
+      "1920 x 1080, 30 FPS, 180 frames",
+      "Exact copy from the test brief, one copy ID per displayed line",
+      "No music"
+    ],
+    "proposed": [
+      "Arial as a system font",
+      "Dark background with light type"
+    ],
+    "unknown": [
+      "Brand font and colours for a real project"
+    ]
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 180,
+  "width": 1920,
+  "height": 1080,
+  "tokens": {
+    "background": "#151515",
+    "foreground": "#F2F2EE",
+    "muted": "#9A9A95",
+    "accent": "#F2F2EE",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "marginRatio": 0.13
+  },
+  "motion": {
+    "tempo": "confident",
+    "entryFrames": 18,
+    "exitFrames": 14,
+    "lineStaggerFrames": 8,
+    "entryEasing": "easeOutQuart",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo"
+  },
+  "copy": {
+    "intro-1": "Jeden",
+    "intro-2": "pomysł",
+    "outro-1": "Gotowe do",
+    "outro-2": "eksportu"
+  },
+  "copyStatus": "illustrative",
+  "assets": [],
+  "acceptance": [
+    "Both intro lines are fully readable from frame 26 until the sweep begins",
+    "The sweeping line crosses from margin to margin and is gone when the first scene ends",
+    "The final statement is stable and unchanged from frame 120 to frame 179"
+  ],
+  "scenes": [
+    {
+      "id": "intro",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "intro-1",
+          "intro-2"
+        ],
+        "sizes": [
+          156,
+          210
+        ],
+        "weights": [
+          700,
+          800
+        ],
+        "exit": "sweep"
+      },
+      "purpose": "State the idea in two lines",
+      "start": 0,
+      "end": 106,
+      "copy": [
+        "intro-1",
+        "intro-2"
+      ],
+      "holds": [
+        [
+          26,
+          80
+        ]
+      ],
+      "focalPoint": "The second, larger line",
+      "entry": "Lines rise from their masks, 8 frames apart",
+      "action": "Hold",
+      "exit": "Fade and slide left while a vertical line sweeps across",
+      "transition": "Line sweep; the next scene enters behind the line for the last 12 frames",
+      "persistence": "Background",
+      "audio": "Silence"
+    },
+    {
+      "id": "outro",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "outro-1",
+          "outro-2"
+        ],
+        "sizes": [
+          124,
+          214
+        ],
+        "weights": [
+          700,
+          800
+        ]
+      },
+      "purpose": "Resolve into the finished statement",
+      "start": 94,
+      "end": 180,
+      "copy": [
+        "outro-1",
+        "outro-2"
+      ],
+      "holds": [
+        [
+          120,
+          180
+        ]
+      ],
+      "focalPoint": "The word eksportu",
+      "entry": "Lines rise from their masks, 8 frames apart",
+      "action": "Hold to the last frame",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Background",
+      "audio": "Silence"
+    }
+  ]
+}

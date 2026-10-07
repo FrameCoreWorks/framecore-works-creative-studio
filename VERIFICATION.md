@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.20.0
+## Current source: 1.21.0
+
+The [1.21.0 source checks](verification/release-1.21.0.json) pass canonical validation and 216 tests: 157 Node in the CI set (plus 2 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new `check-preview.mjs` rejects the preview delivered in the 2026-10-07 ordinary ChatGPT test (scene engine and video export missing, contract errors, scenes without kinds) and passes the template-built `two-statements` example. The new sweep exit renders pixel-identically in the preview and the Remotion starter; existing contracts are unchanged. Whether ChatGPT now delivers the template unchanged is not verified. [Scope](verification/scope-1.21.0.json) records 16 changed and 2 added shared files out of 877.
+
+## Previous source: 1.20.0
 
 The [1.20.0 source checks](verification/release-1.20.0.json) pass canonical validation and 214 tests: 155 Node in the CI set (plus 2 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. In Chromium 1194 the new browser export drew frames pixel-identical to the Remotion still and exported the captioned starter in 16:9 and 9:16 as VP9 WebM files (300 frames, 10.00 s, about 42 dB PSNR against reference screenshots); the preview's button produced a download. This Chromium build offers no H.264 encoder, so the MP4 writer was verified with a libx264 stream instead (High profile, 300 frames, all decoded in order). Review and preview frames are pixel-identical to 1.19.0. On 2026-10-07 the owner reported a successful export in ordinary ChatGPT on an Android phone browser: an MP4 with H.264 (`avc1.640028`), 1920 x 1080, 180 frames, that plays (PASS_REPORTED; [report](verification/host-report-2026-10-07-browser-export.json)); the delivered preview used custom controls instead of the unchanged template. Desktop browsers, Firefox, Safari, Work and Codex are not verified. [Scope](verification/scope-1.20.0.json) records 12 changed and 3 added shared files out of 875.
 

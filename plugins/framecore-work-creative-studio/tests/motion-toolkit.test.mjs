@@ -326,3 +326,43 @@ test('browser export writes a playable file for a chosen format', {skip: !proces
     await assert.rejects(exportFile(path.join(root, kinetic, 'motion-score.json'), {out: result.file, browser: process.env.MOTION_REVIEW_BROWSER}), /already exists/);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
+
+test('sweep exit hands over with a crossing line and leaves other exits unchanged', async () => {
+  const {buildScene, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {validateScore} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+  assert.doesNotThrow(() => validateScore(score));
+  assert.deepEqual(checkScore(score, {storyboard: true}), {errors: [], warnings: []});
+  const [intro, outro] = score.scenes;
+  const tree = buildScene(intro, score);
+  assert.deepEqual([tree.key, tree.children.map(child => child.key)], ['scene', ['container', 'sweep']]);
+  assert.equal(buildScene(outro, score).key, 'container');
+  // Sweep window: the last exitFrames + 12 = 26 frames, content exit during its first 14.
+  assert.deepEqual(sceneFrame(intro, score, 79).sweep.style.opacity, '0');
+  assert.deepEqual(sceneFrame(intro, score, 79).container.style, {opacity: '1', transform: 'translateX(0px)'});
+  const middle = sceneFrame(intro, score, 94);
+  assert.equal(middle.sweep.style.opacity, '1'); assert.equal(middle.container.style.opacity, '0');
+  assert.equal(sceneFrame(intro, score, 105).sweep.style.opacity, '1');
+  const first = Number(sceneFrame(intro, score, 81).sweep.style.transform.match(/-?\d+/)[0]), last = Number(sceneFrame(intro, score, 105).sweep.style.transform.match(/-?\d+/)[0]);
+  assert.ok(first >= 250 && first < 400 && last > 1500 && last <= 1670, `${first} ${last}`);
+  const lift = sceneFrame({...intro, params: {...intro.params, exit: true}}, score, 99).container.style.transform;
+  assert.match(lift, /^translateY/);
+  const bad = structuredClone(score); bad.scenes[0].params.exit = 'spin'; bad.scenes[0].params.sweepFrames = 500; bad.schema_version = '1.0'; bad.audio = {mode: 'silent'};
+  const errors = checkScore(bad, {storyboard: true}).errors.join('\n');
+  for (const pattern of [/params.exit must be/, /params.sweepFrames/, /schema_version must be the number 1/, /audio must be text/]) assert.match(errors, pattern);
+  assert.doesNotMatch(errors, /storyboard field audio is missing/);
+});
+test('check-preview accepts the template with a new contract and rejects rewrites', async () => {
+  const {checkPreview} = await import(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs'));
+  const {previewFor} = await import(path.join(root, reviewTool));
+  const {html} = previewFor(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'));
+  const good = checkPreview(html);
+  assert.deepEqual([good.errors, good.unchanged, good.regions], [[], true, {'scene engine': 'identical', 'video export': 'identical'}]);
+  assert.match(checkPreview(html.replace("transform: 'none'", "transform: 'scale(1)'")).errors.join(), /video export is changed/);
+  assert.match(checkPreview(html.replace('// BEGIN motion-scenes engine', '// engine')).errors.join(), /scene engine is missing/);
+  assert.match(checkPreview(html.replace('>Export video<', '>Save<')).errors.join(), /player outside the contract differs/);
+  assert.match(checkPreview(html.replace('"kind": "line-reveal"', '"kindless": true')).errors.join(), /declares no kind/);
+  assert.match(checkPreview(html.replace('"schema_version": 1,', '"schema_version": 1')).errors.join(), /not valid JSON/);
+  assert.match(checkPreview('<canvas></canvas>').errors.join(), /No embedded motion contract/);
+});
