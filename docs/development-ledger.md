@@ -355,3 +355,26 @@ Cross-host state:
 - Owner will repeat the ordinary ChatGPT test after updating the hosted plugin and send the delivered HTML for check-preview
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261007-04
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-04-motion-player`
+- Baseline: `1ded66114406a81639c8299ca2a35af990c57d88` (main, package 1.21.0)
+- Result: `2673475eb3bb5c4e587f8330f543d34c5b65cfd9` (package 1.22.0)
+- Package version: 1.21.0 -> 1.22.0
+- Scope: motion player (Open contract), contract-plus-player delivery with a WebCodecs-only export fallback for self-written pages, player release asset and Pages workflow, export CLI hardening; owner approved after the second 2026-10-07 ChatGPT test (the CC-20261007-03 report stays local at the owner's request)
+- Shared package changed: yes; 13 changed, 0 added, 0 removed ([scope](../verification/scope-1.22.0.json)); repository-only: `.github/workflows/pages.yml`, `scripts/package_release.py`, `scripts/publish_github_release.py`
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 158 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- container: player opens and exports valid contracts and rejects invalid ones; release player byte-identical to the template; Pages steps simulated locally; export CLI races reproduced and fixed
+- GitHub Pages: not enabled; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (committed locally; not pushed)
+- ChatGPT Work: owner-managed
+- Codex: owner-managed
