@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "59164d85ea9eb78b256c67221c68c10c5eeb92314c64b78b9abd196a312e7a1c",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.25.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and one local mux test; whether ChatGPT asks about sound and avoids code-synthesized audio is not verified until an owner test. All 201 planned cases remain not_run.",
