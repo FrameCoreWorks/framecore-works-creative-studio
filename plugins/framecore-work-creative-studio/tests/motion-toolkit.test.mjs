@@ -365,4 +365,33 @@ test('check-preview accepts the template with a new contract and rejects rewrite
   assert.match(checkPreview(html.replace('"kind": "line-reveal"', '"kindless": true')).errors.join(), /declares no kind/);
   assert.match(checkPreview(html.replace('"schema_version": 1,', '"schema_version": 1')).errors.join(), /not valid JSON/);
   assert.match(checkPreview('<canvas></canvas>').errors.join(), /No embedded motion contract/);
+  assert.match(checkPreview(html.replace('</body>', '<script>new MediaRecorder(canvas.captureStream(0))</script></body>')).errors.join(), /records video in real time/);
+});
+
+const playerFile = 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html';
+const fragmentFor = score => '#contract=' + Buffer.from(JSON.stringify(score)).toString('base64url');
+test('the motion player can open a contract and keeps shortcuts out of text fields', () => {
+  const html = fs.readFileSync(path.join(root, playerFile), 'utf8');
+  for (const id of ['open', 'open-panel', 'open-text', 'open-file', 'open-load', 'open-example', 'open-errors']) assert.match(html, new RegExp(`id="${id}"`));
+  assert.match(html, /location\.hash = `contract=\$\{encodeContract/);
+  assert.match(html, /if \(!panel\.hidden \|\| \/\^\(INPUT\|TEXTAREA\|SELECT\)\$\/\.test\(event\.target\.tagName\)\) return;/);
+});
+// Opt-in: a contract in the address fragment replaces the embedded one; a broken one falls back to it.
+test('the motion player draws a contract from the address fragment', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {spawnSync} = await import('node:child_process');
+  const {pathToFileURL} = await import('node:url');
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-player-test-'));
+  const report = fragment => {
+    const args = ['--headless=new', '--disable-gpu', `--user-data-dir=${profile}`, '--window-size=1920,1080', '--virtual-time-budget=3000', '--dump-dom', `${pathToFileURL(path.join(root, playerFile)).href}?frame=60&review=1${fragment}`];
+    if (process.platform === 'linux' && process.getuid?.() === 0) args.unshift('--no-sandbox');
+    const out = spawnSync(process.env.MOTION_REVIEW_BROWSER, args, {encoding: 'utf8', timeout: 60000}).stdout;
+    return JSON.parse(out.match(/id="review-report">([\s\S]*?)<\/script>/)[1]);
+  };
+  try {
+    const opened = report(fragmentFor(score));
+    assert.equal(opened.id, 'two-statements'); assert.equal(opened.checked, true); assert.deepEqual(opened.issues, []);
+    assert.equal(report(fragmentFor({...score, scenes: [{...score.scenes[0], kind: 'spin'}]})).id, 'kinetic-type-starter');
+    assert.equal(report('#contract=not-base64!').id, 'kinetic-type-starter');
+  } finally { fs.rmSync(profile, {recursive: true, force: true}); }
 });

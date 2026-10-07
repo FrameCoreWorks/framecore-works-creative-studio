@@ -59,7 +59,13 @@ export async function exportFile(input, {out, format, container, browser} = {}) 
       if (exceptionDetails) throw new Error(exceptionDetails.exception?.description?.split('\n')[0] ?? exceptionDetails.text);
       return result.value;
     };
-    for (let i = 0; i < 300 && (await evaluate("document.documentElement.dataset.ready || ''")) !== 'true'; i++) await new Promise(resolve => setTimeout(resolve, 100));
+    // The page may still be navigating from about:blank; until the player reports ready, retry.
+    let ready = false;
+    for (let i = 0; i < 300 && !ready; i++) {
+      ready = await evaluate("document.documentElement?.dataset.ready === 'true' && typeof window.exportVideoBase64 === 'function'").catch(() => false);
+      if (!ready) await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    if (!ready) throw new Error('The player did not become ready in the browser within 30 seconds');
     const result = await evaluate(`window.exportVideoBase64(${JSON.stringify({container})})`);
     let target = out;
     if (path.extname(out) && path.extname(out).slice(1).toLowerCase() !== result.extension) {
@@ -72,7 +78,8 @@ export async function exportFile(input, {out, format, container, browser} = {}) 
     return {file: target, container: result.container, codec: result.codec, frames: result.frames, bytes: bytes.length, ms: result.ms, browser: path.basename(chrome)};
   } finally {
     await browserSession.close();
-    fs.rmSync(work, {recursive: true, force: true, maxRetries: 5, retryDelay: 200});
+    // Browser helper processes can still be writing the profile; cleanup never fails the export.
+    try { fs.rmSync(work, {recursive: true, force: true, maxRetries: 10, retryDelay: 300}); } catch (error) { console.warn(`WARN could not remove the temporary folder ${work}: ${error.message}`); }
   }
 }
 

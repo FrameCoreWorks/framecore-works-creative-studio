@@ -1,0 +1,36 @@
+{
+  "version": "1.22.0",
+  "baseline": "1ded66114406a81639c8299ca2a35af990c57d88",
+  "change_id": "CC-20261007-04",
+  "origin": "cloud-code",
+  "files": 877,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-export/README.md",
+    "skills/hyperframes-workflow/assets/motion-export/export-video.mjs",
+    "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 864,
+  "added": [],
+  "removed": [],
+  "repository_only": [
+    ".github/workflows/pages.yml (added)",
+    "scripts/package_release.py",
+    "scripts/publish_github_release.py"
+  ],
+  "visual_regression": "existing contracts render pixel-identically to 1.21.0",
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

@@ -11,11 +11,11 @@ Turns a motion contract into a video file in the user's own browser, without ins
 
 Frames come from the shared [scene engine](../motion-scenes/README.md), one at a time from the master frame number, so the export does not depend on playback speed. Captions are included. The export is **video only**: music and voice-over are not mixed in; add them in an editor or render with Remotion. Keyframes fall every two seconds; the bitrate is 8 Mbit/s at 1920 × 1080 and 30 FPS, scaled with frame size and rate.
 
-The single-file preview embeds `video-export.mjs` (without `export` keywords) and the toolkit validation keeps the copies identical.
+The single-file preview embeds `video-export.mjs` (without `export` keywords) and the toolkit validation keeps the copies identical. A page that is not the template must still reproduce this module for its export, never `MediaRecorder` or real-time recording; see the [delivery steps](../single-file-preview/README.md#how-studio-delivers-it).
 
 ## Using it
 
-- **In the preview.** Choose the format, press **Export video**, wait for the progress to finish, then save the file from the link. The file is named after the contract and format, such as `kinetic-type-starter-9x16.mp4`.
+- **In the preview or the [motion player](../single-file-preview/README.md#the-motion-player).** Open the contract if needed, choose the format, press **Export video**, wait for the progress to finish, then save the file from the link. The file is named after the contract and format, such as `kinetic-type-starter-9x16.mp4`.
 - **From a shell** with Node.js 20 and a local Chrome or Chromium, through the same code:
 
 ```sh

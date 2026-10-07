@@ -77,6 +77,10 @@ def main():
     outputs = []
     outputs.extend(package(PLUGIN, name, name + '-' + version + '.zip'))
     outputs.extend(package(ROOT, ROOT.name, 'framecore-works-creative-studio-' + version + '-repository.zip'))
+    # The motion player: the single-file preview template, byte for byte, as a standalone download.
+    player = DIST / ('framecore-motion-player-' + version + '.html')
+    player.write_bytes((PLUGIN / 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html').read_bytes())
+    outputs.append(player)
     checksums = DIST / 'SHA256SUMS.txt'
     checksums.write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name + '\n' for p in outputs))
     print(json.dumps({'status': 'PACKAGED_LOCALLY', 'version': version, 'outputs': [str(p) for p in outputs] + [str(checksums)], 'published': False}, indent=2))

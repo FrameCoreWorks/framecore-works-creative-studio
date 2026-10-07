@@ -1,0 +1,52 @@
+name: Publish the motion player to GitHub Pages
+
+# Copies the single-file preview template, unchanged, to index.html on the gh-pages branch.
+# GitHub Pages must be enabled for that branch (Settings > Pages > Deploy from a branch > gh-pages, root).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html
+      - .github/workflows/pages.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: motion-player-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'FrameCoreWorks/framecore-works-creative-studio'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 1
+      - name: Update gh-pages with the current player
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          player="$PWD/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null; then
+            git fetch --depth=1 origin gh-pages
+            git worktree add -B gh-pages "$RUNNER_TEMP/site" FETCH_HEAD
+          else
+            git worktree add --orphan -b gh-pages "$RUNNER_TEMP/site"
+          fi
+          cd "$RUNNER_TEMP/site"
+          cp "$player" index.html
+          touch .nojekyll
+          git add index.html .nojekyll
+          if git diff --cached --quiet; then
+            echo 'The published player is already current.'
+          else
+            git commit -m "Publish the motion player from $SOURCE_SHA"
+            git push origin gh-pages
+          fi

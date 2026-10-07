@@ -10,6 +10,8 @@
   Scenes are declared in the motion score by kind; the embedded scene engine computes every
   visual state from the frame number, so play, scrub, step and seekFrame() always show the
   same picture for the same frame. Export video encodes a video-only file in this browser.
+  Open contract loads another motion contract (pasted JSON or a .json file) into this player;
+  it travels only in the address fragment (#contract=...) and is never uploaded.
 -->
 <style>
   html, body { margin: 0; height: 100%; background: #1b1c1f; color: #e8eaed; font: 14px system-ui, sans-serif; }
@@ -20,6 +22,13 @@
   #scrub { flex: 1 1 160px; }
   button { font: inherit; }
   #download { color: #8ab4f8; }
+  #open-panel { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.6); }
+  #open-panel[hidden] { display: none; }
+  #open-box { width: min(720px, 100%); max-height: 100%; overflow: auto; padding: 16px; border-radius: 8px; background: #26282c; box-sizing: border-box; }
+  #open-box h2 { margin: 0 0 8px; font-size: 18px; }
+  #open-text { width: 100%; height: 40vh; box-sizing: border-box; font: 12px ui-monospace, monospace; }
+  .open-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+  #open-errors { display: block; margin-top: 8px; color: #f28b82; white-space: pre-line; }
 </style>
 </head>
 <body>
@@ -32,9 +41,24 @@
   <input id="scrub" type="range" min="0" value="0" step="1" aria-label="Frame">
   <output id="readout">frame 0</output>
   <select id="format" aria-label="Format" hidden></select>
+  <button id="open" type="button">Open contract</button>
   <button id="export" type="button">Export video</button>
   <a id="download" hidden></a>
   <output id="export-status"></output>
+</div>
+<div id="open-panel" hidden>
+  <div id="open-box" role="dialog" aria-modal="true" aria-labelledby="open-title">
+    <h2 id="open-title">Open a motion contract</h2>
+    <p>Paste the motion contract JSON from Studio or choose a .json file; you can also drop the file on this page. It stays in this browser.</p>
+    <textarea id="open-text" spellcheck="false" aria-label="Motion contract JSON"></textarea>
+    <div class="open-row">
+      <button id="open-load" type="button">Open</button>
+      <input id="open-file" type="file" accept=".json,application/json" aria-label="Contract file">
+      <button id="open-example" type="button">Built-in example</button>
+      <button id="open-cancel" type="button">Cancel</button>
+    </div>
+    <output id="open-errors"></output>
+  </div>
 </div>
 
 <!-- The motion contract. Replace it with the approved project score; scenes declare a kind and params. -->
@@ -656,10 +680,43 @@ function muxMP4({width, height, fps, codec, description, chunks}) {
 }
 // END video export
 
-  // ?format=9x16 shows one of score.formats; without it the base format is shown.
-  const query = new URLSearchParams(location.search);
-  const contract = JSON.parse(document.getElementById('motion-score').textContent);
-  const score = resolveFormat(contract, query.get('format') || undefined);
+  // An opened contract travels in the address fragment (#contract=<base64url JSON>), which is never sent
+  // to a server; without it the embedded contract is shown. ?format=9x16 shows one of score.formats.
+  const encodeContract = text => { let binary = ''; for (const byte of new TextEncoder().encode(text)) binary += String.fromCharCode(byte); return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const decodeContract = value => new TextDecoder().decode(Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0)));
+  // Problems that stop the player from drawing a contract; check-score.mjs remains the full check.
+  function contractProblems(candidate) {
+    if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) return ['The contract must be a JSON object.'];
+    const problems = [];
+    if (!(Number.isSafeInteger(candidate.fps?.num) && Number.isSafeInteger(candidate.fps?.den) && candidate.fps.num > 0 && candidate.fps.den > 0)) problems.push('fps needs positive integer num and den.');
+    if (!(Number.isSafeInteger(candidate.totalFrames) && candidate.totalFrames > 0)) problems.push('totalFrames must be a positive integer.');
+    if (!(Number.isSafeInteger(candidate.width) && Number.isSafeInteger(candidate.height) && candidate.width > 0 && candidate.height > 0)) problems.push('width and height must be positive integers.');
+    if (!Array.isArray(candidate.scenes) || !candidate.scenes.length) problems.push('scenes must be a non-empty list.');
+    else for (const scene of candidate.scenes) {
+      const kind = sceneKinds[scene?.kind];
+      if (!kind) { problems.push(`Scene ${scene?.id}: kind must be one of ${Object.keys(sceneKinds).join(', ')}.`); continue; }
+      if (!(Number.isSafeInteger(scene.start) && Number.isSafeInteger(scene.end) && scene.start >= 0 && scene.end > scene.start)) problems.push(`Scene ${scene.id}: start and end must be frames with start < end.`);
+      for (const key of kind.required) if (scene.params?.[key] === undefined) problems.push(`Scene ${scene.id}: ${scene.kind} needs params.${key}.`);
+    }
+    if (!problems.length) {
+      try {
+        for (const id of [undefined, ...(candidate.formats || []).map(format => format.id)]) {
+          const view = resolveFormat(candidate, id);
+          for (const scene of view.scenes) { buildScene(scene, view); sceneFrame(scene, view, scene.start); }
+          buildCaptions(view);
+        }
+      } catch (error) { problems.push(error.message); }
+    }
+    return problems;
+  }
+  const query = new URLSearchParams(location.search), carried = new URLSearchParams(location.hash.slice(1)).get('contract');
+  let opened = null, openProblems = [];
+  if (carried) {
+    try { opened = JSON.parse(decodeContract(carried)); openProblems = contractProblems(opened); } catch (error) { openProblems = [`The contract in the address could not be read: ${error.message}`]; }
+    if (openProblems.length) opened = null;
+  }
+  const contract = opened || JSON.parse(document.getElementById('motion-score').textContent);
+  const score = (() => { try { return resolveFormat(contract, query.get('format') || undefined); } catch { return contract; } })();
   const fps = score.fps.num / score.fps.den, N = score.totalFrames, t = score.tokens || {};
   const stage = document.getElementById('stage');
   Object.assign(stage.style, {width: score.width + 'px', height: score.height + 'px', background: t.background, color: t.foreground, fontFamily: t.fontFamily});
@@ -742,6 +799,7 @@ function muxMP4({width, height, fps, codec, description, chunks}) {
   document.getElementById('next').onclick = () => { stop(); seekFrame(current + 1); };
   scrub.oninput = () => { stop(); seekFrame(scrub.value); };
   addEventListener('keydown', event => {
+    if (!panel.hidden || /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) return;
     if (event.key === ' ') { event.preventDefault(); play.click(); }
     if (event.key === 'ArrowLeft') { stop(); seekFrame(current - 1); }
     if (event.key === 'ArrowRight') { stop(); seekFrame(current + 1); }
@@ -786,6 +844,28 @@ function muxMP4({width, height, fps, codec, description, chunks}) {
       seekFrame(keep);
     }
   };
+  // Open contract: paste, choose or drop a .json file; a valid contract reloads the player with it.
+  const panel = document.getElementById('open-panel'), openText = document.getElementById('open-text'), openErrors = document.getElementById('open-errors');
+  const showPanel = (problems = []) => { stop(); panel.hidden = false; openErrors.textContent = problems.join('\n'); };
+  const openContract = text => {
+    let parsed;
+    try { parsed = JSON.parse(text); } catch (error) { openErrors.textContent = `This is not valid JSON: ${error.message}`; return; }
+    const problems = contractProblems(parsed);
+    if (problems.length) { openErrors.textContent = problems.join('\n'); return; }
+    location.hash = `contract=${encodeContract(JSON.stringify(parsed))}`;
+    location.reload();
+  };
+  const readFile = file => file && file.text().then(text => { openText.value = text; openContract(text); });
+  document.getElementById('open').onclick = () => showPanel();
+  document.getElementById('open-cancel').onclick = () => { panel.hidden = true; };
+  document.getElementById('open-load').onclick = () => openContract(openText.value);
+  document.getElementById('open-file').onchange = event => readFile(event.target.files[0]);
+  document.getElementById('open-example').onclick = () => { location.hash = ''; location.reload(); };
+  addEventListener('dragover', event => event.preventDefault());
+  addEventListener('drop', event => { event.preventDefault(); showPanel(); readFile(event.dataTransfer.files[0]); });
+  if (opened) exportStatus.textContent = `Contract ${contract.id ?? ''}, revision ${contract.revision ?? '?'}`;
+  if (openProblems.length) showPanel(['The opened contract cannot be shown; the built-in example is displayed instead.', ...openProblems]);
+
   // Used by export-video.mjs: the encoded file as base64 with its metadata.
   window.exportVideoBase64 = async options => {
     const {bytes, blob, ...meta} = await runExport(options || {});

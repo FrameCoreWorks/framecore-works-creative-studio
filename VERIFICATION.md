@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.21.0
+## Current source: 1.22.0
+
+The [1.22.0 source checks](verification/release-1.22.0.json) pass canonical validation and 217 tests: 158 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. In Chromium 1194 the new motion player opened the `two-statements` example and the contract from the second 2026-10-07 ChatGPT test, rejected invalid input with messages and exported the opened contract; `check-preview.mjs` now names real-time recording as an error; the release's player file is byte-identical to the template. The Pages workflow steps were simulated against a local repository; GitHub Pages itself is not enabled or verified. Concurrent runs exposed and then confirmed fixes for two export CLI races. Existing contracts render pixel-identically to 1.21.0. [Scope](verification/scope-1.22.0.json) records 13 changed shared files out of 877.
+
+## Previous source: 1.21.0
 
 The [1.21.0 source checks](verification/release-1.21.0.json) pass canonical validation and 216 tests: 157 Node in the CI set (plus 2 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. The new `check-preview.mjs` rejects the preview delivered in the 2026-10-07 ordinary ChatGPT test (scene engine and video export missing, contract errors, scenes without kinds) and passes the template-built `two-statements` example. The new sweep exit renders pixel-identically in the preview and the Remotion starter; existing contracts are unchanged. Whether ChatGPT now delivers the template unchanged is not verified. [Scope](verification/scope-1.21.0.json) records 16 changed and 2 added shared files out of 877.
 
