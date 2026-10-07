@@ -417,7 +417,7 @@ Verification:
 
 - canonical validator: PASS
 - Node CI set 159 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
-- test C files inspected ([report](../verification/host-report-2026-10-07-test-c.json)); ChatGPT behavior with the new steps: not_run
+- test C files inspected ([report](../verification/host-report-2026-10-07-test-c.json)); test D on 1.24.0: ChatGPT followed the new steps (MP4 and contract, frames named, no preview export), MP4 clean and contract valid on inspection ([report](../verification/host-report-2026-10-07-test-d.json))
 
 Cross-host state:
 

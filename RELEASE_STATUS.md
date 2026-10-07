@@ -6,7 +6,7 @@ Source version: **1.24.0**. Date: 2026-10-07. Change ID: `CC-20261007-06` (origi
 |---|---|
 | Change | MP4 first in hosts with code execution, with a frame check at transitions; HTML preview without export; 1.23.0 player-link and no-substitute requirements withdrawn |
 | Source checks | PASS: canonical validator; 159 Node (+3 opt-in browser tests passing) + 12 motion-quality + 12 installer + 4 identity + 8 GEPA pilot + 23 asset tests |
-| Owner reports | 2026-10-07 test C: ChatGPT's MP4 clean, its HTML preview different and exporting through MediaRecorder ([report](verification/host-report-2026-10-07-test-c.json)); test A ([report](verification/host-report-2026-10-07-test-a.json)) |
+| Owner reports | 2026-10-07 test D on 1.24.0: ChatGPT delivered a clean MP4 and a valid contract and named the frames it checked ([report](verification/host-report-2026-10-07-test-d.json)); test C: ChatGPT's MP4 clean, its HTML preview different and exporting through MediaRecorder ([report](verification/host-report-2026-10-07-test-c.json)); test A ([report](verification/host-report-2026-10-07-test-a.json)) |
 | Scope | 10 changed shared files, 878 total; 37 skill IDs |
 | GitHub publication | PASS: `main` fast-forwarded to `ddae45305aa63005bc7db7d7c1e2265d521eee72`; [v1.24.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.24.0); workflow 37597377168 succeeded; all 878 package files, plugin ZIP and player hashes match local |
 | GitHub Pages | Live at <https://framecoreworks.github.io/framecore-works-creative-studio/> since the owner enabled it on 2026-10-07: HTTP 200, byte-identical to the template; a contract opened and exported on the live site in Chromium. Published by workflow 37585412460 (`gh-pages` `52c3af1`) |

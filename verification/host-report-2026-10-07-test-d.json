@@ -1,0 +1,15 @@
+{
+  "version": "1.24.0",
+  "date": "2026-10-07",
+  "reported_by": "owner (delivered files and reply text); inspection by cloud-code",
+  "client": "ordinary ChatGPT with code execution (about 4 min 13 s of processing); device and reasoning setting not reported",
+  "prompt": "test A prompt repeated on 1.24.0",
+  "delivered": [
+    "framecore-jeden-pomysl-1920x1080-30fps.mp4 (rendered with Python/Pillow and FFmpeg, as the contract states)",
+    "framecore-jeden-pomysl.motion.json"
+  ],
+  "rules_followed": "yes: MP4 first with the contract, frames named in the reply (0, 18, 63, 74, 90, 106, 114, 179), first transition version repaired before delivery, no HTML preview",
+  "contract": "check-score --storyboard PASS, the first fully valid contract from ChatGPT; approval.status approved with evidence quoting the request",
+  "mp4": "H.264 yuv420p, 1920x1080, 180 frames, 6.00 s, no audio; frames 18, 63, 74, 90, 100, 106, 114 and 179 inspected: the first statement fades before the line crosses an empty frame and the second enters, no overlapping, clipped or off-frame text",
+  "status": "PASS (source and file inspection) for the 1.24.0 delivery steps"
+}
