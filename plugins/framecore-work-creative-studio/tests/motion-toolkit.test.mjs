@@ -370,6 +370,19 @@ test('check-preview accepts the template with a new contract and rejects rewrite
 
 const playerFile = 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html';
 const fragmentFor = score => '#contract=' + Buffer.from(JSON.stringify(score)).toString('base64url');
+test('player links carry the contract in the fragment and round-trip exactly', async () => {
+  const {playerLink, contractFromLink, playerUrl} = await import(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs'));
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+  const link = playerLink(score);
+  assert.equal(playerUrl, 'https://framecoreworks.github.io/framecore-works-creative-studio/');
+  assert.ok(link.startsWith(playerUrl + '#contract='));
+  assert.match(link.slice((playerUrl + '#contract=').length), /^[A-Za-z0-9_-]+$/);
+  assert.equal(link, playerUrl + fragmentFor(score));
+  assert.deepEqual(contractFromLink(link), score);
+  assert.equal(contractFromLink(link).copy['intro-2'], 'pomysł');
+  assert.ok(playerLink(score, 'file:///tmp/player.html').startsWith('file:///tmp/player.html#contract='));
+  assert.throws(() => contractFromLink(playerUrl), /no #contract=/);
+});
 test('the motion player can open a contract and keeps shortcuts out of text fields', () => {
   const html = fs.readFileSync(path.join(root, playerFile), 'utf8');
   for (const id of ['open', 'open-panel', 'open-text', 'open-file', 'open-load', 'open-example', 'open-errors']) assert.match(html, new RegExp(`id="${id}"`));

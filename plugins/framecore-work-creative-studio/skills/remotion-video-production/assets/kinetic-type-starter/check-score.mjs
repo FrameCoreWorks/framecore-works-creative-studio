@@ -74,7 +74,7 @@ export function checkScore(score, {storyboard = false} = {}) {
   // Storyboard and approval fields.
   const approval = score.approval;
   if (approval !== undefined && typeof approval === 'object' && approval !== null) {
-    if (!approvalStates.includes(approval.status)) errors.push(`approval.status must be one of ${approvalStates.join(', ')}`);
+    if (!approvalStates.includes(approval.status)) errors.push(`approval.status must be one of ${approvalStates.join(', ')}; a direct request to build a complete brief is "approved" with evidence quoting it`);
     if (approval.status === 'approved' && (!text(approval.evidence) || approval.revision !== score.revision)) errors.push('an approved contract needs approval evidence for its current revision');
   } else if (storyboard) errors.push('approval {status, revision, evidence} is required');
   if (score.runtime !== undefined && !runtimeStates.includes(score.runtime?.status)) errors.push(`runtime.status must be one of ${runtimeStates.join(', ')}`);

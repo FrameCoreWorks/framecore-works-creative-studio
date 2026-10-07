@@ -29,6 +29,7 @@ export function validateMotionToolkit(root) {
     `${scenesDir}/examples/all-kinds.motion-score.json`,
     `${scenesDir}/examples/two-statements.motion-score.json`,
     `${singleFile}/check-preview.mjs`,
+    `${singleFile}/player-link.mjs`,
     `${kinetic}/src/motion-scenes.mjs`,
     `${singleFile}/motion-preview.html`,
     ...['motion-toolkit-routing.md','motion-toolkit-runtime-cards.md','motion-toolkit-sources.md'].map(name => `skills/hyperframes-workflow/references/${name}`),

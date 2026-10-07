@@ -1,11 +1,9 @@
-# Creative Studio 1.22.0
+# Creative Studio 1.23.0
 
-One reliable player for every animation plan.
+One click from the chat to your animation.
 
-- **The motion player.** The preview page can now open any animation plan: press Open contract and paste the plan or choose its file. Playback, formats and Export video then work exactly as tested, on a computer or a phone.
-- **Studio sends the plan, not a page.** In ChatGPT without code execution, Studio now gives you the short plan file and a link to the player, instead of writing a whole page that it might change along the way. In two tests today ChatGPT rewrote the page and lost the working export; with the player that cannot happen.
-- **A safety net.** If ChatGPT still writes a page of its own, it must copy Studio's tested export, the one that worked in this morning's test, instead of inventing a new one.
-- **Get the player once.** It is attached to every GitHub release as one HTML file and will be online on GitHub Pages as soon as Pages is switched on for the repository. Your plan stays in your browser.
-- **Steadier export from a shell.** The command-line export no longer fails when the computer is busy.
+- **A link that opens the animation.** When Studio finishes an animation in ChatGPT, the last line is a link. Click it and the motion player opens with your animation already loaded, ready to play and to export as a video. Nothing to copy or paste, and your animation is not sent to any server.
+- **The right video, not a lookalike.** Studio no longer makes its own stand-in video with other code. In today's test such a video did not match the plan and showed two texts on top of each other; the player's Export video gives the exact animation.
+- **Cleaner plans.** When you ask directly for an animation, Studio records your request as the approval instead of inventing a status.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

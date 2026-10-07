@@ -1,0 +1,19 @@
+{
+  "version": "1.22.0",
+  "date": "2026-10-07",
+  "reported_by": "owner (delivered files and answers); inspection by cloud-code",
+  "client": "ordinary ChatGPT with code execution (about 3 min 53 s of processing); device and reasoning setting not reported",
+  "prompt": "test A: 6 s, 1920x1080, 30 FPS, 'Jeden pomysł' then 'Gotowe do eksportu' with a moving-line transition, no music; 'I want to watch the animation and export video'",
+  "delivered": [
+    "framecore_typography_6s.motion.json",
+    "framecore_typography_6s.mp4 rendered by ChatGPT's own code (ffmpeg Lavf61.7.103)"
+  ],
+  "contract": "follows 1.22.0 closely (two line-reveal scenes, sweep exit, timings of the two-statements example); check-score: one error, invented approval.status 'user-requested-build'; opens and exports in the live motion player (Chromium check)",
+  "substitute_mp4": "H.264 High, 1920x1080, 180 frames, 6.00 s, but rendered without the scene engine: about 17 dB PSNR against the player on every compared frame, text placed higher than the contract, and at frame 100 'Jeden pomysł' overlaps 'Gotowe do eksportu'",
+  "player_link": "ChatGPT mentioned the motion player but gave no link (owner answer: no); the owner did not open the contract in the player",
+  "one_click_link": {
+    "status": "PASS_REPORTED",
+    "detail": "a link built by cloud-code from this contract (player URL plus #contract=<base64url JSON>, 4,022 characters) opened the animation directly in the live player on the owner's device; a Chromium check of the same link exported 180 frames"
+  },
+  "follow_up": "release 1.23.0: one clickable player link with the contract, no substitute video, approval.status rule"
+}

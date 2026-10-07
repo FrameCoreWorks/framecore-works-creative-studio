@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.22.0
+## Current source: 1.23.0
+
+The [1.23.0 source checks](verification/release-1.23.0.json) pass canonical validation and 218 tests: 159 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. A one-click player link built from the 2026-10-07 test A contract opened and exported on the live GitHub Pages player in Chromium, and the owner reported that it opened the animation on their device (PASS_REPORTED; [report](verification/host-report-2026-10-07-test-a.json)). The same report records that ChatGPT's own substitute MP4 differed from its contract. Whether ChatGPT now ends with the link is not verified. [Scope](verification/scope-1.23.0.json) records 13 changed and 1 added shared files out of 878.
+
+## Previous source: 1.22.0
 
 The [1.22.0 source checks](verification/release-1.22.0.json) pass canonical validation and 217 tests: 158 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks. In Chromium 1194 the new motion player opened the `two-statements` example and the contract from the second 2026-10-07 ChatGPT test, rejected invalid input with messages and exported the opened contract; `check-preview.mjs` now names real-time recording as an error; the release's player file is byte-identical to the template. The Pages workflow steps were simulated against a local repository; GitHub Pages itself is not enabled or verified. Concurrent runs exposed and then confirmed fixes for two export CLI races. Existing contracts render pixel-identically to 1.21.0. [Scope](verification/scope-1.22.0.json) records 13 changed shared files out of 877.
 
