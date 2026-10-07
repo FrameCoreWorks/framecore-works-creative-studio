@@ -69,7 +69,7 @@
     "status": "NOT_RUN"
   },
   "plugin_zip_sha256": "082182596cbd6241e35dbc91fcbb6db3b0ec9e840a861f352491b350aa7db5b2",
-  "github_publication": "NOT_RUN",
+  "github_publication": "github-publication-1.30.0.json",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
   "boundary": "Source checks and local renders; whether ChatGPT or ChatGPT Work builds product films from screenshots with the device kind is not verified. All 201 planned cases remain not_run.",
@@ -79,5 +79,6 @@
     "device_python_parity": "render.py versus the browser engine at every review frame of the app-film example: mean absolute difference at most 0.86 grey levels (16:9) after the screenshot fix; repeated Python renders byte-identical",
     "review_fix": "new headless Chrome 1194 viewport was 87 px shorter than --window-size; screenshots lost the bottom 87 px before the fix and capture the whole frame after it",
     "player_template": "motion-preview.html changes only in the embedded scene engine (device kind); its export code is unchanged"
-  }
+  },
+  "owner_review": "2026-10-07: the owner watched the Python renders of the app-film example in 16:9 and 9:16 and approved them (\"Filmy wyglądają bardzo dobrze\")"
 }
