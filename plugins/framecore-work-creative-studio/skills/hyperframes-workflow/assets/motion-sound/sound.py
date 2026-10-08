@@ -568,6 +568,11 @@ def design_video(score, args):
     kinds = {role: fixed.pop(role) for role in list(fixed) if role in generate.KINDS}
     lead = fixed.pop('lead', None)
     chosen = sound_direction(score, fixed)
+    # Every choice the user fixed is recorded with the others, so the contract shows what came from the user.
+    for role, kind in kinds.items():
+        chosen['choices'][role] = {'option': kind, 'why': 'set by the user'}
+    if lead:
+        chosen['choices']['lead'] = {'option': lead, 'why': 'set by the user'}
     seed = (content_seed(score) + 104729 * getattr(args, 'variation', 0)) % 100000
     designed, log = generate.design_effects(chosen['profile'], seed, chosen['key'], chosen['character'], kinds)
     return chosen, seed, designed, log, lead

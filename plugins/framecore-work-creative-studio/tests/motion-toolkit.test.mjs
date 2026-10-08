@@ -809,6 +809,7 @@ test('every video gets newly designed sounds and music, with reasons, variations
   assert.notDeepEqual(again.designed, blocks.designed, 'a variation designs the same video anew');
   const set = analyze(example('app-film'), ['--set', 'landing=blip', '--set', 'lead=piano', '--set', 'key=E minor']);
   assert.match(set.designed.landing, /^blip: set by the user/); assert.match(set.designed.music, /lead piano/); assert.equal(set.choices.key.option, 'E minor');
+  for (const role of ['landing', 'lead', 'key']) assert.equal(set.choices[role].why, 'set by the user', `${role} is recorded as the user's choice`);
   for (const bad of ['landing=beep', 'key=H minor']) assert.notEqual(spawnPython('python3', ['-B', sound, 'analyze', example('app-film'), '--set', bad], {encoding: 'utf8'}).status, 0, `${bad} is refused`);
   const limits = {landing: 0.7, press: 0.72, release: 0.8, tick: 0.85, impact: 0.75, boom: 0.75, accent: 0.85};
   for (const part of blocks.designed.quality.split(': ')[1].split(', ')) {
