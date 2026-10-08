@@ -1,0 +1,37 @@
+{
+  "test": "sound-test-1.33.0 step 1 (docs/sound-test-1.33.0.md)",
+  "date": "2026-10-08",
+  "host": "ChatGPT Work",
+  "model": "GPT 6.1 Sol (owner-reported)",
+  "reasoning_setting": "unknown (not reported)",
+  "plugin_version": "1.33.0 (stated in the delivered report)",
+  "processing_time": "17 min 12 s (owner-reported)",
+  "delivered": [
+    "spokojny-portfel.mp4",
+    "spokojny-portfel.motion.json",
+    "spokojny-portfel-raport.md",
+    "spokojny-portfel-source.zip (not supplied here)"
+  ],
+  "host_reported": {
+    "timing": "PASS, max 0.29 ms on the dry bus; all 7 cues also checked separately",
+    "reveal": "frame 216 on the start of bar 4 at 100 BPM",
+    "loudness": "-14.02 LUFS integrated, -1.95 dBTP, LRA 2.7 LU on the final AAC",
+    "perceptual_listening": "Unknown (host could not listen)"
+  },
+  "independent_check": {
+    "where": "Claude Code cloud container, ffprobe and ffmpeg ebur128 on the supplied MP4",
+    "video": "H.264 1080x1920, 30/1 fps, 300 frames, 10.000 s",
+    "audio": "AAC stereo 48 kHz, about 294 kb/s",
+    "loudness": "-13.9 LUFS integrated, LRA 1.5 LU, true peak -2.0 dBFS",
+    "frames": "12 frames sampled across the video: text clean, no clipping or overlap; content sits in the upper third of the 9:16 frame with the lower half mostly empty",
+    "contract": "soundDesign engine studio-generative-1 with recipes and composed music recipe (vi iii IV V add9, felt piano comp, soft kit), seed 49102"
+  },
+  "observations": [
+    "The host wrote its own renderer (render_meadow.py) with a signature motif instead of the bundled Python renderer; the contract holds a custom extension block.",
+    "The host edited the design log and added creativeAdjustments (one landing cue at frame 30 instead of landings on settled opening text).",
+    "The host added a post-master loudnorm pass because the encoded AAC peaked higher than the WAV; sound.py does not yet measure and trim the final AAC itself.",
+    "Studio's critique, run on the contract with the bundled renderer, reports an empty frame 0 that the delivered MP4 does not have: a custom renderer needs the critique to read the delivered MP4's frames."
+  ],
+  "owner_listening": "not yet reported",
+  "status": "DELIVERED_TECHNICAL_PASS; owner listening pending"
+}
