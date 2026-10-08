@@ -1,0 +1,36 @@
+{
+  "test": "sound-test-1.33.0 step 2, a new variation (docs/sound-test-1.33.0.md)",
+  "date": "2026-10-08",
+  "host": "ChatGPT Work",
+  "model": "GPT 6.1 Sol (owner-reported, same chat as step 1)",
+  "reasoning_setting": "unknown (not reported)",
+  "plugin_version": "1.33.0",
+  "processing_time": "8 min 20 s (owner-reported)",
+  "delivered": [
+    "spokojny-portfel-variation-1.mp4",
+    "spokojny-portfel-variation-1-report.md",
+    "spokojny-portfel-variation-1-source.zip (not supplied here)"
+  ],
+  "host_reported": {
+    "command": "sound.py plan --variation 1, then a new mix; seed 53831",
+    "picture": "H.264 stream copied, SHA-256 identical to step 1",
+    "timing": "PASS, max 0.04 ms on the dry bus; all 7 cues also checked separately",
+    "loudness": "-14.10 LUFS, -1.19 dBTP on the final AAC",
+    "design": "landing felt (was pluck), new air transition, impact thud (was soft), accent glass (was chime), progression vi ii IV ii (was vi iii IV V), same families, new pad, bass, rhythms and motif ending"
+  },
+  "independent_check": {
+    "where": "Claude Code cloud container, ffprobe, ffmpeg md5 and ebur128 on the supplied MP4s",
+    "picture": "video stream MD5 7d48ded7af0773e2404ead62ab3b1e72, identical to step 1",
+    "audio_difference": "correlation of the step 1 and variation 1 audio 0.15: a different sound track",
+    "loudness": "-14.3 LUFS integrated, LRA 1.9 LU, true peak -1.2 dBFS (within -1 dBTP without an extra loudness pass)",
+    "spectrum": "the 63 Hz octave is 9.0 dB above 250 Hz (step 1: 0.6 dB); the 40 to 100 Hz share rises at the felt landings (1.0 s, 3.9 s, 4.1 s) and in the second half of the music"
+  },
+  "observations": [
+    "The variation route works as designed: same picture, a clearly different design, the reasons stated per role.",
+    "Unlike step 1, no extra loudness pass was added; the delivered true peak stayed under -1 dBTP.",
+    "The felt landing is carried mostly by a low sine thump (58 to 72 Hz); the quality gate measures only above 150 Hz, so a thump-heavy landing can pass it. This may read as the drum-like sound the owner rejected earlier; to be confirmed by listening.",
+    "The four-chord loop is anchored on the reveal, so a three-bar video plays only the loop's last three chords before the tonic (the report explains this)."
+  ],
+  "owner_listening": "not yet reported",
+  "status": "DELIVERED_TECHNICAL_PASS; owner listening pending"
+}
