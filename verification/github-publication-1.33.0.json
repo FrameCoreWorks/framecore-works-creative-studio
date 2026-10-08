@@ -1,0 +1,23 @@
+{
+  "version": "1.33.0",
+  "change_id": "CC-20261007-15",
+  "origin": "cloud-code",
+  "commit": "1ccc65424720bfa94e766e7310743e8d125e2b16",
+  "package_commit": "1ccc65424720bfa94e766e7310743e8d125e2b16",
+  "integration": "Fast-forward of main from ed8b70c to 1ccc654 on owner instruction ('2 tak'); the branch carries ten earlier commits of the same change; no merge commit",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.33.0",
+  "workflow_id": 37732160230,
+  "workflow_conclusion": "success",
+  "source_tree_matches": true,
+  "source_tree": "main at 1ccc654 and the local branch resolve to the same package tree b3f63940c0eab8a14a4940932067adaa3366820f (903 files)",
+  "source_blobs_checked": 903,
+  "mismatches": 0,
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "e757c75b753e8bb405aedfe4e9144cddbf3b241c2437a89aed611e0d6641cf07",
+  "plugin_inventory_matches_local": true,
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "repository_zip": "differs from the local build, as the repository archive includes files outside the shared package; not used for parity",
+  "owner_listening": "2026-10-08: generative renders approved after the landing swoosh fix ('1 a') before publication",
+  "pre_push_check": "the release-workflow test and packaging sequence ran in a fresh clone of 1ccc654 and produced the same plugin ZIP hash"
+}

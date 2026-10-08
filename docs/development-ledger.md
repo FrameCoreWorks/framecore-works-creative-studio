@@ -612,7 +612,7 @@ Cross-host state:
 - Origin: cloud-code
 - Branch: `cloud-code/CC-20261007-15-sound-refinement`
 - Baseline: `ed8b70c5c1007eb739dcb387ee944c93e495b153` (main, package 1.32.0)
-- Result: the release commit on the branch (package 1.33.0); ten earlier commits on the branch record the audit, palettes, owner-rejected knock and snare, candidate sounds, sound direction and the generative engine
+- Result: `1ccc65424720bfa94e766e7310743e8d125e2b16` (package 1.33.0); ten earlier commits on the branch record the audit, palettes, owner-rejected knock and snare, candidate sounds, sound direction and the generative engine
 - Package version: 1.32.0 -> 1.33.0
 - Scope: measured sound audit and fixes; then, on the owner's direction, sound and music designed anew for every video (contract analysis, generated effect recipes, composed music, quality gate, level checks); fixed minor-key chords and a 27 dB levelling error found by owner listening
 - Shared package changed: yes; 15 changed, 6 added, 0 removed ([scope](../verification/scope-1.33.0.json))
@@ -625,6 +625,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending
+- GitHub: synchronized; `main` fast-forwarded to `1ccc654` on owner instruction; [v1.33.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.33.0) published by workflow 37732160230; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.33.0.json))
+- Owner listening: generative renders approved after the landing swoosh fix
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
