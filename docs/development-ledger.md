@@ -629,3 +629,25 @@ Cross-host state:
 - Owner listening: generative renders approved after the landing swoosh fix
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261008-02
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-15-sound-refinement`
+- Baseline: `1ccc65424720bfa94e766e7310743e8d125e2b16` (package 1.33.0; main carried test records and the sound test scenario on top)
+- Result: the release commit on the branch (package 1.34.0)
+- Package version: 1.33.0 -> 1.34.0
+- Scope: craft critique and a mandatory improvement round (also on delivered frames), measured AAC delivery, recorded user sound choices, owner references; outside the package, a blind motion benchmark kit (docs/motion-benchmark, scripts/motion_benchmark.py, tests)
+- Shared package changed: yes ([scope](../verification/scope-1.34.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 175 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23, benchmark script 3: PASS
+- owner's ChatGPT Work test of 1.33.0 (GPT 6.1 Sol): four videos technically passing, steps 1 to 3 approved by ear, step 4 rejected as a direction; host behavior of 1.34.0: not_run
+
+Cross-host state:
+
+- GitHub: pending
+- ChatGPT Work: owner-managed
+- Codex: owner-managed

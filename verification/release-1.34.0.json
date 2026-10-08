@@ -1,0 +1,89 @@
+{
+  "version": "1.34.0",
+  "date": "2026-10-08",
+  "baseline": "1ccc65424720bfa94e766e7310743e8d125e2b16",
+  "change_id": "CC-20261008-02",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 904,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 178,
+      "passed": 175,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 59
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 3
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "0f329eb011ba492000096853329498fd42e9aeb38c57e3fdc788fb69e5f83fb7",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks, container runs and the owner's four-step ChatGPT Work test of 1.33.0; how ChatGPT or ChatGPT Work use the critique of 1.34.0 is not verified. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "runs": {
+    "critique": "examples scored in the container: color-block 100, two-statements 100, app-film 75 (warnings: the phone reaches the bottom 14% of the 9:16 frame); a deliberately broken contract gives readability, text-amount, contrast and ending findings with revision commands; the four test videos judged on their own frames with --video",
+    "delivered_aac": "sound.py mix measures the delivered MP4: color-block -14.24 LUFS, -1.32 dBTP, no trim needed",
+    "owner_test": "ChatGPT Work, GPT 6.1 Sol, 1.33.0: four steps delivered and passed the technical checks; steps 1 to 3 approved by ear (PASS_REPORTED); step 4 (Bounce Party) rejected as a direction; findings fixed here: critique on delivered frames, measured AAC delivery, user choices recorded",
+    "benchmark": "docs/motion-benchmark and scripts/motion_benchmark.py added outside the package; not yet run across models (the owner stopped testing for now)",
+    "player_template": "motion-preview.html unchanged"
+  }
+}

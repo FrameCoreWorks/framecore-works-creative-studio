@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.33.0
+## Current source: 1.34.0
+
+The [1.34.0 source checks](verification/release-1.34.0.json) pass canonical validation and 237 tests: 175 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot, 23 asset and 3 benchmark-script checks. The release adds the craft critique with a mandatory improvement round, critique of the delivered video's own frames, a measured AAC delivery and recorded user choices, from the owner's four-step ChatGPT Work test of 1.33.0 (GPT 6.1 Sol): all four videos passed the technical checks, steps 1 to 3 were approved by ear and step 4 was rejected as a direction. Host behavior of 1.34.0 is not verified. [Scope](verification/scope-1.34.0.json) records 14 changed and 1 added shared files out of 904.
+
+## Previous source: 1.33.0
 
 The [1.33.0 source checks](verification/release-1.33.0.json) pass canonical validation and 233 tests: 174 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the sound tests run where Python with numpy and ffmpeg are installed. The release designs sound and music anew for every video: each contract is analysed, every effect is designed as a recipe and the music is composed new, with a quality gate against near-pure tones. In container runs, 20 designs of four examples had no timing failure (worst judged hit 1.46 ms) and example mixes were -14.0 to -14.3 LUFS. The owner listened to the renders and approved them after one fix. Host behavior is not verified. [Scope](verification/scope-1.33.0.json) records 15 changed and 6 added shared files out of 903.
 

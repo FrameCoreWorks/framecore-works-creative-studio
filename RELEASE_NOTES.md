@@ -1,10 +1,10 @@
-# Creative Studio 1.33.0
+# Creative Studio 1.34.0
 
-New sound and new music for every video.
+Every video is reviewed and improved before you see it.
 
-- **Designed for this video, every time.** Studio reads your animation and your brief, understands its mood (calm, bold, playful, technical, organic, editorial) and its pace, and designs every sound from scratch: how text lands, how scenes pass, how the final card hits.
-- **Music composed for your video.** A new chord progression, rhythm, melody and instruments each time, in the character of your style, landing on the beat of your final reveal and resolving as the video ends.
-- **Ask for another take.** Not quite right? Studio designs a new variation, or keeps what you like and changes one thing: the key, the instrument, the kind of sound.
-- **Studio quality, exactly in sync.** Every sound passes a quality check, every hit sits on its frame, and the mix is mastered to the loudness Reels and Shorts expect.
+- **A critic built in.** Studio scores each video against a motion designer's rules: can every line be read in time, does something happen in the first second, does the pace hold, does the ending land, does text stay clear of the phone's buttons and captions. Every finding comes with a concrete fix.
+- **One improvement round, always.** Studio fixes what the critic found, renders again and tells you the score before and after. A first draft is never delivered unreviewed.
+- **Delivered sound, measured.** The finished file's loudness and peak are measured in the file itself and corrected when needed.
+- **Your choices are kept and shown.** When you fix the key, the instrument or the kind of sound, the project records it as yours.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
