@@ -734,7 +734,7 @@ Verification:
 
 - canonical validator: PASS
 - `scripts/check_all.sh`: Node 188 (+3 opt-in browser tests; 61 passing in the browser run), installer 12, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.38.0.json))
-- measured on an 8 s spot with the reveal at 4 s; color-block rendered before and after and sent to the owner; owner listening: pending; host behavior: not_run
+- measured on an 8 s spot with the reveal at 4 s; color-block rendered before and after and sent to the owner; owner listening: PASS_REPORTED (new ending approved); host behavior: not_run
 
 Cross-host state:
 

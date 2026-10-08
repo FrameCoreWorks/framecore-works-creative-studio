@@ -4,7 +4,7 @@ This document records bounded package verification. It is not a certification of
 
 ## Current source: 1.38.0
 
-The [1.38.0 source checks](verification/release-1.38.0.json) pass canonical validation and `scripts/check_all.sh`: 188 Node tests (plus 3 opt-in browser tests, run separately and passing: 61 in the browser run), 12 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks. The release keeps the composed music playing after an early reveal and resolves it in the last bar: on an 8 s spot with the reveal at 4 s the level from 4 to 7 s stays within 0.5 dB of the build-up instead of falling 13 dB. Not yet approved by ear; host behavior is not verified. [Scope](verification/scope-1.38.0.json) records 12 changed shared files out of 908.
+The [1.38.0 source checks](verification/release-1.38.0.json) pass canonical validation and `scripts/check_all.sh`: 188 Node tests (plus 3 opt-in browser tests, run separately and passing: 61 in the browser run), 12 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks. The release keeps the composed music playing after an early reveal and resolves it in the last bar: on an 8 s spot with the reveal at 4 s the level from 4 to 7 s stays within 0.5 dB of the build-up instead of falling 13 dB. The owner compared the color-block renders before and after and approved the new ending (PASS_REPORTED); host behavior is not verified. [Scope](verification/scope-1.38.0.json) records 12 changed shared files out of 908.
 
 ## Previous source: 1.37.0
 

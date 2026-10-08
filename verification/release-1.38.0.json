@@ -67,14 +67,14 @@
     }
   ],
   "review": {
-    "status": "music level per second measured on an 8 s spot with the reveal at 4 s (before: -17.8, -25.2, -30.5, -37.1 dB from 4 s; after: -17.7, -18.1, -18.1, -28.4 dB); the four bundled examples planned: only color-block gets an endBar; color-block rendered before and after for the owner to listen; owner listening: not yet"
+    "status": "music level per second measured on an 8 s spot with the reveal at 4 s (before: -17.8, -25.2, -30.5, -37.1 dB from 4 s; after: -17.7, -18.1, -18.1, -28.4 dB); the four bundled examples planned: only color-block gets an endBar; color-block rendered before and after for the owner to listen; owner listening: PASS_REPORTED (color-block before and after, 2026-10-08)"
   },
   "plugin_zip_sha256": "e076a236e6de70210e619b02b480df52add0bb6620f1b0a9b44b5323dc7f9c5b",
   "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
   "github_publication": "NOT_RUN",
   "saved_host_readback": "NOT_RUN",
   "host_behavior": "NOT_RUN",
-  "boundary": "Source and container checks; the new ending is not yet approved by ear. Host behavior of 1.38.0 is not verified.",
+  "boundary": "Source and container checks; the new ending approved by the owner by ear on the color-block example. Host behavior of 1.38.0 is not verified.",
   "source": "owner request 2026-10-08: fix the music winding down after an early reveal (open item from the Bounce Party test and the external audit)",
   "runs": {
     "color_block_mix": "timing all_ok, -14.11 LUFS, -1.0 dBTP measured on the delivered AAC"

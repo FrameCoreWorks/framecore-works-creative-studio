@@ -19,6 +19,6 @@
   "repository_zip": "differs from the local build, as the repository archive includes release records written after local packaging; not used for parity",
   "pre_push_check": "canonical validator PASS on 1d51919 before the push; scripts/check_all.sh and packaging ran on the same package contents",
   "hosted_plugin": "not updated",
-  "owner_listening": "pending",
+  "owner_listening": "PASS_REPORTED 2026-10-08: the owner compared the color-block renders before and after and approved the new ending",
   "host_behavior": "NOT_RUN"
 }
