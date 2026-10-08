@@ -1,8 +1,8 @@
 """Design new sounds for one video: a recipe for every role, generated from the video's profile and seed.
 
 Nothing is picked from a list of finished sounds. For each role (transition, landing, press, release, tick, impact,
-boom, riser, accent) the generator chooses a kind of sound by the video's moods (a struck object, a tonal blip, an
-air flick, a plucked string, a felt thump...), then designs it: material and its resonances, pitches tuned to the
+boom, riser, accent) the generator chooses a kind of sound by the video's moods (a struck object, a tonal blip, a
+small swish, a plucked string, a felt thump...), then designs it: material and its resonances, pitches tuned to the
 music's key, band paths, envelopes, layers and their balance, each drawn from ranges that keep it at studio
 standard. A new video, or a new variation of the same one, gets a new design. The recipes go into the contract
 (soundDesign.recipes), where the host model or a person can read and reshape them; recipe.py renders them.
@@ -100,7 +100,7 @@ class Designer:
 
     def landing(self):
         kind = self.pick({'struck': {'organic': 0.8, 'editorial': 0.5, 'calm': 0.3, 'technical': 0.3},
-                          'blip': {'playful': 0.9, 'technical': 0.5}, 'flick': {'bold': 0.7, 'technical': 0.4},
+                          'blip': {'playful': 0.9, 'technical': 0.5}, 'swish': {'bold': 0.7, 'technical': 0.4},
                           'pluck': {'organic': 0.6, 'calm': 0.6, 'playful': 0.2}, 'felt': {'calm': 0.8, 'editorial': 0.5},
                           'none': {'editorial': 0.35, 'calm': 0.15}}, 'landing')
         if kind == 'none':
@@ -121,11 +121,15 @@ class Designer:
                         'env': {'a': 0.0015, 'd': self.u(0.018, 0.035)}, 'gain': 1.0},
                        {'type': 'noise', 'color': -0.3, 'path': [[0, self.u(1400, 2400)]], 'width': 0.8, 'env': {'a': 0.0005, 'd': 0.004}, 'gain': self.u(0.15, 0.3)},
                        {'type': 'modal', 'freq': self.u(900, 1400), 'modes': [[1, 0.01, 1], [1.8, 0.006, 0.5]], 'exciter': {'ms': 0.6, 'cutoff': 9000}, 'gain': self.u(0.15, 0.3), 'env': {'a': 0.0002, 'd': 1}}]
-        elif kind == 'flick':
+        elif kind == 'swish':
+            # A small whoosh as the text arrives: a pink-noise band rising to its brightest on the landing and falling
+            # away, with a little air on top, moving across; no thump, so it never reads as a drum.
             align = 'peak'
-            dur = self.u(0.09, 0.16)
-            layers += [{'type': 'noise', 'color': -0.2, 'path': [[0, self.u(900, 1500)], [dur, self.u(4500, 7000)]], 'width': 0.7, 'env': {'a': dur, 'd': 0.012, 'curve': 3}, 'gain': 1.0, 'pan': [-0.2, 0.2]},
-                       {'type': 'tone', 'wave': 'sine', 'freq': [self.u(90, 130), self.u(60, 75)], 'glide': 0.015, 'delay': dur, 'env': {'a': 0.0005, 'd': 0.04}, 'gain': self.u(0.25, 0.45)}]
+            dur, p = self.u(0.16, 0.28), self.u(0.55, 0.7)
+            lo, hi = self.u(300, 520), self.u(1700, 3000)
+            layers += [{'type': 'noise', 'color': self.u(-0.6, -0.35), 'path': [[0, lo], [p * dur, hi], [dur + 0.12, lo * 1.4]], 'width': self.u(1.0, 1.3),
+                        'env': {'a': p * dur, 'd': self.u(0.04, 0.08), 'curve': self.u(2.0, 2.8)}, 'gain': 1.0, 'pan': [-0.45, 0.45]},
+                       {'type': 'noise', 'color': 0.0, 'path': [[0, 5000], [p * dur, 8000]], 'width': 0.8, 'env': {'a': p * dur, 'd': 0.03, 'curve': 3}, 'gain': self.u(0.05, 0.1), 'pan': [-0.6, 0.6]}]
         elif kind == 'pluck':
             f = self.tuned(1, (0, 2, 4))
             layers += [{'type': 'string', 'freq': f, 'brightness': self.u(0.3, 0.6), 'damping': self.u(0.985, 0.993), 'env': {'a': 0.001, 'd': self.u(0.08, 0.16)}, 'gain': 1.0},
@@ -136,6 +140,10 @@ class Designer:
                         'exciter': {'ms': self.u(2.0, 3.5), 'cutoff': self.u(1800, 3200)}, 'gain': 0.4, 'env': {'a': 0.001, 'd': 1}},
                        {'type': 'noise', 'color': -0.4, 'path': [[0, self.u(500, 1000)]], 'width': 1.6, 'env': {'a': 0.0008, 'd': self.u(0.012, 0.025)}, 'gain': self.u(0.3, 0.5)},
                        {'type': 'noise', 'color': -0.3, 'path': [[0, self.u(1800, 3200)]], 'width': 1.2, 'env': {'a': 0.0005, 'd': 0.006}, 'gain': self.u(0.25, 0.4)}]
+        if kind == 'swish':
+            # A swell is levelled by its peak, like the transitions it belongs with, and sits below them.
+            return {'role': 'landing', 'kind': kind, 'align': align, 'length': round(dur + 0.15, 4), 'width': self.u(0.1, 0.2),
+                    'norm': {'type': 'peak', 'value': 0.6}, 'layers': layers}
         return {'role': 'landing', 'kind': kind, 'align': align, 'length': 0.32, 'drive': self.u(1.1, 1.5), 'width': self.u(0.04, 0.12),
                 'norm': self.level('landing'), 'layers': layers}
 
@@ -208,7 +216,7 @@ class Designer:
         return {'role': 'accent', 'kind': kind, 'align': 'onset', 'length': 1.6, 'tuned': True, 'width': 0.15, 'norm': self.level('accent'), 'layers': layers}
 
 
-KINDS = {'landing': ['struck', 'blip', 'flick', 'pluck', 'felt', 'none'], 'transition': ['air', 'tonal', 'whip', 'flutter', 'crossing'],
+KINDS = {'landing': ['struck', 'blip', 'swish', 'pluck', 'felt', 'none'], 'transition': ['air', 'tonal', 'whip', 'flutter', 'crossing'],
          'impact': ['sub-drop', 'thud', 'metal-hit', 'soft'], 'accent': ['bell', 'fm-bell', 'glass', 'chime']}
 ROLE_OF = {'whoosh': 'transition', 'landing': 'landing', 'knock': 'landing', 'tap': 'landing', 'pop': 'landing', 'swish': 'landing',
            'click': 'press', 'release': 'release', 'tick': 'tick', 'impact': 'impact', 'boom': 'boom', 'riser': 'riser', 'shimmer': 'accent'}

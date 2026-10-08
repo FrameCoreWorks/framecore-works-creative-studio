@@ -149,10 +149,18 @@ def render(recipe, seed=1):
     mix = synth.fades(mix, 0.0003, min(0.05, recipe.get('length', 0.5) / 4))
     norm = recipe.get('norm') or {'type': 'peak', 'value': 0.8}
     if norm['type'] == 'rms':
-        head = np.mean(mix[:int(0.1 * RATE)], axis=1)
+        # The level of the 100 ms that start at the attack's peak (not at the file's first sample, which a slow swell
+        # leaves nearly silent and would push far too loud).
+        mono = np.mean(mix, axis=1)
+        start = int(np.argmax(np.abs(mono[:int(0.3 * RATE)])))
+        head = mono[start:start + int(0.1 * RATE)]
         mix *= norm['value'] / (np.sqrt(np.mean(head ** 2)) + 1e-9)
     else:
         mix *= norm['value'] / (np.max(np.abs(mix)) + 1e-9)
+    # Whatever the design, no sound leaves the renderer above a sample peak of 1.4 (about +3 dB).
+    peak = np.max(np.abs(mix))
+    if peak > 1.4:
+        mix *= 1.4 / peak
     align = recipe.get('align', 'onset')
     if align == 'end':
         return mix, n / RATE

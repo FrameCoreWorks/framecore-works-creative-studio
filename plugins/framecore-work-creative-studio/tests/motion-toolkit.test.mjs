@@ -776,6 +776,28 @@ test('every video gets newly designed sounds and music, with reasons, variations
     const [role, value] = part.split(' ');
     assert.ok(Number(value) <= limits[role], `${role} passes the gate against near-pure tones: ${value}`);
   }
+  // Every designed sound keeps its role's approved level (the built-in design it replaces), whatever its attack.
+  const levels = spawnPython('python3', ['-B', '-c', `import sys, json, numpy as np
+sys.path.insert(0, sys.argv[1]); import generate, recipe, synth
+def loud(a):
+    e = np.convolve(np.mean(a, 1) ** 2, np.ones(480) / 480, 'same'); return float(10 * np.log10(e.max() + 1e-12))
+refs = {'transition': ('whoosh', {'duration': 0.6}), 'landing': ('knock', {}), 'press': ('click', {}), 'release': ('release', {}), 'tick': ('tick', {}),
+        'impact': ('impact', {}), 'boom': ('boom', {}), 'riser': ('riser', {'duration': 1.2}), 'accent': ('shimmer', {})}
+ref = {role: loud(synth.render_design(name, p, 5, 'D major')[0]) for role, (name, p) in refs.items()}
+worst = []
+for seed in range(12):
+    moods = {m: (seed * 7 + i * 3) % 10 / 10 for i, m in enumerate(['calm', 'bold', 'playful', 'technical', 'organic', 'editorial'])}
+    designed, _ = generate.design_effects({'pace': ['slow', 'medium', 'fast'][seed % 3], 'moods': moods}, seed * 31 + 7, 'D major')
+    for role, rc in designed.items():
+        if rc['layers']:
+            a, _ = recipe.render(recipe.instantiate(rc, {'duration': 0.6} if rc.get('stretch') else {}), seed)
+            worst.append([role, rc['kind'], round(loud(a) - ref[role], 2)])
+print(json.dumps(worst))`, path.join(root, soundDir)], {encoding: 'utf8'});
+  assert.equal(levels.status, 0, levels.stderr);
+  for (const [role, kind, delta] of JSON.parse(levels.stdout)) {
+    const [low, high] = kind === 'swish' ? [-16, -6] : [-5, 5];
+    assert.ok(delta >= low && delta <= high, `${role} (${kind}) is ${delta} dB from its approved level`);
+  }
   // Brand-native copies of one picture with other words are designed differently.
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-direction-'));
   try {
