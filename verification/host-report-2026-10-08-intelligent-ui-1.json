@@ -18,11 +18,20 @@
       "result": "rules followed; presentation stayed a static table",
       "owner_comment": "little interactivity; the owner asked for a more interactive version",
       "generation_authorized": "yes: the owner confirmed asking for storyboard boards (2026-10-08)"
+    },
+    {
+      "step": "follow-up: 'more interactive' storyboard",
+      "observed": "ChatGPT delivered a self-contained HTML file (tokyo_pursuit_interaktywny_storyboard1.html, 654967 bytes, sha256 9244b2735f63cc88c75007bf8aa30b7cd36079326c8fb81a91e1dc34c979e6b6): an animatic player over the six generated boards with play, previous/next, speed, a clickable shot timeline, a shot card (time, framing, focal length, camera move, action, sound, continuity), a per-shot duration slider that shifts the later shots, a 'restore 10 s timing' button, JSON export, optional synthesized demo SFX, and the note that it is a preview animatic, not a rendered video",
+      "container_check": "opened in headless Chromium at 390, 768 and 1440 px: no page overflow, no console errors, playback advanced (00:01.1 after about 1 s), no network requests (all images embedded)",
+      "host_display": "the owner reported that the phone could not show the file inside the chat; not yet checked on a computer",
+      "expected": "on an explicit request for more interactivity, a file is acceptable; planned timing labelled, revision-style timing changes shift dependent shots, no claim of a rendered video",
+      "result": "rules followed (file content); native in-chat display: not shown on the phone",
+      "note": "the interactive result came as an HTML file, not as a native Intelligent UI element"
     }
   ],
   "unknown": [
-    "the result of the follow-up request for a more interactive storyboard",
-    "whether the area cards are a native control composed by ChatGPT or a rendering of the numbered list"
+    "whether the area cards are a native control composed by ChatGPT or a rendering of the numbered list",
+    "whether the HTML file displays inside the chat on a computer"
   ],
   "host_behavior": "partial: startup menus and storyboard observed; the other prompts of docs/intelligent-ui-adaptation.md section 6 not yet run"
 }
