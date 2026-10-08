@@ -741,3 +741,24 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `1d51919`; [v1.38.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.38.0) published by workflow 37775866204; checks workflow 37775866194 success; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.38.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261008-10
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-10-full-review`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `0a6036ce98a7f0f03f43abae7263c9eca8292c5b` (main, package 1.38.0)
+- Result: the commit carrying this entry (report only)
+- Package version: 1.38.0 (unchanged)
+- Scope: the full A-to-Z review the owner asked for ("1a 2b start review"), written as [docs/reviews/full-review-2026-10-08.md](reviews/full-review-2026-10-08.md): 3 high, 16 medium, 24 low and 6 informational findings, a ranked backlog and four owner decisions; no plugin or tool file changed (fixes wait for the owner's choice)
+- Shared package changed: no
+
+Verification:
+
+- fresh clone of the baseline: canonical validator PASS; `scripts/check_all.sh` exit 0 (Node 188 pass, 3 browser tests skipped; installer 12, identity 4, benchmark script 5, GEPA pilot 8, asset 23); browser-run motion tests 61/61; legacy suite 134 errors and 20 of 67 tests failing, as before
+- `v1.38.0` release ZIP byte-identical to the tag tree (908 files); renderer parity on four examples; sound and critique end to end on one example; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (pushed with this commit; readback recorded in the next update)
+- ChatGPT Work: not_run (package unchanged)
+- Codex: not_run (package unchanged)
