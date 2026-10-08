@@ -1,0 +1,30 @@
+{
+  "test": "sound-test-1.33.0 step 3, fixing one choice (docs/sound-test-1.33.0.md)",
+  "date": "2026-10-08",
+  "host": "ChatGPT Work",
+  "model": "GPT 6.1 Sol (owner-reported, same chat)",
+  "reasoning_setting": "unknown (not reported)",
+  "plugin_version": "1.33.0",
+  "delivered": [
+    "spokojny-portfel-e-minor.mp4",
+    "spokojny-portfel-e-minor-project-log.md"
+  ],
+  "host_reported": {
+    "command": "sound.py plan <variation 1 contract> --variation 1 --set lead=piano --set 'key=E minor'",
+    "kept": "picture, cues, gains, pans, variation seed, effect kinds and materials, timbres, rhythms, motif, 100 BPM, energy, reveal at 7.2 s",
+    "music": "minor progression VI iv i VII (add9), motif in E minor, glass accent retuned",
+    "timing": "PASS, max 0.04 ms",
+    "loudness": "-14.09 LUFS, -1.15 dBTP on the final AAC",
+    "tool_gap": "sound.py recorded key as set by the user but not lead; the host added the lead entry to the contract after checking the plan"
+  },
+  "independent_check": {
+    "where": "Claude Code cloud container, ffprobe, ffmpeg md5 and ebur128 on the supplied MP4",
+    "picture": "video stream MD5 7d48ded7af0773e2404ead62ab3b1e72, identical to steps 1 and 2",
+    "audio_difference": "correlation with variation 1 audio 0.54: same rhythm and effects, other harmony",
+    "loudness": "-14.3 LUFS integrated, LRA 2.3 LU, true peak -1.1 dBFS",
+    "key": "pitch classes before the reveal (100 to 1500 Hz): D, A, E, B, F#, G strongest, G sharp near zero, consistent with E minor; whole-mix key estimation is ambiguous because effects and the accent bell weigh in"
+  },
+  "plugin_fix": "every user-fixed choice (lead, landing, transition, impact, accent) is now recorded in soundDesign.direction.choices; committed locally with the pending 1.34.0 changes",
+  "owner_listening": "not yet reported",
+  "status": "DELIVERED_TECHNICAL_PASS with one tool gap found and fixed locally; owner listening pending"
+}
