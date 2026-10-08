@@ -396,6 +396,31 @@ def master(mix, target_lufs, ceiling_db=-1.0):
     return out[:spec_len], notes
 
 
+def mux(video, wav, out, score):
+    duration = score['totalFrames'] * score['fps']['den'] / score['fps']['num']
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', video, '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
+                    '-c:a', 'aac', '-b:a', '256k', '-t', f'{duration:.6f}', out], check=True)
+
+
+def deliver(video, wav, out, score, mastered, tmp, ceiling_db=-1.0):
+    """Mux the master into the MP4 with the picture copied, then measure the delivered AAC itself: encoding can raise
+    peaks between samples, so when the file's true peak passes the ceiling the master is trimmed by the excess (plus a
+    margin) and muxed again. Returns what the delivered file measures."""
+    mux(video, wav, out, score)
+    decoded = read_wav(out)
+    peak = synth.true_peak_db(decoded)
+    trimmed = 0.0
+    if peak > ceiling_db:
+        trimmed = round(peak - ceiling_db + 0.2, 2)
+        trimmed_wav = os.path.join(tmp, 'trimmed.wav')
+        write_wav(mastered * 10 ** (-trimmed / 20), trimmed_wav)
+        mux(video, trimmed_wav, out, score)
+        decoded = read_wav(out)
+        peak = synth.true_peak_db(decoded)
+    measured = loudness_of(decoded)
+    return {'lufs': measured[0] if measured else None, 'true_peak_db': round(peak, 2), 'trimmed_db': trimmed, 'measured_on': 'the delivered AAC'}
+
+
 def loudness_of(audio):
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, 'probe.wav')
@@ -668,10 +693,8 @@ def main(argv=None):
                 write_wav(effects, os.path.join(args.stems, 'effects.wav'), 'pcm_f32le')
                 write_wav(music_stem, os.path.join(args.stems, 'music.wav'), 'pcm_f32le')
             if args.out:
-                duration = score['totalFrames'] * score['fps']['den'] / score['fps']['num']
-                subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', args.video, '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
-                                '-c:a', 'aac', '-b:a', '256k', '-t', f'{duration:.6f}', args.out], check=True)
                 summary['out'] = args.out
+                summary['delivered'] = deliver(args.video, wav, args.out, score, mastered, tmp)
         summary['wav'] = args.wav
         print(json.dumps(summary))
         return 0 if timing['all_ok'] else 1

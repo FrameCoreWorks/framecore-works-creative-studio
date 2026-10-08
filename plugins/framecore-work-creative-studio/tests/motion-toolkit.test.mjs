@@ -683,6 +683,17 @@ test('the craft critique scores a contract, renders its review frames and gives 
     assert.ok(failed.findings.find(finding => finding.area === 'readability').fix.includes('revise.mjs extend'), 'a readability fix names the revision command');
     assert.ok(failed.score < 70 && failed.frames.startsWith('not_run'));
     assert.notEqual(spawnPython('python3', ['-B', critique, path.join(tmp, 'broken.json'), '--out', path.join(tmp, 'good')], {encoding: 'utf8'}).status, 0, 'never overwrites');
+    // A video drawn by another renderer is judged on its own frames.
+    const ffmpeg = spawnPython('ffmpeg', ['-version'], {encoding: 'utf8'}).status === 0;
+    if (ffmpeg) {
+      const render = path.join(root, 'skills/hyperframes-workflow/assets/motion-render/render.py');
+      const short = {...source, totalFrames: 90, scenes: [{...source.scenes[0], start: 0, end: 90, holds: [[16, 90]]}]};
+      fs.writeFileSync(path.join(tmp, 'short.json'), JSON.stringify(short));
+      assert.equal(spawnPython('python3', ['-B', render, path.join(tmp, 'short.json'), path.join(tmp, 'short.mp4')], {encoding: 'utf8'}).status, 0);
+      const fromVideo = spawnPython('python3', ['-B', critique, path.join(tmp, 'short.json'), '--video', path.join(tmp, 'short.mp4'), '--out', path.join(tmp, 'video')], {encoding: 'utf8'});
+      assert.equal(fromVideo.status, 0, fromVideo.stderr + fromVideo.stdout);
+      assert.equal(JSON.parse(fromVideo.stdout).frames, 'checked in the delivered video');
+    }
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
@@ -866,5 +877,12 @@ test('a mastered sound mix puts every hit on its frame', {skip: !(python && nump
     assert.ok(fs.existsSync(path.join(stems, 'music.wav')), 'the music stem is written next to the effects stem');
     const checked = spawnPython('python3', ['-B', sound, 'check', path.join(stems, 'effects.wav'), planned], {encoding: 'utf8'});
     assert.equal(checked.status, 0, checked.stdout);
+    // The delivered file is measured itself: its AAC true peak stays under the ceiling.
+    const silent = path.join(tmp, 'silent.mp4'), delivered = path.join(tmp, 'delivered.mp4');
+    assert.equal(spawnPython('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'color=c=black:s=320x568:r=30:d=14', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', silent], {encoding: 'utf8'}).status, 0);
+    const muxed = spawnPython('python3', ['-B', sound, 'mix', planned, '--video', silent, '--out', delivered], {encoding: 'utf8'});
+    assert.equal(muxed.status, 0, muxed.stderr + muxed.stdout);
+    const result = JSON.parse(muxed.stdout).delivered;
+    assert.ok(result.measured_on === 'the delivered AAC' && result.true_peak_db <= -0.95 && Math.abs(result.lufs + 14) <= 2, muxed.stdout);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });

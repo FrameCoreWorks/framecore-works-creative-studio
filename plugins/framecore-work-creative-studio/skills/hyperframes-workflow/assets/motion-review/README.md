@@ -38,7 +38,10 @@ Run it after a build and before presenting a motion review; repair every error a
 
 ```sh
 python critique.py video.motion.json --out critique-r1
+python critique.py video.motion.json --video video.mp4 --out critique-r1
 ```
+
+With `--video` the frames come from the delivered video itself (decoded with ffmpeg) instead of the bundled renderer: use it whenever the video was drawn by a renderer written for the project, so the critique judges what the viewer will see.
 
 | Area | Rule (severity) |
 | --- | --- |
@@ -50,6 +53,7 @@ python critique.py video.motion.json --out critique-r1
 | motion | lines arrive 3 frames to 0.5 s apart (warning) |
 | contrast | foreground against background at least 4.5:1 (error) |
 | layout | in every hold frame of every format: something is visible, nothing touches the frame edge (error), and in 9:16 nothing sits in the bottom 14% or top 8% where Reels and TikTok draw their interface (warning) |
+| composition | in 9:16, a content block shorter than 60% of the height is centred between 30% and 62% of it, so neither half of the frame is left empty (warning) |
 
 The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result; the exit code is 1 when errors remain. Frames that cannot be drawn here (an SVG mark without `cairosvg`) are reported as `not_run` and the timing rules still apply.
 

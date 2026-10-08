@@ -10,6 +10,7 @@ no browser, no network.
 
   python critique.py video.motion.json --out critique            # report, findings and contact sheet
   python critique.py video.motion.json --out critique --no-frames  # timing and text rules only
+  python critique.py video.motion.json --video video.mp4 --out critique  # judge the delivered video's own frames
 
 Exit code: 0 no errors, 1 errors found, 2 setup problem. Errors must be fixed before delivery; warnings are fixed
 unless the brief asks for the effect on purpose (say which and why).
@@ -34,6 +35,7 @@ END_HOLD_SECONDS = 1.5
 HOOK_SECONDS = 1.5
 REELS_BOTTOM_ZONE = 0.14     # captions, buttons and the account name cover the bottom of a 9:16 feed
 REELS_TOP_ZONE = 0.08
+BALANCE = (0.3, 0.62)         # where the centre of a 9:16 frame's content should sit, as a share of the height
 PENALTY = {'error': 15, 'warning': 5, 'note': 0}
 
 
@@ -82,6 +84,28 @@ def scene_copy(scene, score):
 def words(texts):
     """Words as a reader counts them: whitespace-separated tokens with a letter or digit (a URL is one word)."""
     return sum(sum(1 for token in text.split() if re.search(r'\w', token)) for text in texts)
+
+
+class VideoFrames:
+    """Frames of a delivered video, for hosts whose own renderer drew it: decoded with ffmpeg at the contract's size."""
+
+    def __init__(self, path, score):
+        import shutil
+        import subprocess
+        from PIL import Image
+        ffmpeg = shutil.which('ffmpeg')
+        if not ffmpeg:
+            raise RuntimeError('ffmpeg is needed to read frames from a video')
+        self.size = (score['width'], score['height'])
+        raw = subprocess.run([ffmpeg, '-v', 'error', '-i', path, '-vf', f'scale={self.size[0]}:{self.size[1]}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'],
+                             capture_output=True, check=True).stdout
+        frame_bytes = self.size[0] * self.size[1] * 3
+        self.frames = [raw[i:i + frame_bytes] for i in range(0, len(raw) - frame_bytes + 1, frame_bytes)]
+        self.image = Image
+
+    def frame(self, n):
+        n = max(0, min(len(self.frames) - 1, int(n)))
+        return self.image.frombytes('RGB', self.size, self.frames[n])
 
 
 class Critique:
@@ -159,16 +183,19 @@ class Critique:
             if spread < 0.06:
                 self.add('note', 'pace', 'scenes', 'every scene lasts the same time; the rhythm may feel mechanical', 'give the key line or the reveal a longer beat')
 
-    def pictures(self, out, formats):
-        """Render the review frames, check content against edges and interface zones, write a contact sheet."""
+    def pictures(self, out, formats, video=None):
+        """Render the review frames (or read them from the delivered video), check content against edges, interface
+        zones and balance, write a contact sheet."""
         from PIL import Image, ImageChops, ImageDraw
         r = load_renderer()
         sections = []
+        if video:
+            formats = ['base']
         for format_id in formats:
             sheet_tiles = []
             sections.append(sheet_tiles)
             score = r.resolve_format(self.score, format_id) if format_id != 'base' else self.score
-            renderer = r.Renderer(score)
+            renderer = VideoFrames(video, score) if video else r.Renderer(score)
             width, height = score['width'], score['height']
             frames = set(r.check_frames(score))
             for scene in score['scenes']:
@@ -197,6 +224,11 @@ class Critique:
                             self.add('error', 'layout', where, f'content reaches the frame edge (box {x0},{y0} to {x1},{y1})',
                                      'reduce the text size or the line length, or raise tokens.marginRatio')
                         if not full_bleed and height > width * 1.5:
+                            centre = (y0 + y1) / 2 / height
+                            if not BALANCE[0] <= centre <= BALANCE[1] and (y1 - y0) < 0.6 * height:
+                                self.add('warning', 'composition', where, f'the content block is centred at {centre:.0%} of the height; '
+                                         f'{"the lower" if centre < BALANCE[0] else "the upper"} part of the frame is left empty',
+                                         'centre the block near 45% of the height, or fill the empty part with the scene\'s visual (a device, a chart, the mark)')
                             if y1 > height * (1 - REELS_BOTTOM_ZONE):
                                 self.add('warning', 'layout', where, f'content reaches the bottom {int(REELS_BOTTOM_ZONE * 100)}% of a 9:16 frame, where Reels and TikTok show captions and buttons',
                                          'set tokens.safeArea.bottom to 0.14 or move the block up')
@@ -245,6 +277,7 @@ def main(argv=None):
     parser.add_argument('contract')
     parser.add_argument('--out', help='folder for critique.json and contact-sheet.png; never overwritten')
     parser.add_argument('--no-frames', action='store_true', help='timing and text rules only; no rendering')
+    parser.add_argument('--video', help='judge the frames of this delivered video instead of rendering them (for a custom renderer)')
     args = parser.parse_args(argv)
     try:
         with open(args.contract, encoding='utf-8') as handle:
@@ -260,8 +293,8 @@ def main(argv=None):
         if not args.no_frames:
             formats = ['base'] + [f['id'] for f in score.get('formats') or [] if f.get('id')]
             try:
-                sheet = critique.pictures(args.out, formats)
-                frames_status = 'checked'
+                sheet = critique.pictures(args.out, formats, args.video)
+                frames_status = 'checked in the delivered video' if args.video else 'checked'
             except Exception as error:  # the timing rules still stand when a frame cannot be drawn here
                 frames_status = f'not_run: {error}'
         result = critique.report()
