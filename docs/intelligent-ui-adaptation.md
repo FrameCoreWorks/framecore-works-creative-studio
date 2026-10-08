@@ -1,6 +1,6 @@
 # Intelligent UI adaptation
 
-Change CC-20261008-03, branch `cloud-code/CC-20261008-03-intelligent-ui`, baseline `2704f917535c723afe2c039b1cca67e6da0b5422` (package 1.34.0). Written 2026-10-08 on the owner's request: adapt every active Studio module to ChatGPT's native Intelligent UI without a separate plugin, MCP server, app or component system. No version bump, release, publication or hosted plugin update is part of this change.
+Change CC-20261008-03, branch `cloud-code/CC-20261008-03-intelligent-ui`, baseline `2704f917535c723afe2c039b1cca67e6da0b5422` (package 1.34.0). Written 2026-10-08 on the owner's request: adapt every active Studio module to ChatGPT's native Intelligent UI without a separate plugin, MCP server, app or component system. Released as 1.35.0 on the owner's later instruction; the hosted ChatGPT plugin is not updated by this change.
 
 ## 1. Research synthesis
 
@@ -123,7 +123,7 @@ Run in ordinary ChatGPT, Chat tab, GPT-6 at any level from Instant to Extra High
 
 ## 7. Status
 
-- Source and structure validation: PASS on the branch, except the installer inventory test (16 failures from `config/install-sources.json`, which describes the released 1.34.0 package). In a scratch copy with the manifest regenerated, installer, GEPA and packaging passed; the regeneration is not committed because it belongs to a release.
+- Source and structure validation: PASS for release 1.35.0, with the install manifest regenerated ([record](../verification/release-1.35.0.json)). Before the release, the branch commit failed only the installer inventory test, as expected for unreleased package changes.
 - Instruction behavior: trace above; no model run.
 - Host behavior: NOT_RUN.
 - Medium assessment: not applicable (no media produced).

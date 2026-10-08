@@ -1,0 +1,39 @@
+{
+  "version": "1.35.0",
+  "baseline": "2704f917535c723afe2c039b1cca67e6da0b5422",
+  "change_id": "CC-20261008-03",
+  "origin": "cloud-code",
+  "files": 908,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/audio-production-director/SKILL.md",
+    "skills/ecommerce-campaign-strategy-director/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/output-critic-iteration/references/review-and-repair.md",
+    "skills/pipeline-core/references/prompt-format-and-continuity.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/learning-mode.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "skills/workflow-orchestrator/references/studio-contract.md"
+  ],
+  "unchanged_count": 887,
+  "added": [
+    "evals/presentation-cases.json",
+    "scripts/validate-presentation.mjs",
+    "skills/pipeline-core/references/presentation-and-interaction.md",
+    "tests/presentation.test.mjs"
+  ],
+  "removed": [],
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes in one sentence routing later stages to the presentation policy and in the generated PACKAGE IDENTITY block; the startup welcome blocks are unchanged."
+}

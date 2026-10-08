@@ -1,10 +1,10 @@
 # Changelog
 
-## Unreleased (branch cloud-code/CC-20261008-03-intelligent-ui)
+## 1.35.0, 2026-10-08
 
 - Presentation and interaction for ChatGPT's Intelligent UI. One shared policy (`pipeline-core/references/presentation-and-interaction.md`), reached by every skill through the integration authority, decides per stage between text and a native element (comparison, one-variable experiment, timeline, form, chart) and always keeps an equivalent text path. Interactions are views of the existing Project State: only real events count, resolved choice groups expire, a stale view never overrides a newer revision, and a selection never authorizes paid generation, upload or publication. Short adaptations in learning, concepts, storyboard and motion, prompts, campaigns and QA, and audio. The startup welcome, menus, onboarding and locks are unchanged.
 - `scripts/validate-presentation.mjs` in the canonical validator, `tests/presentation.test.mjs` and 17 planned host scenarios in `evals/presentation-cases.json` (not run).
-- Not released: no version change; `config/install-sources.json` is regenerated at the next release.
+- How ChatGPT renders these answers is not verified in a host yet.
 
 ## 1.34.0, 2026-10-08
 

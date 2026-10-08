@@ -658,20 +658,20 @@ Cross-host state:
 - Origin: cloud-code
 - Branch: `cloud-code/CC-20261008-03-intelligent-ui`
 - Baseline: `2704f917535c723afe2c039b1cca67e6da0b5422` (main, package 1.34.0)
-- Result: the branch commit carrying this entry; not integrated into `main`
-- Package version: 1.34.0, unchanged (no release on owner instruction)
+- Result: `7872bfdea5a30575a197e064fa85d4b579da2972` (adaptation) and the release commit carrying this entry (package 1.35.0)
+- Package version: 1.34.0 -> 1.35.0
+- Owner decision 2026-10-08: every change ends with a full release commit and push to `main` (a GitHub release follows from the release workflow); this replaces the earlier instruction that excluded publication. The hosted ChatGPT plugin is still updated only on the owner's instruction
 - Scope: adaptation of every active module to ChatGPT's native Intelligent UI through one shared presentation policy, short domain routes, a structural validator, mutation tests and planned host scenarios ([record](intelligent-ui-adaptation.md))
-- Shared package changed: yes; 12 changed, 4 added, 0 removed
+- Shared package changed: yes; 17 changed, 4 added, 0 removed ([scope](../verification/scope-1.35.0.json))
 
 Verification:
 
 - canonical validator: PASS
-- Node suites 197 passing (+3 opt-in browser tests skipped), including 10 presentation tests, identity, benchmark and asset suites: PASS
-- installer suite: 16 failures from the release-time inventory (`config/install-sources.json` describes 1.34.0); with the manifest regenerated in a scratch copy, installer, GEPA and packaging passed
+- Node CI set 175 (+3 opt-in browser tests passing), motion-quality 12, presentation 10, installer 12, identity 4, GEPA pilot 8, asset 23, benchmark script 3: PASS ([record](../verification/release-1.35.0.json))
 - instruction trace of 17 scenarios: one conflict found and repaired (plain-text request versus the storyboard table); host behavior: not_run
 
 Cross-host state:
 
-- GitHub: branch pushed; `main` unchanged
+- GitHub: release commit pushed to `main` on owner instruction; publication record pending
 - ChatGPT Work: not_run (no hosted update authorized)
 - Codex: not_run

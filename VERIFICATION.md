@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.34.0
+## Current source: 1.35.0
+
+The [1.35.0 source checks](verification/release-1.35.0.json) pass canonical validation and 247 tests: 175 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 10 presentation, 12 installer, 4 identity, 8 GEPA pilot, 23 asset and 3 benchmark-script checks. The release adapts every active module to ChatGPT's Intelligent UI through one shared presentation policy with an equivalent text path and state rules; 17 planned presentation scenarios were traced against the instructions (one conflict repaired), not run in a host. Host behavior of 1.35.0 is not verified. [Scope](verification/scope-1.35.0.json) records 17 changed and 4 added shared files out of 908.
+
+## Previous source: 1.34.0
 
 The [1.34.0 source checks](verification/release-1.34.0.json) pass canonical validation and 237 tests: 175 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot, 23 asset and 3 benchmark-script checks. The release adds the craft critique with a mandatory improvement round, critique of the delivered video's own frames, a measured AAC delivery and recorded user choices, from the owner's four-step ChatGPT Work test of 1.33.0 (GPT 6.1 Sol): all four videos passed the technical checks, steps 1 to 3 were approved by ear and step 4 was rejected as a direction. Host behavior of 1.34.0 is not verified. [Scope](verification/scope-1.34.0.json) records 14 changed and 1 added shared files out of 904.
 

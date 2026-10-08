@@ -1,10 +1,10 @@
-# Creative Studio 1.34.0
+# Creative Studio 1.35.0
 
-Every video is reviewed and improved before you see it.
+Answers that fit the task, in ChatGPT's new interactive layout.
 
-- **A critic built in.** Studio scores each video against a motion designer's rules: can every line be read in time, does something happen in the first second, does the pace hold, does the ending land, does text stay clear of the phone's buttons and captions. Every finding comes with a concrete fix.
-- **One improvement round, always.** Studio fixes what the critic found, renders again and tells you the score before and after. A first draft is never delivered unreviewed.
-- **Delivered sound, measured.** The finished file's loudness and peak are measured in the file itself and corrected when needed.
-- **Your choices are kept and shown.** When you fix the key, the instrument or the kind of sound, the project records it as yours.
+- **The right form at each step.** In ordinary ChatGPT, Studio now suggests where a comparison, a timeline, a small experiment or a checklist helps: comparing poster directions side by side, trying one easing at a time while learning, seeing a storyboard on a timeline, checking a campaign matrix. ChatGPT decides what it actually shows, so layouts can differ between conversations and devices.
+- **Copy stays copyable.** Prompts, copy, scripts and lyrics always come as plain text you can copy.
+- **Nothing depends on the view.** Every view has the same content in text, so Work, Codex, Voice and older desktop apps get the full answer. Ask for plain text and Studio keeps to it.
+- **Clicks are not decisions.** Studio records a choice only when you make it, keeps it with your project, and never treats a choice as permission to generate, upload or publish.
 
-Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the complete welcome, menus, learning onboarding and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
