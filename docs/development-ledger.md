@@ -606,3 +606,25 @@ Cross-host state:
 - Owner listening: lowered whooshes approved before publication
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261007-15
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261007-15-sound-refinement`
+- Baseline: `ed8b70c5c1007eb739dcb387ee944c93e495b153` (main, package 1.32.0)
+- Result: the release commit on the branch (package 1.33.0); ten earlier commits on the branch record the audit, palettes, owner-rejected knock and snare, candidate sounds, sound direction and the generative engine
+- Package version: 1.32.0 -> 1.33.0
+- Scope: measured sound audit and fixes; then, on the owner's direction, sound and music designed anew for every video (contract analysis, generated effect recipes, composed music, quality gate, level checks); fixed minor-key chords and a 27 dB levelling error found by owner listening
+- Shared package changed: yes; 15 changed, 6 added, 0 removed ([scope](../verification/scope-1.33.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 174 (+3 opt-in browser tests passing), motion-quality 12, installer 12, identity 4, GEPA pilot 8, asset 23: PASS
+- 20 designs of four examples: no timing failure (worst 1.46 ms); example mixes -14.0 to -14.3 LUFS; owner listening: approved after the landing swoosh fix; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending
+- ChatGPT Work: owner-managed
+- Codex: owner-managed

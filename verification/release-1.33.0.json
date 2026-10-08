@@ -1,0 +1,85 @@
+{
+  "version": "1.33.0",
+  "date": "2026-10-08",
+  "baseline": "ed8b70c5c1007eb739dcb387ee944c93e495b153",
+  "change_id": "CC-20261007-15",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 903,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "executed": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 plugins/framecore-work-creative-studio/tests/{studio,workflow-kit,creative-upgrade,learning-mode,quality-methods,motion-toolkit}.test.mjs",
+      "status": "PASS",
+      "tests": 177,
+      "passed": 174,
+      "skipped": 3,
+      "skip_reason": "Opt-in browser review, export and player tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 58
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/motion-quality.test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "NOT_RUN"
+  },
+  "plugin_zip_sha256": "e757c75b753e8bb405aedfe4e9144cddbf3b241c2437a89aed611e0d6641cf07",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks, container mixes and the owner listening to container renders; how ChatGPT or ChatGPT Work run the sound tools is not verified. All 201 planned cases remain not_run.",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "runs": {
+    "design": "every video is analysed and its effects and music designed anew (generate.py, compose.py, recipe.py); 200 designs for one profile gave 71 distinct major and 38 distinct minor progressions; effects for one video designed in about 0.25 s",
+    "timing": "20 designs of four examples planned and checked: no timing failure, worst judged hit 1.46 ms; the reveal on the music downbeat within 0.01 ms",
+    "loudness": "example mixes -14.0 to -14.3 LUFS, true peak at most -1.5 dBTP before encoding; every designed role within 5 dB of its approved level (the landing swish 6 to 16 dB under the old knock)",
+    "quality_gate": "every designed sound keeps no third of an octave above 150 Hz over 70 to 85 percent of its energy by role, or is designed again",
+    "owner_listening": "2026-10-07 and 2026-10-08: audit fixes and palettes heard; knock and snare rejected as flat and empty; the owner then asked for newly designed sound for every video; generative renders heard, the opening landing swoosh judged too loud and not swoosh-like, fixed (a levelling bug of about 27 dB) and approved",
+    "player_template": "motion-preview.html unchanged"
+  }
+}

@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.32.0
+## Current source: 1.33.0
+
+The [1.33.0 source checks](verification/release-1.33.0.json) pass canonical validation and 233 tests: 174 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the sound tests run where Python with numpy and ffmpeg are installed. The release designs sound and music anew for every video: each contract is analysed, every effect is designed as a recipe and the music is composed new, with a quality gate against near-pure tones. In container runs, 20 designs of four examples had no timing failure (worst judged hit 1.46 ms) and example mixes were -14.0 to -14.3 LUFS. The owner listened to the renders and approved them after one fix. Host behavior is not verified. [Scope](verification/scope-1.33.0.json) records 15 changed and 6 added shared files out of 903.
+
+## Previous source: 1.32.0
 
 The [1.32.0 source checks](verification/release-1.32.0.json) pass canonical validation and 232 tests: 173 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 12 installer, 4 identity, 8 GEPA pilot and 23 asset checks; the sound tests run where Python with numpy and ffmpeg are installed. The release adds studio-standard sound design and a composed music bed. In container mixes of three examples every judged hit landed within 2 ms of its frame, loudness was -14.1 to -15.7 LUFS and true peak at most -1.05 dBTP. The owner listened to the first renders: music and clicks approved, whooshes lowered afterwards. Host behavior is not verified. [Scope](verification/scope-1.32.0.json) records 16 changed and 4 added shared files out of 897.
 

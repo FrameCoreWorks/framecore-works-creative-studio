@@ -1,9 +1,10 @@
-# Creative Studio 1.32.0
+# Creative Studio 1.33.0
 
-A full sound track for every motion video.
+New sound and new music for every video.
 
-- **Sound that follows the picture.** Studio reads the timing of your animation and designs a sound for every action that matters: a whoosh that lasts exactly as long as the move, a click on every tap, a soft knock as text lands, a deep hit on the final reveal.
-- **Music composed for your video.** A music bed in the right tempo and key for the style, building through the scenes and peaking on the end card. Your own track or voice-over can replace or join it.
-- **Studio quality, exactly in sync.** Every sound is designed in layers and mixed to the loudness Reels and Shorts expect. A built-in check confirms each hit sits on its frame, within 2 ms.
+- **Designed for this video, every time.** Studio reads your animation and your brief, understands its mood (calm, bold, playful, technical, organic, editorial) and its pace, and designs every sound from scratch: how text lands, how scenes pass, how the final card hits.
+- **Music composed for your video.** A new chord progression, rhythm, melody and instruments each time, in the character of your style, landing on the beat of your final reveal and resolving as the video ends.
+- **Ask for another take.** Not quite right? Studio designs a new variation, or keeps what you like and changes one thing: the key, the instrument, the kind of sound.
+- **Studio quality, exactly in sync.** Every sound passes a quality check, every hit sits on its frame, and the mix is mastered to the loudness Reels and Shorts expect.
 
 Startup, the complete welcome and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
