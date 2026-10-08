@@ -32,6 +32,7 @@ The browser needs WebCodecs video encoding and must allow reading back a canvas 
 | --- | --- |
 | Chromium 1194 (Linux, development container) | Verified: WebM VP9 and VP8; H.264 encoding not offered by this build |
 | Chrome or Edge on Windows or macOS | Expected to offer H.264, not verified |
+| Android phone browser (owner report, 2026-10-07; browser not identified) | Reported: an MP4 with H.264 (`avc1.640028`), 1920 x 1080, 180 frames, exported and played, from a page that reproduced this exporter in reformatted form rather than the template's verbatim copy |
 | Firefox | Not verified |
 | Safari | Not verified; drawing `foreignObject` may block reading the canvas |
 

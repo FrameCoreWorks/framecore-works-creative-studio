@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.39.0, 2026-10-08
+
+Checks and tools first, from the full review (the repository's docs/reviews/full-review-2026-10-08.md):
+
+- The sound timing check no longer passes without measuring. The mix now judges every cue in a solo render, with the seed it has in the mix, so no neighbouring sound can mask a hit: on color-block 8 of 8 cues are judged instead of 1, and on all four examples every hit lands within 0.15 ms of its frame. Every timing summary carries `status` (`checked`, `partly_judged`, `not_judged`, `missing` or `by_construction`); `sound.py check` on a whole effects track exits 3 when cues sat too close together to be judged, as the craft critique does for frames it could not see.
+- Copy containing `</script>` or `<!--` no longer breaks the HTML preview. The contract is embedded with every `<` written as `\u003c`, and `check-preview.mjs` rejects a raw one; before, the checker passed a file the browser could not open.
+- One reading-time rule. `check-score.mjs` and the craft critique both use the motion-craft rule: the longer of 13 characters per second plus 0.5 s and 0.5 s plus a third of a second per word, at least 1 s. Before, the two tools disagreed by up to half a second on the same line.
+- The improvement round stays inside the shared budget: at most two repair rounds after the first review, and an error left after the second is named in the reply.
+- The renderer guide says an SVG logo needs `cairosvg` and to ask for a PNG up front where no shell is available; the export guide records the owner's Android H.264 report.
+- Outside the package: the native Codex entry no longer says "seven work areas" (the menu has had eight since area 8 was added) and a test guards the count; CI installs ffmpeg, numpy and Pillow, so the renderer, critique and sound tests run there too (15 tests were skipped before), with `actions/checkout` on Node 24; the release-notes refresh reads the publication record (it had skipped silently since 1.8.x); the historical legacy suite is compared with its recorded known failures (`tests/legacy-baseline.json`) instead of being reported as numbers; a browser test compares the Python renderer with the browser engine pixel by pixel; README, install guide and records corrected.
+
 ## 1.38.0, 2026-10-08
 
 - The music no longer winds down for the rest of a video whose final reveal comes early. When more than 1.5 bars and 3 s remain after the reveal (an end card held for half the video, as in the owner's Bounce Party test), the composed music marks the reveal with a cymbal, plays on at full energy, eases in the bar before the last, leads home and resolves in the last bar (`soundDesign.music.endBar`). Measured on an 8 s spot with the reveal at 4 s: the level from 4 to 7 s stays within 0.5 dB of the build-up instead of falling 13 dB. A reveal near the end resolves on the reveal as before.

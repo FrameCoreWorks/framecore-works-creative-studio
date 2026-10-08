@@ -41,7 +41,8 @@ export function previewFor(input) {
   }
   const score = JSON.parse(text);
   const template = fs.readFileSync(templatePath, 'utf8');
-  return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2) + close), score};
+  // Every '<' is written as \u003c, so copy such as '</script>' can never end the script element; JSON.parse restores it.
+  return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2).replace(/</g, '\\u003c') + close), score};
 }
 
 export function findBrowser(explicit) {

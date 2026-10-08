@@ -26,6 +26,13 @@ export const knownSceneKinds = Object.keys(sceneKinds);
 const soundDesigns = ['whoosh', 'impact', 'boom', 'riser', 'click', 'release', 'tick', 'knock', 'landing', 'tap', 'pop', 'swish', 'shimmer'];
 const text = value => typeof value === 'string' && value.trim().length > 0;
 
+/** Reading time in seconds from references/motion-craft.md, the same rule as the craft critique (critique.py):
+ * the longer of 13 characters per second plus 0.5 s to settle and 0.5 s plus a third of a second per word, at least 1 s. */
+export function readingSeconds(text) {
+  const words = String(text).split(/\s+/).filter(token => /[\p{L}\p{N}]/u.test(token)).length;
+  return Math.max(1, String(text).length / 13 + 0.5, 0.5 + words / 3);
+}
+
 export function checkScore(score, {storyboard = false} = {}) {
   const errors = [], warnings = [];
   if (score.schema_version !== undefined && score.schema_version !== 1) errors.push(`schema_version must be the number 1, not ${JSON.stringify(score.schema_version)}`);
@@ -45,14 +52,15 @@ export function checkScore(score, {storyboard = false} = {}) {
     if (!(Number.isSafeInteger(scene.start) && Number.isSafeInteger(scene.end) && scene.start >= 0 && scene.end <= n && scene.end > scene.start)) errors.push(`${scene.id}: invalid [start,end)`);
     if (scene.start > coverage) errors.push(`${scene.id}: frames ${coverage}..${scene.start - 1} are not covered`);
     coverage = Math.max(coverage, scene.end);
-    const characters = (scene.copy ?? []).map(id => {
+    const shown = (scene.copy ?? []).map(id => {
       if (typeof score.copy?.[id] !== 'string') errors.push(`${scene.id}: copy id ${id} is missing`);
       return score.copy?.[id] ?? '';
-    }).join(' ').length;
+    }).join(' ');
+    const characters = shown.length;
     const holds = scene.holds ?? [];
     for (const [start, end] of holds) if (!(start >= scene.start && end <= scene.end && end > start)) errors.push(`${scene.id}: hold [${start},${end}) outside the scene`);
     if (characters && Number.isFinite(fps)) {
-      const needed = Math.ceil(Math.max(1, characters / 13 + 0.5) * fps);
+      const needed = Math.ceil(readingSeconds(shown) * fps);
       const longest = Math.max(0, ...holds.map(([start, end]) => end - start));
       if (longest < needed) warnings.push(`${scene.id}: longest hold ${longest} frames is below the reading heuristic of ${needed} frames for ${characters} characters`);
     }
@@ -169,7 +177,7 @@ function checkSound(score, errors, warnings) {
     if (typeof score.copy?.[caption.copy] !== 'string') { errors.push(`caption ${id}: copy id ${caption.copy} is missing`); continue; }
     const characters = score.copy[caption.copy].length;
     if (Number.isFinite(fps)) {
-      const needed = Math.ceil(Math.max(1, characters / 13 + 0.5) * fps);
+      const needed = Math.ceil(readingSeconds(score.copy[caption.copy]) * fps);
       if (caption.end - caption.start < needed) warnings.push(`caption ${id}: ${caption.end - caption.start} frames is below the reading heuristic of ${needed} frames for ${characters} characters`);
     }
   }

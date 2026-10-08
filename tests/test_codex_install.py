@@ -1,6 +1,7 @@
 """Bounded filesystem checks; no native host activation or model evaluation."""
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -69,6 +70,19 @@ class InstallationChecks(unittest.TestCase):
             self.assertEqual((self.bundle / relative).read_bytes(), (ROOT / 'plugins/framecore-work-creative-studio' / relative).read_bytes())
         self.assertNotIn('explicit-language rule', entry)
         self.assertNotIn('entire fixed welcome', entry)
+
+    def test_native_entry_never_miscounts_the_work_area_menu(self):
+        self.run_helper('install')
+        entry = (self.skills / 'framecore-work-creative-studio/SKILL.md').read_text()
+        menus = (ROOT / 'plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md').read_text()
+        block = menus.split('**Wybierz obszar pracy', 1)[1].split('\n>\n', 1)[0]
+        areas = len(re.findall(r'^> \d+\. ', block, re.M))
+        self.assertGreaterEqual(areas, 8)
+        words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
+        for count in re.findall(r'\b(\w+)\s+work[- ]areas\b', entry, re.I):
+            stated = int(count) if count.isdigit() else words.index(count.lower()) if count.lower() in words else None
+            self.assertIn(stated, (None, areas), 'the native entry states a different work-area count: ' + count)
+        self.assertIn('motion graphics included', entry)
 
     def test_native_version_question_rereads_the_same_bundle_entry(self):
         self.run_helper('install')

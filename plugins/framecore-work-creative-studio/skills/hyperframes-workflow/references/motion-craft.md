@@ -47,7 +47,7 @@ Keep the total stagger of a group shorter than its own entry duration so the gro
 
 ## Readable holds
 
-A hold begins when the whole phrase is legible, not when its animation starts. Starting heuristic: about 13 characters per second plus 0.5 seconds to settle, with a minimum of 1 second. Example: a 26-character line needs about 2.5 seconds, 75 frames at 30 FPS. A second check counts words: half a second plus a third of a second per word, from the moment the last word has landed and stopped moving (kaventro/motion-designer); use the longer of the two. Increase it for small viewing sizes, dense layouts, secondary languages or data that must be compared. Confirm by watching at the intended size; the heuristic is not a reading standard.
+A hold begins when the whole phrase is legible, not when its animation starts. Starting heuristic: about 13 characters per second plus 0.5 seconds to settle, with a minimum of 1 second. Example: a 26-character line needs about 2.5 seconds, 75 frames at 30 FPS. A second check counts words: half a second plus a third of a second per word, from the moment the last word has landed and stopped moving (kaventro/motion-designer); use the longer of the two, at least 1 second. `check-score.mjs` and the craft critique (`critique.py`) apply exactly this rule. Increase it for small viewing sizes, dense layouts, secondary languages or data that must be compared. Confirm by watching at the intended size; the heuristic is not a reading standard.
 
 ## Vocabulary and signature
 

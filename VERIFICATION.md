@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.38.0
+## Current source: 1.39.0
+
+The [1.39.0 source checks](verification/release-1.39.0.json) pass canonical validation and `scripts/check_all.sh`: 195 Node tests (191 passing, 4 opt-in browser tests skipped there and run separately: 65 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks; the historical legacy suite matches its recorded baseline (134 known validator errors, 20 of 67 tests failing as recorded). The release makes the checks honest: the sound mix judges every cue in a solo render (color-block 8 of 8 instead of 1; every hit within 0.15 ms on all four examples) and every timing summary states what it covers; the HTML preview embeds a contract safely even when its copy contains `</script>`, verified in Chromium; `check-score.mjs` and the critique share one reading-time rule; the Python renderer is compared with the browser engine pixel by pixel in the browser suite. Host behavior of 1.39.0 is not verified. [Scope](verification/scope-1.39.0.json) records 20 changed shared files out of 908.
+
+## Previous source: 1.38.0
 
 The [1.38.0 source checks](verification/release-1.38.0.json) pass canonical validation and `scripts/check_all.sh`: 188 Node tests (plus 3 opt-in browser tests, run separately and passing: 61 in the browser run), 12 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks. The release keeps the composed music playing after an early reveal and resolves it in the last bar: on an 8 s spot with the reveal at 4 s the level from 4 to 7 s stays within 0.5 dB of the build-up instead of falling 13 dB. The owner compared the color-block renders before and after and approved the new ending (PASS_REPORTED); host behavior is not verified. [Scope](verification/scope-1.38.0.json) records 12 changed shared files out of 908.
 

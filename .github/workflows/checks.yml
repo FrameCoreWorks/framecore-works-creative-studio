@@ -1,7 +1,8 @@
 name: Check Studio sources
 
 # Runs on every push and pull request, separate from publication: the same checks as the release workflow
-# (scripts/check_all.sh), plus the historical legacy suite as its own, non-blocking status.
+# (scripts/check_all.sh) with the renderer, critique and sound dependencies installed, plus the historical
+# legacy suite compared with its recorded baseline (tests/legacy-baseline.json).
 on:
   push:
   pull_request:
@@ -13,11 +14,16 @@ permissions:
 jobs:
   checks:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           persist-credentials: false
+      - name: Install ffmpeg, numpy and Pillow for the media tests
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends ffmpeg
+          python3 -m pip install --no-deps --only-binary :all: -r requirements-ci.txt
       - name: Current checks
         env:
           PYTHONDONTWRITEBYTECODE: "1"
@@ -27,10 +33,11 @@ jobs:
   legacy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    continue-on-error: true
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           persist-credentials: false
-      - name: Historical validator (known failures, reported separately, never a release gate)
-        run: node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs --legacy
+      - name: Historical legacy suite matches its recorded baseline (known failures stay known; any change fails)
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 scripts/check_legacy_baseline.py

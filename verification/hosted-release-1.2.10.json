@@ -48,7 +48,7 @@
   "codex_cache": {
     "version": "1.2.10",
     "files_byte_equal": 736,
-    "cache_path": "/Volumes/Codex/CodexHome/.codex/plugins/cache/created-by-me-remote/framecore-work-creative-studio/1.2.10",
+    "cache_path": "<local Codex home>/.codex/plugins/cache/created-by-me-remote/framecore-work-creative-studio/1.2.10",
     "scope": "Installed cache files only; running-client routing and behavior untested"
   }
 }

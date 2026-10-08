@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           persist-credentials: false
       - name: Update description only after version and source checks
@@ -28,10 +28,16 @@ jobs:
           body = pathlib.Path('RELEASE_NOTES.md').read_text()
           if not body.startswith('# Creative Studio ' + version + '\n'):
               raise SystemExit('Notes version does not match the package')
-          report = json.loads(pathlib.Path('verification/release-' + version + '.json').read_text())
-          expected = report.get('publication', {}).get('source_commit')
+          # The publication record (written after the release workflow ran) names the released commit; older
+          # releases kept it in the release record. In the release commit itself neither exists yet, and the
+          # release workflow publishes these notes, so the refresh has nothing to do.
+          publication = pathlib.Path('verification/github-publication-' + version + '.json')
+          release_record = pathlib.Path('verification/release-' + version + '.json')
+          expected = json.loads(publication.read_text()).get('commit') if publication.exists() else None
+          if not expected and release_record.exists():
+              expected = json.loads(release_record.read_text()).get('publication', {}).get('source_commit')
           if not expected:
-              print('Release source is not confirmed yet; description refresh skipped.')
+              print('No publication record for ' + version + ' yet: the release workflow publishes these notes itself; nothing to refresh.')
               raise SystemExit(0)
           def api(path, payload=None):
               cmd = ['gh', 'api', 'repos/' + repo + '/' + path]

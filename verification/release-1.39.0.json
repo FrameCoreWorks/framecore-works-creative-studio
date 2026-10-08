@@ -1,0 +1,84 @@
+{
+  "version": "1.39.0",
+  "date": "2026-10-08",
+  "baseline": "0205fa4d85e37058c94965c4d84b2a4d7ebf432a",
+  "change_id": "CC-20261008-11",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, Python 3.13 with numpy 2.5.3 and Pillow 12.3.0, ffmpeg 6.1.1, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 908,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "planned_presentation_cases": 19,
+      "executed": 0
+    },
+    {
+      "command": "bash scripts/check_all.sh (Node part: studio, workflow-kit, creative-upgrade, learning-mode, quality-methods, motion-toolkit with motion-quality, presentation)",
+      "status": "PASS",
+      "tests": 195,
+      "passed": 191,
+      "skipped": 4,
+      "skip_reason": "Opt-in browser review, export, player and renderer-parity tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 65
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "python3 scripts/check_legacy_baseline.py",
+      "status": "PASS",
+      "detail": "134 known validator errors and 20 of 67 failing tests, identical to tests/legacy-baseline.json; a tampered baseline was detected"
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "sound timing judged in solo renders on all four examples (two-statements 1 of 1, color-block 8 of 8, app-film 12 of 12, all-kinds 33 of 33 cues; every hit within 0.15 ms); sound.py check on whole effects tracks reports not_judged (color-block) and partly_judged (app-film, 7 of 12) with exit 3 instead of a silent pass; a contract with '</script>' in its copy embedded by previewFor opened in Chromium (data-ready, no injected element) and the raw embedding is rejected by check-preview.mjs; reading-time rule identical in check-score.mjs and critique.py on sample texts; no example contract changes its warnings; Python renderer and browser engine compared pixel by pixel on color-block and app-film in the browser suite"
+  },
+  "plugin_zip_sha256": "3b0b437a5e706db7a86a5adcf32a6e64d6fd616692176ec6f28fcc9c2bb8b8dd",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source and container checks only. Host behavior of 1.39.0 is not verified. The new CI dependency step runs first in GitHub Actions with this release.",
+  "source": "owner decision 2026-10-08 after the full review: recommended options, welcome unchanged; this release covers the checks-and-tools part"
+}

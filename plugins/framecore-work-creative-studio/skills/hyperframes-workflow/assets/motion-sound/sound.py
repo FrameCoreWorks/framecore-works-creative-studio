@@ -366,13 +366,15 @@ def render_cue(score, cue, seed, key):
     return recipes.render(recipes.instantiate(designed[role], params), seed)
 
 
-def render_effects(score, cues):
-    """The effects bus and its reverb send, and each cue's hit sample with its alignment kind."""
+def render_effects(score, cues, indexes=None):
+    """The effects bus and its reverb send, and each cue's hit sample with its alignment kind. `indexes` gives each cue's
+    position in the contract's full cue list when only some cues are rendered, so every cue keeps the seed of the mix."""
     fps = score['fps']['num'] / score['fps']['den']
     length = round(score['totalFrames'] / fps * RATE)
     key = ((score.get('soundDesign') or {}).get('music') or {}).get('key', 'D major')
     dry, send, hits = np.zeros((length, 2)), np.zeros((length, 2)), []
-    for index, cue in enumerate(cues):
+    for position, cue in enumerate(cues):
+        index = indexes[position] if indexes is not None else position
         seed = 1000 + ((score.get('soundDesign') or {}).get('seed') or 0) % 9973 + 7 * index
         audio, offset = render_cue(score, cue, seed, key)
         hit = round(cue['frame'] / fps * RATE)
@@ -570,22 +572,42 @@ def check_hits(effects, hits):
 
 
 def timing_check(score):
-    """Check every cue on its own kind of track: transients without whooshes, whooshes without transients."""
+    """Check every cue in a solo render: its own sound alone on the timeline, with the seed it has in the mix, so no
+    neighbour can mask it. Every transient and swell is judged; risers end on their frame by construction."""
     cues = score.get('sfx') or []
     report = []
-    for kinds in (('onset',), ('peak', 'end')):
-        group = [c for c in cues if align_of(score, c) in kinds]
-        if group:
-            effects, _, hits = render_effects(score, group)
-            report += check_hits(effects, hits)
+    for index, cue in enumerate(cues):
+        effects, _, hits = render_effects(score, [cue], [index])
+        report += check_hits(effects, hits)
     return summarize(report)
 
 
 def summarize(report):
-    judged = [r for r in report if r['measured'] and not r['masked']]
+    """Counts and a status that says what the timing claim covers: `checked` (every transient and swell judged),
+    `partly_judged` or `not_judged` (some or all sat too close to another cue to be measured in one track), `missing`
+    (a cue window holds no sound) or `by_construction` (risers only)."""
+    measurable = [r for r in report if r['kind'] != 'end']
+    judged = [r for r in measurable if r['measured'] and not r['masked']]
     missing = sum(1 for r in report if r.get('missing'))
-    return {'cues': len(report), 'judged': len(judged), 'missing': missing, 'max_offset_ms': max((abs(r['offset_ms']) for r in judged), default=0.0),
-            'all_ok': not missing and all(r['ok'] for r in report)}
+    if missing:
+        status = 'missing'
+    elif not measurable:
+        status = 'by_construction'
+    elif len(judged) == len(measurable):
+        status = 'checked'
+    else:
+        status = 'partly_judged' if judged else 'not_judged'
+    return {'cues': len(report), 'judged': len(judged), 'not_judged': len(measurable) - len(judged) - missing, 'by_construction': len(report) - len(measurable),
+            'missing': missing, 'max_offset_ms': max((abs(r['offset_ms']) for r in judged), default=0.0),
+            'all_ok': not missing and all(r['ok'] for r in report), 'status': status}
+
+
+def timing_exit(summary):
+    """0 when every cue is on its frame and the claim is complete, 1 when a cue is off its frame or missing, 3 when the
+    claim is incomplete (cues that could not be judged), as the craft critique does."""
+    if not summary['all_ok']:
+        return 1
+    return 0 if summary['status'] in ('checked', 'by_construction') else 3
 
 
 # ---------------------------------------------------------------- command line
@@ -722,8 +744,11 @@ def main(argv=None):
             cues = score.get('sfx') or []
             hits = [(round(c['frame'] / fps * RATE), align_of(score, c)) for c in cues]
             summary = summarize(check_hits(read_wav(args.wav), hits))
+            if summary['status'] in ('partly_judged', 'not_judged'):
+                summary['note'] = (f"{summary['not_judged']} of {summary['cues']} cues sit too close to another cue to be judged in one track. "
+                                   'For a mix made by sound.py, report the mix timing, which judges every cue in a solo render.')
             print(json.dumps(summary))
-            return 0 if summary['all_ok'] else 1
+            return timing_exit(summary)
         if (score.get('soundDesign') or {}).get('status') == 'stale':
             raise ValueError('The sound design is stale: ' + (score['soundDesign'].get('staleReason') or 'the timing changed') + '. Run sound.py plan on this contract first; it keeps the choices the user fixed.')
         if args.out and not args.video:
@@ -747,7 +772,7 @@ def main(argv=None):
                 summary['delivered'] = deliver(args.video, wav, args.out, score, mastered, tmp)
         summary['wav'] = args.wav
         print(json.dumps(summary))
-        return 0 if timing['all_ok'] else 1
+        return 0 if timing_exit(timing) == 0 else 1
     except (OSError, ValueError, RuntimeError, KeyError, subprocess.CalledProcessError) as error:
         sys.stderr.write(f'{error}\n')
         return 2

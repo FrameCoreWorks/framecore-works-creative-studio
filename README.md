@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.38.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.39.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -83,9 +83,13 @@ Run from the repository root with Node.js and Python 3 available:
 
 ```sh
 node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs
+bash scripts/check_all.sh
+python3 scripts/check_legacy_baseline.py
 python3 scripts/build_install_manifest.py
 python3 scripts/package_release.py
 ```
+
+`scripts/check_all.sh` runs every current check, the same list as the release and checks workflows; with numpy, Pillow and ffmpeg installed (`requirements-ci.txt` and the system ffmpeg) it also runs the renderer, critique and sound tests, which skip without them. The browser tests run when `MOTION_REVIEW_BROWSER` names a local Chrome or Chromium. `scripts/check_legacy_baseline.py` compares the historical legacy suite, which fails by design, with its recorded list of known failures (`tests/legacy-baseline.json`), so any new legacy failure is visible; after an intended change, record it with `--write`.
 
 The packager runs structural validation first and writes a plugin ZIP, a complete repository ZIP and their SHA-256 inventories into `dist/`. It makes no network requests, installs nothing and does not publish a release. It excludes Git internals and local build outputs.
 

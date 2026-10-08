@@ -45,7 +45,7 @@ With `--video` the frames come from the delivered video itself instead of the bu
 
 | Area | Rule (severity) |
 | --- | --- |
-| readability | every scene's words are held long enough to read: words / 3 per second + 0.4 s, at least 0.8 s (error below 85% of it, warning above) |
+| readability | every scene's copy is held long enough to read, by the [motion craft](../../references/motion-craft.md#readable-holds) rule that `check-score.mjs` also uses: the longer of 13 characters per second + 0.5 s and 0.5 s + a third of a second per word, at least 1 s (error below 85% of it, warning above) |
 | text amount | at most 10 words per scene in a vertical video, 14 in a wide one (warning) |
 | pace | a scene with copy lasts at least 1 s; a scene without a second beat lasts at most 6 s or 1.8 times its reading time (warning); equal scene lengths throughout (note) |
 | hook | the first readable moment comes within 1.5 s (warning) |
@@ -57,7 +57,7 @@ With `--video` the frames come from the delivered video itself instead of the bu
 
 The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result. `status` says what the score covers: `checked` (frames inspected, no errors), `issues` (errors remain; exit code 1), `contract_only` (`--no-frames`: the timing and text rules only, no picture certified) or `incomplete` (frames were asked for but could not be read or drawn here, such as a missing or mismatched video or an SVG mark without `cairosvg`; exit code 3). An incomplete review is never a pass, whatever its score: fix the cause or say in the reply that the picture was not inspected.
 
-**The improvement round is part of every delivery.** After the first render: run the critique, look at the contact sheet, fix every error and every warning (or say in the reply which warning is kept on purpose and why), re-render, and run the critique again. Repeat until no error remains; at least one round is made whenever the first critique has a finding. The reply states the score before and after and what was fixed. A first render is never delivered unreviewed.
+**The improvement round is part of every delivery.** After the first render: run the critique, look at the contact sheet, fix every error and every warning (or say in the reply which warning is kept on purpose and why), re-render, and run the critique again. At least one round is made whenever the first critique has a finding, and at most two repair rounds follow the first review, as in the shared [loop protocol](../../../pipeline-core/references/loop-protocol.md): when an error remains after the second repair, stop and deliver with that error named, not hidden. The reply states the score before and after and what was fixed. A first render is never delivered unreviewed.
 
 ## Limits
 

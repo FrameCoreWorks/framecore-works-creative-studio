@@ -762,3 +762,36 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `0d48e79`; the report and this ledger read back from `origin/main` with identical SHA-256; checks workflow 37800294869 success (the separate legacy job fails by design, as before)
 - ChatGPT Work: not_run (package unchanged)
 - Codex: not_run (package unchanged)
+
+## Retroactive notes (recorded under CC-20261008-11)
+
+The full review (F-REC-02, F-REC-03) found changes without an entry and one reused Change ID. They are recorded here instead of rewriting history:
+
+- `CC-20261008-01`: `eb180bb` added the 1.33.0 ChatGPT Work sound test scenario; docs only, package unchanged.
+- `CC-20261008-03` was used twice: first for the 1.33.0 ChatGPT Work sound test records (`eb252fe`, `dc51e51`, `1334b87`, `436d28c`, `f77a923`), then for the Intelligent UI change released as 1.35.0 (`7872bfd`, `ecf6ed0`, `fff1587`), which the entry above describes.
+- `CC-20261008-04`: `173f261` recorded the owner's standing rule in AGENTS.md (push every verified update to `main`); docs only.
+- `CC-20261008-05`: `e3db3e2`, `e8884d8`, `0e2d363` recorded the first Intelligent UI host observations for 1.35.0; records only.
+- `CC-20261008-09`: `0a6036c` added the full review plan; docs only.
+
+## CC-20261008-11
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-11-checks-and-tools`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `0205fa4d85e37058c94965c4d84b2a4d7ebf432a` (main, package 1.38.0)
+- Result: the release commit carrying this entry (package 1.39.0)
+- Package version: 1.38.0 -> 1.39.0
+- Scope: the checks-and-tools part of the [full review](reviews/full-review-2026-10-08.md), with the owner's decisions of 2026-10-08 (recommended options, welcome unchanged): solo-render sound timing with a status, safe contract embedding, one reading-time rule, the improvement round inside the shared budget, renderer and export notes; outside the package the Codex entry's area count with a test, CI dependencies and `actions/checkout` on Node 24, the release-notes refresh, the legacy baseline, a pixel-parity browser test, README, install guide and records
+- Shared package changed: yes; 20 changed, 0 added, 0 removed ([scope](../verification/scope-1.39.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 191 passing of 195 (4 opt-in browser tests; 65 passing in the browser run), installer 13, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.39.0.json))
+- legacy suite: matches `tests/legacy-baseline.json` (134 validator errors, 20 of 67 tests failing as recorded)
+- preview with `</script>` in its copy opened in Chromium (ready, no injected element); host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

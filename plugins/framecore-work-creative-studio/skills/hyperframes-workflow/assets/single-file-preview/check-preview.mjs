@@ -31,6 +31,7 @@ export function checkPreview(html, template = fs.readFileSync(path.join(here, 'm
   }
   if (!unchanged && !errors.length) errors.push('The player outside the contract differs from the template; replace only the motion contract');
   if (/\bMediaRecorder\b|captureStream\s*\(/.test(html)) errors.push('The page records video in real time (MediaRecorder or captureStream); a preview page has no export of its own (the rendered MP4 is the video), and only the template keeps its frame-by-frame export');
+  if (/<\/script|<!--/i.test(match[2])) errors.push('The embedded contract contains "</script" or "<!--", which a browser reads as the end of the contract; write every < in the JSON as \\u003c');
   let score;
   try { score = JSON.parse(match[2]); } catch (error) { errors.push(`The motion contract is not valid JSON: ${error.message}`); }
   if (score) {

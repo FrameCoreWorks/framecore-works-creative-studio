@@ -19,11 +19,16 @@ jobs:
   publish:
     if: github.repository == 'FrameCoreWorks/framecore-works-creative-studio'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 25
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           persist-credentials: false
+      - name: Install ffmpeg, numpy and Pillow for the media tests
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends ffmpeg
+          python3 -m pip install --no-deps --only-binary :all: -r requirements-ci.txt
       - name: Check the package and isolated filesystem installer
         env:
           PYTHONDONTWRITEBYTECODE: "1"

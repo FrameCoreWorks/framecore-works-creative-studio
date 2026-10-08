@@ -22,7 +22,7 @@ Keep both localized welcome/excerpt, language-policy projection and skill-metada
 
 ## Verification and publication
 
-Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check. For a release, synchronize both plugin manifests and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
+Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check and `bash scripts/check_all.sh`. The historical legacy suite is compared with its recorded known failures by `python3 scripts/check_legacy_baseline.py`; when a change intentionally alters them, regenerate `tests/legacy-baseline.json` with `--write` in the same commit and say why. For a release, synchronize both plugin manifests and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
 
 ## Development provenance
 

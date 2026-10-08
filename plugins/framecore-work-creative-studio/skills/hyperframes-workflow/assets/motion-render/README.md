@@ -11,6 +11,7 @@ python render.py video.motion.json --stills 0,78,93 --stills-dir stills
 - **Output.** H.264 in yuv420p at the contract's exact size, frame rate and frame count, without an audio track; an existing file is never overwritten. It prints one JSON line with the renderer version, frames, size, the font files used, the encoder and the files written.
 - **Frame check.** `--check-dir` saves the first and last frame, both sides of every scene boundary, every hold start and the middle of every sweep, for the frame check before delivery.
 - **Fonts.** `tokens.fontFamily` is resolved to font files on the machine: Arial, Helvetica and `sans-serif` use Arial or a metric-compatible substitute (Liberation Sans, Arimo), then DejaVu Sans. Weights of 600 and above use the bold file. `--font` and `--font-bold` choose files explicitly, for example a font the user supplied. Record the files from the summary, because a different font changes the picture.
+- **Logos and images.** PNG, JPEG and WebP files or data URIs are drawn directly. An SVG logo needs the `cairosvg` package; where it is not installed (as may be the case in a hosted Python sandbox, Unknown until tried) the render stops with a clear message. Ask for a PNG of the mark up front when the user supplies only an SVG and no shell is available.
 - **Determinism.** The same script, contract and font files give byte-identical frames.
 
 ## How Studio uses it

@@ -26,8 +26,12 @@ import sys
 sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-WORDS_PER_SECOND = 3.0       # comfortable reading speed for short on-screen lines
-PERCEPTION_SECONDS = 0.4     # time to notice that text has arrived
+# Reading time, the rule of references/motion-craft.md shared with check-score.mjs: the longer of 13 characters per
+# second plus 0.5 s to settle and 0.5 s plus a third of a second per word, at least 1 s.
+CHARACTERS_PER_SECOND = 13.0
+WORDS_PER_SECOND = 3.0
+SETTLE_SECONDS = 0.5
+MIN_READ_SECONDS = 1.0
 MIN_SCENE_SECONDS = 1.0
 MAX_STILL_SCENE_SECONDS = 6.0
 MAX_WORDS = {'vertical': 10, 'other': 14}
@@ -84,6 +88,12 @@ def scene_copy(scene, score):
 def words(texts):
     """Words as a reader counts them: whitespace-separated tokens with a letter or digit (a URL is one word)."""
     return sum(sum(1 for token in text.split() if re.search(r'\w', token)) for text in texts)
+
+
+def reading_seconds(texts):
+    """Seconds needed to read the texts shown together (joined by spaces, as check-score.mjs joins a scene's copy)."""
+    shown = ' '.join(texts)
+    return max(MIN_READ_SECONDS, len(shown) / CHARACTERS_PER_SECOND + SETTLE_SECONDS, SETTLE_SECONDS + words(texts) / WORDS_PER_SECOND)
 
 
 def content_balance(mask, width, height, side=0.25, edge=0.05):
@@ -172,20 +182,20 @@ class Critique:
             count = words(texts)
             held = sum(b - a for a, b in scene.get('holds') or [])
             if count:
-                need = max(0.8, count / WORDS_PER_SECOND + PERCEPTION_SECONDS)
+                need = reading_seconds(texts)
                 have = self.s(held) if held else self.s(length) * 0.6
                 if have + 1e-6 < need:
                     short = self.frames(need - have)
                     self.add('error' if have < 0.85 * need else 'warning', 'readability', sid, f'{count} words held {have:.2f} s; reading needs about {need:.1f} s',
                              f'lengthen the scene by {short} frames: node revise.mjs extend <contract> --scene {sid} --frames {short} --out <next revision>, '
-                             f'or cut the copy to {max(1, int((have - PERCEPTION_SECONDS) * WORDS_PER_SECOND))} words')
+                             f'or cut the copy to {max(1, int((have - SETTLE_SECONDS) * WORDS_PER_SECOND))} words')
                 if count > limit:
                     self.add('warning', 'text amount', sid, f'{count} words in one scene; a {"vertical" if vertical else "wide"} video reads best with at most {limit}',
                              'split the line across two scenes or cut it; one idea per scene')
             if self.s(length) < MIN_SCENE_SECONDS and count:
                 self.add('warning', 'pace', sid, f'scene lasts {self.s(length):.2f} s, too short to register',
                          f'lengthen it to at least {MIN_SCENE_SECONDS} s or merge it with a neighbour')
-            reading = count / WORDS_PER_SECOND + PERCEPTION_SECONDS if count else 0
+            reading = reading_seconds(texts) if count else 0
             if self.s(length) > max(MAX_STILL_SCENE_SECONDS, 1.8 * reading) and scene.get('kind') not in ('device',):
                 self.add('warning', 'pace', sid, f'scene lasts {self.s(length):.1f} s with one idea; attention drops',
                          'shorten it, or add a second beat (a stagger, a camera move, a counter) inside it')

@@ -205,6 +205,36 @@ test('frame review finds no issues in the starter and errors in a broken contrac
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
+// Opt-in: the Python renderer draws the same pixels as the browser scene engine (set MOTION_REVIEW_BROWSER=/path/to/chrome).
+test('the Python renderer matches the browser engine frame by frame', {skip: !(process.env.MOTION_REVIEW_BROWSER && spawnPython('python3', ['-c', 'import PIL'], {encoding: 'utf8'}).status === 0) && 'set MOTION_REVIEW_BROWSER and install Pillow'}, async () => {
+  const {runReview} = await import(path.join(root, reviewTool));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-parity-'));
+  try {
+    for (const example of ['color-block', 'app-film']) {
+      const contract = path.join(root, scenesDir, `examples/${example}.motion-score.json`);
+      const review = runReview(contract, {out: path.join(tmp, example), browser: process.env.MOTION_REVIEW_BROWSER, format: 'base', samples: 4});
+      const frames = review.frames.map(frame => frame.frame);
+      assert.ok(frames.length >= 10, `${example}: ${frames.length} review frames`);
+      const stills = path.join(tmp, `${example}-stills`);
+      const render = spawnPython('python3', ['-B', path.join(root, 'skills/hyperframes-workflow/assets/motion-render/render.py'), contract, '--stills', frames.join(','), '--stills-dir', stills], {encoding: 'utf8'});
+      assert.equal(render.status, 0, render.stderr);
+      const pairs = review.frames.map(frame => [path.join(tmp, example, frame.image), path.join(stills, `frame-${String(frame.frame).padStart(5, '0')}.png`)]);
+      const compare = spawnPython('python3', ['-B', '-c', `import sys, json
+from PIL import Image, ImageChops, ImageStat
+out = []
+for browser, still in json.loads(sys.argv[1]):
+    b = Image.open(still).convert('RGB'); a = Image.open(browser).convert('RGB').crop((0, 0) + b.size)
+    d = ImageChops.difference(a, b)
+    out.append([sum(ImageStat.Stat(d).mean) / 3, ImageStat.Stat(d.convert('L').point(lambda v: 255 if v > 48 else 0)).mean[0] / 255])
+print(json.dumps(out))`, JSON.stringify(pairs)], {encoding: 'utf8'});
+      assert.equal(compare.status, 0, compare.stderr);
+      JSON.parse(compare.stdout).forEach(([mean, share], i) => {
+        assert.ok(mean < 2 && share < 0.02, `${example} frame ${frames[i]}: mean difference ${mean.toFixed(2)}, ${(share * 100).toFixed(2)}% of pixels differ strongly`);
+      });
+    }
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
 test('subtitles parse from SRT and WebVTT into exact caption copy and frames', async () => {
   const {parseSubtitles, importCaptions} = await import(path.join(root, syncTool));
   const vtt = '\uFEFFWEBVTT\r\n\r\nNOTE draft\r\n\r\nintro\r\n00:01.500 --> 00:03.000 line:90%\r\n<v Host>Zażółć <i>gęślą</i>\r\njaźń\r\n\r\n00:00:02.000 --> 00:00:05.250\r\n{\\an8}Second';
@@ -367,6 +397,26 @@ test('check-preview accepts the template with a new contract and rejects rewrite
   assert.match(checkPreview(html.replace('"schema_version": 1,', '"schema_version": 1')).errors.join(), /not valid JSON/);
   assert.match(checkPreview('<canvas></canvas>').errors.join(), /No embedded motion contract/);
   assert.match(checkPreview(html.replace('</body>', '<script>new MediaRecorder(canvas.captureStream(0))</script></body>')).errors.join(), /records video in real time/);
+});
+
+test('copy containing </script> is embedded safely and an unsafe embedding is rejected', async () => {
+  const {checkPreview} = await import(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs'));
+  const {previewFor} = await import(path.join(root, reviewTool));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-embed-'));
+  try {
+    const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+    const text = 'eksportu </script><h1 id="injected">x</h1> <!-- note';
+    score.copy['outro-2'] = text;
+    const file = path.join(tmp, 'evil.motion.json');
+    fs.writeFileSync(file, JSON.stringify(score, null, 2));
+    const {html} = previewFor(file);
+    const block = html.match(/<script type="application\/json" id="motion-score">\n([\s\S]*?)\n<\/script>/)[1];
+    assert.doesNotMatch(block, /<\/script|<!--/i);
+    assert.equal(JSON.parse(block).copy['outro-2'], text, 'JSON.parse restores the exact copy');
+    assert.deepEqual(checkPreview(html).errors.filter(error => !error.startsWith('Contract:')), []);
+    const raw = html.replace(block, JSON.stringify(score, null, 2));
+    assert.match(checkPreview(raw).errors.join(), /reads as the end of the contract/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
 const playerFile = 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html';
@@ -545,6 +595,20 @@ test('beats.py finds tempo, bar 1 and the drop of a click track and music_edit.p
     assert.equal(cut.status, 0, cut.stderr);
     assert.match(cut.stdout, /240 frames/);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('check-score and the craft critique use one reading-time rule', async () => {
+  const {readingSeconds} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const samples = ['Gotowe do eksportu', 'Jeden', 'Smak, który zostaje na dłużej niż jedno popołudnie', 'www.example.com/start - 50%', 'A b c d e f g h i j k l'];
+  // Motion craft: the longer of 13 characters per second + 0.5 s and 0.5 s + a third of a second per word, at least 1 s.
+  assert.ok(Math.abs(readingSeconds('Gotowe do eksportu') - (18 / 13 + 0.5)) < 1e-9);
+  assert.ok(Math.abs(readingSeconds('A b c d e f g h i j k l') - (0.5 + 12 / 3)) < 1e-9);
+  assert.equal(readingSeconds('Jeden'), 1);
+  const probe = spawnPython('python3', ['-B', '-c', `import sys, json, importlib.util
+spec = importlib.util.spec_from_file_location('critique', sys.argv[1]); c = importlib.util.module_from_spec(spec); spec.loader.exec_module(c)
+print(json.dumps([c.reading_seconds([t]) for t in json.loads(sys.argv[2])]))`, path.join(root, 'skills/hyperframes-workflow/assets/motion-review/critique.py'), JSON.stringify(samples)], {encoding: 'utf8'});
+  assert.equal(probe.status, 0, probe.stderr);
+  JSON.parse(probe.stdout).forEach((seconds, i) => assert.ok(Math.abs(seconds - readingSeconds(samples[i])) < 1e-9, samples[i]));
 });
 
 test('Python renderer motion blur keeps holds sharp and phone-size stills scale down', {skip: !python && 'python3 with Pillow not installed'}, () => {
@@ -795,8 +859,23 @@ test('a cue with no sound in its window is reported missing, never measured on t
   const run = spawnPython('python3', ['-B', '-c', script], {encoding: 'utf8'});
   assert.equal(run.status, 0, run.stderr);
   const [onset, peak, heard] = JSON.parse(run.stdout);
-  for (const silent of [onset, peak]) assert.deepEqual([silent.missing, silent.judged, silent.all_ok], [1, 0, false]);
-  assert.deepEqual([heard.missing, heard.judged, heard.all_ok], [0, 1, true]);
+  for (const silent of [onset, peak]) assert.deepEqual([silent.missing, silent.judged, silent.all_ok, silent.status], [1, 0, false, 'missing']);
+  assert.deepEqual([heard.missing, heard.judged, heard.all_ok, heard.status], [0, 1, true, 'checked']);
+});
+
+test('a timing claim says what it covers: masked cues are not judged, never counted as checked', {skip: !numpy && 'numpy not installed'}, () => {
+  const script = [
+    'import sys, json, numpy as np', `sys.path.insert(0, ${JSON.stringify(path.join(root, soundDir))})`, 'import sound',
+    'track = np.zeros((48000, 2)); track[24000:24400] = 0.5',
+    'pair = sound.summarize(sound.check_hits(track, [(24000, "onset"), (24480, "onset")]))',
+    'riser = sound.summarize(sound.check_hits(track, [(24000, "end")]))',
+    'print(json.dumps([pair, riser, sound.timing_exit(pair), sound.timing_exit(riser)]))',
+  ].join('\n');
+  const run = spawnPython('python3', ['-B', '-c', script], {encoding: 'utf8'});
+  assert.equal(run.status, 0, run.stderr);
+  const [pair, riser, pairExit, riserExit] = JSON.parse(run.stdout);
+  assert.deepEqual([pair.status, pair.judged, pair.not_judged, pair.all_ok, pairExit], ['not_judged', 0, 2, true, 3]);
+  assert.deepEqual([riser.status, riser.by_construction, riserExit], ['by_construction', 1, 0]);
 });
 
 test('sound cues follow the picture: taps, pushes, wipes, landings, a composed bed and checked contracts', {skip: !(python && numpy) && 'python3 with Pillow and numpy not installed'}, async () => {
@@ -925,10 +1004,16 @@ test('a mastered sound mix puts every hit on its frame', {skip: !(python && nump
     assert.equal(mixed.status, 0, mixed.stderr + mixed.stdout);
     const summary = JSON.parse(mixed.stdout);
     assert.ok(summary.timing.all_ok && summary.timing.max_offset_ms <= 2, mixed.stdout);
+    // The mix judges every cue in a solo render, so no neighbour masks a hit.
+    assert.deepEqual([summary.timing.status, summary.timing.judged, summary.timing.not_judged], ['checked', summary.timing.cues, 0], mixed.stdout);
     assert.ok(Math.abs(summary.loudness.lufs + 14) <= 2 && summary.loudness.true_peak_db <= -0.95, mixed.stdout);
     assert.ok(fs.existsSync(path.join(stems, 'music.wav')), 'the music stem is written next to the effects stem');
+    // A whole effects track cannot separate cues that sit close together: check says so and exits 3, never a silent pass.
     const checked = spawnPython('python3', ['-B', sound, 'check', path.join(stems, 'effects.wav'), planned], {encoding: 'utf8'});
-    assert.equal(checked.status, 0, checked.stdout);
+    const track = JSON.parse(checked.stdout);
+    assert.ok(track.all_ok && track.judged + track.not_judged === track.cues, checked.stdout);
+    assert.equal(checked.status, track.status === 'checked' ? 0 : 3, checked.stdout);
+    if (track.status !== 'checked') assert.match(track.note, /solo render/);
     // The delivered file is measured itself: its AAC true peak stays under the ceiling.
     const silent = path.join(tmp, 'silent.mp4'), delivered = path.join(tmp, 'delivered.mp4');
     assert.equal(spawnPython('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'color=c=black:s=320x568:r=30:d=14', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', silent], {encoding: 'utf8'}).status, 0);
