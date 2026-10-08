@@ -635,7 +635,7 @@ Cross-host state:
 - Origin: cloud-code
 - Branch: `cloud-code/CC-20261007-15-sound-refinement`
 - Baseline: `1ccc65424720bfa94e766e7310743e8d125e2b16` (package 1.33.0; main carried test records and the sound test scenario on top)
-- Result: the release commit on the branch (package 1.34.0)
+- Result: `b2d9f6c006117cd078f0b3433cd1b1ae14577aa0` (package 1.34.0)
 - Package version: 1.33.0 -> 1.34.0
 - Scope: craft critique and a mandatory improvement round (also on delivered frames), measured AAC delivery, recorded user sound choices, owner references; outside the package, a blind motion benchmark kit (docs/motion-benchmark, scripts/motion_benchmark.py, tests)
 - Shared package changed: yes ([scope](../verification/scope-1.34.0.json))
@@ -648,6 +648,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending
+- GitHub: synchronized; `main` fast-forwarded to `b2d9f6c` on owner instruction; [v1.34.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.34.0) published by workflow 37754297112; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.34.0.json))
+- Owner decision: no further tests in this series; the Bounce Party direction is rejected
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
