@@ -759,6 +759,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (pushed with this commit; readback recorded in the next update)
+- GitHub: synchronized; `main` fast-forwarded to `0d48e79`; the report and this ledger read back from `origin/main` with identical SHA-256; checks workflow 37800294869 success (the separate legacy job fails by design, as before)
 - ChatGPT Work: not_run (package unchanged)
 - Codex: not_run (package unchanged)
