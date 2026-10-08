@@ -24,6 +24,13 @@ Keep a concise motion score inside the storyboard:
 
 Use variable intensity deliberately. Do not put all text on springs, animate every letter independently, cut on every beat, or add HUD labels, particles, glow and grain to fill empty space. Detail must support the message. Showreel variety is appropriate for a showreel; a product explanation needs a coherent causal sequence.
 
+## Owner references
+
+The owner's verdicts on delivered videos calibrate taste; use them as evidence, not as templates to copy.
+
+- **Accepted:** the app-film example renders (2026-10-07) and the ChatGPT Work test video "Spokojny Portfel" with its two sound variations (2026-10-08): one signature mechanism tied to the message (a dot that becomes a check and then the wallet), calm hierarchy, the end card held.
+- **Rejected, not a direction to follow:** the ChatGPT Work test video "Bounce Party" (2026-10-08), judged by the owner a very weak motion graphic. Its observable traits, described by Studio rather than by the owner: full-frame colour swaps wiping in from the left as the main motion, a generic bouncing ball as the only visual idea, centred all-caps slogans that differ only in size, decorative corner wedges unrelated to the message, and half the runtime on a static end card. A bold or playful brief still needs a concept with a mechanism tied to the product, motion that carries meaning, and pacing that keeps building to the end; loud colour and capitals are not a concept.
+
 ## Typography and information
 
 Set type on an explicit grid. Specify family, weight, size, line length, tracking, alignment, margins and contrast. Preserve kerning and protected wordmarks. Use a real font file and wait for loading; do not silently substitute it. Test long strings, diacritics and the smallest intended viewing size. Reading holds begin only when the full phrase is legible. Estimate holds from text complexity, then confirm through playback; no universal one-second rule.

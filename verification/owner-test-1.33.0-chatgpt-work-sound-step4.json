@@ -30,8 +30,10 @@
     "The profile matched the brief (bold and playful, fast) and the design differs fully from steps 1 to 3 (house kit, marimba, metal-hit, swish landings).",
     "The model asked the owner for the missing date instead of inventing one.",
     "With the reveal in the middle of an 8-second video, the composed music resolves at 4 s and decays for the remaining 4 s, so a bold promotion loses its energy under the end card: a composer limitation, not a model error.",
-    "An earlier reading of the frame sheet in this session claimed the copy sat in the upper quarter; measurement showed it centred. The composition rule of the critique was made more robust to corner decorations either way."
+    "An earlier reading of the frame sheet in this session claimed the copy sat in the upper quarter; measurement showed it centred. The composition rule of the critique was made more robust to corner decorations either way.",
+    "No further tests in this series on the owner's decision; the music energy drop after a mid-video reveal remains a known composer limitation, not fixed in 1.34.0."
   ],
-  "owner_listening": "not yet reported",
-  "status": "DELIVERED_TECHNICAL_PASS; owner listening pending"
+  "owner_listening": "owner verdict 2026-10-08: the weakest of the four tests, \"a very weak motion graphic\"; the owner does not want to go in that direction",
+  "status": "DELIVERED_TECHNICAL_PASS; owner verdict: rejected as a direction",
+  "owner_verdict": "REJECTED_DIRECTION: not a model for future work; recorded as a rejected owner reference in skills/hyperframes-workflow/references/motion-quality-direction.md"
 }
