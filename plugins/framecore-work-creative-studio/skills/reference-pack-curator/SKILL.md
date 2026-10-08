@@ -1,6 +1,6 @@
 ---
 name: reference-pack-curator
-description: Use this skill to structure references into canonical sources, aliases, role tags, suppression rules, conflicts, and continuity anchors.
+description: Sort supplied references into canonical sources, mood or style inspiration and exclusions, with aliases, conflicts and continuity carriers, before direction or prompts.
 ---
 
 # Reference Pack Curator

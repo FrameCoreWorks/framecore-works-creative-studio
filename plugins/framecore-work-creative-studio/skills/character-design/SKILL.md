@@ -1,6 +1,6 @@
 ---
 name: character-design
-description: Use this skill for provider-neutral character design systems, identity anchors, expression sheets, outfit variants, consistency rules, and prompt handoffs.
+description: "Keep characters consistent across assets: identity anchors, expression and turnaround sheets, outfit variants, real-person reference capture and continuity rules for prompts and boards. Not for one-off styling."
 ---
 
 # Character Design

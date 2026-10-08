@@ -11,6 +11,12 @@
 
 ## Timing And Segmentation Rules
 
+- Readability basis (Studio defaults with check date, or the named specification):
+- Max characters per line / lines per caption:
+- Reading speed (characters per second) and hold rule:
+- Minimum and maximum caption duration, gap between captions:
+- File format (SRT, WebVTT, burned in):
+
 ## Style Selection
 
 - Preset or direction:

@@ -1,6 +1,6 @@
 ---
 name: ugc
-description: Use this skill for provider-neutral UGC-style creator ads, talking-head scripts, social proof concepts, direct-response hooks, and creator-read copy.
+description: "Creator-style ads and scripts: talking-head and demo formats, hooks, a truthful speaker and proof, creator-read copy and disclosure. Never fake testimonials; final wording goes through Copy Voice."
 ---
 
 # UGC
@@ -13,6 +13,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 Use this skill to plan UGC-style creator ads, talking-head scripts, social proof concepts, direct-response hooks, objection handling, and creator-read copy while keeping claims honest and provider-neutral.
 
 For campaign production with people, use [campaign production](../ecommerce-campaign-strategy-director/references/campaign-production.md) and carry the campaign asset card. Distinguish an authorized real speaker, an actor portrayal and a synthetic presenter. A synthetic presenter is not a real customer; creator-style presentation does not establish purchase, personal use, results or endorsement. Preserve product references, claim IDs, exact copy, contact/continuity and actual inspection status in downstream handoffs.
+
+Use [formats, scripts and disclosure](references/formats-scripts-and-disclosure.md) to choose the speaker type and format, time the script and write disclosure lines for the content and the platform label. Its platform specifications and legal starting points carry check dates; refresh them when a campaign depends on them.
 
 ## Language Policy
 
@@ -53,6 +55,7 @@ Produce a UGC Script Pack with:
 - CTA variants
 - platform fit notes
 - claim boundaries
+- speaker type and disclosure lines (commercial relationship, AI-generated presenter or voice)
 
 ## Process
 
@@ -98,6 +101,7 @@ Hand off to `copy-voice`, `motion-direction`, `storyboard-architect`, or `video-
 - Hooks are distinct and plausible.
 - CTA matches the brief.
 - No fake testimonial or identity is implied.
+- A commercial relationship or an AI-generated presenter or voice has a disclosure line in the content and a platform label note.
 - Script can be read naturally by a creator.
 - A ready-to-use script does not add a hook, CTA, fake informality, or
   controlled imperfection unless the brief and channel support it.

@@ -1,6 +1,6 @@
 ---
 name: delivery-documentation
-description: Package accepted static, audio and video work, prompt specifications, campaign handoffs, captions and bounded digital/print/export notes with actual file and QA status. Use for delivery, DTP or audiovisual handoff and resume summaries. Do not invent files or certify unverified editing structure, sync, print readiness or export compliance.
+description: "Package accepted work for handoff: final files, prompt specs, captions, print/DTP and export notes with actual file and QA status. Not for judging quality or for the file inventory itself (Asset Manifest)."
 ---
 
 # Useful handoff

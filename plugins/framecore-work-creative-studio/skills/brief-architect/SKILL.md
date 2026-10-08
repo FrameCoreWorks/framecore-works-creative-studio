@@ -1,6 +1,6 @@
 ---
 name: brief-architect
-description: 'Use to convert messy notes, user requests, source material and scattered constraints into a structured Brief Contract before creative work starts. Delegation packets for another agent or environment go to Instruction Packet Factory.'
+description: 'Turn messy notes, requests and scattered constraints into a structured Brief Contract before creative work. Delegation packets for another agent go to Instruction Packet Factory.'
 ---
 
 # Brief Architect

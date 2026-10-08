@@ -1,6 +1,6 @@
 ---
 name: output-critic-iteration
-description: Inspect an actually supplied static image, photographic still, poster, banner or board against its brief, exact copy and reference locks, then choose acceptance or the smallest justified repair. Use for static visual evidence; route video-result review to video-prompt-architect and audio/song triage to audio-production-director. Not for unseen files, grading prompts as renders, or unapproved rerenders.
+description: Review a supplied still image, poster, banner or board against its brief, exact copy and references, then accept it or propose the smallest repair. Video goes to Video Prompt Architect or Motion Graphics Workflow.
 ---
 
 # Evidence-led review

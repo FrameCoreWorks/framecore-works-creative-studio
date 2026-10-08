@@ -1,6 +1,6 @@
 ---
 name: asset-manifest
-description: Use this skill to organize workflow assets, file lists, versions, source traceability, exclusions, and reproducibility notes.
+description: "Track project files before QA or delivery: what exists, versions, sources, exclusions and continuity carriers. Quality review goes to Output Critic Iteration; delivery notes to Delivery Documentation."
 ---
 
 # Asset Manifest

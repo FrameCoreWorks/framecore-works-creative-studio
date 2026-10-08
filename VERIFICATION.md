@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.40.1
+## Current source: 1.41.0
+
+The [1.41.0 source checks](verification/release-1.41.0.json) pass canonical validation and `scripts/check_all.sh`: 198 Node tests (194 passing, 4 opt-in browser tests skipped there and run separately: 66 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks; the legacy suite matches its recorded baseline. The 37 skill descriptions total 7,593 characters and all 74 skill YAML documents parse. Three sourced references are new (caption readability, UGC formats and disclosure, short-form structures), every reference and template is reached from a skill, and the validator rejects an unlinked one (`REFERENCE_REACH`). Platform and legal facts in the new references were read on 2026-10-08 and carry their sources; pages that did not load are marked. Host behavior is not verified. [Scope](verification/scope-1.41.0.json) records 54 changed and 3 added shared files out of 912.
+
+## Previous source: 1.40.1
 
 The [1.40.1 source checks](verification/release-1.40.1.json) pass canonical validation and `scripts/check_all.sh`: 197 Node tests (193 passing, 4 opt-in browser tests skipped there and run separately: 66 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks; the legacy suite matches its recorded baseline. The release fixes 1.40.0's invalid YAML frontmatter in the Motion Graphics Workflow (an unquoted colon in its description): all 37 SKILL.md frontmatters and 37 agent metadata files parse with a YAML parser, and the validator rejects an unsafe description (`SKILL_YAML`). Host behavior is not verified. [Scope](verification/scope-1.40.1.json) records 9 changed shared files out of 909.
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.41.0, 2026-10-08
+
+Discovery and depth, from the [full review](docs/reviews/full-review-2026-10-08.md) (the welcome and menus are unchanged):
+
+- Skill descriptions lead with what the skill does and name its neighbour for the nearest other job. The 37 descriptions total 7,593 characters, under Codex's 8,000-character listing budget for an unknown context size (they were 10,400), and every one stays a valid YAML scalar.
+- Caption Studio gains dated [readability defaults](plugins/framecore-work-creative-studio/skills/caption-studio/references/readability-defaults.md): Netflix's line, duration and reading-speed limits for English and Polish subtitles, Studio's hold rule for burned-in captions, safe-area guidance and the SRT and WebVTT formats; captions for a motion video are imported with the motion sync tool.
+- UGC gains [formats, scripts and disclosure](plugins/framecore-work-creative-studio/skills/ugc/references/formats-scripts-and-disclosure.md): speaker types and what each may claim, nine formats, a script skeleton for 15, 30 and 60 seconds, dated platform specifications, platform labels and legal starting points for Poland (UOKiK), the EU (UCPD, AI Act Article 50) and the US (FTC), each with its source and check date.
+- Storytelling gains [short-form structures](plugins/framecore-work-creative-studio/skills/storytelling/references/short-form-structures.md): eleven shapes chosen by the asset's job, a "but and therefore" causality check and a beat budget. Cinematography links the shot, lens, blocking and motion vocabulary in video craft.
+- Every reference and template is now reached from a skill: the three music-video method references, the thread-link resume procedure, the Hipson and self-improvement templates, the artifact templates and the initial source register. The legacy audio alias keeps its three paths as pointers to the maintained files. The validator fails on an unlinked reference or template (`REFERENCE_REACH`), with a test.
+- Learning Mode: the motion and sound domains add easing, readable holds, staggers, sound design for motion, hits and ducking, and a rendered comparison where code runs (always after the paper exercise). A finished quiz or worksheet may be offered once as an interactive check; the text version and its separate answer key stay the deliverable.
+- Wording: the role map no longer explains kit installation, tool-routing steps are numbered correctly, Hipson points to Instruction Packet Factory for shared packet fields, and the brand and teacher paragraphs in Marketing and Copy Voice have their own sections.
+
 ## 1.40.1, 2026-10-08
 
 - The Motion Graphics Workflow's description in 1.40.0 contained an unquoted colon, so its SKILL.md frontmatter was not valid YAML and a host parsing it strictly could fail to load the skill. The description is quoted again, every skill frontmatter and agent metadata file was parsed with a YAML parser (74 of 74 valid), and the canonical validator now rejects a description that is not a safe YAML scalar (`SKILL_YAML`), with a test for unquoted colons, comments, indicators and broken quotes. Use 1.40.1 instead of 1.40.0.

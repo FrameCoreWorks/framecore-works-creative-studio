@@ -1,6 +1,6 @@
 ---
 name: creative-video-producer
-description: Use this skill to coordinate an end-to-end creative video package for reels, Shorts, TikTok, paid social, product films, UGC-style videos, explainers, music-video routes, cutdowns, and local editing, while preserving provider-neutral planning, QA, and delivery gates.
+description: Coordinate a multi-stage video project (reel, ad, product film, UGC-style video, explainer, cutdowns) across direction, script, shots, prompts, audio, captions and edit. A single prompt or script goes to its specialist.
 ---
 
 # Creative Video Producer

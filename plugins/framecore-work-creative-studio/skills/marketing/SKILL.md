@@ -1,6 +1,6 @@
 ---
 name: marketing
-description: 'Use for brand strategy and positioning, audience and offer foundations, values and voice principles, and general campaign or channel planning, asset matrices and launch kits without a commerce goal. Product, store, PDP, marketplace or paid-social sales campaigns go to Ecommerce Campaign Strategy Director; brand visual systems and logo execution stay with Static Graphic Design Creator.'
+description: 'Brand strategy and positioning, audiences, values and voice, and general campaign or channel planning without a commerce goal. Store, product or offer campaigns go to Ecommerce Campaign Strategy Director.'
 ---
 
 # Marketing
@@ -18,9 +18,11 @@ For a website/store-led commercial campaign, use the [website-to-campaign profil
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
 
-## When To Use
+## Brand strategy and identity
 
 For brand strategy or identity foundations, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md). Produce a Brand Strategy with sourced/user-supplied facts, proposed positioning, audience/use situations, differentiation and proof limits, values, voice principles and the visual direction basis. Reuse known inputs and ask exactly one missing question per response. Hand the strategy revision and selected direction to Static Graphic Design Creator. Do not force campaign-only CTA, launch or asset-matrix fields into brand-only work. For campaign work, use the method below.
+
+## When To Use
 
 Use this skill when:
 

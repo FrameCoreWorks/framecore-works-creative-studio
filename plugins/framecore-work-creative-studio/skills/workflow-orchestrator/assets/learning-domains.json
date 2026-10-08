@@ -305,11 +305,14 @@
       "title": "Voice, music and sound design",
       "owners": [
         "audio-production-director",
-        "copy-voice"
+        "copy-voice",
+        "hyperframes-workflow"
       ],
       "sources": [
         "skills/audio-production-director/SKILL.md",
-        "skills/copy-voice/SKILL.md"
+        "skills/copy-voice/SKILL.md",
+        "skills/hyperframes-workflow/SKILL.md",
+        "skills/hyperframes-workflow/references/motion-sound-design.md"
       ],
       "topics": [
         "sound palette",
@@ -318,14 +321,18 @@
         "interpretation",
         "cue",
         "music",
-        "Foley"
+        "Foley",
+        "sound design for motion",
+        "hits on the frame",
+        "ducking"
       ],
       "exercise_no_render": "For a door-closing scene, plan voice, effects, ambience and silence; mark the emphasis in a short sentence on paper and explain its purpose.",
       "assessment_criteria": [
         "Each sound supports action or meaning.",
         "Estimated cues, actual listening and verified rights are distinguished."
       ],
-      "support_boundary": "Support covers voice intent, pace, pauses, emphasis and music planning; it does not cover voice diagnosis, professional vocal training or license certification."
+      "support_boundary": "Support covers voice intent, pace, pauses, emphasis and music planning; it does not cover voice diagnosis, professional vocal training or license certification.",
+      "exercise_with_render": "Where code execution exists, mix the same motion video with and without hits on its scene changes and compare them by ear; the paper cue map stays available."
     },
     {
       "id": "editing_motion",
@@ -342,7 +349,9 @@
         "skills/caption-studio/SKILL.md",
         "skills/remotion-video-production/SKILL.md",
         "skills/hyperframes-workflow/SKILL.md",
-        "skills/video-prompt-architect/SKILL.md"
+        "skills/video-prompt-architect/SKILL.md",
+        "skills/hyperframes-workflow/references/motion-craft.md",
+        "skills/caption-studio/references/readability-defaults.md"
       ],
       "topics": [
         "cut",
@@ -350,14 +359,18 @@
         "captions",
         "editing rhythm",
         "coded animation",
-        "VFX plan"
+        "VFX plan",
+        "easing",
+        "readable holds",
+        "staggered entrances"
       ],
       "exercise_no_render": "Connect three described shots on a paper timeline; mark one pause, caption and transition plan. Explain each role.",
       "assessment_criteria": [
         "Timing and transitions are consistent.",
         "Caption readability and protected segments have explicit criteria."
       ],
-      "support_boundary": "VFX covers effect planning and its role in a transition, not a complete compositing, simulation or application course. Code execution requires an available environment."
+      "support_boundary": "VFX covers effect planning and its role in a transition, not a complete compositing, simulation or application course. Code execution requires an available environment.",
+      "exercise_with_render": "Where code execution exists, render the same short title twice with one change, an ease-out against a linear move or a 1 s against a 2.5 s hold, and say which reads better and why; the paper exercise stays available."
     },
     {
       "id": "campaign_workflow",

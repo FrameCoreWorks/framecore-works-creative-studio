@@ -56,7 +56,7 @@ When a date, price, colour or approved line changes, trace it to the artifacts t
 
 On resume, read the supplied state and actual files. Resolve only a missing fact that blocks the next requested step. A prior quality verdict applies to the reviewed version and conditions; it is not a verdict on a revised export.
 
-When a user supplies a conversation URL and asks to continue it, attempt the exact URL with the current host's available web/open capability. Treat only retrieved text as recovered context. Identify attachments that did not transfer and ask for the minimum missing source. For an explicit Codex↔ChatGPT Work transfer, use [the handoff template](../assets/cross-host-handoff.template.md); it carries decisions and evidence, not credentials or an implied sync service.
+When a user supplies a conversation URL and asks to continue it, attempt the exact URL with the current host's available web/open capability. Treat only retrieved text as recovered context. Identify attachments that did not transfer and ask for the minimum missing source. For an explicit Codex↔ChatGPT Work transfer, use [the handoff template](../assets/cross-host-handoff.template.md); it carries decisions and evidence, not credentials or an implied sync service. The step-by-step procedure, including what to report when a link cannot be opened, is in [thread-link and cross-host resume](thread-link-and-cross-host-resume.md).
 
 ## Optional tool adapter boundary
 

@@ -1,6 +1,6 @@
 ---
 name: video-prompt-architect
-description: Turn a clear video brief, approved shot card, or requested edit into a feasible video direction and prompt. Use for text-to-video, image-to-video, reference-conditioned video, source-video edits, extensions, dialogue/audio planning, short-form, UGC, and video-result diagnosis.
+description: Write a video-generator prompt for a clear brief, approved shot card or requested edit (text-to-video, image-to-video, references, extensions), researched for the named model, or review a supplied clip. Coded motion goes to Motion Graphics Workflow.
 ---
 
 # Video Prompt Architect

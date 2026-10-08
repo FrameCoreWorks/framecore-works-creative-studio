@@ -839,3 +839,26 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `434f59a`; release workflow 37839855429, checks 37839855755 and 37839858739, release-notes refresh 37839855439: success; [v1.40.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.40.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (909 of 909), all 37 skill frontmatters parse ([record](../verification/github-publication-1.40.1.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only; if 1.40.0 was saved to the hosted plugin, 1.40.1 replaces it)
 - Codex: not_run
+
+## CC-20261008-15
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-15-discovery-depth`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `a577173` (main, package 1.40.1, after the 1.40.1 publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.41.0)
+- Package version: 1.40.1 -> 1.41.0
+- Scope: discovery and depth from the full review (F-PKG-05, F-SKL-02, F-SKL-07, F-PKG-01 to F-PKG-03, F-SKL-05, F-SKL-06, F-SKL-08, F-SKL-10, F-LRN-01, IM1, IM3): trigger-first skill descriptions (37 total 7,593 characters); sourced references for caption readability, UGC formats and disclosure, and short-form structures; every reference and template reached from a skill with the new `REFERENCE_REACH` rule; three legacy alias references replaced by pointers (paths kept); learning topics and rendered comparisons for motion and sound; interactive quiz checks for teachers; wording fixes. Welcome and menus unchanged; F-ORCH-04 stays open because it is protected startup text
+- Change ID note: `CC-20261008-13` was reserved for this work on a branch that was never pushed and is not used
+- Shared package changed: yes; 54 changed, 3 added, 0 removed ([scope](../verification/scope-1.41.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 194 passing of 198 (4 opt-in browser tests; 66 passing in the browser run), installer 13, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.41.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

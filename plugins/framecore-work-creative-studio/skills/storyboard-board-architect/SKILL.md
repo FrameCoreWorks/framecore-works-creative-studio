@@ -1,6 +1,6 @@
 ---
 name: storyboard-board-architect
-description: Design a static storyboard, shot board, reference board, or production board as a separate visual artifact with an intentional grid, panel hierarchy, concise exact labels, and a prompt handoff. Use for board layout and board-copy systems; not for inventing sequence events, final video prompts, or generating media without an explicit request and available authorized tool.
+description: "Design a static storyboard, shot or reference board as its own visual artifact: panel grid, hierarchy, exact labels and a prompt handoff. Timing and shot order come from Storyboard Sequence Architect."
 ---
 
 # Storyboard Board Architect

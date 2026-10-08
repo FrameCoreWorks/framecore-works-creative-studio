@@ -1,6 +1,6 @@
 ---
 name: opencut-video-studio
-description: Use this skill to prepare, supervise, review, and document footage-first or timeline-first video editing in OpenCut or another user-controlled local timeline workflow, including asset bins, edit decisions, captions, audio, variants, QA, and delivery handoffs.
+description: "Footage-first or timeline-first editing plans for OpenCut or another local editor: asset bin, edit decisions, protected moments, captions, audio and export QA. Coded motion goes to Motion Graphics Workflow."
 ---
 
 # OpenCut Video Studio

@@ -1,6 +1,6 @@
 ---
 name: pipeline-core
-description: 'Shared Studio operating contract used by other owners: project state, bounded roles, gates, handoffs, artifact templates, reasoning routes, QA loops and delivery discipline. Use directly for workflow state, recovery, gate or governance questions; creative requests and Studio startup begin with Workflow Orchestrator.'
+description: 'Shared Studio contracts used by other owners: project state, roles, gates, handoffs, artifact templates, QA loops and delivery discipline. Entry, menus and routing belong to Workflow Orchestrator.'
 ---
 
 # Pipeline Core
@@ -205,7 +205,7 @@ Hand off with:
 
 ## Studio operating assets
 
-Use [project recovery](references/project-recovery.md) for memory and cross-host transfer. [Artifact schemas](assets/artifact-schemas.json) preserve the kit’s required contract sections. [Studio integration authority](references/studio-integration-policy.md) defines primary owners, staged use and the active exceptions. Intent is captured from a clear request; it is not a mandatory confirmation question. Keep full schemas backstage when a compact answer suffices.
+Use [project recovery](references/project-recovery.md) for memory and cross-host transfer. [Artifact schemas](assets/artifact-schemas.json) preserve the kit’s required contract sections; [artifact templates](templates/artifact-templates.md) give their field skeletons. Where a template and an owner's own contract differ, the owner's contract wins: a motion video uses the [motion contract](../hyperframes-workflow/references/motion-contract-json.md), and the Task Confirmation block records intent taken from the request rather than a question to ask. [Studio integration authority](references/studio-integration-policy.md) defines primary owners, staged use and the active exceptions. Intent is captured from a clear request; it is not a mandatory confirmation question. Keep full schemas backstage when a compact answer suffices.
 
 Recovery assets: [checkpoint state](assets/project-state.md) and [paste-ready recovery prompt](assets/recovery-prompt.md). The [upstream onboarding schema](assets/onboarding.schema.json) belongs only to a separately requested project-local installation; ordinary Studio use follows [Studio Workstyle Profile](../studio-workstyle-profile/SKILL.md) with optional, incremental preferences.
 

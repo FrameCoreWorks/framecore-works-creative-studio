@@ -1,6 +1,6 @@
 ---
 name: creative-music-video-director
-description: Develop original music-video direction from a song, artist persona, user association, lyrics or creative brief. Use for music-video concepts, song-to-image logic, performance/narrative/symbolic form, visual worlds, emotional or rhythmic direction, and artist-led film treatments. Not for commercial product campaigns, script/dialogue writing, shot cards, generator-native prompts, media generation or audio production.
+description: "Music-video direction from a song, artist persona, lyrics or brief: concept, song-to-image logic, performance and visual motifs. Not for brand campaigns, song writing (Audio Production Director) or prompt syntax."
 ---
 
 # Creative Music Video Director
@@ -27,6 +27,8 @@ Treat source status precisely:
 
 ## Build a direction proportionate to the request
 
+The [direction method](references/direction-method.md) expands this step: evidence layers, the film's engine, song-to-image translation, world rules, emotion versus energy and exploration without template drift.
+
 For a quick exploration, give the requested number of assessable, genuinely different concept routes. Each route needs a concrete thesis, its image/action engine, how it relates to the supplied song/persona evidence, and a clear distinction from the alternatives. Do not force three options when the brief calls for one precise route or a small local revision.
 
 For a selected direction or full handoff, include the fields that materially guide the next stage:
@@ -48,7 +50,7 @@ Choose a primary image engine from the brief, not a genre stereotype. Performanc
 
 Make specific decisions about action, space, light, texture, camera relationship, performance behavior and editing only where they add meaning or improve legibility. Stillness can carry tension; repetition can build a ritual; a chorus can maintain the same frame; a bridge can continue rather than rupture. Do not impose a build, payoff, contrast, symbol, costume change, dance, climax or catharsis to fill a template. Judge a sustained form by whether its intended attention and viewer experience hold, not by whether it changes.
 
-Persona is screen behavior, not biography. When it matters, specify observable choices such as gaze, gesture, distance, posture, movement quality and camera relation. Make identity or wardrobe locks only from supplied/approved facts or explicit creative decisions. Do not require a fixed “signature” for every artist.
+When artist presence, choreography, recurring images or reference authority shape the film, read [persona, performance and motifs](references/persona-performance-motifs.md). Persona is screen behavior, not biography. When it matters, specify observable choices such as gaze, gesture, distance, posture, movement quality and camera relation. Make identity or wardrobe locks only from supplied/approved facts or explicit creative decisions. Do not require a fixed “signature” for every artist.
 
 Symbols and motifs must earn their place in this film. Test whether they clarify the thesis, are perceptible and change the viewer's reading when they recur. Use counts, icon-frame questions and anti-overload checks as optional diagnostics, never numeric quotas. Specificity is not novelty for its own sake: a familiar image is acceptable when its cause and use are particular to this brief.
 
@@ -66,6 +68,8 @@ Before handing off a direction as ready, check and repair any material failure:
 If a criterion fails, repair the direction at its source before handoff. For follow-up revisions, preserve explicitly accepted elements, change the smallest relevant creative cause, and state one test for the next version. Do not accumulate cosmetic variations around a rejected central device.
 
 ## Keep downstream ownership clear
+
+Before a handoff, use [rhythm, review and handoff](references/rhythm-references-handoff.md) for the musical and edit relationship, the proportionate direction contract, the handoff fields for the sequence and prompt owners and the focused revision loop.
 
 - For a primarily commercial video whose main job is to sell or promote a product, brand, service or campaign, route upstream to [commercial video campaign direction](../commercial-video-campaign-director/SKILL.md). A music-bearing ad is not automatically a music video; resolve a material mixed-goal ambiguity with one question.
 - For story premise, scene causality or dialogue, use [screenplay-story-architect](../screenplay-story-architect/SKILL.md). This owner may recommend a narrative mode but does not silently author or revise an approved screenplay.

@@ -1,6 +1,6 @@
 ---
 name: cinematography
-description: Use this skill for provider-neutral shot language, lens choices, camera movement, lighting, blocking, color, texture, and cinematic direction.
+description: "Camera and light for a chosen direction: shot size, lens, camera movement, lighting, blocking, colour and texture, provider-neutral. Prompt syntax goes to Video Prompt Architect or Image Prompt Architect."
 ---
 
 # Cinematography
@@ -11,6 +11,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 
 Use this skill to translate direction into shot language, lighting, blocking, camera behavior, and visual texture for image, video, storyboard, or coded-video workflows.
+
+For shot, lens, light and movement vocabulary with observable tests, read the relevant section of [video craft](../video-prompt-architect/references/video-craft.md): [camera decisions](../video-prompt-architect/references/video-craft.md#7-camera-is-a-decision-not-decoration), [perspective, framing and focus](../video-prompt-architect/references/video-craft.md#8-perspective-framing-and-focus), [blocking, axis and contact](../video-prompt-architect/references/video-craft.md#9-blocking-axis-and-contact) and [motion layers](../video-prompt-architect/references/video-craft.md#10-four-motion-layers-and-physical-response). Use its terms in Cinematography Notes; prompt syntax stays with Video Prompt Architect. For camera behavior in a motion video built from code, use the [motion craft](../hyperframes-workflow/references/motion-craft.md) starting values.
 
 ## Language Policy
 

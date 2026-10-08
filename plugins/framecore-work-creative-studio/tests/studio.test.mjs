@@ -35,6 +35,22 @@ test('skill descriptions stay valid YAML: an unquoted colon or a broken quote fa
   });
 });
 
+test('every reference and template is linked from a skill; a "(moved)" pointer is exempt', () => {
+  assert.ok(!codes(validateStudio(source)).includes('REFERENCE_REACH'));
+  withFixture(root => {
+    fs.writeFileSync(path.join(root, 'skills/ugc/references/unlinked-notes.md'), '# Unlinked notes\n\n' + 'Original guidance that no skill links. '.repeat(20) + '\n');
+    assert.ok(codes(validateStudio(root)).includes('REFERENCE_REACH'));
+  });
+  withFixture(root => {
+    edit(root, 'skills/storytelling/SKILL.md', text => text.replace('[short-form structures](references/short-form-structures.md)', 'short-form structures'));
+    assert.ok(codes(validateStudio(root)).includes('REFERENCE_REACH'));
+  });
+  withFixture(root => {
+    fs.writeFileSync(path.join(root, 'skills/ugc/references/old-notes.md'), '# Old notes (moved)\n\n' + 'This path stays because hosted updates cannot delete files; read the maintained reference instead. '.repeat(6) + '\n');
+    assert.ok(!codes(validateStudio(root)).includes('REFERENCE_REACH'));
+  });
+});
+
 test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const motion = read('skills/hyperframes-workflow/SKILL.md');

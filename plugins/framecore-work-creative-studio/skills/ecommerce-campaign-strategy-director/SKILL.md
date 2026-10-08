@@ -1,6 +1,6 @@
 ---
 name: ecommerce-campaign-strategy-director
-description: 'Use to turn a product, service, store, PDP, marketplace, landing-page, paid-social, UGC or product-launch brief into an evidence-aware sales campaign strategy before creative direction, prompting, generation or delivery. Brand foundations and campaigns without a commerce goal go to Marketing.'
+description: 'Sales campaign strategy for a product, store, PDP, marketplace or launch: offer truth, audiences, angles, asset matrix, tests and claim ledger, before creative work. Brand foundations without a commerce goal go to Marketing.'
 ---
 
 # Ecommerce Campaign Strategy Director

@@ -1,6 +1,6 @@
 ---
 name: static-graphic-design-creator
-description: "Own complete static graphic design work in Creative Studio: develop concepts and copy, logos and visual identity systems, posters, flyers, ads, covers, packaging graphics and social assets, compile exact integrated image prompts, guide explicit edits/layers, and review or hand off results. Use for static-only requests; route brand strategy, full identity guides and campaign-level multi-asset coordination to the orchestrator."
+description: "Complete static graphic design: concepts and copy, logos and identities, posters, flyers, ads, covers, packaging and social graphics, with a finished generation prompt or scoped edit. Motion goes to Motion Graphics Workflow."
 ---
 
 # Static Graphic Design Creator for Creative Studio

@@ -1,6 +1,6 @@
 ---
 name: screenplay-story-architect
-description: Develop original stories and screenplays, from a film idea or scene to a treatment, script, dialogue pass, pitch, or production-oriented writing handoff. Use for narrative writing and film story development; not for software scripts, standalone ad copy, final video prompts, or storyboard-only requests.
+description: "Write original stories and screenplays: premise, treatment, scenes, dialogue, pitch, coverage and revision. Copy and taglines go to Copy Voice; shot timing to Storyboard Sequence Architect."
 ---
 
 # Screenplay Story Architect

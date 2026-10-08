@@ -1,6 +1,6 @@
 ---
 name: audio-production-director
-description: "Direct sound and music for creative projects: soundtrack concepts, music-generation prompts, lyrics, voice-over, sound design, audio review, cue maps, sync, audiovisual edit planning and commercially licensed track research. Use for picture-first or music-first planning, provider-specific music instructions and evidence-based audio handoffs."
+description: "Music, sound and voice direction: soundtrack concepts, music-generator prompts, lyrics, voice-over, cue maps, supplied-audio review and licensed-track research. Sound for a motion video Studio renders is made in Motion Graphics Workflow."
 ---
 
 # Audio Production Director

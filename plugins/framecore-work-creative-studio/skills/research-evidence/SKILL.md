@@ -1,6 +1,6 @@
 ---
 name: research-evidence
-description: 'Run decision-bounded web research only when a creative decision depends on current or external facts: a named generator or tool, platform requirements, material public claims, current capability limits, real-world subject facts, or a request for inspiration, references or verification. Never upload private briefs or authorize provider runs.'
+description: 'Bounded web research only when a creative decision depends on current or external facts: a named tool or model, platform rules, public claims, real-world subjects or requested references. Stable craft needs no search.'
 ---
 
 # Conditional research gate
@@ -80,7 +80,7 @@ Stop when the targeted sources support the material decision, or when a clearly 
 
 ## Dated image-family starting map
 
-For broad image-generator discovery, begin with the [image-generator snapshot](references/image-generator-snapshot.md), a finite 19-family map checked on 2026-09-24. Treat its names, model IDs, operations, surface distinctions, practitioner notes, and watchlist as leads with explicit evidence boundaries. Refresh the exact target before use; do not infer a model's native features from the product platform, a sibling version, an announcement, or a leaderboard. Video and audio mapping remain separate research responsibilities.
+For broad image-generator discovery, begin with the [image-generator snapshot](references/image-generator-snapshot.md), a finite 19-family map checked on 2026-09-24. Treat its names, model IDs, operations, surface distinctions, practitioner notes, and watchlist as leads with explicit evidence boundaries. Refresh the exact target before use; do not infer a model's native features from the product platform, a sibling version, an announcement, or a leaderboard. Video and audio mapping remain separate research responsibilities. The [initial source register](references/initial-source-register.md) (checked 2026-09-23) lists the platform and image sources behind the first mapping; use it to find an original source again, not as current verification.
 
 ## Applied practice
 

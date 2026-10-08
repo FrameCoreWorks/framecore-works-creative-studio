@@ -148,16 +148,23 @@ export function validateStudio(root, {legacy = false} = {}) {
     }
     if (relative.includes('/references/') && text.trim().length < 500) fail('THIN_REFERENCE', relative);
   }
+  const linkedTargets = new Set();
   for (const [relative, text] of texts) for (const match of text.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
     const href = match[1].replace(/^<|>$/g, '');
     if (/^(https?:|mailto:)/i.test(href)) continue;
     try {
       const split = href.indexOf('#'), filePart = decodeURIComponent(split < 0 ? href : href.slice(0, split)), fragment = split < 0 ? '' : decodeURIComponent(href.slice(split + 1));
       const target = filePart ? path.resolve(base, path.dirname(relative), filePart) : path.join(base, relative);
+      if (filePart && relative.startsWith('skills/')) linkedTargets.add(path.relative(base, target));
       if (!within(target)) fail('LINK_ESCAPE', relative + ' -> ' + href);
       else if (!fs.existsSync(target)) fail('BROKEN_LINK', relative + ' -> ' + href);
       else if (fragment && target.endsWith('.md') && !anchors(texts.get(path.relative(base, target)) ?? read(path.relative(base, target))).has(fragment)) fail('BROKEN_ANCHOR', relative + ' -> ' + href);
     } catch (error) { fail('LINK_ENCODING', relative + ': ' + error.message); }
+  }
+  // A reference or template that no skill file links is never loaded; a "(moved)" pointer kept for hosted-update parity is exempt.
+  for (const relative of files.filter(file => /^skills\/[^/]+\/(references|templates)\//.test(file))) {
+    if (linkedTargets.has(relative) || (relative.endsWith('.md') && /^# .*\(moved\)\s*$/.test(read(relative).split('\n')[0]))) continue;
+    fail('REFERENCE_REACH', relative + ': link it from the step where it applies, or replace it with a "(moved)" pointer');
   }
   // Host discovery proved recursive in dev.30: scan every SKILL.md, including source mirrors.
   const discovered = files.filter(file => file.endsWith('/SKILL.md')).filter(file => /^---\r?\n/.test(read(file)));

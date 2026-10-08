@@ -1,6 +1,6 @@
 ---
 name: workflow-self-improvement
-description: Use this explicit-only skill for post-task retrospectives, workflow audits, improvement notes, recurring process review prompts, and approval-gated change proposals. It must not mutate workflow files, upload, run external tools, or act as a hidden daemon.
+description: "Explicit-only retrospectives and workflow audits: improvement notes and approval-gated change proposals from finished work. Never edits workflow files on its own."
 ---
 
 # Workflow Self-Improvement
@@ -40,8 +40,8 @@ Required:
 
 Optional:
 
-- `improvement_log_template`: local template for retrospective notes.
-- `change_proposal_template`: local template for proposed workflow changes.
+- `improvement_log_template`: the [improvement log](templates/improvement-log.md) for retrospective notes.
+- `change_proposal_template`: the [change proposal](templates/change-proposal.md) for proposed workflow changes.
 - `adoption_owner`: role or maintainer who can approve changes.
 
 ## Outputs

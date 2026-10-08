@@ -1,6 +1,6 @@
 ---
 name: copy-voice
-description: Produce or refine campaign copy, voice, captions, supers, dialogue, and final text while preserving locked facts, claims, language, and delivery constraints.
+description: Write campaign copy, headlines, CTAs, voice-over, supers, caption text and short dialogue lines with locked facts and claims. Polish of existing text goes to Humanizer; narrative scenes to Screenplay Story Architect.
 ---
 
 # Copy Voice
@@ -27,9 +27,11 @@ Keep wording selection separate from typography feasibility and claim evidence.
 Use the existing Human Voice review before locking newly written copy; later
 polish must not silently change selected words.
 
-## Inputs
+## Teacher materials
 
 For teacher-facing lesson content, worksheets, quizzes, games, explanations, answer keys, rubrics or school communications, use the [teacher profile](../workflow-orchestrator/references/teacher-workflow.md) and [material methods](../workflow-orchestrator/references/teacher-material-methods.md). Own complete original educational text and its content/answer review with Research Evidence inside the same bounded loop. Preserve objectives, prerequisites and supplied facts; do not turn a classroom-material request into Learning Mode or route pedagogical correctness to the static-image critic. Keep student tasks separate from teacher answers.
+
+## Inputs
 
 - Brief, audience, platform, format, language, and desired tone.
 - Locked facts, product claims, offer terms, disclaimers, and banned wording.

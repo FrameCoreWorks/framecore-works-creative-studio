@@ -8,18 +8,19 @@ workflow responsibility, artifact, review gate, handoff target, and stop
 condition. A skill supplies reusable instructions, knowledge, templates, or
 guardrails that can support one or more roles.
 
-Native Codex Skills installed through `$skill-installer` do not register project
-agents. Resolve supporting Skills from their actual installed directories.
-Without a matching host-registered agent, perform the bounded responsibility
-in the current task, as with temporary roles below. Do not require a project
-manifest or invent a role-named Skill.
+Studio installs skills, not project agents. The second column names the agent
+file that the upstream workflow kit renders for a project that installs the kit
+itself; Studio keeps those files only as vendored upstream sources
+(`integrations/workflow-kit/upstream/.codex/agents/`) and does not create them.
+In Studio, a role ID is a temporary responsibility inside the current task,
+performed with the supporting skills from their installed directories. Only a
+project that separately installed the upstream kit, and whose host registered
+its agents, resolves a role to that agent. Do not require a project manifest or
+invent a role-named skill.
 
-In a Codex project-local install, a role ID may resolve to a rendered
-`.codex/agents/<role-id>.toml` file. In ChatGPT, the same role ID becomes a
-temporary responsibility inside the current task. Some role IDs also have
-same-named public skills; others are resolved through supporting skills.
-A role ID does not mean ChatGPT must find or install a native skill with the
-same name.
+Some role IDs also have same-named public skills; others are resolved through
+supporting skills. A role ID does not mean a host must find or install a native
+skill with the same name.
 
 For example, a handoff to `static-direction` means "perform the static visual
 direction responsibility." It does not require ChatGPT to invent an

@@ -1,6 +1,6 @@
 ---
 name: commercial-video-campaign-director
-description: Develop a distinctive commercial video campaign direction, motion thesis and multi-asset system for product, brand, service and paid-social films. Use before beat maps, shot cards or generator prompts when the user needs the campaign idea or adaptation strategy. Not for music videos, standalone scripts, static-only design, shot-by-shot storyboards or final video prompt syntax.
+description: "Commercial video campaign direction: the idea, motion thesis and asset family for product, brand, service and paid-social films, before shot cards or prompts. Not for music videos, scripts, storyboards or prompt syntax."
 ---
 
 # Commercial video campaign direction

@@ -1,6 +1,6 @@
 ---
 name: storytelling
-description: 'Supporting narrative logic for other Studio owners: story beats, emotional arcs, scene logic and continuity checks across multi-shot work. Use when a campaign, video or sequence owner needs structure support; authored stories, scenes and scripts go to Screenplay Story Architect, and timed shot cards go to Storyboard Sequence Architect.'
+description: 'Supporting story logic for other owners: beats, emotional arc, scene logic and continuity across multi-shot work. Authored scenes go to Screenplay Story Architect; timed shots to Storyboard Sequence Architect.'
 ---
 
 # Storytelling
@@ -11,6 +11,8 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 
 Use this skill to shape narrative logic, story beats, emotional arcs, continuity, and multi-shot dependencies for creative workflows before storyboard or prompt work.
+
+For reels, shorts, ads and explainers, choose a shape from [short-form structures](references/short-form-structures.md), test its "but" and "therefore" causality and fit it to the beat budget before listing scenes.
 
 ## Language Policy
 

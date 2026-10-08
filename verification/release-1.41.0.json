@@ -1,0 +1,100 @@
+{
+  "version": "1.41.0",
+  "date": "2026-10-08",
+  "baseline": "a57717305356296adfa28b996eb9b54641ec6329",
+  "change_id": "CC-20261008-15",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, Python 3.13 with numpy 2.5.3 and Pillow 12.3.0, ffmpeg 6.1.1, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 912,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "planned_presentation_cases": 19,
+      "planned_motion_sound_cases": 6,
+      "executed": 0
+    },
+    {
+      "command": "bash scripts/check_all.sh (Node part: studio, workflow-kit, creative-upgrade, learning-mode, quality-methods, motion-toolkit with motion-quality, presentation)",
+      "status": "PASS",
+      "tests": 198,
+      "passed": 194,
+      "skipped": 4,
+      "skip_reason": "Opt-in browser review, export, player and renderer-parity tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 66
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "python3 scripts/check_legacy_baseline.py",
+      "status": "PASS",
+      "detail": "134 known validator errors and 20 of 67 failing tests, identical to tests/legacy-baseline.json; a tampered baseline was detected"
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "status": "all 37 SKILL.md frontmatters and 37 agents/openai.yaml files parse with PyYAML (74 of 74); the 37 descriptions total 7,593 characters (under 8,000); a link graph over the package finds every reference and template reached from a skill except the three legacy alias pointers, which the new REFERENCE_REACH rule exempts as (moved) pointers",
+    "sources_read_2026_10_08": [
+      "Netflix Timed Text Style Guide pages (general, English USA, Polish)",
+      "W3C WebVTT",
+      "TikTok Ads help (auction in-feed ads, ad disclaimers)",
+      "YouTube Help (three-minute Shorts, altered or synthetic content)",
+      "FTC Disclosures 101 and the consumer reviews rule press release",
+      "EUR-Lex Regulation (EU) 2024/1689 Article 50",
+      "UOKiK press release of 26 September 2022"
+    ],
+    "sources_not_loaded": [
+      "Instagram help pages",
+      "TikTok creator and support pages on AI labels",
+      "Meta Business Help on paid partnership labels",
+      "UOKiK recommendations PDF (over 10 MB)"
+    ]
+  },
+  "plugin_zip_sha256": "3da3050e925af3ba68ee736cd1f17d182b7baa41e40fa32d56be71f439a1c585",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source and container checks only. Host matching of the new descriptions and use of the new references are not verified.",
+  "source": "full review 2026-10-08: F-PKG-05, F-SKL-02, F-SKL-07, F-PKG-01 to F-PKG-03, F-SKL-05, F-SKL-06, F-SKL-08, F-SKL-10, F-LRN-01, IM1, IM3"
+}

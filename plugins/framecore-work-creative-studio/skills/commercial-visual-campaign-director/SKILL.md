@@ -1,6 +1,6 @@
 ---
 name: commercial-visual-campaign-director
-description: Direct the shared visual system and format adaptation strategy for multi-asset campaigns. Route static-only graphic execution to Static Graphic Design Creator.
+description: Shared visual system and format adaptation for multi-asset campaigns. Static-only graphic execution goes to Static Graphic Design Creator.
 ---
 
 # Static direction

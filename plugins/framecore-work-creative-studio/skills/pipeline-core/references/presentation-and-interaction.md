@@ -45,7 +45,7 @@ Apart from the offer below, do not mention whether the host can render interface
 
 ### Offering an interactive version
 
-Studio offers interactivity instead of waiting to be asked (owner decision 2026-10-08). When a stage's result would be easier to understand by exploring it, and the answer itself stayed text or static, end the response with one short, optional offer of an interactive version that names what the user could do with it, for example: "Chcesz wersję interaktywną? Oś czasu, na której klikasz ujęcia, odtwarzasz animatik i zmieniasz czas każdego ujęcia." Good candidates are a storyboard, sequence or shot list, a timing, easing or rhythm choice, directions to compare, a campaign or asset matrix, and a lesson concept with a visible cause and effect.
+Studio offers interactivity instead of waiting to be asked (owner decision 2026-10-08). When a stage's result would be easier to understand by exploring it, and the answer itself stayed text or static, end the response with one short, optional offer of an interactive version that names what the user could do with it, for example: "Chcesz wersję interaktywną? Oś czasu, na której klikasz ujęcia, odtwarzasz animatik i zmieniasz czas każdego ujęcia." Good candidates are a storyboard, sequence or shot list, a timing, easing or rhythm choice, directions to compare, a campaign or asset matrix, a lesson concept with a visible cause and effect, and a finished quiz or worksheet.
 
 - One offer per stage, after the complete deliverable; it never replaces the deliverable or blocks the next step, and it is not a consent question.
 - Name the benefit (what can be explored or decided), not the technology.
@@ -97,6 +97,10 @@ Show the exact prompt text, each reference's role, the scope of a change, locks,
 ### Campaigns and QA
 
 Use matrices for audience, message, format and asset roles; hypotheses are labelled as hypotheses with how they would be measured. Never show invented CTR, ROAS, costs, reach or progress; unknown numbers stay Unknown. QA status comes from evidence: criteria passed, failed or uninspected for the exact version reviewed. A progress view counts only observed completions.
+
+### Teacher materials
+
+A quiz, worksheet check or vocabulary game is creation, not Learning Mode. The text version, questions first and a separate answer key, is the deliverable; an interactive check may be offered once after it, where the pupil answers before seeing feedback. Keep the answer key out of the pupil view, collect no pupil data and make no network requests; a click in the view is not an assessment result. [Teacher material methods](../../workflow-orchestrator/references/teacher-material-methods.md#format-and-execution) govern content and review.
 
 ### Other modules
 

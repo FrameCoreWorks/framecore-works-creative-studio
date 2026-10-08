@@ -1,6 +1,6 @@
 ---
 name: storyboard-sequence-architect
-description: Turn an approved script, treatment, concept, or sequence brief into a timed beat map, scene or shot breakdown, continuity-aware shot cards, and a clear handoff to storyboard-board-architect or video-prompt-architect. Use for sequence structure and shot planning; not for board-image layout, generator syntax, or media generation.
+description: Turn an approved script or concept into a timed beat map and continuity-aware shot cards, including a motion storyboard for coded video. Boards go to Storyboard Board Architect; prompts to Video Prompt Architect.
 ---
 
 # Storyboard Sequence Architect

@@ -1,6 +1,6 @@
 ---
 name: image-prompt-architect
-description: Compile a standalone still-image generation or scoped image-edit prompt from a known brief, selected direction and actual reference assets, including authored photographic/cinematic stills and static communication graphics. Use for final prompts and model-aware translation; not to invent a new campaign, diagnose an unseen render or execute without authorization.
+description: Compile a still-image generation or scoped image-edit prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Static Graphic Design Creator.
 ---
 
 # Prompt compilation

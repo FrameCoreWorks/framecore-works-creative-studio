@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Refine naturalness, specificity, rhythm and voice in existing copy, headlines, short voice-over or editorial wording. Use for focused polish and bounded wording repair; Copy Voice owns new commercial/editorial drafts and Copy Packs. Not for detector evasion, fabricated experience or silent changes to approved copy.
+description: Polish existing copy, headlines, short voice-over or editorial text for natural rhythm, specificity and voice without changing facts or locks. New copy goes to Copy Voice.
 ---
 
 # Human voice

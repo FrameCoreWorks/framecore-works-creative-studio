@@ -1,6 +1,6 @@
 ---
 name: studio-workstyle-profile
-description: Adapt Creative Studio's pace, vocabulary, depth and format to a user's demonstrated expertise and stated preferences by domain. Use to initialize, update, inspect, export or resume a private workstyle profile; do not infer private traits or claim cross-host memory without evidence.
+description: Adapt pace, vocabulary, depth and format to a user's shown expertise and stated preferences, per domain; inspect, update, export or resume a private profile without sensitive data.
 ---
 
 

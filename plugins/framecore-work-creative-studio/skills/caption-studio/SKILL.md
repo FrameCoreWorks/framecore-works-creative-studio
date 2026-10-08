@@ -1,6 +1,6 @@
 ---
 name: caption-studio
-description: Use this skill to plan, normalize, style, review, or repair captions and subtitles for Reels, TikTok, Shorts, ads, explainers, and other videos using provided transcripts, subtitle files, word timing, or available local tools.
+description: "Captions and subtitles for Reels, TikTok, Shorts, ads and explainers: timing from transcripts or SRT/VTT, segmentation, style, safe zones, burn-in or sidecar handoff and caption QA. Wording goes to Copy Voice."
 ---
 
 # Caption Studio
@@ -60,7 +60,7 @@ Use [templates/caption-task-pack.md](templates/caption-task-pack.md) for nontriv
 2. Lock language, spelling, brand terms, legal text, speaker identity, and transcript authority.
 3. Normalize timing into monotonic segments; keep word timing within segment bounds when available.
 4. If no style was selected, show a compact set of suitable options. Choose automatically only when the user explicitly allows it.
-5. Set line count, words per beat, reading speed, emphasis behavior, position, safe zones, and collision priorities.
+5. Set line count, words per beat, reading speed, emphasis behavior, position, safe zones, and collision priorities. Start from the dated [readability defaults](references/readability-defaults.md) unless a distributor, client or platform specification applies, and record which one the plan uses.
 6. Define an available local route such as an editor timeline, coded-video captions, ASS/subtitle burn-in, or sidecar subtitle delivery.
 7. Review dense frames, timing boundaries, spelling, speaker changes, occlusion, contrast, CTA conflicts, and final duration.
 8. Treat any wording change as a copy decision: preserve author context, facts,
@@ -71,7 +71,7 @@ Use [templates/caption-task-pack.md](templates/caption-task-pack.md) for nontriv
 
 - Prefer word-level timing for karaoke, active-word highlight, bounce, or rapid short-form captions.
 - Prefer segment-level subtitles for calm editorial work and deterministic sidecar delivery.
-- Prefer a coded-video route when exact repeatable motion and layout are required.
+- Prefer a coded-video route when exact repeatable motion and layout are required. For a motion video Studio builds from a contract, import the SRT or WebVTT with the [motion sync tool](../hyperframes-workflow/assets/motion-sync/README.md); `check-score.mjs` then checks order, overlaps and reading time.
 - Prefer a timeline editor when captions are one layer inside a larger human-reviewed edit.
 - Keep captions away from faces, products, UI controls, platform chrome, logos, lower thirds, and CTAs.
 - Split or retime dense text instead of shrinking it until it becomes unreadable.

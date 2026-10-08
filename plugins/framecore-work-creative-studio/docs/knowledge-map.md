@@ -24,6 +24,9 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 | storyboard-sequence-architect | [applied sequence workshop](../skills/storyboard-sequence-architect/references/applied-sequence-workshop.md) |
 | video-prompt-architect | [blocking continuity and extension workbook](../skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md) |
 | workflow-orchestrator | [asset change routing](../skills/workflow-orchestrator/references/asset-change-routing.md); [product-photo-to-reel route](../skills/workflow-orchestrator/references/product-film-end-to-end-route.md) |
+| caption-studio | [readability defaults](../skills/caption-studio/references/readability-defaults.md) (dated subtitle and burned-in caption values, SRT and WebVTT rules) |
+| ugc | [formats, scripts and disclosure](../skills/ugc/references/formats-scripts-and-disclosure.md) (speaker types, formats, script skeleton, dated platform specifications and disclosure rules) |
+| storytelling | [short-form structures](../skills/storytelling/references/short-form-structures.md) (structures by job, causality check, beat budget) |
 
 ## Reusable materials
 

@@ -1,6 +1,6 @@
 ---
 name: hipson-adapter
-description: 'Explicit-only adapter for lightweight Hipson-format research maps, internet mapping packets and review or execution packets. General delegation packets go to Instruction Packet Factory. Full Hipson is optional and maintained at https://github.com/Hipson47/Hipson.git.'
+description: 'Explicit-only adapter for lightweight Hipson-format research maps and review or execution packets. General delegation packets go to Instruction Packet Factory.'
 ---
 
 # Hipson Adapter
@@ -45,11 +45,13 @@ Optional:
 
 Produce one lightweight Hipson-style packet:
 
-- Research Map
-- Internet Mapping Packet
-- Bounded Instruction Packet
+- Research Map ([template](templates/research-map.md))
+- Internet Mapping Packet ([template](templates/internet-mapping-packet.md))
+- Bounded Instruction Packet ([template](templates/instruction-packet.md))
 - Review Packet
 - Execution Packet
+
+The shared packet fields (target role, goal, context, exclusions, evidence rules, acceptance criteria, output schema and handoff) are defined once by [Instruction Packet Factory](../instruction-packet-factory/SKILL.md); this adapter adds only the Hipson-format research-map and internet-mapping fields.
 
 Full Hipson can be connected separately from:
 

@@ -1,6 +1,6 @@
 ---
 name: remotion-video-production
-description: Use this skill to plan, implement, review, or repair deterministic code-driven videos built with Remotion, React, and TypeScript, including compositions, frame-based animation, sequences, reusable props, media, captions, local previews, renders, variants, and render QA.
+description: "Build or repair deterministic videos in Remotion (React, TypeScript): compositions, frame timing, props, variants, captions and render QA. Other coded motion goes to Motion Graphics Workflow."
 ---
 
 # Remotion Video Production

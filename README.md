@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.40.1**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.41.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -20,6 +20,7 @@ Startup restores the complete Studio introduction and capability overview, then 
 - Static Graphic Design Creator methods for composition, typography, exact copy and graphic design.
 - Music, voice and sound planning in relation to pictures, or picture planning around existing audio.
 - Motion graphics from code: kinetic type, animated titles and logos, explainers and app or product films from screenshots or photos, rendered as a finished MP4 where the host can run code, with sound designed and mixed for the video on request, a craft critique and an improvement round before delivery; without code execution, a contract and the [motion player](https://framecoreworks.github.io/framecore-works-creative-studio/) export the video in the browser.
+- Captions, UGC and short-form stories with dated, sourced defaults: subtitle and caption reading speeds and formats, creator-ad formats with disclosure lines for paid relationships and AI presenters (Poland, EU, US), and short-form structures with a beat budget.
 - Answers shaped for ChatGPT's interactive elements where the host offers them (choices, comparisons, timelines), always with an equivalent text path.
 - Asset records, revisions, scoped preferences and portable handoffs between environments.
 - Consistent skill display names, with a [standard for future additions](plugins/framecore-work-creative-studio/docs/skill-naming.md).

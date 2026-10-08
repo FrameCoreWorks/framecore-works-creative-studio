@@ -1,6 +1,6 @@
 ---
 name: tool-routing-cost
-description: Plan provider-neutral tool routing, optional provider setup, ChatGPT/Codex app versus API/MCP/CLI choices, billing, upload boundaries, approvals and execution risk.
+description: "Plan which tool or provider runs a task: app versus API, MCP or CLI, setup, costs, uploads, approvals and risk, provider-neutral. Planning does not run or pay for anything."
 ---
 
 # Tool Routing Cost
@@ -55,7 +55,7 @@ or any task where cost, privacy, or capability uncertainty matters.
    target-specific syntax, reference behavior, edit mode, audio, or text claims.
 5. State cost, upload, credential, and provider-activation requirements.
 6. Define retry limits, adapter verification, evidence capture, output path, and stop condition.
-6. Prepare an execution contract only if the user explicitly approved execution
+7. Prepare an execution contract only if the user explicitly approved execution
    and all required gates are satisfied.
 
 ## Decision Rules

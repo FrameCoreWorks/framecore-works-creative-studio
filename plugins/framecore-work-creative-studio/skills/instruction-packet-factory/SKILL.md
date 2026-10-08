@@ -1,6 +1,6 @@
 ---
 name: instruction-packet-factory
-description: 'Use when a task must be handed to another responsibility, agent or environment as a bounded packet with an input/output contract, acceptance criteria and stop condition. Messy notes that need a structured brief go to Brief Architect; Hipson-format research maps go to Hipson Adapter on explicit request.'
+description: 'Hand a task to another agent or environment as a bounded packet with inputs, outputs, acceptance criteria and stop condition. Messy notes go to Brief Architect; Hipson-format packets to Hipson Adapter.'
 ---
 
 # Instruction Packet Factory
