@@ -86,6 +86,23 @@ def words(texts):
     return sum(sum(1 for token in text.split() if re.search(r'\w', token)) for text in texts)
 
 
+def content_balance(mask, width, height, side=0.25, edge=0.05):
+    """Where the content sits vertically, ignoring corner and edge decorations: (centre, extent) as shares of the
+    height, from the rows of the frame's central column (the middle half of the width, where copy and the main visual
+    stand); None when that column is empty."""
+    from PIL import Image
+    x0, y0 = int(width * side), int(height * edge)
+    inner = mask.crop((x0, y0, width - x0, height - y0))
+    rows = list(inner.resize((1, inner.height), Image.BOX).tobytes())
+    total = sum(rows)
+    if total < 255 * 0.002 * inner.height:
+        return None
+    centre = sum(i * v for i, v in enumerate(rows)) / total
+    filled = [i for i, v in enumerate(rows) if v > 255 * 0.01]
+    extent = (filled[-1] - filled[0]) / height if filled else 0
+    return (y0 + centre) / height, extent
+
+
 class VideoFrames:
     """Frames of a delivered video, for hosts whose own renderer drew it: decoded with ffmpeg at the contract's size."""
 
@@ -223,12 +240,14 @@ class Critique:
                         if not full_bleed and not camera and (x0 < width * edge or y0 < height * edge or x1 > width * (1 - edge) or y1 > height * (1 - edge)):
                             self.add('error', 'layout', where, f'content reaches the frame edge (box {x0},{y0} to {x1},{y1})',
                                      'reduce the text size or the line length, or raise tokens.marginRatio')
-                        if not full_bleed and height > width * 1.5:
-                            centre = (y0 + y1) / 2 / height
-                            if not BALANCE[0] <= centre <= BALANCE[1] and (y1 - y0) < 0.6 * height:
+                        if height > width * 1.5:
+                            balance = content_balance(diff, width, height)
+                            if balance and not BALANCE[0] <= balance[0] <= BALANCE[1] and balance[1] < 0.6:
+                                centre = balance[0]
                                 self.add('warning', 'composition', where, f'the content block is centred at {centre:.0%} of the height; '
                                          f'{"the lower" if centre < BALANCE[0] else "the upper"} part of the frame is left empty',
                                          'centre the block near 45% of the height, or fill the empty part with the scene\'s visual (a device, a chart, the mark)')
+                        if not full_bleed and height > width * 1.5:
                             if y1 > height * (1 - REELS_BOTTOM_ZONE):
                                 self.add('warning', 'layout', where, f'content reaches the bottom {int(REELS_BOTTOM_ZONE * 100)}% of a 9:16 frame, where Reels and TikTok show captions and buttons',
                                          'set tokens.safeArea.bottom to 0.14 or move the block up')
