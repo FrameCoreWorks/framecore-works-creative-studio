@@ -694,6 +694,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: release commit pushed to `main`; publication record pending
+- GitHub: synchronized; `main` fast-forwarded to `fe9e695`; [v1.36.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.36.0) published by workflow 37770199028; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.36.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
