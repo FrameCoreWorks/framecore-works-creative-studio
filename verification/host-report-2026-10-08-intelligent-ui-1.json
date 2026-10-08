@@ -1,0 +1,28 @@
+{
+  "version": "1.35.0 (owner reported updating the hosted plugin before the test; the version was not read back in this session)",
+  "date": "2026-10-08",
+  "reported_by": "owner (four phone screenshots and a short description); inspection by cloud-code",
+  "client": "ordinary ChatGPT, Chat, mobile browser (chatgpt.com, Android), reasoning setting 'Wysoki'",
+  "observations": [
+    {
+      "step": "area menu after the pace choice",
+      "observed": "the eight work areas were rendered as tappable cards, each with its number (1 to 8), title and a short description; the owner could still type '2' in the composer",
+      "expected": "a host choice control may mirror the pending numbered group with the same tokens and meaning",
+      "result": "PASS_REPORTED",
+      "owner_comment": "clickable choices instead of typing numbers; liked"
+    },
+    {
+      "step": "storyboard request (six shots, 10 s chase in Tokyo)",
+      "observed": "a heading, the premise and a table with shot IDs S01 to S06, time ranges (0:00-0:01,5 to 0:08-0:10) and image, camera and dialogue; a note that the timing is planned, not measured from a finished film, and that each board shows one characteristic frame; an image generation then ran (progress indicator at 99%)",
+      "expected": "scene IDs and times from the current revision, planned timing labelled as such; a native element is a planning view",
+      "result": "rules followed; presentation stayed a static table",
+      "owner_comment": "little interactivity; the owner asked for a more interactive version"
+    }
+  ],
+  "unknown": [
+    "whether the owner's request authorized the board image generation that followed (the full prompt was not supplied)",
+    "the result of the follow-up request for a more interactive storyboard",
+    "whether the area cards are a native control composed by ChatGPT or a rendering of the numbered list"
+  ],
+  "host_behavior": "partial: startup menus and storyboard observed; the other prompts of docs/intelligent-ui-adaptation.md section 6 not yet run"
+}
