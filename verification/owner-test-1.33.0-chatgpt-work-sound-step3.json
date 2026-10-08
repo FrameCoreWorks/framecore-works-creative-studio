@@ -25,6 +25,6 @@
     "key": "pitch classes before the reveal (100 to 1500 Hz): D, A, E, B, F#, G strongest, G sharp near zero, consistent with E minor; whole-mix key estimation is ambiguous because effects and the accent bell weigh in"
   },
   "plugin_fix": "every user-fixed choice (lead, landing, transition, impact, accent) is now recorded in soundDesign.direction.choices; committed locally with the pending 1.34.0 changes",
-  "owner_listening": "not yet reported",
-  "status": "DELIVERED_TECHNICAL_PASS with one tool gap found and fixed locally; owner listening pending"
+  "owner_listening": "PASS_REPORTED 2026-10-08: after a short listen the owner judged steps 1 to 3 all right (\"wszystko jest okej\")",
+  "status": "DELIVERED_TECHNICAL_PASS with one tool gap found and fixed locally; owner listening PASS_REPORTED"
 }

@@ -29,8 +29,9 @@
     "The variation route works as designed: same picture, a clearly different design, the reasons stated per role.",
     "Unlike step 1, no extra loudness pass was added; the delivered true peak stayed under -1 dBTP.",
     "The felt landing is carried mostly by a low sine thump (58 to 72 Hz); the quality gate measures only above 150 Hz, so a thump-heavy landing can pass it. This may read as the drum-like sound the owner rejected earlier; to be confirmed by listening.",
-    "The four-chord loop is anchored on the reveal, so a three-bar video plays only the loop's last three chords before the tonic (the report explains this)."
+    "The four-chord loop is anchored on the reveal, so a three-bar video plays only the loop's last three chords before the tonic (the report explains this).",
+    "The owner heard no problem with the felt landings, so the low-thump concern is not confirmed; no change to the felt design."
   ],
-  "owner_listening": "not yet reported",
-  "status": "DELIVERED_TECHNICAL_PASS; owner listening pending"
+  "owner_listening": "PASS_REPORTED 2026-10-08: after a short listen the owner judged steps 1 to 3 all right (\"wszystko jest okej\")",
+  "status": "DELIVERED_TECHNICAL_PASS; owner listening PASS_REPORTED"
 }

@@ -32,6 +32,6 @@
     "The host added a post-master loudnorm pass because the encoded AAC peaked higher than the WAV; sound.py does not yet measure and trim the final AAC itself.",
     "Studio's critique, run on the contract with the bundled renderer, reports an empty frame 0 that the delivered MP4 does not have: a custom renderer needs the critique to read the delivered MP4's frames."
   ],
-  "owner_listening": "not yet reported",
-  "status": "DELIVERED_TECHNICAL_PASS; owner listening pending"
+  "owner_listening": "PASS_REPORTED 2026-10-08: after a short listen the owner judged steps 1 to 3 all right (\"wszystko jest okej\")",
+  "status": "DELIVERED_TECHNICAL_PASS; owner listening PASS_REPORTED"
 }
