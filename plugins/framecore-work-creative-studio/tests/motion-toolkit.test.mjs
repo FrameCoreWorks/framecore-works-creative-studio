@@ -429,6 +429,12 @@ test('contract revisions diff values and extend a scene while moving everything 
   assert.deepEqual(checkScore(outro).errors, []);
   assert.deepEqual(score, JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8')), 'input untouched');
   assert.throws(() => extendScene(score, 'missing', 10), /Unknown scene/);
+  // Sound cues move with the picture, and a planned sound design must be planned again before the next mix.
+  const withSound = {...structuredClone(score), sfx: [{frame: first.start + 2, sound: 'whoosh'}, {frame: second.start, sound: 'landing'}], soundDesign: {status: 'planned', engine: 'studio-generative-1'}};
+  const resounded = extendScene(withSound, first.id, 30);
+  assert.deepEqual(resounded.sfx.map(cue => cue.frame), [first.start + 2, second.start + 30], 'a sound cue stays on its event');
+  assert.equal(resounded.soundDesign.status, 'stale');
+  assert.equal(withSound.soundDesign.status, 'planned', 'input untouched');
   assert.throws(() => extendScene(score, first.id, 0), /non-zero integer/);
   assert.throws(() => extendScene(score, first.id, 1.5), /non-zero integer/);
   assert.throws(() => extendScene(score, first.id, -(first.end - first.start)), /empty/);
@@ -693,6 +699,18 @@ test('the craft critique scores a contract, renders its review frames and gives 
       const fromVideo = spawnPython('python3', ['-B', critique, path.join(tmp, 'short.json'), '--video', path.join(tmp, 'short.mp4'), '--out', path.join(tmp, 'video')], {encoding: 'utf8'});
       assert.equal(fromVideo.status, 0, fromVideo.stderr + fromVideo.stdout);
       assert.equal(JSON.parse(fromVideo.stdout).frames, 'checked in the delivered video');
+      assert.equal(JSON.parse(fromVideo.stdout).status, 'checked');
+    }
+    // Frames that were asked for but could not be read leave the review incomplete: never a pass, whatever the score.
+    const missing = spawnPython('python3', ['-B', critique, path.join(root, scenesDir, 'examples/color-block.motion-score.json'), '--video', path.join(tmp, 'missing.mp4')], {encoding: 'utf8'});
+    assert.equal(missing.status, 3, missing.stdout + missing.stderr);
+    assert.equal(JSON.parse(missing.stdout).status, 'incomplete');
+    if (ffmpeg) {
+      const wrong = path.join(tmp, 'wrong-size.mp4');
+      assert.equal(spawnPython('ffmpeg', ['-v', 'error', '-i', path.join(tmp, 'short.mp4'), '-vf', 'scale=640:360', wrong], {encoding: 'utf8'}).status, 0);
+      const mismatch = spawnPython('python3', ['-B', critique, path.join(tmp, 'short.json'), '--video', wrong], {encoding: 'utf8'});
+      assert.equal(mismatch.status, 3);
+      assert.match(JSON.parse(mismatch.stdout).frames, /does not match its contract/);
     }
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
@@ -746,6 +764,19 @@ print(json.dumps(out))`, path.join(root, soundDir)], {encoding: 'utf8'});
     assert.ok(Math.abs(palette.loudest_db + 17) < 0.5, `${name} sits at the reference level: ${palette.loudest_db}`);
   }
   assert.ok(result.whoosh_peak_error_ms < 1, 'a whoosh aligns on its measured peak');
+});
+
+test('a cue with no sound in its window is reported missing, never measured on time', {skip: !numpy && 'numpy not installed'}, () => {
+  const script = [
+    'import sys, json, numpy as np', `sys.path.insert(0, ${JSON.stringify(path.join(root, soundDir))})`, 'import sound',
+    'silence = np.zeros((48000, 2)); click = silence.copy(); click[24000:24400] = 0.5',
+    'print(json.dumps([sound.summarize(sound.check_hits(silence, [(24000, k)])) for k in ("onset", "peak")] + [sound.summarize(sound.check_hits(click, [(24000, "onset")]))]))',
+  ].join('\n');
+  const run = spawnPython('python3', ['-B', '-c', script], {encoding: 'utf8'});
+  assert.equal(run.status, 0, run.stderr);
+  const [onset, peak, heard] = JSON.parse(run.stdout);
+  for (const silent of [onset, peak]) assert.deepEqual([silent.missing, silent.judged, silent.all_ok], [1, 0, false]);
+  assert.deepEqual([heard.missing, heard.judged, heard.all_ok], [0, 1, true]);
 });
 
 test('sound cues follow the picture: taps, pushes, wipes, landings, a composed bed and checked contracts', {skip: !(python && numpy) && 'python3 with Pillow and numpy not installed'}, async () => {

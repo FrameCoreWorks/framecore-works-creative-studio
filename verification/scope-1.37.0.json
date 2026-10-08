@@ -1,0 +1,40 @@
+{
+  "version": "1.37.0",
+  "baseline": "379523918e775c98b1862d04b340d8c1426ebe56",
+  "change_id": "CC-20261008-07",
+  "origin": "cloud-code",
+  "files": 908,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/critique.py",
+    "skills/hyperframes-workflow/assets/motion-revise/README.md",
+    "skills/hyperframes-workflow/assets/motion-revise/revise.mjs",
+    "skills/hyperframes-workflow/assets/motion-sound/README.md",
+    "skills/hyperframes-workflow/assets/motion-sound/sound.py",
+    "skills/hyperframes-workflow/references/motion-sound-design.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "unchanged_count": 894,
+  "added": [],
+  "removed": [],
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block.",
+  "outside_package": [
+    ".github/workflows/release.yml",
+    ".github/workflows/checks.yml",
+    "scripts/check_all.sh",
+    "scripts/motion_benchmark.py",
+    "tests/test_motion_benchmark.py",
+    "docs/motion-benchmark/README.md",
+    "docs/audit-2026-10-08-response.md"
+  ]
+}

@@ -1,7 +1,8 @@
 // Revise a delivered motion contract without redesigning it. Dependency-free (Node 20+).
 // - diff: list every changed value between two revisions, to show the user what changed.
 // - extend: lengthen or shorten one scene and move everything after it (later scenes, holds,
-//   captions, cues and the total length) by the same number of frames.
+//   captions, cues, sound cues and the total length) by the same number of frames; a planned sound design is
+//   marked stale, so the music is planned again before the next mix.
 // Exit code: 0 done, 1 differences or problems reported, 2 setup problem.
 //
 //   node revise.mjs diff before.motion.json after.motion.json
@@ -31,7 +32,9 @@ export function diffMarkdown(changes) {
 /**
  * Lengthen (frames > 0) or shorten (frames < 0) one scene. Its end moves and its holds that ended at the old
  * end stretch with it; every later scene moves as a whole, so overlaps such as a sweep hand-over keep their
- * length; captions and cues from the first later scene or the old end onwards move too; totalFrames follows.
+ * length; captions, cues and sound cues (sfx) from the first later scene or the old end onwards move too; totalFrames
+ * follows. A sound design is marked stale: its music was fitted to the old length, so `sound.py plan` must run again
+ * (it keeps the choices the user fixed) before `sound.py mix`.
  * Returns a new contract; the input is unchanged. Throws when the change would leave a scene, hold or caption empty.
  */
 export function extendScene(score, sceneId, frames) {
@@ -57,7 +60,9 @@ export function extendScene(score, sceneId, frames) {
     if (caption.end <= caption.start) throw new Error(`Caption ${caption.id} would become empty`);
   }
   for (const cue of next.cues ?? []) cue.frame = move(cue.frame);
+  for (const cue of next.sfx ?? []) cue.frame = move(cue.frame);
   next.totalFrames += frames;
+  if (next.soundDesign) next.soundDesign = {...next.soundDesign, status: 'stale', staleReason: `scene ${sceneId} changed by ${frames} frames`};
   return next;
 }
 

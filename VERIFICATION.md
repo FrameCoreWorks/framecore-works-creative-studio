@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.36.0
+## Current source: 1.37.0
+
+The [1.37.0 source checks](verification/release-1.37.0.json) pass canonical validation and the shared check script (`scripts/check_all.sh`): 187 Node tests (plus 3 opt-in browser tests, run separately and passing: 60 in the browser run), 12 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks. The release fixes the findings of an external audit, each reproduced first: the critique no longer passes a picture it did not inspect, a silent cue is missing rather than on time, a scene extension moves the sound cues and makes the music be planned again with the user's choices kept, and video review decodes only its review frames. Host behavior of 1.37.0 is not verified. [Scope](verification/scope-1.37.0.json) records 14 changed shared files out of 908.
+
+## Previous source: 1.36.0
 
 The [1.36.0 source checks](verification/release-1.36.0.json) pass canonical validation and 248 tests: 175 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 11 presentation, 12 installer, 4 identity, 8 GEPA pilot, 23 asset and 3 benchmark-script checks. The release adds the rule that Studio offers an interactive version on its own, once per stage and after the deliverable; two conflicts with learning and the host-capability note were found in an instruction trace and resolved. Host behavior of 1.36.0 is not verified. [Scope](verification/scope-1.36.0.json) records 11 changed shared files out of 908.
 

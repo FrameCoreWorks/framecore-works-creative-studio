@@ -697,3 +697,25 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `fe9e695`; [v1.36.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.36.0) published by workflow 37770199028; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.36.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261008-07
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-03-intelligent-ui`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `379523918e775c98b1862d04b340d8c1426ebe56` (main, package 1.36.0)
+- Result: the release commit carrying this entry (package 1.37.0)
+- Package version: 1.36.0 -> 1.37.0
+- Scope: fixes from the owner-supplied external audit (ChatGPT, GPT 6.1 Sol, of `e8884d8`), each reproduced first: critique status and exit 3 for uninspected frames, video decoding of review frames only with size, rate and length checks, silent cues reported missing, `extend` moving `sfx` and marking the sound design stale, `mix` refusing it, `plan` keeping user choices; outside the package the benchmark contract pick and video critique, `scripts/check_all.sh` for release and a new checks workflow ([response](audit-2026-10-08-response.md))
+- Shared package changed: yes; 14 changed, 0 added, 0 removed ([scope](../verification/scope-1.37.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 187 (+3 opt-in browser tests; 60 passing in the browser run), installer 12, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.37.0.json))
+- audit reproductions and fix exercises in the container; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: release commit pushed to `main`; publication record pending
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

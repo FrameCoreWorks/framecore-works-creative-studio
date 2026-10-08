@@ -1,10 +1,10 @@
-# Creative Studio 1.36.0
+# Creative Studio 1.37.0
 
-Studio now offers the interactive version itself.
+Checks that tell the truth about what they checked.
 
-- **It asks when it helps.** After a storyboard, a timing choice, a comparison of directions or a campaign matrix, Studio adds one short line offering an interactive version and says what you could do with it: click through shots, play an animatic, change timings, compare side by side.
-- **You know what you will get.** It says whether it would be a view in the chat or a file to open in a browser, which a phone may not show inside the chat.
-- **Once is enough.** The offer comes after the full answer, never instead of it. Say no and Studio stops offering it for that kind of task.
-- **No surprises.** Accepting builds the view from what already exists; new images or video still need your request.
+- **No pass without a picture.** If the video review could not see the frames (a missing file, the wrong size, a renderer that cannot draw here), it now says the review is incomplete instead of showing a perfect score.
+- **No pass without a sound.** A sound cue that is silent is reported as missing, not as perfectly in time.
+- **Changes keep sound and picture together.** Lengthening a scene moves its sound cues too, and the music is planned again before the next mix, keeping the choices you made.
+- **Lighter video review.** Only the frames under review are decoded, so longer videos no longer risk running out of memory.
 
-Startup, the complete welcome, menus, learning onboarding and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+These fixes come from an external audit of the repository; every finding was reproduced before it was fixed. Startup, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

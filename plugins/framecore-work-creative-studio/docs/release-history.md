@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.37.0, 2026-10-08
+
+From an external audit of the repository by ChatGPT (GPT 6.1 Sol), with each finding reproduced before it was fixed (the repository's docs/audit-2026-10-08-response.md):
+
+- The craft critique no longer reports a pass for a picture it did not see. `status` says what the score covers (`checked`, `issues`, `contract_only`, `incomplete`); frames that were asked for but could not be read, including a missing video or one whose size, frame rate or length differs from its contract, give `incomplete` and exit code 3.
+- `--video` decodes only the review frames instead of the whole video, so a long or large video no longer fills memory.
+- `sound.py check` reports a cue with no sound in its window as `missing` and fails, instead of counting silence as a hit on time.
+- `revise.mjs extend` moves the sound cues (`sfx`) with the picture and marks the sound design stale; `sound.py mix` refuses a stale design, and `sound.py plan` keeps the choices the user fixed when planning again.
+- Outside the package: the motion benchmark takes the `*.motion.json` contract (never `meta.json`) and also judges the delivered video's own frames; one check script (`scripts/check_all.sh`) now drives the release workflow and a new checks workflow on every push and pull request, including the presentation and benchmark tests, with the historical legacy suite as a separate, non-blocking status.
+
 ## 1.36.0, 2026-10-08
 
 - Studio offers an interactive version on its own, on the owner's request after the first Intelligent UI test. When a static answer would be easier to understand by exploring it (a storyboard or shot list, a timing or easing choice, directions to compare, a campaign matrix, a lesson concept with a cause and effect), it ends with one short, optional offer that names what the user could do, and says whether it would be a view in the chat or an HTML file (which a phone may not show inside the chat). One offer per stage, never instead of the answer and never during onboarding or under a pending learner exercise; a decline is remembered for that kind of stage; accepting builds from existing material and authorizes no new generation.

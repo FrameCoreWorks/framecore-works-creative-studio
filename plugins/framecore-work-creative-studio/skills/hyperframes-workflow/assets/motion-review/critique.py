@@ -104,25 +104,47 @@ def content_balance(mask, width, height, side=0.25, edge=0.05):
 
 
 class VideoFrames:
-    """Frames of a delivered video, for hosts whose own renderer drew it: decoded with ffmpeg at the contract's size."""
+    """The review frames of a delivered video, for hosts whose own renderer drew it. The video must have the contract's
+    size, frame rate and length; only the frames under review are decoded, so a long or large video does not fill memory."""
 
-    def __init__(self, path, score):
+    def __init__(self, path, score, wanted):
         import shutil
         import subprocess
         from PIL import Image
-        ffmpeg = shutil.which('ffmpeg')
-        if not ffmpeg:
-            raise RuntimeError('ffmpeg is needed to read frames from a video')
+        ffmpeg, ffprobe = shutil.which('ffmpeg'), shutil.which('ffprobe')
+        if not ffmpeg or not ffprobe:
+            raise RuntimeError('ffmpeg and ffprobe are needed to read frames from a video')
+        if not os.path.isfile(path):
+            raise RuntimeError(f'video not found: {path}')
         self.size = (score['width'], score['height'])
-        raw = subprocess.run([ffmpeg, '-v', 'error', '-i', path, '-vf', f'scale={self.size[0]}:{self.size[1]}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'],
-                             capture_output=True, check=True).stdout
+        probe = json.loads(subprocess.run([ffprobe, '-v', 'error', '-select_streams', 'v:0', '-count_packets', '-show_entries',
+                                           'stream=width,height,r_frame_rate,nb_read_packets', '-of', 'json', path],
+                                          capture_output=True, text=True, check=True).stdout)['streams'][0]
+        num, _, den = probe['r_frame_rate'].partition('/')
+        fps, expected = float(num) / float(den or 1), score['fps']['num'] / score['fps']['den']
+        frames = int(probe.get('nb_read_packets') or 0)
+        problems = []
+        if (probe['width'], probe['height']) != self.size:
+            problems.append(f"size {probe['width']}x{probe['height']}, contract {self.size[0]}x{self.size[1]}")
+        if abs(fps - expected) > 0.01:
+            problems.append(f'{fps:.3f} fps, contract {expected:.3f}')
+        if abs(frames - score['totalFrames']) > 1:
+            problems.append(f"{frames} frames, contract {score['totalFrames']}")
+        if problems:
+            raise RuntimeError('the video does not match its contract (' + '; '.join(problems) + '); judge the matching revision')
+        self.wanted = sorted({max(0, min(frames - 1, int(n))) for n in wanted})
+        select = '+'.join(f'eq(n\\,{n})' for n in self.wanted)
+        raw = subprocess.run([ffmpeg, '-v', 'error', '-i', path, '-vf', f'select={select}', '-fps_mode', 'passthrough',
+                              '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True).stdout
         frame_bytes = self.size[0] * self.size[1] * 3
-        self.frames = [raw[i:i + frame_bytes] for i in range(0, len(raw) - frame_bytes + 1, frame_bytes)]
+        if len(raw) != frame_bytes * len(self.wanted):
+            raise RuntimeError(f'decoded {len(raw) // frame_bytes} of {len(self.wanted)} review frames')
+        self.frames = {n: raw[i * frame_bytes:(i + 1) * frame_bytes] for i, n in enumerate(self.wanted)}
+        self.last = frames - 1
         self.image = Image
 
     def frame(self, n):
-        n = max(0, min(len(self.frames) - 1, int(n)))
-        return self.image.frombytes('RGB', self.size, self.frames[n])
+        return self.image.frombytes('RGB', self.size, self.frames[max(0, min(self.last, int(n)))])
 
 
 class Critique:
@@ -212,12 +234,12 @@ class Critique:
             sheet_tiles = []
             sections.append(sheet_tiles)
             score = r.resolve_format(self.score, format_id) if format_id != 'base' else self.score
-            renderer = VideoFrames(video, score) if video else r.Renderer(score)
             width, height = score['width'], score['height']
             frames = set(r.check_frames(score))
             for scene in score['scenes']:
                 for a, b in scene.get('holds') or []:
                     frames.add((a + b) // 2)
+            renderer = VideoFrames(video, score, frames) if video else r.Renderer(score)
             for n in sorted(frames):
                 image = renderer.frame(n)
                 scene = next((sc for sc in score['scenes'] if sc['start'] <= n < sc['end']), None)
@@ -314,15 +336,25 @@ def main(argv=None):
             try:
                 sheet = critique.pictures(args.out, formats, args.video)
                 frames_status = 'checked in the delivered video' if args.video else 'checked'
-            except Exception as error:  # the timing rules still stand when a frame cannot be drawn here
+            except Exception as error:  # the timing rules still stand, but the picture was not inspected
                 frames_status = f'not_run: {error}'
         result = critique.report()
         result['frames'] = frames_status
         result['contact_sheet'] = sheet
+        # The status says what the score covers: a contract checked without frames certifies no video, and frames that
+        # were asked for but could not be read leave the review incomplete, whatever the score.
+        if args.no_frames:
+            result['status'] = 'contract_only'
+        elif frames_status.startswith('not_run'):
+            result['status'] = 'incomplete'
+        else:
+            result['status'] = 'issues' if result['errors'] else 'checked'
         if args.out:
             with open(os.path.join(args.out, 'critique.json'), 'w', encoding='utf-8') as handle:
                 handle.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
         print(json.dumps(result, indent=2, ensure_ascii=False))
+        if result['status'] == 'incomplete':
+            return 3
         return 1 if result['errors'] else 0
     except (OSError, ValueError, KeyError, RuntimeError, ImportError) as error:
         sys.stderr.write(f'{error}\n')

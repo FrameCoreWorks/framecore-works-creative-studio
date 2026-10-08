@@ -503,11 +503,16 @@ def hit_ducking(score, length):
 
 # ---------------------------------------------------------------- checking
 
+# About -80 dBFS: below this a cue window holds no sound to measure.
+SIGNAL_FLOOR = 1e-4
+
+
 def check_hits(effects, hits):
     """Where each hit landed in an effects track: the first sample above half the local peak, or a whoosh's loudest
     10 ms. Risers end on their frame by construction and are not measured; a transient within 50 ms of another cue, or a
     swell whose 250 ms window another sound plays into (from its start to 150 ms past its hit), is reported as masked
-    rather than judged."""
+    rather than judged. A cue with no signal above SIGNAL_FLOOR in its window is reported as missing: never as measured,
+    never as on time."""
     mono = np.mean(effects, axis=1)
     report = []
     hits = [h if len(h) == 3 else (h[0], h[1], h[0]) for h in hits]
@@ -523,14 +528,19 @@ def check_hits(effects, hits):
             continue
         if align == 'peak':
             lo, hi = max(0, expected - RATE // 4), min(len(mono), expected + RATE // 4)
-            env = np.convolve(mono[lo:hi] ** 2, np.ones(RATE // 100) / (RATE // 100), mode='same')
-            found = lo + int(np.argmax(env)) if hi > lo else expected
+            env = np.convolve(mono[lo:hi] ** 2, np.ones(RATE // 100) / (RATE // 100), mode='same') if hi > lo else np.zeros(1)
+            level = math.sqrt(float(env.max()))
+            found = lo + int(np.argmax(env))
             tolerance = 15.0
         else:
             lo, hi = max(0, expected - RATE // 200), min(len(mono), expected + RATE // 50)
-            window = np.abs(mono[lo:hi])
-            found = lo + int(np.argmax(window >= 0.5 * window.max())) if hi > lo and window.max() > 0 else expected
+            window = np.abs(mono[lo:hi]) if hi > lo else np.zeros(1)
+            level = float(window.max())
+            found = lo + int(np.argmax(window >= 0.5 * level))
             tolerance = 2.0
+        if level < SIGNAL_FLOOR:
+            report.append({'sample': expected, 'kind': align, 'offset_ms': None, 'ok': False, 'masked': masked, 'measured': False, 'missing': True})
+            continue
         offset = (found - expected) / RATE * 1000
         report.append({'sample': expected, 'kind': align, 'offset_ms': round(offset, 2), 'ok': True if masked else abs(offset) <= tolerance, 'masked': masked, 'measured': True})
     return report
@@ -550,7 +560,9 @@ def timing_check(score):
 
 def summarize(report):
     judged = [r for r in report if r['measured'] and not r['masked']]
-    return {'cues': len(report), 'judged': len(judged), 'max_offset_ms': max((abs(r['offset_ms']) for r in judged), default=0.0), 'all_ok': all(r['ok'] for r in report)}
+    missing = sum(1 for r in report if r.get('missing'))
+    return {'cues': len(report), 'judged': len(judged), 'missing': missing, 'max_offset_ms': max((abs(r['offset_ms']) for r in judged), default=0.0),
+            'all_ok': not missing and all(r['ok'] for r in report)}
 
 
 # ---------------------------------------------------------------- command line
@@ -564,7 +576,7 @@ def next_revision(score, evidence):
 
 def design_video(score, args):
     """Direct this video's sound and design its effects anew: (direction, seed, recipes, design log, fixed lead)."""
-    fixed = overrides(args)
+    fixed = overrides(args, score)
     kinds = {role: fixed.pop(role) for role in list(fixed) if role in generate.KINDS}
     lead = fixed.pop('lead', None)
     chosen = sound_direction(score, fixed)
@@ -588,13 +600,21 @@ def compose_music(chosen, seed, lead, log):
     return composed
 
 
-def overrides(args):
-    """Choices the user fixed on the command line, checked against the sound base."""
+def overrides(args, score=None):
+    """Choices the user fixed, checked against the sound base: those recorded in the contract as set by the user
+    (so planning again after a revision keeps them), then the command line, which wins."""
     roles = directing.load_base()['roles']
     allowed = {name: list(r['options']) for name, r in roles.items()}
     allowed.update(generate.KINDS, lead=compose.LEAD_FAMILIES)
-    fixed = {'palette': args.palette} if getattr(args, 'palette', None) else {}
-    for item in getattr(args, 'set', None) or []:
+    recorded = (((score or {}).get('soundDesign') or {}).get('direction') or {}).get('choices') or {}
+    kept = [f'{role}={choice["option"]}' for role, choice in recorded.items()
+            if isinstance(choice, dict) and choice.get('why') == 'set by the user' and role != 'palette']
+    fixed = {}
+    if isinstance(recorded.get('palette'), dict) and recorded['palette'].get('why') == 'set by the user':
+        fixed['palette'] = recorded['palette']['option']
+    if getattr(args, 'palette', None):
+        fixed['palette'] = args.palette
+    for item in kept + (getattr(args, 'set', None) or []):
         role, _, option = item.partition('=')
         role, option = role.strip(), option.strip()
         if role == 'key':
@@ -681,6 +701,8 @@ def main(argv=None):
             summary = summarize(check_hits(read_wav(args.wav), hits))
             print(json.dumps(summary))
             return 0 if summary['all_ok'] else 1
+        if (score.get('soundDesign') or {}).get('status') == 'stale':
+            raise ValueError('The sound design is stale: ' + (score['soundDesign'].get('staleReason') or 'the timing changed') + '. Run sound.py plan on this contract first; it keeps the choices the user fixed.')
         if args.out and not args.video:
             raise ValueError('--out needs --video')
         for path in (args.out, args.wav):

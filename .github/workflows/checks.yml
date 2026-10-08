@@ -1,0 +1,36 @@
+name: Check Studio sources
+
+# Runs on every push and pull request, separate from publication: the same checks as the release workflow
+# (scripts/check_all.sh), plus the historical legacy suite as its own, non-blocking status.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Current checks
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python3 -m pip install --no-deps -r requirements-gepa-pilot.txt
+          bash scripts/check_all.sh
+  legacy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Historical validator (known failures, reported separately, never a release gate)
+        run: node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs --legacy

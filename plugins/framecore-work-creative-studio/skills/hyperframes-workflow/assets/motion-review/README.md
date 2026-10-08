@@ -41,7 +41,7 @@ python critique.py video.motion.json --out critique-r1
 python critique.py video.motion.json --video video.mp4 --out critique-r1
 ```
 
-With `--video` the frames come from the delivered video itself (decoded with ffmpeg) instead of the bundled renderer: use it whenever the video was drawn by a renderer written for the project, so the critique judges what the viewer will see.
+With `--video` the frames come from the delivered video itself instead of the bundled renderer: use it whenever the video was drawn by a renderer written for the project, so the critique judges what the viewer will see. The video must have the contract's size, frame rate and length (checked with ffprobe; a mismatch is reported, never scaled away), and only the review frames are decoded, so a long or large video does not fill memory.
 
 | Area | Rule (severity) |
 | --- | --- |
@@ -55,7 +55,7 @@ With `--video` the frames come from the delivered video itself (decoded with ffm
 | layout | in every hold frame of every format: something is visible, nothing touches the frame edge (error), and in 9:16 nothing sits in the bottom 14% or top 8% where Reels and TikTok draw their interface (warning) |
 | composition | in 9:16, a content block shorter than 60% of the height is centred between 30% and 62% of it, so neither half of the frame is left empty (warning) |
 
-The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result; the exit code is 1 when errors remain. Frames that cannot be drawn here (an SVG mark without `cairosvg`) are reported as `not_run` and the timing rules still apply.
+The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result. `status` says what the score covers: `checked` (frames inspected, no errors), `issues` (errors remain; exit code 1), `contract_only` (`--no-frames`: the timing and text rules only, no picture certified) or `incomplete` (frames were asked for but could not be read or drawn here, such as a missing or mismatched video or an SVG mark without `cairosvg`; exit code 3). An incomplete review is never a pass, whatever its score: fix the cause or say in the reply that the picture was not inspected.
 
 **The improvement round is part of every delivery.** After the first render: run the critique, look at the contact sheet, fix every error and every warning (or say in the reply which warning is kept on purpose and why), re-render, and run the critique again. Repeat until no error remains; at least one round is made whenever the first critique has a finding. The reply states the score before and after and what was fixed. A first render is never delivered unreviewed.
 

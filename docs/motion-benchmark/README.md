@@ -22,7 +22,7 @@ Each run is one host, one model and one reasoning setting, for example `codex-as
    ```
 
    `meta.json` may hold `{"host": "...", "model": "...", "reasoning": "...", "plugin": "1.34.0", "date": "..."}`.
-4. **Make the blind set:** `python3 scripts/motion_benchmark.py blind benchmark-results benchmark-blind`. It runs the craft critique on every contract, reads sound and length with ffprobe, copies every video to `benchmark-blind/videos/<code>.mp4` and writes `scores.csv` and `key.json`. Do not open `key.json`.
+4. **Make the blind set:** `python3 scripts/motion_benchmark.py blind benchmark-results benchmark-blind`. It finds each run's contract (a `*.motion.json` first; `meta.json` is never taken for it), runs the craft critique on the contract with the bundled renderer and again on the delivered video's own frames (a review whose frames could not be read keeps no score), reads sound and length with ffprobe, copies every video to `benchmark-blind/videos/<code>.mp4` and writes `scores.csv` and `key.json`. Do not open `key.json`.
 5. **Review blind.** Watch the videos brief by brief (same brief side by side) and fill `scores.csv` from 1 (poor) to 5 (excellent): concept (an idea, not only the copy), motion (easing, choreography, transitions), typography (hierarchy, size, spacing), pacing (readable, no dead time, a hook), sound (fit, balance, sync) and overall. Notes are free text.
 6. **Summarize:** `python3 scripts/motion_benchmark.py summarize benchmark-results benchmark-blind` writes `summary.md` and `summary.json`: per run the videos delivered, how many have sound, the mean critique score and errors, and the mean of each criterion.
 

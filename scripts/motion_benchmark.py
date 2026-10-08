@@ -10,7 +10,8 @@ example codex-astra6-high or claude-opus55) and the brief folder holds what that
 
 `blind` writes BLIND/videos/<code>.mp4, BLIND/scores.csv (one row per video, criteria scored 1 to 5) and
 BLIND/key.json, which maps codes to runs; the reviewer does not open the key until `summarize` has run. Automatic
-metrics come from the Studio craft critique (critique.py) and from ffprobe (sound present, duration). Nothing is
+metrics come from the Studio craft critique (critique.py): once on the contract with the bundled renderer and once on the
+delivered video's own frames; a review whose frames could not be read keeps no score. ffprobe adds sound and duration. Nothing is
 uploaded or downloaded.
 """
 import argparse
@@ -33,6 +34,25 @@ def find(folder, suffixes):
     return os.path.join(folder, names[0]) if names else None
 
 
+def is_contract(path):
+    try:
+        data = json.load(open(path, encoding='utf-8'))
+    except (OSError, ValueError):
+        return False
+    return isinstance(data, dict) and isinstance(data.get('scenes'), list) and 'totalFrames' in data and 'fps' in data
+
+
+def find_contract(folder):
+    """The delivered motion contract: a *.motion.json first, otherwise the one other JSON file that is a contract.
+    meta.json and other JSON are never taken for it; several candidates are reported instead of guessing."""
+    names = sorted(n for n in os.listdir(folder) if n.endswith('.json') and n != 'meta.json')
+    preferred = [n for n in names if n.endswith('.motion.json') and is_contract(os.path.join(folder, n))]
+    candidates = preferred or [n for n in names if is_contract(os.path.join(folder, n))]
+    if len(candidates) > 1:
+        return None, 'several contracts: ' + ', '.join(candidates)
+    return (os.path.join(folder, candidates[0]), None) if candidates else (None, None)
+
+
 def probe(path):
     try:
         out = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'stream=codec_type:format=duration', '-of', 'json', path],
@@ -43,13 +63,18 @@ def probe(path):
         return {'sound': None, 'seconds': None}
 
 
-def critique(contract, out):
-    run = subprocess.run([sys.executable, '-B', CRITIQUE, contract, '--out', out], capture_output=True, text=True)
+def critique(contract, out, video=None):
+    """The contract judged on the bundled renderer's frames, or with a video on that video's own frames. A review whose
+    frames could not be read (status incomplete) keeps no score, so it never counts as a pass."""
+    command = [sys.executable, '-B', CRITIQUE, contract, '--out', out] + (['--video', video] if video else [])
+    run = subprocess.run(command, capture_output=True, text=True)
     try:
         result = json.loads(run.stdout)
-        return {'score': result['score'], 'errors': result['errors'], 'warnings': result['warnings'], 'frames': result.get('frames')}
+        complete = result.get('status') != 'incomplete'
+        return {'score': result['score'] if complete else None, 'errors': result['errors'] if complete else None, 'warnings': result['warnings'],
+                'status': result.get('status'), 'frames': result.get('frames')}
     except (ValueError, KeyError):
-        return {'score': None, 'errors': None, 'warnings': None, 'frames': f'failed: {run.stderr.strip()[:200]}'}
+        return {'score': None, 'errors': None, 'warnings': None, 'status': 'failed', 'frames': f'failed: {run.stderr.strip()[:200]}'}
 
 
 def blind(results, out, seed=None):
@@ -74,16 +99,21 @@ def blind(results, out, seed=None):
     key, rows = {}, []
     for (run, brief, folder), number in zip(entries, codes):
         code = f'V{number}'
-        video, contract = find(folder, ('.mp4', '.webm', '.mov')), find(folder, ('.motion.json', '.json'))
+        video = find(folder, ('.mp4', '.webm', '.mov'))
+        contract, contract_problem = find_contract(folder)
         meta = {}
         if os.path.exists(os.path.join(folder, 'meta.json')):
             meta = json.load(open(os.path.join(folder, 'meta.json'), encoding='utf-8'))
         auto = {'delivered_video': bool(video), 'delivered_contract': bool(contract)}
+        if contract_problem:
+            auto['contract_problem'] = contract_problem
         if video:
             shutil.copyfile(video, os.path.join(out, 'videos', code + os.path.splitext(video)[1]))
             auto.update(probe(video))
-        if contract and os.path.basename(contract) != 'meta.json':
+        if contract:
             auto['critique'] = critique(contract, os.path.join(out, 'critique', code))
+            if video:
+                auto['video_critique'] = critique(contract, os.path.join(out, 'critique', code + '-video'), video)
         key[code] = {'run': run, 'brief': brief, 'known_brief': brief in briefs, 'meta': meta, 'auto': auto}
         rows.append({'code': code, 'brief': brief, **{c: '' for c in CRITERIA}, 'notes': ''})
     rows.sort(key=lambda row: (row['brief'], row['code']))
@@ -108,7 +138,7 @@ def summarize(out):
     runs = {}
     for code, entry in key.items():
         row = scores.get(code, {})
-        run = runs.setdefault(entry['run'], {'videos': 0, 'delivered': 0, 'with_sound': 0, 'critique': [], 'errors': [], **{c: [] for c in CRITERIA}})
+        run = runs.setdefault(entry['run'], {'videos': 0, 'delivered': 0, 'with_sound': 0, 'critique': [], 'errors': [], 'video_critique': [], **{c: [] for c in CRITERIA}})
         run['videos'] += 1
         auto = entry['auto']
         run['delivered'] += bool(auto.get('delivered_video'))
@@ -116,17 +146,18 @@ def summarize(out):
         crit = auto.get('critique') or {}
         run['critique'].append(crit.get('score'))
         run['errors'].append(crit.get('errors'))
+        run['video_critique'].append((auto.get('video_critique') or {}).get('score'))
         for c in CRITERIA:
             try:
                 run[c].append(float(row.get(c, '')))
             except ValueError:
                 pass
     table = {name: {'videos': r['videos'], 'delivered': r['delivered'], 'with_sound': r['with_sound'], 'critique_score': mean(r['critique']),
-                    'critique_errors': mean(r['errors']), **{c: mean(r[c]) for c in CRITERIA}} for name, r in sorted(runs.items())}
-    lines = ['| Run | Videos | Delivered | With sound | Critique | Errors | ' + ' | '.join(c.capitalize() for c in CRITERIA) + ' |',
-             '| --- | ---: | ---: | ---: | ---: | ---: | ' + ' | '.join('---:' for _ in CRITERIA) + ' |']
+                    'critique_errors': mean(r['errors']), 'video_critique_score': mean(r['video_critique']), **{c: mean(r[c]) for c in CRITERIA}} for name, r in sorted(runs.items())}
+    lines = ['| Run | Videos | Delivered | With sound | Critique | Errors | Video critique | ' + ' | '.join(c.capitalize() for c in CRITERIA) + ' |',
+             '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ' + ' | '.join('---:' for _ in CRITERIA) + ' |']
     for name, t in table.items():
-        cells = [t['videos'], t['delivered'], t['with_sound'], t['critique_score'], t['critique_errors'], *[t[c] for c in CRITERIA]]
+        cells = [t['videos'], t['delivered'], t['with_sound'], t['critique_score'], t['critique_errors'], t['video_critique_score'], *[t[c] for c in CRITERIA]]
         lines.append(f'| {name} | ' + ' | '.join('–' if v is None else str(v) for v in cells) + ' |')
     report = '\n'.join(lines) + '\n'
     with open(os.path.join(out, 'summary.md'), 'w', encoding='utf-8') as handle:

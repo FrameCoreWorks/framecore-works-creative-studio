@@ -71,5 +71,32 @@ class MotionBenchmarkTest(unittest.TestCase):
             self.assertIn('.motion.json', brief['prompt'])
 
 
+    def test_contract_is_found_next_to_meta_json(self):
+        folder = os.path.join(self.tmp, 'results', 'run-a', 'b4-sale')
+        os.rename(os.path.join(folder, 'sale.motion.json'), os.path.join(folder, 'video.motion.json'))
+        with open(os.path.join(folder, 'meta.json'), 'w') as handle:
+            json.dump({'host': 'test', 'model': 'm'}, handle)
+        blind = os.path.join(self.tmp, 'blind')
+        self.assertEqual(self.run_script('blind', os.path.join(self.tmp, 'results'), blind, '--seed', '1').returncode, 0)
+        key = json.load(open(os.path.join(blind, 'key.json')))
+        entry = next(e for e in key.values() if e['run'] == 'run-a')
+        self.assertTrue(entry['auto']['delivered_contract'])
+        self.assertIn('critique', entry['auto'], 'the contract, not meta.json, was judged')
+        # The fake video cannot be read: its review is incomplete and keeps no score.
+        self.assertEqual(entry['auto']['video_critique']['status'], 'incomplete')
+        self.assertIsNone(entry['auto']['video_critique']['score'])
+
+    def test_meta_json_alone_is_not_a_contract(self):
+        folder = os.path.join(self.tmp, 'results', 'run-b', 'b4-sale')
+        os.remove(os.path.join(folder, 'sale.motion.json'))
+        with open(os.path.join(folder, 'meta.json'), 'w') as handle:
+            json.dump({'host': 'test'}, handle)
+        blind = os.path.join(self.tmp, 'blind')
+        self.assertEqual(self.run_script('blind', os.path.join(self.tmp, 'results'), blind, '--seed', '1').returncode, 0)
+        entry = next(e for e in json.load(open(os.path.join(blind, 'key.json'))).values() if e['run'] == 'run-b')
+        self.assertFalse(entry['auto']['delivered_contract'])
+        self.assertNotIn('critique', entry['auto'])
+
+
 if __name__ == '__main__':
     unittest.main()
