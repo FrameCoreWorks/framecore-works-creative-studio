@@ -1,0 +1,23 @@
+{
+  "version": "1.37.0",
+  "change_id": "CC-20261008-07",
+  "origin": "cloud-code",
+  "commit": "7a68ea8c2429b68d743cb6785f389f970cd763e9",
+  "package_commit": "7a68ea8c2429b68d743cb6785f389f970cd763e9",
+  "integration": "Fast-forward of main from 3795239 to 7a68ea8 under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.37.0",
+  "workflow_id": 37773432571,
+  "workflow_conclusion": "success",
+  "checks_workflow_id": 37773432695,
+  "checks_workflow_conclusion": "success (first run of the new checks workflow; the legacy job is non-blocking)",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "e66ce65540d368666a06d39338152f5c2c2a2d7e0486d9c01dcbfd652a935cb3",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "707544d842895cfdac036b56ed27b6a311b3d31d3b4680837de3d4f00402eefe",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "repository_zip": "differs from the local build, as the repository archive includes release records written after local packaging; not used for parity",
+  "pre_push_check": "canonical validator PASS on 7a68ea8 before the push; scripts/check_all.sh and packaging ran on the same package contents; the release workflow now runs scripts/check_all.sh itself",
+  "hosted_plugin": "not updated",
+  "host_behavior": "NOT_RUN"
+}
