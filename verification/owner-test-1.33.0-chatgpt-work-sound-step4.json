@@ -1,0 +1,37 @@
+{
+  "test": "sound-test-1.33.0 step 4, a different video for variety (docs/sound-test-1.33.0.md)",
+  "date": "2026-10-08",
+  "host": "ChatGPT Work",
+  "model": "GPT 6.1 Sol (owner-reported)",
+  "reasoning_setting": "unknown (not reported)",
+  "plugin_version": "1.33.0",
+  "processing_time": "20 min 56 s (owner-reported)",
+  "delivered": [
+    "bounce-party.mp4",
+    "bounce-party-raport.md",
+    "contract and source project (not supplied here)"
+  ],
+  "host_reported": {
+    "profile": "fast; bold 1.000, playful 0.932; variation 0, seed 9358",
+    "music": "120 BPM, E major, marimba comp, saw bass, additive pad, house kit; recipe vi ii V IV, heard as V IV I with the tonic on the reveal at 4.00 s",
+    "effects": "swish landings, whip transitions, metal-hit impact, tuned chime; transitions set 13 dB under the final hit",
+    "timing": "6 of 6 cues pass in isolation, largest error 0.00 ms",
+    "loudness": "-14.09 LUFS, -1.40 dBTP, LRA 13.5 LU on the final AAC",
+    "copy": "the brief gave no date; the owner chose PREMIERA WKRÓTCE"
+  },
+  "independent_check": {
+    "where": "Claude Code cloud container, ffprobe and ffmpeg ebur128 on the supplied MP4; frames sampled; the critique run on the video's own frames with an approximate contract",
+    "video": "H.264 1080x1920, 30/1 fps, 240 frames, 8.000 s; AAC 48 kHz",
+    "loudness": "-13.4 LUFS integrated, LRA 9.6 LU, true peak -1.4 dBFS",
+    "frames": "Color block wipes from the left, copy centred (content centre at about 40 to 52% of the height), no clipping; critique score 100 on the delivered frames",
+    "energy": "short-term level holds -10 to -16 dBFS until the reveal at 4.0 s, then falls steadily to -36 dBFS: the music only rings out under the 4-second end card"
+  },
+  "observations": [
+    "The profile matched the brief (bold and playful, fast) and the design differs fully from steps 1 to 3 (house kit, marimba, metal-hit, swish landings).",
+    "The model asked the owner for the missing date instead of inventing one.",
+    "With the reveal in the middle of an 8-second video, the composed music resolves at 4 s and decays for the remaining 4 s, so a bold promotion loses its energy under the end card: a composer limitation, not a model error.",
+    "An earlier reading of the frame sheet in this session claimed the copy sat in the upper quarter; measurement showed it centred. The composition rule of the critique was made more robust to corner decorations either way."
+  ],
+  "owner_listening": "not yet reported",
+  "status": "DELIVERED_TECHNICAL_PASS; owner listening pending"
+}
