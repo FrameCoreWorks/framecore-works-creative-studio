@@ -658,6 +658,34 @@ test('Python renderer draws taps, the browser frame and wiping backgrounds deter
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
+test('the craft critique scores a contract, renders its review frames and gives concrete fixes', {skip: !python && 'python3 with Pillow not installed'}, () => {
+  const critique = path.join(root, 'skills/hyperframes-workflow/assets/motion-review/critique.py');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-critique-'));
+  try {
+    const good = spawnPython('python3', ['-B', critique, path.join(root, scenesDir, 'examples/color-block.motion-score.json'), '--out', path.join(tmp, 'good')], {encoding: 'utf8'});
+    assert.equal(good.status, 0, good.stderr);
+    const passed = JSON.parse(good.stdout);
+    assert.equal(passed.score, 100); assert.equal(passed.frames, 'checked');
+    assert.ok(fs.existsSync(path.join(tmp, 'good', 'contact-sheet.png')) && fs.existsSync(path.join(tmp, 'good', 'critique.json')));
+    const source = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/color-block.motion-score.json'), 'utf8'));
+    const broken = structuredClone(source);
+    broken.copy.a1 = 'Say it loud with one colour and every word you can think of today';
+    broken.scenes[0].holds = [[broken.scenes[0].holds[0][0], broken.scenes[0].holds[0][0] + 20]];
+    broken.tokens.foreground = '#F2C94C';
+    const last = broken.scenes.at(-1);
+    last.holds = [[last.holds[0][0], last.holds[0][0] + 20]];
+    fs.writeFileSync(path.join(tmp, 'broken.json'), JSON.stringify(broken));
+    const bad = spawnPython('python3', ['-B', critique, path.join(tmp, 'broken.json'), '--no-frames'], {encoding: 'utf8'});
+    assert.equal(bad.status, 1, bad.stdout + bad.stderr);
+    const failed = JSON.parse(bad.stdout);
+    const areas = failed.findings.map(finding => `${finding.severity} ${finding.area}`);
+    for (const expected of ['error readability', 'warning text amount', 'error contrast', 'warning ending']) assert.ok(areas.includes(expected), `${expected}: ${areas.join(', ')}`);
+    assert.ok(failed.findings.find(finding => finding.area === 'readability').fix.includes('revise.mjs extend'), 'a readability fix names the revision command');
+    assert.ok(failed.score < 70 && failed.frames.startsWith('not_run'));
+    assert.notEqual(spawnPython('python3', ['-B', critique, path.join(tmp, 'broken.json'), '--out', path.join(tmp, 'good')], {encoding: 'utf8'}).status, 0, 'never overwrites');
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
 // Motion sound design: synthesized designs, cue planning from the picture's timing, and a measured, mastered mix.
 const soundDir = 'skills/hyperframes-workflow/assets/motion-sound';
 const ffmpegLoudnorm = spawnPython('ffmpeg', ['-hide_banner', '-filters'], {encoding: 'utf8'}).stdout?.includes('loudnorm');

@@ -34,6 +34,7 @@ export function validateMotionToolkit(root) {
     'skills/hyperframes-workflow/assets/motion-scenes/examples/app-film.motion-score.json',
     'skills/hyperframes-workflow/assets/motion-scenes/examples/color-block.motion-score.json',
     ...['README.md','sound.py','synth.py','music.py','direction.py','sound-base.json','recipe.py','generate.py','compose.py'].map(name => `skills/hyperframes-workflow/assets/motion-sound/${name}`),
+    'skills/hyperframes-workflow/assets/motion-review/critique.py',
     'skills/hyperframes-workflow/references/motion-sound-design.md',
     ...['LICENSE','README.md','source-manifest.json'].map(name => `integrations/kaventro-motion-designer/${name}`),
     `${scenesDir}/motion-scenes.mjs`,

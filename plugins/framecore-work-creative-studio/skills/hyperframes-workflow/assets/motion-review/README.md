@@ -32,9 +32,32 @@ A contract with [`formats`](../motion-scenes/README.md#formats) is reviewed in e
 
 Run it after a build and before presenting a motion review; repair every error and judge every warning within the shared review budget, then rerun. Record the result in the [QA record](../../templates/motion-qa-record.md). Frames outside holds are captured but not measured, because text is meant to move there. Captions are measured whenever they are shown, including overlap with settled scene text.
 
+## Craft critique and the improvement round
+
+[`critique.py`](critique.py) scores a contract and its rendered frames against Studio's craft rubric, so the judgement a motion designer makes by eye becomes numbers any model can act on. It needs Python 3.8+ and Pillow, uses the bundled [Python renderer](../motion-render/README.md), and runs in ChatGPT's code execution as well as in Codex; no browser.
+
+```sh
+python critique.py video.motion.json --out critique-r1
+```
+
+| Area | Rule (severity) |
+| --- | --- |
+| readability | every scene's words are held long enough to read: words / 3 per second + 0.4 s, at least 0.8 s (error below 85% of it, warning above) |
+| text amount | at most 10 words per scene in a vertical video, 14 in a wide one (warning) |
+| pace | a scene with copy lasts at least 1 s; a scene without a second beat lasts at most 6 s or 1.8 times its reading time (warning); equal scene lengths throughout (note) |
+| hook | the first readable moment comes within 1.5 s (warning) |
+| ending | an end card or logo holds at least 1.5 s (warning); a video without one is noted |
+| motion | lines arrive 3 frames to 0.5 s apart (warning) |
+| contrast | foreground against background at least 4.5:1 (error) |
+| layout | in every hold frame of every format: something is visible, nothing touches the frame edge (error), and in 9:16 nothing sits in the bottom 14% or top 8% where Reels and TikTok draw their interface (warning) |
+
+The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result; the exit code is 1 when errors remain. Frames that cannot be drawn here (an SVG mark without `cairosvg`) are reported as `not_run` and the timing rules still apply.
+
+**The improvement round is part of every delivery.** After the first render: run the critique, look at the contact sheet, fix every error and every warning (or say in the reply which warning is kept on purpose and why), re-render, and run the critique again. Repeat until no error remains; at least one round is made whenever the first critique has a finding. The reply states the score before and after and what was fixed. A first render is never delivered unreviewed.
+
 ## Limits
 
-These are layout checks on selected frames. They do not judge motion quality, rhythm, timing feel, audio or the encoded export, and they do not replace watching the full sequence. Custom Remotion components outside the scene kinds are not rendered by the preview; review their stills separately. Results depend on the local browser and fonts; record the browser that ran.
+The browser checks are layout checks on selected frames, and the critique's rules are a floor, not taste: neither judges motion quality, rhythm, timing feel, audio or the encoded export, and they do not replace watching the full sequence. Custom Remotion components outside the scene kinds are not rendered by the preview; review their stills separately. Results depend on the local browser and fonts; record the browser that ran.
 
 ## Verification boundary
 
