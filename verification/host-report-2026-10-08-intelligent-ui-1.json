@@ -16,11 +16,11 @@
       "observed": "a heading, the premise and a table with shot IDs S01 to S06, time ranges (0:00-0:01,5 to 0:08-0:10) and image, camera and dialogue; a note that the timing is planned, not measured from a finished film, and that each board shows one characteristic frame; an image generation then ran (progress indicator at 99%)",
       "expected": "scene IDs and times from the current revision, planned timing labelled as such; a native element is a planning view",
       "result": "rules followed; presentation stayed a static table",
-      "owner_comment": "little interactivity; the owner asked for a more interactive version"
+      "owner_comment": "little interactivity; the owner asked for a more interactive version",
+      "generation_authorized": "yes: the owner confirmed asking for storyboard boards (2026-10-08)"
     }
   ],
   "unknown": [
-    "whether the owner's request authorized the board image generation that followed (the full prompt was not supplied)",
     "the result of the follow-up request for a more interactive storyboard",
     "whether the area cards are a native control composed by ChatGPT or a rendering of the numbered list"
   ],
