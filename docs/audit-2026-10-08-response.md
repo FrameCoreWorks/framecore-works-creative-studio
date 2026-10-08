@@ -14,7 +14,7 @@ The owner supplied an external audit of `main` at `e8884d8` (package 1.35.0), wr
 Other points of the audit:
 
 - **The rubric measures a minimum, not craft.** Agreed: Bounce Party scored 100 and the owner rejected it. The critique is a floor; concept, choreography and energy remain the owner's review and the blind benchmark's.
-- **Music winds down after a mid-video reveal.** Confirmed open in `compose.render_music`; not changed in 1.37.0.
+- **Music winds down after a mid-video reveal.** Confirmed in `compose.render_music`; fixed in 1.38.0: the music plays on after an early reveal and resolves in the last bar.
 - **"All tests pass" needs scope.** Agreed: current checks and the historical legacy suite (20 of 67 `package.test.mjs` tests failing, 134 `validate-package.mjs` errors, the same as before) are reported separately.
 - **Release status still said NOT_RUN for Intelligent UI.** Already updated in 1.36.0 with the partial host report.
 

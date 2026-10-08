@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.37.0
+## Current source: 1.38.0
+
+The [1.38.0 source checks](verification/release-1.38.0.json) pass canonical validation and `scripts/check_all.sh`: 188 Node tests (plus 3 opt-in browser tests, run separately and passing: 61 in the browser run), 12 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks. The release keeps the composed music playing after an early reveal and resolves it in the last bar: on an 8 s spot with the reveal at 4 s the level from 4 to 7 s stays within 0.5 dB of the build-up instead of falling 13 dB. Not yet approved by ear; host behavior is not verified. [Scope](verification/scope-1.38.0.json) records 12 changed shared files out of 908.
+
+## Previous source: 1.37.0
 
 The [1.37.0 source checks](verification/release-1.37.0.json) pass canonical validation and the shared check script (`scripts/check_all.sh`): 187 Node tests (plus 3 opt-in browser tests, run separately and passing: 60 in the browser run), 12 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks. The release fixes the findings of an external audit, each reproduced first: the critique no longer passes a picture it did not inspect, a silent cue is missing rather than on time, a scene extension moves the sound cues and makes the music be planned again with the user's choices kept, and video review decodes only its review frames. Host behavior of 1.37.0 is not verified. [Scope](verification/scope-1.37.0.json) records 14 changed shared files out of 908.
 

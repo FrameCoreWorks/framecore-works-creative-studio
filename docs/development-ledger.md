@@ -719,3 +719,25 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `7a68ea8`; [v1.37.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.37.0) published by workflow 37773432571; checks workflow 37773432695 success; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.37.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261008-08
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-03-intelligent-ui`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `c7202cc284abe29811290b9f1539024c00cc07a3` (main, package 1.37.0)
+- Result: the release commit carrying this entry (package 1.38.0)
+- Package version: 1.37.0 -> 1.38.0
+- Scope: composed music plays on after an early reveal and resolves in the last bar (`endBar` in the music plan, both the recipe composer and the palette bed); contracts planned earlier keep their sound
+- Shared package changed: yes; 12 changed, 0 added, 0 removed ([scope](../verification/scope-1.38.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 188 (+3 opt-in browser tests; 61 passing in the browser run), installer 12, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.38.0.json))
+- measured on an 8 s spot with the reveal at 4 s; color-block rendered before and after and sent to the owner; owner listening: pending; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: release commit pushed to `main`; publication record pending
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

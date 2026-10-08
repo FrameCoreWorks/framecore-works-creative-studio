@@ -766,6 +766,26 @@ print(json.dumps(out))`, path.join(root, soundDir)], {encoding: 'utf8'});
   assert.ok(result.whoosh_peak_error_ms < 1, 'a whoosh aligns on its measured peak');
 });
 
+test('after a reveal well before the end the music plays on and resolves in the last bar', {skip: !numpy && 'numpy not installed'}, () => {
+  const script = [
+    'import sys, json, math, numpy as np', `sys.path.insert(0, ${JSON.stringify(path.join(root, soundDir))})`, 'import compose, music, sound',
+    "profile = {'pace': 'fast', 'moods': {'calm': 0.2, 'bold': 0.8, 'playful': 0.9, 'technical': 0.3, 'organic': 0.2, 'editorial': 0.2}}",
+    "spec = compose.generate_music(profile, 7, 'D major', 'color-block')",
+    'db = lambda a, s: 10 * math.log10(np.mean(a[s * 48000:(s + 1) * 48000] ** 2) + 1e-12)',
+    'end = sound.resolution_bar(2, 4, 2.0, 8.0)',
+    'new = compose.render_music(spec, 8.0, 120, [1, 2, 3, 3], 7, 2, end)',
+    "bed = music.compose_bed(8.0, 120, 'D major', [1, 2, 3, 3], 7, 2, 'house', 0, None, end)",
+    'print(json.dumps({"end": end, "late": sound.resolution_bar(3, 4, 2.0, 8.0), "drop": db(new, 2) - db(new, 5), "bed_drop": db(bed, 2) - db(bed, 5), "finite": bool(np.isfinite(new).all())}))',
+  ].join('\n');
+  const run = spawnPython('python3', ['-B', '-c', script], {encoding: 'utf8'});
+  assert.equal(run.status, 0, run.stderr);
+  const got = JSON.parse(run.stdout);
+  assert.equal(got.end, 3, 'an 8 s spot with the reveal at 4 s resolves in its last bar');
+  assert.equal(got.late, null, 'a reveal one bar before the end still resolves on the reveal');
+  assert.ok(got.drop < 3 && got.bed_drop < 3, `energy holds after the reveal (drop ${got.drop.toFixed(1)} dB, palette bed ${got.bed_drop.toFixed(1)} dB)`);
+  assert.ok(got.finite);
+});
+
 test('a cue with no sound in its window is reported missing, never measured on time', {skip: !numpy && 'numpy not installed'}, () => {
   const script = [
     'import sys, json, numpy as np', `sys.path.insert(0, ${JSON.stringify(path.join(root, soundDir))})`, 'import sound',

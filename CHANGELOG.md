@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.38.0, 2026-10-08
+
+- The music no longer winds down for the rest of a video whose final reveal comes early. When more than 1.5 bars and 3 s remain after the reveal (an end card held for half the video, as in the owner's Bounce Party test), the composed music marks the reveal with a cymbal, plays on at full energy, eases in the bar before the last, leads home and resolves in the last bar (`soundDesign.music.endBar`). Measured on an 8 s spot with the reveal at 4 s: the level from 4 to 7 s stays within 0.5 dB of the build-up instead of falling 13 dB. A reveal near the end resolves on the reveal as before.
+- Contracts planned before 1.38.0 keep their sound until planned again; among the bundled examples only color-block changes.
+
 ## 1.37.0, 2026-10-08
 
 From an external audit of the repository by ChatGPT (GPT 6.1 Sol), with each finding reproduced before it was fixed ([response](docs/audit-2026-10-08-response.md)):

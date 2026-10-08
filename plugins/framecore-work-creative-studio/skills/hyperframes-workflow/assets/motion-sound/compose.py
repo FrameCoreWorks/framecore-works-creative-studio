@@ -221,8 +221,9 @@ def arp_sequence(tones, order, count, r):
     return [seq[i % len(seq)] for i in range(count)]
 
 
-def render_music(spec, total_s, bpm, energies, seed=11, reveal_bar=None):
-    """Play a music recipe over the video's bars; same structure rules as music.compose_bed."""
+def render_music(spec, total_s, bpm, energies, seed=11, reveal_bar=None, end_bar=None):
+    """Play a music recipe over the video's bars; same structure rules as music.compose_bed. With `end_bar` the music
+    plays on through the reveal (marked by a cymbal) and resolves at `end_bar` instead."""
     n_total = int(total_s * RATE) + RATE
     bed = music.Bed(n_total)
     beat = 60.0 / bpm
@@ -244,11 +245,16 @@ def render_music(spec, total_s, bpm, energies, seed=11, reveal_bar=None):
         start = int(round(b * bar * RATE))
         if start >= n_total:
             break
-        if reveal_bar is not None and b >= reveal_bar:
-            if b == reveal_bar:
+        resolve_at = end_bar if end_bar is not None else reveal_bar
+        if resolve_at is not None and b >= resolve_at:
+            if b == resolve_at:
                 render_ending(bed, spec, start, root, centre, beat, seed, energies[b - 1] if b else 1)
             continue
+        if end_bar is not None and b == reveal_bar and kit not in ('soft', 'sparse', 'organic') and energies[b - 1] >= 2:
+            bed.place(start, synth.crash(seed + 5), 0.28)
         chord = prog[(b - reveal_bar) % len(prog) if reveal_bar is not None else b % len(prog)]
+        if end_bar is not None and b == end_bar - 1 and b > reveal_bar:
+            chord = prog[-1]  # the chord that leads home, into the resolution
         tones = chord_tones(chord, colour, root, centre)
         into_reveal = reveal_bar is not None and b == reveal_bar - 1
         length = min(n_total - start, int((bar + 0.8) * RATE))

@@ -28,7 +28,7 @@ Studio designs its sounds and music with code, at the standard of a sound design
 
 - −14 LUFS integrated for social delivery (−16 with `--lufs -16` for the web), true peak at most −1 dBTP in the delivered file: limit with true-peak detection and leave margin for AAC encoding; measure the delivered file.
 - Music ducks about 8 dB under a voice-over, with short ramps; the voice stays on top. It also dips briefly (1.5 to 5 dB) under clicks, louder impacts and the final hit, so each hit reads without the music pumping.
-- The final reveal falls on a downbeat: the composed bed's tempo is fitted inside the style's range (or within 8% of its usual tempo), the bar before closes the progression, and the reveal lands on the tonic and rings out to the end. A bed that is cut off at the last frame sounds unfinished.
+- The final reveal falls on a downbeat: the composed bed's tempo is fitted inside the style's range (or within 8% of its usual tempo), the bar before closes the progression, and the reveal lands on the tonic and rings out to the end. When the reveal comes well before the end, the music plays on through it and resolves in the last bar instead, so a long end card is not left over a fading bed. A bed that is cut off at the last frame sounds unfinished.
 - Low end belongs to one element at a time: the reveal's hit comes from the effects, so the music adds no kick under it; bass carries upper harmonics, because phone speakers do not play its root.
 - The picture is never re-encoded; the MP4's video stream is copied.
 - A hit more than a frame off is noticeable; `sound.py` holds transients within 2 ms.

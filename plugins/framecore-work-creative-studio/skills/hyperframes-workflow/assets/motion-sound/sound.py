@@ -276,10 +276,16 @@ def plan_music(score, r=None, direction=None):
                 bpm, reveal_bar = fit_tempo(target, reveal / fps, starts, 0.08)
     bar = 4 * 60 / bpm
     final = scenes[-1] if scenes and scenes[-1]['kind'] in ('end-card', 'logo-reveal') else None
+    bars = int(math.ceil(total_s / bar - 1e-9))
+    lead_in = 3 if total_s >= 8 else 2
+    end_bar = resolution_bar(reveal_bar, bars, bar, total_s)
     energies = []
-    for b in range(int(math.ceil(total_s / bar - 1e-9))):
+    for b in range(bars):
         t0, t1 = b * bar * fps, (b + 1) * bar * fps
-        if reveal_bar is not None and b >= reveal_bar:
+        if end_bar is not None and reveal_bar <= b < end_bar:
+            # A reveal well before the end: the music carries on through it and eases only into the last bar.
+            energies.append(2 if b == end_bar - 1 and b > reveal_bar else lead_in)
+        elif reveal_bar is not None and b >= reveal_bar:
             energies.append(1)
         elif reveal_bar is not None and b == reveal_bar - 1:
             energies.append(3 if total_s >= 8 else 2)
@@ -302,7 +308,23 @@ def plan_music(score, r=None, direction=None):
         plan['backbeat'] = backbeat
     if reveal_bar is not None:
         plan.update(revealBar=reveal_bar, revealFrame=reveal)
+    if end_bar is not None:
+        plan['endBar'] = end_bar
     return plan
+
+
+def resolution_bar(reveal_bar, bars, bar, total_s):
+    """The bar where the music resolves when a reveal comes well before the end, or None to resolve on the reveal.
+    A reveal followed by more than 1.5 bars and 3 s would leave the music ringing out over a long, empty tail (the
+    owner's Bounce Party test, 2026-10-08), so the music plays on and resolves in the last bar that leaves the ending
+    at least 1 s, or half a bar, to ring."""
+    if reveal_bar is None:
+        return None
+    last = bars - 1
+    if total_s - last * bar < max(1.0, 0.5 * bar):
+        last -= 1
+    tail = total_s - reveal_bar * bar
+    return last if last > reveal_bar and tail > max(3.0, 1.5 * bar) else None
 
 
 def cue_table(score, cues):
@@ -458,11 +480,12 @@ def full_mix(score, base_dir):
         bed_track[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
     elif music_plan.get('compose'):
         if music_plan.get('recipe'):
-            bed = compose.render_music(music_plan['recipe'], length / RATE, music_plan['bpm'], music_plan['energies'], music_plan.get('seed', 11), music_plan.get('revealBar'))
+            bed = compose.render_music(music_plan['recipe'], length / RATE, music_plan['bpm'], music_plan['energies'], music_plan.get('seed', 11), music_plan.get('revealBar'),
+                                           music_plan.get('endBar'))
         else:
             bed = music.compose_bed(length / RATE, music_plan['bpm'], music_plan['key'], music_plan['energies'], music_plan.get('seed', 11),
                                     music_plan.get('revealBar'), music_plan.get('palette', 'studio'), music_plan.get('progression', 0),
-                                    music_plan.get('backbeat'))
+                                    music_plan.get('backbeat'), music_plan.get('endBar'))
         bed_track[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
     voice = np.zeros((length, 2))

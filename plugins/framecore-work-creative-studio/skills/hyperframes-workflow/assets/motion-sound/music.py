@@ -443,11 +443,12 @@ def resolve(bed, palette, start, root, prog, before, beat, seed):
             bed.place(start + int(i * beat / 2 * RATE), pl, 0.09 - 0.012 * i, -0.3 + 0.2 * i)
 
 
-def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None, palette='studio', progression=0, backbeat=None):
+def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None, palette='studio', progression=0, backbeat=None, end_bar=None):
     """A music bed in a style's palette: bars of a chord progression in `key`, each played at the energy given in
     `energies` (0 a quiet pad, 1 the core of the palette, 2 its moving parts and light percussion, 3 full drums).
     With `reveal_bar` the progression is placed so the bar before closes the loop and leads in (a fill, a swell),
-    and the reveal lands on the tonic and rings out to the end. Faded in and out, never cut off."""
+    and the reveal lands on the tonic and rings out to the end; with `end_bar` the music plays on through the reveal
+    and resolves at `end_bar` instead. Faded in and out, never cut off."""
     style = dict(PALETTES.get(palette, PALETTES['studio']))
     if backbeat:
         style['backbeat'] = None if backbeat == 'none' else backbeat
@@ -463,11 +464,16 @@ def compose_bed(total_s, bpm, key, energies, seed=11, reveal_bar=None, palette='
         start = int(round(b * bar * RATE))
         if start >= n_total:
             break
-        if reveal_bar is not None and b >= reveal_bar:
-            if b == reveal_bar:
+        resolve_at = end_bar if end_bar is not None else reveal_bar
+        if resolve_at is not None and b >= resolve_at:
+            if b == resolve_at:
                 resolve(bed, style, start, root, prog, energies[b - 1] if b else 1, beat, seed)
             continue
+        if end_bar is not None and b == reveal_bar and style['kit'] in ('studio', 'electronic', 'house', 'tight') and energies[b - 1] >= 2:
+            bed.place(start, synth.crash(seed + 5), 0.32 if style['kit'] != 'tight' else 0.2)
         degree, chord = prog[(b - reveal_bar) % 4 if reveal_bar is not None else b % 4]
+        if end_bar is not None and b == end_bar - 1 and b > reveal_bar:
+            degree, chord = prog[3]  # the chord that leads home, into the resolution
         base = root + degree
         into_reveal = reveal_bar is not None and b == reveal_bar - 1
         notes = voicing(base, chord, style['sevenths'], degree, minor, root + 18)

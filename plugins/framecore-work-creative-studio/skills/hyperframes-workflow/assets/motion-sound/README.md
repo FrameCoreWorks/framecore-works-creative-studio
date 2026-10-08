@@ -34,7 +34,7 @@ Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; other
 | Paper and ink | soft additive pad; no bass or a rounded one; piano, mallet or FM lead; sparse kit |
 | Color block | no pad or an additive one; saw bass; saw, FM or mallet lead; house kit, four on the floor |
 
-Energy per bar works the same in every design: 0 a quiet pad, 1 the core (bass and the main instrument), 2 the moving parts and light percussion, 3 full drums. The bar before the reveal leads in (a backbeat roll and a reversed cymbal, softer for acoustic kits); the reveal lands on the tonic in the video's own instruments and rings out to the end, so the music resolves instead of being cut off. Every design is set to the same level, so a new design never changes the balance against the effects.
+Energy per bar works the same in every design: 0 a quiet pad, 1 the core (bass and the main instrument), 2 the moving parts and light percussion, 3 full drums. The bar before the reveal leads in (a backbeat roll and a reversed cymbal, softer for acoustic kits); the reveal lands on the tonic in the video's own instruments and rings out to the end, so the music resolves instead of being cut off. When the reveal comes well before the end (more than 1.5 bars and 3 s remain, as with an end card held for half the video), the music marks the reveal with a cymbal and plays on at full energy, eases in the bar before the last, leads home and resolves in the last bar (`soundDesign.music.endBar`), so the end card is not left over a long fade. Contracts planned before 1.38.0 (without `endBar`) keep their sound until planned again. Every design is set to the same level, so a new design never changes the balance against the effects.
 
 ## Sound designs
 

@@ -1,10 +1,9 @@
-# Creative Studio 1.37.0
+# Creative Studio 1.38.0
 
-Checks that tell the truth about what they checked.
+Music that stays with the video to the end.
 
-- **No pass without a picture.** If the video review could not see the frames (a missing file, the wrong size, a renderer that cannot draw here), it now says the review is incomplete instead of showing a perfect score.
-- **No pass without a sound.** A sound cue that is silent is reported as missing, not as perfectly in time.
-- **Changes keep sound and picture together.** Lengthening a scene moves its sound cues too, and the music is planned again before the next mix, keeping the choices you made.
-- **Lighter video review.** Only the frames under review are decoded, so longer videos no longer risk running out of memory.
+- **No more fading half.** When the logo or end card arrives early and stays on screen, the music now keeps its energy after the reveal and resolves at the very end, instead of ringing out for seconds over an empty bed.
+- **The reveal still lands.** It is marked with a cymbal on the beat, and the last bars lead home to a clean ending.
+- **Your earlier videos are safe.** Sound already planned keeps its music until it is planned again.
 
-These fixes come from an external audit of the repository; every finding was reproduced before it was fixed. Startup, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
