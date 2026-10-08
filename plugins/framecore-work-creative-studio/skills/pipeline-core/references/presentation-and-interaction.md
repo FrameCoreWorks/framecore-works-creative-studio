@@ -2,7 +2,7 @@
 
 Owner: Pipeline Core, under [Studio integration authority](studio-integration-policy.md). Every Studio skill applies this one source when it chooses how a response is presented. It decides the form of a stage's answer (text, comparison, interactive experiment, form, chart or another element the host actually composes) and how an interaction may change Project State. It adds no skill, agent, state store, MCP server, app, component system, manifest key or tool. Domain owners keep their craft; this file only adds how their output is shown.
 
-Contents: [host basis](#host-basis), [choosing the form](#choosing-the-form), [text equivalence](#equivalent-text-path), [state and actions](#interaction-state-and-actions), [domain adaptations](#domain-adaptations), [module coverage](#module-coverage).
+Contents: [host basis](#host-basis), [choosing the form](#choosing-the-form), [offering an interactive version](#offering-an-interactive-version), [text equivalence](#equivalent-text-path), [state and actions](#interaction-state-and-actions), [domain adaptations](#domain-adaptations), [module coverage](#module-coverage).
 
 ## Host basis
 
@@ -17,9 +17,9 @@ Checked 2026-10-08 against OpenAI's announcement, Help Center article, release n
 | Some components, such as checklists, keep their state when a thread is refreshed; state does not carry across threads | Help Center | Which components persist is not listed | Never claim persistence; Project State and the progress card remain the record |
 | Connected plugins keep working; no separate usage quota | Help Center | How plugin skill instructions weigh against the host's own choice is not documented | Studio instructions are guidance to the composing model, not control |
 | Apps SDK and MCP custom UI (cards, carousels, fullscreen, picture-in-picture; follow-up messages through `ui/message`) are a different, developer-built mechanism | [UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines), [Add UI to your MCP server](https://developers.openai.com/plugins/build/chatgpt-ui) | Requires an MCP server and widget code | Out of scope: Studio ships no server or widget. Its accessibility guidance (contrast, alt text, text resizing, UI only when it improves the workflow) informs what Studio asks for |
-| HTML or code artifacts and the motion preview template are files Studio writes | Studio's own tools | Separate from native UI | Never offered as the default replacement for a native element |
+| HTML or code artifacts and the motion preview template are files Studio writes | Studio's own tools | Separate from native UI | Never the default replacement for a native element; offered as an optional downloadable version |
 
-Unknown: how a click, slider move or form submission inside a native element reaches the model (whether every event becomes a message), how much a plugin's instructions influence the host's choice, which elements are available on each mobile client, and the accessibility behavior of individual native components. Design inference, not fact: textual guidance in the active skill can steer the composing model as user instructions do. No host test of this package with Intelligent UI has been run.
+Unknown: how a click, slider move or form submission inside a native element reaches the model (whether every event becomes a message), how much a plugin's instructions influence the host's choice, which elements are available on each mobile client, and the accessibility behavior of individual native components. Design inference, not fact: textual guidance in the active skill can steer the composing model as user instructions do. In the owner's first test of 1.35.0 (2026-10-08, ordinary ChatGPT on a phone), menus appeared as tappable cards with the same numbers, a storyboard stayed a static table, and a request for more interactivity produced a self-contained HTML animatic that the phone did not display inside the chat.
 
 ## Choosing the form
 
@@ -41,7 +41,20 @@ Stay with text for:
 - an explicit request for plain text (it holds until the user changes it, and Studio's own tables, such as a storyboard table, then become plain lists with the same fields);
 - any host that does not compose native elements, including Work, Codex and Voice.
 
-Do not mention whether the host can render interface elements unless the user asked for something interactive that cannot be shown; then say so once, in one sentence, and give the text path. Do not repeat that note in later turns. Never describe an element as shown, saved or clickable unless the host rendered it.
+Apart from the offer below, do not mention whether the host can render interface elements unless the user asked for something interactive that cannot be shown; then say so once, in one sentence, and give the text path. Do not repeat that note in later turns. Never describe an element as shown, saved or clickable unless the host rendered it.
+
+### Offering an interactive version
+
+Studio offers interactivity instead of waiting to be asked (owner decision 2026-10-08). When a stage's result would be easier to understand by exploring it, and the answer itself stayed text or static, end the response with one short, optional offer of an interactive version that names what the user could do with it, for example: "Chcesz wersję interaktywną? Oś czasu, na której klikasz ujęcia, odtwarzasz animatik i zmieniasz czas każdego ujęcia." Good candidates are a storyboard, sequence or shot list, a timing, easing or rhythm choice, directions to compare, a campaign or asset matrix, and a lesson concept with a visible cause and effect.
+
+- One offer per stage, after the complete deliverable; it never replaces the deliverable or blocks the next step, and it is not a consent question.
+- Name the benefit (what can be explored or decided), not the technology.
+- Say which form it would take: an interactive view inside the chat where the host composes one, or a self-contained HTML file to open in a browser, which a phone may not display inside the chat. Where the host composes native elements, prefer the view in the chat and offer the file as the downloadable option.
+- When other choices are pending in the same response, give the offer its own token namespace.
+- Skip it for copyable deliverables, short answers, a single fix, an explicit plain-text request, the startup welcome and menus, a learning onboarding question, a response that ends with a pending learner exercise or question (the learner keeps one decision at a time; present the experiment interactively as the exercise itself, or offer it after feedback), and an answer that is already interactive.
+- Record the reply in the existing Project State for that kind of stage: after a decline or no answer, do not offer it again for the same kind of stage unless the user asks; after a yes, similar later stages may go straight to the interactive form.
+- Accepting builds the view or file from material that already exists. New image, video or audio generation, uploads and publication still need their own request.
+- A file follows the existing rules: self-contained with no network requests, built from the current revision, and labelled as a preview, not a rendered video or a measured result.
 
 Startup is unchanged: a bare invocation or greeting returns the complete canonical welcome as text, in the selected language, ending with its numbered menu. A host choice control may accompany a pending numbered group with the same tokens and meaning; it never replaces the welcome, shortens it or adds a menu. Learning onboarding keeps exactly one question per response; a form may carry only that one question.
 

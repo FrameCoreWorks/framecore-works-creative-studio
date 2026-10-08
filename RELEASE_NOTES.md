@@ -1,10 +1,10 @@
-# Creative Studio 1.35.0
+# Creative Studio 1.36.0
 
-Answers that fit the task, in ChatGPT's new interactive layout.
+Studio now offers the interactive version itself.
 
-- **The right form at each step.** In ordinary ChatGPT, Studio now suggests where a comparison, a timeline, a small experiment or a checklist helps: comparing poster directions side by side, trying one easing at a time while learning, seeing a storyboard on a timeline, checking a campaign matrix. ChatGPT decides what it actually shows, so layouts can differ between conversations and devices.
-- **Copy stays copyable.** Prompts, copy, scripts and lyrics always come as plain text you can copy.
-- **Nothing depends on the view.** Every view has the same content in text, so Work, Codex, Voice and older desktop apps get the full answer. Ask for plain text and Studio keeps to it.
-- **Clicks are not decisions.** Studio records a choice only when you make it, keeps it with your project, and never treats a choice as permission to generate, upload or publish.
+- **It asks when it helps.** After a storyboard, a timing choice, a comparison of directions or a campaign matrix, Studio adds one short line offering an interactive version and says what you could do with it: click through shots, play an animatic, change timings, compare side by side.
+- **You know what you will get.** It says whether it would be a view in the chat or a file to open in a browser, which a phone may not show inside the chat.
+- **Once is enough.** The offer comes after the full answer, never instead of it. Say no and Studio stops offering it for that kind of task.
+- **No surprises.** Accepting builds the view from what already exists; new images or video still need your request.
 
 Startup, the complete welcome, menus, learning onboarding and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

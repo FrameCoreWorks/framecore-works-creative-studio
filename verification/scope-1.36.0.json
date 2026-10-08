@@ -1,0 +1,28 @@
+{
+  "version": "1.36.0",
+  "baseline": "0e2d36307465715ff673277bb4631411c611563c",
+  "change_id": "CC-20261008-06",
+  "origin": "cloud-code",
+  "files": 908,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "evals/presentation-cases.json",
+    "plugin.json",
+    "scripts/validate-presentation.mjs",
+    "skills/pipeline-core/references/presentation-and-interaction.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/presentation.test.mjs"
+  ],
+  "unchanged_count": 897,
+  "added": [],
+  "removed": [],
+  "welcome": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "workflow-orchestrator/SKILL.md changes only in the generated PACKAGE IDENTITY block."
+}

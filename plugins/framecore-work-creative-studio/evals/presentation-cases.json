@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Seventeen planned presentation and interaction scenarios for ChatGPT Intelligent UI and hosts without it. No host run, rendered element or response score is asserted.",
+  "scope": "Nineteen planned presentation and interaction scenarios for ChatGPT Intelligent UI and hosts without it. No host run, rendered element or response score is asserted.",
   "execution_rule": "Run each case in a fresh attributed session on the stated host profile; save the transcript, what the host rendered, the interaction events actually sent, and the reviewer's decision separately. Source checks do not execute these cases.",
   "cases": [
     {
@@ -586,6 +586,77 @@
       "forbidden": [
         "Invented prices",
         "Treating the user's pick as authorization to generate"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI18",
+      "family": "proactive_interactive_offer",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Rozpisz 10-sekundowy pościg w Tokio na 6 ujęć z czasami i dialogami.",
+      "context": {
+        "invocation": "creative mode, storyboard area"
+      },
+      "expected_owners": [
+        "storyboard-sequence-architect"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Complete timed shot table with IDs, then one optional offer line",
+      "checks": [
+        "The complete shot table comes first",
+        "One short offer of an interactive version names what can be explored (click shots, play an animatic, change shot timing)",
+        "The offer says whether it is a view in the chat or an HTML file, and that a phone may not show a file inside the chat",
+        "Work continues without waiting for an answer to the offer"
+      ],
+      "forbidden": [
+        "Withholding the storyboard until the user answers",
+        "Generating new images because the offer was made",
+        "More than one offer in the response"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI19",
+      "family": "declined_offer_not_repeated",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Nie, wystarczy tabela. Teraz skróć ujęcie S03 do 0,5 s.",
+      "context": {
+        "previous_offer": "interactive storyboard offered for this stage and declined in this message",
+        "motion_contract": {
+          "revision": 1,
+          "fps": 30
+        }
+      },
+      "expected_owners": [
+        "storyboard-sequence-architect"
+      ],
+      "expected_presentation": "text",
+      "text_path": "Revised timed table with the shifted shots",
+      "checks": [
+        "S03 shortened by 0.5 s (15 frames at 30 FPS) and later shots shifted, as a new revision",
+        "The decline is kept for storyboard stages; no new interactive offer in this response"
+      ],
+      "forbidden": [
+        "Repeating the interactive offer",
+        "Asking again whether the user wants interactivity"
       ],
       "required_evidence": [
         "Package version, host (Chat, Work or Codex), client and reasoning setting",

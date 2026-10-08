@@ -3,11 +3,11 @@ import path from 'node:path';
 
 export const presentationPolicy = 'skills/pipeline-core/references/presentation-and-interaction.md';
 export const presentationCases = 'evals/presentation-cases.json';
-export const presentationFamilies = ['copyable_prompt_text', 'concept_comparison_choice', 'interactive_lesson_waits', 'full_learning_brief', 'quiz_after_expired_menu', 'scene_time_and_copy_fix', 'stale_view_vs_revision', 'no_native_host_text_equivalent', 'no_renderer_no_export', 'explicit_plain_text', 'campaign_matrix_no_invented_metrics', 'qa_status_from_evidence', 'audio_timeline_not_listen', 'direct_specialist_invocation', 'selection_to_prompt_handoff', 'startup_with_native_host', 'route_comparison_not_authorization'];
-const sections = ['host-basis', 'choosing-the-form', 'equivalent-text-path', 'interaction-state-and-actions', 'domain-adaptations', 'learning', 'concepts', 'storyboard-and-motion', 'prompts-and-references', 'campaigns-and-qa', 'other-modules', 'module-coverage'];
+export const presentationFamilies = ['copyable_prompt_text', 'concept_comparison_choice', 'interactive_lesson_waits', 'full_learning_brief', 'quiz_after_expired_menu', 'scene_time_and_copy_fix', 'stale_view_vs_revision', 'no_native_host_text_equivalent', 'no_renderer_no_export', 'explicit_plain_text', 'campaign_matrix_no_invented_metrics', 'qa_status_from_evidence', 'audio_timeline_not_listen', 'direct_specialist_invocation', 'selection_to_prompt_handoff', 'startup_with_native_host', 'route_comparison_not_authorization', 'proactive_interactive_offer', 'declined_offer_not_repeated'];
+const sections = ['host-basis', 'choosing-the-form', 'offering-an-interactive-version', 'equivalent-text-path', 'interaction-state-and-actions', 'domain-adaptations', 'learning', 'concepts', 'storyboard-and-motion', 'prompts-and-references', 'campaigns-and-qa', 'other-modules', 'module-coverage'];
 // Each domain source must route to its own adaptation, not only to the shared file.
 const domainRoutes = [
-  ['skills/pipeline-core/references/studio-integration-policy.md', 'presentation-and-interaction.md'],
+  ['skills/pipeline-core/references/studio-integration-policy.md', 'presentation-and-interaction.md#offering-an-interactive-version'],
   ['skills/workflow-orchestrator/SKILL.md', '../pipeline-core/references/presentation-and-interaction.md'],
   ['skills/workflow-orchestrator/references/startup-and-creative-menus.md', 'presentation-and-interaction.md#interaction-state-and-actions'],
   ['skills/workflow-orchestrator/references/learning-mode.md', 'presentation-and-interaction.md#learning'],

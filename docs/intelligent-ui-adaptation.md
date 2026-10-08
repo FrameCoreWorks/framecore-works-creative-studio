@@ -120,6 +120,7 @@ Run in ordinary ChatGPT, Chat tab, GPT-6 at any level from Instant to Extra High
 5. In a motion project with a storyboard: `W scenie 2 wydłuż zatrzymanie o 2 sekundy. Reszta bez zmian.` Expect a new revision, the 60-frame impact at 30 FPS and the shifted later scenes; a timeline is only a view.
 6. `Odpowiadaj tylko zwykłym tekstem. Jak skrócić spot z 30 do 15 sekund?` Expect plain text in this and later answers.
 7. The same prompt as 2 in the Work tab. Expect the same content as text without a note about missing interface elements.
+8. (1.36.0) `Rozpisz 10-sekundowy pościg w Tokio na 6 ujęć z czasami i dialogami.` Expect the complete shot table first, then one short offer of an interactive version that says what you could do and whether it is a view in the chat or a file; then `Nie, wystarczy tabela. Teraz skróć ujęcie S03 do 0,5 s.` should shift the later shots and make no new offer.
 
 ## 7. Status
 

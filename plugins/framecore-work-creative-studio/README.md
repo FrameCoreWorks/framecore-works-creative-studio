@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.35.0.
+Version: 1.36.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -16,7 +16,7 @@ Repository documentation and operational guidance are English. The full welcome 
 
 ## Interactive answers in ChatGPT
 
-In ordinary ChatGPT (the Chat tab), ChatGPT can now show parts of an answer as comparisons, charts, timelines, forms or small interactive tools; OpenAI calls this Intelligent UI. Studio tells it, stage by stage, where such a view helps: comparing directions, trying one setting at a time while learning, seeing a storyboard on a timeline or checking a campaign matrix. Prompts, copy and other text you will copy stay plain text. ChatGPT decides what it actually shows, so the same request can look different between conversations, devices and settings, and some answers will stay text. Every view has the same content in text, so nothing depends on it: Work, Codex, Voice and older desktop apps get the text version. Clicking or opening something is not a decision: Studio records a choice only when you make it, and a choice never starts paid generation, an upload or publication. Ask for plain text at any time and Studio keeps to it. See [presentation and interaction](skills/pipeline-core/references/presentation-and-interaction.md).
+In ordinary ChatGPT (the Chat tab), ChatGPT can now show parts of an answer as comparisons, charts, timelines, forms or small interactive tools; OpenAI calls this Intelligent UI. Studio tells it, stage by stage, where such a view helps: comparing directions, trying one setting at a time while learning, seeing a storyboard on a timeline or checking a campaign matrix. Prompts, copy and other text you will copy stay plain text. ChatGPT decides what it actually shows, so the same request can look different between conversations, devices and settings, and some answers will stay text. Every view has the same content in text, so nothing depends on it: Work, Codex, Voice and older desktop apps get the text version. Clicking or opening something is not a decision: Studio records a choice only when you make it, and a choice never starts paid generation, an upload or publication. When an answer would be easier to understand by exploring it, Studio offers an interactive version once, after the answer; say no and it will not keep asking. Ask for plain text at any time and Studio keeps to it. See [presentation and interaction](skills/pipeline-core/references/presentation-and-interaction.md).
 
 ## Brand strategy and identity
 

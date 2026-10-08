@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.35.0",
+  "version": "1.36.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "a556050deab04e5a42e58721ccd94b89ad3f499f3947e344526e43ad9bf30d5e"
+      "sha256": "62c39e7705e60d640aa45420fdae3750a841c1ed0021eaf6a5324fdb472031e0"
     },
     {
       "path": "LICENSE",
@@ -63,8 +63,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 19417,
-      "sha256": "ba29ff61d8e511a06a7509fbb2a96fa8e6b0894cf58da8024f0dedd4bb7dded9"
+      "bytes": 19576,
+      "sha256": "c7b6e51fb0ea6e8e5529026570bed691d90398fb105f5cdef56a4dc01b9617e6"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "e0536cea65da53d762b0af09177288b7d920e5590a1ba9ea588a702a46f205a8"
+      "sha256": "905d7315c6702875fbd6e0772ee8de9d4e2bfb4bbb726d6d23e5e343082d5b22"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 68350,
-      "sha256": "1282ab124d586e9fbe1666e46591104c6d1db7db4725a40e7021d057bafddb3a"
+      "bytes": 69235,
+      "sha256": "a4b7e39049be1ca33c17fc5ac5fd5e6fa0c451fa3597063d710c5f18efd6a515"
     },
     {
       "path": "docs/research-ledger.json",
@@ -173,8 +173,8 @@
     },
     {
       "path": "evals/presentation-cases.json",
-      "bytes": 24318,
-      "sha256": "b578e181bff05cad573d632d27728a2f02bb8e3e5119f64b26782faf7c64d770"
+      "bytes": 27436,
+      "sha256": "76408e966acbfe36ae9f8f8001dd586246563bd3dee4f74dcda44902ccd04fba"
     },
     {
       "path": "evals/producer-cases.json",
@@ -2254,7 +2254,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "b96509e8e5d1cd3fe90cf97ec40fdaf215148e01c39dc00ee3e1a4b4018814aa"
+      "sha256": "1e0fe622bb40b9fdcb4a9cec33f3f371893bf1efce4adb4422321c99279f3082"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2308,8 +2308,8 @@
     },
     {
       "path": "scripts/validate-presentation.mjs",
-      "bytes": 7157,
-      "sha256": "dbbb272c6c81ac82547b2eaa66991cfbe557c5ad8c0885f4b6c90c7f5514aa08"
+      "bytes": 7286,
+      "sha256": "bf839b8998e2a2730b1d2c36b8faeba4d38a846dd88ec705a6fea6eb5291bbe3"
     },
     {
       "path": "scripts/validate-quality-methods.mjs",
@@ -3623,8 +3623,8 @@
     },
     {
       "path": "skills/pipeline-core/references/presentation-and-interaction.md",
-      "bytes": 16900,
-      "sha256": "683b932d596c1e4656081384f261e5115fdfc3b563101bd2670f83983e9f46e7"
+      "bytes": 19582,
+      "sha256": "b734e11ccae2dbbd1796c16663a0dd42d4d3436ad7e3fca97874a2481c4321c4"
     },
     {
       "path": "skills/pipeline-core/references/project-recovery.md",
@@ -3648,8 +3648,8 @@
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 12275,
-      "sha256": "96f255962a20540d064b5bd15ae76febb5c1a239e8dfeb4d0a13c5c597c58276"
+      "bytes": 12502,
+      "sha256": "4ead8e6262da126d41a16d1fb6c38b6443aaca879fa63d849548884114ffe4e7"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -4354,7 +4354,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 29429,
-      "sha256": "a8ffb4d6292c97a781988519aa8cac87d9f5661116e0bf804252ee7f6eb86db2"
+      "sha256": "31caf800a0cb3a717628628fe84b34858b2dcd811fac03ca307d25f49ff190fb"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4568,8 +4568,8 @@
     },
     {
       "path": "tests/presentation.test.mjs",
-      "bytes": 5168,
-      "sha256": "4a9f96560482dd8e2112e7b9b441eda97b3160e490e915024bf713cb28a61463"
+      "bytes": 5650,
+      "sha256": "a2327dae609a143402d44f54cf87b9330f51b3db507a6cbe581204ec162e8352"
     },
     {
       "path": "tests/quality-methods.test.mjs",

@@ -675,3 +675,25 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `ecf6ed0` on owner instruction; [v1.35.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.35.0) published by workflow 37763045138; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.35.0.json))
 - ChatGPT Work: not_run (no hosted update authorized)
 - Codex: not_run
+
+## CC-20261008-06
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-03-intelligent-ui`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `0e2d36307465715ff673277bb4631411c611563c` (main, package 1.35.0)
+- Result: the release commit carrying this entry (package 1.36.0)
+- Package version: 1.35.0 -> 1.36.0
+- Scope: Studio offers an interactive version on its own, once per stage after the deliverable, saying whether it is a view in the chat or an HTML file; a decline is remembered for that kind of stage; skipped during onboarding, under a pending learner exercise and for copyable deliverables ([record](intelligent-ui-adaptation.md))
+- Shared package changed: yes; 11 changed, 0 added, 0 removed ([scope](../verification/scope-1.36.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- Node CI set 175 (+3 opt-in browser tests passing), motion-quality 12, presentation 11, installer 12, identity 4, GEPA pilot 8, asset 23, benchmark script 3: PASS ([record](../verification/release-1.36.0.json))
+- instruction trace: two conflicts resolved (one learner decision at a time; the host-capability note); host behavior: not_run
+
+Cross-host state:
+
+- GitHub: release commit pushed to `main`; publication record pending
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

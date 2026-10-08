@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.35.0
+## Current source: 1.36.0
+
+The [1.36.0 source checks](verification/release-1.36.0.json) pass canonical validation and 248 tests: 175 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 11 presentation, 12 installer, 4 identity, 8 GEPA pilot, 23 asset and 3 benchmark-script checks. The release adds the rule that Studio offers an interactive version on its own, once per stage and after the deliverable; two conflicts with learning and the host-capability note were found in an instruction trace and resolved. Host behavior of 1.36.0 is not verified. [Scope](verification/scope-1.36.0.json) records 11 changed shared files out of 908.
+
+## Previous source: 1.35.0
 
 The [1.35.0 source checks](verification/release-1.35.0.json) pass canonical validation and 247 tests: 175 Node in the CI set (plus 3 opt-in browser tests, run separately and passing), 12 motion-quality, 10 presentation, 12 installer, 4 identity, 8 GEPA pilot, 23 asset and 3 benchmark-script checks. The release adapts every active module to ChatGPT's Intelligent UI through one shared presentation policy with an equivalent text path and state rules; 17 planned presentation scenarios were traced against the instructions (one conflict repaired), not run in a host. Host behavior of 1.35.0 is not verified. [Scope](verification/scope-1.35.0.json) records 17 changed and 4 added shared files out of 908.
 

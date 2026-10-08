@@ -74,6 +74,14 @@ test('the host basis accepts only dated official sources with an Unknown list', 
   assert.match(details, /Unknown list/);
 }));
 
+test('dropping the interactive offer rule or its route fails', () => fixture(root => {
+  edit(root, presentationPolicy, text => text.replace('### Offering an interactive version', '### Other notes'));
+  edit(root, 'skills/pipeline-core/references/studio-integration-policy.md', text => text.replace('#offering-an-interactive-version)', ')'));
+  const found = codes(root);
+  assert.ok(found.includes('PRESENTATION_SECTION'));
+  assert.ok(found.includes('PRESENTATION_ROUTE'));
+}));
+
 test('the startup welcome stays byte-checked after the presentation change', () => fixture(root => {
   edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('1. **Creative mode**', '1. **Creative**'));
   assert.notEqual(validateStudio(root).canonical.status, 'PASS');
