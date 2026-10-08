@@ -652,3 +652,26 @@ Cross-host state:
 - Owner decision: no further tests in this series; the Bounce Party direction is rejected
 - ChatGPT Work: owner-managed
 - Codex: owner-managed
+
+## CC-20261008-03
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-03-intelligent-ui`
+- Baseline: `2704f917535c723afe2c039b1cca67e6da0b5422` (main, package 1.34.0)
+- Result: the branch commit carrying this entry; not integrated into `main`
+- Package version: 1.34.0, unchanged (no release on owner instruction)
+- Scope: adaptation of every active module to ChatGPT's native Intelligent UI through one shared presentation policy, short domain routes, a structural validator, mutation tests and planned host scenarios ([record](intelligent-ui-adaptation.md))
+- Shared package changed: yes; 12 changed, 4 added, 0 removed
+
+Verification:
+
+- canonical validator: PASS
+- Node suites 197 passing (+3 opt-in browser tests skipped), including 10 presentation tests, identity, benchmark and asset suites: PASS
+- installer suite: 16 failures from the release-time inventory (`config/install-sources.json` describes 1.34.0); with the manifest regenerated in a scratch copy, installer, GEPA and packaging passed
+- instruction trace of 17 scenarios: one conflict found and repaired (plain-text request versus the storyboard table); host behavior: not_run
+
+Cross-host state:
+
+- GitHub: branch pushed; `main` unchanged
+- ChatGPT Work: not_run (no hosted update authorized)
+- Codex: not_run

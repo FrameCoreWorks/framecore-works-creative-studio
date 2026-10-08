@@ -32,6 +32,8 @@ Track concept status only when a design premise meaningfully affects downstream 
 
 When a concept must persist, retain only its premise, visible mechanism, distinctive hook, allowed adaptations, and forbidden substitutions. A forbidden substitution names a change that would replace the selected meaning, not every ordinary design variation. Keep a lock only as specific as the evidence and task require; do not import or expose a full design schema.
 
+A comparison view of directions (at most four, on the same fields, each labelled description, sketch, reference or actual asset) follows [presentation and interaction](../../pipeline-core/references/presentation-and-interaction.md#concepts); opening a direction is exploration, and only the user's explicit pick makes it `selected`.
+
 An explicit request to choose on the user's behalf permits a recommendation and continuation without a redundant question. A concept lock protects meaning, not pixel positions: crop, scale, grid, line breaks, and supporting layout may adapt when allowed. If a requested format makes a required fact, readability, or fidelity impossible within the lock, state the exact conflict and offer the smallest viable trade-off. Do not silently replace the mechanism; reopen only the affected decision.
 
 ## Legitimate entry and return points

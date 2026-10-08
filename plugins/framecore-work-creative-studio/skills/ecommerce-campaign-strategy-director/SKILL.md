@@ -84,6 +84,7 @@ Use [templates/ecommerce-campaign-strategy-pack.md](templates/ecommerce-campaign
 
 - Planning is provider-neutral and does not authorize generation, provider API calls, uploads or publishing. Read-only public research follows the shared Research Evidence gate and the user's boundary.
 - Do not invent claims, reviews, certifications, test results, scarcity, endorsements, or customer evidence.
+- A matrix or chart shows hypotheses as hypotheses and only sourced numbers; never invented CTR, ROAS, costs or progress ([presentation and interaction](../pipeline-core/references/presentation-and-interaction.md#campaigns-and-qa)).
 - Keep private sales data, customer data, credentials, and unpublished client context out of public artifacts.
 - Preserve packaging, product count, logos, approved copy, and material details as explicit fidelity locks.
 - Static raster work with visible text follows the kit's native one-pass text-image policy when generation is explicitly requested and available.

@@ -66,6 +66,8 @@ asset aliases that are present in that request's asset manifest. Storyboard
 inheritance, start state, end state, and transition notes remain planning metadata
 until they are mapped to concrete per-request inputs.
 
+The final prompt is always delivered as a standalone fenced code block. A readiness checklist or reference-role table may accompany it, separating planned references from files actually received ([presentation and interaction](presentation-and-interaction.md#prompts-and-references)); it never replaces the copyable prompt.
+
 ## QA Observables
 
 Review prompt packs for:

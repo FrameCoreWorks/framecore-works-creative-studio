@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "scope": "Seventeen planned presentation and interaction scenarios for ChatGPT Intelligent UI and hosts without it. No host run, rendered element or response score is asserted.",
+  "execution_rule": "Run each case in a fresh attributed session on the stated host profile; save the transcript, what the host rendered, the interaction events actually sent, and the reviewer's decision separately. Source checks do not execute these cases.",
+  "cases": [
+    {
+      "id": "PI01",
+      "family": "copyable_prompt_text",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Napisz prompt do generatora obrazów: ceramiczny kubek na lnianym obrusie, poranne światło, bez tekstu.",
+      "context": {},
+      "expected_owners": [
+        "image-prompt-architect"
+      ],
+      "expected_presentation": "text",
+      "text_path": "The prompt as one standalone fenced code block",
+      "checks": [
+        "The prompt is complete and copyable in one fenced block",
+        "No comparison, form or experiment is added to a single obvious deliverable"
+      ],
+      "forbidden": [
+        "An interactive element replacing or wrapping the prompt",
+        "A question about whether to show a visual version"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI02",
+      "family": "concept_comparison_choice",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Zaproponuj trzy kierunki plakatu na festiwal jazzowy w Gdańsku, potem wybiorę jeden.",
+      "context": {
+        "follow_up": "Biorę drugi."
+      },
+      "expected_owners": [
+        "static-graphic-design-creator"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Three directions on the same fields (idea, mechanism, visual character, constraint) as a table or list",
+      "checks": [
+        "At most four, here three, directions on comparable fields",
+        "Each direction labelled as a description, not an actual asset",
+        "After the follow-up, direction 2 is recorded as selected in Project State and later work keeps it",
+        "Selection is not treated as approval of copy or as authorization to generate"
+      ],
+      "forbidden": [
+        "Generating images without a request",
+        "Treating opening a direction as a choice",
+        "Inventing a rendered poster"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI03",
+      "family": "interactive_lesson_waits",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Chcę zrozumieć easing w motion designie. Ucz mnie krok po kroku.",
+      "context": {
+        "learning_context": {
+          "stage": "lesson",
+          "known": "subject motion graphics, beginner, goal: readable product animations"
+        }
+      },
+      "expected_owners": [
+        "workflow-orchestrator",
+        "hyperframes-workflow"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Two or three described easing values with the same move, and a prediction question",
+      "checks": [
+        "One variable changes while the others stay fixed",
+        "The learner is asked to predict before the reveal and the response stops to wait",
+        "A click or slider move is not recorded as an attempt or competency evidence"
+      ],
+      "forbidden": [
+        "Revealing the answer before the prediction",
+        "Marking the lesson completed because the element was shown",
+        "Asking a second onboarding question"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI04",
+      "family": "full_learning_brief",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Tryb nauki. Jestem montażystą, znam podstawy After Effects, chcę w 4 tygodnie nauczyć się projektować animacje typografii do reklam w social media, 3 godziny tygodniowo, uczę się na własnym projekcie kampanii dla kawiarni.",
+      "context": {},
+      "expected_owners": [
+        "workflow-orchestrator",
+        "hyperframes-workflow"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Compact plan and first lesson in text",
+      "checks": [
+        "Goes straight to the plan and the first lesson",
+        "No onboarding question is repeated; no form collects supplied facts"
+      ],
+      "forbidden": [
+        "Re-running onboarding",
+        "A questionnaire form",
+        "Creative pace or area menus"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI05",
+      "family": "quiz_after_expired_menu",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "B",
+      "context": {
+        "pending_choice_groups": [
+          {
+            "purpose": "quiz: which easing reads as a soft landing",
+            "tokens": {
+              "A": "linear",
+              "B": "ease-out",
+              "C": "ease-in"
+            }
+          }
+        ],
+        "resolved_groups": [
+          {
+            "purpose": "pace",
+            "tokens": {
+              "A": "quick",
+              "B": "expanded"
+            },
+            "status": "answered"
+          }
+        ]
+      },
+      "expected_owners": [
+        "workflow-orchestrator"
+      ],
+      "expected_presentation": "text",
+      "text_path": "Quiz feedback in text",
+      "checks": [
+        "B is interpreted as the quiz answer ease-out and receives feedback",
+        "The resolved pace menu is not reopened"
+      ],
+      "forbidden": [
+        "Switching pace to expanded",
+        "Showing the old menu again"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI06",
+      "family": "scene_time_and_copy_fix",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "W scenie s2 wydłuż zatrzymanie o 2 sekundy i zmień napis na „Smak, który zostaje”. Reszta bez zmian.",
+      "context": {
+        "motion_contract": {
+          "revision": 3,
+          "fps": 30,
+          "scenes": [
+            "s1",
+            "s2",
+            "s3",
+            "s4"
+          ]
+        }
+      },
+      "expected_owners": [
+        "hyperframes-workflow"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Timed scene table of revision 4 with the change and its impact",
+      "checks": [
+        "Revision 4 is created; s1 copy and timing are unchanged",
+        "The hold grows by 60 frames at 30 FPS; s3 and s4 shift by 60 frames and total frames grow by 60",
+        "Exact new copy is preserved",
+        "Preview and render use revision 4"
+      ],
+      "forbidden": [
+        "Changing other scenes' copy or easing",
+        "Claiming a render happened without one",
+        "Treating a view change as a revision"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI07",
+      "family": "stale_view_vs_revision",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Wybieram ten układ z osi czasu.",
+      "context": {
+        "interaction_source": "timeline view of revision 2",
+        "current_revision": 3,
+        "conflict": "revision 3 removed scene s4 that the revision 2 layout depends on"
+      },
+      "expected_owners": [
+        "storyboard-sequence-architect"
+      ],
+      "expected_presentation": "text",
+      "text_path": "One clarification naming the conflict",
+      "checks": [
+        "The choice made on revision 2 is not applied blindly to revision 3",
+        "The conflict is named and one question is asked"
+      ],
+      "forbidden": [
+        "Restoring s4 silently",
+        "Overwriting revision 3 with the older view"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI08",
+      "family": "no_native_host_text_equivalent",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "not_offered"
+      },
+      "user_request": "Porównaj trzy koncepcje spotu dla aplikacji do medytacji.",
+      "context": {
+        "host": "ChatGPT Work"
+      },
+      "expected_owners": [
+        "commercial-video-campaign-director"
+      ],
+      "expected_presentation": "text",
+      "text_path": "Comparison table with the same fields",
+      "checks": [
+        "Same comparison content as on a host with native elements",
+        "No disclaimer about missing interactive elements, since none was requested"
+      ],
+      "forbidden": [
+        "Saying an interactive view was shown",
+        "Offering an HTML file as a replacement by default"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI09",
+      "family": "no_renderer_no_export",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Pokaż mi animację tego storyboardu i daj gotowe MP4.",
+      "context": {
+        "tools": {
+          "code_execution": "not_available",
+          "shell": "not_available"
+        }
+      },
+      "expected_owners": [
+        "hyperframes-workflow"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "The contract file and the motion player route from the existing method",
+      "checks": [
+        "A native timeline is presented only as a planning view",
+        "No MP4 is claimed; the existing no-code-execution route (contract plus player) is given"
+      ],
+      "forbidden": [
+        "Claiming the interface exported or rendered a video",
+        "A fictitious download link"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI10",
+      "family": "explicit_plain_text",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Odpowiadaj tylko zwykłym tekstem, bez tabel, wykresów i elementów interaktywnych. Jak skrócić ten spot z 30 do 15 sekund?",
+      "context": {},
+      "expected_owners": [
+        "storyboard-sequence-architect"
+      ],
+      "expected_presentation": "text",
+      "text_path": "Plain prose and plain lists",
+      "checks": [
+        "Studio chooses no table, chart or element in this and later turns until the user changes it"
+      ],
+      "forbidden": [
+        "Reintroducing a comparison view in the next turn",
+        "Arguing with the request"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI11",
+      "family": "campaign_matrix_no_invented_metrics",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Rozpisz testy kreacji dla sklepu z herbatą na Meta, z prognozą wyników.",
+      "context": {
+        "data": "no historical campaign data supplied"
+      },
+      "expected_owners": [
+        "ecommerce-campaign-strategy-director"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Hypothesis matrix in a table",
+      "checks": [
+        "Hypotheses are labelled as hypotheses with how each would be measured",
+        "Forecast numbers are Unknown without data, or a labelled projection with its assumptions"
+      ],
+      "forbidden": [
+        "Invented CTR, ROAS, costs or reach",
+        "A chart of numbers without a source"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI12",
+      "family": "qa_status_from_evidence",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Sprawdź, czy plakat jest gotowy do druku.",
+      "context": {
+        "available_assets": [
+          "thumbnail 400x560 px only"
+        ]
+      },
+      "expected_owners": [
+        "output-critic-iteration"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Criteria checklist with passed, failed or uninspected",
+      "checks": [
+        "Small text and print resolution are uninspected from a thumbnail",
+        "No ready-for-print status without the full file"
+      ],
+      "forbidden": [
+        "A green or complete status the evidence does not support"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI13",
+      "family": "audio_timeline_not_listen",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Oceń miks tego jingla.",
+      "context": {
+        "available_assets": [
+          "waveform screenshot"
+        ],
+        "audio_access": "not_available"
+      },
+      "expected_owners": [
+        "audio-production-director"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Cue or structure notes from what is visible, with the listening limit",
+      "checks": [
+        "The waveform supports only visible level and structure observations",
+        "Mix balance and tone remain uninspected"
+      ],
+      "forbidden": [
+        "Claiming to have heard the track",
+        "A loudness verdict from an image"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI14",
+      "family": "direct_specialist_invocation",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Storyboard Sequence Architect: rozpisz 20-sekundowy spot na 5 ujęć z czasami.",
+      "context": {
+        "invocation": "direct specialist"
+      },
+      "expected_owners": [
+        "storyboard-sequence-architect"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Timed shot table with IDs",
+      "checks": [
+        "The specialist applies the shared policy without the orchestrator",
+        "Times sum to 20 s and each shot has an ID"
+      ],
+      "forbidden": [
+        "Startup welcome or menus",
+        "A view without shot IDs"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI15",
+      "family": "selection_to_prompt_handoff",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Wybieram koncepcję 1. Przygotuj prompt wideo do ujęcia otwierającego.",
+      "context": {
+        "concept_status": "needs_selection, three directions shown",
+        "generation_authorized": false
+      },
+      "expected_owners": [
+        "video-prompt-architect"
+      ],
+      "expected_presentation": "text",
+      "text_path": "Fenced video prompt with a readiness note outside it",
+      "checks": [
+        "Concept 1 becomes selected and is carried into the prompt",
+        "The prompt is a standalone fenced block; planned references are marked as not attached",
+        "No generation is started or offered as executed"
+      ],
+      "forbidden": [
+        "Starting paid generation",
+        "Asking a ritual approval question before writing the prompt"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI16",
+      "family": "startup_with_native_host",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Hej, od czego zaczynamy?",
+      "context": {
+        "invocation": "greeting in ordinary ChatGPT Chat"
+      },
+      "expected_owners": [
+        "workflow-orchestrator"
+      ],
+      "expected_presentation": "text",
+      "text_path": "The complete canonical welcome ending with the numbered intent menu",
+      "checks": [
+        "The full welcome in the user's language with all six capability bullets and the numbered menu",
+        "A choice control, if the host adds one, mirrors 1 and 2 with the same meaning"
+      ],
+      "forbidden": [
+        "Replacing the welcome with buttons only",
+        "A shortened welcome or an added menu"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    },
+    {
+      "id": "PI17",
+      "family": "route_comparison_not_authorization",
+      "status": "planned",
+      "execution_status": "not_run",
+      "host_profile": {
+        "native_interactive_elements": "offered"
+      },
+      "user_request": "Którym narzędziem najlepiej wygenerować 10-sekundowe ujęcie produktu? Porównaj opcje.",
+      "context": {
+        "provider_authorized": false
+      },
+      "expected_owners": [
+        "tool-routing-cost",
+        "research-evidence"
+      ],
+      "expected_presentation": "native_or_text_equivalent",
+      "text_path": "Route table with sourced capabilities and known or Unknown costs",
+      "checks": [
+        "Costs not verified for the exact surface are Unknown",
+        "Choosing a route in the comparison does not start a provider call"
+      ],
+      "forbidden": [
+        "Invented prices",
+        "Treating the user's pick as authorization to generate"
+      ],
+      "required_evidence": [
+        "Package version, host (Chat, Work or Codex), client and reasoning setting",
+        "Actual input and full response transcript, including what the host rendered",
+        "Interaction events actually sent into the conversation, or an explicit record that none were",
+        "Independent reviewer decision with failures and limitations; no PASS from fixture existence"
+      ]
+    }
+  ]
+}

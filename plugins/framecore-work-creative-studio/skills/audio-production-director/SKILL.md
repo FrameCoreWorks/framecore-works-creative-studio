@@ -48,4 +48,4 @@ For picture work, use the sequence owner’s [adjacency workbook](../storyboard-
 
 ## Arrangement, timing and final prompt mapping
 
-Use [the audio edit and prompt workbench](references/audio-edit-and-prompt-workbench.md) for cue priorities, pulse arithmetic, exact approved words, destination-specific prompt structure and editor handoff. Read only the selected provider section. This adds planning knowledge, not a callable audio engine.
+Use [the audio edit and prompt workbench](references/audio-edit-and-prompt-workbench.md) for cue priorities, pulse arithmetic, exact approved words, destination-specific prompt structure and editor handoff. Read only the selected provider section. This adds planning knowledge, not a callable audio engine. A cue or song-structure timeline may be shown where the host composes it; lyrics and prompts stay copyable text, and no waveform or chart counts as a listen ([presentation and interaction](../pipeline-core/references/presentation-and-interaction.md#other-modules)).

@@ -14,6 +14,10 @@ The full welcome explains what Studio does and its capabilities, then offers **1
 
 Repository documentation and operational guidance are English. The full welcome and later menus automatically follow the user's language without a translation request. Explicit preferences, meaningful user text, available host language context and conversation language determine the response; country and repository language do not. The approved Polish welcome, exact-copy examples and multilingual fixtures remain localized data.
 
+## Interactive answers in ChatGPT
+
+In ordinary ChatGPT (the Chat tab), ChatGPT can now show parts of an answer as comparisons, charts, timelines, forms or small interactive tools; OpenAI calls this Intelligent UI. Studio tells it, stage by stage, where such a view helps: comparing directions, trying one setting at a time while learning, seeing a storyboard on a timeline or checking a campaign matrix. Prompts, copy and other text you will copy stay plain text. ChatGPT decides what it actually shows, so the same request can look different between conversations, devices and settings, and some answers will stay text. Every view has the same content in text, so nothing depends on it: Work, Codex, Voice and older desktop apps get the text version. Clicking or opening something is not a decision: Studio records a choice only when you make it, and a choice never starts paid generation, an upload or publication. Ask for plain text at any time and Studio keeps to it. See [presentation and interaction](skills/pipeline-core/references/presentation-and-interaction.md).
+
 ## Brand strategy and identity
 
 Studio develops brand strategy, logo systems, logo usage guides and identity guides through existing owners, with shared decisions, revisions and acceptance criteria. Request the full workflow or a specific stage. Concepts and digital materials have a separate status from verified production files; actual exports depend on available tools. See [the workflow contract](skills/workflow-orchestrator/references/brand-identity-workflow.md).
@@ -97,12 +101,12 @@ From the package directory:
 
 ```sh
 node scripts/validate-studio.mjs
-node --test --test-concurrency=1 tests/studio.test.mjs tests/workflow-kit.test.mjs tests/creative-upgrade.test.mjs tests/learning-mode.test.mjs tests/quality-methods.test.mjs
+node --test --test-concurrency=1 tests/studio.test.mjs tests/workflow-kit.test.mjs tests/creative-upgrade.test.mjs tests/learning-mode.test.mjs tests/quality-methods.test.mjs tests/presentation.test.mjs
 PYTHONDONTWRITEBYTECODE=1 python3 tests/asset_manifest_test.py
 node scripts/load-effective-evals.mjs
 ```
 
-The first two commands check structure and contract regressions. The Python suite checks the asset-record helper on synthetic data. The loader combines historical fixtures with explicit corrections in `evals/effective-overrides.json` and scenarios in `evals/studio-behavior-cases.json`, `evals/knowledge-practice-cases.json`, `evals/workflow-kit-cases.json` and `evals/learning-mode-cases.json`. A case marked `planned` is a test specification, not evidence that a model performed the task. Text/source tests do not establish render quality, listening results, provider-adapter behavior or automatic retrieval in a new conversation.
+The first two commands check structure and contract regressions. The Python suite checks the asset-record helper on synthetic data. The loader combines historical fixtures with explicit corrections in `evals/effective-overrides.json` and scenarios in `evals/studio-behavior-cases.json`, `evals/knowledge-practice-cases.json`, `evals/workflow-kit-cases.json` and `evals/learning-mode-cases.json`. `evals/presentation-cases.json` holds planned presentation scenarios checked by `scripts/validate-presentation.mjs`. A case marked `planned` is a test specification, not evidence that a model performed the task. Text/source tests do not establish render quality, listening results, provider-adapter behavior or automatic retrieval in a new conversation.
 
 Historical `scripts/validate-package.mjs`, `tests/package.test.mjs` and `evals/static-cases.json` are retained. Their complete current contents were unavailable through the service during the earlier update and were not overwritten. The old commands are not the current release gate; use `validate-studio.mjs` for structural checks. Legacy validator limitations and contradictory fixtures are handled through explicitly identified replacement files. Passing the new suite does not establish a pass for the historical 67-test suite.
 

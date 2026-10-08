@@ -11,6 +11,7 @@ import {loadEffectiveEvals} from './load-effective-evals.mjs';
 import {validateLearningMode} from './validate-learning-mode.mjs';
 import {validateQualityMethods} from './validate-quality-methods.mjs';
 import {validateCampaignWorkflow} from './validate-campaign-workflow.mjs';
+import {validatePresentation} from './validate-presentation.mjs';
 
 const expectedOwnerCount = 37;
 const criticalIds = ['research_conditional_triggers', 'research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
@@ -155,6 +156,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   if (!isDeepStrictEqual(discovered.sort(), expectedEntrypoints.sort())) fail('RECURSIVE_DISCOVERY', 'Only canonical active roots may expose skill frontmatter');
   const owners = Array.isArray(registry.owners) ? registry.owners.filter(owner => owner && typeof owner === 'object' && typeof owner.id === 'string') : [];
   const ownerIds = owners.map(owner => owner.id), actualOwners = files.filter(file => /^skills\/[^/]+\/SKILL\.md$/.test(file)).map(file => file.split('/')[1]).sort();
+  errors.push(...validatePresentation(base, files, actualOwners));
   if (registry.schema_version !== 1 || owners.length !== expectedOwnerCount || new Set(ownerIds).size !== expectedOwnerCount || !isDeepStrictEqual([...ownerIds].sort(), actualOwners)) fail('OWNER_ROSTER', 'Registry must match all thirty-seven installed skill roots');
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.

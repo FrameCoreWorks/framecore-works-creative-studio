@@ -135,4 +135,4 @@ If only a thumbnail was available:
 
 “Hierarchia wygląda zgodnie z briefem, ale nie mogę zatwierdzić drobnego tekstu z tego podglądu. Potrzebny jest plik w pełnej rozdzielczości.”
 
-These are teaching examples, not observations about a real file. The final verdict must be grounded in the actual inspected asset.
+These are teaching examples, not observations about a real file. The final verdict must be grounded in the actual inspected asset. A checklist or status view shows passed, failed or uninspected per criterion for the exact version reviewed; it adds no status that the evidence lacks ([presentation and interaction](../../pipeline-core/references/presentation-and-interaction.md#campaigns-and-qa)).

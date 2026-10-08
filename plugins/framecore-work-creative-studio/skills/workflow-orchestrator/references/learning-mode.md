@@ -77,6 +77,8 @@ Use a provisional plan where ability is not yet observed. Refine only affected d
 
 A demonstration prompt explains its important parts and then invites the learner to make a meaningful choice or write their own attempt. Do not complete the whole production project in learning by default. A student can ask for a simpler explanation, more detail, another example, exercise, quiz, feedback or a skip. Respect skipped lessons, record them as skipped, and do not certify mastery from skipping. Quiz feedback follows the attempt; do not disclose every solution before the learner can try unless they ask for the explanation.
 
+Where the host composes interactive elements, an experiment may vary one variable (hold time, easing, type hierarchy, contrast, rhythm) with the rest fixed; ask for the learner's prediction before the reveal and wait. A click, slider position or opened view is exploration, not an attempt, and never competency evidence. The described values and their effects remain a complete text exercise. Follow [presentation and interaction](../../pipeline-core/references/presentation-and-interaction.md#learning).
+
 Adapt to evidence by domain. When the attempt misses the main principle, isolate that principle and reduce variables. When it succeeds, offer a new context or one additional constraint rather than more repetitive prose. Separate a self-reported level from demonstrated ability. Evaluate the work, never the person's intelligence, talent or worth. A supplied drawing, transcript or description supports only what can actually be inspected; do not claim to have heard audio from text or assessed motion from a still.
 
 ## Diagnostic first attempt
