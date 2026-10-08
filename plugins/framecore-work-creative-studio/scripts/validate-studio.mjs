@@ -33,6 +33,14 @@ function anchors(text) {
   return out;
 }
 
+// Hosts parse SKILL.md frontmatter as YAML: a plain scalar must not contain ': ' or ' #' or start with an indicator,
+// and a quoted one must close its quotes without stray inner quotes.
+function yamlScalarSafe(value) {
+  if (value.startsWith('"')) return value.length > 1 && value.endsWith('"') && !/(^|[^\\])"/.test(value.slice(1, -1));
+  if (value.startsWith("'")) return value.length > 1 && value.endsWith("'") && !/'/.test(value.slice(1, -1).replaceAll("''", ''));
+  return !/: |\s#/.test(value) && !/^[-?:,\[\]{}#&*!|>%@`]/.test(value);
+}
+
 export function validateStudio(root, {legacy = false} = {}) {
   const base = path.resolve(root), errors = [], warnings = [], files = [], texts = new Map();
   const fail = (code, detail) => errors.push({code, detail});
@@ -135,6 +143,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     if (relative.endsWith('/SKILL.md')) {
       const frontmatter = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/), name = frontmatter?.[1].match(/^name:\s*(.+)$/m)?.[1].trim(), description = frontmatter?.[1].match(/^description:\s*(.+)$/m)?.[1].trim();
       if (name !== path.basename(path.dirname(relative)) || !description || description.length > 1024) fail('SKILL_METADATA', relative);
+      if (description && !yamlScalarSafe(description)) fail('SKILL_YAML', relative + ': quote the description; a plain YAML value cannot contain ": " or " #" or start with an indicator');
       if (text.split('\n').length > 500) fail('SKILL_SIZE', relative);
     }
     if (relative.includes('/references/') && text.trim().length < 500) fail('THIN_REFERENCE', relative);

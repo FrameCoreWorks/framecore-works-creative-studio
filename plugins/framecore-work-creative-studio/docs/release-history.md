@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.40.1, 2026-10-08
+
+- The Motion Graphics Workflow's description in 1.40.0 contained an unquoted colon, so its SKILL.md frontmatter was not valid YAML and a host parsing it strictly could fail to load the skill. The description is quoted again, every skill frontmatter and agent metadata file was parsed with a YAML parser (74 of 74 valid), and the canonical validator now rejects a description that is not a safe YAML scalar (`SKILL_YAML`), with a test for unquoted colons, comments, indicators and broken quotes. Use 1.40.1 instead of 1.40.0.
+
 ## 1.40.0, 2026-10-08
 
 Motion graphics becomes a full route, from the full review (the repository's docs/reviews/full-review-2026-10-08.md) and the owner's decisions of 2026-10-08 (the welcome and menus are unchanged):

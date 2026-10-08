@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.40.0
+## Current source: 1.40.1
+
+The [1.40.1 source checks](verification/release-1.40.1.json) pass canonical validation and `scripts/check_all.sh`: 197 Node tests (193 passing, 4 opt-in browser tests skipped there and run separately: 66 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks; the legacy suite matches its recorded baseline. The release fixes 1.40.0's invalid YAML frontmatter in the Motion Graphics Workflow (an unquoted colon in its description): all 37 SKILL.md frontmatters and 37 agent metadata files parse with a YAML parser, and the validator rejects an unsafe description (`SKILL_YAML`). Host behavior is not verified. [Scope](verification/scope-1.40.1.json) records 9 changed shared files out of 909.
+
+## Previous source: 1.40.0
 
 The [1.40.0 source checks](verification/release-1.40.0.json) pass canonical validation and `scripts/check_all.sh`: 196 Node tests (192 passing, 4 opt-in browser tests skipped there and run separately: 66 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 8 GEPA pilot and 23 asset checks; the legacy suite matches its recorded baseline. The release makes motion graphics a full route: a video request that could be generated footage or coded motion gets one short choice, the audio owner and the orchestrator name the motion sound engine, a rendered motion video is reviewed by the motion critique through a new `motion` review modality and four handoffs, and six planned motion and sound behavior cases are validated for structure (none executed). The welcome and menus are byte-identical. Host behavior of 1.40.0 is not verified. [Scope](verification/scope-1.40.0.json) records 28 changed and 1 added shared file out of 909.
 

@@ -1,6 +1,6 @@
 ---
 name: hyperframes-workflow
-description: Make motion graphics and animated videos from code: kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation. Renders a finished MP4 with designed sound where code runs; covers storyboard, timing, motion craft, runtime choice (HTML/SVG/Canvas/GSAP, HyperFrames; React/TypeScript goes to Remotion) and QA. Not for prompts to video generators.
+description: "Make motion graphics and animated videos from code: kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation. Renders a finished MP4 with designed sound where code runs; covers storyboard, timing, motion craft, runtime choice (HTML/SVG/Canvas/GSAP, HyperFrames; React/TypeScript goes to Remotion) and QA. Not for prompts to video generators."
 ---
 
 # Motion Graphics Workflow

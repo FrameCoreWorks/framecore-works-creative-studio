@@ -1,0 +1,27 @@
+{
+  "version": "1.40.1",
+  "baseline": "00aa7553de7e4b8de549c15297ff54d7314174d4",
+  "change_id": "CC-20261008-14",
+  "origin": "cloud-code",
+  "files": 909,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 900,
+  "added": [],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Hotfix: hyperframes-workflow/SKILL.md description quoted; workflow-orchestrator/SKILL.md changes only in the PACKAGE IDENTITY block."
+}

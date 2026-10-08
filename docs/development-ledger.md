@@ -817,3 +817,25 @@ Cross-host state:
 - GitHub: pending (release workflow and readback recorded in the next update)
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261008-14
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-14-yaml-hotfix`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `00aa7553de7e4b8de549c15297ff54d7314174d4` (main, package 1.40.0)
+- Result: the release commit carrying this entry (package 1.40.1)
+- Package version: 1.40.0 -> 1.40.1
+- Scope: hotfix found while preparing 1.41.0. 1.40.0 gave the Motion Graphics Workflow a description with an unquoted colon, so its SKILL.md frontmatter was not valid YAML; the canonical validator read it with a regular expression and passed. The description is quoted; all 74 skill YAML documents were parsed with PyYAML; the validator gains `SKILL_YAML` with a test. 1.40.0 is superseded
+- Shared package changed: yes; 9 changed, 0 added, 0 removed ([scope](../verification/scope-1.40.1.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 193 passing of 197 (4 opt-in browser tests; 66 passing in the browser run), installer 13, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.40.1.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: not_run (hosted update on owner instruction only; if 1.40.0 was saved to the hosted plugin, 1.40.1 replaces it)
+- Codex: not_run

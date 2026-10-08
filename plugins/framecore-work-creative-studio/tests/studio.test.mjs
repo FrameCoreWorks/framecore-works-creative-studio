@@ -20,6 +20,21 @@ function edit(root, relative, fn) { const p = path.join(root, relative); fs.writ
 function editJson(root, relative, fn) { edit(root, relative, text => { const data = JSON.parse(text); fn(data); return JSON.stringify(data, null, 2) + '\n'; }); }
 const codes = result => (result.canonical ?? result).errors.map(item => item.code);
 
+test('skill descriptions stay valid YAML: an unquoted colon or a broken quote fails', () => {
+  for (const [value, valid] of [
+    ['Make motion graphics from code: kinetic type and titles.', false],
+    ['"Make motion graphics from code: kinetic type and titles."', true],
+    ["'Brand strategy: it''s quoted.'", true],
+    ['"Broken "inner" quote."', false],
+    ['Plain text with a # comment.', false],
+    ['- starts with a dash', false],
+    ['Plain text without indicators, commas allowed.', true],
+  ]) withFixture(root => {
+    edit(root, 'skills/hyperframes-workflow/SKILL.md', text => text.replace(/^description: .*$/m, 'description: ' + value));
+    assert.equal(codes(validateStudio(root)).includes('SKILL_YAML'), !valid, value);
+  });
+});
+
 test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const motion = read('skills/hyperframes-workflow/SKILL.md');
