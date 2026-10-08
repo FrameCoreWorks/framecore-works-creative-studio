@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "about": "Fixed briefs for comparing motion design quality across hosts and models with the same plugin version. Each prompt is a complete, standalone test input and stays in its original language; run it unchanged in a new chat or session.",
+  "briefs": [
+    {
+      "id": "b1-app-fitness",
+      "kind": "product, device",
+      "format": "9:16",
+      "seconds": 12,
+      "language": "pl",
+      "prompt": "Użyj FrameCore Works Creative Studio. Zrób rolkę motion graphics 9:16, około 12 sekund, dla aplikacji treningowej „Krok Dalej”: telefon pokazuje ekran planu treningu, użytkownik stuka „Start”, ekran przechodzi do licznika czasu, na końcu karta z nazwą aplikacji i hasłem „Trenuj krócej, mądrzej”. Dostarcz plik MP4 z dźwiękiem (efekty i muzyka zaprojektowane narzędziami Studio) oraz kontrakt .motion.json. Nie zadawaj pytań; jeśli czegoś brakuje, przyjmij rozsądne założenie i nazwij je w odpowiedzi."
+    },
+    {
+      "id": "b2-manifesto",
+      "kind": "statement, type-led",
+      "format": "9:16",
+      "seconds": 10,
+      "language": "pl",
+      "prompt": "Użyj FrameCore Works Creative Studio. Zrób typograficzną rolkę 9:16, około 10 sekund, manifest marki odzieżowej „Szew”: trzy krótkie zdania „Mniej rzeczy.”, „Lepsze rzeczy.”, „Na dłużej.”, a na końcu nazwa marki. Styl edytorski, spokojny, z wyczuciem rytmu. Dostarcz plik MP4 z dźwiękiem (efekty i muzyka zaprojektowane narzędziami Studio) oraz kontrakt .motion.json. Nie zadawaj pytań; jeśli czegoś brakuje, przyjmij rozsądne założenie i nazwij je w odpowiedzi."
+    },
+    {
+      "id": "b3-stat",
+      "kind": "data, counter",
+      "format": "1:1",
+      "seconds": 8,
+      "language": "en",
+      "prompt": "Use FrameCore Works Creative Studio. Make a square 1:1 motion graphic of about 8 seconds for a solar co-op: a counter rising to 12 400 with the label \"homes powered this year\", then the line \"Clean energy, shared.\" and an end card \"SunShare\". Deliver an MP4 with sound (effects and music designed with the Studio tools) and the .motion.json contract. Do not ask questions; if something is missing, make a sensible assumption and name it."
+    },
+    {
+      "id": "b4-sale",
+      "kind": "promo, bold",
+      "format": "9:16",
+      "seconds": 8,
+      "language": "pl",
+      "prompt": "Użyj FrameCore Works Creative Studio. Zrób energiczną rolkę 9:16, około 8 sekund, zapowiadającą wyprzedaż w sklepie z butami „Tupot”: hasła „-40% na wszystko”, „Tylko do niedzieli”, karta końcowa z nazwą sklepu i adresem tupot.pl. Dostarcz plik MP4 z dźwiękiem (efekty i muzyka zaprojektowane narzędziami Studio) oraz kontrakt .motion.json. Nie zadawaj pytań; jeśli czegoś brakuje, przyjmij rozsądne założenie i nazwij je w odpowiedzi."
+    },
+    {
+      "id": "b5-logo-sting",
+      "kind": "brand, logo",
+      "format": "16:9",
+      "seconds": 5,
+      "language": "pl",
+      "prompt": "Użyj FrameCore Works Creative Studio. Zrób krótki logo sting 16:9, około 5 sekund, dla studia architektonicznego „Linia”: proste, eleganckie odsłonięcie nazwy z subtelnym ruchem i jednym akcentem kolorystycznym, zakończone nazwą i podpisem „architektura i wnętrza”. Dostarcz plik MP4 z dźwiękiem (efekty i muzyka zaprojektowane narzędziami Studio) oraz kontrakt .motion.json. Nie zadawaj pytań; jeśli czegoś brakuje, przyjmij rozsądne założenie i nazwij je w odpowiedzi."
+    },
+    {
+      "id": "b6-testimonial",
+      "kind": "quote",
+      "format": "9:16",
+      "seconds": 10,
+      "language": "pl",
+      "prompt": "Użyj FrameCore Works Creative Studio. Zrób rolkę 9:16, około 10 sekund, z opinią klientki kawiarni „Ziarno”: cytat „Najlepsza kawa w drodze do pracy. Zawsze z uśmiechem.” podpisany „Ania, stała klientka”, potem karta z nazwą kawiarni. Dostarcz plik MP4 z dźwiękiem (efekty i muzyka zaprojektowane narzędziami Studio) oraz kontrakt .motion.json. Nie zadawaj pytań; jeśli czegoś brakuje, przyjmij rozsądne założenie i nazwij je w odpowiedzi."
+    },
+    {
+      "id": "b7-how-to",
+      "kind": "steps, item stagger",
+      "format": "9:16",
+      "seconds": 12,
+      "language": "pl",
+      "prompt": "Użyj FrameCore Works Creative Studio. Zrób instruktażową rolkę 9:16, około 12 sekund, „Jak założyć konto w 3 krokach” dla banku „Most”: kroki „Pobierz aplikację”, „Zeskanuj dowód”, „Ustaw PIN”, a na końcu karta „Konto gotowe w 5 minut”. Dostarcz plik MP4 z dźwiękiem (efekty i muzyka zaprojektowane narzędziami Studio) oraz kontrakt .motion.json. Nie zadawaj pytań; jeśli czegoś brakuje, przyjmij rozsądne założenie i nazwij je w odpowiedzi."
+    },
+    {
+      "id": "b8-event",
+      "kind": "announcement",
+      "format": "16:9",
+      "seconds": 10,
+      "language": "en",
+      "prompt": "Use FrameCore Works Creative Studio. Make a 16:9 motion graphic of about 10 seconds announcing a design conference: \"Form & Code 2027\", \"Kraków, 14-15 May\", \"Talks, workshops, people\", ending on \"Tickets at formcode.dev\". Deliver an MP4 with sound (effects and music designed with the Studio tools) and the .motion.json contract. Do not ask questions; if something is missing, make a sensible assumption and name it."
+    }
+  ]
+}
