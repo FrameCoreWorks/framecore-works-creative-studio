@@ -36,7 +36,7 @@ then stop or hand off.
 | `research-evidence` | `.codex/agents/research-evidence.toml` | temporary responsibility | `research-evidence`, `pipeline-core`, `instruction-packet-factory`, `reference-pack-curator` |
 | `instruction-packet-factory` | `.codex/agents/instruction-packet-factory.toml` | temporary responsibility | `instruction-packet-factory`, `hipson-adapter` |
 | `static-direction` | `.codex/agents/static-direction.toml` | temporary responsibility | `static-graphic-design-creator`, `commercial-visual-campaign-director`, `ecommerce-campaign-strategy-director`, `marketing`, `character-design` |
-| `motion-direction` | `.codex/agents/motion-direction.toml` | temporary responsibility | `commercial-video-campaign-director`, `creative-video-producer`, `cinematography`, `storytelling` |
+| `motion-direction` | `.codex/agents/motion-direction.toml` | temporary responsibility | `commercial-video-campaign-director`, `creative-video-producer`, `cinematography`, `storytelling`, `hyperframes-workflow` |
 | `music-video-direction` | `.codex/agents/music-video-direction.toml` | temporary responsibility | `creative-music-video-director`, `audio-production-director`, `cinematography`, `storytelling` |
 | `audio-production` | — | temporary responsibility | `audio-production-director` |
 | `storyboard-architect` | `.codex/agents/storyboard-architect.toml` | temporary responsibility | `storyboard-sequence-architect`, `screenplay-story-architect`, `storytelling`, `cinematography` |
@@ -71,9 +71,10 @@ need supporting skills beyond their same-named contract:
   `opencut-video-studio`, but only after the relevant execution boundary is
   explicit.
 - `hyperframes-producer` is supported by the single integrated
-  `hyperframes-workflow` skill, which covers workflow structure,
-  implementation prompting, GSAP-style motion guidance, captions, overlays,
-  render QA, and delivery manifest details.
+  `hyperframes-workflow` skill, which covers workflow structure, the motion
+  contract, runtime choice, captions, overlays, the bundled Python renderer
+  that delivers a finished MP4 where code runs, its craft critique, designed
+  sound, render QA, and delivery manifest details.
 
 ## Handoff Resolution Rules
 
@@ -111,4 +112,4 @@ changes, keep these files synchronized:
 
 ## Media-specific review
 
-Resolve qa-iteration by the actual artifact: stills to Output Critic, video motion to Video Prompt Architect, sound to Audio Production Director and caption timing to Caption Studio. Pipeline Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.
+Resolve qa-iteration by the actual artifact: stills to Output Critic, a rendered motion video with its contract to the Motion Graphics Workflow (craft critique and frame review), other video motion to Video Prompt Architect, sound to Audio Production Director and caption timing to Caption Studio. Pipeline Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.

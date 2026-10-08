@@ -345,6 +345,26 @@ test('diverging video export copy fails the toolkit check', () => withCopy(tmp =
   fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace("keyFrame: frame % keyEvery === 0", "keyFrame: true"));
   assert.ok(validateMotionToolkit(tmp).some(error => error.detail.includes('video export differs')));
 }));
+test('planned motion and sound cases stay planned, complete and owned by real skills', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-motion-cases-'));
+  try {
+    for (const relative of ['skills', 'evals', 'integrations/kaventro-motion-designer']) fs.cpSync(path.join(root, relative), path.join(tmp, relative), {recursive: true});
+    const file = path.join(tmp, 'evals/motion-sound-cases.json');
+    const suite = JSON.parse(fs.readFileSync(file, 'utf8'));
+    assert.deepEqual(validateMotionToolkit(tmp), []);
+    for (const [mutate, message] of [
+      [s => { s.cases[3].execution_status = 'pass'; }, /stay not_run/],
+      [s => { s.cases[0].expected_owners = ['video-generator']; }, /unknown owner video-generator/],
+      [s => { s.cases.pop(); }, /six planned families/],
+      [s => { s.cases[2].forbidden = []; }, /forbidden outcomes/],
+    ]) {
+      const copy = JSON.parse(JSON.stringify(suite));
+      mutate(copy);
+      fs.writeFileSync(file, JSON.stringify(copy));
+      assert.match(validateMotionToolkit(tmp).map(error => error.detail).join('\n'), message);
+    }
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
 // Opt-in: exports a real file through a headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('browser export writes a playable file for a chosen format', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
   const {exportFile} = await import(path.join(root, exportDir, 'export-video.mjs'));

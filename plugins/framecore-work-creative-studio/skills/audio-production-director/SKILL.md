@@ -9,6 +9,10 @@ Before final delivery of a substantive authored, revised or generated creative a
 
 Own the sound and music decisions within FrameCore Works Creative Studio. This owner plans and reviews audio; it is not a music-generation connector, a licensed-track marketplace, an automatic audio analyser, or a publishing service. Do not claim a listen, beat map, mix, license or generation unless the exact evidence or execution exists.
 
+## Sound Studio makes itself
+
+For a motion video built from a contract in the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md), Studio designs and mixes the sound with code where code execution with numpy and ffmpeg exists: effects designed for the video's own events, a composed music bed, a master at -14 LUFS muxed into the MP4 and a timing check ([motion sound design](../hyperframes-workflow/references/motion-sound-design.md)). Route that work there instead of writing a prompt for an external tool. This owner keeps songs, lyrics, voice, external providers, licensed tracks and the review of supplied audio; a supplied video without a motion contract gets a picture-first plan here.
+
 Read the existing [production task packet](references/production-task-packet.md) for detailed deliverable shapes and the [audio evidence and AV handoff](references/audio-evidence-and-av-handoff.md) for evidence, sync, cue, transcript and repair boundaries. For film/reel timing, read [audio-to-picture and tempo workbook](references/audio-to-picture-and-tempo-workbook.md). For a named generator, use [music provider routing and rights](references/music-provider-routing-and-rights.md). For an existing or proposed commercial track, use [track-rights research card](assets/track-rights-research-card.md).
 
 ## Choose the requested direction

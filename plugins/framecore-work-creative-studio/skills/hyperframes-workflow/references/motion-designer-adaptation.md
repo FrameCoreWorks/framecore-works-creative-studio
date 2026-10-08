@@ -23,7 +23,7 @@ The inspected repository contains eight skills, schemas and adapter guidance. It
 | Reference scout | Research Evidence + Reference Pack Curator |
 | Storyboard | Storyboard Sequence Architect |
 | Engine routing and build | Existing Motion Graphics Workflow / Remotion Video Production; Tool Routing Cost for actual capabilities |
-| Audio design | Audio Production Director |
+| Audio design | Motion sound design in this skill for the video's effects and composed bed; Audio Production Director for songs, voice and external tools |
 | Review and delivery | Runtime/domain QA within the shared loop; Delivery Documentation |
 
 ## Deliberate boundaries

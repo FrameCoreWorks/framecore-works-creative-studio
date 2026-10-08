@@ -93,5 +93,20 @@ export function validateMotionToolkit(root) {
     const embedded = html.match(/<script type="application\/json" id="motion-score">([\s\S]*?)<\/script>/)?.[1];
     if (!embedded || !isDeepStrictEqual(JSON.parse(embedded), JSON.parse(read(`${kinetic}/motion-score.json`)))) fail('Single-file preview score differs from the starter contract');
   } catch (error) { fail(`Single-file preview: ${error.message}`); }
+  // Planned behavior cases for the motion and sound route: structure only, never a host result.
+  try {
+    const suite = JSON.parse(read('evals/motion-sound-cases.json'));
+    const families = ['video_route_choice', 'render_with_code_execution', 'improvement_round_budget', 'sound_for_motion_video', 'contract_revision_timing', 'sound_for_external_reel'];
+    const cases = suite.cases ?? [];
+    if (!/No host run/.test(suite.scope ?? '') || !suite.execution_rule) fail('Motion and sound cases need a scope without host claims and an execution rule');
+    if (!isDeepStrictEqual(cases.map(item => item.family), families)) fail('Motion and sound cases must cover the six planned families in order');
+    cases.forEach((item, index) => {
+      if (item.id !== `MS${String(index + 1).padStart(2, '0')}`) fail(`Motion case ${index + 1}: id must be MS${String(index + 1).padStart(2, '0')}`);
+      if (item.status !== 'planned' || item.execution_status !== 'not_run') fail(`${item.id}: planned cases stay not_run until an attributed host run is recorded`);
+      if (!item.user_request?.trim() || !item.expected_branch?.trim()) fail(`${item.id}: request and expected branch are required`);
+      for (const owner of item.expected_owners ?? []) if (!fs.existsSync(path.join(root, 'skills', owner, 'SKILL.md'))) fail(`${item.id}: unknown owner ${owner}`);
+      if (!(item.expected_owners?.length && item.checks?.length && item.forbidden?.length && item.required_evidence?.length)) fail(`${item.id}: owners, checks, forbidden outcomes and required evidence are required`);
+    });
+  } catch (error) { fail(`Motion and sound cases: ${error.message}`); }
   return errors;
 }

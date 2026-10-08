@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "scope": "Six planned scenarios for the motion graphics and sound route: the choice between a generator prompt and a finished MP4 from code, rendering where code runs, the improvement round, sound for a rendered motion video, a contract revision and a supplied external reel. No host run, rendered video or listening result is asserted.",
+  "execution_rule": "Run each case in a fresh attributed session on the stated tools; save the transcript, every delivered file with its hash, the critique and timing summaries actually produced, and the reviewer's decision separately. Source checks do not execute these cases.",
+  "cases": [
+    {
+      "id": "MS01",
+      "family": "video_route_choice",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Zrób 15-sekundowy film promocyjny mojej aplikacji do nauki słówek. Mam trzy zrzuty ekranu.",
+      "context": {"tools": {"code_execution": "available", "image_generation": "not_requested", "video_generation": "not_connected"}, "assets": ["three app screenshots"]},
+      "expected_owners": ["workflow-orchestrator", "hyperframes-workflow"],
+      "expected_branch": "one short choice between a prompt for a video generator and a finished MP4 built from code with the screenshots",
+      "checks": [
+        "Both routes are named in one short choice; the code route says it delivers a finished MP4 here",
+        "The device scene with the user's screenshots is proposed for the code route",
+        "No generator is called and no video is claimed before the choice"
+      ],
+      "forbidden": ["Routing silently to generator prompts only", "A long intake form before the choice"],
+      "required_evidence": ["Package version, host, client and reasoning setting", "Actual input and full response transcript", "Independent reviewer decision; no PASS from fixture existence"]
+    },
+    {
+      "id": "MS02",
+      "family": "render_with_code_execution",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Animowany napis „Jesień w mieście” na 6 sekund, pionowo 9:16, spokojnie. Daj gotowe MP4.",
+      "context": {"tools": {"code_execution": "available", "shell": "not_available"}},
+      "expected_owners": ["hyperframes-workflow"],
+      "expected_branch": "contract, Python renderer copied byte for byte, critique with an improvement round, MP4 delivered",
+      "checks": [
+        "The contract is shown as a storyboard table, not raw JSON",
+        "The MP4 has the contract's size, frame rate and frame count; the render script and contract are delivered with it",
+        "The critique runs before delivery; the score before and after is stated",
+        "The video is silent and sound is offered once after delivery"
+      ],
+      "forbidden": ["A self-written exporter or MediaRecorder page instead of the renderer", "Claiming the animation was watched"],
+      "required_evidence": ["Package version, host, client and reasoning setting", "Full transcript and the delivered files with hashes", "Critique summaries actually produced", "Independent reviewer decision"]
+    },
+    {
+      "id": "MS03",
+      "family": "improvement_round_budget",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "W tej animacji tekst końcowy jest za krótko na ekranie i ucieka za krawędź. Popraw.",
+      "context": {"tools": {"code_execution": "available"}, "assets": ["delivered contract and render script from the previous turn"]},
+      "expected_owners": ["hyperframes-workflow"],
+      "expected_branch": "revision from the existing contract, re-render, critique; at most two repair rounds",
+      "checks": [
+        "Only the requested scene changes; earlier frames stay identical",
+        "The revision is numbered and the request is quoted as evidence",
+        "An error still present after the second repair is named, not hidden"
+      ],
+      "forbidden": ["Rebuilding the whole video from scratch", "An endless repair loop"],
+      "required_evidence": ["Full transcript", "Both revisions of the contract and the critique summaries", "Independent reviewer decision"]
+    },
+    {
+      "id": "MS04",
+      "family": "sound_for_motion_video",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Dodaj muzykę i dźwięki do tej animacji, którą właśnie zrobiłeś.",
+      "context": {"tools": {"code_execution": "available", "numpy": "available", "ffmpeg": "available"}, "assets": ["rendered MP4 and its contract"]},
+      "expected_owners": ["hyperframes-workflow"],
+      "expected_branch": "motion-sound: analyse, plan, mix; timing status checked; MP4 with AAC delivered",
+      "checks": [
+        "Studio designs the sound itself with sound.py instead of writing a prompt for an external tool",
+        "The cue table and the reasons for the design are stated in two or three lines",
+        "The mix's timing status is reported as checked with the number of cues judged",
+        "The user is asked to listen once with the picture"
+      ],
+      "forbidden": ["Saying Studio has no sound engine", "Toy tones or untreated oscillator beeps", "Calling a partly judged timing on time"],
+      "required_evidence": ["Full transcript", "The delivered MP4 and the mix summary", "Owner or reviewer listening decision"]
+    },
+    {
+      "id": "MS05",
+      "family": "contract_revision_timing",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Wydłuż ostatnią scenę o sekundę, resztę zostaw.",
+      "context": {"tools": {"code_execution": "available"}, "assets": ["delivered contract with planned sound"]},
+      "expected_owners": ["hyperframes-workflow"],
+      "expected_branch": "revise.mjs extend rule: later cues move, sound design marked stale and planned again with the user's choices kept",
+      "checks": [
+        "Only the last scene and everything after it move; earlier frames are unchanged",
+        "The sound is planned again before mixing; a stale design is not mixed"
+      ],
+      "forbidden": ["Changing copy, colours or other scenes", "Mixing the stale sound design"],
+      "required_evidence": ["Full transcript", "Contracts before and after", "Independent reviewer decision"]
+    },
+    {
+      "id": "MS06",
+      "family": "sound_for_external_reel",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Mam gotową 20-sekundową rolkę nagraną telefonem. Zaplanuj do niej muzykę i efekty.",
+      "context": {"tools": {"code_execution": "available"}, "assets": ["supplied phone video without a motion contract"]},
+      "expected_owners": ["audio-production-director"],
+      "expected_branch": "picture-first audio plan from the actual cuts; no claim that the code sound engine renders a track without a motion contract",
+      "checks": [
+        "Cuts and actions are measured or asked for; tempo is not invented",
+        "The plan says which tools could render the track and what is planned versus measured"
+      ],
+      "forbidden": ["Claiming a rendered or mixed track", "Inventing the edit's tempo from its duration"],
+      "required_evidence": ["Full transcript", "Independent reviewer decision"]
+    }
+  ]
+}

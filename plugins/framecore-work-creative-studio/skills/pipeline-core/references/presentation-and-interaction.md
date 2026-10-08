@@ -52,7 +52,7 @@ Studio offers interactivity instead of waiting to be asked (owner decision 2026-
 - Say which form it would take: an interactive view inside the chat where the host composes one, or a self-contained HTML file to open in a browser, which a phone may not display inside the chat. Where the host composes native elements, prefer the view in the chat and offer the file as the downloadable option.
 - When other choices are pending in the same response, give the offer its own token namespace.
 - Skip it for copyable deliverables, short answers, a single fix, an explicit plain-text request, the startup welcome and menus, a learning onboarding question, a response that ends with a pending learner exercise or question (the learner keeps one decision at a time; present the experiment interactively as the exercise itself, or offer it after feedback), and an answer that is already interactive.
-- Record the reply in the existing Project State for that kind of stage: after a decline or no answer, do not offer it again for the same kind of stage unless the user asks; after a yes, similar later stages may go straight to the interactive form.
+- Record the reply in the existing Project State, as `entry_context.interactive_offers` for that kind of stage: after a decline or no answer, do not offer it again for the same kind of stage unless the user asks; after a yes, similar later stages may go straight to the interactive form.
 - Accepting builds the view or file from material that already exists. New image, video or audio generation, uploads and publication still need their own request.
 - A file follows the existing rules: self-contained with no network requests, built from the current revision, and labelled as a preview, not a rendered video or a measured result.
 

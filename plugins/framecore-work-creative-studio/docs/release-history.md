@@ -1,5 +1,17 @@
 # Historical development notes
 
+## 1.40.0, 2026-10-08
+
+Motion graphics becomes a full route, from the full review (the repository's docs/reviews/full-review-2026-10-08.md) and the owner's decisions of 2026-10-08 (the welcome and menus are unchanged):
+
+- A video request that names neither a generator nor coded motion now gets one short choice: prompts for a video generator the user runs elsewhere, or a finished MP4 built from code here, with designed sound on request. The main route table has a row for animated video built from text, logos, screenshots, data or product photos; the product-film route and the commercial video director hand such films to the Motion Graphics Workflow.
+- The audio owner and the orchestrator no longer say Studio has no media engine: sound for a motion video built from a contract is designed, mixed and checked by the motion sound engine; songs, lyrics, voice, external tools, licensed tracks and supplied-audio review stay with the Audio Production Director.
+- A rendered motion video with its contract is reviewed by the motion workflow's craft critique. The role and route contracts gain a `motion` review modality and four handoffs (orchestrator to motion, motion to QA, and both ways between motion and audio), and the roster describes the motion role as building and rendering, not only planning.
+- The motion skill's delivery rules, one 2,138-character paragraph before, are now a short list, and its owners table names this skill for the video's own sound.
+- Pipeline Core routes motion graphics from code to the Motion Graphics Workflow whatever the runtime and drops leftover kit installation text; its QA checklist no longer asks for a confirmation ritual.
+- Six planned behavior cases cover the motion and sound route (`evals/motion-sound-cases.json`), validated for structure; none is executed.
+- Smaller: the reply to an interactive-version offer has a named place in the Project State (`entry_context.interactive_offers`); the workstyle profile shows the pace menu in the user's language; development-status sentences are gone; the README files describe the motion MP4, its sound and interactive answers.
+
 ## 1.39.0, 2026-10-08
 
 Checks and tools first, from the full review (the repository's docs/reviews/full-review-2026-10-08.md):

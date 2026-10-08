@@ -795,3 +795,25 @@ Cross-host state:
 - GitHub: synchronized; `main` fast-forwarded to `f491647`; [v1.39.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.39.0) published by workflow 37814666113 with the media tests running in CI; checks workflow 37814666417 success, legacy baseline job success; plugin ZIP, inventory and player hashes match ([record](../verification/github-publication-1.39.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261008-12
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-12-motion-route`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `3a9ff867d3cdb24755493dce4f88c42e4ced9bf5` (main, package 1.39.0)
+- Result: the release commit carrying this entry (package 1.40.0)
+- Package version: 1.39.0 -> 1.40.0
+- Scope: motion graphics as a full route from the [full review](reviews/full-review-2026-10-08.md), with the owner's decisions of 2026-10-08 (recommended options; welcome and menus unchanged): the generated-or-coded video choice, a main route-table row, the product-film route and commercial video scope, the audio owner and orchestrator naming the motion sound engine, the `motion` review modality and four handoffs in the role contracts, the motion delivery list and owners table, Pipeline Core routing and kit leftovers, the interactive-offer state field, the workstyle pace menu language, six planned motion and sound cases, README capability text. Kept as is: the area 8 wording in the startup menus reference (pinned startup text)
+- Shared package changed: yes; 28 changed, 1 added, 0 removed ([scope](../verification/scope-1.40.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 192 passing of 196 (4 opt-in browser tests; 66 passing in the browser run), installer 13, identity 4, benchmark script 5, GEPA pilot 8, asset 23: PASS ([record](../verification/release-1.40.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

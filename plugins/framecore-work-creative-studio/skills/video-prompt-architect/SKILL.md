@@ -20,7 +20,8 @@ approved artifacts can be consumed here without silently revising upstream
 decisions. Direction modules are initial synthesis, not evidence of
 target-host behavior or creative quality. Audio Production Director supplies
 music/audio text packets and conditional evidence-bounded audio triage; it has
-no bundled generation connector. The full Visual Prompter remains in development.
+no bundled generation connector. A motion video Studio builds from code, with its designed sound, belongs to the
+[Motion Graphics Workflow](../hyperframes-workflow/SKILL.md), not to a generator prompt.
 
 ## Start from the request
 

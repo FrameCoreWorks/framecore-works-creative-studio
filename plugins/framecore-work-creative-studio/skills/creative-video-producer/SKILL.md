@@ -76,7 +76,7 @@ Use [templates/creative-video-production-pack.md](templates/creative-video-produ
 - Use `caption-studio` for detailed caption timing, styling, safe zones, and caption QA.
 - Use `opencut-video-studio` for footage-first or timeline-first local edit planning.
 - Use `remotion-video-production` for deterministic React/TypeScript compositions, reusable props, data-driven variants, and frame-accurate renders.
-- Use HyperFrames skills when the requested runtime is specifically HyperFrames or the route is centered on HTML/GSAP composition.
+- Use the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) for motion graphics from code; it chooses the runtime (HyperFrames only when selected) and renders a finished MP4 with designed sound where code runs.
 - For motion graphics from code, coordinate the [shared motion contract and stages](../hyperframes-workflow/references/code-based-motion-graphics.md). Preserve existing runtime/approval decisions; connect direction and sequence only when unresolved. Require separate preview, temporal/audio review and encoded-export evidence without adding another state store or QA loop.
 - Critical product, packaging, logo, face, character, claim, CTA, or visible-text shots require sequential QA before the route advances.
 - A continuation shot may use rewrite-forward only from an accepted actual output, never from a planned end frame.

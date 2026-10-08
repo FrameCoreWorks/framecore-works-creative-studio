@@ -1,10 +1,9 @@
-# Creative Studio 1.39.0
+# Creative Studio 1.40.0
 
-More honest checks and safer files.
+Motion graphics with sound, offered where it fits.
 
-- **Sound timing is really measured.** Every sound in a mixed video is checked on its own, so "on time" now means each hit was measured, never assumed.
-- **Previews survive unusual text.** Copy that looks like code no longer breaks the HTML preview of a motion video.
-- **One rule for reading time.** Studio's checks now agree on how long a line must stay on screen to be read.
-- **No endless repair loops.** Studio improves a video at most twice after the first review, then tells you plainly what remains.
+- **Ask for a video, get a real choice.** When your video could be built from text, logos, screenshots or product photos, Studio offers to make a finished MP4 right here, or to write prompts for a video generator you use elsewhere.
+- **Sound from the same place.** Studio designs and mixes music and effects for the motion video it made, instead of sending you to another tool.
+- **Checked before you see it.** A rendered motion video goes through Studio's motion critique before delivery.
 
-Startup, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup, the welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

@@ -40,6 +40,10 @@
 | tool-routing-cost | execution-manifest | selected_tool, approval_status, required_inputs, creative_prompt_contract, adapter_verification, output_plan, risks |
 | execution-manifest | asset-manifest | output_files, params_summary, source_notes, adapter_verification, execution_evidence, redaction_status |
 | hyperframes-producer | asset-manifest | source_files, render_outputs, dependencies, traceability |
+| workflow-orchestrator | hyperframes-producer | goal, exact_copy, assets, formats, runtime_state, acceptance_criteria |
+| hyperframes-producer | qa-iteration | motion_contract, render_outputs, critique_report, frame_review, acceptance_criteria |
+| hyperframes-producer | audio-production | motion_contract, voice_or_song_needs, licensed_track_questions, timing_basis |
+| audio-production | hyperframes-producer | supplied_track_or_voice, beat_grid_or_captions, rights_and_source_notes |
 | asset-manifest | qa-iteration | file_list, source_traceability, continuity_carriers, accepted_output_refs, acceptance_criteria |
 | qa-iteration | workflow-orchestrator | QA status, severity, root_cause, prompt_contract_checks, continuity_checks, adapter_checks, loopback_target, regression_check, stop_recommendation |
 | qa-iteration | delivery-documentation | accepted_assets, excluded_assets, QA status, verification_results, prompt_contract_checks, continuity_checks, adapter_checks, stop_condition, caveats |

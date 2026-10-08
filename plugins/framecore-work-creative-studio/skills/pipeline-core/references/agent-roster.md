@@ -21,4 +21,4 @@
 | `asset-manifest` | Organizes files, versions, and traceability | Asset Manifest |
 | `qa-iteration` | Reviews outputs and routes fixes | QA / Iteration Report |
 | `delivery-documentation` | Packages final delivery notes and manifests | Delivery Manifest |
-| `hyperframes-producer` | Plans coded-video composition workflow | HyperFrames Production Brief |
+| `hyperframes-producer` | Plans, builds and reviews motion graphics from code; renders the MP4 and its designed sound where code runs | Motion contract, rendered MP4 and QA record (internal type: HyperFrames Production Brief) |

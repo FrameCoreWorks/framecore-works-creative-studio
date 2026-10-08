@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.39.0.
+Version: 1.40.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -35,6 +35,8 @@ For social-ad work, choose a persuasive structure from supported proof, record o
 See [the ad analysis method](skills/ecommerce-campaign-strategy-director/references/ad-creative-analysis.md) and [the attributed adaptation](integrations/meta-ads-designer/README.md).
 
 ## Code-based motion graphics
+
+Studio builds motion graphics from code and, where the host can run code, delivers a finished MP4: kinetic type, animated titles and logos, explainers, app or product films from the user's screenshots or photos. One contract drives the storyboard, the [Python renderer](skills/hyperframes-workflow/assets/motion-render/README.md), the [craft critique](skills/hyperframes-workflow/assets/motion-review/README.md) with an improvement round, and [sound designed and mixed for the video](skills/hyperframes-workflow/assets/motion-sound/README.md) on request. Without code execution, the contract opens in the [motion player](https://framecoreworks.github.io/framecore-works-creative-studio/), which exports the video in the browser. A video request that could be generated footage or coded motion gets one short choice between the two.
 
 The optional [motion toolkit](skills/hyperframes-workflow/references/motion-toolkit-routing.md) adds Three.js/R3F through Remotion, PixiJS effects, D3 data geometry, Mediabunny Canvas export, Lottie JSON playback and an existing-local-Manim clip bridge. Original examples include exact dependency pins and lockfiles, frame-seeking checks and explicit host/export boundaries. Install dependencies only inside an authorized project copy.
 

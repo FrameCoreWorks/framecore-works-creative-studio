@@ -39,7 +39,8 @@
       "commercial-video-campaign-director",
       "creative-video-producer",
       "cinematography",
-      "storytelling"
+      "storytelling",
+      "hyperframes-workflow"
     ],
     "music-video-direction": [
       "creative-music-video-director",
@@ -299,6 +300,26 @@
       "required_fields": "source_files, render_outputs, dependencies, traceability"
     },
     {
+      "from": "workflow-orchestrator",
+      "to": "hyperframes-producer",
+      "required_fields": "goal, exact_copy, assets, formats, runtime_state, acceptance_criteria"
+    },
+    {
+      "from": "hyperframes-producer",
+      "to": "qa-iteration",
+      "required_fields": "motion_contract, render_outputs, critique_report, frame_review, acceptance_criteria"
+    },
+    {
+      "from": "hyperframes-producer",
+      "to": "audio-production",
+      "required_fields": "motion_contract, voice_or_song_needs, licensed_track_questions, timing_basis"
+    },
+    {
+      "from": "audio-production",
+      "to": "hyperframes-producer",
+      "required_fields": "supplied_track_or_voice, beat_grid_or_captions, rights_and_source_notes"
+    },
+    {
       "from": "asset-manifest",
       "to": "qa-iteration",
       "required_fields": "file_list, source_traceability, continuity_carriers, accepted_output_refs, acceptance_criteria"
@@ -499,7 +520,8 @@
     "still": "output-critic-iteration",
     "video": "video-prompt-architect",
     "audio": "audio-production-director",
-    "captions": "caption-studio"
+    "captions": "caption-studio",
+    "motion": "hyperframes-workflow"
   },
   "research_policy": {
     "scope": "every_new_substantive_creative_request",

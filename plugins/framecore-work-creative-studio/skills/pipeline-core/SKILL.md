@@ -10,7 +10,7 @@ Before final delivery of a substantive authored, revised or generated creative a
 Read [Studio integration authority](references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
-Use this skill when a task needs the workflow system from this kit in Codex or as a native ChatGPT skill.
+Use this skill when a task needs Studio's shared workflow contracts in ChatGPT or Codex.
 
 It is the contract layer for roles, gates, handoffs, artifacts, request diagnostics, reasoning routes, Loop Protocol, text-bearing image policy, Humanizer routing, HyperFrames routing, Hipson Adapter routing, and workflow governance.
 
@@ -31,8 +31,8 @@ Do not use this skill to bypass specialist owners or treat routing as authorizat
 
 ## Surface Model
 
-- Native personal Codex Skills use `$CODEX_HOME/skills` via `$skill-installer`. They do not require project config, rendered agents or `.framecore/manifest.json`. Keep a visible Workflow Profile; persist project state only with approval. Role IDs are bounded responsibilities unless the host actually exposes a matching registered agent.
-- In a project-local Codex install, role IDs may resolve to rendered `.codex/agents/*.toml`, and Project State may be stored in approved workspace files.
+- In Codex, Studio runs as a plugin or as one native entry backed by the intact bundle; neither registers project agents or needs project config. Keep a visible Workflow Profile; persist project state only with approval. Role IDs are bounded responsibilities unless the host actually exposes a matching registered agent.
+- Where a workspace allows it, Project State may be stored in approved workspace files; role IDs map to registered agents only when the host actually has them.
 - On every host, role IDs are bounded responsibilities. Inspect actually exposed file, shell, agent and persistence capabilities. In a chat-only surface keep state in conversation or a handoff. Claim saved files, executed commands or agents only from actual results.
 - On either surface, use only capabilities that are actually available. A workflow route never grants provider, upload, API, file-system, or publishing permission.
 
@@ -126,7 +126,7 @@ Read only what is needed:
   execution, inspected QA and asset/delivery owners only for missing requested
   work. A separately requested copy deliverable or non-static artifact in a mixed
   campaign may use its specialist; pass accepted context and exact-copy locks.
-- Route coded-video planning through HyperFrames skills when the requested runtime is specifically HyperFrames or HTML/GSAP composition.
+- Route motion graphics from code (kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation) to `hyperframes-workflow`, which chooses the runtime, renders a finished MP4 where code runs and designs its sound; React/TypeScript compositions go to `remotion-video-production`.
 - Route Hipson-style packets through `hipson-adapter` unless the user chooses full Hipson separately.
 - Route unresolved product, offer, audience, channel, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`.
 - Route screenplay, treatment, scene, dialogue, pitch, coverage, or narrative-rewrite work through `screenplay-story-architect` before storyboard production.
@@ -190,7 +190,7 @@ Hand off with:
 
 ## QA Checklist
 
-- First move confirms intent before specialist work.
+- A clear request starts the work; one question is asked only when a material choice is open, without ritual approval.
 - Selected roles match the task and available inputs.
 - Required gates and handoffs are named.
 - Reasoning routes are compact, bounded, and do not store raw reasoning traces.
