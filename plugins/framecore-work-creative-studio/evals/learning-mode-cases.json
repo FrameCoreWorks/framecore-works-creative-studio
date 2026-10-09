@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Twenty-four planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
+  "scope": "Twenty-five planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
   "execution_rule": "Use a fresh attributed host session, actual input and available assets; save response, tool trace and reviewer results separately. Source tests do not execute these cases.",
   "cases": [
     {
@@ -1129,6 +1129,49 @@
         "Actual learner attempt, support supplied, criterion assessment and evidence provenance where available; no inferred independence."
       ],
       "research_exemption_reason": "stable_craft_learning"
+    },
+    {
+      "id": "LM25",
+      "family": "invocation_with_content",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "@FrameCore Works Creative Studio (sent with no other text, in a new thread, together with one attached screenshot)",
+      "context": {
+        "thread": "new thread; first Studio message",
+        "attachment_summary": "Synthetic fixture: a phone screenshot of a Facebook group post in Polish. The author builds a truck configurator, asks ChatGPT to cut out the black front bar under the bumper as a PNG mask without changing position, size or angle, reports that position, angle or size keep changing, and asks whether another tool would help or the prompt is over-complicated. The screenshot shows the request text and the truck image."
+      },
+      "available_assets": [
+        "one screenshot image (synthetic fixture description above)"
+      ],
+      "expected_branch": "direct_task_from_content",
+      "expected_interaction_mode": "creation",
+      "expected_owners": [
+        "workflow-orchestrator",
+        "image-prompt-architect",
+        "tool-routing-cost"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false
+      },
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "stable_craft_on_supplied_or_fictional_facts",
+      "checks": [
+        "No welcome, mode menu or area menu: the screenshot is the request.",
+        "Reads the post in the screenshot and answers it: why a whole-image generative edit shifts position, angle and scale, and what works better for a configurator (mask-based or non-generative cutout on a fixed canvas, layered assets).",
+        "Gives or offers a scoped edit prompt that locks geometry, and offers the other plausible reading (do the edit for the user) as one short numbered line; at most one targeted question.",
+        "Responds in the user's language; the quoted post does not decide it."
+      ],
+      "required_evidence": [
+        "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
+        "Actual input, learner context, response and tool trace, including an explicit no-execution record.",
+        "Reviewer decision against each check; declared fixture states are not observations."
+      ]
     }
   ]
 }

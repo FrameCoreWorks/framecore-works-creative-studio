@@ -1,0 +1,29 @@
+{
+  "version": "1.47.0",
+  "baseline": "da78110ec7808dfb5169c4d0dd5bbf6536223cc8",
+  "change_id": "CC-20261009-09",
+  "origin": "cloud-code",
+  "files": 936,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "evals/learning-mode-cases.json",
+    "plugin.json",
+    "scripts/validate-learning-mode.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "tests/learning-mode.test.mjs",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 925,
+  "added": [],
+  "removed": [],
+  "welcome": "byte_identical (assets/startup-welcome.en.md and .pl.md unchanged; embedded excerpts unchanged)",
+  "menus": "menu text unchanged; startup-and-creative-menus.md gained the Invocation with content section",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Invocation with content is a task (owner report 2026-10-09): Workflow Orchestrator entry rule, description and reference section with a worked example, learning-mode validator pins, Studio test and planned evaluation case LM25; welcome text and menus unchanged"
+}

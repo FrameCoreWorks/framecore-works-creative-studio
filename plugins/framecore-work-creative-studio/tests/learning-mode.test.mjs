@@ -44,7 +44,7 @@ test('learning is integrated with the same 37 skills and unexecuted evidence sco
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical.errors));
   assert.equal(result.canonical.owners, 37);
-  assert.equal(result.canonical.evaluations.learning_scenarios, 24);
+  assert.equal(result.canonical.evaluations.learning_scenarios, 25);
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
@@ -319,7 +319,7 @@ test('practice evidence survives every existing state and handoff projection', (
 
 test('new teaching scenarios preserve no-execution and unexecuted-outcome contracts', () => {
   const suite = JSON.parse(read(casesPath));
-  const added = suite.cases.filter(c => Number(c.id.slice(2)) >= 17);
+  const added = suite.cases.filter(c => Number(c.id.slice(2)) >= 17 && Number(c.id.slice(2)) <= 24);
   assert.equal(added.length, 8);
   for (const family of ['diagnostic_practice', 'graduated_assistance', 'independence_evidence', 'transfer_practice', 'retrieval_resume', 'causal_diagnosis', 'evolving_project', 'requested_explanation']) assert.ok(added.some(c => c.family === family), family);
   assert.ok(added.every(c => c.execution_status === 'not_run' && c.tool_state.external_provider_authorized === false));

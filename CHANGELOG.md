@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.47.0, 2026-10-09
+
+From the owner's report of 2026-10-09: a new thread with a screenshot and the Studio link got the welcome instead of help.
+
+- **Content is a task, not a startup.** When Studio is invoked together with a screenshot, image, file or pasted text, or right after an unanswered user message in the thread, it reads that content first (including the text inside a screenshot), infers what the user wants (answer the question shown, solve the problem shown, edit or review an image, write a prompt, plan a video, learn a skill), routes to the owning skill and helps at once. With two plausible readings it helps with the likelier one and offers the others in one numbered line; it asks one targeted question only when no useful step is possible. The complete welcome stays for a bare invocation (only the Studio name or link), a greeting, a question about what Studio can do or an explicit menu request. Rules in the Workflow Orchestrator entry, its description and [startup and creative menus](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md#invocation-with-content), with a worked example (a Facebook post about ChatGPT moving truck parts during a PNG cut-out).
+- A planned evaluation case (LM25) records the owner's report; the learning-mode validator pins the rule and a Studio test checks it. Welcome text and menus are unchanged.
+
 ## 1.46.0, 2026-10-09
 
 From the owner's comparison of a 20 s vertical shop reel with a HyperFrames Studio film (2026-10-09); the welcome and menus are unchanged:

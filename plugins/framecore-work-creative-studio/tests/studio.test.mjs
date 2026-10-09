@@ -107,6 +107,26 @@ test('the environment check covers every requirement of the capability card and 
   });
 });
 
+test('an invocation sent with a screenshot, file or text is routed as a task, never answered with the welcome', () => {
+  const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
+  const entry = read('skills/workflow-orchestrator/SKILL.md');
+  assert.match(entry, /^description: .*A screenshot, file or text sent with it is a task\./m);
+  assert.match(entry, /only the Studio name or link: no other text, attachment, screenshot, file or pasted content/);
+  assert.match(entry, /Read it first, including the text inside a screenshot/);
+  assert.ok(entry.indexOf('**Invocation with content:**') > entry.indexOf('**Greeting, sent Studio-only invocation'), 'the content rule sits in the entry sequence');
+  const menus = read('skills/workflow-orchestrator/references/startup-and-creative-menus.md');
+  assert.match(menus, /## Invocation with content/);
+  assert.match(menus, /The user's unanswered message sent just before the invocation in the same thread counts too/);
+  const cases = JSON.parse(read('evals/learning-mode-cases.json')).cases;
+  const lm25 = cases.find(item => item.id === 'LM25');
+  assert.equal(lm25.family, 'invocation_with_content');
+  assert.ok(lm25.checks[0].startsWith('No welcome, mode menu or area menu'));
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('Never answer content with the welcome or the mode menu.', ''));
+    assert.ok(codes(validateStudio(root)).length > 0, 'removing the rule fails validation');
+  });
+});
+
 test('HyperFrames is an optional engine under Studio routing, never selected by area 8 alone', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const engine = read('skills/hyperframes-workflow/references/hyperframes-engine.md');
@@ -415,9 +435,9 @@ test('effective loader preserves historical files and applies seven source-guard
   assert.equal(effective.additional_cases, 4);
   assert.equal(effective.host_scenarios, 25);
   assert.equal(effective.knowledge_scenarios, 12);
-  assert.equal(effective.learning_scenarios, 24);
+  assert.equal(effective.learning_scenarios, 25);
   assert.equal(effective.campaign_scenarios, 8);
-  assert.equal(effective.cases.length, 201);
+  assert.equal(effective.cases.length, 202);
   const byId = new Map(effective.cases.map(item => [item.id, item]));
   assert.match(byId.get('S35').expected_branch, /geometry_unknown/);
   assert.match(byId.get('S35-CROP').expected_branch, /^feasible/);

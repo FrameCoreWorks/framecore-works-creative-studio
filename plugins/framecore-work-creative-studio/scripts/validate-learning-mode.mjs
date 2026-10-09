@@ -4,7 +4,7 @@ import {isDeepStrictEqual as equal} from 'node:util';
 import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
-export const learningCaseIds = Array.from({length: 24}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
+export const learningCaseIds = Array.from({length: 25}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
 export const canonicalWelcomeSha256 = 'e227a35f73089ee7437b471598814bec0849f5f78a54d7357c78a418d80de671';
 export const englishWelcomeSha256 = 'c501fd86372785400175b3047c4c2b7a2cf5161a015ec6920771b1b533776b2d';
 
@@ -69,7 +69,8 @@ export function validateLearningMode(root, packageFiles) {
       need(relative, languageRules);
       if (/Polish (?:is|remains) the default|Follow the\s+orchestrator's explicit-language rule/i.test(read(relative))) fail('STARTUP_FIXED_LANGUAGE', relative + ': fixed Polish default is superseded');
     }
-    need('skills/workflow-orchestrator/SKILL.md', [/@FrameCore Works Creative Studio/, /never return only the two-mode choice/, /A two-option menu alone is a failed startup response/, /Concrete tasks and actual resume requests bypass this startup response/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/@FrameCore Works Creative Studio/, /never return only the two-mode choice/, /A two-option menu alone is a failed startup response/, /Concrete tasks and actual resume requests bypass this startup response/, /an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation/, /\*\*Invocation with content:\*\*/, /Never answer content with the welcome or the mode menu/]);
+    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Invocation with content/, /The welcome is for an invocation with nothing to act on/, /Never show the welcome, the mode menu or the area menu in reply to content/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Complete welcome/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/, /## Creative pace choice/, /1\. \*\*Tryb szybki\*\*/, /2\. \*\*Tryb rozbudowany\*\*/, /## Established work-area menu/, /1\. Grafika statyczna/, /2\. Wideo i prompty/, /7\. Analiza dostarczonej/, /bare number only against a currently pending displayed choice group/, /older 1\.2\.0 order/, /concrete project request bypasses menus/, /neither a concrete task nor a pace is supplied/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Motion graphics in creative work/, /choose Creative Mode, Expanded Mode, then area `8`/, /After area `8`, ask only the missing motion brief/, /Preserve a runtime explicitly supplied/, /explicit request to learn motion graphics follows Learning Mode/, /8\. Motion graphics z kodu/, /Area `3` still selects storyboards/, /A `3` from the two-option startup menu asks for clarification without selecting motion/, /Selecting the area authorizes no installation/]);
     need('skills/workflow-orchestrator/SKILL.md', [/eight numbered work areas/, /If an area was already supplied/, /Area `8` follows.*references\/startup-and-creative-menus\.md#motion-graphics-in-creative-work/]);
@@ -114,7 +115,7 @@ export function validateLearningMode(root, packageFiles) {
     }
     const suite = JSON.parse(read('evals/learning-mode-cases.json'));
     if (suite.schema_version !== 1 || !Array.isArray(suite.cases)) throw new Error('Invalid learning scenario suite');
-    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM24 once each');
+    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM25 once each');
     for (const item of suite.cases) {
       if (item.status !== 'planned' || item.execution_status !== 'not_run' || !strings(item.required_evidence) || !strings(item.expected_owners) || !strings(item.checks) || !['learning', 'creation', 'undecided'].includes(item.expected_interaction_mode)) fail('LEARNING_EVAL', String(item.id));
       for (const owner of item.expected_owners ?? []) if (!packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('LEARNING_EVAL_OWNER', item.id + ': ' + owner);

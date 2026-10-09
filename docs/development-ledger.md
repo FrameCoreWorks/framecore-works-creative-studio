@@ -1046,3 +1046,25 @@ Cross-host state:
 - GitHub: this commit on `main`; the package release stays v1.46.0
 - ChatGPT Work: pending (owner updates to 1.46.0 in Plugin Creator)
 - Codex: not_run
+
+## CC-20261009-09
+
+- Origin: cloud-code, from the owner's report of 2026-10-09
+- Branch: `cloud-code/CC-20261009-09-content-routing`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `da78110` (main, package 1.46.0, after CC-20261009-08); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.47.0)
+- Package version: 1.46.0 -> 1.47.0
+- Scope: in a new ChatGPT thread the owner sent a screenshot of a Facebook post (a truck configurator; ChatGPT moving parts during a PNG cut-out) with the Studio link and got the welcome. Cause: the entry rule sent "Studio-only invocation ... or unclear intent" to the welcome without saying that an attachment or pasted text is content, and the description told every invocation to return the welcome. Now the entry defines a Studio-only invocation as the name or link alone; an invocation with text, a screenshot, an image, a file or pasted material (or right after an unanswered user message) is read first, its intent inferred and routed to the owner, with one numbered line for other readings and at most one targeted question; never the welcome. The description says so; `startup-and-creative-menus.md` has an "Invocation with content" section with the owner's case as the example; `validate-learning-mode.mjs` pins the rule; a Studio test; evaluation case LM25 (202 planned cases). Welcome assets, embedded excerpts and menu text unchanged
+- Shared package changed: yes; 11 changed, 0 added, 0 removed ([scope](../verification/scope-1.47.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, GEPA pilot 8, asset 23, captions 14, environment check 9, motion acceptance 10: PASS ([record](../verification/release-1.47.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run (startup with content not tested in ChatGPT)
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (owner updates to 1.47.0 in Plugin Creator; 1.43.0 is the saved release)
+- Codex: not_run

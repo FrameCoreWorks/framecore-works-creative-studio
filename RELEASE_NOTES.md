@@ -1,10 +1,8 @@
-# Creative Studio 1.46.0
+# Creative Studio 1.47.0
 
-Adverts with an argument, and acceptance that looks at the picture.
+Studio starts helping when you bring something.
 
-- **A reason to watch.** For an advert or promo, Studio now decides the argument first: who it is for, what they should do, what the store really offers, a hook the film answers and an ending that asks for the action it showed. Prices and savings are checked before they are used; anything not verified stays out of the copy.
-- **Every word must be whole.** A new check looks at every visible word, including decorative background words, in Studio's own films and in HyperFrames or other HTML compositions. A word cut off while it should be read now blocks delivery; a mask during a transition does not.
-- **No more "100 points" without looking.** Delivery is judged in four separate verdicts: the file, the copy and product, the picture, and a real viewing. A good file or a high score no longer counts as a good picture, and anything nobody looked at is marked not verified.
-- **Pacing that means something.** A few pixels of drift no longer pass as movement; holds should give time to read, then show something new.
+- **Send a screenshot, a file or a question with the Studio link** and Studio reads it and helps right away: it answers the question shown, works on the image or prompt, or asks one short question if it really must. No welcome screen in the way.
+- **The welcome stays for "hello".** Calling Studio with nothing else, saying hello or asking what it can do still shows the full introduction and the two modes.
 
-Startup, the welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Startup text, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
