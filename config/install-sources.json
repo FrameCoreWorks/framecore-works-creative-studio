@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.45.0",
+  "version": "1.46.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "1eefa253696de1c050402a71e5934691307ae87a420c0adc611e5c0a769a922f"
+      "sha256": "24b3e67ace70a6f35e254be429f4cfdcb1c5a906ee39cf2dd501f29c2fe281a1"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 20920,
-      "sha256": "bc787931ad869376975810f2319d18f4bf140b57d70bc27c23dbd99cb7dcdb46"
+      "sha256": "8e170e34dbb0e5dd2c94c9c194ebc972f454903ddf3413b86c540139389a4de8"
     },
     {
       "path": "assets/logo.png",
@@ -93,8 +93,8 @@
     },
     {
       "path": "docs/knowledge-map.md",
-      "bytes": 13294,
-      "sha256": "bf9e4782f64cc979856c34c2e0e050ba7fb61190fe7a549126263da4558767b2"
+      "bytes": 13512,
+      "sha256": "de78875fdcc18c7ad6d6c9988ce6707ed68e04bf73101b144f62653da7e7be74"
     },
     {
       "path": "docs/learning-mode.md",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "4f2f1c10712303764c339f59beaf7d24613bb709347b8207c8680562c8d56998"
+      "sha256": "c32e1579be82b8f88b1cab38666f72af9878ee8d86d6736ecec9de6ffdc48681"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 85608,
-      "sha256": "611daace25a9cb7fc766da0765371cf62c323f3c1c00ab47f3b8177a40650588"
+      "bytes": 88786,
+      "sha256": "8617233a899a15ab6d7483f5614244ac8001c7dc522e09fb415b26552b87ba15"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2259,7 +2259,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "83676d4fa2daca2c156c57392c2a03eac63d6e753a9a9f005d7ce79a15f719bf"
+      "sha256": "3df4ebb0daded9af82ebca4424fd0f690a970a1fb0edbfbace1d04f3bb4ca974"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2878,8 +2878,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 11551,
-      "sha256": "9e3af6c87a2418740ffcc54a5d71348d056506e6ce6bb2b03b5ed4db8d642cb4"
+      "bytes": 12568,
+      "sha256": "39a7cfc611ae41b388fc360fe8ff69a7bd407e69fcc238e1512e5468eb367e1a"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -2913,8 +2913,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
-      "bytes": 20259,
-      "sha256": "f9adc6fab7a74fc59c1db0e3c0e09182c847bb67ccac0548285bb18e361437d4"
+      "bytes": 23057,
+      "sha256": "352a266c07cb18370c372eeacfac303f6bdf76be0a773e7b96aad59156621e7c"
     },
     {
       "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/index.html",
@@ -3103,18 +3103,73 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
-      "bytes": 8429,
-      "sha256": "97993f7e1f0525e7f98cae05ea6b1dcbc414683f12e32e0af78d65599d5bd2ca"
+      "bytes": 13897,
+      "sha256": "e7df665efdbb2cc476def4d8d6200f23d6f1bddc735c115d71fc3d3738c0391b"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+      "bytes": 13437,
+      "sha256": "aa66a27fcd91402a68c766d00fbd9cbedcb783fbece64314610e9168c45ae143"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/critique.py",
-      "bytes": 22032,
-      "sha256": "a2a5ee37ea68322b8caba6cdef36f1c4638405784c5b5cf5abc518069a146a5a"
+      "bytes": 32943,
+      "sha256": "4b8e41262bf793d0b757e41232d6eea4097c6017911f2c29e6d57cb3c7d37185"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/README.md",
+      "bytes": 1953,
+      "sha256": "24730ab6d51f4a961f5fa904e9230b03f04f4fcec5f62f26c8430f57341ad192"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/container-fits-lines-clipped.html",
+      "bytes": 1461,
+      "sha256": "74c1ae3b382b8a474ca50e66a53414caf23ac97c8d420a679585d94bc4b8b7a3"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/declared-exception.html",
+      "bytes": 1223,
+      "sha256": "334a7358bdc826a65f25fb63df6728dbf9aad31dcf82ecdcdd8ba250ca41b583"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/fitted-text-pass.html",
+      "bytes": 1366,
+      "sha256": "c9ebb598417aaeb936891b19e64cdbdc00c2cff0626debbbb6b3b41f62dacc33"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/floor-word-clipped.html",
+      "bytes": 1124,
+      "sha256": "664f130f688e69ffd4925b2206432d1dd71ee3992ae9f5cd9194f230b8b45912"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/floor-word-ignored.html",
+      "bytes": 1169,
+      "sha256": "7fa331637fd98d87a9246304b4a05528ba6491486c6206d98d407cb8083720f0"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/search-to-cta.motion.json",
+      "bytes": 6781,
+      "sha256": "28e9e7a350b1ee245dfbf8975ca52fc5ae6ad8fcf489d0bee4b116c5ff62f98b"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/transition-mask-pass.html",
+      "bytes": 1442,
+      "sha256": "7c8437beab6a7d6d749d19a1d02e056dd7d606b742d80f2377e8491f1aed6d8e"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
-      "bytes": 11149,
-      "sha256": "2ec23d080cf8ac41d007de4f440127f46b699d6492f8c0b99ce3ba31cf6b33c3"
+      "bytes": 12795,
+      "sha256": "ac1ad0ac062fc91d18b936c7b5750f53457b8e692553574e9aa88ea1c0d0c2a7"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/text-audit.browser.js",
+      "bytes": 10660,
+      "sha256": "87fa795ec3ae5d38383ae57a8510345c474a5ca1b99e709f7a6db0267b90af30"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
+      "bytes": 15140,
+      "sha256": "c185e256b3de5e21e0e9557c044ba532053a925db43bc9f7e3295e7324182cfa"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-revise/README.md",
@@ -3332,9 +3387,14 @@
       "sha256": "ea2ca493cc3732c1678b23f4e84bd6e31d693e38834367c36f37765e02a71feb"
     },
     {
+      "path": "skills/hyperframes-workflow/references/commercial-motion.md",
+      "bytes": 8361,
+      "sha256": "3e4a26a12a80aa183089fc6f632911b94dd84a93fb0bd12867797ac3e546151c"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
-      "bytes": 5166,
-      "sha256": "4aadf141cbfa8a3dccb27ffa4da582f5882453ee6d75801ecaf43d3b5d8c0595"
+      "bytes": 5496,
+      "sha256": "8016718f05e0a0f6a9a1674fab0eb4b186eccff3ecc714094be040b2f225346d"
     },
     {
       "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
@@ -3343,13 +3403,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-contract-json.md",
-      "bytes": 7540,
-      "sha256": "572a01e1847ef41d89329da15cd23ccb619074070eccd63166482513a329402d"
+      "bytes": 8208,
+      "sha256": "1f24ec0017401a40a522fe66c38955abc2410bea925c2f3966dbd4edae9e5685"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-craft.md",
-      "bytes": 12444,
-      "sha256": "f9b366f03a43cd6c63e30b78e455b9c8b325672a7ccda1a58789b62d48d4ced5"
+      "bytes": 13210,
+      "sha256": "391e4cb61dbd72756e71c1fd96ee45032a5f7234d1e249dac411152611322a9e"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
@@ -3403,8 +3463,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
-      "bytes": 2301,
-      "sha256": "9ffb056ec60af1de89648b006e1e257dcbb36a8ab82f031adbe750d3a6c05378"
+      "bytes": 3249,
+      "sha256": "68901ebb16e39dcc4da841bd24774effd68ffec46b8e06c6a0a92e3565d13c0a"
     },
     {
       "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
@@ -3768,8 +3828,8 @@
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
-      "bytes": 20259,
-      "sha256": "f9adc6fab7a74fc59c1db0e3c0e09182c847bb67ccac0548285bb18e361437d4"
+      "bytes": 23057,
+      "sha256": "352a266c07cb18370c372eeacfac303f6bdf76be0a773e7b96aad59156621e7c"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/motion-score.json",
@@ -4399,7 +4459,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 30468,
-      "sha256": "b3631f359acd13944388faa975625e7c911c4e56570c2fca3a9dc449d55f4f0b"
+      "sha256": "88a5b97a19d6a896686cf01f3ee713e926c4f4522ae371e1e255dfb03a41ec3e"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4413,8 +4473,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 15004,
-      "sha256": "14af9321d9815a1ec37ecdb5dc63d2b56f0abe5e62a972ffbe50d8e663dbe591"
+      "bytes": 17143,
+      "sha256": "a7401ce590cf74ff182651bbdc23da569553274be1e48c60b2c6d2f42f4f11de"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -4633,8 +4693,13 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 90542,
-      "sha256": "1edd1f25167a601fc19561638cf87871f614a22d124b3837a0a2ddf47ef27708"
+      "bytes": 95816,
+      "sha256": "951a306d910cbc3a0502a3264dff0d3db40a2e6e86dcbb1f4112acead711d752"
+    },
+    {
+      "path": "tests/motion_acceptance_test.py",
+      "bytes": 11398,
+      "sha256": "162341a1fc827bd09afebb95da6d9f6e62cafb3e8a73e0d9b7b833521f35c29f"
     },
     {
       "path": "tests/package.test.mjs",

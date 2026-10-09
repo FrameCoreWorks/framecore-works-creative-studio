@@ -19,3 +19,4 @@ python3 -m unittest discover -s tests -p 'test_gepa_studio_pilot.py' -v
 python3 "$P/tests/asset_manifest_test.py"
 python3 "$P/tests/captions_test.py"
 python3 "$P/tests/environment_check_test.py"
+python3 "$P/tests/motion_acceptance_test.py"

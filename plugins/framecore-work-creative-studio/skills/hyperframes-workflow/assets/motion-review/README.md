@@ -25,12 +25,44 @@ A contract with [`formats`](../motion-scenes/README.md#formats) is reviewed in e
 | `hold-opacity` | warning | Text is not fully opaque during a readable hold |
 | `overlap` | warning | Two text elements of a scene overlap |
 | `small-text` | warning | Vertical formats only: text below 1/48 of the frame height |
+| `text-cut`, `text-hidden` | error | From the [visible-text audit](#visible-text-audit): any visible text in the stage, not only contract copy, has a word cut or hidden by a mask, its own box or the frame (reported as `transitional` outside holds) |
+| `ignore-flag`, `font-not-loaded` | warning, error | A visible text carries an audit-exempting flag; a declared web font did not load |
 
 4. Writes `review.json`, a `review.html` contact sheet with every frame and its findings, the screenshots and the `preview.html` it used. It refuses an existing output directory. The exit code is 0 without errors, 1 with errors and 2 when setup fails, such as no browser.
 
 ## How Studio uses it
 
 Run it after a build and before presenting a motion review; repair every error and judge every warning within the shared review budget, then rerun. Record the result in the [QA record](../../templates/motion-qa-record.md). Frames outside holds are captured but not measured, because text is meant to move there. Captions are measured whenever they are shown, including overlap with settled scene text.
+
+## Visible-text audit
+
+[`text-audit.mjs`](text-audit.mjs) checks that every visible word is complete, in any HTML composition: Studio's preview, a HyperFrames or GSAP composition, or hand-written HTML. It runs the in-page [`text-audit.browser.js`](text-audit.browser.js), which `review-frames.mjs` also injects, so a contract review covers every visible text in the stage too.
+
+```sh
+node text-audit.mjs composition.html --out audit-r1 --times 1,4.5,9,14.5,19 --holds 0.6-3,3.4-7.6
+node text-audit.mjs composition.html --out audit-r1 --times 1,4.5,9 --seek 'window.__timelines.main.seek(T, false)'
+node text-audit.mjs video.motion.json --out audit-r1        # a Studio contract: its review frames and holds
+```
+
+- **Seeking.** It seeks Studio's preview (`seekFrame`), HyperFrames' `window.__timelines` (and shows only the clips whose `data-start`/`data-duration` cover the time), a global GSAP timeline or web animations; `--seek` takes any expression with `T` (seconds) and `F` (frame). A page with nothing to seek gives `not_verified`, never a pass, when several times were asked for.
+- **What counts as visible.** Every text node under the root (`[data-composition-id]`, `--root`, or the body) that is displayed, visible, not transparent and above 2% opacity, including decorative words. Fonts are awaited first.
+- **What is measured.** Each word's glyph boxes after transforms, against the frame and every clipping ancestor: `overflow` hidden, clip, scroll or auto on either axis (the element's own box included) and `clip-path: inset()`. A word under 98% visible is cut; a word or line fully hidden while others of the same element show is hidden. Empty ascent space above a tight line-height is not counted as ink. Masks and other clip-path shapes are noted for pixel review, not measured.
+- **Holds.** Errors count only in readable holds, from `--holds`, the contract, or inferred: a sample whose text geometry is unchanged 0.2 s later is held. A word cut during a transition is reported as `transitional` and passes.
+- **No silent exemptions.** `data-layout-ignore`, `data-layout-allow-overflow`, `data-layout-allow-occlusion` and `data-layout-allow-overlap` do not exempt visible text; they add an `ignore-flag` warning. A deliberate cut needs `data-text-clip-ok="<reason of at least 12 characters>"` on the element itself; it is listed as an exception that needs a pixel review.
+- **Output.** `text-audit.json` (every sample, every visible text with its words, issues and exceptions) and `text-audit.html`, a contact sheet at phone scale (360 px wide) with cut words outlined and each screenshot linked at full size. Exit code 0 pass, 1 errors, 2 setup problem.
+
+[`fixtures/`](fixtures/README.md) holds the reviewed reel's defect and the cases that must pass.
+
+## Acceptance in four verdicts
+
+[`acceptance.py`](acceptance.py) turns the evidence into four separate verdicts, as [commercial motion](../../references/commercial-motion.md#3-accept-in-four-separate-verdicts) defines them: A technical (ffprobe against the contract), B fidelity (copy found verbatim in audited frames, no unverified `strategy.claims` in the copy, asset authorities, a person's source comparison), C composition (text audit or frame review in holds, plus `--composition-review` from a person who judged the key frames; a contract-only or incomplete critique leaves it not_verified) and D temporal (pacing samples plus a recorded normal-speed viewing).
+
+```sh
+python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/critique.json --review review-r2/review.json \
+  --text-audit audit-r2/text-audit.json --composition-review pass --playback watched --source-review pass --temporal-review pass --note "owner, phone, 2026-10-09"
+```
+
+Overall `accepted` needs all four to pass; `deliverable_with_limits` lists what was not verified; `blocked` names the failure (exit codes 0, 3, 1). It never infers a viewing or a comparison that was not recorded.
 
 ## Craft critique and the improvement round
 
@@ -54,8 +86,12 @@ With `--video` the frames come from the delivered video itself instead of the bu
 | contrast | foreground against background at least 4.5:1 (error) |
 | layout | in every hold frame of every format: something is visible, nothing touches the frame edge (error), and in 9:16 nothing sits in the bottom 14% or top 8% where Reels and TikTok draw their interface (warning) |
 | composition | in 9:16, a content block shorter than 60% of the height is centred between 30% and 62% of it, so neither half of the frame is left empty (warning) |
+| hook | in a vertical, feed or advert film, the first frame is empty, though it is the thumbnail (warning) |
+| pace from frames | four times a second, a stretch where nothing appears and under 1.5% of the frame changes counts as still; drift therefore counts as still. A still stretch longer than the copy's reading time plus 1.5 s (2 s without copy; plus 1.5 s in the last scene) is a warning |
+| transitions | three or more boundaries with the same full-frame wipe, mask, slide or sweep (warning) |
+| integration | an asset with an opaque `background` on a scene of another colour: its rectangle will show (warning) |
 
-The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result. `status` says what the score covers: `checked` (frames inspected, no errors), `issues` (errors remain; exit code 1), `contract_only` (`--no-frames`: the timing and text rules only, no picture certified) or `incomplete` (frames were asked for but could not be read or drawn here, such as a missing or mismatched video or an SVG mark without `cairosvg`; exit code 3). An incomplete review is never a pass, whatever its score: fix the cause or say in the reply that the picture was not inspected.
+The score starts at 100 and loses 15 per error and 5 per warning. Every finding names the scene or frame and a concrete fix, often a ready [`revise.mjs extend`](../motion-revise/README.md) command. `contact-sheet.png` shows every review frame (first and last, both sides of every boundary, hold starts and middles), one section per format; look at it before deciding. `critique.json` holds the result. `status` says what the score covers: `checked` (frames inspected, no errors), `issues` (errors remain; exit code 1), `contract_only` (`--no-frames`: the timing and text rules only, no picture certified) or `incomplete` (frames were asked for but could not be read or drawn here, such as a missing or mismatched video or an SVG mark without `cairosvg`; exit code 3). An incomplete review is never a pass, whatever its score: fix the cause or say in the reply that the picture was not inspected. `score_scope` says what the number covers, and `verdicts` keeps the picture separate: `layout` is not_verified without frames, `text_completeness` is never checked here (a word cut by a mask leaves tidy pixels, so only the text audit sees it), and `temporal_playback` stays not_verified because this tool never watches the video. `pacing` lists each scene's longest still stretch, and `keyframes/` holds the opening, first readable, densest and ending frames at full size and phone scale (`-phone.png`).
 
 **The improvement round is part of every delivery.** After the first render: run the critique, look at the contact sheet, fix every error and every warning (or say in the reply which warning is kept on purpose and why), re-render, and run the critique again. At least one round is made whenever the first critique has a finding, and at most two repair rounds follow the first review, as in the shared [loop protocol](../../../pipeline-core/references/loop-protocol.md): when an error remains after the second repair, stop and deliver with that error named, not hidden. The reply states the score before and after and what was fixed. A first render is never delivered unreviewed.
 

@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "id": "search-to-cta-proof",
+  "revision": 1,
+  "approval": {
+    "status": "example-not-client-approved",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "build",
+  "goal": "Prove the commercial argument and the acceptance checks on a small vertical film before a full build",
+  "audience": "People who like a known fragrance and shop on a phone",
+  "message": "Start from a scent you already love and find its equivalent",
+  "concept": "One action carries the film: name a scent you love, see its matching notes, take the same action at the end",
+  "strategy": {
+    "audience": "People who already love a known fragrance and shop on a phone",
+    "action": "Search the shop for the equivalent of a scent they know",
+    "benefit": "Start from a known scent instead of browsing a catalogue",
+    "friction": "Buying a scent blind online; not knowing where to start",
+    "evidence": [
+      "Search field",
+      "Note list of the matched product",
+      "Product photograph with a white background (proposed)"
+    ],
+    "mechanism": "Search to match: the question names the scent, the notes answer it, the CTA repeats the search",
+    "hook": {
+      "copy": "hook-1",
+      "payoff": "match"
+    },
+    "cta": {
+      "copy": "end",
+      "closes": "search for the equivalent of a known scent"
+    },
+    "claims": [
+      {
+        "text": "90% taniej",
+        "status": "unknown",
+        "source": null
+      }
+    ],
+    "alternatives": [
+      {
+        "concept": "Search to match (known scent, notes, same action as CTA)",
+        "chosen": true,
+        "reason": "Shows the store's reason to exist with one action the viewer can repeat"
+      },
+      {
+        "concept": "Category tour (for her, for him, unisex)",
+        "chosen": false,
+        "reason": "Summarises a catalogue; any store could say it"
+      },
+      {
+        "concept": "Price comparison with a well-known original",
+        "chosen": false,
+        "reason": "Needs verified prices, sizes and equivalence; Unknown here"
+      }
+    ]
+  },
+  "runtime": {
+    "status": "selected",
+    "value": "Studio Python renderer (render.py) for the proof"
+  },
+  "viewing": "9:16 full screen on a phone",
+  "audio": "intentional silence",
+  "decisions": {
+    "confirmed": [
+      "1080 x 1920, 30 FPS, 600 frames (20 s, the scope of the reviewed vertical reel)",
+      "Fictional store, no prices"
+    ],
+    "proposed": [
+      "Copy in Polish",
+      "Cream background"
+    ],
+    "unknown": [
+      "Real product photographs",
+      "Brand fonts"
+    ]
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 600,
+  "width": 1080,
+  "height": 1920,
+  "tokens": {
+    "background": "#F3EFE7",
+    "foreground": "#151515",
+    "muted": "#5E5A55",
+    "accent": "#A0145A",
+    "fontFamily": "Arial, Helvetica, sans-serif",
+    "marginRatio": 0.08,
+    "safeArea": {
+      "top": 0.08,
+      "bottom": 0.14
+    }
+  },
+  "motion": {
+    "tempo": "measured",
+    "entryFrames": 14,
+    "exitFrames": 10,
+    "lineStaggerFrames": 6,
+    "itemStaggerFrames": 10,
+    "entryEasing": "easeOutCubic",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo",
+    "transitions": [
+      "mask reveal",
+      "item stagger",
+      "fade-scale resolve"
+    ]
+  },
+  "copy": {
+    "hook-1": "Kochasz jeden zapach?",
+    "hook-2": "Znajdź odpowiednik.",
+    "step-1": "Wpisz ulubiony zapach",
+    "step-2": "Porównaj nuty",
+    "step-3": "Wybierz odpowiednik",
+    "match": "Wanilia, kakao, drzewo sandałowe",
+    "match-by": "Te same nuty, inna butelka",
+    "end": "Znajdź swój odpowiednik"
+  },
+  "copyStatus": "illustrative",
+  "assets": [],
+  "acceptance": [
+    "Every visible word is complete in every readable hold (text audit)",
+    "The hook question is answered by the notes scene, and the end card repeats the search action",
+    "Nothing in the copy states a price, saving or equivalence that is not verified"
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "start": 0,
+      "end": 150,
+      "argues": "names the viewer's situation: a scent they already love",
+      "purpose": "Hook with a question the film answers",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "hook-1",
+          "hook-2"
+        ],
+        "sizes": [
+          92,
+          64
+        ]
+      },
+      "copy": [
+        "hook-1",
+        "hook-2"
+      ],
+      "holds": [
+        [
+          24,
+          140
+        ]
+      ],
+      "focalPoint": "Question at the optical centre",
+      "entry": "Lines rise from masks",
+      "action": "Hold to read",
+      "exit": "Fade and lift",
+      "transition": "Steps continue the same question",
+      "audio": "Silence"
+    },
+    {
+      "id": "search",
+      "start": 140,
+      "end": 330,
+      "argues": "shows the action: search, compare, choose",
+      "purpose": "Demonstrate how the match is found",
+      "kind": "item-stagger",
+      "params": {
+        "items": [
+          "step-1",
+          "step-2",
+          "step-3"
+        ],
+        "direction": "column",
+        "size": 60
+      },
+      "copy": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "holds": [
+        [
+          176,
+          320
+        ]
+      ],
+      "focalPoint": "The three steps in order",
+      "entry": "Steps arrive one by one with a connector",
+      "action": "Connector grows through the steps",
+      "exit": "Fade and lift",
+      "transition": "The last step hands over to its result",
+      "audio": "Silence"
+    },
+    {
+      "id": "match",
+      "start": 320,
+      "end": 510,
+      "argues": "answers the hook with the matched notes",
+      "purpose": "Payoff: the notes of the match",
+      "kind": "quote",
+      "params": {
+        "quote": "match",
+        "attribution": "match-by",
+        "size": 64,
+        "attributionDelay": 14
+      },
+      "copy": [
+        "match",
+        "match-by"
+      ],
+      "holds": [
+        [
+          348,
+          500
+        ]
+      ],
+      "focalPoint": "Notes line",
+      "entry": "Notes enter, attribution follows",
+      "action": "Hold",
+      "exit": "Fade",
+      "transition": "Resolve into the action",
+      "audio": "Silence"
+    },
+    {
+      "id": "end",
+      "start": 500,
+      "end": 600,
+      "argues": "asks for the same action the film showed",
+      "purpose": "CTA closing the search action",
+      "kind": "end-card",
+      "params": {
+        "text": "end",
+        "size": 84
+      },
+      "copy": [
+        "end"
+      ],
+      "holds": [
+        [
+          520,
+          600
+        ]
+      ],
+      "focalPoint": "CTA",
+      "entry": "Settles from 94%",
+      "action": "Hold",
+      "exit": "None",
+      "transition": "End",
+      "audio": "Silence"
+    }
+  ]
+}

@@ -41,6 +41,12 @@ REELS_BOTTOM_ZONE = 0.14     # captions, buttons and the account name cover the 
 REELS_TOP_ZONE = 0.08
 BALANCE = (0.3, 0.62)         # where the centre of a 9:16 frame's content should sit, as a share of the height
 PENALTY = {'error': 15, 'warning': 5, 'note': 0}
+PACE_SAMPLES_PER_SECOND = 4   # pacing looks at the picture four times a second
+MICRO_CHANGE = 0.015          # under 1.5% of the frame changing between samples is micro-motion (drift), not a new beat
+STATIC_ALLOWANCE = 1.5        # seconds of stillness allowed beyond the reading time of the copy on screen
+APPEAR = 0.002                # content area growing or shrinking by 0.2% of the frame means something appeared or left
+NO_COPY_STILL = 2.0           # seconds a scene without copy may stay visually unchanged
+REPEATED_TRANSITION = 3       # the same full-frame wipe or mask at this many boundaries reads as a template
 
 
 def load_renderer():
@@ -53,11 +59,15 @@ def load_renderer():
     raise RuntimeError('render.py (the motion renderer) must sit in ../motion-render/ or next to critique.py')
 
 
-def luminance(hex_colour):
+def hex_rgb(hex_colour):
     value = str(hex_colour or '#000000').lstrip('#')
-    if len(value) == 3:
+    if len(value) in (3, 4):
         value = ''.join(c * 2 for c in value)
-    r, g, b = (int(value[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    return tuple(int(value[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def luminance(hex_colour):
+    r, g, b = (c / 255 for c in hex_rgb(hex_colour))
     lin = [c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in (r, g, b)]
     return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]
 
@@ -83,6 +93,24 @@ def scene_copy(scene, score):
                 walk(item)
     walk(scene.get('params') or {})
     return [copy[i] for i in ids if isinstance(copy.get(i), str)]
+
+
+def scene_assets(scene, score):
+    """Assets the scene shows: its `assets` list and any params value naming an asset ID."""
+    known = {a.get('id'): a for a in score.get('assets') or [] if isinstance(a, dict)}
+    ids = [i for i in scene.get('assets') or [] if i in known]
+
+    def walk(value):
+        if isinstance(value, str) and value in known and value not in ids:
+            ids.append(value)
+        elif isinstance(value, list):
+            for item in value:
+                walk(item)
+        elif isinstance(value, dict):
+            for item in value.values():
+                walk(item)
+    walk(scene.get('params') or {})
+    return [known[i] for i in ids]
 
 
 def words(texts):
@@ -162,6 +190,8 @@ class Critique:
         self.score = score
         self.fps = score['fps']['num'] / score['fps']['den']
         self.findings = []
+        self.pacing_report = []
+        self.keyframes = []
 
     def add(self, severity, area, where, message, fix):
         self.findings.append({'severity': severity, 'area': area, 'where': where, 'message': message, 'fix': fix})
@@ -225,6 +255,30 @@ class Critique:
             ratio = contrast(tokens['foreground'], tokens['background'])
             if ratio < 4.5:
                 self.add('error', 'contrast', 'tokens', f'text contrast {ratio:.1f}:1 is below 4.5:1', 'darken or lighten foreground or background until the ratio is at least 4.5:1')
+        # Transitions: the same full-frame wipe, mask or slide at many boundaries is a template, not a choice.
+        kinds = {}
+        for scene in scenes[:-1]:
+            p = scene.get('params') or {}
+            label = str(scene.get('transition') or '').strip().lower()
+            family = next((w for w in ('wipe', 'mask', 'slide', 'swipe', 'push', 'sweep') if w in label), None)
+            if p.get('exit') == 'sweep':
+                family = 'sweep'
+            if family:
+                kinds.setdefault(family, []).append(scene['id'])
+        for family, ids in kinds.items():
+            if len(ids) >= REPEATED_TRANSITION:
+                self.add('warning', 'transitions', ', '.join(ids), f'{len(ids)} boundaries use the same {family}; repeated full-frame wipes separate slides instead of carrying the story',
+                         'let an element carry the change (the product, a search field, a selection mark) where the scenes are connected, and keep the wipe for one real break')
+        # Photographs with their own opaque background show as rectangles on a different scene colour.
+        for scene in scenes:
+            background = (scene.get('params') or {}).get('background') or tokens.get('background')
+            for asset in scene_assets(scene, score):
+                own = asset.get('background')
+                if not own or own == 'transparent' or not background:
+                    continue
+                if sum((x - y) ** 2 for x, y in zip(hex_rgb(own), hex_rgb(background))) ** 0.5 > 12:
+                    self.add('warning', 'integration', scene['id'], f'asset {asset.get("id")} has an opaque {own} background on a {background} scene; its rectangle will show',
+                             f'set the scene background to {own}, or use an isolated (transparent) version of the asset, then check the encoded frames')
         lengths = [self.s(sc['end'] - sc['start']) for sc in scenes[:-1]]
         if len(lengths) >= 4:
             mean = sum(lengths) / len(lengths)
@@ -249,9 +303,29 @@ class Critique:
             for scene in score['scenes']:
                 for a, b in scene.get('holds') or []:
                     frames.add((a + b) // 2)
-            renderer = VideoFrames(video, score, frames) if video else r.Renderer(score)
-            for n in sorted(frames):
+            keys = self.key_frames(score)
+            frames.update(keys.values())
+            # Pacing samples (base format only: formats share one timeline): the picture four times a second.
+            step = max(1, round(self.fps / PACE_SAMPLES_PER_SECOND))
+            pace_frames = {n for scene in score['scenes'] for n in range(scene['start'], scene['end'], step)} if format_id == 'base' else set()
+            renderer = VideoFrames(video, score, frames | pace_frames) if video else r.Renderer(score)
+            pace_images = {}
+            for n in sorted(frames | pace_frames):
                 image = renderer.frame(n)
+                if n in pace_frames:
+                    pace_images[n] = image.convert('L').resize((max(1, width // 4), max(1, height // 4)))
+                for label, frame in keys.items():
+                    if frame == n and out:
+                        self.save_keyframe(out, format_id, label, n, image)
+                if n not in frames:
+                    continue
+                feed = score['height'] > score['width'] or bool(score.get('strategy')) or re.search(r'feed|reel|tiktok|shorts|stories', str(score.get('viewing') or ''), re.I)
+                if n == 0 and format_id == 'base' and feed:
+                    first_bg = (score['scenes'][0].get('params') or {}).get('background') or (score.get('tokens') or {}).get('background') or '#000000'
+                    blank = ImageChops.difference(image, Image.new('RGB', image.size, r.color(first_bg)[:3])).convert('L').point(lambda v: 255 if v > 28 else 0).getbbox()
+                    if blank is None:
+                        self.add('warning', 'hook', score['scenes'][0]['id'], 'the first frame is empty; it is the thumbnail and the first impression in a feed',
+                                 'start with the product, the question or the mark already visible (shorten or remove the entry of the first element)')
                 scene = next((sc for sc in score['scenes'] if sc['start'] <= n < sc['end']), None)
                 in_hold = scene is not None and any(a <= n < b for a, b in scene.get('holds') or [])
                 if in_hold:
@@ -292,6 +366,8 @@ class Critique:
                 label.rectangle([0, 0, tile.width, 16], fill=(0, 0, 0))
                 label.text((4, 2), f'{format_id} f{n} {n / self.fps:.2f}s{" hold" if in_hold else ""}', fill=(255, 255, 255))
                 sheet_tiles.append(tile)
+            if pace_images:
+                self.pacing(score, pace_images)
         sections = [tiles for tiles in sections if tiles]
         if sections and out:
             # One grid per format, stacked, so wide and tall frames each keep their own tile size.
@@ -313,6 +389,76 @@ class Critique:
             sheet.save(path)
             return path
         return None
+
+    def key_frames(self, score):
+        """The frames to judge at full size and phone scale before a film is expanded: the opening, the densest
+        readable moment and the ending."""
+        scenes, last = score['scenes'], score['totalFrames'] - 1
+        keys = {'opening': 0, 'ending': last}
+        held = [(len(' '.join(scene_copy(scene, score))), scene, hold) for scene in scenes for hold in scene.get('holds') or []]
+        if held:
+            _, scene, (a, b) = max(held, key=lambda item: item[0])
+            keys['densest'] = (a + b) // 2
+        first_hold = min((a for scene in scenes for a, _ in scene.get('holds') or []), default=None)
+        if first_hold is not None:
+            keys['first-read'] = first_hold
+        return keys
+
+    def save_keyframe(self, out, format_id, label, n, image):
+        folder = os.path.join(out, 'keyframes')
+        os.makedirs(folder, exist_ok=True)
+        name = f'{format_id}-{label}-f{n}'
+        image.save(os.path.join(folder, name + '.png'))
+        phone = image.copy()
+        phone.thumbnail((360, 360 * image.height // max(1, image.width)))
+        phone.save(os.path.join(folder, name + '-phone.png'))
+        self.keyframes.append({'format': format_id, 'label': label, 'frame': n, 'full': f'keyframes/{name}.png', 'phone': f'keyframes/{name}-phone.png'})
+
+    def pacing(self, score, images):
+        """Find stretches where the picture stays the same, or changes only by a small drift, for longer than the copy
+        on screen needs. Drift keeps pixels moving but gives the viewer nothing new, so it does not count as a beat."""
+        from PIL import ImageChops
+        order = sorted(images)
+
+        def content(image):
+            # Share of the frame that differs from its dominant (background) tone: grows when something appears.
+            histogram = image.histogram()
+            mode = max(range(256), key=histogram.__getitem__)
+            return sum(v for i, v in enumerate(histogram) if abs(i - mode) > 24) / (image.width * image.height)
+        area = {n: content(images[n]) for n in order}
+        change, still = {}, {}
+        for a, b in zip(order, order[1:]):
+            diff = ImageChops.difference(images[a], images[b]).point(lambda v: 255 if v > 24 else 0)
+            change[b] = sum(diff.histogram()[255:]) / (diff.width * diff.height)
+            # Still: little of the frame changes and nothing appears or disappears. A drifting photo keeps its area;
+            # a new line, product or price adds area, so it counts as a beat even when it is small.
+            still[b] = change[b] < MICRO_CHANGE and abs(area[b] - area[a]) < APPEAR
+        for index, scene in enumerate(score['scenes']):
+            samples = [n for n in order if scene['start'] <= n < scene['end']]
+            texts = scene_copy(scene, score)
+            allowed = (reading_seconds(texts) + STATIC_ALLOWANCE) if words(texts) else NO_COPY_STILL
+            if index == len(score['scenes']) - 1:
+                allowed += END_HOLD_SECONDS
+            longest, run, run_start, drift, best = 0.0, [], None, 0.0, (None, None, 0.0)
+            for n in samples[1:]:
+                if still.get(n, False):
+                    run_start = run_start if run_start is not None else order[order.index(n) - 1]
+                    run.append(change[n])
+                    length = self.s(n - run_start)
+                    if length > longest:
+                        longest, best = length, (run_start, n, max(run))
+                else:
+                    run, run_start = [], None
+            entry = {'scene': scene['id'], 'longest_still_s': round(longest, 2), 'allowed_s': round(allowed, 2),
+                     'largest_change_in_it': round(best[2], 4), 'from_frame': best[0], 'to_frame': best[1]}
+            self.pacing_report.append(entry)
+            if longest > allowed + 1e-6:
+                moving = best[2] > 0
+                self.add('warning', 'pace', scene['id'],
+                         f'{longest:.1f} s ({self.s(best[0]):.1f}-{self.s(best[1]):.1f} s) where ' +
+                         (f'only a small drift changes (at most {best[2]:.1%} of the frame between samples); drift is not a new beat'
+                          if moving else 'the picture does not change') + f'; the copy needs about {allowed:.1f} s',
+                         'shorten the stretch, or let it reveal something new (the next product, the search result, the price, the action)')
 
     def report(self):
         points = max(0, 100 - sum(PENALTY[f['severity']] for f in self.findings))
@@ -359,6 +505,21 @@ def main(argv=None):
             result['status'] = 'incomplete'
         else:
             result['status'] = 'issues' if result['errors'] else 'checked'
+        # The score is a number of rule penalties, never a visual verdict. Composition is judged only from frames, and
+        # normal-speed playback is never observed by this tool, so its temporal verdict stays not_verified.
+        pictured = result['status'] in ('checked', 'issues')
+        visual = [f for f in critique.findings if f['area'] in ('layout', 'composition', 'contrast', 'integration')]
+        result['score_scope'] = 'contract rules and inspected frames' if pictured else 'contract rules only; no picture inspected'
+        # Pixels cannot show a word cut by a mask: the clip hides the overflow, so the frame looks tidy. Text
+        # completeness is checked only by the text audit (text-audit.mjs, also inside review-frames.mjs).
+        result['verdicts'] = {
+            'layout': ('fail' if any(f['severity'] == 'error' for f in visual) else 'needs_review' if any(f['severity'] == 'warning' for f in visual) else 'pass_in_reviewed_frames') if pictured else 'not_verified',
+            'text_completeness': 'not_checked_here: run text-audit.mjs or review-frames.mjs',
+            'pacing_samples': 'checked' if critique.pacing_report else 'not_run',
+            'temporal_playback': 'not_verified',
+        }
+        result['pacing'] = critique.pacing_report
+        result['keyframes'] = critique.keyframes
         if args.out:
             with open(os.path.join(args.out, 'critique.json'), 'w', encoding='utf-8') as handle:
                 handle.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')

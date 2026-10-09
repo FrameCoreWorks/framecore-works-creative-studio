@@ -33,7 +33,7 @@ HyperFrames' router describes itself as the mandatory entry point for every vide
 | Intake, route choice, language, approvals and the welcome | Workflow Orchestrator |
 | Brief, copy locks, claims, story and storyboard | Studio's owners (Copy Voice, Storyboard Sequence Architect, the campaign directors) |
 | Composition, layout, animation and render | HyperFrames workflow chosen for the brief, with the approved brief as its input |
-| Review before delivery | This skill: watch the render, run the [craft critique](../assets/motion-review/README.md) on its frames where a contract exists, check captions with the captions tool |
+| Review before delivery | This skill: run the [visible-text audit](../assets/motion-review/README.md#visible-text-audit) on the composition (HyperFrames' `data-layout-ignore` does not exempt visible text there, and `npx hyperframes check` alone is not acceptance), run the [craft critique](../assets/motion-review/README.md) on the encoded frames where a contract exists, check captions with the captions tool, and accept in the four verdicts of [commercial motion](commercial-motion.md#3-accept-in-four-separate-verdicts) |
 | Sound | HyperFrames' audio or this skill's [sound for supplied footage](../assets/motion-sound/README.md#sound-for-supplied-footage) on the rendered MP4, as the user chooses |
 
 Pass HyperFrames the approved brief, exact copy, asset list with sources and rights, format and duration. Do not let its intent interview repeat questions the user already answered. Report its output with the commit or plugin version that made it.

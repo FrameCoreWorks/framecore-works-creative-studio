@@ -1082,3 +1082,78 @@ test('supplied footage gets designed sound from its measured cuts, marked moment
     assert.deepEqual(streams, ['audio', 'video']);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
+
+// Lessons from the reviewed reel (2026-10-09): the commercial argument is checked in the contract.
+test('the contract checks the commercial argument and keeps unverified claims out of the copy', async () => {
+  const {checkScore} = await import('../skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs');
+  const proof = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-review/fixtures/search-to-cta.motion.json'), 'utf8'));
+  assert.deepEqual(checkScore(proof, {storyboard: true}), {errors: [], warnings: []});
+  const claim = structuredClone(proof);
+  claim.copy['hook-2'] = 'Ten sam zapach, nawet 90% taniej';
+  assert.ok(checkScore(claim).errors.some(e => e.includes('"90% taniej" is unknown but appears in the copy')));
+  const argument = structuredClone(proof);
+  delete argument.scenes[1].argues;
+  argument.strategy.hook.payoff = argument.scenes[0].id;
+  argument.strategy.cta.closes = '';
+  const errors = checkScore(argument).errors;
+  assert.ok(errors.some(e => e.includes('search: argues is missing')));
+  assert.ok(errors.some(e => e.includes('hook.payoff must name a later scene')));
+  assert.ok(errors.some(e => e.includes('strategy.cta needs')));
+  const single = structuredClone(proof);
+  single.strategy.alternatives = [single.strategy.alternatives[0]];
+  assert.ok(checkScore(single).warnings.some(w => w.includes('alternatives')));
+  const verified = structuredClone(proof);
+  verified.strategy.claims = [{text: 'Wanilia', status: 'verified'}];
+  assert.ok(checkScore(verified).errors.some(e => e.includes('needs its source and the date')));
+});
+
+// Opt-in: the visible-text audit in a real headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
+test('the visible-text audit catches every clipped word and passes complete text and transition masks', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {runAudit} = await import('../skills/hyperframes-workflow/assets/motion-review/text-audit.mjs');
+  const fixtures = path.join(root, 'skills/hyperframes-workflow/assets/motion-review/fixtures');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-text-audit-'));
+  const audit = (name, options) => runAudit(path.join(fixtures, name), {out: path.join(tmp, name + Math.random()), browser: process.env.MOTION_REVIEW_BROWSER, screenshots: false, ...options});
+  const held = {times: [1], holds: [[0.5, 7.5]]};
+  const issues = result => result.samples.flatMap(s => s.issues);
+  try {
+    const clipped = audit('floor-word-clipped.html', held);
+    assert.equal(clipped.verdict, 'fail');
+    assert.ok(issues(clipped).some(i => i.severity === 'error' && i.check === 'text-cut' && i.detail.includes('WYBÓR')));
+    const ignored = audit('floor-word-ignored.html', held);
+    assert.equal(ignored.verdict, 'fail', 'data-layout-ignore never exempts visible text');
+    assert.ok(issues(ignored).some(i => i.check === 'ignore-flag'));
+    const lines = audit('container-fits-lines-clipped.html', held);
+    assert.ok(issues(lines).some(i => i.detail.includes('not visible: ulubionego zapachu')), 'lines hidden by a box that fits the frame');
+    assert.ok(issues(lines).some(i => i.text === 'ODPOWIEDNIK' && i.check === 'text-cut'), 'glyphs cut by their own box');
+    const fitted = audit('fitted-text-pass.html', held);
+    assert.equal(fitted.verdict, 'pass');
+    assert.ok(fitted.samples[0].texts.some(t => t.text.includes('Zażółć gęślą jaźń') && t.visible === 'complete'));
+    const masked = audit('transition-mask-pass.html', {times: [0.4, 2]});
+    assert.equal(masked.verdict, 'pass', 'a reveal mask during a transition is not a defect');
+    assert.ok(issues(masked).some(i => i.severity === 'transitional'));
+    assert.equal(masked.samples.find(s => s.t === 2).hold, true);
+    const declared = audit('declared-exception.html', held);
+    assert.equal(declared.verdict, 'pass');
+    assert.match(declared.samples[0].exceptions[0].reason, /by design/);
+  } finally {
+    fs.rmSync(tmp, {recursive: true, force: true});
+  }
+});
+
+// Opt-in: the frame review audits every visible text of a contract, not only its declared checks.
+test('the frame review blocks a contract whose word is cut while the encoded pixels look tidy', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {runReview} = await import('../skills/hyperframes-workflow/assets/motion-review/review-frames.mjs');
+  const proof = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-review/fixtures/search-to-cta.motion.json'), 'utf8'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-review-text-'));
+  try {
+    proof.copy['hook-2'] = 'ODPOWIEDNIK.';
+    proof.scenes[0].params.sizes = [92, 182];
+    fs.writeFileSync(path.join(tmp, 'cut.json'), JSON.stringify(proof));
+    const review = runReview(path.join(tmp, 'cut.json'), {out: path.join(tmp, 'out'), browser: process.env.MOTION_REVIEW_BROWSER, samples: 4});
+    const found = review.frames.flatMap(f => f.issues);
+    assert.ok(found.some(i => i.check === 'text-cut' && i.severity === 'error' && i.detail.includes('ODPOWIEDNIK')));
+    assert.equal(review.summary.textAudited, review.frames.length);
+  } finally {
+    fs.rmSync(tmp, {recursive: true, force: true});
+  }
+});

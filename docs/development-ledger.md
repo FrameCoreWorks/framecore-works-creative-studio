@@ -989,3 +989,26 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `2037433`; release workflow 37903762129, checks 37903762077, 37903764562 and 37903767039, release-notes refresh 37903762019: success; [v1.45.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.45.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (923 of 923), all 37 skill frontmatters parse, the environment check runs from the unpacked ZIP ([record](../verification/github-publication-1.45.0.json))
 - ChatGPT Work: pending (hosted update on owner instruction only; 1.43.0 is the saved release)
 - Codex: not_run
+
+## CC-20261009-06
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-06-commercial-acceptance`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `32736d1` (main, package 1.45.0, after its publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.46.0)
+- Package version: 1.45.0 -> 1.46.0
+- Scope: the owner supplied a comparison (PDF and Markdown, 2026-10-09) of a 20 s 1080 x 1920 shop reel with a HyperFrames Studio film and asked for better creative decisions and acceptance in the existing workflow. Traced where the false acceptance came from: the frame review measured only contract copy, the critique reported a frame-checked score of 100 on a video whose word was cut by a mask (pixels look tidy), a contract-only score had no verdict boundary, and nothing audited compositions outside a contract. Changes: `references/commercial-motion.md` (argument before look, key-frame proof, carrier transitions, four verdicts, failure-to-correction table); contract `strategy` and scene `argues`, `assets[].background`, checked by `check-score.mjs` in both starters; `text-audit.mjs` and `text-audit.browser.js` (every visible word, clipping ancestors, holds, transitional cuts, no silent exemptions, `data-text-clip-ok` exceptions, phone-scale sheet), injected into `review-frames.mjs`; critique rules (repeated wipes, photo background, empty first frame in feed films, still stretches four times a second with drift counted as still), `score_scope`, `verdicts`, `pacing`, key frames at full size and phone scale; `acceptance.py` (A technical, B fidelity, C composition with a person's key-frame judgement, D temporal with a recorded viewing); QA record, motion craft, contract, HyperFrames engine reference, SKILL method and guardrail, capability card (`motion_text_audit`, `motion_acceptance`), knowledge map; fixtures and tests (10 Python, 1 contract, 2 browser). Welcome and menus unchanged
+- Shared package changed: yes; 19 changed, 13 added, 0 removed ([scope](../verification/scope-1.46.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 200 passing of 206 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, GEPA pilot 8, asset 23, captions 14, environment check 9, motion acceptance 10: PASS ([record](../verification/release-1.46.0.json))
+- before/after on the reel's failure cases ([record](../verification/perfua-regression-1.46.0.json)); a 20 s 1080 x 1920 proof rendered and accepted through the whole chain: technical PASS, composition FAIL by Claude's judgement of the key frames, fidelity and temporal NOT VERIFIED
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run; the original reel was not supplied and not re-run; HyperFrames not run
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (hosted update on owner instruction only; 1.43.0 is the saved release)
+- Codex: not_run

@@ -89,7 +89,7 @@ Name moves by feel and keep one set per video (adapted from [kaventro/motion-des
 | Morph | One state truly becomes another (before and after, data change) | The two states have unrelated structure |
 | Dissolve | Time passing or a soft change of mood | Fast, informational sequences |
 
-Choose two or three transition types per project and repeat them consistently.
+Choose two or three transition types per project and repeat them consistently. Consistency is not one wipe everywhere: where scenes belong together, let an element carry the change (a product, a search field, a selection mark); keep a full-frame wipe or mask for a real break. Three or more identical full-frame wipes read as slides, and the critique flags them ([commercial motion](commercial-motion.md#2-prove-the-picture-on-real-frames-first)).
 
 ## Video types
 
@@ -130,6 +130,9 @@ Starting shapes for common requests (adapted from kaventro/motion-designer). A s
 - Transitions in many different directions with no logic.
 - Jitter from fractional positions, unloaded fonts or numbers changing width. Round the resting positions of type to whole pixels; keep fractions for motion only.
 - An ending without a stable final frame.
+- A few pixels of drift standing in for pacing: drift keeps pixels moving but adds no information, so a long drifting hold is still a still stretch.
+- A word cut by a mask, a box or the frame edge while it should be read, including decorative background words; a container that fits does not prove its text fits.
+- A photograph's own background showing as a rectangle on a different scene colour.
 
 ## Recording the choices
 

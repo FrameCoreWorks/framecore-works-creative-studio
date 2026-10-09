@@ -131,6 +131,49 @@
       "observed": "Container checks only"
     },
     {
+      "id": "motion_text_audit",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Checks that every visible word of any HTML composition (Studio preview, HyperFrames, GSAP) is complete inside the frame and every clipping ancestor in readable holds, without honouring audit-exempting flags",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
+        "skills/hyperframes-workflow/assets/motion-review/text-audit.browser.js"
+      ],
+      "requires": [
+        "node",
+        "browser"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "text-audit.json and a phone-scale contact sheet with cut words outlined; exit code 1 when a word is cut in a hold",
+      "when_missing": "Inspect every readable hold at full size and phone scale by eye, word by word, and say the automatic text audit did not run; text completeness stays not verified",
+      "observed": "2026-10-09: caught the reviewed reel's clipped decorative word with and without data-layout-ignore, passed complete Polish text and a transition mask (container, headless Chromium 1194); host runs not recorded"
+    },
+    {
+      "id": "motion_acceptance",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Turns the existing evidence into four separate verdicts (technical, fidelity, composition, temporal) and an overall accepted, deliverable-with-limits or blocked",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-review/acceptance.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [
+        "ffmpeg"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "acceptance.json listing what passed, failed and was not verified",
+      "when_missing": "Report the four verdicts by hand from the same evidence; anything not observed is NOT VERIFIED",
+      "observed": "2026-10-09: blocked a technically valid MP4 whose word was cut, kept a contract-only score of 100 from passing composition (container); host runs not recorded"
+    },
+    {
       "id": "motion_sync",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

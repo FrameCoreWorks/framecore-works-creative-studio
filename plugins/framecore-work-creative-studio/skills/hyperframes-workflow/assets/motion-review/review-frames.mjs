@@ -45,6 +45,30 @@ export function previewFor(input) {
   return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2).replace(/</g, '\\u003c') + close), score};
 }
 
+/** Add the visible-text audit to a review page: every visible word in the stage, not only contract copy, must be
+ * complete during a readable hold; flags such as data-layout-ignore never exempt it (text-audit.browser.js). */
+export function withTextAudit(html) {
+  const audit = fs.readFileSync(path.join(here, 'text-audit.browser.js'), 'utf8');
+  const merge = `<script>
+${audit}
+(async () => {
+  const report = document.getElementById('review-report');
+  if (!report) return;
+  if (document.fonts && document.fonts.ready) await document.fonts.ready;
+  const data = JSON.parse(report.textContent);
+  const audit = window.__studioTextAudit({root: '#stage', width: data.width, height: data.height});
+  for (const issue of audit.issues) {
+    if (issue.check === 'unmeasured-clip') continue;
+    const blocking = ['text-cut', 'text-hidden'].includes(issue.check);
+    data.issues.push({severity: blocking && !data.checked ? 'transitional' : issue.severity, check: issue.check, scene: 'visible-text', element: issue.element, detail: issue.text + ': ' + issue.detail});
+  }
+  data.textAudit = {texts: audit.texts.filter(text => text.visible !== 'hidden').length, exceptions: audit.exceptions, fontsStatus: audit.fontsStatus};
+  report.textContent = JSON.stringify(data);
+})();
+</script>`;
+  return html.replace(/<\/body>(?![\s\S]*<\/body>)/i, merge + '</body>');
+}
+
 export function findBrowser(explicit) {
   const candidates = [explicit, process.env.CHROME_PATH,
     ...['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome'].flatMap(name => (process.env.PATH ?? '').split(path.delimiter).map(dir => path.join(dir, name))),
@@ -89,7 +113,7 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
   const formats = formatsFor(score, format), nested = Boolean(score.formats?.length);
   fs.mkdirSync(path.join(out, 'frames'), {recursive: true});
   const previewPath = path.join(out, 'preview.html');
-  fs.writeFileSync(previewPath, html);
+  fs.writeFileSync(previewPath, withTextAudit(html));
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-review-'));
   const flags = ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check', `--user-data-dir=${profile}`, '--virtual-time-budget=3000'];
   if (process.platform === 'linux' && process.getuid?.() === 0) flags.push('--no-sandbox');
@@ -115,7 +139,7 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
         const image = `frames/${nested ? `${id}/` : ''}frame-${String(frame).padStart(5, '0')}.png`;
         spawnSync(chrome, [...base, `--screenshot=${path.resolve(out, image)}`, url], {encoding: 'utf8', timeout: 60000});
         const parsed = JSON.parse(report);
-        frames.push({format: id, width: size.width, height: size.height, frame, image: fs.existsSync(path.join(out, image)) ? image : '', scenes: score.scenes.filter(s => frame >= s.start && frame < s.end).map(s => s.id), checked: parsed.checked, issues: parsed.issues});
+        frames.push({format: id, width: size.width, height: size.height, frame, image: fs.existsSync(path.join(out, image)) ? image : '', scenes: score.scenes.filter(s => frame >= s.start && frame < s.end).map(s => s.id), checked: parsed.checked, issues: parsed.issues, textAudit: parsed.textAudit ?? null});
       }
     }
   } finally {
@@ -123,8 +147,10 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
   }
   const issues = frames.flatMap(f => f.issues);
   const review = {id: score.id, revision: score.revision, browser: path.basename(chrome), formats, frames,
-    summary: {errors: issues.filter(i => i.severity === 'error').length, warnings: issues.filter(i => i.severity === 'warning').length, checkedFrames: frames.filter(f => f.checked).length},
-    boundary: 'Automated layout checks on review frames in readable holds. Not a review of motion, rhythm, audio or the encoded export.'};
+    summary: {errors: issues.filter(i => i.severity === 'error').length, warnings: issues.filter(i => i.severity === 'warning').length, checkedFrames: frames.filter(f => f.checked).length,
+      textAudited: frames.filter(f => f.textAudit).length},
+    boundary: 'Automated layout checks on review frames in readable holds, including every visible text in the stage. Not a review of motion, rhythm, audio or the encoded export.'};
+  if (review.summary.textAudited < frames.length) review.summary.textAuditMissing = frames.length - review.summary.textAudited;
   fs.writeFileSync(path.join(out, 'review.json'), JSON.stringify(review, null, 2) + '\n');
   fs.writeFileSync(path.join(out, 'review.html'), contactSheet(review));
   return review;

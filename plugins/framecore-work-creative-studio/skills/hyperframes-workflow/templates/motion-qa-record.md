@@ -7,6 +7,22 @@
 - Existing shared review pass: 1 / 2 / 3 (respect stricter domain limits)
 - Reviewed modality/time range:
 - Commands actually run:
+- Inspection coverage (encoded first/last frame, readable holds, densest scene, both sides of each transition; full size and phone scale):
+- Declared text-clip exceptions (element, reason, pixel review):
+
+## Four verdicts
+
+`acceptance.py` writes these from the evidence; each stands alone, and a technical PASS never passes the others.
+
+| Verdict | PASS / FAIL / NOT VERIFIED | Evidence | Findings |
+| --- | --- | --- | --- |
+| A. Technical export integrity | | | |
+| B. Source, product and exact-copy fidelity | | | |
+| C. Visible composition and readability (every visible text) | | | |
+| D. Temporal clarity, continuity and commercial coherence (normal-speed viewing) | | | |
+
+A contract-only critique score, whatever its number, leaves C NOT VERIFIED. A cut or hidden word in a readable hold is a FAIL unless recorded above as a deliberate, reviewed exception.
+
 
 | Criterion | PASS / FAIL / NOT VERIFIED / justified N/A | Exact evidence | Limitation |
 | --- | --- | --- | --- |
@@ -44,3 +60,4 @@ Separate objective defects from optional preferences. Preserve passing scenes. A
 - Output paths and actual supported preview/render commands:
 - Edit points for copy, brand, timing, scenes and assets:
 - Unresolved issues, effect and next action:
+- Stop decision and reason (accepted, deliverable with named limits, or blocked):

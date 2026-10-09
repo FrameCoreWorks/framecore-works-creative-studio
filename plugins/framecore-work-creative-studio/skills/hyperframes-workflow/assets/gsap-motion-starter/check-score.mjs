@@ -127,7 +127,36 @@ export function checkScore(score, {storyboard = false} = {}) {
     if (!Array.isArray(score.acceptance) || score.acceptance.length < 3) errors.push('at least three observable acceptance criteria are required');
     if (!Array.isArray(score.assets)) errors.push('assets ledger is required (an empty list when no assets are used)');
   }
+  checkStrategy(score, errors, warnings);
   return {errors, warnings};
+}
+
+// Commercial argument (references/commercial-motion.md): checked whenever score.strategy is present. Every scene
+// says which step of the argument it advances, the hook names the scene that pays it off, the CTA names the action
+// the film demonstrated, and a claim that is not verified with a source never appears in the copy.
+const claimStates = ['verified', 'unverified', 'unknown'];
+function checkStrategy(score, errors, warnings) {
+  const s = score.strategy;
+  if (s === undefined) return;
+  if (typeof s !== 'object' || s === null || Array.isArray(s)) { errors.push('strategy must be an object'); return; }
+  const copy = score.copy ?? {}, scenes = score.scenes ?? [];
+  for (const field of ['audience', 'action', 'benefit', 'mechanism']) if (!text(s[field])) errors.push(`strategy.${field} is missing`);
+  for (const field of ['friction', 'evidence']) if (s[field] === undefined) warnings.push(`strategy.${field} is not recorded`);
+  const sceneIds = scenes.map(scene => scene.id);
+  if (!text(copy[s.hook?.copy])) errors.push('strategy.hook.copy must name the copy ID of the hook');
+  if (!sceneIds.includes(s.hook?.payoff) || s.hook?.payoff === sceneIds[0]) errors.push('strategy.hook.payoff must name a later scene that answers the hook');
+  if (!text(copy[s.cta?.copy]) || !text(s.cta?.closes)) errors.push('strategy.cta needs copy (a copy ID) and closes (the action the film demonstrated)');
+  for (const scene of scenes) if (!text(scene.argues)) errors.push(`${scene.id}: argues is missing (the step of the argument this scene advances)`);
+  const alternatives = Array.isArray(s.alternatives) ? s.alternatives : [];
+  if (alternatives.length < 2 || alternatives.filter(item => item?.chosen === true).length !== 1 || !alternatives.every(item => text(item?.concept) && text(item?.reason))) {
+    warnings.push('strategy.alternatives should hold at least two genuinely different concepts with a reason each, exactly one chosen');
+  }
+  const shown = Object.values(copy).filter(text).map(value => value.toLowerCase());
+  for (const [i, claim] of (Array.isArray(s.claims) ? s.claims : []).entries()) {
+    if (!text(claim?.text) || !claimStates.includes(claim?.status)) { errors.push(`strategy.claims ${i + 1}: needs text and status (${claimStates.join(', ')})`); continue; }
+    if (claim.status === 'verified' && (!text(claim.source) || !/^\d{4}-\d{2}-\d{2}$/.test(String(claim.checked)))) errors.push(`strategy.claims ${i + 1}: a verified claim needs its source and the date it was checked`);
+    if (claim.status !== 'verified' && shown.some(value => value.includes(claim.text.toLowerCase()))) errors.push(`strategy.claims ${i + 1}: "${claim.text}" is ${claim.status} but appears in the copy; verify it or choose another direction`);
+  }
 }
 
 const safeAreaOk = area => area === undefined || (typeof area === 'object' && area !== null && ['top', 'bottom'].every(side => area[side] === undefined || (Number.isFinite(area[side]) && area[side] >= 0 && area[side] < 0.5)));

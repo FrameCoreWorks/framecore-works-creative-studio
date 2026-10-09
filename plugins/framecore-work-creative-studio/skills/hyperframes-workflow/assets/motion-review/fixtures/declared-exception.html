@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Declared clip exception</title>
+<style>
+html,body{margin:0;background:#111}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#f3efe7;font-family:"DejaVu Sans",Arial,sans-serif;color:#151515}
+.scene{position:absolute;inset:0;overflow:hidden}
+.headline{position:absolute;left:90px;top:300px;width:900px;font-size:120px;font-weight:800;line-height:1.02;letter-spacing:-3px;margin:0}
+.floor-word{position:absolute;left:70px;bottom:260px;font-size:182px;font-weight:800;letter-spacing:-9px;white-space:nowrap;color:#e7e1d8}
+
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="8">
+<div class="scene"><h1 class="headline">Jeden zapach?</h1><div class="floor-word" data-text-clip-ok="Brand pattern bleeds off the right edge by design; approved in revision 3">TWÓJ WYBÓR</div></div>
+</div>
+<script>
+// A HyperFrames-style timeline registry without GSAP, so the fixture runs offline: seek(t) sets every state.
+window.__timelines = window.__timelines || {};
+window.__timelines.main = {seek(t) {  }, pause() {}};
+window.__timelines.main.seek(0);
+</script>
+</body></html>

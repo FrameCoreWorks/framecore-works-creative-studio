@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-09",
+  "scope": "Failure cases of the reviewed 20 s 1080x1920 30 FPS silent shop reel, reproduced with original fixtures (no brand assets, no prices). \"before\" ran the tools at the baseline commit, \"after\" the tools of this change, in the same Linux container with headless Chromium 1194, Python 3.13, Pillow 12.3, ffmpeg 6.1.1.",
+  "generator": "scratchpad before_after.py (not part of the repository); the same expectations run in tests/motion_acceptance_test.py and the opt-in browser tests of tests/motion-toolkit.test.mjs",
+  "baseline": "32736d183787ae85a4e693fc9900330872612be3",
+  "cases": [
+    {
+      "case": "Oversized TWÓJ WYBÓR clipped by overflow:hidden",
+      "before": "no Studio check existed for an HTML composition outside a contract (no text-audit.mjs at the baseline); HyperFrames documents data-layout-ignore as never audited (not run here)",
+      "after": {
+        "exit": 1,
+        "output": [
+          "ERROR 1s hold text-cut div.floor-word \"TWÓJ WYBÓR\": cut: WYBÓR (61.6% visible)",
+          "FAIL: 1 errors, 0 warnings, 0 transitional, 2 visible texts in 1 samples (1 held; holds given)."
+        ]
+      }
+    },
+    {
+      "case": "Same visible text marked data-layout-ignore",
+      "before": "no Studio check existed for an HTML composition outside a contract (no text-audit.mjs at the baseline); HyperFrames documents data-layout-ignore as never audited (not run here)",
+      "after": {
+        "exit": 1,
+        "output": [
+          "ERROR 1s hold text-cut div.floor-word \"TWÓJ WYBÓR\": cut: WYBÓR (61.6% visible)",
+          "WARNING 1s hold ignore-flag div.floor-word \"TWÓJ WYBÓR\": data-layout-ignore hides this visible text from other layout audits; Studio audits it anyway",
+          "FAIL: 1 errors, 1 warnings, 0 transitional, 2 visible texts in 1 samples (1 held; holds given)."
+        ]
+      }
+    },
+    {
+      "case": "Container fits, glyphs and lines clipped",
+      "before": "no Studio check existed for an HTML composition outside a contract (no text-audit.mjs at the baseline); HyperFrames documents data-layout-ignore as never audited (not run here)",
+      "after": {
+        "exit": 1,
+        "output": [
+          "ERROR 1s hold text-cut p.line-box \"Znajdź swój odpowiednik ulubionego zapachu\": cut: odpowiednik (90.2% visible); not visible: ulubionego zapachu",
+          "ERROR 1s hold text-cut div.tag \"ODPOWIEDNIK\": cut: ODPOWIEDNIK (65.8% visible)",
+          "FAIL: 2 errors, 0 warnings, 0 transitional, 2 visible texts in 1 samples (1 held; holds given)."
+        ]
+      }
+    },
+    {
+      "case": "Passing text fixture (Polish diacritics)",
+      "before": "no Studio check existed for an HTML composition outside a contract (no text-audit.mjs at the baseline); HyperFrames documents data-layout-ignore as never audited (not run here)",
+      "after": {
+        "exit": 0,
+        "output": [
+          "PASS: 0 errors, 0 warnings, 0 transitional, 3 visible texts in 1 samples (1 held; holds given)."
+        ]
+      }
+    },
+    {
+      "case": "Intentional transition mask",
+      "before": "no Studio check existed for an HTML composition outside a contract (no text-audit.mjs at the baseline); HyperFrames documents data-layout-ignore as never audited (not run here)",
+      "after": {
+        "exit": 0,
+        "output": [
+          "TRANSITIONAL 0.4s text-cut #reveal \"Twój zapach\": cut: zapach (6.6% visible)",
+          "TRANSITIONAL 0.4s text-cut #cta \"Sprawdź perfua.pl\": cut: perfua.pl (37.9% visible)",
+          "PASS: 0 errors, 0 warnings, 2 transitional, 4 visible texts in 2 samples (1 held; holds inferred)."
+        ]
+      }
+    },
+    {
+      "case": "Valid contract and MP4 with defective visible copy (ODPOWIEDNIK. at 182 px)",
+      "before": {
+        "critique_video": {
+          "exit": 0,
+          "score": 100,
+          "status": "checked",
+          "layout_findings": []
+        },
+        "review_frames_baseline": {
+          "exit": 1,
+          "output": [
+            "6 errors, 0 warnings, 14/31 frames measured. Contact sheet: <temp>/review-old/review.html"
+          ]
+        },
+        "note": "the baseline frame review caught this Studio-kind case when it was run; the reel was accepted without it"
+      },
+      "after": {
+        "critique_video": {
+          "exit": 0,
+          "score": 95,
+          "verdicts": {
+            "layout": "pass_in_reviewed_frames",
+            "text_completeness": "not_checked_here: run text-audit.mjs or review-frames.mjs",
+            "pacing_samples": "checked",
+            "temporal_playback": "not_verified"
+          }
+        },
+        "review_frames": {
+          "exit": 1,
+          "output": [
+            "9 errors, 0 warnings, 14/31 frames measured. Contact sheet: <temp>/review-new/review.html"
+          ]
+        },
+        "text_audit": {
+          "exit": 1,
+          "output": [
+            "FAIL: 5 errors, 0 warnings, 4 transitional, 83 visible texts in 39 samples (20 held; holds contract)."
+          ]
+        },
+        "acceptance_with_frame_evidence": {
+          "exit": 1,
+          "overall": "blocked",
+          "verdicts": {
+            "A_technical": "pass",
+            "B_fidelity": "not_verified",
+            "C_composition": "fail",
+            "D_temporal": "not_verified"
+          }
+        }
+      }
+    },
+    {
+      "case": "Contract-only critique promoted to visual PASS",
+      "before": {
+        "exit": 0,
+        "score": 100,
+        "status": "contract_only",
+        "verdict_fields": []
+      },
+      "after": {
+        "exit": 0,
+        "score": 100,
+        "status": "contract_only",
+        "score_scope": "contract rules only; no picture inspected",
+        "verdicts": {
+          "layout": "not_verified",
+          "text_completeness": "not_checked_here: run text-audit.mjs or review-frames.mjs",
+          "pacing_samples": "not_run",
+          "temporal_playback": "not_verified"
+        },
+        "acceptance_from_it": {
+          "exit": 3,
+          "overall": "deliverable_with_limits",
+          "C_composition": "not_verified"
+        }
+      }
+    },
+    {
+      "case": "Tiny decorative drift presented as pacing",
+      "before": {
+        "score": 80,
+        "pace_findings": []
+      },
+      "after": {
+        "score": 75,
+        "pace_findings": [
+          "4.3 s (1.6-5.9 s) where only a small drift changes (at most 1.0% of the frame between samples); drift is not a new beat; the copy needs about 3.0 s"
+        ],
+        "pacing": [
+          {
+            "scene": "shelf",
+            "longest_still_s": 4.27,
+            "allowed_s": 3.0,
+            "largest_change_in_it": 0.0098,
+            "from_frame": 48,
+            "to_frame": 176
+          }
+        ]
+      }
+    },
+    {
+      "case": "Same shot with new information at 2 s and 4 s (must not be flagged)",
+      "before": {
+        "score": 80,
+        "pace_findings": []
+      },
+      "after": {
+        "score": 80,
+        "pace_findings": [],
+        "pacing": [
+          {
+            "scene": "shelf",
+            "longest_still_s": 1.87,
+            "allowed_s": 3.0,
+            "largest_change_in_it": 0.005,
+            "from_frame": 120,
+            "to_frame": 176
+          }
+        ]
+      }
+    }
+  ],
+  "not_verified": [
+    "the original reel and its source assets were not supplied, so the 20 s regression ran on fixtures, not on the reel",
+    "HyperFrames check was not run (not installed); its data-layout-ignore behaviour is quoted from its documentation",
+    "no normal-speed playback by a person"
+  ]
+}

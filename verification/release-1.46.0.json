@@ -1,0 +1,122 @@
+{
+  "version": "1.46.0",
+  "date": "2026-10-09",
+  "baseline": "32736d183787ae85a4e693fc9900330872612be3",
+  "change_id": "CC-20261009-06",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, Python 3.13 with numpy 2.5.3 and Pillow 12.3.0, ffmpeg 6.1.1, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 936,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "planned_presentation_cases": 19,
+      "planned_motion_sound_cases": 6,
+      "executed": 0
+    },
+    {
+      "command": "bash scripts/check_all.sh (Node part: studio, workflow-kit, creative-upgrade, learning-mode, quality-methods, motion-toolkit with motion-quality, presentation)",
+      "status": "PASS",
+      "tests": 206,
+      "passed": 200,
+      "skipped": 6,
+      "skip_reason": "Opt-in browser review, export, player and renderer-parity tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 70
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_host_smoke.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_hosted_readback.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/captions_test.py",
+      "status": "PASS",
+      "tests": 14
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/environment_check_test.py",
+      "status": "PASS",
+      "tests": 9
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py",
+      "status": "PASS",
+      "tests": 10
+    },
+    {
+      "command": "proof: render.py search-to-cta.motion.json, critique.py --video, review-frames.mjs, text-audit.mjs, acceptance.py --composition-review fail",
+      "status": "RAN",
+      "detail": "H.264 1080x1920 30 fps 600 frames 20.000 s, no audio; critique 95 (empty first frame warning), frame review 0 errors in 39 frames, text audit PASS 83 visible texts in 39 samples, acceptance blocked: A pass, B not_verified, C fail by Claude's key-frame judgement (text only, lower half empty), D not_verified"
+    },
+    {
+      "command": "before/after on the reel's failure cases (verification/perfua-regression-1.46.0.json)",
+      "status": "RAN"
+    },
+    {
+      "command": "python3 scripts/check_legacy_baseline.py",
+      "status": "PASS",
+      "detail": "134 known validator errors and 20 of 67 failing tests, identical to tests/legacy-baseline.json; a tampered baseline was detected"
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "text_audit": "fixtures: clipped decorative word FAIL (WYBÓR 61.6% visible), same with data-layout-ignore FAIL plus ignore-flag, container that fits with hidden lines FAIL, complete Polish text PASS, transition mask PASS (transitional), declared exception PASS with pixel-review note",
+    "acceptance": "a contract-only score of 100 leaves composition not_verified; a technically valid MP4 with a cut word is blocked; clean checks without a person's key-frame judgement leave composition not_verified",
+    "pacing": "a 6 s drift of 4 px is flagged as still; the same shot with new content at 2 s and 4 s is not",
+    "not_verified": "the original reel was not supplied; HyperFrames not run; no normal-speed viewing by a person; no host run"
+  },
+  "plugin_zip_sha256": "9fc24f7154556fbebd55d0875ca97dbb07677fd3f399006f8496475a03b3f6cd",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks, fixtures and one rendered proof in a Linux container. Passing checks do not establish creative quality; the proof film itself was judged weak.",
+  "source": "owner comparison of a vertical shop reel with a HyperFrames Studio film, 2026-10-09"
+}

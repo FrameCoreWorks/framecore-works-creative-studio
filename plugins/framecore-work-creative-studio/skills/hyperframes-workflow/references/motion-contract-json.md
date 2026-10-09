@@ -30,7 +30,8 @@ Top level:
 | `tokens` | Colours, font family, margin ratio and optional `safeArea {top, bottom}` (fractions of the height, from platform documentation or the user) and caption style `captions {size, weight, color, background, bottom}` used by the code |
 | `motion` | Tempo family, entry/exit frames, staggers, easing names and transition set from [motion craft](motion-craft.md) |
 | `copy`, `copyStatus` | Exact copy by ID, verbatim; `copyStatus` such as `approved`, `proposed` or `illustrative` |
-| `assets` | Asset ledger entries `{id, file, revision, role, authority}`; an empty list when none are used |
+| `assets` | Asset ledger entries `{id, file, revision, role, authority}`, optionally `background` (the photo's own opaque background colour, or `transparent`); an empty list when none are used |
+| `strategy` | For an advert or promo: `{audience, action, benefit, friction, evidence, mechanism, claims, alternatives, hook {copy, payoff}, cta {copy, closes}}`, the commercial argument from [commercial motion](commercial-motion.md). `claims` are `{text, status: verified \| unverified \| unknown, source, checked}`; an unverified claim never appears in the copy. Checked whenever present |
 | `acceptance` | At least three observable, concept-specific criteria |
 | `cues` | Optional sound cues `{id, frame, durationFrames, frequency, gainDb}` for the existing sound adapter |
 | `music` | Optional beat grid and track `{bpm, offsetMs, beatsPerBar, src?, volume?}`; `offsetMs` is when the first beat sounds |
@@ -51,6 +52,8 @@ Each scene:
 | `focalPoint`, `entry`, `action`, `exit` | Where the eye goes and how the scene enters, acts and leaves |
 | `transition`, `persistence`, `audio` | Link to the next scene, what carries over, and the sound cue or silence |
 | `acceptance` | Optional scene-level observable criteria |
+| `argues` | Required with `strategy`: the step of the argument this scene adds |
+| `assets` | Optional asset IDs the scene shows (also found in `params`), for the photo-background check |
 
 The file stays compatible with `validateScore` in [the motion quality helpers](../assets/motion-quality/README.md); extra fields are ignored by runtimes and by that validator.
 
