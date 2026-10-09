@@ -1012,3 +1012,22 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `9b42385`; release workflow 37913665900 succeeded on attempt 2 (attempt 1 cancelled after 25 minutes in the dependency-install step, before any test ran; re-run once), checks 37913665897, 37913668311 and 37913670804 and release-notes refresh 37913666028: success; [v1.46.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.46.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (936 of 936), all 37 skill frontmatters parse, the text audit runs from the unpacked ZIP ([record](../verification/github-publication-1.46.0.json))
 - ChatGPT Work: pending (hosted update on owner instruction only; 1.43.0 is the saved release)
 - Codex: not_run
+
+## CC-20261009-07
+
+- Origin: cloud-code, from the owner's instruction of 2026-10-09
+- Branch: `cloud-code/CC-20261009-06-commercial-acceptance` (repository-only follow-up), fast-forwarded into `main` under the owner's standing rule
+- Baseline: `627760f` (main, package 1.46.0, after its publication record); full SHA in the commit trailer
+- Result: a repository-only commit; the package is unchanged (1.46.0)
+- Scope: the owner said the session must not ask whether to update the hosted ChatGPT plugin, because he performs that update himself. AGENTS.md records it: after a release, report the hosted state as pending and give the ready update prompt; compare a returned readback with `scripts/check_hosted_readback.py`
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh`: PASS; package files unchanged
+
+Cross-host state:
+
+- GitHub: this commit on `main`; the package release stays v1.46.0
+- ChatGPT Work: pending (owner updates to 1.46.0 in Plugin Creator; 1.43.0 is the saved release)
+- Codex: not_run
