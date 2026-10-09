@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "checked": "2026-10-09",
+  "scope": "Every program and library Studio's bundled tools or optional engines use, how the environment check finds it, the minimum it needs, the newest version known on the check date and how to install it. The check never installs anything; versions marked known_latest are a dated snapshot and --online reads the current ones.",
+  "tools": [
+    {
+      "id": "python",
+      "label": "Python",
+      "requirement": "python",
+      "kind": "python",
+      "minimum": "3.9",
+      "known_latest": "3.14.8",
+      "latest_source": "endoflife:python",
+      "install": {
+        "linux": "sudo apt install python3 python3-venv (Debian, Ubuntu) or sudo dnf install python3 (Fedora)",
+        "macos": "brew install python",
+        "windows": "winget install Python.Python.3.14",
+        "any": "https://www.python.org/downloads/"
+      }
+    },
+    {
+      "id": "pillow",
+      "label": "Pillow (Python imaging)",
+      "requirement": "pillow",
+      "kind": "python_module",
+      "module": "PIL",
+      "package": "pillow",
+      "minimum": "9.0",
+      "known_latest": "12.3.0",
+      "latest_source": "pypi:pillow",
+      "install": {
+        "any": "python3 -m pip install --user pillow (where pip refuses a system Python, use a virtual environment: python3 -m venv .venv, then .venv/bin/pip install pillow)"
+      }
+    },
+    {
+      "id": "numpy",
+      "label": "NumPy",
+      "requirement": "numpy",
+      "kind": "python_module",
+      "module": "numpy",
+      "package": "numpy",
+      "minimum": "1.22",
+      "known_latest": "2.5.3",
+      "latest_source": "pypi:numpy",
+      "install": {
+        "any": "python3 -m pip install --user numpy (or in a virtual environment, as for Pillow)"
+      }
+    },
+    {
+      "id": "cairosvg",
+      "label": "CairoSVG (SVG logos in the renderer)",
+      "requirement": "cairosvg",
+      "kind": "python_module",
+      "module": "cairosvg",
+      "package": "cairosvg",
+      "optional": true,
+      "known_latest": "2.9.1",
+      "latest_source": "pypi:cairosvg",
+      "install": {
+        "linux": "sudo apt install libcairo2, then python3 -m pip install --user cairosvg",
+        "macos": "brew install cairo, then python3 -m pip install --user cairosvg",
+        "windows": "python3 -m pip install cairosvg; it needs the Cairo DLL (for example from the GTK runtime). Without it, supply the logo as a PNG",
+        "any": "Without it, supply SVG logos as PNG"
+      }
+    },
+    {
+      "id": "ffmpeg",
+      "label": "FFmpeg",
+      "requirement": "ffmpeg",
+      "kind": "binary",
+      "commands": [
+        "ffmpeg"
+      ],
+      "version_args": [
+        "-version"
+      ],
+      "python_fallback": "imageio_ffmpeg",
+      "known_latest": "9.0.2",
+      "latest_source": "endoflife:ffmpeg",
+      "install": {
+        "linux": "sudo apt install ffmpeg (Debian, Ubuntu) or sudo dnf install ffmpeg (Fedora with RPM Fusion)",
+        "macos": "brew install ffmpeg",
+        "windows": "winget install Gyan.FFmpeg",
+        "any": "https://ffmpeg.org/download.html; where no system install is possible, python3 -m pip install --user imageio-ffmpeg gives the renderer a bundled ffmpeg"
+      }
+    },
+    {
+      "id": "ffprobe",
+      "label": "FFprobe (comes with FFmpeg)",
+      "requirement": "ffmpeg",
+      "kind": "binary",
+      "commands": [
+        "ffprobe"
+      ],
+      "version_args": [
+        "-version"
+      ],
+      "optional": true,
+      "install": {
+        "any": "Installed together with FFmpeg"
+      }
+    },
+    {
+      "id": "node",
+      "label": "Node.js",
+      "requirement": "node",
+      "kind": "binary",
+      "commands": [
+        "node"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "minimum": "20",
+      "known_latest": "24.21.0",
+      "latest_note": "newest LTS; current line 26.11.1",
+      "latest_source": "nodejs:lts",
+      "install": {
+        "linux": "https://nodejs.org (LTS), or nvm install --lts",
+        "macos": "brew install node@24, or nvm install --lts",
+        "windows": "winget install OpenJS.NodeJS.LTS",
+        "any": "https://nodejs.org/en/download"
+      }
+    },
+    {
+      "id": "npx",
+      "label": "npx (comes with Node.js)",
+      "requirement": "node",
+      "kind": "binary",
+      "commands": [
+        "npx"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "optional": true,
+      "install": {
+        "any": "Installed together with Node.js"
+      }
+    },
+    {
+      "id": "browser",
+      "label": "Chrome or Chromium",
+      "requirement": "browser",
+      "kind": "browser",
+      "known_latest": "155.0.8059.39",
+      "latest_source": "chromium:stable",
+      "install": {
+        "linux": "https://www.google.com/chrome/ or sudo apt install chromium (on some systems a snap)",
+        "macos": "brew install --cask google-chrome",
+        "windows": "winget install Google.Chrome",
+        "any": "npx @puppeteer/browsers install chrome@stable downloads a private Chrome; then pass its path with --browser or CHROME_PATH"
+      }
+    },
+    {
+      "id": "remotion",
+      "label": "Remotion (per project)",
+      "capability": "remotion_render",
+      "kind": "node_package",
+      "package": "remotion",
+      "pinned_by": "skills/remotion-video-production/assets/kinetic-type-starter/package.json",
+      "optional": true,
+      "known_latest": "4.0.534",
+      "latest_source": "npm:remotion",
+      "install": {
+        "any": "Per project, not globally: npm install in a copy of the kinetic type starter (it pins the version); npx remotion upgrade moves a project to the newest version. Remotion's licence needs a company licence for some companies"
+      }
+    },
+    {
+      "id": "gsap",
+      "label": "GSAP (per project)",
+      "kind": "node_package",
+      "package": "gsap",
+      "pinned_by": "skills/hyperframes-workflow/assets/gsap-motion-starter/package.json",
+      "optional": true,
+      "known_latest": "3.15.0",
+      "latest_source": "npm:gsap",
+      "install": {
+        "any": "Per project: npm install in a copy of the GSAP motion starter (it pins the version)"
+      }
+    },
+    {
+      "id": "hyperframes",
+      "label": "HyperFrames (optional engine)",
+      "capability": "hyperframes_engine",
+      "kind": "hyperframes",
+      "package": "hyperframes",
+      "minimum_node": "22",
+      "optional": true,
+      "known_latest": "0.8.143",
+      "latest_source": "npm:hyperframes",
+      "install": {
+        "any": "Only on the user's request: HyperFrames' own plugin through the client's plugin manager (Codex, Claude Code), or npx hyperframes@0.8.143 skills update for its skills. Needs Node.js 22, FFmpeg and Chrome. npx hyperframes@0.8.143 doctor checks its own needs. See skills/hyperframes-workflow/references/hyperframes-engine.md"
+      }
+    }
+  ]
+}

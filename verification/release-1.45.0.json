@@ -1,0 +1,112 @@
+{
+  "version": "1.45.0",
+  "date": "2026-10-09",
+  "baseline": "8f3598d3840390748fa3b088a4ad0864c3581063",
+  "change_id": "CC-20261009-05",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, Python 3.13 with numpy 2.5.3 and Pillow 12.3.0, ffmpeg 6.1.1, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 923,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "planned_presentation_cases": 19,
+      "planned_motion_sound_cases": 6,
+      "executed": 0
+    },
+    {
+      "command": "bash scripts/check_all.sh (Node part: studio, workflow-kit, creative-upgrade, learning-mode, quality-methods, motion-toolkit with motion-quality, presentation)",
+      "status": "PASS",
+      "tests": 203,
+      "passed": 199,
+      "skipped": 4,
+      "skip_reason": "Opt-in browser review, export, player and renderer-parity tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 67
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_host_smoke.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_hosted_readback.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/captions_test.py",
+      "status": "PASS",
+      "tests": 14
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/environment_check_test.py",
+      "status": "PASS",
+      "tests": 9
+    },
+    {
+      "command": "python3 plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/check_environment.py [--online]",
+      "status": "RAN",
+      "detail": "Linux container: Python 3.13.16, Pillow 12.3.0, NumPy 2.5.3, FFmpeg 6.1.1, Node.js 22.22.0, Chromium 141 from Playwright (found outside the usual places), CairoSVG and HyperFrames not installed; online lookup answered from every registry"
+    },
+    {
+      "command": "python3 scripts/check_legacy_baseline.py",
+      "status": "PASS",
+      "detail": "134 known validator errors and 20 of 67 failing tests, identical to tests/legacy-baseline.json; a tampered baseline was detected"
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "environment_check": "tools.json covers every checkable requirement of the capability card (ENVIRONMENT_CHECK); statuses, minimums, newest versions, per-project packages and HyperFrames skills tested with stand-in programs on an empty PATH and a temporary home",
+    "installs_nothing": "tested: no file written, no connection opened offline",
+    "other_systems": "NOT_RUN on macOS, Windows and ChatGPT code execution"
+  },
+  "plugin_zip_sha256": "a8e8a2ebd4f1528a86569a56a8f40b88c61f138d7d54af881c8de1b9819164e6",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks and a Linux container run only. The check reads the environment; host behavior and other systems are not verified.",
+  "source": "owner request 2026-10-09: check the environment at installation and with one command"
+}

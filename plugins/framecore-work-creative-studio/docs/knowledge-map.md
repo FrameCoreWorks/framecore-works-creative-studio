@@ -29,6 +29,7 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 | storytelling | [short-form structures](../skills/storytelling/references/short-form-structures.md) (structures by job, causality check, beat budget) |
 | research-evidence | [video-generator snapshot](../skills/research-evidence/references/video-generator-snapshot.md) (dated 2026-10-09: families, IDs, operations, retirements and evidence labels) |
 | hyperframes-workflow | [HyperFrames engine](../skills/hyperframes-workflow/references/hyperframes-engine.md) (optional engine in shell hosts, pinned installation, Studio keeps routing and review, HeyGen catalog on request) |
+| workflow-orchestrator | [environment check](../skills/workflow-orchestrator/assets/environment-check/README.md) (one command: which tools are present, missing or outdated, which capabilities are ready, install steps per system; installs nothing) |
 
 ## Reusable materials
 

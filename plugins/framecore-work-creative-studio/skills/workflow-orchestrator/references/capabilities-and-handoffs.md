@@ -39,7 +39,7 @@ Do not probe accounts, providers or private services merely to build a capabilit
 
 The [capability card](../assets/capability-card.json) lists every operation Studio runs with its own bundled tools, what each needs from the host (Python, Pillow, numpy, ffmpeg, Node.js, a browser or network), what it delivers and what to deliver instead when a requirement is missing, with the evidence observed so far. It also marks the boundary: image generation belongs to the host's own tool, and video, song and voice generators run outside Studio.
 
-- Check a requirement in the current host before promising a file; a past observation is not a guarantee.
+- Check a requirement in the current host before promising a file; a past observation is not a guarantee. The [environment check](../assets/environment-check/README.md) checks all of them in one run, marks each capability ready or missing and lists install commands for the user's system; run it once before the first coded render when nothing in the conversation shows the tools work, and whenever the user asks what is installed.
 - When a requirement is missing, deliver the card's alternative and say why in one sentence.
 - Keep the card and the owners' texts consistent: a change to what a tool needs or delivers updates the card in the same release.
 

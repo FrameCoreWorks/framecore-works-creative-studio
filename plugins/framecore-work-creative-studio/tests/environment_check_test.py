@@ -1,0 +1,135 @@
+"""Tests for skills/workflow-orchestrator/assets/environment-check: the tool list, statuses, capabilities and install steps."""
+import importlib.util
+import json
+import os
+import pathlib
+import subprocess
+import sys
+import tempfile
+import unittest
+from unittest import mock
+
+PLUGIN = pathlib.Path(__file__).resolve().parent.parent
+FOLDER = PLUGIN / 'skills/workflow-orchestrator/assets/environment-check'
+TOOL = FOLDER / 'check_environment.py'
+SPEC = json.loads((FOLDER / 'tools.json').read_text(encoding='utf-8'))
+CARD = json.loads((PLUGIN / 'skills/workflow-orchestrator/assets/capability-card.json').read_text(encoding='utf-8'))
+
+spec = importlib.util.spec_from_file_location('check_environment', TOOL)
+check = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(check)
+
+
+def fake_program(folder, name, output):
+    path = pathlib.Path(folder, name)
+    path.write_text(f'#!/bin/sh\necho "{output}"\n')
+    path.chmod(0o755)
+
+
+def run_check(*args, path='', home=None, project=None):
+    """Run the check in a clean environment: only the given PATH, a temporary HOME, no browser variables."""
+    with tempfile.TemporaryDirectory() as temp:
+        env = {'PATH': path, 'HOME': home or temp, 'PYTHONDONTWRITEBYTECODE': '1', 'SYSTEMROOT': os.environ.get('SYSTEMROOT', '')}
+        done = subprocess.run([sys.executable, str(TOOL), '--json', '--project', project or temp, *args], capture_output=True, text=True, env=env, timeout=120)
+        return done.returncode, json.loads(done.stdout), sorted(os.listdir(temp))
+
+
+def by_id(items):
+    return {item['id']: item for item in items}
+
+
+class ToolList(unittest.TestCase):
+    def test_every_tool_maps_to_the_capability_card(self):
+        values, capabilities = set(CARD['requirement_values']), {item['id'] for item in CARD['capabilities']}
+        for tool in SPEC['tools']:
+            self.assertTrue(tool.get('requirement') in values or tool.get('capability') in capabilities or tool.get('pinned_by'), tool['id'])
+            if tool.get('capability'):
+                self.assertIn(tool['capability'], capabilities)
+            if tool.get('pinned_by'):
+                self.assertTrue((PLUGIN / tool['pinned_by']).is_file(), tool['pinned_by'])
+            self.assertTrue(tool['install'].get('any') or all(tool['install'].get(s) for s in ('linux', 'macos', 'windows')), tool['id'])
+
+    def test_every_checkable_requirement_has_a_required_or_optional_tool(self):
+        covered = {tool.get('requirement') for tool in SPEC['tools']}
+        for need in ('python', 'pillow', 'numpy', 'cairosvg', 'ffmpeg', 'node', 'browser'):
+            self.assertIn(need, covered)
+
+    def test_versions_are_read_and_compared(self):
+        self.assertEqual(check.version_of('v22.22.0'), '22.22.0')
+        self.assertEqual(check.version_of('ffmpeg version 6.1.1-3ubuntu5 Copyright'), '6.1.1')
+        self.assertEqual(check.version_of('Chromium 141.0.7390.37 '), '141.0.7390.37')
+        self.assertTrue(check.older('3.13.16', '3.14.8'))
+        self.assertFalse(check.older('24.21.0', '20'))
+        self.assertFalse(check.older('unknown', None))
+
+
+@unittest.skipIf(os.name == 'nt', 'uses shell scripts as stand-in programs')
+class Environment(unittest.TestCase):
+    def test_empty_path_reports_missing_tools_and_what_studio_delivers_instead(self):
+        code, report, created = run_check()
+        tools, capabilities = by_id(report['tools']), by_id(report['capabilities'])
+        self.assertEqual(code, 0)
+        self.assertEqual(tools['node']['status'], 'missing')
+        self.assertEqual(tools['browser']['status'], 'missing')
+        self.assertEqual(tools['hyperframes']['status'], 'not_installed')
+        self.assertEqual(capabilities['motion_frame_review']['status'], 'missing')
+        self.assertTrue(capabilities['motion_frame_review']['when_missing'])
+        self.assertIn('node', {step['id'] for step in report['install']})
+        self.assertTrue(report['installs_nothing'])
+        self.assertEqual(created, [], 'the check must not create files')
+
+    def test_strict_fails_only_for_required_tools(self):
+        code, _, _ = run_check('--strict')
+        self.assertEqual(code, 1)
+
+    def test_versions_against_minimum_and_newest(self):
+        with tempfile.TemporaryDirectory() as bin_dir:
+            fake_program(bin_dir, 'node', 'v18.0.0')
+            fake_program(bin_dir, 'ffmpeg', 'ffmpeg version 9.0.2 Copyright')
+            fake_program(bin_dir, 'ffprobe', 'ffprobe version 9.0.2 Copyright')
+            fake_program(bin_dir, 'chromium', 'Chromium 120.0.6099.0')
+            _, report, _ = run_check(path=bin_dir)
+        tools, steps = by_id(report['tools']), by_id(report['install'])
+        self.assertEqual((tools['node']['status'], tools['node']['version']), ('below_minimum', '18.0.0'))
+        self.assertEqual(tools['ffmpeg']['status'], 'ok')
+        self.assertEqual(tools['browser']['status'], 'behind')
+        self.assertIsNone(tools['browser']['note'], 'a browser on PATH is found by Studio\'s tools too')
+        self.assertEqual((steps['node']['action'], steps['node']['below']), ('update', True))
+        self.assertIn('hyperframes_engine', {c['id'] for c in report['capabilities'] if 'node>=22' in c['missing']})
+
+    def test_per_project_packages_and_hyperframes_skills(self):
+        with tempfile.TemporaryDirectory() as project:
+            remotion = pathlib.Path(project, 'node_modules/remotion')
+            remotion.mkdir(parents=True)
+            (remotion / 'package.json').write_text(json.dumps({'name': 'remotion', 'version': '4.0.534'}))
+            skill = pathlib.Path(project, '.agents/skills/hyperframes')
+            skill.mkdir(parents=True)
+            (skill / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
+            _, report, _ = run_check(project=project)
+        tools = by_id(report['tools'])
+        self.assertEqual((tools['remotion']['status'], tools['remotion']['pinned']), ('ok', '4.0.530'))
+        self.assertEqual(tools['gsap']['status'], 'per_project')
+        self.assertEqual(tools['hyperframes']['status'], 'ok')
+        self.assertTrue(tools['hyperframes']['skills'][0].endswith('hyperframes'))
+
+
+class Network(unittest.TestCase):
+    def args(self, online):
+        return check.argparse.Namespace(online=online, project='.', browser=None)
+
+    def test_offline_never_opens_a_connection(self):
+        with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):
+            data = check.report(self.args(False))
+        self.assertEqual(data['latest_from'], 'snapshot of ' + SPEC['checked'])
+        self.assertIsNone(data['requirements']['network'])
+
+    def test_failed_online_lookup_keeps_the_snapshot_and_says_so(self):
+        with mock.patch.object(check.urllib.request, 'urlopen', side_effect=OSError('offline')):
+            data = check.report(self.args(True))
+        self.assertIn('online lookup failed', data['latest_from'])
+        self.assertIs(data['requirements']['network'], False)
+        self.assertEqual(by_id(data['tools'])['numpy']['latest'], by_id(SPEC['tools'])['numpy']['known_latest'])
+
+
+if __name__ == '__main__':
+    unittest.main()

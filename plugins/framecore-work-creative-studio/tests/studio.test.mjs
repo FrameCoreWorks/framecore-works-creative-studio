@@ -88,6 +88,25 @@ test('dated generator snapshots and the research owner agree on each snapshot da
   });
 });
 
+test('the environment check covers every requirement of the capability card and is linked from the entry', () => {
+  assert.ok(!codes(validateStudio(source)).includes('ENVIRONMENT_CHECK'));
+  const toolsPath = 'skills/workflow-orchestrator/assets/environment-check/tools.json';
+  for (const [change, label] of [
+    [data => { data.tools = data.tools.filter(tool => tool.id !== 'ffmpeg' && tool.id !== 'ffprobe'); }, 'an unchecked requirement'],
+    [data => { data.tools[0].requirement = 'gpu'; }, 'unknown requirement'],
+    [data => { data.tools.find(tool => tool.id === 'hyperframes').capability = 'teleport'; }, 'unknown capability'],
+    [data => { data.tools.find(tool => tool.id === 'remotion').pinned_by = 'skills/none/package.json'; }, 'missing project file'],
+    [data => { data.tools[0].install = {linux: 'apt install python3'}; }, 'install steps for one system only'],
+  ]) withFixture(root => {
+    editJson(root, toolsPath, change);
+    assert.ok(codes(validateStudio(root)).includes('ENVIRONMENT_CHECK'), label);
+  });
+  withFixture(root => {
+    edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.replace('(assets/environment-check/README.md)', ''));
+    assert.ok(codes(validateStudio(root)).includes('ENVIRONMENT_CHECK'));
+  });
+});
+
 test('HyperFrames is an optional engine under Studio routing, never selected by area 8 alone', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const engine = read('skills/hyperframes-workflow/references/hyperframes-engine.md');

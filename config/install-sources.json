@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.44.0",
+  "version": "1.45.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "a02d5bb7d11dcfdd8c0d1359c7654f842045987147421f1c46047652ac2aa460"
+      "sha256": "1eefa253696de1c050402a71e5934691307ae87a420c0adc611e5c0a769a922f"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 20920,
-      "sha256": "1e0810508566ab9e5a55645d63d24d0085a4bfcd017e1a7d8cf9d072db5713a9"
+      "sha256": "bc787931ad869376975810f2319d18f4bf140b57d70bc27c23dbd99cb7dcdb46"
     },
     {
       "path": "assets/logo.png",
@@ -93,8 +93,8 @@
     },
     {
       "path": "docs/knowledge-map.md",
-      "bytes": 13044,
-      "sha256": "38aa991c6b5d35cc8ec18a2805f38a402988e38afd96fda79e65655f0e45c691"
+      "bytes": 13294,
+      "sha256": "bf9e4782f64cc979856c34c2e0e050ba7fb61190fe7a549126263da4558767b2"
     },
     {
       "path": "docs/learning-mode.md",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "688cea0cc8d364f8e31fd0d89b444d078d34066b2977d9b33fb9d971ee175d77"
+      "sha256": "4f2f1c10712303764c339f59beaf7d24613bb709347b8207c8680562c8d56998"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 83787,
-      "sha256": "5ae09eb1377395588b5a0e5959c8561aae1ebfbcfa32ba9d48b8eda5f42c605a"
+      "bytes": 85608,
+      "sha256": "611daace25a9cb7fc766da0765371cf62c323f3c1c00ab47f3b8177a40650588"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2259,7 +2259,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "47d0705b3f4a3711314ab78a1669dcd99607347e4c89a85fb449d85b865dff14"
+      "sha256": "83676d4fa2daca2c156c57392c2a03eac63d6e753a9a9f005d7ce79a15f719bf"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2323,8 +2323,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 37808,
-      "sha256": "3e27d1ca4f88a2b69cc27dc05bdddf2baa9a6d082d7c33c46a3e920accf8be76"
+      "bytes": 40367,
+      "sha256": "916baebb123857f8630a255d2ee5121ab8ff1f5a3ddba913098af0b41619e1fa"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -3333,8 +3333,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
-      "bytes": 4931,
-      "sha256": "dfb65fc5c9c1fab83b41423a8b669e18b293ef18637f48f2044c17e6360fdd62"
+      "bytes": 5166,
+      "sha256": "4aadf141cbfa8a3dccb27ffa4da582f5882453ee6d75801ecaf43d3b5d8c0595"
     },
     {
       "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
@@ -4398,8 +4398,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 30200,
-      "sha256": "27dff5952dfc52bbd046550976d97bbde5aa80a741c6f114bcf064616ad5e9f0"
+      "bytes": 30468,
+      "sha256": "b3631f359acd13944388faa975625e7c911c4e56570c2fca3a9dc449d55f4f0b"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4420,6 +4420,21 @@
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
       "bytes": 5327,
       "sha256": "d7492574e9c25d3effeeb990472393f8fcf2626f6bd1c24efbb0b6dc33b7bd0f"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
+      "bytes": 3947,
+      "sha256": "70454466aeac3bc799e2640838b7fff6d76d7269ace5a749c187ecfe14a11feb"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+      "bytes": 17544,
+      "sha256": "d834e0b54b2f6e59fd482e99a9ccda82977e4daf9a3f2836c23373df5c9d314a"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
+      "bytes": 6838,
+      "sha256": "a94cd1f1d105e712856b14280fd1ef0b6b50443fcbcd62a9ed6ddbdc31cb69b1"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -4498,8 +4513,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
-      "bytes": 8737,
-      "sha256": "78b0860a503fba8c16f1beb640f0f131015056a4af435411d928b1c1bb46105e"
+      "bytes": 9063,
+      "sha256": "5cf9427b96bdee08f38577653c521f9d79395adb734cb5285137bb45a9760535"
     },
     {
       "path": "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
@@ -4602,6 +4617,11 @@
       "sha256": "ad54600b840c8db84a90aa2cd0c973d212fc7795c1d7ec45ca182c8f7f800bcf"
     },
     {
+      "path": "tests/environment_check_test.py",
+      "bytes": 7159,
+      "sha256": "9a151fe821131f820639feb3bcad2e750dd0cbdd73ad7d698285f8a324dd88ca"
+    },
+    {
       "path": "tests/learning-mode.test.mjs",
       "bytes": 21464,
       "sha256": "dc5798d2832424e3422f944f3262425b940a625c2d3cebc2b28502b4c0f80bb3"
@@ -4633,8 +4653,8 @@
     },
     {
       "path": "tests/studio.test.mjs",
-      "bytes": 31493,
-      "sha256": "0edf95df04016f9d06fa4316770acbb8fe8b18ef672ac24c46a8a30aba22bbbe"
+      "bytes": 32761,
+      "sha256": "681546b91efb9f6f52fa222f1f2740716bc2618f93f118d72652eb0e8c669654"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

@@ -1,0 +1,34 @@
+{
+  "version": "1.45.0",
+  "baseline": "8f3598d3840390748fa3b088a4ad0864c3581063",
+  "change_id": "CC-20261009-05",
+  "origin": "cloud-code",
+  "files": 923,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/hyperframes-workflow/references/hyperframes-engine.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 908,
+  "added": [
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+    "skills/workflow-orchestrator/assets/environment-check/tools.json",
+    "tests/environment_check_test.py"
+  ],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Environment check (owner request 2026-10-09): a standard-library Python check with its tool list and README, links from the Workflow Orchestrator, its capabilities reference, the HyperFrames engine reference and the knowledge map, an ENVIRONMENT_CHECK validator rule with a Studio test, and 9 Python tests; nothing is installed by it"
+}

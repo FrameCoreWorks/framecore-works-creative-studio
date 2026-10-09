@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.44.0
+## Current source: 1.45.0
+
+The [1.45.0 source checks](verification/release-1.45.0.json) pass canonical validation and `scripts/check_all.sh`: 203 Node tests (199 passing, 4 opt-in browser tests skipped there and run separately: 67 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 8 GEPA pilot, 23 asset, 14 caption and 9 environment-check tests; the legacy suite matches its recorded baseline. The environment check ran in this container offline and with `--online` (all registries answered); its tests use stand-in programs on an empty PATH and a temporary home, and check that an offline run opens no connection and that no file is written. The newest versions in `tools.json` were read on 2026-10-09 from PyPI, npm, nodejs.org, endoflife.date and Chromium's release feed. It was not run on macOS, Windows or in ChatGPT's code execution. [Scope](verification/scope-1.45.0.json) records 11 changed and 4 added shared files out of 923.
+
+## Previous source: 1.44.0
 
 The [1.44.0 source checks](verification/release-1.44.0.json) pass canonical validation and `scripts/check_all.sh`: 202 Node tests (198 passing, 4 opt-in browser tests skipped there and run separately: 67 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 8 GEPA pilot, 23 asset and 14 caption checks; the legacy suite matches its recorded baseline. The new HyperFrames engine reference was checked on 2026-10-09 against the heygen-com/hyperframes repository at commit `3aa6886` (its README, plugin manifest, router and workflow skills, CLI 0.8.143) and the hyperframes.dev pages; a new test keeps the engine optional and area `8` engine-neutral. HyperFrames was not installed or run through Studio. [Scope](verification/scope-1.44.0.json) records 11 changed and 1 added shared files out of 919.
 

@@ -967,3 +967,25 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `bfe9dc8`; release workflow 37899173624, checks 37899173622, 37899176172 and 37899178932, release-notes refresh 37899173549: success; [v1.44.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.44.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (919 of 919), all 37 skill frontmatters parse ([record](../verification/github-publication-1.44.0.json))
 - ChatGPT Work: pending (hosted update on owner instruction only; 1.43.0 is the saved release)
 - Codex: not_run
+
+## CC-20261009-05
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-05-environment-check`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `8f3598d` (main, package 1.44.0, after its publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.45.0)
+- Package version: 1.44.0 -> 1.45.0
+- Scope: the owner asked on 2026-10-09 that installing Studio checks the environment for everything its skills use (HyperFrames, Remotion, FFmpeg, Chrome and the rest), whether it is installed and current, tells the user how to install what is missing, and that one command runs the same check. New `workflow-orchestrator/assets/environment-check/` (`check_environment.py`, standard library only; `tools.json` with minimums, newest versions known on 2026-10-09, registry sources and install steps per system; README) reporting tool statuses, capability readiness from the capability card and grouped install steps; it installs nothing. The orchestrator answers environment requests with it before any welcome; its capabilities reference runs it before the first coded render when nothing shows the tools work; the HyperFrames engine reference and the knowledge map link it; `CODEX_INSTALL.md` and `CHATGPT_INSTALL.md` run it after the save. Validator rule `ENVIRONMENT_CHECK` with a Studio test; `tests/environment_check_test.py` (9) in `scripts/check_all.sh`. Welcome and menus unchanged
+- Shared package changed: yes; 11 changed, 4 added, 0 removed ([scope](../verification/scope-1.45.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 199 passing of 203 (4 opt-in browser tests; 67 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, GEPA pilot 8, asset 23, captions 14, environment check 9: PASS ([record](../verification/release-1.45.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run; the check ran on Linux only
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (hosted update on owner instruction only; 1.43.0 is the saved release)
+- Codex: not_run

@@ -22,6 +22,8 @@ Installing downloads code from npm and GitHub, so it needs the user's request fo
 
 Never install into the plugin directory, and never overwrite an existing project's lockfiles to match a HyperFrames version; report the conflict.
 
+The [environment check](../../workflow-orchestrator/assets/environment-check/README.md) shows whether HyperFrames' CLI or skills are already present and whether Node.js, FFmpeg and Chrome meet its needs, before anything is installed.
+
 ## Who decides what
 
 HyperFrames' router describes itself as the mandatory entry point for every video request. Inside Studio it is an execution engine, not a second orchestrator:

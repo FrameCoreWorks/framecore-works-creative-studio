@@ -45,7 +45,9 @@ This installs the same Studio knowledge through a local native entry. It does no
 
 ## 5. Offer optional tools after installation
 
-After the Studio save succeeds, read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.
+After the Studio save succeeds, check the environment once: run the [environment check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md) from the installed bundle (`<persistent-bundle-dir>/skills/workflow-orchestrator/assets/environment-check/check_environment.py`) in the user's shell, with `--online` when network access is allowed. Show the user its result in their language: which capabilities are ready, what is missing or outdated, and the install commands for their system. It installs nothing; run an install step only when the user asks for it, then run the check again. Optional engines such as HyperFrames are offered, not installed. The same check runs later whenever the user asks Studio what is installed.
+
+Then read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.
 
 Installation does not connect providers, modify unrelated settings, generate media, spend credits, upload client assets or publish anything. Skipping provider setup leaves the Studio installation complete. On updates, preserve private preferences and do not repeat onboarding unless requested or materially needed.
 

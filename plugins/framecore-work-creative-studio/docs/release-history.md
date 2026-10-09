@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.45.0, 2026-10-09
+
+The owner asked on 2026-10-09 for Studio to check its environment at installation and with one command; the welcome and menus are unchanged:
+
+- **Environment check.** One command, [`check_environment.py`](../skills/workflow-orchestrator/assets/environment-check/README.md), shows what Studio's tools can use where it runs: Python, Pillow, NumPy, CairoSVG, FFmpeg and FFprobe, Node.js and npx, Chrome or Chromium (including Playwright's copies), Remotion and GSAP per project, and HyperFrames' CLI and installed skills. Each tool is `ok`, `behind`, `below_minimum`, `missing`, `not_installed` (optional), `per_project` or `unknown`; each capability of the capability card is `ready`, `missing` (with what Studio delivers instead) or `unknown`; install and update commands follow for Linux, macOS or Windows, grouped into needed, optional and newer versions. Newest versions come from a snapshot dated 2026-10-09 or, with `--online`, from PyPI, npm, nodejs.org, endoflife.date and Chromium's stable channel. It installs nothing.
+- **At installation and on request.** The Codex and ChatGPT Work installation guides run it once after the plugin is saved and show the user the result; Studio runs it whenever the user asks what is installed, and once before the first coded render when nothing shows the tools work. Install steps run only when the user asks. In ChatGPT the check describes the conversation's sandbox, not the user's computer.
+- The validator checks that `tools.json` covers every checkable requirement of the capability card and maps each tool to a requirement, capability or pinned project file (`ENVIRONMENT_CHECK`), with a Studio test; 9 Python tests cover statuses, minimums, newest versions, per-project packages, HyperFrames skills and that offline runs never open a connection.
+
 ## 1.44.0, 2026-10-09
 
 The owner's decision of 2026-10-09 on HyperFrames (1a: an optional engine where a shell exists, installed with a pinned command, not copied; 2a: the HeyGen catalog only on request); the welcome and menus are unchanged:

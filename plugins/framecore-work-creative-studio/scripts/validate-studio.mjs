@@ -202,6 +202,31 @@ export function validateStudio(root, {legacy = false} = {}) {
       if (!read(relative).includes('capability-card.json)')) fail('CAPABILITY_CARD', relative + ' must link the capability card');
     }
   } catch (error) { fail('CAPABILITY_CARD', error.message); }
+  // The environment check lists every tool behind the capability card's requirements; both must name the same things.
+  try {
+    const card = json('skills/workflow-orchestrator/assets/capability-card.json');
+    const spec = json('skills/workflow-orchestrator/assets/environment-check/tools.json');
+    const values = new Set(card.requirement_values ?? []), capabilities = new Set((card.capabilities ?? []).map(item => item.id));
+    if (spec.schema_version !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(String(spec.checked)) || !Array.isArray(spec.tools) || !spec.tools.length) fail('ENVIRONMENT_CHECK', 'tools.json: schema, check date and tools');
+    const ids = new Set();
+    for (const tool of spec.tools ?? []) {
+      const where = String(tool?.id);
+      if (!/^[a-z_]+$/.test(where) || ids.has(where)) fail('ENVIRONMENT_CHECK', where + ': id must be unique snake_case');
+      ids.add(where);
+      if (tool.requirement !== undefined && !values.has(tool.requirement)) fail('ENVIRONMENT_CHECK', where + ': unknown requirement ' + tool.requirement);
+      if (tool.capability !== undefined && !capabilities.has(tool.capability)) fail('ENVIRONMENT_CHECK', where + ': unknown capability ' + tool.capability);
+      if (tool.pinned_by !== undefined && !files.includes(tool.pinned_by)) fail('ENVIRONMENT_CHECK', where + ': missing pinned_by ' + tool.pinned_by);
+      if (tool.requirement === undefined && tool.capability === undefined && tool.pinned_by === undefined) fail('ENVIRONMENT_CHECK', where + ': maps to no requirement, capability or project file');
+      const install = tool.install ?? {};
+      if (!(install.any || ['linux', 'macos', 'windows'].every(system => install[system]))) fail('ENVIRONMENT_CHECK', where + ': install steps for every system');
+    }
+    const covered = new Set(spec.tools.map(tool => tool.requirement));
+    for (const need of values) if (!['host_tool', 'user_browser', 'network', 'none'].includes(need) && !covered.has(need)) fail('ENVIRONMENT_CHECK', 'no tool checks the requirement ' + need);
+    for (const relative of ['skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/references/capabilities-and-handoffs.md']) {
+      if (!read(relative).includes('assets/environment-check/README.md)')) fail('ENVIRONMENT_CHECK', relative + ' must link the environment check');
+    }
+    if (!files.includes('skills/workflow-orchestrator/assets/environment-check/check_environment.py')) fail('ENVIRONMENT_CHECK', 'check_environment.py is missing');
+  } catch (error) { fail('ENVIRONMENT_CHECK', error.message); }
   if (registry.schema_version !== 1 || owners.length !== expectedOwnerCount || new Set(ownerIds).size !== expectedOwnerCount || !isDeepStrictEqual([...ownerIds].sort(), actualOwners)) fail('OWNER_ROSTER', 'Registry must match all thirty-seven installed skill roots');
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.
