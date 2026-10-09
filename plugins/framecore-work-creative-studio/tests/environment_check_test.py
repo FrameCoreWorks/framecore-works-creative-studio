@@ -44,7 +44,10 @@ class ToolList(unittest.TestCase):
     def test_every_tool_maps_to_the_capability_card(self):
         values, capabilities = set(CARD['requirement_values']), {item['id'] for item in CARD['capabilities']}
         for tool in SPEC['tools']:
-            self.assertTrue(tool.get('requirement') in values or tool.get('capability') in capabilities or tool.get('pinned_by'), tool['id'])
+            self.assertNotIn('optional', tool, 'every tool belongs to the one required set')
+            self.assertTrue(tool.get('requirement') in values or tool.get('capability') in capabilities or tool.get('pinned_by') or tool.get('used_by'), tool['id'])
+            if tool.get('used_by'):
+                self.assertTrue((PLUGIN / tool['used_by']).is_file(), tool['used_by'])
             if tool.get('capability'):
                 self.assertIn(tool['capability'], capabilities)
             if tool.get('pinned_by'):
@@ -73,16 +76,20 @@ class Environment(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(tools['node']['status'], 'missing')
         self.assertEqual(tools['browser']['status'], 'missing')
-        self.assertEqual(tools['hyperframes']['status'], 'not_installed')
+        self.assertEqual(tools['hyperframes']['status'], 'missing')
+        self.assertEqual(tools['remotion']['status'], 'missing', 'the Studio workspace is part of the required set')
+        self.assertEqual(report['final']['verdict'], 'fail')
         self.assertEqual(capabilities['motion_frame_review']['status'], 'missing')
         self.assertTrue(capabilities['motion_frame_review']['when_missing'])
         self.assertIn('node', {step['id'] for step in report['install']})
         self.assertTrue(report['installs_nothing'])
         self.assertEqual(created, [], 'the check must not create files')
 
-    def test_strict_fails_only_for_required_tools(self):
-        code, _, _ = run_check('--strict')
-        self.assertEqual(code, 1)
+    def test_strict_and_final_fail_when_the_required_set_is_incomplete(self):
+        self.assertEqual(run_check('--strict')[0], 1)
+        code, report, _ = run_check('--final')
+        self.assertEqual((code, report['final']['verdict']), (1, 'fail'))
+        self.assertIn('hyperframes', {f['id'] for f in report['final']['failing']})
 
     def test_versions_against_minimum_and_newest(self):
         with tempfile.TemporaryDirectory() as bin_dir:
@@ -99,20 +106,45 @@ class Environment(unittest.TestCase):
         self.assertEqual((steps['node']['action'], steps['node']['below']), ('update', True))
         self.assertIn('hyperframes_engine', {c['id'] for c in report['capabilities'] if 'node>=22' in c['missing']})
 
-    def test_per_project_packages_and_hyperframes_skills(self):
-        with tempfile.TemporaryDirectory() as project:
-            remotion = pathlib.Path(project, 'node_modules/remotion')
-            remotion.mkdir(parents=True)
-            (remotion / 'package.json').write_text(json.dumps({'name': 'remotion', 'version': '4.0.534'}))
+    def test_workspace_starters_and_hyperframes_skills(self):
+        def install(workspace, tool_id, change=None):
+            tool = by_id(SPEC['tools'])[tool_id]
+            manifest = json.loads((PLUGIN / tool['pinned_by']).read_text())
+            for name, version in {**manifest.get('dependencies', {}), **manifest.get('devDependencies', {})}.items():
+                folder = pathlib.Path(workspace, tool['workspace_name'], 'node_modules', name)
+                folder.mkdir(parents=True)
+                (folder / 'package.json').write_text(json.dumps({'name': name, 'version': change.get(name, version) if change else version}))
+        with tempfile.TemporaryDirectory() as project, tempfile.TemporaryDirectory() as workspace:
+            install(workspace, 'remotion')
+            install(workspace, 'gsap', {'gsap': '3.12.0'})
             skill = pathlib.Path(project, '.agents/skills/hyperframes')
             skill.mkdir(parents=True)
             (skill / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
-            _, report, _ = run_check(project=project)
+            _, report, _ = run_check('--workspace', workspace, project=project)
         tools = by_id(report['tools'])
-        self.assertEqual((tools['remotion']['status'], tools['remotion']['pinned']), ('ok', '4.0.530'))
-        self.assertEqual(tools['gsap']['status'], 'per_project')
+        self.assertEqual((tools['remotion']['status'], tools['remotion']['pinned']['remotion']), ('ok', '4.0.530'))
+        self.assertEqual(tools['gsap']['status'], 'wrong_version')
+        self.assertIn('gsap 3.12.0 (lockfile 3.15.0)', tools['gsap']['note'])
+        self.assertEqual(tools['motion_toolkit']['status'], 'missing')
         self.assertEqual(tools['hyperframes']['status'], 'ok')
         self.assertTrue(tools['hyperframes']['skills'][0].endswith('hyperframes'))
+        commands = by_id(report['install'])
+        self.assertIn('npm ci', commands['motion_toolkit']['command'])
+        self.assertNotIn('<plugin>', commands['motion_toolkit']['command'], 'the command names the real plugin folder')
+
+
+class FinalCheck(unittest.TestCase):
+    def results(self, **statuses):
+        return [{'id': tool, 'status': status} for tool, status in statuses.items()]
+
+    def test_verdicts(self):
+        self.assertEqual(check.final_verdict(self.results(python='ok', ffmpeg='behind'), 'codex', 'shell')['verdict'], 'pass')
+        self.assertEqual(check.final_verdict(self.results(python='ok', manim='missing'), 'claude_code', 'shell')['verdict'], 'fail')
+        self.assertEqual(check.final_verdict(self.results(gsap='wrong_version'), 'codex', 'shell')['verdict'], 'fail')
+        limited = check.final_verdict(self.results(python='ok', cairosvg='missing', remotion='not_on_this_host'), 'chatgpt_work', 'code_execution')
+        self.assertEqual((limited['verdict'], limited['not_on_this_host']), ('limited', ['remotion']))
+        self.assertEqual(check.final_verdict(self.results(remotion='not_on_this_host'), 'chatgpt', 'code_execution')['verdict'], 'pass')
+        self.assertEqual(check.final_verdict(self.results(python='ok'), None, None)['verdict'], 'unknown_host')
 
 
 class Hosts(unittest.TestCase):
@@ -132,7 +164,7 @@ class Hosts(unittest.TestCase):
         self.assertEqual(table, check.matrix(SPEC, markdown=True))
 
     def test_named_host_marks_unsupported_tools_as_not_on_this_host(self):
-        args = check.argparse.Namespace(online=False, project=tempfile.gettempdir(), browser=None, host='chatgpt')
+        args = check.argparse.Namespace(online=False, project=tempfile.gettempdir(), browser=None, host='chatgpt', workspace=tempfile.gettempdir())
         with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):
             data = check.report(args)
         tools = by_id(data['tools'])
@@ -150,7 +182,7 @@ class Hosts(unittest.TestCase):
 
 class Network(unittest.TestCase):
     def args(self, online):
-        return check.argparse.Namespace(online=online, project='.', browser=None, host='auto')
+        return check.argparse.Namespace(online=online, project='.', browser=None, host='auto', workspace=tempfile.gettempdir())
 
     def test_offline_never_opens_a_connection(self):
         with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):

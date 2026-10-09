@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-09",
+  "package": "1.49.0 source (environment check of this change)",
+  "host": "claude_code (Claude Code cloud container, Linux)",
+  "command": "check_environment.py --final --host claude_code --workspace <scratch>/workspace --browser <playwright chromium>",
+  "provisioning": [
+    "python3 -m venv; pip install pillow numpy imageio-ffmpeg cairosvg matplotlib",
+    "apt-get install libcairo2-dev libpango1.0-dev pkg-config; pip install manim (fails without them: manimpango does not build)",
+    "the four starters copied from the plugin into <scratch>/workspace and installed with npm ci (all exit 0)",
+    "npx hyperframes@0.8.143 skills update with an isolated HOME (10 skills, media-use included)"
+  ],
+  "final": {
+    "verdict": "pass",
+    "failing": [],
+    "not_on_this_host": []
+  },
+  "tools": [
+    {
+      "id": "python",
+      "status": "behind",
+      "version": "3.13.16",
+      "on_host": "install"
+    },
+    {
+      "id": "pillow",
+      "status": "ok",
+      "version": "12.3.0",
+      "on_host": "install"
+    },
+    {
+      "id": "numpy",
+      "status": "ok",
+      "version": "2.5.3",
+      "on_host": "install"
+    },
+    {
+      "id": "cairosvg",
+      "status": "ok",
+      "version": "2.9.1",
+      "on_host": "install"
+    },
+    {
+      "id": "imageio_ffmpeg",
+      "status": "ok",
+      "version": "0.6.0",
+      "on_host": "install"
+    },
+    {
+      "id": "matplotlib",
+      "status": "ok",
+      "version": "3.11.2",
+      "on_host": "install"
+    },
+    {
+      "id": "manim",
+      "status": "ok",
+      "version": "0.22.0",
+      "on_host": "install"
+    },
+    {
+      "id": "ffmpeg",
+      "status": "behind",
+      "version": "6.1.1",
+      "on_host": "install"
+    },
+    {
+      "id": "ffprobe",
+      "status": "ok",
+      "version": "6.1.1",
+      "on_host": "install"
+    },
+    {
+      "id": "node",
+      "status": "behind",
+      "version": "22.22.0",
+      "on_host": "install"
+    },
+    {
+      "id": "npx",
+      "status": "ok",
+      "version": "10.9.4",
+      "on_host": "install"
+    },
+    {
+      "id": "browser",
+      "status": "behind",
+      "version": "141.0.7390.37",
+      "on_host": "install"
+    },
+    {
+      "id": "remotion",
+      "status": "ok",
+      "version": "pinned",
+      "on_host": "per_project"
+    },
+    {
+      "id": "gsap",
+      "status": "ok",
+      "version": "pinned",
+      "on_host": "per_project"
+    },
+    {
+      "id": "remotion_three",
+      "status": "ok",
+      "version": "pinned",
+      "on_host": "per_project"
+    },
+    {
+      "id": "motion_toolkit",
+      "status": "ok",
+      "version": "pinned",
+      "on_host": "per_project"
+    },
+    {
+      "id": "hyperframes",
+      "status": "ok",
+      "version": null,
+      "on_host": "install"
+    }
+  ],
+  "boundary": "One Linux container; not macOS or Windows, not the owner's machine. System FFmpeg 6.1.1, Node.js 22.22.0, Chromium 141 and Python 3.13.16 are older than the newest versions and pass as behind."
+}

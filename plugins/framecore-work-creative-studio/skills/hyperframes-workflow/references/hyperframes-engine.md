@@ -14,15 +14,15 @@ Otherwise keep the bundled route: the Python renderer, the motion player, [sound
 
 ## Installing it
 
-Installing downloads code from npm and GitHub, so it needs the user's request for this project. Prefer the version-pinned route:
+On Codex and Claude Code, HyperFrames belongs to Studio's one required set of tools (owner decision 2026-10-09): it is installed with Studio, and the installation's final check confirms it. Installing downloads code from npm and GitHub as part of that requested installation. Whether a given film uses it is still decided per brief, as above. Prefer the version-pinned route:
 
 1. **HyperFrames' own plugin** for Codex or Claude Code, installed through that client's plugin manager. Its launcher runs the CLI version the plugin release names, and its skills say not to self-update during a task.
-2. **Standalone skills**, when the user prefers them: `npx skills add heygen-com/hyperframes --full-depth` (the interactive picker's Core Skills group), or for agents `npx hyperframes@0.8.143 skills update`, which installs the core set from HyperFrames' current main. Whether `skills add` accepts a commit pin is Unknown; record the commit actually installed (`git ls-remote https://github.com/heygen-com/hyperframes HEAD`).
+2. **Standalone skills**, when the user prefers them (they include `media-use`, the HeyGen catalog skill, which stays unused unless the user asks for it): `npx skills add heygen-com/hyperframes --full-depth` (the interactive picker's Core Skills group), or for agents `npx hyperframes@0.8.143 skills update`, which installs the core set from HyperFrames' current main. Whether `skills add` accepts a commit pin is Unknown; record the commit actually installed (`git ls-remote https://github.com/heygen-com/hyperframes HEAD`).
 3. **The desktop Studio app** (hyperframes.dev/studio, HeyGen account sign-in) is the user's own tool; Studio can prepare the brief and review the result, not drive the app.
 
 Never install into the plugin directory, and never overwrite an existing project's lockfiles to match a HyperFrames version; report the conflict.
 
-The [environment check](../../workflow-orchestrator/assets/environment-check/README.md) shows whether HyperFrames' CLI or skills are already present and whether Node.js, FFmpeg and Chrome meet its needs, before anything is installed.
+The [environment check](../../workflow-orchestrator/assets/environment-check/README.md) shows whether HyperFrames' CLI or skills are present and whether Node.js, FFmpeg and Chrome meet its needs; its final check at installation fails on Codex and Claude Code until they are.
 
 ## Who decides what
 

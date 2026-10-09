@@ -211,6 +211,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   try {
     const card = json('skills/workflow-orchestrator/assets/capability-card.json');
     const spec = json('skills/workflow-orchestrator/assets/environment-check/tools.json');
+    const filled = value => typeof value === 'string' && value.trim().length > 0;
     const values = new Set(card.requirement_values ?? []), capabilities = new Set((card.capabilities ?? []).map(item => item.id));
     if (spec.schema_version !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(String(spec.checked)) || !Array.isArray(spec.tools) || !spec.tools.length) fail('ENVIRONMENT_CHECK', 'tools.json: schema, check date and tools');
     const ids = new Set();
@@ -221,12 +222,15 @@ export function validateStudio(root, {legacy = false} = {}) {
       if (tool.requirement !== undefined && !values.has(tool.requirement)) fail('ENVIRONMENT_CHECK', where + ': unknown requirement ' + tool.requirement);
       if (tool.capability !== undefined && !capabilities.has(tool.capability)) fail('ENVIRONMENT_CHECK', where + ': unknown capability ' + tool.capability);
       if (tool.pinned_by !== undefined && !files.includes(tool.pinned_by)) fail('ENVIRONMENT_CHECK', where + ': missing pinned_by ' + tool.pinned_by);
-      if (tool.requirement === undefined && tool.capability === undefined && tool.pinned_by === undefined) fail('ENVIRONMENT_CHECK', where + ': maps to no requirement, capability or project file');
+      if (tool.used_by !== undefined && !files.includes(tool.used_by)) fail('ENVIRONMENT_CHECK', where + ': missing used_by ' + tool.used_by);
+      if (tool.requirement === undefined && tool.capability === undefined && tool.pinned_by === undefined && tool.used_by === undefined) fail('ENVIRONMENT_CHECK', where + ': maps to no requirement, capability, project file or user');
+      // One required set: no tool is optional, and a workspace tool names the starter it installs.
+      if ('optional' in tool) fail('ENVIRONMENT_CHECK', where + ': every tool is required; remove optional');
+      if (tool.kind === 'workspace' && !(filled(tool.workspace_name) && files.includes(tool.pinned_by ?? '') && files.includes(String(tool.pinned_by).replace(/package\.json$/, 'package-lock.json')))) fail('ENVIRONMENT_CHECK', where + ': a workspace tool needs workspace_name and a starter with package.json and package-lock.json');
       const install = tool.install ?? {};
       if (!(install.any || ['linux', 'macos', 'windows'].every(system => install[system]))) fail('ENVIRONMENT_CHECK', where + ': install steps for every system');
     }
     // Every tool has a status for every host the plugin runs in; an observed status names its evidence.
-    const filled = value => typeof value === 'string' && value.trim().length > 0;
     const hostIds = (spec.hosts ?? []).map(host => host?.id), statuses = Object.keys(spec.host_statuses ?? {});
     if (!isDeepStrictEqual([...hostIds].sort(), ['chatgpt', 'chatgpt_work', 'claude_apps', 'claude_code', 'codex'])) fail('ENVIRONMENT_CHECK', 'hosts must be chatgpt, chatgpt_work, codex, claude_code and claude_apps');
     if (!isDeepStrictEqual([...statuses].sort(), ['check', 'install', 'not_supported', 'observed', 'per_project'])) fail('ENVIRONMENT_CHECK', 'host_statuses must define observed, check, install, per_project and not_supported');

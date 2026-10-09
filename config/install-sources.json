@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.48.0",
+  "version": "1.49.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 970,
-      "sha256": "d01b87215ae27452d17ec5d090548f0cdd48074c6d052b6ae63aab598e953eb4"
+      "sha256": "513e9dd9efd336feb580931485b69b0a1350ffe43b0266fee1760b388c7dd33f"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "b1c4c35c63b772ce3d179196e334776cdf196a2aac74b51b80a1584ccb3c3311"
+      "sha256": "0cda2eb95c2b897e6b4df918047ae1f7e512c1e40e434f426efeda11fd041e47"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 20920,
-      "sha256": "cdb4e852459155f51ff35156c202deb3296e5f36e8191a5a05191656e2820ef5"
+      "sha256": "90d264d5004a874ab597ffcc0a986e839c94e11993e453deaab710c0ad2f2e5d"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "d942db5a024928af62b44d51f528c5164696675682958d1d4ddb52c9c5108ae8"
+      "sha256": "5becc346a9c6caa749d8e643c97037f83e77882fced64b06026e1da63b14a2d5"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 92447,
-      "sha256": "96109d92e7a705c1f42ad2adee4fb53e9ff441d87afdc0f38f04f14d5bcec7ce"
+      "bytes": 94532,
+      "sha256": "14971e4b1cc8789867a051bc554d89c4b5ca6eb6f92dbc4aab3799307f8ec6eb"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2264,7 +2264,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "66368cc9dcaa27b615002c53b78067d1bf1dcdc6be9ef53a465d2d18c61d4bc3"
+      "sha256": "8e56148dba6e40e651407a13eaa21c886e8436bf5880c03ad34b86ef8b9bb82d"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2328,8 +2328,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 42569,
-      "sha256": "a884abca787f8738d6505bf99c233b890d186638af263714d346c32fa831de5b"
+      "bytes": 43290,
+      "sha256": "008b35b0b8d266abfca1c84a5088b17a55f2ffc4dcda08187b8e106c2f51e858"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -3398,8 +3398,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
-      "bytes": 5496,
-      "sha256": "8016718f05e0a0f6a9a1674fab0eb4b186eccff3ecc714094be040b2f225346d"
+      "bytes": 5885,
+      "sha256": "e61d8141f055cbcce2fa6e1e1a4f6ed9628fa7b92850af64eb07e8405885abb6"
     },
     {
       "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
@@ -4464,7 +4464,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31526,
-      "sha256": "6a35300db2ae821d262c5b9e6e164cca333a7a98f7864a5188ad86ac0657ba31"
+      "sha256": "7e3ad1209ee741e648c9c5d62b874e0730fbd5892362905a166bd2e5978dfe95"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4488,18 +4488,18 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
-      "bytes": 6493,
-      "sha256": "0ea03959e77c42c40e186fbcf080f495778d2ec1c22ac080cde26cbbfe5996b8"
+      "bytes": 9240,
+      "sha256": "defb953dd65e3dad33c27cc2c7c817dbc3242222503341b531e1723e40136802"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
-      "bytes": 20514,
-      "sha256": "60f46845a9134a0a6ebba0810c26d8b98262646ab2fa93d44954f41ad8c0c664"
+      "bytes": 23506,
+      "sha256": "73234f2c7dc06b16369d0c9416fbc2cfa2e20e30513091226f0b1512443861f8"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
-      "bytes": 14731,
-      "sha256": "d2d9d41b9f492387efb666e2dca91ca173064dd43215774851c57db2927de4ab"
+      "bytes": 23438,
+      "sha256": "90031ed8aea059eafc3151ab12157e02f196fb737962feca17ae831ddcd44f25"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -4683,8 +4683,8 @@
     },
     {
       "path": "tests/environment_check_test.py",
-      "bytes": 9342,
-      "sha256": "d73dc258a5f14fba364d8dea950a1305097bab1a292030d22ff6c8f77112a0f4"
+      "bytes": 12017,
+      "sha256": "dc14f4068a771da2e732158d488f02f8624a528efe79a1fc1735d72f2d482c81"
     },
     {
       "path": "tests/learning-mode.test.mjs",

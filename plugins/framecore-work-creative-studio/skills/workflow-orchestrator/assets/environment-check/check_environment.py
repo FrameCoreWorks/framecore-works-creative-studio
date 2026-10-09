@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Check which programs and libraries Studio's tools need are present in this environment, and how to install the rest.
+"""Check that the one required set of programs and libraries Studio uses is present here, and how to install the rest.
 
-  python3 check_environment.py [--online] [--json] [--project DIR] [--browser PATH] [--strict]
+  python3 check_environment.py [--online] [--json] [--host ID] [--workspace DIR] [--project DIR] [--browser PATH]
+  python3 check_environment.py --final --host codex     # the final check of an installation
+  python3 check_environment.py --matrix [--markdown]    # every tool on every host
 
-Reads tools.json (what to look for, minimum and newest known versions, install commands per platform) and the
-capability card (which Studio capability needs what), then reports each tool as ok, behind (older than the newest
-version), below_minimum, missing, per_project, not_installed (optional) or unknown, and which capabilities are ready.
+Reads tools.json (what to look for, minimum and newest known versions, install commands per platform, status per
+host) and the capability card (which Studio capability needs what), then reports each tool as ok, behind (older than
+the newest version), below_minimum, missing, wrong_version (a workspace package other than the lockfile's),
+not_on_this_host (the host cannot run it) or unknown, and which capabilities are ready. Every tool is required:
+--final passes only when every tool the host can run is usable.
 --online reads the newest versions from PyPI, npm, nodejs.org, endoflife.date and Chromium's release feed instead of
 the dated snapshot in tools.json. Nothing is ever installed or changed. Standard library only, so it runs wherever
-Python does (Codex, a local shell, ChatGPT's code execution). Exit code 0, or with --strict 1 when a required tool is
-missing or below its minimum.
+Python does (Codex, a local shell, ChatGPT's code execution). Exit codes: 0; with --strict or --final 1 when a
+required tool is missing, too old or of the wrong version; --final gives 3 (limited) on a chat sandbox host, where the
+user cannot install what is missing, and 2 when the host is not known.
 """
 import argparse
 import glob
@@ -28,6 +33,8 @@ HERE = pathlib.Path(__file__).resolve().parent
 PLUGIN_ROOT = HERE.parents[3]
 CARD = HERE.parent / 'capability-card.json'
 USABLE = ('ok', 'behind')
+FAILING = ('missing', 'below_minimum', 'wrong_version')
+DEFAULT_WORKSPACE = os.environ.get('FRAMECORE_STUDIO_WORKSPACE') or str(pathlib.Path.home() / '.framecore-studio' / 'workspace')
 STUDIO_FINDS_BROWSER = 'Studio\'s frame review finds Chrome on PATH, in CHROME_PATH and in the standard app folders'
 
 
@@ -147,16 +154,26 @@ def check_browser(tool, explicit):
     return None, None, None
 
 
-def check_node_package(tool, project):
-    pinned = None
-    pin_file = PLUGIN_ROOT / tool['pinned_by']
-    if pin_file.is_file():
-        manifest = load(pin_file)
-        pinned = {**manifest.get('devDependencies', {}), **manifest.get('dependencies', {})}.get(tool['package'])
-    installed = pathlib.Path(project, 'node_modules', tool['package'], 'package.json')
-    if installed.is_file():
-        return load(installed).get('version', 'unknown'), str(installed.parent), pinned
-    return None, None, pinned
+def check_workspace(tool, workspace):
+    """A starter copied into the Studio workspace and installed with npm ci: every dependency of the plugin's
+    package.json present in node_modules at exactly the pinned version. Returns (status, path, note, pinned)."""
+    manifest = load(PLUGIN_ROOT / tool['pinned_by'])
+    pinned = {**manifest.get('dependencies', {}), **manifest.get('devDependencies', {})}
+    folder = pathlib.Path(workspace).expanduser() / tool['workspace_name']
+    if not (folder / 'node_modules').is_dir():
+        return 'missing', None, f'not installed in the Studio workspace ({folder})', pinned
+    absent, other = [], []
+    for name, version in sorted(pinned.items()):
+        installed = folder / 'node_modules' / name / 'package.json'
+        if not installed.is_file():
+            absent.append(name)
+        elif load(installed).get('version') != version:
+            other.append(f'{name} {load(installed).get("version")} (lockfile {version})')
+    if absent:
+        return 'missing', str(folder), 'missing packages: ' + ', '.join(absent), pinned
+    if other:
+        return 'wrong_version', str(folder), 'other versions: ' + ', '.join(other) + '; run npm ci in that folder', pinned
+    return 'ok', str(folder), f'{len(pinned)} packages at the lockfile versions', pinned
 
 
 def skill_dirs(project):
@@ -186,7 +203,7 @@ def check_hyperframes(tool, project):
 
 
 def check_tool(tool, args, latest):
-    result = {'id': tool['id'], 'label': tool['label'], 'optional': bool(tool.get('optional')), 'minimum': tool.get('minimum'),
+    result = {'id': tool['id'], 'label': tool['label'], 'minimum': tool.get('minimum'),
               'latest': latest, 'version': None, 'path': None, 'note': None}
     kind = tool['kind']
     if kind == 'python':
@@ -197,24 +214,21 @@ def check_tool(tool, args, latest):
         result['version'], result['path'], result['note'] = check_binary(tool)
     elif kind == 'browser':
         result['version'], result['path'], result['note'] = check_browser(tool, args.browser)
-    elif kind == 'node_package':
-        result['version'], result['path'], pinned = check_node_package(tool, args.project)
-        result['pinned'] = pinned
-        if not result['version']:
-            result['status'] = 'per_project'
-            result['note'] = f'installed per project with npm install; Studio\'s starter pins {pinned}' if pinned else 'installed per project with npm install'
-            return result
+    elif kind == 'workspace':
+        result['status'], result['path'], result['note'], result['pinned'] = check_workspace(tool, getattr(args, 'workspace', DEFAULT_WORKSPACE))
+        result['version'] = 'pinned' if result['status'] == 'ok' else None
+        return result
     elif kind == 'hyperframes':
         result['version'], result['path'], skills = check_hyperframes(tool, args.project)
         result['skills'] = skills
         if not result['version'] and not skills:
-            result['status'] = 'not_installed'
+            result['status'] = 'missing'
             return result
         if not result['version']:
             result['status'], result['note'] = 'ok', 'skills found; the CLI runs through npx when a task needs it'
             return result
     if not result['version']:
-        result['status'] = 'not_installed' if result['optional'] else 'missing'
+        result['status'] = 'missing'
     elif result['version'] != 'unknown' and older(result['version'], tool.get('minimum')):
         result['status'] = 'below_minimum'
     elif result['version'] != 'unknown' and older(result['version'], latest):
@@ -229,7 +243,7 @@ def requirement_state(tools, results, network):
     state = {'python': True, 'none': True, 'network': network, 'host_tool': None, 'user_browser': None}
     for tool in tools:
         need = tool.get('requirement')
-        if not need or tool.get('optional'):
+        if not need:
             continue
         usable = results[tool['id']]['status'] in USABLE
         state[need] = usable if state.get(need) is None else state[need] and usable
@@ -248,10 +262,8 @@ def capability_state(card, tools, results, state):
         note = None
         if item['id'] in extra:
             linked = results[extra[item['id']]]
-            if linked['status'] in ('not_installed', 'not_on_this_host'):
+            if linked['status'] in FAILING + ('not_on_this_host',):
                 missing.append(extra[item['id']])
-            elif linked['status'] == 'per_project':
-                note = linked['note']
         if item['id'] == 'hyperframes_engine' and older(results['node']['version'], '22'):
             missing.append('node>=22')
         if 'browser' in item.get('requires', []) and results['browser']['status'] in USABLE and results['browser']['note']:
@@ -266,14 +278,14 @@ def install_steps(tools, results, system):
     steps = []
     for tool in tools:
         result = results[tool['id']]
-        if result['status'] not in ('missing', 'below_minimum', 'behind', 'not_installed'):
+        if result['status'] not in FAILING + ('behind',):
             continue
         hints = tool['install']
-        command = hints.get(system) or hints.get('any')
+        command = (hints.get(system) or hints.get('any')).replace('<plugin>', str(PLUGIN_ROOT))
         if result['status'] == 'behind' and tool['kind'] == 'python_module':
             command = f'python3 -m pip install --user --upgrade {tool["package"]}'
         action = 'update' if result['status'] in ('behind', 'below_minimum') else 'install'
-        steps.append({'id': tool['id'], 'action': action, 'optional': result['optional'], 'below': result['status'] == 'below_minimum', 'command': command,
+        steps.append({'id': tool['id'], 'action': action, 'below': result['status'] in ('below_minimum', 'wrong_version'), 'command': command,
                       'more': hints.get('any') if command != hints.get('any') else None})
     return steps
 
@@ -306,6 +318,19 @@ def matrix(spec, markdown=False):
     return '\n'.join(lines)
 
 
+def final_verdict(results, host, profile):
+    """The final check of an installation: every tool of the one required set that this host can run is usable."""
+    if not host:
+        return {'verdict': 'unknown_host', 'failing': [], 'detail': 'name the host with --host; the required set depends on it'}
+    failing = [{'id': r['id'], 'status': r['status']} for r in results if r['status'] in FAILING]
+    excluded = [r['id'] for r in results if r['status'] == 'not_on_this_host']
+    if not failing:
+        return {'verdict': 'pass', 'failing': [], 'not_on_this_host': excluded}
+    # In a chat sandbox the user cannot install system tools; the installation stands, with these named limits.
+    verdict = 'limited' if profile == 'code_execution' else 'fail'
+    return {'verdict': verdict, 'failing': failing, 'not_on_this_host': excluded}
+
+
 def report(args):
     spec, card = load(HERE / 'tools.json'), load(CARD)
     system = system_name()
@@ -324,11 +349,13 @@ def report(args):
         entry = tool['hosts'].get(host) if host else None
         results[tool['id']]['on_host'] = entry
         # A tool this host cannot run is not a defect here: the capability falls back as the card says.
-        if entry and entry['status'] == 'not_supported' and results[tool['id']]['status'] in ('missing', 'not_installed', 'per_project'):
+        if entry and entry['status'] == 'not_supported' and results[tool['id']]['status'] in FAILING:
             results[tool['id']]['status'] = 'not_on_this_host'
     state = requirement_state(spec['tools'], results, network)
+    profile = next((h['profile'] for h in spec['hosts'] if h['id'] == host), None)
     return {
-        'host': host, 'host_detected_by': detected_by,
+        'host': host, 'host_detected_by': detected_by, 'host_profile': profile, 'workspace': str(pathlib.Path(getattr(args, 'workspace', DEFAULT_WORKSPACE)).expanduser()),
+        'final': final_verdict(results.values(), host, profile),
         'checked': spec['checked'],
         'latest_from': 'online' if network else f'snapshot of {spec["checked"]}' + (' (online lookup failed)' if args.online else ''),
         'system': system, 'platform': platform.platform(), 'python': sys.executable, 'project': os.path.abspath(args.project),
@@ -341,7 +368,8 @@ def report(args):
 
 
 def text(data):
-    lines = [f'Studio environment check ({data["system"]}, host: {data["host"] or "unknown"} [{data["host_detected_by"]}], newest versions: {data["latest_from"]})', '']
+    lines = [f'Studio environment check ({data["system"]}, host: {data["host"] or "unknown"} [{data["host_detected_by"]}], newest versions: {data["latest_from"]})',
+             f'Studio workspace: {data["workspace"]}', '']
     for tool in data['tools']:
         version = tool['version'] or '-'
         extra = f' (newest {tool["latest"]})' if tool['status'] == 'behind' else f' (needs {tool["minimum"]})' if tool['status'] == 'below_minimum' else ''
@@ -357,8 +385,7 @@ def text(data):
             'reduced without ' + ', '.join(item['reduced_without']) if item['reduced_without'] else '',
             item['note'] or '']))
         lines.append(f'  {item["status"]:<8} {item["id"]}' + (f' ({detail})' if detail else ''))
-    groups = [('Needed (nothing was installed; ask Studio to run a step, or run it yourself):', lambda s: not s['optional'] and s['action'] == 'install' or s['below']),
-              ('Optional:', lambda s: s['optional'] and s['action'] == 'install'),
+    groups = [('Required, missing or not usable (nothing was installed; run these, then run the check again):', lambda s: s['action'] == 'install' or s['below']),
               ('Newer versions available (the current ones work):', lambda s: s['action'] == 'update' and not s['below'])]
     for title, belongs in groups:
         steps = [step for step in data['install'] if belongs(step)]
@@ -370,6 +397,9 @@ def text(data):
                 lines.append(f'      also: {step["more"]}')
     if not data['install']:
         lines += ['', 'Nothing to install or update.']
+    final = data['final']
+    lines += ['', 'FINAL CHECK: ' + final['verdict'].upper() + (': ' + ', '.join(f'{f["id"]} ({f["status"]})' for f in final['failing']) if final['failing'] else '')
+              + (f'; not on this host: {", ".join(final["not_on_this_host"])}' if final.get('not_on_this_host') else '') + (f' ({final["detail"]})' if final.get('detail') else '')]
     return '\n'.join(lines)
 
 
@@ -377,7 +407,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description='Check the programs and libraries Studio uses; installs nothing.')
     parser.add_argument('--online', action='store_true', help='read the newest versions from their registries')
     parser.add_argument('--json', action='store_true', help='print the report as JSON')
-    parser.add_argument('--project', default='.', help='project folder for per-project packages and skills (default: current folder)')
+    parser.add_argument('--project', default='.', help='project folder whose own skills folders are searched for HyperFrames (default: current folder)')
+    parser.add_argument('--workspace', default=DEFAULT_WORKSPACE, help='Studio workspace with the starters installed by npm ci (default: ~/.framecore-studio/workspace or FRAMECORE_STUDIO_WORKSPACE)')
+    parser.add_argument('--final', action='store_true', help='the final check of an installation: exit 0 pass, 1 fail, 3 limited (chat sandbox), 2 unknown host')
     parser.add_argument('--browser', help='path to Chrome or Chromium to check')
     parser.add_argument('--strict', action='store_true', help='exit 1 when a required tool is missing or below its minimum')
     parser.add_argument('--host', default='auto', choices=['auto'] + [h['id'] for h in load(HERE / 'tools.json')['hosts']],
@@ -391,7 +423,9 @@ def main(argv=None):
         return 0
     data = report(args)
     print(json.dumps(data, indent=2, ensure_ascii=False) if args.json else text(data))
-    failed = [tool for tool in data['tools'] if not tool['optional'] and tool['status'] in ('missing', 'below_minimum')]
+    if args.final:
+        return {'pass': 0, 'fail': 1, 'limited': 3, 'unknown_host': 2}[data['final']['verdict']]
+    failed = [tool for tool in data['tools'] if tool['status'] in FAILING]
     return 1 if args.strict and failed else 0
 
 

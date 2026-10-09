@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.48.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.49.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -25,7 +25,7 @@ Startup restores the complete Studio introduction and capability overview, then 
 - Captions, UGC and short-form stories with dated, sourced defaults: subtitle and caption reading speeds and formats, creator-ad formats with disclosure lines for paid relationships and AI presenters (Poland, EU, US), and short-form structures with a beat budget.
 - [Commercial motion](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/commercial-motion.md): adverts decided as one argument (verified claims, a hook the film answers, a CTA that closes the shown action), proved on real key frames, and accepted in four separate verdicts; a visible-text audit checks every visible word, in Studio films and in HyperFrames or other HTML compositions.
 - Installation in [Claude](CLAUDE_INSTALL.md) as a plugin from this repository's marketplace, next to ChatGPT Work and Codex, and a validated list of the tools Studio uses on each host ([tools by host](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#tools-by-host)).
-- An [environment check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md): one command that shows which tools are present, missing or outdated, which capabilities are ready and how to install the rest; run after installation and whenever you ask. It installs nothing.
+- An [environment check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md) of one required set of tools (17, with install commands per system) that ends every installation as its final check, and runs again whenever you ask. It installs nothing.
 - [HyperFrames](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/hyperframes-engine.md) as an optional engine for motion graphics where a shell with Node.js, FFmpeg and Chrome exists (Codex or a local project): installed with a pinned version on request, with Studio keeping intake, approvals and review; the HeyGen catalog is used only when asked.
 - Dated starting maps of [image generators](plugins/framecore-work-creative-studio/skills/research-evidence/references/image-generator-snapshot.md) (19 families, 2026-09-24) and [video generators](plugins/framecore-work-creative-studio/skills/research-evidence/references/video-generator-snapshot.md) (12 families, 2026-10-09), each fact labelled by how it was confirmed; the exact target is rechecked before a model-specific prompt.
 - Answers shaped for ChatGPT's interactive elements where the host offers them (choices, comparisons, timelines), always with an equivalent text path.

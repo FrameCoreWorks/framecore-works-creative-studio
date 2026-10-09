@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.49.0, 2026-10-09
+
+From the owner's decision of 2026-10-09: required and optional tools are one required set, checked as the final step of installation; the welcome and menus are unchanged:
+
+- **One required set of tools.** Every tool Studio uses is required; nothing is optional any more. The set: Python 3.9 or newer with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim Community; FFmpeg with FFprobe; Node.js 20 or newer with npx (22 for HyperFrames); Chrome or Chromium; the four starters (Remotion kinetic type, GSAP motion, Remotion 3D, motion toolkit) copied into the Studio workspace (`~/.framecore-studio/workspace`) and installed with `npm ci` from their lockfiles, every package at exactly the pinned version; and HyperFrames. `tools.json` lists all 17 with their host statuses, install commands for Linux, macOS and Windows (the workspace commands carry the plugin's real path) and newest versions.
+- **Final check at installation.** `check_environment.py --final --host <host>` ends every installation guide (Codex, ChatGPT Work, Claude): `pass` (complete), `fail` on Codex or Claude Code (something missing, too old or a workspace package of another version, with the commands to fix it; run again until it passes), `limited` in a chat sandbox (installed, with the tools that sandbox lacks named), `unknown_host`. Tools a host cannot run are listed as not on this host and do not count. The check still installs nothing. New statuses `wrong_version` and `not_on_this_host`; the validator rejects an optional tool and checks each workspace starter's package.json and lockfile.
+- **Proved on a full environment.** In a Linux container the whole set was installed (pip in one virtual environment; Cairo and Pango development libraries for Manim; `npm ci` for the four starters; HyperFrames skills) and the final check passed with 17 of 17 tools ([record](verification/required-tools-final-check-1.49.0.json)). HyperFrames' installation guidance now reflects that it is part of the required set; the HeyGen catalog still stays off unless asked for.
+
 ## 1.48.0, 2026-10-09
 
 From the owner's request of 2026-10-09: a fixed, validated tool list per host, and a correct installation path for Claude; the welcome and menus are unchanged:

@@ -1092,3 +1092,27 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.48.0 in Plugin Creator; 1.43.0 is the saved release)
 - Codex: not_run
 - Claude Code: installed from the GitHub tag v1.48.0 in an isolated configuration (37 skills; Polish welcome byte-identical), agent-run; Claude apps: not_run
+
+## CC-20261009-11
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-11-required-tools`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `679eecf` (main, package 1.48.0, after its publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.49.0)
+- Package version: 1.48.0 -> 1.49.0
+- Scope: the owner decided on 2026-10-09 that the required and optional tools are one required set, checked as the final step of installation. `tools.json` drops `optional`, adds imageio-ffmpeg, matplotlib, Manim, the Remotion 3D example and the motion toolkit (17 tools), and a Studio workspace (`~/.framecore-studio/workspace`, `FRAMECORE_STUDIO_WORKSPACE`) where the four starters are installed with `npm ci`. `check_environment.py` checks workspace packages against the starters' pinned versions (`wrong_version`), reports a missing HyperFrames as missing, prints workspace commands with the real plugin path, and adds `--final` (pass, fail, limited, unknown_host; exit 0, 1, 3, 2) and `--workspace`. The validator rejects `optional`, accepts `used_by` and checks each workspace starter's package.json and lockfile. CODEX_INSTALL.md and CHATGPT_INSTALL.md gain "5. Final check of the required tools" (providers move to section 6); CLAUDE_INSTALL.md step 4.3 is the final check; the HyperFrames engine reference says it is installed with Studio. The owner's earlier answer that the check only shows install steps stands: it installs nothing
+- Shared package changed: yes; 13 changed, 0 added, 0 removed ([scope](../verification/scope-1.49.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin 6, GEPA pilot 8, asset 23, captions 14, environment check 14, motion acceptance 10: PASS ([record](../verification/release-1.49.0.json))
+- final check on a fully provisioned container: PASS, 17 of 17 ([record](../verification/required-tools-final-check-1.49.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (owner updates to 1.49.0 in Plugin Creator; 1.43.0 is the saved release)
+- Codex: not_run
+- Claude Code: not rerun for 1.49.0 (1.48.0 tested)
