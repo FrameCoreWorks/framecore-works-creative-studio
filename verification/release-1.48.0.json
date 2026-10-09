@@ -1,0 +1,126 @@
+{
+  "version": "1.48.0",
+  "date": "2026-10-09",
+  "baseline": "a1c4187dcf257cc6ce043d508daba4b36c3bf326",
+  "change_id": "CC-20261009-10",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, Python 3.13 with numpy 2.5.3 and Pillow 12.3.0, ffmpeg 6.1.1, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 937,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "planned_presentation_cases": 19,
+      "planned_motion_sound_cases": 6,
+      "executed": 0
+    },
+    {
+      "command": "bash scripts/check_all.sh (Node part: studio, workflow-kit, creative-upgrade, learning-mode, quality-methods, motion-toolkit with motion-quality, presentation)",
+      "status": "PASS",
+      "tests": 207,
+      "passed": 201,
+      "skipped": 6,
+      "skip_reason": "Opt-in browser review, export, player and renderer-parity tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 70
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_host_smoke.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_hosted_readback.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/captions_test.py",
+      "status": "PASS",
+      "tests": 14
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/environment_check_test.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py",
+      "status": "PASS",
+      "tests": 10
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_claude_plugin.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "claude plugin validate plugins/framecore-work-creative-studio --strict; claude plugin validate . --strict (Claude Code 2.1.295)",
+      "status": "PASS"
+    },
+    {
+      "command": "claude plugin marketplace add <checkout>; claude plugin install framecore-work-creative-studio@framecore-works; claude -p (isolated CLAUDE_CONFIG_DIR)",
+      "status": "PASS",
+      "detail": "37 skills listed; English and Polish welcomes byte-identical to the assets; a pasted question answered without the welcome (verification/claude-code-startup-1.48.0.json)"
+    },
+    {
+      "command": "python3 scripts/check_legacy_baseline.py",
+      "status": "PASS",
+      "detail": "134 known validator errors and 20 of 67 failing tests, identical to tests/legacy-baseline.json; a tampered baseline was detected"
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "tools_by_host": "12 tools x 5 hosts in tools.json; validator requires every status and its evidence or reason; README table generated and tested",
+    "claude": "Claude manifest identity checked by validate-studio; marketplace, naming rules and limits by tests/test_claude_plugin.py; Claude's own validator passes",
+    "not_verified": "Claude apps install and startup; ChatGPT and Codex behavior; owner-run tests"
+  },
+  "plugin_zip_sha256": "7bbf8ded11570099a6c45943cb0d9d6632419eb5a732365c52b5b4cfc48e70a0",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source checks and agent-run Claude Code tests in a container; not the owner's client.",
+  "source": "owner request 2026-10-09: tools by host checked by the validator, and installation in Claude"
+}

@@ -30,7 +30,9 @@ def run_check(*args, path='', home=None, project=None):
     """Run the check in a clean environment: only the given PATH, a temporary HOME, no browser variables."""
     with tempfile.TemporaryDirectory() as temp:
         env = {'PATH': path, 'HOME': home or temp, 'PYTHONDONTWRITEBYTECODE': '1', 'SYSTEMROOT': os.environ.get('SYSTEMROOT', '')}
-        done = subprocess.run([sys.executable, str(TOOL), '--json', '--project', project or temp, *args], capture_output=True, text=True, env=env, timeout=120)
+        # A fixed host keeps the result independent of the machine running the test (a /mnt/user-data folder, for example).
+        host = [] if '--host' in args else ['--host', 'codex']
+        done = subprocess.run([sys.executable, str(TOOL), '--json', '--project', project or temp, *host, *args], capture_output=True, text=True, env=env, timeout=120)
         return done.returncode, json.loads(done.stdout), sorted(os.listdir(temp))
 
 
@@ -113,9 +115,42 @@ class Environment(unittest.TestCase):
         self.assertTrue(tools['hyperframes']['skills'][0].endswith('hyperframes'))
 
 
+class Hosts(unittest.TestCase):
+    def test_every_tool_has_a_status_for_every_host(self):
+        hosts = [h['id'] for h in SPEC['hosts']]
+        self.assertEqual(sorted(hosts), ['chatgpt', 'chatgpt_work', 'claude_apps', 'claude_code', 'codex'])
+        for tool in SPEC['tools']:
+            self.assertEqual(sorted(tool['hosts']), sorted(hosts), tool['id'])
+            for host, entry in tool['hosts'].items():
+                self.assertIn(entry['status'], SPEC['host_statuses'])
+                if entry['status'] in ('observed', 'not_supported'):
+                    self.assertTrue(entry.get('note'), f"{tool['id']} on {host}")
+
+    def test_readme_table_is_the_generated_matrix(self):
+        readme = (FOLDER / 'README.md').read_text(encoding='utf-8')
+        table = readme.split('<!-- BEGIN HOST MATRIX -->\n', 1)[1].split('\n<!-- END HOST MATRIX -->', 1)[0]
+        self.assertEqual(table, check.matrix(SPEC, markdown=True))
+
+    def test_named_host_marks_unsupported_tools_as_not_on_this_host(self):
+        args = check.argparse.Namespace(online=False, project=tempfile.gettempdir(), browser=None, host='chatgpt')
+        with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):
+            data = check.report(args)
+        tools = by_id(data['tools'])
+        self.assertEqual(data['host'], 'chatgpt')
+        self.assertEqual(tools['remotion']['status'], 'not_on_this_host')
+        self.assertEqual(tools['ffmpeg']['on_host']['status'], 'observed')
+        self.assertIn('hyperframes', by_id(data['capabilities'])['hyperframes_engine']['missing'])
+
+    def test_host_is_detected_from_documented_traces(self):
+        with mock.patch.dict(check.os.environ, {'CLAUDECODE': '1'}, clear=True):
+            self.assertEqual(check.detect_host(SPEC)[0], 'claude_code')
+        with mock.patch.dict(check.os.environ, {'CODEX_HOME': '/x'}, clear=True):
+            self.assertEqual(check.detect_host(SPEC)[0], 'codex')
+
+
 class Network(unittest.TestCase):
     def args(self, online):
-        return check.argparse.Namespace(online=online, project='.', browser=None)
+        return check.argparse.Namespace(online=online, project='.', browser=None, host='auto')
 
     def test_offline_never_opens_a_connection(self):
         with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):

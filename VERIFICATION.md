@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.47.0
+## Current source: 1.48.0
+
+The [1.48.0 source checks](verification/release-1.48.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 6 Claude-plugin, 8 GEPA pilot, 23 asset, 14 caption, 13 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline. `claude plugin validate --strict` (Claude Code 2.1.295) passes for the plugin folder and the repository marketplace. In the same container, an isolated Claude Code configuration added the marketplace, installed the plugin and listed 37 skills; headless conversations (claude-sonnet-5-5) gave the complete English welcome for the bare name and the complete Polish welcome for a Polish greeting, each byte-identical to its asset, and a direct answer without the welcome for a pasted question ([record](verification/claude-code-startup-1.48.0.json)). These are agent-run tests, not the owner's client; the Claude apps route and ChatGPT and Codex behavior were not run. [Scope](verification/scope-1.48.0.json) records 11 changed and 1 added shared files out of 937.
+
+## Previous source: 1.47.0
 
 The [1.47.0 source checks](verification/release-1.47.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 8 GEPA pilot, 23 asset, 14 caption, 9 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline. The change is instruction text: the Workflow Orchestrator entry, its description (450 characters, the budget) and the startup reference now treat an invocation with a screenshot, file or text as a task; the learning-mode validator pins the rule, a Studio test removes it and sees validation fail, and evaluation case LM25 is planned. The welcome assets and their embedded excerpts are byte-identical. Whether ChatGPT now answers such a screenshot directly is not verified: no host run. [Scope](verification/scope-1.47.0.json) records 11 changed shared files out of 936.
 

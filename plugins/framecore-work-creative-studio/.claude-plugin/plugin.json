@@ -1,0 +1,35 @@
+{
+  "name": "framecore-work-creative-studio",
+  "displayName": "FrameCore Works Creative Studio",
+  "version": "1.48.0",
+  "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
+  "author": {
+    "name": "FrameCore Works"
+  },
+  "homepage": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+  "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+  "license": "Apache-2.0",
+  "keywords": [
+    "creative-direction",
+    "screenwriting",
+    "storyboard",
+    "shot-planning",
+    "reference-board",
+    "poster",
+    "music-video",
+    "campaign-direction",
+    "motion-design",
+    "copywriting",
+    "image-prompts",
+    "video-prompts",
+    "creative-studio",
+    "graphic-design",
+    "audio-production",
+    "music-rights",
+    "reference-sheets",
+    "sound-design",
+    "workflow-contracts",
+    "project-recovery",
+    "video-editing"
+  ]
+}

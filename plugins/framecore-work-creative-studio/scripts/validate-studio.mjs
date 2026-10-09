@@ -115,6 +115,11 @@ export function validateStudio(root, {legacy = false} = {}) {
   const portable = json('plugin.json'), compatibility = json('.codex-plugin/plugin.json'), registry = json('scripts/studio-contracts.json');
   for (const key of ['name', 'version', 'description', 'author']) if (!portable[key] || !isDeepStrictEqual(portable[key], compatibility[key])) fail('MANIFEST_IDENTITY', key);
   if (!isDeepStrictEqual(portable.keywords, compatibility.keywords)) fail('MANIFEST_IDENTITY', 'keywords');
+  // Claude reads its own manifest; it must carry the same identity and version.
+  const claude = files.includes('.claude-plugin/plugin.json') ? json('.claude-plugin/plugin.json') : null;
+  if (!claude) fail('MANIFEST_IDENTITY', '.claude-plugin/plugin.json is missing');
+  else for (const key of ['name', 'version', 'description', 'author', 'keywords']) if (!isDeepStrictEqual(portable[key], claude[key])) fail('MANIFEST_IDENTITY', 'claude ' + key);
+  if (files.some(file => file.startsWith('bin/'))) fail('UNPLANNED_INTEGRATION', 'a top-level bin/ folder makes the Claude apps refuse the plugin');
   if (portable.name !== 'framecore-work-creative-studio') fail('PLUGIN_IDENTITY', String(portable.name));
   const semver = String(portable.version ?? '').match(/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$/);
   if (!semver || semver[4]?.split('.').some(part => /^\d+$/.test(part) && /^0\d/.test(part))) fail('VERSION', String(portable.version));
@@ -220,6 +225,18 @@ export function validateStudio(root, {legacy = false} = {}) {
       const install = tool.install ?? {};
       if (!(install.any || ['linux', 'macos', 'windows'].every(system => install[system]))) fail('ENVIRONMENT_CHECK', where + ': install steps for every system');
     }
+    // Every tool has a status for every host the plugin runs in; an observed status names its evidence.
+    const filled = value => typeof value === 'string' && value.trim().length > 0;
+    const hostIds = (spec.hosts ?? []).map(host => host?.id), statuses = Object.keys(spec.host_statuses ?? {});
+    if (!isDeepStrictEqual([...hostIds].sort(), ['chatgpt', 'chatgpt_work', 'claude_apps', 'claude_code', 'codex'])) fail('ENVIRONMENT_CHECK', 'hosts must be chatgpt, chatgpt_work, codex, claude_code and claude_apps');
+    if (!isDeepStrictEqual([...statuses].sort(), ['check', 'install', 'not_supported', 'observed', 'per_project'])) fail('ENVIRONMENT_CHECK', 'host_statuses must define observed, check, install, per_project and not_supported');
+    for (const host of spec.hosts ?? []) if (!(card.host_profiles ?? {})[host?.profile] || !filled(host?.install_guide)) fail('ENVIRONMENT_CHECK', String(host?.id) + ': profile from the capability card and an install guide');
+    for (const tool of spec.tools ?? []) for (const id of hostIds) {
+      const entry = tool.hosts?.[id];
+      if (!entry || !statuses.includes(entry.status)) fail('ENVIRONMENT_CHECK', tool.id + ': no valid status for host ' + id);
+      else if (['observed', 'not_supported'].includes(entry.status) && !filled(entry.note)) fail('ENVIRONMENT_CHECK', tool.id + ' on ' + id + ': ' + entry.status + ' needs its evidence or reason in note');
+    }
+    if (!read('skills/workflow-orchestrator/assets/environment-check/README.md').includes('<!-- BEGIN HOST MATRIX -->')) fail('ENVIRONMENT_CHECK', 'README must carry the host matrix');
     const covered = new Set(spec.tools.map(tool => tool.requirement));
     for (const need of values) if (!['host_tool', 'user_browser', 'network', 'none'].includes(need) && !covered.has(need)) fail('ENVIRONMENT_CHECK', 'no tool checks the requirement ' + need);
     for (const relative of ['skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/references/capabilities-and-handoffs.md']) {

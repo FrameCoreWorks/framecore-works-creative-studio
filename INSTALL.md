@@ -6,6 +6,7 @@ The complete environment-specific procedures are maintained in these guides:
 |---|---|---|
 | ChatGPT Work with Plugin Creator | [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md) | Your own private Creative Studio plugin |
 | Codex with filesystem access | [CODEX_INSTALL.md](CODEX_INSTALL.md) | One native Studio entry backed by the complete local knowledge bundle |
+| Claude Code and the Claude apps | [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md) | The Studio plugin installed from this repository's Claude marketplace |
 
 For an installation request, the assistant reads the guide matching its actual environment and follows that procedure. Host capability checks, source pinning, existing-installation handling, authorization, saving and verification are defined in the selected guide. A repository URL or downloaded archive alone does not establish installation intent or a completed installation.
 

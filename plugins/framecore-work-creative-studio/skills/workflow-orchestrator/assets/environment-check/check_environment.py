@@ -248,7 +248,7 @@ def capability_state(card, tools, results, state):
         note = None
         if item['id'] in extra:
             linked = results[extra[item['id']]]
-            if linked['status'] == 'not_installed':
+            if linked['status'] in ('not_installed', 'not_on_this_host'):
                 missing.append(extra[item['id']])
             elif linked['status'] == 'per_project':
                 note = linked['note']
@@ -278,6 +278,34 @@ def install_steps(tools, results, system):
     return steps
 
 
+def detect_host(spec):
+    """The host this check runs in, from documented traces; None when nothing identifies it."""
+    if os.environ.get('CLAUDECODE') == '1':
+        return 'claude_code', 'CLAUDECODE=1'
+    codex = sorted(key for key in os.environ if key.startswith('CODEX_'))
+    if codex:
+        return 'codex', codex[0]
+    if os.path.isdir('/mnt/user-data'):
+        return 'claude_apps', '/mnt/user-data exists'
+    if os.path.isdir('/mnt/data'):
+        return 'chatgpt', '/mnt/data exists (ordinary ChatGPT or ChatGPT Work; pass --host chatgpt_work to choose)'
+    return None, 'no host trace found'
+
+
+def matrix(spec, markdown=False):
+    """Every tool against every host: the fixed list the validator checks."""
+    hosts = spec['hosts']
+    rows = [[tool['label']] + [tool['hosts'][h['id']]['status'] for h in hosts] for tool in spec['tools']]
+    if markdown:
+        head = '| Tool | ' + ' | '.join(h['label'].split(' (')[0] for h in hosts) + ' |'
+        return '\n'.join([head, '| --- |' + ' --- |' * len(hosts)] + ['| ' + ' | '.join(row) + ' |' for row in rows])
+    width = max(len(row[0]) for row in rows)
+    lines = [' ' * width + '  ' + '  '.join(f'{h["id"]:<13}' for h in hosts)]
+    lines += [row[0].ljust(width) + '  ' + '  '.join(f'{cell:<13}' for cell in row[1:]) for row in rows]
+    lines += ['', 'Statuses: ' + '; '.join(f'{k}: {v}' for k, v in spec['host_statuses'].items())]
+    return '\n'.join(lines)
+
+
 def report(args):
     spec, card = load(HERE / 'tools.json'), load(CARD)
     system = system_name()
@@ -291,8 +319,16 @@ def report(args):
             elif network is None:
                 network = False
     results = {tool['id']: check_tool(tool, args, latest[tool['id']]) for tool in spec['tools']}
+    host, detected_by = (args.host, 'given') if getattr(args, 'host', 'auto') not in (None, 'auto') else detect_host(spec)
+    for tool in spec['tools']:
+        entry = tool['hosts'].get(host) if host else None
+        results[tool['id']]['on_host'] = entry
+        # A tool this host cannot run is not a defect here: the capability falls back as the card says.
+        if entry and entry['status'] == 'not_supported' and results[tool['id']]['status'] in ('missing', 'not_installed', 'per_project'):
+            results[tool['id']]['status'] = 'not_on_this_host'
     state = requirement_state(spec['tools'], results, network)
     return {
+        'host': host, 'host_detected_by': detected_by,
         'checked': spec['checked'],
         'latest_from': 'online' if network else f'snapshot of {spec["checked"]}' + (' (online lookup failed)' if args.online else ''),
         'system': system, 'platform': platform.platform(), 'python': sys.executable, 'project': os.path.abspath(args.project),
@@ -305,13 +341,14 @@ def report(args):
 
 
 def text(data):
-    lines = [f'Studio environment check ({data["system"]}, newest versions: {data["latest_from"]})', '']
+    lines = [f'Studio environment check ({data["system"]}, host: {data["host"] or "unknown"} [{data["host_detected_by"]}], newest versions: {data["latest_from"]})', '']
     for tool in data['tools']:
         version = tool['version'] or '-'
         extra = f' (newest {tool["latest"]})' if tool['status'] == 'behind' else f' (needs {tool["minimum"]})' if tool['status'] == 'below_minimum' else ''
-        lines.append(f'  {tool["status"]:<14} {tool["label"]}: {version}{extra}' + (f' [{tool["path"]}]' if tool['path'] else ''))
+        on = tool.get('on_host')
+        lines.append(f'  {tool["status"]:<16} {tool["label"]}: {version}{extra}' + (f' [{tool["path"]}]' if tool['path'] else '') + (f' (on this host: {on["status"]})' if on else ''))
         if tool.get('note'):
-            lines.append(f'  {"":<14} {tool["note"]}')
+            lines.append(f'  {"":<16} {tool["note"]}')
     lines += ['', 'Capabilities:']
     for item in data['capabilities']:
         detail = ', '.join(filter(None, [
@@ -343,7 +380,15 @@ def main(argv=None):
     parser.add_argument('--project', default='.', help='project folder for per-project packages and skills (default: current folder)')
     parser.add_argument('--browser', help='path to Chrome or Chromium to check')
     parser.add_argument('--strict', action='store_true', help='exit 1 when a required tool is missing or below its minimum')
+    parser.add_argument('--host', default='auto', choices=['auto'] + [h['id'] for h in load(HERE / 'tools.json')['hosts']],
+                        help='the host this runs in (default: detected from documented traces)')
+    parser.add_argument('--matrix', action='store_true', help='print the fixed tool list for every host and stop (with --json or --markdown)')
+    parser.add_argument('--markdown', action='store_true', help='with --matrix, print a Markdown table')
     args = parser.parse_args(argv)
+    if args.matrix:
+        spec = load(HERE / 'tools.json')
+        print(json.dumps({h['id']: {t['id']: t['hosts'][h['id']] for t in spec['tools']} for h in spec['hosts']}, indent=2, ensure_ascii=False) if args.json else matrix(spec, args.markdown))
+        return 0
     data = report(args)
     print(json.dumps(data, indent=2, ensure_ascii=False) if args.json else text(data))
     failed = [tool for tool in data['tools'] if not tool['optional'] and tool['status'] in ('missing', 'below_minimum')]

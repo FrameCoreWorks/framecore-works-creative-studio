@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.48.0, 2026-10-09
+
+From the owner's request of 2026-10-09: a fixed, validated tool list per host, and a correct installation path for Claude; the welcome and menus are unchanged:
+
+- **Tools by host.** The environment check's `tools.json` now gives every tool (Python, Pillow, NumPy, CairoSVG, FFmpeg, FFprobe, Node.js, npx, Chrome or Chromium, Remotion, GSAP, HyperFrames) a status on each of five hosts: ordinary ChatGPT, ChatGPT Work, Codex, Claude Code and the Claude apps. The statuses are `observed` (owner-reported, with the evidence), `check` (may be in the sandbox), `install` (the user's machine), `per_project` (npm in a project) and `not_supported` (with the reason). `check_environment.py --matrix` prints the list, `--host` names the host (detected by default from documented traces), and on a named host a tool the host cannot run is `not_on_this_host`, not missing. The [README table](../skills/workflow-orchestrator/assets/environment-check/README.md#tools-by-host) is generated from the same data and tested; the validator requires a valid status for every tool on every host and evidence for every `observed` and `not_supported`.
+- **Installation in Claude.** The repository is now a Claude plugin marketplace (`.claude-plugin/marketplace.json`, marketplace `framecore-works`), and the package has a Claude manifest (`.claude-plugin/plugin.json`) with the same identity and version. The repository's CLAUDE_INSTALL.md gives the pinned install for Claude Code (`/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.48.0`, then `/plugin install framecore-work-creative-studio@framecore-works`) and for the Claude apps (Customize > Plugins), verification, updates and the differences from ChatGPT and Codex. The validator checks the Claude manifest's identity; `tests/test_claude_plugin.py` checks the marketplace, the documented naming rules and limits, and runs `claude plugin validate` when Claude Code is installed.
+- **Tested in Claude Code 2.1.295:** both manifests pass `claude plugin validate --strict`; a marketplace install lists 37 skills; headless conversations gave the complete English welcome for the bare name, the complete Polish welcome for a Polish greeting, and a direct answer, without the welcome, for a pasted question.
+
 ## 1.47.0, 2026-10-09
 
 From the owner's report of 2026-10-09: a new thread with a screenshot and the Studio link got the welcome instead of help.

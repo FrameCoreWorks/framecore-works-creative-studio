@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.47.0",
+  "version": "1.48.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -47,9 +47,14 @@
   ],
   "files": [
     {
+      "path": ".claude-plugin/plugin.json",
+      "bytes": 970,
+      "sha256": "d01b87215ae27452d17ec5d090548f0cdd48074c6d052b6ae63aab598e953eb4"
+    },
+    {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "f3cff23e5350708d9c89487e599f25c51ca82d57ef42987f101f69d1e307cd22"
+      "sha256": "b1c4c35c63b772ce3d179196e334776cdf196a2aac74b51b80a1584ccb3c3311"
     },
     {
       "path": "LICENSE",
@@ -64,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 20920,
-      "sha256": "9c245026e8f31c235a53d5673526320140662a7e5dac13f60df15fb42d53fa7d"
+      "sha256": "cdb4e852459155f51ff35156c202deb3296e5f36e8191a5a05191656e2820ef5"
     },
     {
       "path": "assets/logo.png",
@@ -104,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "7b045f237654d0f55fac52e38e9030aa5220223204d50f7d599e2bb70ea635de"
+      "sha256": "d942db5a024928af62b44d51f528c5164696675682958d1d4ddb52c9c5108ae8"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 90163,
-      "sha256": "d5f451a74b8a1d41ca65349aea6d1bf5d247eb340ad80bdc9f34907cb316870a"
+      "bytes": 92447,
+      "sha256": "96109d92e7a705c1f42ad2adee4fb53e9ff441d87afdc0f38f04f14d5bcec7ce"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2259,7 +2264,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "1f34db46a8aa9e2ee929d376b0eddb09f7c3b636850d78c907082870fc1176a3"
+      "sha256": "66368cc9dcaa27b615002c53b78067d1bf1dcdc6be9ef53a465d2d18c61d4bc3"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2323,8 +2328,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 40367,
-      "sha256": "916baebb123857f8630a255d2ee5121ab8ff1f5a3ddba913098af0b41619e1fa"
+      "bytes": 42569,
+      "sha256": "a884abca787f8738d6505bf99c233b890d186638af263714d346c32fa831de5b"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -4459,7 +4464,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31526,
-      "sha256": "4e2d9ad4778df8a112f0661c92edbc84f35f73f965153bee3164a65055c80c01"
+      "sha256": "6a35300db2ae821d262c5b9e6e164cca333a7a98f7864a5188ad86ac0657ba31"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4483,18 +4488,18 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
-      "bytes": 3947,
-      "sha256": "70454466aeac3bc799e2640838b7fff6d76d7269ace5a749c187ecfe14a11feb"
+      "bytes": 6493,
+      "sha256": "0ea03959e77c42c40e186fbcf080f495778d2ec1c22ac080cde26cbbfe5996b8"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
-      "bytes": 17544,
-      "sha256": "d834e0b54b2f6e59fd482e99a9ccda82977e4daf9a3f2836c23373df5c9d314a"
+      "bytes": 20514,
+      "sha256": "60f46845a9134a0a6ebba0810c26d8b98262646ab2fa93d44954f41ad8c0c664"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
-      "bytes": 6838,
-      "sha256": "a94cd1f1d105e712856b14280fd1ef0b6b50443fcbcd62a9ed6ddbdc31cb69b1"
+      "bytes": 14731,
+      "sha256": "d2d9d41b9f492387efb666e2dca91ca173064dd43215774851c57db2927de4ab"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -4678,8 +4683,8 @@
     },
     {
       "path": "tests/environment_check_test.py",
-      "bytes": 7159,
-      "sha256": "9a151fe821131f820639feb3bcad2e750dd0cbdd73ad7d698285f8a324dd88ca"
+      "bytes": 9342,
+      "sha256": "d73dc258a5f14fba364d8dea950a1305097bab1a292030d22ff6c8f77112a0f4"
     },
     {
       "path": "tests/learning-mode.test.mjs",

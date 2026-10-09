@@ -1068,3 +1068,27 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `a7cbfc0`; release workflow 37924964208, checks 37924964487, 37924967988 and 37924972219, release-notes refresh 37924964353: success; [v1.47.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.47.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (936 of 936), all 37 skill frontmatters parse ([record](../verification/github-publication-1.47.0.json))
 - ChatGPT Work: pending (owner updates to 1.47.0 in Plugin Creator; 1.43.0 is the saved release)
 - Codex: not_run
+
+## CC-20261009-10
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-10-hosts-and-claude`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `a1c4187` (main, package 1.47.0, after its publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.48.0)
+- Package version: 1.47.0 -> 1.48.0
+- Scope: the owner asked on 2026-10-09 for a fixed set of tools, checked by the validator and split by host (ordinary ChatGPT, ChatGPT Work, Codex, Claude), and for a correct installation path for Claude. The environment check's `tools.json` now has `hosts` (chatgpt, chatgpt_work, codex, claude_code, claude_apps, each with its capability-card profile, install guide and detection trace) and `host_statuses` (observed, check, install, per_project, not_supported); every tool has a status per host, `observed` with the owner's evidence and `not_supported` with the reason. `check_environment.py` gains `--host` (detected from `CLAUDECODE=1`, a `CODEX_` variable, `/mnt/user-data`, `/mnt/data`) and `--matrix [--markdown|--json]`; on a named host an unsupported tool is `not_on_this_host`. The README table is generated and tested. `validate-studio.mjs` requires the five hosts, the five statuses, a status for every tool on every host, evidence or reasons, and the README matrix, and checks that `.claude-plugin/plugin.json` carries the package identity and that no top-level `bin/` exists. New package file `.claude-plugin/plugin.json`; repository-level `.claude-plugin/marketplace.json` (marketplace `framecore-works`, relative source), `CLAUDE_INSTALL.md`, INSTALL and README rows, AGENTS release steps and install-doc list, `tests/test_claude_plugin.py` (6) in `scripts/check_all.sh`. Claude Code facts were read from code.claude.com and claude.com docs on 2026-10-09 (manifest, marketplace, install, CLI, skills, plugins overview and platform support)
+- Shared package changed: yes; 11 changed, 1 added, 0 removed ([scope](../verification/scope-1.48.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS for plugin and marketplace
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin 6, GEPA pilot 8, asset 23, captions 14, environment check 13, motion acceptance 10: PASS ([record](../verification/release-1.48.0.json))
+- Claude Code 2.1.295 headless, agent-run: install listed 37 skills; English and Polish welcomes byte-identical to the assets; a pasted question answered without the welcome ([record](../verification/claude-code-startup-1.48.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (owner updates to 1.48.0 in Plugin Creator; 1.43.0 is the saved release)
+- Codex: not_run
+- Claude Code: tested from the local checkout (agent-run); install from the GitHub tag recorded with the publication

@@ -10,7 +10,7 @@ Follow `plugins/framecore-work-creative-studio/docs/skill-naming.md` for all cur
 
 Write maintained repository documentation, operational instructions, comments and general learning-template guidance in English. Preserve localized UI resources, exact-copy teaching examples, multilingual evaluation inputs and historical observed replies in their original language; they are data, not untranslated general guidance. Keep pinned upstream snapshots byte-identical and preserve provenance. Repository language does not fix Studio's response language. Preserve the complete startup content while automatically following each user's language.
 
-Keep README installation sections as links to the complete `CHATGPT_INSTALL.md` and `CODEX_INSTALL.md` procedures. Do not duplicate installation prompts or add a short copy-paste command to README. Keep host selection, capability checks, source pinning, authorization, installation/update handling and verification in those guides. A repository URL identifies source; it does not itself grant installation permission or provide missing host capabilities.
+Keep README installation sections as links to the complete `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md` and `CLAUDE_INSTALL.md` procedures. Do not duplicate installation prompts or add a short copy-paste command to README. Keep host selection, capability checks, source pinning, authorization, installation/update handling and verification in those guides. A repository URL identifies source; it does not itself grant installation permission or provide missing host capabilities.
 
 ## Protected Studio startup
 
@@ -22,7 +22,7 @@ Keep both localized welcome/excerpt, language-policy projection and skill-metada
 
 ## Verification and publication
 
-Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check and `bash scripts/check_all.sh`. The historical legacy suite is compared with its recorded known failures by `python3 scripts/check_legacy_baseline.py`; when a change intentionally alters them, regenerate `tests/legacy-baseline.json` with `--write` in the same commit and say why. For a release, synchronize both plugin manifests and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
+Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check and `bash scripts/check_all.sh`. The historical legacy suite is compared with its recorded known failures by `python3 scripts/check_legacy_baseline.py`; when a change intentionally alters them, regenerate `tests/legacy-baseline.json` with `--write` in the same commit and say why. For a release, synchronize the plugin manifests (`plugin.json`, `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`), the plugin version in the root `.claude-plugin/marketplace.json` and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
 
 ## Development provenance
 

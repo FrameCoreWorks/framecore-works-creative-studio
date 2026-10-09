@@ -1,7 +1,51 @@
 {
   "schema_version": 1,
   "checked": "2026-10-09",
-  "scope": "Every program and library Studio's bundled tools or optional engines use, how the environment check finds it, the minimum it needs, the newest version known on the check date and how to install it. The check never installs anything; versions marked known_latest are a dated snapshot and --online reads the current ones.",
+  "scope": "Every program and library Studio's bundled tools or optional engines use, how the environment check finds it, the minimum it needs, the newest version known on the check date and how to install it, and for each host (ordinary ChatGPT, ChatGPT Work, Codex, Claude Code, the Claude apps) whether it was observed there, must be checked, is installed by the user, per project, or cannot run there. The check never installs anything; versions marked known_latest are a dated snapshot and --online reads the current ones.",
+  "hosts": [
+    {
+      "id": "chatgpt",
+      "label": "ChatGPT (ordinary chat)",
+      "profile": "code_execution",
+      "install_guide": "CHATGPT_INSTALL.md",
+      "detect": "/mnt/data exists (shared with ChatGPT Work)"
+    },
+    {
+      "id": "chatgpt_work",
+      "label": "ChatGPT Work",
+      "profile": "code_execution",
+      "install_guide": "CHATGPT_INSTALL.md",
+      "detect": "/mnt/data exists (shared with ordinary ChatGPT)"
+    },
+    {
+      "id": "codex",
+      "label": "Codex (CLI, IDE or app on the user's machine)",
+      "profile": "shell",
+      "install_guide": "CODEX_INSTALL.md",
+      "detect": "a CODEX_ environment variable"
+    },
+    {
+      "id": "claude_code",
+      "label": "Claude Code (CLI, IDE or desktop app on the user's machine)",
+      "profile": "shell",
+      "install_guide": "CLAUDE_INSTALL.md",
+      "detect": "CLAUDECODE=1"
+    },
+    {
+      "id": "claude_apps",
+      "label": "Claude apps (claude.ai web, desktop chat, mobile) with code execution",
+      "profile": "code_execution",
+      "install_guide": "CLAUDE_INSTALL.md",
+      "detect": "/mnt/user-data exists and CLAUDECODE is not set (Claude Code cloud sessions have the folder too)"
+    }
+  ],
+  "host_statuses": {
+    "observed": "reported working on this host by the owner; the check still runs before a file is promised",
+    "check": "may be present in this host's sandbox; only running the check shows it",
+    "install": "the user's own machine; install it when the check reports it missing",
+    "per_project": "installed into a project folder with npm install, needs network",
+    "not_supported": "this host cannot run it; Studio delivers the capability card's alternative"
+  },
   "tools": [
     {
       "id": "python",
@@ -16,6 +60,25 @@
         "macos": "brew install python",
         "windows": "winget install Python.Python.3.14",
         "any": "https://www.python.org/downloads/"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "observed",
+          "note": "owner reports 2026-10-07: ChatGPT and ChatGPT Work rendered clean MP4s from a contract with render.py (Pillow and an ffmpeg)"
+        },
+        "chatgpt_work": {
+          "status": "observed",
+          "note": "owner reports 2026-10-07: ChatGPT and ChatGPT Work rendered clean MP4s from a contract with render.py (Pillow and an ffmpeg)"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -30,6 +93,25 @@
       "latest_source": "pypi:pillow",
       "install": {
         "any": "python3 -m pip install --user pillow (where pip refuses a system Python, use a virtual environment: python3 -m venv .venv, then .venv/bin/pip install pillow)"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "observed",
+          "note": "owner reports 2026-10-07: ChatGPT and ChatGPT Work rendered clean MP4s from a contract with render.py (Pillow and an ffmpeg)"
+        },
+        "chatgpt_work": {
+          "status": "observed",
+          "note": "owner reports 2026-10-07: ChatGPT and ChatGPT Work rendered clean MP4s from a contract with render.py (Pillow and an ffmpeg)"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -44,6 +126,24 @@
       "latest_source": "pypi:numpy",
       "install": {
         "any": "python3 -m pip install --user numpy (or in a virtual environment, as for Pillow)"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "observed",
+          "note": "owner test 2026-10-08 (1.33.0): ChatGPT Work rendered designed sound (numpy and ffmpeg)"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -61,6 +161,23 @@
         "macos": "brew install cairo, then python3 -m pip install --user cairosvg",
         "windows": "python3 -m pip install cairosvg; it needs the Cairo DLL (for example from the GTK runtime). Without it, supply the logo as a PNG",
         "any": "Without it, supply SVG logos as PNG"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "check"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -82,6 +199,25 @@
         "macos": "brew install ffmpeg",
         "windows": "winget install Gyan.FFmpeg",
         "any": "https://ffmpeg.org/download.html; where no system install is possible, python3 -m pip install --user imageio-ffmpeg gives the renderer a bundled ffmpeg"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "observed",
+          "note": "owner reports 2026-10-07: ChatGPT and ChatGPT Work rendered clean MP4s from a contract with render.py (Pillow and an ffmpeg)"
+        },
+        "chatgpt_work": {
+          "status": "observed",
+          "note": "owner reports 2026-10-07: ChatGPT and ChatGPT Work rendered clean MP4s from a contract with render.py (Pillow and an ffmpeg); owner test 2026-10-08 (1.33.0): ChatGPT Work rendered designed sound (numpy and ffmpeg)"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -98,6 +234,23 @@
       "optional": true,
       "install": {
         "any": "Installed together with FFmpeg"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "check"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -120,6 +273,23 @@
         "macos": "brew install node@24, or nvm install --lts",
         "windows": "winget install OpenJS.NodeJS.LTS",
         "any": "https://nodejs.org/en/download"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "check"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -136,6 +306,23 @@
       "optional": true,
       "install": {
         "any": "Installed together with Node.js"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "check"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -150,6 +337,23 @@
         "macos": "brew install --cask google-chrome",
         "windows": "winget install Google.Chrome",
         "any": "npx @puppeteer/browsers install chrome@stable downloads a private Chrome; then pass its path with --browser or CHROME_PATH"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "check"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
       }
     },
     {
@@ -164,6 +368,26 @@
       "latest_source": "npm:remotion",
       "install": {
         "any": "Per project, not globally: npm install in a copy of the kinetic type starter (it pins the version); npx remotion upgrade moves a project to the newest version. Remotion's licence needs a company licence for some companies"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "not_supported",
+          "note": "no npm install in the chat sandbox"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "note": "no npm install in the chat sandbox"
+        },
+        "codex": {
+          "status": "per_project"
+        },
+        "claude_code": {
+          "status": "per_project"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "note": "no project folder with npm in the chat sandbox"
+        }
       }
     },
     {
@@ -177,6 +401,26 @@
       "latest_source": "npm:gsap",
       "install": {
         "any": "Per project: npm install in a copy of the GSAP motion starter (it pins the version)"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "not_supported",
+          "note": "no npm install in the chat sandbox"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "note": "no npm install in the chat sandbox"
+        },
+        "codex": {
+          "status": "per_project"
+        },
+        "claude_code": {
+          "status": "per_project"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "note": "no project folder with npm in the chat sandbox"
+        }
       }
     },
     {
@@ -191,6 +435,28 @@
       "latest_source": "npm:hyperframes",
       "install": {
         "any": "Only on the user's request: HyperFrames' own plugin through the client's plugin manager (Codex, Claude Code), or npx hyperframes@0.8.143 skills update for its skills. Needs Node.js 22, FFmpeg and Chrome. npx hyperframes@0.8.143 doctor checks its own needs. See skills/hyperframes-workflow/references/hyperframes-engine.md"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "not_supported",
+          "note": "needs a shell with Node.js 22, FFmpeg, Chrome and network"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "note": "needs a shell with Node.js 22, FFmpeg, Chrome and network"
+        },
+        "codex": {
+          "status": "install",
+          "note": "HyperFrames' own Codex plugin, on request"
+        },
+        "claude_code": {
+          "status": "install",
+          "note": "HyperFrames' own Claude Code plugin, on request"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "note": "needs a shell with Node.js 22, FFmpeg, Chrome and network"
+        }
       }
     }
   ]

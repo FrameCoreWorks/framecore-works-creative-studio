@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-09",
+  "package_version": "1.48.0",
+  "host": "Claude Code 2.1.295, headless (claude -p), Linux container, isolated CLAUDE_CONFIG_DIR",
+  "models_reported": [
+    "claude-haiku-5-5",
+    "claude-sonnet-5-5"
+  ],
+  "install": {
+    "marketplace": "framecore-works added from the local repository checkout",
+    "plugin": "framecore-work-creative-studio@framecore-works",
+    "listed_version": "1.48.0",
+    "skills_listed": 37,
+    "validate": "claude plugin validate --strict passed for the plugin folder and the marketplace root"
+  },
+  "cases": [
+    {
+      "input": "@FrameCore Works Creative Studio",
+      "expected": "complete welcome; English as provisional fallback (no language signal)",
+      "result": "PASS",
+      "evidence": "reply equals assets/startup-welcome.en.md byte for byte (evaluateStartupReply)",
+      "reply_sha256": "5e4ebd194c072f7524e851e15b574b7badcde746de701e5297ffcd36787b2086"
+    },
+    {
+      "input": "Cześć @FrameCore Works Creative Studio",
+      "expected": "complete Polish welcome",
+      "result": "PASS",
+      "evidence": "reply equals assets/startup-welcome.pl.md byte for byte (evaluateStartupReply)",
+      "reply_sha256": "76ef171ab5fe51c288260c5fd73f720e2249f79bc3f94dceaa41b3832fed4f80"
+    },
+    {
+      "input": "Studio name plus a pasted Facebook post (truck configurator, PNG mask, ChatGPT moving parts)",
+      "expected": "direct help, no welcome or menu",
+      "result": "PASS",
+      "evidence": "reply starts: Nie kombinujesz za bardzo z promptem. To ograniczenie samego narzędzia: GPT w trybie generowania obrazu **nie wycina pikseli z Twojego zdjęcia, tylko rysuje je  ...; contains no welcome line and no mode menu",
+      "reply_sha256": "3e3e64607587447c36c821e7e155aae6eb2aec96ce86258c037b086d37ef54ab"
+    }
+  ],
+  "not_verified": [
+    "Claude apps (claude.ai web, desktop chat, Cowork) install and startup",
+    "install from the GitHub tag (checked after publication in the publication record)",
+    "owner-run tests (PASS_REPORTED)",
+    "answer quality beyond the absence of the welcome"
+  ],
+  "boundary": "Agent-run headless tests in a container; not the owner's client. ChatGPT and Codex startup are not covered by this record."
+}

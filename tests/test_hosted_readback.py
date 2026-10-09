@@ -40,7 +40,7 @@ class HostedReadback(unittest.TestCase):
 
     def test_sizes_without_every_hash_is_partial_parity(self):
         data = readback(hashes=False)
-        data['files'] = [{'path': '.codex-plugin/plugin.json', 'sha256': SOURCE['files'][0]['sha256']}]
+        data['files'] = [{'path': SOURCE['files'][0]['path'], 'sha256': SOURCE['files'][0]['sha256']}]
         code, report, _, _ = self.run_check(data)
         self.assertEqual((code, report['verdict']), (0, 'path_size_parity'))
         self.assertEqual(report['not_hashed'], len(SOURCE['files']) - 1)
