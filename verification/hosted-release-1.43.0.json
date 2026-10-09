@@ -1,0 +1,27 @@
+{
+  "version": "1.43.0",
+  "date": "2026-10-09T06:43:06.802483Z",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6ac87a565d7481918b6a679d5bbdb157",
+  "scope": "USER",
+  "audience": "PRIVATE",
+  "source_commit": "f15fd5e43e6abfcb4fb9dd0d131850367970a04f",
+  "readback_by": "ChatGPT Work Plugin Creator; hashes computed by the host and reported in the owner-supplied file, compared in this repository",
+  "summary": {
+    "verdict": "full_byte_parity",
+    "source_files": 918,
+    "saved_files": 918,
+    "hashed_and_matching": 918,
+    "not_hashed": 0
+  },
+  "missing": [],
+  "extra": [],
+  "size_mismatch": [],
+  "hash_mismatch": [],
+  "unreadable_reported": [],
+  "host_behavior": "NOT_RUN: a readback shows saved files, not how the client behaves",
+  "readback_file_sha256": "b7f2bc34f26a157e6b3271525e44f228f6afba0b0a9be1ae245b4918fee4b0ec",
+  "compared_with": "config/install-sources.json at f15fd5e43e6abfcb4fb9dd0d131850367970a04f (release v1.43.0) by scripts/check_hosted_readback.py",
+  "independent_check": "every readback hash and size equals the SHA-256 and length of the git blob at tag v1.43.0 for all 918 package files",
+  "save": "The owner had already saved 1.43.0 before this readback; Plugin Creator found the plugin current and did not save again, since a new save would need version 1.43.1. The save time is not in the readback (Unknown)."
+}

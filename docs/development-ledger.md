@@ -926,3 +926,22 @@ Cross-host state:
 - GitHub: this commit on `main`; the package release stays v1.43.0
 - ChatGPT Work: pending (update and readback to be run by the owner in ChatGPT Work)
 - Codex: not_run
+
+## CC-20261009-03
+
+- Origin: cloud-code, from the owner's ChatGPT Work readback
+- Branch: `cloud-code/CC-20261009-01-video-map` (records only), fast-forwarded into `main` under the owner's standing rule
+- Baseline: `3022a4e` (main, package 1.43.0); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.43.0)
+- Scope: the owner supplied the Plugin Creator readback of the hosted plugin (`hosted-readback-1.43.0.json`, SHA-256 `b7f2bc34...`). `scripts/check_hosted_readback.py` against `config/install-sources.json` at `f15fd5e`: `full_byte_parity`, 918 of 918 paths, sizes and hashes; every readback hash also equals the tag v1.43.0 git blob. No unreadable files. The owner had saved 1.43.0 before the readback; Plugin Creator did not save again because a new save would need 1.43.1
+- Shared package changed: no
+
+Verification:
+
+- readback comparison: PASS (`full_byte_parity`) ([record](../verification/hosted-release-1.43.0.json)); canonical validator and `scripts/check_all.sh`: PASS
+
+Cross-host state:
+
+- GitHub: `main` and v1.43.0 synchronized (see CC-20261009-01)
+- ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6ac87a565d7481918b6a679d5bbdb157`, readback 2026-10-09 06:43 UTC; active-client behavior not_run
+- Codex: not_run
