@@ -881,6 +881,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release workflow and readback recorded in the next update)
+- GitHub: synchronized. `main` fast-forwarded to `3da2cdf`; release workflow 37884503169, checks 37884503184 and 37884505200, release-notes refresh 37884503230: success; [v1.42.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.42.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (917 of 917), all 37 skill frontmatters parse ([record](../verification/github-publication-1.42.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
