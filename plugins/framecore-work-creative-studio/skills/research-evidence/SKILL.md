@@ -78,9 +78,9 @@ On a transient tool failure, make at most one justified retry or use another alr
 
 Stop when the targeted sources support the material decision, or when a clearly named evidence gap remains. The trigger decision always runs; a search runs only when a trigger applies, and its size is proportional to the decision. Keep a dated model/source registry current through rechecks when relevant, but never promise a permanently complete catalog of a changing market.
 
-## Dated image-family starting map
+## Dated image and video starting maps
 
-For broad image-generator discovery, begin with the [image-generator snapshot](references/image-generator-snapshot.md), a finite 19-family map checked on 2026-09-24. Treat its names, model IDs, operations, surface distinctions, practitioner notes, and watchlist as leads with explicit evidence boundaries. Refresh the exact target before use; do not infer a model's native features from the product platform, a sibling version, an announcement, or a leaderboard. Video and audio mapping remain separate research responsibilities. The [initial source register](references/initial-source-register.md) (checked 2026-09-23) lists the platform and image sources behind the first mapping; use it to find an original source again, not as current verification.
+For broad image-generator discovery, begin with the [image-generator snapshot](references/image-generator-snapshot.md), a finite 19-family map checked on 2026-09-24. Treat its names, model IDs, operations, surface distinctions, practitioner notes, and watchlist as leads with explicit evidence boundaries. Refresh the exact target before use; do not infer a model's native features from the product platform, a sibling version, an announcement, or a leaderboard. For video families, begin with the [video-generator snapshot](references/video-generator-snapshot.md), checked on 2026-10-09, with the same evidence labels and a fresh check of the exact target before use; music, song and voice tools are mapped in the audio owner's [music provider routing](../audio-production-director/references/music-provider-routing-and-rights.md). The [initial source register](references/initial-source-register.md) (checked 2026-09-23) lists the platform and image sources behind the first mapping; use it to find an original source again, not as current verification.
 
 ## Applied practice
 

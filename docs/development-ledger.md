@@ -884,3 +884,26 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `3da2cdf`; release workflow 37884503169, checks 37884503184 and 37884505200, release-notes refresh 37884503230: success; [v1.42.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.42.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (917 of 917), all 37 skill frontmatters parse ([record](../verification/github-publication-1.42.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261009-01
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-01-video-map`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `0e5ac1a` (main, package 1.42.0, after the 1.42.0 publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.43.0)
+- Package version: 1.42.0 -> 1.43.0
+- Scope: the review's IM4: a dated video-generator snapshot (twelve families, checked 2026-10-09) linked from Research Evidence, its model mapping and the Video Prompt Architect; the capability card's video entry and the knowledge map name it; the validator gains `SNAPSHOT_DATE` with a test. A research subagent started on 2026-10-08 stopped at an API session limit before writing anything; the snapshot was researched and written in this session instead. Welcome and menus unchanged
+- Records note (review F-REC-04): tags `v1.0.0` and `v1.1.3` have no release record, and `verification/release-1.0.json` and `verification/release-preparation.json` have no tag; they are historical and left as they are
+- Shared package changed: yes; 13 changed, 1 added, 0 removed ([scope](../verification/scope-1.43.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 197 passing of 201 (4 opt-in browser tests; 67 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, GEPA pilot 8, asset 23, captions 14: PASS ([record](../verification/release-1.43.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run; no generator was run
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

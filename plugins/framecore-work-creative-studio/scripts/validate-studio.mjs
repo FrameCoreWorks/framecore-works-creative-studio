@@ -173,6 +173,14 @@ export function validateStudio(root, {legacy = false} = {}) {
   const owners = Array.isArray(registry.owners) ? registry.owners.filter(owner => owner && typeof owner === 'object' && typeof owner.id === 'string') : [];
   const ownerIds = owners.map(owner => owner.id), actualOwners = files.filter(file => /^skills\/[^/]+\/SKILL\.md$/.test(file)).map(file => file.split('/')[1]).sort();
   errors.push(...validatePresentation(base, files, actualOwners));
+  // A dated generator snapshot states its date, and the research owner cites the same date where it links it.
+  for (const relative of files.filter(file => /^skills\/research-evidence\/references\/[a-z-]+-snapshot\.md$/.test(file))) {
+    const date = read(relative).split('\n').slice(0, 5).join('\n').match(/^Snapshot date: (\d{4}-\d{2}-\d{2})\./m)?.[1];
+    const name = path.basename(relative), entry = read('skills/research-evidence/SKILL.md');
+    const at = entry.indexOf('(references/' + name + ')');
+    if (!date) fail('SNAPSHOT_DATE', relative + ': state "Snapshot date: YYYY-MM-DD." in its first lines');
+    else if (at < 0 || !entry.slice(at, at + 160).includes(date)) fail('SNAPSHOT_DATE', relative + ': Research Evidence must link it with its date ' + date);
+  }
   // The capability card states what Studio executes; every tool it names must exist and every owner must be real.
   try {
     const card = json('skills/workflow-orchestrator/assets/capability-card.json');

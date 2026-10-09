@@ -1,0 +1,33 @@
+{
+  "version": "1.43.0",
+  "baseline": "0e5ac1a4bb07ba13a7532d5de4e9000f80520786",
+  "change_id": "CC-20261009-01",
+  "origin": "cloud-code",
+  "files": 918,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/research-evidence/SKILL.md",
+    "skills/research-evidence/references/model-mapping.md",
+    "skills/video-prompt-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 904,
+  "added": [
+    "skills/research-evidence/references/video-generator-snapshot.md"
+  ],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Video-generator snapshot added; Research Evidence, model mapping, Video Prompt Architect, capability card and knowledge map link it; validate-studio SNAPSHOT_DATE with a test; workflow-orchestrator/SKILL.md changes only in the PACKAGE IDENTITY block."
+}

@@ -74,6 +74,20 @@ test('the capability card names real tools and owners and is linked where capabi
   });
 });
 
+test('dated generator snapshots and the research owner agree on each snapshot date', () => {
+  assert.ok(!codes(validateStudio(source)).includes('SNAPSHOT_DATE'));
+  const video = 'skills/research-evidence/references/video-generator-snapshot.md';
+  assert.match(fs.readFileSync(path.join(source, video), 'utf8'), /^Snapshot date: 2026-10-09\./m);
+  withFixture(root => {
+    edit(root, video, text => text.replace('Snapshot date: 2026-10-09.', 'Snapshot date: 2026-11-30.'));
+    assert.ok(codes(validateStudio(root)).includes('SNAPSHOT_DATE'), 'a refreshed snapshot needs its new date where it is linked');
+  });
+  withFixture(root => {
+    edit(root, video, text => text.replace('Snapshot date: 2026-10-09.', 'Checked recently.'));
+    assert.ok(codes(validateStudio(root)).includes('SNAPSHOT_DATE'));
+  });
+});
+
 test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const motion = read('skills/hyperframes-workflow/SKILL.md');

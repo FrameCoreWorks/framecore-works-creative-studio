@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.43.0, 2026-10-09
+
+From the full review (the repository's docs/reviews/full-review-2026-10-08.md); the welcome and menus are unchanged:
+
+- **Video-generator snapshot.** A dated [map](../skills/research-evidence/references/video-generator-snapshot.md) of twelve video families checked on 2026-10-09 (Google Veo 3.1 and Gemini Omni, Kling 3.0, Seedance 2.0 and 2.5, Wan 3.0, MiniMax H3, Runway Gen-4.5 and Aleph 2.0, Luma Ray3.2, Grok Imagine Video 1.5, Midjourney Video V1, LTX-2, and Sora as retired since 24 September 2026), with model IDs, operations (text and image to video, first and last frames, references, editing, extension, native audio), limits that shape prompts, multi-model surfaces and a watchlist. Every fact is labelled as read on the maker's page, read through a search summary or secondary. Research Evidence, its model mapping and the Video Prompt Architect start from it and still recheck the exact target before a model-specific prompt.
+- The validator checks that each dated generator snapshot states its date and that Research Evidence cites the same date where it links it (`SNAPSHOT_DATE`), with a test.
+
 ## 1.42.0, 2026-10-09
 
 New modules from the full review (the repository's docs/reviews/full-review-2026-10-08.md); the welcome and menus are unchanged:

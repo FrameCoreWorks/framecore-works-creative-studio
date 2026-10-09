@@ -115,6 +115,11 @@ state the resulting uncertainty rather than fabricating freshness.
 Use the shared [research-evidence](../research-evidence/SKILL.md) workflow
 for every substantive video task and expand it to current model mapping when
 the user names a generator. Do not research unrelated models to fill space.
+For a broad question about which video generator to use, or to identify a named
+one and its surface, start from the dated
+[video-generator snapshot](../research-evidence/references/video-generator-snapshot.md)
+and refresh the exact target before writing its prompt; a retired model such as
+Sora gets an explanation and a current alternative.
 
 ## Build a feasible prompt
 

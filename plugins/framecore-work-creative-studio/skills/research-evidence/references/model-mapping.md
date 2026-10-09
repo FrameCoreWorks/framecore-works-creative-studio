@@ -99,7 +99,7 @@ For one task: a concise finding that changes the prompt, a complete prompt and o
 
 For a compendium: scope/date; source register; per-family/version/surface mapping; stable craft; known failure patterns; examples labeled tested/untested; contradiction log; update triggers; remaining gaps. Count actual coverage, not links collected.
 
-For image family, operation, version, surface and evidence boundaries checked on 2026-09-24, consult the [audited image-generator snapshot](image-generator-snapshot.md). Its cards distinguish T2I, I2I/edit and reference-led operations; a missing field is not support. Recheck any material current claim, and add a newly surfaced family only after applying the same source, practitioner-evidence and uncertainty controls.
+For image family, operation, version, surface and evidence boundaries checked on 2026-09-24, consult the [audited image-generator snapshot](image-generator-snapshot.md). For video families, operations and retirements checked on 2026-10-09, consult the [video-generator snapshot](video-generator-snapshot.md). Its cards distinguish T2I, I2I/edit and reference-led operations; a missing field is not support. Recheck any material current claim, and add a newly surfaced family only after applying the same source, practitioner-evidence and uncertainty controls.
 
 No absolute “complete know-how of every model” promise. State the market/date boundary and unverified families. Maintain old-version guidance as historical when useful, never silently current.
 

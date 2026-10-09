@@ -1,10 +1,8 @@
-# Creative Studio 1.42.0
+# Creative Studio 1.43.0
 
-Studio now works on your own videos too.
+A current map of video generators.
 
-- **Sound for your footage.** Give Studio a reel you made: it finds the cuts, puts designed sounds on the moments you name, composes music that fits the shots and mixes it with or without the video's own sound, then reports timing and loudness. Where the host cannot run code, you get a plan from the real cuts.
-- **Captions that are checked.** Studio checks caption files against reading-speed limits for English and Polish, converts SRT and WebVTT, builds captions from word timings and burns them into your video.
-- **Honest about tools.** One capability list says what Studio can run in your conversation, what it needs and what you get instead when a tool is missing.
-- **A short test for each larger release.** Eight checks the owner can run in ChatGPT or Codex, with a record that is validated.
+- **Know which video tool is which.** Studio now starts from a dated map of twelve video generator families checked on 9 October 2026: what each one can do (from text or an image, between two frames, with references, editing, continuing a clip, sound), the exact model names, and which ones are retired, such as Sora.
+- **Still checked before use.** The map is a starting point: before writing a prompt for a named generator, Studio checks that model's current page, and every fact in the map says how it was confirmed.
 
 Startup, the welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

@@ -308,14 +308,14 @@
       "id": "video_generation",
       "executed_by": "external",
       "owner": "video-prompt-architect",
-      "does": "Video generators such as Veo, Kling or Runway run outside Studio",
+      "does": "Video generators such as Veo, Gemini Omni, Kling, Seedance, Wan, MiniMax H3 or Runway run outside Studio; the dated video-generator snapshot in Research Evidence maps them",
       "tools": [],
       "requires": [
         "host_tool"
       ],
       "optional": [],
       "hosts": [],
-      "delivers": "A prompt for the named generator, researched for its current version",
+      "delivers": "A prompt for the named generator, researched for its current version and surface",
       "when_missing": "Deliver the prompt; review a clip the user supplies",
       "observed": "No connector is bundled"
     },

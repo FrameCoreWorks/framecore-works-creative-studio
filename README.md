@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.42.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.43.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -23,6 +23,7 @@ Startup restores the complete Studio introduction and capability overview, then 
 - Sound and captions for your own footage where the host runs code: cuts measured from the video, designed hits on the moments you mark and a music bed, mixed with or without the video's own sound and checked for timing and loudness; captions checked against reading limits, converted between SRT and WebVTT, built from timed words and burned into the video.
 - A machine-readable [capability card](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/capability-card.json): what Studio executes itself, what each tool needs and what it delivers when a tool is missing.
 - Captions, UGC and short-form stories with dated, sourced defaults: subtitle and caption reading speeds and formats, creator-ad formats with disclosure lines for paid relationships and AI presenters (Poland, EU, US), and short-form structures with a beat budget.
+- Dated starting maps of [image generators](plugins/framecore-work-creative-studio/skills/research-evidence/references/image-generator-snapshot.md) (19 families, 2026-09-24) and [video generators](plugins/framecore-work-creative-studio/skills/research-evidence/references/video-generator-snapshot.md) (12 families, 2026-10-09), each fact labelled by how it was confirmed; the exact target is rechecked before a model-specific prompt.
 - Answers shaped for ChatGPT's interactive elements where the host offers them (choices, comparisons, timelines), always with an equivalent text path.
 - Asset records, revisions, scoped preferences and portable handoffs between environments.
 - Consistent skill display names, with a [standard for future additions](plugins/framecore-work-creative-studio/docs/skill-naming.md).

@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.42.0
+## Current source: 1.43.0
+
+The [1.43.0 source checks](verification/release-1.43.0.json) pass canonical validation and `scripts/check_all.sh`: 201 Node tests (197 passing, 4 opt-in browser tests skipped there and run separately: 67 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 8 GEPA pilot, 23 asset and 14 caption checks; the legacy suite matches its recorded baseline. The new video-generator snapshot was compiled on 2026-10-09 from maker pages that loaded (Gemini API, Google blog, Kuaishou's press release, ByteDance Seed, BytePlus, Alibaba Model Studio, MiniMax, Runway, Luma, xAI, Midjourney and OpenAI's deprecations page); facts seen only in search summaries or secondary sources are labelled so. No generator was run. [Scope](verification/scope-1.43.0.json) records 13 changed and 1 added shared files out of 918.
+
+## Previous source: 1.42.0
 
 The [1.42.0 source checks](verification/release-1.42.0.json) pass canonical validation and `scripts/check_all.sh`: 200 Node tests (196 passing, 4 opt-in browser tests skipped there and run separately: 67 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 8 GEPA pilot, 23 asset and 14 caption checks; the legacy suite matches its recorded baseline. New: sound for supplied footage (a synthetic three-shot video: cuts found on frames 60 and 120, hits only on the marked moment and the reveal, every hit judged on its frame, about -14 LUFS delivered), the captions tool (formats, three profiles, building from Polish word timings, the contract import identical to `sync.mjs`, a burn-in with captions only inside their cues and the audio kept), the capability card with its validator rule and the host smoke set. These are container checks on synthetic media; no host run and no listening test of footage sound is recorded. [Scope](verification/scope-1.42.0.json) records 18 changed and 5 added shared files out of 917.
 
