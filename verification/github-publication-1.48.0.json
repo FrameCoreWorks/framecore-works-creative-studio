@@ -1,0 +1,30 @@
+{
+  "version": "1.48.0",
+  "change_id": "CC-20261009-10",
+  "origin": "cloud-code",
+  "commit": "1aa99e4da6526cf2754acb4d31bd7cf4cd209890",
+  "package_commit": "1aa99e4da6526cf2754acb4d31bd7cf4cd209890",
+  "integration": "Fast-forward of main from a1c4187 to 1aa99e4 under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.48.0",
+  "workflow_id": 37938228957,
+  "workflow_conclusion": "success",
+  "checks_workflow_ids": [
+    37938228968,
+    37938232790,
+    37938236302
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 37938228924,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "7bbf8ded11570099a6c45943cb0d9d6632419eb5a732365c52b5b4cfc48e70a0",
+  "plugin_zip_matches_tag_tree": "937 of 937 files byte-identical to v1.48.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "a641b9a46a0bc438428bde3e931d80d70c3a2c22b84f6ee8a7407fb06a0e3398",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "claude_install_from_tag": "Claude Code 2.1.295, isolated configuration: claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.48.0, claude plugin install framecore-work-creative-studio@framecore-works: version 1.48.0, 37 skills; a Polish greeting in claude -p returned the complete Polish welcome byte-identical to assets/startup-welcome.pl.md (agent-run)",
+  "hosted_plugin": "not updated (the owner updates it in Plugin Creator; 1.43.0 remains the saved release)",
+  "host_behavior": "ChatGPT and Codex NOT_RUN; Claude apps NOT_RUN"
+}
