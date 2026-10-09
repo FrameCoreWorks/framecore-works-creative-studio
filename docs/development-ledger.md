@@ -1031,3 +1031,18 @@ Cross-host state:
 - GitHub: this commit on `main`; the package release stays v1.46.0
 - ChatGPT Work: pending (owner updates to 1.46.0 in Plugin Creator; 1.43.0 is the saved release)
 - Codex: not_run
+
+## CC-20261009-08
+
+- Origin: cloud-code, from the owner's answers of 2026-10-09 ("1 nie 2 nie")
+- Branch: `cloud-code/CC-20261009-06-commercial-acceptance` (records only), fast-forwarded into `main` under the owner's standing rule
+- Baseline: `7566cc6` (main, package 1.46.0); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.46.0)
+- Scope: (1) the original 20 s reel and its composition will not be supplied, so the reel regression stays on the original fixtures of `verification/perfua-regression-1.46.0.json` and the reel itself stays not_verified; (2) the environment check keeps showing install steps only and does not offer to run an installation
+- Shared package changed: no
+
+Cross-host state:
+
+- GitHub: this commit on `main`; the package release stays v1.46.0
+- ChatGPT Work: pending (owner updates to 1.46.0 in Plugin Creator)
+- Codex: not_run
