@@ -1,0 +1,29 @@
+{
+  "version": "1.47.0",
+  "change_id": "CC-20261009-09",
+  "origin": "cloud-code",
+  "commit": "a7cbfc0ba629f6ea89a406ea62a1710c41f3cdb7",
+  "package_commit": "a7cbfc0ba629f6ea89a406ea62a1710c41f3cdb7",
+  "integration": "Fast-forward of main from da78110 to a7cbfc0 under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.47.0",
+  "workflow_id": 37924964208,
+  "workflow_conclusion": "success",
+  "checks_workflow_ids": [
+    37924964487,
+    37924967988,
+    37924972219
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 37924964353,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "9e36ea504b875d2319c7d17ab4f76c0a1157ffaa38417aaec843c23cf5a8e12c",
+  "plugin_zip_matches_tag_tree": "936 of 936 files byte-identical to v1.47.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "407d2d5e50485c01c59027236d9b42cd0e6ffd451555de804e4aca3f4311732f",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML; the Workflow Orchestrator description is 450 characters",
+  "hosted_plugin": "not updated (the owner updates it in Plugin Creator; 1.43.0 remains the saved release)",
+  "host_behavior": "NOT_RUN"
+}
