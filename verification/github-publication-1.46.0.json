@@ -1,0 +1,31 @@
+{
+  "version": "1.46.0",
+  "change_id": "CC-20261009-06",
+  "origin": "cloud-code",
+  "commit": "9b423858804f64bd4a672f0518aee414d4979340",
+  "package_commit": "9b423858804f64bd4a672f0518aee414d4979340",
+  "integration": "Fast-forward of main from 32736d1 to 9b42385 under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.46.0",
+  "workflow_id": 37913665900,
+  "workflow_conclusion": "success on attempt 2",
+  "workflow_attempt_1": "cancelled after 25 minutes in the dependency-install step (ffmpeg, numpy, Pillow), before any check or test ran; the three check workflows on the same commit installed the same dependencies and passed; re-run once",
+  "checks_workflow_ids": [
+    37913665897,
+    37913668311,
+    37913670804
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 37913666028,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "9fc24f7154556fbebd55d0875ca97dbb07677fd3f399006f8496475a03b3f6cd",
+  "plugin_zip_matches_tag_tree": "936 of 936 files byte-identical to v1.46.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "aa8cfb72e03ff82b7aed80f31dd85cda77cad2a0dd5eabdd55e6ae6b9bf2ec07",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "published_text_audit": "text-audit.mjs from the unpacked release ZIP failed the data-layout-ignore fixture as expected (1 error, 1 warning)",
+  "hosted_plugin": "not updated (1.43.0 remains the saved ChatGPT Work release)",
+  "host_behavior": "NOT_RUN"
+}
