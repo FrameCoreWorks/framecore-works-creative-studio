@@ -1116,3 +1116,27 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.49.0 in Plugin Creator; 1.43.0 is the saved release)
 - Codex: not_run
 - Claude Code: not rerun for 1.49.0 (1.48.0 tested)
+
+## CC-20261009-12
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-12-update-check`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `73a7df2` (main, package 1.49.0, after its publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.50.0)
+- Package version: 1.49.0 -> 1.50.0
+- Scope: the owner asked on 2026-10-09 that updating the plugin also checks that every required tool is installed and current. `check_environment.py --update` is the final check plus an online newest-version lookup (snapshot when offline); verdict `pass_with_updates` (exit 4) lists newer versions with commands without forcing them; a workspace starter whose lockfile differs from the plugin's is `wrong_version`. Workspace commands replace an existing folder and name the actual workspace. CODEX_UPDATE.md, CHATGPT_UPDATE.md, UPDATE.md and the CLAUDE_INSTALL.md update section end with the update check; `tests/test_claude_plugin.py` checks all install and update guides for `--final` and `--update`; the capabilities reference mentions both checks
+- Shared package changed: yes; 12 changed, 0 added, 0 removed ([scope](../verification/scope-1.50.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin and guides 7, GEPA pilot 8, asset 23, captions 14, environment check 16, motion acceptance 10: PASS ([record](../verification/release-1.50.0.json))
+- update check in the provisioned container: `pass_with_updates`; `fail` with a stale starter
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (owner updates to 1.50.0 in Plugin Creator; 1.43.0 is the saved release)
+- Codex: not_run
+- Claude Code: not rerun for 1.50.0

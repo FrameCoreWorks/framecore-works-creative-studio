@@ -12,21 +12,21 @@ The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json
 
 ## 2. Pin the source
 
-Use a release tag, for example `v1.49.0` from the [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
+Use a release tag, for example `v1.50.0` from the [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
 
 ## 3. Install
 
 **Claude Code, in a session:**
 
 ```text
-/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.49.0
+/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.50.0
 /plugin install framecore-work-creative-studio@framecore-works
 ```
 
 **Claude Code, from a shell:**
 
 ```sh
-claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.49.0
+claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.50.0
 claude plugin install framecore-work-creative-studio@framecore-works --scope user
 ```
 
@@ -46,6 +46,7 @@ claude plugin install framecore-work-creative-studio@framecore-works --scope use
 - Claude Code: `claude plugin marketplace update framecore-works`, then `claude plugin update framecore-work-creative-studio@framecore-works`, or **Update now** on the plugin in `/plugin`. To move to a newer pinned release, add the marketplace again with the new tag. Auto-update for third-party marketplaces is off by default and can be turned on in the `/plugin` Marketplaces tab.
 - Claude apps: update or remove the plugin under Customize > Plugins.
 - Personal edits inside an installed plugin copy are replaced by an update; keep personal preferences in Studio's portable profile instead.
+- Finish every update with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update): `python3 <plugin folder>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host claude_code` (`--host claude_apps` in a Claude app's sandbox). It checks the required tools again, finds Studio workspace starters installed from the previous version, and lists newer versions; the update is complete at `pass` or `pass_with_updates`. It installs nothing.
 
 ## Differences from ChatGPT and Codex
 

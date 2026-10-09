@@ -20,6 +20,9 @@ verification limits. On a lost response, inspect saved state before retrying.
 Do not change sharing, provider connections, project data or unrelated behavior.
 Preserve private provider preferences. Do not repeat optional setup unless requested or needed
 for a changed selected route. Studio updating does not authorize new provider connections.
+After the readback, run the update check of the required tools from the saved plugin in code execution:
+python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host chatgpt_work
+and show me its verdict and the tools this chat cannot run.
 ```
 
 Follow the active Plugin Creator update skill. Compare previous verified source, actual saved
@@ -35,6 +38,8 @@ if source or access changed.
 
 After success read back affected files and metadata. Report save success separately from incomplete
 verification. Repository publication and hosted updating remain separate operations.
+
+Finish with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update) of the required tools (`--update --host chatgpt_work`, or `--host chatgpt` in ordinary ChatGPT). In the chat sandbox it reports `pass`, `pass_with_updates` or `limited` (tools that sandbox lacks, which the user cannot install there); for the full required set, run the same check where Studio is installed on the user's machine.
 
 ## Readback record
 

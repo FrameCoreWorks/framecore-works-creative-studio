@@ -1,0 +1,30 @@
+{
+  "version": "1.50.0",
+  "baseline": "73a7df2fbf39bfcc2592d00180b261b45cb1954e",
+  "change_id": "CC-20261009-12",
+  "origin": "cloud-code",
+  "files": 937,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+    "skills/workflow-orchestrator/assets/environment-check/tools.json",
+    "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+    "tests/environment_check_test.py"
+  ],
+  "unchanged_count": 925,
+  "added": [],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "Update check after every plugin update (owner request 2026-10-09): check_environment.py --update with newest versions and stale workspace detection, workspace commands that replace folders, README, capabilities reference, tests; update guides outside the package"
+}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.50.0, 2026-10-09
+
+From the owner's request of 2026-10-09: an update also checks that every required tool is installed and current; the welcome and menus are unchanged:
+
+- **Update check after every plugin update.** `check_environment.py --update --host <host>` ends every update guide (Codex, ChatGPT Work, Claude, and UPDATE.md). It checks the whole required set again, reads the newest versions online (the dated snapshot when offline), and compares each Studio workspace starter with the updated plugin: a starter installed from the previous version's lockfile is `wrong_version`, and its printed command replaces the folder and runs `npm ci`. Verdicts: `pass`, `pass_with_updates` (everything works; newer versions listed with their commands, exit 4), `fail` (missing, too old or a stale starter), `limited` (chat sandbox), `unknown_host`. Newer versions are listed, not forced, because system packages often lag their newest release. The check still installs nothing.
+- Workspace commands now replace an existing starter folder instead of copying into it, and name the actual workspace when `--workspace` is used. The capabilities reference mentions both checks; a repository test checks that every installation guide ends with `--final` and every update guide with `--update`.
+- Tested in the provisioned container: the update check gave `pass_with_updates` (newer Python, FFmpeg, Node.js and Chromium online) and `fail` once a starter's lockfile differed from the plugin's.
+
 ## 1.49.0, 2026-10-09
 
 From the owner's decision of 2026-10-09: required and optional tools are one required set, checked as the final step of installation; the welcome and menus are unchanged:

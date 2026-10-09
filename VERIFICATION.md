@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.49.0
+## Current source: 1.50.0
+
+The [1.50.0 source checks](verification/release-1.50.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 16 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline. In the provisioned container the update check read the newest versions online and gave `pass_with_updates` (Python 3.13.16, FFmpeg 6.1.1, Node.js 22.22.0 and Chromium 141 have newer releases), and `fail` with a replacing `npm ci` command after one starter's lockfile was changed to stand for an older plugin version. Not run on macOS, Windows or in a chat sandbox. [Scope](verification/scope-1.50.0.json) records 12 changed shared files out of 937.
+
+## Previous source: 1.49.0
 
 The [1.49.0 source checks](verification/release-1.49.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 6 Claude-plugin, 8 GEPA pilot, 23 asset, 14 caption, 14 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline. The final check was proved on a fully provisioned Linux container: the Python packages in one virtual environment (Manim needed the Cairo and Pango development libraries, as its install command says), the four starters installed with `npm ci` in a Studio workspace, and HyperFrames' skills; `--final --host claude_code` passed with 17 of 17 tools ([record](verification/required-tools-final-check-1.49.0.json)). On the unprovisioned container it fails with the missing tools listed; on `chatgpt_work` it gives `limited`. Not run on macOS, Windows or in a chat sandbox. [Scope](verification/scope-1.49.0.json) records 13 changed shared files out of 937.
 

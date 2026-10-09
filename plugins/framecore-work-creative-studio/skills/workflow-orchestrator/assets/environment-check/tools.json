@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "checked": "2026-10-09",
-  "scope": "The one required set of programs and libraries Studio's tools and engines use, how the environment check finds each, the minimum it needs, the newest version known on the check date, how to install it, and for each host (ordinary ChatGPT, ChatGPT Work, Codex, Claude Code, the Claude apps) whether it was observed there, must be checked, is installed by the user, is installed into the Studio workspace with npm ci, or cannot run there. Every tool is required; the final check at installation passes only when every tool the host can run is present. The check never installs anything; known_latest is a dated snapshot and --online reads the current versions.",
+  "scope": "The one required set of programs and libraries Studio's tools and engines use, how the environment check finds each, the minimum it needs, the newest version known on the check date, how to install it, and for each host (ordinary ChatGPT, ChatGPT Work, Codex, Claude Code, the Claude apps) whether it was observed there, must be checked, is installed by the user, is installed into the Studio workspace with npm ci, or cannot run there. Every tool is required; the final check at installation, and the update check after each plugin update, pass only when every tool the host can run is present, with the workspace matching the plugin's lockfiles; the update check also lists newer versions. The check never installs anything; known_latest is a dated snapshot and --online reads the current versions.",
   "hosts": [
     {
       "id": "chatgpt",
@@ -461,10 +461,10 @@
       "known_latest": "4.0.534",
       "latest_source": "npm:remotion",
       "install": {
-        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/remotion-video-production/assets/kinetic-type-starter\" \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && (cd \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && npm ci)",
-        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/remotion-video-production/assets/kinetic-type-starter\" \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && (cd \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && npm ci)",
-        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Copy-Item -Recurse \"<plugin>\\skills\\remotion-video-production\\assets\\kinetic-type-starter\" \"$HOME\\.framecore-studio\\workspace\\kinetic-type-starter\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\kinetic-type-starter\"; npm ci",
-        "any": "<plugin> is the installed plugin folder. npm ci installs the exact versions of the starter's lockfile. Remotion needs a company licence for some companies"
+        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && cp -R \"<plugin>/skills/remotion-video-production/assets/kinetic-type-starter\" \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && (cd \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && npm ci)",
+        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && cp -R \"<plugin>/skills/remotion-video-production/assets/kinetic-type-starter\" \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && (cd \"$HOME/.framecore-studio/workspace/kinetic-type-starter\" && npm ci)",
+        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Remove-Item -Recurse -Force \"$HOME\\.framecore-studio\\workspace\\kinetic-type-starter\" -ErrorAction SilentlyContinue; Copy-Item -Recurse \"<plugin>\\skills\\remotion-video-production\\assets\\kinetic-type-starter\" \"$HOME\\.framecore-studio\\workspace\\kinetic-type-starter\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\kinetic-type-starter\"; npm ci",
+        "any": "<plugin> is the installed plugin folder. The folder is replaced, so a copy from an older plugin version is refreshed; npm ci installs the exact versions of the starter's lockfile. Remotion needs a company licence for some companies"
       },
       "hosts": {
         "chatgpt": {
@@ -497,10 +497,10 @@
       "known_latest": "3.15.0",
       "latest_source": "npm:gsap",
       "install": {
-        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/gsap-motion-starter\" \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && (cd \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && npm ci)",
-        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/gsap-motion-starter\" \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && (cd \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && npm ci)",
-        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Copy-Item -Recurse \"<plugin>\\skills\\hyperframes-workflow\\assets\\gsap-motion-starter\" \"$HOME\\.framecore-studio\\workspace\\gsap-motion-starter\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\gsap-motion-starter\"; npm ci",
-        "any": "<plugin> is the installed plugin folder. npm ci installs the exact versions of the starter's lockfile"
+        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/gsap-motion-starter\" \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && (cd \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && npm ci)",
+        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/gsap-motion-starter\" \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && (cd \"$HOME/.framecore-studio/workspace/gsap-motion-starter\" && npm ci)",
+        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Remove-Item -Recurse -Force \"$HOME\\.framecore-studio\\workspace\\gsap-motion-starter\" -ErrorAction SilentlyContinue; Copy-Item -Recurse \"<plugin>\\skills\\hyperframes-workflow\\assets\\gsap-motion-starter\" \"$HOME\\.framecore-studio\\workspace\\gsap-motion-starter\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\gsap-motion-starter\"; npm ci",
+        "any": "<plugin> is the installed plugin folder. The folder is replaced, so a copy from an older plugin version is refreshed; npm ci installs the exact versions of the starter's lockfile"
       },
       "hosts": {
         "chatgpt": {
@@ -532,10 +532,10 @@
       "workspace_name": "three-motion-example",
       "pinned_by": "skills/remotion-video-production/assets/three-motion-example/package.json",
       "install": {
-        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/remotion-video-production/assets/three-motion-example\" \"$HOME/.framecore-studio/workspace/three-motion-example\" && (cd \"$HOME/.framecore-studio/workspace/three-motion-example\" && npm ci)",
-        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/remotion-video-production/assets/three-motion-example\" \"$HOME/.framecore-studio/workspace/three-motion-example\" && (cd \"$HOME/.framecore-studio/workspace/three-motion-example\" && npm ci)",
-        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Copy-Item -Recurse \"<plugin>\\skills\\remotion-video-production\\assets\\three-motion-example\" \"$HOME\\.framecore-studio\\workspace\\three-motion-example\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\three-motion-example\"; npm ci",
-        "any": "<plugin> is the installed plugin folder. npm ci installs the exact versions of the starter's lockfile. Remotion needs a company licence for some companies"
+        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/three-motion-example\" && cp -R \"<plugin>/skills/remotion-video-production/assets/three-motion-example\" \"$HOME/.framecore-studio/workspace/three-motion-example\" && (cd \"$HOME/.framecore-studio/workspace/three-motion-example\" && npm ci)",
+        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/three-motion-example\" && cp -R \"<plugin>/skills/remotion-video-production/assets/three-motion-example\" \"$HOME/.framecore-studio/workspace/three-motion-example\" && (cd \"$HOME/.framecore-studio/workspace/three-motion-example\" && npm ci)",
+        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Remove-Item -Recurse -Force \"$HOME\\.framecore-studio\\workspace\\three-motion-example\" -ErrorAction SilentlyContinue; Copy-Item -Recurse \"<plugin>\\skills\\remotion-video-production\\assets\\three-motion-example\" \"$HOME\\.framecore-studio\\workspace\\three-motion-example\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\three-motion-example\"; npm ci",
+        "any": "<plugin> is the installed plugin folder. The folder is replaced, so a copy from an older plugin version is refreshed; npm ci installs the exact versions of the starter's lockfile. Remotion needs a company licence for some companies"
       },
       "hosts": {
         "chatgpt": {
@@ -565,10 +565,10 @@
       "workspace_name": "motion-toolkit",
       "pinned_by": "skills/hyperframes-workflow/assets/motion-toolkit/package.json",
       "install": {
-        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/motion-toolkit\" \"$HOME/.framecore-studio/workspace/motion-toolkit\" && (cd \"$HOME/.framecore-studio/workspace/motion-toolkit\" && npm ci)",
-        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/motion-toolkit\" \"$HOME/.framecore-studio/workspace/motion-toolkit\" && (cd \"$HOME/.framecore-studio/workspace/motion-toolkit\" && npm ci)",
-        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Copy-Item -Recurse \"<plugin>\\skills\\hyperframes-workflow\\assets\\motion-toolkit\" \"$HOME\\.framecore-studio\\workspace\\motion-toolkit\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\motion-toolkit\"; npm ci",
-        "any": "<plugin> is the installed plugin folder. npm ci installs the exact versions of the starter's lockfile"
+        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/motion-toolkit\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/motion-toolkit\" \"$HOME/.framecore-studio/workspace/motion-toolkit\" && (cd \"$HOME/.framecore-studio/workspace/motion-toolkit\" && npm ci)",
+        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/motion-toolkit\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/motion-toolkit\" \"$HOME/.framecore-studio/workspace/motion-toolkit\" && (cd \"$HOME/.framecore-studio/workspace/motion-toolkit\" && npm ci)",
+        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Remove-Item -Recurse -Force \"$HOME\\.framecore-studio\\workspace\\motion-toolkit\" -ErrorAction SilentlyContinue; Copy-Item -Recurse \"<plugin>\\skills\\hyperframes-workflow\\assets\\motion-toolkit\" \"$HOME\\.framecore-studio\\workspace\\motion-toolkit\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\motion-toolkit\"; npm ci",
+        "any": "<plugin> is the installed plugin folder. The folder is replaced, so a copy from an older plugin version is refreshed; npm ci installs the exact versions of the starter's lockfile"
       },
       "hosts": {
         "chatgpt": {

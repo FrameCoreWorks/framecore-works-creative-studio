@@ -52,6 +52,14 @@ class Manifests(unittest.TestCase):
         self.assertIn('[CLAUDE_INSTALL.md](CLAUDE_INSTALL.md)', (ROOT / 'INSTALL.md').read_text())
 
 
+class Guides(unittest.TestCase):
+    def test_installation_ends_with_the_final_check_and_updates_with_the_update_check(self):
+        for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
+            self.assertIn('--final --host', (ROOT / guide).read_text(), guide)
+        for guide in ('CODEX_UPDATE.md', 'CHATGPT_UPDATE.md', 'CLAUDE_INSTALL.md', 'UPDATE.md'):
+            self.assertIn('--update --host', (ROOT / guide).read_text(), guide)
+
+
 @unittest.skipUnless(shutil.which('claude'), 'the claude command is not installed')
 class ClaudeValidator(unittest.TestCase):
     def test_claude_plugin_validate_passes_for_plugin_and_marketplace(self):

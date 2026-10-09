@@ -2,7 +2,10 @@
 
 - **ChatGPT Work:** [CHATGPT_UPDATE.md](CHATGPT_UPDATE.md), through Plugin Creator and the same existing plugin.
 - **Codex:** [CODEX_UPDATE.md](CODEX_UPDATE.md), preserving the actual native entry, complete bundle and personal changes.
+- **Claude Code and the Claude apps:** the update section of [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md#5-update-and-remove).
 - **Fresh installation:** [INSTALL.md](INSTALL.md).
+
+Every update ends with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update) of the required tools: `check_environment.py --update --host <host>`. It checks that every required tool is still installed, that the Studio workspace matches the updated plugin's starters, and which tools have newer versions; it installs nothing.
 
 The complete update prompts start with `@plugin-creator` for Work or `$plugin-creator` for Codex. Follow each guide's selection instructions before sending; a copied invocation alone does not confirm tool availability. Codex's native update remains available without Plugin Creator and must preserve the existing local layout.
 

@@ -3,6 +3,7 @@
 
   python3 check_environment.py [--online] [--json] [--host ID] [--workspace DIR] [--project DIR] [--browser PATH]
   python3 check_environment.py --final --host codex     # the final check of an installation
+  python3 check_environment.py --update --host codex    # the check after a plugin update (also reads newest versions)
   python3 check_environment.py --matrix [--markdown]    # every tool on every host
 
 Reads tools.json (what to look for, minimum and newest known versions, install commands per platform, status per
@@ -14,7 +15,9 @@ not_on_this_host (the host cannot run it) or unknown, and which capabilities are
 the dated snapshot in tools.json. Nothing is ever installed or changed. Standard library only, so it runs wherever
 Python does (Codex, a local shell, ChatGPT's code execution). Exit codes: 0; with --strict or --final 1 when a
 required tool is missing, too old or of the wrong version; --final gives 3 (limited) on a chat sandbox host, where the
-user cannot install what is missing, and 2 when the host is not known.
+user cannot install what is missing, and 2 when the host is not known. --update is --final after a plugin update: it
+reads the newest versions online (the dated snapshot when offline), fails when a workspace starter no longer matches
+the updated plugin's lockfile, and exits 4 (pass_with_updates) when everything works but newer versions exist.
 """
 import argparse
 import glob
@@ -162,6 +165,10 @@ def check_workspace(tool, workspace):
     folder = pathlib.Path(workspace).expanduser() / tool['workspace_name']
     if not (folder / 'node_modules').is_dir():
         return 'missing', None, f'not installed in the Studio workspace ({folder})', pinned
+    # After a plugin update the starter's lockfile may change; a workspace installed from the old one is stale.
+    lock, installed_lock = PLUGIN_ROOT / tool['pinned_by'].replace('package.json', 'package-lock.json'), folder / 'package-lock.json'
+    if lock.is_file() and (not installed_lock.is_file() or installed_lock.read_bytes() != lock.read_bytes()):
+        return 'wrong_version', str(folder), 'installed from another plugin version: the starter\'s lockfile changed; reinstall it', pinned
     absent, other = [], []
     for name, version in sorted(pinned.items()):
         installed = folder / 'node_modules' / name / 'package.json'
@@ -274,7 +281,7 @@ def capability_state(card, tools, results, state):
     return out
 
 
-def install_steps(tools, results, system):
+def install_steps(tools, results, system, workspace=None):
     steps = []
     for tool in tools:
         result = results[tool['id']]
@@ -282,6 +289,8 @@ def install_steps(tools, results, system):
             continue
         hints = tool['install']
         command = (hints.get(system) or hints.get('any')).replace('<plugin>', str(PLUGIN_ROOT))
+        if tool['kind'] == 'workspace' and workspace:
+            command = command.replace('$HOME/.framecore-studio/workspace', workspace).replace('$HOME\\.framecore-studio\\workspace', workspace)
         if result['status'] == 'behind' and tool['kind'] == 'python_module':
             command = f'python3 -m pip install --user --upgrade {tool["package"]}'
         action = 'update' if result['status'] in ('behind', 'below_minimum') else 'install'
@@ -318,17 +327,19 @@ def matrix(spec, markdown=False):
     return '\n'.join(lines)
 
 
-def final_verdict(results, host, profile):
-    """The final check of an installation: every tool of the one required set that this host can run is usable."""
+def final_verdict(results, host, profile, update=False):
+    """The final check of an installation (or, with update, of an update): every tool of the one required set that this
+    host can run is usable; after an update, tools with a newer version are listed as updates."""
     if not host:
         return {'verdict': 'unknown_host', 'failing': [], 'detail': 'name the host with --host; the required set depends on it'}
     failing = [{'id': r['id'], 'status': r['status']} for r in results if r['status'] in FAILING]
     excluded = [r['id'] for r in results if r['status'] == 'not_on_this_host']
+    updates = [{'id': r['id'], 'version': r.get('version'), 'latest': r.get('latest')} for r in results if r['status'] == 'behind'] if update else []
     if not failing:
-        return {'verdict': 'pass', 'failing': [], 'not_on_this_host': excluded}
+        return {'verdict': 'pass_with_updates' if updates else 'pass', 'failing': [], 'updates': updates, 'not_on_this_host': excluded}
     # In a chat sandbox the user cannot install system tools; the installation stands, with these named limits.
     verdict = 'limited' if profile == 'code_execution' else 'fail'
-    return {'verdict': verdict, 'failing': failing, 'not_on_this_host': excluded}
+    return {'verdict': verdict, 'failing': failing, 'updates': updates, 'not_on_this_host': excluded}
 
 
 def report(args):
@@ -355,14 +366,15 @@ def report(args):
     profile = next((h['profile'] for h in spec['hosts'] if h['id'] == host), None)
     return {
         'host': host, 'host_detected_by': detected_by, 'host_profile': profile, 'workspace': str(pathlib.Path(getattr(args, 'workspace', DEFAULT_WORKSPACE)).expanduser()),
-        'final': final_verdict(results.values(), host, profile),
+        'final': final_verdict(results.values(), host, profile, update=getattr(args, 'update', False)),
+        'mode': 'update' if getattr(args, 'update', False) else 'final' if getattr(args, 'final', False) else 'check',
         'checked': spec['checked'],
         'latest_from': 'online' if network else f'snapshot of {spec["checked"]}' + (' (online lookup failed)' if args.online else ''),
         'system': system, 'platform': platform.platform(), 'python': sys.executable, 'project': os.path.abspath(args.project),
         'tools': list(results.values()),
         'requirements': state,
         'capabilities': capability_state(card, spec['tools'], results, state),
-        'install': install_steps(spec['tools'], results, system),
+        'install': install_steps(spec['tools'], results, system, str(pathlib.Path(getattr(args, 'workspace', DEFAULT_WORKSPACE)).expanduser())),
         'installs_nothing': True,
     }
 
@@ -398,7 +410,8 @@ def text(data):
     if not data['install']:
         lines += ['', 'Nothing to install or update.']
     final = data['final']
-    lines += ['', 'FINAL CHECK: ' + final['verdict'].upper() + (': ' + ', '.join(f'{f["id"]} ({f["status"]})' for f in final['failing']) if final['failing'] else '')
+    lines += ['', ('UPDATE CHECK: ' if data.get('mode') == 'update' else 'FINAL CHECK: ') + final['verdict'].upper() + (': ' + ', '.join(f'{f["id"]} ({f["status"]})' for f in final['failing']) if final['failing'] else '')
+              + ('; newer versions: ' + ', '.join(f'{u["id"]} {u["version"]} -> {u["latest"]}' for u in final['updates']) if final.get('updates') else '')
               + (f'; not on this host: {", ".join(final["not_on_this_host"])}' if final.get('not_on_this_host') else '') + (f' ({final["detail"]})' if final.get('detail') else '')]
     return '\n'.join(lines)
 
@@ -410,6 +423,7 @@ def main(argv=None):
     parser.add_argument('--project', default='.', help='project folder whose own skills folders are searched for HyperFrames (default: current folder)')
     parser.add_argument('--workspace', default=DEFAULT_WORKSPACE, help='Studio workspace with the starters installed by npm ci (default: ~/.framecore-studio/workspace or FRAMECORE_STUDIO_WORKSPACE)')
     parser.add_argument('--final', action='store_true', help='the final check of an installation: exit 0 pass, 1 fail, 3 limited (chat sandbox), 2 unknown host')
+    parser.add_argument('--update', action='store_true', help='the check after a plugin update: --final with newest versions read online; exit 4 when newer versions exist')
     parser.add_argument('--browser', help='path to Chrome or Chromium to check')
     parser.add_argument('--strict', action='store_true', help='exit 1 when a required tool is missing or below its minimum')
     parser.add_argument('--host', default='auto', choices=['auto'] + [h['id'] for h in load(HERE / 'tools.json')['hosts']],
@@ -417,6 +431,8 @@ def main(argv=None):
     parser.add_argument('--matrix', action='store_true', help='print the fixed tool list for every host and stop (with --json or --markdown)')
     parser.add_argument('--markdown', action='store_true', help='with --matrix, print a Markdown table')
     args = parser.parse_args(argv)
+    if args.update:
+        args.final = args.online = True
     if args.matrix:
         spec = load(HERE / 'tools.json')
         print(json.dumps({h['id']: {t['id']: t['hosts'][h['id']] for t in spec['tools']} for h in spec['hosts']}, indent=2, ensure_ascii=False) if args.json else matrix(spec, args.markdown))
@@ -424,7 +440,7 @@ def main(argv=None):
     data = report(args)
     print(json.dumps(data, indent=2, ensure_ascii=False) if args.json else text(data))
     if args.final:
-        return {'pass': 0, 'fail': 1, 'limited': 3, 'unknown_host': 2}[data['final']['verdict']]
+        return {'pass': 0, 'pass_with_updates': 4, 'fail': 1, 'limited': 3, 'unknown_host': 2}[data['final']['verdict']]
     failed = [tool for tool in data['tools'] if tool['status'] in FAILING]
     return 1 if args.strict and failed else 0
 

@@ -4,6 +4,7 @@ One command that shows whether the one required set of tools Studio uses is pres
 
 ```sh
 python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host codex   # final check of an installation
+python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host codex  # check after a plugin update
 python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --online              # newest versions read now
 python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --matrix              # every tool on every host
 ```
@@ -46,6 +47,20 @@ It then reads the [capability card](../capability-card.json) and marks each capa
 
 The installation guides (`CODEX_INSTALL.md`, `CHATGPT_INSTALL.md`, `CLAUDE_INSTALL.md`) end with this check and report its verdict.
 
+## Update check after a plugin update
+
+`--update` runs the same required set after every plugin update and also asks whether the tools are current. It reads the newest versions online (PyPI, npm, nodejs.org, endoflife.date, Chromium's stable channel; the dated snapshot in `tools.json` when offline) and compares each workspace starter with the updated plugin: a starter installed from an older plugin version's lockfile is `wrong_version` and must be reinstalled (the printed command replaces its folder and runs `npm ci`).
+
+| Verdict | Exit code | Meaning |
+| --- | --- | --- |
+| `pass` | 0 | Every required tool is usable and current; the update is complete |
+| `pass_with_updates` | 4 | Everything works; newer versions exist and are listed with their update commands. They are not forced, because system packages often lag their newest release (a distribution's FFmpeg, for example) |
+| `fail` | 1 | On Codex or Claude Code, a tool is missing, below its minimum, or a workspace starter does not match the updated plugin; fix it with the printed commands and run the update check again |
+| `limited` | 3 | In a chat sandbox, a tool the user cannot install there is missing |
+| `unknown_host` | 2 | Name the host with `--host` |
+
+The update guides (`CODEX_UPDATE.md`, `CHATGPT_UPDATE.md`, the update section of `CLAUDE_INSTALL.md`) end with this check.
+
 ## Tools by host
 
 The required set, for every host the plugin runs in. The validator checks that every tool has a status for every host, and a test checks that this table equals `check_environment.py --matrix --markdown`.
@@ -83,6 +98,7 @@ The required set, for every host the plugin runs in. The validator checks that e
 ## How Studio uses it
 
 - **At installation.** The repository's Codex, ChatGPT Work and Claude installation guides (`CODEX_INSTALL.md`, `CHATGPT_INSTALL.md`, `CLAUDE_INSTALL.md`) end with the final check and report its verdict.
+- **At every update.** The update guides end with the update check (`--update`): the required set again, workspace starters matched to the updated plugin, and newer versions listed.
 - **On request.** "Check my environment", "what is installed", "sprawdź środowisko" and similar requests run it where code runs; Studio answers in the user's language with the capabilities first and the install steps second.
 - **Before the first coded render.** Where a task needs FFmpeg, Node.js or a browser and nothing in the conversation shows they work, one run replaces probing tool by tool.
 - **No code execution.** Studio cannot check the environment; it gives the install list from `tools.json` for the user's system and says nothing was checked.

@@ -110,13 +110,17 @@ class Environment(unittest.TestCase):
         def install(workspace, tool_id, change=None):
             tool = by_id(SPEC['tools'])[tool_id]
             manifest = json.loads((PLUGIN / tool['pinned_by']).read_text())
+            pathlib.Path(workspace, tool['workspace_name']).mkdir(parents=True, exist_ok=True)
+            lock = (PLUGIN / tool['pinned_by'].replace('package.json', 'package-lock.json')).read_bytes()
+            pathlib.Path(workspace, tool['workspace_name'], 'package-lock.json').write_bytes(lock + (b' ' if change == 'stale' else b''))
             for name, version in {**manifest.get('dependencies', {}), **manifest.get('devDependencies', {})}.items():
                 folder = pathlib.Path(workspace, tool['workspace_name'], 'node_modules', name)
                 folder.mkdir(parents=True)
-                (folder / 'package.json').write_text(json.dumps({'name': name, 'version': change.get(name, version) if change else version}))
+                (folder / 'package.json').write_text(json.dumps({'name': name, 'version': change.get(name, version) if isinstance(change, dict) else version}))
         with tempfile.TemporaryDirectory() as project, tempfile.TemporaryDirectory() as workspace:
             install(workspace, 'remotion')
             install(workspace, 'gsap', {'gsap': '3.12.0'})
+            install(workspace, 'remotion_three', 'stale')
             skill = pathlib.Path(project, '.agents/skills/hyperframes')
             skill.mkdir(parents=True)
             (skill / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
@@ -126,11 +130,15 @@ class Environment(unittest.TestCase):
         self.assertEqual(tools['gsap']['status'], 'wrong_version')
         self.assertIn('gsap 3.12.0 (lockfile 3.15.0)', tools['gsap']['note'])
         self.assertEqual(tools['motion_toolkit']['status'], 'missing')
+        self.assertEqual(tools['remotion_three']['status'], 'wrong_version', 'a workspace installed from an older plugin version is stale')
+        self.assertIn('lockfile changed', tools['remotion_three']['note'])
         self.assertEqual(tools['hyperframes']['status'], 'ok')
         self.assertTrue(tools['hyperframes']['skills'][0].endswith('hyperframes'))
         commands = by_id(report['install'])
         self.assertIn('npm ci', commands['motion_toolkit']['command'])
         self.assertNotIn('<plugin>', commands['motion_toolkit']['command'], 'the command names the real plugin folder')
+        self.assertIn('rm -rf', commands['remotion_three']['command'], 'a stale copy is replaced, not nested')
+        self.assertIn(workspace, commands['remotion_three']['command'])
 
 
 class FinalCheck(unittest.TestCase):
@@ -145,6 +153,18 @@ class FinalCheck(unittest.TestCase):
         self.assertEqual((limited['verdict'], limited['not_on_this_host']), ('limited', ['remotion']))
         self.assertEqual(check.final_verdict(self.results(remotion='not_on_this_host'), 'chatgpt', 'code_execution')['verdict'], 'pass')
         self.assertEqual(check.final_verdict(self.results(python='ok'), None, None)['verdict'], 'unknown_host')
+
+    def test_update_verdict_lists_newer_versions(self):
+        results = [{'id': 'python', 'status': 'ok'}, {'id': 'node', 'status': 'behind', 'version': '22.22.0', 'latest': '24.21.0'}]
+        verdict = check.final_verdict(results, 'codex', 'shell', update=True)
+        self.assertEqual((verdict['verdict'], verdict['updates'][0]['id']), ('pass_with_updates', 'node'))
+        self.assertEqual(check.final_verdict(results, 'codex', 'shell')['verdict'], 'pass', 'the installation check does not require the newest versions')
+        stale = check.final_verdict(results + [{'id': 'gsap', 'status': 'wrong_version'}], 'codex', 'shell', update=True)
+        self.assertEqual(stale['verdict'], 'fail')
+
+    def test_update_exit_codes(self):
+        with mock.patch.object(check, 'report', return_value={'final': {'verdict': 'pass_with_updates'}, 'tools': []}), mock.patch.object(check, 'text', return_value=''), mock.patch('builtins.print'):
+            self.assertEqual(check.main(['--update', '--host', 'codex']), 4)
 
 
 class Hosts(unittest.TestCase):

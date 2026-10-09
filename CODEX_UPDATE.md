@@ -22,6 +22,9 @@ Preserve the complete linked bundle. Update the native pointer and receipt only 
 Report actual saved status separately from activation.
 Preserve private provider preferences. Do not repeat optional setup unless requested or needed
 for a changed selected route. Studio updating does not authorize new provider connections.
+Finish with the update check of the required tools from the updated bundle:
+python3 <bundle>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host codex
+Show me its verdict and the printed commands; run them only when I ask, then run the check again.
 ```
 
 For the 1.0.1 layout, `installation.json` next to the native SKILL.md records source identity
@@ -40,3 +43,7 @@ An older plugin-based or individual-skill layout needs an explicit migration of 
 entries. Do not create parallel orchestrators or disable unrelated skills. After failed/ambiguous
 saving inspect actual state before retry or rollback. No background update, global config rewrite
 or provider setup is included.
+
+## Update check of the required tools
+
+The update ends with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update) from the updated bundle: `--update --host codex`. `pass` completes the update. `pass_with_updates` completes it and lists newer versions with their commands. `fail` means a required tool is missing or too old, or a starter in the Studio workspace was installed from the previous version's lockfile; the update is not complete until the printed commands have been run and the check passes. The check installs nothing.
