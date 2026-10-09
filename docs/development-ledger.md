@@ -907,3 +907,22 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `f15fd5e`; release workflow 37886030856, checks 37886030784 and 37886032855, release-notes refresh 37886030883: success; [v1.43.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.43.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (918 of 918), all 37 skill frontmatters parse ([record](../verification/github-publication-1.43.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261009-02
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-01-video-map` (repository-only follow-up), fast-forwarded into `main` under the owner's standing rule
+- Baseline: `d0c6b04` (main, package 1.43.0, after its publication record); full SHA in the commit trailer
+- Result: a repository-only commit; the package is unchanged (1.43.0)
+- Scope: the owner chose on 2026-10-09 to update the hosted ChatGPT plugin to 1.43.0 with a readback (1a). This session cannot reach ChatGPT Work's Plugin Creator, so the update is prepared for the owner to run there: `scripts/check_hosted_readback.py` compares a readback JSON with `config/install-sources.json` and writes `verification/hosted-release-<version>.json` (verdicts `full_byte_parity`, `path_size_parity`, `mismatch`), with `tests/test_hosted_readback.py` in `scripts/check_all.sh`; CHATGPT_UPDATE.md describes the readback record
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh`: PASS (adds 6 hosted-readback tests); package files unchanged
+
+Cross-host state:
+
+- GitHub: this commit on `main`; the package release stays v1.43.0
+- ChatGPT Work: pending (update and readback to be run by the owner in ChatGPT Work)
+- Codex: not_run

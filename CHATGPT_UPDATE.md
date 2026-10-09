@@ -35,3 +35,17 @@ if source or access changed.
 
 After success read back affected files and metadata. Report save success separately from incomplete
 verification. Repository publication and hosted updating remain separate operations.
+
+## Readback record
+
+After the update, ask Plugin Creator in the same chat to read the saved plugin back and write one JSON file with:
+`version` (from the saved `plugin.json`), `date`, `plugin_id`, `release_id`, `scope`, `audience`, `source_commit` (the
+pinned commit), `inventory` (every saved path with `size_bytes`), `files` (`path` and `sha256` for every file it could
+read) and `unreadable` (the paths it could not read). Do not fill a hash it did not compute.
+
+In the repository, `python3 scripts/check_hosted_readback.py <file> --record verification/hosted-release-<version>.json`
+compares that file with `config/install-sources.json` of the release and writes the record. `full_byte_parity` means every
+path, size and hash matches; `path_size_parity` means paths and sizes match and every given hash matches, with some
+files not hashed; `mismatch` lists what differs. Extra saved paths are listed, not failed: an overlay update keeps
+files it cannot delete, and the user may add their own. Only a parity verdict lets the records call ChatGPT Work
+`synchronized`; a save without this readback stays `pending`.
