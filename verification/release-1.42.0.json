@@ -1,0 +1,98 @@
+{
+  "version": "1.42.0",
+  "date": "2026-10-09",
+  "baseline": "49d7c39c01f5dd8ccc27e97cc0fc37e7276fd276",
+  "change_id": "CC-20261008-16",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool; Linux, Node.js 22, Python 3.13 with numpy 2.5.3 and Pillow 12.3.0, ffmpeg 6.1.1, local headless Chromium 1194",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 917,
+      "owners": 37,
+      "planned_host_cases": 201,
+      "planned_presentation_cases": 19,
+      "planned_motion_sound_cases": 6,
+      "executed": 0
+    },
+    {
+      "command": "bash scripts/check_all.sh (Node part: studio, workflow-kit, creative-upgrade, learning-mode, quality-methods, motion-toolkit with motion-quality, presentation)",
+      "status": "PASS",
+      "tests": 200,
+      "passed": 196,
+      "skipped": 4,
+      "skip_reason": "Opt-in browser review, export, player and renderer-parity tests; run separately with MOTION_REVIEW_BROWSER"
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 67
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_codex_install.py",
+      "status": "PASS",
+      "tests": 13
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_package_identity.py",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_gepa_studio_pilot.py (optional GEPA dependency installed)",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/asset_manifest_test.py",
+      "status": "PASS",
+      "tests": 23
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_motion_benchmark.py",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_host_smoke.py",
+      "status": "PASS",
+      "tests": 6
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 plugins/framecore-work-creative-studio/tests/captions_test.py",
+      "status": "PASS",
+      "tests": 14
+    },
+    {
+      "command": "python3 scripts/check_legacy_baseline.py",
+      "status": "PASS",
+      "detail": "134 known validator errors and 20 of 67 failing tests, identical to tests/legacy-baseline.json; a tampered baseline was detected"
+    },
+    {
+      "command": "python3 scripts/build_install_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/package_release.py",
+      "status": "PACKAGED_LOCALLY"
+    }
+  ],
+  "review": {
+    "footage_sound": "synthetic 6 s video of three 2 s shots with a 220 Hz tone: footage.py found cuts on frames 60 and 120, the contract kept the video's sound with a ducking span, sound.py planned an impact on the marked frame 30 and an impact and shimmer on the reveal (frame 150) at standard density and two whooshes, a riser and a boom at rich, and the mix judged 3 of 3 cues on their frames with about -14 LUFS on the delivered AAC",
+    "captions": "SRT and WebVTT round trips, the three profiles' limits, building from Polish word timings (no line or cue ending on a one-letter word), the contract import identical to sync.mjs on the example SRT, and a burn-in that changes the caption band only inside the cue with the audio stream kept",
+    "capability_card": "16 capabilities; every tool path exists, every owner is installed and every requirement is known; the orchestrator, capabilities reference and role map link it",
+    "listening": "NOT_RUN: no person has listened to footage sound"
+  },
+  "plugin_zip_sha256": "5510f5769c18e541c5525be673a327f753a9c85b162be29a93a3afa854986354",
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "github_publication": "NOT_RUN",
+  "saved_host_readback": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "boundary": "Source and container checks on synthetic media only. Host use of the new tools and the quality of footage sound on real videos are not verified.",
+  "source": "full review 2026-10-08: new modules NM1, NM2, NM3 and IM2 (F-TEST-03)"
+}

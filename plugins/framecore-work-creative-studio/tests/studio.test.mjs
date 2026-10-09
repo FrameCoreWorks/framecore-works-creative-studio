@@ -51,6 +51,29 @@ test('every reference and template is linked from a skill; a "(moved)" pointer i
   });
 });
 
+test('the capability card names real tools and owners and is linked where capabilities are decided', () => {
+  const card = JSON.parse(fs.readFileSync(path.join(source, 'skills/workflow-orchestrator/assets/capability-card.json'), 'utf8'));
+  const byId = new Map(card.capabilities.map(item => [item.id, item]));
+  for (const id of ['motion_render', 'motion_critique', 'motion_sound', 'motion_player']) assert.equal(byId.get(id).executed_by, 'studio', id);
+  assert.deepEqual(byId.get('motion_sound').requires, ['python', 'numpy', 'ffmpeg']);
+  assert.equal(byId.get('video_generation').executed_by, 'external');
+  assert.ok(!codes(validateStudio(source)).includes('CAPABILITY_CARD'));
+  const cardPath = 'skills/workflow-orchestrator/assets/capability-card.json';
+  for (const [change, label] of [
+    [data => { data.capabilities[0].tools = ['skills/hyperframes-workflow/assets/motion-render/missing.py']; }, 'missing tool'],
+    [data => { data.capabilities[0].owner = 'imaginary-renderer'; }, 'unknown owner'],
+    [data => { data.capabilities[0].requires.push('gpu'); }, 'unknown requirement'],
+    [data => { data.capabilities[0].when_missing = ''; }, 'no fallback'],
+  ]) withFixture(root => {
+    editJson(root, cardPath, change);
+    assert.ok(codes(validateStudio(root)).includes('CAPABILITY_CARD'), label);
+  });
+  withFixture(root => {
+    edit(root, 'skills/pipeline-core/references/role-skill-map.md', text => text.replace('(../../workflow-orchestrator/assets/capability-card.json)', ''));
+    assert.ok(codes(validateStudio(root)).includes('CAPABILITY_CARD'));
+  });
+});
+
 test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const motion = read('skills/hyperframes-workflow/SKILL.md');

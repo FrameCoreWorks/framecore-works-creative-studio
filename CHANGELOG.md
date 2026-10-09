@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.42.0, 2026-10-09
+
+New modules from the [full review](docs/reviews/full-review-2026-10-08.md) (NM1 to NM3, IM2); the welcome and menus are unchanged:
+
+- **Sound for supplied footage.** [`footage.py`](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sound/footage.py) measures the cuts of a video the user made (ffmpeg scene score, or the user's cut list), takes the moments the user marks and the closing reveal, and writes a sound contract; `sound.py` then designs hits for those moments, composes a music bed fitted to the shots and mixes it with or without the video's own sound, ducking the music under it. The mix reports the same timing status and loudness as for a motion video. A request for sound for one's own reel now gets a plan from measured cuts and one offer to mix the track ([planned case MS06](plugins/framecore-work-creative-studio/evals/motion-sound-cases.json)).
+- **Executable captions.** [`captions.py`](plugins/framecore-work-creative-studio/skills/caption-studio/assets/captions/README.md) checks SRT and WebVTT against three profiles (subtitles with the published reading speeds as errors, social captions timed to speech with the same limits as warnings, on-screen text with Studio's readable hold), converts between the formats, builds cues from timed words or segments with natural line and cue breaks, imports them into a motion contract exactly as the sync tool does, and burns them into a supplied video in the renderer's caption style with the audio copied unchanged. The readability reference now separates captions that follow speech from text with no speech.
+- **Capability card.** One machine-readable [card](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/capability-card.json) lists what Studio executes itself (render, critique, sound, footage sound, captions, burn-in, player, sync, revision, Remotion), what each tool needs (Python, Pillow, numpy, ffmpeg, Node.js, a browser), what it delivers and what to deliver when a tool is missing, plus the boundary for host and external generators. The orchestrator, the capabilities reference and the role map link it; the validator checks every tool path, owner and requirement (`CAPABILITY_CARD`).
+- **Host smoke set (outside the package).** [Eight short checks](docs/host-smoke-set.md) for a larger release (startup in English and Polish, a direct task, the video route choice, the code route, sound, the interactive offer and research that cannot run), a [recording template](verification/host-smoke-template.json) and `scripts/check_host_smoke.py`, which `scripts/check_all.sh` tests.
+
 ## 1.41.0, 2026-10-08
 
 Discovery and depth, from the [full review](docs/reviews/full-review-2026-10-08.md) (the welcome and menus are unchanged):

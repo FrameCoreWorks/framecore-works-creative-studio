@@ -40,6 +40,7 @@ Start at the requested stage and reuse supplied decisions, approvals and the exi
 | Source assets, revisions or rights are unclear | [Asset Manifest](../asset-manifest/SKILL.md) or [Reference Pack Curator](../reference-pack-curator/SKILL.md) |
 | React/TypeScript composition, reusable props or data-driven variants | [Remotion Video Production](../remotion-video-production/SKILL.md) |
 | Sound for this video: designed effects and a composed music bed | This skill, with [motion sound design](references/motion-sound-design.md) |
+| Sound for a video the user supplies, from its cuts and marked moments | This skill, with [sound for supplied footage](assets/motion-sound/README.md#sound-for-supplied-footage) |
 | Songs, lyrics, voice, external audio tools, licensed tracks or supplied audio review | [Audio Production Director](../audio-production-director/SKILL.md) |
 | Several video outputs need coordination | [Creative Video Producer](../creative-video-producer/SKILL.md) |
 

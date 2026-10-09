@@ -862,3 +862,25 @@ Cross-host state:
 - GitHub: synchronized. `main` fast-forwarded to `8e39f38`; release workflow 37842914810, checks 37842914841 and 37842918284, release-notes refresh 37842914815: success; [v1.41.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.41.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (912 of 912), all 37 skill frontmatters parse ([record](../verification/github-publication-1.41.0.json))
 - ChatGPT Work: not_run (hosted update on owner instruction only)
 - Codex: not_run
+
+## CC-20261008-16
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261008-16-capability-smoke`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `49d7c39` (main, package 1.41.0, after the 1.41.0 publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.42.0)
+- Package version: 1.41.0 -> 1.42.0
+- Scope: the review's new modules NM1 (sound for supplied footage: `footage.py` and a footage mode in `sound.py`), NM2 (executable captions: `captions.py` with tests), NM3 (capability card with the `CAPABILITY_CARD` validator rule and links from the orchestrator, the capabilities reference and the role map) and IM2 (host smoke set, template, checker and test, outside the package); MS06 now expects a plan from measured cuts and one offer to mix. Welcome and menus unchanged
+- Shared package changed: yes; 18 changed, 5 added, 0 removed ([scope](../verification/scope-1.42.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 196 passing of 200 (4 opt-in browser tests; 67 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, GEPA pilot 8, asset 23, captions 14: PASS ([record](../verification/release-1.42.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run; footage sound not listened to by a person
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: not_run (hosted update on owner instruction only)
+- Codex: not_run

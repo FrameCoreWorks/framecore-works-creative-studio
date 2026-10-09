@@ -49,6 +49,8 @@ MINOR_STYLES = {'midnight', 'warm-ink', 'brand-native'}
 STYLE_BPM = {'meadow': 100, 'field-guide': 96, 'paper-and-ink': 104, 'warm-ink': 110, 'midnight': 122, 'color-block': 122}
 # The music dips under the hits that must read clearly: (depth in dB, release in seconds).
 DUCKS = {'boom': (5.0, 0.45), 'impact': (3.0, 0.3), 'click': (1.5, 0.12)}
+# Gains for moments the user marks in supplied footage, matching the levels the planner gives the same sounds.
+FOOTAGE_GAINS = {'impact': -8, 'boom': -6, 'click': -8, 'release': -16, 'tick': -16, 'landing': -12, 'whoosh': -14, 'riser': -10, 'shimmer': -14}
 
 
 def load_engine():
@@ -71,6 +73,9 @@ def first_frame(start, end, test):
 
 def final_reveal(score, r, m=None):
     """The frame the closing end card or logo settles on, or None when the video ends without one."""
+    source = score.get('source') or {}
+    if source.get('kind') == 'footage':
+        return source.get('reveal')
     scenes = score['scenes']
     last = scenes[-1] if scenes else None
     if not last or last['kind'] not in ('end-card', 'logo-reveal'):
@@ -124,6 +129,22 @@ def plan_cues(score, density='standard', direction=None, designed=None):
     def seconds_of(frames, low, high):
         return round(min(high, max(low, frames / fps)), 3)
 
+    source = score.get('source') or {}
+    if source.get('kind') == 'footage':
+        # Supplied footage has no scene kinds to read: sound follows the cuts, the moments the user marked and the reveal.
+        for i, cut in enumerate(source.get('cuts') or []):
+            add(cut, 'whoosh', f'cut {i + 1}', -18, 0, {'duration': 0.4, 'peak': 0.5, 'direction': 1 if i % 2 == 0 else -1, 'brightness': 0.8, 'intensity': 0.55}, at_least=2)
+        for hit in source.get('hits') or []:
+            gain, params = FOOTAGE_GAINS.get(hit['sound'], -12), {'duration': 1.0} if hit['sound'] == 'riser' else {}
+            add(hit['frame'], hit['sound'], hit.get('label') or f"{hit['sound']} marked by the user", gain, 0, params)
+        reveal = source.get('reveal')
+        if reveal is not None:
+            if level >= 2:
+                add(reveal, 'riser', 'tension into the reveal', -10, 0, {'duration': 1.2})
+            add(reveal, 'boom' if level >= 2 else 'impact', 'the reveal settles', -6 if level >= 2 else -8, 0, {'weight': 0.8})
+            add(reveal, 'shimmer', 'reveal accent', -16, 0, {'degree': 4}, at_least=1)
+        cues.sort(key=lambda cue: (cue['frame'], -cue['gain']))
+        return cues
     scenes = score['scenes']
     last = scenes[-1] if scenes else None
     for index, scene in enumerate(scenes):
@@ -490,13 +511,21 @@ def full_mix(score, base_dir):
                                     music_plan.get('backbeat'), music_plan.get('endBar'))
         bed_track[:len(bed)] = bed[:length] * 10 ** (music_plan.get('gain', -9) / 20)
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
-    voice = np.zeros((length, 2))
+    voice, under = np.zeros((length, 2)), []
     if (score.get('voiceover') or {}).get('src'):
         track = read_wav(os.path.join(base_dir, score['voiceover']['src']))[:length]
         voice[:len(track)] = track * float(score['voiceover'].get('volume', 1))
+        under += score.get('captions') or []
+    original = (score.get('source') or {}).get('originalAudio') or {}
+    if original.get('src'):
+        # Supplied footage keeps its own sound; the music ducks under the stretches where that sound is present.
+        track = read_wav(os.path.join(base_dir, original['src']))[:length]
+        voice[:len(track)] += track * float(original.get('volume', 1))
+        under += (score.get('source') or {}).get('duck') or []
+    if under:
         ramp, duck = RATE // 10, np.ones(length)
-        for caption in score.get('captions') or []:
-            a, b = round(caption['start'] / fps * RATE), round(caption['end'] / fps * RATE)
+        for span in under:
+            a, b = round(span['start'] / fps * RATE), round(span['end'] / fps * RATE)
             duck[max(0, a - ramp):min(length, b + ramp)] = 10 ** (-8 / 20)
         kernel = np.ones(ramp) / ramp
         bed_track *= np.convolve(duck, kernel, mode='same')[:, None]

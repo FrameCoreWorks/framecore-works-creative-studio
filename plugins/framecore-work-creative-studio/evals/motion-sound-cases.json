@@ -96,13 +96,14 @@
       "execution_status": "not_run",
       "user_request": "Mam gotową 20-sekundową rolkę nagraną telefonem. Zaplanuj do niej muzykę i efekty.",
       "context": {"tools": {"code_execution": "available"}, "assets": ["supplied phone video without a motion contract"]},
-      "expected_owners": ["audio-production-director"],
-      "expected_branch": "picture-first audio plan from the actual cuts; no claim that the code sound engine renders a track without a motion contract",
+      "expected_owners": ["hyperframes-workflow", "audio-production-director"],
+      "expected_branch": "a picture-first plan from cuts measured in the video where code runs (footage.py cuts) or supplied by the user, naming the moments to hit and asking whether to keep the video's own sound; one short offer to design and mix the track into an MP4 here where code execution with numpy and ffmpeg exists; without it, the plan says what is planned versus measured",
       "checks": [
-        "Cuts and actions are measured or asked for; tempo is not invented",
-        "The plan says which tools could render the track and what is planned versus measured"
+        "Cuts are measured or taken from the user, never invented from the duration",
+        "The requested stage is a plan: no track is mixed before the user accepts the offer",
+        "After acceptance, only marked moments get hits, the video's own sound is kept or replaced as chosen, and the MP4 comes with the cue table, timing status and loudness"
       ],
-      "forbidden": ["Claiming a rendered or mixed track", "Inventing the edit's tempo from its duration"],
+      "forbidden": ["Claiming a mixed track without a file", "Inventing the edit's tempo or cut points from its duration", "Toy tones"],
       "required_evidence": ["Full transcript", "Independent reviewer decision"]
     }
   ]

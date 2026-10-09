@@ -1043,3 +1043,42 @@ test('a mastered sound mix puts every hit on its frame', {skip: !(python && nump
     assert.ok(result.measured_on === 'the delivered AAC' && result.true_peak_db <= -0.95 && Math.abs(result.lufs + 14) <= 2, muxed.stdout);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
+
+test('supplied footage gets designed sound from its measured cuts, marked moments and reveal', {skip: !(python && numpy && ffmpegLoudnorm) && 'python3 with Pillow and numpy, or ffmpeg with loudnorm, not installed'}, () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-footage-'));
+  try {
+    const footage = path.join(root, soundDir, 'footage.py'), sound = path.join(root, soundDir, 'sound.py');
+    const clip = path.join(tmp, 'clip.mp4');
+    // Three 2-second shots cut at 2 s and 4 s, with a quiet tone as the video's own sound.
+    assert.equal(spawnPython('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'color=c=0x203040:size=270x480:rate=30:duration=2', '-f', 'lavfi', '-i', 'color=c=0xd0a020:size=270x480:rate=30:duration=2',
+      '-f', 'lavfi', '-i', 'color=c=0x30a060:size=270x480:rate=30:duration=2', '-f', 'lavfi', '-i', 'sine=frequency=220:duration=6', '-filter_complex', '[0:v][1:v][2:v]concat=n=3:v=1:a=0[v];[3:a]volume=0.2[a]',
+      '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', clip], {encoding: 'utf8'}).status, 0);
+    const cuts = spawnPython('python3', ['-B', footage, 'cuts', clip], {encoding: 'utf8'});
+    assert.equal(cuts.status, 0, cuts.stderr);
+    assert.deepEqual(JSON.parse(cuts.stdout).cuts.map(c => c.frame), [60, 120]);
+    const contract = path.join(tmp, 'clip.sound.json');
+    const made = spawnPython('python3', ['-B', footage, 'contract', clip, '--out', contract, '--hit', '1.0:impact:logo lands', '--reveal', '5.0', '--keep-audio', '--style', 'meadow', '--message', 'Twoje wydatki pod kontrolą'], {encoding: 'utf8'});
+    assert.equal(made.status, 0, made.stderr);
+    const score = JSON.parse(fs.readFileSync(contract, 'utf8'));
+    assert.deepEqual([score.scenes.length, score.source.cuts, score.source.reveal, score.source.hits[0].frame], [3, [60, 120], 150, 30]);
+    assert.ok(score.source.originalAudio.src && score.source.duck.length >= 1, 'the video keeps its own sound and the music ducks under it');
+    assert.notEqual(spawnPython('python3', ['-B', footage, 'contract', clip, '--out', contract], {encoding: 'utf8'}).status, 0, 'never overwrites');
+    const planned = path.join(tmp, 'clip-r1.sound.json');
+    assert.equal(spawnPython('python3', ['-B', sound, 'plan', contract, '--out', planned], {encoding: 'utf8'}).status, 0);
+    const cues = JSON.parse(fs.readFileSync(planned, 'utf8')).sfx;
+    // Only what was marked gets a hit at standard density: the logo and the reveal, no whoosh on every cut.
+    assert.deepEqual(cues.map(c => [c.frame, c.sound]), [[30, 'impact'], [150, 'impact'], [150, 'shimmer']]);
+    const rich = path.join(tmp, 'rich.json');
+    assert.equal(spawnPython('python3', ['-B', sound, 'plan', contract, '--out', rich, '--density', 'rich'], {encoding: 'utf8'}).status, 0);
+    const richCues = JSON.parse(fs.readFileSync(rich, 'utf8')).sfx;
+    assert.ok(['riser', 'boom'].every(s => richCues.some(c => c.sound === s && c.frame === 150)) && richCues.filter(c => c.sound === 'whoosh').length === 2, JSON.stringify(richCues));
+    const out = path.join(tmp, 'clip-sound.mp4');
+    const mixed = spawnPython('python3', ['-B', sound, 'mix', planned, '--video', clip, '--out', out], {encoding: 'utf8'});
+    assert.equal(mixed.status, 0, mixed.stderr + mixed.stdout);
+    const summary = JSON.parse(mixed.stdout);
+    assert.deepEqual([summary.timing.status, summary.timing.judged, summary.timing.all_ok], ['checked', 3, true], mixed.stdout);
+    assert.ok(Math.abs(summary.delivered.lufs + 14) <= 2 && summary.delivered.true_peak_db <= -0.95, mixed.stdout);
+    const streams = spawnPython('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type', '-of', 'csv=p=0', out], {encoding: 'utf8'}).stdout.split(/\s+/).filter(Boolean).sort();
+    assert.deepEqual(streams, ['audio', 'video']);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});

@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "checked": "2026-10-08",
+  "path_base": "plugin_root",
+  "scope": "What Studio executes itself with bundled tools, what each tool needs from the host, what it delivers and what to deliver instead when a requirement is missing. Host tools and external providers are listed only to mark the boundary. A requirement is checked in the current host before a file is promised; a listed observation is past evidence, not a guarantee for another host or day.",
+  "host_profiles": {
+    "code_execution": "The conversation can run Python in a sandbox (ordinary ChatGPT or ChatGPT Work with code execution). Whether Node.js, ffmpeg, numpy or a browser exist there is checked by trying, not assumed.",
+    "shell": "A local shell, for example Codex or a local project, usually with Python, Node.js 20 and sometimes a local Chrome or Chromium.",
+    "none": "No code execution, for example voice or a host with code execution switched off. Studio writes text, contracts and prompts only."
+  },
+  "requirement_values": [
+    "python",
+    "pillow",
+    "numpy",
+    "ffmpeg",
+    "node",
+    "browser",
+    "network",
+    "cairosvg",
+    "host_tool",
+    "user_browser",
+    "none"
+  ],
+  "capabilities": [
+    {
+      "id": "motion_render",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Renders a motion contract to an MP4 (H.264, exact size, FPS and frame count)",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-render/render.py"
+      ],
+      "requires": [
+        "python",
+        "pillow",
+        "ffmpeg"
+      ],
+      "optional": [
+        "cairosvg"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "MP4 download link, the <id>.motion.json contract and the <id>.render.py script that rendered it",
+      "when_missing": "Deliver the contract and the motion player link; the user exports the video in the browser. An SVG logo without cairosvg: ask for a PNG of the mark",
+      "observed": "2026-10-07: ChatGPT Work and ordinary ChatGPT delivered clean MP4s rendered from a contract (owner reports)"
+    },
+    {
+      "id": "motion_critique",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Scores a contract and its rendered frames against the craft rubric and lists findings for the improvement round",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-review/critique.py"
+      ],
+      "requires": [
+        "python",
+        "pillow"
+      ],
+      "optional": [
+        "ffmpeg"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Critique score and findings before and after at most two repair rounds",
+      "when_missing": "Review the contract against motion craft by reading it and say the automatic critique was not run",
+      "observed": "2026-10-08: run on the delivered video's frames in the container (checked, exit 0); host runs not recorded"
+    },
+    {
+      "id": "motion_sound",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Designs effects and composes a music bed from the contract's timing, mixes, masters and checks every hit on its frame",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-sound/sound.py"
+      ],
+      "requires": [
+        "python",
+        "numpy",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "MP4 with sound, the sound plan, a cue table, the timing status and loudness in LUFS",
+      "when_missing": "Deliver the video silent and say so; offer the user's own audio file or a connected provider, never toy tones",
+      "observed": "2026-10-08: ChatGPT Work delivered four videos with designed sound; steps 1 to 3 approved by ear by the owner"
+    },
+    {
+      "id": "motion_contract_check",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Checks a motion contract: scene order, overlaps, copy references, captions, music and reading time",
+      "tools": [
+        "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs"
+      ],
+      "requires": [
+        "node"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "PASS or the list of errors and warnings",
+      "when_missing": "Say the contract check was not run; check holds and caption timing against the motion craft rules by reading the contract",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "motion_frame_review",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Captures the contract's review frames in a browser and flags text outside the frame, clipped, below contrast or inside the margins",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs"
+      ],
+      "requires": [
+        "node",
+        "browser"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "review.json and a contact sheet with every frame and its findings",
+      "when_missing": "Use the critique on rendered frames where Python runs; otherwise inspect the planned frames by reading",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "motion_sync",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Adds a music beat grid to a contract and imports SRT or WebVTT captions; reads and cuts a supplied track",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-sync/sync.mjs",
+        "skills/hyperframes-workflow/assets/motion-sync/beats.py",
+        "skills/hyperframes-workflow/assets/motion-sync/music_edit.py"
+      ],
+      "requires": [
+        "node"
+      ],
+      "optional": [
+        "python",
+        "ffmpeg"
+      ],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "A synced contract with music, voice-over and captions on exact frames",
+      "when_missing": "Import the captions with the Python captions tool, or write them into the contract by hand from the SRT or WebVTT; set the beat grid from the stated tempo",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "motion_revise",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Changes a delivered contract without redesigning it and lists every change",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-revise/revise.mjs"
+      ],
+      "requires": [
+        "node"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "A new contract revision and its change list, rendered with the same script",
+      "when_missing": "Edit the contract directly, increment its revision and list the changes",
+      "observed": "2026-10-07: ChatGPT Work revised a contract as asked and re-rendered it (owner report; whether revise.mjs ran is not recorded)"
+    },
+    {
+      "id": "motion_player",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Opens any motion contract in a browser for watching, and the player's Export video writes a video-only MP4 or WebM",
+      "tools": [
+        "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+        "skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs",
+        "skills/hyperframes-workflow/assets/motion-export/video-export.mjs"
+      ],
+      "requires": [
+        "user_browser"
+      ],
+      "optional": [
+        "node"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell",
+        "none"
+      ],
+      "delivers": "The contract plus the player link or file; the user's browser writes the video",
+      "when_missing": "Deliver the contract and its timing table",
+      "observed": "2026-10-07: an Android phone browser exported a playable H.264 MP4 from the player (owner report)"
+    },
+    {
+      "id": "footage_sound",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Measures the cuts of a supplied video and designs, mixes and checks its sound: hits on the moments the user marks, a music bed fitted to the shots, the video's own sound kept under ducking or replaced",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-sound/footage.py",
+        "skills/hyperframes-workflow/assets/motion-sound/sound.py"
+      ],
+      "requires": [
+        "python",
+        "numpy",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "MP4 with the designed sound, the sound contract, a cue table, the timing status and loudness in LUFS",
+      "when_missing": "A picture-first sound plan from the measured or supplied cuts, with planned and measured times kept apart",
+      "observed": "2026-10-08: container tests on a synthetic three-shot video (cuts found on their exact frames, every hit judged on its frame, about -14 LUFS delivered); no host run recorded"
+    },
+    {
+      "id": "captions",
+      "executed_by": "studio",
+      "owner": "caption-studio",
+      "does": "Checks SRT and WebVTT against subtitle, social-caption or on-screen text limits, converts between them, builds cues from timed words or segments and imports them into a motion contract",
+      "tools": [
+        "skills/caption-studio/assets/captions/captions.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A checked SRT or WebVTT file with its report, or a motion contract with the captions",
+      "when_missing": "Write the cues against the readability defaults by hand and say the automatic check was not run",
+      "observed": "2026-10-08: container tests only"
+    },
+    {
+      "id": "caption_burn_in",
+      "executed_by": "studio",
+      "owner": "caption-studio",
+      "does": "Burns captions into a supplied video in the motion renderer's caption style and copies the source audio unchanged",
+      "tools": [
+        "skills/caption-studio/assets/captions/captions.py",
+        "skills/hyperframes-workflow/assets/motion-render/render.py"
+      ],
+      "requires": [
+        "python",
+        "pillow",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "MP4 with the captions burned in, and the caption file",
+      "when_missing": "Deliver the SRT or WebVTT file for the user's editor or the platform's caption upload",
+      "observed": "2026-10-08: container tests on a synthetic video only"
+    },
+    {
+      "id": "remotion_render",
+      "executed_by": "studio",
+      "owner": "remotion-video-production",
+      "does": "Renders the Remotion kinetic type starter or a Remotion project with exact dependency pins",
+      "tools": [
+        "skills/remotion-video-production/assets/kinetic-type-starter/README.md"
+      ],
+      "requires": [
+        "node",
+        "network",
+        "browser"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "A rendered MP4 from the Remotion project",
+      "when_missing": "Use the Python renderer for the same contract, or deliver the project and its commands",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "image_generation",
+      "executed_by": "host",
+      "owner": "image-prompt-architect",
+      "does": "Generates or edits an image with the host's own image tool when the host exposes one",
+      "tools": [],
+      "requires": [
+        "host_tool"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell",
+        "none"
+      ],
+      "delivers": "The host's generated image, inspected before it is called a result",
+      "when_missing": "Deliver the final prompt as a standalone code block for the user's own tool",
+      "observed": "2026-10-08: ordinary ChatGPT generated storyboard boards on request (owner report)"
+    },
+    {
+      "id": "video_generation",
+      "executed_by": "external",
+      "owner": "video-prompt-architect",
+      "does": "Video generators such as Veo, Kling or Runway run outside Studio",
+      "tools": [],
+      "requires": [
+        "host_tool"
+      ],
+      "optional": [],
+      "hosts": [],
+      "delivers": "A prompt for the named generator, researched for its current version",
+      "when_missing": "Deliver the prompt; review a clip the user supplies",
+      "observed": "No connector is bundled"
+    },
+    {
+      "id": "music_generation",
+      "executed_by": "external",
+      "owner": "audio-production-director",
+      "does": "Song, voice and music generators such as Suno, ElevenLabs or Flow Music run outside Studio",
+      "tools": [],
+      "requires": [
+        "host_tool"
+      ],
+      "optional": [],
+      "hosts": [],
+      "delivers": "Prompts, lyrics and production packets for the named tool",
+      "when_missing": "Deliver the packet; for a motion video Studio renders or a video the user supplies, the motion sound engine designs the sound instead where code runs",
+      "observed": "No connector is bundled"
+    },
+    {
+      "id": "web_research",
+      "executed_by": "host",
+      "owner": "research-evidence",
+      "does": "Reads current sources when the conditional research gate triggers",
+      "tools": [],
+      "requires": [
+        "host_tool",
+        "network"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell",
+        "none"
+      ],
+      "delivers": "An evidence note with sources and access dates",
+      "when_missing": "Say once that current sources could not be checked and mark mutable claims unverified",
+      "observed": "Depends on the host's search or browsing tool"
+    }
+  ]
+}

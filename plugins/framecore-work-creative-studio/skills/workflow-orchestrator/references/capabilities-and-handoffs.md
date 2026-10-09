@@ -12,6 +12,7 @@ Keep the requested stage separate from the medium. A direction, prompt, generate
 | Approved base image supplied for an edit | Static Graphic Design Creator, or Image Prompt Architect for a prompt-only edit instruction | Preserve the approved base and named locks; review only when separately requested |
 | Existing image explicitly supplied for review | Output Critic | Only visible/accessible pixels and actually measured file properties |
 | Actual video clip | Video Prompt Architect | Temporal review requires accessible frames/time ranges; sound requires a real audio route |
+| Motion video Studio rendered from a contract | Motion Graphics Workflow | The craft critique on its frames, the timing summary of its sound and the contract revision it came from |
 | Actual audio, song or visible-singing diagnostic | Audio Production Director | Separate metadata, user report, transcript, and actual audio/video inspection; record range and method |
 | Narrative scene or dialogue | Screenplay Story Architect | Story intent, continuity, action and exact selected dialogue |
 | Commercial/editorial copy or narration wording | Copy Voice, supported by Humanizer | Audience, channel, supported claims and exact selected wording |
@@ -33,6 +34,14 @@ For the operation being considered, distinguish:
 Tool availability and permission are separate facts. The user's request may already authorize reading their supplied files or performing an explicitly requested generation. Carry that authorization forward without asking again. Approval of a concept alone does not authorize a paid provider, external upload, publication or unrelated operation. A tool listing proves availability, not successful execution; a returned job ID proves submission, not a finished asset.
 
 Do not probe accounts, providers or private services merely to build a capability map. Inspect only tools and assets relevant to the requested operation. Keep known costs distinct from estimates and unknowns. An unavailable preferred route is a reason to offer a bounded next step, not to silently use a different paid provider.
+
+## What Studio executes itself
+
+The [capability card](../assets/capability-card.json) lists every operation Studio runs with its own bundled tools, what each needs from the host (Python, Pillow, numpy, ffmpeg, Node.js, a browser or network), what it delivers and what to deliver instead when a requirement is missing, with the evidence observed so far. It also marks the boundary: image generation belongs to the host's own tool, and video, song and voice generators run outside Studio.
+
+- Check a requirement in the current host before promising a file; a past observation is not a guarantee.
+- When a requirement is missing, deliver the card's alternative and say why in one sentence.
+- Keep the card and the owners' texts consistent: a change to what a tool needs or delivers updates the card in the same release.
 
 ## Minimal handoff
 

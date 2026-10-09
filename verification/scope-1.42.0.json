@@ -1,0 +1,42 @@
+{
+  "version": "1.42.0",
+  "baseline": "49d7c39c01f5dd8ccc27e97cc0fc37e7276fd276",
+  "change_id": "CC-20261008-16",
+  "origin": "cloud-code",
+  "files": 917,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "evals/motion-sound-cases.json",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/audio-production-director/SKILL.md",
+    "skills/caption-studio/SKILL.md",
+    "skills/caption-studio/references/readability-defaults.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-sound/README.md",
+    "skills/hyperframes-workflow/assets/motion-sound/sound.py",
+    "skills/pipeline-core/references/role-skill-map.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+    "tests/motion-toolkit.test.mjs",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 894,
+  "added": [
+    "skills/caption-studio/assets/captions/README.md",
+    "skills/caption-studio/assets/captions/captions.py",
+    "skills/hyperframes-workflow/assets/motion-sound/footage.py",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "tests/captions_test.py"
+  ],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "New modules: footage.py and a footage mode in sound.py, the captions tool with its tests, the capability card with the CAPABILITY_CARD rule and its test; routing text in the orchestrator, audio director, Motion Graphics Workflow, Caption Studio, capabilities reference and role map; MS06 updated."
+}

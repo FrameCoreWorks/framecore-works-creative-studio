@@ -173,6 +173,27 @@ export function validateStudio(root, {legacy = false} = {}) {
   const owners = Array.isArray(registry.owners) ? registry.owners.filter(owner => owner && typeof owner === 'object' && typeof owner.id === 'string') : [];
   const ownerIds = owners.map(owner => owner.id), actualOwners = files.filter(file => /^skills\/[^/]+\/SKILL\.md$/.test(file)).map(file => file.split('/')[1]).sort();
   errors.push(...validatePresentation(base, files, actualOwners));
+  // The capability card states what Studio executes; every tool it names must exist and every owner must be real.
+  try {
+    const card = json('skills/workflow-orchestrator/assets/capability-card.json');
+    const allowed = new Set(card.requirement_values ?? []), hosts = new Set(Object.keys(card.host_profiles ?? {}));
+    if (card.schema_version !== 1 || card.path_base !== 'plugin_root' || !/^\d{4}-\d{2}-\d{2}$/.test(String(card.checked)) || !Array.isArray(card.capabilities) || !card.capabilities.length) fail('CAPABILITY_CARD', 'schema, plugin_root path base, check date and capabilities');
+    const ids = new Set();
+    for (const item of card.capabilities ?? []) {
+      const where = String(item?.id);
+      if (!/^[a-z_]+$/.test(where) || ids.has(where)) fail('CAPABILITY_CARD', where + ': id must be unique snake_case');
+      ids.add(where);
+      if (!['studio', 'host', 'external'].includes(item.executed_by) || !actualOwners.includes(item.owner)) fail('CAPABILITY_CARD', where + ': executed_by and an installed owner');
+      for (const field of ['does', 'delivers', 'when_missing', 'observed']) if (typeof item[field] !== 'string' || !item[field].trim()) fail('CAPABILITY_CARD', where + ': ' + field);
+      for (const tool of item.tools ?? []) if (!files.includes(tool)) fail('CAPABILITY_CARD', where + ': missing tool ' + tool);
+      if (item.executed_by === 'studio' && !(item.tools ?? []).length) fail('CAPABILITY_CARD', where + ': a Studio capability names its tool');
+      for (const need of [...(item.requires ?? []), ...(item.optional ?? [])]) if (!allowed.has(need)) fail('CAPABILITY_CARD', where + ': unknown requirement ' + need);
+      for (const host of item.hosts ?? []) if (!hosts.has(host)) fail('CAPABILITY_CARD', where + ': unknown host profile ' + host);
+    }
+    for (const relative of ['skills/workflow-orchestrator/SKILL.md', 'skills/workflow-orchestrator/references/capabilities-and-handoffs.md', 'skills/pipeline-core/references/role-skill-map.md']) {
+      if (!read(relative).includes('capability-card.json)')) fail('CAPABILITY_CARD', relative + ' must link the capability card');
+    }
+  } catch (error) { fail('CAPABILITY_CARD', error.message); }
   if (registry.schema_version !== 1 || owners.length !== expectedOwnerCount || new Set(ownerIds).size !== expectedOwnerCount || !isDeepStrictEqual([...ownerIds].sort(), actualOwners)) fail('OWNER_ROSTER', 'Registry must match all thirty-seven installed skill roots');
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.

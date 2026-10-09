@@ -56,6 +56,24 @@ Each cue's `sound` names the role it plays; with a designed video it renders fro
 
 A recipe is JSON, described in [`recipe.py`](recipe.py): a sound is a list of layers (`tone`, `fm`, `noise`, `modal`, `string`), each with its gain, envelope, optional tremolo, delay, moving pan and filters, plus how the sound aligns (onset, measured peak or end) and the level its role needs. The music recipe in `soundDesign.music.recipe` holds the progression, colour, the three part timbres, the rhythms, the motif, the drum kit recipes and the ending. A contract planned before the generative engine (without `recipes`) still renders with the built-in designs of [`synth.py`](synth.py) and the palettes of [`music.py`](music.py).
 
+## Sound for supplied footage
+
+A video the user made, such as a phone reel or an edited film, has no motion contract. [`footage.py`](footage.py) builds a sound contract for it, and `sound.py` designs, mixes and checks its sound the same way:
+
+```sh
+python footage.py cuts clip.mp4
+python footage.py contract clip.mp4 --out clip.sound.json --hit 3.2:impact:logo lands --reveal 13.0 --keep-audio --style meadow --message "..."
+python sound.py plan clip.sound.json --out clip-r1.sound.json --table cues.md
+python sound.py mix clip-r1.sound.json --video clip.mp4 --out clip-sound.mp4
+```
+
+- **Cuts.** `--cuts auto` (the default) finds hard cuts with ffmpeg's scene score (`--threshold 0.3`; lower finds softer changes); `--cuts 2.0,4.5` or a file with one time per line uses the user's cut list; `--cuts none` treats the video as one shot. The shots between cuts become the contract's scenes, so the music's tempo is fitted to them and the reveal.
+- **Marked moments.** `--hit TIME:SOUND[:label]` puts a designed sound on a moment the user names (a logo landing, a tap, a product turn); SOUND is `whoosh`, `landing`, `click`, `release`, `tick`, `impact`, `boom`, `riser` or `shimmer`. `--reveal TIME` marks where the closing reveal settles: an impact and an accent there, and at `--density rich` a riser into it and a boom. Every cut gets a soft whoosh only at `rich`; a real edit rarely wants one on each cut.
+- **The video's own sound.** `--keep-audio` keeps it in the mix and the music ducks 8 dB under the stretches where it is present (`--duck auto`), under the cues of a subtitle file (`--duck captions.srt`) or not at all (`--duck none`). Without it, the delivered file carries only the designed sound and music.
+- **Brief.** `--style`, `--title`, `--goal`, `--audience`, `--message` and `--concept` feed the same sound direction as a motion contract; the average shot length sets the pace.
+
+Nothing is guessed: cuts are measured or supplied, and a moment the user did not mark gets no hit. The mix reports the same timing status and loudness as for a motion video. Listen before delivery: the tools check timing and level, not whether the sound suits this footage.
+
 ## Verification boundary
 
 During package preparation, in a Linux development container with numpy 2.5 and ffmpeg 6.1, the `app-film`, `color-block` and all-kinds examples were planned and mixed with designed sounds and music: every hit, judged in a solo render (since 1.39.0; before, cues close to another were not measured), landed within 2 ms of its frame (at most 0.15 ms on all four examples), the reveal on the music's downbeat within 0.01 ms, loudness was −14.0 to −14.4 LUFS with true peak at most −1.5 dBTP before encoding, a video's effects were designed in about 0.25 seconds and mixes took 9 to 23 seconds for 9 to 23 seconds of video. Over 200 designs for one profile the composer wrote 71 distinct major and 38 distinct minor progressions. Earlier, on 2026-10-07, the owner listened to renders of the built-in designs: music and clicks approved, whooshes lowered by 6 to 7 dB, the knock and the snare rejected as flat and empty; the owner then asked that every video get newly designed sound instead of a fixed set. The 1.33.0 audit had measured and corrected the 1.32.0 mixes (the reveal off the bar grid by up to 0.7 s, an abrupt end, a heavy low end, one example 1.7 dB under the loudness target). How the sound plays in ChatGPT or ChatGPT Work is not verified.

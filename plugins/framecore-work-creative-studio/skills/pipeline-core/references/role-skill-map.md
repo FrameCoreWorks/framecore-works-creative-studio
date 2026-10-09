@@ -20,7 +20,9 @@ invent a role-named skill.
 
 Some role IDs also have same-named public skills; others are resolved through
 supporting skills. A role ID does not mean a host must find or install a native
-skill with the same name.
+skill with the same name. What a role's skills can execute in a host, and what
+they deliver instead when a tool is missing, is in the
+[capability card](../../workflow-orchestrator/assets/capability-card.json).
 
 For example, a handoff to `static-direction` means "perform the static visual
 direction responsibility." It does not require ChatGPT to invent an

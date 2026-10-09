@@ -1,0 +1,25 @@
+{
+  "schema": "host-smoke/1",
+  "template": true,
+  "plugin_version": "",
+  "version_read_back": "",
+  "date": "",
+  "tester": "",
+  "client": "",
+  "model": "",
+  "reasoning_setting": "",
+  "code_execution": "unknown",
+  "web_search": "unknown",
+  "cases": [
+    {"id": "SM1", "title": "Startup in English", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM2", "title": "Startup in Polish", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM3", "title": "A direct task skips the welcome", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM4", "title": "A video request gets one short route choice", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM5", "title": "The code route delivers a file", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM6", "title": "Sound for the rendered video", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM7", "title": "An interactive version is offered once", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""},
+    {"id": "SM8", "title": "Research that cannot run", "result": "NOT_RUN", "observed": "", "evidence": [], "notes": ""}
+  ],
+  "unknown": [],
+  "summary": ""
+}

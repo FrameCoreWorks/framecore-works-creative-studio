@@ -2,7 +2,7 @@
 
 ![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
 
-Source version: **1.41.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.42.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 The five conditional quality improvements and bounded offline GEPA pilot are described in [Quality development 1.3.0](docs/quality-development-1.3.0.md). They preserve existing owners, UI and one review budget; no automatic prompt adoption or paid execution is introduced.
 
@@ -20,6 +20,8 @@ Startup restores the complete Studio introduction and capability overview, then 
 - Static Graphic Design Creator methods for composition, typography, exact copy and graphic design.
 - Music, voice and sound planning in relation to pictures, or picture planning around existing audio.
 - Motion graphics from code: kinetic type, animated titles and logos, explainers and app or product films from screenshots or photos, rendered as a finished MP4 where the host can run code, with sound designed and mixed for the video on request, a craft critique and an improvement round before delivery; without code execution, a contract and the [motion player](https://framecoreworks.github.io/framecore-works-creative-studio/) export the video in the browser.
+- Sound and captions for your own footage where the host runs code: cuts measured from the video, designed hits on the moments you mark and a music bed, mixed with or without the video's own sound and checked for timing and loudness; captions checked against reading limits, converted between SRT and WebVTT, built from timed words and burned into the video.
+- A machine-readable [capability card](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/capability-card.json): what Studio executes itself, what each tool needs and what it delivers when a tool is missing.
 - Captions, UGC and short-form stories with dated, sourced defaults: subtitle and caption reading speeds and formats, creator-ad formats with disclosure lines for paid relationships and AI presenters (Poland, EU, US), and short-form structures with a beat budget.
 - Answers shaped for ChatGPT's interactive elements where the host offers them (choices, comparisons, timelines), always with an equivalent text path.
 - Asset records, revisions, scoped preferences and portable handoffs between environments.
@@ -96,7 +98,7 @@ python3 scripts/package_release.py
 
 The packager runs structural validation first and writes a plugin ZIP, a complete repository ZIP and their SHA-256 inventories into `dist/`. It makes no network requests, installs nothing and does not publish a release. It excludes Git internals and local build outputs.
 
-Current evidence and unverified behavior are recorded in [VERIFICATION.md](VERIFICATION.md). Planned evaluations are not reported as passed tests.
+Current evidence and unverified behavior are recorded in [VERIFICATION.md](VERIFICATION.md). Planned evaluations are not reported as passed tests. For a larger release, the [host smoke set](docs/host-smoke-set.md) gives eight short checks to run in ChatGPT or Codex and a record that `scripts/check_host_smoke.py` validates; only such runs show host behavior.
 
 ## Licensing
 
