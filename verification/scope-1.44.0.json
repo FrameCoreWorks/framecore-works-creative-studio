@@ -1,0 +1,31 @@
+{
+  "version": "1.44.0",
+  "baseline": "856601beb9e39e865619045a8ebedff48b66db76",
+  "change_id": "CC-20261009-04",
+  "origin": "cloud-code",
+  "files": 919,
+  "skills": 37,
+  "changed": [
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "tests/studio.test.mjs"
+  ],
+  "unchanged_count": 907,
+  "added": [
+    "skills/hyperframes-workflow/references/hyperframes-engine.md"
+  ],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "HyperFrames as an optional engine (owner decision 1a 2a, 2026-10-09): one new reference, links from the Motion Graphics skill and its code-based workflow, a capability-card entry, a knowledge-map row and a test; no HyperFrames file is copied into the package"
+}

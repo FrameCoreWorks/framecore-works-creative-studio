@@ -286,6 +286,28 @@
       "observed": "Container checks only"
     },
     {
+      "id": "hyperframes_engine",
+      "executed_by": "external",
+      "owner": "hyperframes-workflow",
+      "does": "HeyGen's open HyperFrames framework, installed on request in a shell host, builds and renders HTML compositions: launch films from a website, longer narrated videos, word-level captions, music-driven edits",
+      "tools": [],
+      "requires": [
+        "node",
+        "ffmpeg",
+        "browser",
+        "network"
+      ],
+      "optional": [
+        "host_tool"
+      ],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "An MP4 rendered by HyperFrames from the approved brief, reviewed by the Motion Graphics Workflow before delivery",
+      "when_missing": "The bundled route: the Python renderer or the motion player, with Studio's sound design and captions tool",
+      "observed": "2026-10-09: the owner reported a high-quality reel made in the HyperFrames Studio app from a shop link; no HyperFrames render has run through Studio"
+    },
+    {
       "id": "image_generation",
       "executed_by": "host",
       "owner": "image-prompt-architect",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.43.0",
+  "version": "1.44.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,7 +49,7 @@
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "0f419e5270199379b0b2294aa7a630a768909a8c96c323b2837d7e0d0d00a9a0"
+      "sha256": "a02d5bb7d11dcfdd8c0d1359c7654f842045987147421f1c46047652ac2aa460"
     },
     {
       "path": "LICENSE",
@@ -64,7 +64,7 @@
     {
       "path": "README.md",
       "bytes": 20920,
-      "sha256": "21dc0212e4687e5ca5fe7f2077f1b5f7bd18231445a16f7025bc3ae8a7143bf9"
+      "sha256": "1e0810508566ab9e5a55645d63d24d0085a4bfcd017e1a7d8cf9d072db5713a9"
     },
     {
       "path": "assets/logo.png",
@@ -93,8 +93,8 @@
     },
     {
       "path": "docs/knowledge-map.md",
-      "bytes": 12817,
-      "sha256": "13249a6bb08e3f985f0e2470fcb7e05e4dde21123df8a16c9a02ea10ed571490"
+      "bytes": 13044,
+      "sha256": "38aa991c6b5d35cc8ec18a2805f38a402988e38afd96fda79e65655f0e45c691"
     },
     {
       "path": "docs/learning-mode.md",
@@ -104,7 +104,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "147abab1b4723dd2e2b9c48c7be526869da50beb8a89b6b2c7d4ca31ecb25cae"
+      "sha256": "688cea0cc8d364f8e31fd0d89b444d078d34066b2977d9b33fb9d971ee175d77"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 82182,
-      "sha256": "2ce659bdcb98edb149704853ab254a974262cc3ff882cc2aabe3a709f0b79c2b"
+      "bytes": 83787,
+      "sha256": "5ae09eb1377395588b5a0e5959c8561aae1ebfbcfa32ba9d48b8eda5f42c605a"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2259,7 +2259,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "7144c804929119927de546f69cf11f5b0a3800ea17a008a2017ccc7666404379"
+      "sha256": "47d0705b3f4a3711314ab78a1669dcd99607347e4c89a85fb449d85b865dff14"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2878,8 +2878,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 11189,
-      "sha256": "019767b4b1b019f96dfd5aa16dc52d3525738108029803aff74b0642ed9fd108"
+      "bytes": 11551,
+      "sha256": "9e3af6c87a2418740ffcc54a5d71348d056506e6ce6bb2b03b5ed4db8d642cb4"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -3323,13 +3323,18 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
-      "bytes": 13479,
-      "sha256": "c6afec6ba517e9a5986d4d7db61e790cbda1f1e8d746adfc3a15762d0cd187db"
+      "bytes": 13621,
+      "sha256": "ceb5ec1578d3288e4dabbae312bdc77155689fa2c7c0ef8e0698502a4c7e328f"
     },
     {
       "path": "skills/hyperframes-workflow/references/code-motion-evidence.md",
       "bytes": 4273,
       "sha256": "ea2ca493cc3732c1678b23f4e84bd6e31d693e38834367c36f37765e02a71feb"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
+      "bytes": 4931,
+      "sha256": "dfb65fc5c9c1fab83b41423a8b669e18b293ef18637f48f2044c17e6360fdd62"
     },
     {
       "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
@@ -4394,7 +4399,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 30200,
-      "sha256": "ef74a7dd0de642230773b6e289ba230b954edc9b37902b158b1d70d98884f8bd"
+      "sha256": "27dff5952dfc52bbd046550976d97bbde5aa80a741c6f114bcf064616ad5e9f0"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -4408,8 +4413,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 14018,
-      "sha256": "630728ce061d6b2d8cfa0dd44b747f6b442ee86b17f1f98deb281bf1f07e60bc"
+      "bytes": 15004,
+      "sha256": "14af9321d9815a1ec37ecdb5dc63d2b56f0abe5e62a972ffbe50d8e663dbe591"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -4628,8 +4633,8 @@
     },
     {
       "path": "tests/studio.test.mjs",
-      "bytes": 30659,
-      "sha256": "0bd9ca615c3bd70cd424c181cfe98c67b4ca109528844440b97c74a4d1510dca"
+      "bytes": 31493,
+      "sha256": "0edf95df04016f9d06fa4316770acbb8fe8b18ef672ac24c46a8a30aba22bbbe"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

@@ -945,3 +945,25 @@ Cross-host state:
 - GitHub: `main` and v1.43.0 synchronized (see CC-20261009-01)
 - ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6ac87a565d7481918b6a679d5bbdb157`, readback 2026-10-09 06:43 UTC; active-client behavior not_run
 - Codex: not_run
+
+## CC-20261009-04
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261009-04-hyperframes-engine`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `856601b` (main, package 1.43.0, after the hosted readback record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.44.0)
+- Package version: 1.43.0 -> 1.44.0
+- Scope: the owner asked on 2026-10-09 for HyperFrames (hyperframes.dev, its Studio app and skills) as the main support for motion graphics and chose 1a (an optional engine in Codex or local shell hosts, installed with a pinned command, its skills not copied into the package) and 2a (the HeyGen catalog only when the user asks and has a HeyGen account). New `hyperframes-workflow/references/hyperframes-engine.md`, checked against heygen-com/hyperframes `3aa68869f7d4cec8b37cdfcb9cd539389b63abed` (CLI 0.8.143, Apache-2.0): when to offer it, installing it, who decides what (Studio keeps intake, approvals, copy, storyboard and review; HyperFrames composes and renders), assets and the HeyGen catalog, evidence. Linked from the Motion Graphics skill and its code-based workflow; capability card entry `hyperframes_engine`; knowledge-map row; a Studio test keeps the engine optional and area `8` engine-neutral. The owner's report of a perfume-shop reel made in HyperFrames Studio is recorded as an owner report about HyperFrames, not a test of this route. Welcome and menus unchanged
+- Shared package changed: yes; 11 changed, 1 added, 0 removed ([scope](../verification/scope-1.44.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: Node 198 passing of 202 (4 opt-in browser tests; 67 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, GEPA pilot 8, asset 23, captions 14: PASS ([record](../verification/release-1.44.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`; host behavior: not_run; no HyperFrames install or render was run through Studio
+
+Cross-host state:
+
+- GitHub: pending (release workflow and readback recorded in the next update)
+- ChatGPT Work: pending (hosted update on owner instruction only; 1.43.0 is the saved release)
+- Codex: not_run

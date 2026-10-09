@@ -88,6 +88,17 @@ test('dated generator snapshots and the research owner agree on each snapshot da
   });
 });
 
+test('HyperFrames is an optional engine under Studio routing, never selected by area 8 alone', () => {
+  const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
+  const engine = read('skills/hyperframes-workflow/references/hyperframes-engine.md');
+  assert.match(engine, /Choosing area `8` never selects HyperFrames by itself/);
+  assert.match(engine, /Inside Studio it is an execution engine, not a second orchestrator/);
+  assert.match(engine, /only when the user asks for it and has a HeyGen account/);
+  assert.match(read('skills/hyperframes-workflow/SKILL.md'), /\(references\/hyperframes-engine\.md\)/);
+  const card = JSON.parse(read('skills/workflow-orchestrator/assets/capability-card.json'));
+  assert.deepEqual(card.capabilities.find(item => item.id === 'hyperframes_engine').hosts, ['shell']);
+});
+
 test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const motion = read('skills/hyperframes-workflow/SKILL.md');

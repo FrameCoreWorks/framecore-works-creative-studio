@@ -28,6 +28,7 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 | ugc | [formats, scripts and disclosure](../skills/ugc/references/formats-scripts-and-disclosure.md) (speaker types, formats, script skeleton, dated platform specifications and disclosure rules) |
 | storytelling | [short-form structures](../skills/storytelling/references/short-form-structures.md) (structures by job, causality check, beat budget) |
 | research-evidence | [video-generator snapshot](../skills/research-evidence/references/video-generator-snapshot.md) (dated 2026-10-09: families, IDs, operations, retirements and evidence labels) |
+| hyperframes-workflow | [HyperFrames engine](../skills/hyperframes-workflow/references/hyperframes-engine.md) (optional engine in shell hosts, pinned installation, Studio keeps routing and review, HeyGen catalog on request) |
 
 ## Reusable materials
 

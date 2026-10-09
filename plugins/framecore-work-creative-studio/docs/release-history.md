@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.44.0, 2026-10-09
+
+The owner's decision of 2026-10-09 on HyperFrames (1a: an optional engine where a shell exists, installed with a pinned command, not copied; 2a: the HeyGen catalog only on request); the welcome and menus are unchanged:
+
+- **HyperFrames as an optional engine.** A new [engine reference](../skills/hyperframes-workflow/references/hyperframes-engine.md), checked on 2026-10-09 against heygen-com/hyperframes at commit `3aa6886` (CLI 0.8.143, Apache-2.0), says when Studio offers HyperFrames (a shell with Node.js 22, FFmpeg and Chrome, such as Codex or a local project, and a brief that benefits: a launch film from a website, a longer narrated video, word-level captions on footage or a music-driven edit), how it is installed with a pinned version (HyperFrames' own plugin, or its skills by command; never copied into this package), and who decides what: Studio keeps intake, approvals, copy, storyboard and review, HyperFrames composes and renders. Choosing area `8` still never selects an engine.
+- **HeyGen catalog only on request.** HyperFrames' `media-use` catalog (music, effects, images, voice, avatars) is used only when the user asks for it and has a HeyGen account; website assets only when the user owns the site or allows it, with each source recorded.
+- The Motion Graphics skill, its code-based workflow, the capability card (`hyperframes_engine`, executed externally, shell hosts only) and the knowledge map link it; a test keeps the engine optional and the area-`8` rule intact. No HyperFrames render has been run through Studio; the route is planned, not verified.
+
 ## 1.43.0, 2026-10-09
 
 From the full review (the repository's docs/reviews/full-review-2026-10-08.md); the welcome and menus are unchanged:
