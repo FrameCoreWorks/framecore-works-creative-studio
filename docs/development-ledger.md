@@ -1244,3 +1244,22 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.52.0 in Plugin Creator; 1.51.0 is the saved release, synchronized)
 - Codex: not_run
 - Claude Code: not rerun for 1.52.0
+
+## CC-20261010-06
+
+- Origin: cloud-code, from the owner's ChatGPT Work readback
+- Branch: `main` (records only), fast-forward under the owner's standing rule
+- Baseline: `00913ab` (main, package 1.52.0, after its publication record); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.52.0)
+- Scope: the owner updated the hosted plugin to 1.52.0 in Plugin Creator from the repository at `139bf5b` and supplied its readback (`hosted-readback-1.52.0.json`, SHA-256 `0d40a785...`). `scripts/check_hosted_readback.py` against `config/install-sources.json` at v1.52.0: `full_byte_parity`, 937 of 937 paths, sizes and hashes; every hash equals the tag v1.52.0 git blob; no unreadable or extra paths. Update check there: `limited` (exit 3). HyperFrames reported `ok` from what Plugin Creator called a genuine HyperFrames plugin in the sandbox; the detected path was not reported, so whether HyperFrames is really usable there is Unknown. Plugin Creator's package test run: 310 passed, 10 skipped, 0 failed, including all 17 environment-check tests
+- Shared package changed: no
+
+Verification:
+
+- readback comparison: PASS (`full_byte_parity`) ([record](../verification/hosted-release-1.52.0.json)); canonical validator and `scripts/check_all.sh`: PASS
+
+Cross-host state:
+
+- GitHub: `main` and v1.52.0 synchronized (see CC-20261010-04)
+- ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6aca03c7f9fc8191b2739b27ad44ab41`, readback 2026-10-10; the 1.51.0 welcome in the client not_run
+- Codex: not_run
