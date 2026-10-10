@@ -1202,3 +1202,22 @@ Cross-host state:
 - GitHub: `main` and v1.51.0 synchronized (see CC-20261010-02)
 - ChatGPT Work: pending (owner updates to 1.51.0 in Plugin Creator; 1.50.0 is the saved release, synchronized)
 - Codex: not_run
+
+## CC-20261010-05
+
+- Origin: cloud-code, from the owner's ChatGPT Work readback
+- Branch: `main` (records only), fast-forward under the owner's standing rule
+- Baseline: `941cbf2` (main, package 1.51.0); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.51.0)
+- Scope: the owner updated the hosted plugin to 1.51.0 in Plugin Creator from the repository at `6f2bd1a` and supplied its readback (`hosted-readback-1.51.0.json`, SHA-256 `10924def...`). `scripts/check_hosted_readback.py` against `config/install-sources.json` at v1.51.0: `full_byte_parity`, 937 of 937 paths, sizes and hashes; every hash equals the tag v1.51.0 git blob; no unreadable or extra paths. The update check there gave `limited` (exit 3). Plugin Creator's own test run failed one environment-check test because HyperFrames was detected; that is a false positive of the detection, fixed in CC-20261010-04
+- Shared package changed: no
+
+Verification:
+
+- readback comparison: PASS (`full_byte_parity`) ([record](../verification/hosted-release-1.51.0.json)); canonical validator and `scripts/check_all.sh`: PASS
+
+Cross-host state:
+
+- GitHub: `main` and v1.51.0 synchronized (see CC-20261010-02)
+- ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6ac9ec10cdfc819180bd853fa5ecefaa`, readback 2026-10-10; the new welcome in the client not_run
+- Codex: not_run
