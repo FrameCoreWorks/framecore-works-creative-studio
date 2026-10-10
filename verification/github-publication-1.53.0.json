@@ -1,0 +1,30 @@
+{
+  "version": "1.53.0",
+  "change_id": "CC-20261010-08",
+  "origin": "cloud-code",
+  "commit": "b8c0ee090379ee3d72f6a3a714a8992c57f26dff",
+  "package_commit": "b8c0ee090379ee3d72f6a3a714a8992c57f26dff",
+  "integration": "Fast-forward of main from e06a7a5 to b8c0ee0 under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.53.0",
+  "workflow_id": 38060791402,
+  "workflow_conclusion": "success",
+  "checks_workflow_ids": [
+    38060791405,
+    38060793430,
+    38060795520
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 38060791403,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "d6d9df4d0fe398a769cd4404ac97ab91804991c1e43c4cdd1df0be99a02881e6",
+  "plugin_zip_matches_tag_tree": "943 of 943 files byte-identical to v1.53.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "afe7210396f75563b5c3d1f79685c445f2019839aa59b240860494ebd59cade0",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "published_welcome": "the Polish welcome in the downloaded ZIP carries option 3",
+  "hosted_plugin": "not updated (the owner updates it in Plugin Creator; 1.52.0 remains the saved release, synchronized)",
+  "host_behavior": "ChatGPT, ChatGPT Work and Codex NOT_RUN; Claude Code agent-run tests recorded separately"
+}
