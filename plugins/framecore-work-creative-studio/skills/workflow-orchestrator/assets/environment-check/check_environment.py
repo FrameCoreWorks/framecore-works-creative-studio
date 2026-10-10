@@ -366,7 +366,11 @@ def report(args):
         entry = tool['hosts'].get(host) if host else None
         results[tool['id']]['on_host'] = entry
         # A tool this host cannot run is not a defect here: the capability falls back as the card says.
-        if entry and entry['status'] == 'not_supported' and results[tool['id']]['status'] in FAILING:
+        if entry and entry['status'] == 'not_supported' and (results[tool['id']]['status'] in FAILING or results[tool['id']]['status'] == 'ok'):
+            # Files found on such a host (skills copied into a chat sandbox, for example) do not make the tool run there.
+            if results[tool['id']]['status'] == 'ok':
+                found = results[tool['id']].get('skills') or [results[tool['id']].get('path')]
+                results[tool['id']]['note'] = 'files present (' + ', '.join(str(f) for f in found if f) + '), but this host cannot run it'
             results[tool['id']]['status'] = 'not_on_this_host'
     state = requirement_state(spec['tools'], results, network)
     profile = next((h['profile'] for h in spec['hosts'] if h['id'] == host), None)

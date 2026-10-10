@@ -435,9 +435,9 @@ test('effective loader preserves historical files and applies seven source-guard
   assert.equal(effective.additional_cases, 4);
   assert.equal(effective.host_scenarios, 25);
   assert.equal(effective.knowledge_scenarios, 12);
-  assert.equal(effective.learning_scenarios, 25);
+  assert.equal(effective.learning_scenarios, 27);
   assert.equal(effective.campaign_scenarios, 8);
-  assert.equal(effective.cases.length, 202);
+  assert.equal(effective.cases.length, 204);
   const byId = new Map(effective.cases.map(item => [item.id, item]));
   assert.match(byId.get('S35').expected_branch, /geometry_unknown/);
   assert.match(byId.get('S35-CROP').expected_branch, /^feasible/);

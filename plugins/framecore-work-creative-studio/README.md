@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.52.0.
+Version: 1.53.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -13,6 +13,10 @@ The full welcome explains what Studio does and its capabilities, then offers **1
 **Learning mode** retains short onboarding, a personalized plan, exercises and feedback on the learner's work across 14 existing skill domains. Quick/Deep controls pace independently of intent. When persistent saving is unavailable, a progress card can carry context into another conversation. See [modes, coverage and limitations](docs/learning-mode.md).
 
 Repository documentation and operational guidance are English. The full welcome and later menus automatically follow the user's language without a translation request. Explicit preferences, meaningful user text, available host language context and conversation language determine the response; country and repository language do not. The approved Polish welcome, exact-copy examples and multilingual fixtures remain localized data.
+
+## Skill finder
+
+Option 3 of the welcome finds a skill for a described task. Studio first points to its own matching skill; in Codex and Claude Code it can also search the open [skills.sh](https://skills.sh) catalog, show what each candidate does with its install count and security audits, and install one only on an explicit request. In ChatGPT it matches Studio's skills and gives the skills.sh link. See [the skill finder](skills/workflow-orchestrator/references/skill-finder.md) and [the attributed adaptation](integrations/skill-finder/README.md).
 
 ## Interactive answers in ChatGPT
 

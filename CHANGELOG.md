@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.53.0, 2026-10-10
+
+From the owner's request of 2026-10-10 to adapt Vercel's skill finder, and the deferred environment-check correction (decision 1a):
+
+- **Skill finder, option 3 of the welcome.** The welcome now ends with three options: "3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog." (Polish: "Szukasz konkretnego skilla (umiejętności)?"), and "Enter **1**, **2** or **3**." After `3` Studio asks what the skill should do and recommends its own matching skill first. In Codex and Claude Code, when Studio does not cover the need or alternatives are asked for, `find_skills.py` searches the whole skills.sh catalog, reads each candidate's security audits (ath, Socket, Snyk) and its own description, and gives a verdict (`listed`, `caution`, `unchecked`, `blocked`); install commands set `DO_NOT_TRACK=1`, never use `-y`, and run only on an explicit request; a `blocked` skill gets none. In ChatGPT, ChatGPT Work and the Claude apps Studio matches its own skills and gives the skills.sh link. The method is adapted from Vercel's MIT-licensed `find-skills` with provenance in `integrations/skill-finder/`. The six capability bullets and the later menus are unchanged; a `3` answering a two-option welcome shown before 1.53.0 still asks for clarification.
+- **Tools a host cannot run are reported as such even when found.** In a chat sandbox, HyperFrames skills found there were reported `ok`; a tool marked `not_supported` for the host is now `not_on_this_host`, with the found files named in its note.
+- Two planned evaluation cases (LM26, LM27) cover skill search in ChatGPT and Codex.
+
 ## 1.52.0, 2026-10-10
 
 From the owner's ChatGPT Work update to 1.51.0, where the environment check reported HyperFrames skills and one package test failed:

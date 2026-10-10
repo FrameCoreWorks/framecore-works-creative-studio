@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.52.0
+## Current source: 1.53.0
+
+The [1.53.0 source checks](verification/release-1.53.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 18 environment-check, 10 motion-acceptance and 7 skill-finder tests; the legacy suite matches its recorded baseline; `claude plugin validate --strict` passes. The welcome gains option 3, skill search; both assets still equal their `SKILL.md` excerpts and the protected hashes were updated with them. `find_skills.py` read the live skills.sh catalog from this container (results with installs and three audits; critical-rated skills blocked). In Claude Code 2.1.296, headless and agent-run, both welcomes were byte-identical to the assets, `3` led to one question, a caption need was answered with Studio's own Caption Studio, and a UI-sound request ran the catalog search, presented two audited candidates, rejected a critical-rated one and installed nothing ([record](verification/claude-code-skill-finder-1.53.0.json)). ChatGPT, ChatGPT Work and Codex were not run with the new option. [Scope](verification/scope-1.53.0.json) records 18 changed and 6 added shared files out of 943.
+
+## Previous source: 1.52.0
 
 The [1.52.0 source checks](verification/release-1.52.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 17 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline; `claude plugin validate --strict` passes. The change fixes a false positive in the environment check: Studio's own `hyperframes-workflow` skill matched the `hyperframes*` pattern and counted as installed HyperFrames (reproduced here with the 1.51.0 code); it is now skipped, and a new test checks that case and the real `hyperframes` skill. The fixed check in ChatGPT Work's sandbox is not run. [Scope](verification/scope-1.52.0.json) records 9 changed shared files out of 937.
 

@@ -418,6 +418,26 @@
       "delivers": "An evidence note with sources and access dates",
       "when_missing": "Say once that current sources could not be checked and mark mutable claims unverified",
       "observed": "Depends on the host's search or browsing tool"
+    },
+    {
+      "id": "skill_search",
+      "executed_by": "studio",
+      "owner": "workflow-orchestrator",
+      "does": "Searches the open skills.sh catalog with its security audits and reads a candidate's SKILL.md description; installs nothing",
+      "tools": [
+        "skills/workflow-orchestrator/assets/skill-finder/find_skills.py"
+      ],
+      "requires": [
+        "python",
+        "network"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "Catalog candidates with what they do, installs, audits, verdict and an install command run only on explicit request",
+      "when_missing": "Match the need against Studio's own skills and give the skills.sh link with search keywords; Codex and Claude Code can search and install from it",
+      "observed": "Container checks against the live catalog only"
     }
   ]
 }

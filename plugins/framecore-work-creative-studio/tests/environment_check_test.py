@@ -211,6 +211,19 @@ class Hosts(unittest.TestCase):
             tool = by_id(report['tools'])['hyperframes']
             self.assertEqual((tool['status'], tool['skills']), ('ok', [str(real)]))
 
+    def test_found_files_do_not_make_an_unsupported_tool_run_on_a_chat_host(self):
+        with tempfile.TemporaryDirectory() as home, tempfile.TemporaryDirectory() as project:
+            real = pathlib.Path(home, '.agents/skills/hyperframes')
+            real.mkdir(parents=True)
+            (real / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
+            _, report, _ = run_check('--host', 'chatgpt_work', home=home, project=project)
+            tool = by_id(report['tools'])['hyperframes']
+            self.assertEqual(tool['status'], 'not_on_this_host')
+            self.assertIn('this host cannot run it', tool['note'])
+            self.assertIn(str(real), tool['note'])
+            _, report, _ = run_check('--host', 'codex', home=home, project=project)
+            self.assertEqual(by_id(report['tools'])['hyperframes']['status'], 'ok', 'on Codex the skills count')
+
     def test_host_is_detected_from_documented_traces(self):
         with mock.patch.dict(check.os.environ, {'CLAUDECODE': '1'}, clear=True):
             self.assertEqual(check.detect_host(SPEC)[0], 'claude_code')

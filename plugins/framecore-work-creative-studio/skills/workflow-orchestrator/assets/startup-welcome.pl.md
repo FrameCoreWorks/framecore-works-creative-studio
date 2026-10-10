@@ -17,5 +17,6 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 
 1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.
 2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
+3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.
 
-Wpisz **1** albo **2**.
+Wpisz **1**, **2** albo **3**.

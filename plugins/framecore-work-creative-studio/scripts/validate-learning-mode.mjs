@@ -4,9 +4,9 @@ import {isDeepStrictEqual as equal} from 'node:util';
 import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
-export const learningCaseIds = Array.from({length: 25}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
-export const canonicalWelcomeSha256 = '5bb2f2df2d1991e7766d6c147f2402bc01df75c7948d4dd8bef78b89b746424f';
-export const englishWelcomeSha256 = '30d79559a4eefbb9555c60265939dd131ac3fa2bda0dd1305c1f06c974bbb336';
+export const learningCaseIds = Array.from({length: 27}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
+export const canonicalWelcomeSha256 = '4c8084c28c9823bc5195989f4d33cce20ebfe93e20d660568b4df07b610bfb36';
+export const englishWelcomeSha256 = '84959428384a1728b0c198809eb55b42dc8f1ec04a821ae21b26fda80256dbf8';
 
 // Checks caller-supplied response text only. This does not invoke or observe a host.
 // A single file-terminal LF is optional in a conversation response; nothing else
@@ -36,12 +36,12 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/workflow-orchestrator/SKILL.md', [/Tryb nauki/, /Tryb tworzenia/, /references\/learning-mode\.md/, /creation immediately/, /never deliver the menu by itself/, /Quick\/Deep are a separate pace/]);
     need('skills/workflow-orchestrator/SKILL.md', [/references\/startup-and-creative-menus\.md/, /complete welcome/, /After a mode-only creative choice/, /After a pace-only choice/, /bare number only against a currently pending displayed choice group/]);
     need('skills/workflow-orchestrator/SKILL.md', [/assets\/startup-welcome\.en\.md/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/]);
-    need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /Wpisz \*\*1\*\* albo \*\*2\*\*\.\s*$/]);
+    need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /3\. \*\*Szukasz konkretnego skilla \(umiejętności\)\?\*\*/, /Wpisz \*\*1\*\*, \*\*2\*\* albo \*\*3\*\*\.\s*$/]);
     const welcome = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
     if (createHash('sha256').update(welcome).digest('hex') !== canonicalWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected Polish welcome has changed');
     const english = read('skills/workflow-orchestrator/assets/startup-welcome.en.md');
     if (createHash('sha256').update(english).digest('hex') !== englishWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected English welcome has changed');
-    need('skills/workflow-orchestrator/assets/startup-welcome.en.md', [/^I am FrameCore Works Creative Studio\./, /I can help you with:/, /you can add them now or later/, /1\. \*\*Creative mode\*\*/, /2\. \*\*Learning mode\*\*/, /Enter \*\*1\*\* or \*\*2\*\*\.\s*$/]);
+    need('skills/workflow-orchestrator/assets/startup-welcome.en.md', [/^I am FrameCore Works Creative Studio\./, /I can help you with:/, /you can add them now or later/, /1\. \*\*Creative mode\*\*/, /2\. \*\*Learning mode\*\*/, /3\. \*\*Looking for a specific skill\?\*\*/, /Enter \*\*1\*\*, \*\*2\*\* or \*\*3\*\*\.\s*$/]);
     const entry = read('skills/workflow-orchestrator/SKILL.md');
     const begin = '<!-- BEGIN CANONICAL STARTUP RESPONSE -->\n';
     const end = '<!-- END CANONICAL STARTUP RESPONSE -->';
@@ -72,7 +72,12 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/workflow-orchestrator/SKILL.md', [/@FrameCore Works Creative Studio/, /never return only the two-mode choice/, /A two-option menu alone is a failed startup response/, /Concrete tasks and actual resume requests bypass this startup response/, /an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation/, /\*\*Invocation with content:\*\*/, /Never answer content with the welcome or the mode menu/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Invocation with content/, /The welcome is for an invocation with nothing to act on/, /Never show the welcome, the mode menu or the area menu in reply to content/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Complete welcome/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/, /## Creative pace choice/, /1\. \*\*Tryb szybki\*\*/, /2\. \*\*Tryb rozbudowany\*\*/, /## Established work-area menu/, /1\. Grafika statyczna/, /2\. Wideo i prompty/, /7\. Analiza dostarczonej/, /bare number only against a currently pending displayed choice group/, /older 1\.2\.0 order/, /concrete project request bypasses menus/, /neither a concrete task nor a pace is supplied/]);
-    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Motion graphics in creative work/, /choose Creative Mode, Expanded Mode, then area `8`/, /After area `8`, ask only the missing motion brief/, /Preserve a runtime explicitly supplied/, /explicit request to learn motion graphics follows Learning Mode/, /8\. Motion graphics z kodu/, /Area `3` still selects storyboards/, /A `3` from the two-option startup menu asks for clarification without selecting motion/, /Selecting the area authorizes no installation/]);
+    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Motion graphics in creative work/, /choose Creative Mode, Expanded Mode, then area `8`/, /After area `8`, ask only the missing motion brief/, /Preserve a runtime explicitly supplied/, /explicit request to learn motion graphics follows Learning Mode/, /8\. Motion graphics z kodu/, /Area `3` still selects storyboards/, /A `3` from the startup menu selects skill search, never storyboards or motion/, /Selecting the area authorizes no installation/]);
+    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Skill search/, /`3` means skill search/, /skill-finder\.md/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/\*\*Skill search answer \(`3`\)/, /references\/skill-finder\.md/]);
+    need('skills/workflow-orchestrator/references/skill-finder.md', [/Studio's own skills first/, /only in Codex and Claude Code|natively in Codex and Claude Code/, /DO_NOT_TRACK=1/, /never uses `-y`/, /only when the user explicitly asks to install/, /untrusted data/, /`blocked`/, /Do not run the script in a chat sandbox/]);
+    const finder = read('skills/workflow-orchestrator/assets/skill-finder/find_skills.py');
+    if (!/DO_NOT_TRACK=1 npx skills add/.test(finder) || /npx skills add[^\n]*(?:\s-y\b|--yes)/.test(finder)) fail('SKILL_FINDER_INSTALL', 'install commands set DO_NOT_TRACK=1 and never auto-confirm');
     need('skills/workflow-orchestrator/SKILL.md', [/eight numbered work areas/, /If an area was already supplied/, /Area `8` follows.*references\/startup-and-creative-menus\.md#motion-graphics-in-creative-work/]);
     need('skills/workflow-orchestrator/references/intake-and-reference-authority.md', [/startup-and-creative-menus\.md/, /mode-only creative choice gets Quick\/Deep pace selection/]);
     need('skills/pipeline-core/references/studio-integration-policy.md', [/direct specialist invocation/, /learning overlay/, /Creation keeps the established production route/, /Ask exactly one onboarding question per response and wait/]);
@@ -115,7 +120,7 @@ export function validateLearningMode(root, packageFiles) {
     }
     const suite = JSON.parse(read('evals/learning-mode-cases.json'));
     if (suite.schema_version !== 1 || !Array.isArray(suite.cases)) throw new Error('Invalid learning scenario suite');
-    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM25 once each');
+    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM27 once each');
     for (const item of suite.cases) {
       if (item.status !== 'planned' || item.execution_status !== 'not_run' || !strings(item.required_evidence) || !strings(item.expected_owners) || !strings(item.checks) || !['learning', 'creation', 'undecided'].includes(item.expected_interaction_mode)) fail('LEARNING_EVAL', String(item.id));
       for (const owner of item.expected_owners ?? []) if (!packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('LEARNING_EVAL_OWNER', item.id + ': ' + owner);

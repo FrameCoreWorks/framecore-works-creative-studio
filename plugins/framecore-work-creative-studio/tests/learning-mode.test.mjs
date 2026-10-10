@@ -44,7 +44,7 @@ test('learning is integrated with the same 37 skills and unexecuted evidence sco
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical.errors));
   assert.equal(result.canonical.owners, 37);
-  assert.equal(result.canonical.evaluations.learning_scenarios, 25);
+  assert.equal(result.canonical.evaluations.learning_scenarios, 27);
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
@@ -71,7 +71,7 @@ test('startup cannot lose its welcome, creative pace step or displayed-menu numb
   const startup = 'skills/workflow-orchestrator/references/startup-and-creative-menus.md';
   const welcome = 'skills/workflow-orchestrator/assets/startup-welcome.pl.md';
   for (const [file, phrase] of [
-    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Creative pace choice', '## Established work-area menu', '## Motion graphics in creative work', 'choose Creative Mode, Expanded Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the two-option startup menu asks for clarification without selecting motion', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
+    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Creative pace choice', '## Established work-area menu', '## Motion graphics in creative work', 'choose Creative Mode, Expanded Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the startup menu selects skill search, never storyboards or motion', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
     ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **Tryb nauki**'].map(phrase => [welcome, phrase]),
     ['skills/workflow-orchestrator/SKILL.md', 'copy verbatim the entire file']
   ]) fixture(root => {

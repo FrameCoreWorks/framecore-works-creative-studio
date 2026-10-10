@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-10",
+  "package_version": "1.53.0 (local source before the release commit; identical package content)",
+  "host": "Claude Code 2.1.296, headless (claude -p, --continue for later turns), Linux container, isolated CLAUDE_CONFIG_DIR",
+  "models_requested": [
+    "claude-sonnet-5-5"
+  ],
+  "install": {
+    "marketplace": "framecore-works added from the local repository checkout",
+    "plugin": "framecore-work-creative-studio@framecore-works",
+    "listed_version": "1.53.0"
+  },
+  "cases": [
+    {
+      "input": "Cześć @FrameCore Works Creative Studio",
+      "expected": "complete Polish welcome with options 1 to 3",
+      "result": "PASS",
+      "evidence": "reply equals assets/startup-welcome.pl.md byte for byte (evaluateStartupReply)",
+      "reply_sha256": "4c8084c28c9823bc5195989f4d33cce20ebfe93e20d660568b4df07b610bfb36"
+    },
+    {
+      "input": "@FrameCore Works Creative Studio",
+      "expected": "complete welcome; English as provisional fallback",
+      "result": "PASS",
+      "evidence": "reply equals assets/startup-welcome.en.md byte for byte (evaluateStartupReply)",
+      "reply_sha256": "84959428384a1728b0c198809eb55b42dc8f1ec04a821ae21b26fda80256dbf8"
+    },
+    {
+      "input": "3, after the Polish welcome (Read allowed)",
+      "expected": "one question about what the skill should do; no menu",
+      "result": "PASS",
+      "observed": "\"Opisz, co ten skill ma robić: jakie zadanie, na jakim materiale i jaki ma być wynik.\"",
+      "reply_sha256": "99c9202fefcf3dd08863fc184c4302eb435bb58be4f6abcc87c423dda9efb16c"
+    },
+    {
+      "input": "3, after the English welcome, without Read permission",
+      "expected": "one question about what the skill should do",
+      "result": "PASS_WITH_NOTE",
+      "observed": "asked for the description and named Studio's areas and the skills.sh option; said it could not read the skill-finder reference because headless mode denied Read",
+      "reply_sha256": "3e8d8c7672e3d23c733080f1cf68338227d69fb4a45de49fbb2946764bace251"
+    },
+    {
+      "input": "Polish description: animated word-by-word captions for reels from a recording",
+      "expected": "Studio's own skill first; no catalog search",
+      "result": "PASS",
+      "observed": "recommended Caption Studio, with Motion Graphics Workflow for the render; named limits (no speech recognition of its own); no catalog search, nothing installed",
+      "reply_sha256": "763acf21163ecd1b0cbc495289fe8a8bf8335cf44a0c226a99ab82e76eb09ebf"
+    },
+    {
+      "input": "Polish request for UI sound skills from the open catalog (python3 allowed)",
+      "expected": "Studio checked first; catalog search with audits and verdicts; blocked skills get no command; nothing installed",
+      "result": "PASS",
+      "observed": "said Studio has no standalone SFX generator; ran the search; presented elevenlabs/skills sound-effects (9173 installs, audits safe/low) and sonilo-ai/skills text-to-sfx (1401 installs) with what each does and flagged signals; rejected dannyjpwilliams/ui-sound-design for a critical Socket audit; one candidate with an unreadable description was not described; nothing installed; install only on a named request",
+      "reply_sha256": "3e439486e98038e90fcff3474f14f97301a2378146290c2c07a8145d88b683fe"
+    }
+  ],
+  "boundary": "Agent-run headless tests in a container, not the owner's client; installation from the catalog was not exercised; ChatGPT, ChatGPT Work, Codex and the Claude apps not run"
+}

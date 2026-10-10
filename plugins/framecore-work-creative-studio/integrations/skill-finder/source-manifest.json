@@ -1,0 +1,39 @@
+{
+  "source_repository": "https://github.com/vercel-labs/skills",
+  "source_commit": "13e4063a1cf913f5606d57d42ab83a86f5001e04",
+  "source_version": "1.7.2",
+  "reviewed_date": "2026-10-10",
+  "integration_type": "selective_method_adaptation",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Vercel, Inc.",
+  "retained_files": [
+    {
+      "path": "LICENSE",
+      "source_path": "LICENSE",
+      "git_blob_sha": "eabe3008f6c0275929faa8b07d406e82717648cc"
+    }
+  ],
+  "reviewed_sources": [
+    {
+      "path": "skills/find-skills/SKILL.md",
+      "git_blob_sha": "a41bdd074bb587afd861332cf2f473f3154de4d7",
+      "scope": "relevant method"
+    },
+    {
+      "path": "src/find.ts",
+      "git_blob_sha": "9fe60ce81be21a65508299b469519af4b67155b2",
+      "scope": "search endpoint and result fields"
+    },
+    {
+      "path": "src/telemetry.ts",
+      "git_blob_sha": "f32d8e784bd866275536f25ae706eb66ba5ba3ff",
+      "scope": "audit endpoint, telemetry and its opt-out"
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "b6192e6a549effd8bd33835196d85a403811803e",
+      "scope": "commands, flags and agent install paths"
+    }
+  ],
+  "announcement": "https://vercel.com/changelog/introducing-skills-the-open-agent-skills-ecosystem"
+}

@@ -17,5 +17,6 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 
 1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.
 2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
+3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
 
-Enter **1** or **2**.
+Enter **1**, **2** or **3**.

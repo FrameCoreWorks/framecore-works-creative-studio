@@ -18,7 +18,7 @@ Eight short checks of how an installed Studio behaves in a real host, for a larg
 Use FrameCore Works Creative Studio.
 ```
 
-In a chat whose earlier messages, if any, are in English. **Pass:** the complete English welcome as in `assets/startup-welcome.en.md`: the introduction, all six capability bullets, the materials sentence and the numbered choice 1 or 2, and nothing added before or after it. **Fail:** a shortened welcome, only the modes, another menu, or a different language.
+In a chat whose earlier messages, if any, are in English. **Pass:** the complete English welcome as in `assets/startup-welcome.en.md`: the introduction, all six capability bullets, the materials sentence and the numbered choice 1, 2 or 3, and nothing added before or after it. **Fail:** a shortened welcome, only the modes, another menu, or a different language.
 
 ### SM2. Startup in Polish
 

@@ -93,7 +93,7 @@ The required set, for every host the plugin runs in. The validator checks that e
 - **per_project:** installed into the Studio workspace with `npm ci`, which needs network once.
 - **not_supported:** that host cannot run it; Studio delivers the capability card's alternative (for example the bundled Python renderer instead of Remotion or HyperFrames).
 
-`--host chatgpt|chatgpt_work|codex|claude_code|claude_apps` names the host; by default it is detected from documented traces (`CLAUDECODE=1`, a `CODEX_` variable, `/mnt/user-data`, `/mnt/data`), and ordinary ChatGPT and ChatGPT Work cannot be told apart that way. `/mnt/user-data` also exists in Claude Code cloud sessions, which are recognised first by `CLAUDECODE=1`; pass `--host` when the detection is wrong. On a named host a tool marked `not_supported` is reported as `not_on_this_host`, not as missing.
+`--host chatgpt|chatgpt_work|codex|claude_code|claude_apps` names the host; by default it is detected from documented traces (`CLAUDECODE=1`, a `CODEX_` variable, `/mnt/user-data`, `/mnt/data`), and ordinary ChatGPT and ChatGPT Work cannot be told apart that way. `/mnt/user-data` also exists in Claude Code cloud sessions, which are recognised first by `CLAUDECODE=1`; pass `--host` when the detection is wrong. On a named host a tool marked `not_supported` is reported as `not_on_this_host`, not as missing, and also when its files are found there (HyperFrames skills in a chat sandbox, for example): the note names them, but that host still cannot run the tool.
 
 ## How Studio uses it
 

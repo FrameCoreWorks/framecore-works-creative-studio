@@ -1282,3 +1282,27 @@ Cross-host state:
 - GitHub: `main` and v1.52.0 synchronized
 - ChatGPT Work: synchronized at 1.52.0 (release `pluginrel_6aca03c7f9fc8191b2739b27ad44ab41`)
 - Codex: not_run
+
+## CC-20261010-08
+
+- Origin: cloud-code, from the owner's request of 2026-10-10
+- Branch: `cloud-code/CC-20261010-08-skill-finder`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `e06a7a5` (main, package 1.52.0, after the owner decisions record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.53.0)
+- Package version: 1.52.0 -> 1.53.0
+- Scope: the owner asked to adapt Vercel's skill finder (`find-skills`, announced with the open skills ecosystem on 2026-01-20) as a separate welcome option: describe what a skill should do, get Studio's own matching skill first, and in Codex and Claude Code the open skills.sh catalog; search and describe, install only on an explicit request there; the whole catalog, no author allowlist. The welcome gains option 3 ("Looking for a specific skill?" / "Szukasz konkretnego skilla (umiejętności)?") and the reply line "1, 2 or 3"; the six bullets and later menus are unchanged; a `3` answering a pre-1.53.0 two-option welcome still asks for clarification. New: `references/skill-finder.md`, `assets/skill-finder/find_skills.py` (search, three security audits, verdicts listed/caution/unchecked/blocked, `--describe`; install commands with `DO_NOT_TRACK=1`, never `-y`; unsafe catalog names rejected), capability `skill_search`, provenance in `integrations/skill-finder/` (MIT, commit `13e4063`, blob hashes; the upstream skill is not vendored, so hosts do not discover it), evaluation cases LM26 and LM27. Deferred decision 1a: a tool marked `not_supported` for the host is `not_on_this_host` even when its files are found. The orchestrator entry was compacted by four sentences to stay within its 32,000-byte budget
+- Shared package changed: yes; 18 changed, 6 added, 0 removed ([scope](../verification/scope-1.53.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin and guides 7, GEPA pilot 8, asset 23, captions 14, environment check 18, motion acceptance 10, skill finder 7: PASS ([record](../verification/release-1.53.0.json))
+- live catalog reads from the container; Claude Code 2.1.296 headless, agent-run: welcomes byte-identical, option 3 flow and catalog search as specified, nothing installed ([record](../verification/claude-code-skill-finder-1.53.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (owner updates to 1.53.0 in Plugin Creator; 1.52.0 is the saved release, synchronized)
+- Codex: not_run
+- Claude Code: agent-run headless tests PASS (not the owner's client)
