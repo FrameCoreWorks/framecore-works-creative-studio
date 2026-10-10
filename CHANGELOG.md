@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.52.0, 2026-10-10
+
+From the owner's ChatGPT Work update to 1.51.0, where the environment check reported HyperFrames skills and one package test failed:
+
+- **HyperFrames detection no longer counts Studio's own skill.** The check looked for skill folders named `hyperframes*`, so Studio's `hyperframes-workflow` (its guide to HyperFrames, not HyperFrames itself) counted as installed HyperFrames wherever Studio's skills sit in a scanned skills folder. The check now skips Studio's own skill names and folders inside the Studio plugin. A new test covers both cases (Studio's skill alone: `missing`; the real `hyperframes` skill: `ok`), and the host test now runs with a temporary home so skills installed on the testing machine cannot change its result.
+- The welcome, menus and all 37 skill IDs are unchanged.
+
 ## 1.51.0, 2026-10-10
 
 From the owner's report of 2026-10-10 that the startup welcome says nothing about motion design:

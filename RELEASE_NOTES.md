@@ -1,8 +1,8 @@
-# Creative Studio 1.51.0
+# Creative Studio 1.52.0
 
-The welcome names motion design.
+A more honest tool check.
 
-- **Motion design in the welcome.** The video line now reads "Video, motion design and storytelling" (in Polish "Wideo, motion designie i opowiadaniu historii") and mentions animated graphics and typography. Everything else in the welcome, the two modes and the later menus is unchanged.
-- **Tested in ChatGPT Work.** On 1.50.0 the bare Studio name gave the complete Polish welcome, and a graphic sent with the name was treated as a task.
+- **HyperFrames is no longer reported by mistake.** The environment check took Studio's own HyperFrames guide for HyperFrames itself, so a chat could report HyperFrames as present when it was not. It now looks only for HyperFrames' own skills or command.
+- The welcome (which names motion design since 1.51.0), menus and all 37 skill IDs are unchanged.
 
-All 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

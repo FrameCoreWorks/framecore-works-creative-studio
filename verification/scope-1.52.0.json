@@ -1,0 +1,27 @@
+{
+  "version": "1.52.0",
+  "baseline": "aea24a80211ca10d419b5b30d2349311277d383f",
+  "change_id": "CC-20261010-04",
+  "origin": "cloud-code",
+  "files": 937,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+    "tests/environment_check_test.py"
+  ],
+  "unchanged_count": 928,
+  "added": [],
+  "removed": [],
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "HyperFrames detection in the environment check skips Studio's own hyperframes-workflow skill and folders inside the Studio plugin; new regression test; the host test runs with a temporary home."
+}

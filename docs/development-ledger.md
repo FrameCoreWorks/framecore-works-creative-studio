@@ -1221,3 +1221,26 @@ Cross-host state:
 - GitHub: `main` and v1.51.0 synchronized (see CC-20261010-02)
 - ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6ac9ec10cdfc819180bd853fa5ecefaa`, readback 2026-10-10; the new welcome in the client not_run
 - Codex: not_run
+
+## CC-20261010-04
+
+- Origin: cloud-code, from the owner's ChatGPT Work update to 1.51.0
+- Branch: `cloud-code/CC-20261010-04-hyperframes-detect`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `aea24a8` (main, package 1.51.0, after the hosted readback record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.52.0)
+- Package version: 1.51.0 -> 1.52.0
+- Scope: in ChatGPT Work's sandbox the update check reported HyperFrames skills, and Plugin Creator's test run failed one environment-check test that expects HyperFrames to be absent. Cause: the check matched skill folders named `hyperframes*`, so Studio's own `hyperframes-workflow` counted as HyperFrames (reproduced in this container: `ok` for that skill alone). The check now skips Studio's own skill names and folders inside the Studio plugin; a new test covers Studio's skill alone (`missing`) and the real `hyperframes` skill (`ok`); the named-host test runs with a temporary HOME, CODEX_HOME and XDG_CONFIG_HOME. Which test failed in Plugin Creator's sandbox was not reported; inference: the named-host test, the one that read the real home
+- Shared package changed: yes; 9 changed, 0 added, 0 removed ([scope](../verification/scope-1.52.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin and guides 7, GEPA pilot 8, asset 23, captions 14, environment check 17, motion acceptance 10: PASS ([record](../verification/release-1.52.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (owner updates to 1.52.0 in Plugin Creator; 1.51.0 is the saved release, synchronized)
+- Codex: not_run
+- Claude Code: not rerun for 1.52.0

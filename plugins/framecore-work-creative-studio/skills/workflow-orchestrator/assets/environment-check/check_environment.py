@@ -192,14 +192,20 @@ def skill_dirs(project):
             pathlib.Path(project) / '.codex' / 'skills']
 
 
+def studio_own(path):
+    """True for Studio's own skills (hyperframes-workflow is Studio's guide to HyperFrames, not HyperFrames itself)."""
+    own = {p.name for p in (PLUGIN_ROOT / 'skills').iterdir() if p.is_dir()} if (PLUGIN_ROOT / 'skills').is_dir() else set()
+    return path.name in own or PLUGIN_ROOT.name in path.parts or 'framecore-work-creative-studio' in path.parts
+
+
 def check_hyperframes(tool, project):
     found = []
     for folder in skill_dirs(project):
         if folder.is_dir():
-            found += sorted(str(p.parent) for p in folder.glob('hyperframes*/SKILL.md'))
+            found += sorted(str(p.parent) for p in folder.glob('hyperframes*/SKILL.md') if not studio_own(p.parent))
     for plugins in (pathlib.Path.home() / '.claude' / 'plugins', pathlib.Path(os.environ.get('CODEX_HOME', pathlib.Path.home() / '.codex')) / 'plugins'):
         if plugins.is_dir():
-            found += sorted(str(p) for p in plugins.glob('**/hyperframes*') if p.is_dir() and len(p.relative_to(plugins).parts) <= 3)
+            found += sorted(str(p) for p in plugins.glob('**/hyperframes*') if p.is_dir() and len(p.relative_to(plugins).parts) <= 3 and not studio_own(p))
     version, path = None, shutil.which('hyperframes')
     if path:
         version = version_of(run([path, '--version'], timeout=30))

@@ -184,14 +184,32 @@ class Hosts(unittest.TestCase):
         self.assertEqual(table, check.matrix(SPEC, markdown=True))
 
     def test_named_host_marks_unsupported_tools_as_not_on_this_host(self):
-        args = check.argparse.Namespace(online=False, project=tempfile.gettempdir(), browser=None, host='chatgpt', workspace=tempfile.gettempdir())
-        with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):
-            data = check.report(args)
+        # A temporary HOME and project keep skills installed on the machine running the test out of the result.
+        with tempfile.TemporaryDirectory() as temp, mock.patch.dict(os.environ, {'HOME': temp, 'CODEX_HOME': temp, 'XDG_CONFIG_HOME': temp}):
+            args = check.argparse.Namespace(online=False, project=temp, browser=None, host='chatgpt', workspace=temp)
+            with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):
+                data = check.report(args)
         tools = by_id(data['tools'])
         self.assertEqual(data['host'], 'chatgpt')
         self.assertEqual(tools['remotion']['status'], 'not_on_this_host')
         self.assertEqual(tools['ffmpeg']['on_host']['status'], 'observed')
         self.assertIn('hyperframes', by_id(data['capabilities'])['hyperframes_engine']['missing'])
+
+    def test_studio_own_hyperframes_workflow_skill_is_not_hyperframes(self):
+        with tempfile.TemporaryDirectory() as home, tempfile.TemporaryDirectory() as project:
+            for root in (pathlib.Path(home, '.agents/skills'), pathlib.Path(project, '.codex/skills')):
+                (root / 'hyperframes-workflow').mkdir(parents=True)
+                (root / 'hyperframes-workflow/SKILL.md').write_text('---\nname: hyperframes-workflow\n---\n')
+            plugin = pathlib.Path(home, '.codex/plugins/cache/framecore-work-creative-studio/skills/hyperframes-workflow')
+            plugin.mkdir(parents=True)
+            _, report, _ = run_check(home=home, project=project)
+            self.assertEqual(by_id(report['tools'])['hyperframes']['status'], 'missing', "Studio's own skill is not HyperFrames")
+            real = pathlib.Path(home, '.agents/skills/hyperframes')
+            real.mkdir()
+            (real / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
+            _, report, _ = run_check(home=home, project=project)
+            tool = by_id(report['tools'])['hyperframes']
+            self.assertEqual((tool['status'], tool['skills']), ('ok', [str(real)]))
 
     def test_host_is_detected_from_documented_traces(self):
         with mock.patch.dict(check.os.environ, {'CLAUDECODE': '1'}, clear=True):

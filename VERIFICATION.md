@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.51.0
+## Current source: 1.52.0
+
+The [1.52.0 source checks](verification/release-1.52.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 17 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline; `claude plugin validate --strict` passes. The change fixes a false positive in the environment check: Studio's own `hyperframes-workflow` skill matched the `hyperframes*` pattern and counted as installed HyperFrames (reproduced here with the 1.51.0 code); it is now skipped, and a new test checks that case and the real `hyperframes` skill. The fixed check in ChatGPT Work's sandbox is not run. [Scope](verification/scope-1.52.0.json) records 9 changed shared files out of 937.
+
+## Previous source: 1.51.0
 
 The [1.51.0 source checks](verification/release-1.51.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 16 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline; `claude plugin validate --strict` passes. The change is the welcome's video bullet, which now names motion design in English and Polish; both assets still equal their `SKILL.md` excerpts byte for byte, and the protected welcome hashes were updated with them. The owner's ChatGPT Work test of 1.50.0 (complete Polish welcome for the bare name, a graphic sent with the name handled as a task) is recorded as PASS_REPORTED ([report](verification/host-report-2026-10-10-startup-1.50.0.json)); the 1.51.0 welcome in a host client is not run. [Scope](verification/scope-1.51.0.json) records 10 changed shared files out of 937.
 
