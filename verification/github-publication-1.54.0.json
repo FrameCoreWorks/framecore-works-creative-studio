@@ -1,0 +1,29 @@
+{
+  "version": "1.54.0",
+  "change_id": "CC-20261010-09",
+  "origin": "cloud-code",
+  "commit": "62e8689cf97a2a2d6156c373fc76111b72cbd435",
+  "package_commit": "62e8689cf97a2a2d6156c373fc76111b72cbd435",
+  "integration": "Fast-forward of main from de64d58 to 62e8689 under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.54.0",
+  "workflow_id": 38064652836,
+  "workflow_conclusion": "success",
+  "checks_workflow_ids": [
+    38064652846,
+    38064654420,
+    38064656432
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 38064652786,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "0dc2536a86d79d4fae69a386f29faf123da60e5a64eb129a9fb6e3dc375690c4",
+  "plugin_zip_matches_tag_tree": "1057 of 1057 files byte-identical to v1.54.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "3f4d61459b489d5d7e4564b0fb3dd2e9199946e968a87683910858a0b9e55511",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML; the Animate engine adds no SKILL.md (the 35 nested ones are the existing workflow-kit discovery stubs)",
+  "hosted_plugin": "not updated (the owner updates it in Plugin Creator; 1.52.0 remains the saved release, synchronized)",
+  "host_behavior": "ChatGPT, ChatGPT Work, Codex and Claude apps NOT_RUN for 1.54.0"
+}
