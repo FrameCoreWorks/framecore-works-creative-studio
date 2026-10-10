@@ -1,5 +1,19 @@
 # Historical development notes
 
+## 1.56.0, 2026-10-10
+
+From Phase 1 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md) (static graphics and Polish quality) and the first host evaluation run:
+
+- **Exact text for client finals.** A second route for visible text: a background without text (generated with reserved calm zones, supplied or flat) and the new [static compositor](../skills/static-graphic-design-creator/assets/static-render/README.md), which sets every word, price, logo and legal line in a real font at the exact size, writes PNG, JPG and a print PDF with bleed and crop marks, stops instead of cropping a word or drawing a missing glyph, and measures contrast and safe areas. One-pass generation stays the default for concepts; [exact-copy compositing](../skills/static-graphic-design-creator/references/exact-copy-compositing.md) is the default for finals with a price, date, logo, legal line or print files, always named to the user. The text policy and the rules that allowed only one pass now describe both routes
+- **Bundled fonts.** Eighteen OFL fonts in six families (Inter, Archivo, Bricolage Grotesque, Fraunces, Anton, Source Serif 4) with the full Polish alphabet and typographic marks, built reproducibly by `scripts/build_fonts.py` from google/fonts `bd8f81d` ([fonts](../skills/pipeline-core/assets/fonts/README.md))
+- **Polish copy standard and checker.** Quotes, dashes, no-break spaces, money, dates, time, sentence-case headlines and one form of address ([standard](../skills/copy-voice/references/polish-copy-standard.md)); `pl_copy_check.py` applies only typographic fixes and counts characters against dated channel limits; a Copy Pack template
+- **Dated snapshots.** [Channel copy and format limits](../skills/research-evidence/references/channel-specs-snapshot.md) (Google RSA confirmed; Meta, LinkedIn, TikTok, SEO and email from the best available sources, marked as such) and [Polish and EU marketing rules](../skills/research-evidence/references/marketing-rules-snapshot.md) (Omnibus price reductions, paid-content labels, marketing consent under the PKE, AI Act art. 50 from 2 August 2026, green claims from 27 September 2026, health, alcohol and credit claims). Within 90 days each satisfies its research trigger in Quick mode. The claim ledger gains a rules column; Studio drafts compliant wording, counsel decides
+- **Image probe.** Measures an actual raster against its placement or print size (ratio, effective ppi with bleed, transparency, sharpness, OCR against the locked copy when installed) and writes phone, thumbnail, greyscale and safe-area previews to look at
+- **Format and print presets** and a **direct-production path**: a complete request for a finished graphic gets one direction and the output in one turn
+- **Fewer questions.** After offering directions Studio asks one question, which direction, labelling each with its route; route and format come after the choice (found by the host evaluation, case S01)
+- **Digit groups stay together** (`1 299 zł`) in the motion engine (all three copies), the Python renderer (1.4.1) and the compositor, with a parity test
+- **Repository only.** `scripts/host_eval.py` runs Studio in headless Claude Code against a 15-case suite with deterministic checks and an optional advisory judge ([docs](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/host-evals.md)); the first run on 1.55.0 passed 12 of 15 for USD 1.68 (one harness defect, one case not applicable without the Studio name, one product finding, all resolved and rerun)
+
 ## 1.55.0, 2026-10-10
 
 From Phase 0 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md), after the six-review audit of 1.54.0 (owner decisions 1a, 2a and 3a of 2026-10-10):

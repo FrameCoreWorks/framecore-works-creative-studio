@@ -161,7 +161,7 @@ class QualityGates(unittest.TestCase):
         node = shutil.which('node')
         if node:
             engine = PLUGIN / 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'
-            for text in ('Dostawa w godzinę za 90 zł', 'I am a fan', 'Ż ó ł', '5 mln zł i 3 s.', 'A\nb c'):
+            for text in ('Dostawa w godzinę za 90 zł', 'I am a fan', 'Ż ó ł', '5 mln zł i 3 s.', 'A\nb c', 'Tylko 1 299 zł', '12 000 osób, 1 2345'):
                 script = f'import({json.dumps(engine.as_uri())}).then(m => process.stdout.write(JSON.stringify(m.keepTogether(process.argv[1]))))'
                 js = subprocess.run([node, '-e', script, text], capture_output=True, text=True, check=True).stdout
                 self.assertEqual(json.loads(js), render.keep_together(text), text)

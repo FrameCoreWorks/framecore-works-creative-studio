@@ -1400,3 +1400,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `c29edde`; workflows Check Studio sources 38086330773, Check Studio sources 38086329203, Publish the motion player to GitHub Pages 38086327115, Refresh current release notes 38086327138, Check Studio sources 38086327134, Publish verified Studio release 38086327137: success; [v1.55.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.55.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1057 of 1057) ([record](../verification/github-publication-1.55.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261010-14
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261010-14-phase1`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `acd36ae` (main, package 1.55.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.56.0)
+- Package version: 1.55.0 -> 1.56.0
+- Scope: Phase 1 of the improvement plan: an exact-copy route for static finals (a background without text plus the new compositor that sets copy, price, logo and legal lines in real fonts, PNG/JPG and print PDF with bleed, stopping on overflow or missing glyphs, checking contrast and safe areas), 18 bundled OFL fonts with Polish coverage, a Polish copy standard and checker with dated channel limits, dated channel-spec and PL/EU marketing-rule snapshots with a rules column in the claim ledger, an image probe with review previews, format and print presets, direct production, one decision after offering directions, digit groups kept together in motion text; repository: the host-eval harness and its first two runs
+- Shared package changed: yes; 22 changed, 41 added, 0 removed ([scope](../verification/scope-1.56.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 7 skill finder, 4 Animate engine, 13 static render, 6 Polish copy check, 5 image probe, 6 host-eval harness: PASS ([record](../verification/release-1.56.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

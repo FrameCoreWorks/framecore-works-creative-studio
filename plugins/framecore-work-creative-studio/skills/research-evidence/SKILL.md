@@ -80,6 +80,8 @@ Stop when the targeted sources support the material decision, or when a clearly 
 
 ## Dated image and video starting maps
 
+For channel copy limits and placement sizes, begin with the [channel specs snapshot](references/channel-specs-snapshot.md), checked on 2026-10-10; for Polish and EU advertising rules (price reductions, paid-content labels, marketing consent, AI disclosure, environmental, health, alcohol and credit claims), the [marketing rules snapshot](references/marketing-rules-snapshot.md), checked on 2026-10-10. Within 90 days of its date each satisfies its trigger in Quick mode; a row marked changing, a paid final or a rule not listed needs a fresh check.
+
 For broad image-generator discovery, begin with the [image-generator snapshot](references/image-generator-snapshot.md), a finite 19-family map checked on 2026-09-24. Treat its names, model IDs, operations, surface distinctions, practitioner notes, and watchlist as leads with explicit evidence boundaries. Refresh the exact target before use; do not infer a model's native features from the product platform, a sibling version, an announcement, or a leaderboard. For video families, begin with the [video-generator snapshot](references/video-generator-snapshot.md), checked on 2026-10-09, with the same evidence labels and a fresh check of the exact target before use; music, song and voice tools are mapped in the audio owner's [music provider routing](../audio-production-director/references/music-provider-routing-and-rights.md). The [initial source register](references/initial-source-register.md) (checked 2026-09-23) lists the platform and image sources behind the first mapping; use it to find an original source again, not as current verification.
 
 ## Applied practice

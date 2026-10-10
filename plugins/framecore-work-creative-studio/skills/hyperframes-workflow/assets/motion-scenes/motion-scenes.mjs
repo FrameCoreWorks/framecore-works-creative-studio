@@ -49,6 +49,7 @@ const list = value => (Array.isArray(value) ? value : value === undefined ? [] :
 const UNIT = '(?:zł|gr|kg|km|cm|mm|ml|min|PLN|EUR|USD|[gmlhs])(?!\\p{L})|%';
 export const keepTogether = (text) => String(text)
   .replace(/(?<!\S)(\p{L}) +(?=\S)/gu, '$1\u00A0')
+  .replace(/(\d) (?=\d{3}(?!\d))/gu, '$1\u00A0')
   .replace(new RegExp(`(\\d) (?=${UNIT})`, 'gu'), '$1\u00A0');
 const copy = (score, id) => keepTogether(score.copy?.[id] ?? '');
 const isLast = (scene, score) => scene.end >= score.totalFrames;

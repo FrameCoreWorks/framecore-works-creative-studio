@@ -37,7 +37,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.4.0'
+VERSION = '1.4.1'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -110,8 +110,9 @@ UNIT = r'(?:zł|gr|kg|km|cm|mm|ml|min|PLN|EUR|USD|[gmlhs])(?![^\W\d_])|%'
 
 
 def keep_together(text):
-    """The scene engine's typography: a one-letter word never ends a line and a number stays with its unit."""
+    """The scene engine's typography: a one-letter word never ends a line, digit groups and a number with its unit stay together."""
     text = re.sub(r'(?<!\S)([^\W\d_]) +(?=\S)', '\\1\u00a0', str(text))
+    text = re.sub(r'(\d) (?=\d{3}(?!\d))', '\\1\u00a0', text)
     return re.sub(r'(\d) (?=' + UNIT + ')', '\\1\u00a0', text)
 
 

@@ -74,9 +74,9 @@ class Typesetting(unittest.TestCase):
     def test_polish_rules_keep_short_words_numbers_and_units_together(self):
         self.assertEqual(compose.keep_together('Kup w sklepie 1 299 zł i 5 kg'), 'Kup w sklepie 1 299 zł i 5 kg')
 
-    def test_the_shared_rules_match_the_motion_renderer(self):
+    def test_the_rules_match_the_motion_renderer(self):
         motion = load(MOTION, 'motion_render')
-        for sample in ('Pracuj z nami w Krakowie', 'Rabat 30 % i 10 zł', 'a b c d', 'Ósma o 8 min'):
+        for sample in ('Pracuj z nami w Krakowie', 'Rabat 30 % i 10 zł', 'a b c d', 'Ósma o 8 min', 'Tylko 1 299 zł', '12 000 osób, 1 2345'):
             self.assertEqual(compose.keep_together(sample), motion.keep_together(sample), sample)
 
 

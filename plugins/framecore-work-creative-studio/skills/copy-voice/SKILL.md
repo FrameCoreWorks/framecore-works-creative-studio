@@ -27,6 +27,10 @@ Keep wording selection separate from typography feasibility and claim evidence.
 Use the existing Human Voice review before locking newly written copy; later
 polish must not silently change selected words.
 
+## Polish copy and channel limits
+
+For copy in Polish, follow the [Polish copy standard](references/polish-copy-standard.md) (quotes, dashes, no-break spaces, money, dates, time, sentence-case headlines, one form of address) and run the [checker](scripts/pl_copy_check.py) on ready-to-use text where code execution exists: `--fix` applies only typographic fixes, the other findings are decisions. For a named placement, write to the visible length in the [channel specs snapshot](../research-evidence/references/channel-specs-snapshot.md) and check each field with `--channel`. Flag price reductions, paid-content labels, consent text, generated realism and regulated claims in the claim ledger with the [marketing rules snapshot](../research-evidence/references/marketing-rules-snapshot.md). Deliver a multi-field set as a [Copy Pack](assets/copy-pack.template.md).
+
 ## Teacher materials
 
 For teacher-facing lesson content, worksheets, quizzes, games, explanations, answer keys, rubrics or school communications, use the [teacher profile](../workflow-orchestrator/references/teacher-workflow.md) and [material methods](../workflow-orchestrator/references/teacher-material-methods.md). Own complete original educational text and its content/answer review with Research Evidence inside the same bounded loop. Preserve objectives, prerequisites and supplied facts; do not turn a classroom-material request into Learning Mode or route pedagogical correctness to the static-image critic. Keep student tasks separate from teacher answers.

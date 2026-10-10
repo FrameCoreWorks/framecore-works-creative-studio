@@ -1,0 +1,114 @@
+{
+  "version": "1.56.0",
+  "date": "2026-10-10",
+  "baseline": "acd36ae9ed1db99571ef16b21f17bf1df8c0d725",
+  "change_id": "CC-20261010-14",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1098,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7642 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 207,
+        "pass": 201,
+        "fail": 0,
+        "skipped": 6
+      },
+      "python": {
+        "Codex installer": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "package identity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "benchmark script": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "host smoke": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "hosted readback": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "Claude plugin and guides": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "GEPA pilot": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "asset": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "caption": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "environment check": {
+          "tests": 18,
+          "skipped": 0
+        },
+        "motion acceptance": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "skill finder": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "Animate engine": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "static render": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "Polish copy check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "image probe": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "host-eval harness": {
+          "tests": 6,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 70
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.296)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Phase 1 of the improvement plan: an exact-copy route for static finals (a background without text plus the new compositor that sets copy, price, logo and legal lines in real fonts, PNG/JPG and print PDF with bleed, stopping on overflow or missing glyphs, checking contrast and safe areas), 18 bundled OFL fonts with Polish coverage, a Polish copy standard and checker with dated channel limits, dated channel-spec and PL/EU marketing-rule snapshots with a rules column in the claim ledger, an image probe with review previews, format and print presets, direct production, one decision after offering directions, digit groups kept together in motion text; repository: the host-eval harness and its first two runs",
+  "source": "Release 1.56.0: exact text for client finals, Polish fonts and copy checks, dated channel and marketing-rule snapshots",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

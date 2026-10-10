@@ -2,6 +2,16 @@
 
 Based on a full audit of package 1.54.0 on 2026-10-10: six independent read-only reviews (entry and orchestration, static and visual, video and story, motion graphics, copy/marketing/audio/research/delivery, infrastructure), each scoring client readiness 1–5 with file-level evidence. The owner uses Studio daily for paid client work; the plan orders work by its effect on client-ready output and on the speed of safe improvement. Ratings are judgments from source reading plus container runs; no case has been executed in a host.
 
+## Progress
+
+| Items | State | Release |
+| --- | --- | --- |
+| 0.1 to 0.5, 0.7, 0.8 | done | 1.55.0 |
+| 0.6 | description budget done; orchestrator headroom still open (31,986 of 32,000 bytes after 1.56.0), moved to Phase 5.3 | 1.55.0 |
+| 0.9 | done: harness, 15-case suite, first run on 1.55.0 (12 of 15, all three failures resolved), [results](host-evals.md) | 1.56.0 (repository) |
+| 1.1 to 1.7 | done: fonts and exact-copy compositor, presets, image probe, Polish copy standard and checker, channel and marketing-rules snapshots, claim-ledger rules column, direct production | 1.56.0 |
+| Phase 2 | next | |
+
 ## Diagnosis
 
 | Theme | Finding | Evidence |

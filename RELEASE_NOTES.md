@@ -1,11 +1,11 @@
-# Creative Studio 1.55.0
+# Creative Studio 1.56.0
 
-Fewer silent mistakes in motion work.
+Client-ready graphics with exact Polish text.
 
-- **No cropped words.** If a word does not fit its column, the render stops and names the word, instead of delivering a video with "Najnowo" on screen.
-- **Polish line breaks.** Short words like "w" or "i" and numbers with units like "10 zł" no longer end up split across lines.
-- **Empty vertical frames are caught.** A 9:16 frame with a small block of content in a big empty space is now an error the review reports, and any picture error blocks acceptance.
-- **Faster sound.** Mixing music under a voice takes seconds instead of minutes, with the same result.
-- **Consistent welcome.** Every description of the welcome now matches its three options.
+- **Exact text, every time.** For a final with a price, a date, a logo or a legal line, Studio now makes the picture without text and sets every word itself in a real font at the exact size, as PNG, JPG or a print PDF with bleed. It stops rather than crop a word or misspell a Polish letter, and checks contrast and safe areas. For concepts, one-pass generation stays the default; Studio tells you which route it uses.
+- **Fonts with Polish letters.** Eighteen free fonts in six families come with the plugin.
+- **Polish copy checker.** Quotes, dashes, prices, dates, sentence-case headlines and one form of address, plus character counts for ads, search, SEO and email.
+- **Rules that matter in Poland.** A dated checklist for price reductions (lowest price of 30 days), paid-content labels, marketing consent, AI disclosure, green, health, alcohol and credit claims. Studio flags them and drafts wording; legal decisions stay with you or your counsel.
+- **A quicker path.** Ask for a finished graphic with a complete brief and you get one direction and the result in one turn. When Studio offers directions, it asks one question at a time.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

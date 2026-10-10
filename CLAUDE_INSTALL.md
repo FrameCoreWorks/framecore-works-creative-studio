@@ -12,27 +12,27 @@ The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json
 
 ## 2. Pin the source
 
-Use a release tag, for example `v1.55.0` from the [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
+Use a release tag, for example `v1.56.0` from the [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
 
 ## 3. Install
 
 **Claude Code, in a session:**
 
 ```text
-/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.55.0
+/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.56.0
 /plugin install framecore-work-creative-studio@framecore-works
 ```
 
 **Claude Code, from a shell:**
 
 ```sh
-claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.55.0
+claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.56.0
 claude plugin install framecore-work-creative-studio@framecore-works --scope user
 ```
 
 `--scope project` shares the plugin with everyone who opens the project; `user` (the default) installs it for you only. On Claude Code 2.1.275 or later, `/plugin install framecore-work-creative-studio --marketplace FrameCoreWorks/framecore-works-creative-studio` does both steps at once. In the desktop app's Code tab, the same marketplace appears under **+ > Plugins > Add plugin**.
 
-**Claude apps (web, desktop chat, Cowork):** open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCoreWorks/framecore-works-creative-studio`, and add Creative Studio from it. Alternatively choose **Add > Upload plugin** and upload the release asset `framecore-work-creative-studio-<version>.zip` (it holds one `.claude-plugin/plugin.json`; 1057 files, about 13 MB, within the documented limits of 5,000 files and 200 MB). Skills need code execution to be enabled in the account.
+**Claude apps (web, desktop chat, Cowork):** open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCoreWorks/framecore-works-creative-studio`, and add Creative Studio from it. Alternatively choose **Add > Upload plugin** and upload the release asset `framecore-work-creative-studio-<version>.zip` (it holds one `.claude-plugin/plugin.json`; 1098 files, about 14 MB, within the documented limits of 5,000 files and 200 MB). Skills need code execution to be enabled in the account.
 
 ## 4. Verify
 

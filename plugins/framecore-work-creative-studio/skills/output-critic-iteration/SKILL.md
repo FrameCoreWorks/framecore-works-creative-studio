@@ -36,6 +36,8 @@ For suspected repeating microtexture, false detail, face changes after an edit o
 
 For objectively checkable locks use [tool-backed verification](../pipeline-core/references/quality-improvement-methods.md#tool-backed-verification-critic-inspired). For a justified comparison use [calibrated pairwise evaluation](../pipeline-core/references/quality-improvement-methods.md#calibrated-pairwise-evaluation). Both stay within the existing review and its budget; unavailable evidence remains Unknown.
 
+For an actual raster output where code execution exists, measure it first with the [image probe](scripts/image_probe.py): size and ratio against the placement or print size, effective resolution with bleed, transparency, relative sharpness, an OCR comparison with the locked copy when OCR is installed, and phone, thumbnail, greyscale and safe-area previews. Look at those previews; the numbers locate problems and do not judge the design.
+
 For repeated defects, disputed causes or a changed derivative, use [diagnosis and repair lab](references/diagnosis-and-repair-lab.md) and the [review record](assets/review-record.md). Pin findings to the inspected revision and keep observations distinct from cause hypotheses.
 
 ## Integrated workflow contracts

@@ -43,8 +43,8 @@ class SpecError(Exception):
 # ------------------------------------------------------------------ text rules
 
 def keep_together(text):
-    """Polish typesetting: a one-letter word never ends a line, a number stays with its unit, digit groups stay together.
-    The first two rules are the motion renderer's; the inserted characters are no-break spaces, so the copy reads the same."""
+    """Polish typesetting, the same as the motion renderer's: a one-letter word never ends a line, digit groups stay together
+    and a number stays with its unit. The inserted characters are no-break spaces, so the copy reads the same."""
     text = re.sub(r'(?<!\S)([^\W\d_]) +(?=\S)', '\\1\u00a0', str(text))
     text = re.sub(r'(\d) (?=\d{3}(?!\d))', '\\1\u00a0', text)
     return re.sub(r'(\d) (?=' + UNIT + ')', '\\1\u00a0', text)

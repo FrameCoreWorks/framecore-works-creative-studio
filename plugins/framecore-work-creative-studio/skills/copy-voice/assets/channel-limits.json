@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "checked": "2026-10-10",
+  "snapshot": "skills/research-evidence/references/channel-specs-snapshot.md",
+  "note": "visible: where longer text is cut or hidden; hard: what the platform refuses. null means not established on the snapshot date.",
+  "channels": {
+    "google-rsa-headline": {"visible": 30, "hard": 30, "label": "Google Ads RSA headline"},
+    "google-rsa-description": {"visible": 90, "hard": 90, "label": "Google Ads RSA description"},
+    "google-rsa-path": {"visible": 15, "hard": 15, "label": "Google Ads RSA display path"},
+    "meta-primary-text": {"visible": 125, "hard": null, "label": "Meta ad primary text"},
+    "meta-headline": {"visible": 27, "hard": null, "label": "Meta ad headline (27 on mobile, up to about 40 in some placements)"},
+    "meta-description": {"visible": 27, "hard": null, "label": "Meta ad description"},
+    "linkedin-intro": {"visible": 150, "hard": 600, "label": "LinkedIn ad introductory text"},
+    "linkedin-headline": {"visible": 70, "hard": 200, "label": "LinkedIn ad headline"},
+    "tiktok-ad-text": {"visible": 100, "hard": 100, "label": "TikTok in-feed ad text"},
+    "seo-title": {"visible": 60, "hard": null, "label": "search result title (about 600 px)"},
+    "seo-description": {"visible": 155, "hard": null, "label": "meta description (about 120 on phones)"},
+    "email-subject": {"visible": 45, "hard": null, "label": "email subject (30 to 40 on phones)"},
+    "email-preheader": {"visible": 90, "hard": null, "label": "email preheader"}
+  }
+}

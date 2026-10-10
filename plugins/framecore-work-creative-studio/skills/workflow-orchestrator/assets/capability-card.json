@@ -44,6 +44,47 @@
       "observed": "2026-10-10: container tests only"
     },
     {
+      "id": "image_probe",
+      "executed_by": "studio",
+      "owner": "output-critic-iteration",
+      "does": "Measures an actual raster output: size and ratio against the placement or print size, effective resolution with bleed, transparency, relative sharpness, OCR against the locked copy when OCR is installed; writes phone, thumbnail, greyscale and safe-area previews",
+      "tools": [
+        "skills/output-critic-iteration/scripts/image_probe.py"
+      ],
+      "requires": [
+        "python",
+        "pillow"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A measurement report and preview images for the reviewer to look at",
+      "when_missing": "Inspect the image directly and state its size from the file; say the measurements and previews were not produced",
+      "observed": "2026-10-10: container tests only"
+    },
+    {
+      "id": "copy_check",
+      "executed_by": "studio",
+      "owner": "copy-voice",
+      "does": "Checks Polish copy for typography, money, date and time formats, sentence-case headlines and one form of address, applies only typographic fixes, and counts characters against dated channel limits",
+      "tools": [
+        "skills/copy-voice/scripts/pl_copy_check.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A findings report, the typographically fixed text when asked, and each field's length against its channel",
+      "when_missing": "Apply the Polish copy standard by reading and count characters by hand; say the automatic check was not run",
+      "observed": "2026-10-10: container tests only"
+    },
+    {
       "id": "motion_render",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

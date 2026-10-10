@@ -63,10 +63,10 @@ Distinguish exploratory concept comparison from an isolated-variable test. Retai
 
 ## Copy And Claim Ledger
 
-| Claim ID / exact wording | Type / SKU / market / conditions | Source / date | Evidence status | Permissible wording or needed evidence | Copy approval |
-|---|---|---|---|---|---|
+| Claim ID / exact wording | Type / SKU / market / conditions | Source / date | Evidence status | Permissible wording or needed evidence | Rules (PL/EU) | Copy approval |
+|---|---|---|---|---|---|---|
 
-Use supported_within_scope, needs_evidence, contradicted or Unknown. Copy approval does not substantiate the claim.
+Use supported_within_scope, needs_evidence, contradicted or Unknown. Copy approval does not substantiate the claim. In the rules column name each rule the [marketing rules snapshot](../../research-evidence/references/marketing-rules-snapshot.md) lists for this wording (a price reduction, paid content, consent, generated realism, environmental, health, alcohol, credit, superlative) as `flag`, `compliant wording drafted` or `needs counsel`, with the snapshot date; leave it empty only when no trigger applies. Studio drafts compliant wording; the user or counsel decides.
 
 ## Fidelity Locks
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.55.0",
+  "version": "1.56.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 970,
-      "sha256": "36c28fc6cb0c33630a637141ede1d5048a1268a00e3e7202404fdae34be685aa"
+      "sha256": "4d7c9a75e1e185b3b4dbb74479e198676903b5fc13595c253b9238e9fca26798"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "fbbff815b919578fb19ffe9f0590b58eb2a67a14fa4ea3e5db503c4a91be3d5b"
+      "sha256": "e1c103569d24a92c3bef2e9260305ec8113bf10d6ede1d86bd14ab4b889a1a51"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22073,
-      "sha256": "f73b43b9382245ea205fc4b830de5325214036f8232ba9d7c6f4e18a9f84877c"
+      "sha256": "4ec6de4934448c331348f40e68fa9f9adfd03738ccc37e87ed20117a8d1eda44"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "72882b723d70531c966ee2d94fca3b8890626fb4c08549a46bddfb62ebd4ac1f"
+      "sha256": "12b259852d7daac3f5c6a0e7476006579467ee8fc1c60c8f7fe83ff3ef89941b"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 104335,
-      "sha256": "a61bee0a3b44ccb38a37701067cf1b10f737a657c812e221d0ee4793a79907a3"
+      "bytes": 107952,
+      "sha256": "866a8fe2ab65a55d5a34883e6e8df118679771d4dfe0c1e82bb43e2b8544b45b"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2294,7 +2294,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "7064e1b3821235c505c0f5b0bacd7eeef4b489289237a0064ec37efc9156c7a8"
+      "sha256": "01f2778f18191e5b6bba90758b43c9deef732ec210e6e99f0c3762253c44eb3f"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2693,8 +2693,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 8112,
-      "sha256": "30487dbe840a10f31fe375ea4845b225a4c306562fe57046d79cbf454dc30973"
+      "bytes": 8980,
+      "sha256": "afa2b1a50314fce5d9b4259de8fa0074773502256dd068e355396667b8156bee"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -2702,9 +2702,29 @@
       "sha256": "e0bf2b213c2404ceb725002256f58840d34e00ce3d06e35751e2028cae7714ae"
     },
     {
+      "path": "skills/copy-voice/assets/channel-limits.json",
+      "bytes": 1535,
+      "sha256": "f6c78cef29ea63d9073d6d363769d884d4f8a10f8e33dc01c4df52e564f6a4a8"
+    },
+    {
+      "path": "skills/copy-voice/assets/copy-pack.template.md",
+      "bytes": 1718,
+      "sha256": "be2125329c44d7457e70680d7cee297d2fa5d5d31143bf44084db63ca0640fb3"
+    },
+    {
       "path": "skills/copy-voice/references/copy-development-and-human-voice.md",
       "bytes": 9250,
       "sha256": "3d7a3847fa4f76c43c60262c6ce6cbcb58083ed1e2f3c3158c48870f377cbff7"
+    },
+    {
+      "path": "skills/copy-voice/references/polish-copy-standard.md",
+      "bytes": 4203,
+      "sha256": "e6e0c732fa65dd279e555f348d07623018b208c33be48f37e65ed7e37931cd15"
+    },
+    {
+      "path": "skills/copy-voice/scripts/pl_copy_check.py",
+      "bytes": 11550,
+      "sha256": "cf2c5751d448a33ec0a75ad8ce341feaf7f13d008aa9153e4ae88da0e4bb7574"
     },
     {
       "path": "skills/creative-music-video-director/SKILL.md",
@@ -2843,8 +2863,8 @@
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md",
-      "bytes": 2922,
-      "sha256": "b59cda606b779b3a9be956c624e3e7c6dabc9a0ff9235fe80e0171e76a752c5f"
+      "bytes": 3400,
+      "sha256": "921091fcb32cc2ae0c55217f8131c38f0056f0fa2d5620fa74636c6f1d31ff4e"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/templates/website-audit.md",
@@ -3678,8 +3698,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
-      "bytes": 51931,
-      "sha256": "5c70ecfbd2a18299e8c9a04ab769b2566569e55b5f9eb92969eea241f7a1f334"
+      "bytes": 52015,
+      "sha256": "51d09dd08f57b1305bf3e7532e3eb329037dbc9fcf5b1243ccd5bd5ffed7aa19"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
@@ -3788,8 +3808,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
-      "bytes": 26682,
-      "sha256": "8329c4656bfddc07cf9ccad4891f72ad47da29aa7f585791565098c234b36136"
+      "bytes": 26731,
+      "sha256": "89db2f77341c1169ffea5b935e739c6c1a9f62a625ca1fc07aa2bcade61b0df6"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/README.md",
@@ -3948,8 +3968,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
-      "bytes": 66191,
-      "sha256": "e8ee1344942c27c225041c5e6a5431990e876560a5bd9ff5471ce5abffbbe9ff"
+      "bytes": 66240,
+      "sha256": "44610f28e238015d060730a0338f910991e402322d02f4938366ad86582765a2"
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs",
@@ -4173,8 +4193,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 6413,
-      "sha256": "7300c21274687a23fbc65b332ea09181628aa430615036cd73052c6907bb5f55"
+      "bytes": 6854,
+      "sha256": "4b214afbf99170f738e1d6d5fb96ef4021169ff3fdcdfd99605285bb506b4df5"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -4220,6 +4240,11 @@
       "path": "skills/output-critic-iteration/references/review-and-repair.md",
       "bytes": 10819,
       "sha256": "20c0c0d37c64b3ed1ba4b260830afd850240e0c5ca4f048f8510f52afb03ec9a"
+    },
+    {
+      "path": "skills/output-critic-iteration/scripts/image_probe.py",
+      "bytes": 9625,
+      "sha256": "16dc88ffd84733e690ba0f4e899b405e43d61fcff11f0d6460ac84c3a887be21"
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
@@ -4583,8 +4608,8 @@
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
-      "bytes": 26682,
-      "sha256": "8329c4656bfddc07cf9ccad4891f72ad47da29aa7f585791565098c234b36136"
+      "bytes": 26731,
+      "sha256": "89db2f77341c1169ffea5b935e739c6c1a9f62a625ca1fc07aa2bcade61b0df6"
     },
     {
       "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/motion.ts",
@@ -4638,8 +4663,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 15917,
-      "sha256": "4080cc2fd316ab6ac21feab2705d2f50468c4465eb63eba1abeffec80a48f214"
+      "bytes": 16468,
+      "sha256": "d7c6f7cc10988887f909903fe37209a2672e893b3ce7033f9e54dc1be450475f"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -4655,6 +4680,11 @@
       "path": "skills/research-evidence/kit/method.md",
       "bytes": 4243,
       "sha256": "315a70969bad3180fb19c7d18eaf58f96d1e71628e17d49af4290fea096dc665"
+    },
+    {
+      "path": "skills/research-evidence/references/channel-specs-snapshot.md",
+      "bytes": 4695,
+      "sha256": "f03aa905143ee6b54aafb8bc3946d3d85b95680b392c064501235084e6e16255"
     },
     {
       "path": "skills/research-evidence/references/creative-upgrade-sources.md",
@@ -4675,6 +4705,11 @@
       "path": "skills/research-evidence/references/initial-source-register.md",
       "bytes": 6927,
       "sha256": "3b9c1d51f921c37c6b19a08aebbb2d35e808a3bfbfe8ccef1e7cd94dcd6539ca"
+    },
+    {
+      "path": "skills/research-evidence/references/marketing-rules-snapshot.md",
+      "bytes": 7803,
+      "sha256": "46ebfcffcaa708034eb204ddaff62470e738d2ae26acca9d4ace9711b80e9ed6"
     },
     {
       "path": "skills/research-evidence/references/model-mapping.md",
@@ -4743,8 +4778,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 10634,
-      "sha256": "c64425534be5c7815d9cdd128df10443802ea6aa3341dfd780c3c011b12c0c82"
+      "bytes": 11347,
+      "sha256": "0b9364a561d7be69eed8522cebc73f3bdebd1e8163ab0caf346b3cf7d7ca299b"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -4758,8 +4793,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/compose.py",
-      "bytes": 27601,
-      "sha256": "06bd7746d171e603a1581c46afddb7e0e69bd1d74f2c4ad98604f83e6a74c398"
+      "bytes": 27592,
+      "sha256": "06474cfa6a1c07ea0d6baef707b1e673537449d330863ddadca01104edba5c21"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/presets.json",
@@ -4770,6 +4805,11 @@
       "path": "skills/static-graphic-design-creator/references/exact-copy-compositing.md",
       "bytes": 3702,
       "sha256": "a42c64d332eb2bb3dbbb423ce337e784e41dd2e7bd1405e4393d2285f3aeae3c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/references/format-and-print-presets.md",
+      "bytes": 2354,
+      "sha256": "a309402ec7c8cf5cfe8b1d7b1da9a316ea47b727f2bb11aa216d4cb45662edf4"
     },
     {
       "path": "skills/static-graphic-design-creator/source-provenance.json",
@@ -5194,7 +5234,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31986,
-      "sha256": "8fb58d29f25821b0fc1cadc62478809f47e1e8f9ecd0c9df6f14052e561f3393"
+      "sha256": "292de3d91abd9749e6a1b65a21bd46a5568ab6924b25877b1de9e92a116e6559"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5208,8 +5248,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 20100,
-      "sha256": "6e2ed198b11c465a42149b2785fca4a3b8ba06f4daf64fde789f5dc4b6b4ea5a"
+      "bytes": 21857,
+      "sha256": "77224f2f4c82175539151251c9536b24cf9f84b12e879583cd3d136a64f01aef"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -5432,6 +5472,11 @@
       "sha256": "b0ac218511d2593fd81e5790cb6e38933ba4d3993152cdac17beb4c7c1123cff"
     },
     {
+      "path": "tests/image_probe_test.py",
+      "bytes": 3081,
+      "sha256": "bb76661ab184cde8e963ec0c9872212bbea71ee1ea82efb08c1f4ecd50a7c8cd"
+    },
+    {
       "path": "tests/learning-mode.test.mjs",
       "bytes": 21486,
       "sha256": "e2d9aecec73b1c79a6e8d9f3af942a9006816c7ad86b6752f068068848a96d64"
@@ -5448,13 +5493,18 @@
     },
     {
       "path": "tests/motion_acceptance_test.py",
-      "bytes": 16190,
-      "sha256": "0cb3330a7ae51ecb2ce1b9d587667f4b680d87ae809ac0b38f1af2aac36e7c3f"
+      "bytes": 16233,
+      "sha256": "6eb16584c8f7671d633933110fa8127cde78f934a266afa20a455d726bd0760d"
     },
     {
       "path": "tests/package.test.mjs",
       "bytes": 584,
       "sha256": "1de36e4dcf96825ffb730ce07b48823873c7ea6c0123287660793745b250fbbd"
+    },
+    {
+      "path": "tests/pl_copy_check_test.py",
+      "bytes": 3591,
+      "sha256": "2f7de52b2b314924dbd3870aa31357c30d174ed23cc99f7eb346d4a5e889fe8c"
     },
     {
       "path": "tests/presentation.test.mjs",
@@ -5473,8 +5523,8 @@
     },
     {
       "path": "tests/static_render_test.py",
-      "bytes": 9018,
-      "sha256": "263a6db8a6d52cbe908098bb53492f69b59d0f01a077332c33dae51fc2f40ec1"
+      "bytes": 9054,
+      "sha256": "50aecd46bb73e9284b3bf1afa94908fc3f6d62c3aef1c38ca73dca8409b2a596"
     },
     {
       "path": "tests/studio.test.mjs",

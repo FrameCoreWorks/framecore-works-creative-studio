@@ -36,7 +36,7 @@ TRAILER_TAIL = ('Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n'
                 'Claude-Session: https://claude.ai/code/session_0187TnJYu2qDShCj23GszTm5')
 PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides',
                  'GEPA pilot', 'asset', 'caption', 'environment check', 'motion acceptance', 'skill finder', 'Animate engine',
-                 'static render', 'host-eval harness']
+                 'static render', 'Polish copy check', 'image probe', 'host-eval harness']
 
 
 class ReleaseError(Exception):
