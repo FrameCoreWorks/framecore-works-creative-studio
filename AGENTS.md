@@ -22,7 +22,11 @@ Keep both localized welcome/excerpt, language-policy projection and skill-metada
 
 ## Verification and publication
 
-Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check and `bash scripts/check_all.sh`. The historical legacy suite is compared with its recorded known failures by `python3 scripts/check_legacy_baseline.py`; when a change intentionally alters them, regenerate `tests/legacy-baseline.json` with `--write` in the same commit and say why. For a release, synchronize the plugin manifests (`plugin.json`, `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`), the plugin version in the root `.claude-plugin/marketplace.json` and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
+Make focused edits and preserve the user's changes. Run the canonical `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` check and `bash scripts/check_all.sh`. The historical legacy suite (`validate-package.mjs`, `package.test.mjs`) was retired on 2026-10-10 by owner decision; both are inert stubs and `tests/legacy-baseline.json` is history. `bash scripts/check_all.sh --fast` is the quick edit-loop subset; releases run the full list. For a release, synchronize the plugin manifests (`plugin.json`, `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`), the plugin version in the root `.claude-plugin/marketplace.json` and current version markers, regenerate `config/install-sources.json` using `python3 scripts/build_install_manifest.py`, and run `python3 scripts/package_release.py`. Preserve unexecuted evaluation status; source checks are not host UI or media tests.
+
+## Owner product decisions (2026-10-10)
+
+Studio is a general product for any user, not a personal tool: never personalize defaults to one person's rates, tools, clients or teaching context; anything user-specific (rates, VAT status, preferred generators, brand kits) is an input the user supplies at run time. The owner approved paid headless host-evaluation runs within about USD 2–4 per full suite pass and under USD 1 per release-gate subset; record cost with every run. The improvement plan in `docs/improvement-plan-2026-10.md` is worked in phase order 0 to 5.
 
 ## Development provenance
 

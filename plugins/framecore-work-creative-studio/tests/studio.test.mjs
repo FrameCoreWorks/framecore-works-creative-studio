@@ -160,7 +160,7 @@ test('canonical validation passes with explicit structural scope and no legacy e
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical?.errors));
   assert.match(result.canonical.scope, /not host behavior/);
-  assert.equal(result.legacy.status, 'NOT_RUN');
+  assert.equal(result.legacy.status, 'RETIRED');
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 
@@ -523,14 +523,10 @@ test('research failure and evidence scenarios stay planned rather than claiming 
   });
 });
 
-test('requested legacy diagnostics keep original errors and do not convert FAIL to PASS', () => {
+test('the retired legacy diagnostics never run and never turn a canonical failure into a pass', () => {
   const result = validateStudio(source, {legacy: true});
-  assert.notEqual(result.legacy.status, 'NOT_RUN');
-  if (result.legacy.status !== 'PASS') {
-    assert.equal(result.status, 'FAIL');
-    assert.ok(result.legacy.report?.errors?.length || result.legacy.error || result.legacy.stderr || result.legacy.stdout);
-  }
-  assert.match(result.canonical.warnings.join(' '), /do not reproduce all historical/);
+  assert.equal(result.legacy.status, 'RETIRED');
+  assert.equal(result.status, result.canonical.status);
 });
 
 test('knowledge coverage cannot silently lose cases or claim executed outcomes', () => {

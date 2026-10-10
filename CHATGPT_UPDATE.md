@@ -18,9 +18,10 @@ If already current, report that without saving.
 Use the actual host update workflow, read back the result and report version, release and
 verification limits. On a lost response, inspect saved state before retrying.
 Do not change sharing, provider connections, project data or unrelated behavior.
-Preserve private provider preferences. Do not repeat optional setup unless requested or needed
+Write the declared files exactly as published: never merge private provider preferences, connection
+details or personal notes into the plugin's skill or reference files. Do not repeat optional setup unless requested or needed
 for a changed selected route. Studio updating does not authorize new provider connections.
-After the readback, run the update check of the required tools from the saved plugin in code execution:
+After saving, run the update check of the required tools from the saved plugin in code execution:
 python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host chatgpt_work
 and show me its verdict and the tools this chat cannot run.
 ```
@@ -41,7 +42,10 @@ verification. Repository publication and hosted updating remain separate operati
 
 Finish with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update) of the required tools (`--update --host chatgpt_work`, or `--host chatgpt` in ordinary ChatGPT). In the chat sandbox it reports `pass`, `pass_with_updates` or `limited` (tools that sandbox lacks, which the user cannot install there); for the full required set, run the same check where Studio is installed on the user's machine.
 
-## Readback record
+## Readback record (optional)
+
+Owner decision 2026-10-10: hosted readbacks are no longer requested and ChatGPT Work is recorded as `not_tracked`; the
+owner tests the plugin himself. The procedure below stays available when someone wants a byte-level comparison.
 
 After the update, ask Plugin Creator in the same chat to read the saved plugin back and write one JSON file with:
 `version` (from the saved `plugin.json`), `date`, `plugin_id`, `release_id`, `scope`, `audience`, `source_commit` (the

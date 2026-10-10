@@ -120,7 +120,7 @@ node scripts/load-effective-evals.mjs
 
 The first two commands check structure and contract regressions. The Python suite checks the asset-record helper on synthetic data. The loader combines historical fixtures with explicit corrections in `evals/effective-overrides.json` and scenarios in `evals/studio-behavior-cases.json`, `evals/knowledge-practice-cases.json`, `evals/workflow-kit-cases.json` and `evals/learning-mode-cases.json`. `evals/presentation-cases.json` holds planned presentation scenarios checked by `scripts/validate-presentation.mjs`. A case marked `planned` is a test specification, not evidence that a model performed the task. Text/source tests do not establish render quality, listening results, provider-adapter behavior or automatic retrieval in a new conversation.
 
-Historical `scripts/validate-package.mjs`, `tests/package.test.mjs` and `evals/static-cases.json` are retained. Their complete current contents were unavailable through the service during the earlier update and were not overwritten. The old commands are not the current release gate; use `validate-studio.mjs` for structural checks. Legacy validator limitations and contradictory fixtures are handled through explicitly identified replacement files. Passing the new suite does not establish a pass for the historical 67-test suite.
+Historical `scripts/validate-package.mjs` and `tests/package.test.mjs` were retired on 2026-10-10 and are now inert stubs; `evals/static-cases.json` is retained. Use `validate-studio.mjs` for structural checks. Legacy validator limitations and contradictory fixtures are handled through explicitly identified replacement files. Passing the new suite does not establish a pass for the historical 67-test suite.
 
 ## Scope and limitations
 

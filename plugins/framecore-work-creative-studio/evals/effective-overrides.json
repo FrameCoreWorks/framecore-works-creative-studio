@@ -367,7 +367,7 @@
         "research_exemption_reason": "non_creative_intake",
         "user_request": "Cześć, co umiesz?",
         "checks": [
-          "Complete Studio introduction, non-exhaustive capabilities and optional inputs before 1. Tryb kreatywny / 2. Tryb nauki; wait for unclear intent.",
+          "Complete Studio introduction, non-exhaustive capabilities and optional inputs before 1. Tryb kreatywny / 2. Tryb nauki / 3. Szukasz konkretnego skilla; wait for unclear intent.",
           "Tryb tworzenia remains a creation alias. Mode-only creative selection shows the quick/expanded pace menu next.",
           "Interpret a numeric answer against the menu actually shown; preserve the selected pace and existing project context.",
           "Does not begin Polish welcome with Cześć.",

@@ -43,6 +43,7 @@ function yamlScalarSafe(value) {
 
 export function validateStudio(root, {legacy = false} = {}) {
   const base = path.resolve(root), errors = [], warnings = [], files = [], texts = new Map();
+  let descriptionTotal = 0;
   const fail = (code, detail) => errors.push({code, detail});
   const within = target => target === base || target.startsWith(base + path.sep);
   const result = () => ({status: errors.length ? 'FAIL' : 'PASS', scope: 'Structural and planned-contract checks only; not host behavior, media QA, or legacy test equivalence.', errors, warnings});
@@ -150,9 +151,13 @@ export function validateStudio(root, {legacy = false} = {}) {
       if (name !== path.basename(path.dirname(relative)) || !description || description.length > 1024) fail('SKILL_METADATA', relative);
       if (description && !yamlScalarSafe(description)) fail('SKILL_YAML', relative + ': quote the description; a plain YAML value cannot contain ": " or " #" or start with an indicator');
       if (text.split('\n').length > 500) fail('SKILL_SIZE', relative);
+      if (/^skills\/[^/]+\/SKILL\.md$/.test(relative) && description) descriptionTotal += description.replace(/^(['"])(.*)\1$/, '$2').length;
     }
     if (relative.includes('/references/') && text.trim().length < 500) fail('THIN_REFERENCE', relative);
   }
+  // Hosts list every skill description in each conversation; Codex budgets about 8,000 characters for all of them.
+  if (descriptionTotal > 7800) fail('DESCRIPTION_BUDGET', `skill descriptions total ${descriptionTotal} characters (limit 7800)`);
+  else if (descriptionTotal > 7500) warnings.push(`Skill descriptions total ${descriptionTotal} characters; the limit is 7800.`);
   const linkedTargets = new Set();
   for (const [relative, text] of texts) for (const match of text.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
     const href = match[1].replace(/^<|>$/g, '');
@@ -419,15 +424,10 @@ export function validateStudio(root, {legacy = false} = {}) {
     if (!isDeepStrictEqual([...new Set([...practiceCases, ...integrationCases].flatMap(item => item.expected_owners ?? []))].sort(), [...activeOwnerIds].sort())) fail('KNOWLEDGE_OWNERS', 'Planned knowledge and integration cases must cover every active owner');
     evaluations = {legacy: effective.legacy_cases, overrides: effective.overrides_applied, added_variants: effective.additional_cases, host_scenarios: effective.host_scenarios, knowledge_scenarios: effective.knowledge_scenarios, integration_scenarios: effective.integration_scenarios, learning_scenarios: effective.learning_scenarios, campaign_scenarios: effective.campaign_scenarios, total_planned: effective.cases.length, executed: 0};
   } catch (error) { fail('EFFECTIVE_EVALS', error.message); }
-  warnings.push('Canonical checks do not reproduce all historical fixture-specific assertions or the legacy 67-test suite. Run legacy diagnostics explicitly when needed.');
+  // The historical validate-package.mjs / package.test.mjs suite was retired on 2026-10-10 (owner decision).
   const canonical = {...result(), files: files.length, owners: owners.length, evaluations};
-  let legacyReport = {status: 'NOT_RUN', scope: 'Historical validator, separate from canonical checks'};
-  if (legacy) {
-    const run = spawnSync(process.execPath, [path.join(base, 'scripts/validate-package.mjs')], {cwd: base, encoding: 'utf8', timeout: 30000, maxBuffer: 1024 * 1024});
-    let report; try { report = JSON.parse(run.stdout); } catch { /* preserve non-JSON output below */ }
-    legacyReport = {status: run.error ? 'ERROR' : run.status === 0 ? 'PASS' : 'FAIL', exit_code: run.status, report, stdout: report ? undefined : run.stdout, stderr: run.stderr, error: run.error?.message};
-  }
-  return {status: canonical.status === 'PASS' && ['NOT_RUN', 'PASS'].includes(legacyReport.status) ? 'PASS' : 'FAIL', canonical, legacy: legacyReport};
+  let legacyReport = {status: 'RETIRED', scope: 'Historical validator retired on 2026-10-10 (owner decision); canonical checks only'};
+  return {status: canonical.status === 'PASS' && ['NOT_RUN', 'PASS', 'RETIRED'].includes(legacyReport.status) ? 'PASS' : 'FAIL', canonical, legacy: legacyReport};
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
