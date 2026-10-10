@@ -1183,3 +1183,22 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.51.0 in Plugin Creator; 1.50.0 is the saved release, synchronized)
 - Codex: not_run
 - Claude Code: not rerun for 1.51.0
+
+## CC-20261010-03
+
+- Origin: cloud-code, from the owner's correction
+- Branch: `main` (records only), fast-forward under the owner's standing rule
+- Baseline: `a7de875` (main, package 1.51.0, after its publication record); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.51.0)
+- Scope: the owner noted on 2026-10-10 that Plugin Creator updates the hosted plugin from the repository files, not from a release ZIP. AGENTS.md now says the hosted-update prompt follows `CHATGPT_UPDATE.md` (source commit, `config/install-sources.json`, readback fields) and that the ZIP SHA-256 is reference only
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh`: PASS
+
+Cross-host state:
+
+- GitHub: `main` and v1.51.0 synchronized (see CC-20261010-02)
+- ChatGPT Work: pending (owner updates to 1.51.0 in Plugin Creator; 1.50.0 is the saved release, synchronized)
+- Codex: not_run
