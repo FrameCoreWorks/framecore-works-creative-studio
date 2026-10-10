@@ -1,0 +1,30 @@
+{
+  "version": "1.51.0",
+  "change_id": "CC-20261010-02",
+  "origin": "cloud-code",
+  "commit": "6f2bd1a028f4c248ae088349f3a4119d2c97e22d",
+  "package_commit": "6f2bd1a028f4c248ae088349f3a4119d2c97e22d",
+  "integration": "Fast-forward of main from 3357085 to 6f2bd1a under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.51.0",
+  "workflow_id": 38031316640,
+  "workflow_conclusion": "success",
+  "checks_workflow_ids": [
+    38031316628,
+    38031318181,
+    38031319325
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 38031316649,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "e8859031d6db5e53818bd3114fe87e036bd11ec3159c645df966bc712c3a291b",
+  "plugin_zip_matches_tag_tree": "937 of 937 files byte-identical to v1.51.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "1b0822e699ea22fbbb28998620f65de16945dcf7c0c925f5c9181eae3070b5f6",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "published_welcome": "the Polish welcome in the downloaded ZIP carries the motion design bullet",
+  "hosted_plugin": "not updated (the owner updates it in Plugin Creator; 1.50.0 remains the saved release, synchronized)",
+  "host_behavior": "the 1.51.0 welcome in ChatGPT, Codex and Claude apps NOT_RUN"
+}
