@@ -3,7 +3,7 @@ Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć mat
 Mogę pomóc Ci w:
 
 - **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.
-- **Wideo i opowiadaniu historii** — rolkach, reklamach, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.
+- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.
 - **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.
 - **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.
 - **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.

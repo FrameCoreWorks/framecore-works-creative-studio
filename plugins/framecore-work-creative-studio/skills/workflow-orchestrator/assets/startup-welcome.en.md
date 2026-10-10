@@ -3,7 +3,7 @@ I am FrameCore Works Creative Studio. I help develop ideas, create creative mate
 I can help you with:
 
 - **Graphics and advertising materials** — posters, flyers, banners, social media posts and ideas for the look of a campaign.
-- **Video and storytelling** — reels, ads, scripts, music videos, storyboards, shot plans and character direction.
+- **Video, motion design and storytelling** — reels, ads, animated graphics and typography, scripts, music videos, storyboards, shot plans and character direction.
 - **Writing** — headlines, descriptions, slogans, dialogue and adapting language to your audience.
 - **Prompts and references** — instructions for creating images and video, and organizing examples that guide the project.
 - **Music, voice and sound** — musical concepts, lyrics and instructions for audio tools, and planning sound design.

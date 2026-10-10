@@ -5,8 +5,8 @@ import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
 export const learningCaseIds = Array.from({length: 25}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
-export const canonicalWelcomeSha256 = 'e227a35f73089ee7437b471598814bec0849f5f78a54d7357c78a418d80de671';
-export const englishWelcomeSha256 = 'c501fd86372785400175b3047c4c2b7a2cf5161a015ec6920771b1b533776b2d';
+export const canonicalWelcomeSha256 = '5bb2f2df2d1991e7766d6c147f2402bc01df75c7948d4dd8bef78b89b746424f';
+export const englishWelcomeSha256 = '30d79559a4eefbb9555c60265939dd131ac3fa2bda0dd1305c1f06c974bbb336';
 
 // Checks caller-supplied response text only. This does not invoke or observe a host.
 // A single file-terminal LF is optional in a conversation response; nothing else

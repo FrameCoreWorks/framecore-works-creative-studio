@@ -1,0 +1,28 @@
+{
+  "version": "1.51.0",
+  "baseline": "3357085abcc29b718694ff93459724f071a8480b",
+  "change_id": "CC-20261010-02",
+  "origin": "cloud-code",
+  "files": 937,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-learning-mode.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/startup-welcome.en.md",
+    "skills/workflow-orchestrator/assets/startup-welcome.pl.md"
+  ],
+  "unchanged_count": 927,
+  "added": [],
+  "removed": [],
+  "welcome": "changed",
+  "menus": "byte_identical",
+  "route_tables": "rows unchanged",
+  "vendored_snapshots": "byte_identical",
+  "note": "The video bullet of the complete welcome names motion design in English and Polish; the welcome assets, their SKILL.md excerpts and the protected welcome hashes changed together. Six bullets, structure and numbered options unchanged; menus unchanged."
+}

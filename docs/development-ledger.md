@@ -1160,3 +1160,26 @@ Cross-host state:
 - ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6ac93031429c8191ac77687931036628`, readback 2026-10-10; active-client behavior not_run
 - Codex: not_run
 - Claude Code: not rerun for 1.50.0
+
+## CC-20261010-02
+
+- Origin: cloud-code, from the owner's ChatGPT Work test of 1.50.0
+- Branch: `cloud-code/CC-20261010-02-welcome-motion`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `3357085` (main, package 1.50.0, after the hosted readback record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.51.0)
+- Package version: 1.50.0 -> 1.51.0
+- Scope: the owner reported on 2026-10-10 that in ChatGPT Work the bare invocation gave the complete Polish welcome and a graphic sent with the name was handled as a task (both PASS_REPORTED, [report](../verification/host-report-2026-10-10-startup-1.50.0.json)), and that the welcome says nothing about motion design. The video bullet now reads "Video, motion design and storytelling" / "Wideo, motion designie i opowiadaniu historii" and lists animated graphics and typography. Both welcome assets, their `SKILL.md` excerpts and the protected welcome hashes in `validate-learning-mode.mjs` changed together; six bullets, structure, numbered options and later menus are unchanged. This supersedes the earlier "welcome unchanged" instruction for this one bullet, at the owner's request
+- Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.51.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin and guides 7, GEPA pilot 8, asset 23, captions 14, environment check 16, motion acceptance 10: PASS ([record](../verification/release-1.51.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (owner updates to 1.51.0 in Plugin Creator; 1.50.0 is the saved release, synchronized)
+- Codex: not_run
+- Claude Code: not rerun for 1.51.0

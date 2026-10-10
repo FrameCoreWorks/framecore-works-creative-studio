@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.50.0
+## Current source: 1.51.0
+
+The [1.51.0 source checks](verification/release-1.51.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 16 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline; `claude plugin validate --strict` passes. The change is the welcome's video bullet, which now names motion design in English and Polish; both assets still equal their `SKILL.md` excerpts byte for byte, and the protected welcome hashes were updated with them. The owner's ChatGPT Work test of 1.50.0 (complete Polish welcome for the bare name, a graphic sent with the name handled as a task) is recorded as PASS_REPORTED ([report](verification/host-report-2026-10-10-startup-1.50.0.json)); the 1.51.0 welcome in a host client is not run. [Scope](verification/scope-1.51.0.json) records 10 changed shared files out of 937.
+
+## Previous source: 1.50.0
 
 The [1.50.0 source checks](verification/release-1.50.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 installer, 4 identity, 5 benchmark-script, 6 host-smoke, 6 hosted-readback, 7 Claude-plugin and guide, 8 GEPA pilot, 23 asset, 14 caption, 16 environment-check and 10 motion-acceptance tests; the legacy suite matches its recorded baseline. In the provisioned container the update check read the newest versions online and gave `pass_with_updates` (Python 3.13.16, FFmpeg 6.1.1, Node.js 22.22.0 and Chromium 141 have newer releases), and `fail` with a replacing `npm ci` command after one starter's lockfile was changed to stand for an older plugin version. Not run on macOS, Windows or in a chat sandbox. [Scope](verification/scope-1.50.0.json) records 12 changed shared files out of 937.
 

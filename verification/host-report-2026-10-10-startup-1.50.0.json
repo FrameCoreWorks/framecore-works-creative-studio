@@ -1,0 +1,26 @@
+{
+  "version": "1.50.0 (hosted release pluginrel_6ac93031429c8191ac77687931036628, read back with full_byte_parity on 2026-10-10)",
+  "date": "2026-10-10",
+  "reported_by": "owner (one phone screenshot and the copied welcome text); comparison by cloud-code",
+  "client": "ChatGPT Work as named by the owner, mobile app; reasoning setting not reported",
+  "observations": [
+    {
+      "step": "bare invocation (Studio name alone)",
+      "observed": "the complete Polish welcome: introduction, six capability bullets, qualifications, optional materials, both numbered modes and 'Wpisz 1 albo 2'; apart from list rendering the copied text equals assets/startup-welcome.pl.md of 1.50.0",
+      "expected": "the complete welcome in the user's language",
+      "result": "PASS_REPORTED",
+      "owner_comment": "correct, but the welcome does not mention motion design (addressed in 1.51.0)"
+    },
+    {
+      "step": "invocation sent with a graphic (club hoodie offer, 1024 x 1536)",
+      "observed": "'FrameCore Works Creative Studio jest aktywne' followed by an analysis of the graphic as the project's source material (product, colours, price, print placement, format) and an initial assessment; no welcome",
+      "expected": "an invocation sent with a screenshot, file or text is a task; no welcome",
+      "result": "PASS_REPORTED"
+    }
+  ],
+  "unknown": [
+    "the reasoning setting",
+    "whether ordinary ChatGPT behaves the same"
+  ],
+  "host_behavior": "startup and invocation-with-content observed on 1.50.0; the 1.51.0 welcome is not run"
+}

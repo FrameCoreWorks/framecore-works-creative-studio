@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.51.0, 2026-10-10
+
+From the owner's report of 2026-10-10 that the startup welcome says nothing about motion design:
+
+- **The welcome names motion design.** The video bullet of the complete welcome now reads "Video, motion design and storytelling" (Polish: "Wideo, motion designie i opowiadaniu historii") and lists animated graphics and typography. The six capability bullets, qualifications, optional materials, structure and numbered options are otherwise unchanged; the English and Polish assets, the excerpts in `workflow-orchestrator/SKILL.md` and the protected welcome hashes in `validate-learning-mode.mjs` changed together. Later menus and their token mappings are unchanged.
+- The owner's ChatGPT Work test of 1.50.0 is recorded: the bare invocation gave the complete Polish welcome, and the invocation sent with a graphic was handled as a task without the welcome (PASS_REPORTED).
+
 ## 1.50.0, 2026-10-09
 
 From the owner's request of 2026-10-09: an update also checks that every required tool is installed and current; the welcome and menus are unchanged:
