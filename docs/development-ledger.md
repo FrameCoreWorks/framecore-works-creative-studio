@@ -1240,7 +1240,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized. `main` fast-forwarded to `139bf5b`; release workflow 38037299317, checks 38037299299, 38037300877 and 38037302331, release-notes refresh 38037299295: success; [v1.52.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.52.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (937 of 937), all 37 skill frontmatters parse ([record](../verification/github-publication-1.52.0.json))
 - ChatGPT Work: pending (owner updates to 1.52.0 in Plugin Creator; 1.51.0 is the saved release, synchronized)
 - Codex: not_run
 - Claude Code: not rerun for 1.52.0

@@ -1,0 +1,29 @@
+{
+  "version": "1.52.0",
+  "change_id": "CC-20261010-04",
+  "origin": "cloud-code",
+  "commit": "139bf5ba77d235d6ce60db00b9c9ca17d822e32d",
+  "package_commit": "139bf5ba77d235d6ce60db00b9c9ca17d822e32d",
+  "integration": "Fast-forward of main from aea24a8 to 139bf5b under the owner's standing rule; no merge commit, no force",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.52.0",
+  "workflow_id": 38037299317,
+  "workflow_conclusion": "success",
+  "checks_workflow_ids": [
+    38037299299,
+    38037300877,
+    38037302331
+  ],
+  "checks_workflow_conclusion": "success",
+  "release_notes_refresh_workflow_id": 38037299295,
+  "release_notes_refresh_conclusion": "success",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_sha256": "8e5b4af6d0c29d573af25ecc8cbcc63c0b2eaa80edba0f68e8f8a721fa8959bf",
+  "plugin_zip_matches_tag_tree": "937 of 937 files byte-identical to v1.52.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_matches_local": true,
+  "plugin_inventory_sha256": "c94e1d90790d732128dabeac0ef8643625663fe4781ade26e522268faa325fc0",
+  "motion_player_asset_matches_local": true,
+  "motion_player_sha256": "d42cfe341a904b0b595aed4a7e4d48820b8bebcb3a9d334012a691127f858124",
+  "published_skill_yaml": "all 37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "hosted_plugin": "not updated (the owner updates it in Plugin Creator; 1.51.0 remains the saved release, synchronized)",
+  "host_behavior": "the fixed check in ChatGPT Work's sandbox NOT_RUN"
+}
