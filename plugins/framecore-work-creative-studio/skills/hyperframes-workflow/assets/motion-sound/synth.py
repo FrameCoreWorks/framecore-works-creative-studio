@@ -80,6 +80,25 @@ def saturate(x, drive):
     return np.tanh(drive * x) / np.tanh(drive)
 
 
+def moving_average(x, window, mode='same'):
+    """The same result as np.convolve(x, np.ones(window) / window, mode) for a 1-D signal, computed from a cumulative
+    sum in linear time. A direct convolution costs len(x) * window operations, which made the one-second loudness
+    windows of a 30-60 s mix take minutes."""
+    x = np.asarray(x, dtype=np.float64)
+    n = len(x)
+    if window <= 1 or n == 0:
+        return x.copy()
+    total = np.concatenate([[0.0], np.cumsum(x)])
+    k = np.arange(n + window - 1)
+    full = (total[np.minimum(k, n - 1) + 1] - total[np.maximum(k - window + 1, 0)]) / window
+    if mode == 'valid':
+        return full[window - 1:n] if n >= window else full[n - 1:window]
+    if mode == 'same':
+        start = (min(n, window) - 1) // 2
+        return full[start:start + max(n, window)]
+    return full
+
+
 def fades(x, fade_in=0.002, fade_out=0.02):
     n, a, b = len(x), int(fade_in * RATE), int(fade_out * RATE)
     env = np.ones(n)

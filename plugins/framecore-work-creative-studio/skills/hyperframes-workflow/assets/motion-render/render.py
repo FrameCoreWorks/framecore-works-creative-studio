@@ -24,6 +24,7 @@ import glob
 import io
 import json
 import math
+import re
 import os
 import shutil
 import subprocess
@@ -36,7 +37,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.3.0'
+VERSION = '1.4.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -105,8 +106,17 @@ def as_list(value):
     return value if isinstance(value, list) else [] if value is None else [value]
 
 
+UNIT = r'(?:zł|gr|kg|km|cm|mm|ml|min|PLN|EUR|USD|[gmlhs])(?![^\W\d_])|%'
+
+
+def keep_together(text):
+    """The scene engine's typography: a one-letter word never ends a line and a number stays with its unit."""
+    text = re.sub(r'(?<!\S)([^\W\d_]) +(?=\S)', '\\1\u00a0', str(text))
+    return re.sub(r'(\d) (?=' + UNIT + ')', '\\1\u00a0', text)
+
+
 def copy_text(score, key):
-    return (score.get('copy') or {}).get(key, '') if key is not None else ''
+    return keep_together((score.get('copy') or {}).get(key, '')) if key is not None else ''
 
 
 def exit_mode(scene, score):
@@ -384,6 +394,9 @@ def wrap(text, font, width):
 class TextBlock:
     """Wrapped text with a CSS-like line box: line height, half-leading above each line."""
 
+    # Lines wider than their column, collected while scenes are laid out: such a word would be cropped silently.
+    overflows = []
+
     def __init__(self, text, font, max_width, line_height=None, align='left', tabular=False):
         self.font, self.align, self.tabular = font, align, tabular
         ascent, descent = font.getmetrics()
@@ -392,6 +405,10 @@ class TextBlock:
         self.half_leading = (self.line_height - (ascent + descent)) / 2
         self.lines = wrap(text, font, max_width) if text != '' else ['']
         self.widths = [self.measure(line) for line in self.lines]
+        if max_width < 10 ** 5:
+            for line, width in zip(self.lines, self.widths):
+                if width > max_width + 1:
+                    TextBlock.overflows.append({'text': line.replace('\u00a0', ' '), 'width': jround(width), 'max_width': jround(max_width)})
         # One line shrinks to its text; wrapped text fills the available width, as a CSS block does.
         self.width = min(self.widths[0], max_width) if len(self.lines) == 1 else max_width
         self.height = self.line_height * len(self.lines)
@@ -850,7 +867,9 @@ class Renderer:
         self.score = score
         self.fonts = Fonts(tokens(score).get('fontFamily'), font, font_bold)
         self.background = color(tokens(score).get('background'), (0, 0, 0, 255))[:3] + (255,)
+        TextBlock.overflows = []
         self.scenes = [Scene(scene, score, self.fonts, base_dir) for scene in score['scenes']]
+        self.overflows = list(TextBlock.overflows)
         self.captions = Captions(score, self.fonts) if score.get('captions') else None
 
     def frame(self, n, blur=1):
@@ -929,6 +948,7 @@ def main(argv=None):
     parser.add_argument('--stills-width', type=int, help='scale stills to this width, for example 360 to review at phone size')
     parser.add_argument('--blur', type=int, default=1, help='motion blur: average this many subframes per frame (8 is typical; renders that many times slower)')
     parser.add_argument('--crf', type=int, default=18)
+    parser.add_argument('--allow-overflow', action='store_true', help='render although a word is wider than its column (it will be cropped)')
     parser.add_argument('--version', action='version', version=RENDERER)
     args = parser.parse_args(argv)
     try:
@@ -944,6 +964,15 @@ def main(argv=None):
         return 2
     summary = {'renderer': RENDERER, 'format': score.get('format', 'base'), 'width': score['width'], 'height': score['height'],
                'fps': score['fps'], 'frames': score['totalFrames'], 'blur': args.blur, 'fonts': renderer.fonts.paths, 'stills': []}
+    if renderer.overflows:
+        summary['text_overflow'] = renderer.overflows
+        if not args.allow_overflow:
+            words = '; '.join(f"\"{o['text']}\" {o['width']} px in {o['max_width']} px" for o in renderer.overflows)
+            sys.stderr.write(f'Text wider than its column would be cropped: {words}. Reduce the size, shorten the copy '
+                             'or split the line in the contract; nothing was rendered.\n')
+            summary['status'] = 'text_overflow'
+            print(json.dumps(summary, ensure_ascii=False))
+            return 4
     try:
         wanted = []
         if args.stills:

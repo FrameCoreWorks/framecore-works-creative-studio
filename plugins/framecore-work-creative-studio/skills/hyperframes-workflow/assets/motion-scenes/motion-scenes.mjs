@@ -44,7 +44,13 @@ const px = (score, value) => Math.round(value * scale(score));
 const motion = score => ({entryFrames: 15, exitFrames: 10, lineStaggerFrames: 6, itemStaggerFrames: 8, entryEasing: 'easeOutCubic', exitEasing: 'easeInCubic', resolveEasing: 'easeOutExpo', ...score.motion});
 const margin = score => Math.round(score.width * (score.tokens?.marginRatio ?? 0.08));
 const list = value => (Array.isArray(value) ? value : value === undefined ? [] : [value]);
-const copy = (score, id) => score.copy?.[id] ?? '';
+// Typography both renderers share: a one-letter word (Polish a, i, o, u, w, z) never ends a line, and a number stays
+// with its unit ("90 zł", "10 kg", "50 %"); the space becomes a no-break space.
+const UNIT = '(?:zł|gr|kg|km|cm|mm|ml|min|PLN|EUR|USD|[gmlhs])(?!\\p{L})|%';
+export const keepTogether = (text) => String(text)
+  .replace(/(?<!\S)(\p{L}) +(?=\S)/gu, '$1\u00A0')
+  .replace(new RegExp(`(\\d) (?=${UNIT})`, 'gu'), '$1\u00A0');
+const copy = (score, id) => keepTogether(score.copy?.[id] ?? '');
 const isLast = (scene, score) => scene.end >= score.totalFrames;
 // params.exit: true or 'lift' (fade and lift, the default except for the last scene), 'sweep' (fade and
 // slide left while a vertical line sweeps across the frame) or false (no exit).

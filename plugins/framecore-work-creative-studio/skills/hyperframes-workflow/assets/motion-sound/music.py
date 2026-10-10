@@ -504,6 +504,6 @@ def level_match(out):
     window = RATE
     if len(out) < window:
         return out
-    power = np.convolve(np.mean(out ** 2, axis=1), np.ones(window) / window, mode='valid')
+    power = np.maximum(synth.moving_average(np.mean(out ** 2, axis=1), window, 'valid'), 0.0)
     loudest = 10 * math.log10(power.max() + 1e-12)
     return out * 10 ** ((REFERENCE_LEVEL_DB - loudest) / 20) if loudest > -90 else out

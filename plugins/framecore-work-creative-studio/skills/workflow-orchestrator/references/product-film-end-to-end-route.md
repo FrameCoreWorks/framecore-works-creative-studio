@@ -6,7 +6,7 @@ For a full production request, [Creative Video Producer](../../creative-video-pr
 
 ## 1. Start with a short, researched direction
 
-Read the brief and inspect an actually accessible product source image before making visual claims about it. Record which supplied image controls shape, label, color, finish, scale and packaging, and which references are lighting or mood inspiration only. Do not invent product claims from the photo. Ask for one missing fact only if it changes the direction. Run mandatory public research on a generalized category/placement question; never upload a private client brief or search its wording verbatim.
+Read the brief and inspect an actually accessible product source image before making visual claims about it. Record which supplied image controls shape, label, color, finish, scale and packaging, and which references are lighting or mood inspiration only. Do not invent product claims from the photo. Ask for one missing fact only if it changes the direction. Apply the conditional research gate: when a trigger applies (a named placement, platform rule or public claim), research a generalized category/placement question; never upload a private client brief or search its wording verbatim.
 
 In Quick mode, return a few short, distinct concepts: the concrete event that opens the reel, why it belongs to this product, and one intuitive bridge to the next event. Do not expose the research essay or draft shot prompts yet. In Deep mode, build the selected idea step by step and expose only the next choice. After an unexplained rejection, ask one specific question about what missed before developing another batch. Apply an already explained correction directly.
 

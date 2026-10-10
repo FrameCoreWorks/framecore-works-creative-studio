@@ -103,6 +103,9 @@ def fidelity(score, audit, source_review):
     return verdict(status, evidence, findings + unknown)
 
 
+TEMPORAL_AREAS = ('pace', 'transitions', 'hook', 'ending')
+
+
 def composition(critique, review, audit, composition_review=None):
     findings, evidence, gaps = [], [], []
     if critique:
@@ -110,7 +113,9 @@ def composition(critique, review, audit, composition_review=None):
         if status in ('contract_only', 'incomplete'):
             gaps.append(f'critique is {status} (score {critique.get("score")} covers {critique.get("score_scope", "the contract only")}); no picture certified by it')
         else:
-            visual = [f for f in critique.get('findings', []) if f['area'] in ('layout', 'composition', 'contrast', 'integration')]
+            # Every critique error outside the timeline areas (layout, composition, contrast, integration, readability,
+            # text amount and any other picture finding) blocks composition; timeline errors block the viewing verdict.
+            visual = [f for f in critique.get('findings', []) if f['area'] not in TEMPORAL_AREAS]
             findings += [f'critique {f["severity"]} {f["area"]} {f["where"]}: {f["message"]}' for f in visual if f['severity'] == 'error']
             evidence.append(f'critique inspected frames ({critique.get("frames")}), score {critique.get("score")}')
     if review:
@@ -151,7 +156,7 @@ def temporal(critique, playback, temporal_review, note):
     if critique and critique.get('pacing'):
         evidence.append('pacing sampled four times a second: ' + ', '.join(f'{p["scene"]} still {p["longest_still_s"]} s of {p["allowed_s"]} s' for p in critique['pacing']))
         for f in critique.get('findings', []):
-            if f['area'] in ('pace', 'transitions', 'hook', 'ending') and f['severity'] in ('warning', 'error'):
+            if f['area'] in TEMPORAL_AREAS and f['severity'] in ('warning', 'error'):
                 findings.append(f'critique {f["area"]} {f["where"]}: {f["message"]}')
     else:
         gaps.append('no pacing samples from frames')

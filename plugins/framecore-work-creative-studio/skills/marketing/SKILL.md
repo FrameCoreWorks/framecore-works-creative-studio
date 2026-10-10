@@ -27,7 +27,7 @@ For brand strategy or identity foundations, use the [brand identity profile](../
 Use this skill when:
 
 - A request needs campaign logic before visual direction, copy, storyboard, or prompts.
-- The user asks for ecommerce, product, launch, social, creator, or promotional workflow planning.
+- The user asks for brand, social, creator or promotional workflow planning without a store, product or offer goal; those go to Ecommerce Campaign Strategy Director.
 - Offers, audiences, channels, claims, or asset variants need structure.
 
 Do not use this skill to invent evidence, write final copy, produce final prompts, or execute media tools.

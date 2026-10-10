@@ -527,8 +527,7 @@ def full_mix(score, base_dir):
         for span in under:
             a, b = round(span['start'] / fps * RATE), round(span['end'] / fps * RATE)
             duck[max(0, a - ramp):min(length, b + ramp)] = 10 ** (-8 / 20)
-        kernel = np.ones(ramp) / ramp
-        bed_track *= np.convolve(duck, kernel, mode='same')[:, None]
+        bed_track *= synth.moving_average(duck, ramp, 'same')[:, None]
     bed_track *= hit_ducking(score, length)[:, None]
     wet = synth.convolve(send, synth.reverb_ir())[:length]
     return dry + bed_track + voice + 0.6 * wet, dry, hits, bed_track

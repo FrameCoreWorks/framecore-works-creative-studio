@@ -1,6 +1,6 @@
 ---
 name: workflow-orchestrator
-description: Entry owner for a bare or app-linked @FrameCore Works Creative Studio invocation, greeting, start, menu or plugin-version/installation-status request; load it before answering. A bare invocation gets the complete welcome in the user's language; never return only the two-mode choice. A screenshot, file or text sent with it is a task. Coordinates learning and creation across graphics, story, video, audio, copy and prompts. Not for unrelated coding.
+description: Entry owner for a bare or app-linked @FrameCore Works Creative Studio invocation, greeting, start, menu or plugin-version/installation-status request; load it before answering. A bare invocation gets the complete welcome in the user's language; never return only the mode choice. A screenshot, file or text sent with it is a task. Coordinates learning and creation across graphics, story, video, audio, copy and prompts. Not for unrelated coding.
 ---
 
 # FrameCore Works Creative Studio
@@ -19,7 +19,7 @@ This generated block identifies the read package version of this entry, not the 
 
 ## Immediate complete startup response
 
-For a sent bare Studio invocation, greeting or startup request, select the user's language using the policy below and output only the complete welcome in that language. A two-option menu alone is a failed startup response. The English and Polish blocks are synchronized, byte-checked projections of [the English source](assets/startup-welcome.en.md) and [the approved Polish translation](assets/startup-welcome.pl.md). No extra asset read is needed when these complete blocks are loaded. Translate the whole English block for other languages; the embedded Polish text does not set a default language. Exclude markers and headings, code fences, preambles, shortening and added questions. Preserve checkpoints and replace only pending startup choices. Concrete tasks and actual resume requests bypass this startup response; an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation. After emitting it, stop and wait for the intent answer.
+For a sent bare Studio invocation, greeting or startup request, select the user's language using the policy below and output only the complete welcome in that language. A mode menu alone is a failed startup response. The English and Polish blocks are synchronized, byte-checked projections of [the English source](assets/startup-welcome.en.md) and [the approved Polish translation](assets/startup-welcome.pl.md). No extra asset read is needed when these complete blocks are loaded. Translate the whole English block for other languages; the embedded Polish text does not set a default language. Exclude markers and headings, code fences, preambles, shortening and added questions. Preserve checkpoints and replace only pending startup choices. Concrete tasks and actual resume requests bypass this startup response; an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation. After emitting it, stop and wait for the intent answer.
 
 <!-- BEGIN STARTUP LANGUAGE POLICY -->
 Select the response language before choosing or translating the welcome. Use this order:

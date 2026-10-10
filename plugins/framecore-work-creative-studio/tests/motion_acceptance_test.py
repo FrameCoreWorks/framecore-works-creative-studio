@@ -127,6 +127,74 @@ class ContractOnlyScores(unittest.TestCase):
         self.assertIn('WYBÓR', ' '.join(decided['verdicts']['C_composition']['findings']))
 
 
+class QualityGates(unittest.TestCase):
+    """Phase 0 of the 2026-10 plan: the gates see cut words, empty vertical frames and every picture error."""
+
+    def test_any_critique_picture_error_blocks_composition(self):
+        found = {'status': 'issues', 'score': 85, 'frames': 'checked', 'findings': [
+            {'severity': 'error', 'area': 'readability', 'where': 'desktop', 'message': '5 words held 2.00 s', 'fix': 'hold longer'}]}
+        with tempfile.TemporaryDirectory() as temp:
+            path = os.path.join(temp, 'critique.json')
+            pathlib.Path(path).write_text(json.dumps(found))
+            args = acceptance.argparse.Namespace(critique=path, review=None, text_audit=None, video=None, playback='watched',
+                                                  source_review='pass', temporal_review='pass', composition_review='pass', note='owner')
+            decided = acceptance.decide(json.loads(PROOF.read_text()), args)
+        self.assertEqual((decided['verdicts']['C_composition']['status'], decided['overall']), ('fail', 'blocked'))
+
+    @unittest.skipUnless(have_media(), 'needs Pillow and ffmpeg')
+    def test_renderer_refuses_a_word_wider_than_its_column(self):
+        scene = {'id': 'big', 'kind': 'line-reveal', 'start': 0, 'end': 30, 'holds': [[10, 30]], 'params': {'lines': ['w'], 'sizes': [200], 'weights': [700]}}
+        contract = small_contract([scene], 30, {'w': 'Najnowocześniejszy'}, width=1080, height=1920)
+        with tempfile.TemporaryDirectory() as temp:
+            path = os.path.join(temp, 'c.json')
+            pathlib.Path(path).write_text(json.dumps(contract, ensure_ascii=False))
+            done = subprocess.run([sys.executable, '-B', str(PLUGIN / 'skills/hyperframes-workflow/assets/motion-render/render.py'), path, os.path.join(temp, 'c.mp4')],
+                                  capture_output=True, text=True)
+            self.assertEqual(done.returncode, 4, done.stderr)
+            self.assertEqual(json.loads(done.stdout)['text_overflow'][0]['text'], 'Najnowocześniejszy')
+            self.assertFalse(os.path.exists(os.path.join(temp, 'c.mp4')), 'nothing is rendered')
+
+    def test_typography_keeps_one_letter_words_and_units_together(self):
+        render = module('render', PLUGIN / 'skills/hyperframes-workflow/assets/motion-render/render.py')
+        self.assertEqual(render.keep_together('Dostawa w godzinę za 90 zł, a 10 kg i 50 % z rabatem'),
+                         'Dostawa w\u00a0godzinę za 90\u00a0zł, a\u00a010\u00a0kg i\u00a050\u00a0% z\u00a0rabatem')
+        node = shutil.which('node')
+        if node:
+            engine = PLUGIN / 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'
+            for text in ('Dostawa w godzinę za 90 zł', 'I am a fan', 'Ż ó ł', '5 mln zł i 3 s.', 'A\nb c'):
+                script = f'import({json.dumps(engine.as_uri())}).then(m => process.stdout.write(JSON.stringify(m.keepTogether(process.argv[1]))))'
+                js = subprocess.run([node, '-e', script, text], capture_output=True, text=True, check=True).stdout
+                self.assertEqual(json.loads(js), render.keep_together(text), text)
+
+    def test_moving_average_matches_the_direct_convolution(self):
+        try:
+            import numpy as np
+        except ImportError:
+            self.skipTest('needs numpy')
+        sys.path.insert(0, str(PLUGIN / 'skills/hyperframes-workflow/assets/motion-sound'))
+        try:
+            synth = module('synth_ma', PLUGIN / 'skills/hyperframes-workflow/assets/motion-sound/synth.py')
+        finally:
+            sys.path.pop(0)
+        r = np.random.default_rng(3)
+        for n, w in ((1000, 7), (5000, 480), (60000, 48000), (10, 48000), (4800, 4800), (5, 1)):
+            x = r.random(n)
+            for mode in ('valid', 'same', 'full'):
+                self.assertTrue(np.allclose(synth.moving_average(x, w, mode), np.convolve(x, np.ones(w) / w, mode=mode), rtol=1e-9, atol=1e-12), (n, w, mode))
+
+    @unittest.skipUnless(have_media(), 'needs Pillow and ffmpeg')
+    def test_critique_flags_an_empty_vertical_frame(self):
+        scene = {'id': 'tiny', 'kind': 'line-reveal', 'start': 0, 'end': 90, 'holds': [[20, 90]], 'params': {'lines': ['a'], 'sizes': [60], 'weights': [700]}}
+        contract = small_contract([scene], 90, {'a': 'Say it'}, width=540, height=960)
+        with tempfile.TemporaryDirectory() as temp:
+            path = os.path.join(temp, 'c.json')
+            pathlib.Path(path).write_text(json.dumps(contract))
+            code, report = run(critique.main, [path])
+        errors = [f for f in report['findings'] if f['area'] == 'composition' and f['severity'] == 'error']
+        self.assertTrue(errors, report['findings'])
+        self.assertEqual(len(errors), 1, 'reported once per scene and format')
+
+
 class ContractRules(unittest.TestCase):
     def scenes(self):
         return [{'id': f's{i}', 'start': i * 60, 'end': (i + 1) * 60, 'holds': [[i * 60 + 10, i * 60 + 50]], 'copy': ['line'],

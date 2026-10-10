@@ -39,6 +39,7 @@ END_HOLD_SECONDS = 1.5
 HOOK_SECONDS = 1.5
 REELS_BOTTOM_ZONE = 0.14     # captions, buttons and the account name cover the bottom of a 9:16 feed
 REELS_TOP_ZONE = 0.08
+FILL_WARNING, FILL_ERROR = 0.25, 0.10  # share of a 9:16 frame the content's bounding box covers in a hold
 BALANCE = (0.3, 0.62)         # where the centre of a 9:16 frame's content should sit, as a share of the height
 PENALTY = {'error': 15, 'warning': 5, 'note': 0}
 PACE_SAMPLES_PER_SECOND = 4   # pacing looks at the picture four times a second
@@ -89,8 +90,10 @@ def scene_copy(scene, score):
             for item in value:
                 walk(item)
         elif isinstance(value, dict):
-            for item in value.values():
-                walk(item)
+            # A browser's address field shows the URL as interface chrome; nobody reads it as a message.
+            for key, item in value.items():
+                if key != 'url':
+                    walk(item)
     walk(scene.get('params') or {})
     return [copy[i] for i in ids if isinstance(copy.get(i), str)]
 
@@ -188,6 +191,7 @@ class VideoFrames:
 class Critique:
     def __init__(self, score):
         self.score = score
+        self.fill_reported = set()
         self.fps = score['fps']['num'] / score['fps']['den']
         self.findings = []
         self.pacing_report = []
@@ -320,7 +324,7 @@ class Critique:
                 if n not in frames:
                     continue
                 feed = score['height'] > score['width'] or bool(score.get('strategy')) or re.search(r'feed|reel|tiktok|shorts|stories', str(score.get('viewing') or ''), re.I)
-                if n == 0 and format_id == 'base' and feed:
+                if n == 0 and feed:
                     first_bg = (score['scenes'][0].get('params') or {}).get('background') or (score.get('tokens') or {}).get('background') or '#000000'
                     blank = ImageChops.difference(image, Image.new('RGB', image.size, r.color(first_bg)[:3])).convert('L').point(lambda v: 255 if v > 28 else 0).getbbox()
                     if blank is None:
@@ -346,6 +350,14 @@ class Critique:
                         if not full_bleed and not camera and (x0 < width * edge or y0 < height * edge or x1 > width * (1 - edge) or y1 > height * (1 - edge)):
                             self.add('error', 'layout', where, f'content reaches the frame edge (box {x0},{y0} to {x1},{y1})',
                                      'reduce the text size or the line length, or raise tokens.marginRatio')
+                        if height > width * 1.5 and not full_bleed and not camera:
+                            # An empty vertical frame reads as unfinished on a phone, however well the block is centred.
+                            fill = (x1 - x0) * (y1 - y0) / (width * height)
+                            if fill < FILL_WARNING and (scene['id'], format_id) not in self.fill_reported:
+                                self.fill_reported.add((scene['id'], format_id))
+                                self.add('error' if fill < FILL_ERROR else 'warning', 'composition', where,
+                                         f'the content covers {fill:.0%} of the frame (box {x0},{y0} to {x1},{y1}); most of the 9:16 picture is empty',
+                                         'enlarge the type for this format (sizes per format), stack the message vertically, or give the scene a visual (device, photo, chart, mark)')
                         if height > width * 1.5:
                             balance = content_balance(diff, width, height)
                             if balance and not BALANCE[0] <= balance[0] <= BALANCE[1] and balance[1] < 0.6:

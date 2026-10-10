@@ -28,12 +28,12 @@
       "research_expectation": "not_applicable",
       "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
       "checks": [
-        "Complete welcome explains the Studio, non-exhaustive capabilities and optional uploads before 1. Tryb kreatywny / 2. Tryb nauki; wait.",
+        "Complete welcome explains the Studio, non-exhaustive capabilities and optional uploads before 1. Tryb kreatywny / 2. Tryb nauki / 3. Szukasz konkretnego skilla; wait.",
         "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany; a pace-only choice then shows the established work-area menu.",
         "Interpret numbers against the last displayed menu, preserve pace, and do not send a learner through creative menus.",
         "A concrete supplied brief bypasses redundant choices; no default domain, onboarding, research or generation before a substantive task.",
         "Use a genuine choice control if exposed; otherwise numbered text; do not invent buttons.",
-        "Startup offers only choices 1 and 2; an unmatched 3 asks for clarification without selecting motion. Creative/expanded/area 8 reaches motion; area 3 remains storyboard. Explicit learning intent takes precedence. No execution from menu selection."
+        "Startup offers choices 1 to 3; a 3 selects skill search, never motion or storyboards. Creative/expanded/area 8 reaches motion; area 3 remains storyboard. Explicit learning intent takes precedence. No execution from menu selection."
       ],
       "required_evidence": [
         "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
