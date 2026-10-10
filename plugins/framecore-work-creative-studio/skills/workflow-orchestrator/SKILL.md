@@ -12,7 +12,7 @@ Handle a plugin version or installation-status question in Codex, ChatGPT Work a
 A request to check the environment or setup (what is installed, missing or outdated) runs the [environment check](assets/environment-check/README.md) where code runs, before any welcome; answer from its result in the user's language and install nothing unless asked.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.54.0"}
+{"name":"framecore-work-creative-studio","version":"1.55.0"}
 <!-- END PACKAGE IDENTITY -->
 
 This generated block identifies the read package version of this entry, not the model or newest release. Reread this entry through the active host's skill catalog or installed path on each version question; if the host supplies it without a read tool, call it the host-supplied skill revision. If current sources for the same bundle conflict, show both and leave the version unresolved. Keep the read package, saved hosted release and latest GitHub release separate. Never report a version from memory, history or old reports; if no current evidence is accessible, say the current version cannot be confirmed. Answer briefly with version, source and scope, then stop without the welcome. Full steps: [version reporting](references/version-reporting.md).

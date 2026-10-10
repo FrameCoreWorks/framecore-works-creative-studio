@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.55.0, 2026-10-10
+
+From Phase 0 of [the improvement plan](docs/improvement-plan-2026-10.md), after the six-review audit of 1.54.0 (owner decisions 1a, 2a and 3a of 2026-10-10):
+
+- **Text is never cropped silently.** The bundled Python renderer lays out every scene before drawing and stops with exit code 4 and `"status": "text_overflow"` when a word is wider than its column, naming the word, its width and the column; `--allow-overflow` keeps the old behaviour on request. A 200 px "Najnowocześniejszy" in a 9:16 column used to render as "Najnowo" ([renderer notes](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md))
+- **Polish line breaks.** One-letter words (w, z, i, a, o, u) stay with the next word and numbers stay with their units (10 zł, 5 kg, 30 %), through a non-breaking space applied identically in the scene engine (all three copies) and the Python renderer; a test checks the two agree
+- **Composition errors block acceptance.** Critique flags a vertical hold whose content fills less than 10 % of the frame (an error) or 25 % (a warning), once per scene and format; the thumbnail check runs for every feed format; URL text is no longer judged as readable copy. Acceptance now blocks on any critique picture error, not only on selected areas. The colour-block example's 9:16 layout was enlarged and scores 95
+- **Sound mixing about 15 times faster.** Ducking and level matching use a running-sum moving average instead of a long convolution: the test mix went from 2 min 34 s to 10.5 s with the same audio
+- **Startup texts agree with the three-option welcome.** Three references and two evaluation inputs still described a two-mode welcome; they name all three options now, the orchestrator says a mode menu alone is a failed startup, and the validator rejects a two-option description (`STARTUP_MENU_DRIFT`). The welcome itself is byte-identical
+- **Two routing contradictions removed.** Marketing's "when to use" no longer claims ecommerce, product and launch planning, which belong to Ecommerce Campaign Strategy Director; the product-film route applies the conditional research gate instead of mandatory research, as the research skill defines it
+- **Validation.** Skill descriptions have a total budget (fail above 7,800 characters, warn above 7,500). The historical `validate-package.mjs` / `package.test.mjs` suite is retired (decision 3a): both paths stay as inert stubs, because a hosted update cannot delete files
+- **Repository only.** `scripts/release.py` prepares a release in one command (version markers, notes, manifest, checks, records, package, commit, fast-forward push) and records its GitHub publication; `scripts/check_all.sh --fast` is the edit-loop subset; `scripts/check_version_bump.py` and the checks workflow stop a package change on `main` without a version bump; CI validates the plugin and marketplace with a pinned Claude Code; AGENTS.md records the owner's product decisions (no personalization: rates, tools and preferences are runtime inputs)
+
 ## 1.54.0, 2026-10-10
 
 From the owner's request of 2026-10-10 to add the skills of [cth9191/animate](https://github.com/cth9191/animate) to the motion graphics module:

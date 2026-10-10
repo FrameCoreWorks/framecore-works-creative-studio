@@ -12,21 +12,21 @@ The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json
 
 ## 2. Pin the source
 
-Use a release tag, for example `v1.54.0` from the [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
+Use a release tag, for example `v1.55.0` from the [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
 
 ## 3. Install
 
 **Claude Code, in a session:**
 
 ```text
-/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.54.0
+/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.55.0
 /plugin install framecore-work-creative-studio@framecore-works
 ```
 
 **Claude Code, from a shell:**
 
 ```sh
-claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.54.0
+claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.55.0
 claude plugin install framecore-work-creative-studio@framecore-works --scope user
 ```
 

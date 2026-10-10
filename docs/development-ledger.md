@@ -1379,3 +1379,24 @@ Cross-host state:
 - GitHub: `main` and v1.54.0 synchronized
 - ChatGPT Work: not_tracked (owner decision)
 - Codex: not_run
+
+## CC-20261010-13
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261010-13-phase0`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `6b65c18` (main, package 1.54.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.55.0)
+- Package version: 1.54.0 -> 1.55.0
+- Scope: Phase 0 of the improvement plan: the renderer stops on a word wider than its column (exit 4, text_overflow) instead of cropping it; one-letter Polish words and numbers with units are kept on one line identically in the scene engine and the renderer; critique flags empty vertical frames and acceptance blocks on any critique picture error; sound mixing about 15 times faster with identical audio; startup texts and two routing descriptions corrected; a total skill-description budget; the legacy suite retired as inert stubs; scripts/release.py, check_all.sh --fast and a version-bump guard in CI
+- Shared package changed: yes; 31 changed, 0 added, 0 removed ([scope](../verification/scope-1.55.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 7 skill finder, 4 Animate engine: PASS ([record](../verification/release-1.55.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run
