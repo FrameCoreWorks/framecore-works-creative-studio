@@ -147,7 +147,7 @@ Read only what is needed:
 - Treat one primary action and one primary camera move as defaults for a short video unit. Any exception needs a concrete rationale and evidence that QA can inspect.
 - Keep model fields, reference limits, edit modes, audio behavior, and target-specific syntax pending until an official source check confirms the active surface.
 - Use rewrite-forward only from an accepted actual output, never from a planned end frame or repeated prose.
-- Do not substitute Python-generated artwork, SVG, HTML/canvas, Sharp/composited PNG, or other coded artwork unless the user explicitly asks for coded, vector, template, or editable source output.
+- Do not substitute Python-generated artwork, SVG, HTML/canvas, Sharp/composited PNG, or other coded artwork unless the user explicitly asks for coded, vector, template, or editable source output. The exact-copy route of the [text policy](references/text-image-generation-policy.md), named to the user, is not a substitute: it sets exact text on a generated, supplied or flat background.
 - Delivery follows QA when generated assets exist.
 - Upload, publish, or external delivery requires an explicit current user request.
 - Workflow self-improvement creates proposals, not automatic mutations; when implementation is requested, use the self-improvement sufficiency gate to choose `stop_sufficient`, `patch_one_gap`, or `ask_user`.

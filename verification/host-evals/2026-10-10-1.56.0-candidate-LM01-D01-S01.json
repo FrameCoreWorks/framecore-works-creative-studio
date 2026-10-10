@@ -1,0 +1,185 @@
+{
+  "date": "2026-10-10",
+  "package_version": "1.55.0",
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 3,
+    "skipped_for_budget": [],
+    "cost_usd": 0.2586
+  },
+  "cases": [
+    {
+      "id": "LM01",
+      "title": "A Polish start question addressed to Studio reaches the complete welcome",
+      "source": "evals/learning-mode-cases.json#LM01",
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0976,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Hej, od czego zaczynamy?",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0976,
+          "seconds": 10.3,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "D01",
+      "title": "Direct Polish copy task: exactly three slogans, no welcome, no questions",
+      "source": "evals/studio-behavior-cases.json#H01",
+      "gate": true,
+      "verdict": "PASS",
+      "cost_usd": 0.0595,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Podaj dokładnie trzy krótkie hasła dla sobotniego warsztatu ceramiki dla początkujących. Glina, szkliwienie i wypał są w cenie. Nie dodawaj innych faktów.",
+          "reply": "1. Pierwszy raz z gliną? Zacznij w sobotę.\n2. Glina, szkliwo i wypał są w cenie.\n3. Ulep, oszkliw, wypal. Bez doświadczenia.",
+          "reply_chars": 124,
+          "reply_sha256": "b69127f6d4661a6b87c1f566838ebadc02c4b5cfb6ad6cff9b5bb1a1128ec855",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0595,
+          "seconds": 9.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "max_user_questions": 0
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 0)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "S01",
+      "title": "Vague film idea: at most one question or a labelled proposal",
+      "source": "evals/story-cases.json#SC01",
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1015,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić krótki film o poczuciu, że czas przecieka. Nie wiem jeszcze jak.",
+          "reply": "Czas, który przecieka, da się pokazać na kilka bardzo różnych sposobów. Oto cztery kierunki. Każdy ma inną drogę realizacji.\n\n1. **„Kapie\"**: zwykłe mieszkanie, a z sufitu kapią nie krople wody, tylko cyfry i minuty. Wpadają do garnka, kubka i zlewu, a ktoś spokojnie podstawia kolejne naczynia. Surrealizm z domowym spokojem. *Droga: film generowany (prompty do generatora wideo) albo zdjęcia z planu.*\n2. **„Kanapa\"**: jedno statyczne ujęcie osoby, która siedzi prawie bez ruchu. Dookoła światło przesuwa się przez dni, a za oknem zmieniają się pory roku. Ona wciąż trzyma telefon i ledwo się zmienia. *Droga: zdjęcia z planu i montaż albo generowane wideo z jednym ujęciem.*\n3. **„Siatka\"**: abstrakcja. Cały dorosły czas życia jako siatka kropek, na przykład tygodnie. Kropki gasną i wyciekają w dół ekranu, aż zostaje wąski pasek. Do tego tykanie, które gubi rytm. *Droga: animacja z kodu. Mogę ją zbudować i wyrenderować jako MP4 z dźwiękiem.*\n4. **„Rzeczy po drodze\"**: seria bardzo krótkich ujęć przedmiotów, które się kończą. Stygnąca kawa, topniejący lód, wypalająca się świeca i bateria telefonu. Na końcu pusta godzina. *Droga: ujęcia makro z planu albo wideo generowane.*\n\nKtóry z nich jest Ci najbliższy? Możesz też połączyć dwa albo napisać, co Ci w żadnym nie pasuje. Gdy wybierzesz, zapytam o długość i miejsce publikacji, a potem o ton: smutny, ironiczny czy kojący.\n\nJeśli wolisz poznawać warsztat krok po kroku, mogę przełączyć się na Tryb nauki.",
+          "reply_chars": 1466,
+          "reply_sha256": "a798745420d494c266c885fe4319d188692c296089677e5a35e6759b224fc370",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1015,
+          "seconds": 20.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_questions": 1
+              },
+              "passed": true,
+              "detail": "1 question marks (max 1)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "source": {
+    "commit": "acd36ae (1.55.0 records) plus the uncommitted Phase 1 changes that became 1.56.0",
+    "package_uncommitted_changes": true
+  },
+  "review": {
+    "purpose": "rerun of the three cases after the harness fix, the LM01 case change and the orchestrator rule change",
+    "note": "one sample per case; S01 now labels each direction with its route and asks one question"
+  }
+}

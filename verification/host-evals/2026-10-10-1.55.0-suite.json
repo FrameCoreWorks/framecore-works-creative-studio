@@ -1,0 +1,958 @@
+{
+  "date": "2026-10-10",
+  "package_version": "1.55.0",
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 12,
+    "FAIL": 3,
+    "ERROR": 0,
+    "cases": 15,
+    "skipped_for_budget": [],
+    "cost_usd": 1.6825
+  },
+  "cases": [
+    {
+      "id": "W01",
+      "title": "Polish greeting with the Studio name gives the complete Polish welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "cost_usd": 0.0978,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0978,
+          "seconds": 7.8,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            },
+            {
+              "check": {
+                "skills": [
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W02",
+      "title": "Bare Studio name gives the complete English welcome (provisional fallback)",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "cost_usd": 0.0924,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "I am FrameCore Works Creative Studio. I help develop ideas, create creative materials and improve projects — from the first concept through production planning and further revisions.\n\nI can help you with:\n\n- **Graphics and advertising materials** — posters, flyers, banners, social media posts and ideas for the look of a campaign.\n- **Video, motion design and storytelling** — reels, ads, animated graphics and typography, scripts, music videos, storyboards, shot plans and character direction.\n- **Writing** — headlines, descriptions, slogans, dialogue and adapting language to your audience.\n- **Prompts and references** — instructions for creating images and video, and organizing examples that guide the project.\n- **Music, voice and sound** — musical concepts, lyrics and instructions for audio tools, and planning sound design.\n- **Editing and refining materials** — scene order, subtitles, rhythm, animation plans and specific improvements to supplied work.\n\nI help with both individual materials and larger campaigns. We can also learn these skills step by step. File preparation and analysis use the tools available in the current conversation.\n\nIf you have a logo, photos, graphics, a video, text, examples or documents, you can add them now or later.\n\n**Choose where to start:**\n\n1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.\n2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.\n3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.\n\nEnter **1**, **2** or **3**.",
+          "reply_chars": 1732,
+          "reply_sha256": "a7cc05dc6250d1cc7e3ae779a0acf196febe1d3992fe00de6b8dd511b6893d08",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0924,
+          "seconds": 6.7,
+          "checks": [
+            {
+              "check": {
+                "welcome": "en"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.en.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W04",
+      "title": "Option 3 after the welcome asks what the skill should do; no search yet",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "cost_usd": 0.21,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0955,
+          "seconds": 8.1,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "3",
+          "reply": "Opisz, co ten skill ma robić: jakie zadanie, na jakim materiale i jaki ma być wynik.",
+          "reply_chars": 84,
+          "reply_sha256": "d5476d472381ef18c9d00640b256d77ad6ce3b8ae6a81eeec915b0fa4ca5c53d",
+          "skills": [],
+          "tools": [
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1145,
+          "seconds": 3.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "0 question marks (max 2)"
+            },
+            {
+              "check": {
+                "max_chars": 1500
+              },
+              "passed": true,
+              "detail": "84 chars (max 1500)"
+            },
+            {
+              "check": {
+                "no_command": "find_skills"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W05",
+      "title": "Option 1 after the welcome offers the quick and expanded pace",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.199,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0956,
+          "seconds": 7.7,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "1",
+          "reply": "Wybrano tryb kreatywny. Wybierz tempo pracy:\n\n1. **Tryb szybki** — mniej decyzji do podjęcia. Zwracam kilka zwięzłych, różnych kierunków i następny krok.\n2. **Tryb rozbudowany** — rozwijamy pomysł krok po kroku.\n\nWpisz **1** albo **2**.",
+          "reply_chars": 236,
+          "reply_sha256": "0e49b2794f4abe31f269749222853d93948cae44d08f7cf064427a007119e3ce",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1034,
+          "seconds": 2.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "min_numbered": 2
+              },
+              "passed": true,
+              "detail": "2 numbered lines (min 2)"
+            },
+            {
+              "check": {
+                "contains": [
+                  "szybki",
+                  "rozbudowany"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W06",
+      "title": "Option 2 after the welcome starts learning mode without creative menus",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1999,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0956,
+          "seconds": 7.5,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "2",
+          "reply": "Wybrano **Tryb nauki**. Zaczynam od jednego pytania.\n\n**Czego chcesz się nauczyć?**\n\n1. Grafika i materiały reklamowe (plakaty, posty, banery)\n2. Wideo, motion design i opowiadanie historii\n3. Teksty reklamowe i copywriting\n4. Prompty do obrazów i wideo\n5. Muzyka, głos i dźwięk\n6. Montaż i dopracowanie materiałów\n\nWpisz numer albo opisz własny temat. Możesz też napisać, że masz konkretny projekt, na którym chcesz się uczyć.",
+          "reply_chars": 427,
+          "reply_sha256": "0305de818a16678a42049845d18f86dfe7cf4e517bf39f4a5a7beb23c999b1d9",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1043,
+          "seconds": 3.0,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Tryb szybki"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "1 question marks (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "LM01",
+      "title": "A Polish start question without the Studio name reaches the welcome",
+      "source": "evals/learning-mode-cases.json#LM01",
+      "gate": false,
+      "verdict": "FAIL",
+      "cost_usd": 0.0504,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Hej, od czego zaczynamy?",
+          "reply": "Cześć! Katalog roboczy jest pusty, więc zaczynamy od zera. Wystarczy, że powiesz mi, co chcesz zrobić.\n\nMogę pomóc na przykład z:\n- **Kodem**: nowy projekt, skrypt, naprawa błędu albo przegląd kodu.\n- **Pracą kreatywną**: wideo, grafika, copy, scenariusz, napisy, dźwięk, kampania.\n- **Dokumentami**: raport, dokument, arkusz, prezentacja, PDF.\n- **Researchem**: zebranie informacji i podsumowanie.\n\nNapisz, co to ma być, do czego będzie służyć i czy masz już jakieś materiały lub ograniczenia (format, termin, język). Jeśli to jeszcze luźny pomysł, wystarczy kilka zdań, a ja uporządkuję resztę.",
+          "reply_chars": 596,
+          "reply_sha256": "5d4c657aafa1fe9ad5ef75d0cb6c7b46df504a4dc2dad55ad3edb8a9c33dac54",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0504,
+          "seconds": 6.8,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": false,
+              "detail": "differs from startup-welcome.pl.md (596 vs 1813 chars)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "V01",
+      "title": "Version question answers with the installed version, without the welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "cost_usd": 0.094,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio jaką wersję masz zainstalowaną?",
+          "reply": "Zainstalowany jest pakiet **framecore-work-creative-studio w wersji 1.55.0**.\n\n- **Źródło:** identyfikator pakietu w pliku wejściowym skilla `workflow-orchestrator`, który właśnie wczytałem z `/home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/workflow-orchestrator`.\n- **Zakres:** to wersja wczytanego pakietu w tej sesji. Nie sprawdzałem, czy to najnowsze wydanie na GitHubie ani jaka wersja jest zapisana w hostowanym wydaniu. Jeśli chcesz, mogę to porównać.",
+          "reply_chars": 499,
+          "reply_sha256": "b9fccd4ce92be96403f6e6fae7058d547d4d59f8185888f370d799cc8205b947",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.094,
+          "seconds": 6.4,
+          "checks": [
+            {
+              "check": {
+                "contains": [
+                  "{version}"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_chars": 1500
+              },
+              "passed": true,
+              "detail": "499 chars (max 1500)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "D01",
+      "title": "Direct Polish copy task: exactly three slogans, no welcome, no questions",
+      "source": "evals/studio-behavior-cases.json#H01",
+      "gate": true,
+      "verdict": "FAIL",
+      "cost_usd": 0.0626,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Podaj dokładnie trzy krótkie hasła dla sobotniego warsztatu ceramiki dla początkujących. Glina, szkliwienie i wypał są w cenie. Nie dodawaj innych faktów.",
+          "reply": "1. Zacznij od gliny. W sobotę.\n2. Pierwszy raz z ceramiką? Idealnie.\n3. Glina, szkliwo i wypał – wszystko w cenie.",
+          "reply_chars": 114,
+          "reply_sha256": "da652ddb15dd15237ca46d94a804598147c38db7fa2eb0355e9e635bea455550",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0626,
+          "seconds": 5.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "max_questions": 0
+              },
+              "passed": false,
+              "detail": "1 question marks (max 0)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "E01",
+      "title": "Direct English copy task stays in English",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0632,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio write exactly three short taglines for a Saturday beginner pottery workshop. Clay, glazing and firing are included. Add no other facts.",
+          "reply": "1. Start your Saturday with clay.\n2. Beginner pottery, from clay to firing.\n3. Clay, glazing and firing, all included.\n\nI used only the facts you gave: Saturday, beginner level, pottery, and clay, glazing and firing included. I left out a price, a duration, a location and any \"take it home\" promise.",
+          "reply_chars": 300,
+          "reply_sha256": "01053555a38f891ba5208210ed463056c84bd104185125e4d2f47e106074b7cf",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0632,
+          "seconds": 7.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "max_questions": 0
+              },
+              "passed": true,
+              "detail": "0 question marks (max 0)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "P01",
+      "title": "Image prompt request returns one copyable prompt",
+      "source": "evals/presentation-cases.json#PI01",
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0666,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do generatora obrazów: ceramiczny kubek na lnianym obrusie, poranne światło, bez tekstu.",
+          "reply": "Nie podałeś generatora, więc prompt jest w naturalnym języku, bez parametrów żadnego konkretnego modelu. Jest po angielsku, bo tak zwykle działa najlepiej.\n\n```\nA handmade ceramic mug standing on a softly wrinkled natural linen tablecloth, shot as a realistic still-life photograph. The mug has a matte glaze in warm off-white with subtle speckles and a slightly irregular hand-thrown rim; a thin curl of steam rises from it. Soft, low morning sunlight enters from a window on the left, casting gentle long shadows across the linen and a warm glow on the mug's edge. The linen's coarse weave and natural folds are clearly visible. Palette of creamy whites, warm beige and pale gold, with a calm, quiet, cozy mood. Camera at a slight three-quarter angle, about 35–50 mm lens equivalent, shallow depth of field with the mug in sharp focus and the background softly blurred. The mug is placed slightly off-centre with room to breathe around it. No text, no letters, no logos, no labels, no writing anywhere in the image.\n```\n\n**Notatka produkcyjna**\n- **Format:** domyślnie poziomo 4:3 lub 3:2. Do social mediów zmień na 4:5 pionowo.\n- **Pierwszy punkt uwagi:** mug, potem światło i faktura lnu.\n- **Do sprawdzenia po wygenerowaniu:**\n  - czy na kubku lub obrusie nie pojawiły się napisy albo pseudo-litery,\n  - czy ucho kubka ma poprawny kształt,\n  - czy światło pada spójnie z jednej strony.\n- **Warianty:** jeśli chcesz inny klimat, daj znać. Mogę zmienić kolor glazury, dodać drugi rekwizyt (np. gałązkę lub łyżeczkę) albo zrobić ujęcie z góry (flat lay).\n\nPodaj nazwę generatora (np. Midjourney, DALL·E, Flux, Imagen), a dopasuję prompt do jego składni.",
+          "reply_chars": 1655,
+          "reply_sha256": "2c60ebfce025eb1f454706c95f4d373ee5f7a89efdd1b230f348d0d1f3dadb14",
+          "skills": [
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0666,
+          "seconds": 11.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "code_block": true
+              },
+              "passed": true,
+              "detail": "has a code block"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "image-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['image-prompt-architect']; expected one of ['image-prompt-architect']"
+            },
+            {
+              "check": {
+                "max_questions": 1
+              },
+              "passed": true,
+              "detail": "0 question marks (max 1)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M01",
+      "title": "App promo video: one short choice between a generator prompt and a coded MP4",
+      "source": "evals/motion-sound-cases.json#MS01",
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1043,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 15-sekundowy film promocyjny mojej aplikacji do nauki słówek. Mam trzy zrzuty ekranu.",
+          "reply": "Nie widzę żadnych zrzutów ekranu. Katalog roboczy jest pusty, a w wiadomości nie było załączników, więc nie mam materiału do zmontowania.\n\nFilm zrobię w Motion Graphics Workflow. Z trzech zrzutów ekranu, tekstu i animacji wyrenderuję gotowy MP4 w 15 sekund. Potrzebuję od Ciebie:\n\n1. **Trzech zrzutów ekranu.** Wrzuć je do katalogu roboczego albo dołącz ponownie do wiadomości. Najlepiej w pełnej rozdzielczości, bez ramek telefonu.\n2. **Nazwy aplikacji** i, jeśli masz, logo.\n3. **Jednej rzeczy, którą aplikacja robi najlepiej.** Na przykład fiszki z powtórkami, nauka przez gry albo codzienne 5 minut. Na tej podstawie napiszę hasło i układ kadrów.\n\nMogę też od razu ustalić te rzeczy. Jeśli nie odpowiesz, przyjmę wartości domyślne:\n- **Format:** pionowy 9:16 (Reels, TikTok, Shorts). Jeśli wolisz 16:9 albo 1:1, napisz.\n- **Język napisów:** polski.\n- **Dźwięk:** krótka muzyka z subtelnymi efektami przy przejściach. Lektora nie będzie.\n- **Układ:** hak (ok. 2 s), trzy ekrany po ok. 3–4 s każdy, a na końcu logo i wezwanie do działania (ok. 3 s).\n\nGdy wgrasz zrzuty, zacznę od razu.",
+          "reply_chars": 1087,
+          "reply_sha256": "4ab232776d5384427630b9aee437cd92ab5aa58d81df29cbf8620be506e6b31e",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1043,
+          "seconds": 11.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "MP4"
+              },
+              "passed": true,
+              "detail": "/MP4/"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "0 question marks (max 2)"
+            },
+            {
+              "check": {
+                "no_command": "render"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "S01",
+      "title": "Vague film idea: at most one question or a labelled proposal",
+      "source": "evals/story-cases.json#SC01",
+      "gate": false,
+      "verdict": "FAIL",
+      "cost_usd": 0.1007,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić krótki film o poczuciu, że czas przecieka. Nie wiem jeszcze jak.",
+          "reply": "Zacznę od kilku różnych kierunków. Każdy pokazuje przeciekanie czasu inną metaforą.\n\n**1. Klepsydra z dziurą w dnie.** Film jest czysto wizualny, jedno ujęcie z powolnym ruchem kamery. Piasek (albo woda) nie przesypuje się równo, tylko ucieka bokiem przez pęknięcie, a ktoś patrzy na to i nie reaguje. Jest cichy, medytacyjny i prosty w realizacji.\n\n**2. Zwykły dzień, który się „sypie\".** Film pokazuje codzienne czynności, takie jak kawa, telefon, okno i tramwaj. W każdym kolejnym ujęciu zostaje po nich mniej: znika kontur, kolor albo dźwięk. Na końcu bohater orientuje się, że jest już wieczór. Ma wyraźną historię i emocję „gdzie ten dzień się podział\".\n\n**3. Typografia i liczby.** Film jest zrobiony w całości z tekstu i cyfr. Godzina, data i lista rzeczy „na później\" rozpływają się w pionowe smugi. Jest rytmiczny i graficzny, a do tego da się go zrobić kodem, bez planu zdjęciowego i bez generatora wideo.\n\n**4. Pokój, w którym czas jest cieczą.** Wnętrze wypełnia się powoli czymś, co zalewa kolejne rzeczy, na przykład zegar, kalendarz i zdjęcia. Bohater stoi nieruchomo. To najbardziej surrealistyczna wersja, najlepsza do generatora wideo.\n\n**Co muszę wiedzieć, żeby iść dalej:**\n- Który kierunek jest Ci najbliższy? Możesz też połączyć dwa albo odrzucić wszystkie i powiedzieć, czego w nich brakuje.\n- Czy ma to być wideo z generatora (kierunki 1, 2 i 4), czy animacja z kodu z gotowym MP4 (kierunek 3, a częściowo 1)? Jeśli nie masz zdania, wybiorę za Ciebie po kierunku.\n\nJeśli wolisz poznać warsztat krok po kroku zamiast dostać gotowy wynik, możemy przejść w tryb nauki.",
+          "reply_chars": 1590,
+          "reply_sha256": "9cd8aa58962e896aacd983e65edc6041f45e062ea27ba107fbbbe833e27cbcee",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1007,
+          "seconds": 13.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_questions": 1
+              },
+              "passed": false,
+              "detail": "2 question marks (max 1)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "R01",
+      "title": "Store campaign routes to the ecommerce campaign director, not generic marketing",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0838,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio zaplanuj kampanię w social media dla mojego sklepu internetowego z miodem na premierę nowego smaku.",
+          "reply": "# Kampania social media: premiera nowego smaku miodu\n\nTo jest wstępny plan na założeniach. Nie znam jeszcze smaku, ceny, oferty ani adresu sklepu, więc wszystko, co od nich zależy, zostawiam jako pola do uzupełnienia. Nie zmyślam właściwości miodu, certyfikatów ani opinii.\n\n## 1. Co wiem, a co muszę potwierdzić\n\n| Potwierdzone | Do uzupełnienia |\n|---|---|\n| Sklep internetowy z miodem | Nazwa i opis nowego smaku (np. miód z dodatkiem, nowy gatunek) |\n| Cel: premiera nowego smaku | Cena, wielkość słoika, oferta premierowa, limit sztuk |\n| | Data premiery i adres sklepu |\n| | Dozwolone deklaracje (pochodzenie, skład, certyfikaty) |\n| | Zdjęcia produktu, kanały (Instagram, Facebook, TikTok?), budżet |\n\n## 2. Założenia robocze\n- **Odbiorcy:** obecni klienci, którzy już znają sklep (szybka sprzedaż), oraz osoby szukające dobrego prezentu lub naturalnych produktów spożywczych (nowi klienci).\n- **Główna bariera:** „czy ten smak mi zasmakuje i czy warto spróbować czegoś nowego?”. Odpowiadają na nią próbka, zestaw degustacyjny i mały słoik.\n- **Teza kampanii (do dopracowania po poznaniu smaku):** „Nowy smak, który warto spróbować jako pierwszy”. Kampania opiera się na zapowiedzi, odkrywaniu smaku i premierowej ofercie.\n\n## 3. Cztery kąty kreatywne\n1. **Smak i sensoryka.** Ujęcia makro: spływanie miodu, konsystencja, kolor. Pokazują, jak smak wygląda.\n2. **Zastosowanie.** Trzy sposoby użycia, np. do herbaty, na tosta, do sera. Odpowiada na pytanie „co z tym zrobić?”.\n3. **Za kulisami.** Pasieka lub producent i historia powstania smaku. Używam tylko prawdziwych materiałów i potwierdzonych faktów.\n4. **Prezent i próba.** Zestaw lub mały słoik jako pierwszy krok.\n\nW pierwszej partii testów zmieniam tylko jedną rzecz: kąt kreatywny. Oferta, odbiorcy i format zostają stałe.\n\n## 4. Harmonogram (3 fazy, ok. 3 tygodnie)\n\n| Faza | Czas | Cel | Treści |\n|---|---|---|---|\n| **Zapowiedź** | T-7 do T-1 | Zapisy na listę, zainteresowanie | Teaser bez pokazywania produktu, sondaż „zgadnij smak”, odliczanie w Stories, zapis na wcześniejszy dostęp (mail/SMS) |\n| **Premiera** | T0 do T+4 | Sprzedaż | Reel z odsłonięciem smaku, karuzela „3 sposoby użycia”, post ze zdjęciem produktu i ofertą, Stories z linkiem, reklama płatna na kąty 1 i 2 |\n| **Podtrzymanie** | T+5 do T+14 | Konwersja i dowody społeczne | Prawdziwe opinie i zdjęcia klientów (tylko realne, za zgodą), retargeting osób, które oglądały lub weszły do sklepu, przypomnienie przed końcem oferty |\n\n## 5. Macierz treści (propozycja)\n\n| Format | Rola | Kanał |\n|---|---|---|\n| Reel 15–20 s, odsłonięcie smaku | Zasięg i zainteresowanie | IG, TikTok, FB |\n| Karuzela „sposoby użycia” | Edukacja i zapisy | IG, FB |\n| Statyczny post produktowy z ofertą | Konwersja | IG, FB (reklama) |\n| Stories z naklejką linku i odliczaniem | Ruch do sklepu | IG, FB |\n| Krótki film twórcy (UGC) | Zaufanie, jeśli będzie prawdziwy twórca | TikTok, Reels |\n\n## 6. Plan testów\n- **Hipoteza 1:** Reel „smak i sensoryka” przyniesie więcej wejść do sklepu niż reel „zastosowanie”.\n- **Stałe elementy:** ta sama oferta, ten sam odbiorca, ten sam budżet na wariant.\n- **Sygnał sukcesu:** koszt wejścia do sklepu i dodania do koszyka. Progi ustalimy po poznaniu budżetu, żadnych wymyślonych wyników.\n- **Znaczenie porażki:** jeśli oba warianty wypadną słabo, problem leży raczej w ofercie lub cenie niż w kreacji.\n\n## 7. Rejestr deklaracji\n- **Dozwolone po potwierdzeniu:** skład, pochodzenie, wielkość słoika, cena, data i czas oferty.\n- **Wstrzymane:** wszelkie deklaracje zdrowotne (np. „wzmacnia odporność”), „100% naturalny” bez podstawy, certyfikaty, opinie klientów i hasła o niedoborze, dopóki nie będą udokumentowane.\n- Zdrowotne deklaracje dla miodu podlegają regulacjom, więc pozostajemy przy smaku, użyciu i pochodzeniu.\n\n## 8. Co dalej\nŻeby domknąć plan i przejść do copy, kreacji i harmonogramu publikacji, potrzebuję przede wszystkim:\n\n1. **Jaki to smak** i co o nim wiesz na pewno (skład, pochodzenie, co go wyróżnia).\n2. **Adres sklepu** albo opis oferty: cena, rabat premierowy, limit.\n\nPozostałe rzeczy, czyli kanały, budżet, datę premiery i dostępne zdjęcia lub filmy, możesz podać razem z nimi. Po tych informacjach przygotuję pełny pakiet: kalendarz publikacji, teksty postów i skrypty rolek oraz briefy dla grafik i wideo.",
+          "reply_chars": 4293,
+          "reply_sha256": "a005fa82278744eb81039b83853f1afd9cdcf766ef3d5d9cf72199f68983a807",
+          "skills": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0838,
+          "seconds": 24.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "1 question marks (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "F01",
+      "title": "Skill search for captions recommends Studio's own Caption Studio first",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.072,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio szukam skilla, który zrobi animowane napisy słowo po słowie do rolek z mojego nagrania.",
+          "reply": "Uruchomiłem **caption-studio**. W katalogu roboczym nie ma jeszcze twojego nagrania ani transkrypcji, więc nie mogę zacząć. Skill robi napisy słowo po słowie: podświetla aktywne słowo, dobiera segmentację i styl oraz pilnuje safe zones. Wypala je w wideo albo oddaje jako plik z napisami.\n\nŻeby przygotować plan napisów, potrzebuję od ciebie tego:\n\n1. **Nagranie lub transkrypcja.** Wgraj plik wideo albo audio do katalogu roboczego. Jeśli masz już SRT, VTT albo transkrypcję z czasami słów, wgraj je razem z nagraniem. Skill sam nie wysyła nic do zewnętrznej transkrypcji. Jeśli chcesz transkrypcję lokalną, potwierdź to, a sprawdzę, jakie narzędzia są dostępne.\n2. **Słowa do zachowania bez zmian.** Podaj nazwy własne, marki i cytaty, których nie wolno poprawiać.\n3. **Platforma i format.** Domyślnie przyjmę pion 9:16 dla Reels, TikToka i Shorts. Napisz, jeśli to ma być coś innego.\n4. **Styl.** Mam do wyboru:\n   - **Karaoke:** aktywne słowo zmienia kolor.\n   - **Pop/bounce:** każde słowo pojawia się osobno, z lekkim \"odbiciem\".\n   - **Czysty minimal:** 1–3 słowa na raz, bez efektów.\n\n   Wskaż jeden albo napisz \"wybierz sam\".\n5. **Wynik.** Wypalone napisy w wideo (MP4) czy plik z napisami (SRT/ASS)? Mogę też zrobić jedno i drugie.\n\nGdy wgrasz plik, przygotuję plan napisów z czasami i stylem. Potem sprawdzę, co da się wyrenderować lokalnie.",
+          "reply_chars": 1352,
+          "reply_sha256": "4abe62d8fde1cc14838ce5fa33cc0e592f7014dd51f79192fde6b9093725d166",
+          "skills": [
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.072,
+          "seconds": 12.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Caption Studio",
+                  "caption-studio"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['caption-studio']"
+            },
+            {
+              "check": {
+                "no_command": "npx skills add"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "F02",
+      "title": "Catalog search for UI sounds reads audits and installs nothing",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1858,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio szukam skilla do generowania krótkich dźwięków interfejsu (kliknięcia, powiadomienia). Sprawdź też otwarty katalog.",
+          "reply": "**Katalog roboczy:** `/tmp/studio-eval-bh8xw3ou/work` jest pusty. Nie ma w nim plików ani skilli.\n\n## Skille Studio\nŻaden skill Studio nie generuje samodzielnych dźwięków UI.\n- **Audio Production Director** przygotowuje tylko tekstowe pakiety zadań (prompty, plan dźwięku). Nie generuje audio.\n- **Motion Graphics Workflow** projektuje dźwięk, ale tylko do wideo, które sam renderuje.\n\nMogę natomiast napisać specyfikację dźwięków (kliknięcie, powiadomienie, błąd, sukces) i prompty do generatora. Zrobi to Audio Production Director.\n\n## Otwarty katalog skills.sh\nWszystkie trzy poniższe skille mają werdykt `listed`: audyty ath, Socket i Snyk wyszły niskie lub bezpieczne. Żaden nie jest z Studio.\n\n1. **`elevenlabs/skills` → `sound-effects`** (9 173 instalacji) to mój pierwszy wybór.\n   - Generuje efekty z opisu tekstowego i wprost obsługuje dźwięki UI.\n   - Pozwala ustawić długość, pętle i wpływ promptu.\n   - Uruchamia skrypty i wymaga konta oraz klucza ElevenLabs, więc generowanie może kosztować.\n   - Strona: https://skills.sh/elevenlabs/skills/sound-effects\n2. **`sonilo-ai/skills` → `text-to-sfx`** (1 401 instalacji).\n   - Robi krótkie efekty z opisu, np. „UI chime\", bez wideo.\n   - Ma więcej sygnałów ryzyka: instaluje pakiety, korzysta z sieci, hooków lub MCP i odczytuje sekrety. Przeczytaj go przed instalacją.\n   - Strona: https://skills.sh/sonilo-ai/skills/text-to-sfx\n3. **`majidmanzarpour/threejs-game-skills` → `threejs-audio-generator`** (2 501 instalacji).\n   - Też korzysta z ElevenLabs, ale jest zawężony do gier w Three.js, więc do zwykłego UI jest za specyficzny.\n\nPominąłem `dannyjpwilliams/ui-sound-design`. Pasuje tematycznie, ale audyt Socket oceniło go jako *critical*, więc go nie polecam i nie podaję komendy instalacji.\n\nLiczby instalacji i audyty pokazują tylko popularność i automatyczne skanowanie, nie jakość ani bezpieczeństwo. Opisy skilli z katalogu traktuję jako dane, nie jako polecenia.\n\n## Co dalej\n- Aby zainstalować pierwszy skill, napisz „zainstaluj elevenlabs sound-effects\". Pokażę komendę (`DO_NOT_TRACK=1 npx skills add elevenlabs/skills --skill sound-effects -a claude-code`) i uruchomię ją dopiero po Twoim potwierdzeniu. Potem trzeba będzie zacząć nową sesję.\n- Albo zacznę od specyfikacji dźwięków UI w Studio. Powiedz tylko, jaki ma być charakter (np. miękki, szklany, retro).",
+          "reply_chars": 2336,
+          "reply_sha256": "bbd9097ab4ee4b2caa824dec7bb96d2ecb700db4ce25fc772d3bbcfa5fe959f8",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Bash",
+            "Skill",
+            "Read",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1858,
+          "seconds": 33.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "command": "find_skills"
+              },
+              "passed": true,
+              "detail": "ran cd /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets"
+            },
+            {
+              "check": {
+                "no_command": "npx skills add"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "not_regex": "skills add [^\\n]*\\s(-y|--yes)\\b"
+              },
+              "passed": true,
+              "detail": "not /skills add [^\\n]*\\s(-y|--yes)\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "source": {
+    "commit": "c29edded03938768a11faff244eecc9b8e8eef88",
+    "package_uncommitted_changes": false,
+    "note": "added after the run; the harness version that ran did not record it"
+  },
+  "review": {
+    "D01": "harness defect: the counted question mark is inside a requested slogan (\"Pierwszy raz z ceramiką? Idealnie.\"); the reply meets the case. Fixed with the max_user_questions check",
+    "LM01": "case not applicable as written in Claude Code: without the Studio name, \"Hej, od czego zaczynamy?\" is a general greeting and Claude Code answered generically without loading Studio. In ChatGPT the plugin is invoked explicitly. The case now adds the Studio name",
+    "S01": "product finding: after offering four directions Studio asked two questions (direction and generator versus code). Fixed in workflow-orchestrator SKILL.md: one next decision, each direction labelled with its route, route and format asked only after the choice",
+    "verdict_after_review": "13 of 15 met the intended behaviour; 1 product finding; 1 case not applicable as written"
+  }
+}

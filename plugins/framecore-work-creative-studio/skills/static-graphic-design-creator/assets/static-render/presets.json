@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "checked": "2026-10-10",
+  "status": "provisional: platform sizes change and print shops differ; confirm in the ad manager's placement preview or with the print shop before a final",
+  "sources": [
+    "LinkedIn single image ad specifications (business.linkedin.com/advertise/ads/sponsored-content/single-image-ads-specs), read through a search summary on 2026-10-10",
+    "Third-party summaries of Meta's ad specifications and safe zones (adsuploader.com, billo.app, adkit.so, admakeai.com), 2026; they agree on sizes and disagree on safe-zone percentages, so the most conservative values are used",
+    "Print sizes are ISO 216 A and B series and common Polish formats; bleed, resolution and colour profiles are common print-shop defaults, not a standard"
+  ],
+  "sizes": {
+    "instagram-feed-portrait": {"px": [1080, 1350], "ratio": "4:5", "use": "Instagram and Facebook feed post or ad (the most screen space in the feed)"},
+    "instagram-square": {"px": [1080, 1080], "ratio": "1:1", "use": "square feed post, carousel card, marketplace"},
+    "story-reel-vertical": {"px": [1080, 1920], "ratio": "9:16", "use": "Stories and Reels covers or ads; keep text inside the safe area", "safe_area": {"top": 0.14, "bottom": 0.35, "sides": 0.06}},
+    "facebook-link": {"px": [1200, 628], "ratio": "1.91:1", "use": "link preview, landscape feed ad"},
+    "linkedin-square": {"px": [1200, 1200], "ratio": "1:1", "use": "LinkedIn single image ad or post"},
+    "linkedin-landscape": {"px": [1200, 628], "ratio": "1.91:1", "use": "LinkedIn landscape single image ad"},
+    "youtube-thumbnail": {"px": [1280, 720], "ratio": "16:9", "use": "YouTube thumbnail (from general knowledge; not re-checked on 2026-10-10)"},
+    "x-landscape": {"px": [1600, 900], "ratio": "16:9", "use": "X post image (from general knowledge; not re-checked on 2026-10-10)"},
+    "pinterest-pin": {"px": [1000, 1500], "ratio": "2:3", "use": "Pinterest pin (from general knowledge; not re-checked on 2026-10-10)"},
+    "slide-16x9": {"px": [1920, 1080], "ratio": "16:9", "use": "presentation slide, screen, event display"},
+    "a6": {"mm": [105, 148], "use": "flyer, postcard"},
+    "a5": {"mm": [148, 210], "use": "flyer, leaflet, menu"},
+    "a4": {"mm": [210, 297], "use": "flyer, notice, small poster"},
+    "a3": {"mm": [297, 420], "use": "poster"},
+    "a2": {"mm": [420, 594], "use": "poster"},
+    "a1": {"mm": [594, 841], "use": "large poster", "dpi": 150},
+    "b2": {"mm": [500, 707], "use": "poster (ISO B2)"},
+    "b1": {"mm": [707, 1000], "use": "large poster (ISO B1)", "dpi": 150},
+    "poster-50x70": {"mm": [500, 700], "use": "poster 50 x 70 cm"},
+    "poster-70x100": {"mm": [700, 1000], "use": "poster 70 x 100 cm", "dpi": 150},
+    "dl": {"mm": [99, 210], "use": "DL leaflet, invitation"},
+    "business-card-pl": {"mm": [90, 50], "use": "business card, Polish standard"},
+    "business-card-eu": {"mm": [85, 55], "use": "business card, EU format"},
+    "rollup-85x200": {"mm": [850, 2000], "use": "roll-up banner; many shops want 5 mm or more bleed and a bottom zone hidden in the stand: ask", "dpi": 100, "bleed_mm": 5}
+  },
+  "print_defaults": {
+    "bleed_mm": 3,
+    "dpi": 300,
+    "safe_margin_mm": 5,
+    "large_format_note": "Posters from A1 and banners are viewed from a distance; 100 to 150 ppi effective is common. Ask the print shop.",
+    "colour": "The tool writes RGB. Coated paper in Poland is usually printed with FOGRA39 (ISO Coated v2) or the newer PSO Coated v3 (FOGRA51), uncoated with PSO Uncoated v3 (FOGRA52). Use the profile the print shop names (--icc) or let the shop convert, and say which."
+  }
+}

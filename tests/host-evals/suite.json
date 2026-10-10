@@ -1,0 +1,380 @@
+{
+  "name": "studio-host-starter",
+  "description": "Starter host suite for headless Claude Code (scripts/host_eval.py). Cases with \"source\" take their user request and rubric from the package evals; \"prefix\" adds the Studio name the way a user addresses the plugin. Checks are deterministic and decide the verdict; the rubric feeds only the advisory judge. \"gate\" marks the release-gate subset.",
+  "cases": [
+    {
+      "id": "W01",
+      "gate": true,
+      "title": "Polish greeting with the Studio name gives the complete Polish welcome",
+      "turns": [
+        {
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "checks": [
+            {
+              "welcome": "pl"
+            },
+            {
+              "skills": [
+                "workflow-orchestrator"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "gate": true,
+      "title": "Bare Studio name gives the complete English welcome (provisional fallback)",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio",
+          "checks": [
+            {
+              "welcome": "en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "gate": true,
+      "title": "Option 3 after the welcome asks what the skill should do; no search yet",
+      "turns": [
+        {
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "checks": [
+            {
+              "welcome": "pl"
+            }
+          ]
+        },
+        {
+          "prompt": "3",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_questions": 2
+            },
+            {
+              "max_chars": 1500
+            },
+            {
+              "no_command": "find_skills"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "After 3, one question asks what the skill should do; no menu is repeated",
+        "Nothing is searched or installed before the user describes the skill"
+      ]
+    },
+    {
+      "id": "W05",
+      "title": "Option 1 after the welcome offers the quick and expanded pace",
+      "turns": [
+        {
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "checks": [
+            {
+              "welcome": "pl"
+            }
+          ]
+        },
+        {
+          "prompt": "1",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "min_numbered": 2
+            },
+            {
+              "contains": [
+                "szybki",
+                "rozbudowany"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany and waits"
+      ]
+    },
+    {
+      "id": "W06",
+      "title": "Option 2 after the welcome starts learning mode without creative menus",
+      "turns": [
+        {
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "checks": [
+            {
+              "welcome": "pl"
+            }
+          ]
+        },
+        {
+          "prompt": "2",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "not_contains": [
+                "Tryb szybki"
+              ]
+            },
+            {
+              "max_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Learning mode asks what the user wants to learn or offers learning domains",
+        "No creative pace menu is shown to a learner"
+      ]
+    },
+    {
+      "id": "LM01",
+      "source": "evals/learning-mode-cases.json#LM01",
+      "title": "A Polish start question addressed to Studio reaches the complete welcome",
+      "checks": [
+        {
+          "welcome": "pl"
+        }
+      ],
+      "prefix": "@FrameCore Works Creative Studio ",
+      "host_note": "In ChatGPT the plugin is invoked explicitly, so the eval message arrives inside Studio. In Claude Code the same words without the Studio name are a general greeting that need not load Studio (first run, 2026-10-10: generic Claude Code reply), so the case adds the name."
+    },
+    {
+      "id": "V01",
+      "gate": true,
+      "title": "Version question answers with the installed version, without the welcome",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio jaką wersję masz zainstalowaną?",
+          "checks": [
+            {
+              "contains": [
+                "{version}"
+              ]
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "max_chars": 1500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D01",
+      "gate": true,
+      "source": "evals/studio-behavior-cases.json#H01",
+      "prefix": "@FrameCore Works Creative Studio ",
+      "title": "Direct Polish copy task: exactly three slogans, no welcome, no questions",
+      "checks": [
+        {
+          "not_welcome": true
+        },
+        {
+          "items": 3
+        },
+        {
+          "max_user_questions": 0
+        },
+        {
+          "language": "pl"
+        }
+      ]
+    },
+    {
+      "id": "E01",
+      "title": "Direct English copy task stays in English",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio write exactly three short taglines for a Saturday beginner pottery workshop. Clay, glazing and firing are included. Add no other facts.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "items": 3
+            },
+            {
+              "language": "en"
+            },
+            {
+              "max_user_questions": 0
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Exactly three distinct taglines",
+        "No invented facts beyond clay, glazing, firing, Saturday and beginners"
+      ]
+    },
+    {
+      "id": "P01",
+      "source": "evals/presentation-cases.json#PI01",
+      "prefix": "@FrameCore Works Creative Studio ",
+      "title": "Image prompt request returns one copyable prompt",
+      "checks": [
+        {
+          "not_welcome": true
+        },
+        {
+          "code_block": true
+        },
+        {
+          "skills_any": [
+            "image-prompt-architect"
+          ]
+        },
+        {
+          "max_questions": 1
+        }
+      ]
+    },
+    {
+      "id": "M01",
+      "source": "evals/motion-sound-cases.json#MS01",
+      "prefix": "@FrameCore Works Creative Studio ",
+      "title": "App promo video: one short choice between a generator prompt and a coded MP4",
+      "checks": [
+        {
+          "not_welcome": true
+        },
+        {
+          "regex": "MP4"
+        },
+        {
+          "max_questions": 2
+        },
+        {
+          "no_command": "render"
+        }
+      ]
+    },
+    {
+      "id": "S01",
+      "source": "evals/story-cases.json#SC01",
+      "prefix": "@FrameCore Works Creative Studio ",
+      "title": "Vague film idea: at most one question or a labelled proposal",
+      "checks": [
+        {
+          "not_welcome": true
+        },
+        {
+          "max_questions": 1
+        },
+        {
+          "language": "pl"
+        }
+      ]
+    },
+    {
+      "id": "R01",
+      "title": "Store campaign routes to the ecommerce campaign director, not generic marketing",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio zaplanuj kampanię w social media dla mojego sklepu internetowego z miodem na premierę nowego smaku.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "ecommerce-campaign-strategy-director"
+              ]
+            },
+            {
+              "max_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Asks at most one consequential question or states assumptions and proposes a plan",
+        "Does not invent product facts, prices or claims"
+      ]
+    },
+    {
+      "id": "F01",
+      "title": "Skill search for captions recommends Studio's own Caption Studio first",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio szukam skilla, który zrobi animowane napisy słowo po słowie do rolek z mojego nagrania.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "contains_any": [
+                "Caption Studio",
+                "caption-studio"
+              ]
+            },
+            {
+              "no_command": "npx skills add"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Studio's own Caption Studio is recommended before any catalog skill",
+        "Nothing is installed"
+      ]
+    },
+    {
+      "id": "F02",
+      "extra_tools": [
+        "Bash(python3:*)"
+      ],
+      "title": "Catalog search for UI sounds reads audits and installs nothing",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio szukam skilla do generowania krótkich dźwięków interfejsu (kliknięcia, powiadomienia). Sprawdź też otwarty katalog.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "command": "find_skills"
+            },
+            {
+              "no_command": "npx skills add"
+            },
+            {
+              "not_regex": "skills add [^\\n]*\\s(-y|--yes)\\b"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Studio's own capabilities are checked first",
+        "Candidates are shown with audits or verdicts; a blocked skill gets no install command",
+        "Nothing is installed without an explicit request"
+      ]
+    }
+  ]
+}

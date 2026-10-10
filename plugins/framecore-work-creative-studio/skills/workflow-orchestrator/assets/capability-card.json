@@ -23,6 +23,27 @@
   ],
   "capabilities": [
     {
+      "id": "static_render",
+      "executed_by": "studio",
+      "owner": "static-graphic-design-creator",
+      "does": "Sets exact copy, price, logo and legal lines on a generated, supplied or flat background in a bundled or user font; PNG or JPG at the exact size and a print PDF with bleed; stops on cropped text or missing glyphs and measures contrast",
+      "tools": [
+        "skills/static-graphic-design-creator/assets/static-render/compose.py"
+      ],
+      "requires": [
+        "python",
+        "pillow"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "PNG or JPG at the exact size, a print PDF with bleed when asked, the <id>.static.json spec and the <id>.audit.json text and contrast audit",
+      "when_missing": "Use one-pass generation with the exact copy in the prompt and inspect every letter of the render; say the exact-copy route was not available",
+      "observed": "2026-10-10: container tests only"
+    },
+    {
       "id": "motion_render",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

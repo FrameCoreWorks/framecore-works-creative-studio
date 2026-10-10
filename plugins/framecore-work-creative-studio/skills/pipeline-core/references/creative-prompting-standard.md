@@ -42,7 +42,8 @@ Use these controls whenever their subject exists:
   composition, and visual finish. Avoid adjective piles that cannot be checked.
 - Exact visible text is quoted and paired with hierarchy, safe area, and a
   correction route. A text requirement is not satisfied by a later overlay
-  unless the user explicitly requests editable or coded output.
+  unless the user explicitly requests editable or coded output, or the named
+  exact-copy route of the text policy sets it with the static compositor.
 - An edit request states both what changes and what must remain unchanged. A
   source asset, mask, or reference role is attached to that exact request.
 - A strict identity, product, location, wardrobe, prop, lighting, action-state,

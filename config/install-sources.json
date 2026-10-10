@@ -4063,8 +4063,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 7840,
-      "sha256": "7c6da93cc8ba2c1a156c27332c48fd954f40920c62109e85b97abc76704378fb"
+      "bytes": 8082,
+      "sha256": "4bdb677109e0306c0fdc49bebcd381199237658daf6fe15dd4841894321fb736"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -4223,8 +4223,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 19246,
-      "sha256": "edef2bda82cf7c016a90b4c694080e176556cd461d1f0aaf0d342a4d01dc2726"
+      "bytes": 19437,
+      "sha256": "a69fab5d41cfa206100c7a49fddfa2103397bca32a538b9662871954efa7dd44"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -4235,6 +4235,136 @@
       "path": "skills/pipeline-core/assets/artifact-schemas.json",
       "bytes": 10078,
       "sha256": "dd0af65c81389f0aeb1c959d600fbaf76a8665aa6c33890efc354f51e03a1dec"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/README.md",
+      "bytes": 3133,
+      "sha256": "b28d54526028e435871c905c1826abd168d8bdff00c8fe7c5ad6bb1a7877bcae"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/anton/Anton-Regular.ttf",
+      "bytes": 33708,
+      "sha256": "0eb70048d81f558b92dc1c15481e3d2e2e6221a70216ce0c11daf85a24b33142"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/anton/OFL.txt",
+      "bytes": 4484,
+      "sha256": "ee67e6ee22790b7929f1a3769ca2801d565c64b5a9096942c1adf5596de9c9e4"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/archivo/Archivo-Bold.ttf",
+      "bytes": 67456,
+      "sha256": "9ddffcb642fa1a9ff948db490756dacfc37697cd8d51c78476435a1a00c44060"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/archivo/Archivo-CondensedExtraBold.ttf",
+      "bytes": 67056,
+      "sha256": "1126bf0885db2808a171addb155741f274bbc24a0df495718d7578fa18d72126"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/archivo/Archivo-ExpandedBlack.ttf",
+      "bytes": 67644,
+      "sha256": "4de233801f347ab4d3231c4f3e71141de7e3a4a69b621e31088da92f2a094e10"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/archivo/Archivo-Regular.ttf",
+      "bytes": 66340,
+      "sha256": "ebe8a1edb876a0e4c7f64825a81d7545838798560a93ff60c852a06abf0ec36e"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/archivo/OFL.txt",
+      "bytes": 4388,
+      "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/bricolagegrotesque/BricolageGrotesque-Bold.ttf",
+      "bytes": 69268,
+      "sha256": "22c056c5898d7244c9ebc800cf0b34336766f7fbfae2a80b5fe30c7e2f1bb7c3"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/bricolagegrotesque/BricolageGrotesque-CondensedExtraBold.ttf",
+      "bytes": 69064,
+      "sha256": "8083480bd1a41dbb62c2eb862647d20085dcb8de3f88dca0cdaf6f88d9542ff3"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/bricolagegrotesque/BricolageGrotesque-Regular.ttf",
+      "bytes": 69312,
+      "sha256": "77b81469d82eef7db3dcd9f21fa87f774b55ec8b6f95c61f8cc73d44aa4fb093"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/bricolagegrotesque/OFL.txt",
+      "bytes": 4403,
+      "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/fonts.json",
+      "bytes": 9748,
+      "sha256": "1504a7034599ca7014fbbae2820cc641bb492faace1c54b8c56ec6718aad7f14"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/fraunces/Fraunces-Black.ttf",
+      "bytes": 49348,
+      "sha256": "368a2a1f11f8d205f21793441186ceecec65a4bdb0c7c1e92bafee62633982eb"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/fraunces/Fraunces-Regular.ttf",
+      "bytes": 51612,
+      "sha256": "2f67caf868c071d7cf8347e6f9492cf25e34f043284a207ab4dcc8cb5622c03b"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/fraunces/Fraunces-SemiBold.ttf",
+      "bytes": 51664,
+      "sha256": "aa16ec39ba191a5407568a6d62611d0de30b6403195a3992f9e718c48a236e84"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/fraunces/OFL.txt",
+      "bytes": 4391,
+      "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/inter/Inter-Black.ttf",
+      "bytes": 92832,
+      "sha256": "4207587d22e222e0c0f8679df92f39f449dc2e76310e7124a4f4e60139db5441"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/inter/Inter-Bold.ttf",
+      "bytes": 92420,
+      "sha256": "9ed2d02f1ccf2fa3aa02920e5593fa21eedcb30c9ee83762f1cb4c9a69b046de"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/inter/Inter-Regular.ttf",
+      "bytes": 92328,
+      "sha256": "40f224462a11224ffd0344adc3a5b72702fc5d499219f40d5494a50e59cd416e"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/inter/Inter-SemiBold.ttf",
+      "bytes": 92472,
+      "sha256": "d5208da096ae2948200560c292b2ee9ffb8f6a9c9e2ec544cc562e95e6089c13"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/inter/OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/sourceserif4/OFL.txt",
+      "bytes": 4400,
+      "sha256": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/sourceserif4/SourceSerif4-Bold.ttf",
+      "bytes": 95488,
+      "sha256": "dfad058ca8f9382c9d3e47e6e7971aaf4c97db0964042037d4e1170e2036f72c"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/sourceserif4/SourceSerif4-Regular.ttf",
+      "bytes": 95432,
+      "sha256": "bb4dc8d39ccfe0c6691995973a7d7ce2fa9f96bdff803508a610084c4dfa1fc8"
+    },
+    {
+      "path": "skills/pipeline-core/assets/fonts/sourceserif4/SourceSerif4-SemiBold.ttf",
+      "bytes": 95564,
+      "sha256": "23423c352c520ce323075f9c0b8d71817c0ee53bbcdd20661871b17ad9bdd076"
     },
     {
       "path": "skills/pipeline-core/assets/onboarding.schema.json",
@@ -4258,8 +4388,8 @@
     },
     {
       "path": "skills/pipeline-core/references/creative-prompting-standard.md",
-      "bytes": 10032,
-      "sha256": "5fc4824c13b00fadd0b4117229c5bc6abcd4809ae1cc052e17d295391dbe5783"
+      "bytes": 10119,
+      "sha256": "482e02340cee78ce79743ea595e37c70e5ee7bc6cec7931ce0a3e2b8550adc97"
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
@@ -4328,8 +4458,8 @@
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
-      "bytes": 962,
-      "sha256": "e0f76e9b436f3ebe378811fc82f26c00cebc25c517b6e2a9b7971c894d782895"
+      "bytes": 2079,
+      "sha256": "db925a6e86065782ba075d79e02a40886c6c891c4aa557264f2573a348692baa"
     },
     {
       "path": "skills/pipeline-core/references/workflow-blueprints.md",
@@ -4613,13 +4743,33 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 9885,
-      "sha256": "daa5639c826b3a838f6007c287282f9a349e1bed22bdbede629b4e7891787a81"
+      "bytes": 10634,
+      "sha256": "c64425534be5c7815d9cdd128df10443802ea6aa3341dfd780c3c011b12c0c82"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
       "bytes": 349,
       "sha256": "c72c02ffadbcb052a4315dced06ac60cdbacea498558eaaf8a17d8ae90ab3eec"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/static-render/README.md",
+      "bytes": 5376,
+      "sha256": "15c531729ab2bba31ccf2d1583c3985585ab7ef657a1f779cbc5daae82dee6ea"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/static-render/compose.py",
+      "bytes": 27601,
+      "sha256": "06bd7746d171e603a1581c46afddb7e0e69bd1d74f2c4ad98604f83e6a74c398"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/static-render/presets.json",
+      "bytes": 3644,
+      "sha256": "f912f9632dc6113b2f44d8a3c39ed31290e77bad7d92b636d546d5494757b956"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/references/exact-copy-compositing.md",
+      "bytes": 3702,
+      "sha256": "a42c64d332eb2bb3dbbb423ce337e784e41dd2e7bd1405e4393d2285f3aeae3c"
     },
     {
       "path": "skills/static-graphic-design-creator/source-provenance.json",
@@ -5043,8 +5193,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31969,
-      "sha256": "e91c4d41e88d17abc353fe9b6dfbbb31be6d15a7d4c3a662d6169e471526bb83"
+      "bytes": 31986,
+      "sha256": "8fb58d29f25821b0fc1cadc62478809f47e1e8f9ecd0c9df6f14052e561f3393"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5058,8 +5208,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 19089,
-      "sha256": "47704f5b59e5644fcb4eb840c200e52d7a01f3cceba1d7677035876fed75a34d"
+      "bytes": 20100,
+      "sha256": "6e2ed198b11c465a42149b2785fca4a3b8ba06f4daf64fde789f5dc4b6b4ea5a"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -5320,6 +5470,11 @@
       "path": "tests/skill_finder_test.py",
       "bytes": 6706,
       "sha256": "eaea21164ebc4dddded615f7d6921822c6e4186a6ebf09d1edb545716bebc402"
+    },
+    {
+      "path": "tests/static_render_test.py",
+      "bytes": 9018,
+      "sha256": "263a6db8a6d52cbe908098bb53492f69b59d0f01a077332c33dae51fc2f40ec1"
     },
     {
       "path": "tests/studio.test.mjs",

@@ -28,3 +28,5 @@ python3 "$P/tests/environment_check_test.py"
 python3 "$P/tests/motion_acceptance_test.py"
 python3 "$P/tests/skill_finder_test.py"
 python3 "$P/tests/animate_engine_test.py"
+python3 "$P/tests/static_render_test.py"
+python3 -m unittest discover -s tests -p 'test_host_eval.py' -v
