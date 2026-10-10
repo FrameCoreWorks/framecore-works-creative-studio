@@ -11,7 +11,8 @@ Based on a full audit of package 1.54.0 on 2026-10-10: six independent read-only
 | 0.9 | done: harness, 15-case suite, first run on 1.55.0 (12 of 15, all three failures resolved), [results](host-evals.md) | 1.56.0 (repository) |
 | 1.1 to 1.7 | done: fonts and exact-copy compositor, presets, image probe, Polish copy standard and checker, channel and marketing-rules snapshots, claim-ledger rules column, direct production | 1.56.0 |
 | 2.1 to 2.7 | done: offer and quote calculator, client intake and commercial brief fields, concept presentation, revision tracker and changes of scope, client handoff with acceptance protocol, brand kit read by the compositor, client email kit, brand voice guide, KPI and budget scenarios | 1.57.0 |
-| Phase 3 | next | |
+| 3.1 (part), 3.5 (part) | contract fonts shared by player and renderer, four commercial styles with bundled fonts, `contentScale` for vertical formats | 1.58.0 |
+| 3.1 rest to 3.6 | next: per-word kinetic entries and persistent elements, lower third, charts, photo hero, ad templates and batch variants, caption preset, sound tonal balance, runtime map, GLTF turntable | |
 
 ## Diagnosis
 

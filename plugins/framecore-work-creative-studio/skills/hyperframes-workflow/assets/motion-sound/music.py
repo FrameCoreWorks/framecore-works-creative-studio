@@ -52,7 +52,8 @@ PALETTES = {
                     'texture': 'house chord stabs, bouncing saw bass, four-on-the-floor kick, clap and open hats'},
 }
 STYLE_PALETTE = {'meadow': 'meadow', 'warm-ink': 'warm-ink', 'midnight': 'midnight', 'field-guide': 'field-guide',
-                 'paper-and-ink': 'paper-and-ink', 'color-block': 'color-block'}
+                 'paper-and-ink': 'paper-and-ink', 'color-block': 'color-block', 'sale-poster': 'color-block',
+                 'editorial-serif': 'paper-and-ink', 'product-light': 'warm-ink', 'bold-grotesque': 'color-block'}
 
 
 # ---------------------------------------------------------------- instruments (mono unless noted)

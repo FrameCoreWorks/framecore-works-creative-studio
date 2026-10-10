@@ -14,6 +14,12 @@ imageio-ffmpeg package); without ffmpeg it can still write stills.
   python render.py video.motion.json video-9x16.mp4 --format 9x16 --font MyFont-Regular.ttf --font-bold MyFont-Bold.ttf
   python render.py video.motion.json video.mp4 --blur 8
   python render.py video.motion.json --check-dir phone-check --stills-width 360
+  python render.py video.motion.json video.mp4 --font-dir path/to/skills/pipeline-core/assets/fonts
+
+Fonts: a contract may declare its faces in "fonts" ([{family, weight, file or data}]); the renderer then uses those
+files with the browser's weight matching, so the player and the MP4 set the same type. A "file" is looked up next to
+the contract, in each --font-dir and in Studio's bundled fonts; "data" is an embedded data URL. Without "fonts",
+tokens.fontFamily is resolved from the system fonts, or --font and --font-bold name the files.
 
 Prints one JSON summary line (renderer version, frames, size, fonts used, encoder, files).
 Exit code: 0 done, 1 render or encode failure, 2 setup problem.
@@ -37,7 +43,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.4.1'
+VERSION = '1.5.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -80,7 +86,8 @@ def progress(frame, start, duration, easing='linear'):
 # ---------------------------------------------------------------- contract helpers (as in the engine)
 
 def scale(score):
-    return min(score['width'], score['height']) / 1080
+    # tokens.contentScale enlarges everything authored for the 1080 px short side, for example 1.25 in a 9:16 format.
+    return min(score['width'], score['height']) / 1080 * float((score.get('tokens') or {}).get('contentScale', 1))
 
 
 def px(score, value):
@@ -346,10 +353,62 @@ def find_font(family, bold, files):
     return None
 
 
+BUNDLED_FONTS = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'pipeline-core', 'assets', 'fonts'))
+
+
+def match_weight(available, wanted):
+    """The declared weight a browser picks for `wanted` (CSS Fonts 4 font-weight matching)."""
+    weights = sorted(set(available))
+    if wanted in weights:
+        return wanted
+    up = [w for w in weights if w > wanted]
+    down = [w for w in weights if w < wanted][::-1]
+    if 400 <= wanted <= 500:
+        order = [w for w in up if w <= 500] + down + [w for w in up if w > 500]
+    elif wanted < 400:
+        order = down + up
+    else:
+        order = up + down
+    return order[0]
+
+
+def font_source(face, base_dir, font_dirs):
+    """A path or the decoded bytes of one declared face."""
+    data = face.get('data')
+    if data:
+        if not str(data).startswith('data:') or ';base64,' not in str(data):
+            raise ValueError(f"fonts: {face.get('family')} {face.get('weight', 400)}: data must be a base64 data URL")
+        return base64.b64decode(str(data).split(';base64,', 1)[1])
+    file = face.get('file')
+    if not file:
+        raise ValueError(f"fonts: {face.get('family')} {face.get('weight', 400)} needs a file or embedded data for the renderer (a url is for the player)")
+    tried = [file] if os.path.isabs(file) else [os.path.join(folder, file) for folder in [base_dir, *font_dirs, os.environ.get('STUDIO_FONT_DIR', ''), BUNDLED_FONTS] if folder]
+    for path in tried:
+        if os.path.isfile(path):
+            return path
+    raise RuntimeError(f"Font file {file} not found (looked in: {', '.join(os.path.dirname(t) or '.' for t in tried)}); pass --font-dir")
+
+
+def declared_fonts(score, base_dir='.', font_dirs=()):
+    """{weight: source} for the first family of tokens.fontFamily that the contract's "fonts" declares; {} if none."""
+    faces = [f for f in score.get('fonts') or [] if isinstance(f, dict) and (f.get('style') or 'normal') == 'normal']
+    for item in (tokens(score).get('fontFamily') or '').split(','):
+        name = item.strip().strip('"\'')
+        chosen = [f for f in faces if str(f.get('family')) == name]
+        if chosen:
+            return {int(f.get('weight', 400)): font_source(f, base_dir, font_dirs) for f in chosen}
+    return {}
+
+
 class Fonts:
-    def __init__(self, css_family, regular=None, bold=None):
+    def __init__(self, css_family, regular=None, bold=None, declared=None):
         files = None
         self.paths = {}
+        self.declared = declared or {}
+        self.cache = {}
+        if self.declared and not (regular or bold):
+            self.paths = {str(w): (src if isinstance(src, str) else 'embedded data') for w, src in sorted(self.declared.items())}
+            return
         for weight, override in (('regular', regular), ('bold', bold)):
             if override:
                 self.paths[weight] = override
@@ -369,6 +428,13 @@ class Fonts:
         self.cache = {}
 
     def get(self, size, weight=400):
+        if self.declared and not set(self.paths) & {'regular', 'bold'}:
+            chosen = match_weight(self.declared, int(weight))
+            key = (chosen, size)
+            if key not in self.cache:
+                source = self.declared[chosen]
+                self.cache[key] = ImageFont.truetype(source if isinstance(source, str) else io.BytesIO(source), size)
+            return self.cache[key]
         key = ('bold' if int(weight) >= 600 else 'regular', size)
         if key not in self.cache:
             self.cache[key] = ImageFont.truetype(self.paths[key[0]], size)
@@ -864,9 +930,10 @@ class Captions:
 
 
 class Renderer:
-    def __init__(self, score, base_dir='.', font=None, font_bold=None):
+    def __init__(self, score, base_dir='.', font=None, font_bold=None, font_dirs=()):
         self.score = score
-        self.fonts = Fonts(tokens(score).get('fontFamily'), font, font_bold)
+        declared = {} if (font or font_bold) else declared_fonts(score, base_dir, font_dirs)
+        self.fonts = Fonts(tokens(score).get('fontFamily'), font, font_bold, declared)
         self.background = color(tokens(score).get('background'), (0, 0, 0, 255))[:3] + (255,)
         TextBlock.overflows = []
         self.scenes = [Scene(scene, score, self.fonts, base_dir) for scene in score['scenes']]
@@ -943,6 +1010,7 @@ def main(argv=None):
     parser.add_argument('--format', help="format id from the contract's formats ('base' by default)")
     parser.add_argument('--font', help='regular font file (.ttf/.otf) instead of resolving tokens.fontFamily')
     parser.add_argument('--font-bold', help='bold font file')
+    parser.add_argument('--font-dir', action='append', default=[], help="folder to look up the contract's font files in (repeatable)")
     parser.add_argument('--stills', help='comma-separated frame numbers to save as PNG')
     parser.add_argument('--stills-dir', default='stills')
     parser.add_argument('--check-dir', help='save the frame-check frames (boundaries, hold starts, sweeps) as PNG here')
@@ -959,7 +1027,7 @@ def main(argv=None):
             raise ValueError('Give an output MP4, --stills or --check-dir')
         if args.out and os.path.exists(args.out):
             raise ValueError(f'Output file already exists: {args.out}')
-        renderer = Renderer(score, os.path.dirname(os.path.abspath(args.contract)), args.font, args.font_bold)
+        renderer = Renderer(score, os.path.dirname(os.path.abspath(args.contract)), args.font, args.font_bold, args.font_dir)
     except (OSError, ValueError, RuntimeError, KeyError) as error:
         sys.stderr.write(f'{error}\n')
         return 2

@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.58.0, 2026-10-10
+
+From Phase 3 of [the improvement plan](docs/improvement-plan-2026-10.md) (premium motion), first part:
+
+- **The same typeface in the preview and the MP4.** A motion contract can declare its fonts (`fonts: [{family, weight, file | url | data}]`). The Python renderer (1.5.0) uses exactly those files with the browser's weight matching; the player registers them, waits for them before its review and export, and reports them. A file resolves next to the contract, in `--font-dir` or in the [bundled fonts](plugins/framecore-work-creative-studio/skills/pipeline-core/assets/fonts/README.md); `embed_fonts.py` embeds them for a local preview file, and the published player serves the bundled fonts itself. Contract checks validate the faces
+- **Four commercial styles with real fonts.** Sale poster (condensed Archivo, price last), Editorial serif (Fraunces), Product light (Inter, device and counter) and Bold grotesque (Bricolage Grotesque), each with contrast-checked tokens, motion, a signature and a music palette ([styles](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-styles/README.md))
+- **Fuller vertical frames.** `tokens.contentScale` (0.5 to 2) enlarges everything authored for the 1080 px short side, set per format (for example 1.25 in 9:16); identical in the three scene-engine copies and the Python renderer, with a parity test
+- **Repository only.** The GitHub Pages workflow publishes the bundled fonts next to the player
+
 ## 1.57.0, 2026-10-10
 
 From Phase 2 of [the improvement plan](docs/improvement-plan-2026-10.md), the client business layer. Every rate, VAT status, term and right is the user's input; Studio holds no prices and personalises nothing (owner decision of 2026-10-10):

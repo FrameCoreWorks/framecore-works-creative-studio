@@ -156,6 +156,23 @@
       "playful": 0.9,
       "bold": 0.8
     },
+    "sale-poster": {
+      "bold": 0.9,
+      "playful": 0.6
+    },
+    "editorial-serif": {
+      "editorial": 0.9,
+      "organic": 0.5,
+      "calm": 0.4
+    },
+    "product-light": {
+      "technical": 0.8,
+      "calm": 0.4
+    },
+    "bold-grotesque": {
+      "playful": 0.9,
+      "bold": 0.8
+    },
     "brand-native": {}
   },
   "tempo_moods": {

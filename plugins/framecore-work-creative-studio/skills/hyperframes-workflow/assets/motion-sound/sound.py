@@ -46,7 +46,8 @@ SENDS = {'landing': 0.12, 'whoosh': 0.18, 'impact': 0.22, 'boom': 0.3, 'riser': 
          'tap': 0.06, 'pop': 0.1, 'swish': 0.15, 'shimmer': 0.4}
 PACE_POSITION = {'fast': 0.75, 'medium': 0.5, 'slow': 0.25}
 MINOR_STYLES = {'midnight', 'warm-ink', 'brand-native'}
-STYLE_BPM = {'meadow': 100, 'field-guide': 96, 'paper-and-ink': 104, 'warm-ink': 110, 'midnight': 122, 'color-block': 122}
+STYLE_BPM = {'meadow': 100, 'field-guide': 96, 'paper-and-ink': 104, 'warm-ink': 110, 'midnight': 122, 'color-block': 122,
+             'sale-poster': 124, 'editorial-serif': 96, 'product-light': 114, 'bold-grotesque': 122}
 # The music dips under the hits that must read clearly: (depth in dB, release in seconds).
 DUCKS = {'boom': (5.0, 0.45), 'impact': (3.0, 0.3), 'click': (1.5, 0.12)}
 # Gains for moments the user marks in supplied footage, matching the levels the planner gives the same sounds.

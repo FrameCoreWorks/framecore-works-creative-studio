@@ -1,6 +1,6 @@
 name: Publish the motion player to GitHub Pages
 
-# Copies the single-file preview template, unchanged, to index.html on the gh-pages branch.
+# Copies the single-file preview template, unchanged, to index.html on the gh-pages branch, with the bundled fonts in fonts/.
 # GitHub Pages must be enabled for that branch (Settings > Pages > Deploy from a branch > gh-pages, root).
 on:
   workflow_dispatch:
@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html
+      - plugins/framecore-work-creative-studio/skills/pipeline-core/assets/fonts/**
       - .github/workflows/pages.yml
 
 permissions:
@@ -42,8 +43,10 @@ jobs:
           fi
           cd "$RUNNER_TEMP/site"
           cp "$player" index.html
+          # The bundled fonts, so contracts that name them by file show the same type as the rendered MP4.
+          rm -rf fonts && cp -R "$GITHUB_WORKSPACE/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/fonts" fonts
           touch .nojekyll
-          git add index.html .nojekyll
+          git add -A index.html .nojekyll fonts
           if git diff --cached --quiet; then
             echo 'The published player is already current.'
           else

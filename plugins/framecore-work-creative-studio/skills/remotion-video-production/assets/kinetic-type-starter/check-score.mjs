@@ -160,10 +160,35 @@ function checkStrategy(score, errors, warnings) {
 }
 
 const safeAreaOk = area => area === undefined || (typeof area === 'object' && area !== null && ['top', 'bottom'].every(side => area[side] === undefined || (Number.isFinite(area[side]) && area[side] >= 0 && area[side] < 0.5)));
+const contentScaleOk = value => value === undefined || (Number.isFinite(value) && value >= 0.5 && value <= 2);
+
+// Contract fonts: faces the player loads and the renderer uses, [{family, weight, file | url | data, style}].
+function checkFonts(score, errors) {
+  if (score.fonts === undefined) return;
+  if (!Array.isArray(score.fonts)) { errors.push('fonts must be a list of {family, weight, file | url | data}'); return; }
+  const seen = new Set();
+  for (const face of score.fonts) {
+    const label = `font ${face?.family} ${face?.weight ?? 400}`;
+    if (typeof face?.family !== 'string' || !face.family.trim()) errors.push('fonts: every face needs a family name');
+    if (face?.weight !== undefined && !(Number.isSafeInteger(face.weight) && face.weight >= 1 && face.weight <= 1000)) errors.push(`${label}: weight must be an integer from 1 to 1000`);
+    if (face?.style !== undefined && !['normal', 'italic'].includes(face.style)) errors.push(`${label}: style must be normal or italic`);
+    const sources = ['file', 'url', 'data'].filter(key => typeof face?.[key] === 'string' && face[key]);
+    if (!sources.length) errors.push(`${label}: give a file, a url or embedded data`);
+    if (face?.data !== undefined && !/^data:[^,;]+;base64,/.test(String(face.data))) errors.push(`${label}: data must be a base64 data URL`);
+    if (typeof face?.file === 'string' && (face.file.startsWith('/') || face.file.split('/').includes('..'))) errors.push(`${label}: file must be a relative path inside the font folder`);
+    const key = `${face?.family}|${face?.weight ?? 400}|${face?.style ?? 'normal'}`;
+    if (seen.has(key)) errors.push(`${label}: declared twice`);
+    seen.add(key);
+  }
+  const first = String(score.tokens?.fontFamily ?? '').split(',')[0].trim().replace(/^["']|["']$/g, '');
+  if (score.fonts.length && !score.fonts.some(face => face?.family === first)) errors.push(`fonts are declared but tokens.fontFamily starts with ${first || 'nothing'}; put the declared family first`);
+}
 
 // Output formats: score.formats lists variants of the base size; 'base' names the score's own size.
 function checkFormats(score, errors) {
   if (!safeAreaOk(score.tokens?.safeArea)) errors.push('tokens.safeArea top/bottom must be fractions of the height from 0 to below 0.5');
+  if (!contentScaleOk(score.tokens?.contentScale)) errors.push('tokens.contentScale must be a number from 0.5 to 2');
+  checkFonts(score, errors);
   if (score.formats === undefined) return;
   if (!Array.isArray(score.formats)) { errors.push('formats must be a list'); return; }
   const ids = new Set(['base']), scenes = new Set((score.scenes ?? []).map(scene => scene.id));
@@ -173,6 +198,7 @@ function checkFormats(score, errors) {
     ids.add(id);
     if (!Number.isSafeInteger(format?.width) || !Number.isSafeInteger(format?.height) || format.width < 1 || format.height < 1) errors.push(`format ${id}: width and height must be positive integers`);
     if (!safeAreaOk(format?.tokens?.safeArea)) errors.push(`format ${id}: tokens.safeArea top/bottom must be fractions of the height from 0 to below 0.5`);
+    if (!contentScaleOk(format?.tokens?.contentScale)) errors.push(`format ${id}: tokens.contentScale must be a number from 0.5 to 2`);
     for (const sceneId of Object.keys(format?.params ?? {})) if (!scenes.has(sceneId)) errors.push(`format ${id}: params for unknown scene ${sceneId}`);
   }
 }

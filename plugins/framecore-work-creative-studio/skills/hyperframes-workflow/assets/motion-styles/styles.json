@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "Adapted from the seven styles of kaventro/motion-designer (MIT), mapped to the Studio motion contract; see README.md",
+  "source": "Seven styles adapted from kaventro/motion-designer (MIT) and four commercial styles with bundled fonts added by Studio, mapped to the Studio motion contract; see README.md",
   "styles": [
     {
       "id": "brand-native",
@@ -75,6 +75,67 @@
       "motion": {"tempo": "bouncy-bold", "entryFrames": 12, "exitFrames": 8, "lineStaggerFrames": 4, "itemStaggerFrames": 6, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
       "signature": {"move": "the canvas colour changes on bar lines with a wipe (yellow #FFD23F, blue #3A86FF, pink #FF5D8F)", "engine": "params.background on every scene with backgroundWipe; see examples/color-block.motion-score.json"},
       "music": {"bpm": [118, 128], "texture": "punchy pop or house"}
+    },
+    {
+      "id": "sale-poster",
+      "name": "Sale poster",
+      "feel": "loud, retail, price-first",
+      "when": "promotions, sales, price announcements, store openings",
+      "tokens": {"background": "#101010", "foreground": "#FFFFFF", "muted": "#BDBDBD", "accent": "#FFD400", "fontFamily": "Archivo, Arial, sans-serif", "marginRatio": 0.06},
+      "fonts": [
+        {"family": "Archivo", "weight": 400, "file": "archivo/Archivo-Regular.ttf"},
+        {"family": "Archivo", "weight": 700, "file": "archivo/Archivo-Bold.ttf"},
+        {"family": "Archivo", "weight": 800, "file": "archivo/Archivo-CondensedExtraBold.ttf"}
+      ],
+      "motion": {"tempo": "punchy", "entryFrames": 10, "exitFrames": 8, "lineStaggerFrames": 3, "itemStaggerFrames": 5, "entryEasing": "easeOutExpo", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "the price lands last, oversized and in the accent, after one short reason to buy", "engine": "line-reveal at weight 800 (condensed) for the offer, counter or end-card for the price"},
+      "music": {"bpm": [120, 128], "texture": "driving pop or house with a hit on the price"}
+    },
+    {
+      "id": "editorial-serif",
+      "name": "Editorial serif",
+      "feel": "warm, crafted, editorial",
+      "when": "food, craft, culture, premium products, restaurants",
+      "tokens": {"background": "#F4EFE6", "foreground": "#1E1B18", "muted": "#5C554D", "accent": "#B4442C", "fontFamily": "Fraunces, Georgia, serif", "marginRatio": 0.09},
+      "fonts": [
+        {"family": "Fraunces", "weight": 400, "file": "fraunces/Fraunces-Regular.ttf"},
+        {"family": "Fraunces", "weight": 600, "file": "fraunces/Fraunces-SemiBold.ttf"},
+        {"family": "Fraunces", "weight": 800, "file": "fraunces/Fraunces-Black.ttf"}
+      ],
+      "motion": {"tempo": "measured", "entryFrames": 18, "exitFrames": 12, "lineStaggerFrames": 6, "itemStaggerFrames": 8, "entryEasing": "easeOutCubic", "exitEasing": "easeInCubic", "resolveEasing": "easeOutCubic"},
+      "signature": {"move": "one soft serif line at a time on a warm page, the accent only on the one word that matters", "engine": "line-reveal with per-line weights (800 for the key line, 400 for the rest) and a quote for the maker's words"},
+      "music": {"bpm": [88, 104], "texture": "felt piano, nylon guitar or strings with room around them"}
+    },
+    {
+      "id": "product-light",
+      "name": "Product light",
+      "feel": "clean, precise, modern product",
+      "when": "apps, SaaS, product demos, tech launches",
+      "tokens": {"background": "#F6F7F9", "foreground": "#0F172A", "muted": "#475569", "accent": "#2563EB", "fontFamily": "Inter, Arial, sans-serif", "marginRatio": 0.08},
+      "fonts": [
+        {"family": "Inter", "weight": 400, "file": "inter/Inter-Regular.ttf"},
+        {"family": "Inter", "weight": 600, "file": "inter/Inter-SemiBold.ttf"},
+        {"family": "Inter", "weight": 700, "file": "inter/Inter-Bold.ttf"},
+        {"family": "Inter", "weight": 900, "file": "inter/Inter-Black.ttf"}
+      ],
+      "motion": {"tempo": "crisp", "entryFrames": 12, "exitFrames": 9, "lineStaggerFrames": 4, "itemStaggerFrames": 6, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "the real interface in a device, its key number counted up in the accent", "engine": "device with the user's screenshots, counter for the result, end-card with the call to action"},
+      "music": {"bpm": [108, 120], "texture": "electric piano, tight drums and a light synth line"}
+    },
+    {
+      "id": "bold-grotesque",
+      "name": "Bold grotesque",
+      "feel": "energetic, youthful, event-like",
+      "when": "events, festivals, lifestyle and youth brands, announcements",
+      "tokens": {"background": "#FF5A36", "foreground": "#1A1A1A", "muted": "#3D1A10", "accent": "#FFF3E0", "fontFamily": "Bricolage Grotesque, Arial, sans-serif", "marginRatio": 0.07},
+      "fonts": [
+        {"family": "Bricolage Grotesque", "weight": 400, "file": "bricolagegrotesque/BricolageGrotesque-Regular.ttf"},
+        {"family": "Bricolage Grotesque", "weight": 700, "file": "bricolagegrotesque/BricolageGrotesque-Bold.ttf"},
+        {"family": "Bricolage Grotesque", "weight": 800, "file": "bricolagegrotesque/BricolageGrotesque-CondensedExtraBold.ttf"}
+      ],
+      "motion": {"tempo": "bouncy-bold", "entryFrames": 11, "exitFrames": 8, "lineStaggerFrames": 3, "itemStaggerFrames": 5, "entryEasing": "easeOutQuart", "exitEasing": "easeInCubic", "resolveEasing": "easeOutExpo"},
+      "signature": {"move": "big condensed words stacked edge to edge, the date and place as the last beat", "engine": "line-reveal at weight 800 with contentScale 1.2 in 9:16, end-card for date and place"},
+      "music": {"bpm": [118, 128], "texture": "upbeat pop or house with claps"}
     }
   ],
   "choosing": [
@@ -83,6 +144,10 @@
     {"subject": "outdoors, travel, food", "styles": ["field-guide", "color-block"]},
     {"subject": "community, games", "styles": ["color-block", "midnight"]},
     {"subject": "consumer launch, social", "styles": ["color-block", "paper-and-ink"]},
-    {"subject": "statement, manifesto, design-led brand", "styles": ["paper-and-ink", "brand-native"]}
+    {"subject": "statement, manifesto, design-led brand", "styles": ["paper-and-ink", "brand-native"]},
+    {"subject": "sales, promotions, retail, price announcements", "styles": ["sale-poster", "color-block"]},
+    {"subject": "food, craft, culture, premium", "styles": ["editorial-serif", "field-guide"]},
+    {"subject": "apps, SaaS, product demos", "styles": ["product-light", "warm-ink"]},
+    {"subject": "events, festivals, youth and lifestyle brands", "styles": ["bold-grotesque", "color-block"]}
   ]
 }

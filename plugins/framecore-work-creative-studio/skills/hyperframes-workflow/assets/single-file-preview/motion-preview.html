@@ -321,8 +321,9 @@ const sceneKinds = {
 /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
 const progress = (frame, start, duration, easing = 'linear') => easings[easing]((frame - start) / duration);
 
-// Sizes are authored for a 1080 px short side, so 16:9, 9:16 and 1:1 share one type scale.
-const scale = score => Math.min(score.width, score.height) / 1080;
+// Sizes are authored for a 1080 px short side, so 16:9, 9:16 and 1:1 share one type scale; tokens.contentScale
+// enlarges everything in a format (1.25 fills a 9:16 frame better than the short-side scale alone).
+const scale = score => Math.min(score.width, score.height) / 1080 * (score.tokens?.contentScale ?? 1);
 const px = (score, value) => Math.round(value * scale(score));
 const motion = score => ({entryFrames: 15, exitFrames: 10, lineStaggerFrames: 6, itemStaggerFrames: 8, entryEasing: 'easeOutCubic', exitEasing: 'easeInCubic', resolveEasing: 'easeOutExpo', ...score.motion});
 const margin = score => Math.round(score.width * (score.tokens?.marginRatio ?? 0.08));
@@ -856,6 +857,20 @@ function muxMP4({width, height, fps, codec, description, chunks}) {
   const fps = score.fps.num / score.fps.den, N = score.totalFrames, t = score.tokens || {};
   const stage = document.getElementById('stage');
   Object.assign(stage.style, {width: score.width + 'px', height: score.height + 'px', background: t.background, color: t.foreground, fontFamily: t.fontFamily});
+  // Contract fonts: the same files the Python renderer uses, so the preview and the MP4 set the same type. A face loads
+  // from its embedded data URL, its url, or its file under fonts/ next to this page (the published player has them).
+  const fontProblems = [];
+  if (Array.isArray(contract.fonts) && contract.fonts.length && typeof FontFace === 'function') {
+    stage.style.fontSynthesis = 'none';
+    for (const face of contract.fonts) {
+      const source = face.data || face.url || (face.file ? new URL('fonts/' + face.file, location.href).href : '');
+      if (!source) continue;
+      const font = new FontFace(String(face.family), `url(${JSON.stringify(source)})`, {weight: String(face.weight ?? 400), style: face.style || 'normal'});
+      document.fonts.add(font);
+      font.load().catch(() => fontProblems.push(`Font ${face.family} ${face.weight ?? 400} could not be loaded from ${face.data ? 'its embedded data' : source}; the preview uses a fallback font.`));
+    }
+  }
+  window.fontProblems = fontProblems;
 
   // Generic DOM renderer: build each scene's element tree once, then apply per-frame styles.
   const create = (node, elements, texts = []) => {
@@ -959,7 +974,7 @@ function muxMP4({width, height, fps, codec, description, chunks}) {
   }
   // Video export: every frame is drawn from the engine and encoded in this browser; nothing is uploaded.
   const exportButton = document.getElementById('export'), download = document.getElementById('download'), exportStatus = document.getElementById('export-status');
-  const runExport = options => exportVideo({stage, score, seekFrame, ...options});
+  const runExport = async options => { await document.fonts.ready; return exportVideo({stage, score, seekFrame, ...options}); };
   exportButton.onclick = async () => {
     stop();
     const keep = current, buttons = [...document.querySelectorAll('#controls button, #controls select, #controls input')];
@@ -1080,13 +1095,19 @@ function muxMP4({width, height, fps, codec, description, chunks}) {
     fit();
   }
   for (const frame of (query.get('frames') || query.get('frame') || '0').split(',')) seekFrame(frame);
-  if (query.has('review')) {
-    const report = document.createElement('script');
-    report.type = 'application/json'; report.id = 'review-report';
-    report.textContent = JSON.stringify({id: score.id, revision: score.revision, format: score.format || 'base', width: score.width, height: score.height, ...reviewFrame(current)});
-    document.body.append(report);
-  }
-  document.documentElement.dataset.ready = 'true';
+  const finish = () => {
+    if (query.has('review')) {
+      const report = document.createElement('script');
+      report.type = 'application/json'; report.id = 'review-report';
+      const faces = Array.isArray(contract.fonts) && contract.fonts.length ? {fonts: [...document.fonts].map(font => ({family: font.family.replace(/["']/g, ''), weight: font.weight, status: font.status})), fontProblems} : {};
+      report.textContent = JSON.stringify({id: score.id, revision: score.revision, format: score.format || 'base', width: score.width, height: score.height, ...faces, ...reviewFrame(current)});
+      document.body.append(report);
+    }
+    document.documentElement.dataset.ready = 'true';
+  };
+  // With contract fonts, measure and signal readiness only after they have loaded (or failed and fallen back).
+  if (Array.isArray(contract.fonts) && contract.fonts.length) document.fonts.ready.then(() => { seekFrame(current); finish(); });
+  else finish();
 })();
 </script>
 </body>

@@ -582,7 +582,7 @@ test('motion styles apply to a contract, keep text contrast and use known easing
     assert.ok(contrast(t.foreground, t.background) >= 4.5, `${style.id} foreground`);
     assert.ok(contrast(t.muted, t.background) >= 3, `${style.id} muted`);
     for (const key of ['entryEasing', 'exitEasing', 'resolveEasing']) assert.ok(easings[style.motion[key]], `${style.id} ${key}`);
-    const contract = {...base, style: style.id, tokens: {...base.tokens, ...t}, motion: {...style.motion}};
+    const contract = {...base, style: style.id, tokens: {...base.tokens, ...t}, motion: {...style.motion}, ...(style.fonts ? {fonts: style.fonts} : {})};
     assert.deepEqual(checkScore(contract).errors, [], style.id);
   }
 });
@@ -1158,4 +1158,55 @@ test('the frame review blocks a contract whose word is cut while the encoded pix
   } finally {
     fs.rmSync(tmp, {recursive: true, force: true});
   }
+});
+
+test('contract fonts and content scale are checked, and both engines scale sizes the same way', async () => {
+  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {deviceLayout} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const base = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+  const fonts = [{family: 'Inter', weight: 400, file: 'inter/Inter-Regular.ttf'}, {family: 'Inter', weight: 700, file: 'inter/Inter-Bold.ttf'}];
+  const tokens = {...base.tokens, fontFamily: 'Inter, Arial, sans-serif'};
+  assert.deepEqual(checkScore({...base, tokens, fonts}).errors, []);
+  const errors = contract => checkScore(contract).errors.join(' | ');
+  assert.match(errors({...base, tokens, fonts: [{family: 'Inter', weight: 700}]}), /give a file, a url or embedded data/);
+  assert.match(errors({...base, tokens, fonts: [...fonts, fonts[0]]}), /declared twice/);
+  assert.match(errors({...base, tokens, fonts: [{...fonts[0], file: '../x.ttf'}]}), /relative path inside the font folder/);
+  assert.match(errors({...base, fonts}), /tokens.fontFamily starts with/);
+  assert.match(errors({...base, tokens: {...tokens, contentScale: 3}}), /contentScale must be a number from 0.5 to 2/);
+  // The same device geometry from the JS engine and the Python renderer with contentScale in a 9:16 format.
+  const vertical = {...base, width: 1080, height: 1920, tokens: {...base.tokens, contentScale: 1.25}, assets: [{id: 's', width: 1170, height: 2532}]};
+  const scene = {id: 'd', kind: 'device', start: 0, end: 60, params: {screens: [{asset: 's'}], caption: 'c'}};
+  const js = deviceLayout(scene, vertical);
+  const script = ['import sys, json, importlib.util', `spec = importlib.util.spec_from_file_location('r', ${JSON.stringify(path.join(root, 'skills/hyperframes-workflow/assets/motion-render/render.py'))})`,
+    'r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)', 'scene, score = json.loads(sys.argv[1]), json.loads(sys.argv[2])',
+    'print(json.dumps(r.device_layout(scene, score)))'].join('\n');
+  const {spawnSync} = await import('node:child_process');
+  const out = spawnSync(process.env.PYTHON || 'python3', ['-c', script, JSON.stringify(scene), JSON.stringify(vertical)], {encoding: 'utf8'});
+  assert.equal(out.status, 0, out.stderr);
+  const py = JSON.parse(out.stdout);
+  for (const key of ['sw', 'sh', 'dw', 'dh', 'dx', 'dy', 'radius', 'bezel']) assert.equal(py[key], js[key], key);
+});
+
+// Opt-in: the player loads embedded contract fonts before it reports, so its review measures the declared type.
+test('the motion player loads embedded contract fonts before reviewing', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {spawnSync} = await import('node:child_process');
+  const {pathToFileURL} = await import('node:url');
+  const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
+  const data = file => 'data:font/ttf;base64,' + fs.readFileSync(path.join(root, 'skills/pipeline-core/assets/fonts', file)).toString('base64');
+  const contract = {...score, tokens: {...score.tokens, fontFamily: 'Archivo, Arial, sans-serif'},
+    fonts: [{family: 'Archivo', weight: 400, data: data('archivo/Archivo-Regular.ttf')}, {family: 'Archivo', weight: 700, data: data('archivo/Archivo-Bold.ttf')}]};
+  const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-player-fonts-'));
+  try {
+    // As Studio delivers a local preview: a copy of the player with the contract (and its font data) embedded.
+    const html = fs.readFileSync(path.join(root, playerFile), 'utf8').replace(/(<script type="application\/json" id="motion-score">)[\s\S]*?(<\/script>)/, (_, open, close) => `${open}\n${JSON.stringify(contract)}\n${close}`);
+    const page = path.join(profile, 'preview.html');
+    fs.writeFileSync(page, html);
+    const args = ['--headless=new', '--disable-gpu', `--user-data-dir=${profile}`, '--window-size=1920,1080', '--virtual-time-budget=5000', '--dump-dom', `${pathToFileURL(page).href}?frame=60&review=1`];
+    if (process.platform === 'linux' && process.getuid?.() === 0) args.unshift('--no-sandbox');
+    const out = spawnSync(process.env.MOTION_REVIEW_BROWSER, args, {encoding: 'utf8', timeout: 60000, maxBuffer: 64 * 1024 * 1024}).stdout;
+    const report = JSON.parse(out.match(/id="review-report">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(report.id, score.id);
+    assert.deepEqual(report.fontProblems, []);
+    assert.deepEqual(report.fonts.map(font => [font.family, font.weight, font.status]), [['Archivo', '400', 'loaded'], ['Archivo', '700', 'loaded']]);
+  } finally { fs.rmSync(profile, {recursive: true, force: true}); }
 });

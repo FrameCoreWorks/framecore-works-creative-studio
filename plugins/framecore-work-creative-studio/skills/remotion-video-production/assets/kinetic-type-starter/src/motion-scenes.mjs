@@ -38,8 +38,9 @@ export const sceneKinds = {
 /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
 export const progress = (frame, start, duration, easing = 'linear') => easings[easing]((frame - start) / duration);
 
-// Sizes are authored for a 1080 px short side, so 16:9, 9:16 and 1:1 share one type scale.
-const scale = score => Math.min(score.width, score.height) / 1080;
+// Sizes are authored for a 1080 px short side, so 16:9, 9:16 and 1:1 share one type scale; tokens.contentScale
+// enlarges everything in a format (1.25 fills a 9:16 frame better than the short-side scale alone).
+const scale = score => Math.min(score.width, score.height) / 1080 * (score.tokens?.contentScale ?? 1);
 const px = (score, value) => Math.round(value * scale(score));
 const motion = score => ({entryFrames: 15, exitFrames: 10, lineStaggerFrames: 6, itemStaggerFrames: 8, entryEasing: 'easeOutCubic', exitEasing: 'easeInCubic', resolveEasing: 'easeOutExpo', ...score.motion});
 const margin = score => Math.round(score.width * (score.tokens?.marginRatio ?? 0.08));

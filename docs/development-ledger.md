@@ -1442,3 +1442,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `1698b4b`; workflows Check Studio sources 38090459304, Check Studio sources 38090457119, Refresh current release notes 38090455681, Publish verified Studio release 38090455727, Check Studio sources 38090455675: success; [v1.57.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.57.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1114 of 1114) ([record](../verification/github-publication-1.57.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261010-16
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261010-16-phase3`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `784432c` (main, package 1.57.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.58.0)
+- Package version: 1.57.0 -> 1.58.0
+- Scope: Phase 3 of the improvement plan, first part: contract-declared fonts used by both the player and the Python renderer (1.5.0) with browser weight matching, font embedding for local previews and the bundled fonts on the published player; four commercial motion styles with bundled fonts and music palettes; tokens.contentScale for fuller vertical frames in every engine copy and the renderer
+- Shared package changed: yes; 22 changed, 2 added, 0 removed ([scope](../verification/scope-1.58.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 209 Node tests (202 passing, 7 opt-in browser tests skipped there and run separately: 72 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness: PASS ([record](../verification/release-1.58.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

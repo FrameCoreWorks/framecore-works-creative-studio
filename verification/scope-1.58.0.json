@@ -1,0 +1,43 @@
+{
+  "version": "1.58.0",
+  "baseline_tag": "v1.57.0",
+  "baseline": "1698b4b817b9d9cfbb70bd461acbee9ccae24fe7",
+  "change_id": "CC-20261010-16",
+  "origin": "cloud-code",
+  "files": 1116,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "skills/hyperframes-workflow/assets/motion-render/README.md",
+    "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "skills/hyperframes-workflow/assets/motion-sound/music.py",
+    "skills/hyperframes-workflow/assets/motion-sound/sound-base.json",
+    "skills/hyperframes-workflow/assets/motion-sound/sound.py",
+    "skills/hyperframes-workflow/assets/motion-styles/README.md",
+    "skills/hyperframes-workflow/assets/motion-styles/styles.json",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/hyperframes-workflow/references/motion-contract-json.md",
+    "skills/hyperframes-workflow/references/motion-craft.md",
+    "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py",
+    "tests/motion_fonts_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1092,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Phase 3 of the improvement plan, first part: contract-declared fonts used by both the player and the Python renderer (1.5.0) with browser weight matching, font embedding for local previews and the bundled fonts on the published player; four commercial motion styles with bundled fonts and music palettes; tokens.contentScale for fuller vertical frames in every engine copy and the renderer"
+}

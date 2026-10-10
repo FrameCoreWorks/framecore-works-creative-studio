@@ -119,6 +119,8 @@ Starting shapes for common requests (adapted from kaventro/motion-designer). A s
 - Starting margins: keep text at least 5–8% of the frame width from the edges. Platform interface overlays and safe zones change; check current platform documentation when the delivery placement is named, and do not invent them.
 - Contrast: WCAG 2.x success criterion 1.4.3 asks for 4.5:1 for normal text and 3:1 for large text. Use it as a floor for on-screen text, and check the darkest and brightest frames behind moving text.
 - Size: on a 1080 × 1920 vertical frame, body text below about 40 px is hard to read on a phone; headlines usually work from about 80 px. Verify at actual size.
+- Fill the vertical frame: sizes are authored for the 1080 px short side, so a 9:16 format often looks empty. Set `tokens.contentScale` (1.2 to 1.3) in that format's tokens before enlarging single params; the critique reports a vertical hold whose content fills too little of the frame.
+- Real type: a style with `fonts` (or the user's licensed brand fonts declared the same way) gives the preview and the MP4 the same typeface; see the [renderer's fonts](../assets/motion-render/README.md#fonts).
 - Use a grid for the whole film and keep recurring elements in the same positions so the viewer learns the layout.
 
 ## Common defects to remove before review

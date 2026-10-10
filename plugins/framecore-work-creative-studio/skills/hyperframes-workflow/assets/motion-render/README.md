@@ -14,6 +14,10 @@ python render.py video.motion.json --stills 0,78,93 --stills-dir stills
 - **Logos and images.** PNG, JPEG and WebP files or data URIs are drawn directly. An SVG logo needs the `cairosvg` package; where it is not installed (as may be the case in a hosted Python sandbox, Unknown until tried) the render stops with a clear message. Ask for a PNG of the mark up front when the user supplies only an SVG and no shell is available.
 - **Determinism.** The same script, contract and font files give byte-identical frames.
 
+## Fonts
+
+A contract that declares `fonts` ([{family, weight, file or data}]) is rendered with exactly those files, using the browser's weight matching, so the [player](../single-file-preview/README.md) preview and the MP4 set the same type. A `file` is looked up next to the contract, in each `--font-dir`, then in Studio's [bundled fonts](../../../pipeline-core/assets/fonts/README.md); when the renderer runs from a copied `<id>.render.py`, pass `--font-dir <plugin>/skills/pipeline-core/assets/fonts`. A local player file cannot load fonts from disk, so embed them first: `python3 embed_fonts.py video.motion.json video.preview.motion.json`. Without `fonts`, `tokens.fontFamily` is resolved from system fonts as before. The summary's `fonts` lists the files used.
+
 ## Text that fits
 
 Before any frame is drawn, the renderer lays out every scene and stops with exit code 4 and `"status": "text_overflow"` when a word is wider than its column, which would otherwise be cropped (a 200 px "Najnowocześniejszy" in a 9:16 column became "Najnowo"). The message names the word, its width and the column; reduce the size, shorten the copy or split the line in the contract and render again. `--allow-overflow` renders anyway, only for a deliberate crop that the review then records. Both renderers share two typesetting rules: a one-letter word (a, i, o, u, w, z) never ends a line, and a number stays with its unit ("90 zł", "10 kg", "50 %"), through no-break spaces in the copy.
