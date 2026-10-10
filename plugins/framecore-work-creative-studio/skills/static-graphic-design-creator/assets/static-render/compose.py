@@ -6,6 +6,7 @@ the real logo and price, at the exact size, as PNG, JPG and print PDF with bleed
   python3 compose.py poster.static.json --out out/ --formats png,pdf --strict
   python3 compose.py --presets                       # the named sizes this tool knows (dated, provisional)
   python3 compose.py --fonts-list                    # the bundled fonts and their names
+  python3 compose.py poster.static.json --brand brand-kit.json   # brand:primary, brand:headline, brand:logo.white
 
 The spec (`*.static.json`, see README.md) lists layers bottom to top: image, rect, gradient and text. Every text layer
 is laid out before anything is drawn. The tool stops with exit code 4 and "status": "text_overflow" when a word is
@@ -40,6 +41,43 @@ class SpecError(Exception):
     pass
 
 
+BRAND = {'kit': None, 'base': Path('.')}
+
+
+def load_brand(path):
+    kit = json.loads(Path(path).read_text(encoding='utf-8'))
+    if kit.get('schema_version') != 1:
+        raise SpecError(f'brand kit {path}: schema_version 1 expected')
+    BRAND.update(kit=kit, base=Path(path).resolve().parent)
+
+
+def brand_value(value, kind):
+    """Resolve brand:<name> from the loaded brand kit: a colour, a font role or a logo file."""
+    name = value[len('brand:'):]
+    kit = BRAND['kit']
+    if kit is None:
+        raise SpecError(f'{value}: no brand kit loaded (use --brand or "brand_kit" in the spec)')
+    if kind == 'colour':
+        entry = (kit.get('colours') or {}).get(name)
+        if not entry:
+            raise SpecError(f'{value}: the brand kit has no colour {name!r}; it has {sorted(kit.get("colours") or {})}')
+        return entry['hex'] if isinstance(entry, dict) else entry
+    if kind == 'font':
+        entry = (kit.get('fonts') or {}).get(name)
+        if not entry:
+            raise SpecError(f'{value}: the brand kit has no font role {name!r}; it has {sorted(kit.get("fonts") or {})}')
+        font = entry['font'] if isinstance(entry, dict) else entry
+        candidate = BRAND['base'] / font
+        return str(candidate) if candidate.suffix.lower() in ('.ttf', '.otf') and candidate.is_file() else font
+    if kind == 'image':
+        variant = name.split('.', 1)[1] if name.startswith('logo.') else None
+        files = (kit.get('logo') or {}).get('files') or {}
+        if variant not in files:
+            raise SpecError(f'{value}: the brand kit has no logo file {variant!r}; it has {sorted(files)}')
+        return BRAND['base'] / files[variant]
+    raise SpecError(value)
+
+
 # ------------------------------------------------------------------ text rules
 
 def keep_together(text):
@@ -53,6 +91,8 @@ def keep_together(text):
 def color(value, default=(0, 0, 0, 255)):
     if value is None:
         return default
+    if isinstance(value, str) and value.startswith('brand:'):
+        value = brand_value(value, 'colour')
     if isinstance(value, (list, tuple)):
         values = list(value) + [255] * (4 - len(value))
         return tuple(int(v) for v in values[:4])
@@ -100,6 +140,8 @@ def font_index(extra_dirs):
 def resolve_font(name, index, base):
     if not name:
         raise SpecError('a text layer needs "font"')
+    if str(name).startswith('brand:'):
+        name = brand_value(name, 'font')
     candidate = (base / name) if not os.path.isabs(name) else Path(name)
     if candidate.suffix.lower() in ('.ttf', '.otf') and candidate.is_file():
         return candidate
@@ -384,7 +426,7 @@ def compose(spec, base, font_dirs, allow_overflow=False):
             box = bleed_box(box, frame['design'], bleed_design)
         shifted = [box[0] + bleed_design, box[1] + bleed_design, box[2], box[3]]
         if kind == 'image':
-            source = base / layer['src']
+            source = brand_value(layer['src'], 'image') if str(layer['src']).startswith('brand:') else base / layer['src']
             if not source.is_file():
                 raise SpecError(f'image {layer["src"]} not found next to the spec')
             placed, at, factor = place_image(source, shifted, layer.get('fit', 'cover'), layer.get('focus', [0.5, 0.5]), scale)
@@ -503,6 +545,7 @@ def main(argv=None):
     parser.add_argument('--out', default='.')
     parser.add_argument('--formats', default='png', help='comma list of png, jpg, pdf')
     parser.add_argument('--fonts', action='append', default=[], help='extra font folder (fonts.json or *.ttf/*.otf)')
+    parser.add_argument('--brand', help='a brand-kit.json whose colours, font roles and logo files the spec names as brand:<name>')
     parser.add_argument('--icc', help='CMYK ICC profile for the PDF (for example the print shop\'s FOGRA39 or PSO Coated v3)')
     parser.add_argument('--allow-overflow', action='store_true', help='draw even when text does not fit (never for client finals)')
     parser.add_argument('--strict', action='store_true', help='contrast below the threshold is an error (exit 5)')
@@ -521,6 +564,10 @@ def main(argv=None):
     summary = {'tool': 'static-render', 'version': VERSION, 'spec': spec_path.name}
     try:
         spec = json.loads(spec_path.read_text(encoding='utf-8'))
+        kit = args.brand or (str(spec_path.parent / spec['brand_kit']) if spec.get('brand_kit') else None)
+        if kit:
+            load_brand(kit)
+            summary['brand_kit'] = Path(kit).name
         image, frame, result = compose(spec, spec_path.parent, args.fonts, args.allow_overflow)
     except (SpecError, KeyError, ValueError, OSError) as error:
         summary.update(status='invalid_spec', detail=str(error))

@@ -375,6 +375,70 @@
         "Candidates are shown with audits or verdicts; a blocked skill gets no install command",
         "Nothing is installed without an explicit request"
       ]
+    },
+    {
+      "id": "Q01",
+      "extra_tools": [
+        "Bash(python3:*)"
+      ],
+      "title": "An offer is priced from the rate and VAT status the user gives",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Przygotuj ofertę dla kawiarni: logo (2 kierunki, 2 rundy poprawek) i karta marki. Moja stawka to 150 zł netto za godzinę; logo zajmie mi 12 godzin, karta marki 5 godzin. Jestem zwolniony z VAT na podstawie art. 113 ust. 1 ustawy o VAT. Zaliczka 50%.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "brief-architect"
+              ]
+            },
+            {
+              "regex": "2[  ]?550"
+            },
+            {
+              "contains": [
+                "art. 113"
+              ]
+            },
+            {
+              "not_contains": [
+                "23%",
+                "23 %"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Totals follow from 17 hours at 150 zł with no VAT (2 550,00 zł) and a 50% advance (1 275,00 zł)",
+        "No rate, price or term the user did not give is added",
+        "Rights and terms are marked for the user's approval"
+      ],
+      "max_turns": 20
+    },
+    {
+      "id": "Q02",
+      "title": "Asked what to charge, Studio explains the logic and asks for the user's numbers instead of inventing a price",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Ile powinienem wziąć za zaprojektowanie plakatu A3 na koncert?",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "not_regex": "\\b\\d{2,5}\\s?(zł|PLN)\\b"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Explains what drives the price (time, use and rights, urgency, revisions)",
+        "Asks for the user's rate or offers to compute from it",
+        "Does not present a market price as fact"
+      ]
     }
   ]
 }

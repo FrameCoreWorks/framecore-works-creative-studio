@@ -5,7 +5,7 @@
 ```sh
 python3 scripts/host_eval.py --list                     # the cases; spends nothing
 python3 scripts/host_eval.py --gate --write             # release-gate subset (5 cases, about USD 0.6)
-python3 scripts/host_eval.py --write --budget-usd 4     # the whole suite (15 cases, about USD 1.7)
+python3 scripts/host_eval.py --write --budget-usd 4     # the whole suite (17 cases, about USD 2)
 python3 scripts/host_eval.py --cases W04,S01 --judge    # chosen cases with the advisory judge
 ```
 
@@ -25,3 +25,4 @@ The owner approved paid runs on 2026-10-10 (decision 2a): about USD 2 to 4 for a
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-10 | 1.55.0 | 15 | 12 PASS, 3 FAIL: one harness defect (D01), one case not applicable as written (LM01, no Studio name), one product finding (S01, two questions after offering directions) | USD 1.68 | [suite](../verification/host-evals/2026-10-10-1.55.0-suite.json) |
 | 2026-10-10 | 1.56.0 candidate | 3 | D01, LM01 (with the Studio name) and S01 PASS after the fixes | USD 0.26 | [rerun](../verification/host-evals/2026-10-10-1.56.0-candidate-LM01-D01-S01.json) |
+| 2026-10-10 | 1.57.0 candidate | 2 (new: Q01 offer from given rates, Q02 what to charge) | first run: Q01 hit the turn cap (harness), Q02 stated unsourced market ranges (product finding); after the routing fix and a 20-turn cap both PASS | USD 0.22 + 0.26 | [first](../verification/host-evals/2026-10-10-1.57.0-candidate-Q01-Q02-first.json), [after](../verification/host-evals/2026-10-10-1.57.0-candidate-Q01-Q02.json) |

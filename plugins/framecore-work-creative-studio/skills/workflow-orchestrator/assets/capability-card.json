@@ -85,6 +85,26 @@
       "observed": "2026-10-10: container tests only"
     },
     {
+      "id": "quote_calc",
+      "executed_by": "studio",
+      "owner": "brief-architect",
+      "does": "Prices a creative offer from the user's own rates: packages, hourly or day items, extras, discount, VAT or a stated exemption, advance payment; writes the offer document in Polish or English",
+      "tools": [
+        "skills/brief-architect/scripts/quote_calc.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Totals per package as JSON and the offer as Markdown",
+      "when_missing": "Compute each line by hand and show the arithmetic; never fill in rates the user has not given",
+      "observed": "2026-10-10: container tests only"
+    },
+    {
       "id": "motion_render",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.56.0
+## Current source: 1.57.0
+
+The [1.57.0 source checks](verification/release-1.57.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness; `claude plugin validate --strict` passes. The GEPA pilot's three dependency-gated tests also pass (8 of 8) with its optional dependencies. Two new host-eval cases ran in headless Claude Code 2.1.296 with claude-sonnet-5-5: the first run found a turn cap too low for Q01 and unsourced market ranges in Q02; after the routing fix both pass (USD 0.48 in total) ([results](docs/host-evals.md)); host evaluations are evidence for Claude Code only. [Scope](verification/scope-1.57.0.json) records 17 changed and 16 added shared files out of 1114.
+
+## Previous source: 1.56.0
 
 The [1.56.0 source checks](verification/release-1.56.0.json) pass canonical validation and `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 7 skill finder, 4 Animate engine, 13 static render, 6 Polish copy check, 5 image probe, 6 host-eval harness; `claude plugin validate --strict` passes. The GEPA pilot's three dependency-gated tests also pass (8 of 8) with its optional dependencies. New scripts parse under Python 3.11. The host-eval harness ran the 15-case suite on 1.55.0 in headless Claude Code 2.1.296 with claude-sonnet-5-5 (12 of 15, USD 1.68; one harness defect, one case not applicable without the Studio name, one product finding) and the three cases again on this candidate (3 of 3, USD 0.26) ([results](docs/host-evals.md)); host evaluations are evidence for Claude Code only. [Scope](verification/scope-1.56.0.json) records 22 changed and 41 added shared files out of 1098.
 

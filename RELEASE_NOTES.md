@@ -1,11 +1,12 @@
-# Creative Studio 1.56.0
+# Creative Studio 1.57.0
 
-Client-ready graphics with exact Polish text.
+From enquiry to acceptance: the client side of creative work.
 
-- **Exact text, every time.** For a final with a price, a date, a logo or a legal line, Studio now makes the picture without text and sets every word itself in a real font at the exact size, as PNG, JPG or a print PDF with bleed. It stops rather than crop a word or misspell a Polish letter, and checks contrast and safe areas. For concepts, one-pass generation stays the default; Studio tells you which route it uses.
-- **Fonts with Polish letters.** Eighteen free fonts in six families come with the plugin.
-- **Polish copy checker.** Quotes, dashes, prices, dates, sentence-case headlines and one form of address, plus character counts for ads, search, SEO and email.
-- **Rules that matter in Poland.** A dated checklist for price reductions (lowest price of 30 days), paid-content labels, marketing consent, AI disclosure, green, health, alcohol and credit claims. Studio flags them and drafts wording; legal decisions stay with you or your counsel.
-- **A quicker path.** Ask for a finished graphic with a complete brief and you get one direction and the result in one turn. When Studio offers directions, it asks one question at a time.
+- **Offers in minutes.** Studio asks only the open questions, then builds an offer with packages, revision rounds, timeline, rights and payment terms, priced from your own rates and VAT status. Studio never invents prices.
+- **Concepts clients can decide on.** Two or three directions shown in context, a recommendation and one numbered decision.
+- **Fewer disputes about changes.** Feedback is gathered into one list and marked as an included revision, a fix of our mistake or a change of scope that is quoted first.
+- **A clean handoff.** Files named and grouped by use, a handoff letter with the agreed rights and an honest AI-assistance line, and an acceptance protocol (protokół odbioru).
+- **Brand kits.** Keep a client's colours, fonts, logo, voice and legal lines in one file; graphics can use them by name.
+- **Ready emails** in Polish for every step, a brand voice guide and KPI and budget tables for campaigns.
 
-The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+Legal wording is a starting point for you or your counsel, not legal advice. The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

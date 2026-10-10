@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.57.0, 2026-10-10
+
+From Phase 2 of [the improvement plan](docs/improvement-plan-2026-10.md), the client business layer. Every rate, VAT status, term and right is the user's input; Studio holds no prices and personalises nothing (owner decision of 2026-10-10):
+
+- **Offers priced from the user's rates.** [Client offer and quote](plugins/framecore-work-creative-studio/skills/brief-architect/references/client-offer-and-quote.md): packages that differ in outcome, revision rounds, timeline, rights in plain words (transfer or licence, fields of use), payment and validity; `quote_calc.py` computes net, VAT or a stated exemption, gross, discount and advance with decimal rounding and writes the offer in Polish or English; it refuses an hourly item without a rate, an exemption without its basis or an advance above 100 %
+- **Client intake** in [Polish](plugins/framecore-work-creative-studio/skills/brief-architect/assets/client-intake.pl.md) and [English](plugins/framecore-work-creative-studio/skills/brief-architect/assets/client-intake.en.md), and commercial fields in the Brief Contract (decision maker, budget, deadline, rounds, use, rights, client materials, acceptance)
+- **Concept presentation, revision tracker and changes of scope.** Two or three directions in context with a recommendation and a numbered decision; feedback consolidated and classed as a revision, our error (never counted) or a change of scope (quoted before work starts)
+- **Client handoff.** Files grouped by use with sortable names, fonts and licences, a [handoff letter](plugins/framecore-work-creative-studio/skills/delivery-documentation/assets/handoff-letter.pl.md) with the agreed rights and a plain AI-assistance line, an [acceptance protocol](plugins/framecore-work-creative-studio/skills/delivery-documentation/assets/acceptance-protocol.pl.md) (protokół odbioru) and a case-study template that uses only the client's consent and figures
+- **Brand kit.** One file per client (colours, fonts and licences, logo files, voice, approved and banned claims, legal lines) read by every owner; the static compositor accepts `brand:primary`, `brand:headline` and `brand:logo.white`; where to keep it in ChatGPT, Claude, Codex and Claude Code
+- **Client email kit** (questions, offer, concepts, feedback summary, files, payment reminder, testimonial request), a **brand voice guide** template, and **KPIs and budget scenarios** in the campaign pack (client data or labelled assumptions, never invented benchmarks)
+- [Client projects](plugins/framecore-work-creative-studio/skills/pipeline-core/references/client-projects.md) maps the path from enquiry to acceptance and which owner makes each document
+
 ## 1.56.0, 2026-10-10
 
 From Phase 1 of [the improvement plan](docs/improvement-plan-2026-10.md) (static graphics and Polish quality) and the first host evaluation run:

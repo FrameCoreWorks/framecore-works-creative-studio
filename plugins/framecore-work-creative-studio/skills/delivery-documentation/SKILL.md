@@ -1,6 +1,6 @@
 ---
 name: delivery-documentation
-description: "Package accepted work for handoff: final files, prompt specs, captions, print/DTP and export notes with actual file and QA status. Not for judging quality or for the file inventory itself (Asset Manifest)."
+description: "Package accepted work for handoff: final files, prompt specs, captions, print/DTP and export notes with actual file and QA status; client handoff letter and acceptance protocol. Not for judging quality or for the file inventory itself (Asset Manifest)."
 ---
 
 # Useful handoff
@@ -20,6 +20,10 @@ Carry exact copy, reference roles, concept invariants, format, safe zones and re
 For campaign delivery, list actual variants and changed layout rules, not merely exported filenames. For long tasks, provide a compact resume sheet and unresolved decisions. Do not promise persistent memory, calendars or live project management.
 
 Honor the host's storage contract for requested files. External upload or publication is a separate operation whose scope must be authorized; preserve authorization already granted and ask only when a material scope or host requirement remains unresolved. Do not fabricate download links, filenames, versions or a completed archive. A technical validator is not a visual, listening or synchronization acceptance test.
+
+## Client handoff
+
+For work delivered to a client, follow [client handoff](references/client-handoff.md): files grouped by use with sortable names, a contents list, fonts and licences, the [handoff letter](assets/handoff-letter.pl.md) with the agreed rights and a plain AI-assistance line when generative tools made part of the work, and written acceptance or the [acceptance protocol](assets/acceptance-protocol.pl.md). Afterwards, a [case study](assets/case-study.template.md) only with the client's consent and the client's own figures.
 
 ## Applied practice
 

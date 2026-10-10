@@ -156,6 +156,25 @@ class Compose(unittest.TestCase):
             self.assertEqual(code, 0, summary)
             self.assertEqual(summary['warnings'], ['top: text reaches outside the placement safe area'])
 
+    def test_brand_names_resolve_from_the_kit(self):
+        with tempfile.TemporaryDirectory() as temp:
+            Image.new('RGBA', (300, 100), (255, 255, 255, 255)).save(pathlib.Path(temp, 'logo-white.png'))
+            kit = {'schema_version': 1, 'name': 'Lipa', 'colours': {'primary': {'hex': '#1D3B2A'}, 'accent': {'hex': '#F2C14E'}},
+                   'fonts': {'headline': {'font': 'Fraunces Black'}}, 'logo': {'files': {'white': 'logo-white.png'}}}
+            pathlib.Path(temp, 'brand-kit.json').write_text(json.dumps(kit), encoding='utf-8')
+            spec = {'id': 'brand', 'brand_kit': 'brand-kit.json', 'canvas': {'width': 1080, 'height': 1080, 'background': 'brand:primary'},
+                    'layers': [{'type': 'image', 'src': 'brand:logo.white', 'fit': 'contain', 'box': [760, 60, 260, 90]},
+                               text('h', 'Kawiarnia Lipa', font='brand:headline', color='brand:accent', size=96, box=[80, 700, 920, 300])]}
+            code, summary = run(spec, temp)
+            self.assertEqual(code, 0, summary)
+            self.assertEqual((summary['brand_kit'], summary['texts'][0]['font']), ('brand-kit.json', 'Fraunces-Black.ttf'))
+            with Image.open(pathlib.Path(temp, 'out/brand.png')) as image:
+                self.assertEqual(image.getpixel((5, 5)), (0x1D, 0x3B, 0x2A))
+            spec['layers'][1]['color'] = 'brand:secondary'
+            code, summary = run(spec, temp)
+            self.assertEqual((code, summary['status']), (3, 'invalid_spec'))
+            self.assertIn('no colour', summary['detail'])
+
     def test_every_preset_has_a_size(self):
         presets = json.loads((TOOL / 'presets.json').read_text(encoding='utf-8'))
         self.assertEqual(presets['checked'], '2026-10-10')

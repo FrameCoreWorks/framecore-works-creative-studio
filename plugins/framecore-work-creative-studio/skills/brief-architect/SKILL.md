@@ -1,6 +1,6 @@
 ---
 name: brief-architect
-description: 'Turn messy notes, requests and scattered constraints into a structured Brief Contract before creative work. Delegation packets for another agent go to Instruction Packet Factory.'
+description: 'Turn messy notes, requests and scattered constraints into a structured Brief Contract before creative work; client intake forms, pricing questions and offers priced from rates the user gives. Delegation packets for another agent go to Instruction Packet Factory.'
 ---
 
 # Brief Architect
@@ -17,6 +17,10 @@ Use this skill to convert scattered intent into a Brief Contract that downstream
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
 
 For a poster or static graphic, follow [ordinary-language format choices](../workflow-orchestrator/references/intake-and-reference-authority.md#format-choices-in-ordinary-language): ask only missing use (print/internet/both), then familiar paper size or post/story placement, with numbered options. Reuse exact supplied dimensions. Do not expose a mixed paper-code/pixel menu or make technical knowledge a prerequisite for the brief.
+
+## Client work: intake, offer and quote
+
+When the user works for a client, use the [client intake](assets/client-intake.pl.md) ([English](assets/client-intake.en.md)) for the open questions only, add the commercial fields to the Brief Contract, and build the offer with [client offer and quote](references/client-offer-and-quote.md): packages that differ in outcome, revision rounds, timeline, rights in plain words, payment and validity, priced by [quote_calc.py](scripts/quote_calc.py) from the user's own rates and VAT status. Never invent a rate or a market price; a question about what to charge gets the pricing logic and an offer to compute from the user's numbers, and a market rate only with current sources. The whole client path is mapped in [client projects](../pipeline-core/references/client-projects.md).
 
 ## When To Use
 

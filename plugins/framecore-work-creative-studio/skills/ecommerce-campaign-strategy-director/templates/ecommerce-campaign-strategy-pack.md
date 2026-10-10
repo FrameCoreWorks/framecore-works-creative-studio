@@ -61,6 +61,19 @@ Distinguish exploratory concept comparison from an isolated-variable test. Retai
 - Baseline/target assumptions and commercial cost basis:
 - Results, uncertainty, alternative explanations and next decision:
 
+## KPIs And Budget Scenarios
+
+| Objective | KPI and how it is measured | Baseline (client data or Unknown) | Target | Review date |
+|---|---|---|---|---|
+
+| Scenario | Total budget | Split by channel | Expected outcome (range) | Basis |
+|---|---|---|---|---|
+| Lower | | | | client data / labelled assumption |
+| Base | | | | |
+| Higher | | | | |
+
+Budgets and baselines come from the client. An expected outcome is a range from the client's own past results or a clearly labelled assumption, never an invented industry benchmark; Unknown is a valid entry.
+
 ## Copy And Claim Ledger
 
 | Claim ID / exact wording | Type / SKU / market / conditions | Source / date | Evidence status | Permissible wording or needed evidence | Rules (PL/EU) | Copy approval |

@@ -1421,3 +1421,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `bd37781`; workflows Check Studio sources 38089077489, Check Studio sources 38089075846, Refresh current release notes 38089074521, Check Studio sources 38089074474, Publish the motion player to GitHub Pages 38089074396, Publish verified Studio release 38089074438: success; [v1.56.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.56.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1098 of 1098) ([record](../verification/github-publication-1.56.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261010-15
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261010-15-phase2`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `1171a36` (main, package 1.56.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.57.0)
+- Package version: 1.56.0 -> 1.57.0
+- Scope: Phase 2 of the improvement plan, the client business layer with every rate, VAT status, term and right as user input: offers and a quote calculator, client intake and commercial Brief Contract fields, concept presentation, revision tracker and changes of scope, client handoff with a handoff letter, AI-assistance line and acceptance protocol, a brand kit read by every owner and the compositor, a client email kit, a brand voice guide, KPI and budget scenarios; pricing questions route to Brief Architect and never get unsourced market rates (host-eval Q02 finding)
+- Shared package changed: yes; 17 changed, 16 added, 0 removed ([scope](../verification/scope-1.57.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 207 Node tests (201 passing, 6 opt-in browser tests skipped there and run separately: 70 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness: PASS ([record](../verification/release-1.57.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

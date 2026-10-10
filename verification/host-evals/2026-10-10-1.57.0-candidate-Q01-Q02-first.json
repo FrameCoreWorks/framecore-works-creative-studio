@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-10",
+  "package_version": "1.56.0",
+  "source": {
+    "commit": "bd37781 (1.56.0) plus the uncommitted Phase 2 changes before the routing fix",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 2,
+    "skipped_for_budget": [],
+    "cost_usd": 0.2207
+  },
+  "cases": [
+    {
+      "id": "Q01",
+      "title": "An offer is priced from the rate and VAT status the user gives",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "cost_usd": 0.1192,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Przygotuj ofertę dla kawiarni: logo (2 kierunki, 2 rundy poprawek) i karta marki. Moja stawka to 150 zł netto za godzinę; logo zajmie mi 12 godzin, karta marki 5 godzin. Jestem zwolniony z VAT na podstawie art. 113 ust. 1 ustawy o VAT. Zaliczka 50%.",
+          "reply": "",
+          "reply_chars": 0,
+          "reply_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "skills": [
+            "brief-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Grep",
+            "Bash",
+            "Write"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1192,
+          "seconds": 24.0,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "brief-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['brief-architect']; expected one of ['brief-architect']"
+            },
+            {
+              "check": {
+                "regex": "2[  ]?550"
+              },
+              "passed": false,
+              "detail": "/2[  ]?550/"
+            },
+            {
+              "check": {
+                "contains": [
+                  "art. 113"
+                ]
+              },
+              "passed": false,
+              "detail": "missing ['art. 113']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "23%",
+                  "23 %"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "host_error": false
+              },
+              "passed": false,
+              "detail": "error_max_turns"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "Q02",
+      "title": "Asked what to charge, Studio explains the logic and asks for the user's numbers instead of inventing a price",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "cost_usd": 0.1015,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Ile powinienem wziąć za zaprojektowanie plakatu A3 na koncert?",
+          "reply": "Za plakat A3 na koncert w Polsce zwykle bierze się **od 500 do 2500 zł netto**. Te widełki to moje przybliżone szacunki z doświadczenia. Nie sprawdzałem aktualnych stawek w sieci.\n\n| Sytuacja | Orientacyjna cena |\n|---|---|\n| Początkujący, lokalny koncert, szablonowa grafika z gotowych materiałów | 300–700 zł |\n| Doświadczony freelancer, oryginalna koncepcja, 2 propozycje, 2 rundy poprawek | 800–1800 zł |\n| Znany artysta lub festiwal, własna ilustracja albo zdjęcia, cały zestaw (plakat + social + baner) | 2000–5000 zł i więcej |\n\n**Co podnosi cenę:**\n- Ilustracja albo kompozycja zrobiona od zera. Gotowe zdjęcia i grafiki kosztują mniej.\n- Dodatkowe formaty, na przykład post, story, baner na Facebooka, wersja B1 albo B2.\n- Przygotowanie do druku: spady, CMYK, pliki produkcyjne.\n- Pilny termin: dopłata 30–50%.\n- Prawa autorskie. Licencja do jednego wydarzenia kosztuje mniej niż przekazanie praw na wszystkich polach eksploatacji.\n- Liczba poprawek ponad ustalony limit.\n\n**Jak to wycenić u siebie:**\n1. Oszacuj godziny: koncepcja, projekt i poprawki to zwykle 6–15 godzin.\n2. Pomnóż je przez swoją stawkę. Dla freelancera to zwykle 80–200 zł/h.\n3. Dodaj margines na poprawki i zakres praw.\n\nZapisz w ofercie, co jest wliczone: liczbę propozycji, liczbę rund poprawek, formaty plików i zakres licencji.\n\nMogę z tego przygotować ofertę do wysłania klientowi, jeśli podasz:\n- swoją stawkę godzinową albo docelową kwotę,\n- czy projekt obejmuje tylko plakat, czy też wersje na social media,\n- termin,\n- czy materiały (zdjęcia, logo) dostarcza klient.",
+          "reply_chars": 1556,
+          "reply_sha256": "7ed77b429a01e7c923272234c2042822b6e3d2a5eae44258ec7298cc4c49ef43",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1015,
+          "seconds": 12.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "not_regex": "\\b\\d{2,5}\\s?(zł|PLN)\\b"
+              },
+              "passed": false,
+              "detail": "not /\\b\\d{2,5}\\s?(zł|PLN)\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": {
+    "Q01": "harness limit: the agent ran the calculator and read files but hit the 8-turn cap before replying; the case now allows 20 turns",
+    "Q02": "product finding: the orchestrator answered \"how much should I charge\" itself with unsourced market ranges (500 to 2500 zł, 80 to 200 zł/h), against the research gate for price claims. Fixed: pricing routes to Brief Architect, whose guardrail gives the pricing logic and a market rate only from current sources"
+  }
+}

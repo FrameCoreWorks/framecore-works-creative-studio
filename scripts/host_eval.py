@@ -71,9 +71,9 @@ def claude_env(config):
     return env
 
 
-def run_turn(prompt, workspace, config, args, tools, session=None):
+def run_turn(prompt, workspace, config, args, tools, session=None, max_turns=None):
     command = ['claude', '-p', prompt, '--plugin-dir', str(PLUGIN), '--output-format', 'stream-json', '--verbose',
-               '--model', args.model, '--max-turns', str(args.max_turns), '--allowed-tools', ' '.join(tools),
+               '--model', args.model, '--max-turns', str(max_turns or args.max_turns), '--allowed-tools', ' '.join(tools),
                '--tools', ','.join(sorted({t.split('(')[0] for t in tools})), '--strict-mcp-config',
                '--max-budget-usd', f'{args.turn_budget_usd:.2f}', '--setting-sources', 'user']
     if session:
@@ -240,7 +240,7 @@ def run_case(case, args):
         workspace.mkdir()
         session, turns, spent = None, [], 0.0
         for index, step in enumerate(case['turns']):
-            turn = run_turn(step['prompt'], workspace, config, args, tools, session)
+            turn = run_turn(step['prompt'], workspace, config, args, tools, session, case.get('max_turns'))
             session, spent = turn['session'], spent + turn['cost_usd']
             results = []
             for spec in step.get('checks', []):

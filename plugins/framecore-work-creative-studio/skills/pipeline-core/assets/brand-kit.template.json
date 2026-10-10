@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "{Brand name}",
+  "spelling": "{How the name is written and declined, for example: Kawiarnia Lipa, w Kawiarni Lipa}",
+  "colours": {
+    "primary": {"hex": "#1D3B2A", "role": "headlines, buttons"},
+    "accent": {"hex": "#F2C14E", "role": "prices, highlights"},
+    "text": {"hex": "#1D1D1B", "role": "body text"},
+    "background": {"hex": "#F7F3EC", "role": "backgrounds"}
+  },
+  "fonts": {
+    "headline": {"font": "Fraunces Black", "licence": "OFL (bundled)"},
+    "body": {"font": "Inter Regular", "licence": "OFL (bundled)"}
+  },
+  "logo": {
+    "files": {"colour": "logo-colour.png", "white": "logo-white.png", "mark": "logo-mark.png"},
+    "min_width_px": 120,
+    "clear_space": "the height of the letter L on every side"
+  },
+  "voice": {
+    "address": "Ty",
+    "tone": ["ciepły", "konkretny", "lokalny"],
+    "use": ["{phrases the brand uses}"],
+    "avoid": ["{phrases the brand never uses}"]
+  },
+  "claims": {
+    "approved": [{"text": "{claim}", "source": "{where it is proven}"}],
+    "banned": ["{claims the brand must not make}"]
+  },
+  "legal_lines": ["{required lines}"],
+  "do_not": ["{things the brand never does}"]
+}

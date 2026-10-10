@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-10",
+  "package_version": "1.56.0",
+  "source": {
+    "commit": "bd37781 (1.56.0) plus the Phase 2 changes that became 1.57.0, after the routing fix",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "skipped_for_budget": [],
+    "cost_usd": 0.2559
+  },
+  "cases": [
+    {
+      "id": "Q01",
+      "title": "An offer is priced from the rate and VAT status the user gives",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1888,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Przygotuj ofertę dla kawiarni: logo (2 kierunki, 2 rundy poprawek) i karta marki. Moja stawka to 150 zł netto za godzinę; logo zajmie mi 12 godzin, karta marki 5 godzin. Jestem zwolniony z VAT na podstawie art. 113 ust. 1 ustawy o VAT. Zaliczka 50%.",
+          "reply": "Oferta jest gotowa: `/tmp/studio-eval-zr8hn4zd/work/oferta-kawiarnia.md`. Wycena jest jedna, bo zakres jest precyzyjny i nie ma sensu rozbijać go na pakiety.\n\n| Pozycja | Godziny | Netto |\n|---|---|---|\n| Logo: 2 kierunki, wybrany dopracowany | 12 | 1 800,00 zł |\n| Karta marki | 5 | 750,00 zł |\n| **Razem** | 17 | **2 550,00 zł** |\n\n- **VAT:** zwolnienie z art. 113 ust. 1 ustawy o VAT, więc kwota brutto jest równa netto, czyli 2 550,00 zł.\n- **Zaliczka 50%:** 1 275,00 zł z góry i 1 275,00 zł po odbiorze.\n- **Poprawki:** w cenie są 2 rundy. Dodatkowe prace i kolejne rundy wycenia się osobno, przed rozpoczęciem.\n- **Poza zakresem:** druk, zdjęcia i materiały inne niż logo i karta marki. Tę listę dopisałem sam, więc popraw ją, jeśli zakres ma być inny.\n\nKwoty policzył kalkulator wyceny na podstawie Twojej stawki.\n\nOferta nie zawiera kilku informacji, których nie podałeś. Nie chciałem ich zgadywać:\n1. **Termin realizacji.** Ile dni roboczych albo jaka data oddania?\n2. **Prawa autorskie.** Czy przeniesienie praw majątkowych (zwykle po zapłacie), czy licencja? Na jakich polach eksploatacji? Zapis trzeba uzgodnić w umowie. To nie jest porada prawna.\n3. **Termin płatności** drugiej części i data ważności oferty.\n4. **Nazwa kawiarni i Twoje dane** w nagłówku. Na razie ich tam nie ma.\n\nDaj znać, a uzupełnię ofertę i dopiszę krótki e-mail przewodni do klienta.",
+          "reply_chars": 1370,
+          "reply_sha256": "d4cd2a3344e24cb247d946cce23e0aeed90ffe12ea214ec461b628b334ca88d5",
+          "skills": [
+            "brief-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Read",
+            "Bash",
+            "Write",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1888,
+          "seconds": 43.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "brief-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['brief-architect']; expected one of ['brief-architect']"
+            },
+            {
+              "check": {
+                "regex": "2[  ]?550"
+              },
+              "passed": true,
+              "detail": "/2[  ]?550/"
+            },
+            {
+              "check": {
+                "contains": [
+                  "art. 113"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "23%",
+                  "23 %"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "Q02",
+      "title": "Asked what to charge, Studio explains the logic and asks for the user's numbers instead of inventing a price",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0671,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Ile powinienem wziąć za zaprojektowanie plakatu A3 na koncert?",
+          "reply": "Nie podam kwoty „z rynku”. Bez aktualnych źródeł byłaby zgadywanką, a stawki bardzo się różnią zależnie od miasta, doświadczenia i praw do pracy. Mogę za to pokazać, jak ją policzyć, i wyliczyć konkretną cenę z Twoich liczb.\n\n**Z czego składa się cena plakatu A3**\n\n1. **Czas pracy × Twoja stawka godzinowa.** Wlicz:\n   - rozmowę i brief,\n   - research i szkice koncepcji,\n   - właściwy projekt,\n   - rundy poprawek,\n   - przygotowanie plików do druku (spady, CMYK, PDF).\n2. **Zakres:** ile koncepcji do wyboru i ile rund poprawek jest w cenie. Każda dodatkowa runda kosztuje dodatkowo.\n3. **Materiały:** czy dostajesz gotowe zdjęcia, logo i teksty, czy musisz je zdobyć lub przygotować. Dochodzą licencje na zdjęcia i fonty oraz ilustracje robione od zera.\n4. **Prawa i użycie:** czy to jeden koncert, czy cała trasa. Czy klient dostaje pliki źródłowe i wersje dodatkowe: social media, ulotka, bilet. Szersze prawa to wyższa cena.\n5. **Termin:** praca ekspresowa zwykle ma dopłatę, np. +25–50%.\n6. **Podatek:** czy jesteś płatnikiem VAT, czy cena ma być netto, czy brutto.\n\n**Praktyczna rada:** zamiast jednej ceny zaproponuj 2–3 pakiety, na przykład:\n- **Podstawowy:** 1 koncepcja, 1 runda poprawek, plik do druku.\n- **Standard:** 2 koncepcje, 2 rundy, plik do druku plus wersja na social media.\n- **Rozszerzony:** jak Standard, ale z pełnym zestawem materiałów (np. Facebook, Instagram, ulotka) i plikami źródłowymi.\n\n**Żebym mógł policzyć konkretną kwotę, podaj:**\n1. Swoją stawkę godzinową albo docelową kwotę za dzień pracy.\n2. Ile godzin zajmuje Ci taki plakat, jeśli to wiesz.\n3. Czy jesteś płatnikiem VAT.\n4. Czy klient dostarcza materiały (zdjęcia, logo, teksty), czy musisz je przygotować.\n5. Jak ma być wykorzystany plakat: jednorazowo, czy w całej kampanii.\n\nJeśli nie masz jeszcze stawki, powiedz, ile chcesz zarobić miesięcznie i ile godzin pracy możesz w tym czasie sprzedać. Wyliczę z tego stawkę godzinową. Mogę też zbadać aktualne widełki rynkowe w Polsce, ale wtedy poszukam źródeł i podam je razem z wynikiem.",
+          "reply_chars": 2030,
+          "reply_sha256": "18ff0373c24f9754427461e406f8210ed80057a9ece008ab62dbd71681ebf812",
+          "skills": [
+            "brief-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0671,
+          "seconds": 13.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "not_regex": "\\b\\d{2,5}\\s?(zł|PLN)\\b"
+              },
+              "passed": true,
+              "detail": "not /\\b\\d{2,5}\\s?(zł|PLN)\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": {
+    "note": "one sample per case: Q01 priced 17 h at 150 zł with the art. 113 exemption (2 550,00 zł, advance 1 275,00 zł) through quote_calc and asked for the missing terms; Q02 declined to state a market rate without sources and offered to compute from the user's numbers"
+  }
+}

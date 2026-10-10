@@ -86,6 +86,7 @@ Read only what is needed:
 - [references/gate-registry.md](references/gate-registry.md) for canonical gate names.
 - [references/inference-reasoning-methods.md](references/inference-reasoning-methods.md) for compact reasoning routes, runtime route boundaries, candidate limits, and raw trace prohibitions.
 - [references/text-image-generation-policy.md](references/text-image-generation-policy.md) for visible text in raster graphics.
+- [references/client-projects.md](references/client-projects.md) for the client path from enquiry to acceptance (intake, offer, concepts, revisions, handoff), and [references/brand-kit.md](references/brand-kit.md) for a client's colours, fonts, logo, voice and legal lines.
 - [references/prompt-format-and-continuity.md](references/prompt-format-and-continuity.md) for generator-specific prompt fields, independent generation units, continuity carriers, and standalone prompt rules.
 - [references/creative-prompting-standard.md](references/creative-prompting-standard.md) for portable image, edit, and video prompt contracts, reference roles, attachment ownership, target verification, rewrite-forward, and adapter evidence.
 - [references/humanizer-routing.md](references/humanizer-routing.md) for copy polish routing.
