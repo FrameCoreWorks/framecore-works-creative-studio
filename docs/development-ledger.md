@@ -1140,3 +1140,23 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.50.0 in Plugin Creator; 1.43.0 is the saved release)
 - Codex: not_run
 - Claude Code: not rerun for 1.50.0
+
+## CC-20261010-01
+
+- Origin: cloud-code, from the owner's ChatGPT Work readback
+- Branch: `main` (records only), fast-forward under the owner's standing rule
+- Baseline: `9832e46` (main, package 1.50.0, after its publication record); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.50.0)
+- Scope: the owner updated the hosted plugin to 1.50.0 in Plugin Creator and supplied its readback (`hosted-readback-1.50.0.json`, SHA-256 `29591e69...`). `scripts/check_hosted_readback.py` against `config/install-sources.json` at `62a72e0`: `full_byte_parity`, 937 of 937 paths, sizes and hashes; every readback hash also equals the tag v1.50.0 git blob. No unreadable or extra paths
+- Shared package changed: no
+
+Verification:
+
+- readback comparison: PASS (`full_byte_parity`) ([record](../verification/hosted-release-1.50.0.json)); canonical validator and `scripts/check_all.sh`: PASS
+
+Cross-host state:
+
+- GitHub: `main` and v1.50.0 synchronized (see CC-20261009-12)
+- ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6ac93031429c8191ac77687931036628`, readback 2026-10-10; active-client behavior not_run
+- Codex: not_run
+- Claude Code: not rerun for 1.50.0
