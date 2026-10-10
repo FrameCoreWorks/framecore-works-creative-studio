@@ -1263,3 +1263,22 @@ Cross-host state:
 - GitHub: `main` and v1.52.0 synchronized (see CC-20261010-04)
 - ChatGPT Work: synchronized. Plugin `plugins_6ab8e226cbd48191b661cb2ea24d0351`, release `pluginrel_6aca03c7f9fc8191b2739b27ad44ab41`, readback 2026-10-10; the 1.51.0 welcome in the client not_run
 - Codex: not_run
+
+## CC-20261010-07
+
+- Origin: cloud-code, from the owner's decisions of 2026-10-10
+- Branch: `main` (records only), fast-forward under the owner's standing rule
+- Baseline: `ed69076` (main, package 1.52.0); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.52.0)
+- Scope: the owner closed the current ChatGPT Work test round: the sandbox cannot run every tool, so the full required set (HyperFrames CLI included) is a Codex or Claude Code matter, and `limited` in Work is accepted as correct. Owner decision 1a: the environment check should report a tool that the host marks `not_supported` as `not_on_this_host` even when its files are found (today HyperFrames skills found in Work's sandbox give `ok`), with a note that the files are present but the engine does not run there; this is deferred to the next release that changes the shared package, without a separate hosted update. The welcome with motion design (1.51.0) stays not_run in the client; a Codex test is not scheduled
+- Shared package changed: no
+
+Deferred to the next package release:
+
+- `check_environment.py`: on a host where a tool is `not_supported`, report `not_on_this_host` whatever the detection found, and keep the found paths in the note; add a test
+
+Cross-host state:
+
+- GitHub: `main` and v1.52.0 synchronized
+- ChatGPT Work: synchronized at 1.52.0 (release `pluginrel_6aca03c7f9fc8191b2739b27ad44ab41`)
+- Codex: not_run
