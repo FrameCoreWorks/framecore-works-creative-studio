@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.54.0, 2026-10-10
+
+From the owner's request of 2026-10-10 to add the skills of [cth9191/animate](https://github.com/cth9191/animate) to the motion graphics module:
+
+- **The Animate engine joins Motion Graphics Workflow.** Short explainers, histories and little stories drawn entirely in code on one canvas, deterministic frame by frame, in seven illustrated styles (cut paper, crosshatch ink, riso print, sketchbook, manim-style math, pixel art, isometric line art) or a look matched from the user's references; story formats and a story grammar, shape-morph transitions, a score composed in code and mastered for phones, voice-over timed to the words or cuts on the beats of the user's own track, several aspect ratios from one piece, and a measured review (beat grid, story-arc loudness, dead beats, text cut off or overlapping, loudness). The upstream skill folder (version 0.4.0, MIT, commit `7e5eb56`) is bundled byte-identical as `skills/hyperframes-workflow/assets/animate-engine/`, with `SKILL.md` renamed `ENGINE.md` so no host lists it as a second skill; Studio adds only a package pin for Playwright 1.56.1. The [Animate engine reference](../skills/hyperframes-workflow/references/animate-engine.md) says when to choose it and how Studio's approvals, research gate, acceptance verdicts and provider rules apply; its story grammar, frame checklist and craft rules guide motion plans on every host.
+- **The required set has 18 tools.** The environment check adds `animate_engine`, a fifth Studio workspace starter installed with `npm ci` and `npx playwright install chromium`, for Codex and Claude Code; chat hosts mark it not supported. Capability `animate_render`; provenance in `integrations/animate/` with every file's Git blob hash, checked by a new test.
+
 ## 1.53.0, 2026-10-10
 
 From the owner's request of 2026-10-10 to adapt Vercel's skill finder, and the deferred environment-check correction (decision 1a):

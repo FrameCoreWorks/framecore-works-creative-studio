@@ -45,7 +45,7 @@ This installs the same Studio knowledge through a local native entry. It does no
 
 ## 5. Final check of the required tools
 
-The installation ends with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). Studio uses one required set of tools (Python with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim; FFmpeg with FFprobe; Node.js with npx; Chrome or Chromium; the four starters installed with `npm ci` in the Studio workspace; HyperFrames); the check decides which of them this host can run.
+The installation ends with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). Studio uses one required set of tools (Python with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim; FFmpeg with FFprobe; Node.js with npx; Chrome or Chromium; the five starters installed with `npm ci` in the Studio workspace; HyperFrames); the check decides which of them this host can run.
 
 1. Run `python3 <persistent-bundle-dir>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host codex` and show the user the result in their language.
 2. `fail`: the installation is not complete. Show the printed commands for the user's system (system packages, the Python packages in one virtual environment, the starters copied into `~/.framecore-studio/workspace` with `npm ci`, HyperFrames' own plugin). The user runs them, or asks the assistant to run them in this host; the check itself installs nothing. Then run the final check again.

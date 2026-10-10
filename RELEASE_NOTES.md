@@ -1,9 +1,8 @@
-# Creative Studio 1.53.0
+# Creative Studio 1.54.0
 
-Find a skill for your task.
+Illustrated animation, drawn in code.
 
-- **A third option in the welcome.** "Looking for a specific skill?" (in Polish "Szukasz konkretnego skilla (umiejętności)?"): describe what the skill should do and Studio points to its own matching skill first.
-- **The open skills.sh catalog in Codex and Claude Code.** When Studio does not cover the need, or you ask for alternatives, Studio searches Vercel's open catalog, tells you what each candidate does, how often it is installed and what three security scans say, and leaves out skills rated high or critical. It installs a skill only when you ask for a named one, without telemetry. In ChatGPT it gives you the skills.sh link instead.
-- **A more honest tool check.** A tool a chat cannot run is reported as such even when its files are present.
+- **A new engine in the motion graphics module.** Short explainers, histories and little stories drawn entirely in code in seven illustrated styles (cut paper, crosshatch ink, riso print, sketchbook, math, pixel art, isometric) or a look matched from your references. It brings story formats, shape-morph transitions, a composed score, a voice-over timed to the words or cuts on the beats of your own track, every aspect ratio from one piece, and a measured review. It comes from [cth9191/animate](https://github.com/cth9191/animate) (MIT), bundled unchanged.
+- **Where it runs.** It renders MP4 in Codex and Claude Code after you approve the story, the look and the storyboard; the installation's final check now covers it as the 18th required tool. In ChatGPT its story grammar and craft rules still shape the plan, and the video is rendered with Studio's own renderer.
 
-The six capability lines, later menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

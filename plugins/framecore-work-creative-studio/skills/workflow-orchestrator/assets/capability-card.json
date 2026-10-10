@@ -438,6 +438,32 @@
       "delivers": "Catalog candidates with what they do, installs, audits, verdict and an install command run only on explicit request",
       "when_missing": "Match the need against Studio's own skills and give the skills.sh link with search keywords; Codex and Claude Code can search and install from it",
       "observed": "Container checks against the live catalog only"
+    },
+    {
+      "id": "animate_render",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Builds and renders an illustrated procedural canvas film with the bundled Animate engine (seven styles or one matched from references) and measures it with the engine's review",
+      "tools": [
+        "skills/hyperframes-workflow/assets/animate-engine/ENGINE.md",
+        "skills/hyperframes-workflow/assets/animate-engine/tools/export.mjs",
+        "skills/hyperframes-workflow/assets/animate-engine/tools/review.mjs"
+      ],
+      "requires": [
+        "node",
+        "browser",
+        "ffmpeg"
+      ],
+      "optional": [
+        "python",
+        "network"
+      ],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "An MP4 in each requested format with a composed score, contact sheets and the review's measured checks",
+      "when_missing": "Plan the piece with the engine's grammar and render the idea through the contract with the Python renderer, or deliver the piece files and the commands",
+      "observed": "Container checks only"
     }
   ]
 }

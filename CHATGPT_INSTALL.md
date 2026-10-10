@@ -33,7 +33,7 @@ Source repository: <https://github.com/FrameCoreWorks/framecore-works-creative-s
 
 ## 5. Final check of the required tools
 
-The installation ends with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). Studio uses one required set of tools (Python with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim; FFmpeg with FFprobe; Node.js with npx; Chrome or Chromium; the four starters installed with `npm ci` in the Studio workspace; HyperFrames); the check decides which of them this host can run.
+The installation ends with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). Studio uses one required set of tools (Python with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim; FFmpeg with FFprobe; Node.js with npx; Chrome or Chromium; the five starters installed with `npm ci` in the Studio workspace; HyperFrames); the check decides which of them this host can run.
 
 1. Run `python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host chatgpt_work` from the saved plugin in the conversation's code execution (`--host chatgpt` in ordinary ChatGPT) and show the user the result in their language.
 2. `pass`: the installation is complete. `limited`: the plugin is installed, but this chat sandbox lacks tools the user cannot add there; name them and say that Studio uses the capability card's alternatives (for example the bundled renderer instead of Remotion or HyperFrames). Tools a chat sandbox cannot run at all are listed as not on this host and do not count.

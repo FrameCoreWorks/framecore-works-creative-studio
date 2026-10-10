@@ -17,7 +17,7 @@ Every tool in [`tools.json`](tools.json) is required; there are no optional tool
 
 - **System:** Python 3.9 or newer, FFmpeg with FFprobe, Node.js 20 or newer with npx (22 for HyperFrames), Chrome or Chromium.
 - **Python packages:** Pillow 9 or newer, NumPy 1.22 or newer, CairoSVG (with the Cairo library), imageio-ffmpeg, matplotlib and Manim Community (with Cairo and Pango). A virtual environment keeps them together; run the check with that environment's Python.
-- **Studio workspace:** the four starters copied from the plugin into the workspace and installed with `npm ci` from their lockfiles, so every package is at exactly the pinned version: the Remotion kinetic type starter (Remotion, React, TypeScript), the GSAP motion starter, the Remotion 3D example (Three.js, React Three Fiber) and the motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild). The check prints the copy and `npm ci` commands with the plugin's real path.
+- **Studio workspace:** the five starters copied from the plugin into the workspace and installed with `npm ci` from their lockfiles, so every package is at exactly the pinned version: the Remotion kinetic type starter (Remotion, React, TypeScript), the GSAP motion starter, the Remotion 3D example (Three.js, React Three Fiber), the motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild) and the [Animate engine](../../../hyperframes-workflow/references/animate-engine.md) (Playwright, with `npx playwright install chromium` for its browser). The check prints the copy and `npm ci` commands with the plugin's real path.
 - **HyperFrames:** its CLI or installed skills (its own Codex or Claude Code plugin, or `npx hyperframes@0.8.143 skills update`). The HeyGen catalog stays off unless the user asks for it.
 
 Each tool is reported as one of these:
@@ -84,6 +84,7 @@ The required set, for every host the plugin runs in. The validator checks that e
 | GSAP motion starter | not_supported | not_supported | per_project | per_project | not_supported |
 | Remotion 3D example (Three.js, React Three Fiber) | not_supported | not_supported | per_project | per_project | not_supported |
 | Motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild) | not_supported | not_supported | per_project | per_project | not_supported |
+| Animate engine (procedural canvas films, Playwright) | not_supported | not_supported | per_project | per_project | not_supported |
 | HyperFrames (engine) | not_supported | not_supported | install | install | not_supported |
 <!-- END HOST MATRIX -->
 

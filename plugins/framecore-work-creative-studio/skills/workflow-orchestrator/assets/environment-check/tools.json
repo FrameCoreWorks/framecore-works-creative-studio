@@ -592,6 +592,39 @@
       }
     },
     {
+      "id": "animate_engine",
+      "label": "Animate engine (procedural canvas films, Playwright)",
+      "kind": "workspace",
+      "workspace_name": "animate-engine",
+      "pinned_by": "skills/hyperframes-workflow/assets/animate-engine/package.json",
+      "install": {
+        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/animate-engine\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/animate-engine\" \"$HOME/.framecore-studio/workspace/animate-engine\" && (cd \"$HOME/.framecore-studio/workspace/animate-engine\" && npm ci && npx playwright install chromium)",
+        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/animate-engine\" && cp -R \"<plugin>/skills/hyperframes-workflow/assets/animate-engine\" \"$HOME/.framecore-studio/workspace/animate-engine\" && (cd \"$HOME/.framecore-studio/workspace/animate-engine\" && npm ci && npx playwright install chromium)",
+        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Remove-Item -Recurse -Force \"$HOME\\.framecore-studio\\workspace\\animate-engine\" -ErrorAction SilentlyContinue; Copy-Item -Recurse \"<plugin>\\skills\\hyperframes-workflow\\assets\\animate-engine\" \"$HOME\\.framecore-studio\\workspace\\animate-engine\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\animate-engine\"; npm ci; npx playwright install chromium",
+        "any": "<plugin> is the installed plugin folder. The folder is replaced, so a copy from an older plugin version is refreshed; npm ci installs the exact versions of the starter's lockfile; npx playwright install chromium downloads the browser build this Playwright version drives (once, needs network)"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "not_supported",
+          "note": "no npm workspace in the chat sandbox"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "note": "no npm workspace in the chat sandbox"
+        },
+        "codex": {
+          "status": "per_project"
+        },
+        "claude_code": {
+          "status": "per_project"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "note": "no npm workspace in the chat sandbox"
+        }
+      }
+    },
+    {
       "id": "hyperframes",
       "label": "HyperFrames (engine)",
       "capability": "hyperframes_engine",

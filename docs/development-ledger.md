@@ -1306,3 +1306,27 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.53.0 in Plugin Creator; 1.52.0 is the saved release, synchronized)
 - Codex: not_run
 - Claude Code: agent-run headless tests PASS (not the owner's client)
+
+## CC-20261010-09
+
+- Origin: cloud-code, from the owner's request of 2026-10-10
+- Branch: `cloud-code/CC-20261010-09-animate-engine`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `de64d58` (main, package 1.53.0, after its publication record); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.54.0)
+- Package version: 1.53.0 -> 1.54.0
+- Scope: the owner asked to add the skills of https://github.com/cth9191/animate to the motion graphics module. The upstream skill folder (version 0.4.0, MIT, commit `7e5eb56`, 107 files: story grammar, craft rules, intake, kit, tools, seven styles with samples and demos, templates, an example) is bundled byte-identical as `skills/hyperframes-workflow/assets/animate-engine/`, with `SKILL.md` renamed `ENGINE.md` so no host lists a second skill; Studio adds `package.json` and `package-lock.json` pinning Playwright 1.56.1 (the version whose Chromium could be tested here; 1.64.0 is newest). Not bundled: the repository README, `docs/*.png` (5.8 MB) and the plugin wrapper. New reference `references/animate-engine.md` (when to choose it, where it runs, how Studio's approvals, research gate, four verdicts, sound and provider rules apply, method files usable on every host, upstream's honesty about proven formats and styles); links from the motion SKILL.md and runtime selection; capability `animate_render`; required tool `animate_engine` (fifth workspace starter, `npm ci` and `npx playwright install chromium`; not supported in chat hosts), so the required set has 18 tools; provenance in `integrations/animate/` with every file's Git blob hash; test `animate_engine_test.py`. The plugin ZIP grows from about 10 MB to about 13 MB (1057 files)
+- Shared package changed: yes; 12 changed, 114 added, 0 removed ([scope](../verification/scope-1.54.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: Node 201 passing of 207 (6 opt-in browser tests; 70 passing in the browser run), installer 13, identity 4, benchmark script 5, host smoke 6, hosted readback 6, Claude plugin and guides 7, GEPA pilot 8, asset 23, captions 14, environment check 18, motion acceptance 10, skill finder 7, Animate engine 4: PASS ([record](../verification/release-1.54.0.json))
+- the engine in this container: riso demo exported and passed its review; gallery of seven styles; math demo from an `npm ci` workspace; final check 18 of 18 ([record](../verification/required-tools-final-check-1.54.0.json))
+- legacy suite: matches `tests/legacy-baseline.json`
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (owner updates to 1.54.0 in Plugin Creator; 1.52.0 is the saved release, synchronized; 1.53.0 was not saved)
+- Codex: not_run
+- Claude Code: not rerun for 1.54.0 (1.53.0 agent-run)

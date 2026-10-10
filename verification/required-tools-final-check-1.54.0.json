@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-10",
+  "package_version": "1.54.0 (local source before the release commit)",
+  "command": "check_environment.py --final --host claude_code --workspace <provisioned workspace>",
+  "host": "Linux container with the 1.49.0 provisioning (venv with the Python packages, four starters) plus the animate-engine workspace installed with npm ci",
+  "verdict": "pass",
+  "exit_code": 0,
+  "tools": 18,
+  "animate_engine": "ok               Animate engine (procedural canvas films, Playwright): pinned",
+  "boundary": "One provisioned Linux container; not a user's machine",
+  "statuses": {
+    "python": "behind",
+    "pillow": "ok",
+    "numpy": "ok",
+    "cairosvg": "ok",
+    "imageio_ffmpeg": "ok",
+    "matplotlib": "ok",
+    "manim": "ok",
+    "ffmpeg": "behind",
+    "ffprobe": "ok",
+    "node": "behind",
+    "npx": "ok",
+    "browser": "behind",
+    "remotion": "ok",
+    "gsap": "ok",
+    "remotion_three": "ok",
+    "motion_toolkit": "ok",
+    "animate_engine": "ok",
+    "hyperframes": "ok"
+  }
+}

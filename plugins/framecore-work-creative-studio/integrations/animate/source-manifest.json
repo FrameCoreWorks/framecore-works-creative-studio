@@ -1,0 +1,564 @@
+{
+  "source_repository": "https://github.com/cth9191/animate",
+  "source_commit": "7e5eb56feb2dd573f890e1b7b34748af43d58263",
+  "source_version": "0.4.0",
+  "reviewed_date": "2026-10-10",
+  "integration_type": "vendored_engine_with_selective_method_adaptation",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 cth9191",
+  "bundled_at": "skills/hyperframes-workflow/assets/animate-engine",
+  "bundled_rule": "Every bundled upstream file is byte-identical to its source path at the pinned commit. One rename: SKILL.md is bundled as ENGINE.md, so no host discovers the engine as a second skill; its text still says SKILL.md, which means ENGINE.md here.",
+  "studio_added_files": [
+    "skills/hyperframes-workflow/assets/animate-engine/package.json",
+    "skills/hyperframes-workflow/assets/animate-engine/package-lock.json"
+  ],
+  "not_bundled": [
+    "README.md and docs/*.png (repository presentation, 5.8 MB)",
+    ".claude-plugin/ and plugins/animate/.claude-plugin/ (the upstream plugin wrapper)",
+    ".gitignore"
+  ],
+  "retained_files": [
+    {
+      "path": "LICENSE",
+      "source_path": "LICENSE",
+      "git_blob_sha": "1c767b12e247eeb9b720340db05ae1a349ff2e6f"
+    }
+  ],
+  "bundled_files": [
+    {
+      "path": "ENGINE.md",
+      "source_path": "plugins/animate/skills/animate/SKILL.md",
+      "git_blob_sha": "09a2f3c5f07f2be6b88e9a9ebe515fae8e5f31fb"
+    },
+    {
+      "path": "craft.md",
+      "source_path": "plugins/animate/skills/animate/craft.md",
+      "git_blob_sha": "01418e342f0392a1c2fec812a96465b90389e791"
+    },
+    {
+      "path": "examples/history-of-ai/brief.md",
+      "source_path": "plugins/animate/skills/animate/examples/history-of-ai/brief.md",
+      "git_blob_sha": "5e15ed773cd65e13705669fb334fba9867e2967c"
+    },
+    {
+      "path": "examples/history-of-ai/piece.json",
+      "source_path": "plugins/animate/skills/animate/examples/history-of-ai/piece.json",
+      "git_blob_sha": "eec57c4fe75c06d97fd419dca787da4a9599c101"
+    },
+    {
+      "path": "examples/history-of-ai/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/examples/history-of-ai/src/bridges.js",
+      "git_blob_sha": "e92ef14710a9356c863118066b72877a45870459"
+    },
+    {
+      "path": "examples/history-of-ai/src/head.html",
+      "source_path": "plugins/animate/skills/animate/examples/history-of-ai/src/head.html",
+      "git_blob_sha": "44961739a30fadd6664da5da3d188263d82d571e"
+    },
+    {
+      "path": "examples/history-of-ai/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/examples/history-of-ai/src/scenes.js",
+      "git_blob_sha": "53d31182256948140d9d1276522f21d88975a2c0"
+    },
+    {
+      "path": "examples/history-of-ai/src/score.js",
+      "source_path": "plugins/animate/skills/animate/examples/history-of-ai/src/score.js",
+      "git_blob_sha": "e4023dc31c621d5a12d9480d29b0b7efa8d0a6a1"
+    },
+    {
+      "path": "grammar/FORMATS.md",
+      "source_path": "plugins/animate/skills/animate/grammar/FORMATS.md",
+      "git_blob_sha": "f966be5250e894cefbf7315dd4256c216aa63003"
+    },
+    {
+      "path": "grammar/FRAME.md",
+      "source_path": "plugins/animate/skills/animate/grammar/FRAME.md",
+      "git_blob_sha": "e45fcd44d4f17372dd3ab7f35f99ae46078cf8f8"
+    },
+    {
+      "path": "grammar/STORY.md",
+      "source_path": "plugins/animate/skills/animate/grammar/STORY.md",
+      "git_blob_sha": "dd29690a3e0257cca33a468713f9c157249805ab"
+    },
+    {
+      "path": "intake.md",
+      "source_path": "plugins/animate/skills/animate/intake.md",
+      "git_blob_sha": "1c011b08ce4545ff645cc180e0e96ad49c969385"
+    },
+    {
+      "path": "kit/board.js",
+      "source_path": "plugins/animate/skills/animate/kit/board.js",
+      "git_blob_sha": "e44383fef2a54b6d1d409430dd3923488facc893"
+    },
+    {
+      "path": "kit/core.js",
+      "source_path": "plugins/animate/skills/animate/kit/core.js",
+      "git_blob_sha": "6929ea37e41bb6f85bf8ea16e0427c1e5c836fb9"
+    },
+    {
+      "path": "kit/morph.js",
+      "source_path": "plugins/animate/skills/animate/kit/morph.js",
+      "git_blob_sha": "71439c9c0afb69d358d7253f83c8fab927d62fa2"
+    },
+    {
+      "path": "kit/score-head.js",
+      "source_path": "plugins/animate/skills/animate/kit/score-head.js",
+      "git_blob_sha": "5853ce94ff0230ab401ce48362a3bbb2ce545293"
+    },
+    {
+      "path": "kit/score-tail.js",
+      "source_path": "plugins/animate/skills/animate/kit/score-tail.js",
+      "git_blob_sha": "25cffc96455061283d031f002fe57b6bcbd3127a"
+    },
+    {
+      "path": "new-style.md",
+      "source_path": "plugins/animate/skills/animate/new-style.md",
+      "git_blob_sha": "fe740294817911a8a292df0fe509d25072d415a1"
+    },
+    {
+      "path": "styles/README.md",
+      "source_path": "plugins/animate/skills/animate/styles/README.md",
+      "git_blob_sha": "67e8bff3e09d384efff2039c864015e73d5ad48c"
+    },
+    {
+      "path": "styles/crosshatch/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/STYLE.md",
+      "git_blob_sha": "51ba6c8ed10d89a3047a2e84c89f97b704de7315"
+    },
+    {
+      "path": "styles/crosshatch/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/demo/piece.json",
+      "git_blob_sha": "5894bebe467e1719c66cce5080e294fa530abf25"
+    },
+    {
+      "path": "styles/crosshatch/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/demo/src/bridges.js",
+      "git_blob_sha": "7a11af3fa2fa35275fffa70e025cf1f7f94ad76a"
+    },
+    {
+      "path": "styles/crosshatch/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/demo/src/head.html",
+      "git_blob_sha": "06e090fff5635f0ce07e51d21a55ea845ea78d24"
+    },
+    {
+      "path": "styles/crosshatch/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/demo/src/scenes.js",
+      "git_blob_sha": "c815dc1e35f76ef12bb56615b416a57a38247144"
+    },
+    {
+      "path": "styles/crosshatch/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/demo/src/score.js",
+      "git_blob_sha": "f76202a1c4701a6453cdc2c208f3f60d6df13f81"
+    },
+    {
+      "path": "styles/crosshatch/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/kit.js",
+      "git_blob_sha": "9ccbf23d2877232f9b9a6b70eb36f68f36fe0e98"
+    },
+    {
+      "path": "styles/crosshatch/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/crosshatch/sample.png",
+      "git_blob_sha": "54cdb356ad12895df88c273381dddcf12bafe4fd"
+    },
+    {
+      "path": "styles/cut-paper/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/STYLE.md",
+      "git_blob_sha": "e4024002e8fd117074fe25e38efa869878f737c2"
+    },
+    {
+      "path": "styles/cut-paper/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/demo/piece.json",
+      "git_blob_sha": "b8733dd76568f8f7c8b2050d8832420f7222224c"
+    },
+    {
+      "path": "styles/cut-paper/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/demo/src/bridges.js",
+      "git_blob_sha": "fec68715747b1f3bf87869e1e09b01fc7a3f4386"
+    },
+    {
+      "path": "styles/cut-paper/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/demo/src/head.html",
+      "git_blob_sha": "795a1848c85a71ddb5f378e5f7967ce3f7bc7871"
+    },
+    {
+      "path": "styles/cut-paper/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/demo/src/scenes.js",
+      "git_blob_sha": "90fb51cbc81f9ae5e7993c4afc3c972da0ebb8e2"
+    },
+    {
+      "path": "styles/cut-paper/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/demo/src/score.js",
+      "git_blob_sha": "ed74ae16d85c232abcadc073bc289fb726e40b34"
+    },
+    {
+      "path": "styles/cut-paper/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/kit.js",
+      "git_blob_sha": "4cf1d1fa58dda94f530837b47924a241b63a0bc5"
+    },
+    {
+      "path": "styles/cut-paper/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/cut-paper/sample.png",
+      "git_blob_sha": "9740aa9677977d214238772d406b84e1bd0d3bc3"
+    },
+    {
+      "path": "styles/isometric/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/STYLE.md",
+      "git_blob_sha": "385d439f7403758a782868a3861f4b795d29331d"
+    },
+    {
+      "path": "styles/isometric/demo-dark/dark.js",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo-dark/dark.js",
+      "git_blob_sha": "8bee1af636bffa42694205e151111829de634f42"
+    },
+    {
+      "path": "styles/isometric/demo-dark/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo-dark/piece.json",
+      "git_blob_sha": "d6ad0277db2050279b470b90bb061bd5d39fc8c5"
+    },
+    {
+      "path": "styles/isometric/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo/piece.json",
+      "git_blob_sha": "dc2a2475208231b6e14b5e439a58f245e67f469b"
+    },
+    {
+      "path": "styles/isometric/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo/src/bridges.js",
+      "git_blob_sha": "8d931b15e0404f947cefc1ad563d9eef34b5bd34"
+    },
+    {
+      "path": "styles/isometric/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo/src/head.html",
+      "git_blob_sha": "a789558a526931133765739ddaa6a4f9dda0e2ef"
+    },
+    {
+      "path": "styles/isometric/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo/src/scenes.js",
+      "git_blob_sha": "d4f7a335d11180c5bf52861da4bf3748cb1c6418"
+    },
+    {
+      "path": "styles/isometric/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/demo/src/score.js",
+      "git_blob_sha": "877baa55546429aa1e3d44784d628fca58f79506"
+    },
+    {
+      "path": "styles/isometric/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/kit.js",
+      "git_blob_sha": "42553dca2ffc6810e9c12fd22c66f3601be0f8c6"
+    },
+    {
+      "path": "styles/isometric/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/isometric/sample.png",
+      "git_blob_sha": "058c616608c1493804bc33983433bd02b9abc345"
+    },
+    {
+      "path": "styles/math/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/math/STYLE.md",
+      "git_blob_sha": "f425dc9cc6e9996863ba121c0f4cc87f5bed8fc7"
+    },
+    {
+      "path": "styles/math/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/math/demo/piece.json",
+      "git_blob_sha": "5571d997c610bc2b0dafdb2b0483e2c633d6d3b0"
+    },
+    {
+      "path": "styles/math/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/math/demo/src/bridges.js",
+      "git_blob_sha": "d96e53cf7304c96f86f901c99d2444f43e6a467b"
+    },
+    {
+      "path": "styles/math/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/math/demo/src/head.html",
+      "git_blob_sha": "cd932b71b9b99423bfb50b3e528b00d7ffc53a88"
+    },
+    {
+      "path": "styles/math/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/math/demo/src/scenes.js",
+      "git_blob_sha": "7aa4250c5b60b24bd1cf96c9a46115c405edbcdb"
+    },
+    {
+      "path": "styles/math/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/math/demo/src/score.js",
+      "git_blob_sha": "17498dd739070e8e4081019cb8fca1296e775133"
+    },
+    {
+      "path": "styles/math/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/math/kit.js",
+      "git_blob_sha": "9924f9dfd5b13f746d1cb22dc04313c3dd259847"
+    },
+    {
+      "path": "styles/math/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/math/sample.png",
+      "git_blob_sha": "c2148d7c338661629e29c5010649bf7827e3adc1"
+    },
+    {
+      "path": "styles/pixel/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/STYLE.md",
+      "git_blob_sha": "5f862112b54ab122c8b47c70efa4dba07d143881"
+    },
+    {
+      "path": "styles/pixel/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/demo/piece.json",
+      "git_blob_sha": "59442ccc2452cae602fb3317e84cb6ea5a4dd3b4"
+    },
+    {
+      "path": "styles/pixel/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/demo/src/bridges.js",
+      "git_blob_sha": "ca5960f294721b31de8eba59544018a80f0e935a"
+    },
+    {
+      "path": "styles/pixel/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/demo/src/head.html",
+      "git_blob_sha": "e8cc5b4133c2045fe41bf6ec87cc946ae27f19ef"
+    },
+    {
+      "path": "styles/pixel/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/demo/src/scenes.js",
+      "git_blob_sha": "ae06c5315fd6ccab8bbc2e3502ed8baa2248d812"
+    },
+    {
+      "path": "styles/pixel/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/demo/src/score.js",
+      "git_blob_sha": "4438e6b24c01d0733029574b237902b945913e42"
+    },
+    {
+      "path": "styles/pixel/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/kit.js",
+      "git_blob_sha": "d186d16aa468740d8a2f8a055d7e9727475cc1a4"
+    },
+    {
+      "path": "styles/pixel/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/pixel/sample.png",
+      "git_blob_sha": "9df67ead8a949b4565808120cd78995914296eab"
+    },
+    {
+      "path": "styles/riso/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/riso/STYLE.md",
+      "git_blob_sha": "4dc745cbe6e8e1a6ab4df8a33b6ee29ea361d553"
+    },
+    {
+      "path": "styles/riso/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/riso/demo/piece.json",
+      "git_blob_sha": "8659f5363b959837c1a63dcf79d48fae24c682b9"
+    },
+    {
+      "path": "styles/riso/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/riso/demo/src/bridges.js",
+      "git_blob_sha": "07d7c07e80dea15f056958ffdf204350cf590660"
+    },
+    {
+      "path": "styles/riso/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/riso/demo/src/head.html",
+      "git_blob_sha": "af4648ec47a2e42c7e1a0863b20f803281b74179"
+    },
+    {
+      "path": "styles/riso/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/riso/demo/src/scenes.js",
+      "git_blob_sha": "f4682768ec1a0cfe04ee17deecba7136ce63e49b"
+    },
+    {
+      "path": "styles/riso/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/riso/demo/src/score.js",
+      "git_blob_sha": "8a8a7118771883251b443ea3a6a6b12bb68b11d3"
+    },
+    {
+      "path": "styles/riso/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/riso/kit.js",
+      "git_blob_sha": "5eb0f6805b9588643ea0ac99d4f01e81f4c609f6"
+    },
+    {
+      "path": "styles/riso/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/riso/sample.png",
+      "git_blob_sha": "871933b3a266a708258d395ec9808bbb4813a4b3"
+    },
+    {
+      "path": "styles/sketchbook/STYLE.md",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/STYLE.md",
+      "git_blob_sha": "fed82e9ae0943ba51ea737b77c4ee8ded73e79e4"
+    },
+    {
+      "path": "styles/sketchbook/demo/piece.json",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/demo/piece.json",
+      "git_blob_sha": "398a0e91fb5ded49c69f3cec4b71495a83b7c758"
+    },
+    {
+      "path": "styles/sketchbook/demo/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/demo/src/bridges.js",
+      "git_blob_sha": "d85c32f7659f3e1c76f3baea4d78334d0b532682"
+    },
+    {
+      "path": "styles/sketchbook/demo/src/head.html",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/demo/src/head.html",
+      "git_blob_sha": "324ca63fb6c20e021d417737103c06b97e387180"
+    },
+    {
+      "path": "styles/sketchbook/demo/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/demo/src/scenes.js",
+      "git_blob_sha": "12202785641d3c6ce1a6d34d361a4889f976a7f3"
+    },
+    {
+      "path": "styles/sketchbook/demo/src/score.js",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/demo/src/score.js",
+      "git_blob_sha": "ff87b7cd42cc99fcd19f9aefe06afc51a9ed1cd4"
+    },
+    {
+      "path": "styles/sketchbook/kit.js",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/kit.js",
+      "git_blob_sha": "30a29915f2dc01da33febf66be69f7b33bf1d35d"
+    },
+    {
+      "path": "styles/sketchbook/sample.png",
+      "source_path": "plugins/animate/skills/animate/styles/sketchbook/sample.png",
+      "git_blob_sha": "51daebb1867931e7eb4f0dd94004340989302780"
+    },
+    {
+      "path": "templates/beat-cut/piece.json",
+      "source_path": "plugins/animate/skills/animate/templates/beat-cut/piece.json",
+      "git_blob_sha": "dd1745455750ff560c965b2f5f8140f7aa2b120a"
+    },
+    {
+      "path": "templates/beat-cut/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/templates/beat-cut/src/bridges.js",
+      "git_blob_sha": "cf7c5adefe9e203e98f0a0721d0965a1a04b640f"
+    },
+    {
+      "path": "templates/beat-cut/src/head.html",
+      "source_path": "plugins/animate/skills/animate/templates/beat-cut/src/head.html",
+      "git_blob_sha": "812178bac4444036603544ac4a724e385a1477ca"
+    },
+    {
+      "path": "templates/beat-cut/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/templates/beat-cut/src/scenes.js",
+      "git_blob_sha": "78d3ed563100091a5353999aee10f8256ce105b7"
+    },
+    {
+      "path": "templates/beat-cut/src/score.js",
+      "source_path": "plugins/animate/skills/animate/templates/beat-cut/src/score.js",
+      "git_blob_sha": "78063544c0c6096866f9a45e014cd2a025b85951"
+    },
+    {
+      "path": "templates/piece/LOG.md",
+      "source_path": "plugins/animate/skills/animate/templates/piece/LOG.md",
+      "git_blob_sha": "c5e327a3fe2f1189b7a8351016780c1c75e34f56"
+    },
+    {
+      "path": "templates/piece/brief.md",
+      "source_path": "plugins/animate/skills/animate/templates/piece/brief.md",
+      "git_blob_sha": "303e8b9d93dc03851499b65ebed930088cc4c91f"
+    },
+    {
+      "path": "templates/piece/piece.json",
+      "source_path": "plugins/animate/skills/animate/templates/piece/piece.json",
+      "git_blob_sha": "99fb308523abfd510642dc4939670b1efa65e85a"
+    },
+    {
+      "path": "templates/piece/src/bridges.js",
+      "source_path": "plugins/animate/skills/animate/templates/piece/src/bridges.js",
+      "git_blob_sha": "5049b1ea4e253703aaa8f2c3215a9194f45b63ea"
+    },
+    {
+      "path": "templates/piece/src/head.html",
+      "source_path": "plugins/animate/skills/animate/templates/piece/src/head.html",
+      "git_blob_sha": "3d4b84c08743c4cfd50f6bf824f6a90b2722bc11"
+    },
+    {
+      "path": "templates/piece/src/scenes.js",
+      "source_path": "plugins/animate/skills/animate/templates/piece/src/scenes.js",
+      "git_blob_sha": "27d5b77773920cbfca8e454631d34eafa18e0bd9"
+    },
+    {
+      "path": "templates/piece/src/score.js",
+      "source_path": "plugins/animate/skills/animate/templates/piece/src/score.js",
+      "git_blob_sha": "ed74ae16d85c232abcadc073bc289fb726e40b34"
+    },
+    {
+      "path": "templates/style/kit.js",
+      "source_path": "plugins/animate/skills/animate/templates/style/kit.js",
+      "git_blob_sha": "889da8a98b7fa790738c2ea8854e299d36824f28"
+    },
+    {
+      "path": "tools/beats.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/beats.mjs",
+      "git_blob_sha": "f5359cff6f6fe2363c32c79c934bc4786118e718"
+    },
+    {
+      "path": "tools/build.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/build.mjs",
+      "git_blob_sha": "375644f79d4480029c9a282028c950fc4b1fdd13"
+    },
+    {
+      "path": "tools/capture.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/capture.mjs",
+      "git_blob_sha": "a2cbb97633d1ebc06316492e15450ed77e84e9e7"
+    },
+    {
+      "path": "tools/compare.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/compare.mjs",
+      "git_blob_sha": "56f70acc72c8bf35de454f35458eb6ec7d569a25"
+    },
+    {
+      "path": "tools/export.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/export.mjs",
+      "git_blob_sha": "1338167bd20a0253b2f18c8629d2b33dcbd7720c"
+    },
+    {
+      "path": "tools/framehash.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/framehash.mjs",
+      "git_blob_sha": "30222843deff6948adce4805fd0a86d77d0256ed"
+    },
+    {
+      "path": "tools/gallery.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/gallery.mjs",
+      "git_blob_sha": "421f5606fc859f980607ea3c0ed2e47c1d0fa100"
+    },
+    {
+      "path": "tools/gpu.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/gpu.mjs",
+      "git_blob_sha": "a1a46539a8a789665013c2f27c2d11f71cd58c0b"
+    },
+    {
+      "path": "tools/measure/refs.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/measure/refs.mjs",
+      "git_blob_sha": "5f8dfba8c6186bf1eff9eafbc0f2cf1f61d1cb8a"
+    },
+    {
+      "path": "tools/measure/shotlog.py",
+      "source_path": "plugins/animate/skills/animate/tools/measure/shotlog.py",
+      "git_blob_sha": "a6c189428a8aaf09fbea7df77260b5c450675083"
+    },
+    {
+      "path": "tools/review.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/review.mjs",
+      "git_blob_sha": "5a364a024569f8ef71c82a1b4f75c7812a16092e"
+    },
+    {
+      "path": "tools/still.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/still.mjs",
+      "git_blob_sha": "a76634e2fbcea8d99d7e7f756288f7fcc390d9a4"
+    },
+    {
+      "path": "tools/storyboard.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/storyboard.mjs",
+      "git_blob_sha": "5d51d82a3ebaffb4ad9cdb681be74ef5d4283435"
+    },
+    {
+      "path": "tools/textcheck.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/textcheck.mjs",
+      "git_blob_sha": "84c8e9e67b83c7246c945f3a8058057512010c00"
+    },
+    {
+      "path": "tools/tile.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/tile.mjs",
+      "git_blob_sha": "f97dd87b278da4734ea19b738b54e43d5990e5a0"
+    },
+    {
+      "path": "tools/voice.mjs",
+      "source_path": "plugins/animate/skills/animate/tools/voice.mjs",
+      "git_blob_sha": "b5facdfcaedcbf8007f9e4163210e932a3de5a1e"
+    },
+    {
+      "path": "tools/voice_words.py",
+      "source_path": "plugins/animate/skills/animate/tools/voice_words.py",
+      "git_blob_sha": "62138c72a73d7310b249f598f642a028de322509"
+    }
+  ]
+}

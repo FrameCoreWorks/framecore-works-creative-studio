@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.53.0.
+Version: 1.54.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -13,6 +13,10 @@ The full welcome explains what Studio does and its capabilities, then offers **1
 **Learning mode** retains short onboarding, a personalized plan, exercises and feedback on the learner's work across 14 existing skill domains. Quick/Deep controls pace independently of intent. When persistent saving is unavailable, a progress card can carry context into another conversation. See [modes, coverage and limitations](docs/learning-mode.md).
 
 Repository documentation and operational guidance are English. The full welcome and later menus automatically follow the user's language without a translation request. Explicit preferences, meaningful user text, available host language context and conversation language determine the response; country and repository language do not. The approved Polish welcome, exact-copy examples and multilingual fixtures remain localized data.
+
+## Animate engine for illustrated motion
+
+The motion graphics module includes the [Animate engine](skills/hyperframes-workflow/references/animate-engine.md): short explainers, histories and little stories drawn entirely in code in seven illustrated styles (cut paper, crosshatch ink, riso print, sketchbook, manim-style math, pixel art, isometric) or a look matched from references, with story formats, a composed score, voice-over or beat timing, several aspect ratios from one piece and a measured review. It renders MP4 in Codex and Claude Code after story, look and storyboard approval; in ChatGPT its story grammar and craft rules still guide the plan. See [the attributed bundle](integrations/animate/README.md).
 
 ## Skill finder
 

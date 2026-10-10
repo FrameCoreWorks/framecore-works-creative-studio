@@ -1,0 +1,8 @@
+{
+  "name": "framecore-animate-engine",
+  "private": true,
+  "description": "Studio workspace for the Animate procedural canvas engine (cth9191/animate, MIT); pins the browser driver its tools load.",
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
+}
