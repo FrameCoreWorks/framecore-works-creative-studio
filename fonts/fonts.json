@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "source": "google/fonts",
+  "source_commit": "bd8f81ddb5c74d5c8897b36ad88b440266245103",
+  "licence": "SIL Open Font License 1.1 (each family folder holds its OFL.txt); no Reserved Font Name in any source",
+  "modification": "static instances of the variable sources at the listed coordinates, subset to the listed characters keeping kerning, ligatures, marks, localized forms, fractions and the figure, case and superscript features; hinting removed",
+  "unicodes": "U+0020-007E,U+00A0-017F,U+0218-021B,U+02C6-02DD,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+2212,U+2215,U+2219,U+221E,U+2248,U+2260,U+2264,U+2265,U+25A0-25FF,U+FB01-FB02",
+  "families": [
+    {
+      "family": "Inter",
+      "role": "neutral sans for interfaces, body text, prices and small print",
+      "folder": "inter",
+      "source": "https://github.com/google/fonts/blob/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "licence_sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+      "files": [
+        {
+          "file": "inter/Inter-Regular.ttf",
+          "style": "Regular",
+          "axes": {
+            "wght": 400,
+            "opsz": 14
+          },
+          "bytes": 92328,
+          "sha256": "40f224462a11224ffd0344adc3a5b72702fc5d499219f40d5494a50e59cd416e",
+          "glyphs": 803
+        },
+        {
+          "file": "inter/Inter-SemiBold.ttf",
+          "style": "SemiBold",
+          "axes": {
+            "wght": 600,
+            "opsz": 14
+          },
+          "bytes": 92472,
+          "sha256": "d5208da096ae2948200560c292b2ee9ffb8f6a9c9e2ec544cc562e95e6089c13",
+          "glyphs": 803
+        },
+        {
+          "file": "inter/Inter-Bold.ttf",
+          "style": "Bold",
+          "axes": {
+            "wght": 700,
+            "opsz": 32
+          },
+          "bytes": 92420,
+          "sha256": "9ed2d02f1ccf2fa3aa02920e5593fa21eedcb30c9ee83762f1cb4c9a69b046de",
+          "glyphs": 803
+        },
+        {
+          "file": "inter/Inter-Black.ttf",
+          "style": "Black",
+          "axes": {
+            "wght": 900,
+            "opsz": 32
+          },
+          "bytes": 92832,
+          "sha256": "4207587d22e222e0c0f8679df92f39f449dc2e76310e7124a4f4e60139db5441",
+          "glyphs": 803
+        }
+      ]
+    },
+    {
+      "family": "Archivo",
+      "role": "grotesque with condensed and expanded widths for posters and sale headlines",
+      "folder": "archivo",
+      "source": "https://github.com/google/fonts/blob/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/archivo/Archivo%5Bwdth%2Cwght%5D.ttf",
+      "source_sha256": "0e094a7d3c7c4c25cf1310c4b30014f1dae9332220b1c2c88f4fa996f0b05053",
+      "licence_sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b",
+      "files": [
+        {
+          "file": "archivo/Archivo-Regular.ttf",
+          "style": "Regular",
+          "axes": {
+            "wght": 400,
+            "wdth": 100
+          },
+          "bytes": 66340,
+          "sha256": "ebe8a1edb876a0e4c7f64825a81d7545838798560a93ff60c852a06abf0ec36e",
+          "glyphs": 526
+        },
+        {
+          "file": "archivo/Archivo-Bold.ttf",
+          "style": "Bold",
+          "axes": {
+            "wght": 700,
+            "wdth": 100
+          },
+          "bytes": 67456,
+          "sha256": "9ddffcb642fa1a9ff948db490756dacfc37697cd8d51c78476435a1a00c44060",
+          "glyphs": 533
+        },
+        {
+          "file": "archivo/Archivo-CondensedExtraBold.ttf",
+          "style": "Condensed ExtraBold",
+          "axes": {
+            "wght": 800,
+            "wdth": 62
+          },
+          "bytes": 67056,
+          "sha256": "1126bf0885db2808a171addb155741f274bbc24a0df495718d7578fa18d72126",
+          "glyphs": 533
+        },
+        {
+          "file": "archivo/Archivo-ExpandedBlack.ttf",
+          "style": "Expanded Black",
+          "axes": {
+            "wght": 900,
+            "wdth": 125
+          },
+          "bytes": 67644,
+          "sha256": "4de233801f347ab4d3231c4f3e71141de7e3a4a69b621e31088da92f2a094e10",
+          "glyphs": 533
+        }
+      ]
+    },
+    {
+      "family": "Bricolage Grotesque",
+      "role": "characterful display grotesque for lifestyle, events and friendly brands",
+      "folder": "bricolagegrotesque",
+      "source": "https://github.com/google/fonts/blob/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf",
+      "source_sha256": "413e7357809ddd12fd80a96a8a396de0e401638d4acd3cb3e37532f0472ac682",
+      "licence_sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
+      "files": [
+        {
+          "file": "bricolagegrotesque/BricolageGrotesque-Regular.ttf",
+          "style": "Regular",
+          "axes": {
+            "wght": 400,
+            "wdth": 100,
+            "opsz": 14
+          },
+          "bytes": 69312,
+          "sha256": "77b81469d82eef7db3dcd9f21fa87f774b55ec8b6f95c61f8cc73d44aa4fb093",
+          "glyphs": 464
+        },
+        {
+          "file": "bricolagegrotesque/BricolageGrotesque-Bold.ttf",
+          "style": "Bold",
+          "axes": {
+            "wght": 700,
+            "wdth": 100,
+            "opsz": 96
+          },
+          "bytes": 69268,
+          "sha256": "22c056c5898d7244c9ebc800cf0b34336766f7fbfae2a80b5fe30c7e2f1bb7c3",
+          "glyphs": 464
+        },
+        {
+          "file": "bricolagegrotesque/BricolageGrotesque-CondensedExtraBold.ttf",
+          "style": "Condensed ExtraBold",
+          "axes": {
+            "wght": 800,
+            "wdth": 75,
+            "opsz": 96
+          },
+          "bytes": 69064,
+          "sha256": "8083480bd1a41dbb62c2eb862647d20085dcb8de3f88dca0cdaf6f88d9542ff3",
+          "glyphs": 464
+        }
+      ]
+    },
+    {
+      "family": "Fraunces",
+      "role": "soft display serif for food, craft, culture and premium",
+      "folder": "fraunces",
+      "source": "https://github.com/google/fonts/blob/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/fraunces/Fraunces%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf",
+      "source_sha256": "177ff6c0f14e5550a3c624247cd1189611d4eb65d000b14944c63d967958abbb",
+      "licence_sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b",
+      "files": [
+        {
+          "file": "fraunces/Fraunces-Regular.ttf",
+          "style": "Regular",
+          "axes": {
+            "wght": 400,
+            "opsz": 72,
+            "SOFT": 0,
+            "WONK": 0
+          },
+          "bytes": 51612,
+          "sha256": "2f67caf868c071d7cf8347e6f9492cf25e34f043284a207ab4dcc8cb5622c03b",
+          "glyphs": 425
+        },
+        {
+          "file": "fraunces/Fraunces-SemiBold.ttf",
+          "style": "SemiBold",
+          "axes": {
+            "wght": 600,
+            "opsz": 72,
+            "SOFT": 50,
+            "WONK": 0
+          },
+          "bytes": 51664,
+          "sha256": "aa16ec39ba191a5407568a6d62611d0de30b6403195a3992f9e718c48a236e84",
+          "glyphs": 425
+        },
+        {
+          "file": "fraunces/Fraunces-Black.ttf",
+          "style": "Black",
+          "axes": {
+            "wght": 900,
+            "opsz": 144,
+            "SOFT": 100,
+            "WONK": 1
+          },
+          "bytes": 49348,
+          "sha256": "368a2a1f11f8d205f21793441186ceecec65a4bdb0c7c1e92bafee62633982eb",
+          "glyphs": 410
+        }
+      ]
+    },
+    {
+      "family": "Anton",
+      "role": "tall condensed impact face for one-word headlines and prices",
+      "folder": "anton",
+      "source": "https://github.com/google/fonts/blob/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/anton/Anton-Regular.ttf",
+      "source_sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "licence_sha256": "ee67e6ee22790b7929f1a3769ca2801d565c64b5a9096942c1adf5596de9c9e4",
+      "files": [
+        {
+          "file": "anton/Anton-Regular.ttf",
+          "style": "Regular",
+          "axes": {},
+          "bytes": 33708,
+          "sha256": "0eb70048d81f558b92dc1c15481e3d2e2e6221a70216ce0c11daf85a24b33142",
+          "glyphs": 501
+        }
+      ]
+    },
+    {
+      "family": "Source Serif 4",
+      "role": "reading serif for long copy, menus, programmes and print body text",
+      "folder": "sourceserif4",
+      "source": "https://github.com/google/fonts/blob/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/sourceserif4/SourceSerif4%5Bopsz%2Cwght%5D.ttf",
+      "source_sha256": "97b2d4da6e3cb494b5a1e66ae176914d852ccabef49e0c02c0df25f3e39aca0b",
+      "licence_sha256": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9",
+      "files": [
+        {
+          "file": "sourceserif4/SourceSerif4-Regular.ttf",
+          "style": "Regular",
+          "axes": {
+            "wght": 400,
+            "opsz": 16
+          },
+          "bytes": 95432,
+          "sha256": "bb4dc8d39ccfe0c6691995973a7d7ce2fa9f96bdff803508a610084c4dfa1fc8",
+          "glyphs": 658
+        },
+        {
+          "file": "sourceserif4/SourceSerif4-SemiBold.ttf",
+          "style": "SemiBold",
+          "axes": {
+            "wght": 600,
+            "opsz": 16
+          },
+          "bytes": 95564,
+          "sha256": "23423c352c520ce323075f9c0b8d71817c0ee53bbcdd20661871b17ad9bdd076",
+          "glyphs": 658
+        },
+        {
+          "file": "sourceserif4/SourceSerif4-Bold.ttf",
+          "style": "Bold",
+          "axes": {
+            "wght": 700,
+            "opsz": 36
+          },
+          "bytes": 95488,
+          "sha256": "dfad058ca8f9382c9d3e47e6e7971aaf4c97db0964042037d4e1170e2036f72c",
+          "glyphs": 658
+        }
+      ]
+    }
+  ]
+}
