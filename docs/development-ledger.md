@@ -1330,3 +1330,22 @@ Cross-host state:
 - ChatGPT Work: pending (owner updates to 1.54.0 in Plugin Creator; 1.52.0 is the saved release, synchronized; 1.53.0 was not saved)
 - Codex: not_run
 - Claude Code: not rerun for 1.54.0 (1.53.0 agent-run)
+
+## CC-20261010-10
+
+- Origin: cloud-code, from the owner's ChatGPT Work readback
+- Branch: `main` (records only), fast-forward under the owner's standing rule
+- Baseline: `09236b9` (main, package 1.54.0, after its publication record); full SHA in the commit trailer
+- Result: a records-only commit; the package is unchanged (1.54.0)
+- Scope: the owner updated the hosted plugin to 1.54.0 in Plugin Creator from the repository at `62e8689` and supplied its readback (`hosted-readback-1.54.0.json`, SHA-256 `23906a39...`). `scripts/check_hosted_readback.py` against `config/install-sources.json` at v1.54.0: `mismatch`; 1055 of 1057 paths, sizes and hashes match (also the tag's git blobs), no missing, extra or unreadable paths. `skills/tool-routing-cost/SKILL.md` is 7486 bytes saved against 6714 in the source, `skills/tool-routing-cost/references/provider-setup.md` 10192 against 7131. Neither file changed in the repository since 1.41.0 and the 1.52.0 readback had both identical, so the change was written during this save; its content and origin are Unknown until the owner inspects it. The PNG and JavaScript files of the Animate engine were saved byte for byte
+- Shared package changed: no
+
+Verification:
+
+- readback comparison: `mismatch` (2 files) ([record](../verification/hosted-release-1.54.0.json)); canonical validator and `scripts/check_all.sh`: PASS
+
+Cross-host state:
+
+- GitHub: `main` and v1.54.0 synchronized (see CC-20261010-09)
+- ChatGPT Work: not synchronized; release `pluginrel_6aca6426a5ac8191bd2458f5d3718152` saved at 1.54.0 with two files differing from the source; resolution pending
+- Codex: not_run
