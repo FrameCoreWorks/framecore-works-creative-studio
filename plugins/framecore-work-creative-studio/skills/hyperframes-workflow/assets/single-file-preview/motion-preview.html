@@ -304,6 +304,7 @@ const easings = {
   easeOutExpo: bezier(0.16, 1, 0.3, 1),
   easeInOutCubic: bezier(0.65, 0, 0.35, 1),
   easeInCubic: bezier(0.32, 0, 0.67, 0),
+  easeOutBack: bezier(0.34, 1.56, 0.64, 1),
   linear: x => Math.min(1, Math.max(0, x)),
 };
 
@@ -318,6 +319,8 @@ const sceneKinds = {
   'device': {required: ['screens'], copyParams: ['caption', 'url']},
   'lower-third': {required: ['name'], copyParams: ['name', 'title']},
   'bar-chart': {required: ['bars'], copyParams: []},
+  'line-chart': {required: ['points'], copyParams: []},
+  'photo-hero': {required: ['asset'], copyParams: ['lines']},
 };
 
 /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
@@ -444,6 +447,41 @@ function barChartLayout(scene, score) {
     })};
 }
 
+// line-chart: values on one scale, joined by a line drawn from the first point to the last; each point's dot and value
+// appear when the line reaches it. Positions, lengths and angles are computed here, so every renderer draws the same line.
+function lineChartLayout(scene, score) {
+  const p = scene.params ?? {}, m = margin(score), area = score.tokens?.safeArea ?? {}, values = list(p.points).map(point => point?.value ?? 0);
+  const lo = p.min ?? Math.min(0, ...values), hi = p.max ?? Math.max(lo, ...values), span = hi > lo ? hi - lo : 1;
+  const labelSize = px(score, p.size ?? 36), valueSize = px(score, p.valueSize ?? 40), labelH = Math.round(labelSize * 1.2), valueH = Math.round(valueSize * 1.2);
+  const thickness = px(score, p.thickness ?? 8), dot = px(score, p.dot ?? 12), ring = px(score, 4), gap = px(score, 14), valueW = Math.round(valueSize * (p.valueWidth ?? 4));
+  const top = Math.round(score.height * (area.top ?? 0)), bottom = score.height - Math.round(score.height * (area.bottom ?? 0));
+  const height = Math.round((bottom - top) * (p.height ?? 0.6)), y0 = top + Math.round((bottom - top - height) / 2);
+  const x0 = m + Math.round(valueW / 2), x1 = score.width - m - Math.round(valueW / 2), n = values.length;
+  const plotTop = y0 + valueH + gap + dot, plotBottom = y0 + height - labelH - gap;
+  const points = values.map((value, i) => ({x: n > 1 ? x0 + Math.round((x1 - x0) * i / (n - 1)) : x0, y: plotBottom - Math.round((value - lo) / span * (plotBottom - plotTop))}));
+  const segments = points.slice(1).map((b, i) => {
+    const a = points[i], dx = b.x - a.x, dy = b.y - a.y;
+    return {x: a.x, y: a.y, length: Math.round(Math.sqrt(dx * dx + dy * dy)), angle: Math.round(Math.atan2(dy, dx) * 180 / Math.PI * 1000) / 1000};
+  });
+  const cum = [0];
+  segments.forEach(s => cum.push(cum[cum.length - 1] + s.length));
+  return {x0, x1, y0, height, plotTop, plotBottom, labelSize, valueSize, labelH, valueH, thickness, dot, ring, gap, valueW,
+    labelW: n > 1 ? Math.round((x1 - x0) / (n - 1)) : x1 - x0, labelTop: plotBottom + gap, axisY: plotBottom + Math.round(gap / 3), axisH: Math.max(1, px(score, 2)),
+    points, segments, cum, total: cum[cum.length - 1]};
+}
+/** The first frame at which the drawn line reaches each point of a line-chart scene. */
+function lineChartReach(scene, score, L = lineChartLayout(scene, score)) {
+  const p = scene.params ?? {}, begin = scene.start + motion(score).entryFrames, duration = p.duration ?? 48, easing = p.easing ?? 'easeInOutCubic';
+  return L.cum.map(d => {
+    for (let f = begin; f < begin + duration; f++) if (progress(f, begin, duration, easing) * L.total >= d - 0.5) return f;
+    return begin + duration;
+  });
+}
+// Word-by-word entries (line-reveal params.entry 'words'): the Polish typesetting rules keep a one-letter word with the
+// next and a number with its unit, and the gap between words is a fixed share of the type size in every renderer.
+const lineWords = (score, id) => captionItems(score.copy?.[id] ?? '').map(item => item.text);
+const wordGap = size => Math.round(size * 0.28);
+
 /** Describe the scene's elements. Each node: {key, type: 'box' | 'text' | 'image', text?, src?, style, children?}. */
 function buildScene(scene, score) {
   const content = buildContent(scene, score);
@@ -469,6 +507,12 @@ function buildContent(scene, score) {
   switch (scene.kind) {
     case 'line-reveal': {
       const sizes = p.sizes ?? [132, 96], weights = p.weights ?? [700, 400];
+      if (p.entry === 'words') return {key: 'container', type: 'box', style: column(score, p.align), children: list(p.lines).map((id, i) => {
+        const size = px(score, sizes[i] ?? sizes[sizes.length - 1]), weight = String(weights[i] ?? weights[weights.length - 1]);
+        return {key: `mask-${i}`, type: 'box', style: {display: 'flex', flexWrap: 'wrap', justifyContent: p.align === 'center' ? 'center' : 'flex-start', columnGap: `${wordGap(size)}px`, lineHeight: '1.1'},
+          children: lineWords(score, id).map((word, j) => ({key: `word-mask-${i}-${j}`, type: 'box', style: {overflow: p.wordMotion === 'pop' ? 'visible' : 'hidden'},
+            children: [{key: `word-${i}-${j}`, type: 'text', text: word, style: {display: 'block', fontSize: `${size}px`, fontWeight: weight, whiteSpace: 'nowrap', transformOrigin: '50% 100%'}}]}))};
+      })};
       return {key: 'container', type: 'box', style: column(score, p.align), children: list(p.lines).map((id, i) => ({
         key: `mask-${i}`, type: 'box', style: {overflow: 'hidden', lineHeight: '1.1'},
         children: [{key: `line-${i}`, type: 'text', text: copy(score, id), style: {fontSize: `${px(score, sizes[i] ?? sizes[sizes.length - 1])}px`, fontWeight: String(weights[i] ?? weights[weights.length - 1])}}],
@@ -556,6 +600,34 @@ function buildContent(scene, score) {
       });
       return {key: 'container', type: 'box', style: {position: 'absolute', inset: '0'}, children};
     }
+    case 'line-chart': {
+      const L = lineChartLayout(scene, score), colour = p.lineColor ?? t.accent ?? t.foreground, muted = t.muted ?? t.foreground, children = [];
+      const format = new Intl.NumberFormat(p.locale ?? 'en-US', {minimumFractionDigits: p.decimals ?? 0, maximumFractionDigits: p.decimals ?? 0});
+      children.push({key: 'axis', type: 'box', style: {position: 'absolute', left: `${L.x0}px`, top: `${L.axisY}px`, width: `${L.x1 - L.x0}px`, height: `${L.axisH}px`, background: muted, transformOrigin: 'left center'}});
+      list(p.points).forEach((point, i) => {
+        if (point?.label) children.push({key: `label-${i}`, type: 'text', text: copy(score, point.label), style: {position: 'absolute', left: `${L.points[i].x - Math.round(L.labelW / 2)}px`, top: `${L.labelTop}px`, width: `${L.labelW}px`, height: `${L.labelH}px`, lineHeight: `${L.labelH}px`, fontSize: `${L.labelSize}px`, fontWeight: String(p.labelWeight ?? 500), textAlign: 'center', whiteSpace: 'nowrap', color: muted}});
+      });
+      L.segments.forEach((s, i) => children.push({key: `segment-${i}`, type: 'box', style: {position: 'absolute', left: `${s.x}px`, top: `${s.y - Math.round(L.thickness / 2)}px`, width: `${s.length}px`, height: `${L.thickness}px`, background: colour, transformOrigin: `0 ${Math.round(L.thickness / 2)}px`, transform: `rotate(${s.angle}deg) scaleX(0)`}}));
+      list(p.points).forEach((point, i) => {
+        const {x, y} = L.points[i];
+        children.push({key: `dot-${i}`, type: 'box', style: {position: 'absolute', left: `${x - L.dot}px`, top: `${y - L.dot}px`, width: `${2 * L.dot}px`, height: `${2 * L.dot}px`, borderRadius: `${L.dot}px`, boxSizing: 'border-box', border: `${L.ring}px solid ${t.background ?? '#000000'}`, background: colour, backgroundClip: 'padding-box', opacity: '0'}});
+        if ((p.values ?? 'last') === 'all' || ((p.values ?? 'last') === 'last' && i === L.points.length - 1)) children.push({key: `value-${i}`, type: 'text', text: `${p.prefix ?? ''}${format.format(point?.value ?? 0)}${p.suffix ?? ''}`, style: {position: 'absolute', left: `${x - Math.round(L.valueW / 2)}px`, top: `${y - L.dot - L.gap - L.valueH}px`, width: `${L.valueW}px`, height: `${L.valueH}px`, lineHeight: `${L.valueH}px`, fontSize: `${L.valueSize}px`, fontWeight: '700', textAlign: 'center', whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums', opacity: '0'}});
+      });
+      return {key: 'container', type: 'box', style: {position: 'absolute', inset: '0'}, children};
+    }
+    case 'photo-hero': {
+      // The photo covers the frame around params.focus; a shade keeps the lines at the bottom readable.
+      const asset = (score.assets ?? []).find(item => item.id === p.asset), f = p.focus ?? {}, at = `${(f.x ?? 0.5) * 100}% ${(f.y ?? 0.5) * 100}%`;
+      const sizes = p.sizes ?? [96, 48], weights = p.weights ?? [700, 400], area = t.safeArea ?? {};
+      const bottom = Math.max(Math.round(score.height * (area.bottom ?? 0)), margin(score)), top = Math.round(score.height * (area.top ?? 0));
+      return {key: 'container', type: 'box', style: {position: 'absolute', inset: '0', overflow: 'hidden'}, children: [
+        {key: 'photo', type: 'image', src: asset?.src ?? '', alt: asset?.alt ?? asset?.id ?? '', style: {position: 'absolute', left: '0', top: '0', width: `${score.width}px`, height: `${score.height}px`, objectFit: 'cover', objectPosition: at, transformOrigin: at, display: 'block'}},
+        ...(p.shade === 0 ? [] : [{key: 'shade', type: 'box', style: {position: 'absolute', left: '0', right: '0', bottom: '0', height: `${Math.round(score.height * 0.6)}px`, background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, ${p.shade ?? 0.6}))`}}]),
+        {key: 'text', type: 'box', style: {position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: p.align === 'center' ? 'center' : 'stretch', padding: `${top}px ${margin(score)}px ${bottom}px`, boxSizing: 'border-box', color: p.color ?? '#FFFFFF'},
+          children: list(p.lines).map((id, i) => ({key: `mask-${i}`, type: 'box', style: {overflow: 'hidden', lineHeight: '1.1'}, children: [
+            {key: `line-${i}`, type: 'text', text: copy(score, id), style: {fontSize: `${px(score, sizes[i] ?? sizes[sizes.length - 1])}px`, fontWeight: String(weights[i] ?? weights[weights.length - 1])}}]}))},
+      ]};
+    }
     default:
       throw new Error(`Unknown scene kind: ${scene.kind}`);
   }
@@ -605,13 +677,29 @@ function sceneFrame(scene, score, frame) {
   const e = mode === 'none' ? 0 : progress(frame, exitStart, m.exitFrames, m.exitEasing);
   const wipe = backgroundWipe(scene, score, frame);
   if (wipe) out.scene = {style: {clipPath: `inset(${wipe.map(v => `${v}px`).join(' ')})`}};
-  out.container = {style: {opacity: String(1 - e), transform: mode === 'sweep' ? `translateX(${-px(score, 150) * e}px)` : `translateY(${-px(score, 24) * e}px)`}};
+  // A full-frame photo fades without the lift, so the frame edge never shows.
+  out.container = {style: {opacity: String(1 - e), transform: mode === 'sweep' ? `translateX(${-px(score, 150) * e}px)` : `translateY(${-(scene.kind === 'photo-hero' ? 0 : px(score, 24)) * e}px)`}};
   if (mode === 'sweep') {
     const k = progress(frame, exitStart, sweepFrames, 'easeInOutCubic'), from = margin(score), to = score.width - margin(score);
     out.sweep = {style: {opacity: k > 0 && k < 1 ? '1' : '0', transform: `translateX(${Math.round(from + (to - from) * k)}px)`}};
   }
   switch (scene.kind) {
     case 'line-reveal':
+      if (p.entry === 'words') {
+        // Word by word through all lines: each word rises from its mask ('rise') or springs up from 60 % ('pop').
+        let n = 0;
+        list(p.lines).forEach((id, i) => lineWords(score, id).forEach((_, j) => {
+          const begin = scene.start + n++ * (p.wordStaggerFrames ?? 3);
+          if (p.wordMotion === 'pop') {
+            const k = progress(frame, begin, m.entryFrames, p.wordEasing ?? 'easeOutBack');
+            out[`word-${i}-${j}`] = {style: {opacity: String(progress(frame, begin, Math.max(1, Math.round(m.entryFrames / 2)), 'linear')), transform: `scale(${0.6 + 0.4 * k})`}};
+          } else {
+            const k = progress(frame, begin, m.entryFrames, p.wordEasing ?? m.entryEasing);
+            out[`word-${i}-${j}`] = {style: {transform: `translateY(${(1 - k) * 110}%)`}};
+          }
+        }));
+        break;
+      }
       list(p.lines).forEach((_, i) => {
         const k = progress(frame, scene.start + i * m.lineStaggerFrames, m.entryFrames, m.entryEasing);
         out[`line-${i}`] = {style: {transform: `translateY(${(1 - k) * 110}%)`}};
@@ -684,6 +772,33 @@ function sceneFrame(scene, score, frame) {
       });
       break;
     }
+    case 'line-chart': {
+      // The axis and labels settle, then the line draws from the first point; each dot and value appear on arrival.
+      const L = lineChartLayout(scene, score), reach = lineChartReach(scene, score, L), shown = p.values ?? 'last';
+      const drawn = progress(frame, scene.start + m.entryFrames, p.duration ?? 48, p.easing ?? 'easeInOutCubic') * L.total;
+      const axis = progress(frame, scene.start, m.entryFrames, m.entryEasing);
+      out.axis = {style: {transform: `scaleX(${axis})`}};
+      L.segments.forEach((s, i) => { out[`segment-${i}`] = {style: {transform: `rotate(${s.angle}deg) scaleX(${s.length ? Math.min(1, Math.max(0, (drawn - L.cum[i]) / s.length)) : 1})`}}; });
+      list(p.points).forEach((point, i) => {
+        if (point?.label) out[`label-${i}`] = {style: {opacity: String(axis), transform: `translateY(${(1 - axis) * px(score, 16)}px)`}};
+        out[`dot-${i}`] = {style: {opacity: String(progress(frame, reach[i], 6, 'easeOutCubic'))}};
+        if (shown === 'all' || (shown === 'last' && i === L.points.length - 1)) out[`value-${i}`] = {style: {opacity: String(progress(frame, reach[i], m.entryFrames, m.entryEasing))}};
+      });
+      break;
+    }
+    case 'photo-hero': {
+      // The photo pushes in from zoom[0] to zoom[1] and drifts up by params.parallax px over the whole scene, while the
+      // lines rise from their masks over it.
+      const zoom = p.zoom ?? [1, 1.08], length = scene.end - scene.start;
+      const s = zoom[0] + (zoom[1] - zoom[0]) * progress(frame, scene.start, length, p.zoomEasing ?? 'linear');
+      const drift = px(score, p.parallax ?? 0) * progress(frame, scene.start, length, 'linear');
+      out.photo = {style: {opacity: String(p.fadeFrames ? progress(frame, scene.start, p.fadeFrames, 'linear') : 1), transform: `translateY(${-drift}px) scale(${s})`}};
+      list(p.lines).forEach((_, i) => {
+        const k = progress(frame, scene.start + (p.textDelay ?? 8) + i * m.lineStaggerFrames, m.entryFrames, m.entryEasing);
+        out[`line-${i}`] = {style: {transform: `translateY(${(1 - k) * 110}%)`}};
+      });
+      break;
+    }
     case 'logo-reveal': {
       // Reveal by clipping only: the mark is never scaled, skewed or recoloured.
       const k = progress(frame, scene.start, p.duration ?? 30, m.resolveEasing);
@@ -721,8 +836,8 @@ function captionItems(text) {
 const activeWordStyle = (score, c) => ({size: px(score, c.size ?? 64), pad: px(score, 12), radius: px(score, 10), gap: px(score, 10),
   line: Math.round(px(score, c.size ?? 64) * 1.3), rowGap: px(score, 8)});
 
-/** Caption layer for score.captions [{id, start, end, copy, words?}], drawn above the scenes; null without captions. */
-function buildCaptions(score) {
+// Caption layer for score.captions [{id, start, end, copy, words?}].
+function captionLayer(score) {
   if (!score.captions?.length) return null;
   const t = score.tokens ?? {}, c = t.captions ?? {};
   if (c.preset === 'active-word') {
@@ -741,8 +856,8 @@ function buildCaptions(score) {
   ]};
 }
 
-/** The caption shown at a frame: captions cut in and out on their exact frames, start <= frame < end. */
-function captionsFrame(score, frame) {
+// The caption shown at a frame: captions cut in and out on their exact frames, start <= frame < end.
+function captionLayerFrame(score, frame) {
   const t = score.tokens ?? {}, c = t.captions ?? {};
   if (c.preset === 'active-word') {
     const out = {};
@@ -759,6 +874,47 @@ function captionsFrame(score, frame) {
   }
   const caption = (score.captions ?? []).find(item => frame >= item.start && frame < item.end);
   return {captions: {style: {visibility: caption ? 'visible' : 'hidden'}}, caption: {text: caption ? copy(score, caption.copy) : ''}};
+}
+
+// Persistent elements stay on screen across scenes (a logo in a corner, a price tag, a web address):
+// score.persistent [{id, asset | copy, position, from, to, ...}], inside the side margin and the safe area or margin.
+const persistentAt = (score, item) => {
+  const area = score.tokens?.safeArea ?? {}, m = margin(score), [v, h] = String(item.position ?? 'top-right').split('-');
+  return {[v]: `${Math.max(Math.round(score.height * (area[v] ?? 0)), m)}px`, [h]: `${m}px`};
+};
+function buildPersistent(score) {
+  const t = score.tokens ?? {};
+  return list(score.persistent).map(item => {
+    const at = {position: 'absolute', ...persistentAt(score, item), opacity: '0', visibility: 'hidden'};
+    if (item.asset) {
+      const asset = (score.assets ?? []).find(a => a.id === item.asset);
+      return {key: `persistent-${item.id}`, type: 'image', src: asset?.src ?? '', alt: asset?.alt ?? asset?.id ?? '', style: {...at, width: `${px(score, item.width ?? 160)}px`, height: 'auto', display: 'block'}};
+    }
+    const size = px(score, item.size ?? 36), line = Math.round(size * 1.3), filled = item.background !== 'none';
+    return {key: `persistent-${item.id}`, type: 'text', text: copy(score, item.copy), style: {...at, padding: `0 ${filled ? px(score, 16) : 0}px`, height: `${line}px`, lineHeight: `${line}px`, fontSize: `${size}px`, fontWeight: String(item.weight ?? 700), whiteSpace: 'nowrap',
+      color: item.color ?? (filled ? t.background : t.foreground) ?? '#FFFFFF', background: filled ? item.background ?? t.accent ?? '#000000' : 'transparent', borderRadius: `${px(score, item.radius ?? 8)}px`}};
+  });
+}
+/** Persistent element styles at a frame: shown for from <= frame < to, fading in and out unless at the timeline's ends. */
+function persistentFrame(score, frame) {
+  const m = motion(score), out = {};
+  for (const item of list(score.persistent)) {
+    const from = item.from ?? 0, to = item.to ?? score.totalFrames, shown = frame >= from && frame < to;
+    const k = from === 0 ? 1 : progress(frame, from, m.entryFrames, m.entryEasing), e = to >= score.totalFrames ? 0 : progress(frame, to - m.exitFrames, m.exitFrames, m.exitEasing);
+    out[`persistent-${item.id}`] = {style: {opacity: String(shown ? k * (1 - e) : 0), visibility: shown ? 'visible' : 'hidden'}};
+  }
+  return out;
+}
+
+/** Overlay above the scenes: persistent elements, then the captions; null when the contract has neither. */
+function buildCaptions(score) {
+  const layer = captionLayer(score), persistent = buildPersistent(score);
+  if (!persistent.length) return layer;
+  return {key: 'overlay', type: 'box', style: {position: 'absolute', inset: '0', pointerEvents: 'none'}, children: layer ? [...persistent, layer] : persistent};
+}
+/** Overlay styles at a frame: persistent elements and the caption shown, start <= frame < end. */
+function captionsFrame(score, frame) {
+  return {...persistentFrame(score, frame), ...(score.captions?.length ? captionLayerFrame(score, frame) : {})};
 }
 
 /** Index a built scene tree by key. */

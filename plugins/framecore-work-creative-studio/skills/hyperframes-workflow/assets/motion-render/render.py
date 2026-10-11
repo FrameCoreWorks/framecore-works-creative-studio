@@ -43,7 +43,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.5.0'
+VERSION = '1.6.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -74,9 +74,10 @@ EASINGS = {
     'easeOutExpo': bezier(0.16, 1, 0.3, 1),
     'easeInOutCubic': bezier(0.65, 0, 0.35, 1),
     'easeInCubic': bezier(0.32, 0, 0.67, 0),
+    'easeOutBack': bezier(0.34, 1.56, 0.64, 1),
     'linear': lambda x: min(1.0, max(0.0, x)),
 }
-KINDS = ('line-reveal', 'item-stagger', 'end-card', 'counter', 'quote', 'logo-reveal', 'device', 'lower-third', 'bar-chart')
+KINDS = ('line-reveal', 'item-stagger', 'end-card', 'counter', 'quote', 'logo-reveal', 'device', 'lower-third', 'bar-chart', 'line-chart', 'photo-hero')
 
 
 def progress(frame, start, duration, easing='linear'):
@@ -194,6 +195,51 @@ def bar_chart_layout(scene, score):
         rows.append({'labelTop': label_top, 'barTop': bar_top, 'valueTop': bar_top + jround((thickness - value_h) / 2), 'width': width})
     return {'x': m, 'labelSize': label_size, 'valueSize': value_size, 'labelH': label_h, 'valueH': value_h, 'thickness': thickness,
             'valueGap': value_gap, 'reserve': reserve, 'full': full, 'labelW': score['width'] - 2 * m, 'rows': rows}
+
+
+def line_chart_layout(scene, score):
+    """The engine's lineChartLayout: positions, lengths and angles in whole pixels (angles to 0.001 degree)."""
+    p, m, area = scene.get('params') or {}, margin(score), tokens(score).get('safeArea') or {}
+    values = [(point or {}).get('value', 0) for point in as_list(p.get('points'))]
+    lo = p['min'] if 'min' in p else min([0] + values)
+    hi = p['max'] if 'max' in p else max([lo] + values)
+    span = hi - lo if hi > lo else 1
+    label_size, value_size = px(score, p.get('size', 36)), px(score, p.get('valueSize', 40))
+    label_h, value_h = jround(label_size * 1.2), jround(value_size * 1.2)
+    thickness, dot, ring, gap = px(score, p.get('thickness', 8)), px(score, p.get('dot', 12)), px(score, 4), px(score, 14)
+    value_w = jround(value_size * p.get('valueWidth', 4))
+    top, bottom = jround(score['height'] * area.get('top', 0)), score['height'] - jround(score['height'] * area.get('bottom', 0))
+    height = jround((bottom - top) * p.get('height', 0.6))
+    y0 = top + jround((bottom - top - height) / 2)
+    x0, x1, n = m + jround(value_w / 2), score['width'] - m - jround(value_w / 2), len(values)
+    plot_top, plot_bottom = y0 + value_h + gap + dot, y0 + height - label_h - gap
+    points = [{'x': x0 + jround((x1 - x0) * i / (n - 1)) if n > 1 else x0, 'y': plot_bottom - jround((value - lo) / span * (plot_bottom - plot_top))} for i, value in enumerate(values)]
+    segments = []
+    for a, b in zip(points, points[1:]):
+        dx, dy = b['x'] - a['x'], b['y'] - a['y']
+        segments.append({'x': a['x'], 'y': a['y'], 'length': jround(math.sqrt(dx * dx + dy * dy)), 'angle': jround(math.atan2(dy, dx) * 180 / math.pi * 1000) / 1000})
+    cum = [0]
+    for s in segments:
+        cum.append(cum[-1] + s['length'])
+    return {'x0': x0, 'x1': x1, 'y0': y0, 'height': height, 'plotTop': plot_top, 'plotBottom': plot_bottom, 'labelSize': label_size, 'valueSize': value_size,
+            'labelH': label_h, 'valueH': value_h, 'thickness': thickness, 'dot': dot, 'ring': ring, 'gap': gap, 'valueW': value_w,
+            'labelW': jround((x1 - x0) / (n - 1)) if n > 1 else x1 - x0, 'labelTop': plot_bottom + gap, 'axisY': plot_bottom + jround(gap / 3), 'axisH': max(1, px(score, 2)),
+            'points': points, 'segments': segments, 'cum': cum, 'total': cum[-1]}
+
+
+def line_chart_reach(scene, score, layout=None):
+    """The engine's lineChartReach: the first frame at which the drawn line reaches each point."""
+    L = layout or line_chart_layout(scene, score)
+    p = scene.get('params') or {}
+    begin, duration, easing = scene['start'] + motion(score)['entryFrames'], p.get('duration', 48), p.get('easing', 'easeInOutCubic')
+    out = []
+    for d in L['cum']:
+        out.append(next((f for f in range(begin, begin + duration) if progress(f, begin, duration, easing) * L['total'] >= d - 0.5), begin + duration))
+    return out
+
+
+def line_words(score, key):
+    return [item['text'] for item in caption_items((score.get('copy') or {}).get(key, ''))]
 
 
 def device_layout(scene, score):
@@ -480,6 +526,20 @@ class Fonts:
 
 # ---------------------------------------------------------------- text blocks
 
+def rotated_bar(length, thickness, angle, origin_y, supersample=4):
+    """A bar of `length` x `thickness` rotated by `angle` degrees about (0, origin_y), as an antialiased mask, with the
+    offset of the mask's top-left corner from the rotation origin."""
+    a = math.radians(angle)
+    corners = [(x, y - origin_y) for x, y in ((0, 0), (length, 0), (length, thickness), (0, thickness))]
+    turned = [(x * math.cos(a) - y * math.sin(a), x * math.sin(a) + y * math.cos(a)) for x, y in corners]
+    left, top = math.floor(min(x for x, _ in turned)), math.floor(min(y for _, y in turned))
+    right, bottom = math.ceil(max(x for x, _ in turned)), math.ceil(max(y for _, y in turned))
+    w, h = max(1, right - left), max(1, bottom - top)
+    big = Image.new('L', (w * supersample, h * supersample), 0)
+    ImageDraw.Draw(big).polygon([((x - left) * supersample, (y - top) * supersample) for x, y in turned], fill=255)
+    return big.resize((w, h), Image.LANCZOS), left, top
+
+
 def wrap(text, font, width):
     lines = []
     for paragraph in str(text).split('\n'):
@@ -605,7 +665,8 @@ def number_text(params, value):
 
 
 def load_asset(src, base_dir, width):
-    """A logo as RGBA at the given width: a PNG/JPEG/WebP file or data URI, or SVG through cairosvg when installed."""
+    """A logo or photo as RGBA at the given width (None: its own size): a PNG/JPEG/WebP file or data URI, or SVG through
+    cairosvg when installed."""
     from urllib.parse import unquote_to_bytes
     if src.startswith('data:'):
         header, _, payload = src.partition(',')
@@ -622,8 +683,10 @@ def load_asset(src, base_dir, width):
             import cairosvg
         except ImportError:
             raise RuntimeError('An SVG logo needs the cairosvg package; install it or supply a PNG of the same mark')
-        data = cairosvg.svg2png(bytestring=data, output_width=width * 2)
+        data = cairosvg.svg2png(bytestring=data, output_width=(width or 1080) * 2)
     image = Image.open(io.BytesIO(data)).convert('RGBA')
+    if width is None:
+        return image
     return image.resize((width, jround(image.height * width / image.width)), Image.LANCZOS)
 
 
@@ -665,7 +728,9 @@ class Scene:
         s, p, score = self.scene, self.p, self.score
         kind = s['kind']
         self.parts = {}
-        if kind == 'line-reveal':
+        if kind == 'line-reveal' and p.get('entry') == 'words':
+            self.layout_words()
+        elif kind == 'line-reveal':
             sizes, weights = p.get('sizes') or [132, 96], p.get('weights') or [700, 400]
             align = p.get('align', 'left')
             blocks = []
@@ -818,6 +883,56 @@ class Scene:
                 width = self.block(final, c['valueSize'], 700, max_width=10 ** 6, tabular=True).width
                 if width > c['reserve'] + 1:
                     TextBlock.overflows.append({'text': final.replace('\u00a0', ' '), 'width': jround(width), 'max_width': c['reserve']})
+        elif kind == 'line-chart':
+            L = self.lc = line_chart_layout(s, score)
+            self.lc_reach = line_chart_reach(s, score, L)
+            self.line_color = color(p.get('lineColor') or self.t.get('accent') or self.t.get('foreground'), self.fg)
+            self.lc_labels, self.lc_values = {}, {}
+            shown = p.get('values', 'last')
+            for i, point in enumerate(as_list(p.get('points'))):
+                point = point or {}
+                if point.get('label'):
+                    block = self.one_line(copy_text(score, point['label']), L['labelSize'], p.get('labelWeight', 500), L['labelW'], L['labelH'], 'center')
+                    self.lc_labels[i] = tinted(block.mask(L['labelW']), self.muted)
+                if shown == 'all' or (shown == 'last' and i == len(L['points']) - 1):
+                    block = self.one_line(number_text(p, point.get('value', 0)), L['valueSize'], 700, L['valueW'], L['valueH'], 'center')
+                    self.lc_values[i] = tinted(block.mask(L['valueW']), self.fg)
+            background = color(self.t.get('background'), (0, 0, 0, 255))
+            self.lc_dot = ring_image(2 * L['dot'], L['ring'], background, self.line_color)
+            self.lc_bars = [rotated_bar(seg['length'], L['thickness'], seg['angle'], jround(L['thickness'] / 2)) for seg in L['segments']]
+        elif kind == 'photo-hero':
+            asset = next((a for a in score.get('assets') or [] if a.get('id') == p.get('asset')), None)
+            if not asset or not asset.get('src'):
+                raise ValueError(f"Scene {s['id']}: photo asset {p.get('asset')} has no src")
+            raw = load_asset(asset['src'], self.base_dir, None)
+            W, H = score['width'], score['height']
+            self.zoom = p.get('zoom') or [1, 1.08]
+            cover_scale = max(W / raw.width, H / raw.height)
+            self.base_scale = max(self.zoom)
+            self.photo = raw.resize((max(1, jround(raw.width * cover_scale * self.base_scale)), max(1, jround(raw.height * cover_scale * self.base_scale))), Image.LANCZOS)
+            focus = p.get('focus') or {}
+            self.fx, self.fy = focus.get('x', 0.5), focus.get('y', 0.5)
+            self.cover_w, self.cover_h = raw.width * cover_scale, raw.height * cover_scale
+            self.shade = None
+            if p.get('shade', 0.6) != 0:
+                h = jround(H * 0.6)
+                alpha = Image.new('L', (1, h))
+                alpha.putdata([jround(255 * p.get('shade', 0.6) * (y + 0.5) / h) for y in range(h)])
+                self.shade = (Image.merge('RGBA', [Image.new('L', (W, h), 0)] * 3 + [alpha.resize((W, h))]), H - h)
+            sizes, weights = p.get('sizes') or [96, 48], p.get('weights') or [700, 400]
+            text_color = color(p.get('color'), (255, 255, 255, 255))
+            bottom = max(jround(H * ((self.t.get('safeArea') or {}).get('bottom', 0))), margin(score))
+            align = p.get('align', 'left')
+            blocks = []
+            for i, key in enumerate(as_list(p.get('lines'))):
+                size = px(score, sizes[i] if i < len(sizes) else sizes[-1])
+                weight = weights[i] if i < len(weights) else weights[-1]
+                blocks.append(self.block(copy_text(score, key), size, weight, line_height=size * 1.1))
+            y = H - bottom - sum(b.height for b in blocks)
+            self.hero_lines = []
+            for block in blocks:
+                self.hero_lines.append((tinted(block.mask(block.width), text_color), self.x_for(block.width, align), y, block.height))
+                y += block.height
         elif kind == 'logo-reveal':
             asset = next((a for a in score.get('assets') or [] if a.get('id') == p.get('asset')), None)
             if not asset or not asset.get('src'):
@@ -827,6 +942,42 @@ class Scene:
             height = self.logo.height
             top = self.stack([height], [0])[0]
             self.logo_pos = (self.left + (self.column_width - width) / 2, top)
+
+    def layout_words(self):
+        """line-reveal with params.entry 'words': each line a flex-wrap row of word masks, as the browser lays it out."""
+        p, score = self.p, self.score
+        sizes, weights = p.get('sizes') or [132, 96], p.get('weights') or [700, 400]
+        center = p.get('align') == 'center'
+        lines = []
+        for i, key in enumerate(as_list(p.get('lines'))):
+            size = px(score, sizes[i] if i < len(sizes) else sizes[-1])
+            weight = weights[i] if i < len(weights) else weights[-1]
+            gap, height = jround(size * 0.28), size * 1.1
+            words = [self.block(word, size, weight, line_height=height) for word in line_words(score, key)]
+            rows, current, used = [], [], 0.0
+            for word in words:
+                need = word.width if not current else used + gap + word.width
+                if current and need > self.column_width + 0.5:
+                    rows.append(current)
+                    current, used = [word], word.width
+                else:
+                    current.append(word)
+                    used = need
+            if current:
+                rows.append(current)
+            widths = [sum(w.width for w in row) + gap * (len(row) - 1) for row in rows]
+            # A centred line is as wide as all its words on one row, at most the column (fit-content); a left one fills it.
+            box_w = min(sum(w.width for w in words) + gap * max(0, len(words) - 1), self.column_width) if center else self.column_width
+            lines.append((rows, widths, box_w, gap, height))
+        tops = self.stack([len(rows) * height for rows, _, _, _, height in lines], [0] * len(lines))
+        self.words = []
+        for (rows, widths, box_w, gap, height), top in zip(lines, tops):
+            box_x = self.left + (self.column_width - box_w) / 2 if center else self.left
+            for r, (row, row_w) in enumerate(zip(rows, widths)):
+                x = box_x + (box_w - row_w) / 2 if center else box_x
+                for word in row:
+                    self.words.append((tinted(word.mask(word.width), self.fg), x, top + r * height, height))
+                    x += word.width + gap
 
     def one_line(self, text, size, weight, width, height, align='left'):
         """A single-line text the scene engine sets with white-space: nowrap; wider text is reported, never cropped."""
@@ -852,7 +1003,25 @@ class Scene:
         s, p, m, score = self.scene, self.p, self.m, self.score
         layer = Image.new('RGBA', frame_image.size, (0, 0, 0, 0))
         kind = s['kind']
-        if kind == 'line-reveal':
+        if kind == 'line-reveal' and p.get('entry') == 'words':
+            for n, (image, x, top, height) in enumerate(self.words):
+                begin = s['start'] + n * p.get('wordStaggerFrames', 3)
+                if p.get('wordMotion') == 'pop':
+                    k = progress(frame, begin, m['entryFrames'], p.get('wordEasing', 'easeOutBack'))
+                    opacity = progress(frame, begin, max(1, jround(m['entryFrames'] / 2)), 'linear')
+                    factor = 0.6 + 0.4 * k
+                    box = Image.new('RGBA', (image.width, max(1, math.ceil(height))), (0, 0, 0, 0))
+                    box.paste(image, (0, 0))
+                    if opacity > 0:
+                        size = (max(1, jround(box.width * factor)), max(1, jround(box.height * factor)))
+                        scaled = box if factor == 1 else box.resize(size, Image.BICUBIC)
+                        place(layer, scaled, x + (box.width - scaled.width) / 2, top + box.height - scaled.height, opacity)
+                else:
+                    k = progress(frame, begin, m['entryFrames'], p.get('wordEasing', m['entryEasing']))
+                    box = Image.new('RGBA', (image.width, max(1, math.ceil(height))), (0, 0, 0, 0))
+                    box.paste(image, (0, jround((1 - k) * 1.1 * height)))  # translateY(110%) inside the word mask
+                    place(layer, box, x, top)
+        elif kind == 'line-reveal':
             for i, (image, x, top, height, _) in enumerate(self.lines):
                 k = progress(frame, s['start'] + i * m['lineStaggerFrames'], m['entryFrames'], m['entryEasing'])
                 box = Image.new('RGBA', (image.width, max(1, math.ceil(height))), (0, 0, 0, 0))
@@ -957,6 +1126,45 @@ class Scene:
                 box = Image.new('RGBA', (image.width, max(1, math.ceil(height))), (0, 0, 0, 0))
                 box.paste(image, (0, jround((1 - k) * 1.1 * height)))
                 place(layer, box, x, top)
+        elif kind == 'line-chart':
+            L = self.lc
+            axis = progress(frame, s['start'], m['entryFrames'], m['entryEasing'])
+            if (L['x1'] - L['x0']) * axis > 0:
+                place(layer, solid(((L['x1'] - L['x0']) * axis, L['axisH']), self.muted), L['x0'], L['axisY'])
+            for i, image in self.lc_labels.items():
+                place(layer, image, L['points'][i]['x'] - jround(L['labelW'] / 2), L['labelTop'] + (1 - axis) * px(score, 16), axis)
+            drawn = progress(frame, s['start'] + m['entryFrames'], p.get('duration', 48), p.get('easing', 'easeInOutCubic')) * L['total']
+            for i, seg in enumerate(L['segments']):
+                k = min(1.0, max(0.0, (drawn - L['cum'][i]) / seg['length'])) if seg['length'] else 1.0
+                if k <= 0:
+                    continue
+                mask, left, top = self.lc_bars[i] if k >= 1 else rotated_bar(seg['length'] * k, L['thickness'], seg['angle'], jround(L['thickness'] / 2))
+                place(layer, tinted(mask, self.line_color), seg['x'] + left, seg['y'] + top)
+            for i, point in enumerate(L['points']):
+                opacity = progress(frame, self.lc_reach[i], 6, 'easeOutCubic')
+                place(layer, self.lc_dot, point['x'] - L['dot'], point['y'] - L['dot'], opacity)
+                if i in self.lc_values:
+                    place(layer, self.lc_values[i], point['x'] - jround(L['valueW'] / 2), point['y'] - L['dot'] - L['gap'] - L['valueH'], progress(frame, self.lc_reach[i], m['entryFrames'], m['entryEasing']))
+        elif kind == 'photo-hero':
+            W, H = score['width'], score['height']
+            length = s['end'] - s['start']
+            zoom = self.zoom[0] + (self.zoom[1] - self.zoom[0]) * progress(frame, s['start'], length, p.get('zoomEasing', 'linear'))
+            drift = px(score, p.get('parallax', 0)) * progress(frame, s['start'], length, 'linear')
+            # object-fit: cover at object-position (fx, fy), then scale about the same point and translate up by the drift.
+            ox, oy = self.fx * W, self.fy * H
+            left, top = (W - self.cover_w) * self.fx, (H - self.cover_h) * self.fy
+            X, Y = ox + (left - ox) * zoom, oy + (top - oy) * zoom - drift
+            k = self.base_scale / zoom
+            photo = self.photo.transform((W, H), Image.AFFINE, (k, 0, -X * k, 0, k, -Y * k), resample=Image.BICUBIC)
+            fade = progress(frame, s['start'], p['fadeFrames'], 'linear') if p.get('fadeFrames') else 1
+            place(layer, photo, 0, 0, fade)
+            if self.shade:
+                place(layer, self.shade[0], 0, self.shade[1])
+            for i, (image, x, top_, height) in enumerate(self.hero_lines):
+                k = progress(frame, s['start'] + p.get('textDelay', 8) + i * m['lineStaggerFrames'], m['entryFrames'], m['entryEasing'])
+                box = Image.new('RGBA', (image.width, max(1, math.ceil(height))), (0, 0, 0, 0))
+                box.paste(image, (0, jround((1 - k) * 1.1 * height)))
+                place(layer, box, x, top_)
         elif kind == 'logo-reveal':
             k = progress(frame, s['start'], p.get('duration', 30), m['resolveEasing'])
             logo = self.logo.copy()
@@ -973,7 +1181,7 @@ class Scene:
         sweep_frames = p.get('sweepFrames', m['exitFrames'] + 12)
         exit_start = s['end'] - sweep_frames if self.mode == 'sweep' else s['end'] - m['exitFrames']
         e = 0 if self.mode == 'none' else progress(frame, exit_start, m['exitFrames'], m['exitEasing'])
-        dx, dy = (-px(score, 150) * e, 0) if self.mode == 'sweep' else (0, -px(score, 24) * e)
+        dx, dy = (-px(score, 150) * e, 0) if self.mode == 'sweep' else (0, 0 if kind == 'photo-hero' else -px(score, 24) * e)
         if e > 0 or dx or dy:
             shifted = Image.new('RGBA', layer.size, (0, 0, 0, 0))
             shifted.paste(layer, (jround(dx), jround(dy)))
@@ -1091,6 +1299,48 @@ class Captions:
         place(frame_image, box, (score['width'] - box.width) / 2, score['height'] - self.bottom - box.height)
 
 
+class Persistent:
+    """score.persistent: logos and short texts that stay on screen across scenes, above the scenes and below the captions."""
+
+    def __init__(self, score, fonts, base_dir):
+        self.score, self.items = score, []
+        t, m, H = tokens(score), margin(score), score['height']
+        area = t.get('safeArea') or {}
+        for item in score.get('persistent') or []:
+            vertical_side, horizontal_side = str(item.get('position', 'top-right')).split('-')
+            if item.get('asset'):
+                asset = next((a for a in score.get('assets') or [] if a.get('id') == item['asset']), None)
+                if not asset or not asset.get('src'):
+                    raise ValueError(f"persistent {item.get('id')}: asset {item['asset']} has no src")
+                image = load_asset(asset['src'], base_dir, px(score, item.get('width', 160)))
+            else:
+                size = px(score, item.get('size', 36))
+                line = jround(size * 1.3)
+                filled = item.get('background') != 'none'
+                pad = px(score, 16) if filled else 0
+                block = TextBlock(copy_text(score, item.get('copy')), fonts.get(size, item.get('weight', 700)), 10 ** 6, line)
+                image = Image.new('RGBA', (max(1, math.ceil(block.width + 2 * pad)), line), (0, 0, 0, 0))
+                if filled:
+                    ImageDraw.Draw(image).rounded_rectangle([0, 0, image.width - 1, image.height - 1], radius=px(score, item.get('radius', 8)),
+                                                            fill=color(item.get('background') or t.get('accent'), (0, 0, 0, 255)))
+                ink = color(item.get('color') or (t.get('background') if filled else t.get('foreground')), (255, 255, 255, 255))
+                image.alpha_composite(tinted(block.mask(block.width), ink), (pad, 0))
+            inset = max(jround(H * area.get(vertical_side, 0)), m)
+            x = m if horizontal_side == 'left' else score['width'] - m - image.width
+            y = inset if vertical_side == 'top' else H - inset - image.height
+            self.items.append((item, image, x, y))
+
+    def draw(self, frame_image, frame):
+        m, total = motion(self.score), self.score['totalFrames']
+        for item, image, x, y in self.items:
+            start, end = item.get('from', 0), item.get('to', total)
+            if not start <= frame < end:
+                continue
+            k = 1 if start == 0 else progress(frame, start, m['entryFrames'], m['entryEasing'])
+            e = 0 if end >= total else progress(frame, end - m['exitFrames'], m['exitFrames'], m['exitEasing'])
+            place(frame_image, image, x, y, k * (1 - e))
+
+
 class Renderer:
     def __init__(self, score, base_dir='.', font=None, font_bold=None, font_dirs=()):
         self.score = score
@@ -1099,6 +1349,8 @@ class Renderer:
         self.background = color(tokens(score).get('background'), (0, 0, 0, 255))[:3] + (255,)
         TextBlock.overflows = []
         self.scenes = [Scene(scene, score, self.fonts, base_dir) for scene in score['scenes']]
+        self.overflows = list(TextBlock.overflows)
+        self.persistent = Persistent(score, self.fonts, base_dir) if score.get('persistent') else None
         self.overflows = list(TextBlock.overflows)
         self.captions = Captions(score, self.fonts) if score.get('captions') else None
 
@@ -1114,6 +1366,8 @@ class Renderer:
         for scene in self.scenes:
             if scene.scene['start'] <= n < scene.scene['end']:
                 scene.draw(image, n)
+        if self.persistent:
+            self.persistent.draw(image, n)
         if self.captions:
             self.captions.draw(image, n)
         return image.convert('RGB')

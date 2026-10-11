@@ -194,6 +194,7 @@ class Critique:
         self.fill_reported = set()
         self.fps = score['fps']['num'] / score['fps']['den']
         self.findings = []
+        self.overflow = False
         self.pacing_report = []
         self.keyframes = []
 
@@ -290,6 +291,16 @@ class Critique:
             if spread < 0.06:
                 self.add('note', 'pace', 'scenes', 'every scene lasts the same time; the rhythm may feel mechanical', 'give the key line or the reveal a longer beat')
 
+    def measure_text(self, formats):
+        """Lay every format out with the renderer, which measures each line: text wider than its column is an error."""
+        r = load_renderer()
+        for format_id in formats:
+            score = r.resolve_format(self.score, format_id) if format_id != 'base' else self.score
+            for item in r.Renderer(score).overflows:
+                self.overflow = True
+                self.add('error', 'layout', format_id, f'"{item["text"]}" is {item["width"]} px wide in a {item["max_width"]} px column; the renderer would stop rather than crop it',
+                         'reduce the size for this format, shorten the copy or split the line in the contract')
+
     def pictures(self, out, formats, video=None):
         """Render the review frames (or read them from the delivered video), check content against edges, interface
         zones and balance, write a contact sheet."""
@@ -313,6 +324,8 @@ class Critique:
             step = max(1, round(self.fps / PACE_SAMPLES_PER_SECOND))
             pace_frames = {n for scene in score['scenes'] for n in range(scene['start'], scene['end'], step)} if format_id == 'base' else set()
             renderer = VideoFrames(video, score, frames | pace_frames) if video else r.Renderer(score)
+            # Persistent elements (a corner mark, a tag) sit at the margins by design: layout and composition judge the scene alone.
+            scenes_only = r.Renderer({**score, 'persistent': []}) if score.get('persistent') and not video else None
             pace_images = {}
             for n in sorted(frames | pace_frames):
                 image = renderer.frame(n)
@@ -335,7 +348,8 @@ class Critique:
                 if in_hold:
                     background = (scene.get('params') or {}).get('background') or (score.get('tokens') or {}).get('background') or '#000000'
                     bg = Image.new('RGB', image.size, r.color(background)[:3])
-                    diff = ImageChops.difference(image, bg).convert('L').point(lambda v: 255 if v > 28 else 0)
+                    judged = scenes_only.frame(n) if scenes_only else image
+                    diff = ImageChops.difference(judged, bg).convert('L').point(lambda v: 255 if v > 28 else 0)
                     box = diff.getbbox()
                     where = f'{scene["id"]} frame {n}' + (f' ({format_id})' if format_id != 'base' else '')
                     if box is None:
@@ -343,7 +357,8 @@ class Critique:
                     else:
                         x0, y0, x1, y1 = box
                         edge = 0.02
-                        full_bleed = x0 <= 1 and y0 <= 1 and x1 >= width - 1 and y1 >= height - 1
+                        # A photo hero fills the frame by design, even where the photo is as light as the canvas.
+                        full_bleed = (x0 <= 1 and y0 <= 1 and x1 >= width - 1 and y1 >= height - 1) or scene.get('kind') == 'photo-hero'
                         p = scene.get('params') or {}
                         camera = scene.get('kind') == 'device' and any(
                             scene['start'] + k.get('at', 0) <= n for k in r.as_list(p.get('focus')))
@@ -499,8 +514,13 @@ def main(argv=None):
         critique.timing()
         sheet = None
         frames_status = 'not_run: --no-frames'
+        formats = ['base'] + [f['id'] for f in score.get('formats') or [] if f.get('id')]
+        if not args.video:
+            try:
+                critique.measure_text(formats)
+            except Exception:  # without Pillow or the fonts the frames step reports why; the timing rules still stand
+                pass
         if not args.no_frames:
-            formats = ['base'] + [f['id'] for f in score.get('formats') or [] if f.get('id')]
             try:
                 sheet = critique.pictures(args.out, formats, args.video)
                 frames_status = 'checked in the delivered video' if args.video else 'checked'
@@ -526,7 +546,7 @@ def main(argv=None):
         # completeness is checked only by the text audit (text-audit.mjs, also inside review-frames.mjs).
         result['verdicts'] = {
             'layout': ('fail' if any(f['severity'] == 'error' for f in visual) else 'needs_review' if any(f['severity'] == 'warning' for f in visual) else 'pass_in_reviewed_frames') if pictured else 'not_verified',
-            'text_completeness': 'not_checked_here: run text-audit.mjs or review-frames.mjs',
+            'text_completeness': 'fail: text wider than its column (renderer measurement)' if critique.overflow else 'not_checked_here: run text-audit.mjs or review-frames.mjs',
             'pacing_samples': 'checked' if critique.pacing_report else 'not_run',
             'temporal_playback': 'not_verified',
         }

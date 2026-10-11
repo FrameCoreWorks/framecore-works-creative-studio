@@ -171,12 +171,10 @@
       "runtime_hint": "Remotion; Three.js through Remotion for true 3D",
       "starter": "kinetic-type-starter",
       "scene_kinds": [
-        "line-reveal",
-        "item-stagger",
-        "counter",
-        "end-card"
+        "photo-hero",
+        "line-reveal"
       ],
-      "contract": "templates/ad-product.motion-score.json",
+      "contract": "examples/photo-and-trend.motion-score.json",
       "use": "Keep the product geometry, label and colour locked to the source.",
       "avoid": "Physically implausible opening or invented internal structure."
     },
@@ -303,10 +301,9 @@
       "runtime_hint": "SVG with GSAP or D3; Remotion for data-driven variants",
       "starter": "gsap-motion-starter",
       "scene_kinds": [
-        "bar-chart",
-        "end-card"
+        "line-chart"
       ],
-      "contract": "examples/data-and-names.motion-score.json",
+      "contract": "examples/photo-and-trend.motion-score.json",
       "use": "Use real data with units and source; keep scales stable.",
       "avoid": "Truncated axes, smooth growth implying a claim, or numbers without source."
     },

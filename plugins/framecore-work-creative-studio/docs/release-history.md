@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.61.0, 2026-10-11
+
+From Phase 3 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md) (premium motion), fourth part:
+
+- **Photo hero.** A new `photo-hero` scene kind: an approved photo covers the frame around a focus point, pushes in slowly and can drift up for depth, under a shade that keeps the headline lines readable above the bottom safe area; it exits with a fade only, and the checker warns when the drift would show the photo's edge
+- **Line chart.** A new `line-chart` scene kind: 2 to 12 points on one scale, the axis and labels settle, the line draws from the first point to the last and each dot and value appear when the line arrives; labels wider than their slot stop the render
+- **Word-by-word entries.** `line-reveal` takes `entry: 'words'`: every word enters in turn, rising from its mask or springing up with the new `easeOutBack` easing (`wordMotion: 'pop'`), with the Polish word groups kept together
+- **Persistent elements.** A top-level `persistent` list keeps a logo or a short tag (price, offer, address) on screen across scenes, above the scenes and below the captions, in any corner inside the margin and safe area
+- **One geometry everywhere.** `lineChartLayout`, `lineChartReach` and `lineWords` compute the line, its arrival frames and the word groups identically in the three scene-engine copies and the Python renderer (render.py 1.6.0); tests compare them and the rendered pixels with the browser. Contract checks, sound cues, Remotion types and the craft critique know the new kinds; example `photo-and-trend` in 9:16 and 16:9 with an original synthetic photo and mark ([scene kinds](../skills/hyperframes-workflow/assets/motion-scenes/README.md))
+- **Critique knows the overlay and the text width.** The craft critique judges layout and composition without the persistent overlay, treats a photo hero as full bleed, and reports any word wider than its column as a layout error from the renderer's own measurement, also with `--no-frames`
+
 ## 1.60.0, 2026-10-11
 
 From Phase 3 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md) (premium motion), third part:

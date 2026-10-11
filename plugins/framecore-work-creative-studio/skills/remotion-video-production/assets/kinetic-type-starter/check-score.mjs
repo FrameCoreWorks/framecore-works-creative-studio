@@ -22,6 +22,8 @@ const sceneKinds = {
   'device': {required: ['screens'], copyParams: ['caption', 'url']},
   'lower-third': {required: ['name'], copyParams: ['name', 'title']},
   'bar-chart': {required: ['bars'], copyParams: []},
+  'line-chart': {required: ['points'], copyParams: []},
+  'photo-hero': {required: ['asset'], copyParams: ['lines']},
 };
 export const knownSceneKinds = Object.keys(sceneKinds);
 // Sound designs of motion-sound/synth.py; keep in sync with DESIGNS there.
@@ -102,6 +104,32 @@ export function checkScore(score, {storyboard = false} = {}) {
             if (!(Number.isFinite(bar?.value) && bar.value >= 0)) errors.push(`${scene.id}: bar ${i + 1} value must be a number of zero or more`);
           });
           if (params.max !== undefined && !(Number.isFinite(params.max) && params.max > 0 && bars.every(bar => !(bar?.value > params.max)))) errors.push(`${scene.id}: bar-chart max must be a positive number at least as large as every value`);
+        }
+        if (scene.kind === 'line-reveal') {
+          if (params.entry !== undefined && !['lines', 'words'].includes(params.entry)) errors.push(`${scene.id}: line-reveal entry must be lines or words`);
+          if (params.wordMotion !== undefined && !['rise', 'pop'].includes(params.wordMotion)) errors.push(`${scene.id}: line-reveal wordMotion must be rise or pop`);
+          if (params.wordStaggerFrames !== undefined && !(Number.isSafeInteger(params.wordStaggerFrames) && params.wordStaggerFrames >= 0)) errors.push(`${scene.id}: wordStaggerFrames must be an integer of zero or more`);
+        }
+        if (scene.kind === 'line-chart') {
+          const points = Array.isArray(params.points) ? params.points : [];
+          if (points.length < 2 || points.length > 12) errors.push(`${scene.id}: line-chart needs 2 to 12 points`);
+          points.forEach((point, i) => {
+            if (point?.label !== undefined && typeof score.copy?.[point.label] !== 'string') errors.push(`${scene.id}: point ${i + 1} label references missing copy id ${point.label}`);
+            if (!Number.isFinite(point?.value)) errors.push(`${scene.id}: point ${i + 1} value must be a number`);
+          });
+          const values = points.map(point => point?.value).filter(Number.isFinite), lo = params.min ?? Math.min(0, ...values), hi = params.max ?? Math.max(lo, ...values);
+          if ((params.min !== undefined && !Number.isFinite(params.min)) || (params.max !== undefined && !Number.isFinite(params.max)) || values.some(value => value < lo || value > hi)) errors.push(`${scene.id}: line-chart min and max must be numbers that include every value`);
+          if (params.values !== undefined && !['last', 'all', 'none'].includes(params.values)) errors.push(`${scene.id}: line-chart values must be last, all or none`);
+        }
+        if (scene.kind === 'photo-hero') {
+          const asset = (score.assets ?? []).find(item => item.id === params.asset);
+          if (!text(asset?.src)) errors.push(`${scene.id}: photo asset ${params.asset} needs an assets entry with src`);
+          const zoom = params.zoom ?? [1, 1.08], focus = params.focus ?? {}, inside = value => value === undefined || (Number.isFinite(value) && value >= 0 && value <= 1);
+          if (!(Array.isArray(zoom) && zoom.length === 2 && zoom.every(value => Number.isFinite(value) && value >= 1 && value <= 2))) errors.push(`${scene.id}: photo-hero zoom must be [from, to], each from 1 to 2`);
+          if (!inside(focus.x) || !inside(focus.y)) errors.push(`${scene.id}: photo-hero focus x and y must be from 0 to 1`);
+          if (params.shade !== undefined && !(Number.isFinite(params.shade) && params.shade >= 0 && params.shade <= 1)) errors.push(`${scene.id}: photo-hero shade must be from 0 to 1`);
+          // Drifting up needs zoom headroom below the focus point, or the frame edge shows at the bottom.
+          if (params.parallax > 0 && Array.isArray(zoom) && params.parallax * Math.min(score.width, score.height) / 1080 > (Math.max(...zoom) - 1) * score.height * (1 - (focus.y ?? 0.5))) warnings.push(`${scene.id}: parallax ${params.parallax} is larger than the zoom leaves below the focus; raise zoom or lower parallax`);
         }
         if (params.exit !== undefined && ![true, false, 'lift', 'sweep'].includes(params.exit)) errors.push(`${scene.id}: params.exit must be true, false, 'lift' or 'sweep'`);
         if (params.sweepFrames !== undefined && !(Number.isSafeInteger(params.sweepFrames) && params.sweepFrames >= 1 && params.sweepFrames <= scene.end - scene.start)) errors.push(`${scene.id}: params.sweepFrames must be a positive integer within the scene`);
@@ -229,6 +257,23 @@ function checkSound(score, errors, warnings) {
   for (const [name, track] of [['music', music], ['voiceover', score.voiceover]]) {
     if (track?.src !== undefined && !text(track.src)) errors.push(`${name}.src must be a file name`);
     if (track?.volume !== undefined && !(Number.isFinite(track.volume) && track.volume >= 0 && track.volume <= 1)) errors.push(`${name}.volume must be from 0 to 1`);
+  }
+  if (score.persistent !== undefined) {
+    if (!Array.isArray(score.persistent)) errors.push('persistent must be a list');
+    else {
+      const seen = new Set();
+      score.persistent.forEach((item, i) => {
+        const where = `persistent ${item?.id ?? i + 1}`;
+        if (typeof item?.id !== 'string' || !/^[A-Za-z0-9-]+$/.test(item.id) || seen.has(item.id)) errors.push(`${where}: id missing, invalid or duplicated`);
+        seen.add(item?.id);
+        if ((item?.asset === undefined) === (item?.copy === undefined)) errors.push(`${where}: needs exactly one of asset or copy`);
+        if (item?.asset !== undefined && !text((score.assets ?? []).find(asset => asset.id === item.asset)?.src)) errors.push(`${where}: asset ${item.asset} needs an assets entry with src`);
+        if (item?.copy !== undefined && typeof score.copy?.[item.copy] !== 'string') errors.push(`${where}: copy id ${item.copy} is missing`);
+        if (item?.position !== undefined && !['top-left', 'top-right', 'bottom-left', 'bottom-right'].includes(item.position)) errors.push(`${where}: position must be top-left, top-right, bottom-left or bottom-right`);
+        const from = item?.from ?? 0, to = item?.to ?? n;
+        if (!(Number.isSafeInteger(from) && Number.isSafeInteger(to) && from >= 0 && to <= n && to > from)) errors.push(`${where}: from and to must be frames with 0 <= from < to <= totalFrames`);
+      });
+    }
   }
   if (score.tokens?.captions?.preset !== undefined && !['box', 'active-word'].includes(score.tokens.captions.preset)) errors.push('tokens.captions.preset must be box or active-word');
   if (score.captions === undefined) return;

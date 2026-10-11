@@ -166,7 +166,18 @@ def plan_cues(score, density='standard', direction=None, designed=None):
             add(end - m['exitFrames'] + m['exitFrames'] // 2, 'whoosh', f'{sid}: content lifts out', -21, 0, {'duration': seconds_of(m['exitFrames'] * 2, 0.3, 0.6), 'peak': 0.5, 'direction': -side, 'brightness': 0.7, 'intensity': 0.5}, at_least=2)
         kind = scene['kind']
         final = scene is last and kind in ('end-card', 'logo-reveal')
-        if kind == 'line-reveal':
+        if kind == 'line-reveal' and p.get('entry') == 'words':
+            # Word by word: a light tick as each word lands (the first twelve) and a knock on the last word.
+            words = [w for key in r.as_list(p.get('lines')) for w in r.line_words(score, key)]
+            easing = p.get('wordEasing', 'easeOutBack' if p.get('wordMotion') == 'pop' else m['entryEasing'])
+            for n, _ in enumerate(words):
+                begin = start + n * p.get('wordStaggerFrames', 3)
+                frame = landed(begin, m['entryFrames'], easing, end)
+                if n == len(words) - 1:
+                    add(frame, 'knock', f'{sid}: last word lands', -12, 0, {'pitch': 1.0}, at_least=1)
+                elif n < 12:
+                    add(frame, 'tick', f'{sid}: word {n + 1} lands', -20, 0, {'pitch': round(1 + 0.04 * n, 3)}, at_least=2)
+        elif kind == 'line-reveal':
             for i, _ in enumerate(r.as_list(p.get('lines'))):
                 begin = start + i * m['lineStaggerFrames']
                 add(landed(begin, m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: line {i + 1} lands', -12 - 3 * i, 0, {'pitch': 1 + 0.12 * i}, at_least=1)
@@ -212,6 +223,17 @@ def plan_cues(score, density='standard', direction=None, designed=None):
             for i, _ in enumerate(r.as_list(p.get('bars'))):
                 begin = start + i * m['itemStaggerFrames'] + 6
                 add(landed(begin, p.get('duration', 36), p.get('easing', m['resolveEasing']), end), 'tick', f'{sid}: bar {i + 1} reaches its value', -14 - min(4, i), 0, {'pitch': round(1 + 0.1 * i, 3)}, at_least=1)
+        elif kind == 'line-chart':
+            L = r.line_chart_layout(scene, score)
+            reach = r.line_chart_reach(scene, score, L)
+            begin, duration = start + m['entryFrames'], p.get('duration', 48)
+            add(begin, 'whoosh', f'{sid}: the line starts drawing', -20, 0, {'duration': seconds_of(duration, 0.4, 1.6), 'peak': 0.7, 'direction': 1, 'brightness': 0.8, 'intensity': 0.5}, at_least=1)
+            for i, frame in enumerate(reach[1:], start=1):
+                add(frame if frame < end else None, 'tick', f'{sid}: the line reaches point {i + 1}', -16 - min(4, i // 2), 0, {'pitch': round(1 + 0.06 * i, 3)}, at_least=1)
+        elif kind == 'photo-hero':
+            for i, _ in enumerate(r.as_list(p.get('lines'))):
+                begin = start + p.get('textDelay', 8) + i * m['lineStaggerFrames']
+                add(landed(begin, m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: line {i + 1} lands', -14 - 3 * i, 0, {'pitch': 0.9 + 0.12 * i}, at_least=1)
         elif kind == 'device':
             add(landed(start, m['entryFrames'] + 10, m['resolveEasing'], end), 'impact', f'{sid}: device settles', -14, 0, {'weight': 0.35, 'brightness': 0.4}, at_least=1)
             shots, screen_mode, tf = r.as_list(p.get('screens')), p.get('transition', 'push'), p.get('transitionFrames', 12)

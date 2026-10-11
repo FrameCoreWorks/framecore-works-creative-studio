@@ -5,7 +5,7 @@ export type Scene = {
   start: number;
   end: number;
   purpose: string;
-  kind: 'line-reveal' | 'item-stagger' | 'end-card' | 'counter' | 'quote' | 'logo-reveal' | 'device' | 'lower-third' | 'bar-chart';
+  kind: 'line-reveal' | 'item-stagger' | 'end-card' | 'counter' | 'quote' | 'logo-reveal' | 'device' | 'lower-third' | 'bar-chart' | 'line-chart' | 'photo-hero';
   params: Record<string, unknown>;
   copy: string[];
   holds: [number, number][];
@@ -35,6 +35,7 @@ export type MotionScore = {
   assets?: {id: string; src: string; alt?: string}[];
   music?: {bpm?: number; offsetMs?: number; beatsPerBar?: number; src?: string; volume?: number};
   voiceover?: {src?: string; volume?: number};
-  captions?: {id: string; start: number; end: number; copy: string}[];
+  captions?: {id: string; start: number; end: number; copy: string; words?: [number, number][]}[];
+  persistent?: {id: string; asset?: string; copy?: string; position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'; from?: number; to?: number; width?: number; size?: number; weight?: number; color?: string; background?: string; radius?: number}[];
   scenes: Scene[];
 };

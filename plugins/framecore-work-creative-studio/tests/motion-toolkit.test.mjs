@@ -98,7 +98,8 @@ test('scene engine renders every kind deterministically and never scales a logo'
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
   const appFilm = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
   const dataNames = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/data-and-names.motion-score.json'), 'utf8'));
-  assert.deepEqual(new Set([...score.scenes, ...appFilm.scenes, ...dataNames.scenes].map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
+  const photoTrend = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/photo-and-trend.motion-score.json'), 'utf8'));
+  assert.deepEqual(new Set([...score.scenes, ...appFilm.scenes, ...dataNames.scenes, ...photoTrend.scenes].map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
   for (const scene of score.scenes) {
     assert.ok(buildScene(scene, score).children.length > 0, scene.id);
     for (const frame of [scene.start, Math.floor((scene.start + scene.end) / 2), scene.end - 1]) {
@@ -222,7 +223,7 @@ test('the Python renderer matches the browser engine frame by frame', {skip: !(p
   const {runReview} = await import(path.join(root, reviewTool));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-parity-'));
   try {
-    for (const example of ['color-block', 'app-film', 'data-and-names', 'social-captions']) {
+    for (const example of ['color-block', 'app-film', 'data-and-names', 'social-captions', 'photo-and-trend']) {
       const contract = path.join(root, scenesDir, `examples/${example}.motion-score.json`);
       const review = runReview(contract, {out: path.join(tmp, example), browser: process.env.MOTION_REVIEW_BROWSER, format: 'base', samples: 4});
       const frames = review.frames.map(frame => frame.frame);
@@ -1282,6 +1283,53 @@ test('lower thirds and bar charts lay out and count identically in the JS engine
   assert.match(errors, /bar 1 value must be a number of zero or more/);
   assert.match(errors, /bar-chart max must be a positive number/);
   assert.match(errors, /lower-third align must be left or center/);
+});
+
+test('line charts, word entries and persistent elements lay out identically in the JS engine and the Python renderer', async () => {
+  const {lineChartLayout, lineChartReach, lineWords, sceneFrame, buildScene, resolveFormat, buildCaptions, captionsFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {spawnSync} = await import('node:child_process');
+  const contract = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/photo-and-trend.motion-score.json'), 'utf8'));
+  const cases = [undefined, '16x9'].map(id => {
+    const view = resolveFormat(contract, id), chart = view.scenes.find(scene => scene.kind === 'line-chart');
+    return {view, chart, js: {layout: lineChartLayout(chart, view), reach: lineChartReach(chart, view), words: ['offer-1', 'offer-2'].map(key => lineWords(view, key))}};
+  });
+  for (const {view} of cases) assert.deepEqual(checkScore(view, {storyboard: true}), {errors: [], warnings: []});
+  const script = ['import sys, json, importlib.util', `spec = importlib.util.spec_from_file_location('r', ${JSON.stringify(path.join(root, 'skills/hyperframes-workflow/assets/motion-render/render.py'))})`,
+    'r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)', 'out = []',
+    'for c in json.loads(sys.argv[1]):',
+    '    v, ch = c["view"], c["chart"]',
+    '    out.append({"layout": r.line_chart_layout(ch, v), "reach": r.line_chart_reach(ch, v), "words": [r.line_words(v, k) for k in ("offer-1", "offer-2")]})',
+    'print(json.dumps(out))'].join('\n');
+  const result = spawnSync(process.env.PYTHON || 'python3', ['-c', script, JSON.stringify(cases.map(({view, chart}) => ({view, chart})))], {encoding: 'utf8'});
+  assert.equal(result.status, 0, result.stderr);
+  JSON.parse(result.stdout).forEach((py, i) => assert.deepEqual(py, cases[i].js, `line chart layout, reach frames and words ${i}`));
+  const [{view, chart, js}] = cases;
+  assert.deepEqual(js.reach, [...js.reach].sort((a, b) => a - b), 'points are reached in order');
+  const settled = sceneFrame(chart, view, chart.end - 1);
+  assert.ok(js.layout.segments.every((s, i) => settled[`segment-${i}`].style.transform === `rotate(${s.angle}deg) scaleX(1)`));
+  assert.equal(buildScene(chart, view).children.find(node => node.key === 'value-5').text, '420 szt.');
+  assert.equal(sceneFrame(chart, view, js.reach[5] - 1)['value-5'].style.opacity, '0', 'the last value waits for the line');
+  // Word entries: one mask per word group, landing in turn.
+  const offer = view.scenes.find(scene => scene.params.entry === 'words');
+  const words = Object.keys(sceneFrame(offer, view, offer.start)).filter(key => key.startsWith('word-'));
+  assert.deepEqual(words, ['word-0-0', 'word-0-1', 'word-1-0']);
+  assert.equal(sceneFrame(offer, view, offer.start + 4)['word-0-1'].style.opacity, '0');
+  // Persistent elements sit in the overlay above the scenes, from frame 0 or fading in at `from`.
+  const overlay = buildCaptions(view);
+  assert.equal(overlay.key, 'overlay');
+  assert.deepEqual(overlay.children.map(node => node.key), ['persistent-mark', 'persistent-tag']);
+  assert.equal(captionsFrame(view, 0)['persistent-mark'].style.opacity, '1');
+  assert.equal(captionsFrame(view, 139)['persistent-tag'].style.visibility, 'hidden');
+  assert.equal(captionsFrame(view, view.totalFrames - 1)['persistent-tag'].style.opacity, '1');
+  const bad = structuredClone(contract);
+  bad.scenes[1].params.points = [{label: 'nope', value: 'x'}];
+  bad.scenes[0].params.zoom = [0.5, 3];
+  bad.scenes[2].params.wordMotion = 'spin';
+  bad.persistent.push({id: 'mark', copy: 'missing', position: 'middle', from: 50, to: 10});
+  const errors = checkScore(bad).errors.join('\n');
+  for (const pattern of [/line-chart needs 2 to 12 points/, /point 1 label references missing copy id nope/, /point 1 value must be a number/, /photo-hero zoom must be/, /wordMotion must be rise or pop/,
+    /persistent mark: id missing, invalid or duplicated/, /copy id missing is missing/, /position must be/, /from and to must be frames/]) assert.match(errors, pattern);
 });
 
 test('active-word captions keep Polish word groups, light the spoken word and match the Python renderer', async () => {

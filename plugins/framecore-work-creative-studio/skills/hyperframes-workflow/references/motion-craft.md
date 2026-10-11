@@ -100,7 +100,7 @@ Starting shapes for common requests (adapted from kaventro/motion-designer). A s
 | Title or sting | an intro, outro, logo or channel open | 3–10 s · any, often looping | `logo-reveal`, `end-card`, one signature move |
 | Interview or testimonial | a person speaks on camera or in a supplied clip | 15–60 s · any | `lower-third` for the name and role, captions, `quote` for the line that matters |
 | Kinetic type | a quote, manifesto or announcement | 10–40 s · vertical or square | `line-reveal`, `quote`, a line per beat |
-| Explainer | a topic or an idea, often with voice-over | 30–90 s · landscape or vertical | `item-stagger`, `counter`, `bar-chart`, captions |
+| Explainer | a topic or an idea, often with voice-over | 30–90 s · landscape or vertical | `item-stagger`, `counter`, `bar-chart`, `line-chart`, captions |
 | Data video | a statistic or result | 8–30 s · any | `counter`, `item-stagger`; sourced numbers only |
 | Feature cards | several features quickly | 15–30 s · vertical or square | `line-reveal` headline per feature, `end-card` |
 | Product film | a product's real interface at work | 20–60 s · landscape, square or vertical | `device` with screenshots, `end-card`; see [product films](product-films.md) |
