@@ -1608,6 +1608,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending until the push is read back
+- GitHub: synchronized. `main` at `6a4c492`, read back with `git ls-remote`; workflow Check Studio sources 38140207485: success
 - ChatGPT Work: not affected (package unchanged)
 - Codex: not_run
