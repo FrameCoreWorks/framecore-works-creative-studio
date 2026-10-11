@@ -1650,6 +1650,27 @@ Verification:
 
 Cross-host state:
 
+- GitHub: synchronized. `main` at `63e24a1`, read back with `git ls-remote`
+- ChatGPT Work: not_tracked (owner decision 2026-10-10); this report is the owner's own test
+- Codex: not_run
+
+## CC-20261011-10
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-10-m04-full-path`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `63e24a1` (main, package 1.65.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository only)
+- Package version: 1.65.0 (unchanged)
+- Scope: the owner reworded M04 so that no logo is expected and ran it in ChatGPT Work: Studio delivered a 6-second 1080 x 1920 MP4 and the project ZIP in one turn (reported 60 FPS, no sound, frame check 90/100); recorded as PASS_REPORTED ([report](../verification/host-report-2026-10-11-m04-full-path-chatgpt-work.json)). The video was not inspected here; the reply did not state that the file was not yet watched
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh --fast`: PASS
+- the report is the owner's screenshot as read here
+
+Cross-host state:
+
 - GitHub: pending until the push is read back
 - ChatGPT Work: not_tracked (owner decision 2026-10-10); this report is the owner's own test
 - Codex: not_run

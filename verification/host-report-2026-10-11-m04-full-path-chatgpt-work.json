@@ -1,0 +1,12 @@
+{
+  "version": "not shown in the screenshot (the owner tests the updated plugin, 1.65.0 expected)",
+  "date": "2026-10-11",
+  "reported_by": "owner (phone screenshot of the reply); reading by cloud-code; the MP4 and the ZIP were not inspected here",
+  "client": "ChatGPT Work on an Android phone with code execution, 9 min 41 s of processing; reasoning setting not reported",
+  "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
+  "case": "host-eval M04 reworded so that no logo is expected (the owner noted the first wording implied a logo), run by hand",
+  "reply": "Delivered Klos_6s_r2_1080x1920.mp4 (reported: 6 s, 1080 x 1920, 60 FPS, no sound; the name as text, an animated ear-of-wheat motif and the slogan) and Klos_6s_projekt.zip; frame check reported 90 -> 90/100 with no errors; the steady ending described as deliberate for readability; no storyboard step (direct production of a complete brief)",
+  "result": "PASS_REPORTED for the full path in ChatGPT Work: a complete brief became a rendered MP4 and an editable project in one turn, with the copy kept as given in the reply text",
+  "not_verified": "The video itself (exact copy in the frames, motion quality, the development review) was not inspected here; the reply did not state that nobody had watched the file yet, which the motion method asks for (NOT VERIFIED until watched)",
+  "owner_decision": "2026-10-11 (2c): the owner checks M04 in ChatGPT Work himself"
+}
