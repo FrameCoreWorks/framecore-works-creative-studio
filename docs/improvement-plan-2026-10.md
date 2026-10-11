@@ -20,6 +20,11 @@ Based on a full audit of package 1.54.0 on 2026-10-10: six independent read-only
 | 4.3 | storyboard compositor (PNG pages and PDF with exact labels), shot list and AV script export (XLSX, CSV, PDF), clip review contact sheet, prompt-pack export, Python port of the shot-plan checker with Node parity | 1.63.0 |
 | 4.2 | generator dialect cards for Veo 3.1, Runway Gen-4.5, Kling 3.0, MiniMax H3 and Seedance 2.x from the makers' guides, consumer surfaces, a 60-day refresh cadence and provisional use without browsing | 1.63.0 |
 | 4.5 | ad-script ownership settled (Screenplay Story Architect, Copy Voice for VO and supers, UGC for creator reads); Polish trigger terms move to 5.1; merging the 11 video skills into pointer stubs is left to the owner, because AGENTS.md keeps skill IDs, invocations and routing stable | 1.63.0 (part) |
+| 5.1 | one route table in the entry with Polish cues for every owner; collisions settled in routing boundaries (image prompt, product video, supplied video, service businesses, copy and lyrics) | 1.64.0 |
+| 5.2 | Polish routing set (25 cases, with and without the Studio name) in the host-eval harness (`--suite routing`, `reads_any`); baseline on 1.63.0 and a candidate run on the new table, [results](host-evals.md) | 1.64.0 (repository) |
+| 5.3 | entry at 28,963 of 32,000 bytes (target 29,000 met); the method catalog moved out of the reasoning reference every owner links; the GEPA procedure moved to the repository; Project State already one template and research already starts from dated snapshots | 1.64.0 |
+| 5.4 | change requests carry an evaluation case in the harness vocabulary; Hipson Adapter retired to a pointer to Instruction Packet Factory's Hipson format; packets for print shops, voice talent and freelancers | 1.64.0 |
+| 5.5 | mascot and stylized character reference with a character sheet; SVG wordmark route (outlined paths, the font's kerning and Polish letterforms); brand guide PDF from the brand kit | 1.64.0 |
 | 3.1, 3.2 open items | deferred: device shadow and depth, footage underlay, a richer logo sting; the scene kinds, styles and templates above cover the commercial cases first | |
 
 ## Diagnosis

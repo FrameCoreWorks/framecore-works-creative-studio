@@ -16,6 +16,10 @@ For an explicitly requested retrospective, use [controlled Reflexion lessons](..
 
 Use only when explicitly requested or when an opted-in report-only recurring review asks for it.
 
+## Change requests as evaluation cases
+
+A proposal that changes how Studio answers carries the failing exchange as an evaluation case on the [change request](assets/change-request.template.json): the request as the user sent it, deterministic checks from the listed vocabulary (owner loaded, language, questions, required or forbidden text) that fail on the observed reply and should pass after the change, and a rubric for the judgment calls. The maintainer adds the case to the repository's host-eval suite and runs it before and after the change; until then its test result stays NOT_RUN. Replace client names, facts and files with neutral stand-ins before the case leaves the conversation.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.
@@ -50,6 +54,7 @@ Produce one or more:
 
 - Improvement Log
 - Workflow Change Proposal
+- Change Request with an evaluation case
 - Workflow Improvement Alert
 
 Every proposal needs evidence labels, affected surface, proposed change, benefit, risk, acceptance test, rollback, owner, and status.

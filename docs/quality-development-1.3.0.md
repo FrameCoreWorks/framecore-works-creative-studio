@@ -91,6 +91,22 @@ means keep the baseline. Meaningful instruction changes require the owner's
 explicit approval before a separate precise patch. Rollback is a selective revert
 of the adopted section and its necessary dependencies, never a broad reset.
 
+Real-run procedure (moved here from the package's quality reference in 1.64.0, unchanged):
+
+For a real run, first define the approved model/provider, data boundary, total
+cost cap, maximum task/proposal calls, time limit and stop conditions. Use public
+or explicitly authorized redacted examples, separate train/validation/holdout,
+and forbid private context, secrets and raw reasoning traces. Tool observations and
+short error summaries are sufficient reflective feedback. Evaluate serially.
+
+Reject candidate scope expansion and hard-gate failures before any quality score.
+Evaluate the selected proposal on untouched holdout and protected regressions,
+then compare it with the baseline using the same calibrated criteria. Require
+an actual owner decision before adopting a meaningful change. If holdout does
+not improve or any protected behavior regresses, retain the baseline. A budget
+exhaustion, no useful progress or exhausted task review budget stops the run.
+No automatic adoption, source rewrite, new provider dependency or silent escalation.
+
 ## Verification boundaries
 
 Use serial Node checks, installer tests and optional GEPA tests. Source/record

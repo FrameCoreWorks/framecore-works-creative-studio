@@ -17,6 +17,7 @@
     "browser",
     "network",
     "cairosvg",
+    "fonttools",
     "host_tool",
     "user_browser",
     "none"
@@ -42,6 +43,28 @@
       "delivers": "PNG or JPG at the exact size, a print PDF with bleed when asked, the <id>.static.json spec and the <id>.audit.json text and contrast audit",
       "when_missing": "Use one-pass generation with the exact copy in the prompt and inspect every letter of the render; say the exact-copy route was not available",
       "observed": "2026-10-10: container tests only"
+    },
+    {
+      "id": "svg_wordmark",
+      "executed_by": "studio",
+      "owner": "static-graphic-design-creator",
+      "does": "Sets a wordmark as outlined SVG paths from a bundled or supplied font with its own kerning and Polish letterforms: colour, black and white versions, PNG renders, a clear-space and small-size preview and a report with the font licence",
+      "tools": [
+        "skills/static-graphic-design-creator/scripts/svg_wordmark.py"
+      ],
+      "requires": [
+        "python",
+        "fonttools",
+        "pillow"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "wordmark.svg, wordmark-black.svg, wordmark-white.svg, PNG renders, wordmark-preview.png and wordmark.json",
+      "when_missing": "Specify the wordmark (font, case, tracking, colours, clear space) for a designer to set in a vector editor and say no vector file was made",
+      "observed": "2026-10-11: container tests; advances match HarfBuzz and fills match the font rasterizer"
     },
     {
       "id": "image_probe",
@@ -405,6 +428,27 @@
       "delivers": "An .edl, an .otio and a -shots.csv file with the same cuts",
       "when_missing": "Write the shot list as a table with record and source timecodes",
       "observed": "2026-10-11: container tests; both files read back with OpenTimelineIO 0.18.1; editor imports not run"
+    },
+    {
+      "id": "brand_guide",
+      "executed_by": "studio",
+      "owner": "delivery-documentation",
+      "does": "Lays out a brand guide from the brand kit: logo versions, clear space, colours with HEX, RGB and WCAG contrast, type samples, voice, claims and rules, with missing parts printed as missing",
+      "tools": [
+        "skills/delivery-documentation/scripts/brand_guide.py"
+      ],
+      "requires": [
+        "python",
+        "pillow"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "brand-guide.pdf and one PNG per page",
+      "when_missing": "Deliver the guide content as a structured document and say the layout file was not made",
+      "observed": "2026-10-11: container tests only"
     },
     {
       "executed_by": "studio",

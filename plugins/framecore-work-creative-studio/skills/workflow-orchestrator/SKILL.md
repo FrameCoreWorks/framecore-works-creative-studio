@@ -12,7 +12,7 @@ Handle a plugin version or installation-status question in Codex, ChatGPT Work a
 A request to check the environment or setup (what is installed, missing or outdated) runs the [environment check](assets/environment-check/README.md) where code runs, before any welcome; answer from its result in the user's language and install nothing unless asked.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.63.0"}
+{"name":"framecore-work-creative-studio","version":"1.64.0"}
 <!-- END PACKAGE IDENTITY -->
 
 This generated block identifies the read package version of this entry, not the model or newest release. Reread this entry through the active host's skill catalog or installed path on each version question; if the host supplies it without a read tool, call it the host-supplied skill revision. If current sources for the same bundle conflict, show both and leave the version unresolved. Keep the read package, saved hosted release and latest GitHub release separate. Never report a version from memory, history or old reports; if no current evidence is accessible, say the current version cannot be confirmed. Answer briefly with version, source and scope, then stop without the welcome. Full steps: [version reporting](references/version-reporting.md).
@@ -115,32 +115,57 @@ For poster/static format questions, use [ordinary-language format choices](refer
 
 Act as one coherent creative partner. Read [the working contract](references/studio-contract.md) at intake or resume, and use [intake and reference authority](references/intake-and-reference-authority.md) for open briefs, supplied assets, reference conflicts, approvals or change propagation. Apply the conditional [public research gate](../research-evidence/SKILL.md) to every new substantive creative request before committing to a direction: search only when a named tool or model, platform requirement, material public claim, current capability claim, real-world subject or request for inspiration or verification makes current sources decision-relevant; each directly invoked specialist follows the same gate. Audio Production Director has no provider integration; sound for a contract-built motion video or a supplied video is designed, mixed and checked by the Motion Graphics Workflow's sound engine where code execution exists. A file description is not an analysis result.
 
-## Choose a short route
+## Choose the owner
 
-| Current need | Owner | Useful output |
+One table holds every route. Match the need in any language; the Polish cues show how users ask, not keywords to wait for. Collisions (image prompt, product video, supplied video, service businesses) are settled in [routing boundaries](references/routing-boundaries.md#collisions).
+
+| Need | Polish cues | Owner |
 |---|---|---|
-| Artist-led music video, song-to-image concept, performance/persona or music-video visual world | [creative-music-video-director](../creative-music-video-director/SKILL.md) | Song-specific direction, visual and performance logic, deliberate rhythm/motif choices, and requested downstream handoffs |
-| Copy-ready song, lyric, instrumental, music edit or music-video packet; supplied audio review, sonic plan, or visible-singing/lip-sync triage | [audio-production-director](../audio-production-director/SKILL.md) | Researched, text-only task packet with source truth, uncertainty labels, QA and bounded repair; no media generation or provider execution |
-| Open commercial brand/product/service video campaign, motion thesis or multi-asset direction | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) | Specific time-based campaign idea, asset jobs, truth locks, placement-aware research and handoffs |
-| Animated video that can be built from text, logos, screenshots, data or product photos (kinetic type, explainer, product or app film), or sound for such a video | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) | Contract, finished MP4 where code runs, designed sound on request |
-| Static-only poster, graphic, product visual, exact-copy design or image prompt | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) | Full integrated design method, typography/copy craft, generator-ready prompt, scoped edit or review |
-| Multi-asset visual campaign system or adaptation strategy | [commercial-visual-campaign-director](../commercial-visual-campaign-director/SKILL.md) | Shared visual direction and format-specific asset roles; hand each static deliverable to Static Graphic Design Creator |
-| Brand strategy, logo system, księga znaku or księga identyfikacji | [brand identity profile](references/brand-identity-workflow.md) | Marketing owns foundations, Static Graphic Design Creator owns logo/visual-system craft, Delivery Documentation owns the guide and actual file package; one Project State and staged acceptance |
-| Classroom lessons, worksheets, games, quizzes, presentations, guidance/career activities or teacher documents | [teacher profile](references/teacher-workflow.md) | Copy Voice owns original educational content and keys, Research Evidence checks facts, existing visual/media owners handle requested assets and Delivery Documentation verifies actual files |
-| Narrative idea, prose story, treatment, scene/dialogue, screenplay, pitch or narrative rewrite | [screenplay-story-architect](../screenplay-story-architect/SKILL.md) | Original requested story artifact and scoped continuity-aware revision |
-| Beat sequence, scene breakdown, timing, shot cards or continuity plan | [storyboard-sequence-architect](../storyboard-sequence-architect/SKILL.md) | Time-based sequence and shot-card contract, with estimates distinguished from measured timing |
-| Static storyboard, shot board or reference-board layout and labels | [storyboard-board-architect](../storyboard-board-architect/SKILL.md) | Separate board layout/copy specification and handoff; no implied generation |
-| Naturalness or voice polish of existing text, preserving its brief and locks | [humanizer](../humanizer/SKILL.md) | Actual draft or requested revision |
-| Direction/copy known, final image prompt or edit instruction | [image-prompt-architect](../image-prompt-architect/SKILL.md) | Standalone generator-ready prompt |
-| Video prompt, shot-card compilation, selected dialogue/audio compilation, source-clip edit, or supplied video review | [video-prompt-architect](../video-prompt-architect/SKILL.md) | Feasible prompt, continuity contract, and observable acceptance tests |
-| A research trigger: named model or tool, platform requirement, material public claim, current capability, real-world subject, or inspiration/verification request | [research-evidence](../research-evidence/SKILL.md) | Conditional targeted web search when a research trigger applies, evidence boundary and decision relevant to the requested artifact |
-| Image supplied as a reference for a new asset | [reference-pack-curator](../reference-pack-curator/SKILL.md) with the requested direction or prompt owner | Property-scoped reference use; not automatically under review |
-| Approved base image supplied for an edit | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only edit instruction | Preserve the approved base and named locks |
-| Existing image explicitly supplied for review | [output-critic-iteration](../output-critic-iteration/SKILL.md) | Evidence, preservation set, repair and test |
-| Accepted work; print, image, audio or video delivery requirements/handoff | [delivery-documentation](../delivery-documentation/SKILL.md) | Medium-specific production specification with requested, verified and unknown properties |
-| User preference, expertise mirroring, pace adjustment or portable profile | [studio-workstyle-profile](../studio-workstyle-profile/SKILL.md) | Domain-specific adaptation and editable user-controlled profile; no assumed cross-host sync |
+| Poster, flyer, ad, social graphic, cover, packaging or logo craft, with its prompt or a scoped edit | plakat, ulotka, grafika, baner, okładka | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
+| Prompt for a still image that is not a designed layout (photo, illustration, scene), or for an approved direction | prompt do zdjęcia, ilustracja | [image-prompt-architect](../image-prompt-architect/SKILL.md) |
+| Image supplied as a reference for a new asset | w tym stylu, referencja | [reference-pack-curator](../reference-pack-curator/SKILL.md) with the direction or prompt owner |
+| Approved base image supplied for an edit | popraw to zdjęcie, zmień tło | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only edit |
+| Existing image explicitly supplied for review | oceń grafikę | [output-critic-iteration](../output-critic-iteration/SKILL.md) |
+| Conflicting references, source authority or an input attachment map | które zdjęcie jest wzorem | [reference-pack-curator](../reference-pack-curator/SKILL.md) |
+| Shared visual system and format adaptations for a multi-asset campaign | key visual, adaptacje | [commercial-visual-campaign-director](../commercial-visual-campaign-director/SKILL.md) |
+| Brand strategy, logo system, księga znaku or identyfikacji | identyfikacja wizualna | [brand identity profile](references/brand-identity-workflow.md): Marketing, Static Graphic Design Creator and Delivery Documentation, one Project State |
+| New copy: headlines, ads, posts, product text, voice-over, supers | hasło, tekst reklamy, opis | [copy-voice](../copy-voice/SKILL.md) |
+| Natural voice for existing text, facts and locks kept | brzmi jak AI, wygładź | [humanizer](../humanizer/SKILL.md) |
+| Positioning, audiences, voice, or a campaign or channel plan without a priced offer (service businesses included) | strategia marki, plan komunikacji | [marketing](../marketing/SKILL.md) |
+| Sales campaign for a product, store, marketplace, launch or priced service offer | kampania sprzedażowa, sklep, promocja | [ecommerce-campaign-strategy-director](../ecommerce-campaign-strategy-director/SKILL.md) |
+| Messy notes into a brief; client intake, quote or offer | brief, wycena, ile wziąć | [brief-architect](../brief-architect/SKILL.md) |
+| Commercial video idea, motion thesis or film family for a product, brand or service | pomysł na reklamę, spot | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) |
+| Video project spanning several stages, or cutdowns | cały film, wersje 15 i 30 s | [creative-video-producer](../creative-video-producer/SKILL.md) |
+| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, animowane logo | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
+| User-selected React/TypeScript video | Remotion | [remotion-video-production](../remotion-video-production/SKILL.md) |
+| Video-generator prompt, shot-card compilation, source-clip edit, or a supplied clip to review | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
+| Edit plan from supplied footage or an OpenCut timeline | montaż z nagrań | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
+| Subtitles, word timing, caption layout or caption QA | napisy, SRT | [caption-studio](../caption-studio/SKILL.md) |
+| Music video from a song, artist or lyrics | teledysk | [creative-music-video-director](../creative-music-video-director/SKILL.md) |
+| Song, lyrics, jingle, music prompt, sound or voice-over direction, supplied audio | piosenka, dżingiel, lektor | [audio-production-director](../audio-production-director/SKILL.md) (text only; no provider runs) |
+| Creator-style ad or script with a truthful speaker | UGC, influencer | [ugc](../ugc/SKILL.md) |
+| Story, treatment, scene, dialogue, screenplay, pitch or ad script | scenariusz, dialogi | [screenplay-story-architect](../screenplay-story-architect/SKILL.md) |
+| Supporting beat logic or arc for another owner | łuk, punkty zwrotne | [storytelling](../storytelling/SKILL.md) |
+| Beat map, timing, shot cards or continuity plan | rozpiska ujęć | [storyboard-sequence-architect](../storyboard-sequence-architect/SKILL.md) |
+| Static storyboard, shot or reference board with exact labels | storyboard, plansza | [storyboard-board-architect](../storyboard-board-architect/SKILL.md) |
+| Camera, lens, light, blocking or shot craft | kadr, światło | [cinematography](../cinematography/SKILL.md) |
+| Recurring character, mascot or identity sheet | postać, maskotka | [character-design](../character-design/SKILL.md) |
+| Lessons, worksheets, games, quizzes, presentations or teacher documents | lekcja, karta pracy | [teacher profile](references/teacher-workflow.md): Copy Voice writes, Research Evidence checks facts |
+| A research trigger: named model or tool, platform rule, public claim, current capability, real subject, inspiration or verification | sprawdź, aktualne | [research-evidence](../research-evidence/SKILL.md) |
+| Accepted work: print, image, audio or video delivery and handoff | pliki do druku, przekazanie | [delivery-documentation](../delivery-documentation/SKILL.md) |
+| Asset inventory, source revisions and continuity carriers | lista plików, wersje | [asset-manifest](../asset-manifest/SKILL.md) |
+| Which tool or provider runs a task: setup, cost, uploads, retries | jakie narzędzie, koszt | [tool-routing-cost](../tool-routing-cost/SKILL.md) |
+| Bounded task for another agent or a person, with acceptance criteria | zlecenie, instrukcja | [instruction-packet-factory](../instruction-packet-factory/SKILL.md) |
+| Project state, shared gates, recovery or workflow contracts | stan projektu, wznów | [pipeline-core](../pipeline-core/SKILL.md) |
+| Preferences, pace, expertise mirroring or a portable profile | mój styl, krócej | [studio-workstyle-profile](../studio-workstyle-profile/SKILL.md) |
+| Explicit Hipson-format research or review packet | Hipson | [hipson-adapter](../hipson-adapter/SKILL.md) |
+| Explicit retrospective or workflow improvement | retrospektywa | [workflow-self-improvement](../workflow-self-improvement/SKILL.md) |
 
-A video request that names neither a generator nor coded motion gets one short choice when both fit ([generated video or motion from code](references/routing-boundaries.md#generated-video-or-motion-from-code)). Owners are responsibilities, not evidence another agent ran; a small task may be done directly. When a request sits between owners (sequence vs board, campaign vs sequence vs prompt, music video vs campaign vs audio packet), mixes modalities, supplies a conversation link, asks for a Codex↔ChatGPT Work transfer, or concerns an unsupported module or reasoning setting, read [routing boundaries](references/routing-boundaries.md). For a product-photo-to-reel project, follow the [end-to-end route](references/product-film-end-to-end-route.md); for multiple owners, resumable projects, tool uncertainty or linked revisions, use [capabilities and handoffs](references/capabilities-and-handoffs.md). What Studio executes itself, what each tool needs and what to deliver when one is missing is in the [capability card](assets/capability-card.json). Keep a short task short.
+A video request that names neither a generator nor coded motion gets one short choice when both fit ([generated video or motion from code](references/routing-boundaries.md#generated-video-or-motion-from-code)). Owners are responsibilities, not evidence another agent ran; a small task may be done directly. When a request sits between owners, mixes modalities, supplies a conversation link, asks for a Codex↔ChatGPT Work transfer, or concerns an unsupported module or reasoning setting, read [routing boundaries](references/routing-boundaries.md). For a product-photo-to-reel project, follow the [end-to-end route](references/product-film-end-to-end-route.md); for multiple owners, resumable projects, tool uncertainty or linked revisions, use [capabilities and handoffs](references/capabilities-and-handoffs.md). What Studio executes itself, what each tool needs and what to deliver when one is missing is in the [capability card](assets/capability-card.json). Keep a short task short.
+
+Use [the integrated workflow-kit method](kit/method.md) for artifact fields, bounded review and handoffs, and [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for precedence and the single active route. Pipeline Core is the canonical operating contract; Creative Video Producer coordinates a complete video route within the same Project State. Source role IDs resolve through the active role map; they are not names of missing skills or proof of agent execution.
+
+For a business or store URL with a campaign request, follow the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md): actual public evidence or an honest access limit, one material question at a time and optional campaign_context in the same Project State; Ecommerce Campaign Strategy Director owns the commerce strategy and Marketing supplies missing foundations. Do not force startup menus or generate media from a planning-only request.
 
 ## Shared boundaries
 
@@ -154,38 +179,9 @@ For text-bearing raster generation, use one integrated image including exact cop
 
 Check truth, copy, hierarchy, distinctiveness, feasible format and actual execution status. Repair a defect before releasing a prompt. Do not label a render reviewed before inspecting it. Use a compact resume sheet for a long project, not a promise of memory across chats. A further stage is optional unless already requested. When shared references, selected copy or masters change, use [asset change routing](references/asset-change-routing.md), retain exact input revisions and route only affected work; Delivery provides the manifest and dependency helper for a larger project.
 
-## Integrated production and workflow routes
-
-Use [the integrated workflow-kit method](kit/method.md) for this owner’s artifact fields, bounded review and downstream handoffs, and [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for precedence and the single active route. Pipeline Core is the canonical operating contract; Creative Video Producer coordinates a complete video route within the same Project State. Source role IDs resolve through the active role map; they are not names of missing skills or proof of agent execution.
-
-| Current need | Owner | Useful output |
-|---|---|---|
-| Asset inventory, source revisions and continuity carriers | [asset-manifest](../asset-manifest/SKILL.md) | Traceable manifest and dependency handoff |
-| Messy brief, client intake, offer, quote or pricing | [brief-architect](../brief-architect/SKILL.md) | Brief Contract or priced offer |
-| Subtitles, word timing, caption layout or caption QA | [caption-studio](../caption-studio/SKILL.md) | Caption Task Pack and source-bound timing |
-| Recurring character, expression/turnaround sheet or identity system | [character-design](../character-design/SKILL.md) | Character anchors, view gaps and carrier requirements |
-| Camera, optics, light, blocking or shot craft | [cinematography](../cinematography/SKILL.md) | Cinematography Notes for the selected direction |
-| New commercial/editorial copy, VO, supers or ready-to-use text | [copy-voice](../copy-voice/SKILL.md) | Copy Pack with author context, fact/lock check and bounded voice review |
-| Video project spanning several production stages or edit/cutdown work | [creative-video-producer](../creative-video-producer/SKILL.md) | Shared video production pack and specialist handoffs |
-| Product/offer/channel strategy, proof needs or creative test plan | [ecommerce-campaign-strategy-director](../ecommerce-campaign-strategy-director/SKILL.md) | Campaign strategy before visual/motion direction |
-| Explicit Hipson-style research or review packet | [hipson-adapter](../hipson-adapter/SKILL.md) | Lightweight bounded packet; full Hipson remains separate |
-| Motion graphics from code, runtime undecided or HTML/SVG/Canvas/GSAP/HyperFrames composition | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) | Versioned motion contract and requirement-led runtime selection; preserve existing choices and hand a recommended or requested React/TypeScript route to Remotion Video Production |
-| Bounded delegation or transfer to a named responsibility | [instruction-packet-factory](../instruction-packet-factory/SKILL.md) | Input/output contract, acceptance criteria and stop condition |
-| General campaign positioning or channel planning beyond ecommerce | [marketing](../marketing/SKILL.md) | Supporting marketing plan and asset roles |
-| Footage-first edit or OpenCut timeline plan | [opencut-video-studio](../opencut-video-studio/SKILL.md) | Edit decision list, protected windows and export QA plan |
-| Project state, shared gates, recovery or workflow contracts | [pipeline-core](../pipeline-core/SKILL.md) | Canonical governance and mapped role/handoff contracts |
-| Conflicting references, source authority or input attachment map | [reference-pack-curator](../reference-pack-curator/SKILL.md) | Reference Pack with property-level controls |
-| User-selected React/TypeScript deterministic video | [remotion-video-production](../remotion-video-production/SKILL.md) | Composition architecture, frame map and verified implementation state |
-| Supporting narrative structure or beat logic | [storytelling](../storytelling/SKILL.md) | Story notes; authored scenes stay with Screenplay Story Architect |
-| Requested execution needs capability, input, cost or retry checks | [tool-routing-cost](../tool-routing-cost/SKILL.md) | Tool Routing Plan with actual authorization and blockers |
-| Creator-style concept/script with truthful speaker and proof | [ugc](../ugc/SKILL.md) | UGC plan feeding Copy Voice and video direction |
-| Explicit retrospective or workflow improvement request | [workflow-self-improvement](../workflow-self-improvement/SKILL.md) | Evidence-based proposal or scoped adoption handoff |
-
-For a business/store URL with a marketing or sales campaign request, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md): start from actual public evidence or an honest access limit, ask one material question at a time, and connect the audit, brand basis, claim ledger, campaign, asset cards and measurement plan. Ecommerce Campaign Strategy Director owns the commerce strategy, Marketing supplies missing foundations and existing static/UGC/video owners produce requested assets. Keep optional campaign_context in the same Project State. Do not force startup menus, repeat accepted strategy or generate media from a planning-only request.
-
 ## Compact routes and creative feedback
 
-Use [conditional method selection](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods) for the current artifact: MoE-style selects only useful existing owner knowledge, CQoT (Critical-Questions-of-Thought) is a compact check inside the same automatic output review, and CoVe checks material claims with evidence; compare variants only for a requested or unresolved choice and branch only when needed. Use clear goals and acceptance criteria, not mandatory hidden-CoT narration. Keep one review and repair budget across handoffs; roles are not proof that separate agents ran, and direct specialist work follows the same policy. Use [compact routing and optional project review](references/compact-routing-and-pilot.md) to load only the current owner and useful resources; route weak concepts to the creative decision library, temporal defects to Sequence/Video and taste feedback to Studio Workstyle Profile. For plugin improvement requests, continue authorized development without making a pilot or client project a prerequisite. An explicit refusal of pilots also excludes disguised fresh-use exercises. Use bounded integrity checks for the changed package and report their scope honestly.
+Use [conditional method selection](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods) inside one review and repair budget across handoffs: clear goals and acceptance criteria, not mandatory hidden-CoT narration; roles are not proof that separate agents ran. Load only the current owner and useful resources ([compact routing and optional project review](references/compact-routing-and-pilot.md)); route weak concepts to the creative decision library, temporal defects to Sequence or Video and taste feedback to Studio Workstyle Profile. Continue authorized plugin development without making a pilot or client project a prerequisite; a refusal of pilots also excludes disguised fresh-use exercises. Report the scope of integrity checks honestly.
 
 ## Additional tools and installation onboarding
 

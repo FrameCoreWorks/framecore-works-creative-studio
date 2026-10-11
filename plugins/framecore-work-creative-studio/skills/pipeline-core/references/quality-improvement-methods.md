@@ -100,26 +100,11 @@ Reuse at most three relevant adopted lessons without new onboarding or a new loo
 
 ## Offline GEPA pilot
 
-GEPA is a development-time optimizer, not a mandatory creative-task step.
-The [repository pilot](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/quality-development-1.3.0.md)
-uses the official GEPA engine with an adapter that exposes only one allowlisted
-instruction section. It generates candidate proposals; it never patches or publishes
-the plugin. Its zero-cost offline mode validates integration with synthetic callbacks,
-not creative effectiveness or real model optimization.
-
-For a real run, first define the approved model/provider, data boundary, total
-cost cap, maximum task/proposal calls, time limit and stop conditions. Use public
-or explicitly authorized redacted examples, separate train/validation/holdout,
-and forbid private context, secrets and raw reasoning traces. Tool observations and
-short error summaries are sufficient reflective feedback. Evaluate serially.
-
-Reject candidate scope expansion and hard-gate failures before any quality score.
-Evaluate the selected proposal on untouched holdout and protected regressions,
-then compare it with the baseline using the same calibrated criteria. Require
-an actual owner decision before adopting a meaningful change. If holdout does
-not improve or any protected behavior regresses, retain the baseline. A budget
-exhaustion, no useful progress or exhausted task review budget stops the run.
-No automatic adoption, source rewrite, new provider dependency or silent escalation.
+GEPA is a development-time optimizer for maintainers, not a creative-task step,
+and nothing in a client task loads or runs it. The [repository pilot](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/quality-development-1.3.0.md)
+proposes candidates for one allowlisted section and records its real-run procedure
+there; it never patches or publishes the plugin. No automatic adoption, source
+rewrite, new provider dependency or silent escalation.
 
 ## Evidence and method limits
 

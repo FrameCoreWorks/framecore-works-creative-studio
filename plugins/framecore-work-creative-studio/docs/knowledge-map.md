@@ -28,6 +28,9 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 | ugc | [formats, scripts and disclosure](../skills/ugc/references/formats-scripts-and-disclosure.md) (speaker types, formats, script skeleton, dated platform specifications and disclosure rules); [creator brief](../skills/ugc/assets/creator-brief.template.md) |
 | pipeline-core | [short-form timing](../skills/pipeline-core/references/short-form-timing.md) (opening targets per placement, Polish and English voice-over budgets, end-card holds) |
 | opencut-video-studio | [editor handoff](../skills/opencut-video-studio/references/editor-handoff.md) (EDL, OTIO and CSV export, Resolve, Premiere and CapCut step lists) |
+| instruction-packet-factory | [packets for people](../skills/instruction-packet-factory/references/vendor-packets.md) (print shop, voice talent, freelancer); [Hipson format](../skills/instruction-packet-factory/references/hipson-format.md) |
+| pipeline-core (methods) | [method catalog](../skills/pipeline-core/references/method-catalog.md) (route contracts, default and situational methods, read only beyond direct execution) |
+| character-design | [mascots and stylized characters](../skills/character-design/references/mascot-and-stylized-characters.md); [mascot sheet](../skills/character-design/assets/mascot-sheet.template.md) |
 | storytelling | [short-form structures](../skills/storytelling/references/short-form-structures.md) (structures by job, causality check, beat budget) |
 | research-evidence | [video-generator snapshot](../skills/research-evidence/references/video-generator-snapshot.md) (dated 2026-10-09: families, IDs, operations, retirements and evidence labels) |
 | hyperframes-workflow | [HyperFrames engine](../skills/hyperframes-workflow/references/hyperframes-engine.md) (optional engine in shell hosts, pinned installation, Studio keeps routing and review, HeyGen catalog on request) |

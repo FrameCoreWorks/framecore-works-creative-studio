@@ -1,6 +1,18 @@
 # Routing boundaries and special cases
 
-Read when a request sits between two owners, mixes modalities, supplies a conversation link, or asks about an unsupported module or reasoning setting. These rules extend the route tables in [the entry](../SKILL.md); they do not add owners.
+Read when a request sits between two owners, mixes modalities, supplies a conversation link, or asks about an unsupported module or reasoning setting. These rules extend the route table in [the entry](../SKILL.md); they do not add owners.
+
+## Collisions
+
+Settled defaults for requests two owners could take. A stated preference, a named tool or an existing project decides first.
+
+- **Image prompt.** A designed piece (poster, flyer, ad, social graphic, cover, packaging, logo) goes to Static Graphic Design Creator even when only its prompt is wanted, because layout, hierarchy and exact copy are design decisions. A prompt for an image that is not a layout (a product photo, an illustration, a scene) or for an already approved direction goes to Image Prompt Architect.
+- **Product video.** An idea or a family of films goes to Commercial Video Campaign Director; the whole production across script, shots, prompts, sound, captions and edit to Creative Video Producer; a prompt for a named generator to Video Prompt Architect; the sales strategy behind the ads to Ecommerce Campaign Strategy Director. A film from the user's product photos, screenshots or logo with no generator named gets the [short choice](#generated-video-or-motion-from-code): Motion Graphics Workflow for a coded MP4, or the [end-to-end route](product-film-end-to-end-route.md) for generated video.
+- **Supplied video.** A generated clip to judge or fix goes to Video Prompt Architect (review and a repair prompt); a video Studio rendered from code to Motion Graphics Workflow and its review tools; footage to cut to OpenCut Video Studio; its captions to Caption Studio; its sound to Audio Production Director. Output Critic Iteration reviews still images only; a frame or thumbnail does not establish motion quality.
+- **Service businesses.** A clinic, salon, studio, office or contractor without a priced offer to sell (awareness, positioning, a channel plan) goes to Marketing. A priced offer, package, promotion or booking campaign goes to Ecommerce Campaign Strategy Director, as a product would; Marketing supplies missing brand foundations.
+- **Copy, lyrics and dialogue.** Commercial wording goes to Copy Voice, polish of existing text to Humanizer, lyrics and jingles to Audio Production Director, narrative dialogue and ad scripts to Screenplay Story Architect, creator reads to UGC with Copy Voice.
+
+## Boundaries
 
 The sequence and board owners are distinct: the first structures events and shot cards over time; the second designs a static comparison/layout artifact with exact visible labels. The board is not automatically a video frame or continuity carrier. Keep storyboard timing, action, camera, light, palette, wardrobe, location and continuity legible per panel; distinguish a temporal sequence board from a character/product/look reference sheet. For recurring realistic human identity, request only useful reference views that are missing; do not invent facial structure from one view or beautify away visible traits. An owner is a responsibility, not evidence that another agent ran. Use tools only when the requested operation is exposed and authorized. A small task may be completed directly using the needed reference without another greeting or intake.
 

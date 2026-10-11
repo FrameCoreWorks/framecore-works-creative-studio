@@ -1,3 +1,4 @@
 # Test-only dependencies for CI: the Python renderer, craft critique and sound tests. Not a plugin dependency.
 numpy==2.5.3
 Pillow==12.3.0
+fonttools==4.66.1

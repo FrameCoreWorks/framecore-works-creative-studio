@@ -29,6 +29,24 @@ class Suite(unittest.TestCase):
                     self.assertEqual(len(check), 1, case['id'])
                     host_eval.check(check, turn('x'))  # raises on an unknown check
 
+    def test_routing_set_is_polish_and_checks_the_owner(self):
+        self.assertIn('routing', host_eval.suite_names())
+        suite = host_eval.load_suite('routing')
+        owners = {p.name for p in (host_eval.PLUGIN / 'skills').iterdir() if (p / 'SKILL.md').is_file()}
+        cases = suite['cases']
+        self.assertGreaterEqual(len(cases), 20)
+        named = [c for c in cases if c['turns'][0]['prompt'].startswith('@FrameCore Works Creative Studio')]
+        self.assertTrue(0 < len(named) < len(cases), 'with and without the Studio name')
+        for case in cases:
+            prompt, checks = case['turns'][0]['prompt'], case['turns'][0]['checks']
+            self.assertEqual(host_eval.language_of(prompt), 'pl', case['id'])
+            routed = [c for c in checks if 'skills_any' in c or 'reads_any' in c]
+            self.assertEqual(len(routed), 1, case['id'])
+            for check in checks:
+                for name in check.get('skills_any', []) + check.get('no_skills', []):
+                    self.assertIn(name, owners, case['id'])
+                host_eval.check(check, turn('x'))
+
     def test_sourced_cases_take_the_request_from_the_package_evals(self):
         cases = {case['id']: case for case in host_eval.load_suite()['cases']}
         self.assertTrue(cases['D01']['turns'][0]['prompt'].startswith('@FrameCore Works Creative Studio Podaj dokładnie trzy'))
@@ -54,6 +72,25 @@ class Checks(unittest.TestCase):
         self.assertTrue(host_eval.check({'skills': ['caption-studio']}, turn('', tools))[0])
         self.assertTrue(host_eval.check({'command': 'find_skills'}, turn('', tools))[0])
         self.assertFalse(host_eval.check({'no_command': 'find_skills'}, turn('', tools))[0])
+
+    def test_reads_any_accepts_a_reference_or_a_loaded_skill(self):
+        read = [{'name': 'Read', 'input': {'file_path': '/x/skills/workflow-orchestrator/references/teacher-workflow.md'}}]
+        skill = [{'name': 'Skill', 'input': {'skill': 'framecore-work-creative-studio:copy-voice'}}]
+        wanted = {'reads_any': ['teacher-workflow.md', 'copy-voice/SKILL.md']}
+        self.assertTrue(host_eval.check(wanted, turn('', read))[0])
+        self.assertTrue(host_eval.check(wanted, turn('', skill))[0])
+        self.assertFalse(host_eval.check(wanted, turn('', [{'name': 'Read', 'input': {'file_path': '/x/skills/ugc/SKILL.md'}}]))[0])
+
+    def test_change_request_template_uses_the_harness_vocabulary(self):
+        template = json.loads((host_eval.PLUGIN / 'skills/workflow-self-improvement/assets/change-request.template.json').read_text(encoding='utf-8'))
+        self.assertEqual(template['check_vocabulary'], list(host_eval.CHECK_KINDS))
+        self.assertEqual((template['status'], template['test']['result'], template['adoption']['explicit']), ('proposed', 'NOT_RUN', False))
+        samples = {'welcome': 'pl', 'language': 'pl', 'regex': 'x', 'not_regex': 'x', 'command': 'x', 'no_command': 'x', 'code_block': True, 'not_welcome': True}
+        for kind in host_eval.CHECK_KINDS:
+            value = samples.get(kind, 1 if kind.startswith(('max_', 'min_')) or kind == 'items' else ['x'])
+            host_eval.check({kind: value}, turn('x'))
+        with self.assertRaises(host_eval.EvalError):
+            host_eval.check({'unknown_kind': 1}, turn('x'))
 
     def test_language_and_version_placeholder(self):
         self.assertEqual(host_eval.language_of('To jest odpowiedź po polsku i nie ma w niej angielskiego.'), 'pl')

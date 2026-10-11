@@ -12,6 +12,10 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill to create bounded instruction packets for workflow roles. It converts routing intent into a compact, testable packet with target role, goal, context, exclusions, evidence rules, acceptance criteria, output schema, and handoff target.
 
+## Packets for people and the Hipson format
+
+A packet can also go to a person outside Studio: a print shop, a voice talent or a freelancer. Use [packets for people](references/vendor-packets.md) and the [vendor packet template](assets/vendor-packet.template.md), written in the vendor's language; prices, rates, payment terms and rights come from the user. A Hipson-format packet follows the [Hipson format](references/hipson-format.md).
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

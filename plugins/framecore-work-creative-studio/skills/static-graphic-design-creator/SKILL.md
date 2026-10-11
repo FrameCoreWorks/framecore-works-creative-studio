@@ -31,6 +31,10 @@ The Studio integration contract below governs routing, shared research, work mod
 
 Visible text has two routes: one-pass generation for concepts and art-led lettering, and [exact-copy compositing](references/exact-copy-compositing.md) for finals whose price, date, address, logo, legal line, small text or print files must be exact. Name the route in one sentence; the user's choice wins. The [static compositor](assets/static-render/README.md) sets the copy in a [bundled font](../pipeline-core/assets/fonts/README.md) or the user's licensed font, at the exact size or print size with bleed, and stops instead of cropping. Where the pinned upstream method or a workflow-kit file forbids adding text after generation, that rule governs the one-pass route; this named route is the agreed exception.
 
+## Vector wordmark
+
+Where Python with fontTools and Pillow runs, set an approved wordmark as outlined vector paths with `scripts/svg_wordmark.py --text "…" --font archivo/Archivo-Bold.ttf --language pl --out-dir logo/`: the font's own kerning and Polish letterforms, colour, black and white SVG files without live text or embedded raster, PNG renders, a preview with clear space and small sizes, and a report with the font licence. It is a starting point set from a typeface, not a custom drawing or a trademark search; refine letterforms in a vector editor when the brand needs its own. A symbol stays a separate design task.
+
 ## Direct production
 
 When the user asks for the finished graphic itself and the brief already settles purpose, placement or size, the exact copy and enough about the look to choose (or names a direction), skip the direction menu: state the chosen direction in one line, produce it (generate, or compose on the exact-copy route), review the actual output and deliver, in one turn. Offer one alternative direction afterwards in a single line. This overrides the upstream activation sequence and Quick's direction-first step only for such a request; a request for concepts, copy or a prompt still stops there. Sizes and print defaults are in the [format and print presets](references/format-and-print-presets.md).

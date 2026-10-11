@@ -1,0 +1,170 @@
+{
+  "version": "1.64.0",
+  "date": "2026-10-11",
+  "baseline": "520a96bb5f94a454b919d369d84a752bb34367ea",
+  "change_id": "CC-20261011-06",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1171,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7773 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 216,
+        "pass": 209,
+        "fail": 0,
+        "skipped": 7
+      },
+      "python": {
+        "Codex installer": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "package identity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "benchmark script": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "host smoke": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "hosted readback": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "Claude plugin and guides": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "GEPA pilot": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "asset": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "caption": {
+          "tests": 16,
+          "skipped": 0
+        },
+        "environment check": {
+          "tests": 18,
+          "skipped": 0
+        },
+        "motion acceptance": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "motion fonts": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "motion kinds": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "motion variants": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "skill finder": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "Animate engine": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "Animate voice": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "static render": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "Polish copy check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "image probe": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "quote calculator": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "voice-over budget": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "edit export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "storyboard compositor": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "sheet export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "shot plan check": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "prompt pack": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "clip review": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "SVG wordmark": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "brand guide": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "host-eval harness": {
+          "tests": 9,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 79
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.296)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Phase 5 of the improvement plan, the last phase: one entry route table with Polish cues and settled collisions, a 25-case Polish routing set in the host-eval harness (23 of 25 on 1.63.0, the nine named cases unchanged on the new table), the entry at 28,963 bytes with the method catalog and GEPA procedure out of runtime references, change requests carrying eval cases, Hipson Adapter retired to a pointer, packets for print shops, voice talent and freelancers, a mascot reference and sheet, an SVG wordmark tool and a brand guide PDF tool",
+  "source": "Release 1.64.0: one route table with Polish cues, a Polish routing eval set, a lighter entry, change requests as eval cases, an SVG wordmark route and a brand guide PDF",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "CR-YYYYMMDD-NN",
+  "status": "proposed",
+  "observed": {
+    "request": "",
+    "reply_excerpt": "",
+    "host": "",
+    "date": "",
+    "evidence_label": "observed"
+  },
+  "problem": "",
+  "affected_surface": {
+    "skills": [],
+    "files": [],
+    "gates": []
+  },
+  "proposed_change": "",
+  "eval_case": {
+    "id": "",
+    "title": "",
+    "turns": [
+      {
+        "prompt": "",
+        "checks": []
+      }
+    ],
+    "rubric": [],
+    "expected_before_change": "FAIL",
+    "expected_after_change": "PASS"
+  },
+  "check_vocabulary": [
+    "welcome",
+    "not_welcome",
+    "contains",
+    "contains_any",
+    "not_contains",
+    "regex",
+    "not_regex",
+    "max_questions",
+    "max_user_questions",
+    "min_numbered",
+    "items",
+    "max_chars",
+    "code_block",
+    "language",
+    "skills",
+    "skills_any",
+    "reads_any",
+    "no_skills",
+    "no_command",
+    "command"
+  ],
+  "privacy": "Client names, facts and files are replaced with neutral stand-ins before the case leaves the conversation.",
+  "risk": "",
+  "rollback": "",
+  "adoption": {
+    "explicit": false,
+    "owner": "",
+    "decision": "pending"
+  },
+  "test": {
+    "result": "NOT_RUN",
+    "record": ""
+  }
+}

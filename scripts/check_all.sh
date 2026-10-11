@@ -43,4 +43,6 @@ python3 "$P/tests/sheet_export_test.py"
 python3 "$P/tests/shot_plan_check_test.py"
 python3 "$P/tests/prompt_pack_test.py"
 python3 "$P/tests/clip_review_test.py"
+python3 "$P/tests/svg_wordmark_test.py"
+python3 "$P/tests/brand_guide_test.py"
 python3 -m unittest discover -s tests -p 'test_host_eval.py' -v

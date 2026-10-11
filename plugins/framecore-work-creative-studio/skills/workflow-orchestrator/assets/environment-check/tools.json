@@ -185,6 +185,37 @@
       }
     },
     {
+      "id": "fonttools",
+      "label": "fontTools (font outlines)",
+      "requirement": "fonttools",
+      "kind": "python_module",
+      "module": "fontTools",
+      "package": "fonttools",
+      "minimum": "4.0",
+      "known_latest": "4.66.1",
+      "latest_source": "pypi:fonttools",
+      "install": {
+        "any": "python3 -m pip install --user fonttools (or in a virtual environment, as for Pillow)"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "check"
+        },
+        "chatgpt_work": {
+          "status": "check"
+        },
+        "codex": {
+          "status": "install"
+        },
+        "claude_code": {
+          "status": "install"
+        },
+        "claude_apps": {
+          "status": "check"
+        }
+      }
+    },
+    {
       "id": "imageio_ffmpeg",
       "label": "imageio-ffmpeg (bundled FFmpeg for the renderer)",
       "kind": "python_module",

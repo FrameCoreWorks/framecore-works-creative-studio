@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.63.0",
+  "version": "1.64.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 970,
-      "sha256": "fa3d10dd722656bb6aab521e27b7159a3c0b6a1af704ada87b109c3c7666e0d6"
+      "sha256": "48ffc09d3c36aeace5ea73b55beab4a228a08d3a7a948aa89f56c2f98980b0c7"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "202a61ef6ae947d4744fa49e1c72c491dada6ebbc214517a02600612b7a7aac8"
+      "sha256": "aa8db85f7e836c4e33315b74d06ce3f48d3bf2190e9d9f3cb6759ac251ffe6f4"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22073,
-      "sha256": "15faeec9daff678bf4dcd3b06f6099888d005946eb5e9a81724f79e368e81cb7"
+      "sha256": "9d8e2b1b912e44bb33a11099d9f56a930d2d273e2a2b3675456bb40349f950ca"
     },
     {
       "path": "assets/logo.png",
@@ -98,8 +98,8 @@
     },
     {
       "path": "docs/knowledge-map.md",
-      "bytes": 14386,
-      "sha256": "a419ce61984f904be3f508b9e453e60acd0eeb61ca69c5830b640fb19b7fc59f"
+      "bytes": 15022,
+      "sha256": "dcd3d9613657fd236578f4c06e214f9d3e204fdfad3df1c9e24a48971f57a961"
     },
     {
       "path": "docs/learning-mode.md",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "6d38455f944383d62cc51e766bf6feac79c4e108961cd7e5aaca2619d845989c"
+      "sha256": "37f400068b34db112d575b21e487e961b77eace71ec493f1d0c227822ed5fb5d"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 123667,
-      "sha256": "b7496bd96d62eaf3960ed5473bb2d2d91a1e5b6e1b7370771858d848d167f661"
+      "bytes": 127781,
+      "sha256": "c69d8b0eb47749258aa3bf8a71bd7569814693b5a1bb6f60c7dcf1408071f087"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2294,7 +2294,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "1b3739821ff6d35b41233900b83384b6c3ce35e576189d0e50056c36f6a86763"
+      "sha256": "b606dae4cbc150004085ef7942137f2827cc7b9736721446c8ad715a3018f313"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2518,8 +2518,8 @@
     },
     {
       "path": "skills/character-design/SKILL.md",
-      "bytes": 5607,
-      "sha256": "02ee69e2b876236278828393f0a49dcb8f04f116ccb6bcb43b6acd05caac15af"
+      "bytes": 6026,
+      "sha256": "2b846b3ebd079b1c3db0c3bd363a241172d4970a1c6ce18a8943337ac4042341"
     },
     {
       "path": "skills/character-design/agents/openai.yaml",
@@ -2537,9 +2537,19 @@
       "sha256": "fcb2d0c8ef7c787be078056997a1d41e2fe9d9c8a9c62e1244a888b1ce0477e0"
     },
     {
+      "path": "skills/character-design/assets/mascot-sheet.template.md",
+      "bytes": 1490,
+      "sha256": "64a4a35304da95f7c26c754bb758d1410a2198c019f93abf076e304ce24f1895"
+    },
+    {
       "path": "skills/character-design/references/human-identity-workbook.md",
       "bytes": 6680,
       "sha256": "24b21f2a03e454f736a4a9301217c8c892d727d5c5496c241b1c9ed71ed38870"
+    },
+    {
+      "path": "skills/character-design/references/mascot-and-stylized-characters.md",
+      "bytes": 3851,
+      "sha256": "3cf43d9e9e6f09678426e71ea8c47658ac7362b79373719f9b8bfee61bf91e5d"
     },
     {
       "path": "skills/cinematography/SKILL.md",
@@ -2818,8 +2828,8 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 5630,
-      "sha256": "31923311278aec2b5266f0482301498fbec4f424dd35c37e1854b9204a90f568"
+      "bytes": 6180,
+      "sha256": "45aa5ab4bfc13fe5bbf506dc92f45eeb0bc55c2d6fdc984d26f4cc27b05d3082"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
@@ -2875,6 +2885,11 @@
       "path": "skills/delivery-documentation/scripts/asset_manifest.py",
       "bytes": 9162,
       "sha256": "7c5075012e8abe13f99c715235acab827d2ada5b2488e577028486439398c172"
+    },
+    {
+      "path": "skills/delivery-documentation/scripts/brand_guide.py",
+      "bytes": 21502,
+      "sha256": "2c7dd21e0df05e41c78a4fa5cfa6a52207398cf30eb9c7edd619b20bc49dcab6"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
@@ -2933,8 +2948,8 @@
     },
     {
       "path": "skills/hipson-adapter/SKILL.md",
-      "bytes": 4675,
-      "sha256": "0d282ab570802f1698f8157ad31f99ec835c1c12a792d2df5b8d7ed0d1dad82c"
+      "bytes": 1960,
+      "sha256": "4bc9500f91078c5e5e90d2e087cafbd29f07737c154a951eab7a88b08727dad8"
     },
     {
       "path": "skills/hipson-adapter/agents/openai.yaml",
@@ -4283,13 +4298,28 @@
     },
     {
       "path": "skills/instruction-packet-factory/SKILL.md",
-      "bytes": 4368,
-      "sha256": "dddf8d686d5dd4e9ea3cbf4b9aec925590c39efb3588664c799b5151757b50ab"
+      "bytes": 4807,
+      "sha256": "77e0dceefede53dc5322e0f5601c09540b6f8d142ac9a2bb5a922ee684ae5b41"
     },
     {
       "path": "skills/instruction-packet-factory/agents/openai.yaml",
       "bytes": 288,
       "sha256": "479f9f49d5e19952db0aa8b861da37b48ac492178661359dde98c382a627ed0e"
+    },
+    {
+      "path": "skills/instruction-packet-factory/assets/vendor-packet.template.md",
+      "bytes": 1212,
+      "sha256": "0be2e7c77369286f298d9c60d12d5419ca8b1e6f3615df2b26c200ea36cf1fd3"
+    },
+    {
+      "path": "skills/instruction-packet-factory/references/hipson-format.md",
+      "bytes": 3012,
+      "sha256": "52c76b94cd0557f0aaf03bb791b236455e33711c9a6b7b14fbcd65e213616089"
+    },
+    {
+      "path": "skills/instruction-packet-factory/references/vendor-packets.md",
+      "bytes": 3719,
+      "sha256": "af68714e3eeff53b80ef1becc8b99bd97fcc1b6fdf7c7ca552edf286c6a118bf"
     },
     {
       "path": "skills/marketing/SKILL.md",
@@ -4598,13 +4628,18 @@
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
-      "bytes": 11127,
-      "sha256": "615cc38506265006ff7aad65cd197932e914ed9010cc4e0c1284cdf90ee626f9"
+      "bytes": 5192,
+      "sha256": "87f7e60076de646f3c4997ac6edd3d9c48a612cd0dded9303b2ba3c19224123b"
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
       "bytes": 12988,
       "sha256": "0366cb930be93caa6021867c1eb531faa60129391fa83d5acb095caaac54d8f8"
+    },
+    {
+      "path": "skills/pipeline-core/references/method-catalog.md",
+      "bytes": 6505,
+      "sha256": "8a3e3bba90f9a15b5eff87566790dc0f9286f373cde33f5776ecafaf9c24f448"
     },
     {
       "path": "skills/pipeline-core/references/presentation-and-interaction.md",
@@ -4623,8 +4658,8 @@
     },
     {
       "path": "skills/pipeline-core/references/quality-improvement-methods.md",
-      "bytes": 9091,
-      "sha256": "42661adf6bb8b2c02f5dac1efab2f02d0b3c268550f507185d0cc0f818091e37"
+      "bytes": 8092,
+      "sha256": "3e3631df999eae02e56d3b5c2e021302456f5f71beac89c7c7ddda3808de0922"
     },
     {
       "path": "skills/pipeline-core/references/role-skill-map.md",
@@ -4993,8 +5028,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 11347,
-      "sha256": "0b9364a561d7be69eed8522cebc73f3bdebd1e8163ab0caf346b3cf7d7ca299b"
+      "bytes": 11977,
+      "sha256": "899a2cb72e612075b72d8738b774024504ce587136e44c60e9e2180edebeda6d"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -5025,6 +5060,11 @@
       "path": "skills/static-graphic-design-creator/references/format-and-print-presets.md",
       "bytes": 2354,
       "sha256": "a309402ec7c8cf5cfe8b1d7b1da9a316ea47b727f2bb11aa216d4cb45662edf4"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/scripts/svg_wordmark.py",
+      "bytes": 25022,
+      "sha256": "f339331417b67bbfed7cb7854bc60ba39e4767a80d42ab64e98af59ada44531b"
     },
     {
       "path": "skills/static-graphic-design-creator/source-provenance.json",
@@ -5483,8 +5523,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31995,
-      "sha256": "5745f4906b6a46b4da91711b196a61b05c362a75e68b0f4b89f45c28cf5bb724"
+      "bytes": 28963,
+      "sha256": "657530e38526c06f4add0444cea1970f2e36469b36e0552f8814d818332c128b"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5498,8 +5538,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 29851,
-      "sha256": "2cf7213b6166e001877c30b867dedb816264c95af59b96fa40da4e09b4c48799"
+      "bytes": 31696,
+      "sha256": "33c67d8fa1709ca99f848ea2b334c15281339990d35dc8de299e7921532af09f"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -5508,8 +5548,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
-      "bytes": 11466,
-      "sha256": "8dc2ff3dda00098aeab7737db67325106a61af9a6cad9112d8de4ccd278d6690"
+      "bytes": 11540,
+      "sha256": "e8fe5f4b93dbbe418ac9c082810950d56ebb2f3ca260220a31edcca6de4e9d7a"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
@@ -5518,8 +5558,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
-      "bytes": 29483,
-      "sha256": "c723e46a8147c3ad0a21d07b85dacd1e26879da4647673b742234b89b0f0a028"
+      "bytes": 30255,
+      "sha256": "0dc29b514822baf8ebe4cc5d67ad1e3f5a0e5bb795911336814c674d080a5062"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -5598,8 +5638,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/brand-identity-workflow.md",
-      "bytes": 9904,
-      "sha256": "269132944e48952a58eb53684d77bb94a84a31aa60aab1ae1f6466e0e9e41b06"
+      "bytes": 10442,
+      "sha256": "fced9a944c2183b3faf1779240cdbe436ed646a925338268b4ccda929f533fa7"
     },
     {
       "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
@@ -5628,13 +5668,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/routing-boundaries.md",
-      "bytes": 6053,
-      "sha256": "15ec983827c6530fc5e1dd54bc8d4dfabda8590560bff2760b844184ffdb23ce"
+      "bytes": 8212,
+      "sha256": "d0217fd635bd81164f2cbb5eed0643d65a781773cf7db1294f7a8a074f8ddf31"
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
-      "bytes": 5305,
-      "sha256": "15c5964c1c726919e482f0d6f997cfe7a755811d9615095fb0fd54f514de063c"
+      "bytes": 5301,
+      "sha256": "e47a28b470fdbad2661fe2e6a5d107f03afdc80b8cde40596f01bdb4de98cab2"
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
@@ -5673,13 +5713,18 @@
     },
     {
       "path": "skills/workflow-self-improvement/SKILL.md",
-      "bytes": 5767,
-      "sha256": "461fba476cf0041c570a37dc56aa1641a81c6b49ea218a2f86bc71504958982a"
+      "bytes": 6503,
+      "sha256": "bb04c12a5007959858c980e2658518bfb4c05b21dbc254221da50f29dc120b0b"
     },
     {
       "path": "skills/workflow-self-improvement/agents/openai.yaml",
       "bytes": 305,
       "sha256": "f926d9e09ed773d0c4c5f5430f9ecd94e622258455f9278146a948659622e7f5"
+    },
+    {
+      "path": "skills/workflow-self-improvement/assets/change-request.template.json",
+      "bytes": 1233,
+      "sha256": "e1d9f4f6c86565f44c351aa6b6c1b9de29c6cd108b2dca8c1257ffe7d2e60238"
     },
     {
       "path": "skills/workflow-self-improvement/assets/reflexion-lesson.template.json",
@@ -5715,6 +5760,11 @@
       "path": "tests/board_compose_test.py",
       "bytes": 3824,
       "sha256": "032af5a3943bc57b51d12c5b523fc827fba42f2d4240325e6cd34e4436623d3d"
+    },
+    {
+      "path": "tests/brand_guide_test.py",
+      "bytes": 4844,
+      "sha256": "1825f7d31c915975db5c76c021d01b2d4524ef0a47b52313293ca241df82a005"
     },
     {
       "path": "tests/captions_test.py",
@@ -5835,6 +5885,11 @@
       "path": "tests/studio.test.mjs",
       "bytes": 34238,
       "sha256": "aa8939e558ee7c7b322e1024c111193b9c0b4968b67a38f9bc0d7445756b7aca"
+    },
+    {
+      "path": "tests/svg_wordmark_test.py",
+      "bytes": 6794,
+      "sha256": "11604f4dfe67c6b8b456cfeee85920f1d28263918078a327256a7e2b87672e60"
     },
     {
       "path": "tests/vo_budget_test.py",

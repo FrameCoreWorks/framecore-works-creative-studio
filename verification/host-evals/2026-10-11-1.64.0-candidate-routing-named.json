@@ -1,0 +1,552 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.63.0",
+  "source": {
+    "commit": "520a96b (1.63.0 records) plus the uncommitted Phase 5.1 to 5.3 changes that became 1.64.0",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-routing-pl",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 9,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 9,
+    "skipped_for_budget": [],
+    "cost_usd": 0.9108
+  },
+  "cases": [
+    {
+      "id": "RT02",
+      "title": "With the Studio name: image prompt: a photo, not a designed layout",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0659,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio daj mi prompt do Midjourney: zdjęcie produktowe słoika miodu na drewnianym stole w porannym świetle, bez napisów.",
+          "reply": "Poniżej prompt do Midjourney. Nie sprawdzałem aktualnej wersji ani zasad składni, bo nie miałem tu dostępu do sieci. Prompt jest więc w prostym opisowym języku, a parametry na końcu są podstawowe i możesz je pominąć lub zmienić pod swoją wersję.\n\n```\nProduct photograph of a glass jar of golden honey on a rustic wooden table, soft early morning sunlight streaming in from a window on the left, warm low-angle light making the honey glow amber and translucent, a wooden honey dipper resting beside the jar with a slow ribbon of honey dripping from it, shallow depth of field with a softly blurred kitchen background, subtle steam-like morning haze, visible wood grain texture in the foreground, plain unlabeled jar with a simple plain metal lid, clean minimal composition, jar as the clear focal point, natural warm color palette of amber, honey gold and soft cream, realistic commercial food photography, 85mm lens, f/2.8 --ar 4:5 --style raw --no text, letters, words, label, logo, watermark\n```\n\n**Notatka produkcyjna**\n- **Format:** 4:5 pasuje do feedu. Do banera albo strony produktu zmień na `--ar 3:2` lub `16:9`.\n- **Pierwszy odczyt:** słoik z bursztynowym miodem w świetle z okna, a stół i tło tylko go wspierają.\n- **Brak napisów:** słoik jest opisany jako bez etykiety, a `--no` wyklucza tekst, logo i znak wodny. Midjourney i tak potrafi dorzucić pseudo-litery, więc sprawdź etykietę i wieczko.\n- **Co sprawdzić:** czy szkło i miód nie są płaskie, czy kropla z łyżeczki wygląda naturalnie i czy słoik nie ma zdeformowanego wieczka.\n- **Warianty:** jeśli chcesz bardziej surowy, wiejski klimat, dodaj „linen cloth, wildflowers”. Jeśli chcesz wersję premium, zamień tło na ciemne i dodaj „moody, low-key lighting”.",
+          "reply_chars": 1724,
+          "reply_sha256": "309f6db819d396618299b5f8e49c139b5dbab48162f56a070cb84d4abb9b7f10",
+          "skills": [
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0659,
+          "seconds": 12.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "image-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['image-prompt-architect']; expected one of ['image-prompt-architect']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT05",
+      "title": "With the Studio name: lyrics belong to audio",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0672,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio napisz tekst krótkiej piosenki do reklamy radiowej lodów, 30 sekund, z wesołym refrenem.",
+          "reply": "# Jingiel radiowy: lody (30 s)\n\nNazwy marki nie podałeś, więc wpisałem **[NAZWA]**. Podmień ją na właściwą.\n\n**Zwrotka** (0:00–0:09)\n> Słońce praży, dzień się wlecze,\n> ale ja mam na to sposób:\n> jedna gałka, druga gałka –\n> i już lato wraca do mnie!\n\n**Refren** (0:09–0:23)\n> Lody, lody, lody – hej!\n> Śmieje się cały świat!\n> Lody, lody, lody – hej!\n> W każdym rożku wesoły smak!\n\n**Tag końcowy** (0:23–0:30, lektor lub śpiew)\n> **[NAZWA]** – lato w rożku!\n\n## Uwagi do realizacji\n- **Tempo i nastrój:** pogodny pop, ok. 110–120 BPM, ukulele lub gitara akustyczna, klaskanie i gwizdek. Refren powinien być głośniejszy i bardziej wielogłosowy niż zwrotka.\n- **Długość:** tekst ma ok. 50 słów, więc przy tym tempie mieści się w 30 sekundach. To szacunek z liczby słów, nie pomiar nagrania. Zmierz go po nagraniu i w razie potrzeby skróć zwrotkę.\n- **Wersja krótsza:** gdybyś potrzebował 15 sekund, wystarczą refren i tag.\n- **Fakty i obietnice:** nie dodawałem smaków, cen ani promocji. Podeślij je, a wpiszę je do zwrotki albo tagu.\n\nMogę też przygotować wersję z konkretnymi smakami, prompt do generatora muzyki albo wariant dla dzieci.",
+          "reply_chars": 1138,
+          "reply_sha256": "7fb4d2c2cd7cdba22a3758c663fd6c334010702dc766ef7fb38f92fef0ad4e6b",
+          "skills": [
+            "audio-production-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0672,
+          "seconds": 13.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "audio-production-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['audio-production-director']; expected one of ['audio-production-director']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT06",
+      "title": "With the Studio name: product video entry point: one short choice between a coded MP4 and generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1117,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio zrób 15-sekundowy film na Instagram dla mojego sklepu z herbatą, mam zdjęcia produktów i logo.",
+          "reply": "Nie widzę w katalogu roboczym żadnych plików, więc zdjęć produktów ani logo jeszcze nie mam. Nie będę zgadywać, jak wyglądają Twoje opakowania. Zanim zacznę, potrzebuję od Ciebie dwóch rzeczy.\n\n**1. Wgraj zdjęcia i logo.** Wrzuć je do rozmowy albo do katalogu `/tmp/studio-eval-vtmq_2g4/work`. Najlepiej:\n- 2–4 zdjęcia produktów: opakowania, a jeśli masz, też sama herbata albo zaparzony napar,\n- logo w PNG z przezroczystym tłem lub w SVG.\n\n**2. Wybierz sposób zrobienia filmu:**\n\n1. **Animacja z Twoich zdjęć (ruch z kodu).** Złożę animowany film z Twoich prawdziwych zdjęć i logo. Dodam napisy i dźwięk, a na końcu wyrenderuję gotowy plik MP4 9:16, 15 s.\n   - Produkt na ekranie wygląda dokładnie tak jak w rzeczywistości.\n   - Jest szybciej i taniej.\n   - Mogę to wykonać tu, na miejscu.\n2. **Wygenerowane ujęcia wideo.** Dostaniesz pomysł, plan ujęć i prompty do generatora wideo, np. para unosząca się nad filiżanką.\n   - Wygląda bardziej filmowo.\n   - Generator może przekłamać etykiety i opakowanie.\n   - Same wideo trzeba wygenerować osobnym narzędziem, bo ja dostarczam plan i prompty.\n\nPrzy zdjęciach produktowych polecam **1**. Wierność opakowania i logo ma tu największe znaczenie.\n\nDoprecyzuj też, jeśli możesz (nie blokuje to startu):\n- nazwę sklepu i jedno hasło albo CTA, np. „Zamów na…”,\n- klimat: spokojny i naturalny, premium czy energetyczny.\n\nNapisz **1** lub **2** i dodaj pliki. Wtedy zaproponuję 2–3 krótkie kierunki do wyboru.",
+          "reply_chars": 1452,
+          "reply_sha256": "64bcdb1bd36c58ed93f511d8739652a16da2904c99129c0e10651e130543ccd0",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1117,
+          "seconds": 14.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow",
+                  "video-prompt-architect",
+                  "commercial-video-campaign-director",
+                  "creative-video-producer",
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator']; expected one of ['hyperframes-workflow', 'video-prompt-architect', 'commercial-video-campaign-director', 'creative-video-producer', 'workflow-orchestrator']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT11",
+      "title": "With the Studio name: supplied video review: a generated clip",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0967,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio wygenerowałem klip w Veo i wygląda sztucznie: dłonie się zlewają, a kamera szarpie w połowie. Co poprawić?",
+          "reply": "Nie widziałem klipu, więc to diagnoza z typowych przyczyn, a nie ocena Twojego renderu. Jeśli wkleisz plik albo klatki z momentu szarpnięcia i opis, zawężę przyczyny.\n\n## 1. Zlewające się dłonie\nNajczęściej model dostaje za dużo do zrobienia rękami naraz.\n- **Uprość akcję rąk.** Jedna dłoń, jeden czytelny gest, np. „bierze kubek”. Unikaj splatania palców, pisania na klawiaturze, żonglowania przedmiotami i dwóch dłoni dotykających się nawzajem.\n- **Opisz kontakt jako ciąg zdarzeń.** Zamiast „trzyma kubek” napisz: „prawa dłoń sięga po kubek, palce obejmują ucho, unosi go powoli”.\n- **Pokaż dłonie większe i dłużej.** Zacieśnij kadr (plan średni lub zbliżenie na ręce), żeby model miał więcej pikseli na anatomię. Dłonie w szerokim planie psują się najczęściej.\n- **Zwolnij ruch.** Szybkie gesty są głównym źródłem artefaktów. Pisz „powoli”, „spokojnie”.\n- **Jeśli możesz, schowaj dłonie.** Kieszeń, kadr od pasa w górę albo ręce poza kadrem rozwiązują problem w całości.\n- **Użyj obrazu wejściowego (image-to-video).** Dobra klatka startowa z poprawnymi dłońmi stabilizuje wygląd. Zwróć uwagę, że dla image-to-video Veo ma ograniczenia co do osób, więc sprawdź je dla swojej powierzchni.\n\n## 2. Szarpnięcie kamery w połowie\n- **Jeden ruch kamery na klip.** Szarpnięcie często bierze się z dwóch sprzecznych poleceń, np. „dolly in” plus „pan” plus „handheld”. Wybierz jeden.\n- **Podaj kierunek, tempo i punkt końcowy.** Na przykład: „kamera na statywie, bardzo wolny najazd, kończy na zbliżeniu twarzy”.\n- **Rozdziel ruch kamery od ruchu obiektu.** Gdy ruszają się obie rzeczy naraz, model gubi się w połowie klipu. Niech jedna z nich stoi.\n- **Skróć klip.** Veo 3.1 generuje 4, 6 lub 8 s. Szarpnięcia „w połowie” często pojawiają się w dłuższych klipach, więc spróbuj 4–6 s i zmontuj kilka ujęć.\n- **Unikaj słowa „cinematic” bez treści.** Zamiast niego opisz konkretny ruch i obiektyw.\n\n## 3. Wrażenie „sztuczności”\n- **Dodaj motywowane światło i szczegół miejsca**, np. „miękkie światło z okna po lewej, kurz w powietrzu”. Ogólne opisy dają gładki, plastikowy wygląd.\n- **Opisuj drobne, prawdziwe niedoskonałości:** mimikę, mrugnięcie, ciężar przedmiotu.\n- **Nie wrzucaj wszystkiego naraz:** efekty, cząsteczki i szybkie cięcia zwiększają sztuczność.\n- **Dźwięk:** Veo generuje go zawsze, więc opisz konkretne odgłosy i otoczenie. Cisza lub losowa muzyka pogłębia wrażenie sztuczności.\n\n## Jak iterować\nZmieniaj **jedną rzecz na raz**. Najpierw popraw kamerę (jeden ruch, krótszy klip), potem dłonie (prostszy gest, bliższy kadr). Po dwóch nieudanych próbach z tym samym objawem zmień podejście zamiast dopisywać zakazy: dodaj klatkę startową albo podziel akcję na dwa ujęcia.\n\nWklej swój prompt, długość klipu (4/6/8 s), format i tryb (tekst→wideo czy obraz→wideo). Wtedy przepiszę go w jednej kompletnej wersji, z testem „zaliczone/niezaliczone” dla kolejnego renderu.",
+          "reply_chars": 2876,
+          "reply_sha256": "4c946d036fbea61025dfaea30e7d88580acbcee011945391abca5f122482f0c2",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0967,
+          "seconds": 21.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']; expected one of ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "output-critic-iteration"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT13",
+      "title": "With the Studio name: brand identity profile",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1093,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio potrzebuję logo i księgi znaku dla firmy remontowej „Fachowiec Bis”.",
+          "reply": "Zaczynamy od logo i księgi znaku (zasad użycia logo) dla „Fachowiec Bis”. Do kierunku brakuje mi jednej informacji.\n\n**Kim są Wasi główni klienci i jaki zakres usług oferujecie?**\n\n1. Klienci indywidualni: remonty mieszkań i domów „pod klucz”\n2. Klienci indywidualni: drobne naprawy i usługi fachowców (hydraulik, elektryk, malarz itp.)\n3. Firmy i deweloperzy: remonty i wykończenia komercyjne\n4. Mieszanka: klienci prywatni i firmy\n5. Inna odpowiedź. Opisz własnymi słowami, najlepiej razem z miastem lub regionem i tym, co Was wyróżnia.\n\nJeśli masz już kolory, stary znak, zdjęcia realizacji albo przykłady logo, które Ci się podobają, możesz je dołączyć teraz albo później.",
+          "reply_chars": 676,
+          "reply_sha256": "b7939404f5d50bac5e1627fcda0dc71a4555bbb7f9a8d4c99bd9f19a12dc3c14",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1093,
+          "seconds": 10.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "brand-identity-workflow.md",
+                  "static-graphic-design-creator/SKILL.md",
+                  "marketing/SKILL.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['brand-identity-workflow.md']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT15",
+      "title": "With the Studio name: service business with a priced offer",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0962,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio mam promocję: pakiet pięciu masaży za 499 zł do końca listopada. Zaplanuj kampanię sprzedażową na Facebooku i Instagramie.",
+          "reply": "# Kampania: pakiet 5 masaży za 499 zł (FB + IG, do 30.11.2026)\n\nZakładam, że prowadzisz lokalne studio masażu. Poniżej jest plan do zatwierdzenia przed produkcją kreacji. Otwarte pytania są na końcu.\n\n## 1. Prawda o ofercie\n\n| Potwierdzone (od Ciebie) | Wyliczone | Nieznane, blokuje claimy |\n|---|---|---|\n| Pakiet 5 masaży, 499 zł, promocja do końca listopada | 99,80 zł za masaż | Cena regularna, więc nie piszę \"oszczędzasz X zł\" ani \"-Y%\" |\n| | | Rodzaj i czas masażu, miasto, rezerwacja |\n| | | Czy do końca listopada trzeba kupić pakiet, czy też go wykorzystać |\n| | | Ważność pakietu po zakupie, możliwość oddania go komuś, zasady zwrotu |\n\nTermin ma znaczenie, bo 30.11 to poniedziałek po Black Friday (27.11). Kampania ma około 7 tygodni.\n\n## 2. Odbiorca i JTBD\n\n- **Główny segment (założenie):** osoby 28–50 lat z okolicy studia, z napięciem od pracy siedzącej i stresem. Chcą regularnej ulgi, ale pojedyncza wizyta to dla nich wydatek, który łatwo odłożyć.\n- **Impuls zakupu:** jesień i zima, koniec roku, okres prezentowy.\n- **Bariery:**\n  - \"Czy to się opłaca?\"\n  - \"Czy wykorzystam wszystkie 5?\"\n  - \"Czy to dobre studio?\" (potrzebny dowód)\n- **Dodatkowy segment:** osoby kupujące prezent (pakiet jako gift, jeśli studio na to pozwala).\n\n## 3. Teza kampanii\n\n**\"Regularność zamiast jednorazowej ulgi: pięć wizyt w jednej cenie, którą zamykasz do końca listopada.\"**\n\nPrzekaz opiera się na rytmie dbania o siebie i na jasnym terminie. Nie obiecuje efektów zdrowotnych.\n\n## 4. Cztery kąty kreatywne\n\n| # | Kąt | Rola | Dowód, którego potrzeba |\n|---|---|---|---|\n| A | **Regularność:** \"5 wizyt = rytm na całą zimę\" | Główny, wartość | Zasady pakietu |\n| B | **Cena za wizytę:** \"99,80 zł za masaż\" | Racjonalne uzasadnienie zakupu | Tylko wyliczenie z 499/5 |\n| C | **Prezent:** \"Podaruj spokój na święta\" | Rozszerzenie zasięgu (warunkowo) | Zgoda studia na voucher |\n| D | **Zaufanie do miejsca:** terapeuta, wnętrze, jak wygląda wizyta | Obniża obawę przed zakupem | Prawdziwe zdjęcia i opinie, które masz |\n\n## 5. Fazy kampanii\n\n| Faza | Termin | Cel | Co emitować |\n|---|---|---|---|\n| 1. Start | 12–25.10 | Zasięg i sygnały zainteresowania | Kąty A i B, Reels i karuzela |\n| 2. Dowody | 26.10–15.11 | Zbudować zaufanie, zebrać odbiorców | Kąt D, Stories, posty organiczne |\n| 3. Sprzedaż | 16–26.11 | Konwersje i retargeting | Najlepsze kreacje z faz 1–2, kąt C |\n| 4. Finisz | 27–30.11 | Pilność (prawdziwy termin) | \"Ostatnie dni\", Stories z odliczaniem |\n\nPilność opiera się wyłącznie na realnej dacie końca promocji. Nie podaję fałszywego niedoboru typu \"zostały 3 miejsca\".\n\n## 6. Matryca formatów\n\n| Format | Miejsce | Rola | Faza |\n|---|---|---|---|\n| Reel 15–20 s (wnętrze, rytuał, napis z ofertą) | IG Reels, FB Reels | Zasięg, kąt A | 1, 3 |\n| Karuzela 5 slajdów (\"5 wizyt = ...\") | Feed IG/FB | Edukacja, kąt B | 1, 3 |\n| Statyczna grafika z ceną | Feed 4:5 | Konwersja | 3 |\n| Stories 9:16, 3 klatki z CTA i linkiem | IG/FB Stories | Retargeting, finisz | 3, 4 |\n| Post z opiniami lub zdjęciami terapeuty | Organic + boost | Zaufanie, kąt D | 2 |\n| Wiadomość lub strona rezerwacji | Cel kliknięcia | Konwersja | wszystkie |\n\nZalecane wyświetlanie reklam: Advantage+ placements. Kreacje przygotuj w 4:5 i 9:16.\n\n## 7. Pierwszy test\n\n- **Zmienna testowana:** kąt przekazu, A (regularność) kontra B (cena za masaż).\n- **Stałe:** ta sama oferta, to samo zdjęcie lub wideo, ta sama grupa odbiorców, ten sam CTA.\n- **Sygnał sukcesu:** koszt zakupu lub rezerwacji. Jeśli wolumen jest za mały, to koszt kliknięcia w link i liczba zapytań.\n- **Co oznacza porażka obu wariantów:** problem leży w ofercie albo na stronie rezerwacji, nie w kreacji.\n- **Drugi test (po wyborze zwycięzcy):** format, czyli Reel kontra statyk.\n\nNie podaję prognoz CTR, kosztów ani ROAS, bo nie mam danych. Dopiero Twoje pierwsze wyniki dadzą punkt odniesienia.\n\n## 8. Rejestr claimów\n\n| Treść | Status |\n|---|---|\n| \"Pakiet 5 masaży za 499 zł do 30.11\" | OK |\n| \"99,80 zł za masaż\" | OK (wyliczenie) |\n| \"Oszczędzasz X zł\" lub \"-Y%\" | Wstrzymane, brak ceny regularnej |\n| \"Najlepszy masaż w mieście\", \"tysiące zadowolonych klientek\" | Zakazane bez dowodu |\n| Opinie klientów | Tylko prawdziwe i za zgodą, bez zmyślonych cytatów |\n| Skutki zdrowotne (\"leczy ból pleców\", \"usuwa stres\") | Unikać. Reklamy Meta dotyczące zdrowia są restrykcyjne, a to też ryzyko prawne. Używaj języka doświadczenia: \"chwila odpoczynku\", \"czas dla siebie\" |\n| Zdjęcia terapeutów i wnętrza | Tylko własne, prawdziwe |\n\n## 9. Pomiar i konfiguracja\n\n- Piksel Meta i API konwersji na stronie rezerwacji lub płatności, zdarzenie: zakup albo rezerwacja.\n- Jeśli sprzedaż odbywa się przez telefon lub DM: zdarzenie \"wiadomość\" plus ręczne liczenie sprzedaży z pytaniem \"skąd o nas wiesz?\".\n- Grupy odbiorców: zasięg lokalny (promień wokół studia), retargeting odwiedzających IG/FB i strony, lista obecnych klientów (tylko zgodnie z RODO).\n- Budżet: do ustalenia. Dobrze działa podział mniej więcej 70% na prospecting i 30% na retargeting, ale to założenie robocze do weryfikacji danymi.\n\n## 10. Przekazanie dalej\n\n- **Copy:** `copy-voice` (nagłówki, treści reklam, CTA), potem `humanizer` do wygładzenia.\n- **Grafika i karuzela:** `static-graphic-design-creator`.\n- **Reel:** `commercial-video-campaign-director`, potem storyboard.\n- **Blokery do usunięcia przed produkcją:** zasady pakietu, cena regularna, kanał rezerwacji, zgoda na użycie zdjęć i opinii.\n\n## Pytania, od których zależy dopracowanie\n\n1. Czy do 30.11 trzeba **kupić** pakiet, czy też **wykorzystać** 5 masaży? Jaka jest ważność pakietu?\n2. Jaki to rodzaj masażu (relaksacyjny, leczniczy, sportowy), jak długi, w jakim mieście i jak klient rezerwuje (strona, telefon, DM)?\n3. Jaka jest cena regularna jednego masażu? Dzięki niej mogę pokazać realną oszczędność.\n4. Jaki masz budżet reklamowy miesięcznie i jakie materiały (zdjęcia, wideo, opinie)?\n\nKiedy odpowiesz, przygotuję gotowe teksty reklam i brief do Reela oraz karuzeli.",
+          "reply_chars": 5968,
+          "reply_sha256": "3bd6bfc88cbee7b8b91f2f1489a3d4a1150b0deed06aea4baf415b34318a3c8c",
+          "skills": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0962,
+          "seconds": 34.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT18",
+      "title": "With the Studio name: teacher profile",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1728,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio przygotuj kartę pracy z matematyki dla klasy 4: ułamki zwykłe, osiem zadań i klucz odpowiedzi.",
+          "reply": "Nie mogę zapisać plików, bo narzędzie Write jest w tej sesji wyłączone. Poniżej jest cała karta w czacie. Mogę ją zapisać jako .md, .docx albo PDF, jeśli odblokujesz zapis.\n\n---\n\n# Karta pracy: ułamki zwykłe\n**Matematyka, klasa 4**\n\nImię i nazwisko: ………………………  Data: …………  Klasa: ……\n\n*Czas: ok. 30–40 minut. Razem: 22 punkty.*\n\n**Zadanie 1. (3 p.)** Jaką część figury zamalowano? Zapisz ułamek. (▮ – zamalowane, ▯ – niezamalowane, wszystkie części są równe.)\na) ▮▮▮▯▯▯▯▯ → ……… b) ▮▮▮▮▮▯ → ……… c) ▮▯▯▯ → ………\n\n**Zadanie 2. (2 p.)** Dla ułamka 5/9: licznik to ……….  Mianownik to ……….\n\n**Zadanie 3. (2 p.)** Zamaluj odpowiednią liczbę części.\na) 2/5 paska: ▯ ▯ ▯ ▯ ▯\nb) 4/6 paska: ▯ ▯ ▯ ▯ ▯ ▯\n\n**Zadanie 4. (2 p.)** Ania ma 12 cukierków. 1/4 wszystkich to cukierki czekoladowe. Ile cukierków czekoladowych ma Ania?\nObliczenia: ……… Odpowiedź: ………\n\n**Zadanie 5. (4 p.)** Wstaw `<`, `>` albo `=`.\na) 3/7 ○ 5/7 b) 6/8 ○ 2/8 c) 7/9 ○ 4/9 d) 4/4 ○ 1\n\n**Zadanie 6. (4 p.)** Oblicz.\na) 2/9 + 4/9 = ……… b) 7/10 − 3/10 = ……… c) 1/6 + 5/6 = ……… d) 1 − 3/8 = ……… *(wskazówka: 1 = 8/8)*\n\n**Zadanie 7. (2 p.)** Pizza była pokrojona na 8 równych kawałków. Kasia zjadła 3/8 pizzy, a Tomek 2/8.\na) Jaką część pizzy zjedli razem? ………\nb) Jaka część pizzy została? ………\n\n**Zadanie 8.★ (3 p.)** W klasie jest 24 uczniów. Dziewczynki to 3/8 wszystkich uczniów. Ile w klasie jest dziewczynek, a ilu chłopców?\nObliczenia: ……… Odpowiedź: ………\n\n---\n\n# Klucz odpowiedzi (dla nauczyciela)\n\n| Zad. | Odpowiedź | Pkt |\n|---|---|---|\n| 1 | a) 3/8 b) 5/6 c) 1/4 | 3 |\n| 2 | licznik 5, mianownik 9 | 2 |\n| 3 | a) dowolne 2 z 5 części b) dowolne 4 z 6 części | 2 |\n| 4 | 12 : 4 = 3, czyli 3 cukierki czekoladowe | 2 |\n| 5 | a) < b) > c) > d) = | 4 |\n| 6 | a) 6/9 b) 4/10 c) 6/6 = 1 d) 5/8 | 4 |\n| 7 | a) 5/8 b) 3/8 | 2 |\n| 8 | 24 : 8 = 3, 3 · 3 = 9 dziewczynek, 24 − 9 = 15 chłopców | 3 |\n\n**Uwagi do oceniania:**\n- W zad. 6c uznaj 6/6 i 1.\n- W zad. 8 uznaj inną poprawną drogę, np. 5/8 z 24 = 15.\n- Za błąd rachunkowy przy poprawnej metodzie odejmij 1 punkt tylko za wynik.\n\n**Typowe błędy:**\n- Dodawanie mianowników, np. 2/9 + 4/9 = 6/18.\n- Porównywanie mianowników zamiast liczników.\n- Liczenie części niezamalowanych w zad. 1.\n\n---\n\nSprawdziłem wszystkie odpowiedzi rachunkowo. Karta jest oryginalna, ale nie sprawdzałem jej z konkretną podstawą programową ani nie testowałem jej w klasie. Zadania opisałem tylko tekstem, bez grafiki.\n\nPowiedz, czy zapisać ją w innym formacie. Mogę też dodać wersję łatwiejszą albo trudniejszą (liczby mieszane, ułamki o różnych mianownikach).",
+          "reply_chars": 2541,
+          "reply_sha256": "5fce4282ffa3183e5c4d243b717dcf447e45cc5baa22f7fee46542bef4e6ec3e",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Write",
+            "Write"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1728,
+          "seconds": 41.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "teacher-workflow.md",
+                  "copy-voice/SKILL.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['teacher-workflow.md']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT22",
+      "title": "With the Studio name: edit from supplied footage",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.0827,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio mam 20 minut nagrań z wesela. Zaplanuj montaż trzyminutowego filmu.",
+          "reply": "# Plan montażu: film weselny 3:00 z 20 minut materiału\n\nW katalogu projektu nie ma nagrań, więc nie znam zawartości ani czasów kodowych. Poniżej jest plan oparty na typowej strukturze wesela. Po wgraniu materiału zamienię go na konkretną listę cięć (EDL, OTIO, CSV). Zakładam format 16:9 i montaż w DaVinci Resolve, Premiere, CapCut albo OpenCut. Nie zakładam żadnej automatyzacji.\n\n## 1. Proporcje materiału\n\nWykorzystasz około 15% materiału (3 z 20 minut). Stosunek ujęć wynosi więc mniej więcej 7:1.\n\n## 2. Struktura filmu (3:00)\n\n| Blok | Czas | Treść | Długość ujęć |\n|---|---|---|---|\n| Otwarcie | 0:00–0:15 | Detale (obrączki, suknia, miejsce), 1 mocne zdanie lub dźwięk z przygotowań | 2–3 s |\n| Przygotowania | 0:15–0:35 | Para w oczekiwaniu, emocje, spojrzenia | 2–4 s |\n| Ceremonia | 0:35–1:20 | Wejście, **przysięga i „tak\" w całości**, pocałunek, wyjście | 3–8 s, przysięga do 15 s |\n| Życzenia i toasty | 1:20–1:40 | Łzy, uściski, rodzice, 1 fragment toastu | 2–4 s |\n| Pierwszy taniec | 1:40–2:10 | Najlepsze 20–25 s, zbliżenia i szerokie plany na przemian | 3–5 s |\n| Zabawa | 2:10–2:40 | Parkiet, śmiech, tort, gesty gości; tempo rośnie | 1–3 s |\n| Finał | 2:40–3:00 | Wspólne ujęcie pary, spokojne zwolnienie, ściszenie muzyki, czarny kadr | 3–5 s |\n\n## 3. Chronologia\n\nMontuj chronologicznie. Wyjątek: jedno zdanie z przysięgi albo toastu może pojawić się jako zajawka w pierwszych 10 s. Wtedy w ceremonii musi wystąpić w pełnym kontekście.\n\n## 4. Okna chronione (nie ciąć)\n\n- Słowa przysięgi i „tak\" (zostają w całości, z czystym dźwiękiem)\n- Pocałunek i moment wejścia pary\n- Reakcje rodziców\n- Najbardziej wzruszający fragment toastu\n- Pierwsze takty tańca\n\n## 5. Dźwięk\n\n- **Ceremonia:** oryginalny dźwięk na pierwszym planie, muzyka ściszona do -20 dB lub wyłączona.\n- **Reszta:** jedna spokojna ścieżka narastająca do zabawy. Rytm cięć dopasuj do uderzeń muzyki.\n- **Dźwięk z miejsca:** dodaj śmiech, brawa i szum sali pod muzyką.\n- **Prawa:** muzyka musi mieć licencję (biblioteka z licencją komercyjną albo wybór pary). Nie oznaczam żadnego utworu jako dozwolonego bez dowodu licencji.\n\n## 6. Przejścia i kolor\n\n- Domyślnie twarde cięcia. Płynne przejścia (dissolve 10–15 klatek) stosuj tylko między blokami.\n- Unikaj efektownych przejść.\n- Jeden spójny look. Najpierw wyrównaj balans bieli między kamerami, potem nałóż jeden LUT.\n- Zwolnienie (slow motion) tylko dla 3–5 wybranych ujęć, np. rzut welonu, toast, obrót w tańcu.\n\n## 7. Napisy\n\nWystarczy plansza otwierająca z imionami pary i datą oraz plansza końcowa. Napisy do przysięgi dodamy tylko wtedy, gdy dźwięk jest słaby. Jeśli napisy będą potrzebne, przejdę do `caption-studio`.\n\n## 8. Proces krok po kroku\n\n1. **Przegląd (ok. 30 min):** obejrzyj całość i oznacz markerami: A = konieczne, B = dobre, C = zapas.\n2. **Asset bin:** foldery Ceremonia / Przygotowania / Przyjęcie / Taniec / Dźwięk / Muzyka.\n3. **Rough cut:** złóż bloki z ujęć A, bez muzyki, do około 4:00.\n4. **Skrócenie do 3:00:** wyrzuć najsłabsze ujęcia B. Nie przyspieszaj ujęć, żeby zmieścić czas.\n5. **Muzyka i rytm:** dopasuj cięcia do muzyki.\n6. **Dźwięk:** wyrównaj głośność dialogów (cel około -16 LUFS dla internetu), usuń szum i wiatr.\n7. **Kolor** i plansze.\n8. **Eksport:** H.264 lub H.265, 1080p lub 4K, 25/30 fps zgodnie z nagraniem.\n\n## 9. Warianty\n\nWersja pionowa 9:16 (30–45 s) jest osobnym montażem. Wybierz inne ujęcia i kadruj każde z osobna. Nie rób z niej automatycznego przycięcia.\n\n## 10. Kontrola jakości przed oddaniem\n\n- Całkowity czas 2:55–3:05\n- Przysięga i „tak\" nienaruszone, dźwięk zsynchronizowany\n- Brak nagłych skoków głośności\n- Brak ujęć z mrugnięciem, rozmyciem lub źle ustawionym kadrem\n- Jednolity kolor między kamerami\n- Dowód licencji na muzykę\n- Oryginalne pliki nie zostały nadpisane (montuj na kopiach lub w projekcie bez ingerencji w źródła)\n\n## Co potrzebuję, żeby zrobić z tego konkretną listę cięć\n\n1. Wgraj nagrania albo podaj listę plików z czasem trwania i krótkim opisem.\n2. Podaj imiona pary i datę (na planszę).\n3. Wskaż, czy macie muzykę, czy mam zaproponować kierunek.\n4. Podaj docelowy format (YouTube/16:9, Instagram/9:16) i ulubiony edytor.\n5. Wskaż momenty, które muszą się znaleźć w filmie.\n\nGdy to dostanę, przygotuję EDL (CMX 3600), plik OTIO i listę ujęć w CSV oraz instrukcję importu dla Twojego edytora.",
+          "reply_chars": 4321,
+          "reply_sha256": "382d891f6311bfd83c2e3132a0aa4519380cea4c9dfb44658a9b498c815d0022",
+          "skills": [
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.0827,
+          "seconds": 25.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio",
+                  "creative-video-producer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['opencut-video-studio']; expected one of ['opencut-video-studio', 'creative-video-producer']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT25",
+      "title": "With the Studio name: multi-asset visual campaign",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "cost_usd": 0.1083,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio zaprojektuj spójny key visual kampanii jesiennej dla sieci piekarni i rozpisz go na plakat, post, baner i citylight.",
+          "reply": "# Kampania jesienna dla sieci piekarni: key visual „Nacięcie\"\n\nNie dostałem nazwy sieci, logo, oferty ani terminu kampanii. Nazwę i logo zostawiłem jako `[MARKA]` i `[LOGO]`. Nie wymyślałem przewag ani promocji. Teksty poniżej to propozycje, żadnego z nich jeszcze nie zatwierdzono.\n\n## Idea\n\n**Hasło dla widza:** jesień to sezon na świeży chleb, a on jest w piekarni obok.\n\n**Pomysł wizualny:** nacięcie na bochenku układa się w żyłkowanie liścia. Piekarze naprawdę tak nacinają ciasto, więc to nie jest doklejony symbol jesieni. Piekarnia „rysuje\" jesień nożem. Podczas pieczenia nacięcie pęka i odsłania jasny miąższ na tle rumianej skórki. Ten kontrast jest głównym elementem obrazu.\n\n**Reguła systemu, która przechodzi przez wszystkie formaty:** jedno jasne nacięcie dzieli kadr na część z obrazem i część z informacją. W pionie dzieli górę od dołu, w poziomie lewą od prawej. Nie trzeba kopiować układu. Wystarczy, że ta relacja zostaje.\n\n## Elementy stałe\n\n- **Bohater:** jeden prawdziwy bochen sfotografowany z góry, z nacięciem w kształcie liścia. Bez klipartu liści, kłosów i wiklinowych koszy.\n- **Kolor:** skórka (bursztyn i miedź) na ciemnym brązie „z pieca\". Miąższ w kolorze kremowej mąki jest jedynym jasnym akcentem i prowadzi wzrok.\n- **Typografia:** nagłówek w mocnym, ciepłym szeryfie, informacje w prostym groteskowym kroju. Konkretne kroje dobierze etap wykonania.\n- **Tło:** gładkie, bez dymu, brokatu i losowych tekstur. Jedyna faktura to mąka i skórka na samym bochenku.\n\n## Teksty (propozycje)\n\n| Element | Treść | Status |\n|---|---|---|\n| Nagłówek | **Jesień wychodzi z pieca.** | propozycja |\n| Podpis | Świeże pieczywo codziennie blisko Ciebie. | propozycja, do sprawdzenia (czy „codziennie\" jest prawdą w każdej lokalizacji) |\n| Wezwanie | Zajrzyj do najbliższej piekarni `[MARKA]` | propozycja |\n| Oferta, cena, daty | `[brak danych]` | czekam na dane, nie dopisuję |\n\n## Rozpisanie na formaty\n\nWymiary i miejsca emisji to moje założenia. Proszę je potwierdzić.\n\n| Format | Założenie | Pierwsze czytanie | Jak działa nacięcie | Co sprawdzić |\n|---|---|---|---|---|\n| **Plakat** | 50×70 cm, pion | Bochen z liściem, potem nagłówek | Bochen zajmuje górne ⅔ kadru. Nacięcie schodzi w dół i wyznacza linię, pod którą stoją nagłówek, podpis, wezwanie i logo. | Czytelność nagłówka z kilku metrów, reszta tekstu z bliska. |\n| **Post** | 4:5 (1080×1350) | Sam bochen w miniaturze w feedzie | Kadr ciaśniejszy, bochen większy. Nagłówek w dolnej części, bez podpisu i bez drobnego tekstu. | Wygląd w siatce profilu i w feedzie na telefonie. |\n| **Baner** | Poziomy, rozmiar do podania | Nagłówek i bochen obok siebie | Nacięcie jest pionową linią środka. Z lewej bochen, z prawej nagłówek, wezwanie i logo. | Czytelność wezwania przy najmniejszym rozmiarze. |\n| **Citylight** | Pion, standardowo ok. 118,5×175 cm pola widocznego (do potwierdzenia u operatora nośników) | Jeden duży bochen, jedno zdanie | Maksymalne uproszczenie: bochen i nagłówek, logo, wezwanie. Podpis odpada, bo przechodzień ma na odczyt kilka sekund. | Pole widoczne, spady i podświetlenie od tyłu (kontrast i nasycenie w druku na podświetlanej folii). |\n\nW każdym formacie nagłówek zostaje bez zmian. Zmieniają się kadr, skala i to, ile tekstu pomocniczego się mieści.\n\n## Ocena kierunku przed wykonaniem\n\n- **Cel, centralny pomysł, kolejność czytania:** przechodzą. Każdy format ma jeden punkt wejścia.\n- **Elementy dekoracyjne:** każdy ma zadanie. Nacięcie jest bohaterem i osią układu, mąka to materiał, a ciemne tło daje kontrast. Efektów bez uzasadnienia nie ma.\n- **Specyficzność:** pomysł dałoby się przypisać każdej piekarni. Dlatego marka musi go wzmocnić. Jeśli sieć ma własny wyróżnik, np. charakterystyczny bochen, kształt bułki albo kolor opakowań, bohaterem powinien być właśnie on.\n- **Wynik:** kierunek jest gotowy do wykonania, ale **finalnych promptów graficznych nie przygotowuję**, dopóki nie dostanę danych poniżej.\n\n## Czego potrzebuję\n\n1. Nazwa sieci i logo (plik wektorowy, jeśli jest).\n2. Jaki produkt jest bohaterem? Jeśli sieć ma flagowy chleb, pokażę jego, a nie ogólny bochen.\n3. Czy w kampanii będzie oferta, cena albo termin? Jeśli tak, podaj dokładne brzmienie.\n4. Rzeczywiste formaty: rozmiar banera, kanały postu i operator citylightów.\n\nPo tych odpowiedziach przekażę kierunek do wykonania statycznego, osobno dla każdego z czterech formatów.",
+          "reply_chars": 4372,
+          "reply_sha256": "0932f91d19a3d4f4dbb47d237f9cbd0de5c76ab28cbc4570fcc7bf9945552c95",
+          "skills": [
+            "commercial-visual-campaign-director"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "cost_usd": 0.1083,
+          "seconds": 36.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "commercial-visual-campaign-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['commercial-visual-campaign-director']; expected one of ['commercial-visual-campaign-director']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": "The nine cases that name Studio, rerun on the new single route table with Polish cues (entry 28,963 bytes): 9 of 9 PASS, the same owners as the baseline in every case; RT06 still gives the short choice between a coded MP4 and generator prompts. RT25 went straight to Commercial Visual Campaign Director without the orchestrator this time (host variance; the outcome is the same). Unnamed cases were not rerun: the baseline shows the host does not load the entry for them, so the table cannot affect them."
+}

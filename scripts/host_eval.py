@@ -4,11 +4,12 @@
   python3 scripts/host_eval.py --list
   python3 scripts/host_eval.py --gate --write                  # release-gate subset, about USD 1 or less
   python3 scripts/host_eval.py --cases W01,R02 --judge         # chosen cases, with the advisory judge
+  python3 scripts/host_eval.py --suite routing --write         # the Polish routing set (tests/host-evals/routing.json)
   python3 scripts/host_eval.py --write --budget-usd 4          # the whole suite
 
 Each case runs in a fresh empty workspace with an isolated Claude Code configuration, so only this plugin (loaded with
 --plugin-dir from the source tree) and the built-in tools are present; later turns resume the same session. The checks
-in tests/host-evals/suite.json decide PASS or FAIL. The optional judge, a second model call that reads the case's
+in the suite (tests/host-evals/<suite>.json, default suite.json) decide PASS or FAIL. The optional judge, a second model call that reads the case's
 rubric and the reply, is advisory and never changes a verdict. Runs cost money: the script stops before a case once
 the spent total reaches --budget-usd, and every record states the cost. With --write the run is recorded in
 verification/host-evals/<date>-<version>-<suite>.json. A record is evidence for Claude Code on this machine and model
@@ -29,7 +30,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / 'plugins/framecore-work-creative-studio'
-SUITE = ROOT / 'tests/host-evals/suite.json'
+SUITES = ROOT / 'tests/host-evals'
+SUITE = SUITES / 'suite.json'
 RECORDS = ROOT / 'verification/host-evals'
 WELCOME = {lang: PLUGIN / f'skills/workflow-orchestrator/assets/startup-welcome.{lang}.md' for lang in ('en', 'pl')}
 NAMESPACE = 'framecore-work-creative-studio:'
@@ -37,6 +39,11 @@ DEFAULT_TOOLS = ['Read', 'Glob', 'Grep', 'Skill']
 POLISH = re.compile(r'[ąćęłńóśźż]', re.I)
 POLISH_WORDS = re.compile(r'\b(i|w|z|na|nie|się|jest|to|że|do|dla|jak|czy|albo|oraz|mogę|możesz|twój|twoje)\b', re.I)
 ENGLISH_WORDS = re.compile(r'\b(the|and|you|your|for|with|is|are|to|of|can|or|this|that|what)\b', re.I)
+
+
+CHECK_KINDS = ('welcome', 'not_welcome', 'contains', 'contains_any', 'not_contains', 'regex', 'not_regex', 'max_questions',
+               'max_user_questions', 'min_numbered', 'items', 'max_chars', 'code_block', 'language', 'skills', 'skills_any',
+               'reads_any', 'no_skills', 'no_command', 'command')
 
 
 class EvalError(Exception):
@@ -47,8 +54,12 @@ def version():
     return json.loads((PLUGIN / 'plugin.json').read_text(encoding='utf-8'))['version']
 
 
-def load_suite():
-    suite = json.loads(SUITE.read_text(encoding='utf-8'))
+def suite_names():
+    return sorted(path.stem for path in SUITES.glob('*.json'))
+
+
+def load_suite(name='suite'):
+    suite = json.loads((SUITES / f'{name}.json').read_text(encoding='utf-8'))
     sources = {}
     for case in suite['cases']:
         source = case.get('source')
@@ -117,6 +128,12 @@ def skills_of(tools):
             if match:
                 names.append(match.group(1))
     return names
+
+
+def touched(tools):
+    """Files the host read and skills it loaded, as paths: a Skill call counts as reading that skill's SKILL.md."""
+    paths = [str(tool['input'].get('file_path', '')) for tool in tools if tool['name'] == 'Read']
+    return paths + [f'skills/{name}/SKILL.md' for name in skills_of([t for t in tools if t['name'] == 'Skill'])]
 
 
 def commands_of(tools):
@@ -198,6 +215,10 @@ def check(spec, turn):
     if kind == 'skills_any':
         used = skills_of(turn['tools'])
         return any(s in used for s in value), f'loaded {used}; expected one of {value}'
+    if kind == 'reads_any':
+        paths = touched(turn['tools'])
+        hit = [v for v in value if any(p.endswith(v) or f'/{v}' in p for p in paths)]
+        return bool(hit), f'read {hit}' if hit else f'read none of {value}; loaded {skills_of(turn["tools"])}'
     if kind == 'no_skills':
         used = skills_of(turn['tools'])
         hit = [s for s in value if s in used]
@@ -263,6 +284,7 @@ def run_case(case, args):
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Run Studio's host evaluations in headless Claude Code (costs money).")
     parser.add_argument('--list', action='store_true', help='list the cases and exit; spends nothing')
+    parser.add_argument('--suite', default='suite', choices=suite_names(), help='the suite file under tests/host-evals/ (default: suite)')
     parser.add_argument('--gate', action='store_true', help='only the release-gate cases')
     parser.add_argument('--cases', help='comma-separated case IDs')
     parser.add_argument('--model', default='claude-sonnet-5-5')
@@ -275,7 +297,7 @@ def main(argv=None):
     parser.add_argument('--keep-chars', type=int, default=6000, help='reply characters kept in the record')
     parser.add_argument('--write', action='store_true', help='write the record under verification/host-evals/')
     args = parser.parse_args(argv)
-    suite = load_suite()
+    suite = load_suite(args.suite)
     cases = suite['cases']
     if args.gate:
         cases = [c for c in cases if c.get('gate')]
@@ -321,7 +343,7 @@ def main(argv=None):
     print(json.dumps(record['summary']))
     if args.write:
         RECORDS.mkdir(parents=True, exist_ok=True)
-        name = f"{record['date']}-{record['package_version']}-{'gate' if args.gate else 'suite'}{'-' + '-'.join(c['id'] for c in cases) if args.cases else ''}.json"
+        name = f"{record['date']}-{record['package_version']}-{'gate' if args.gate else args.suite}{'-' + '-'.join(c['id'] for c in cases) if args.cases else ''}.json"
         (RECORDS / name).write_text(json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
         print(f'recorded verification/host-evals/{name}')
     return 0 if counts['FAIL'] == 0 and counts['ERROR'] == 0 else 1

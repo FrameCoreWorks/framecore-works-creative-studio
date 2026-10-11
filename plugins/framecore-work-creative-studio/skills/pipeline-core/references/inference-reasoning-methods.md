@@ -7,9 +7,7 @@ API.
 
 Contents: [meaning and owners](#canonical-meaning-and-owner-selection),
 [conditional methods](#one-review-conditional-methods),
-[reasoning route](#reasoning-route-contract), [runtime route](#runtime-route-contract),
-[method catalog](#default-methods), [situational methods](#situational-methods),
-and [routing rules](#routing-rules).
+[candidate limits](#candidate-limits) and [records and catalog](#records-and-catalog).
 
 Use these methods only when they materially improve quality, safety, or
 recoverability. Give a clear goal, constraints and observable acceptance criteria;
@@ -61,71 +59,7 @@ at most two repair/recheck passes, honoring stricter domain limits. No method
 or handoff resets this budget. Record concise findings and necessary evidence,
 not private reasoning.
 
-## Reasoning Route Contract
-
-Use [conditional quality improvements](quality-improvement-methods.md) for relevant
-few-shot examples, tool-backed verification, calibrated comparison, explicitly
-requested Reflexion lessons and the offline GEPA development pilot. These extend
-the current method selection and one review; they add no routine intake or critic.
-
-Record a `reasoning_route` inside Project State when a task needs more than
-direct execution.
-
-```yaml
-reasoning_route:
-  task_class:
-  complexity: trivial | low | medium | high
-  risk: low | medium | high
-  reasoning_strategy: direct | decompose | verify | compare | tool_loop | branch | search
-  selected_methods:
-  candidate_count:
-  selection_criteria:
-  verification_questions:
-  escalation_triggers:
-  downgrade_triggers:
-  stop_condition:
-  raw_trace_storage: forbidden
-```
-
-Use `direct` for simple work. Use the smallest stronger route that preserves
-the needed gate, handoff, QA, or delivery confidence.
-
-## Runtime Route Contract
-
-When model or runtime choice matters, record a lightweight `runtime_route`.
-Prefer tiers and effort levels over brittle exact model names.
-
-```yaml
-runtime_route:
-  recommended_runtime_tier:
-  reasoning_effort: none | minimal | low | medium | high
-  runtime_assignment: current_runtime | automation_config | subagent_spawn | unavailable_record_only
-  provider_execution_allowed: false
-  openai_api_allowed: false
-  external_router_adopted_raw: false
-```
-
-A runtime recommendation is not permission to call OpenAI API, use external
-providers, upload files, run destructive commands, or install routing
-infrastructure. Provider execution remains governed by the user’s current
-explicit instruction and the public provider-neutral boundary.
-
-## Default Methods
-
-| Method | Public owner roles | Use when | Required output fields |
-|---|---|---|---|
-| Plan-and-Solve / Least-to-Most | `workflow-orchestrator`, `storyboard-architect`, `instruction-packet-factory` | The task needs decomposition before specialist work. | `reasoning_strategy`, `subtasks`, `next_gate`, `stop_condition` |
-| CQoT (Critical-Questions-of-Thought) | Current artifact owner; `qa-iteration` when evidence-led escalation is needed | Every substantive creative artifact needs the compact critical check inside its existing review. | `critical_questions`, `answers_or_gaps`, `required_correction` |
-| CoVe | `research-evidence`, `qa-iteration`, `delivery-documentation` | Material factual or technical claims need source- or test-backed verification. | `verification_questions`, `verification_results`, `unresolved_risks` |
-| Self-Refine / RCI | `qa-iteration`, `workflow-orchestrator`, target specialist role | A prompt, artifact, or generated output has a diagnosed failure. | `failure_inventory`, `corrected_instruction_packet`, `loopback_target`, `acceptance_test` |
-| Best-of-N lite | Direction, copy, prompt, and QA roles | Several plausible strategies, lines, prompts, or routes exist. | `candidate_count`, `selection_criteria`, `selected_candidate`, `rejected_options` |
-| ReAct | `research-evidence`, `tool-routing-cost`, `execution-manifest` | Work alternates between reasoning, local checks, tool plans, and observations. | `reason_action_observation_summary`, `tool_boundary`, `next_action` |
-| Chain-of-Note / source notes | `reference-curator`, `research-evidence`, `asset-manifest` | Sources, references, or manifests need confidence notes. | `source_notes`, `confidence`, `reference_or_asset_risks` |
-| Step-back prompting | `brief-architect`, direction roles | The request is broad, ambiguous, or strategically underspecified. | `generalized_question`, `task_classification`, `specific_route` |
-| Meta-prompting / APE-lite | `instruction-packet-factory` | A packet, checklist, or prompt contract needs refinement before specialist work. | `prompt_issue`, `improved_instruction`, `acceptance_criteria` |
-| LLM-as-judge / reranking | `qa-iteration`, `workflow-orchestrator` | Candidate outputs need a compact quality decision. | `judge_criteria`, `ranked_candidates`, `decision_reason_summary` |
-
-Default candidate limits:
+## Candidate limits
 
 - Produce one result when one is requested or a direction is already accepted.
 - When comparison is justified, use 2 candidates for routine alternatives and
@@ -136,39 +70,15 @@ Default candidate limits:
 - Candidate count is a text/strategy comparison limit, not paid-generation or
   upload authorization.
 
-## Situational Methods
+## Records and catalog
 
-Use these only when the workflow-orchestrator records why a cheaper route is
-insufficient.
+Use [conditional quality improvements](quality-improvement-methods.md) for relevant
+few-shot examples, tool-backed verification, calibrated comparison and explicitly
+requested Reflexion lessons. These extend the current method selection and one
+review; they add no routine intake or critic.
 
-| Method | Use when | Guardrail |
-|---|---|---|
-| ToT-lite | A problem has branching strategic or structural routes. | Limit to 2-3 branches and one selection pass. |
-| GoT-lite | Dependencies across references, shots, assets, or manifests matter. | Store a dependency map, not raw reasoning traces. |
-| MCTS / tree search | Prompt optimization or route selection needs search over candidates. | Require an eval target, budget, and stop condition. |
-| Multi-agent debate | Two specialist roles disagree on a high-impact decision and actual delegation is available and authorized. | Use bounded tasks; distinguish role comparison from executed agents and summarize only findings. |
-| PoT / PAL | Computation, schema checks, naming, checksums, or validation need code-like reasoning. | Use local tools only inside approved boundaries. |
-| GraphRAG | A durable corpus has many linked entities or references. | Require a defined corpus, source map, and privacy boundary. |
-| PromptBreeder / APO-lite | Reusable prompt templates have fixtures or benchmarks. | Do not optimize without an acceptance test or fixture. |
-
-## Routing Rules
-
-The workflow-orchestrator chooses the smallest useful strategy:
-
-1. `direct` for simple tasks.
-2. `decompose` for multi-step work using Plan-and-Solve / Least-to-Most.
-3. `verify` for material factual or technical claims using CoVe, or evidence-sensitive review using CQoT. The ordinary CQoT output check does not require upgrading a direct task.
-4. `compare` for requested or genuinely unresolved multiple candidates using Best-of-N lite and reranking.
-5. `tool_loop` for ReAct workflows with local checks or approved tool plans.
-6. `branch` for ToT-lite or GoT-lite when linear planning is insufficient.
-7. `search` for MCTS/APO-lite only with an explicit budget and acceptance test.
-
-QA rejects a reasoning route when it:
-
-- stores raw reasoning traces;
-- adds candidates without a selection criterion;
-- continues after the stop condition is met;
-- creates a second review loop, restarts a repair budget, forces hidden CoT or
-  claims independent experts without executed-agent evidence;
-- bypasses provider, upload, Memory Cache, or destructive-command locks;
-- treats unverified sources, sidecar output, or old Project State as authority.
+When a task needs more than direct execution, record a compact `reasoning_route`
+in Project State (and a `runtime_route` when the runtime matters) and choose
+from the [method catalog](method-catalog.md): the route contracts, default and
+situational methods and the routing rules. Read it only then; ordinary work
+needs nothing beyond this page.

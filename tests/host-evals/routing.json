@@ -1,0 +1,715 @@
+{
+  "name": "studio-routing-pl",
+  "description": "Routing set for Phase 5.2: real-style Polish requests, some addressed to Studio by name and some not, each checked by the owner the host loaded (a Skill call or a read of its SKILL.md; reads_any also accepts a profile reference). A small task answered without loading its owner fails here even when the reply is useful: the set measures routing, not quality. no_skills marks the wrong side of a known collision.",
+  "cases": [
+    {
+      "id": "RT01",
+      "title": "Without the Studio name: new copy",
+      "turns": [
+        {
+          "prompt": "Napisz pięć krótkich haseł reklamowych dla kawiarni rzemieślniczej w Krakowie, maksymalnie sześć słów każde.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "copy-voice"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT02",
+      "title": "With the Studio name: image prompt: a photo, not a designed layout",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio daj mi prompt do Midjourney: zdjęcie produktowe słoika miodu na drewnianym stole w porannym świetle, bez napisów.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "image-prompt-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT03",
+      "title": "Without the Studio name: image prompt: a designed layout",
+      "turns": [
+        {
+          "prompt": "Zaprojektuj plakat na festyn rodzinny w Gdyni: 14 czerwca, Park Centralny, wstęp wolny. Format A3 do druku.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "static-graphic-design-creator"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT04",
+      "title": "Without the Studio name: music video, not a brand campaign",
+      "turns": [
+        {
+          "prompt": "Mam piosenkę o rozstaniu w klimacie indie pop. Wymyśl koncepcję teledysku.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "creative-music-video-director"
+              ]
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "no_skills": [
+                "commercial-video-campaign-director"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT05",
+      "title": "With the Studio name: lyrics belong to audio",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio napisz tekst krótkiej piosenki do reklamy radiowej lodów, 30 sekund, z wesołym refrenem.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "audio-production-director"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT06",
+      "title": "With the Studio name: product video entry point: one short choice between a coded MP4 and generator prompts",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio zrób 15-sekundowy film na Instagram dla mojego sklepu z herbatą, mam zdjęcia produktów i logo.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "hyperframes-workflow",
+                "video-prompt-architect",
+                "commercial-video-campaign-director",
+                "creative-video-producer",
+                "workflow-orchestrator"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT07",
+      "title": "Without the Studio name: product video entry point: campaign idea",
+      "turns": [
+        {
+          "prompt": "Potrzebuję pomysłu na kampanię wideo dla marki wody mineralnej: spot 30 s i kilka krótkich wersji do social mediów.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "commercial-video-campaign-director"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT08",
+      "title": "Without the Studio name: timed shot list",
+      "turns": [
+        {
+          "prompt": "Rozpisz ujęcia do 30-sekundowej reklamy piekarni: numer ujęcia, czas, plan, ruch kamery i akcja.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "storyboard-sequence-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT09",
+      "title": "Without the Studio name: board layout",
+      "turns": [
+        {
+          "prompt": "Przygotuj planszę storyboardu z sześcioma kadrami do reklamy roweru elektrycznego, z podpisami pod każdym kadrem.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "storyboard-board-architect",
+                "storyboard-sequence-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT10",
+      "title": "Without the Studio name: video prompt for a named model",
+      "turns": [
+        {
+          "prompt": "Napisz prompt do Kling 3.0: kobieta pije kawę na balkonie o świcie, kamera powoli najeżdża na jej twarz.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "video-prompt-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT11",
+      "title": "With the Studio name: supplied video review: a generated clip",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio wygenerowałem klip w Veo i wygląda sztucznie: dłonie się zlewają, a kamera szarpie w połowie. Co poprawić?",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "video-prompt-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "no_skills": [
+                "output-critic-iteration"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT12",
+      "title": "Without the Studio name: captions",
+      "turns": [
+        {
+          "prompt": "Mam transkrypcję mojego filmiku na Reels. Zrób z niej napisy w pliku SRT, najwyżej dwie linijki na raz.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "caption-studio"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT13",
+      "title": "With the Studio name: brand identity profile",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio potrzebuję logo i księgi znaku dla firmy remontowej „Fachowiec Bis”.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "reads_any": [
+                "brand-identity-workflow.md",
+                "static-graphic-design-creator/SKILL.md",
+                "marketing/SKILL.md"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT14",
+      "title": "Without the Studio name: service business without a priced offer",
+      "turns": [
+        {
+          "prompt": "Chcę, żeby więcej osób dowiedziało się o moim gabinecie fizjoterapii w Poznaniu. Zaplanuj komunikację w social mediach na dwa miesiące.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "marketing"
+              ]
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "no_skills": [
+                "ecommerce-campaign-strategy-director"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT15",
+      "title": "With the Studio name: service business with a priced offer",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio mam promocję: pakiet pięciu masaży za 499 zł do końca listopada. Zaplanuj kampanię sprzedażową na Facebooku i Instagramie.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "ecommerce-campaign-strategy-director"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT16",
+      "title": "Without the Studio name: store sales campaign",
+      "turns": [
+        {
+          "prompt": "Mam sklep internetowy z ręcznie robioną biżuterią. Zaplanuj kampanię na Black Friday z budżetem 2000 zł.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "ecommerce-campaign-strategy-director"
+              ]
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "no_skills": [
+                "marketing"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT17",
+      "title": "Without the Studio name: quote from the user's own rate",
+      "turns": [
+        {
+          "prompt": "Ile powinienem wziąć za trzy rolki na Instagram dla klienta? Moja stawka to 150 zł za godzinę i nie jestem płatnikiem VAT.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "brief-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT18",
+      "title": "With the Studio name: teacher profile",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio przygotuj kartę pracy z matematyki dla klasy 4: ułamki zwykłe, osiem zadań i klucz odpowiedzi.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "reads_any": [
+                "teacher-workflow.md",
+                "copy-voice/SKILL.md"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT19",
+      "title": "Without the Studio name: polish existing text",
+      "turns": [
+        {
+          "prompt": "Popraw ten tekst, żeby nie brzmiał jak z AI: „W dzisiejszym dynamicznym świecie nasza firma oferuje innowacyjne rozwiązania dla każdego klienta.”",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "humanizer"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT20",
+      "title": "Without the Studio name: coded motion with an MP4",
+      "turns": [
+        {
+          "prompt": "Zrób animację z naszym logo i hasłem „Szybciej do celu”: 6 sekund, pionowo 1080 × 1920, plik MP4.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "hyperframes-workflow"
+              ]
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "no_skills": [
+                "video-prompt-architect"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT21",
+      "title": "Without the Studio name: creator read",
+      "turns": [
+        {
+          "prompt": "Napisz scenariusz UGC dla twórczyni, która poleca krem z filtrem SPF 50: 30 sekund, TikTok.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "ugc"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT22",
+      "title": "With the Studio name: edit from supplied footage",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio mam 20 minut nagrań z wesela. Zaplanuj montaż trzyminutowego filmu.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "opencut-video-studio",
+                "creative-video-producer"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT23",
+      "title": "Without the Studio name: screenplay",
+      "turns": [
+        {
+          "prompt": "Napisz scenariusz pięciominutowego filmu krótkometrażowego o dziadku, który uczy wnuczkę łowić ryby, z dialogami.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "screenplay-story-architect"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT24",
+      "title": "Without the Studio name: recurring character",
+      "turns": [
+        {
+          "prompt": "Zaprojektuj maskotkę dla przedszkola, wesołego jeża. Potrzebuję arkusza postaci z kilku stron, żeby wyglądał tak samo na wszystkich materiałach.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "character-design"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    },
+    {
+      "id": "RT25",
+      "title": "With the Studio name: multi-asset visual campaign",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio zaprojektuj spójny key visual kampanii jesiennej dla sieci piekarni i rozpisz go na plakat, post, baner i citylight.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "commercial-visual-campaign-director"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts the requested work or asks at most one consequential question",
+        "Answers in Polish",
+        "Does not invent facts, prices or claims the user did not give"
+      ]
+    }
+  ]
+}

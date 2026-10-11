@@ -12,6 +12,10 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill to define repeatable character identity systems for static, motion, storyboard, or prompt workflows. It protects continuity before prompts or boards are produced.
 
+## Mascots and stylized characters
+
+For a mascot or a stylized character a brand or school will reuse, follow [mascots and stylized characters](references/mascot-and-stylized-characters.md): silhouette, shape language, fixed proportions and three to five anchors, then the [mascot sheet](assets/mascot-sheet.template.md) (turnaround, expressions, poses, colours, do and do not, small sizes) before any campaign image.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

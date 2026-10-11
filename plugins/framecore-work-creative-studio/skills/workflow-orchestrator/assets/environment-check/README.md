@@ -72,6 +72,7 @@ The required set, for every host the plugin runs in. The validator checks that e
 | Pillow (Python imaging) | observed | observed | install | install | check |
 | NumPy | check | observed | install | install | check |
 | CairoSVG (SVG logos in the renderer) | check | check | install | install | check |
+| fontTools (font outlines) | check | check | install | install | check |
 | imageio-ffmpeg (bundled FFmpeg for the renderer) | check | check | install | install | check |
 | matplotlib (font fallback for the renderer) | check | check | install | install | check |
 | Manim Community (mathematical animation) | check | check | install | install | check |
