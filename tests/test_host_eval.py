@@ -52,6 +52,32 @@ class Suite(unittest.TestCase):
         self.assertTrue(cases['D01']['turns'][0]['prompt'].startswith('@FrameCore Works Creative Studio Podaj dokładnie trzy'))
         self.assertTrue(cases['D01']['rubric'])
 
+    def test_every_suite_and_the_gate_fit_the_owner_case_limits(self):
+        self.assertEqual(host_eval.CASE_LIMITS, {'full': 25, 'gate': 5})
+        for name in host_eval.suite_names():
+            cases = host_eval.load_suite(name)['cases']
+            self.assertLessEqual(len(cases), host_eval.CASE_LIMITS['full'], name)
+            self.assertLessEqual(len([c for c in cases if c.get('gate')]), host_eval.CASE_LIMITS['gate'], name)
+        run, skipped = host_eval.within_limit([{'id': f'C{i}'} for i in range(7)], 5)
+        self.assertEqual(([c['id'] for c in run], skipped), (['C0', 'C1', 'C2', 'C3', 'C4'], ['C5', 'C6']))
+
+
+class Usage(unittest.TestCase):
+    def test_tokens_sum_every_model_or_fall_back_to_usage(self):
+        result = {'modelUsage': {'claude-sonnet-5-5': {'inputTokens': 10, 'outputTokens': 200, 'cacheReadInputTokens': 3000, 'cacheCreationInputTokens': 400},
+                                 'claude-haiku-5-5': {'inputTokens': 5, 'outputTokens': 20}},
+                  'usage': {'input_tokens': 1, 'output_tokens': 1}}
+        self.assertEqual(host_eval.tokens_of(result), {'input': 15, 'output': 220, 'cache_read': 3000, 'cache_write': 400})
+        self.assertEqual(host_eval.tokens_of({'usage': {'input_tokens': 7, 'output_tokens': 9, 'cache_read_input_tokens': 2}}),
+                         {'input': 7, 'output': 9, 'cache_read': 2, 'cache_write': 0})
+        self.assertEqual(host_eval.add_tokens({'input': 1, 'output': 2, 'cache_read': 3, 'cache_write': 4}, None),
+                         {'input': 1, 'output': 2, 'cache_read': 3, 'cache_write': 4})
+
+    def test_no_dollar_total_is_computed_or_recorded(self):
+        source = (host_eval.ROOT / 'scripts/host_eval.py').read_text(encoding='utf-8')
+        self.assertNotIn('total_cost_usd', source)
+        self.assertNotIn('cost_usd', source.replace('--max-budget-usd', ''))
+
 
 class Checks(unittest.TestCase):
     def test_welcome_must_be_byte_identical(self):

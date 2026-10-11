@@ -1589,3 +1589,25 @@ Cross-host state:
 - GitHub: synchronized. `main` at `5de353a`; workflows Check Studio sources 38134055178, Check Studio sources 38134053862, Refresh current release notes 38134052026, Publish verified Studio release 38134052025, Check Studio sources 38134052030: success; [v1.64.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.64.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1171 of 1171) ([record](../verification/github-publication-1.64.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261011-07
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-07-eval-limits`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `af39dd9` (main, package 1.64.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository only)
+- Package version: 1.64.0 (unchanged)
+- Scope: owner decision 2026-10-11 (1a, 2a): host-eval runs use the Claude plan's usage, not separate billing. `scripts/host_eval.py` drops the dollar budget and records cases, tokens and time; it runs at most 25 cases per pass and 5 for the release gate (`--max-cases` only on the owner's request); `--turn-budget-usd` stays as a per-turn runaway stop. AGENTS.md, `docs/host-evals.md` and the improvement plan say so; earlier dollar figures are labelled as Claude Code's API-price equivalents, not charges
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: PASS, with 12 host-eval harness tests (3 new: case limits for every suite and the gate, token totals from every model, no dollar total computed)
+- no host-eval run was made for this change
+
+Cross-host state:
+
+- GitHub: pending until the push is read back
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not_run

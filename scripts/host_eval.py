@@ -2,16 +2,17 @@
 """Run Studio's host evaluations in a real host: headless Claude Code with the plugin loaded.
 
   python3 scripts/host_eval.py --list
-  python3 scripts/host_eval.py --gate --write                  # release-gate subset, about USD 1 or less
+  python3 scripts/host_eval.py --gate --write                  # release-gate subset (at most 5 cases)
   python3 scripts/host_eval.py --cases W01,R02 --judge         # chosen cases, with the advisory judge
   python3 scripts/host_eval.py --suite routing --write         # the Polish routing set (tests/host-evals/routing.json)
-  python3 scripts/host_eval.py --write --budget-usd 4          # the whole suite
+  python3 scripts/host_eval.py --write                         # the whole suite (at most 25 cases)
 
 Each case runs in a fresh empty workspace with an isolated Claude Code configuration, so only this plugin (loaded with
 --plugin-dir from the source tree) and the built-in tools are present; later turns resume the same session. The checks
 in the suite (tests/host-evals/<suite>.json, default suite.json) decide PASS or FAIL. The optional judge, a second model call that reads the case's
-rubric and the reply, is advisory and never changes a verdict. Runs cost money: the script stops before a case once
-the spent total reaches --budget-usd, and every record states the cost. With --write the run is recorded in
+rubric and the reply, is advisory and never changes a verdict. Runs use the Claude plan's usage, so the script runs at
+most 25 cases per pass and 5 for the release gate (owner decision 2026-10-11; --max-cases changes it only on the owner's
+request) and every record states the cases, tokens and time. With --write the run is recorded in
 verification/host-evals/<date>-<version>-<suite>.json. A record is evidence for Claude Code on this machine and model
 only; it does not establish ChatGPT, ChatGPT Work or Claude apps behaviour.
 """
@@ -36,6 +37,10 @@ RECORDS = ROOT / 'verification/host-evals'
 WELCOME = {lang: PLUGIN / f'skills/workflow-orchestrator/assets/startup-welcome.{lang}.md' for lang in ('en', 'pl')}
 NAMESPACE = 'framecore-work-creative-studio:'
 DEFAULT_TOOLS = ['Read', 'Glob', 'Grep', 'Skill']
+CASE_LIMITS = {'full': 25, 'gate': 5}
+TOKEN_KEYS = (('input', 'inputTokens', 'input_tokens'), ('output', 'outputTokens', 'output_tokens'),
+              ('cache_read', 'cacheReadInputTokens', 'cache_read_input_tokens'),
+              ('cache_write', 'cacheCreationInputTokens', 'cache_creation_input_tokens'))
 POLISH = re.compile(r'[ąćęłńóśźż]', re.I)
 POLISH_WORDS = re.compile(r'\b(i|w|z|na|nie|się|jest|to|że|do|dla|jak|czy|albo|oraz|mogę|możesz|twój|twoje)\b', re.I)
 ENGLISH_WORDS = re.compile(r'\b(the|and|you|your|for|with|is|are|to|of|can|or|this|that|what)\b', re.I)
@@ -82,6 +87,24 @@ def claude_env(config):
     return env
 
 
+def tokens_of(result):
+    """Tokens of one Claude Code result: summed over every model it used (modelUsage), else its usage block."""
+    models = result.get('modelUsage') or {}
+    if models:
+        return {name: sum(int(m.get(camel) or 0) for m in models.values()) for name, camel, _ in TOKEN_KEYS}
+    usage = result.get('usage') or {}
+    return {name: int(usage.get(snake) or 0) for name, _, snake in TOKEN_KEYS}
+
+
+def add_tokens(*parts):
+    return {name: sum(int((p or {}).get(name, 0)) for p in parts) for name, _, _ in TOKEN_KEYS}
+
+
+def within_limit(cases, limit):
+    """The cases a pass may run under the case limit, and the ones it leaves out."""
+    return cases[:limit], [c['id'] for c in cases[limit:]]
+
+
 def run_turn(prompt, workspace, config, args, tools, session=None, max_turns=None):
     command = ['claude', '-p', prompt, '--plugin-dir', str(PLUGIN), '--output-format', 'stream-json', '--verbose',
                '--model', args.model, '--max-turns', str(max_turns or args.max_turns), '--allowed-tools', ' '.join(tools),
@@ -109,7 +132,7 @@ def run_turn(prompt, workspace, config, args, tools, session=None, max_turns=Non
                 tools_used.append({'name': block.get('name'), 'input': block.get('input', {})})
     return {
         'reply': result.get('result') or '', 'is_error': bool(result.get('is_error')), 'subtype': result.get('subtype'),
-        'session': result.get('session_id'), 'cost_usd': float(result.get('total_cost_usd') or 0.0),
+        'session': result.get('session_id'), 'tokens': tokens_of(result),
         'turns': result.get('num_turns'), 'models': sorted((result.get('modelUsage') or {}).keys()),
         'seconds': round(time.time() - started, 1), 'tools': tools_used,
     }
@@ -248,9 +271,9 @@ def judge(case, turns, args, config, workspace):
         result = json.loads(done.stdout)
         text = result.get('result', '')
         verdict = json.loads(re.search(r'\{[\s\S]*\}', text).group(0))
-        return {'model': args.judge_model, 'cost_usd': float(result.get('total_cost_usd') or 0.0), **verdict}
+        return {'model': args.judge_model, 'tokens': tokens_of(result), **verdict}
     except (ValueError, AttributeError):
-        return {'model': args.judge_model, 'error': (done.stderr or done.stdout)[-300:], 'cost_usd': 0.0}
+        return {'model': args.judge_model, 'error': (done.stderr or done.stdout)[-300:], 'tokens': add_tokens()}
 
 
 def run_case(case, args):
@@ -259,10 +282,10 @@ def run_case(case, args):
         config, workspace = Path(temp, 'config'), Path(temp, 'work')
         config.mkdir()
         workspace.mkdir()
-        session, turns, spent = None, [], 0.0
+        session, turns, used, seconds = None, [], add_tokens(), 0.0
         for index, step in enumerate(case['turns']):
             turn = run_turn(step['prompt'], workspace, config, args, tools, session, case.get('max_turns'))
-            session, spent = turn['session'], spent + turn['cost_usd']
+            session, used, seconds = turn['session'], add_tokens(used, turn['tokens']), seconds + turn['seconds']
             results = []
             for spec in step.get('checks', []):
                 passed, detail = check(spec, turn)
@@ -272,26 +295,26 @@ def run_case(case, args):
             turns.append({'index': index + 1, 'prompt': step['prompt'], 'reply': turn['reply'][:args.keep_chars],
                           'reply_chars': len(turn['reply']), 'reply_sha256': hashlib.sha256(turn['reply'].encode('utf-8')).hexdigest(),
                           'skills': skills_of(turn['tools']), 'tools': [t['name'] for t in turn['tools']],
-                          'models': turn['models'], 'cost_usd': round(turn['cost_usd'], 4), 'seconds': turn['seconds'], 'checks': results})
+                          'models': turn['models'], 'tokens': turn['tokens'], 'seconds': turn['seconds'], 'checks': results})
         verdict = 'PASS' if all(r['passed'] for t in turns for r in t['checks']) else 'FAIL'
         graded = judge(case, turns, args, config, workspace) if args.judge else None
         if graded:
-            spent += graded.get('cost_usd', 0.0)
+            used = add_tokens(used, graded.get('tokens'))
     return {'id': case['id'], 'title': case['title'], 'source': case.get('source'), 'gate': bool(case.get('gate')),
-            'verdict': verdict, 'cost_usd': round(spent, 4), 'turns': turns, 'judge_advisory': graded}
+            'verdict': verdict, 'tokens': used, 'seconds': round(seconds, 1), 'turns': turns, 'judge_advisory': graded}
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Run Studio's host evaluations in headless Claude Code (costs money).")
-    parser.add_argument('--list', action='store_true', help='list the cases and exit; spends nothing')
+    parser = argparse.ArgumentParser(description="Run Studio's host evaluations in headless Claude Code (uses the Claude plan's usage).")
+    parser.add_argument('--list', action='store_true', help='list the cases and exit; runs nothing')
     parser.add_argument('--suite', default='suite', choices=suite_names(), help='the suite file under tests/host-evals/ (default: suite)')
     parser.add_argument('--gate', action='store_true', help='only the release-gate cases')
     parser.add_argument('--cases', help='comma-separated case IDs')
     parser.add_argument('--model', default='claude-sonnet-5-5')
-    parser.add_argument('--judge', action='store_true', help='add the advisory rubric judge (extra cost)')
+    parser.add_argument('--judge', action='store_true', help='add the advisory rubric judge (one more model call per case)')
     parser.add_argument('--judge-model', default='claude-haiku-5-5')
-    parser.add_argument('--budget-usd', type=float, default=4.0, help='stop before a case once this much is spent')
-    parser.add_argument('--turn-budget-usd', type=float, default=0.75)
+    parser.add_argument('--max-cases', type=int, help=f"cases per pass (default {CASE_LIMITS['full']}, {CASE_LIMITS['gate']} with --gate); raise it only on the owner's request")
+    parser.add_argument('--turn-budget-usd', type=float, default=0.75, help="runaway stop for one turn, passed to Claude Code's --max-budget-usd (its API-price scale, not a charge)")
     parser.add_argument('--max-turns', type=int, default=8, help='agent turns per user message')
     parser.add_argument('--timeout', type=int, default=600)
     parser.add_argument('--keep-chars', type=int, default=6000, help='reply characters kept in the record')
@@ -315,19 +338,19 @@ def main(argv=None):
         print('host_eval: Claude Code (claude) is not installed', file=sys.stderr)
         return 2
     claude_version = subprocess.run(['claude', '--version'], capture_output=True, text=True).stdout.split()[0]
-    results, spent, skipped = [], 0.0, []
+    limit = args.max_cases or CASE_LIMITS['gate' if args.gate else 'full']
+    cases, skipped = within_limit(cases, limit)
+    results, used, seconds = [], add_tokens(), 0.0
     for case in cases:
-        if spent >= args.budget_usd:
-            skipped.append(case['id'])
-            continue
         try:
             outcome = run_case(case, args)
         except (EvalError, subprocess.TimeoutExpired) as error:
-            outcome = {'id': case['id'], 'title': case['title'], 'verdict': 'ERROR', 'detail': str(error)[:600], 'cost_usd': 0.0}
-        spent += outcome['cost_usd']
+            outcome = {'id': case['id'], 'title': case['title'], 'verdict': 'ERROR', 'detail': str(error)[:600], 'tokens': add_tokens(), 'seconds': 0.0}
+        used, seconds = add_tokens(used, outcome['tokens']), seconds + outcome['seconds']
         results.append(outcome)
         failed = [r['detail'] for t in outcome.get('turns', []) for r in t['checks'] if not r['passed']]
-        print(f"{outcome['id']}: {outcome['verdict']} (USD {outcome['cost_usd']:.3f})" + (f" {failed}" if failed else '') + (f" {outcome.get('detail')}" if outcome['verdict'] == 'ERROR' else ''), flush=True)
+        size = outcome['tokens']['input'] + outcome['tokens']['output'] + outcome['tokens']['cache_read'] + outcome['tokens']['cache_write']
+        print(f"{outcome['id']}: {outcome['verdict']} ({size} tokens, {outcome['seconds']:.0f} s)" + (f" {failed}" if failed else '') + (f" {outcome.get('detail')}" if outcome['verdict'] == 'ERROR' else ''), flush=True)
     counts = {v: sum(1 for r in results if r['verdict'] == v) for v in ('PASS', 'FAIL', 'ERROR')}
     head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     dirty = subprocess.run(['git', 'status', '--porcelain', '--', str(PLUGIN)], cwd=ROOT, capture_output=True, text=True).stdout.strip()
@@ -337,7 +360,7 @@ def main(argv=None):
         'suite': suite['name'] + (' (gate)' if args.gate else ''), 'host': f'Claude Code {claude_version}, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir',
         'model': args.model, 'judge': args.judge_model if args.judge else None, 'allowed_tools_default': DEFAULT_TOOLS,
         'scope': 'Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.',
-        'summary': {**counts, 'cases': len(results), 'skipped_for_budget': skipped, 'cost_usd': round(spent, 4)},
+        'summary': {**counts, 'cases': len(results), 'case_limit': limit, 'skipped_over_limit': skipped, 'tokens': used, 'seconds': round(seconds, 1)},
         'cases': results,
     }
     print(json.dumps(record['summary']))

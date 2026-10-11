@@ -3,11 +3,11 @@
 `scripts/host_eval.py` runs Studio in a real host: headless Claude Code (`claude -p`) with the plugin loaded from this source tree, one fresh empty workspace and an isolated configuration per case, later turns resumed in the same session. It complements the [host smoke set](host-smoke-set.md), which a person runs in ChatGPT and ChatGPT Work. A record is evidence for Claude Code on the machine and model that ran it; it does not establish ChatGPT, ChatGPT Work or Claude apps behaviour.
 
 ```sh
-python3 scripts/host_eval.py --list                     # the cases; spends nothing
-python3 scripts/host_eval.py --gate --write             # release-gate subset (5 cases, about USD 0.6)
-python3 scripts/host_eval.py --write --budget-usd 4     # the whole suite (17 cases, about USD 2)
+python3 scripts/host_eval.py --list                     # the cases; runs nothing
+python3 scripts/host_eval.py --gate --write             # release-gate subset (5 cases)
+python3 scripts/host_eval.py --write                    # the whole suite (17 cases)
 python3 scripts/host_eval.py --cases W04,S01 --judge    # chosen cases with the advisory judge
-python3 scripts/host_eval.py --suite routing --write    # the Polish routing set (25 cases, about USD 3)
+python3 scripts/host_eval.py --suite routing --write    # the Polish routing set (25 cases)
 ```
 
 ## How a case is judged
@@ -16,15 +16,17 @@ The suite is [tests/host-evals/suite.json](../tests/host-evals/suite.json). A ca
 
 The [routing set](../tests/host-evals/routing.json) (`--suite routing`) holds 25 real-style Polish requests, nine addressed to Studio by name and sixteen not, each checked by the owner the host loaded; `no_skills` marks the wrong side of a known collision (image prompt, product video entry points, supplied-video review, service businesses). It measures routing, not quality: a small task answered well without loading its owner still fails there.
 
-Every record in [verification/host-evals/](../verification/host-evals/) states the package version, source commit, Claude Code version, model, allowed tools, each reply (up to 6,000 characters) with its SHA-256, the skills and tools used, the cost and the time. A failed case is reviewed before anything is changed: a harness defect is fixed in the harness, a case that does not apply to the host is rewritten with the reason in `host_note`, and a product finding is fixed in the package and rerun. The review is written into the record.
+Every record in [verification/host-evals/](../verification/host-evals/) states the package version, source commit, Claude Code version, model, allowed tools, each reply (up to 6,000 characters) with its SHA-256, the skills and tools used, the tokens and the time. A failed case is reviewed before anything is changed: a harness defect is fixed in the harness, a case that does not apply to the host is rewritten with the reason in `host_note`, and a product finding is fixed in the package and rerun. The review is written into the record.
 
-## Cost
+## Plan usage
 
-The owner approved paid runs on 2026-10-10 (decision 2a): about USD 2 to 4 for a full pass and under USD 1 for the release gate. Measured on 2026-10-10 with Claude Code 2.1.296 and `claude-sonnet-5-5`: USD 0.06 to 0.21 per case, USD 1.68 for the 15-case suite. The script stops before a case once `--budget-usd` is spent and caps each turn with `--turn-budget-usd`.
+Runs use the usage of the Claude plan the session runs on; they are not billed separately. Owner decision 2026-10-11 (1a, 2a): runs go ahead without asking, at most 25 cases per pass and 5 for the release gate; the script stops at that limit (`--max-cases` changes it only on the owner's request) and records the cases, tokens and time. `--turn-budget-usd` is only a runaway stop for one turn, passed to Claude Code in its API-price scale.
+
+The dollar figures in the results below, for runs up to 2026-10-11, are what Claude Code reported as the API-price equivalent of the tokens (`total_cost_usd`); they were not charges. Later records carry tokens and time instead.
 
 ## Results
 
-| Date | Package | Cases | Result | Cost | Record |
+| Date | Package | Cases | Result | Usage | Record |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-10 | 1.55.0 | 15 | 12 PASS, 3 FAIL: one harness defect (D01), one case not applicable as written (LM01, no Studio name), one product finding (S01, two questions after offering directions) | USD 1.68 | [suite](../verification/host-evals/2026-10-10-1.55.0-suite.json) |
 | 2026-10-10 | 1.56.0 candidate | 3 | D01, LM01 (with the Studio name) and S01 PASS after the fixes | USD 0.26 | [rerun](../verification/host-evals/2026-10-10-1.56.0-candidate-LM01-D01-S01.json) |

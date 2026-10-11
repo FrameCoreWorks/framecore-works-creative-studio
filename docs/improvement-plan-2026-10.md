@@ -117,7 +117,7 @@ Each phase ships as one or more releases with the full checks. Effort: S under h
 ## Decisions that belong to the owner
 
 1. Phase order (default: 0, 1, 2, 3, 4, 5).
-2. Spending on host-eval runs (estimated USD 2–4 per suite pass on a mid model, under 1 for the release gate subset).
+2. Host-eval runs: decided 2026-10-10 (2a) and restated 2026-10-11: they use the Claude plan's usage, at most 25 cases per pass and 5 for the release gate, recorded as cases, tokens and time.
 3. Retiring the legacy suite with in-place stubs (AGENTS.md currently requires its baseline).
 4. Inputs for the quote builder: rates, VAT status, typical packages.
 5. Generators and editors used daily, for the dialect cards and tool routing.

@@ -26,7 +26,7 @@ Make focused edits and preserve the user's changes. Run the canonical `node plug
 
 ## Owner product decisions (2026-10-10)
 
-Studio is a general product for any user, not a personal tool: never personalize defaults to one person's rates, tools, clients or teaching context; anything user-specific (rates, VAT status, preferred generators, brand kits) is an input the user supplies at run time. The owner approved paid headless host-evaluation runs within about USD 2–4 per full suite pass and under USD 1 per release-gate subset; record cost with every run. The improvement plan in `docs/improvement-plan-2026-10.md` is worked in phase order 0 to 5.
+Studio is a general product for any user, not a personal tool: never personalize defaults to one person's rates, tools, clients or teaching context; anything user-specific (rates, VAT status, preferred generators, brand kits) is an input the user supplies at run time. Headless host-evaluation runs use the Claude plan's usage, not separate billing (owner decision 2026-10-11): run them without asking, at most 25 cases per full pass and 5 per release-gate subset, and record cases, tokens and time with every run; a dollar figure from Claude Code is an API-price equivalent, not a cost. The improvement plan in `docs/improvement-plan-2026-10.md` is worked in phase order 0 to 5.
 
 ## Development provenance
 
