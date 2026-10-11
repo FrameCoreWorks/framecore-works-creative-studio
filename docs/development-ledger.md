@@ -1671,6 +1671,27 @@ Verification:
 
 Cross-host state:
 
+- GitHub: synchronized. `main` at `d626509`, read back with `git ls-remote`
+- ChatGPT Work: not_tracked (owner decision 2026-10-10); this report is the owner's own test
+- Codex: not_run
+
+## CC-20261011-11
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-11-klos-inspection`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `d626509` (main, package 1.65.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository only)
+- Package version: 1.65.0 (unchanged)
+- Scope: the owner sent the MP4 from the ChatGPT Work M04 run. Probed and inspected frame by frame (no normal-speed viewing): 1080 x 1920, 60 fps, 360 frames, 6.000 s, silent; copy exact with correct diacritics; motion only until 1.33 s, then a still frame for 78 % of the runtime although the reported frame check was 90/100. Development review from frames: REVISE ([report](../verification/host-report-2026-10-11-m04-full-path-chatgpt-work.json))
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh --fast`: PASS
+- frame evidence only; the temporal verdict stays not verified
+
+Cross-host state:
+
 - GitHub: pending until the push is read back
 - ChatGPT Work: not_tracked (owner decision 2026-10-10); this report is the owner's own test
 - Codex: not_run

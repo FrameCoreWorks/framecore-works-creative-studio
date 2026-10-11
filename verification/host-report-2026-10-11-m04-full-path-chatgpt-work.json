@@ -6,7 +6,26 @@
   "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
   "case": "host-eval M04 reworded so that no logo is expected (the owner noted the first wording implied a logo), run by hand",
   "reply": "Delivered Klos_6s_r2_1080x1920.mp4 (reported: 6 s, 1080 x 1920, 60 FPS, no sound; the name as text, an animated ear-of-wheat motif and the slogan) and Klos_6s_projekt.zip; frame check reported 90 -> 90/100 with no errors; the steady ending described as deliberate for readability; no storyboard step (direct production of a complete brief)",
-  "result": "PASS_REPORTED for the full path in ChatGPT Work: a complete brief became a rendered MP4 and an editable project in one turn, with the copy kept as given in the reply text",
+  "result": "PASS_REPORTED for the full path (a rendered MP4 and the project in one turn); inspection: technically right and copy exact, but REVISE for development: the film is a still frame after 1.33 s",
   "not_verified": "The video itself (exact copy in the frames, motion quality, the development review) was not inspected here; the reply did not state that nobody had watched the file yet, which the motion method asks for (NOT VERIFIED until watched)",
-  "owner_decision": "2026-10-11 (2c): the owner checks M04 in ChatGPT Work himself"
+  "owner_decision": "2026-10-11 (2c): the owner checks M04 in ChatGPT Work himself",
+  "inspection": {
+    "file": "Klos_6s_r2_1080x1920.mp4, 159,015 bytes, sent by the owner",
+    "probe": "H.264 High, yuv420p, 1080 x 1920, 60/1 fps, 360 decoded frames, 6.000 s, no audio stream",
+    "method": "every decoded frame compared with the previous one at quarter size, a contact sheet every 15 frames, frames 90 and 359 compared at full size, a phone-scale preview; no normal-speed viewing",
+    "observed_in_frames": [
+      "frame 0 shows only the empty arch, a short line and a dot",
+      "motion only between 0.10 and 1.33 s: the wheat motif appears, then the name and the slogan rise in behind a mask",
+      "from frame 81 (1.35 s) to frame 359 nothing changes: 6 of 2,073,600 pixels differ by more than 20 between frames 90 and 359, so 78 % of the runtime is a still frame",
+      "exact copy present with correct diacritics: \"Kłos\" and \"Świeży chleb codziennie\"; the slogan is small but readable at phone scale",
+      "the arch with three wheat ears reads as an emblem although the brief said there is no logo"
+    ],
+    "verdicts": {
+      "A_technical": "pass (matches the reply: 6 s, 1080 x 1920, 60 fps, silent as asked)",
+      "B_fidelity": "pass for the copy in frames; the invented emblem should be offered as a placeholder, not as a logo",
+      "C_composition": "pass with a note: frame 0 has no name or slogan",
+      "D_temporal": "not_verified (no normal-speed viewing); the development review from frames: the idea stops developing at 1.33 s, no signature moment, no rhythm contrast after the reveal: REVISE"
+    },
+    "finding": "The reported frame check of 90/100 passed a film that is a still image for 78 % of its length; the development review (added in 1.65.0) would have flagged it, and the reply did not say the file was not yet watched"
+  }
 }
