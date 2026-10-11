@@ -10,6 +10,10 @@ Before final delivery of a substantive authored, revised or generated creative a
 Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
+## Voice-over length
+
+A voice-over script fits its length only within the [short-form timing card](../pipeline-core/references/short-form-timing.md) budget: check it with `scripts/vo_budget.py script.txt --length 15 --language pl` and cut words rather than ask for a faster read.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

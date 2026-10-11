@@ -9,6 +9,10 @@ Before final delivery of a substantive authored, revised or generated creative a
 
 Own the sound and music decisions within FrameCore Works Creative Studio. This owner plans and reviews audio; it is not a music-generation connector, a licensed-track marketplace, an automatic audio analyser, or a publishing service. Do not claim a listen, beat map, mix, license or generation unless the exact evidence or execution exists.
 
+## Voice-over budgets
+
+Cast and direct a voice-over to the rate in the [short-form timing card](../pipeline-core/references/short-form-timing.md) (calm, standard or fast, Polish or English) and measure the recorded read.
+
 ## Sound Studio makes itself
 
 For a motion video built from a contract in the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md), Studio designs and mixes the sound with code where code execution with numpy and ffmpeg exists: effects designed for the video's own events, a composed music bed, a master at -14 LUFS muxed into the MP4 and a timing check ([motion sound design](../hyperframes-workflow/references/motion-sound-design.md)). Route that work there instead of writing a prompt for an external tool. This owner keeps songs, lyrics, voice, external providers, licensed tracks and the review of supplied audio. A video the user supplies gets the same designed effects and music bed from its measured cuts and marked moments where that code runs ([sound for supplied footage](../hyperframes-workflow/assets/motion-sound/README.md#sound-for-supplied-footage)); without it, a picture-first plan here.

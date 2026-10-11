@@ -85,6 +85,26 @@
       "observed": "2026-10-10: container tests only"
     },
     {
+      "id": "vo_budget",
+      "executed_by": "studio",
+      "owner": "copy-voice",
+      "does": "Checks whether a voice-over script fits its video length: words and Polish syllables against the short-form timing card, the pause after punctuation, and how much to cut",
+      "tools": [
+        "skills/copy-voice/scripts/vo_budget.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Words, estimated seconds, the budget for the length and a verdict as JSON or a Markdown row",
+      "when_missing": "Count the words by hand against the timing card table and say the check was manual",
+      "observed": "2026-10-11: container tests only"
+    },
+    {
       "id": "quote_calc",
       "executed_by": "studio",
       "owner": "brief-architect",
@@ -365,6 +385,132 @@
       "delivers": "MP4 with the designed sound, the sound contract, a cue table, the timing status and loudness in LUFS",
       "when_missing": "A picture-first sound plan from the measured or supplied cuts, with planned and measured times kept apart",
       "observed": "2026-10-08: container tests on a synthetic three-shot video (cuts found on their exact frames, every hit judged on its frame, about -14 LUFS delivered); no host run recorded"
+    },
+    {
+      "id": "edit_export",
+      "executed_by": "studio",
+      "owner": "opencut-video-studio",
+      "does": "Exports an edit decision list as a CMX 3600 EDL, an OpenTimelineIO timeline and a CSV shot list for an editor",
+      "tools": [
+        "skills/opencut-video-studio/scripts/edit_export.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "An .edl, an .otio and a -shots.csv file with the same cuts",
+      "when_missing": "Write the shot list as a table with record and source timecodes",
+      "observed": "2026-10-11: container tests; both files read back with OpenTimelineIO 0.18.1; editor imports not run"
+    },
+    {
+      "executed_by": "studio",
+      "optional": [],
+      "id": "board_compose",
+      "owner": "storyboard-board-architect",
+      "does": "Composes a storyboard into PNG pages and one PDF: frames in a grid with exact labels in the bundled Inter, placeholders for missing frames, labels never cut",
+      "tools": [
+        "skills/storyboard-board-architect/scripts/board_compose.py"
+      ],
+      "requires": [
+        "python",
+        "pillow"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Board pages as PNG and a PDF",
+      "when_missing": "Deliver the board specification (panel map and labels) and say the file was not composed",
+      "observed": "2026-10-11: container tests only"
+    },
+    {
+      "executed_by": "studio",
+      "optional": [
+        "pillow"
+      ],
+      "id": "sheet_export",
+      "owner": "storyboard-sequence-architect",
+      "does": "Exports a shot list, an AV script or any table as XLSX (standard library), CSV and a printable PDF with exact text",
+      "tools": [
+        "skills/storyboard-sequence-architect/scripts/sheet_export.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "XLSX and CSV; the PDF needs Pillow",
+      "when_missing": "Deliver the table in Markdown and say no file was made",
+      "observed": "2026-10-11: container tests; the XLSX read back with openpyxl"
+    },
+    {
+      "executed_by": "studio",
+      "optional": [],
+      "id": "shot_plan_check",
+      "owner": "storyboard-sequence-architect",
+      "does": "Checks a structured shot plan for interval gaps, duplicate IDs, missing bridges and unbound references, with the same rules and result as the Node checker",
+      "tools": [
+        "skills/storyboard-sequence-architect/scripts/check_shot_plan.py",
+        "scripts/review-creative-plan.mjs"
+      ],
+      "requires": [
+        "python"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "The structural verdict, errors, blockers and human review items as JSON",
+      "when_missing": "Check the intervals and bridges by hand and say so",
+      "observed": "2026-10-11: container tests; 24 plans give identical results in Python and Node"
+    },
+    {
+      "executed_by": "studio",
+      "optional": [],
+      "id": "prompt_pack",
+      "owner": "video-prompt-architect",
+      "does": "Exports a video prompt pack as Markdown copy blocks, CSV and JSONL, and checks IDs, durations, reference files and coverage of the shot plan before generation",
+      "tools": [
+        "skills/video-prompt-architect/scripts/prompt_pack.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Prompt files and findings",
+      "when_missing": "Give each prompt in its own block and check the list by hand",
+      "observed": "2026-10-11: container tests only"
+    },
+    {
+      "executed_by": "studio",
+      "optional": [],
+      "id": "clip_review",
+      "owner": "video-prompt-architect",
+      "does": "Measures generated or supplied clips and puts their first, middle and last frames on one sheet, flagging clips shorter than their shot, the wrong ratio or frame rate",
+      "tools": [
+        "skills/video-prompt-architect/scripts/clip_review.py"
+      ],
+      "requires": [
+        "python",
+        "pillow",
+        "ffmpeg"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "contact-sheet.png and review.json",
+      "when_missing": "Ask for the clip details from the generator and review the clips one by one",
+      "observed": "2026-10-11: container tests with synthetic clips"
     },
     {
       "id": "captions",

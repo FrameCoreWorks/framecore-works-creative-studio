@@ -43,6 +43,7 @@ test('every reference and template is linked from a skill; a "(moved)" pointer i
   });
   withFixture(root => {
     edit(root, 'skills/storytelling/SKILL.md', text => text.replace('[short-form structures](references/short-form-structures.md)', 'short-form structures'));
+    edit(root, 'skills/pipeline-core/references/short-form-timing.md', text => text.replace('[beat budget](../../storytelling/references/short-form-structures.md#beat-budget)', 'beat budget'));
     assert.ok(codes(validateStudio(root)).includes('REFERENCE_REACH'));
   });
   withFixture(root => {

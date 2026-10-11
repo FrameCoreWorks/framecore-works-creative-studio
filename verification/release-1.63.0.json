@@ -1,0 +1,162 @@
+{
+  "version": "1.63.0",
+  "date": "2026-10-11",
+  "baseline": "778e27e23f8f1dcaf2893d67945a5270ae6dd448",
+  "change_id": "CC-20261011-05",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1160,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7773 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 216,
+        "pass": 209,
+        "fail": 0,
+        "skipped": 7
+      },
+      "python": {
+        "Codex installer": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "package identity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "benchmark script": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "host smoke": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "hosted readback": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "Claude plugin and guides": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "GEPA pilot": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "asset": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "caption": {
+          "tests": 16,
+          "skipped": 0
+        },
+        "environment check": {
+          "tests": 18,
+          "skipped": 0
+        },
+        "motion acceptance": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "motion fonts": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "motion kinds": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "motion variants": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "skill finder": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "Animate engine": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "Animate voice": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "static render": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "Polish copy check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "image probe": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "quote calculator": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "voice-over budget": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "edit export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "storyboard compositor": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "sheet export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "shot plan check": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "prompt pack": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "clip review": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "host-eval harness": {
+          "tests": 6,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 79
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.296)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Phase 4 of the improvement plan: a shared short-form timing card with a voice-over budget tool, EDL, OTIO and CSV editor handoff with step lists, client templates for ad scripts, one-pagers, music-video treatments and creator briefs, executable storyboard, shot-list, prompt-pack and clip-review tools with a Python port of the shot-plan checker, and generator dialect cards for five video models, registered in the capability card, checks and knowledge map",
+  "source": "Release 1.63.0: short-form timing, editor handoff, client templates, storyboard and shot-list files, prompt packs and generator dialects",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

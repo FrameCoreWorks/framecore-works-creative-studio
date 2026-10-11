@@ -34,7 +34,7 @@ A synthetic presenter is never presented as a customer, and a creator-style look
 
 ## 3. Script skeleton
 
-A planning heuristic for paid short-form UGC, not a platform rule. Adjust to the brief and the speaker's natural pace.
+A planning heuristic for paid short-form UGC, not a platform rule. Adjust to the brief and the speaker's natural pace. Opening targets and spoken-word budgets for Polish and English come from the [short-form timing card](../../pipeline-core/references/short-form-timing.md); check a script with `vo_budget.py`.
 
 | Part | Job | 15 s | 30 s | 60 s |
 | --- | --- | --- | --- | --- |

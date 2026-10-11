@@ -53,6 +53,6 @@ Diagnosis: missing state transition and unsupported contact, before considering 
 
 ## Handoff and optional arithmetic check
 
-Use [the sequence planning example](../assets/shot-plan.example.json) and [read-only checker](../../../scripts/review-creative-plan.mjs) when a structured plan helps. The checker can find interval gaps, duplicate IDs, missing bridges and declared reference blockers. It cannot judge pixels, anatomy, taste, physical simulation or perceptual smoothness. A structurally valid plan keeps observed quality uninspected until actual media is reviewed.
+Use [the sequence planning example](../assets/shot-plan.example.json) and [read-only checker](../../../scripts/review-creative-plan.mjs) (or its Python port, [`check_shot_plan.py`](../scripts/check_shot_plan.py), where only Python runs) when a structured plan helps. The checker can find interval gaps, duplicate IDs, missing bridges and declared reference blockers. It cannot judge pixels, anatomy, taste, physical simulation or perceptual smoothness. A structurally valid plan keeps observed quality uninspected until actual media is reviewed.
 
 Pass shot IDs, target/edit timing, incoming/outgoing states, required bridges, protected product/identity properties, actual reference bindings and unresolved fields to the board and video-prompt owners. For new media, inspect each required output and then the actual adjacent pair. An accepted standalone frame is not evidence that its transition works. Repeat only the affected check after a repair.

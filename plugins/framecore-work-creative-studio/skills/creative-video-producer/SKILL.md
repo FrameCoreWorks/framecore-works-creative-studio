@@ -12,6 +12,10 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill to turn a rough video request and available source material into a production-ready package. It coordinates existing roles and specialist skills; it does not become a permanent agent, media provider, or editing runtime.
 
+## Shared timing
+
+Every stage of a multi-part video uses one set of timing numbers, the [short-form timing card](../pipeline-core/references/short-form-timing.md), so script, storyboard, prompts, captions and edit plan the same seconds.
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

@@ -1,10 +1,11 @@
-# Creative Studio 1.62.0
+# Creative Studio 1.63.0
 
-Better captions, Polish voice timing and 3D packshots.
+Video and story work now ends in files you can hand on.
 
-- **Captions that break between thoughts.** Subtitles made from a transcript without punctuation now end where a new clause begins, not in the middle of a phrase.
-- **Polish voice-overs in animated films.** Word timing for Animate films now works with Polish (and other languages), so pictures can cue on the spoken words.
-- **Ready-made starting points.** Twenty motion ideas from the library now come as ready contracts that render straight away.
-- **Your product in 3D.** With a 3D model of the product, Studio can make a turning packshot video with studio light, a shadow and a title.
+- **Scripts that fit their length.** Studio checks a voice-over script against the ad length in Polish or English and tells you how many words to cut.
+- **Into your editor.** An edit plan exports to DaVinci Resolve, Premiere Pro or CapCut as an EDL, an OTIO timeline or a shot list, with step-by-step import notes.
+- **Client-ready documents.** New templates for an ad script, a concept one-pager, a music-video treatment and a creator brief.
+- **Storyboards and shot lists as files.** Boards come out as PNG pages and a PDF; shot lists and scripts as Excel, CSV and PDF.
+- **Prompts per generator.** Prompts are phrased for Veo, Runway, Kling, MiniMax or Seedance, exported as a pack and checked before you spend credits; returned clips are measured and shown side by side.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

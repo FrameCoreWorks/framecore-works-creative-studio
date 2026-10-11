@@ -13,6 +13,10 @@ Own the music-video creative direction between intake and shot/prompt execution.
 
 For a selected direction needing a precise rhythm relationship, recurring image, sustained performance or concept repair, read the relevant section of the [rhythm, motifs and performance workbook](references/rhythm-motifs-and-performance-workbook.md). It supplies original complete treatments, a reusable motif contract and handoff tests; it is not a shot list or audio inspection.
 
+## Treatment
+
+Write the client-facing treatment on the [music-video treatment](assets/music-video-treatment.template.md): the idea, a song-to-picture table by section, performance and casting with consent, look, locations, a production outline without prices and one box of assumptions.
+
 ## Start from what the user has
 
 Recognize the stage: open exploration, direction development, a selected direction ready for handoff, or a targeted revision. Do not repeat the Studio greeting or force a full intake when the user already gave a usable brief. In deeper exploration, begin with the user's own association, observation or intended viewer experience. Ask only the question whose answer would materially change the direction. Where the evidence is sufficient, offer a clearly labelled provisional route rather than blocking on every optional detail.

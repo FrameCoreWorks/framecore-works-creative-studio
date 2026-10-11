@@ -36,6 +36,10 @@ Apply the conditional [public research gate](../research-evidence/SKILL.md) befo
 
 When choosing panels, reconciling a locked camera, comparing references or reserving space for captions, use [the applied board workshop](references/applied-board-workshop.md). Its optional panel map and three-purpose example produce a board specification, not extra story events or an automatically bound video carrier.
 
+## Board files
+
+Where Python with Pillow runs, compose the approved board with `scripts/board_compose.py board.json --out-dir boards/`: frames in a grid with their shot, time, camera, action, audio and supers set in the bundled Inter, as PNG pages and one PDF. Labels wrap and move to the next page, never cut; a panel without its frame shows a marked placeholder. Without Python, deliver the board specification and say the file was not composed.
+
 ## Board brief
 
 Capture only what changes the design:

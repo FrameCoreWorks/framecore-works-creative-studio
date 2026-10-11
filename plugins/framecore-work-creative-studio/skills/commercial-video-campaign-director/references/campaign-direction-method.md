@@ -86,7 +86,7 @@ Describe what the viewer can perceive as the idea develops. Choose only the stag
 - **Proof/reveal:** a visible, sourced or explicitly approved truth; no claim created by editing.
 - **Payoff/memory:** a resolution, useful takeaway, ownable cue, emotional beat or honest CTA.
 
-These are functions, not required beats. A five-second loop, a quiet product film and a longer story may need different structures. Do not impose fixed hook seconds, percentage rules, logo timing, cut counts, duration bands, age-to-tempo formulas or an obligatory hook/body/CTA architecture. Duration is a creative target only after the objective and the exact placement/workflow are known.
+These are functions, not required beats. A five-second loop, a quiet product film and a longer story may need different structures. For a paid or organic short-form placement, the [short-form timing card](../../pipeline-core/references/short-form-timing.md) gives working targets for the opening, voice-over word budgets and end-card holds; use them as targets to shape a draft, never as rules for every format. Do not impose fixed hook seconds, percentage rules, logo timing, cut counts, duration bands, age-to-tempo formulas or an obligatory hook/body/CTA architecture. Duration is a creative target only after the objective and the exact placement/workflow are known.
 
 If a duration is user-specified, shape the information around it but do not claim it is optimal. If it is not specified and the structure materially depends on it, propose a clearly labeled working target or ask one question. Mark duration estimates as estimates; actual spoken-word timing or edit rhythm requires a script/performance or edit.
 

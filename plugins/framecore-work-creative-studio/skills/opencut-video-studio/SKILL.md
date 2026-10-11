@@ -12,6 +12,10 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 Use this skill as an optional planning bridge between the creative workflow and OpenCut as a local editing surface. OpenCut owns timeline assembly when it is available; the kit retains brief, source truth, creative direction, manifests, QA, and delivery governance.
 
+## Editor handoff
+
+Export the edit decision list as a CMX 3600 EDL, an OpenTimelineIO timeline and a CSV shot list with `scripts/edit_export.py`, and give the step list for the user's editor (DaVinci Resolve, Premiere Pro, CapCut) from [editor handoff](references/editor-handoff.md).
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

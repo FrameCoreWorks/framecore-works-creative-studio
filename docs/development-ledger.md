@@ -1547,3 +1547,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `4082c18`; workflows Check Studio sources 38126952768, Check Studio sources 38126951361, Refresh current release notes 38126949736, Publish verified Studio release 38126949774, Check Studio sources 38126949765: success; [v1.62.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.62.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1139 of 1139) ([record](../verification/github-publication-1.62.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261011-05
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-05-phase4`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `778e27e` (main, package 1.62.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.63.0)
+- Package version: 1.62.0 -> 1.63.0
+- Scope: Phase 4 of the improvement plan: a shared short-form timing card with a voice-over budget tool, EDL, OTIO and CSV editor handoff with step lists, client templates for ad scripts, one-pagers, music-video treatments and creator briefs, executable storyboard, shot-list, prompt-pack and clip-review tools with a Python port of the shot-plan checker, and generator dialect cards for five video models, registered in the capability card, checks and knowledge map
+- Shared package changed: yes; 28 changed, 21 added, 0 removed ([scope](../verification/scope-1.63.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 6 host-eval harness: PASS ([record](../verification/release-1.63.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

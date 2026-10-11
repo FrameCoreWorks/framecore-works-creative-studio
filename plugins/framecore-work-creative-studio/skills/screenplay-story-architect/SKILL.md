@@ -14,6 +14,10 @@ requested deliverable specifies otherwise.
 
 Apply the conditional [public research gate](../research-evidence/SKILL.md) before substantive story development or revision. Search factual grounding or craft inspiration when real-world subjects, material claims or a request for references trigger it; verify material real-world claims. Use sources to inform original choices, not to imitate a living creator or import unverified story facts.
 
+## Ad scripts
+
+This skill writes the script of an advert or a short brand film: the spoken words, dialogue and scene action in the [AV two-column script](assets/av-ad-script.template.md) (video beside audio, row by row in time), within the word budget of the [short-form timing card](../pipeline-core/references/short-form-timing.md) checked with `vo_budget.py`. Copy Voice locks the voice-over and supers; a creator-read script belongs to UGC; shot timing and cards to Storyboard Sequence Architect.
+
 ## Route the work
 
 Own narrative scenes, dialogue within a scene, story structure and screenplay

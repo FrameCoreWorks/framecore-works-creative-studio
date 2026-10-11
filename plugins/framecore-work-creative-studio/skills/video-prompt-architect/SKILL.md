@@ -23,6 +23,18 @@ music/audio text packets and conditional evidence-bounded audio triage; it has
 no bundled generation connector. A motion video Studio builds from code, with its designed sound, belongs to the
 [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md), not to a generator prompt.
 
+## Generator dialects
+
+Translate the approved shot card into the named generator's phrasing with the [generator dialects](references/generator-dialects.md) card (Veo, Runway, Kling, MiniMax H3, Seedance; read 2026-10-11): structure, sound and dialogue syntax, reference wording and the settings that belong outside the prompt. Without browsing, use it provisionally and say when it was checked. Kling 3.0 translates Polish dialogue into English, so a Polish voice-over is recorded or generated separately.
+
+## Prompt pack and clip review
+
+Before any credits are spent, export the prompt pack with `scripts/prompt_pack.py pack.json --plan shot-plan.json --out-dir prompts/`: each prompt in its own copy block, CSV and JSONL for bulk tools, and findings for missing references, short clips or planned shots without a prompt. When the clips come back, `scripts/clip_review.py clips/*.mp4 --plan shot-plan.json --aspect 9:16 --fps 30 --out-dir review/` puts first, middle and last frames of every clip on one sheet with measured duration, size, frame rate and audio, and flags clips that cannot fill their shot. Look at the sheet; the tool makes no quality verdict.
+
+## Clip length
+
+Plan generated clip lengths from the edit's beats and the [short-form timing card](../pipeline-core/references/short-form-timing.md): the opening clip carries the hook inside its first seconds, and a clip under a voice-over is as long as its line.
+
 ## Start from the request
 
 Use the language of the conversation. Technical prompts default to English

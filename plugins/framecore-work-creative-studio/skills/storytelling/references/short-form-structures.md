@@ -26,7 +26,7 @@ Join consecutive beats with "but" or "therefore", not "and then", a rule popular
 
 ## Beat budget
 
-A planning heuristic; actual timing comes from the storyboard and the edit.
+A planning heuristic; actual timing comes from the storyboard and the edit. Word budgets and opening targets per length are in the [short-form timing card](../../pipeline-core/references/short-form-timing.md).
 
 | Length | Beats | Notes |
 | --- | --- | --- |

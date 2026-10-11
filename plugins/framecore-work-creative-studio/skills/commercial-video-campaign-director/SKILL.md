@@ -15,6 +15,10 @@ When a campaign depends on a demonstration, proof point, sensory metaphor or mul
 
 For open or substantive creative work, follow the Studio intake/reference contract and apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to platform-dependent advice, factual claims or a final direction; named placements, public claims and requested references trigger it. Research current platform requirements only for the exact placement, objective and campaign workflow in scope. Separate technical requirements, platform recommendations, observed examples, empirical studies and creative inference. Cite the current sources and dates in the user-facing result. If the user prohibits web search, honor that restriction and mark mutable platform assumptions as unverified; do not imply freshness.
 
+## Client one-pager
+
+Present a chosen direction to a client on the [concept one-pager](assets/concept-one-pager.template.md): the idea in one line, why it works, three frames, the sound, what is needed from the client, risks, assumptions in one box and a numbered decision. The ad's script goes to Screenplay Story Architect; opening targets and word budgets per length come from the [short-form timing card](../pipeline-core/references/short-form-timing.md).
+
 ## Scope and ownership
 
 This owner covers commercial brand/product/service video concepts and their campaign-level motion system: paid-social video, product films, UGC-style ads, retail/PDP video, campaign films, cutdowns and placement adaptations. It owns the motion thesis, creative device, attention architecture, audiovisual grammar at campaign level, duration targets where justified, asset roles, continuity locks and handoff decisions. When a selected film can be built from the product's photos or screenshots, type, logos or data, hand its execution to the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md), which renders a finished MP4 with designed sound where code execution exists; footage-like scenes go on to the sequence and video-prompt owners.

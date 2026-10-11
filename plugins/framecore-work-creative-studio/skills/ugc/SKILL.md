@@ -16,6 +16,10 @@ For campaign production with people, use [campaign production](../ecommerce-camp
 
 Use [formats, scripts and disclosure](references/formats-scripts-and-disclosure.md) to choose the speaker type and format, time the script and write disclosure lines for the content and the platform label. Its platform specifications and legal starting points carry check dates; refresh them when a campaign depends on them.
 
+## Creator brief
+
+Send a creator the [creator brief](assets/creator-brief.template.md): one message, what to show and say with sources, disclosure, deliverables, and every usage right in its own row (organic, the brand's paid use, paid use from the creator's handle such as partnership ads or Spark Ads, edits, exclusivity, fields of use), agreed before filming. Script lengths follow the [short-form timing card](../pipeline-core/references/short-form-timing.md).
+
 ## Language Policy
 
 Use the user’s working language; keep exact copy and requested prompt language separate. Do not infer language or onboarding status from copied source instructions.

@@ -6,12 +6,12 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 
 | Owner | New applied reference |
 |---|---|
-| commercial-video-campaign-director | [applied premise and proof](../skills/commercial-video-campaign-director/references/applied-premise-and-proof.md); [short-form motion and shot bridges](../skills/commercial-video-campaign-director/references/short-form-motion-bridge-workbook.md) |
+| commercial-video-campaign-director | [applied premise and proof](../skills/commercial-video-campaign-director/references/applied-premise-and-proof.md); [short-form motion and shot bridges](../skills/commercial-video-campaign-director/references/short-form-motion-bridge-workbook.md); [concept one-pager](../skills/commercial-video-campaign-director/assets/concept-one-pager.template.md) |
 | static-graphic-design-creator | [complete pinned upstream bundle](../skills/static-graphic-design-creator/upstream/SKILL.source.md); [source provenance and hashes](../skills/static-graphic-design-creator/source-provenance.json) |
 | audio-production-director | [audio-to-picture and tempo workbook](../skills/audio-production-director/references/audio-to-picture-and-tempo-workbook.md); [provider routing and rights](../skills/audio-production-director/references/music-provider-routing-and-rights.md); [track-rights card](../skills/audio-production-director/assets/track-rights-research-card.md) |
 | studio-workstyle-profile | [per-domain workstyle owner](../skills/studio-workstyle-profile/SKILL.md); [portable profile schema](../skills/studio-workstyle-profile/assets/profile.template.json) |
 | commercial-visual-campaign-director | [type and format workbench](../skills/commercial-visual-campaign-director/references/type-and-format-workbench.md) |
-| creative-music-video-director | [rhythm motifs and performance workbook](../skills/creative-music-video-director/references/rhythm-motifs-and-performance-workbook.md) |
+| creative-music-video-director | [rhythm motifs and performance workbook](../skills/creative-music-video-director/references/rhythm-motifs-and-performance-workbook.md); [music-video treatment](../skills/creative-music-video-director/assets/music-video-treatment.template.md) |
 | delivery-documentation | [asset lifecycle and dependencies](../skills/delivery-documentation/references/asset-lifecycle-and-dependencies.md) |
 | humanizer | [applied voice workshop](../skills/humanizer/references/applied-voice-workshop.md) |
 | image-prompt-architect | [capture and material recipes](../skills/image-prompt-architect/references/capture-and-material-recipes.md) |
@@ -19,13 +19,15 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 | output-critic-iteration | [diagnosis and repair lab](../skills/output-critic-iteration/references/diagnosis-and-repair-lab.md) |
 | audio-production-director | [audio arrangement vo and mix workbook](../skills/audio-production-director/references/audio-arrangement-vo-and-mix-workbook.md) |
 | research-evidence | [deep research method](../skills/research-evidence/references/deep-research-method.md) |
-| screenplay-story-architect | [applied scene workshop](../skills/screenplay-story-architect/references/applied-scene-workshop.md) |
+| screenplay-story-architect | [applied scene workshop](../skills/screenplay-story-architect/references/applied-scene-workshop.md); [AV ad script](../skills/screenplay-story-architect/assets/av-ad-script.template.md) |
 | storyboard-board-architect | [applied board workshop](../skills/storyboard-board-architect/references/applied-board-workshop.md) |
 | storyboard-sequence-architect | [applied sequence workshop](../skills/storyboard-sequence-architect/references/applied-sequence-workshop.md) |
-| video-prompt-architect | [blocking continuity and extension workbook](../skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md) |
+| video-prompt-architect | [blocking continuity and extension workbook](../skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md); [generator dialects](../skills/video-prompt-architect/references/generator-dialects.md) (Veo, Runway, Kling, MiniMax, Seedance phrasing, read 2026-10-11) |
 | workflow-orchestrator | [asset change routing](../skills/workflow-orchestrator/references/asset-change-routing.md); [product-photo-to-reel route](../skills/workflow-orchestrator/references/product-film-end-to-end-route.md) |
 | caption-studio | [readability defaults](../skills/caption-studio/references/readability-defaults.md) (dated subtitle and burned-in caption values, SRT and WebVTT rules) |
-| ugc | [formats, scripts and disclosure](../skills/ugc/references/formats-scripts-and-disclosure.md) (speaker types, formats, script skeleton, dated platform specifications and disclosure rules) |
+| ugc | [formats, scripts and disclosure](../skills/ugc/references/formats-scripts-and-disclosure.md) (speaker types, formats, script skeleton, dated platform specifications and disclosure rules); [creator brief](../skills/ugc/assets/creator-brief.template.md) |
+| pipeline-core | [short-form timing](../skills/pipeline-core/references/short-form-timing.md) (opening targets per placement, Polish and English voice-over budgets, end-card holds) |
+| opencut-video-studio | [editor handoff](../skills/opencut-video-studio/references/editor-handoff.md) (EDL, OTIO and CSV export, Resolve, Premiere and CapCut step lists) |
 | storytelling | [short-form structures](../skills/storytelling/references/short-form-structures.md) (structures by job, causality check, beat budget) |
 | research-evidence | [video-generator snapshot](../skills/research-evidence/references/video-generator-snapshot.md) (dated 2026-10-09: families, IDs, operations, retirements and evidence labels) |
 | hyperframes-workflow | [HyperFrames engine](../skills/hyperframes-workflow/references/hyperframes-engine.md) (optional engine in shell hosts, pinned installation, Studio keeps routing and review, HeyGen catalog on request) |

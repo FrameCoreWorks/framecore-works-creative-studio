@@ -4,6 +4,8 @@ Snapshot date: 2026-10-09. Owner: `research-evidence`. Purpose: a dated starting
 
 ## How to use this snapshot
 
+How to phrase a prompt for each model (structure, sound, references, settings) is in the [generator dialects card](../../video-prompt-architect/references/generator-dialects.md), read 2026-10-11.
+
 When a user names a video generator, identify the exact product, version and surface they mean (the maker's app, its API, or a multi-model surface such as Runway, Adobe Firefly or an aggregator). Treat the named consumer product as the target when the surface is not named; ask one narrow question only when two plausible versions would change the prompt. A model hosted on another surface can expose fewer controls than its maker documents.
 
 Before delivering a current model-specific prompt, recheck that model's official page. This file supplies identities, operation distinctions and leads, not permission to skip fresh research. Never say a prompt was tested unless that exact prompt was generated and its output inspected.
