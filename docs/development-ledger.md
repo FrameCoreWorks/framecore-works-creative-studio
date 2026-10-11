@@ -1523,6 +1523,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized. `main` at `c56c5df`; workflows Check Studio sources 38115335628, Check Studio sources 38115333653, Refresh current release notes 38115332460, Publish the motion player to GitHub Pages 38115332373, Check Studio sources 38115332454, Publish verified Studio release 38115332521: success; [v1.61.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.61.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1127 of 1127) ([record](../verification/github-publication-1.61.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
