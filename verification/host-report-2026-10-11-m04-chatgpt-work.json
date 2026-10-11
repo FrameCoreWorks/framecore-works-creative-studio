@@ -1,0 +1,12 @@
+{
+  "version": "not shown in the screenshot (the owner planned to test after updating to 1.65.0)",
+  "date": "2026-10-11",
+  "reported_by": "owner (phone screenshot of the reply); reading by cloud-code",
+  "client": "ChatGPT Work on an Android phone, about 1 min 17 s of processing; code execution normally available there; reasoning setting not reported",
+  "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację z logo i hasłem „Świeży chleb codziennie”, jako plik MP4.",
+  "case": "host-eval M04 (tests/host-evals/suite.json), run by hand in ChatGPT Work",
+  "reply": "Asked for the logo as PNG or SVG; stated the assumed delivery (MP4 9:16, 1080 x 1920, 6 s), the plan (smooth logo entrance, the slogan appearing, a readable ending) and a warm cream and brown palette; kept the slogan exactly; no welcome, no generator prompts, one request",
+  "result": "PASS_REPORTED for this host: it stayed on the coded route and asked only for the missing asset; with code execution available, the MP4 it implies is deliverable",
+  "not_covered": "A host without code execution, where Claude Code promised a render instead of naming the motion player route, was not tested here; that M04 finding stays open. The reply did not ask once whether sound is wanted, which the motion method asks for; minor",
+  "owner_decision": "2026-10-11 (2c): the owner checks M04 in ChatGPT Work himself instead of a further change"
+}

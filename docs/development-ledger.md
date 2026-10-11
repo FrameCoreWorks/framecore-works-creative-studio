@@ -1632,3 +1632,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `d41d537`; workflows Check Studio sources 38147965974, Check Studio sources 38147964123, Refresh current release notes 38147963000, Check Studio sources 38147962971, Publish verified Studio release 38147962952: success; [v1.65.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.65.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1173 of 1173) ([record](../verification/github-publication-1.65.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261011-09
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-09-m04-report`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `19c9646` (main, package 1.65.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository only)
+- Package version: 1.65.0 (unchanged)
+- Scope: the owner ran host-eval case M04 by hand in ChatGPT Work (decision 2c) and sent a screenshot: Studio stayed on the coded route and asked only for the logo, stating the assumed 9:16, 1080 x 1920, 6-second plan; recorded as PASS_REPORTED for that host ([report](../verification/host-report-2026-10-11-m04-chatgpt-work.json)). The no-code-execution finding from Claude Code stays open; the reply did not ask about sound (minor)
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh --fast`: PASS
+- the report is the owner's screenshot as read here; the package version was not visible in it
+
+Cross-host state:
+
+- GitHub: pending until the push is read back
+- ChatGPT Work: not_tracked (owner decision 2026-10-10); this report is the owner's own test
+- Codex: not_run
