@@ -83,6 +83,7 @@ The required set, for every host the plugin runs in. The validator checks that e
 | Remotion kinetic type starter (Remotion, React, TypeScript) | not_supported | not_supported | per_project | per_project | not_supported |
 | GSAP motion starter | not_supported | not_supported | per_project | per_project | not_supported |
 | Remotion 3D example (Three.js, React Three Fiber) | not_supported | not_supported | per_project | per_project | not_supported |
+| Remotion glTF product turntable | not_supported | not_supported | per_project | per_project | not_supported |
 | Motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild) | not_supported | not_supported | per_project | per_project | not_supported |
 | Animate engine (procedural canvas films, Playwright) | not_supported | not_supported | per_project | per_project | not_supported |
 | HyperFrames (engine) | not_supported | not_supported | install | install | not_supported |

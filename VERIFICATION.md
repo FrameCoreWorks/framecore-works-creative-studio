@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.61.0
+## Current source: 1.62.0
+
+The [1.62.0 source checks](verification/release-1.62.0.json) pass canonical validation and `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness; `claude plugin validate --strict` passes. Every runnable snippet passes the storyboard checker without warnings and renders with the Python renderer; the turntable template installed from its lockfile, typechecked and rendered a 1080 x 1080, 30 FPS, 180-frame MP4 in the container with a headless Chromium and SwiftShader. [Scope](verification/scope-1.62.0.json) records 21 changed and 12 added shared files out of 1139.
+
+## Previous source: 1.61.0
 
 The [1.61.0 source checks](verification/release-1.61.0.json) pass canonical validation and `scripts/check_all.sh`: 215 Node tests (208 passing, 7 opt-in browser tests skipped there and run separately: 78 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 15 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness; `claude plugin validate --strict` passes. The line-chart layout, its arrival frames and the word groups are identical between the JS engine and the Python renderer in both formats, and the photo-and-trend frames pass the browser-versus-renderer pixel test. [Scope](verification/scope-1.61.0.json) records 24 changed and 1 added shared files out of 1127.
 

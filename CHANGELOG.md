@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.62.0, 2026-10-11
+
+From Phase 3 of [the improvement plan](docs/improvement-plan-2026-10.md) (premium motion), last part:
+
+- **Clause-aware caption cues.** When a cue built from timed words must be cut and has no punctuation to cut at, Caption Studio cuts before a word that opens a clause (`and`, `because`, `which`; `i`, `ale`, `że`, `który`), the incoming word included, or at the longest clear pause, so transcripts without commas still break between thoughts ([captions](plugins/framecore-work-creative-studio/skills/caption-studio/assets/captions/README.md))
+- **Polish word timing for Animate voice-overs.** The bundled Animate engine stays byte-identical; its voice tool recognises English only. The new [animate-voice](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/animate-voice/README.md) tool sets the word times of a Polish or other-language voice-over in the piece's `voice.json` afterwards: from supplied timings, local faster-whisper with a multilingual model, or a syllable estimate with pauses; matching keeps Polish letters and fills missed words between their neighbours
+- **Twenty runnable library records.** [`runnable-snippets.json`](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/README.md#runnable-snippets) turns twenty original records into contracts made only of declared scene kinds; `node library.mjs snippet <ID>` writes one, brief lookups mark records that have one, and a test checks every snippet with the storyboard checker (no warnings) and renders it with the Python renderer
+- **glTF product turntable.** A Remotion template turns the client's approved GLB or glTF model under studio light with a contact shadow and a title, in 1:1 and 9:16, loading the model before any frame is captured and fitting it to the frame; it ships with an original synthetic sample jar and its standard-library generator, and rendered in the container to a 180-frame MP4 ([turntable](plugins/framecore-work-creative-studio/skills/remotion-video-production/assets/gltf-turntable/README.md))
+- **Registered everywhere.** The capability card (`animate_voice`; the turntable under `remotion_render`), the environment check (a `gltf-turntable` workspace), the runtime map and the motion toolkit inventory with its exact-pin check know the new parts
+
 ## 1.61.0, 2026-10-11
 
 From Phase 3 of [the improvement plan](docs/improvement-plan-2026-10.md) (premium motion), fourth part:

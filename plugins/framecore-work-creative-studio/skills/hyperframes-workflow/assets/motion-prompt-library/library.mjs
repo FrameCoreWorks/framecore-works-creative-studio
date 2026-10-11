@@ -59,11 +59,11 @@ export function matchBrief(index,query='',{limit=3}={}) {
   return index.briefs.map(b=>({b,score:b.aliases.reduce((n,a)=>n+(hit(a)?(a.includes(' ')?3:2):0),0)}))
     .filter(r=>r.score>0).sort((x,y)=>y.score-x.score||x.b.id.localeCompare(y.b.id)).slice(0,limit).map(r=>r.b);
 }
-export function presentBrief(brief,entries) {
+export function presentBrief(brief,entries,snippets=[]) {
   if (!brief) throw new Error('Unknown brief type');
-  const byId=new Map(entries.map(e=>[e.id,e]));
+  const byId=new Map(entries.map(e=>[e.id,e])),runnable=new Set(snippets.map(s=>s.record));
   return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,scene_kinds:brief.scene_kinds,contract:brief.contract?'motion-scenes/'+brief.contract:null,use:brief.use,avoid:brief.avoid,
-    records:brief.records.map(id=>({id,title:byId.get(id)?.title,objective:byId.get(id)?.objective,runtime:byId.get(id)?.runtime})),
+    records:brief.records.map(id=>({id,title:byId.get(id)?.title,objective:byId.get(id)?.objective,runtime:byId.get(id)?.runtime,...(runnable.has(id)?{snippet:'node library.mjs snippet '+id}:{})})),
     authority:'A proposal for the current brief. It selects no runtime, approves no contract and runs nothing.'};
 }
 export function validateBriefIndex(index,entries,scenes=path.join(here,'..','motion-scenes')) {
@@ -89,6 +89,47 @@ export function validateBriefIndex(index,entries,scenes=path.join(here,'..','mot
   }
   return errors;
 }
+// Runnable snippets: original records as small contracts made only of declared scene kinds (runnable-snippets.json).
+export function loadSnippets(directory=here) {
+  return JSON.parse(fs.readFileSync(path.join(directory,'runnable-snippets.json'),'utf8'));
+}
+const SNIPPET_SIZES={'16:9':[1920,1080],'9:16':[1080,1920],'1:1':[1080,1080]};
+export function validateSnippets(file,entries,directory=here) {
+  const errors=[],seen=new Set(),byId=new Map(entries.map(e=>[e.id,e]));
+  const styles=new Set(JSON.parse(fs.readFileSync(path.join(directory,'..','motion-styles','styles.json'),'utf8')).styles.filter(s=>s.tokens).map(s=>s.id));
+  if (file?.schema_version!==1 || !Array.isArray(file.snippets)) return ['runnable snippets need schema_version 1 and a snippets list'];
+  for (const s of file.snippets) {
+    const fail=m=>errors.push((s.record||'?')+': '+m);
+    if (seen.has(s.record)) fail('duplicate record'); seen.add(s.record);
+    if (byId.get(s.record)?.prompt_origin!=='framecore_original') fail('must be an existing FrameCore original record');
+    if (!SNIPPET_SIZES[s.format]) fail('format must be 16:9, 9:16 or 1:1');
+    if (!styles.has(s.style)) fail('unknown style '+s.style);
+    for (const key of ['approximates','gap']) if (typeof s[key]!=='string' || !s[key].trim()) fail('missing '+key);
+    if (!Array.isArray(s.scenes) || !s.scenes.length) fail('needs scenes');
+    for (const [id,from] of Object.entries(s.assets_from??{})) if (!/^(examples|templates)\/[a-z0-9-]+\.motion-score\.json$/.test(from)) fail('asset '+id+' must come from examples/ or templates/');
+  }
+  return errors;
+}
+/** A complete, checkable contract for one snippet: the record's objective, the style's values and the snippet's scenes. */
+export function snippetContract(snippet,entries,directory=here) {
+  const entry=entries.find(e=>e.id===snippet.record);
+  if (!entry) throw new Error('Unknown record '+snippet.record);
+  const style=JSON.parse(fs.readFileSync(path.join(directory,'..','motion-styles','styles.json'),'utf8')).styles.find(s=>s.id===snippet.style);
+  const [width,height]=SNIPPET_SIZES[snippet.format];
+  const assets=Object.entries(snippet.assets_from??{}).map(([id,from])=>JSON.parse(fs.readFileSync(path.join(directory,'..','motion-scenes',from),'utf8')).assets.find(a=>a.id===id));
+  const totalFrames=Math.max(...snippet.scenes.map(s=>s.end));
+  return {schema_version:1,id:'snippet-'+snippet.record.toLowerCase(),revision:1,approval:{status:'proposed',revision:null,evidence:null},stage:'storyboard',
+    goal:entry.objective,audience:'Replace with the real audience',message:entry.title,concept:snippet.approximates,
+    runtime:{status:'proposed',value:'Any Studio renderer: declared scene kinds only'},
+    viewing:{'9:16':'9:16 on a phone','1:1':'1:1 in a feed','16:9':'16:9 on a desktop or TV'}[snippet.format],
+    audio:'Intentional silence until a sound plan is approved',
+    decisions:{confirmed:[],proposed:[style.name+' style','Illustrative copy from the runnable snippet of '+snippet.record],unknown:['The real copy, figures and assets','What the scene kinds cannot show: '+snippet.gap]},
+    fps:{num:30,den:1},totalFrames,width,height,style:style.id,
+    tokens:{...style.tokens,...(height>width?{safeArea:{top:0.1,bottom:0.2}}:{})},...(style.fonts?{fonts:style.fonts}:{}),motion:{...style.motion},
+    copy:snippet.copy,copyStatus:'illustrative',assets,
+    acceptance:['Every line is complete and readable in its hold','The scenes follow the record\'s mechanism as far as the scene kinds allow','Nothing on screen claims more than the supplied copy and figures'],
+    scenes:snippet.scenes.map(s=>({...s,focalPoint:s.purpose,entry:'The scene kind\'s entry',action:'Hold',exit:s.end>=totalFrames?'None; stable final frame':'The scene kind\'s exit',transition:'Cut on the overlap',persistence:'None',audio:'Silence'}))};
+}
 if (process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
   try {
     const [command,arg,...flags]=process.argv.slice(2),entries=loadLibrary();
@@ -99,9 +140,11 @@ if (process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta
       if(!arg||arg==='list') console.log(JSON.stringify(index.briefs.map(b=>({id:b.id,label:b.label})),null,2));
       else { const exact=index.briefs.find(b=>b.id===arg); const found=exact?[exact]:matchBrief(index,[arg,...flags].join(' '));
         if(!found.length){console.error('No brief type matched; run: node library.mjs brief list');process.exitCode=1;}
-        else console.log(JSON.stringify(found.map(b=>presentBrief(b,entries)),null,2)); }
+        else console.log(JSON.stringify(found.map(b=>presentBrief(b,entries,loadSnippets().snippets)),null,2)); }
     }
-    else if(command==='validate') {const errors=[...validateLibrary(entries),...validateBriefIndex(loadBriefIndex(),entries)];console.log(JSON.stringify({entries:entries.length,prompts:entries.filter(e=>e.prompt_text).length,briefs:loadBriefIndex().briefs.length,errors},null,2));if(errors.length)process.exitCode=1;}
-    else {console.error('Usage: node library.mjs search "query" [--include-related] | show ID | brief [list | ID | "brief words"] | validate');process.exitCode=2;}
+    else if(command==='snippets') console.log(JSON.stringify(loadSnippets().snippets.map(s=>({record:s.record,title:entries.find(e=>e.id===s.record)?.title,format:s.format,style:s.style,approximates:s.approximates})),null,2));
+    else if(command==='snippet') { const s=loadSnippets().snippets.find(x=>x.record===arg); if(!s){console.error('No snippet for '+arg+'; run: node library.mjs snippets');process.exitCode=1;} else console.log(JSON.stringify(snippetContract(s,entries),null,2)); }
+    else if(command==='validate') {const errors=[...validateLibrary(entries),...validateBriefIndex(loadBriefIndex(),entries),...validateSnippets(loadSnippets(),entries)];console.log(JSON.stringify({entries:entries.length,prompts:entries.filter(e=>e.prompt_text).length,briefs:loadBriefIndex().briefs.length,errors},null,2));if(errors.length)process.exitCode=1;}
+    else {console.error('Usage: node library.mjs search "query" [--include-related] | show ID | brief [list | ID | "brief words"] | snippets | snippet ID | validate');process.exitCode=2;}
   } catch(error){console.error(error.message);process.exitCode=1;}
 }

@@ -413,9 +413,10 @@
       "id": "remotion_render",
       "executed_by": "studio",
       "owner": "remotion-video-production",
-      "does": "Renders the Remotion kinetic type starter or a Remotion project with exact dependency pins",
+      "does": "Renders the Remotion kinetic type starter, the glTF product turntable or a Remotion project with exact dependency pins",
       "tools": [
-        "skills/remotion-video-production/assets/kinetic-type-starter/README.md"
+        "skills/remotion-video-production/assets/kinetic-type-starter/README.md",
+        "skills/remotion-video-production/assets/gltf-turntable/README.md"
       ],
       "requires": [
         "node",
@@ -566,6 +567,25 @@
       "delivers": "An MP4 in each requested format with a composed score, contact sheets and the review's measured checks",
       "when_missing": "Plan the piece with the engine's grammar and render the idea through the contract with the Python renderer, or deliver the piece files and the commands",
       "observed": "Container checks only"
+    },
+    {
+      "id": "animate_voice",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Sets the word times of an Animate voice-over in Polish or another language after the engine's English-only voice tool: from supplied word timings, local faster-whisper with a multilingual model, or a syllable estimate",
+      "tools": [
+        "skills/hyperframes-workflow/assets/animate-voice/retime.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "The piece's voice.json with matched or estimated word times and how they were obtained",
+      "when_missing": "Keep the engine estimate, say the word times are estimated and check the cues on the contact sheet",
+      "observed": "2026-10-11: container tests only (no recogniser run)"
     }
   ]
 }

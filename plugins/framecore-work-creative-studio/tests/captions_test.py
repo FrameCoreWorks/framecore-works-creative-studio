@@ -133,6 +133,24 @@ class Building(unittest.TestCase):
         self.assertEqual(captions.check(cues, profile='subtitles', language='pl')['errors'], [])
         self.assertEqual(cues[0]['text'], 'Spokojny portfel to aplikacja,\nktóra pomaga planować wydatki bez stresu.')
 
+    def test_cues_without_punctuation_end_where_a_clause_starts(self):
+        def timed(text, pause_before=()):
+            out, t = [], 0.2
+            for i, w in enumerate(text.split()):
+                t += 0.4 if i in pause_before else 0
+                d = 0.16 + 0.035 * len(w)
+                out.append({'word': w, 'start': round(t, 3), 'end': round(t + d, 3)})
+                t += d + 0.05
+            return out
+        pl = captions.build_from_words(timed('zamówiłam plakat w poniedziałek a w środę wisiał już w salonie nad kanapą'), profile='social', language='pl', max_chars=32)
+        self.assertEqual([c['text'] for c in pl], ['zamówiłam plakat w poniedziałek', 'a w środę wisiał już', 'w salonie nad kanapą'])
+        en = captions.build_from_words(timed('we pack every order the same day because our small team works seven days a week'), profile='social', language='en', max_chars=34)
+        self.assertEqual(en[0]['text'], 'we pack every order the same day')
+        self.assertTrue(en[1]['text'].startswith('because'))
+        # Without a clause word, the longest clear pause decides.
+        paused = captions.build_from_words(timed('trzy kolory światła dwanaście godzin na baterii ładowanie przez usb', pause_before={3}), profile='social', language='pl', max_chars=30)
+        self.assertEqual(paused[0]['text'], 'trzy kolory światła')
+
     def test_segments_are_split_when_too_long(self):
         cues = captions.build_from_segments([{'start': 0, 'end': 6, 'text': 'Ten segment ma zdecydowanie zbyt wiele słów, aby zmieścić się w dwóch liniach napisów na ekranie telefonu.'}], 'pl')
         self.assertGreater(len(cues), 1)

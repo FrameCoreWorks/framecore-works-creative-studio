@@ -1,0 +1,31 @@
+{
+  "name": "framecore-gltf-turntable",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "still": "remotion still src/index.tsx ProductTurntable out/frame-45.png --frame=45",
+    "render": "remotion render src/index.tsx ProductTurntable out/turntable-1x1.mp4 --concurrency=1",
+    "render:vertical": "remotion render src/index.tsx ProductTurntableVertical out/turntable-9x16.mp4 --concurrency=1",
+    "typecheck": "tsc --noEmit",
+    "sample": "python3 tools/make_sample_glb.py"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.1",
+    "@remotion/cli": "4.0.530",
+    "@remotion/three": "4.0.530",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.530",
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/three": "0.186.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

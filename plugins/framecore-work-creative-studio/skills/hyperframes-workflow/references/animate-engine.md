@@ -28,7 +28,7 @@ node "$ENGINE/tools/export.mjs" pieces/<name> --share
 node "$ENGINE/tools/review.mjs" pieces/<name>
 ```
 
-Pieces live in the user's project under `pieces/<name>/`; styles the user makes live in the project's `styles/<name>/`. The workspace copy is replaced on a plugin update: never edit it for one piece, and propose changes to its `craft.md` or a style as notes in the piece's `LOG.md` instead. Voice-over word timing needs Python with `faster-whisper`; without it the engine estimates word times and says so.
+Pieces live in the user's project under `pieces/<name>/`; styles the user makes live in the project's `styles/<name>/`. The workspace copy is replaced on a plugin update: never edit it for one piece, and propose changes to its `craft.md` or a style as notes in the piece's `LOG.md` instead. Voice-over word timing needs Python with `faster-whisper`; without it the engine estimates word times and says so. The engine's voice tool recognises English only; for a Polish or other-language voice-over, run [animate-voice](../assets/animate-voice/README.md) on the piece after it (supplied timings, a multilingual model or a syllable estimate), then rebuild.
 
 In ChatGPT, ChatGPT Work and the Claude apps the engine does not run (no npm workspace or browser driver in the chat sandbox). There, deliver the same idea through the contract and the bundled Python renderer, and use the engine's method files below as craft knowledge.
 

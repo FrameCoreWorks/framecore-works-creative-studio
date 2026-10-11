@@ -1,0 +1,1138 @@
+{
+  "schema_version": 1,
+  "scope": "Runnable starting points for twenty original records: each snippet is a small contract made only of declared scene kinds, so every renderer draws it as it is. It approximates the record's mechanism; `gap` says what the scene kinds cannot show. Copy is illustrative; replace it, check it and get it approved like any contract.",
+  "snippets": [
+    {
+      "record": "FC-BRAND-02",
+      "format": "16:9",
+      "style": "midnight",
+      "approximates": "The supplied mark opens through a widening circular aperture, then the name settles beneath the stillness",
+      "gap": "The aperture is a circular clip of the whole mark; opening through the mark's own negative space needs its approved vector parts and custom code",
+      "assets_from": {
+        "example-mark": "examples/photo-and-trend.motion-score.json"
+      },
+      "copy": {
+        "name": "Pracownia Lipa"
+      },
+      "scenes": [
+        {
+          "id": "mark",
+          "kind": "logo-reveal",
+          "params": {
+            "asset": "example-mark",
+            "width": 300,
+            "duration": 40
+          },
+          "start": 0,
+          "end": 96,
+          "holds": [
+            [
+              44,
+              96
+            ]
+          ],
+          "purpose": "Open the mark",
+          "copy": []
+        },
+        {
+          "id": "name",
+          "kind": "end-card",
+          "params": {
+            "text": "name",
+            "size": 96
+          },
+          "start": 90,
+          "end": 180,
+          "holds": [
+            [
+              116,
+              180
+            ]
+          ],
+          "purpose": "Name the brand",
+          "copy": [
+            "name"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-BRAND-05",
+      "format": "16:9",
+      "style": "paper-and-ink",
+      "approximates": "A panel of the brand accent wipes over the neutral field and the mark is revealed inside it by a clean wipe",
+      "gap": "Two neutral panels parting are drawn as one canvas wipe from the left",
+      "assets_from": {
+        "example-mark": "examples/photo-and-trend.motion-score.json"
+      },
+      "copy": {},
+      "scenes": [
+        {
+          "id": "window",
+          "kind": "logo-reveal",
+          "params": {
+            "asset": "example-mark",
+            "width": 280,
+            "reveal": "wipe",
+            "duration": 30,
+            "background": "#FF4D2E",
+            "backgroundWipe": "left",
+            "backgroundFrames": 16
+          },
+          "start": 0,
+          "end": 120,
+          "holds": [
+            [
+              50,
+              120
+            ]
+          ],
+          "purpose": "Open a window of colour",
+          "copy": []
+        }
+      ]
+    },
+    {
+      "record": "FC-TYPOGRAPHY-04",
+      "format": "16:9",
+      "style": "paper-and-ink",
+      "approximates": "The statement rises line by line, then the key phrase holds alone over its accent rule",
+      "gap": "The underline travels under the closing phrase (the end-card rule), not along the original line",
+      "copy": {
+        "l1": "Dobry projekt",
+        "l2": "nie potrzebuje ozdobników",
+        "key": "potrzebuje powodu"
+      },
+      "scenes": [
+        {
+          "id": "lines",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "l1",
+              "l2"
+            ],
+            "sizes": [
+              120,
+              84
+            ]
+          },
+          "start": 0,
+          "end": 135,
+          "holds": [
+            [
+              30,
+              135
+            ]
+          ],
+          "purpose": "State the claim",
+          "copy": [
+            "l1",
+            "l2"
+          ]
+        },
+        {
+          "id": "key",
+          "kind": "end-card",
+          "params": {
+            "text": "key",
+            "size": 110
+          },
+          "start": 129,
+          "end": 243,
+          "holds": [
+            [
+              159,
+              243
+            ]
+          ],
+          "purpose": "Underline what matters",
+          "copy": [
+            "key"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-TYPOGRAPHY-03",
+      "format": "16:9",
+      "style": "product-light",
+      "approximates": "Two clauses arrive in sequence and the weight carries the contrast: a light first clause, a black second one",
+      "gap": "The weight is set per line; it does not animate between weights",
+      "copy": {
+        "quiet": "Mniej powiadomień.",
+        "loud": "Więcej skupienia."
+      },
+      "scenes": [
+        {
+          "id": "contrast",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "quiet",
+              "loud"
+            ],
+            "sizes": [
+              104,
+              124
+            ],
+            "weights": [
+              400,
+              900
+            ]
+          },
+          "start": 0,
+          "end": 150,
+          "holds": [
+            [
+              40,
+              150
+            ]
+          ],
+          "purpose": "Contrast two clauses by weight",
+          "copy": [
+            "quiet",
+            "loud"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-TYPOGRAPHY-10",
+      "format": "16:9",
+      "style": "product-light",
+      "approximates": "The unit and qualifier settle first, then the sourced number counts to its value and holds",
+      "gap": "None for a single value; the source line belongs in the brief and, if shown, in a second scene",
+      "copy": {
+        "qualifier": "klientów poleca nas znajomym (ankieta, n = 412)"
+      },
+      "scenes": [
+        {
+          "id": "number",
+          "kind": "counter",
+          "params": {
+            "from": 0,
+            "to": 87,
+            "suffix": "%",
+            "label": "qualifier",
+            "labelSize": 44,
+            "duration": 40,
+            "locale": "pl-PL"
+          },
+          "start": 0,
+          "end": 184,
+          "holds": [
+            [
+              60,
+              184
+            ]
+          ],
+          "purpose": "Show the number with its qualifier",
+          "copy": [
+            "qualifier"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-01",
+      "format": "9:16",
+      "style": "bold-grotesque",
+      "approximates": "One sourced insight in two big lines, then its single supporting figure",
+      "gap": "The supporting graphic is a counter; a chart or photo needs its own scene kind",
+      "copy": {
+        "i1": "Połowa zakupów",
+        "i2": "zaczyna się w telefonie",
+        "fig": "zamówień w naszym sklepie przyszło z telefonu"
+      },
+      "scenes": [
+        {
+          "id": "insight",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "i1",
+              "i2"
+            ],
+            "sizes": [
+              132,
+              88
+            ],
+            "weights": [
+              800,
+              700
+            ]
+          },
+          "start": 0,
+          "end": 127,
+          "holds": [
+            [
+              24,
+              127
+            ]
+          ],
+          "purpose": "Deliver the insight",
+          "copy": [
+            "i1",
+            "i2"
+          ]
+        },
+        {
+          "id": "figure",
+          "kind": "counter",
+          "params": {
+            "from": 0,
+            "to": 54,
+            "suffix": "%",
+            "label": "fig",
+            "labelSize": 52,
+            "duration": 36,
+            "locale": "pl-PL"
+          },
+          "start": 121,
+          "end": 286,
+          "holds": [
+            [
+              167,
+              286
+            ]
+          ],
+          "purpose": "Support it with one figure",
+          "copy": [
+            "fig"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-02",
+      "format": "9:16",
+      "style": "meadow",
+      "approximates": "Three steps stack in a column joined by a line that grows like a progress marker",
+      "gap": "The progress marker is the connector growing at constant speed, not a separate marker per step",
+      "copy": {
+        "s1": "1. Zmiel kawę",
+        "s2": "2. Zalej wodą 94°C",
+        "s3": "3. Odczekaj 4 min"
+      },
+      "scenes": [
+        {
+          "id": "steps",
+          "kind": "item-stagger",
+          "params": {
+            "items": [
+              "s1",
+              "s2",
+              "s3"
+            ],
+            "size": 76,
+            "weight": 700,
+            "gap": 72
+          },
+          "start": 0,
+          "end": 191,
+          "holds": [
+            [
+              60,
+              191
+            ]
+          ],
+          "purpose": "Teach three steps",
+          "copy": [
+            "s1",
+            "s2",
+            "s3"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-03",
+      "format": "9:16",
+      "style": "product-light",
+      "approximates": "The exact question first, then the answers grow on one shared scale with their values",
+      "gap": "Sample and date sit in the question scene; a separate source line needs another scene",
+      "copy": {
+        "q1": "Jak płacisz w sklepie?",
+        "q2": "ankieta, 1200 osób, wrzesień 2026",
+        "a1": "telefonem",
+        "a2": "kartą",
+        "a3": "gotówką"
+      },
+      "scenes": [
+        {
+          "id": "question",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "q1",
+              "q2"
+            ],
+            "sizes": [
+              92,
+              44
+            ],
+            "weights": [
+              700,
+              400
+            ]
+          },
+          "start": 0,
+          "end": 165,
+          "holds": [
+            [
+              20,
+              165
+            ]
+          ],
+          "purpose": "Ask the exact question",
+          "copy": [
+            "q1",
+            "q2"
+          ]
+        },
+        {
+          "id": "answers",
+          "kind": "bar-chart",
+          "params": {
+            "bars": [
+              {
+                "label": "a1",
+                "value": 46
+              },
+              {
+                "label": "a2",
+                "value": 38
+              },
+              {
+                "label": "a3",
+                "value": 16
+              }
+            ],
+            "suffix": "%",
+            "locale": "pl-PL",
+            "size": 52
+          },
+          "start": 159,
+          "end": 315,
+          "holds": [
+            [
+              215,
+              315
+            ]
+          ],
+          "purpose": "Reveal the answers on one scale",
+          "copy": [
+            "a1",
+            "a2",
+            "a3"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-04",
+      "format": "9:16",
+      "style": "color-block",
+      "approximates": "A dominant event title, then the stable block of date, place and time",
+      "gap": "The essentials stack as items; a single fixed info panel needs custom layout",
+      "copy": {
+        "t1": "Targi",
+        "t2": "Rękodzieła",
+        "d": "18 października",
+        "p": "Hala Stulecia",
+        "h": "10:00–18:00"
+      },
+      "scenes": [
+        {
+          "id": "title",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "t1",
+              "t2"
+            ],
+            "sizes": [
+              180,
+              132
+            ],
+            "weights": [
+              700,
+              700
+            ]
+          },
+          "start": 0,
+          "end": 96,
+          "holds": [
+            [
+              22,
+              96
+            ]
+          ],
+          "purpose": "Name the event",
+          "copy": [
+            "t1",
+            "t2"
+          ]
+        },
+        {
+          "id": "essentials",
+          "kind": "item-stagger",
+          "params": {
+            "items": [
+              "d",
+              "p",
+              "h"
+            ],
+            "size": 72,
+            "connector": false,
+            "gap": 48
+          },
+          "start": 90,
+          "end": 240,
+          "holds": [
+            [
+              130,
+              240
+            ]
+          ],
+          "purpose": "Give date, place and time",
+          "copy": [
+            "d",
+            "p",
+            "h"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-07",
+      "format": "9:16",
+      "style": "warm-ink",
+      "approximates": "The days count down to the launch and the video ends on the date itself, not on urgency",
+      "gap": "The count is days to a fixed date; a live countdown would go stale after publishing",
+      "copy": {
+        "label": "dni do premiery",
+        "date": "Premiera 1 grudnia"
+      },
+      "scenes": [
+        {
+          "id": "count",
+          "kind": "counter",
+          "params": {
+            "from": 30,
+            "to": 14,
+            "label": "label",
+            "labelSize": 56,
+            "duration": 36,
+            "size": 280
+          },
+          "start": 0,
+          "end": 120,
+          "holds": [
+            [
+              52,
+              120
+            ]
+          ],
+          "purpose": "Count to the date",
+          "copy": [
+            "label"
+          ]
+        },
+        {
+          "id": "date",
+          "kind": "end-card",
+          "params": {
+            "text": "date",
+            "size": 88
+          },
+          "start": 114,
+          "end": 220,
+          "holds": [
+            [
+              140,
+              220
+            ]
+          ],
+          "purpose": "End on the date",
+          "copy": [
+            "date"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-08",
+      "format": "9:16",
+      "style": "midnight",
+      "approximates": "One feature in a phone: a tap moves to the next screen and the loop returns to the first",
+      "gap": "The return to the start is a push back to the first screenshot; a seamless loop also needs identical first and last frames",
+      "assets_from": {
+        "phone-1": "examples/app-film.motion-score.json",
+        "phone-2": "examples/app-film.motion-score.json"
+      },
+      "copy": {
+        "c1": "Dodaj wydatek",
+        "c2": "jednym dotknięciem"
+      },
+      "scenes": [
+        {
+          "id": "loop",
+          "kind": "device",
+          "params": {
+            "frame": "phone",
+            "screens": [
+              {
+                "asset": "phone-1"
+              },
+              {
+                "asset": "phone-2",
+                "at": 64
+              },
+              {
+                "asset": "phone-1",
+                "at": 176
+              }
+            ],
+            "taps": [
+              {
+                "at": 60,
+                "x": 0.5,
+                "y": 0.93
+              }
+            ],
+            "caption": [
+              "c1",
+              "c2"
+            ]
+          },
+          "start": 0,
+          "end": 210,
+          "holds": [
+            [
+              100,
+              210
+            ]
+          ],
+          "purpose": "Loop one feature",
+          "copy": [
+            "c1",
+            "c2"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-09",
+      "format": "9:16",
+      "style": "paper-and-ink",
+      "approximates": "The labelled myth appears briefly, then the sourced correction replaces it and stays longer",
+      "gap": "The myth is replaced by a cut to the next scene, not struck through in place",
+      "copy": {
+        "m1": "Mit:",
+        "m2": "drewno w kuchni to bakterie",
+        "f1": "Fakt:",
+        "f2": "deska z buku schnie i jest higieniczna",
+        "f3": "źródło: badanie z 2024 r. w opisie"
+      },
+      "scenes": [
+        {
+          "id": "myth",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "m1",
+              "m2"
+            ],
+            "sizes": [
+              80,
+              84
+            ],
+            "weights": [
+              400,
+              700
+            ]
+          },
+          "start": 0,
+          "end": 111,
+          "holds": [
+            [
+              22,
+              111
+            ]
+          ],
+          "purpose": "Name the myth",
+          "copy": [
+            "m1",
+            "m2"
+          ]
+        },
+        {
+          "id": "fact",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "f1",
+              "f2",
+              "f3"
+            ],
+            "sizes": [
+              80,
+              84,
+              40
+            ],
+            "weights": [
+              400,
+              800,
+              400
+            ]
+          },
+          "start": 105,
+          "end": 329,
+          "holds": [
+            [
+              131,
+              329
+            ]
+          ],
+          "purpose": "Correct it with a source",
+          "copy": [
+            "f1",
+            "f2",
+            "f3"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-SOCIAL-10",
+      "format": "9:16",
+      "style": "meadow",
+      "approximates": "The community count settles into one concise thank-you",
+      "gap": "Individual contributions are summed into one counter",
+      "copy": {
+        "label": "osób wsparło zbiórkę",
+        "thanks": "Dziękujemy!"
+      },
+      "scenes": [
+        {
+          "id": "count",
+          "kind": "counter",
+          "params": {
+            "from": 0,
+            "to": 1284,
+            "label": "label",
+            "labelSize": 56,
+            "duration": 40,
+            "locale": "pl-PL"
+          },
+          "start": 0,
+          "end": 122,
+          "holds": [
+            [
+              60,
+              122
+            ]
+          ],
+          "purpose": "Show the community",
+          "copy": [
+            "label"
+          ]
+        },
+        {
+          "id": "thanks",
+          "kind": "end-card",
+          "params": {
+            "text": "thanks",
+            "size": 140
+          },
+          "start": 116,
+          "end": 212,
+          "holds": [
+            [
+              138,
+              212
+            ]
+          ],
+          "purpose": "Thank them",
+          "copy": [
+            "thanks"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-EDITORIAL-01",
+      "format": "16:9",
+      "style": "editorial-serif",
+      "approximates": "The sourced headline rises into the frame with its attribution kept on screen as a lower third",
+      "gap": "The lift from the original page is a rise from a mask; the page itself is not shown",
+      "copy": {
+        "h1": "Miasto otwiera",
+        "h2": "nową bibliotekę",
+        "src": "Gazeta Lokalna",
+        "when": "12 września 2026"
+      },
+      "scenes": [
+        {
+          "id": "headline",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "h1",
+              "h2"
+            ],
+            "sizes": [
+              120,
+              120
+            ],
+            "weights": [
+              800,
+              800
+            ]
+          },
+          "start": 0,
+          "end": 120,
+          "holds": [
+            [
+              30,
+              120
+            ]
+          ],
+          "purpose": "Lift the headline",
+          "copy": [
+            "h1",
+            "h2"
+          ]
+        },
+        {
+          "id": "source",
+          "kind": "lower-third",
+          "params": {
+            "name": "src",
+            "title": "when"
+          },
+          "start": 114,
+          "end": 227,
+          "holds": [
+            [
+              140,
+              227
+            ]
+          ],
+          "purpose": "Keep the attribution",
+          "copy": [
+            "src",
+            "when"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-EDITORIAL-02",
+      "format": "16:9",
+      "style": "field-guide",
+      "approximates": "Dated events arrive in order along a ribbon and earlier events stay visible as context",
+      "gap": "The ribbon is the item-stagger connector; dates are not spaced by real duration",
+      "copy": {
+        "e1": "1998 pierwszy sklep",
+        "e2": "2009 własna palarnia",
+        "e3": "2026 trzecia kawiarnia"
+      },
+      "scenes": [
+        {
+          "id": "ribbon",
+          "kind": "item-stagger",
+          "params": {
+            "items": [
+              "e1",
+              "e2",
+              "e3"
+            ],
+            "size": 52,
+            "weight": 600,
+            "direction": "row"
+          },
+          "start": 0,
+          "end": 221,
+          "holds": [
+            [
+              60,
+              221
+            ]
+          ],
+          "purpose": "Walk through the dates",
+          "copy": [
+            "e1",
+            "e2",
+            "e3"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-EDITORIAL-04",
+      "format": "16:9",
+      "style": "paper-and-ink",
+      "approximates": "The claim and its qualification arrive in the same reading beat, the qualification as a smaller line",
+      "gap": "The citation is a line of text; a numbered footnote marker needs custom code",
+      "copy": {
+        "claim": "Zużywamy o 30% mniej wody",
+        "qual": "w porównaniu z 2023 r., dane własne zakładu, raport roczny 2025"
+      },
+      "scenes": [
+        {
+          "id": "claim",
+          "kind": "line-reveal",
+          "params": {
+            "lines": [
+              "claim",
+              "qual"
+            ],
+            "sizes": [
+              96,
+              40
+            ],
+            "weights": [
+              800,
+              400
+            ]
+          },
+          "start": 0,
+          "end": 251,
+          "holds": [
+            [
+              30,
+              251
+            ]
+          ],
+          "purpose": "State the claim with its qualification",
+          "copy": [
+            "claim",
+            "qual"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-EDITORIAL-07",
+      "format": "16:9",
+      "style": "editorial-serif",
+      "approximates": "The authorised quotation reads alone in a still interval before its attribution appears",
+      "gap": "None",
+      "copy": {
+        "quote": "„Najlepsze rzeczy robi się powoli i z uwagą.”",
+        "by": "Maria Nowak, ceramiczka"
+      },
+      "scenes": [
+        {
+          "id": "quote",
+          "kind": "quote",
+          "params": {
+            "quote": "quote",
+            "attribution": "by",
+            "attributionDelay": 60,
+            "size": 76
+          },
+          "start": 0,
+          "end": 249,
+          "holds": [
+            [
+              74,
+              249
+            ]
+          ],
+          "purpose": "Let the quotation be read",
+          "copy": [
+            "quote",
+            "by"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-EDITORIAL-10",
+      "format": "16:9",
+      "style": "midnight",
+      "approximates": "Credits arrive in grouped blocks with readable holds, and the final credit stays fully visible",
+      "gap": "Each block is a row of items; a scrolling roll needs custom code",
+      "copy": {
+        "r1": "Reżyseria: Anna Kowal",
+        "r2": "Zdjęcia: Piotr Lis",
+        "r3": "Muzyka: Ola Wrona",
+        "end": "Dziękujemy za uwagę"
+      },
+      "scenes": [
+        {
+          "id": "credits",
+          "kind": "item-stagger",
+          "params": {
+            "items": [
+              "r1",
+              "r2",
+              "r3"
+            ],
+            "size": 56,
+            "weight": 600,
+            "direction": "column",
+            "connector": false,
+            "gap": 36
+          },
+          "start": 0,
+          "end": 189,
+          "holds": [
+            [
+              40,
+              189
+            ]
+          ],
+          "purpose": "Credit the team",
+          "copy": [
+            "r1",
+            "r2",
+            "r3"
+          ]
+        },
+        {
+          "id": "final",
+          "kind": "end-card",
+          "params": {
+            "text": "end",
+            "size": 96
+          },
+          "start": 183,
+          "end": 279,
+          "holds": [
+            [
+              209,
+              279
+            ]
+          ],
+          "purpose": "Close on the final credit",
+          "copy": [
+            "end"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-PRODUCT-01",
+      "format": "16:9",
+      "style": "product-light",
+      "approximates": "One real task goes from pending to done: a tap in the app and the next screen shows it completed",
+      "gap": "Pending and done are two supplied screenshots; the change inside one screen is not animated",
+      "assets_from": {
+        "phone-1": "examples/app-film.motion-score.json",
+        "phone-2": "examples/app-film.motion-score.json"
+      },
+      "copy": {
+        "c1": "Zapisz wydatek",
+        "c2": "i od razu widzisz bilans"
+      },
+      "scenes": [
+        {
+          "id": "task",
+          "kind": "device",
+          "params": {
+            "frame": "phone",
+            "screens": [
+              {
+                "asset": "phone-1"
+              },
+              {
+                "asset": "phone-2",
+                "at": 70
+              }
+            ],
+            "taps": [
+              {
+                "at": 66,
+                "x": 0.5,
+                "y": 0.93
+              }
+            ],
+            "caption": [
+              "c1",
+              "c2"
+            ],
+            "side": "left"
+          },
+          "start": 0,
+          "end": 205,
+          "holds": [
+            [
+              100,
+              205
+            ]
+          ],
+          "purpose": "Complete one task",
+          "copy": [
+            "c1",
+            "c2"
+          ]
+        }
+      ]
+    },
+    {
+      "record": "FC-PRODUCT-04",
+      "format": "16:9",
+      "style": "product-light",
+      "approximates": "The camera magnifies one verified feature of the screen and returns, so the whole product stays the context",
+      "gap": "The magnification is a camera move on the device; an inset loupe beside the full view needs custom code",
+      "assets_from": {
+        "phone-1": "examples/app-film.motion-score.json"
+      },
+      "copy": {
+        "c1": "Bilans miesiąca",
+        "c2": "zawsze na górze"
+      },
+      "scenes": [
+        {
+          "id": "feature",
+          "kind": "device",
+          "params": {
+            "frame": "phone",
+            "screens": [
+              {
+                "asset": "phone-1"
+              }
+            ],
+            "focus": [
+              {
+                "at": 40,
+                "scale": 1.6,
+                "x": 0.5,
+                "y": 0.2,
+                "frames": 24
+              },
+              {
+                "at": 140,
+                "scale": 1,
+                "frames": 24
+              }
+            ],
+            "caption": [
+              "c1",
+              "c2"
+            ],
+            "side": "left"
+          },
+          "start": 0,
+          "end": 200,
+          "holds": [
+            [
+              70,
+              200
+            ]
+          ],
+          "purpose": "Magnify one feature",
+          "copy": [
+            "c1",
+            "c2"
+          ]
+        }
+      ]
+    }
+  ]
+}

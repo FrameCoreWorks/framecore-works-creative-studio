@@ -4,6 +4,7 @@ import {isDeepStrictEqual} from 'node:util';
 
 const canvas = 'skills/hyperframes-workflow/assets/motion-toolkit';
 const three = 'skills/remotion-video-production/assets/three-motion-example';
+const turntable = 'skills/remotion-video-production/assets/gltf-turntable';
 const kinetic = 'skills/remotion-video-production/assets/kinetic-type-starter';
 const gsapStarter = 'skills/hyperframes-workflow/assets/gsap-motion-starter';
 const singleFile = 'skills/hyperframes-workflow/assets/single-file-preview';
@@ -15,6 +16,8 @@ export function validateMotionToolkit(root) {
   const required = [
     ...['README.md','package.json','package-lock.json','index.html','app.mjs','build.mjs','server.mjs','timeline.mjs','timeline.test.mjs','renderers.mjs','lottie-fixture.mjs','export.mjs'].map(name => `${canvas}/${name}`),
     ...['README.md','package.json','package-lock.json','tsconfig.json','remotion.config.ts','src/index.tsx'].map(name => `${three}/${name}`),
+    ...['README.md','package.json','package-lock.json','tsconfig.json','remotion.config.ts','src/index.tsx','public/sample-product.glb','tools/make_sample_glb.py'].map(name => `${turntable}/${name}`),
+    ...['README.md','retime.py'].map(name => `skills/hyperframes-workflow/assets/animate-voice/${name}`),
     ...['README.md','package.json','package-lock.json','tsconfig.json','remotion.config.ts','check-score.mjs','motion-score.json','src/index.ts','src/Root.tsx','src/motion.ts','src/KineticType.tsx'].map(name => `${kinetic}/${name}`),
     ...['README.md','package.json','package-lock.json','index.html','main.mjs','check-score.mjs','motion-score.json'].map(name => `${gsapStarter}/${name}`),
     'skills/hyperframes-workflow/references/motion-craft.md',
@@ -54,7 +57,7 @@ export function validateMotionToolkit(root) {
   for (const relative of required) {
     try {if (!read(relative).trim()) fail(`Empty: ${relative}`);} catch {fail(`Missing: ${relative}`);}
   }
-  for (const directory of [canvas, three, kinetic, gsapStarter]) {
+  for (const directory of [canvas, three, turntable, kinetic, gsapStarter]) {
     try {
       const pkg = JSON.parse(read(`${directory}/package.json`));
       const lock = JSON.parse(read(`${directory}/package-lock.json`));

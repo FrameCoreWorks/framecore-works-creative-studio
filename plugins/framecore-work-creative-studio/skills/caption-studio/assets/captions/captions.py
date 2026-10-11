@@ -41,6 +41,15 @@ NO_LINE_END = {
     'en': {'a', 'an', 'the', 'to', 'of', 'in', 'on', 'at', 'for', 'with', 'by', 'from', 'and', 'or', 'but', 'as', 'if', 'my', 'your', 'our', 'his', 'her', 'its', 'their'},
     'pl': {'a', 'i', 'o', 'u', 'w', 'z', 'we', 'ze', 'na', 'do', 'od', 'po', 'za', 'ku', 'że', 'by', 'nie', 'się', 'oraz', 'albo', 'lub', 'ale'},
 }
+# Words that open a clause. A cue that has to be cut without punctuation is cut before one of them, so each cue holds a
+# whole thought; transcripts from speech recognition often carry no commas at all.
+CLAUSE_START = {
+    'en': {'and', 'but', 'or', 'so', 'because', 'which', 'who', 'whose', 'when', 'while', 'if', 'unless', 'although', 'though', 'where',
+           'until', 'since', 'then', 'that'},
+    'pl': {'i', 'a', 'ale', 'lecz', 'oraz', 'albo', 'lub', 'czy', 'bo', 'że', 'żeby', 'aby', 'gdy', 'kiedy', 'jeśli', 'jeżeli', 'gdzie',
+           'który', 'która', 'które', 'którzy', 'którego', 'której', 'którym', 'których', 'którą', 'więc', 'dlatego', 'ponieważ',
+           'choć', 'chociaż', 'zanim', 'dopóki', 'potem', 'następnie', 'jednak'},
+}
 TIME = re.compile(r'^(?:(\d+):)?(\d{1,2}):(\d{2})[,.](\d{1,3})$')
 
 
@@ -219,14 +228,26 @@ def words_from(items):
     return out
 
 
-def cut_point(group, language):
-    """Where to end a cue that has grown too long: after the last punctuation that keeps at least half of it, else
-    before the last word that may start a line (not after an article, preposition or one-letter word)."""
-    avoid = NO_LINE_END.get(language, set())
+def cut_point(group, language, incoming=None):
+    """Where to end a cue that has grown too long (`incoming` is the word that no longer fits), keeping clauses whole:
+    after the last punctuation that keeps at least half of it; else before the last word that opens a clause (and,
+    because, which; i, ale, że, który), the incoming word included, or at the longest pause of 0.25 s or more, either
+    keeping at least 40 % of it; else before the last word that may start a line (not after an article, preposition or
+    one-letter word). Returns how many words stay in the cue; all of them when the cut falls before `incoming`."""
+    avoid, starters = NO_LINE_END.get(language, set()), CLAUSE_START.get(language, set())
     length = len(' '.join(w['word'] for w in group))
+    kept = lambda i: len(' '.join(w['word'] for w in group[:i]))
+    bare = lambda word: word.lower().strip('.,;:!?…"\'„”«»()')
+    ahead = group + ([incoming] if incoming else [])
     for i in range(len(group) - 1, 0, -1):
-        if group[i - 1]['word'][-1:] in ',.;:!?…' and len(' '.join(w['word'] for w in group[:i])) >= length / 2:
+        if group[i - 1]['word'][-1:] in ',.;:!?…' and kept(i) >= length / 2:
             return i
+    for i in range(len(ahead) - 1, 0, -1):
+        if bare(ahead[i]['word']) in starters and bare(ahead[i - 1]['word']) not in avoid and kept(i) >= 0.4 * length:
+            return i
+    pause, at = max(((ahead[i]['start'] - ahead[i - 1]['end'], i) for i in range(1, len(ahead)) if kept(i) >= 0.4 * length), default=(0, 0))
+    if pause >= 0.25:
+        return at
     for i in range(len(group) - 1, 0, -1):
         if group[i - 1]['word'].lower().strip('.,;:!?…"\'') not in avoid:
             return i
@@ -236,7 +257,8 @@ def cut_point(group, language):
 def build_from_words(words, profile='social', language='en', audience='adult', max_chars=MAX_CHARS, fps=30.0, cue_chars=None):
     """Group timed words into cues: a cue closes at a sentence end, after a comma once it holds half its length, at a
     pause of 0.7 s or more, or when the next word would pass the cue length (social and text: one line of `max_chars`;
-    subtitles: two lines) or the maximum duration; a cue that grew too long ends at a natural break. End times then
+    subtitles: two lines) or the maximum duration; a cue that grew too long ends at a natural break (punctuation, then
+    the start of a clause or a pause, see cut_point). End times then
     extend toward the wanted duration; gaps under two frames are closed."""
     rules = limits(profile, language, audience)
     max_seconds = rules['max_seconds'] or 7.0
@@ -252,7 +274,7 @@ def build_from_words(words, profile='social', language='en', audience='adult', m
                 groups.append(current)
                 current = []
             elif len(trial) > cue_chars or break_lines(trial, language, max_chars) is None or word['end'] - current[0]['start'] > max_seconds:
-                at = cut_point(current, language)
+                at = cut_point(current, language, word)
                 groups.append(current[:at])
                 current = current[at:]
         current.append(word)

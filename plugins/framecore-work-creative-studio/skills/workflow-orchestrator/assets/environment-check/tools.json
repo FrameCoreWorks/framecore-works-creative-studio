@@ -559,6 +559,40 @@
       }
     },
     {
+      "id": "remotion_turntable",
+      "label": "Remotion glTF product turntable",
+      "capability": "remotion_render",
+      "kind": "workspace",
+      "workspace_name": "gltf-turntable",
+      "pinned_by": "skills/remotion-video-production/assets/gltf-turntable/package.json",
+      "install": {
+        "linux": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/gltf-turntable\" && cp -R \"<plugin>/skills/remotion-video-production/assets/gltf-turntable\" \"$HOME/.framecore-studio/workspace/gltf-turntable\" && (cd \"$HOME/.framecore-studio/workspace/gltf-turntable\" && npm ci)",
+        "macos": "mkdir -p \"$HOME/.framecore-studio/workspace\" && rm -rf \"$HOME/.framecore-studio/workspace/gltf-turntable\" && cp -R \"<plugin>/skills/remotion-video-production/assets/gltf-turntable\" \"$HOME/.framecore-studio/workspace/gltf-turntable\" && (cd \"$HOME/.framecore-studio/workspace/gltf-turntable\" && npm ci)",
+        "windows": "New-Item -ItemType Directory -Force \"$HOME\\.framecore-studio\\workspace\" | Out-Null; Remove-Item -Recurse -Force \"$HOME\\.framecore-studio\\workspace\\gltf-turntable\" -ErrorAction SilentlyContinue; Copy-Item -Recurse \"<plugin>\\skills\\remotion-video-production\\assets\\gltf-turntable\" \"$HOME\\.framecore-studio\\workspace\\gltf-turntable\"; Set-Location \"$HOME\\.framecore-studio\\workspace\\gltf-turntable\"; npm ci",
+        "any": "<plugin> is the installed plugin folder. The folder is replaced, so a copy from an older plugin version is refreshed; npm ci installs the exact versions of the starter's lockfile. Remotion needs a company licence for some companies"
+      },
+      "hosts": {
+        "chatgpt": {
+          "status": "not_supported",
+          "note": "no npm workspace in the chat sandbox"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "note": "no npm workspace in the chat sandbox"
+        },
+        "codex": {
+          "status": "per_project"
+        },
+        "claude_code": {
+          "status": "per_project"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "note": "no npm workspace in the chat sandbox"
+        }
+      }
+    },
+    {
       "id": "motion_toolkit",
       "label": "Motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild)",
       "kind": "workspace",

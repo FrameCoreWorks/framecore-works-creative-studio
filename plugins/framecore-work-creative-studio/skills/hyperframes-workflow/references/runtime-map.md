@@ -33,6 +33,7 @@ The [environment check](../../workflow-orchestrator/assets/environment-check/REA
 | Remotion render | `remotion_render` | no | no | yes | Node, network, browser |
 | HyperFrames engine | `hyperframes_engine` | no | no | yes | Node, ffmpeg, browser, network |
 | Animate engine (illustrated looks) | `animate_render` | no | no | yes | Node, browser, ffmpeg |
+| Polish word times for an Animate voice-over | `animate_voice` | no | no | yes | Python |
 
 A "yes" means the bundled tool can run in that profile once its needs are met; it is not a claim that it ran. When a need is missing, deliver what the capability card's `when_missing` says and mark the output NOT VERIFIED.
 
@@ -40,7 +41,7 @@ A "yes" means the bundled tool can run in that profile once its needs are met; i
 
 - **None.** Write the checked contract by hand from the [contract reference](motion-contract-json.md), using the declared scene kinds, and deliver it with the motion player link; the user's browser plays and exports it.
 - **Code execution.** Render the MP4 with the [Python renderer](../assets/motion-render/README.md) copied as `<id>.render.py`, critique and accept it, add sound when asked. Start an ad from a [template](../assets/motion-variants/README.md) and make language or format versions with `variants.py`. Everything renders from declared scene kinds; a look that needs custom code is out of reach here, so say so and offer the nearest scene kinds.
-- **Shell.** All of the above, plus the Node checker and the browser frame review. Offer an engine only when its needs are met and the brief calls for it: the GSAP or [Remotion starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) for custom scenes, [HyperFrames](hyperframes-engine.md) for website films and longer narrated edits, the [Animate engine](animate-engine.md) for illustrated looks, and the toolkit layers (PixiJS, D3, Three.js, Lottie, Manim) for what the scene kinds cannot draw.
+- **Shell.** All of the above, plus the Node checker and the browser frame review. Offer an engine only when its needs are met and the brief calls for it: the GSAP or [Remotion starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) for custom scenes, the [glTF product turntable](../../remotion-video-production/assets/gltf-turntable/README.md) for a 3D packshot, [HyperFrames](hyperframes-engine.md) for website films and longer narrated edits, the [Animate engine](animate-engine.md) for illustrated looks, and the toolkit layers (PixiJS, D3, Three.js, Lottie, Manim) for what the scene kinds cannot draw.
 
 ## 4. Pick by brief inside the column
 

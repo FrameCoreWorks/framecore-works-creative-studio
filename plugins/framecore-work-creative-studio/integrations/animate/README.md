@@ -17,6 +17,7 @@ Source: [cth9191 / animate](https://github.com/cth9191/animate/tree/7e5eb56feb2d
 | Web-check every on-screen claim | Already present | Studio's conditional research gate, sources in `brief.md` |
 | "Done is measured" by its review | Adopt with addition | Its numbers are the technical evidence; Studio's four acceptance verdicts still need eyes on the frames and a viewing |
 | ElevenLabs voice through a connector | Keep with Studio's provider rule | Only when the user connected it and approved the stated cost |
+| Voice word timing (`tools/voice.mjs`, `voice_words.py`): English model and a-z matching | Keep unchanged, add beside it | Studio's [animate-voice](../../skills/hyperframes-workflow/assets/animate-voice/README.md) sets Polish and other-language word times in the piece's `voice.json` afterwards |
 | Learn step: edit `craft.md` or a style | Adapt | Notes go to the piece's `LOG.md`; the bundled copy is never edited per piece |
 | Repository README, `docs/*.png`, plugin wrapper | Not bundled | Presentation only, 5.8 MB |
 

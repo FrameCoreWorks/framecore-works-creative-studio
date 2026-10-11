@@ -1526,3 +1526,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `c56c5df`; workflows Check Studio sources 38115335628, Check Studio sources 38115333653, Refresh current release notes 38115332460, Publish the motion player to GitHub Pages 38115332373, Check Studio sources 38115332454, Publish verified Studio release 38115332521: success; [v1.61.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.61.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1127 of 1127) ([record](../verification/github-publication-1.61.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261011-04
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-04-phase3-end`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `171b0cb` (main, package 1.61.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.62.0)
+- Package version: 1.61.0 -> 1.62.0
+- Scope: Phase 3 of the improvement plan, last part: clause-aware caption cues, Polish and other-language word timing for Animate voice-overs beside the unchanged engine, twenty original library records as runnable scene-kind contracts with a builder and checks, and a Remotion glTF product turntable template with a synthetic sample model, registered in the capability card, environment check, runtime map and toolkit inventory
+- Shared package changed: yes; 21 changed, 12 added, 0 removed ([scope](../verification/scope-1.62.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness: PASS ([record](../verification/release-1.62.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

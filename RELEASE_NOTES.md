@@ -1,10 +1,10 @@
-# Creative Studio 1.61.0
+# Creative Studio 1.62.0
 
-Photos, trends and words that land one by one.
+Better captions, Polish voice timing and 3D packshots.
 
-- **Product photos in motion.** A photo fills the frame and moves in slowly behind your headline, with a shade that keeps the text readable.
-- **Line charts.** Show how sales or results grew: the line draws month by month and the final value appears when it arrives.
-- **Word-by-word hooks.** Short lines can now enter one word at a time, with a light spring.
-- **Your logo stays on screen.** Keep a logo or an offer tag in a corner for the whole video or from a chosen moment.
+- **Captions that break between thoughts.** Subtitles made from a transcript without punctuation now end where a new clause begins, not in the middle of a phrase.
+- **Polish voice-overs in animated films.** Word timing for Animate films now works with Polish (and other languages), so pictures can cue on the spoken words.
+- **Ready-made starting points.** Twenty motion ideas from the library now come as ready contracts that render straight away.
+- **Your product in 3D.** With a 3D model of the product, Studio can make a turning packshot video with studio light, a shadow and a title.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

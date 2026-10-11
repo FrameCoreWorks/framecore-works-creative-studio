@@ -26,6 +26,10 @@ node library.mjs brief "animowane logo do intro"
 node library.mjs brief data-story
 ```
 
+## Runnable snippets
+
+[`runnable-snippets.json`](runnable-snippets.json) turns twenty original records into small contracts made only of declared scene kinds, so they render as they are in the player, the Remotion starter and the Python renderer. Each names the mechanism it `approximates` and the `gap` the scene kinds cannot show. `node library.mjs snippets` lists them and `node library.mjs snippet FC-SOCIAL-02 > steps.motion.json` writes one complete contract (proposed, illustrative copy) to replace, check and approve; a brief lookup marks its records that have a snippet. In a host without a shell, read the JSON and build the contract by hand from the snippet's scenes and copy.
+
 In a host without a shell, read `brief-index.json` directly and pick the matching brief type. A match is a proposal for the current brief; it selects no runtime and approves nothing.
 
 ## Original blueprint families

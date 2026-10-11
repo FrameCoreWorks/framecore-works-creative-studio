@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateScore,secondsAtFrame,reviewFrames,cueTimes,renderPaperFrame,renderToneCues} from '../skills/hyperframes-workflow/assets/motion-quality/score.mjs';
-import {loadLibrary,searchLibrary,presentEntry,validateLibrary,loadBriefIndex,matchBrief,presentBrief,validateBriefIndex} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
+import {loadLibrary,searchLibrary,presentEntry,validateLibrary,loadBriefIndex,matchBrief,presentBrief,validateBriefIndex,loadSnippets,validateSnippets,snippetContract} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
 const score=JSON.parse(fs.readFileSync(new URL('../skills/hyperframes-workflow/assets/motion-quality/example-score.json',import.meta.url),'utf8'));
 test('rational frame time and half-open end are respected',()=>{
   assert.equal(secondsAtFrame(30,{fps:{num:30000,den:1001},totalFrames:60}),1.001);
@@ -78,6 +78,33 @@ test('brief tags name scene kinds that the linked contract shows',()=>{
   index.briefs[0].scene_kinds=['bar-chart'];index.briefs[1].scene_kinds=['quote'];index.briefs[1].contract=null;index.briefs[2].contract='../secret.json';
   const errors=validateBriefIndex(index,entries).join('\n');
   assert.match(errors,/has no bar-chart scene/);assert.match(errors,/need a contract/);assert.match(errors,/contract must be null/);
+});
+test('twenty runnable snippets build complete storyboards that the renderer draws without cropping',async()=>{
+  const os=await import('node:os'),path=await import('node:path'),{spawnSync}=await import('node:child_process');
+  const {checkScore}=await import('../skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs');
+  const entries=loadLibrary(),file=loadSnippets();
+  assert.equal(file.snippets.length,20);
+  assert.deepEqual(validateSnippets(file,entries),[]);
+  const view=presentBrief(loadBriefIndex().briefs.find(b=>b.id==='social-vertical'),entries,file.snippets);
+  assert.equal(view.records.find(r=>r.id==='FC-SOCIAL-02').snippet,'node library.mjs snippet FC-SOCIAL-02');
+  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'snippets-'));
+  try {
+    const jobs=file.snippets.map(s=>{
+      const contract=snippetContract(s,entries);
+      assert.deepEqual(checkScore(contract,{storyboard:true}),{errors:[],warnings:[]},s.record);
+      const out=path.join(tmp,s.record+'.motion.json');fs.writeFileSync(out,JSON.stringify(contract));
+      return [out,contract.scenes.map(sc=>Math.floor((sc.holds[0][0]+sc.holds[0][1])/2)).join(',')];
+    });
+    if (spawnSync('python3',['-c','import PIL'],{encoding:'utf8'}).status!==0) return;
+    const render=new URL('../skills/hyperframes-workflow/assets/motion-render/render.py',import.meta.url).pathname;
+    for (const [out,frames] of jobs) {
+      const done=spawnSync('python3',['-B',render,out,'--stills',frames,'--stills-dir',out+'-stills'],{encoding:'utf8'});
+      assert.equal(done.status,0,path.basename(out)+': '+done.stderr);
+    }
+  } finally {fs.rmSync(tmp,{recursive:true,force:true});}
+  const bad=structuredClone(file);bad.snippets[0].record='FC-NOPE-01';bad.snippets[1].style='neon';bad.snippets[2].assets_from={x:'../secret.json'};
+  const errors=validateSnippets(bad,entries).join('\n');
+  assert.match(errors,/existing FrameCore original/);assert.match(errors,/unknown style neon/);assert.match(errors,/must come from examples/);
 });
 test('original blueprints have record-specific objectives',()=>{
   const originals=loadLibrary().filter(e=>e.prompt_origin==='framecore_original');
