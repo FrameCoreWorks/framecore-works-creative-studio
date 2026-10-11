@@ -6,7 +6,7 @@ For substantive art direction, use [motion quality direction](motion-quality-dir
 
 ## Runtime selection
 
-Choosing motion area `8` or loading `hyperframes-workflow` does not select HyperFrames or any other engine. Introduce the work as motion graphics from code; mention a specific engine as selected only when the current contract supports it.
+Read the [runtime map](runtime-map.md) first: the host decides which tools can run, then the brief chooses among them. Choosing motion area `8` or loading `hyperframes-workflow` does not select HyperFrames or any other engine. Introduce the work as motion graphics from code; mention a specific engine as selected only when the current contract supports it.
 
 Preserve the user's explicit runtime choice and an established working project. If neither decides the route, recommend the simplest suitable available stack from the brief, visual mechanism, editable-delivery needs, variants, export requirements and verified host capabilities. The user need not name a library. Remotion may be recommended for reusable React/TypeScript compositions and variants; HTML/SVG/Canvas with GSAP may suit lightweight vector or 2D scenes; HyperFrames is one optional HTML-video route; the [Animate engine](animate-engine.md) suits illustrated, procedural looks (cut paper, ink, riso, sketchbook, math, pixel, isometric or a look matched from references) for explainers, histories and short stories. Use the [toolkit decision table](motion-toolkit-routing.md#choose-by-the-required-result) for Three.js/R3F, PixiJS, D3 and other specialized layers.
 

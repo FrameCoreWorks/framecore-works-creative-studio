@@ -1,6 +1,6 @@
 # Motion toolkit routing
 
-Use this extension inside the existing [code motion workflow](code-based-motion-graphics.md). It adds implementation choices for an approved storyboard. It does not add a workflow owner, shared state, mode or approval gate. Preserve the current interaction mode, work pace, source locks and remaining QA budget.
+Use this extension inside the existing [code motion workflow](code-based-motion-graphics.md), in the shell column of the [runtime map](runtime-map.md). It adds implementation choices for an approved storyboard. It does not add a workflow owner, shared state, mode or approval gate. Preserve the current interaction mode, work pace, source locks and remaining QA budget.
 
 ## Choose by the required result
 

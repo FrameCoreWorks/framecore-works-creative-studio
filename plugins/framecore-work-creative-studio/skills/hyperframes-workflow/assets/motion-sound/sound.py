@@ -420,13 +420,45 @@ def render_effects(score, cues, indexes=None):
     return dry, send, hits
 
 
-def master(mix, target_lufs, ceiling_db=-1.0):
-    """High-pass, glue the loudest moments, limit, set loudness with ffmpeg's loudnorm analysis, limit again. Returns (audio, notes)."""
+# The balanced tone: a little less low-mid mud (around 300 Hz), a little more presence (around 3 kHz) and air (above
+# 10 kHz), so the mix reads on phone speakers and earbuds; flat leaves the spectrum as designed.
+TONES = {'flat': None, 'balanced': {'low_mid_db': -1.5, 'presence_db': 1.5, 'air_db': 1.5}}
+
+
+def tone_curve(freqs, tone):
+    gain = synth.highpass(freqs, 28, 2)
+    if tone:
+        db = tone['low_mid_db'] * synth.band(freqs, 300, 0.8) + tone['presence_db'] * synth.band(freqs, 3200, 1.0)
+        gain = gain * 10 ** (db / 20) * (1 + (10 ** (tone['air_db'] / 20) - 1) * synth.highpass(freqs, 10000, 2))
+    return gain
+
+
+def phone_check(audio):
+    """How much quieter the mix plays through a phone-like speaker (a steep high-pass at 300 Hz), and the energy shares
+    below 150 Hz and in 300 Hz to 5 kHz. A drop of more than 12 dB means the music mostly vanishes on a phone."""
+    mono = np.mean(audio, axis=1) if audio.ndim == 2 else audio
+    if not len(mono) or not np.any(mono):
+        return None
+    spectrum = np.fft.rfft(mono)
+    freqs = np.fft.rfftfreq(len(mono), 1 / RATE)
+    power = np.abs(spectrum) ** 2
+    total = power.sum()
+    phone = (power * synth.highpass(freqs, 300, 4) ** 2).sum()
+    drop = 10 * math.log10(total / max(phone, 1e-20))
+    low, mid = power[freqs < 150].sum() / total, power[(freqs >= 300) & (freqs <= 5000)].sum() / total
+    verdict = 'bass-heavy: on a phone speaker the mix drops by more than 12 dB; listen on a phone' if drop > 12 else 'ok'
+    return {'phone_drop_db': round(drop, 1), 'below_150hz_share': round(float(low), 3), 'midrange_share': round(float(mid), 3), 'verdict': verdict}
+
+
+def master(mix, target_lufs, ceiling_db=-1.0, tone='balanced'):
+    """High-pass and tone, glue the loudest moments, limit, set loudness with ffmpeg's loudnorm analysis, limit again.
+    Returns (audio, notes)."""
     spec_len = len(mix)
+    curve = TONES[tone]
     for c in range(2):
-        mix[:, c] = synth.shaped(mix[:, c], lambda t, f: synth.highpass(f, 28, 2), 4096, 1024)
+        mix[:, c] = synth.shaped(mix[:, c], lambda t, f: tone_curve(f, curve), 4096, 1024)
     # Glue: the loudest moments (a final hit over the music) are brought 6 dB closer to the rest at 2.5:1.
-    power = np.convolve(np.mean(mix ** 2, axis=1), np.ones(RATE // 100) / (RATE // 100), mode='same')
+    power = synth.moving_average(np.mean(mix ** 2, axis=1), RATE // 100, 'same')
     if power.max() > 0:
         mix = synth.compress(mix, 10 * math.log10(power.max()) - 6, 2.5)
     out = synth.limit(mix, ceiling_db - 0.5)
@@ -447,6 +479,10 @@ def master(mix, target_lufs, ceiling_db=-1.0):
     measured = loudness_of(out)
     if measured:
         notes.update(lufs=measured[0], true_peak_db=round(synth.true_peak_db(out), 2), method='loudnorm analysis, bus glue and true-peak limiter')
+    notes['tone'] = tone
+    check = phone_check(out[:spec_len])
+    if check:
+        notes['phone_check'] = check
     return out[:spec_len], notes
 
 
@@ -734,6 +770,7 @@ def main(argv=None):
     mix.add_argument('--wav')
     mix.add_argument('--stems', help='folder for the dry effects.wav and music.wav stems, before reverb and mastering')
     mix.add_argument('--lufs', type=float, default=-14.0)
+    mix.add_argument('--tone', choices=sorted(TONES), default='balanced', help='balanced (default) lifts presence and air and trims low-mid mud; flat leaves the mix as designed')
     test = sub.add_parser('check')
     test.add_argument('wav', help='an effects-only track, such as stems/effects.wav')
     test.add_argument('contract')
@@ -795,7 +832,7 @@ def main(argv=None):
                 raise ValueError(f'Output file already exists: {path}')
         mixed, effects, hits, music_stem = full_mix(score, os.path.dirname(os.path.abspath(args.contract)))
         timing = timing_check(score)
-        mastered, notes = master(mixed, args.lufs)
+        mastered, notes = master(mixed, args.lufs, tone=args.tone)
         summary = {'cues': len(score.get('sfx') or []), 'timing': timing, 'loudness': notes}
         with tempfile.TemporaryDirectory() as tmp:
             wav = args.wav or os.path.join(tmp, 'mix.wav')

@@ -124,6 +124,17 @@ test('checker kinds match the engine and the all-kinds example is a complete sto
   const errors = checkScore(bad).errors.join('\n');
   assert.match(errors, /logo asset missing/); assert.match(errors, /unknown scene kind spin/); assert.match(errors, /missing copy id nope/);
 });
+test('ad templates are complete storyboards in every format with placeholder copy to replace', async () => {
+  const {resolveFormat} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const names = fs.readdirSync(path.join(root, scenesDir, 'templates')).sort();
+  assert.deepEqual(names, ['ad-offer.motion-score.json', 'ad-product.motion-score.json', 'ad-testimonial.motion-score.json']);
+  for (const name of names) {
+    const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'templates', name), 'utf8'));
+    assert.equal(score.copyStatus, 'template-placeholder', name);
+    for (const id of ['base', ...score.formats.map(format => format.id)]) assert.deepEqual(checkScore(resolveFormat(score, id), {storyboard: true}), {errors: [], warnings: []}, `${name} ${id}`);
+  }
+});
 test('formats resolve from one contract and keep the 16:9 layout unchanged', async () => {
   const {buildScene, sceneFrame, resolveFormat, nodesByKey: nodesOf} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
@@ -211,7 +222,7 @@ test('the Python renderer matches the browser engine frame by frame', {skip: !(p
   const {runReview} = await import(path.join(root, reviewTool));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-parity-'));
   try {
-    for (const example of ['color-block', 'app-film', 'data-and-names']) {
+    for (const example of ['color-block', 'app-film', 'data-and-names', 'social-captions']) {
       const contract = path.join(root, scenesDir, `examples/${example}.motion-score.json`);
       const review = runReview(contract, {out: path.join(tmp, example), browser: process.env.MOTION_REVIEW_BROWSER, format: 'base', samples: 4});
       const frames = review.frames.map(frame => frame.frame);
@@ -1030,6 +1041,8 @@ test('a mastered sound mix puts every hit on its frame', {skip: !(python && nump
     // The mix judges every cue in a solo render, so no neighbour masks a hit.
     assert.deepEqual([summary.timing.status, summary.timing.judged, summary.timing.not_judged], ['checked', summary.timing.cues, 0], mixed.stdout);
     assert.ok(Math.abs(summary.loudness.lufs + 14) <= 2 && summary.loudness.true_peak_db <= -0.95, mixed.stdout);
+    assert.equal(summary.loudness.tone, 'balanced');
+    assert.equal(summary.loudness.phone_check.verdict, 'ok', mixed.stdout);
     assert.ok(fs.existsSync(path.join(stems, 'music.wav')), 'the music stem is written next to the effects stem');
     // A whole effects track cannot separate cues that sit close together: check says so and exits 3, never a silent pass.
     const checked = spawnPython('python3', ['-B', sound, 'check', path.join(stems, 'effects.wav'), planned], {encoding: 'utf8'});
@@ -1047,6 +1060,24 @@ test('a mastered sound mix puts every hit on its frame', {skip: !(python && nump
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
+test('the balanced tone lifts presence and air, trims low-mid, and the phone check flags a bass-only mix', {skip: !numpy && 'numpy not installed'}, () => {
+  const code = [
+    'import sys, json, numpy as np', `sys.path.insert(0, ${JSON.stringify(path.join(root, soundDir))})`, 'import sound',
+    'f = np.array([100.0, 300.0, 3200.0, 14000.0])',
+    'db = lambda tone: (20 * np.log10(sound.tone_curve(f, sound.TONES[tone]))).round(2).tolist()',
+    't = np.arange(sound.RATE) / sound.RATE',
+    'print(json.dumps({"flat": db("flat"), "balanced": db("balanced"), "bass": sound.phone_check(np.sin(2 * np.pi * 60 * t)), "voice": sound.phone_check(np.sin(2 * np.pi * 1000 * t))}))',
+  ].join('\n');
+  const run = spawnPython('python3', ['-B', '-c', code], {encoding: 'utf8'});
+  assert.equal(run.status, 0, run.stderr);
+  const {flat, balanced, bass, voice} = JSON.parse(run.stdout);
+  const lift = balanced.map((value, i) => value - flat[i]);
+  assert.ok(Math.abs(lift[0]) < 0.6 && lift[1] < -1 && lift[2] > 1 && lift[3] > 1, JSON.stringify(lift));
+  assert.match(bass.verdict, /bass-heavy/);
+  assert.ok(bass.phone_drop_db > 12 && bass.below_150hz_share > 0.9);
+  assert.equal(voice.verdict, 'ok');
+  assert.ok(voice.phone_drop_db < 1 && voice.midrange_share > 0.9);
+});
 test('supplied footage gets designed sound from its measured cuts, marked moments and reveal', {skip: !(python && numpy && ffmpegLoudnorm) && 'python3 with Pillow and numpy, or ffmpeg with loudnorm, not installed'}, () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-footage-'));
   try {
@@ -1251,4 +1282,33 @@ test('lower thirds and bar charts lay out and count identically in the JS engine
   assert.match(errors, /bar 1 value must be a number of zero or more/);
   assert.match(errors, /bar-chart max must be a positive number/);
   assert.match(errors, /lower-third align must be left or center/);
+});
+
+test('active-word captions keep Polish word groups, light the spoken word and match the Python renderer', async () => {
+  const {captionItems, captionsFrame, buildCaptions} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {spawnSync} = await import('node:child_process');
+  const contract = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/social-captions.motion-score.json'), 'utf8'));
+  assert.deepEqual(checkScore(contract, {storyboard: true}), {errors: [], warnings: []});
+  const samples = ['Miód lipowy z pasieki w Beskidach', 'Teraz 39,90 zł zamiast 44,90 zł', 'Wysyłka w 24 h w całej Polsce', 'a b', 'Ósma o 8 min'];
+  assert.deepEqual(captionItems(samples[0]).map(item => item.text), ['Miód', 'lipowy', 'z\u00A0pasieki', 'w\u00A0Beskidach']);
+  assert.deepEqual(captionItems(samples[1]).map(item => item.words), [[0], [1, 2], [3], [4, 5]]);
+  const script = ['import sys, json, importlib.util', `spec = importlib.util.spec_from_file_location('r', ${JSON.stringify(path.join(root, 'skills/hyperframes-workflow/assets/motion-render/render.py'))})`,
+    'r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)', 'print(json.dumps([r.caption_items(t) for t in json.loads(sys.argv[1])]))'].join('\n');
+  const result = spawnSync(process.env.PYTHON || 'python3', ['-c', script, JSON.stringify(samples)], {encoding: 'utf8'});
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout), samples.map(text => captionItems(text)));
+  const tree = buildCaptions(contract);
+  assert.equal(tree.children.length, contract.captions.length);
+  const [first] = contract.captions;
+  const lit = frame => Object.entries(captionsFrame(contract, frame)).filter(([key, value]) => /^caption-0-/.test(key) && value.style.background === contract.tokens.accent).map(([key]) => key);
+  assert.deepEqual(lit(first.words[0][0]), ['caption-0-0']);
+  assert.deepEqual(lit(first.words[3][0]), ['caption-0-2'], 'the fourth word belongs to the third item');
+  assert.equal(captionsFrame(contract, first.end)['caption-0'].style.visibility, 'hidden');
+  const bad = structuredClone(contract);
+  bad.captions[0].words = bad.captions[0].words.slice(1);
+  bad.tokens.captions.preset = 'karaoke';
+  const errors = checkScore(bad).errors.join('\n');
+  assert.match(errors, /words must list one \[start, end\) frame span per word of its copy \(6\)/);
+  assert.match(errors, /tokens.captions.preset must be box or active-word/);
 });

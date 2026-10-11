@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.59.0
+## Current source: 1.60.0
+
+The [1.60.0 source checks](verification/release-1.60.0.json) pass canonical validation and `scripts/check_all.sh`: 214 Node tests (207 passing, 7 opt-in browser tests skipped there and run separately: 77 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 15 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 3 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness; `claude plugin validate --strict` passes. The ad templates pass the storyboard check with no warnings in all three formats, the active-word captions match pixel for pixel between the browser and the renderer, and the runtime map's host columns equal the capability card. [Scope](verification/scope-1.60.0.json) records 32 changed and 8 added shared files out of 1126.
+
+## Previous source: 1.59.0
 
 The [1.59.0 source checks](verification/release-1.59.0.json) pass canonical validation and `scripts/check_all.sh`: 210 Node tests (203 passing, 7 opt-in browser tests skipped there and run separately: 73 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 14 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 3 motion kinds, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness; `claude plugin validate --strict` passes. The new kinds' layouts and counted values are identical between the JS engine and the Python renderer in both formats, and the data-and-names frames pass the browser-versus-renderer pixel test. [Scope](verification/scope-1.59.0.json) records 20 changed and 2 added shared files out of 1118.
 

@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "id": "ad-product-template",
+  "revision": 1,
+  "approval": {
+    "status": "proposed",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "storyboard",
+  "goal": "Introduce one product and its strongest proof in a 15-second vertical ad",
+  "audience": "Replace with the client's audience",
+  "message": "What it is, what it does, and that people like it",
+  "concept": "The product name rises, three features in a column, a rating counts up, a call to action that holds",
+  "runtime": {
+    "status": "proposed",
+    "value": "Python renderer for the MP4s; single-file preview for review"
+  },
+  "viewing": "9:16 full screen on a phone; 4:5 and 1:1 feed formats",
+  "audio": "Music bed with a hit on the call to action; voice-over optional",
+  "decisions": {
+    "confirmed": [
+      "1080 x 1920, 30 FPS, 450 frames (15 s); 4:5 and 1:1 formats"
+    ],
+    "proposed": [
+      "Product light style with its bundled fonts",
+      "Placeholder copy to be replaced by the client's exact text"
+    ],
+    "unknown": [
+      "The real product, its features and a documented rating or other proof",
+      "The client's brand kit"
+    ]
+  },
+  "template": {
+    "kind": "ad",
+    "replace": [
+      "cta",
+      "feature-1",
+      "feature-2",
+      "feature-3",
+      "name-1",
+      "name-2",
+      "rating-label"
+    ],
+    "note": "Replace every copy ID with the client's exact text, apply the brand kit, then check, preview and approve before rendering."
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 450,
+  "width": 1080,
+  "height": 1920,
+  "style": "product-light",
+  "tokens": {
+    "background": "#F6F7F9",
+    "foreground": "#0F172A",
+    "muted": "#475569",
+    "accent": "#2563EB",
+    "fontFamily": "Inter, Arial, sans-serif",
+    "marginRatio": 0.08,
+    "safeArea": {
+      "top": 0.1,
+      "bottom": 0.2
+    }
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "weight": 400,
+      "file": "inter/Inter-Regular.ttf"
+    },
+    {
+      "family": "Inter",
+      "weight": 600,
+      "file": "inter/Inter-SemiBold.ttf"
+    },
+    {
+      "family": "Inter",
+      "weight": 700,
+      "file": "inter/Inter-Bold.ttf"
+    },
+    {
+      "family": "Inter",
+      "weight": 900,
+      "file": "inter/Inter-Black.ttf"
+    }
+  ],
+  "motion": {
+    "tempo": "crisp",
+    "entryFrames": 12,
+    "exitFrames": 9,
+    "lineStaggerFrames": 4,
+    "itemStaggerFrames": 6,
+    "entryEasing": "easeOutQuart",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo"
+  },
+  "formats": [
+    {
+      "id": "4x5",
+      "width": 1080,
+      "height": 1350,
+      "viewing": "4:5 in a feed",
+      "tokens": {
+        "safeArea": {
+          "top": 0.05,
+          "bottom": 0.05
+        }
+      }
+    },
+    {
+      "id": "1x1",
+      "width": 1080,
+      "height": 1080,
+      "viewing": "1:1 in a feed",
+      "tokens": {
+        "contentScale": 0.85,
+        "safeArea": {
+          "top": 0.04,
+          "bottom": 0.04
+        }
+      },
+      "params": {
+        "name": {
+          "sizes": [
+            130,
+            54
+          ]
+        },
+        "features": {
+          "gap": 36
+        },
+        "rating": {
+          "size": 220
+        }
+      }
+    }
+  ],
+  "copy": {
+    "name-1": "Lampa Halo",
+    "name-2": "światło na każdą porę",
+    "feature-1": "3 barwy światła",
+    "feature-2": "12 h na baterii",
+    "feature-3": "Ładowanie USB-C",
+    "rating-label": "średnia ocena kupujących",
+    "cta": "Sprawdź w sklepie"
+  },
+  "copyStatus": "template-placeholder",
+  "assets": [],
+  "acceptance": [
+    "Every text sits inside the safe area of the platform buttons",
+    "The rating is a figure the client can document",
+    "The call to action holds to the last frame"
+  ],
+  "scenes": [
+    {
+      "id": "name",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "name-1",
+          "name-2"
+        ],
+        "sizes": [
+          150,
+          60
+        ],
+        "weights": [
+          900,
+          400
+        ],
+        "align": "center"
+      },
+      "purpose": "Name the product",
+      "start": 0,
+      "end": 120,
+      "copy": [
+        "name-1",
+        "name-2"
+      ],
+      "holds": [
+        [
+          20,
+          114
+        ]
+      ],
+      "focalPoint": "The product name",
+      "entry": "Lines rise from their masks",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "features",
+      "kind": "item-stagger",
+      "params": {
+        "items": [
+          "feature-1",
+          "feature-2",
+          "feature-3"
+        ],
+        "size": 72,
+        "weight": 600,
+        "gap": 60
+      },
+      "purpose": "Show what it does",
+      "start": 114,
+      "end": 272,
+      "copy": [
+        "feature-1",
+        "feature-2",
+        "feature-3"
+      ],
+      "holds": [
+        [
+          140,
+          266
+        ]
+      ],
+      "focalPoint": "The three features",
+      "entry": "Items arrive one by one along the line",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "rating",
+      "kind": "counter",
+      "params": {
+        "from": 0,
+        "to": 4.8,
+        "decimals": 1,
+        "suffix": "/5",
+        "label": "rating-label",
+        "size": 260,
+        "labelSize": 56,
+        "duration": 30,
+        "locale": "pl-PL"
+      },
+      "purpose": "Prove it with a figure the client can document",
+      "start": 266,
+      "end": 374,
+      "copy": [
+        "rating-label"
+      ],
+      "holds": [
+        [
+          296,
+          368
+        ]
+      ],
+      "focalPoint": "The rating",
+      "entry": "Label settles, the number counts up",
+      "action": "Hold on the final number",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "cta",
+      "kind": "end-card",
+      "params": {
+        "text": "cta",
+        "size": 100,
+        "weight": 700
+      },
+      "purpose": "Send to the shop",
+      "start": 368,
+      "end": 450,
+      "copy": [
+        "cta"
+      ],
+      "holds": [
+        [
+          386,
+          450
+        ]
+      ],
+      "focalPoint": "The call to action",
+      "entry": "Scales in with the rule",
+      "action": "Hold to the last frame",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Background",
+      "audio": "Music hit on entry"
+    }
+  ]
+}

@@ -13,7 +13,8 @@ Based on a full audit of package 1.54.0 on 2026-10-10: six independent read-only
 | 2.1 to 2.7 | done: offer and quote calculator, client intake and commercial brief fields, concept presentation, revision tracker and changes of scope, client handoff with acceptance protocol, brand kit read by the compositor, client email kit, brand voice guide, KPI and budget scenarios | 1.57.0 |
 | 3.1 (part), 3.5 (part) | contract fonts shared by player and renderer, four commercial styles with bundled fonts, `contentScale` for vertical formats | 1.58.0 |
 | 3.2 (part) | `lower-third` and `bar-chart` scene kinds in every engine copy and the Python renderer, with layout, value and pixel parity tests | 1.59.0 |
-| 3.1 rest to 3.6 | next: per-word kinetic entries and persistent elements, line chart, photo hero, ad templates and batch variants, caption preset, sound tonal balance, runtime map, GLTF turntable | |
+| 3.2 (part), 3.3 (part), 3.4, 3.5 (part) | three 9:16 ad templates with 4:5 and 1:1 formats, brand kit applied to motion contracts with a contrast report, batch variants over copy, language, tokens and format; `active-word` caption preset in every renderer with word timings from Caption Studio; balanced tone, phone-speaker check and a midrange knock on impacts; host-first runtime map checked against the capability card; brief index tagged with renderable scene kinds and contracts | 1.60.0 |
+| 3.1 rest, 3.2 rest, 3.3 rest, 3.5 rest, 3.6 | next: per-word kinetic entries and persistent elements, line chart, photo hero, clause-aware cues and Polish word timing in the Animate voice tool, the top library records as runnable snippets, GLTF turntable | |
 
 ## Diagnosis
 

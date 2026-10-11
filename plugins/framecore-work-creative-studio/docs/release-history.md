@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.60.0, 2026-10-11
+
+From Phase 3 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md) (premium motion), third part:
+
+- **Ad templates.** Three 15-second 9:16 storyboards with 4:5 and 1:1 formats: offer (Sale poster), product (Product light) and testimonial (Editorial serif). Every format passes the storyboard check with no warnings and renders without overflow; the copy is placeholder and listed for replacement ([ad templates and variants](../skills/hyperframes-workflow/assets/motion-variants/README.md))
+- **Brand kit and variants.** `variants.py brand` copies a client's kit colours into a motion contract, declares a bundled headline font's faces and reports WCAG contrast; `variants.py expand` writes one contract per copy, language or token variant (it may only replace existing copy IDs, and new text goes back to proposed) with a check command per variant and a render command per variant and format
+- **Active-word captions.** A `captions.tokens.preset` of `active-word` shows whole words in boxes and highlights the spoken one, from per-word frame spans in `caption.words`; the same layout in the three scene-engine copies and the Python renderer, with a pixel parity test. Caption Studio carries word timings into the contract; example `social-captions`
+- **Sound tonal balance.** Mastering applies a balanced tone by default (low-mid trimmed, presence and air lifted; `--tone flat` keeps the design), reports a phone-speaker check, and impacts gain a short midrange knock that phones can play ([motion sound](../skills/hyperframes-workflow/assets/motion-sound/README.md))
+- **Runtime map.** One host-first map (no code execution, code execution, shell) of every motion capability, checked against the capability card by a test ([runtime map](../skills/hyperframes-workflow/references/runtime-map.md)); the brief index tags each brief type with the scene kinds every renderer runs and a contract that renders as it is
+
 ## 1.59.0, 2026-10-11
 
 From Phase 3 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md) (premium motion), second part:

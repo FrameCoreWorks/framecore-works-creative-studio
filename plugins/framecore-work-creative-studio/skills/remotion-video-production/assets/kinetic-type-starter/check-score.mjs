@@ -230,6 +230,7 @@ function checkSound(score, errors, warnings) {
     if (track?.src !== undefined && !text(track.src)) errors.push(`${name}.src must be a file name`);
     if (track?.volume !== undefined && !(Number.isFinite(track.volume) && track.volume >= 0 && track.volume <= 1)) errors.push(`${name}.volume must be from 0 to 1`);
   }
+  if (score.tokens?.captions?.preset !== undefined && !['box', 'active-word'].includes(score.tokens.captions.preset)) errors.push('tokens.captions.preset must be box or active-word');
   if (score.captions === undefined) return;
   if (!Array.isArray(score.captions)) { errors.push('captions must be a list'); return; }
   const ids = new Set();
@@ -240,6 +241,16 @@ function checkSound(score, errors, warnings) {
     ids.add(id);
     if (!(Number.isSafeInteger(caption?.start) && Number.isSafeInteger(caption?.end) && caption.start >= 0 && caption.end <= n && caption.end > caption.start)) { errors.push(`caption ${id}: invalid [start,end)`); continue; }
     if (caption.start < previousEnd) errors.push(`caption ${id}: starts before the previous caption ends; captions must be in order without overlap`);
+    if (caption.words !== undefined) {
+      const count = String(score.copy?.[caption.copy] ?? '').split(/\s+/).filter(Boolean).length;
+      let last = caption.start;
+      const ok = Array.isArray(caption.words) && caption.words.length === count && caption.words.every(span => {
+        const good = Array.isArray(span) && Number.isSafeInteger(span[0]) && Number.isSafeInteger(span[1]) && span[0] >= last && span[1] > span[0] && span[1] <= caption.end;
+        if (good) last = span[0];
+        return good;
+      });
+      if (!ok) errors.push(`caption ${id}: words must list one [start, end) frame span per word of its copy (${count}), in order and inside the caption`);
+    }
     previousEnd = caption.end;
     if (typeof score.copy?.[caption.copy] !== 'string') { errors.push(`caption ${id}: copy id ${caption.copy} is missing`); continue; }
     const characters = score.copy[caption.copy].length;

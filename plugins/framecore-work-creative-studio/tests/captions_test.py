@@ -154,6 +154,21 @@ class Building(unittest.TestCase):
 
 
 class Contract(unittest.TestCase):
+    def test_word_timings_travel_into_the_contract_for_the_active_word_preset(self):
+        words = Building.words(None)
+        cues = captions.build_from_words(words, profile='social', language='pl')
+        self.assertTrue(all(len(c['words']) == len(c['text'].split()) for c in cues))
+        score = {'fps': {'num': 30, 'den': 1}, 'totalFrames': 30 * 20, 'copy': {}, 'captions': []}
+        result, warnings = captions.import_captions(score, cues)
+        self.assertEqual(warnings, [])
+        for caption in result['captions']:
+            spans = caption['words']
+            self.assertEqual(len(spans), len(result['copy'][caption['copy']].split()))
+            self.assertTrue(all(caption['start'] <= a < b <= caption['end'] for a, b in spans))
+            self.assertTrue(all(x[0] <= y[0] for x, y in zip(spans, spans[1:])))
+        first = result['captions'][0]
+        self.assertEqual(first['words'][0][0], round(words[0]['start'] * 30))
+
     def test_import_keeps_exact_text_and_shifts_overlaps(self):
         score = {'fps': {'num': 30, 'den': 1}, 'totalFrames': 90, 'copy': {'title': 'Hi'}, 'captions': []}
         result, warnings = captions.import_captions(score, [cue(0, 1000, 'One'), cue(900, 2000, 'Two'), cue(2900, 4000, 'Three'), cue(3500, 3600, 'Gone')])

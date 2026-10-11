@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "id": "social-captions",
+  "revision": 1,
+  "approval": {
+    "status": "example-not-client-approved",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "build",
+  "goal": "Show the active-word caption preset on a vertical social video",
+  "audience": "Studio users and maintainers checking captions",
+  "message": "Every spoken word lights up as it is said",
+  "concept": "A short honey offer read aloud, captions in word boxes above the platform buttons",
+  "runtime": {
+    "status": "proposed",
+    "value": "Python renderer for the MP4; single-file preview for review"
+  },
+  "viewing": "9:16 on a phone",
+  "audio": "voice-over (not included in the example)",
+  "decisions": {
+    "confirmed": [
+      "1080 x 1920, 30 FPS, 300 frames",
+      "Illustrative copy, prices and word timings"
+    ],
+    "proposed": [
+      "Sale poster style with bundled Archivo",
+      "Active-word captions above the bottom 20 %"
+    ],
+    "unknown": [
+      "The real voice-over and its measured word timings"
+    ]
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 300,
+  "width": 1080,
+  "height": 1920,
+  "style": "sale-poster",
+  "tokens": {
+    "background": "#101010",
+    "foreground": "#FFFFFF",
+    "muted": "#BDBDBD",
+    "accent": "#FFD400",
+    "fontFamily": "Archivo, Arial, sans-serif",
+    "marginRatio": 0.06,
+    "contentScale": 1.2,
+    "safeArea": {
+      "top": 0.1,
+      "bottom": 0.2
+    },
+    "captions": {
+      "preset": "active-word",
+      "size": 60,
+      "weight": 800,
+      "bottom": 0.22
+    }
+  },
+  "fonts": [
+    {
+      "family": "Archivo",
+      "weight": 400,
+      "file": "archivo/Archivo-Regular.ttf"
+    },
+    {
+      "family": "Archivo",
+      "weight": 700,
+      "file": "archivo/Archivo-Bold.ttf"
+    },
+    {
+      "family": "Archivo",
+      "weight": 800,
+      "file": "archivo/Archivo-CondensedExtraBold.ttf"
+    }
+  ],
+  "motion": {
+    "tempo": "punchy",
+    "entryFrames": 10,
+    "exitFrames": 8,
+    "lineStaggerFrames": 3,
+    "itemStaggerFrames": 5,
+    "entryEasing": "easeOutExpo",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo"
+  },
+  "copy": {
+    "hook-1": "Nowy smak",
+    "hook-2": "już w sklepie",
+    "cta": "Zamów do niedzieli",
+    "c1": "Miód lipowy z pasieki w Beskidach",
+    "c2": "Teraz 39,90 zł zamiast 44,90 zł",
+    "c3": "Wysyłka w 24 h w całej Polsce"
+  },
+  "copyStatus": "illustrative",
+  "assets": [],
+  "acceptance": [
+    "Each caption shows whole words in boxes and the spoken word is highlighted",
+    "Captions stay above the bottom 22 % of the frame",
+    "The call to action holds to the last frame"
+  ],
+  "captions": [
+    {
+      "id": "c1",
+      "start": 6,
+      "end": 102,
+      "copy": "c1",
+      "words": [
+        [
+          6,
+          21
+        ],
+        [
+          21,
+          36
+        ],
+        [
+          36,
+          51
+        ],
+        [
+          51,
+          66
+        ],
+        [
+          66,
+          81
+        ],
+        [
+          81,
+          96
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "start": 106,
+      "end": 198,
+      "copy": "c2",
+      "words": [
+        [
+          106,
+          120
+        ],
+        [
+          120,
+          135
+        ],
+        [
+          135,
+          149
+        ],
+        [
+          149,
+          163
+        ],
+        [
+          163,
+          178
+        ],
+        [
+          178,
+          192
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "start": 202,
+      "end": 292,
+      "copy": "c3",
+      "words": [
+        [
+          202,
+          214
+        ],
+        [
+          214,
+          226
+        ],
+        [
+          226,
+          238
+        ],
+        [
+          238,
+          250
+        ],
+        [
+          250,
+          262
+        ],
+        [
+          262,
+          274
+        ],
+        [
+          274,
+          286
+        ]
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "hook-1",
+          "hook-2"
+        ],
+        "sizes": [
+          150,
+          96
+        ],
+        "weights": [
+          800,
+          700
+        ]
+      },
+      "purpose": "Stop the scroll",
+      "start": 0,
+      "end": 150,
+      "copy": [
+        "hook-1",
+        "hook-2"
+      ],
+      "holds": [
+        [
+          20,
+          140
+        ]
+      ],
+      "focalPoint": "Nowy smak",
+      "entry": "Lines rise from their masks",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut",
+      "persistence": "Background",
+      "audio": "Voice-over"
+    },
+    {
+      "id": "cta",
+      "kind": "end-card",
+      "params": {
+        "text": "cta",
+        "size": 110,
+        "weight": 800
+      },
+      "purpose": "Ask for the order",
+      "start": 142,
+      "end": 300,
+      "copy": [
+        "cta"
+      ],
+      "holds": [
+        [
+          180,
+          300
+        ]
+      ],
+      "focalPoint": "The call to action",
+      "entry": "Scales in with the rule",
+      "action": "Hold to the last frame",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Background",
+      "audio": "Voice-over"
+    }
+  ]
+}

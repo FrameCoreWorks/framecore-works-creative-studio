@@ -1003,17 +1003,79 @@ class Scene:
             frame_image.alpha_composite(target)
 
 
+def caption_items(text):
+    """The scene engine's captionItems: flex items of a caption with the indexes of the words each holds."""
+    index, items = 0, []
+    for part in [p for p in keep_together(' '.join(str(text).split())).split(' ') if p]:
+        words = list(range(index, index + len(part.split('\u00a0'))))
+        index += len(words)
+        items.append({'text': part, 'words': words})
+    return items
+
+
 class Captions:
     def __init__(self, score, fonts):
         self.score, self.fonts, self.cache = score, fonts, {}
         t = tokens(score)
         self.style = t.get('captions') or {}
-        self.bottom = max(jround(score['height'] * ((t.get('safeArea') or {}).get('bottom', 0))), jround(score['height'] * self.style.get('bottom', 0.08)))
+        self.active = self.style.get('preset') == 'active-word'
+        default_bottom = 0.2 if self.active else 0.08
+        self.bottom = max(jround(score['height'] * ((t.get('safeArea') or {}).get('bottom', 0))), jround(score['height'] * self.style.get('bottom', default_bottom)))
+        if self.active:
+            self.layouts = [self.word_layout(caption) for caption in score.get('captions') or []]
+
+    def word_layout(self, caption):
+        """Flex-wrap rows of word boxes, centred and anchored at the caption bottom, as the browser lays them out."""
+        score, c = self.score, self.style
+        size, pad, gap, row_gap = px(score, c.get('size', 64)), px(score, 12), px(score, 10), px(score, 8)
+        line = jround(size * 1.3)
+        font = self.fonts.get(size, c.get('weight', 800))
+        width = score['width'] - 2 * margin(score)
+        items = []
+        for item in caption_items((score.get('copy') or {}).get(caption['copy'], '')):
+            text = item['text'].upper() if c.get('uppercase') else item['text']
+            block = TextBlock(text, font, 10 ** 6, line)
+            items.append({'text': text, 'words': item['words'], 'w': block.width + 2 * pad, 'mask': block.mask(block.width)})
+        rows, current, used = [], [], 0.0
+        for item in items:
+            need = item['w'] if not current else used + gap + item['w']
+            if current and need > width + 0.5:
+                rows.append(current)
+                current, used = [item], item['w']
+            else:
+                current.append(item)
+                used = need
+        if current:
+            rows.append(current)
+        top = score['height'] - self.bottom - (len(rows) * line + max(0, len(rows) - 1) * row_gap)
+        for r, row in enumerate(rows):
+            row_width = sum(item['w'] for item in row) + gap * (len(row) - 1)
+            x = margin(score) + (width - row_width) / 2
+            for item in row:
+                item['x'], item['y'] = x, top + r * (line + row_gap)
+                x += item['w'] + gap
+        return {'items': [item for row in rows for item in row], 'line': line, 'pad': pad, 'radius': px(score, 10)}
+
+    def draw_words(self, frame_image, frame, caption, layout):
+        c, t = self.style, tokens(self.score)
+        idle_bg = color(c.get('wordBackground'), (0, 0, 0, 153)) if c.get('wordBackground') else (0, 0, 0, 153)
+        active_bg = color(c.get('activeColor') or t.get('accent') or '#FFD400')
+        idle_fg, active_fg = color(c.get('color'), (255, 255, 255, 255)), color(c.get('activeText'), (17, 17, 17, 255))
+        for item in layout['items']:
+            spans = caption.get('words') or []
+            active = any(w < len(spans) and isinstance(spans[w], list) and spans[w][0] <= frame < spans[w][1] for w in item['words'])
+            box = Image.new('RGBA', (max(1, math.ceil(item['w'])), layout['line']), (0, 0, 0, 0))
+            ImageDraw.Draw(box).rounded_rectangle([0, 0, box.width - 1, box.height - 1], radius=layout['radius'], fill=active_bg if active else idle_bg)
+            box.alpha_composite(tinted(item['mask'], active_fg if active else idle_fg), (layout['pad'], 0))
+            place(frame_image, box, item['x'], item['y'])
 
     def draw(self, frame_image, frame):
         score = self.score
         caption = next((c for c in score.get('captions') or [] if c['start'] <= frame < c['end']), None)
         if not caption:
+            return
+        if self.active:
+            self.draw_words(frame_image, frame, caption, self.layouts[(score.get('captions') or []).index(caption)])
             return
         key = caption['copy']
         if key not in self.cache:

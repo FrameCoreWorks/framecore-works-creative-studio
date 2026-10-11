@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Curated starting points by brief type. Records are not_run blueprints; selection is a proposal, not approval or a runtime choice.",
+  "scope": "Curated starting points by brief type. Records are not_run blueprints; selection is a proposal, not approval or a runtime choice. scene_kinds are the declarative scene kinds every renderer runs for this brief (empty: custom code); contract is a checked example or template under motion-scenes/ that renders as it is, or null.",
   "briefs": [
     {
       "id": "logo-reveal",
@@ -23,6 +23,11 @@
       ],
       "runtime_hint": "HTML/SVG or GSAP; Remotion when the project already uses it",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "logo-reveal",
+        "end-card"
+      ],
+      "contract": "examples/all-kinds.motion-score.json",
       "use": "A protected mark keeps its geometry; animate surrounding shapes or approved parts only.",
       "avoid": "Animating letters of a protected logo or inventing parts that were not supplied."
     },
@@ -44,6 +49,8 @@
       ],
       "runtime_hint": "HTML/SVG or GSAP",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [],
+      "contract": null,
       "use": "Make the first and last frames identical and keep the mark still.",
       "avoid": "Constant motion that competes with the mark."
     },
@@ -71,6 +78,11 @@
       ],
       "runtime_hint": "Remotion or GSAP",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "end-card"
+      ],
+      "contract": "examples/color-block.motion-score.json",
       "use": "Reveal whole lines or phrases and give each a full reading hold.",
       "avoid": "Per-letter animation of sentences or text moving while it should be read."
     },
@@ -94,6 +106,13 @@
       ],
       "runtime_hint": "Remotion",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "item-stagger",
+        "counter",
+        "end-card"
+      ],
+      "contract": "templates/ad-product.motion-score.json",
       "use": "Show only verified behaviour of the supplied product.",
       "avoid": "Inventing features or exaggerating results."
     },
@@ -119,6 +138,11 @@
       ],
       "runtime_hint": "Remotion",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "device",
+        "end-card"
+      ],
+      "contract": "examples/app-film.motion-score.json",
       "use": "Use the real interface states supplied or approved; simplify, do not invent.",
       "avoid": "Fake screens or functionality the product does not have."
     },
@@ -146,6 +170,13 @@
       ],
       "runtime_hint": "Remotion; Three.js through Remotion for true 3D",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "item-stagger",
+        "counter",
+        "end-card"
+      ],
+      "contract": "templates/ad-product.motion-score.json",
       "use": "Keep the product geometry, label and colour locked to the source.",
       "avoid": "Physically implausible opening or invented internal structure."
     },
@@ -172,6 +203,13 @@
       ],
       "runtime_hint": "Remotion",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "counter",
+        "item-stagger",
+        "end-card"
+      ],
+      "contract": "templates/ad-offer.motion-score.json",
       "use": "Design for the phone: large type, one idea, and current platform overlays checked through research.",
       "avoid": "Dense layouts or invented platform safe zones."
     },
@@ -201,6 +239,11 @@
       ],
       "runtime_hint": "Remotion or GSAP",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "end-card"
+      ],
+      "contract": "examples/color-block.motion-score.json",
       "use": "Keep title, date, place and time stable and readable together.",
       "avoid": "Fake urgency or moving the key facts during the hold."
     },
@@ -224,6 +267,12 @@
       ],
       "runtime_hint": "HTML/SVG, GSAP or Remotion",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "quote",
+        "counter",
+        "end-card"
+      ],
+      "contract": "templates/ad-testimonial.motion-score.json",
       "use": "Use only authorized quotations with correct attribution and a still reading interval.",
       "avoid": "Animating the quotation word by word or editing its wording."
     },
@@ -253,6 +302,11 @@
       ],
       "runtime_hint": "SVG with GSAP or D3; Remotion for data-driven variants",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "bar-chart",
+        "end-card"
+      ],
+      "contract": "examples/data-and-names.motion-score.json",
       "use": "Use real data with units and source; keep scales stable.",
       "avoid": "Truncated axes, smooth growth implying a claim, or numbers without source."
     },
@@ -275,6 +329,10 @@
       ],
       "runtime_hint": "SVG with GSAP or Remotion",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "bar-chart"
+      ],
+      "contract": "examples/data-and-names.motion-score.json",
       "use": "Show the exact question, sample size and date with the results.",
       "avoid": "Rounding or ordering that changes the meaning."
     },
@@ -302,6 +360,11 @@
       ],
       "runtime_hint": "SVG with GSAP; Remotion for longer sequences",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "item-stagger"
+      ],
+      "contract": "examples/all-kinds.motion-score.json",
       "use": "One causal step at a time with persistent labels.",
       "avoid": "Decorative motion that hides the cause and effect."
     },
@@ -331,6 +394,12 @@
       ],
       "runtime_hint": "SVG with GSAP",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "line-reveal",
+        "item-stagger",
+        "quote"
+      ],
+      "contract": "examples/all-kinds.motion-score.json",
       "use": "Conserve quantities visibly and give learners time to read each state.",
       "avoid": "Skipping steps or changing values between frames."
     },
@@ -359,6 +428,11 @@
       ],
       "runtime_hint": "HTML/SVG or GSAP",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [
+        "lower-third",
+        "end-card"
+      ],
+      "contract": "examples/data-and-names.motion-score.json",
       "use": "Keep sources and qualifications on screen with the claim.",
       "avoid": "Pulling quotes out of context or hiding citations."
     },
@@ -383,6 +457,8 @@
       ],
       "runtime_hint": "Same runtime as the surrounding scenes",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [],
+      "contract": "examples/color-block.motion-score.json",
       "use": "Pick two or three transition types per project and repeat them consistently.",
       "avoid": "A different transition direction for every cut."
     },
@@ -412,6 +488,8 @@
       ],
       "runtime_hint": "GSAP or Remotion with the approved audio",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [],
+      "contract": null,
       "use": "Place major events on downbeats from a beat grid computed on the master timeline.",
       "avoid": "Cutting on every beat or estimating speech timing."
     },
@@ -438,6 +516,8 @@
       ],
       "runtime_hint": "Three.js / React Three Fiber through Remotion",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [],
+      "contract": null,
       "use": "Use supplied geometry and one measured camera move; keep labels honest.",
       "avoid": "Adding 3D to a brief that a 2D layout explains better."
     },
@@ -468,6 +548,8 @@
       ],
       "runtime_hint": "Canvas or WebGL with a seeded, frame-driven state",
       "starter": "gsap-motion-starter",
+      "scene_kinds": [],
+      "contract": null,
       "use": "Seed randomness and derive every frame from the frame number; keep text areas calm.",
       "avoid": "Busy patterns behind text or unseeded randomness."
     },
@@ -493,6 +575,11 @@
       ],
       "runtime_hint": "HTML/SVG, GSAP or Remotion",
       "starter": "kinetic-type-starter",
+      "scene_kinds": [
+        "end-card",
+        "logo-reveal"
+      ],
+      "contract": "examples/all-kinds.motion-score.json",
       "use": "Give the final card the longest hold and a stable last frame.",
       "avoid": "Cropping the last credit mid-scroll or a moving final frame."
     }

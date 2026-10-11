@@ -261,7 +261,8 @@ def build_from_words(words, profile='social', language='en', audience='adult', m
     cues = []
     for group in groups:
         joined = ' '.join(w['word'] for w in group)
-        cues.append({'start_ms': round(group[0]['start'] * 1000), 'end_ms': round(group[-1]['end'] * 1000), 'text': break_lines(joined, language, max_chars) or joined})
+        cues.append({'start_ms': round(group[0]['start'] * 1000), 'end_ms': round(group[-1]['end'] * 1000), 'text': break_lines(joined, language, max_chars) or joined,
+                     'words': [[round(w['start'] * 1000), round(w['end'] * 1000)] for w in group]})
     gap_ms = math.ceil(MIN_GAP_FRAMES / fps * 1000)
     for i, cue in enumerate(cues):
         limit = cues[i + 1]['start_ms'] - gap_ms if i + 1 < len(cues) else None
@@ -331,7 +332,17 @@ def import_captions(score, cues, prefix='caption', replace=False):
             warnings.append(f'{cid} has no frames left after rounding; skipped')
             continue
         result['copy'][cid] = cue['text']
-        result['captions'].append({'id': cid, 'start': start, 'end': end, 'copy': cid})
+        caption = {'id': cid, 'start': start, 'end': end, 'copy': cid}
+        if cue.get('words') and len(cue['words']) == len(cue['text'].split()):
+            # Word timings for the active-word preset, in frames, kept in order and inside the caption.
+            spans, last = [], start
+            for word_start, word_end in cue['words']:
+                a = min(max(frame_at(word_start, score), last), end - 1)
+                b = min(max(frame_at(word_end, score), a + 1), end)
+                spans.append([a, b])
+                last = a
+            caption['words'] = spans
+        result['captions'].append(caption)
     return result, warnings
 
 

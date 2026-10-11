@@ -71,6 +71,14 @@ test('brief index rejects unknown, imported or excessive records',()=>{
   const errors=validateBriefIndex(index,entries).join('\n');
   assert.match(errors,/two to four/);assert.match(errors,/unknown record FC-NOPE-01/);assert.match(errors,/FrameCore original/);
 });
+test('brief tags name scene kinds that the linked contract shows',()=>{
+  const entries=loadLibrary(),index=structuredClone(loadBriefIndex());
+  assert.equal(presentBrief(index.briefs.find(b=>b.id==='quote-testimonial'),entries).contract,'motion-scenes/templates/ad-testimonial.motion-score.json');
+  assert.ok(index.briefs.filter(b=>b.contract).length>=12);
+  index.briefs[0].scene_kinds=['bar-chart'];index.briefs[1].scene_kinds=['quote'];index.briefs[1].contract=null;index.briefs[2].contract='../secret.json';
+  const errors=validateBriefIndex(index,entries).join('\n');
+  assert.match(errors,/has no bar-chart scene/);assert.match(errors,/need a contract/);assert.match(errors,/contract must be null/);
+});
 test('original blueprints have record-specific objectives',()=>{
   const originals=loadLibrary().filter(e=>e.prompt_origin==='framecore_original');
   assert.equal(new Set(originals.map(e=>e.objective)).size,originals.length);

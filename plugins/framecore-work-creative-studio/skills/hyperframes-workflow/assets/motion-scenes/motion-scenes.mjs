@@ -425,10 +425,33 @@ export function beatFrames(score) {
   return beats;
 }
 
-/** Caption layer for score.captions [{id, start, end, copy}], drawn above the scenes; null without captions. */
+// Caption words as flex items for the active-word preset: the Polish typesetting rules decide which words stay
+// together (a one-letter word with the next, a number with its unit), and each item lists the indexes of the words
+// it holds, so caption.words timings select it.
+export function captionItems(text) {
+  let index = 0;
+  return keepTogether(String(text).split(/\s+/).filter(Boolean).join(' ')).split(' ').filter(Boolean).map(part => {
+    const words = part.split('\u00A0').map(() => index++);
+    return {text: part, words};
+  });
+}
+const activeWordStyle = (score, c) => ({size: px(score, c.size ?? 64), pad: px(score, 12), radius: px(score, 10), gap: px(score, 10),
+  line: Math.round(px(score, c.size ?? 64) * 1.3), rowGap: px(score, 8)});
+
+/** Caption layer for score.captions [{id, start, end, copy, words?}], drawn above the scenes; null without captions. */
 export function buildCaptions(score) {
   if (!score.captions?.length) return null;
   const t = score.tokens ?? {}, c = t.captions ?? {};
+  if (c.preset === 'active-word') {
+    // Every word in its own box; the spoken word lights up (captionsFrame). Rows wrap and centre above `bottom`.
+    const bottom = Math.max(Math.round(score.height * (t.safeArea?.bottom ?? 0)), Math.round(score.height * (c.bottom ?? 0.2)));
+    const a = activeWordStyle(score, c);
+    return {key: 'captions', type: 'box', style: {position: 'absolute', left: `${margin(score)}px`, right: `${margin(score)}px`, bottom: `${bottom}px`, height: '0'}, children: score.captions.map((caption, i) => ({
+      key: `caption-${i}`, type: 'box', style: {position: 'absolute', left: '0', right: '0', bottom: '0', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', columnGap: `${a.gap}px`, rowGap: `${a.rowGap}px`, visibility: 'hidden'},
+      children: captionItems(score.copy?.[caption.copy] ?? '').map((item, j) => ({key: `caption-${i}-${j}`, type: 'text', text: c.uppercase ? item.text.toUpperCase() : item.text,
+        style: {padding: `0 ${a.pad}px`, height: `${a.line}px`, lineHeight: `${a.line}px`, fontSize: `${a.size}px`, fontWeight: String(c.weight ?? 800), color: c.color ?? '#FFFFFF', background: c.wordBackground ?? 'rgba(0, 0, 0, 0.6)', borderRadius: `${a.radius}px`, whiteSpace: 'nowrap'}})),
+    }))};
+  }
   const bottom = Math.max(Math.round(score.height * (t.safeArea?.bottom ?? 0)), Math.round(score.height * (c.bottom ?? 0.08)));
   return {key: 'captions', type: 'box', style: {position: 'absolute', left: `${margin(score)}px`, right: `${margin(score)}px`, bottom: `${bottom}px`, display: 'flex', justifyContent: 'center'}, children: [
     {key: 'caption', type: 'text', text: '', style: {maxWidth: '100%', padding: `${px(score, 10)}px ${px(score, 22)}px`, background: c.background ?? 'rgba(0, 0, 0, 0.8)', color: c.color ?? '#FFFFFF', fontSize: `${px(score, c.size ?? 44)}px`, lineHeight: '1.3', fontWeight: String(c.weight ?? 500), textAlign: 'center', whiteSpace: 'pre-line', borderRadius: `${px(score, 6)}px`}},
@@ -437,6 +460,20 @@ export function buildCaptions(score) {
 
 /** The caption shown at a frame: captions cut in and out on their exact frames, start <= frame < end. */
 export function captionsFrame(score, frame) {
+  const t = score.tokens ?? {}, c = t.captions ?? {};
+  if (c.preset === 'active-word') {
+    const out = {};
+    (score.captions ?? []).forEach((caption, i) => {
+      const shown = frame >= caption.start && frame < caption.end;
+      out[`caption-${i}`] = {style: {visibility: shown ? 'visible' : 'hidden'}};
+      if (!shown) return;
+      captionItems(score.copy?.[caption.copy] ?? '').forEach((item, j) => {
+        const active = item.words.some(w => { const span = caption.words?.[w]; return Array.isArray(span) && frame >= span[0] && frame < span[1]; });
+        out[`caption-${i}-${j}`] = {style: {background: active ? c.activeColor ?? t.accent ?? '#FFD400' : c.wordBackground ?? 'rgba(0, 0, 0, 0.6)', color: active ? c.activeText ?? '#111111' : c.color ?? '#FFFFFF'}};
+      });
+    });
+    return out;
+  }
   const caption = (score.captions ?? []).find(item => frame >= item.start && frame < item.end);
   return {captions: {style: {visibility: caption ? 'visible' : 'hidden'}}, caption: {text: caption ? copy(score, caption.copy) : ''}};
 }

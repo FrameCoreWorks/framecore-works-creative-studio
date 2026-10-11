@@ -35,3 +35,7 @@ Every profile allows at most two lines of 42 characters, rejects overlapping cue
 ## Verification boundary
 
 During package preparation, in a Linux container with Python 3.13, Pillow 12 and ffmpeg 6.1, the tests in `tests/captions_test.py` checked the file formats, every limit, building from Polish word timings, the contract import against `sync.mjs` and a burn-in on a synthetic video (captions only inside their cues, audio kept). No host run is recorded.
+
+## Word timings in a motion contract
+
+Cues built from timed words (`build --words`) carry each word's start and end. `import` writes them into the contract as `captions[].words`, one `[start, end)` frame span per word, kept in order and inside the caption. With `tokens.captions.preset` set to `active-word`, the player and the Python renderer show every word in its own box and light up the word being spoken; one-letter words and numbers with units stay with their neighbours.

@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "id": "ad-offer-template",
+  "revision": 1,
+  "approval": {
+    "status": "proposed",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "storyboard",
+  "goal": "Sell a time-limited offer in a 15-second vertical ad",
+  "audience": "Replace with the client's audience",
+  "message": "The discount, why it is worth it, and the deadline",
+  "concept": "A loud hook, the discount counting up, three reasons in a column, a call to action that holds",
+  "runtime": {
+    "status": "proposed",
+    "value": "Python renderer for the MP4s; single-file preview for review"
+  },
+  "viewing": "9:16 full screen on a phone; 4:5 and 1:1 feed formats",
+  "audio": "Music bed with a hit on the call to action; voice-over optional",
+  "decisions": {
+    "confirmed": [
+      "1080 x 1920, 30 FPS, 450 frames (15 s); 4:5 and 1:1 formats"
+    ],
+    "proposed": [
+      "Sale poster style with its bundled fonts",
+      "Placeholder copy to be replaced by the client's exact text"
+    ],
+    "unknown": [
+      "The real offer, its terms and deadline",
+      "The client's brand kit"
+    ]
+  },
+  "template": {
+    "kind": "ad",
+    "replace": [
+      "cta",
+      "discount-label",
+      "hook-1",
+      "hook-2",
+      "reason-1",
+      "reason-2",
+      "reason-3"
+    ],
+    "note": "Replace every copy ID with the client's exact text, apply the brand kit, then check, preview and approve before rendering."
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 450,
+  "width": 1080,
+  "height": 1920,
+  "style": "sale-poster",
+  "tokens": {
+    "background": "#101010",
+    "foreground": "#FFFFFF",
+    "muted": "#BDBDBD",
+    "accent": "#FFD400",
+    "fontFamily": "Archivo, Arial, sans-serif",
+    "marginRatio": 0.06,
+    "safeArea": {
+      "top": 0.1,
+      "bottom": 0.2
+    }
+  },
+  "fonts": [
+    {
+      "family": "Archivo",
+      "weight": 400,
+      "file": "archivo/Archivo-Regular.ttf"
+    },
+    {
+      "family": "Archivo",
+      "weight": 700,
+      "file": "archivo/Archivo-Bold.ttf"
+    },
+    {
+      "family": "Archivo",
+      "weight": 800,
+      "file": "archivo/Archivo-CondensedExtraBold.ttf"
+    }
+  ],
+  "motion": {
+    "tempo": "punchy",
+    "entryFrames": 10,
+    "exitFrames": 8,
+    "lineStaggerFrames": 3,
+    "itemStaggerFrames": 5,
+    "entryEasing": "easeOutExpo",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo"
+  },
+  "formats": [
+    {
+      "id": "4x5",
+      "width": 1080,
+      "height": 1350,
+      "viewing": "4:5 in a feed",
+      "tokens": {
+        "safeArea": {
+          "top": 0.05,
+          "bottom": 0.05
+        }
+      }
+    },
+    {
+      "id": "1x1",
+      "width": 1080,
+      "height": 1080,
+      "viewing": "1:1 in a feed",
+      "tokens": {
+        "contentScale": 0.85,
+        "safeArea": {
+          "top": 0.04,
+          "bottom": 0.04
+        }
+      },
+      "params": {
+        "hook": {
+          "sizes": [
+            150,
+            72
+          ]
+        },
+        "discount": {
+          "size": 260
+        },
+        "reasons": {
+          "gap": 40
+        }
+      }
+    }
+  ],
+  "copy": {
+    "hook-1": "Wyprzedaż",
+    "hook-2": "tylko do niedzieli",
+    "discount-label": "rabatu na cały sklep",
+    "reason-1": "Darmowa dostawa",
+    "reason-2": "Zwrot 30 dni",
+    "reason-3": "Wysyłka 24 h",
+    "cta": "Kupuj teraz"
+  },
+  "copyStatus": "template-placeholder",
+  "assets": [],
+  "acceptance": [
+    "Every text sits inside the safe area of the platform buttons",
+    "The final percentage holds long enough to read",
+    "The call to action holds to the last frame"
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "line-reveal",
+      "params": {
+        "lines": [
+          "hook-1",
+          "hook-2"
+        ],
+        "sizes": [
+          170,
+          80
+        ],
+        "weights": [
+          800,
+          700
+        ],
+        "align": "center"
+      },
+      "purpose": "Stop the scroll",
+      "start": 0,
+      "end": 106,
+      "copy": [
+        "hook-1",
+        "hook-2"
+      ],
+      "holds": [
+        [
+          16,
+          100
+        ]
+      ],
+      "focalPoint": "Wyprzedaż",
+      "entry": "Lines rise from their masks",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "discount",
+      "kind": "counter",
+      "params": {
+        "from": 0,
+        "to": 30,
+        "suffix": "%",
+        "label": "discount-label",
+        "size": 320,
+        "labelSize": 64,
+        "duration": 30,
+        "locale": "pl-PL"
+      },
+      "purpose": "Show the size of the offer",
+      "start": 100,
+      "end": 220,
+      "copy": [
+        "discount-label"
+      ],
+      "holds": [
+        [
+          140,
+          214
+        ]
+      ],
+      "focalPoint": "The percentage",
+      "entry": "Label settles, the number counts up",
+      "action": "Hold on the final number",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "reasons",
+      "kind": "item-stagger",
+      "params": {
+        "items": [
+          "reason-1",
+          "reason-2",
+          "reason-3"
+        ],
+        "size": 76,
+        "weight": 700,
+        "gap": 64
+      },
+      "purpose": "Remove the doubts",
+      "start": 214,
+      "end": 360,
+      "copy": [
+        "reason-1",
+        "reason-2",
+        "reason-3"
+      ],
+      "holds": [
+        [
+          240,
+          354
+        ]
+      ],
+      "focalPoint": "The three reasons",
+      "entry": "Items arrive one by one along the line",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "cta",
+      "kind": "end-card",
+      "params": {
+        "text": "cta",
+        "size": 140,
+        "weight": 800
+      },
+      "purpose": "Ask for the purchase",
+      "start": 354,
+      "end": 450,
+      "copy": [
+        "cta"
+      ],
+      "holds": [
+        [
+          372,
+          450
+        ]
+      ],
+      "focalPoint": "The call to action",
+      "entry": "Scales in with the rule",
+      "action": "Hold to the last frame",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Background",
+      "audio": "Music hit on entry"
+    }
+  ]
+}

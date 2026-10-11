@@ -36,6 +36,10 @@ Needs Python 3.8 or newer, numpy and ffmpeg (with `loudnorm` for loudness; other
 
 Energy per bar works the same in every design: 0 a quiet pad, 1 the core (bass and the main instrument), 2 the moving parts and light percussion, 3 full drums. The bar before the reveal leads in (a backbeat roll and a reversed cymbal, softer for acoustic kits); the reveal lands on the tonic in the video's own instruments and rings out to the end, so the music resolves instead of being cut off. When the reveal comes well before the end (more than 1.5 bars and 3 s remain, as with an end card held for half the video), the music marks the reveal with a cymbal and plays on at full energy, eases in the bar before the last, leads home and resolves in the last bar (`soundDesign.music.endBar`), so the end card is not left over a long fade. Contracts planned before 1.38.0 (without `endBar`) keep their sound until planned again. Every design is set to the same level, so a new design never changes the balance against the effects.
 
+## Tone and phones
+
+The master stage applies a balanced tone by default: about 1.5 dB less low-mid around 300 Hz, 1.5 dB more presence around 3 kHz and 1.5 dB more air above 10 kHz, so voices, hits and melodies stay audible on phone speakers and earbuds (`--tone flat` keeps the mix as designed). Impacts carry a short midrange knock for the same reason. The summary's `loudness.phone_check` reports how much quieter the mix plays through a phone-like speaker (`phone_drop_db`, a steep 300 Hz high-pass) and the energy below 150 Hz and in the 300 Hz to 5 kHz range; a drop above 12 dB is flagged. Measured on the colour-block example on 2026-10-11: the drop went from 7.9 dB (flat) to 7.2 dB (balanced), the midrange share from 13 % to 15 %. This is a measurement, not a listening test: listen on a phone before delivery.
+
 ## Sound designs
 
 Each cue's `sound` names the role it plays; with a designed video it renders from that role's recipe, fitted to the cue.

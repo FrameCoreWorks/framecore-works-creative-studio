@@ -178,7 +178,9 @@ def impact(weight=0.6, brightness=0.6, seed=2):
     sub = np.sin(2 * np.pi * np.cumsum(freq) / RATE) * np.exp(-t / (0.15 + 0.3 * weight))
     body = shaped(colored_noise(n, seed, -0.6), lambda time, f: lowpass(f, 700 + 1400 * brightness, 2) * highpass(f, 70)) * np.exp(-t / (0.05 + 0.06 * weight))
     snap = shaped(colored_noise(n, seed + 1, 0.0), lambda time, f: highpass(f, 2500, 2)) * np.exp(-t / 0.004)
-    mono = saturate(0.75 * sub + 0.6 * body + 0.45 * brightness * snap, 1.6)
+    # A short midrange knock, so the hit still reads on a phone speaker that drops the sub.
+    knock = shaped(colored_noise(n, seed + 2, -0.3), lambda time, f: band(f, 1200, 0.7)) * np.exp(-t / 0.012)
+    mono = saturate(0.75 * sub + 0.6 * body + 0.45 * brightness * snap + 0.3 * knock, 1.6)
     return fades(stereo(mono, 0.0, 0.12 * weight, seed), 0.0005, 0.05), 0.0
 
 

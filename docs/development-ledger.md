@@ -1484,3 +1484,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `5ff4c65`; workflows Check Studio sources 38110198117, Check Studio sources 38110196274, Publish the motion player to GitHub Pages 38110194396, Refresh current release notes 38110194448, Check Studio sources 38110194403, Publish verified Studio release 38110194440: success; [v1.59.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.59.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1118 of 1118) ([record](../verification/github-publication-1.59.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261011-02
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-02-phase3-rest`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `71d63aa` (main, package 1.59.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.60.0)
+- Package version: 1.59.0 -> 1.60.0
+- Scope: Phase 3 of the improvement plan, third part: three 9:16 ad templates with 4:5 and 1:1 formats, a brand-kit and batch-variants tool for motion contracts with a contrast report, the active-word caption preset in every renderer with word timings from Caption Studio, a balanced mastering tone with a phone-speaker check and a midrange knock on impacts, and a host-first runtime map checked against the capability card, with brief types tagged by renderable scene kinds
+- Shared package changed: yes; 32 changed, 8 added, 0 removed ([scope](../verification/scope-1.60.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 214 Node tests (207 passing, 7 opt-in browser tests skipped there and run separately: 77 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 15 caption, 18 environment check, 15 motion acceptance, 6 motion fonts, 3 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 6 host-eval harness: PASS ([record](../verification/release-1.60.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

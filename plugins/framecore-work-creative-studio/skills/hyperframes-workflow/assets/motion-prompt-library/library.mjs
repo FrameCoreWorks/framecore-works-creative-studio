@@ -62,11 +62,11 @@ export function matchBrief(index,query='',{limit=3}={}) {
 export function presentBrief(brief,entries) {
   if (!brief) throw new Error('Unknown brief type');
   const byId=new Map(entries.map(e=>[e.id,e]));
-  return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,use:brief.use,avoid:brief.avoid,
+  return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,scene_kinds:brief.scene_kinds,contract:brief.contract?'motion-scenes/'+brief.contract:null,use:brief.use,avoid:brief.avoid,
     records:brief.records.map(id=>({id,title:byId.get(id)?.title,objective:byId.get(id)?.objective,runtime:byId.get(id)?.runtime})),
     authority:'A proposal for the current brief. It selects no runtime, approves no contract and runs nothing.'};
 }
-export function validateBriefIndex(index,entries) {
+export function validateBriefIndex(index,entries,scenes=path.join(here,'..','motion-scenes')) {
   const errors=[],ids=new Set(),byId=new Map(entries.map(e=>[e.id,e]));
   const starters=new Set(['kinetic-type-starter','gsap-motion-starter']);
   if (index?.schema_version!==1 || !Array.isArray(index.briefs) || index.briefs.length<10) return ['brief index needs schema_version 1 and at least 10 brief types'];
@@ -78,6 +78,14 @@ export function validateBriefIndex(index,entries) {
     if (!starters.has(b.starter)) fail('unknown starter');
     if (!Array.isArray(b.records) || b.records.length<2 || b.records.length>4 || new Set(b.records).size!==b.records.length) fail('needs two to four distinct records');
     for (const id of b.records||[]) { const e=byId.get(id); if (!e) fail('unknown record '+id); else if (e.prompt_origin!=='framecore_original') fail('record '+id+' must be a FrameCore original'); }
+    // A tagged scene kind must be shown by the brief's contract, so the tag always points at something that renders.
+    if (!Array.isArray(b.scene_kinds) || b.scene_kinds.some(k=>typeof k!=='string')) fail('scene_kinds must be a list (empty for custom code)');
+    if (b.contract!==null && !/^(examples|templates)\/[a-z0-9-]+\.motion-score\.json$/.test(b.contract||'')) fail('contract must be null or examples/ or templates/<name>.motion-score.json');
+    else if (b.contract) {
+      const file=path.join(scenes,b.contract);
+      if (!fs.existsSync(file)) fail('missing contract '+b.contract);
+      else { const kinds=new Set(JSON.parse(fs.readFileSync(file,'utf8')).scenes.map(s=>s.kind)); for (const k of b.scene_kinds||[]) if (!kinds.has(k)) fail(b.contract+' has no '+k+' scene'); }
+    } else if ((b.scene_kinds||[]).length) fail('scene kinds need a contract that shows them');
   }
   return errors;
 }

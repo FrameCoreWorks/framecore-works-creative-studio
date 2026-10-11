@@ -18,7 +18,7 @@ Run from this asset directory, or use its actual discovered path. The helper rea
 
 ## Pick by brief
 
-Start from the [brief index](brief-index.json) instead of browsing all families. It maps 19 common brief types (logo reveal, kinetic statement, product feature, app workflow, social reel, event, quote, data, poll, explainer, lesson, editorial, transitions, music sync, 3D, generative background, end card and more) to two to four original records, a runtime hint, a starter, what to keep and what to avoid. Polish and English words both match, including inflected forms.
+Start from the [brief index](brief-index.json) instead of browsing all families. It maps 19 common brief types (logo reveal, kinetic statement, product feature, app workflow, social reel, event, quote, data, poll, explainer, lesson, editorial, transitions, music sync, 3D, generative background, end card and more) to two to four original records, a runtime hint, a starter, what to keep and what to avoid. Polish and English words both match, including inflected forms. Each brief type also names its `scene_kinds`, the declared scene kinds every renderer runs for it, and a `contract`, an example or [ad template](../motion-variants/README.md) under `motion-scenes/` that renders as it is; a brief with no scene kinds needs custom code (see the [runtime map](../../references/runtime-map.md)).
 
 ```sh
 node library.mjs brief list

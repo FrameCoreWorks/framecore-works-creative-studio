@@ -299,6 +299,26 @@
       "observed": "2026-10-07: ChatGPT Work revised a contract as asked and re-rendered it (owner report; whether revise.mjs ran is not recorded)"
     },
     {
+      "id": "motion_variants",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Applies a client's brand kit to a motion contract (colours, bundled headline font, contrast report) and expands one contract into copy, language and token variants with a check and render command per variant and format; lists the three 9:16 ad templates",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-variants/variants.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Branded and variant contracts plus render-plan.json; renders run separately with the motion renderer",
+      "when_missing": "Copy the kit's colours into tokens and write each variant contract by hand, replacing only existing copy IDs",
+      "observed": "2026-10-11: container tests only"
+    },
+    {
       "id": "motion_player",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

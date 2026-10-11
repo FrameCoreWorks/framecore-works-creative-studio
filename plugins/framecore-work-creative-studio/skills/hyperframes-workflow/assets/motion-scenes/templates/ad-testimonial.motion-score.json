@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "id": "ad-testimonial-template",
+  "revision": 1,
+  "approval": {
+    "status": "proposed",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "storyboard",
+  "goal": "Let a customer recommend the product in a 15-second vertical ad",
+  "audience": "Replace with the client's audience",
+  "message": "A real customer says it works, many others agree",
+  "concept": "The quotation and its author, then the review count, then a call to action that holds",
+  "runtime": {
+    "status": "proposed",
+    "value": "Python renderer for the MP4s; single-file preview for review"
+  },
+  "viewing": "9:16 full screen on a phone; 4:5 and 1:1 feed formats",
+  "audio": "Music bed with a hit on the call to action; voice-over optional",
+  "decisions": {
+    "confirmed": [
+      "1080 x 1920, 30 FPS, 450 frames (15 s); 4:5 and 1:1 formats"
+    ],
+    "proposed": [
+      "Editorial serif style with its bundled fonts",
+      "Placeholder copy to be replaced by the client's exact text"
+    ],
+    "unknown": [
+      "A real customer quotation used with consent, and the documented review count",
+      "The client's brand kit"
+    ]
+  },
+  "template": {
+    "kind": "ad",
+    "replace": [
+      "author",
+      "cta",
+      "quote",
+      "reviews-label"
+    ],
+    "note": "Replace every copy ID with the client's exact text, apply the brand kit, then check, preview and approve before rendering."
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 450,
+  "width": 1080,
+  "height": 1920,
+  "style": "editorial-serif",
+  "tokens": {
+    "background": "#F4EFE6",
+    "foreground": "#1E1B18",
+    "muted": "#5C554D",
+    "accent": "#B4442C",
+    "fontFamily": "Fraunces, Georgia, serif",
+    "marginRatio": 0.09,
+    "safeArea": {
+      "top": 0.1,
+      "bottom": 0.2
+    }
+  },
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "weight": 400,
+      "file": "fraunces/Fraunces-Regular.ttf"
+    },
+    {
+      "family": "Fraunces",
+      "weight": 600,
+      "file": "fraunces/Fraunces-SemiBold.ttf"
+    },
+    {
+      "family": "Fraunces",
+      "weight": 800,
+      "file": "fraunces/Fraunces-Black.ttf"
+    }
+  ],
+  "motion": {
+    "tempo": "measured",
+    "entryFrames": 18,
+    "exitFrames": 12,
+    "lineStaggerFrames": 6,
+    "itemStaggerFrames": 8,
+    "entryEasing": "easeOutCubic",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutCubic"
+  },
+  "formats": [
+    {
+      "id": "4x5",
+      "width": 1080,
+      "height": 1350,
+      "viewing": "4:5 in a feed",
+      "tokens": {
+        "safeArea": {
+          "top": 0.05,
+          "bottom": 0.05
+        }
+      }
+    },
+    {
+      "id": "1x1",
+      "width": 1080,
+      "height": 1080,
+      "viewing": "1:1 in a feed",
+      "tokens": {
+        "contentScale": 0.85,
+        "safeArea": {
+          "top": 0.04,
+          "bottom": 0.04
+        }
+      },
+      "params": {
+        "quote": {
+          "size": 72
+        },
+        "reviews": {
+          "size": 200
+        }
+      }
+    }
+  ],
+  "copy": {
+    "quote": "„Zamówiłam w poniedziałek, w środę plakat już wisiał.”",
+    "author": "Anna z Krakowa",
+    "reviews-label": "opinii z pięcioma gwiazdkami",
+    "cta": "Zamów swój plakat"
+  },
+  "copyStatus": "template-placeholder",
+  "assets": [],
+  "acceptance": [
+    "Every text sits inside the safe area of the platform buttons",
+    "The quotation is the customer's exact words, used with consent",
+    "The call to action holds to the last frame"
+  ],
+  "scenes": [
+    {
+      "id": "quote",
+      "kind": "quote",
+      "params": {
+        "quote": "quote",
+        "attribution": "author",
+        "attributionDelay": 24,
+        "size": 88
+      },
+      "purpose": "Let the customer speak",
+      "start": 0,
+      "end": 230,
+      "copy": [
+        "quote",
+        "author"
+      ],
+      "holds": [
+        [
+          48,
+          224
+        ]
+      ],
+      "focalPoint": "The quotation",
+      "entry": "The quotation rises, the author follows",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "reviews",
+      "kind": "counter",
+      "params": {
+        "from": 0,
+        "to": 860,
+        "label": "reviews-label",
+        "size": 240,
+        "labelSize": 56,
+        "duration": 30,
+        "locale": "pl-PL"
+      },
+      "purpose": "Show that many others agree",
+      "start": 224,
+      "end": 340,
+      "copy": [
+        "reviews-label"
+      ],
+      "holds": [
+        [
+          254,
+          334
+        ]
+      ],
+      "focalPoint": "The review count",
+      "entry": "Label settles, the number counts up",
+      "action": "Hold on the final number",
+      "exit": "Fade and lift",
+      "transition": "Cut on the overlap",
+      "persistence": "Background",
+      "audio": "Music bed; voice-over optional"
+    },
+    {
+      "id": "cta",
+      "kind": "end-card",
+      "params": {
+        "text": "cta",
+        "size": 96,
+        "weight": 800
+      },
+      "purpose": "Ask for the order",
+      "start": 334,
+      "end": 450,
+      "copy": [
+        "cta"
+      ],
+      "holds": [
+        [
+          352,
+          450
+        ]
+      ],
+      "focalPoint": "The call to action",
+      "entry": "Scales in with the rule",
+      "action": "Hold to the last frame",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Background",
+      "audio": "Music hit on entry"
+    }
+  ]
+}
