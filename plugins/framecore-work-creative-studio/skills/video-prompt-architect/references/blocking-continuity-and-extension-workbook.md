@@ -10,7 +10,8 @@ Use this when a moving shot has unclear attention, broken contact, axis drift, a
 - [Extension tree and complete blueprint B](#4-extension-decision-tree)
 - [Picture and sound transitions](#5-picture-continuity-and-sound-continuity-are-separate)
 - [One-cause repair table](#6-one-cause-repair-table)
-- [Sources and mapping](#7-research-basis-and-source-to-rule-mapping)
+- [Joining generated clips](#7-joining-generated-clips)
+- [Sources and mapping](#8-research-basis-and-source-to-rule-mapping)
 
 ## 1. Stage what must be understood
 
@@ -146,7 +147,29 @@ An L-cut can instead let a prior sound continue over a new image. Use only when 
 
 For user reports, use “reported” and present a test rather than an observed diagnosis. Picture/motion and AV review stay here; audio triage goes to Audio Production Director without requiring a full task packet; output-critic-iteration owns static-image review. An attractive still is no substitute for motion QA.
 
-## 7. Research basis and source-to-rule mapping
+## 7. Joining generated clips
+
+When a film is made of several generated clips, plan each join before anything is generated.
+
+**Join methods, best first.**
+
+1. **Shared frame.** The last usable frame of clip A, exported, becomes the start image of clip B, where the surface accepts a start image.
+2. **Full-frame cover.** A field or shape covers all four corners; the cut happens while it is opaque, and B starts from the same field.
+3. **Occlusion.** A foreground element passes over the region that changes; the switch happens behind it.
+4. **Matched geometry.** The main shape keeps its position, scale and orientation across the cut.
+5. **Matched motion.** The subject leaves and enters along the same direction at a similar speed.
+
+Take a lower method only with a reason. A flash or a blur is the last resort, not the default.
+
+**One join, one record.** Give each join one ID shared by A's end and B's start, with the method, the shared asset (the exported frame, the colour field, the mask), the condition for the cut and a fallback. Two separately described similar frames are not one join.
+
+**Planned and actual.** A requested end state is only a request. After A is generated, inspect its last usable frame; if the identity drifted, repair that frame or switch to the full-frame cover before reusing it. Judge the join only in the moving result: the end of A, the cut and the start of B, picture and sound separately and then together.
+
+**Frame arithmetic.** On the edit timeline an interval is half-open, [in, out), and lasts out minus in frames. Layers stacked on the same interval add no length. Final frames are the kept base-track frames plus inserted base-track frames minus overlaps, at the project frame rate; a clip at another frame rate needs an explicit conform. At 24 fps three 8-second clips give 576 frames, and a 24-frame logo hold makes 600 frames (25 s) if nothing is trimmed; trimming 12 frames means a 36-frame hold for the same length. Generation length is not film length, and every value stays planned until the real clips are trimmed. [`edit_export.py`](../../opencut-video-studio/scripts/edit_export.py) writes the cut as EDL, OTIO and CSV.
+
+**When A misses its end.** Stop the drift there: take the last good frame, build a clean cover or occlusion join, and update the timeline and B's start image.
+
+## 8. Research basis and source-to-rule mapping
 
 Checked 2026-09-28. All prompts and scenarios above are original local synthesis. These sources support bounded craft principles; neither documents a media-generation interface.
 

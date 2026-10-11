@@ -34,6 +34,7 @@ class Review(unittest.TestCase):
             self.assertEqual(done.returncode, 1, done.stderr)
             review = json.loads(pathlib.Path(temp, 'review', 'review.json').read_text(encoding='utf-8'))
             first, second, third = review['clips']
+            self.assertTrue(review['temporal'].startswith('UNVERIFIED'))
             self.assertEqual((first['shot'], first['findings']), ('S01', []))
             self.assertEqual((first['measured']['frames'], first['measured']['fps'], first['measured']['audio']), (60, 30.0, True))
             self.assertEqual(second['shot'], 'S02')

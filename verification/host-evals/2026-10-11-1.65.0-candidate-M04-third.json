@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.64.0",
+  "source": {
+    "commit": "ac85601 (1.64.0 records) plus the uncommitted changes that became 1.65.0, with the second wording of the fix",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1232,
+      "output": 1835,
+      "cache_read": 60972,
+      "cache_write": 15943
+    },
+    "seconds": 19.2
+  },
+  "cases": [
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1232,
+        "output": 1835,
+        "cache_read": 60972,
+        "cache_write": 15943
+      },
+      "seconds": 19.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację z logo i hasłem „Świeży chleb codziennie”, jako plik MP4.",
+          "reply": "Nie widzę w projekcie żadnego logo. Katalog roboczy jest pusty, więc nie mam pliku do wstawienia. Nie narysuję „logo\" od siebie, bo wyglądałoby jak prawdziwy znak marki, a nim nie jest.\n\nŻeby zrobić MP4, potrzebuję od Ciebie jednej rzeczy:\n\n- **Plik z logo.** Najlepiej PNG z przezroczystym tłem, min. 1000 px szerokości. SVG też może być, ale PNG jest pewniejszy przy renderze.\n\nJeśli nie masz logo, mogę zamiast niego zrobić tymczasowy napis z nazwą piekarni. Podaj wtedy nazwę.\n\nProponuję taką animację (pion 1080×1920, 6 s, 30 fps, H.264), którą zacznę budować po dostaniu logo:\n\n| Czas | Scena |\n|---|---|\n| 0,0–2,0 s | Logo wsuwa się łagodnie na ciepłe, kremowe tło. |\n| 2,0–2,6 s | Logo przesuwa się w górę i zmniejsza. |\n| 2,6–5,0 s | Hasło „Świeży chleb codziennie\" pojawia się słowo po słowie, z polskimi znakami w pełni czytelnymi. |\n| 5,0–6,0 s | Końcowy kadr: logo i hasło nieruchomo, żeby dało się je spokojnie przeczytać. |\n\nDo potwierdzenia lub zmiany:\n- **Kolory i font.** Jeśli masz kolory marki, podaj je. Jeśli nie, użyję ciepłego kremu, brązu i złota.\n- **Dźwięk.** Domyślnie wideo będzie ciche. Napisz, jeśli chcesz muzykę lub efekty.\n- **Hasło.** Zostawiam dokładnie „Świeży chleb codziennie\", bez kropki.\n\nJak tylko prześlesz logo, wyrenderuję MP4, sprawdzę kadry (początek, koniec i przejścia) i oddam plik razem z edytowalnym kontraktem animacji.",
+          "reply_chars": 1372,
+          "reply_sha256": "6d0c4abbdf3931359873952f74c585773c777958941f18ec38f640059fd4bbbc",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Grep",
+            "Grep",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1232,
+            "output": 1835,
+            "cache_read": 60972,
+            "cache_write": 15943
+          },
+          "seconds": 19.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['odtwarzacz', 'player', 'przeglądar']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": "Third run: FAIL, an open product finding. The reply stays on the coded route and does not switch to generator prompts, but it promises to render the MP4 after the logo arrives although this session has no shell or code execution, and it does not name the motion player route. The model did not check its exposed tools before promising; the rule in Motion Graphics Workflow says to, and did not change the outcome in two runs. Reruns stopped here; the case stays in the suite as an open finding."
+}

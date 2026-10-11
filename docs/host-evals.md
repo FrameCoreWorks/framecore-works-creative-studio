@@ -5,7 +5,7 @@
 ```sh
 python3 scripts/host_eval.py --list                     # the cases; runs nothing
 python3 scripts/host_eval.py --gate --write             # release-gate subset (5 cases)
-python3 scripts/host_eval.py --write                    # the whole suite (17 cases)
+python3 scripts/host_eval.py --write                    # the whole suite (21 cases)
 python3 scripts/host_eval.py --cases W04,S01 --judge    # chosen cases with the advisory judge
 python3 scripts/host_eval.py --suite routing --write    # the Polish routing set (25 cases)
 ```
@@ -33,3 +33,5 @@ The dollar figures in the results below, for runs up to 2026-10-11, are what Cla
 | 2026-10-10 | 1.57.0 candidate | 2 (new: Q01 offer from given rates, Q02 what to charge) | first run: Q01 hit the turn cap (harness), Q02 stated unsourced market ranges (product finding); after the routing fix and a 20-turn cap both PASS | USD 0.22 + 0.26 | [first](../verification/host-evals/2026-10-10-1.57.0-candidate-Q01-Q02-first.json), [after](../verification/host-evals/2026-10-10-1.57.0-candidate-Q01-Q02.json) |
 | 2026-10-11 | 1.63.0 | 25 (routing set) | 23 PASS, 2 FAIL: RT01 and RT08, short requests without the Studio name answered without loading a skill (routing finding); every collision case on the intended side | USD 2.42 | [routing](../verification/host-evals/2026-10-11-1.63.0-routing.json) |
 | 2026-10-11 | 1.64.0 candidate | 9 (routing set, cases naming Studio) | 9 PASS on the single route table, the same owners as on 1.63.0 | USD 0.91 | [rerun](../verification/host-evals/2026-10-11-1.64.0-candidate-routing-named.json) |
+| 2026-10-11 | 1.65.0 candidate | 4 (new: M02 storyboard only, M03 Veo prompts, M04 MP4 without code execution, M05 three stills) | 3 PASS, 1 FAIL: M04 stayed on the coded route but asked only for a shell instead of naming the motion player route (product finding) | 206,032 tokens, 75 s | [run](../verification/host-evals/2026-10-11-1.65.0-candidate-M02-M05.json) |
+| 2026-10-11 | 1.65.0 candidate, M04 reruns | 2 | after two wordings of the fix: one reply passed the check only by naming the contract while promising a render it could not do (not counted), then FAIL; open finding: Studio promises an MP4 before checking that it can run code | 118,405 tokens, 36 s | [second](../verification/host-evals/2026-10-11-1.65.0-candidate-M04-second.json), [third](../verification/host-evals/2026-10-11-1.65.0-candidate-M04-third.json) |

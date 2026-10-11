@@ -4,6 +4,7 @@
   python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/critique.json
          [--review review-out/review.json] [--text-audit audit-out/text-audit.json]
          [--playback watched|not_watched] [--source-review pass|fail] [--composition-review pass|fail] [--temporal-review pass|fail]
+         [--listening heard|not_heard] [--sound-review pass|fail]
          [--note "who watched what, where"] [--out acceptance.json]
 
 A. technical    the encoded file matches the contract: size, frame rate, frame count, duration, audio presence
@@ -11,11 +12,12 @@ B. fidelity     exact copy reaches the picture, unverified claims are not used, 
                 (by a person) the product and source look right
 C. composition  every visible text is complete in readable holds, the layout rules pass in inspected frames, and a
                 person judged the key frames at full size and phone scale
-D. temporal     pacing evidence plus a person's normal-speed viewing of continuity and the commercial argument
+D. temporal     pacing evidence plus a person's normal-speed viewing of continuity and the commercial argument, and,
+                when the contract or the file has sound, a recorded listening of mix, sync and levels
 
 Each verdict is pass, fail or not_verified. Evidence that was not produced leaves its verdict not_verified: a
 contract-only critique score (any number) never makes C pass, a valid export never makes C or D pass, and D needs a
-recorded normal-speed viewing. Overall: accepted (all four pass), deliverable_with_limits (nothing failed, something
+recorded normal-speed viewing (and a recorded listening when there is sound: an audio stream is not a listening). Overall: accepted (all four pass), deliverable_with_limits (nothing failed, something
 not verified, listed) or blocked (a verdict failed). Exit code 0 accepted, 1 blocked, 3 with limits, 2 setup problem.
 Python 3.8+, standard library; ffprobe for --video.
 """
@@ -65,7 +67,9 @@ def technical(score, video):
     if expects_audio and not has_audio:
         findings.append('the contract has sound but the file has no audio stream')
     evidence = [f"{v['width']}x{v['height']}, {fps:.3f} fps, {frames} frames, {float(probe.get('format', {}).get('duration') or 0):.3f} s, audio {'yes' if has_audio else 'no'}"]
-    return verdict('fail' if findings else 'pass', evidence, findings)
+    result = verdict('fail' if findings else 'pass', evidence, findings)
+    result['audio'] = has_audio
+    return result
 
 
 def norm(text):
@@ -151,7 +155,7 @@ def composition(critique, review, audit, composition_review=None):
     return verdict(status, evidence, findings + gaps + judge)
 
 
-def temporal(critique, playback, temporal_review, note):
+def temporal(critique, playback, temporal_review, note, sound=False, listening='not_heard', sound_review=None):
     findings, evidence, gaps = [], [], []
     if critique and critique.get('pacing'):
         evidence.append('pacing sampled four times a second: ' + ', '.join(f'{p["scene"]} still {p["longest_still_s"]} s of {p["allowed_s"]} s' for p in critique['pacing']))
@@ -170,9 +174,20 @@ def temporal(critique, playback, temporal_review, note):
         evidence.append('continuity, hook-to-payoff and CTA judged clear in that viewing')
     else:
         gaps.append('continuity and commercial coherence not judged in a normal-speed viewing')
+    if sound:
+        if listening != 'heard':
+            gaps.append('nobody listened to the sound at normal speed (mix, sync with the picture, levels)')
+        elif sound_review == 'fail':
+            findings.append('the listening found the sound out of sync, unbalanced or clipped')
+        elif sound_review == 'pass':
+            evidence.append('sound heard at normal speed: sync, balance and levels judged right')
+        else:
+            gaps.append('the sound was heard but not judged')
+    else:
+        evidence.append('no sound in scope: silent contract and no audio stream')
     # Pacing findings are evidence for the viewer, not a verdict: the person who watched decides, and their findings
     # stay listed. Without that viewing the verdict cannot pass, however clean the samples look.
-    status = 'fail' if temporal_review == 'fail' else 'not_verified' if gaps else 'pass'
+    status = 'fail' if temporal_review == 'fail' or (sound and listening == 'heard' and sound_review == 'fail') else 'not_verified' if gaps else 'pass'
     return verdict(status, evidence, findings + gaps)
 
 
@@ -180,11 +195,14 @@ def decide(score, args):
     critique = load(args.critique) if args.critique else None
     review = load(args.review) if args.review else None
     audit = load(args.text_audit) if args.text_audit else None
+    technical_verdict = technical(score, args.video)
+    sound = bool(score.get('music') or score.get('voiceover') or score.get('sfx') or technical_verdict.pop('audio', False))
     verdicts = {
-        'A_technical': technical(score, args.video),
+        'A_technical': technical_verdict,
         'B_fidelity': fidelity(score, audit, args.source_review),
         'C_composition': composition(critique, review, audit, getattr(args, 'composition_review', None)),
-        'D_temporal': temporal(critique, args.playback, args.temporal_review, args.note),
+        'D_temporal': temporal(critique, args.playback, args.temporal_review, args.note, sound,
+                               getattr(args, 'listening', 'not_heard'), getattr(args, 'sound_review', None)),
     }
     states = [v['status'] for v in verdicts.values()]
     overall = 'blocked' if 'fail' in states else 'accepted' if all(s == 'pass' for s in states) else 'deliverable_with_limits'
@@ -205,6 +223,8 @@ def main(argv=None):
     parser.add_argument('--source-review', choices=['pass', 'fail'])
     parser.add_argument('--temporal-review', choices=['pass', 'fail'])
     parser.add_argument('--composition-review', choices=['pass', 'fail'], help="a person's judgement of the key frames at full size and phone scale")
+    parser.add_argument('--listening', choices=['heard', 'not_heard'], default='not_heard', help='someone listened to the sound at normal speed')
+    parser.add_argument('--sound-review', choices=['pass', 'fail'], help="that listener's judgement of sync, balance and levels")
     parser.add_argument('--note', help='who watched what, where (recorded with the viewing)')
     parser.add_argument('--out', help='write the result here (never overwrites)')
     args = parser.parse_args(argv)

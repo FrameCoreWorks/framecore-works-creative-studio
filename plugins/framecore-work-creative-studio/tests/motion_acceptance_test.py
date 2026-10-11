@@ -127,6 +127,30 @@ class ContractOnlyScores(unittest.TestCase):
         self.assertIn('WYBÓR', ' '.join(decided['verdicts']['C_composition']['findings']))
 
 
+class SoundListening(unittest.TestCase):
+    PACING = {'pacing': [{'scene': 's1', 'longest_still_s': 0.5, 'allowed_s': 1.5}], 'findings': []}
+
+    def test_sound_needs_a_recorded_listening_and_a_judgement(self):
+        watched = dict(playback='watched', temporal_review='pass', note='owner, phone')
+        silent = acceptance.temporal(self.PACING, sound=False, **watched)
+        self.assertEqual(silent['status'], 'pass')
+        unheard = acceptance.temporal(self.PACING, sound=True, **watched)
+        self.assertEqual(unheard['status'], 'not_verified')
+        self.assertIn('nobody listened', ' '.join(unheard['findings']))
+        self.assertEqual(acceptance.temporal(self.PACING, sound=True, listening='heard', **watched)['status'], 'not_verified')
+        self.assertEqual(acceptance.temporal(self.PACING, sound=True, listening='heard', sound_review='pass', **watched)['status'], 'pass')
+        self.assertEqual(acceptance.temporal(self.PACING, sound=True, listening='heard', sound_review='fail', **watched)['status'], 'fail')
+
+    def test_contract_sound_is_in_scope_even_without_a_video(self):
+        score = json.loads(PROOF.read_text())
+        score['music'] = {'src': 'bed.wav'}
+        args = acceptance.argparse.Namespace(critique=None, review=None, text_audit=None, video=None, playback='watched',
+                                              source_review='pass', temporal_review='pass', composition_review='pass', note='owner')
+        decided = acceptance.decide(score, args)
+        self.assertIn('nobody listened', ' '.join(decided['verdicts']['D_temporal']['findings']))
+        self.assertNotIn('audio', decided['verdicts']['A_technical'])
+
+
 class QualityGates(unittest.TestCase):
     """Phase 0 of the 2026-10 plan: the gates see cut words, empty vertical frames and every picture error."""
 

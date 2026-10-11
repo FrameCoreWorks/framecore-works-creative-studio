@@ -8,7 +8,8 @@ A clip belongs to the shot whose ID its file name contains (S01_take2.mp4 is a t
 only measured. Findings: a clip shorter than its shot's edit interval (it cannot fill the shot), a frame size whose ratio
 differs from --aspect, a frame rate other than --fps, an unreadable file. Frames are picked by decoded frame number,
 as inspect-encode.py does, never by rounded timestamps. Writes contact-sheet.png and review.json; nothing is uploaded and
-no quality verdict is made: look at the sheet. Needs ffmpeg with ffprobe and Pillow.
+no quality verdict is made: look at the sheet. Three frames per clip show states, not smoothness, rhythm, joins or sound,
+so review.json marks those UNVERIFIED until the clips are watched at normal speed. Needs ffmpeg with ffprobe and Pillow.
 Exit codes: 0 no findings, 1 findings, 2 setup problem or an output folder that exists.
 """
 import argparse
@@ -126,7 +127,8 @@ def main(argv=None):
                 draw.text((tx, y + k * 26), text, font=f, fill=(255, 120, 100) if text.startswith('!') else (235, 235, 235))
         out.mkdir(parents=True)
         sheet.save(out / 'contact-sheet.png')
-        (out / 'review.json').write_text(json.dumps({'clips': report, 'findings': findings, 'scope': 'measured properties and frames only; look at the sheet for picture quality'},
+        (out / 'review.json').write_text(json.dumps({'clips': report, 'findings': findings, 'scope': 'measured properties and frames only; look at the sheet for picture quality',
+                                                     'temporal': 'UNVERIFIED: first, middle and last frames only; smoothness, rhythm, joins and sound need a normal-speed viewing'},
                                                     ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     except (OSError, ValueError, SetupError) as error:
         sys.stderr.write(f'{error}\n')

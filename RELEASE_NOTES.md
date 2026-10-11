@@ -1,11 +1,11 @@
-# Creative Studio 1.64.0
+# Creative Studio 1.65.0
 
-Better routing for Polish requests, and logos and brand guides as real files.
+Sharper review of animations and better films from video generators.
 
-- **Understands how you ask in Polish.** Studio's route table now lists how people ask in Polish, and requests two specialists could take have a fixed owner. In a test with 25 Polish requests, 23 went to the right specialist; the other two were short tasks answered directly.
-- **Your wordmark as a vector file.** Studio can set a logo from a typeface as clean SVG curves, with proper letter spacing and Polish letters, in colour, black and white, plus a preview of clear space and small sizes.
-- **A brand guide PDF.** From your brand kit Studio lays out a guide: logo versions, colours with contrast checks, fonts, tone of voice, claims and rules, in Polish or English.
-- **Mascots that stay the same.** A method and a character sheet for mascots and drawn characters.
-- **Briefs for people.** Ready briefs for a print shop, a voice-over artist or a freelancer, with your own prices and terms.
+- **Is the idea going anywhere?** Studio now judges an animation by whether its idea develops, not only by technical checks, and fixes the weak part instead of adding effects.
+- **Sound is listened to.** A video with sound is not accepted until someone has actually listened to it.
+- **Clips that join cleanly.** When a film is made of several generated clips, Studio plans how each one hands over to the next and counts the frames of the cut.
+- **Logos and text stay exact in generated video.** Studio decides which elements must come from your files, not the generator.
+- **Gemini Omni prompts.** Prompts for Google's newest video model, with its limits in Europe.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

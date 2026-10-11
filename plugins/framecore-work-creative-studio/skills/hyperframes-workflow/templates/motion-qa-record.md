@@ -42,6 +42,21 @@ A contract-only critique score, whatever its number, leaves C NOT VERIFIED. A cu
 
 NOT VERIFIED displays existing Unknown or NOT_RUN; it is never PASS. A successful export command proves only its observed execution, not visual quality. SVG frames do not prove encoded-video readiness. N/A needs a concrete reason such as approved silence.
 
+## Development review
+
+From the [development review](../references/motion-development-review.md); each answer is marked seen in playback, seen in frames, reported or unknown.
+
+| Question | Answer and interval | Evidence |
+| --- | --- | --- |
+| Idea develops | | |
+| Composition changes attention and meaning | | |
+| Rhythm has contrast | | |
+| Each state is caused by the previous one | | |
+| Signature moment | | |
+| Ending lands and stays readable | | |
+
+Main weakness, its interval and the one repair of the failed dimension:
+
 ## Bounded repairs
 
 | Scene/frame | Severity | Criterion | Expected vs observed | Cause | Smallest repair | Neighbor regression check |

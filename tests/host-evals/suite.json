@@ -439,6 +439,135 @@
         "Asks for the user's rate or offers to compute from it",
         "Does not present a market price as fact"
       ]
+    },
+    {
+      "id": "M02",
+      "title": "A storyboard-only request ends with the storyboard: no render, even with a shell",
+      "extra_tools": [
+        "Bash"
+      ],
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Rozpisz tylko storyboard 8-sekundowej animacji logo dla piekarni „Kłos”, bez renderowania, sam plan scen.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "no_command": "render"
+            },
+            {
+              "no_command": "ffmpeg"
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Delivers a scene plan with timing and readable holds",
+        "Does not render, call a provider or ask to render"
+      ]
+    },
+    {
+      "id": "M03",
+      "title": "A request for Veo prompts stays on the generator route",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Napisz trzy prompty do Veo 3.1 dla 8-sekundowych ujęć reklamy herbaty: parzenie, nalewanie i packshot.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "video-prompt-architect"
+              ]
+            },
+            {
+              "no_skills": [
+                "hyperframes-workflow"
+              ]
+            },
+            {
+              "code_block": true
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Three copyable Veo prompts, one per shot",
+        "Does not switch to a coded animation or ask whether to"
+      ]
+    },
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację z logo i hasłem „Świeży chleb codziennie”, jako plik MP4.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "hyperframes-workflow"
+              ]
+            },
+            {
+              "no_skills": [
+                "video-prompt-architect"
+              ]
+            },
+            {
+              "contains_any": [
+                "odtwarzacz",
+                "player",
+                "przeglądar"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Says the MP4 cannot be rendered here and why",
+        "Delivers the contract and the motion player route instead of switching to a video generator"
+      ],
+      "host_note": "The harness gives no shell or code execution, so the MP4 cannot be rendered in this session. The first answer may present the storyboard for approval before writing the contract (method step 2), but it must name the route that works without code: the motion player in the browser."
+    },
+    {
+      "id": "M05",
+      "title": "Three stills are not a final pass for an animation",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam tylko trzy stopklatki z mojej 10-sekundowej animacji (0 s, 5 s i 10 s) i na każdej logo jest ostre i czytelne. Czy animacja jest gotowa do publikacji?",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "contains_any": [
+                "odtw",
+                "w ruchu",
+                "płynn",
+                "całość",
+                "całego filmu",
+                "normalnej prędkości",
+                "dźwięk"
+              ]
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Does not approve the animation as finished from three stills",
+        "Names what needs a viewing in motion: smoothness, rhythm, transitions, sound"
+      ]
     }
   ]
 }

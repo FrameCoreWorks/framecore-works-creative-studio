@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.64.0",
+  "source": {
+    "commit": "ac85601 (1.64.0 records) plus the uncommitted changes that became 1.65.0, with the M04 fix",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1228,
+      "output": 1527,
+      "cache_read": 20291,
+      "cache_write": 15377
+    },
+    "seconds": 16.6
+  },
+  "cases": [
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1228,
+        "output": 1527,
+        "cache_read": 20291,
+        "cache_write": 15377
+      },
+      "seconds": 16.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację z logo i hasłem „Świeży chleb codziennie”, jako plik MP4.",
+          "reply": "Katalog roboczy jest pusty, więc nie mam Twojego logo. Nie chcę go wymyślać, bo animacja z cudzym lub zgadniętym znakiem nie nadaje się do użytku.\n\n**Potrzebuję od Ciebie:**\n1. **Logo**, najlepiej PNG z przezroczystym tłem. SVG też może być, ale wymaga `cairosvg`. Wgraj plik do katalogu roboczego.\n2. **Kolory marki i krój pisma**, jeśli je masz. Jeśli nie, zaproponuję ciepłą paletę piekarniczą.\n\n**Propozycja storyboardu (9:16, 1080×1920, 30 fps, 180 klatek, bez dźwięku):**\n\n| Czas | Scena | Ruch |\n|---|---|---|\n| 0,0–1,5 s | Tło w kolorze ciepłej mąki. Logo wjeżdża ze środka z delikatnym wzrostem skali. | Łagodny ease-out, bez odbić. |\n| 1,5–2,5 s | Logo przesuwa się nieco w górę. | Płynne przejście, bez cięcia. |\n| 2,5–4,5 s | Hasło **„Świeży chleb codziennie”** pojawia się słowo po słowie. | Staggered fade i lekki ruch w górę. Polskie znaki są sprawdzone. |\n| 4,5–6,0 s | Całość zostaje nieruchoma, żeby dało się spokojnie przeczytać. | Wolny, ledwo zauważalny zoom. |\n\nTekst będzie z dala od górnej i dolnej krawędzi, w strefie bezpiecznej dla Reels, TikToka i Shorts.\n\nNapisz „akceptuję” albo wskaż zmiany i wgraj logo. Wtedy zbuduję i wyrenderuję plik MP4, sprawdzę klatki, w tym pierwszą i ostatnią, i dostarczę MP4 razem z plikiem kontraktu i skryptem renderującym. Jeśli chcesz, żeby film miał dźwięk, daj znać. Domyślnie będzie cichy.",
+          "reply_chars": 1355,
+          "reply_sha256": "8936e850e0ad15c1084a7947cefd0b83592c1bfe5e045f968a5ca6a5883d3513",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1228,
+            "output": 1527,
+            "cache_read": 20291,
+            "cache_write": 15377
+          },
+          "seconds": 16.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar",
+                  "kontrakt",
+                  "motion.json"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['kontrakt']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": "Second run, after the first wording of the fix: the check passed only because the reply mentions the contract file, but the reply promises to build and render the MP4 although the session has no shell or code execution, and it does not name the motion player route. Not counted as a pass: the rule now says to check the exposed tools before promising an MP4, and the check requires the player or browser route.",
+  "counted_as": "not a pass (see review)"
+}

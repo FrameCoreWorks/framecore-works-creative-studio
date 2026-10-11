@@ -55,7 +55,7 @@ node text-audit.mjs video.motion.json --out audit-r1        # a Studio contract:
 
 ## Acceptance in four verdicts
 
-[`acceptance.py`](acceptance.py) turns the evidence into four separate verdicts, as [commercial motion](../../references/commercial-motion.md#3-accept-in-four-separate-verdicts) defines them: A technical (ffprobe against the contract), B fidelity (copy found verbatim in audited frames, no unverified `strategy.claims` in the copy, asset authorities, a person's source comparison), C composition (text audit or frame review in holds, plus `--composition-review` from a person who judged the key frames; a contract-only or incomplete critique leaves it not_verified) and D temporal (pacing samples plus a recorded normal-speed viewing).
+[`acceptance.py`](acceptance.py) turns the evidence into four separate verdicts, as [commercial motion](../../references/commercial-motion.md#3-accept-in-four-separate-verdicts) defines them: A technical (ffprobe against the contract), B fidelity (copy found verbatim in audited frames, no unverified `strategy.claims` in the copy, asset authorities, a person's source comparison), C composition (text audit or frame review in holds, plus `--composition-review` from a person who judged the key frames; a contract-only or incomplete critique leaves it not_verified) and D temporal (pacing samples plus a recorded normal-speed viewing; with sound in the contract or the file, also `--listening heard` and `--sound-review`, because an audio stream is not a listening).
 
 ```sh
 python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/critique.json --review review-r2/review.json \

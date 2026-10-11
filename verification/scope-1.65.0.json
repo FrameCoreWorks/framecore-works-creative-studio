@@ -1,0 +1,39 @@
+{
+  "version": "1.65.0",
+  "baseline_tag": "v1.64.0",
+  "baseline": "5de353aa3a78cd3fd1695980677b98054cad2393",
+  "change_id": "CC-20261011-08",
+  "origin": "cloud-code",
+  "files": 1173,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+    "skills/hyperframes-workflow/templates/motion-qa-record.md",
+    "skills/video-prompt-architect/SKILL.md",
+    "skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md",
+    "skills/video-prompt-architect/references/generator-dialects.md",
+    "skills/video-prompt-architect/scripts/clip_review.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/clip_review_test.py",
+    "tests/motion_acceptance_test.py"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/motion-development-review.md",
+    "skills/video-prompt-architect/references/exact-layers-in-video.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1153,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "A development review for motion with six questions and evidence labels, a recorded listening required for the temporal verdict when there is sound, clip review marking temporal criteria unverified, ranked methods and frame arithmetic for joining generated clips, an exact-layer table for brand material in generated video, a Gemini Omni section in the generator dialects card from Google's guide, a rule to check tools before promising an MP4, and four host-eval cases (3 of 4 pass; M04 open)"
+}

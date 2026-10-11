@@ -1611,3 +1611,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `6a4c492`, read back with `git ls-remote`; workflow Check Studio sources 38140207485: success
 - ChatGPT Work: not affected (package unchanged)
 - Codex: not_run
+
+## CC-20261011-08
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-08-motion-review`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `ac85601` (main, package 1.64.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.65.0)
+- Package version: 1.64.0 -> 1.65.0
+- Scope: A development review for motion with six questions and evidence labels, a recorded listening required for the temporal verdict when there is sound, clip review marking temporal criteria unverified, ranked methods and frame arithmetic for joining generated clips, an exact-layer table for brand material in generated video, a Gemini Omni section in the generator dialects card from Google's guide, a rule to check tools before promising an MP4, and four host-eval cases (3 of 4 pass; M04 open)
+- Shared package changed: yes; 18 changed, 2 added, 0 removed ([scope](../verification/scope-1.65.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 17 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 5 SVG wordmark, 5 brand guide, 12 host-eval harness: PASS ([record](../verification/release-1.65.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

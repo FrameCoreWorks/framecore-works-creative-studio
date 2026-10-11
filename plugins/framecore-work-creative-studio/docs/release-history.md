@@ -1,5 +1,17 @@
 # Historical development notes
 
+## 1.65.0, 2026-10-11
+
+Motion review and generated-video craft:
+
+- **Development review for motion.** Six questions a person answers about a rendered piece beyond the automatic checks: does the idea develop, does the composition change attention and meaning, is there rhythm contrast, is each state caused by the previous one, is there a signature moment, does the ending land. Restraint is not a defect, repairs reopen the failed dimension instead of adding effects, and each answer says whether it rests on playback, frames, a report or nothing ([development review](../skills/hyperframes-workflow/references/motion-development-review.md)); the QA record has a section for it
+- **Sound needs a listening.** `acceptance.py` keeps the temporal verdict open when the contract or the file has sound until someone records `--listening heard` and `--sound-review`; an audio stream is not a listening. `clip_review.py` marks smoothness, rhythm, joins and sound UNVERIFIED in its review, because three frames per clip show states only
+- **Joining generated clips.** The [continuity workbook](../skills/video-prompt-architect/references/blocking-continuity-and-extension-workbook.md#7-joining-generated-clips) ranks join methods (shared frame, full-frame cover, occlusion, matched geometry, matched motion), gives each join one shared record, separates planned from actual ends, and sets the frame arithmetic of the cut with a worked example
+- **Exact layers in video.** Who owns the logo, readable text, interface, product and claims when generated shots meet brand material, and what generation may add around them; damaged generated identity is covered or removed, not overlaid ([exact layers in video](../skills/video-prompt-architect/references/exact-layers-in-video.md))
+- **Gemini Omni dialect.** The generator dialects card adds Gemini Omni from Google's API guide (updated 2026-09-23): input tags, several shots by default, settings outside the prompt, no negative-prompt setting, Polish speech not evaluated, and what is unavailable in the EEA, Switzerland and the UK
+- **No promise without a renderer.** Motion Graphics Workflow says to check the host's tools before promising an MP4 and to name the motion player route when there is no code execution
+- **Four new host-eval cases** (repository): storyboard only, Veo prompts, MP4 without code execution, three stills. On the candidate 3 of 4 pass; M04 remains an open finding: in a session without code execution Studio stayed on the coded route but promised a render instead of naming the motion player route ([results](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/host-evals.md))
+
 ## 1.64.0, 2026-10-11
 
 From Phase 5 of [the improvement plan](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/improvement-plan-2026-10.md) (routing, persistence and cost), the last phase:

@@ -25,7 +25,7 @@ no bundled generation connector. A motion video Studio builds from code, with it
 
 ## Generator dialects
 
-Translate the approved shot card into the named generator's phrasing with the [generator dialects](references/generator-dialects.md) card (Veo, Runway, Kling, MiniMax H3, Seedance; read 2026-10-11): structure, sound and dialogue syntax, reference wording and the settings that belong outside the prompt. Without browsing, use it provisionally and say when it was checked. Kling 3.0 translates Polish dialogue into English, so a Polish voice-over is recorded or generated separately.
+Translate the approved shot card into the named generator's phrasing with the [generator dialects](references/generator-dialects.md) card (Veo, Gemini Omni, Runway, Kling, MiniMax H3, Seedance; read 2026-10-11): structure, sound and dialogue syntax, reference wording and the settings that belong outside the prompt. Without browsing, use it provisionally and say when it was checked. Kling 3.0 translates Polish dialogue into English, so a Polish voice-over is recorded or generated separately. When generated shots meet a logo, readable text, an interface or a product, assign each to its exact layer first ([exact layers in video](references/exact-layers-in-video.md)); several clips are joined by the methods in [joining generated clips](references/blocking-continuity-and-extension-workbook.md#7-joining-generated-clips).
 
 ## Prompt pack and clip review
 

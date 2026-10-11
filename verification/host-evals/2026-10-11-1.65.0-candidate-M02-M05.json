@@ -1,0 +1,338 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.64.0",
+  "source": {
+    "commit": "ac85601 (1.64.0 records) plus the uncommitted changes that became 1.65.0, before the M04 fix",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 4,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4968,
+      "output": 8534,
+      "cache_read": 113033,
+      "cache_write": 79497
+    },
+    "seconds": 75.2
+  },
+  "cases": [
+    {
+      "id": "M02",
+      "title": "A storyboard-only request ends with the storyboard: no render, even with a shell",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1235,
+        "output": 2534,
+        "cache_read": 16343,
+        "cache_write": 19466
+      },
+      "seconds": 22.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz tylko storyboard 8-sekundowej animacji logo dla piekarni „Kłos”, bez renderowania, sam plan scen.",
+          "reply": "# Storyboard: animacja logo piekarni „Kłos\" (8 s)\n\n**Status:** plan scen. Nic nie było renderowane, a czasy to szacunki planistyczne, nie pomiary.\n\n## Założenia\nNie dostałem logo ani wytycznych marki, więc przyjąłem poniższe. Podaj poprawki, a zaktualizuję tylko dotknięte sceny.\n- Logo to znak z kłosem i napis „Kłos\". Zachowuję pisownię z ogonkiem i kreską.\n- Format 16:9, tło ciepłe, kremowe (mąka/papier), kolor znaku brąz–złoto zboża.\n- Styl to spokojny ruch 2D, rzemieślniczy, bez efektów technologicznych.\n- Dźwięk zaplanowany tylko orientacyjnie. Muzyki ani lektora nie dostarczono.\n- Brak sloganu i adresu. Jeśli mają być, trzeba je podać dosłownie.\n\n## Mapa beatów (8,0 s)\n\n| ID | Czas | Funkcja | Zmiana widoczna na ekranie |\n|---|---|---|---|\n| S1 | 0,0–1,5 s | Cisza, zapowiedź | Pusty kremowy kadr, w powietrzu opada kilka pyłków mąki |\n| S2 | 1,5–3,5 s | Wzrost | Z dołu kadru rośnie pojedyncza łodyga kłosa |\n| S3 | 3,5–5,5 s | Przemiana | Ziarna kłosa rozsypują się w pył, który składa się w kształt znaku |\n| S4 | 5,5–8,0 s | Podpis i zatrzymanie | Pojawia się napis „Kłos\", potem pełne logo trwa w bezruchu |\n\n## Karty scen\n\n**S1 – Mąka (0,0–1,5 s)**\n- Kadr: szeroki, statyczny, frontalny, kamera na wprost.\n- Akcja: kilka drobinek mąki opada powoli, światło miękkie z boku.\n- Stan początkowy: pusty kadr. Stan końcowy: drobinki gęstnieją przy środkowym dole.\n- Kamera: bez ruchu. Dźwięk (opcjonalny): cichy szum, jak w pustej piekarni rano.\n\n**S2 – Wzrost (1,5–3,5 s)**\n- Kadr: ten sam szeroki, środek kadru.\n- Akcja: łodyga rośnie od dołu do środka. Na szczycie rozwija się kłos, ziarno po ziarnie, w rytmie równych, łagodnych akcentów.\n- Stan końcowy: kłos stoi pionowo w centrum, a kolor przechodzi z szarego w złoty.\n- Kamera: bardzo powolny najazd (około 5% skali), bez drgań.\n\n**S3 – Przemiana (3,5–5,5 s)**\n- Kadr: najazd kończy się na średnim planie kłosa.\n- Akcja: ziarna odrywają się i rozsypują w drobny pył. Pył krąży i osiada w kontur znaku z logo, a kłos staje się jego częścią.\n- Stan końcowy: sam znak w centrum, nieco powyżej osi, bez napisu.\n- Kamera: wyhamowanie. Kadr ma być czytelny, więc ruch kończy się przed S4.\n- Dźwięk (opcjonalny): miękki „szelest\" ziaren, potem jedno ciepłe uderzenie przy złożeniu znaku.\n\n**S4 – Napis i finał (5,5–8,0 s)**\n- Kadr: kadr docelowy logo, wyśrodkowany, z zapasem marginesu na każdą stronę.\n- Akcja: napis „Kłos\" wsuwa się lub odsłania pod znakiem (0,6 s). Potem 1,9 s pełnego bezruchu, żeby logo można było przeczytać.\n- Stan końcowy: pełne logo, tło jednolite, brak elementów w ruchu.\n- Kamera: statyczna.\n\n## Ciągłość między scenami\n- Środek kompozycji jest stały. Kłos z S2 ma tę samą pozycję i skalę co znak w S4.\n- Paleta się nie zmienia: kremowy, brąz, złoto.\n- Światło jest zawsze miękkie z lewej strony, bez dodatkowych źródeł.\n- Przejścia S1→S2, S2→S3 i S3→S4 to płynne przejścia ruchu, bez twardych cięć.\n\n## Punkty kontrolne (test akceptacji)\n1. Napis „Kłos\" ma poprawne „ł\" i „ó\" nie występuje, więc sprawdź tylko „K\", „ł\" i „o\".\n2. Logo jest czytelne i nieruchome co najmniej 1,5 s przed końcem.\n3. Całość mieści się w 8,0 s, a suma scen to 1,5 + 2,0 + 2,0 + 2,5.\n4. Żadna scena nie ma więcej niż jednej głównej zmiany.\n\n## Do ustalenia\n- Czy dostarczysz plik logo, czy mam je tylko opisać?\n- Czy potrzebny jest slogan lub adres w ostatniej scenie?\n- Czy animacja ma też wersję 9:16 (stories/Reels)? Wtedy przeliczę kadry S2–S4 pionowo.\n- Czy dźwięk ma być zaplanowany osobno?\n\nGdy plan Ci odpowiada, mogę przygotować z niego prompt wideo albo specyfikację do animacji w kodzie.",
+          "reply_chars": 3570,
+          "reply_sha256": "4ca6ae69449e17daaa250af31309cd2ec7565b4e9067d6cc28dea3c9922aa63f",
+          "skills": [
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1235,
+            "output": 2534,
+            "cache_read": 16343,
+            "cache_write": 19466
+          },
+          "seconds": 22.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "no_command": "render"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "ffmpeg"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M03",
+      "title": "A request for Veo prompts stays on the generator route",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1241,
+        "output": 2667,
+        "cache_read": 37052,
+        "cache_write": 22838
+      },
+      "seconds": 22.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz trzy prompty do Veo 3.1 dla 8-sekundowych ujęć reklamy herbaty: parzenie, nalewanie i packshot.",
+          "reply": "Poniżej trzy samodzielne prompty do Veo 3.1. Napisałem je po angielsku, bo tak zwykle działa najlepiej. Ustawienia (8 s, 16:9, 1080p) wybierasz w interfejsie, nie w prompcie.\n\nNie znam marki ani produktu, więc przyjąłem herbatę sypaną liściastą w szklanym dzbanku i filiżance, w jasnym, ciepłym wnętrzu. Żadne ujęcie nie zawiera mowy, napisów ani obietnic smakowych czy zdrowotnych. Logo i opakowanie z napisami dodaj w postprodukcji, bo generator nie odda ich wiernie.\n\n## 1. Parzenie (8 s)\n\n```\nA glass teapot on a pale oak table beside a sunlit window, soft morning light from camera left. Close-up, camera locked on a slow, steady push-in. Hot water pours in from above and hits loose dark green tea leaves; the leaves swell, sink and unfurl, and the water turns from clear to pale gold in slow, visible swirls. Fine steam rises and drifts toward the window light. Shallow depth of field, the leaves in sharp focus, warm neutral colour palette, natural and unhurried mood. No people, no text. Sound: gentle water pouring, faint bubbling, soft ceramic clink, quiet room tone.\n```\n\n## 2. Nalewanie (8 s)\n\n```\nMedium close-up of a hand with no jewellery lifting a glass teapot and pouring golden tea into a white porcelain cup on a pale oak table. The camera holds a low side angle at table height, then drifts slightly closer as the cup fills. The stream of tea is smooth and continuous, with steam curling up from the cup and catching the soft backlight from a window. The pour slows and stops, the last drops fall, and the teapot is set down out of frame, leaving the full cup still and steaming in a calm final composition. Shallow depth of field, warm tones, realistic liquid physics. No text. Sound: the sound of tea pouring into the cup, a soft clink of the teapot on the table, quiet room ambience.\n```\n\n## 3. Packshot (8 s)\n\n```\nProduct-style still life on a pale oak surface against a softly blurred, bright kitchen background: a white porcelain cup of golden tea with a thin curl of steam, a small glass jar of loose green tea leaves with a plain unlabelled lid, and a few loose leaves scattered in front. The camera is at slightly above eye level and moves in a very slow, smooth push-in toward the cup, ending on a stable, centred composition with space in the upper third for a logo added later. Soft window light from the left, gentle highlights on the glass and porcelain, the steam drifting slowly. Clean, premium, minimal, with no people and no on-product text. Sound: very quiet room tone, one soft ceramic clink at the start, no music.\n```\n\n## Uwagi produkcyjne\n\n- **Ciągłość:** każdy prompt jest osobnym generowaniem, więc nic nie gwarantuje identycznego dzbanka ani stołu. Jeśli chcesz identyczny wygląd, wygeneruj najpierw obraz referencyjny i podaj go jako wejście. Veo 3.1 wspiera obrazy referencyjne przy 8 s, ale tylko dla dorosłych osób w kadrze. Ujęcie 2 z ręką trzeba dopilnować pod tym kątem.\n- **Dźwięk:** Veo generuje go zawsze. Jeśli wolisz muzykę i lektora z postprodukcji, przy eksporcie możesz wyciszyć ścieżkę. Polski lektor nagraj osobno.\n- **Czas:** dzbanek, woda i para w 8 s mogą wypaść różnie. Jeśli ujęcie 2 wyjdzie zbyt szybkie, skróć akcję do samego nalewania.\n\n## Kryteria odbioru\n\n1. **Parzenie:** liście rozwijają się, a woda stopniowo zmienia kolor.\n2. **Nalewanie:** strumień jest ciągły, a filiżanka napełnia się bez zaburzeń fizyki.\n3. **Packshot:** w kadrze nie ma żadnych napisów, a końcowy kadr jest stabilny i zostawia miejsce na logo.\n\nWytyczne dla Veo sprawdziłem w skrócie z wewnętrznej karty (stan z 2026-10-11). Nie przeszukiwałem sieci. Żadnego klipu nie wygenerowałem, więc to same prompty. Podaj markę, wygląd opakowania i format (16:9 czy 9:16), a dopasuję prompty.",
+          "reply_chars": 3732,
+          "reply_sha256": "c6e7ac3ec217b07faff5e983eabbceb75e98ee64fd60ee28b54b238f752dd97d",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1241,
+            "output": 2667,
+            "cache_read": 37052,
+            "cache_write": 22838
+          },
+          "seconds": 22.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']; expected one of ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "code_block": true
+              },
+              "passed": true,
+              "detail": "has a code block"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1230,
+        "output": 1702,
+        "cache_read": 39899,
+        "cache_write": 16027
+      },
+      "seconds": 16.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację z logo i hasłem „Świeży chleb codziennie”, jako plik MP4.",
+          "reply": "Nie nnagrałem pliku MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania plików. Nie mam powłoki ani możliwości zapisu, więc nie mogę uruchomić renderera ani FFmpeg. Folder roboczy jest też pusty, więc nie ma w nim Twojego logo.\n\nŻeby ruszyć dalej, potrzebuję od Ciebie dwóch rzeczy:\n\n1. **Logo.** Najlepiej PNG z przezroczystym tłem. SVG też zadziała, ale wymaga `cairosvg`. Wgraj plik do folderu roboczego. Jeśli logo nie ma, mogę zrobić prosty znak z nazwą piekarni, ale będzie to tylko zastępnik.\n2. **Środowisko z wykonywaniem kodu** (powłoka, Python lub Node i FFmpeg). Tam wyrenderuję MP4 ze skryptu. Jeśli ta sesja ma mieć takie narzędzia, włącz je.\n\nProponowany plan dla 6 sekund, 1080×1920, 30 fps (180 klatek), bez dźwięku, chyba że go zechcesz:\n\n| Czas | Scena |\n|---|---|\n| 0,0–1,5 s | Ciepłe tło (krem i złoty brąz). Logo pojawia się w środku, powiększa się lekko i zwalnia na końcu ruchu. |\n| 1,5–4,0 s | Logo przesuwa się w górę. Hasło **„Świeży chleb codziennie”** wchodzi słowo po słowie, w trzech krótkich liniach. |\n| 4,0–6,0 s | Nieruchomy kadr z logo i hasłem. Tekst zostaje czytelny przez ostatnie 2 sekundy, a na końcu jest delikatne „oddychanie” kadru. |\n\nHasło zostaje dokładnie w tym brzmieniu, z polskimi znakami. Napisy zostają w bezpiecznej strefie pionowego formatu, z dala od górnej i dolnej krawędzi, które zasłaniają interfejsy TikToka i Reelsów.\n\nDaj znać, czy chcesz kolory i krój pisma z logo, czy mam dobrać własne. Chcę też wiedzieć, czy ma być dźwięk, na przykład delikatny efekt i krótkie tło muzyczne.",
+          "reply_chars": 1554,
+          "reply_sha256": "6a1276cd9079543d8488b2a994a816197a5935b0f8e4f59538e20408c5cbb148",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1230,
+            "output": 1702,
+            "cache_read": 39899,
+            "cache_write": 16027
+          },
+          "seconds": 16.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "kontrakt",
+                  "motion.json",
+                  "odtwarzacz",
+                  "player"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['kontrakt', 'motion.json', 'odtwarzacz', 'player']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M05",
+      "title": "Three stills are not a final pass for an animation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1262,
+        "output": 1631,
+        "cache_read": 19739,
+        "cache_write": 21166
+      },
+      "seconds": 14.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam tylko trzy stopklatki z mojej 10-sekundowej animacji (0 s, 5 s i 10 s) i na każdej logo jest ostre i czytelne. Czy animacja jest gotowa do publikacji?",
+          "reply": "Nie, na podstawie tych trzech klatek nie mogę potwierdzić, że animacja jest gotowa. Pokazują tylko stan w sekundach 0, 5 i 10, a nie to, co dzieje się między nimi. Ostre logo na trzech klatkach to też tylko część kontroli.\n\n**Czego trzy stopklatki nie pokazują:**\n- **Ruch i płynność:** zacięcia, skoki, gubione klatki, nieładne easingi.\n- **Logo w ruchu:** czy nie rozmywa się, nie migocze, nie zmienia kształtu ani kolorów i czy nie jest przycięte podczas przejść. W animacjach generowanych logo często „pływa\" między klatkami, choć na pojedynczych jest poprawne.\n- **Czytelność tekstu:** jak długo każdy napis jest widoczny. Trzy punkty czasowe mogą ominąć napis, który pojawia się i znika między nimi.\n- **Dźwięk:** poziom, synchronizację z obrazem, przycięcia i cisze na początku lub końcu.\n- **Format techniczny:** proporcje, rozdzielczość, liczba klatek na sekundę, kodek, rozmiar pliku i pole bezpieczne dla wybranej platformy (np. Reels, TikTok, Shorts, YouTube).\n- **Pierwsza i ostatnia klatka:** czy pętla albo zakończenie nie wypada nagle.\n\n**Co możesz zrobić:**\n1. Przejrzyj cały plik raz bez przewijania, z dźwiękiem, a potem w telefonie, jeśli tam będzie oglądany.\n2. Zatrzymaj film w miejscach przejść, np. co 1 s, i sprawdź logo oraz tekst w każdym.\n3. Wyślij mi plik albo kilkanaście klatek co ok. 0,5 s, a ocenię je pod kątem ciągłości logo, tekstu i rytmu. Jeśli podasz platformę docelową i brief, sprawdzę też zgodność z nimi.\n\nNa razie mogę tylko powiedzieć, że nic z tych trzech klatek nie wskazuje na problem. Do publikacji jej nie zatwierdzam.",
+          "reply_chars": 1568,
+          "reply_sha256": "4e068ee29e3a8d683224a8e4fb72c772ed205bbbbd0c9708f2a78334eab0e86b",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1262,
+            "output": 1631,
+            "cache_read": 19739,
+            "cache_write": 21166
+          },
+          "seconds": 14.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtw",
+                  "w ruchu",
+                  "płynn",
+                  "całość",
+                  "całego filmu",
+                  "normalnej prędkości",
+                  "dźwięk"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['w ruchu', 'płynn', 'dźwięk']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": "3 of 4 PASS. M02 stopped at the storyboard without rendering although a shell was allowed; M03 stayed on the Veo route with copyable prompts; M05 refused to approve an animation from three stills and listed what needs a viewing (smoothness, logo in motion, text timing, sound). M04 stayed on the coded route (no switch to generator prompts), presented a storyboard for approval and asked for the logo, but only asked the user to enable a shell; it did not name the route that works without code (contract and motion player in the browser). Product finding: Motion Graphics Workflow now says to name that route in the first answer. Case note: the check now also accepts the player or browser route, because the method presents the storyboard for approval before writing the contract."
+}
