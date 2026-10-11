@@ -1,11 +1,11 @@
-# Creative Studio 1.65.0
+# Creative Studio 1.66.0
 
-Sharper review of animations and better films from video generators.
+Ideas built from your brief, not from a catalogue, in graphics, video and motion graphics.
 
-- **Is the idea going anywhere?** Studio now judges an animation by whether its idea develops, not only by technical checks, and fixes the weak part instead of adding effects.
-- **Sound is listened to.** A video with sound is not accepted until someone has actually listened to it.
-- **Clips that join cleanly.** When a film is made of several generated clips, Studio plans how each one hands over to the next and counts the frames of the cut.
-- **Logos and text stay exact in generated video.** Studio decides which elements must come from your files, not the generator.
-- **Gemini Omni prompts.** Prompts for Google's newest video model, with its limits in Europe.
+- **The obvious is named, then set aside.** Before proposing directions, Studio works out what every competitor in your category would show and tells you in one line what it skipped.
+- **Ideas with a mechanism.** Each direction says what changes and why, and comes from something true about you: how the work is done, a place, a habit, your name.
+- **Three different ideas, not three palettes.** At most one uses the category's classic look, and it is labelled as such.
+- **Motion starts with an idea.** An animation is built around a transformation invented for your brief; styles, templates and examples only help to make it.
+- **One idea per campaign.** For a poster, a reel and a logo animation together, each direction covers all three.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

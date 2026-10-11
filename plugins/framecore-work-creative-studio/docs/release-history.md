@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.66.0, 2026-10-11
+
+Building creative directions from scratch in graphics, video and motion:
+
+- **One ideation method, taught rather than stocked.** A shared [ideation method](../skills/pipeline-core/references/ideation-method.md) for open briefs. It keeps no category lists and no ready ideas: Studio works out the category's obvious motif, palette, type, move and claim with five questions and tells the user in one line what it set aside; collects material that belongs to this client only; turns it into events through ten lenses, each with the move of thought it asks for; writes the mechanism in one sentence ("X becomes Y, because Z"); spreads three directions that differ in mechanism and source, at most one using the defaults as the labelled classic; tests them for swap, retell and fit; and records the direction, its lens and mechanism in Project State. A section on building in each medium covers the frame relation of a still, the cause, turn and payoff of video, and the transformation, rule and signature move of motion. One worked derivation in a category outside every test shows the steps
+- **The rule sits where directions are made.** A short fresh-directions rule is inline in Static Graphic Design Creator, Commercial Visual Campaign Director and Commercial Video Campaign Director, and the orchestrator's Quick line uses the method, because a rule kept only in a linked reference was not read in single-turn runs. A client name that is itself the category motif counts as a default when pictured literally. Creative Video Producer, Creative Music Video Director and commercial motion link the method; one idea covers every asset of a project
+- **Motion finds its idea before its look.** Motion Graphics Workflow proposes transformations invented for the brief before choosing a style. The subject-to-style map now lists the obvious looks, offered at most once as the classic. The motion prompt library, its brief index and the ad templates execute a chosen idea and are no longer a source of directions
+- **Creative host-eval set** (repository): eleven Polish briefs, six of them held out in categories no package file names, with a per-direction stock-imagery check that ignores negations, a set-aside check and an advisory rubric. On held-out briefs 1.65.0 passed 0 of 6 and never named what it set aside; the released wording names it in every reply (21 of 21 across two runs) and passed 8 of 11 held-out cases across those runs. An intermediate wording scored 5 of 5 only because its rule listed the categories of the test; it was replaced. The release gate passed 5 of 5 ([results](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/host-evals.md))
+- **Harness:** `max_sections_matching` counts stock imagery per labelled direction, negated mentions do not count, and records are never overwritten
+
 ## 1.65.0, 2026-10-11
 
 Motion review and generated-video craft:

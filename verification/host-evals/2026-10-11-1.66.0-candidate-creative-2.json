@@ -1,0 +1,669 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.65.0",
+  "source": {
+    "commit": "60f1012 (1.65.0 records) plus the uncommitted shared ideation method, second wording (the core rule in each owner's text)",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-creative-pl",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 4,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 20000,
+      "output": 22588,
+      "cache_read": 111819,
+      "cache_write": 110523
+    },
+    "seconds": 143.9
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "title": "Motion for a bakery: not three variations of wheat and cream",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4004,
+        "output": 4652,
+        "cache_read": 22367,
+        "cache_write": 23354
+      },
+      "seconds": 28.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 6-sekundowej pionowej animacji na Instagram dla piekarni rzemieślniczej „Kłos”.",
+          "reply": "Poniżej trzy kierunki. Zrezygnowałem z oczywistości: złotego pola zboża, pary nad bochenkiem, wschodu słońca i bursztynowej palety. Wyjątkiem jest kierunek 1, który celowo gra kłosem jako klasyk.\n\nWszystkie są w formacie 9:16, 6 s. Napisy i logo trzymam poza dolnymi i górnymi strefami interfejsu Instagrama.\n\n## 1. „Nacięcie” (klasyk, rzemiosło)\n**Pomysł:** nacięcie ostrzem na bochenku rozchyla się i układa w kłos. Nazwa piekarni wynika wprost z rzemiosła.\n- **0–2 s:** makro na ciasto, ruch ostrza (lame), cisza i tylko szelest mąki.\n- **2–4 s:** skórka unosi się wzdłuż cięcia, a linie rozkwitają w kłos.\n- **4–6 s:** kłos przechodzi w logo z podpisem „Kłos. Piekarnia rzemieślnicza”.\n- **Ton:** spokojny, pewny. Dźwięk: cięcie, trzask skórki.\n- **Palette:** kremowa mąka, ciemna skórka, jeden mocny akcent.\n\n## 2. „24 godziny w 6 sekund” (koncept, zatrzymuje kciuk)\n**Pomysł:** licznik fermentacji pędzi, a ciasto rośnie w przyspieszeniu. Na końcu chrupnięcie skórki i hasło „Dobry chleb nie lubi pośpiechu”.\n- **0–1 s:** duży licznik 00:00 na tle ciasta.\n- **1–4,5 s:** czas przyspiesza, ciasto pęcznieje, a typografia „oddycha” razem z nim.\n- **4,5–6 s:** uderzenie dźwiękowe (trzask), cięcie do logo.\n- **Ton:** dowcipny, kontrastowy (szybka forma, wolne rzemiosło).\n- **Do potwierdzenia:** prawdziwy czas wyrastania w „Kłosie”. Na razie „24 h” to placeholder, więc nie użyję liczby, której piekarnia nie potwierdzi.\n\n## 3. „Papierowa torba” (stop-motion, dotyk i sąsiedztwo)\n**Pomysł:** na kraftowej torbie stempel po stempelu pojawia się „Kłos”, a torba wypełnia się bochenkami, bułkami i precelkami w rytmie klatek co 2 (stop-motion).\n- **0–2 s:** pusta torba, odbija się pierwszy stempel.\n- **2–5 s:** pieczywo wskakuje do torby, a każdy produkt wchodzi na kliknięcie.\n- **5–6 s:** torba się zwija, a na wierzchu zostaje logo i adres lub godziny otwarcia.\n- **Ton:** ciepły, lokalny, trochę zabawowy. Dobrze działa też jako szablon serii z różnym pieczywem.\n\n## Rekomendacja\nDo budowy marki wybrałbym **1**. Do zasięgu i zapamiętania **2**. Kierunek **3** daje najłatwiej serię, bo wymienia się tylko pieczywo.\n\n**Co dalej:** wybierz kierunek (lub połączenie) i odpowiedz na dwa pytania:\n- Czy mam animować od zera z logo, tekstu i zdjęć (grafika ruchoma z dźwiękiem), czy przygotować prompty do generatora wideo?\n- Czy macie logo, zdjęcia produktów, paletę, adres i godziny otwarcia?",
+          "reply_chars": 2397,
+          "reply_sha256": "8cb3f24dfe92cdb00e2fc7ab153296184ed12a0671923e3cb09aef8ad71f153c",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1237,
+            "output": 2844,
+            "cache_read": 20313,
+            "cache_write": 20524
+          },
+          "seconds": 28.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "kłos(?:y|ów|ami|ach)\\b|kłosk|pszeni|zboż|kremow|bochen|\\bmąk|parą|parując|\\bpara\\b",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "3 directions, stock motif in 2 ([1, 3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist', 'szablon']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2767,
+          "output": 1808,
+          "cache_read": 2054,
+          "cache_write": 2830
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Directions 2 and 3 avoid the stock bakery motifs the reply names (wheat field, steam over the loaf, sunrise, amber palette). Direction 2 is a fermentation timer and Direction 3 is a stamped kraft bag with stop-motion products."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "Direction 1 comes from a blade cut that opens into an ear shape, Direction 2 from a time-speed contrast on a fermentation counter, and Direction 3 from a stamping and packing action. These are three distinct generating mechanisms."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction has a one-line 'Pomysł' that is concrete. The assets are ordinary: dough macro footage and a blade sound, a timer graphic with a sound hit, and product photos for stop-motion. Direction 2's dough swelling would need footage or a generator, which is still ordinary."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "met",
+            "reason": "The opening sentence explicitly lists the set-aside defaults: the golden grain field, steam over the loaf, sunrise, and the amber palette. It also notes that Direction 1 deliberately uses the wheat ear as a classic."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "C02",
+      "title": "Poster for a dental clinic: not toothbrushes, sparkle and blue",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4088,
+        "output": 4466,
+        "cache_read": 22395,
+        "cache_write": 17383
+      },
+      "seconds": 29.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu na otwarcie gabinetu stomatologicznego „Uśmiech” w Poznaniu, z rabatem -20% na pierwszy przegląd.",
+          "reply": "Odłożyłem na bok oczywiste rozwiązania: ząb jako ikonę, biel i błękit „kliniczny”, modelkę z idealnym uśmiechem i błysk na zębach. Poniższe kierunki biorą punkt wyjścia z nazwy, z lokalnego zwyczaju i z miasta.\n\n## 1. „U-śmiech” (z nazwy)\n- **Pomysł:** w słowie „Uśmiech” ukryty jest „śmiech”, a litera **U** ma kształt uśmiechu. Plakat to prawie sam napis: ogromne **U**, obok „śmiech”.\n- **Obraz:** typografia, jedna mocna barwa i dużo pustego tła. Litera U jest jedyną grafiką.\n- **Tekst:** nagłówek „U-śmiech”, podtytuł „Nowy gabinet stomatologiczny w Poznaniu”, plakietka „−20% na pierwszy przegląd”.\n- **Nastrój:** pewny i nowoczesny, bez medycznego chłodu.\n\n## 2. „Kartki do oderwania” (z lokalnego zwyczaju)\n- **Pomysł:** plakat udaje ogłoszenie z osiedlowego słupa lub tablicy, z paskami do oderwania na dole. Każdy pasek mówi „−20% na pierwszy przegląd” i podaje telefon.\n- **Obraz:** część pasków jest już oderwana, więc widać, że ludzie je biorą. Dzięki temu plakat sam pokazuje, że oferta jest popularna.\n- **Tekst:** na górze „Uśmiech. Gabinet stomatologiczny”, w środku „Pierwszy przegląd −20%”.\n- **Nastrój:** swojski, ciepły, trochę żartobliwy. Dobrze działa na klatkach schodowych i w sklepach.\n\n## 3. „Koziołki wiedzą, jak się szczerzyć” (z miasta)\n- **Pomysł:** koziołki z poznańskiego ratusza, znane każdemu mieszkańcowi, są tu bohaterami. Jeden z nich pokazuje zęby w szerokim uśmiechu.\n- **Obraz:** graficzna, uproszczona ilustracja koziołków, bez fotografii. Barwy nawiązują do ratusza, nie do medycyny.\n- **Tekst:** nagłówek żartobliwy, dopracuję go w kolejnym kroku. Pod nim „Uśmiech. Gabinet stomatologiczny w Poznaniu” i „−20% na pierwszy przegląd”.\n- **Nastrój:** lokalny, wesoły, zapamiętywalny. Najlepiej sprawdzi się dla mieszkańców Poznania.\n\n**Moja rekomendacja:** kierunek 1, jeśli chcesz marki, która da się łatwo rozwinąć (szyld, social media, ulotki). Kierunek 2 będzie najskuteczniejszy, jeśli zależy Ci na szybkim napływie pierwszych pacjentów.\n\n## Czego potrzebuję, żeby przejść dalej\n1. Wybrany kierunek (lub połączenie).\n2. Dane do plakatu: adres, telefon lub rezerwacja online, data otwarcia i do kiedy ważny jest rabat. Niczego z tego nie wymyślam.\n3. Czy masz logo lub kolory marki.\n4. Gdzie plakat ma wisieć:\n   1. wydruk na kartce A4 (cała kartka drukarki),\n   2. wydruk A3 (dwie kartki, większy plakat),\n   3. internet (post lub relacja na telefonie),\n   4. wydruk i internet,\n   5. pomóż mi wybrać.\n\nNa razie niczego nie generuję. Po Twoim wyborze przygotuję tekst i projekt.",
+          "reply_chars": 2525,
+          "reply_sha256": "8914c84ff75a53e8ff5913cbf3f8fefac00d61c79d40bd9fb127993f6a54611f",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1253,
+            "output": 2786,
+            "cache_read": 20341,
+            "cache_write": 14489
+          },
+          "seconds": 29.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "szczoteczk|lśni|błyszcz|iskier|iskr|niebiesk|turkus|błękit|miętow|pasta do zęb|\\bząb|\\bzęb",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 1 ([3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2835,
+          "output": 1680,
+          "cache_read": 2054,
+          "cache_write": 2894
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "The reply sets aside the tooth icon, clinical blue and white, the model with a perfect smile, and the sparkle on teeth. Direction 1 relies on typography and one bold colour, with no medical coolness, so it avoids the stock palette and moves."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "Each direction has a different source: direction 1 is wordplay on the brand name (U-shaped smile, 'śmiech'), direction 2 is a local custom (torn-off notice strips on a pole or board), and direction 3 is a city landmark (the Poznań town hall goats)."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction is summarised in a single line of 'Pomysł'. The assets are typography, a simple illustration, and a flyer layout with tear-off strips, with no photography or specialised production required."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "met",
+            "reason": "The opening line explicitly lists the set-aside defaults: the tooth as an icon, clinical white and blue, the model with an ideal smile, and the sparkle on the teeth."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "C03",
+      "title": "Video ad for a bike service: not sunset, drone and slow motion",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4233,
+        "output": 4855,
+        "cache_read": 22349,
+        "cache_write": 23518
+      },
+      "seconds": 31.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 pomysły na 15-sekundową reklamę wideo serwisu rowerowego w Gdańsku.",
+          "reply": "Poniżej trzy kierunki. Odrzuciłem oczywiste motywy: słoneczny rowerzysta nad morzem i zbliżenia na klucze. Wszystkie hasła i obietnice to robocze propozycje. Dopasuję je, gdy podasz nazwę serwisu i to, co naprawdę oferuje, np. naprawy „od ręki\" albo przeglądy.\n\n## 1. „Kocie łby\" (dźwięk jako bohater)\n**Idea:** Gdańskie bruki słychać w każdym zgrzycie. Rower po serwisie jedzie po nich cicho.\n- **0–6 s:** Rower z luzami jedzie po brukowanej uliczce Głównego Miasta. Każda nierówność daje brzęk, skrzypienie i stuk błotnika. Przechodnie się odwracają.\n- **6–10 s:** Szybkie cięcia w warsztacie: dokręcony łańcuch, kropla smaru, dokręcona śruba. Dźwięk cichnie z każdym ujęciem.\n- **10–15 s:** Ta sama uliczka. Słychać tylko szum opon i mewy. Na końcu pojawia się logo.\n- **Hasło (robocze):** „Gdańsk ma bruk. Twój rower ma być cichy.\"\n- **Dlaczego działa:** Jest lokalne, ma jasny związek przyczynowy i sprawdzi się w mediach społecznościowych także bez obrazu.\n\n## 2. „Nocna zmiana\" (rzemiosło i stocznia)\n**Idea:** Warsztat pokazany jak mała stocznia. Mechanik to rzemieślnik, który pracuje, gdy miasto śpi.\n- **0–4 s:** Wieczór. Rower z krzywym kołem wjeżdża do warsztatu. Za oknem widać portowe żurawie.\n- **4–11 s:** Rytm montażu prowadzi dźwięk. Centrowanie koła: szprychy brzmią jak struny, a ton wyrównuje się z każdym dokręceniem. Iskra i kropla oleju na łańcuchu wyglądają jak ujęcia ze stoczni.\n- **11–15 s:** Rano ten sam rower rusza w mgle nad wodą. Pada hasło i logo.\n- **Hasło (robocze):** „Zbudowane po gdańsku. Naprawione z dbałością.\"\n- **Dlaczego działa:** Buduje prestiż i zaufanie do rzemiosła, a nie tylko sprzedaje cenę.\n\n## 3. „Poniedziałek, 7:45\" (mikrokomedia dla dojeżdżających)\n**Idea:** Kolega z pracy ucieka na rowerze przed tramwajem, a ty stoisz z przebitą oponą.\n- **0–5 s:** Bohater wybiega z klatki. Opona jest płaska. Obok z dzwonkiem przejeżdża sąsiad.\n- **5–10 s:** Przeskok na liczniku czasu: 45 minut później rower wraca z serwisu. Pokazujemy to bez słów, tylko zegarem i jedną czynnością.\n- **10–15 s:** Bohater dogania tramwaj i macha do pasażerów. Logo i hasło.\n- **Hasło (robocze):** „Nie czekaj na tramwaj. Wróć na rower.\"\n- **Uwaga:** Czas naprawy to tylko placeholder. Użyjemy go wyłącznie wtedy, gdy serwis faktycznie tak działa.\n- **Dlaczego działa:** To najbardziej sprzedażowy kierunek. Daje konkretny powód, żeby zadzwonić.\n\n## Moja rekomendacja\nWybrałbym **1** do social media. Wyróżnia się lokalnie, a produkcja jest prosta: jedna uliczka i jeden warsztat. Wersja **3** będzie lepsza, jeśli głównym celem jest szybki ruch w serwisie.\n\n**Który kierunek rozwijamy?** Przy wyborze podaj też:\n1. nazwę serwisu i jego główną przewagę,\n2. gdzie reklama ma się pojawić: Instagram/TikTok (9:16) czy YouTube/kino (16:9).\n\nPotem rozpiszę ujęcia, kamerę i dźwięk. Mogę też przygotować prompt do generatora wideo albo plan zdjęć.",
+          "reply_chars": 2872,
+          "reply_sha256": "56942949da09e39a7eabb177b1b1886662f227d07605981fde84c36856595e89",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1228,
+            "output": 3163,
+            "cache_read": 20295,
+            "cache_write": 20450
+          },
+          "seconds": 31.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "zach[oó]d\\w* słońca|złot\\w* godzin|\\bdron|slow motion|zwolnion|wiatr\\w* we włosach|żuraw|motław|plaż|bulwar",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 1 ([2]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3005,
+          "output": 1692,
+          "cache_read": 2054,
+          "cache_write": 3068
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Directions 1 and 3 avoid the usual bike-ad imagery. Direction 1 is built on the sound of Gdańsk cobblestones, and direction 3 is a comedy about a flat tire and a tram. Neither uses the sunny seaside cyclist or close-ups of tools."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "Each direction has a different core mechanism: sound as the hero (1), a shipyard and craftsmanship analogy with a sound-led rhythm (2), and a time-skip micro-comedy (3)."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each has a short idea line. The footage is ordinary: street rides, workshop inserts, a clock overlay, and sound design. Direction 2 needs a few extra shots, such as cranes and sparks, but nothing beyond a normal shoot."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "met",
+            "reason": "It opens by saying it rejected the sunny cyclist by the sea and close-ups of keys as obvious motifs."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "C04",
+      "title": "Logo animation for an accounting office: not calculators, charts and coins",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3567,
+        "output": 4086,
+        "cache_read": 22323,
+        "cache_write": 22894
+      },
+      "seconds": 27.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Wymyśl 3 kierunki animacji logo dla biura rachunkowego „Bilans”.",
+          "reply": "Poniżej 3 kierunki. Odłożyłem oczywiste skojarzenia: wagę szalkową, rosnący wykres, kalkulator i zielone cyfry. Wszystkie trzy opierają się na jednej myśli: **bilans to moment, w którym wszystko się zgadza**. Animacja ma pokazywać ten moment zgodności.\n\n**A. „Kreska sumy\"** (księgowy rytuał)\n- Kolumna drobnych liczb przewija się w górę.\n- Pod nią rysuje się pozioma kreska sumy.\n- Liczby zbiegają się do jednego wiersza i układają w wordmark „Bilans\" jako wynik.\n- Dźwięk: tykanie maszyny liczącej, a na końcu jedno suche stuknięcie pieczątki.\n- Charakter: rzeczowy, precyzyjny, spokojny.\n\n**B. „Poziomica\"** (nieoczekiwany rekwizyt)\n- Wordmark pojawia się lekko przechylony, o ok. 4°.\n- Kropka nad „i\" działa jak bąbelek poziomicy. Przetacza się i wahnięciami ustawia napis idealnie poziomo.\n- Dźwięk: miękkie „klik\" na wypoziomowaniu.\n- Charakter: lekki, z humorem, łatwo zapamiętać.\n\n**C. „Dwie strony\"** (aktywa = pasywa)\n- Logo jest przecięte na dwie połowy.\n- Połowy wjeżdżają z przeciwnych stron i zatrzymują się z milimetrową korektą.\n- Szew znika, a pod napisem rysuje się znak równości albo cienka linia.\n- Dźwięk: dwa przeciwstawne „szur\", potem czyste zatrzaśnięcie.\n- Charakter: solidny, zaufanie i stabilność, najbardziej „korporacyjny\" z trzech.\n\n**Moja rekomendacja:** B, jeśli „Bilans\" ma się wyróżniać wśród biur rachunkowych. C, jeśli klienci to głównie firmy, którym zależy na powadze. A jest najbezpieczniejszy i najłatwiej go dopasować do dowolnego logo.\n\n**Który kierunek rozwijamy?** Do realizacji (animacja z kodu, render MP4 ze ścieżką dźwiękową) przydadzą się jeszcze:\n- plik logo (SVG, PNG) albo opis jego wyglądu i kolorów,\n- docelowa długość (np. 3–5 s) i format (16:9, 1:1, 9:16).",
+          "reply_chars": 1713,
+          "reply_sha256": "1054ca5a6663c978a1d94a4e3162e0d5753b1460cbb08308ec07c3095c6d8602",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1217,
+            "output": 2437,
+            "cache_read": 20269,
+            "cache_write": 20485
+          },
+          "seconds": 27.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "kalkulator|wykres|monet|segregator|banknot|słup|teczk|\\bszal[ieaę]\\b|\\bwag[aięą]\\b|równowag|cyfr",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 0 ([]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2350,
+          "output": 1649,
+          "cache_read": 2054,
+          "cache_write": 2409
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Direction B (spirit-level bubble on a tilted wordmark) uses none of the stock accounting motifs named in the reply (scales, rising chart, calculator, green numbers). Direction A's adding-machine numbers are closer to a stock motif, but B clearly avoids it."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "The three directions come from different sources: A from the accounting ritual of a sum line, B from a levelling tool and its bubble, and C from the assets-equal-liabilities equation. Each has a different motion mechanism (numbers converging, a bubble settling, halves sliding and meeting)."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction reduces to one sentence (e.g., 'a tilted wordmark levelled by a dot acting as a bubble'). The assets are ordinary: text, lines, a dot, split SVG halves, and simple sound cues. The bullets are longer than one sentence each, but the concepts are clear and the production needs are standard."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "met",
+            "reason": "The opening line says: 'Odłożyłem oczywiste skojarzenia: wagę szalkową, rosnący wykres, kalkulator i zielone cyfry', naming the scale, rising chart, calculator and green numbers."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "C05",
+      "title": "One campaign across poster, reel and logo animation for a café",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4108,
+        "output": 4529,
+        "cache_read": 22385,
+        "cache_write": 23374
+      },
+      "seconds": 27.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Otwieramy kawiarnię „Ziarno” w Toruniu. Potrzebuję plakatu, rolki 9:16 i animacji logo. Zaproponuj kierunki.",
+          "reply": "Poniżej cztery kierunki. Każdy ma jeden pomysł, który przechodzi przez plakat, rolkę i animację logo.\n\nŚwiadomie odłożyłem na bok pierniki i Kopernika, bo to pierwsze skojarzenia z Toruniem. Pominąłem też brązową paletę, parę znad filiżanki i ziarno kawy jako ikonę. Tylko kierunek D używa klasyki, i jest tak oznaczony.\n\n**A. „Kropka\" (kropka jako ziarno)**\n- **Idea:** ziarno to punkt, od którego wszystko się zaczyna. Znakiem jest jedna kropka, a „o\" w „Ziarno\" to to ziarno.\n- **Plakat:** dużo ciszy i jedna wielka kropka, pod nią „Ziarno.\" i data otwarcia. Kolor ma być odważny, np. kobalt albo zieleń, na kremowym tle.\n- **Rolka 9:16:** kropka spada, rozchodzi się kręgami jak po kawie, a kręgi stają się kolejno rantem filiżanki, stolikiem i ulicą. Na końcu data i adres.\n- **Animacja logo:** kropka spada, odbija się raz i zajmuje miejsce litery „o\".\n- **Zalety:** najprostszy w realizacji i najbardziej spójny między formatami.\n\n**B. „Cegła i ziarno\"**\n- **Idea:** toruński gotyk w nowej odsłonie. Ciepła, czerwona cegła, a w niej jedno wnęka-ziarno, przez którą wpada światło.\n- **Plakat:** zbliżenie na fakturę muru i jasne, owalne okno w kształcie ziarna. Typografia jest ciężka i architektoniczna.\n- **Rolka:** kamera jedzie wzdłuż muru, a rytm cięć wyznaczają rzędy cegieł. Wnęka otwiera się i pokazuje wnętrze kawiarni.\n- **Animacja logo:** cegły układają się w napis, a ostatnia zostaje „ziarnem\".\n- **Zalety:** silnie lokalny, ale wymaga dobrych zdjęć albo tekstur.\n\n**C. „Pierwsze światło\"**\n- **Idea:** kawiarnia to pierwsze zapalone okno w mieście o poranku.\n- **Plakat:** granat nocy i jedno ciepłe okno w kształcie ziarna, z hasłem w stylu „Zapalamy światło\".\n- **Rolka:** poranek w Toruniu, od ciemnych uliczek przez zapalające się okna po wejście do środka. Rytm prowadzi światło.\n- **Animacja logo:** ciemny ekran, włącza się światło, a napis wyłania się z półmroku.\n- **Zalety:** najbardziej filmowy kierunek, ale wymaga najwięcej pracy nad światłem i klimatem.\n\n**D. Klasyka: „Palarnia z charakterem\"**\n- To ręczne liternictwo, ciepłe barwy i rzemieślnicza etykieta.\n- Jest bezpieczny i czytelny, ale najmniej wyróżnia się wśród kawiarni.\n\n**Moja rekomendacja:** A. Jedna kropka działa na plakacie, w rolce i w animacji logo. Dobrze też znosi mały format, np. avatar czy kubek. Jeśli kawiarnia ma być wyraźnie toruńska, wybrałbym B.\n\n**Którego kierunku mam użyć?** Możesz też połączyć dwa, np. A z paletą z B. Gdy wybierzesz, zapytam o kilka faktów: data i adres otwarcia, hasło lub oferta oraz to, czy masz już logo. Potem przejdziemy do plakatu, scenariusza rolki i animacji logo.\n\nJeśli wolisz poznawać te zagadnienia krok po kroku, możemy przejść do trybu nauki.",
+          "reply_chars": 2693,
+          "reply_sha256": "46426c244161a33b434a7f1d2cdddd0a3938b66d72e344f9b3fe4c776c2947d4",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1247,
+            "output": 2705,
+            "cache_read": 20331,
+            "cache_write": 20452
+          },
+          "seconds": 27.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "filiżan|ziarn\\w* kawy|ziaren|ziarenk|latte art|\\bpar[ay]\\b|parą|parując|kremow",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "4 directions, stock motif in 1 ([1]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['pierwsze skojarzen', 'pominąłem']"
+            },
+            {
+              "check": {
+                "contains": [
+                  "plakat"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "rolk",
+                  "reel",
+                  "9:16"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['rolk', '9:16']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "animac"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['animac']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2861,
+          "output": 1824,
+          "cache_read": 2054,
+          "cache_write": 2922
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Direction A ('Kropka') uses a single dot on a kobalt or green and cream palette, with no coffee beans, cups, or brown tones. The reply says it set those defaults aside."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "The ideas come from different sources: A is typographic (the dot as the 'o' and seed), B is architectural (brick wall and niche as a bean-shaped window), C is light and narrative (first lit window at dawn), and D is craft lettering and labelling tradition."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "The core idea of A and C each fits in one sentence, and B's idea is a short phrase. D is only loosely described. The assets are ordinary: a dot, brick textures or photos, and lighting work. B and C need more production effort, which the reply acknowledges, but no special assets are required."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "met",
+            "reason": "It explicitly sets aside gingerbread and Copernicus as Toruń associations, the brown palette, the cup-and-saucer pair, and the coffee bean as an icon, and says only direction D uses the classic approach."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ],
+  "review": "Candidate 2: 4 of 5 PASS as run; the advisory judge met all four rubric items in all five cases. Every reply names the defaults it set aside; C01 labels its wheat direction as the classic and adds a fermentation counter and a stop-motion paper bag; C04 offers the dot over the i as a spirit-level bubble. C01 failed only on loaves going into a bag in direction 3, which is the bakery's own product, not stock imagery; the C01 pattern was corrected (loaves removed) and the stored replies rescored: 5 of 5. Superseded: this wording listed stock motifs for bakeries, dentists and accountants inside the rule, the very categories of C01, C02 and C04, and the method named café and bike stock and used \"Bilans\" as an example; the 5 of 5 is not evidence of a general skill. Candidates 3 and 4 and the held-out cases replace it.",
+  "rescored_after_c01_correction": {
+    "C01": "PASS",
+    "C02": "PASS",
+    "C03": "PASS",
+    "C04": "PASS",
+    "C05": "PASS"
+  },
+  "rescored": {
+    "checks": "tests/host-evals/creative.json as committed with this release",
+    "PASS": 5,
+    "cases": {
+      "C01": "PASS",
+      "C02": "PASS",
+      "C03": "PASS",
+      "C04": "PASS",
+      "C05": "PASS"
+    }
+  }
+}

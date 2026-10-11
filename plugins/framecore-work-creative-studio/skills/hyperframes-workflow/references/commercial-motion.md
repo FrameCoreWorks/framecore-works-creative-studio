@@ -18,7 +18,7 @@ Derive these from the brief, the site and the assets actually available, and wri
 | `alternatives` | At least two genuinely different concepts with a reason each; exactly one `chosen` |
 | `hook` / `cta` | The hook's copy ID and the scene that pays it off; the CTA's copy ID and the action it `closes` |
 
-- **Open brief:** weigh a few different concepts yourself and pick the strongest; do not hand the user a compulsory menu. Record the losers and why. A category list ("for her, for him, unisex") is a catalogue, not a concept.
+- **Open brief:** weigh a few different concepts yourself, found with the [ideation method](../../pipeline-core/references/ideation-method.md) (the category's defaults named and set aside), and pick the strongest; do not hand the user a compulsory menu. Record the losers and why. A category list ("for her, for him, unisex") is a catalogue, not a concept.
 - **Hook with a payoff:** the first line raises a specific question or situation the film answers later. "One scent?" fits any store; "Love a scent? Find its equivalent" sets up the search the film then shows.
 - **Every scene argues:** each scene's `argues` names the step it adds (situation, action, result, proof, action again). A scene that only re-arranges the same products adds nothing.
 - **The CTA closes what was shown:** ask for the action the film demonstrated ("find your equivalent"), not a new generic one ("buy now").

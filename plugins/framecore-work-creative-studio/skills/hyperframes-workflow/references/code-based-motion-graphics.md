@@ -2,7 +2,7 @@
 
 Use this profile for explicitly requested coded motion graphics, kinetic typography, animated diagrams, title systems, brand motion or programmatic video. It extends existing owners and the existing Project State. It does not select a different model, create a new agent, or supply a rendering environment.
 
-For substantive art direction, use [motion quality direction](motion-quality-direction.md) and selectively retrieve the [prompt library](../assets/motion-prompt-library/README.md). Include style frames in the existing storyboard review and a focused motion proof during an authorized build. These refine the current method; they add no owner, separate gate or QA budget.
+For substantive art direction, find the idea with the [ideation method](../../pipeline-core/references/ideation-method.md), then use [motion quality direction](motion-quality-direction.md) and selectively retrieve the [prompt library](../assets/motion-prompt-library/README.md) for technique. Include style frames in the existing storyboard review and a focused motion proof during an authorized build. These refine the current method; they add no owner, separate gate or QA budget.
 
 ## Runtime selection
 

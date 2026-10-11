@@ -2,6 +2,8 @@
 
 Three 15-second vertical ad templates and a tool that turns one checked contract into a client's branded versions in several languages and formats. Nothing here renders or publishes; it writes contracts and the commands that render them.
 
+A template is a structure for an idea that fits it (an offer, one product's proof, a testimonial), not a concept. Choose the idea first with the [ideation method](../../../pipeline-core/references/ideation-method.md); when it needs another structure, build its scenes from the [scene kinds](../motion-scenes/README.md) instead.
+
 ## Templates
 
 [`../motion-scenes/templates/`](../motion-scenes/templates/) holds complete storyboards at 1080 x 1920, 30 FPS, 450 frames, each with `4x5` (1080 x 1350) and `1x1` (1080 x 1080) feed formats. Every format passes `check-score.mjs --storyboard` with no warnings, and the renderer reports no text overflow.

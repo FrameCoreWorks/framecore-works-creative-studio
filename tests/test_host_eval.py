@@ -111,12 +111,31 @@ class Checks(unittest.TestCase):
         template = json.loads((host_eval.PLUGIN / 'skills/workflow-self-improvement/assets/change-request.template.json').read_text(encoding='utf-8'))
         self.assertEqual(template['check_vocabulary'], list(host_eval.CHECK_KINDS))
         self.assertEqual((template['status'], template['test']['result'], template['adoption']['explicit']), ('proposed', 'NOT_RUN', False))
-        samples = {'welcome': 'pl', 'language': 'pl', 'regex': 'x', 'not_regex': 'x', 'command': 'x', 'no_command': 'x', 'code_block': True, 'not_welcome': True}
+        samples = {'welcome': 'pl', 'language': 'pl', 'regex': 'x', 'not_regex': 'x', 'command': 'x', 'no_command': 'x', 'code_block': True, 'not_welcome': True,
+                   'max_sections_matching': {'pattern': 'x', 'max': 1}}
         for kind in host_eval.CHECK_KINDS:
             value = samples.get(kind, 1 if kind.startswith(('max_', 'min_')) or kind == 'items' else ['x'])
             host_eval.check({kind: value}, turn('x'))
         with self.assertRaises(host_eval.EvalError):
             host_eval.check({'unknown_kind': 1}, turn('x'))
+
+    def test_directions_are_found_in_headings_bold_labels_or_numbers(self):
+        spec = {'max_sections_matching': {'pattern': 'kłosy|pszenic', 'max': 1, 'min_sections': 3}}
+        headed = 'Intro\n### 1. Kłosy w wietrze\ntext\n### 2. Rozkład jazdy pieca\ntext\n### 3. Okruchy\ntext'
+        bold = 'Intro\n**Kierunek A: pszenica** opis\n**Kierunek B: zegar pieca** opis\n**Kierunek C: kłosy** opis'
+        numbered = 'Intro\n1. Ciasto, które rośnie jak wykres\n   1. scena\n2. Rozkład jazdy pieca\n3. Okruchy jako czcionka'
+        self.assertTrue(host_eval.check(spec, turn(headed))[0])
+        self.assertFalse(host_eval.check(spec, turn(bold))[0])
+        self.assertTrue(host_eval.check(spec, turn(numbered))[0])
+        self.assertFalse(host_eval.check(spec, turn('Jeden kierunek: kłosy.'))[0])
+        titled = '# Kłos: 3 kierunki\n## Kierunek A: zegar\nx\n## Kierunek B: okruchy\nx\n## Kierunek C: rozkład\nx\n## Porównanie\nkłosy, pszenica, kłosy'
+        self.assertEqual(len(host_eval.sections(titled)), 3)
+        self.assertTrue(host_eval.check(spec, turn(titled))[0])
+
+    def test_a_negated_motif_is_not_counted_as_used(self):
+        self.assertFalse(host_eval.stock_in('filiżan|zęb', 'Plakat bez filiżanki i bez pary.'))
+        self.assertFalse(host_eval.stock_in('filiżan|zęb', 'Uśmiech osoby; nie pokazujemy zębów z bliska.'))
+        self.assertTrue(host_eval.stock_in('filiżan', 'Na końcu pierwsza filiżanka i logo.'))
 
     def test_language_and_version_placeholder(self):
         self.assertEqual(host_eval.language_of('To jest odpowiedź po polsku i nie ma w niej angielskiego.'), 'pl')

@@ -64,7 +64,7 @@ Use [templates/creative-video-production-pack.md](templates/creative-video-produ
 2. Establish brief and reference authority, including source roles, ownership uncertainty, product or story truth, claim locks, and continuity anchors.
 3. Choose the primary route: commercial, ecommerce, narrative, UGC, music video, explainer, footage-first edit, or coded video.
 4. Add `screenplay-story-architect` when narrative writing must be solved before storyboard and prompt work.
-5. Build direction, beat map, shot cards, timing, first/last-frame logic, copy, audio, and caption requirements.
+5. Build direction (found once with the [ideation method](../pipeline-core/references/ideation-method.md) and shared by every stage), beat map, shot cards, timing, first/last-frame logic, copy, audio, and caption requirements.
    Route ready-to-use copy, VO, dialogue, supers, and substantive caption
    rewrites through `copy-voice` and the bounded Copy Delivery Loop before
    production handoff.

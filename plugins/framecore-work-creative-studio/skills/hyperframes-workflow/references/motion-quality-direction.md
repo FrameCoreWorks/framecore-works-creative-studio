@@ -1,6 +1,6 @@
 # Motion quality direction
 
-Use this extension inside the existing code-motion contract, not as another owner, approval gate or mandatory questionnaire. Scale it to the task. A tiny repair keeps its accepted design. A library choice is a starting hypothesis, never client approval.
+Use this extension inside the existing code-motion contract, not as another owner, approval gate or mandatory questionnaire. Scale it to the task. A tiny repair keeps its accepted design. A library record is technique for a chosen idea, never the idea itself or client approval.
 
 ## Read references as design evidence
 

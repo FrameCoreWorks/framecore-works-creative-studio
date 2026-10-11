@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.65.0",
+  "source": {
+    "commit": "60f1012620f94030b510058f8cc4a56a74c11e6e",
+    "package_uncommitted_changes": false,
+    "note": "package 1.65.0 as released; harness and case file taken from the 1.66.0 candidate (repository files outside the package)"
+  },
+  "suite": "studio-creative-pl",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4739,
+      "output": 4793,
+      "cache_read": 21764,
+      "cache_write": 18002
+    },
+    "seconds": 27.2
+  },
+  "cases": [
+    {
+      "id": "H06",
+      "title": "Held out, motion for an optician whose name is the category motif: not glasses, an eye and blur to sharp",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4739,
+        "output": 4793,
+        "cache_read": 21764,
+        "cache_write": 18002
+      },
+      "seconds": 27.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 6-sekundowej animacji na Instagram dla salonu optycznego „Soczewka” we Wrocławiu.",
+          "reply": "# „Soczewka” Wrocław: 3 kierunki na 6-sekundowy Reel/Story (9:16)\n\nNie znam identyfikacji salonu, oferty ani zdjęć wnętrza, więc to kierunki koncepcyjne. Nie ma w nich obietnic, cen, promocji ani tez o jakości. Teksty na ekranie są propozycjami, nie zatwierdzonym copy.\n\n## 1. „Doostrzenie”: rozmyte miasto, ostry moment\n**Mechanizm:** zmiana ostrości jako obietnica salonu.\n- **0–2 s:** cały kadr jest miękko rozmyty: plama tramwaju, świateł, wrocławskiej kamienicy. Dźwięk jest przytłumiony.\n- **2–4 s:** soczewka (lub oprawka) wjeżdża w kadr. Wewnątrz niej obraz robi rack focus na ostry detal (np. szczegół fasady albo twarz przechodnia).\n- **4–6 s:** reszta kadru też się wyostrza. Pojawia się logo „Soczewka” i „Wrocław”.\n- **Dźwięk:** przy wyostrzeniu cichy, czysty „klik” i oddech muzyki. Wersja bez dźwięku działa wizualnie.\n- **Zalety:** najprostszy w produkcji (footage plus nałożona animacja albo sam motion graphics), czytelny bez słów.\n- **Ryzyko:** efekt „rozmyte → ostre” jest znany. Wyróżni go konkretna wrocławska scenografia i precyzyjny timing.\n\n## 2. „Wrocławskie krasnale w oprawkach”: lokalny żart\n**Mechanizm:** humor i lokalna tożsamość.\n- **0–2 s:** ujęcie z poziomu bruku na wrocławską uliczkę. Z boku wchodzi dłoń z oprawką.\n- **2–4 s:** oprawka „ląduje” na twarzy krasnala. Mała animacja: mrugnięcie i kiwnięcie. Krasnal wygląda, jakby właśnie zobaczył świat wyraźniej.\n- **4–6 s:** cięcie na logo i adres ulicy (po potwierdzeniu).\n- **Dźwięk:** krótki dźwięk „tup-tup”, pstryknięcie oprawki i jeden dźwięczny akcent muzyczny.\n- **Zalety:** wysokie zapamiętanie, łatwo o udostępnienia i reakcje lokalnej społeczności.\n- **Ryzyko:** do sprawdzenia, czy można użyć konkretnej rzeźby w materiale reklamowym (prawa autorskie i miejskie). Bezpieczniejsza wersja to własny, wymyślony krasnal-maskotka salonu, wykonany w 3D albo w stop-motion.\n\n## 3. „Przymiarka”: rytm oprawek\n**Mechanizm:** produkt i wybór jako rytm, bez fabuły.\n- **0–4 s:** jedno nieruchome ujęcie twarzy, np. modelki lub modela. Co ok. 0,7 s oprawki „przeskakują” na twarzy w rytm muzyki (stop-motion albo cięcia). Za każdym razem zmieniają się kształt i kolor, a mimika subtelnie się dopasowuje.\n- **4–5 s:** rytm zwalnia i zatrzymuje się na jednej oprawce. Twarz się uśmiecha.\n- **5–6 s:** logo „Soczewka” plus jedna linia, np. „Znajdź swoje” (propozycja).\n- **Dźwięk:** perkusyjny, krótki beat. Każda zmiana ma własny dźwięk (klik, pstryk).\n- **Zalety:** pokazuje asortyment i buduje chęć wizyty. Łatwo zrobić z wielu wersji (różne oprawki, różne osoby).\n- **Ryzyko:** wymaga zdjęć lub fizycznych oprawek z salonu i zgody osoby na wizerunku. Nie wolno pokazać marek, których salon nie oferuje.\n\n## Moja rekomendacja\nJeśli zależy Ci na **zasięgu i zapamiętaniu**, wybierz **2 (krasnal)** w wersji z własną maskotką. Jeśli ma **sprzedawać oprawki**, wybierz **3**. Jeśli ma **budować markę premium**, wybierz **1**. Najbezpieczniejszy do szybkiej realizacji jest **1**.\n\n## Ustalenia wspólne\n- **Format:** pionowy 9:16, tekst w bezpiecznej strefie (z dala od górnej i dolnej krawędzi). Aktualne wymogi Instagrama dla Reels i Stories nie były teraz sprawdzane, więc traktuj je jako niezweryfikowane.\n- **Napisy:** minimalne, bez zdań wymagających czytania, bo 6 s to bardzo mało.\n- **Dźwięk:** jeśli użyjemy muzyki, trzeba sprawdzić jej licencję pod kątem reklamy.\n\n## Czego potrzebuję, żeby pójść dalej\n1. Który kierunek wybierasz, albo które elementy chcesz połączyć?\n2. Czy masz logo, kolory i zdjęcia salonu? Czy mogę użyć nazwy ulicy lub dzielnicy?\n3. Czy jest oferta (np. badanie wzroku, promocja), którą wolno pokazać?\n\nPo wyborze mogę rozpisać scenariusz klatka po klatce, napisać copy po polsku lub przygotować prompt do generatora wideo albo animację z kodu.",
+          "reply_chars": 3762,
+          "reply_sha256": "c3e7428a688bb8faa495df392d8b037be69279334e3cdfa292635274ac619faf",
+          "skills": [
+            "commercial-video-campaign-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1237,
+            "output": 3229,
+            "cache_read": 19710,
+            "cache_write": 14441
+          },
+          "seconds": 27.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "okular|oprawk|\\blup(?:a|ę|y|ą)\\b|tablic\\w* (?:okulist|literow|snellen|z literami)|\\boko\\b|\\boczy\\b|\\boka\\b|źrenic|tęczówk|rozmyc|rozmyt|nieostr|ostroś|wyostrz",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "3 directions, stock motif in 3 ([1, 2, 3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['oczywist', 'banał', 'klisz', 'szablon', 'pierwsze skojarzen', 'typow', 'stockow', 'schemat', 'pominąłem', 'pomijam', 'odłoż', 'odrzuc', 'zrezygnow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3502,
+          "output": 1564,
+          "cache_read": 2054,
+          "cache_write": 3561
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Direction 2 (krasnale w oprawkach) builds on local Wrocław imagery and humour rather than the usual eyewear close-ups or lens-zoom tropes. Direction 3 relies on the stock glasses-on-face motif, so the avoidance is only partial in the set, but one direction clearly meets the bar."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "The three directions run on different mechanisms: a focus change as a brand promise (1), local humour and identity via a character (2), and product choice as a rhythm with jump cuts (3)."
+          },
+          {
+            "item": "Each direction states what changes and why (a mechanism), not only a look",
+            "verdict": "met",
+            "reason": "Each direction opens with a 'Mechanizm:' line and gives timed beats showing what changes on screen and what the change communicates."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction reduces to one clear sentence. Feasibility is stated: footage plus motion graphics for 1, a 3D or stop-motion mascot as the safer option for 2, and salon photos or physical frames with consent for 3. The reply flags the rights and consent issues in its risk notes."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "not_met",
+            "reason": "The reply calls the blur-to-sharp effect a known effect, but it never explicitly lists the category defaults it deliberately avoided, such as eye close-ups, before/after comparisons, discount badges, or frame-on-face beauty shots."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ],
+  "review": "Held-out baseline on the released 1.65.0 package (H06, the name is the category motif): FAIL; stock imagery in all three directions and no set-aside line; the judge met 4 of 5 items."
+}

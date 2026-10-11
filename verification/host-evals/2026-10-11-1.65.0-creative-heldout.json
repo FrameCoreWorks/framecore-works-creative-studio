@@ -1,0 +1,692 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.65.0",
+  "source": {
+    "commit": "60f1012620f94030b510058f8cc4a56a74c11e6e",
+    "package_uncommitted_changes": false,
+    "note": "package 1.65.0 as released; harness and case file taken from the 1.66.0 candidate (repository files outside the package)"
+  },
+  "suite": "studio-creative-pl",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 5,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 20689,
+      "output": 21725,
+      "cache_read": 108855,
+      "cache_write": 107188
+    },
+    "seconds": 102.8
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "title": "Held out, motion for a veterinary clinic: not paw prints, hearts and a stethoscope",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 3906,
+        "output": 4353,
+        "cache_read": 21770,
+        "cache_write": 23704
+      },
+      "seconds": 18.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 8-sekundowej animacji motion graphics na otwarcie przychodni weterynaryjnej „Azyl” w Lublinie.",
+          "reply": "Zaczynam od trybu szybkiego. Poniżej są 3 różne kierunki, każdy jako animacja z kodu (motion graphics) w formacie 8 s. Jeśli wolisz się tego uczyć krok po kroku, możesz w każdej chwili przełączyć się na Tryb nauki.\n\nNazwa „Azyl\" daje dwa tropy: bezpieczne schronienie i miejsce, do którego się wraca. Każdy kierunek gra jednym z nich.\n\n## 1. „Otwarte drzwi\"\nTypografia i symbol, spokojnie i ciepło.\n- **0–2 s:** na ciemnym tle świeci prostokąt światła. Rysuje się kontur domu, a wewnątrz niego odbity ślad łapy.\n- **2–5 s:** kontur przechodzi w drzwi, które się uchylają. Wpada ciepłe światło, a litery „Azyl\" wyłaniają się z jasności.\n- **5–8 s:** napis „Przychodnia weterynaryjna · Lublin\" i hasło otwarcia (data, adres).\n- **Ton:** zaufanie, spokój, premium. Pasuje, jeśli zależy Ci na powadze i profesjonalizmie.\n\n## 2. „Dłoń i łapa\"\nMinimalistyczna animacja liniowa w płaskich kształtach.\n- **0–3 s:** jedną ciągłą linią rysuje się dłoń, a naprzeciw niej łapa.\n- **3–5 s:** stykają się i tworzą okrąg lub serce, a z niego składa się logo.\n- **5–8 s:** logo, informacja o otwarciu, na końcu delikatne „pulsowanie\" znaku.\n- **Ton:** czułość i relacja opiekuna ze zwierzakiem. Łatwo ją przyciąć do rolek i postów.\n\n## 3. „Lublin ma nowy azyl\"\nLokalna, żywsza, z odrobiną humoru.\n- **0–3 s:** płaska panorama Lublina z rozpoznawalnymi budynkami Starego Miasta. W oknach i na dachach pojawiają się sylwetki psa, kota i królika.\n- **3–6 s:** zwierzaki jednocześnie odwracają się w stronę jednego świecącego okna, które staje się znakiem „Azyl\".\n- **6–8 s:** logo, „Już otwarte\" i adres.\n- **Ton:** lokalność i sympatia. Wyróżnia się w mieście, ale wymaga wiernego odtworzenia zabudowy.\n\n**Moja rekomendacja:** kierunek 1, jeśli to główna animacja otwarcia, albo kierunek 3, jeśli zależy Ci na zasięgu w mediach społecznościowych w Lublinie.\n\n**Którego kierunku mam użyć?** Możesz też połączyć elementy, np. 1 z zakończeniem z 2.\n\nPo wyborze dopytam o brakujące szczegóły:\n- logo i kolory (jeśli masz),\n- data i adres otwarcia,\n- hasło, czy ma być z głosem lub bez,\n- format: pion 9:16, poziom 16:9 albo oba.\n\nNiczego z tego nie zakładałem. Nie dodałem też żadnych usług ani obietnic, więc trzeba je będzie potwierdzić.",
+          "reply_chars": 2217,
+          "reply_sha256": "808d5bef84ab0e62ae74771a8b873b04b3ea01906b3f22e1bc101417e87523cc",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1243,
+            "output": 2187,
+            "cache_read": 19716,
+            "cache_write": 20982
+          },
+          "seconds": 18.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "\\błap(?:a|y|ę|ą|ami|ek|k\\w*)?\\b|odcis\\w* łap|ślad\\w* łap|serduszk|\\bserc(?:e|a|em)\\b|stetoskop|\\bkość|\\bkości\\b|kostk\\w* dla|zielon\\w* krzyż",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "3 directions, stock motif in 2 ([1, 2]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['oczywist', 'banał', 'klisz', 'szablon', 'pierwsze skojarzen', 'typow', 'stockow', 'schemat', 'pominąłem', 'pomijam', 'odłoż', 'odrzuc', 'zrezygnow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2663,
+          "output": 2166,
+          "cache_read": 2054,
+          "cache_write": 2722
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "unclear",
+            "reason": "Direction 3 moves toward a specific Lublin street scene instead of a generic icon, but it still uses pet silhouettes. Direction 1 uses a house and a paw print, and Direction 2 forms a heart from a hand and a paw. No direction clearly drops the stock vet motifs."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "Each direction draws on a different source: the name 'Azyl' as shelter (light and a door opening), a relationship metaphor (hand meets paw), and local place plus narrative (animals turning toward a window)."
+          },
+          {
+            "item": "Each direction states what changes and why (a mechanism), not only a look",
+            "verdict": "met",
+            "reason": "Each has timed beats that state what changes and how, such as the outline turning into a door, the two shapes touching to form a circle, or the animals turning to one window. The 'why' is given mostly as a tone line rather than a full rationale."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction reduces to one sentence and uses ordinary motion-graphics assets: shapes, lines, text and simple silhouettes. Direction 3 needs a faithful city illustration, which the reply itself flags as a requirement."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "not_met",
+            "reason": "The reply never names the stock vet-clinic defaults it avoided, such as paw prints, hearts, green or blue palettes, or pet-cartoon styling. It only describes the three directions."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "H02",
+      "title": "Held out, poster for a florist: not roses, petals, pastels and script",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4012,
+        "output": 4157,
+        "cache_read": 21768,
+        "cache_write": 17732
+      },
+      "seconds": 16.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu dla kwiaciarni „Na Rogu” w Krakowie, która dowozi bukiety tego samego dnia.",
+          "reply": "# „Na Rogu”: 3 kierunki plakatu\n\nWszystkie trzy opierają się na tym samym: nazwa „Na Rogu” sugeruje narożnik ulicy, a obietnicą jest bukiet tego samego dnia.\n\n## 1. „Za rogiem” (humor miejski)\n- **Pomysł:** Kwiaty wychylają się zza narożnika kamienicy, jakby ktoś właśnie biegł z bukietem. Rogu budynku używamy jak dosłownego rogu z nazwy.\n- **Obraz:** Płaska, graficzna kamienica w krakowskich barwach: ciepła cegła, tynk, okno z okiennicą. Z jej krawędzi wystaje duży, kolorowy bukiet.\n- **Hasło (propozycja):** „Bukiet już jest za rogiem.”\n- **Podpis:** Na Rogu · Kraków · Dowozimy tego samego dnia\n- **Nastrój:** Lekki, uśmiechnięty, dobrze widoczny z daleka. Pasuje do witryny i słupa ogłoszeniowego.\n\n## 2. „Dziś” (obietnica jako bohater)\n- **Pomysł:** Jedno ogromne słowo „DZIŚ” zrobione z kwiatów i liści. Plakat jest czystą typografią i mówi tylko to, co najważniejsze.\n- **Obraz:** Jednolite tło (głęboka zieleń albo kremowe), litery wypełnione prawdziwymi kwiatami, mały zegar lub linia czasu jako akcent.\n- **Hasło (propozycja):** „Zamów dziś. Kwiaty dziś.”\n- **Podpis:** Na Rogu · bukiety z dostawą w Krakowie\n- **Nastrój:** Odważny, nowoczesny i bardzo czytelny. Najlepszy, gdy plakat ma sprzedawać szybkość.\n\n## 3. „Dla kogoś ważnego” (emocja)\n- **Pomysł:** Pokazujemy moment dostawy: dłoń podaje bukiet w drzwiach, a po drugiej stronie widać zaskoczenie i radość. Nie pokazujemy twarzy, tylko dłonie i kwiaty.\n- **Obraz:** Ciepłe, filmowe światło, zbliżenie na dłonie i papier pakowy, miękkie tło klatki schodowej lub drzwi.\n- **Hasło (propozycja):** „Zapomniałeś? Zdążysz.” albo „Dziś komuś ktoś o tobie pomyślał.”\n- **Podpis:** Na Rogu · Kraków · Bukiety tego samego dnia\n- **Nastrój:** Ciepły i osobisty. Trafia do osób, które kupują na ostatnią chwilę, np. na urodziny, rocznicę albo przeprosiny.\n\n## Moja rekomendacja\nZacząłbym od **kierunku 1**. Najmocniej wykorzystuje nazwę, jest zapamiętywalny i wyróżnia kwiaciarnię na tle zwykłych plakatów z bukietem. **Kierunek 2** jest dobrą alternatywą, jeśli liczy się sama szybkość dostawy.\n\n## Czego mi brakuje\nNie wymyślałem adresu, telefonu, godzin ani strony. Podam je na plakacie, jeśli je prześlesz. Chcę też wiedzieć, czy plakat ma być do **druku na papierze** (np. A3 do witryny), do **internetu**, czy do obu. Od tego zależy format. Który kierunek rozwijamy?",
+          "reply_chars": 2333,
+          "reply_sha256": "7e8737d5e26d40210ae54363c06e54b56941cc2c65586356d7132bdc4f58cb27",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1241,
+            "output": 1968,
+            "cache_read": 19714,
+            "cache_write": 14902
+          },
+          "seconds": 16.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "\\bróż|płatk|pastel|akwarel|wstążk|kokard|serduszk|\\bserc(?:e|a|em)\\b|odręczn|kaligraf",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 0 ([]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['oczywist', 'banał', 'klisz', 'szablon', 'pierwsze skojarzen', 'typow', 'stockow', 'schemat', 'pominąłem', 'pomijam', 'odłoż', 'odrzuc', 'zrezygnow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2771,
+          "output": 2189,
+          "cache_read": 2054,
+          "cache_write": 2830
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "not_met",
+            "reason": "All three directions use florist defaults: bouquets (1 and 3), flowers as letters (2), and green, cream or warm-brick palettes. Direction 2 is the closest, since it is typography-led, but it still relies on flowers and the same palette."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "Direction 1 comes from wordplay on the shop's name and a corner-hiding visual. Direction 2 comes from making the same-day promise the headline through typography. Direction 3 comes from a staged emotional moment at delivery. These are different idea sources."
+          },
+          {
+            "item": "Each direction states what changes and why (a mechanism), not only a look",
+            "verdict": "met",
+            "reason": "Each direction has a 'Pomysł' section that explains the device (the bouquet emerging from the corner, the word built from flowers, the hands-and-doorway handoff) and gives a reason it works (name use, speed selling, last-minute buyers)."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction is summarised in a clear sentence. The assets are ordinary: an illustrated building, a typographic composition with flower imagery, and a close-up photo or staged shot of hands with warm light."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "not_met",
+            "reason": "The reply never explicitly names the florist defaults it avoided. The only nod is a passing reference in the recommendation to 'zwykłe plakaty z bukietem' (ordinary bouquet posters), which is not a list of set-aside defaults."
+          }
+        ],
+        " overall": "partly"
+      }
+    },
+    {
+      "id": "H03",
+      "title": "Held out, video ad for an emergency plumber: not a dripping tap, a flood and a superhero",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4378,
+        "output": 4586,
+        "cache_read": 21780,
+        "cache_write": 17757
+      },
+      "seconds": 26.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 pomysły na 15-sekundową reklamę wideo firmy hydraulicznej „Pion” z Łodzi, która przyjeżdża w ciągu 2 godzin.",
+          "reply": "# „Pion\": 3 pomysły na 15 sekund\n\nZnam tylko trzy fakty: nazwa „Pion\", Łódź i dojazd w ciągu 2 godzin. Nie założyłem pracy w nocy, cen, gwarancji ani liczby lat na rynku. Hasła poniżej to propozycje, nie zatwierdzony tekst.\n\n## 1. „Dwie godziny\" (czas jako dowód)\n- **Mechanizm:** obietnica „2 godziny\" pokazana jako coś, co widać na ekranie, a nie tylko zdanie z lektora.\n- **Przebieg:**\n  - Kadr stały: kuchnia, spod zlewa zaczyna kapać. Na ekranie pojawia się zegar 0:00.\n  - Czas przyspiesza, a woda w misce rośnie.\n  - W oknie przejeżdża busik, potem pukanie do drzwi, zegar stoi na 1:4x.\n  - Hydraulik wchodzi do kadru, kapanie cichnie.\n- **Dźwięk:** tykanie i kapanie jako jeden rytm, który urywa się po wejściu hydraulika.\n- **Hasło (propozycja):** „Awaria o pełnej? My jesteśmy u Ciebie w 2 godziny.\"\n- **Ryzyko:** konkretna godzina na zegarze to obietnica. Trzeba potwierdzić, że 2 godziny to realny standard, a nie „do 2 godzin w sprzyjających warunkach\".\n\n## 2. „Przywracamy pion\" (gra słów z nazwą)\n- **Mechanizm:** odwrócony ruch. Chaos układa się z powrotem w porządek.\n- **Przebieg:**\n  - Woda rozlewa się poziomo po podłodze, kałuża rośnie i wszystko jest „położone\".\n  - Wchodzi hydraulik, a obraz zaczyna się cofać. Woda wraca do rury, kałuża kurczy się do jednej kropli, kropla spada pionowo i znika.\n  - Na końcu logo „Pion\" jako pionowa kreska, a obok wzmianka o dojeździe w 2 godziny.\n- **Dźwięk:** chlupot puszczony od tyłu, na końcu jedno czyste „plink\".\n- **Hasło (propozycja):** „Pion. Przywracamy pion w Twoim domu.\"\n- **Ryzyko:** pomysł wygląda najlepiej, gdy dojazd w 2 godziny jest tylko wzmianką na końcu. Nie niesie głównego przekazu.\n\n## 3. „Już jedziemy\" (lokalność i bliskość)\n- **Mechanizm:** widz widzi, że pomoc jest blisko, bo jedzie przez znane mu miejsca.\n- **Przebieg:**\n  - Telefon dzwoni, wiadomość „kapie z sufitu\".\n  - Cięcie na busik jadący przez rozpoznawalną Łódź: czerwona cegła, kamienica, tramwaj.\n  - Każde miejsce wchodzi na 1–2 sekundy, a miasto zastępuje licznik czasu.\n  - Finał: drzwi się otwierają, uśmiech i „Jesteśmy\".\n- **Dźwięk:** dźwięk miasta i silnik, bez muzyki do ostatnich 2 sekund.\n- **Hasło (propozycja):** „Hydraulik z Łodzi. Będzie u Ciebie w 2 godziny.\"\n- **Ryzyko:** potrzebne zgody na plener i zdjęcia w mieście. Trzeba też sprawdzić, czy auto ma oznakowanie firmy.\n\n## Rekomendacja\nDo 15 sekund najlepiej pasuje **pomysł 1**, bo sam pokazuje główną obietnicę. **Pomysł 2** da się dołożyć jako zakończenie, na przykład ostatnie 3 sekundy z odwróconą kropelką i logo.\n\n## Do ustalenia przed scenariuszem\n- Czy „2 godziny\" dotyczy całej Łodzi, czy tylko wybranych dzielnic, i czy także nocy.\n- Numer telefonu lub strona jako wezwanie do działania.\n- Gdzie reklama będzie emitowana: Meta, YouTube Shorts czy lokalna telewizja. Od tego zależy format pionowy lub poziomy. Nie sprawdzałem wymagań platform.\n- Dostępna ekipa i lokacja albo ewentualnie materiały od firmy.\n\nWybierz numer, a rozpiszę scenariusz i podział na sekundy.",
+          "reply_chars": 3001,
+          "reply_sha256": "1530e9f273965631204d595704466bb1d7e31ee1ebdc6987eb42bc790ea8316b",
+          "skills": [
+            "commercial-video-campaign-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1253,
+            "output": 2688,
+            "cache_read": 19726,
+            "cache_write": 14573
+          },
+          "seconds": 26.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "kapiąc|\\bkapie|kropl|zalan|powódź|powodzi|potop|superbohater|peleryn|klucz\\w* (?:francusk|nastawn|hydraulicz)|przepychacz|tryska|wylew",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "3 directions, stock motif in 2 ([2, 3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['oczywist', 'banał', 'klisz', 'szablon', 'pierwsze skojarzen', 'typow', 'stockow', 'schemat', 'pominąłem', 'pomijam', 'odłoż', 'odrzuc', 'zrezygnow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3125,
+          "output": 1898,
+          "cache_read": 2054,
+          "cache_write": 3184
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Direction 2 builds on reversed motion and the 'pion' wordplay, not the usual wrench, van-arrival or panicked-homeowner setup. It still uses water and a dripping-tap opening, which are category staples, so the avoidance is partial."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "The three directions use different engines: time as on-screen proof (clock), reversed playback driven by the brand name, and locality via city montage."
+          },
+          {
+            "item": "Each direction states what changes and why (a mechanism), not only a look",
+            "verdict": "met",
+            "reason": "Each direction has an explicit 'Mechanizm' line stating what the viewer sees change and why it persuades, plus a step-by-step 'Przebieg'."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each mechanism reduces to one sentence. The assets (kitchen set, clock overlay, reverse-played water, van and city footage) are ordinary. Direction 3 needs shoot permits, which the reply flags as a risk."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "not_met",
+            "reason": "The reply lists assumptions it did not make (night work, prices, warranty, years on market) but never names the stock plumber-ad defaults it rejected, such as the cartoon wrench, the emergency-panic tone, or the generic blue palette."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "H04",
+      "title": "Held out, logo animation for a law office: not scales, a gavel, columns and gold",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4345,
+        "output": 4256,
+        "cache_read": 21760,
+        "cache_write": 24140
+      },
+      "seconds": 20.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 4-sekundowej animacji logo dla kancelarii radcy prawnego „Ostoja”.",
+          "reply": "# Ostoja: 3 kierunki animacji logo (4 s)\n\nNie widziałem jeszcze znaku, więc kierunki opierają się na nazwie. „Ostoja\" to schronienie i bezpieczne miejsce, a w kancelarii dochodzą do tego spokój, dyskrecja i pewność. Każdy kierunek kończy się ok. 1 s statycznego kadru z logo, który nadaje się na ostatnią klatkę.\n\n## 1. „Schronienie\": dach i mur się domykają\n- **Idea:** elementy znaku (albo linie w kształcie bramy, łuku lub tarczy) wsuwają się z boków i zamykają przestrzeń wokół nazwy. Nazwa zostaje „pod ochroną\".\n- **Ruch:**\n  - 0–1,5 s: dwie linie sunące z krawędzi.\n  - 1,5–2,5 s: domknięcie, nazwa wyłania się w środku.\n  - 2,5–4 s: spokojne zatrzymanie, podpis „RADCA PRAWNY\" pojawia się na końcu.\n- **Charakter:** stabilny i ciepły, bez efektów. Ruch wyhamowuje miękko (ease-out), bez odbić.\n- **Dźwięk:** niski, miękki „klik\" przy domknięciu, bez muzyki.\n- **Ryzyko:** jest dosłowny. Działa najlepiej, jeśli znak ma geometryczną formę.\n\n## 2. „Fundament\": budowa z kamiennych bloków\n- **Idea:** z dołu kadru układają się cztery lub pięć poziomych modułów, jak warstwy fundamentu. Z nich wyrasta nazwa „Ostoja\". Chodzi o solidność i o to, że wszystko stoi na czymś pewnym.\n- **Ruch:**\n  - 0–2 s: moduły składają się szybko i precyzyjnie, z lekkim opóźnieniem między sobą.\n  - 2–3 s: przejście w pełne logo.\n  - 3–4 s: kadr stoi nieruchomo.\n- **Charakter:** męski, konkretny, rzemieślniczy. Pasuje do kancelarii z naciskiem na prawo gospodarcze lub nieruchomości.\n- **Dźwięk:** cztery cichutkie, głuche uderzenia w rytmie składania i jeden długi, niski akcent na końcu.\n- **Ryzyko:** może wyjść zbyt „budowlane\". Trzeba trzymać stonowaną paletę i mały kontrast.\n\n## 3. „Światło w oknie\": rozjaśnienie i dyskretny akcent\n- **Idea:** ciemne, granatowe tło. Wąski pas światła przesuwa się po logo i odsłania je, jak światło w kancelarii wieczorem. Jedna cienka linia w kolorze akcentu (złoto lub mosiądz) obiega znak i znika.\n- **Ruch:**\n  - 0–1 s: ciemność z samym światłem.\n  - 1–2,5 s: przejście światła, logo wyostrza się z lekkiego rozmycia.\n  - 2,5–3 s: linia akcentowa.\n  - 3–4 s: wygaszone, nieruchome logo.\n- **Charakter:** elegancki, dyskretny i premium. Najbliżej zaufania, którego oczekuje się od radcy prawnego.\n- **Dźwięk:** cichy, ciepły szum powietrza i jeden miękki ton na końcu.\n- **Ryzyko:** wymaga logo czytelnego na ciemnym tle i dobrej wersji kontrastowej.\n\n## Rekomendacja\nRadzę kierunek **3**. Jest najbardziej powściągliwy i najlepiej oddaje dyskrecję oraz zaufanie. Nie wymaga też dosłownej metafory, więc zadziała z dowolnym znakiem. Kierunek 1 wybrałbym, jeśli logo ma wyraźną, geometryczną bryłę.\n\n## Co dalej\n1. Który kierunek rozwijamy (1, 2 albo 3)?\n2. Czy masz plik logo (SVG lub PNG na przezroczystym tle) i kolory marki? Jeśli nie, zaprojektuję animację na układzie roboczym.\n3. Gdzie ma się pojawiać animacja: strona WWW, stopka maila, LinkedIn czy prezentacja? Od tego zależą format (16:9, 1:1 albo 9:16) i to, czy dźwięk jest potrzebny.\n\nPo wyborze mogę przygotować animację w kodzie i wyrenderować ją do MP4.",
+          "reply_chars": 3053,
+          "reply_sha256": "68e1609b3ae329aa002808228451cf8fa6957d2d7ef417280251636e04289988",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1231,
+            "output": 2278,
+            "cache_read": 19706,
+            "cache_write": 20965
+          },
+          "seconds": 20.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "\\bwag(?:a|i|ę|ą)\\b|szal[ek]|szalk|młot|paragraf|§|kolumn|marmur|złot|granat|\\btog(?:a|i|ę)\\b|kodeks|ksiąg|książk",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 1 ([3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['oczywist', 'banał', 'klisz', 'szablon', 'pierwsze skojarzen', 'typow', 'stockow', 'schemat', 'pominąłem', 'pomijam', 'odłoż', 'odrzuc', 'zrezygnow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3114,
+          "output": 1978,
+          "cache_read": 2054,
+          "cache_write": 3175
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Direction 2 (\"Fundament\") builds the logo from stacked stone-like modules, not the usual legal imagery (scales, columns, gavel). Its palette is left open as \"stonowana\". Directions 1 and 3 do lean on stock elements (shield/arch, navy background with gold accent)."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "The three ideas come from different sources and mechanisms: elements closing in around the name (shelter), modules assembling from below (foundation), and a light sweep revealing the logo (lighting in an office at night)."
+          },
+          {
+            "item": "Each direction states what changes and why (a mechanism), not only a look",
+            "verdict": "met",
+            "reason": "Each direction has an \"Idea\" section explaining the reason, plus a timed \"Ruch\" breakdown saying which elements move, how, and when, with the rationale for each."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each idea reduces to one sentence (lines close around the name, blocks stack into the name, a light band reveals the logo). The motions use standard shape, mask and opacity animation. The reply flags dependencies on a geometric logo and a dark-background version, but does not explicitly confirm the assets are ordinary."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "not_met",
+            "reason": "The reply never names the default law-firm conventions it avoids (scales, columns, gavels, navy-and-gold as a default). Navy and gold are actually used in direction 3 without being flagged as a default."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "H05",
+      "title": "Held out, one campaign across poster, reel and logo animation for a language school",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4048,
+        "output": 4373,
+        "cache_read": 21777,
+        "cache_write": 23855
+      },
+      "seconds": 20.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Otwieramy szkołę językową „Zdanie” w Białymstoku. Potrzebuję plakatu, rolki 9:16 i animacji logo. Zaproponuj kierunki.",
+          "reply": "Cała rodzina materiałów, czyli plakat, rolka i animacja logo, może wyjść z jednej idei. Nazwa „Zdanie” ma dwa znaczenia: zdanie w gramatyce i „mieć swoje zdanie”. Proponuję trzy kierunki.\n\n## A. „Pierwsze zdanie”\n**Idea:** pierwsze zdanie w nowym języku to moment, który ludzie pamiętają.\n- **Plakat:** jedno wielkie zdanie typograficzne z luką, którą zapełnia kursant. Na przykład „Hello, ___.” w kilku językach. Dużo oddechu, jeden kolor akcentowy, mała kropka jako znak szkoły.\n- **Rolka 9:16 (ok. 15 s):** zdanie buduje się słowo po słowie, najpierw niepewnie, potem płynnie. Na końcu pada kropka i pojawia się „Zdanie – szkoła językowa, Białystok” z informacją o otwarciu.\n- **Animacja logo:** słowa układają się w zdanie, a kropka zamyka je i staje się znakiem logo.\n- **Ton:** ciepły, zachęcający, dla każdego.\n\n## B. „Mam swoje zdanie”\n**Idea:** język daje głos. Gra słów jest wprost w nazwie.\n- **Plakat:** duże cudzysłowy lub dymek, odważny kontrast i krótkie hasła w stylu „Powiedz to po swojemu”.\n- **Rolka:** szybkie cięcia, ludzie kończący zdania w różnych językach. Rytm i napisy robią tu większość pracy.\n- **Animacja logo:** cudzysłów otwiera się i zamyka na słowie „Zdanie”.\n- **Ton:** energiczny, młodzieżowy, trochę zadziorny.\n\n## C. „Zdanie z Białegostoku”\n**Idea:** lokalna tożsamość i wielojęzyczność miasta.\n- **Plakat:** typografia lub ilustracja z motywami Białegostoku, w których zdania w różnych językach splatają się w jedną mapę lub fasadę.\n- **Rolka:** ruch po mieście, na przykład przez kadry lub ilustracje, i zdania w kilku językach pojawiające się na budynkach.\n- **Animacja logo:** litery wyrastają jak kamienica, a kropka jest oknem.\n- **Ton:** lokalny, z dumą, rzemieślniczy.\n- **Haczyk:** wątek Zamenhofa i esperanto jest mocny, ale każdy fakt trzeba najpierw zweryfikować.\n\n**Moja rekomendacja:** A, jeśli celujecie szeroko, czyli dorośli, rodzice i uczniowie. Jest najczytelniejszy, najlepiej się animuje i najłatwiej go rozszerzać o kolejne języki. B wybierz, jeśli odbiorcą jest głównie młodzież. C wybierz, jeśli stawiacie na lokalność.\n\n**Którą wersję rozwijamy: A, B czy C? Możemy też połączyć dwie.**\n\nŻeby przejść do wykonania, przydadzą mi się jeszcze trzy rzeczy. Jeśli ich nie podasz, zostawię je jako miejsca do uzupełnienia:\n1. Czy macie już logo albo kolory? Jeśli nie, zaprojektuję znak od zera.\n2. Jakie języki, dla kogo i jakie dane mają być na plakacie (data otwarcia, adres, strona lub telefon)?\n3. Gdzie plakat ma wisieć: druk (jaki rozmiar?), internet czy jedno i drugie?",
+          "reply_chars": 2532,
+          "reply_sha256": "dd5996132c5e9cf3ab85b8989287d0229d88383f683a43c87651f272d1cd792b",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1248,
+            "output": 2454,
+            "cache_read": 19723,
+            "cache_write": 20994
+          },
+          "seconds": 20.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "flag|dymk|dymek|chmurk|globus|kul\\w* ziemsk|samolot|big ben|eiffl|paszport|biret|\\bhello\\b|bonjour|\\bhola\\b|w wielu językach|w różnych językach",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "3 directions, stock motif in 3 ([1, 2, 3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['oczywist', 'banał', 'klisz', 'szablon', 'pierwsze skojarzen', 'typow', 'stockow', 'schemat', 'pominąłem', 'pomijam', 'odłoż', 'odrzuc', 'zrezygnow']"
+            },
+            {
+              "check": {
+                "contains": [
+                  "plakat"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "rolk",
+                  "reel",
+                  "9:16"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['rolk', '9:16']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "animac"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['animac']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2800,
+          "output": 1919,
+          "cache_read": 2054,
+          "cache_write": 2861
+        },
+        "items": [
+          {
+            "item": "At least one direction avoids the category's stock motifs, palette and moves",
+            "verdict": "met",
+            "reason": "Direction A builds on a typographic sentence with a gap and a single accent dot, avoiding the usual language-school motifs such as globes, flags, ABC letters and speech bubbles. Direction B, by contrast, uses the stock speech-bubble/quotation motif."
+          },
+          {
+            "item": "The directions differ in mechanism or source of the idea, not only in palette or style",
+            "verdict": "met",
+            "reason": "A's idea comes from the sentence as a building process (first sentence, words assembling), B's from the language as voice and the wordplay in the name, and C's from the city's local identity and multilingual geography. These are distinct sources of the idea."
+          },
+          {
+            "item": "Each direction states what changes and why (a mechanism), not only a look",
+            "verdict": "met",
+            "reason": "Each direction has an 'Idea' line and describes what moves or changes: words assemble into a sentence and the dot closes it; cuts and people finishing sentences carry the rhythm; letters rise like a tenement with the dot as a window. The 'why' for C is thinner than for A and B, but a mechanism is present."
+          },
+          {
+            "item": "Each direction can be described in one sentence and made with ordinary assets",
+            "verdict": "met",
+            "reason": "Each direction reduces to a single sentence and uses standard production assets: typography and a dot for A, short video with cuts and captions for B, and illustration or typography with city motifs for C. C is the most demanding but still ordinary design work."
+          },
+          {
+            "item": "The reply names the obvious category defaults it set aside",
+            "verdict": "not_met",
+            "reason": "The reply never names the category defaults (such as globes, flags, speech bubbles, rainbow palettes, or ABC motifs) that it chose to set aside. It only describes the directions themselves."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ],
+  "review": "Held-out baseline on the released 1.65.0 package (H01 to H05): 0 of 5 PASS; no reply named the defaults it set aside, three of five used stock imagery in two or more directions; the judge met 18 of 25 rubric items."
+}

@@ -1,0 +1,43 @@
+{
+  "version": "1.66.0",
+  "baseline_tag": "v1.65.0",
+  "baseline": "d41d53765e8be266ef981c0406079ec03d057618",
+  "change_id": "CC-20261011-12",
+  "origin": "cloud-code",
+  "files": 1174,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/commercial-video-campaign-director/SKILL.md",
+    "skills/commercial-visual-campaign-director/SKILL.md",
+    "skills/creative-music-video-director/SKILL.md",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+    "skills/hyperframes-workflow/assets/motion-styles/README.md",
+    "skills/hyperframes-workflow/assets/motion-variants/README.md",
+    "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "skills/hyperframes-workflow/references/commercial-motion.md",
+    "skills/hyperframes-workflow/references/motion-quality-direction.md",
+    "skills/pipeline-core/SKILL.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-self-improvement/assets/change-request.template.json"
+  ],
+  "added": [
+    "skills/pipeline-core/references/ideation-method.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1150,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "A shared ideation method with no category lists or ready ideas (the obvious worked out and set aside, ten lenses with their moves of thought, a one-sentence mechanism, three directions differing in mechanism and source, swap, retell and fit tests, building in each medium, one worked derivation outside every test), a short fresh-directions rule inline in the graphic, visual-campaign and video-campaign owners and the orchestrator, a name rule for names that are the category motif, motion that finds its transformation before its style, the prompt library, brief index and ad templates repositioned as execution only, and an eleven-case creative host-eval set with six held-out briefs"
+}

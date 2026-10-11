@@ -4,6 +4,8 @@ A searchable collection of 120 FrameCore original blueprints, 172 curator-writte
 
 ## Select a useful blueprint
 
+The library supplies technique for a chosen idea, not the idea. For an open brief, find the direction first with the [ideation method](../../../pipeline-core/references/ideation-method.md), then look up how to execute its transformation; never present a record as a direction.
+
 Use the current user brief, target audience, approved style and available runtime. Select up to three relevant candidates and explain the mechanism in plain language. Prefer one coherent direction; do not merge many effects into a showreel unless that is the actual brief. Keep the selected model. Loading this library does not switch to Claude or authorize execution.
 
 In a host with readable files, load only a relevant category file. In a capable local project, the optional dependency-free CLI supports:

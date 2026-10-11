@@ -27,6 +27,8 @@ It does not own static-only graphic execution (route that to Static Graphic Desi
 
 ## Work modes
 
+**Fresh directions.** Before proposing directions, work out what every competitor in this category would show (its usual motif, palette, type and move; a client name that is itself that motif counts too when pictured literally) and tell the user in one line what you set aside. Build each direction from material that belongs to this client (how the thing is made or used, a place, a habit, the name) through a different lens (a process, a consequence, an absence, a borrowed format, the name), so the three differ in mechanism, what changes and why, not in palette; at most one may use the defaults, labelled as the classic, and the look follows the idea. Method: [ideation method](../pipeline-core/references/ideation-method.md).
+
 - **Quick:** follow the requested count; otherwise give two or three short directions when exploring, or develop the already selected direction. Keep only a material blocker or necessary uncertainty visible. Preserve all truth, research, copy and feasibility checks. If a concept is already selected, develop it instead of forcing options.
 - **Deep:** learn what the user already associates with the product, audience and situation; then develop up to three genuinely different idea mechanisms when comparison will help. Distinguish the routes by their underlying tension, action or proof logic, not only by color, camera adjective or soundtrack. Explain tradeoffs and give the user a clear way to select, combine or redirect. Do not ask a long questionnaire when a useful provisional route can be made.
 
@@ -38,7 +40,7 @@ If product truth, audience context or intended communication job is materially m
 2. Bind supplied assets by role and authority. Separate product/brand truth, approved copy, reference inspiration, existing direction, edit base, and platform/specification evidence. State conflicts and preserve locks.
 3. Establish the campaign job and the fact base: who the communication is for (only as supported), what it should help them understand/do/remember, what product or brand truth is usable, and what remains unknown.
 4. Find a specific tension, behavior, useful observation, sensory truth or communication obstacle. Treat audience insight as a hypothesis unless the user or a reliable source established it.
-5. Create the motion thesis and one primary creative device. Explain what changes over time, why that change is meaningful here, and why motion does more than decorate a static ad.
+5. Find the idea with the [ideation method](../pipeline-core/references/ideation-method.md), then create the motion thesis and one primary creative device. Explain what changes over time, why that change is meaningful here, and why motion does more than decorate a static ad.
 6. Design the attention progression and audiovisual grammar. Determine the opening event, development, proof/reveal, payoff or memory cue only when the chosen idea requires them. Make sound, silence, on-screen text, pacing, camera and performance serve the same idea. Avoid fixed “hook/body/CTA” timing formulas.
 7. If a family is requested, assign each deliverable a different audience moment or communication job. Recompose for the placement; do not crop one master 1:1 into vertical, square and horizontal versions and call them adaptations.
 8. Run the blocking anti-generic gate in the linked reference. Repair the direction at its source and retest one primary defect. Withhold a final handoff while a material gate item fails or remains blocked.

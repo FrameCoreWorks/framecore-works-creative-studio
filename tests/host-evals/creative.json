@@ -1,0 +1,574 @@
+{
+  "name": "studio-creative-pl",
+  "description": "Creative directions for graphics, video and motion: eleven Polish briefs (C01 to C05, and H01 to H06 held out: categories no package file names; in C01, C04, C05 and H06 the client's name is the category motif) asking for three directions. max_sections_matching counts the directions that use the category stock motif, palette or move (at most one may); contains_any looks for the line naming the obvious defaults that were set aside. The rubric feeds the advisory judge. It measures escape from category defaults, not taste. Patterns use Polish stems so inflected forms count.",
+  "cases": [
+    {
+      "id": "C01",
+      "title": "Motion for a bakery: not three variations of wheat and cream",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 6-sekundowej pionowej animacji na Instagram dla piekarni rzemieślniczej „Kłos”.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "kłos(?:y|ów|ami|ach)\\b|kłosk|pszeni|zboż|kremow|\\bmąk|parą|parując|\\bpara\\b",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Loaves (bochen-) were removed from the stock pattern after candidate 2: a bakery's own products going into a bag are product, not category imagery; the stock imagery is wheat, cream and steam. Recorded with the run that prompted it. The set-aside vocabulary gained odłoż-, odrzuc- and zrezygnow- after the third candidate run: replies wrote \"Odłożyłem\" or \"Odrzuciłem\" and failed only on the word list; every run is rescored with the final checks."
+    },
+    {
+      "id": "C02",
+      "title": "Poster for a dental clinic: not toothbrushes, sparkle and blue",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu na otwarcie gabinetu stomatologicznego „Uśmiech” w Poznaniu, z rabatem -20% na pierwszy przegląd.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "szczoteczk|lśni|błyszcz|iskier|iskr|niebiesk|turkus|błękit|miętow|pasta do zęb|\\bząb|\\bzęb",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "The set-aside vocabulary gained odłoż-, odrzuc- and zrezygnow- after the third candidate run: replies wrote \"Odłożyłem\" or \"Odrzuciłem\" and failed only on the word list; every run is rescored with the final checks."
+    },
+    {
+      "id": "C03",
+      "title": "Video ad for a bike service: not sunset, drone and slow motion",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 pomysły na 15-sekundową reklamę wideo serwisu rowerowego w Gdańsku.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "zach[oó]d\\w* słońca|złot\\w* godzin|\\bdron|slow motion|zwolnion|wiatr\\w* we włosach|żuraw|motław|plaż|bulwar",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "The set-aside vocabulary gained odłoż-, odrzuc- and zrezygnow- after the third candidate run: replies wrote \"Odłożyłem\" or \"Odrzuciłem\" and failed only on the word list; every run is rescored with the final checks."
+    },
+    {
+      "id": "C04",
+      "title": "Logo animation for an accounting office: not calculators, charts and coins",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Wymyśl 3 kierunki animacji logo dla biura rachunkowego „Bilans”.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "kalkulator|wykres|monet|segregator|banknot|słup|teczk|\\bszal[ieaę]\\b|\\bwag[aięą]\\b|równowag|cyfr",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "The set-aside vocabulary gained odłoż-, odrzuc- and zrezygnow- after the third candidate run: replies wrote \"Odłożyłem\" or \"Odrzuciłem\" and failed only on the word list; every run is rescored with the final checks."
+    },
+    {
+      "id": "C05",
+      "title": "One campaign across poster, reel and logo animation for a café",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Otwieramy kawiarnię „Ziarno” w Toruniu. Potrzebuję plakatu, rolki 9:16 i animacji logo. Zaproponuj kierunki.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "filiżan|ziarn\\w* kawy|ziaren|ziarenk|latte art|\\bpar[ay]\\b|parą|parując|kremow",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            },
+            {
+              "contains": [
+                "plakat"
+              ]
+            },
+            {
+              "contains_any": [
+                "rolk",
+                "reel",
+                "9:16"
+              ]
+            },
+            {
+              "contains_any": [
+                "animac"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "The set-aside vocabulary gained odłoż-, odrzuc- and zrezygnow- after the third candidate run: replies wrote \"Odłożyłem\" or \"Odrzuciłem\" and failed only on the word list; every run is rescored with the final checks."
+    },
+    {
+      "id": "H01",
+      "title": "Held out, motion for a veterinary clinic: not paw prints, hearts and a stethoscope",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 8-sekundowej animacji motion graphics na otwarcie przychodni weterynaryjnej „Azyl” w Lublinie.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "\\błap(?:a|y|ę|ą|ami|ek|k\\w*)?\\b|odcis\\w* łap|ślad\\w* łap|serduszk|\\bserc(?:e|a|em)\\b|stetoskop|\\bkość|\\bkości\\b|kostk\\w* dla|zielon\\w* krzyż",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction states what changes and why (a mechanism), not only a look",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Held out: no package file names this category or its stock imagery, so the case measures the method, not a remembered list."
+    },
+    {
+      "id": "H02",
+      "title": "Held out, poster for a florist: not roses, petals, pastels and script",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu dla kwiaciarni „Na Rogu” w Krakowie, która dowozi bukiety tego samego dnia.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "\\bróż|płatk|pastel|akwarel|wstążk|kokard|serduszk|\\bserc(?:e|a|em)\\b|odręczn|kaligraf",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction states what changes and why (a mechanism), not only a look",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Held out: no package file names this category or its stock imagery, so the case measures the method, not a remembered list."
+    },
+    {
+      "id": "H03",
+      "title": "Held out, video ad for an emergency plumber: not a dripping tap, a flood and a superhero",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 pomysły na 15-sekundową reklamę wideo firmy hydraulicznej „Pion” z Łodzi, która przyjeżdża w ciągu 2 godzin.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "kapiąc|\\bkapie|kropl|zalan|powódź|powodzi|potop|superbohater|peleryn|klucz\\w* (?:francusk|nastawn|hydraulicz)|przepychacz|tryska|wylew",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction states what changes and why (a mechanism), not only a look",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Held out: no package file names this category or its stock imagery, so the case measures the method, not a remembered list."
+    },
+    {
+      "id": "H04",
+      "title": "Held out, logo animation for a law office: not scales, a gavel, columns and gold",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 4-sekundowej animacji logo dla kancelarii radcy prawnego „Ostoja”.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "\\bwag(?:a|i|ę|ą)\\b|szal[ek]|szalk|młot|paragraf|§|kolumn|marmur|złot|granat|\\btog(?:a|i|ę)\\b|kodeks|ksiąg|książk",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction states what changes and why (a mechanism), not only a look",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Held out: no package file names this category or its stock imagery, so the case measures the method, not a remembered list."
+    },
+    {
+      "id": "H05",
+      "title": "Held out, one campaign across poster, reel and logo animation for a language school",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Otwieramy szkołę językową „Zdanie” w Białymstoku. Potrzebuję plakatu, rolki 9:16 i animacji logo. Zaproponuj kierunki.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "flag|dymk|dymek|chmurk|globus|kul\\w* ziemsk|samolot|big ben|eiffl|paszport|biret|\\bhello\\b|bonjour|\\bhola\\b|w wielu językach|w różnych językach",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            },
+            {
+              "contains": [
+                "plakat"
+              ]
+            },
+            {
+              "contains_any": [
+                "rolk",
+                "reel",
+                "9:16"
+              ]
+            },
+            {
+              "contains_any": [
+                "animac"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction states what changes and why (a mechanism), not only a look",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Held out: no package file names this category or its stock imagery, so the case measures the method, not a remembered list."
+    },
+    {
+      "id": "H06",
+      "title": "Held out, motion for an optician whose name is the category motif: not glasses, an eye and blur to sharp",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 6-sekundowej animacji na Instagram dla salonu optycznego „Soczewka” we Wrocławiu.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "max_sections_matching": {
+                "pattern": "okular|oprawk|\\blup(?:a|ę|y|ą)\\b|tablic\\w* (?:okulist|literow|snellen|z literami)|\\boko\\b|\\boczy\\b|\\boka\\b|źrenic|tęczówk|rozmyc|rozmyt|nieostr|ostroś|wyostrz",
+                "max": 1,
+                "min_sections": 3
+              }
+            },
+            {
+              "contains_any": [
+                "oczywist",
+                "banał",
+                "klisz",
+                "szablon",
+                "pierwsze skojarzen",
+                "typow",
+                "stockow",
+                "schemat",
+                "pominąłem",
+                "pomijam",
+                "odłoż",
+                "odrzuc",
+                "zrezygnow"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "At least one direction avoids the category's stock motifs, palette and moves",
+        "The directions differ in mechanism or source of the idea, not only in palette or style",
+        "Each direction states what changes and why (a mechanism), not only a look",
+        "Each direction can be described in one sentence and made with ordinary assets",
+        "The reply names the obvious category defaults it set aside"
+      ],
+      "host_note": "Held out: no package file names this category or its stock imagery. The name (Soczewka, a lens) is itself the category motif, so the case checks the name rule rather than a remembered list."
+    }
+  ]
+}

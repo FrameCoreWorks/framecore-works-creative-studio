@@ -48,7 +48,7 @@ ENGLISH_WORDS = re.compile(r'\b(the|and|you|your|for|with|is|are|to|of|can|or|th
 
 CHECK_KINDS = ('welcome', 'not_welcome', 'contains', 'contains_any', 'not_contains', 'regex', 'not_regex', 'max_questions',
                'max_user_questions', 'min_numbered', 'items', 'max_chars', 'code_block', 'language', 'skills', 'skills_any',
-               'reads_any', 'no_skills', 'no_command', 'command')
+               'reads_any', 'no_skills', 'no_command', 'command', 'max_sections_matching')
 
 
 class EvalError(Exception):
@@ -183,6 +183,35 @@ def user_questions(text):
     return questions(prose)
 
 
+HEADING = re.compile(r'^#{1,4}\s')
+LABEL = r'(?:kierunek|direction|pomysł|koncept|route|trasa)\b|\d+[.):]|\b[A-E][.):]'
+HEADED_DIRECTION = re.compile(r'^#{1,4}\s+(?:\*\*)?\s*(?:' + LABEL + ')', re.I)
+BOLD_DIRECTION = re.compile(r'^\s*\*\*\s*(?:' + LABEL + ')', re.I)
+NUMBERED = re.compile(r'^\d+[.)]\s')
+
+
+def sections(text):
+    """The proposed directions in a reply: labelled headings (### 1. ..., ## Kierunek A), else bold labels (**1. ...,
+    **Kierunek A**), else top-level numbered lines. Each runs to the next heading or label, so a title, a comparison
+    table or a closing question is not counted as a direction."""
+    lines = re.sub(r'```[\s\S]*?```', ' ', text).splitlines()
+    for marker in (HEADED_DIRECTION, BOLD_DIRECTION, NUMBERED):
+        starts = [i for i, line in enumerate(lines) if marker.match(line)]
+        if len(starts) >= 2:
+            bounds = sorted(set(starts) | {i for i, line in enumerate(lines) if HEADING.match(line)})
+            return ['\n'.join(lines[a:next((b for b in bounds if b > a), len(lines))]) for a in starts]
+    return []
+
+
+NEGATION = re.compile(r'(?:\bbez|\bnie|zamiast|unika\w*|odrzuc\w*|pomij\w*|pominął\w*|żadn\w*|without|instead of|avoid\w*|no)\W+(?:\w+\W+){0,3}$', re.I)
+
+
+def stock_in(pattern, text):
+    """A stock motif used in a direction: a match not preceded within a few words by a negation ("bez filiżanki",
+    "nie pokazujemy zębów"), because naming what a direction avoids is the wanted behaviour."""
+    return any(not NEGATION.search(text[max(0, m.start() - 40):m.start()]) for m in re.finditer(pattern, text, re.I))
+
+
 def check(spec, turn):
     """One deterministic check: (passed, detail)."""
     reply, kind, value = turn['reply'], *next(iter(spec.items()))
@@ -224,6 +253,12 @@ def check(spec, turn):
     if kind == 'items':
         n = len(re.findall(r'^\s*(?:[-*\u2022]|\d+[.)])\s+\S', re.sub(r'```[\s\S]*?```', '', reply), re.M))
         return n == value, f'{n} list items (expected {value})'
+    if kind == 'max_sections_matching':
+        found = sections(reply)
+        hits = [i + 1 for i, s in enumerate(found) if stock_in(value['pattern'], s)]
+        enough = len(found) >= value.get('min_sections', 2)
+        return enough and len(hits) <= value['max'], (f'{len(found)} directions, stock motif in {len(hits)} ({hits}); allowed {value["max"]}'
+                                                      if enough else f'only {len(found)} directions found')
     if kind == 'max_chars':
         return len(reply) <= value, f'{len(reply)} chars (max {value})'
     if kind == 'code_block':
@@ -367,6 +402,9 @@ def main(argv=None):
     if args.write:
         RECORDS.mkdir(parents=True, exist_ok=True)
         name = f"{record['date']}-{record['package_version']}-{'gate' if args.gate else args.suite}{'-' + '-'.join(c['id'] for c in cases) if args.cases else ''}.json"
+        stem, n = name[:-5], 2
+        while (RECORDS / name).exists():  # never overwrite an earlier record
+            name, n = f'{stem}-{n}.json', n + 1
         (RECORDS / name).write_text(json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
         print(f'recorded verification/host-evals/{name}')
     return 0 if counts['FAIL'] == 0 and counts['ERROR'] == 0 else 1

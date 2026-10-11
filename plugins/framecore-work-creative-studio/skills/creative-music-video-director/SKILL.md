@@ -31,7 +31,7 @@ Treat source status precisely:
 
 ## Build a direction proportionate to the request
 
-The [direction method](references/direction-method.md) expands this step: evidence layers, the film's engine, song-to-image translation, world rules, emotion versus energy and exploration without template drift.
+The [direction method](references/direction-method.md) expands this step: evidence layers, the film's engine, song-to-image translation, world rules, emotion versus energy and exploration without template drift. It works on top of the shared [ideation method](../pipeline-core/references/ideation-method.md): name the genre's obvious images before choosing an engine.
 
 For a quick exploration, give the requested number of assessable, genuinely different concept routes. Each route needs a concrete thesis, its image/action engine, how it relates to the supplied song/persona evidence, and a clear distinction from the alternatives. Do not force three options when the brief calls for one precise route or a small local revision.
 

@@ -85,6 +85,7 @@ Read only what is needed:
 - [references/handoff-matrix.md](references/handoff-matrix.md) for allowed handoffs and required fields.
 - [references/gate-registry.md](references/gate-registry.md) for canonical gate names.
 - [references/inference-reasoning-methods.md](references/inference-reasoning-methods.md) for compact reasoning routes, runtime route boundaries, candidate limits, and raw trace prohibitions.
+- [references/ideation-method.md](references/ideation-method.md) for building directions from scratch in graphics, video and motion: the obvious named and set aside, lenses, a mechanism sentence, three directions with at least one outside the category's code, one idea carried across a project, and how each medium builds it; templates and library records only execute a chosen idea.
 - [references/text-image-generation-policy.md](references/text-image-generation-policy.md) for visible text in raster graphics.
 - [references/short-form-timing.md](references/short-form-timing.md) for opening targets per placement, Polish and English voice-over word budgets, reading time and end-card holds shared by every video and copy owner.
 - [references/client-projects.md](references/client-projects.md) for the client path from enquiry to acceptance (intake, offer, concepts, revisions, handoff), and [references/brand-kit.md](references/brand-kit.md) for a client's colours, fonts, logo, voice and legal lines.

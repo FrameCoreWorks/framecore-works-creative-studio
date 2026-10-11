@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-11",
+  "package_version": "1.65.0",
+  "suite": "studio-creative-pl",
+  "source": {
+    "commit": "60f1012",
+    "package_uncommitted_changes": false
+  },
+  "host": "Claude Code 2.1.296, headless, isolated config, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "note": "Summary only. The full baseline record (replies and judge items) was overwritten by the first candidate run, which used the same file name; the harness now never overwrites a record. This summary comes from the run log, the rescore made from the stored replies before they were overwritten, and the judge results printed at the time.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 5,
+    "cases": 5,
+    "tokens": {
+      "input": 20666,
+      "output": 20506,
+      "cache_read": 105880,
+      "cache_write": 103279
+    },
+    "seconds": 96.8
+  },
+  "first_wording_failures": {
+    "C01": "6 directions found (title and closing sections counted), stock motif in 2",
+    "C02": "no line naming the obvious",
+    "C03": "no line naming the obvious",
+    "C04": "stock motif in 3 of 3; no line naming the obvious",
+    "C05": "no line naming the obvious"
+  },
+  "rescored_with_final_section_finder_and_stems": {
+    "C01": "FAIL: stock motif in 2 of 3 (wheat to flour to loaf; knife, crust and steam)",
+    "C02": "FAIL: stock motif in 2 of 3; no line naming the obvious",
+    "C03": "FAIL: no line naming the obvious (stock motif in 0 of 3)",
+    "C04": "FAIL: stock motif in 3 of 3 (balance bars or scales, calculator keys, chart); no line naming the obvious",
+    "C05": "FAIL: stock motif in 3 of 3 (bean, cup, steam); no line naming the obvious"
+  },
+  "judge_advisory": {
+    "C01": "partly: avoids stock not_met",
+    "C02": "partly: names the obvious not_met",
+    "C03": "partly: names the obvious not_met",
+    "C04": "partly: avoids stock not_met, names the obvious not_met",
+    "C05": "partly: avoids stock not_met, names the obvious not_met"
+  },
+  "skills_loaded": {
+    "C01": "commercial-video-campaign-director",
+    "C02": "static-graphic-design-creator",
+    "C03": "commercial-video-campaign-director",
+    "C04": "workflow-orchestrator",
+    "C05": "workflow-orchestrator"
+  }
+}

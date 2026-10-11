@@ -1695,3 +1695,24 @@ Cross-host state:
 - GitHub: pending until the push is read back
 - ChatGPT Work: not_tracked (owner decision 2026-10-10); this report is the owner's own test
 - Codex: not_run
+
+## CC-20261011-12
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261011-12-creative-directions`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `60f1012` (main, package 1.65.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.66.0)
+- Package version: 1.65.0 -> 1.66.0
+- Scope: A shared ideation method with no category lists or ready ideas (the obvious worked out and set aside, ten lenses with their moves of thought, a one-sentence mechanism, three directions differing in mechanism and source, swap, retell and fit tests, building in each medium, one worked derivation outside every test), a short fresh-directions rule inline in the graphic, visual-campaign and video-campaign owners and the orchestrator, a name rule for names that are the category motif, motion that finds its transformation before its style, the prompt library, brief index and ad templates repositioned as execution only, and an eleven-case creative host-eval set with six held-out briefs
+- Shared package changed: yes; 23 changed, 1 added, 0 removed ([scope](../verification/scope-1.66.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 17 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 5 SVG wordmark, 5 brand guide, 14 host-eval harness: PASS ([record](../verification/release-1.66.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

@@ -18,7 +18,7 @@ A style is a whole decision: canvas, ink, accent, type, how things move and one 
 
 ## How Studio uses a style
 
-1. **When the brief leaves the look open.** Offer two or three styles that suit the subject (`choosing` in `styles.json`), each in one line of feel and signature. When the user names colours, a font or brand guidelines, those win: a style fills only what the brief leaves open, and Brand-native is the choice when the brand has a strong look.
+1. **When the brief leaves the look open.** Derive the look from the chosen idea ([ideation method](../../../pipeline-core/references/ideation-method.md)) and pick the style that executes it, or set values of its own. The `choosing` map in `styles.json` records what each subject usually looks like: treat those as the obvious looks of that method's first step, offer at most one of them and name it as the classic. When the user names colours, a font or brand guidelines, those win: a style fills only what the brief leaves open, and Brand-native is the choice when the brand has a strong look.
 2. **Apply it by copying values.** Copy the style's `tokens`, `motion` and, when it has them, `fonts` into the contract's `tokens`, `motion` and `fonts`, and record the choice as top-level `"style": "<id>"` and in `decisions.proposed` (or `confirmed` once approved). The contract stays self-contained: a renderer never reads `styles.json`.
 3. **Build the signature with the scene kinds it names.** When it says custom, use the nearest kind or say that the signature needs custom code; never claim a move the render does not show.
 4. **Music** ranges are starting points for the sound brief, not a rule; the sound policy in [motion sync](../motion-sync/README.md#adding-sound-to-a-delivered-video) still applies.
