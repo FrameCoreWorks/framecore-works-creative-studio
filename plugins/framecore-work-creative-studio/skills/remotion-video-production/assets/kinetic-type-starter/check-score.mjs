@@ -20,6 +20,8 @@ const sceneKinds = {
   'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
   'logo-reveal': {required: ['asset'], copyParams: []},
   'device': {required: ['screens'], copyParams: ['caption', 'url']},
+  'lower-third': {required: ['name'], copyParams: ['name', 'title']},
+  'bar-chart': {required: ['bars'], copyParams: []},
 };
 export const knownSceneKinds = Object.keys(sceneKinds);
 // Sound designs of motion-sound/synth.py; keep in sync with DESIGNS there.
@@ -91,6 +93,16 @@ export function checkScore(score, {storyboard = false} = {}) {
         }
         if (scene.kind === 'logo-reveal' && !text((score.assets ?? []).find(asset => asset.id === params.asset)?.src)) errors.push(`${scene.id}: logo asset ${params.asset} needs an assets entry with src`);
         if (scene.kind === 'counter' && ![params.to, params.from ?? 0].every(Number.isFinite)) errors.push(`${scene.id}: counter from/to must be numbers`);
+        if (scene.kind === 'lower-third' && params.align !== undefined && !['left', 'center'].includes(params.align)) errors.push(`${scene.id}: lower-third align must be left or center`);
+        if (scene.kind === 'bar-chart') {
+          const bars = Array.isArray(params.bars) ? params.bars : [];
+          if (!bars.length || bars.length > 8) errors.push(`${scene.id}: bar-chart needs 1 to 8 bars`);
+          bars.forEach((bar, i) => {
+            if (typeof score.copy?.[bar?.label] !== 'string') errors.push(`${scene.id}: bar ${i + 1} label references missing copy id ${bar?.label}`);
+            if (!(Number.isFinite(bar?.value) && bar.value >= 0)) errors.push(`${scene.id}: bar ${i + 1} value must be a number of zero or more`);
+          });
+          if (params.max !== undefined && !(Number.isFinite(params.max) && params.max > 0 && bars.every(bar => !(bar?.value > params.max)))) errors.push(`${scene.id}: bar-chart max must be a positive number at least as large as every value`);
+        }
         if (params.exit !== undefined && ![true, false, 'lift', 'sweep'].includes(params.exit)) errors.push(`${scene.id}: params.exit must be true, false, 'lift' or 'sweep'`);
         if (params.sweepFrames !== undefined && !(Number.isSafeInteger(params.sweepFrames) && params.sweepFrames >= 1 && params.sweepFrames <= scene.end - scene.start)) errors.push(`${scene.id}: params.sweepFrames must be a positive integer within the scene`);
       }

@@ -222,6 +222,13 @@
     },
     "item-stagger": {
       "playful": 0.2
+    },
+    "lower-third": {
+      "editorial": 0.3
+    },
+    "bar-chart": {
+      "technical": 0.6,
+      "bold": 0.2
     }
   },
   "roles": {

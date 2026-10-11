@@ -1,0 +1,41 @@
+{
+  "version": "1.59.0",
+  "baseline_tag": "v1.58.0",
+  "baseline": "cd0b9bde9e064134449fb6f4d21928bf5662a12c",
+  "change_id": "CC-20261011-01",
+  "origin": "cloud-code",
+  "files": 1118,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+    "skills/hyperframes-workflow/assets/motion-scenes/README.md",
+    "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "skills/hyperframes-workflow/assets/motion-sound/sound-base.json",
+    "skills/hyperframes-workflow/assets/motion-sound/sound.py",
+    "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "skills/hyperframes-workflow/references/motion-craft.md",
+    "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
+    "skills/remotion-video-production/assets/kinetic-type-starter/src/motion.ts",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-scenes/examples/data-and-names.motion-score.json",
+    "tests/motion_kinds_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1096,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Phase 3 of the improvement plan, second part: lower-third and bar-chart scene kinds in the three scene-engine copies and the Python renderer with shared whole-pixel layouts, overflow stops for names and values, contract checks, sound cues and Remotion types; a data-and-names example in 16:9 and 9:16; contract fonts embedded in frame-review previews"
+}

@@ -32,6 +32,19 @@ export function selectFrames(score, samples = 12) {
 }
 
 /** Put a score into the preview template, or read the score already embedded in a preview. */
+// Contract fonts named by file are embedded as data URLs, because a page opened from disk cannot load font files;
+// the lookup matches the Python renderer: next to the contract, then Studio's bundled fonts.
+const bundledFonts = path.resolve(here, '../../../pipeline-core/assets/fonts');
+export function withFontData(score, base) {
+  if (!Array.isArray(score.fonts)) return score;
+  return {...score, fonts: score.fonts.map(face => {
+    if (!face || face.data || face.url || typeof face.file !== 'string') return face;
+    const file = [path.resolve(base, face.file), path.resolve(bundledFonts, face.file)].find(candidate => fs.existsSync(candidate));
+    if (!file) throw new Error(`Font file ${face.file} not found next to the contract or in the bundled fonts`);
+    return {...face, data: `data:font/${path.extname(file).slice(1).toLowerCase() || 'ttf'};base64,${fs.readFileSync(file).toString('base64')}`};
+  })};
+}
+
 export function previewFor(input) {
   const text = fs.readFileSync(input, 'utf8');
   if (input.endsWith('.html')) {
@@ -39,7 +52,7 @@ export function previewFor(input) {
     if (!match) throw new Error('No embedded motion-score block found in the preview');
     return {html: text, score: JSON.parse(match[2])};
   }
-  const score = JSON.parse(text);
+  const score = withFontData(JSON.parse(text), path.dirname(path.resolve(input)));
   const template = fs.readFileSync(templatePath, 'utf8');
   // Every '<' is written as \u003c, so copy such as '</script>' can never end the script element; JSON.parse restores it.
   return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2).replace(/</g, '\\u003c') + close), score};

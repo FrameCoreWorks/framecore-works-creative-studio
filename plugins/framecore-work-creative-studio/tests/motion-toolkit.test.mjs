@@ -97,7 +97,8 @@ test('scene engine renders every kind deterministically and never scales a logo'
   const {buildScene, sceneFrame, sceneKinds} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
   const appFilm = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
-  assert.deepEqual(new Set([...score.scenes, ...appFilm.scenes].map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
+  const dataNames = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/data-and-names.motion-score.json'), 'utf8'));
+  assert.deepEqual(new Set([...score.scenes, ...appFilm.scenes, ...dataNames.scenes].map(scene => scene.kind)), new Set(Object.keys(sceneKinds)));
   for (const scene of score.scenes) {
     assert.ok(buildScene(scene, score).children.length > 0, scene.id);
     for (const frame of [scene.start, Math.floor((scene.start + scene.end) / 2), scene.end - 1]) {
@@ -210,7 +211,7 @@ test('the Python renderer matches the browser engine frame by frame', {skip: !(p
   const {runReview} = await import(path.join(root, reviewTool));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-parity-'));
   try {
-    for (const example of ['color-block', 'app-film']) {
+    for (const example of ['color-block', 'app-film', 'data-and-names']) {
       const contract = path.join(root, scenesDir, `examples/${example}.motion-score.json`);
       const review = runReview(contract, {out: path.join(tmp, example), browser: process.env.MOTION_REVIEW_BROWSER, format: 'base', samples: 4});
       const frames = review.frames.map(frame => frame.frame);
@@ -1209,4 +1210,45 @@ test('the motion player loads embedded contract fonts before reviewing', {skip: 
     assert.deepEqual(report.fontProblems, []);
     assert.deepEqual(report.fonts.map(font => [font.family, font.weight, font.status]), [['Archivo', '400', 'loaded'], ['Archivo', '700', 'loaded']]);
   } finally { fs.rmSync(profile, {recursive: true, force: true}); }
+});
+
+test('lower thirds and bar charts lay out and count identically in the JS engine and the Python renderer', async () => {
+  const {lowerThirdLayout, barChartLayout, sceneFrame, buildScene, resolveFormat} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {spawnSync} = await import('node:child_process');
+  const contract = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/data-and-names.motion-score.json'), 'utf8'));
+  assert.deepEqual(checkScore(contract, {storyboard: true}), {errors: [], warnings: []});
+  const cases = [];
+  for (const id of [undefined, '9x16']) {
+    const view = resolveFormat(contract, id);
+    const [speaker, chart] = view.scenes;
+    const frames = [chart.start, chart.start + 20, chart.start + 40, chart.end - 1];
+    cases.push({view, speaker, chart, frames, js: {lt: lowerThirdLayout(speaker, view), bc: barChartLayout(chart, view),
+      values: frames.map(frame => chart.params.bars.map((_, i) => sceneFrame(chart, view, frame)[`value-${i}`].text))}});
+    assert.ok(buildScene(speaker, view).children.some(node => node.key === 'bar'));
+  }
+  const script = ['import sys, json, importlib.util', `spec = importlib.util.spec_from_file_location('r', ${JSON.stringify(path.join(root, 'skills/hyperframes-workflow/assets/motion-render/render.py'))})`,
+    'r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)', 'out = []',
+    'for c in json.loads(sys.argv[1]):',
+    '    v, sp, ch = c["view"], c["speaker"], c["chart"]; m = r.motion(v)',
+    '    values = [[r.number_text(ch["params"], b["value"] * r.progress(f, ch["start"] + i * m["itemStaggerFrames"] + 6, ch["params"].get("duration", 36), ch["params"].get("easing", m["resolveEasing"]))) for i, b in enumerate(ch["params"]["bars"])] for f in c["frames"]]',
+    '    out.append({"lt": r.lower_third_layout(sp, v), "bc": r.bar_chart_layout(ch, v), "values": values})',
+    'print(json.dumps(out))'].join('\n');
+  const result = spawnSync(process.env.PYTHON || 'python3', ['-c', script, JSON.stringify(cases.map(({view, speaker, chart, frames}) => ({view, speaker, chart, frames})))], {encoding: 'utf8'});
+  assert.equal(result.status, 0, result.stderr);
+  JSON.parse(result.stdout).forEach((py, i) => {
+    assert.deepEqual(py.lt, cases[i].js.lt, 'lower third layout');
+    assert.deepEqual(py.bc, cases[i].js.bc, 'bar chart layout');
+    assert.deepEqual(py.values, cases[i].js.values, 'counted values');
+  });
+  assert.equal(cases[0].js.values.at(-1)[0], '1240 zł');
+  const bad = structuredClone(contract);
+  bad.scenes[1].params.bars = [{label: 'missing', value: -1}];
+  bad.scenes[1].params.max = 0;
+  bad.scenes[0].params.align = 'right';
+  const errors = checkScore(bad).errors.join('\n');
+  assert.match(errors, /bar 1 label references missing copy id missing/);
+  assert.match(errors, /bar 1 value must be a number of zero or more/);
+  assert.match(errors, /bar-chart max must be a positive number/);
+  assert.match(errors, /lower-third align must be left or center/);
 });

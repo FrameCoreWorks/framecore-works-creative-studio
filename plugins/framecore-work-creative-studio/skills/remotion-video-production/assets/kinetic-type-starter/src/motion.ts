@@ -5,7 +5,7 @@ export type Scene = {
   start: number;
   end: number;
   purpose: string;
-  kind: 'line-reveal' | 'item-stagger' | 'end-card' | 'counter' | 'quote' | 'logo-reveal';
+  kind: 'line-reveal' | 'item-stagger' | 'end-card' | 'counter' | 'quote' | 'logo-reveal' | 'device' | 'lower-third' | 'bar-chart';
   params: Record<string, unknown>;
   copy: string[];
   holds: [number, number][];

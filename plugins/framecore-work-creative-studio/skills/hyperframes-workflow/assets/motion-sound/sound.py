@@ -204,6 +204,14 @@ def plan_cues(score, density='standard', direction=None, designed=None):
             if p.get('attribution'):
                 begin = start + p.get('attributionDelay', 30)
                 add(landed(begin, m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: attribution lands', -16, 0, {'pitch': 1.2}, at_least=2)
+        elif kind == 'lower-third':
+            add(landed(start + 4, m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: name lands', -14, -0.3, {'pitch': 1.0}, at_least=1)
+            if r.as_list(p.get('title')):
+                add(landed(start + 4 + m['lineStaggerFrames'], m['entryFrames'], m['entryEasing'], end), 'knock', f'{sid}: title lands', -18, -0.3, {'pitch': 1.2}, at_least=2)
+        elif kind == 'bar-chart':
+            for i, _ in enumerate(r.as_list(p.get('bars'))):
+                begin = start + i * m['itemStaggerFrames'] + 6
+                add(landed(begin, p.get('duration', 36), p.get('easing', m['resolveEasing']), end), 'tick', f'{sid}: bar {i + 1} reaches its value', -14 - min(4, i), 0, {'pitch': round(1 + 0.1 * i, 3)}, at_least=1)
         elif kind == 'device':
             add(landed(start, m['entryFrames'] + 10, m['resolveEasing'], end), 'impact', f'{sid}: device settles', -14, 0, {'weight': 0.35, 'brightness': 0.4}, at_least=1)
             shots, screen_mode, tf = r.as_list(p.get('screens')), p.get('transition', 'push'), p.get('transitionFrames', 12)

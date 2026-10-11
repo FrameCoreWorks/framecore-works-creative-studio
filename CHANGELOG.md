@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.59.0, 2026-10-11
+
+From Phase 3 of [the improvement plan](docs/improvement-plan-2026-10.md) (premium motion), second part:
+
+- **Lower third.** A name and an optional title above the bottom edge or the safe area, with an accent bar that rises before the lines slide up from their masks; left-aligned or centred. Text that would be cut stops the render instead
+- **Bar chart.** One to eight rows on a shared scale: each label settles, its bar grows from the left and the value counts up at the bar's end, formatted like `counter` (locale, decimals, prefix, suffix); room is kept for the value, and a value too wide for it stops the render
+- **One geometry everywhere.** `lowerThirdLayout` and `barChartLayout` compute every size in whole pixels in the three scene-engine copies and the Python renderer; tests compare the layouts, the counted values and the rendered pixels between the browser and the renderer. Contract checks, the sound planner (knocks and ticks on landing) and the Remotion types know both kinds ([scene kinds](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-scenes/README.md))
+- **Example** `data-and-names`: a founder's lower third, three sales channels in Polish złoty and an end card in the Product light style with bundled Inter, in 16:9 and 9:16
+- **Fonts in reviews.** The frame-review tool embeds contract font files in its preview, so browser screenshots use the same type as the MP4
+
 ## 1.58.0, 2026-10-10
 
 From Phase 3 of [the improvement plan](docs/improvement-plan-2026-10.md) (premium motion), first part:

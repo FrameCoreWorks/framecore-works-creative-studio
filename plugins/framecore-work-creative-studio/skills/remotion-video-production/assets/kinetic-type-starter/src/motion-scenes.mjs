@@ -33,6 +33,8 @@ export const sceneKinds = {
   'quote': {required: ['quote'], copyParams: ['quote', 'attribution']},
   'logo-reveal': {required: ['asset'], copyParams: []},
   'device': {required: ['screens'], copyParams: ['caption', 'url']},
+  'lower-third': {required: ['name'], copyParams: ['name', 'title']},
+  'bar-chart': {required: ['bars'], copyParams: []},
 };
 
 /** Eased 0..1 progress of an interval starting at master frame `start` and lasting `duration` frames. */
@@ -128,6 +130,37 @@ export function deviceLayout(scene, score) {
     island: phone ? {x: Math.round((dw - sw * 0.3) / 2), y: bezel + px(score, 14), w: Math.round(sw * 0.3), h: px(score, 30)} : null};
 }
 
+// lower-third: a name and an optional title above the bottom edge or the safe area, with an accent bar at the
+// left (none when centred). Every size is a whole pixel computed here, so all renderers place it identically.
+export function lowerThirdLayout(scene, score) {
+  const p = scene.params ?? {}, m = margin(score), area = score.tokens?.safeArea ?? {}, center = p.align === 'center';
+  const nameSize = px(score, p.nameSize ?? 64), titleSize = px(score, p.titleSize ?? 40);
+  const nameH = Math.round(nameSize * 1.2), titleH = list(p.title).length ? Math.round(titleSize * 1.3) : 0;
+  const bar = center ? 0 : px(score, 8), gap = center ? 0 : px(score, 24);
+  const bottom = score.height - Math.max(Math.round(score.height * (area.bottom ?? 0)), m);
+  return {x: m, top: bottom - nameH - titleH, nameSize, titleSize, nameH, titleH, bar, center,
+    textX: m + bar + gap, textW: score.width - 2 * m - bar - gap};
+}
+
+// bar-chart: one row per bar, its label above a bar that grows from the left and the value riding at the bar's
+// end. The bars share one scale (params.max or the largest value) and leave room for the value at the right.
+export function barChartLayout(scene, score) {
+  const p = scene.params ?? {}, m = margin(score), area = score.tokens?.safeArea ?? {}, bars = list(p.bars);
+  const max = p.max ?? Math.max(0, ...bars.map(bar => bar?.value ?? 0));
+  const labelSize = px(score, p.size ?? 44), valueSize = px(score, p.valueSize ?? p.size ?? 44);
+  const labelH = Math.round(labelSize * 1.2), valueH = Math.round(valueSize * 1.2), thickness = px(score, p.thickness ?? 36);
+  const labelGap = px(score, 12), gap = px(score, p.gap ?? 40), valueGap = px(score, 16);
+  const reserve = Math.round(valueSize * (p.valueWidth ?? 4.5)), full = score.width - 2 * m - reserve - valueGap;
+  const row = labelH + labelGap + thickness, total = bars.length * row + Math.max(0, bars.length - 1) * gap;
+  const top = Math.round(score.height * (area.top ?? 0)), bottom = score.height - Math.round(score.height * (area.bottom ?? 0));
+  const y0 = Math.round(top + (bottom - top - total) / 2);
+  return {x: m, labelSize, valueSize, labelH, valueH, thickness, valueGap, reserve, full, labelW: score.width - 2 * m,
+    rows: bars.map((bar, i) => {
+      const labelTop = y0 + i * (row + gap), barTop = labelTop + labelH + labelGap;
+      return {labelTop, barTop, valueTop: barTop + Math.round((thickness - valueH) / 2), width: max > 0 ? Math.round(full * Math.max(0, bar?.value ?? 0) / max) : 0};
+    })};
+}
+
 /** Describe the scene's elements. Each node: {key, type: 'box' | 'text' | 'image', text?, src?, style, children?}. */
 export function buildScene(scene, score) {
   const content = buildContent(scene, score);
@@ -218,6 +251,26 @@ function buildContent(scene, score) {
           children: list(p.caption).map((id, i) => ({key: `caption-mask-${i}`, type: 'box', style: {overflow: 'hidden', lineHeight: '1.2'},
             children: [{key: `caption-${i}`, type: 'text', text: copy(score, id), style: {fontSize: `${px(score, sizes[i] ?? sizes[sizes.length - 1])}px`, fontWeight: String(weights[i] ?? weights[weights.length - 1])}}]}))});
       }
+      return {key: 'container', type: 'box', style: {position: 'absolute', inset: '0'}, children};
+    }
+    case 'lower-third': {
+      const L = lowerThirdLayout(scene, score), align = L.center ? 'center' : 'left';
+      const mask = (top, h) => ({position: 'absolute', left: `${L.textX}px`, top: `${top}px`, width: `${L.textW}px`, height: `${h}px`, overflow: 'hidden'});
+      const line = (h, size, weight) => ({position: 'absolute', left: '0', top: '0', width: '100%', height: `${h}px`, lineHeight: `${h}px`, fontSize: `${size}px`, fontWeight: String(weight), whiteSpace: 'nowrap', textAlign: align});
+      const children = [];
+      if (L.bar) children.push({key: 'bar', type: 'box', style: {position: 'absolute', left: `${L.x}px`, top: `${L.top}px`, width: `${L.bar}px`, height: `${L.nameH + L.titleH}px`, background: p.barColor ?? t.accent ?? t.foreground, transformOrigin: 'center bottom'}});
+      children.push({key: 'name-mask', type: 'box', style: mask(L.top, L.nameH), children: [{key: 'name', type: 'text', text: copy(score, p.name), style: line(L.nameH, L.nameSize, p.nameWeight ?? 700)}]});
+      if (L.titleH) children.push({key: 'title-mask', type: 'box', style: mask(L.top + L.nameH, L.titleH), children: [{key: 'title', type: 'text', text: copy(score, p.title), style: {...line(L.titleH, L.titleSize, p.titleWeight ?? 400), color: t.muted ?? t.foreground}}]});
+      return {key: 'container', type: 'box', style: {position: 'absolute', inset: '0'}, children};
+    }
+    case 'bar-chart': {
+      const B = barChartLayout(scene, score), colour = p.barColor ?? t.accent ?? t.foreground, children = [];
+      list(p.bars).forEach((bar, i) => {
+        const r = B.rows[i];
+        children.push({key: `label-${i}`, type: 'text', text: copy(score, bar?.label), style: {position: 'absolute', left: `${B.x}px`, top: `${r.labelTop}px`, width: `${B.labelW}px`, height: `${B.labelH}px`, lineHeight: `${B.labelH}px`, fontSize: `${B.labelSize}px`, fontWeight: String(p.labelWeight ?? 500), whiteSpace: 'nowrap'}});
+        children.push({key: `bar-${i}`, type: 'box', style: {position: 'absolute', left: `${B.x}px`, top: `${r.barTop}px`, width: `${r.width}px`, height: `${B.thickness}px`, background: colour, transformOrigin: 'left center'}});
+        children.push({key: `value-${i}`, type: 'text', text: '', style: {position: 'absolute', left: `${B.x + B.valueGap}px`, top: `${r.valueTop}px`, height: `${B.valueH}px`, lineHeight: `${B.valueH}px`, fontSize: `${B.valueSize}px`, fontWeight: '700', fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap'}});
+      });
       return {key: 'container', type: 'box', style: {position: 'absolute', inset: '0'}, children};
     }
     default:
@@ -324,6 +377,27 @@ export function sceneFrame(scene, score, frame) {
       list(p.caption).forEach((_, i) => {
         const c = progress(frame, scene.start + 10 + i * m.lineStaggerFrames, m.entryFrames, m.entryEasing);
         out[`caption-${i}`] = {style: {transform: `translateY(${(1 - c) * 110}%)`}};
+      });
+      break;
+    }
+    case 'lower-third': {
+      // The bar rises first, then the name and the title slide up inside their masks.
+      if (lowerThirdLayout(scene, score).bar) out.bar = {style: {transform: `scaleY(${progress(frame, scene.start, m.entryFrames, m.entryEasing)})`}};
+      out.name = {style: {transform: `translateY(${(1 - progress(frame, scene.start + 4, m.entryFrames, m.entryEasing)) * 110}%)`}};
+      if (list(p.title).length) out.title = {style: {transform: `translateY(${(1 - progress(frame, scene.start + 4 + m.lineStaggerFrames, m.entryFrames, m.entryEasing)) * 110}%)`}};
+      break;
+    }
+    case 'bar-chart': {
+      // Each row in turn: the label settles, then the bar grows and its value counts up at the bar's end.
+      const B = barChartLayout(scene, score);
+      const format = new Intl.NumberFormat(p.locale ?? 'en-US', {minimumFractionDigits: p.decimals ?? 0, maximumFractionDigits: p.decimals ?? 0});
+      list(p.bars).forEach((bar, i) => {
+        const begin = scene.start + i * m.itemStaggerFrames;
+        const label = progress(frame, begin, m.entryFrames, m.entryEasing);
+        const k = progress(frame, begin + 6, p.duration ?? 36, p.easing ?? m.resolveEasing);
+        out[`label-${i}`] = {style: {opacity: String(label), transform: `translateY(${(1 - label) * px(score, 16)}px)`}};
+        out[`bar-${i}`] = {style: {transform: `scaleX(${k})`}};
+        out[`value-${i}`] = {style: {opacity: String(label), transform: `translateX(${Math.round(B.rows[i].width * k)}px)`}, text: `${p.prefix ?? ''}${format.format((bar?.value ?? 0) * k)}${p.suffix ?? ''}`};
       });
       break;
     }

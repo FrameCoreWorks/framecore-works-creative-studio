@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "id": "data-and-names",
+  "revision": 1,
+  "approval": {
+    "status": "example-not-client-approved",
+    "revision": null,
+    "evidence": null
+  },
+  "stage": "build",
+  "goal": "Show the lower third and the bar chart scene kinds with Polish copy and numbers",
+  "audience": "Studio users and maintainers checking the commercial scene kinds",
+  "message": "A named speaker and three numbers, readable at a glance",
+  "concept": "A founder is introduced with a lower third, her shop's sales channels grow as bars, and an end card closes",
+  "runtime": {
+    "status": "proposed",
+    "value": "Python renderer for the MP4; single-file preview for review"
+  },
+  "viewing": "16:9 on a laptop; 9:16 on a phone",
+  "audio": "intentional silence",
+  "decisions": {
+    "confirmed": [
+      "1920 x 1080 and 1080 x 1920, 30 FPS, 420 frames",
+      "Illustrative copy and numbers, not client data"
+    ],
+    "proposed": [
+      "Product light style with bundled Inter",
+      "contentScale 1.2 in the vertical format"
+    ],
+    "unknown": [
+      "Real figures and their source for a client project"
+    ]
+  },
+  "fps": {
+    "num": 30,
+    "den": 1
+  },
+  "totalFrames": 420,
+  "width": 1920,
+  "height": 1080,
+  "style": "product-light",
+  "tokens": {
+    "background": "#F6F7F9",
+    "foreground": "#0F172A",
+    "muted": "#475569",
+    "accent": "#2563EB",
+    "fontFamily": "Inter, Arial, sans-serif",
+    "marginRatio": 0.08
+  },
+  "fonts": [
+    {
+      "family": "Inter",
+      "weight": 400,
+      "file": "inter/Inter-Regular.ttf"
+    },
+    {
+      "family": "Inter",
+      "weight": 600,
+      "file": "inter/Inter-SemiBold.ttf"
+    },
+    {
+      "family": "Inter",
+      "weight": 700,
+      "file": "inter/Inter-Bold.ttf"
+    },
+    {
+      "family": "Inter",
+      "weight": 900,
+      "file": "inter/Inter-Black.ttf"
+    }
+  ],
+  "motion": {
+    "tempo": "crisp",
+    "entryFrames": 12,
+    "exitFrames": 9,
+    "lineStaggerFrames": 4,
+    "itemStaggerFrames": 8,
+    "entryEasing": "easeOutQuart",
+    "exitEasing": "easeInCubic",
+    "resolveEasing": "easeOutExpo"
+  },
+  "formats": [
+    {
+      "id": "9x16",
+      "width": 1080,
+      "height": 1920,
+      "viewing": "9:16 on a phone",
+      "tokens": {
+        "contentScale": 1.2,
+        "safeArea": {
+          "top": 0.1,
+          "bottom": 0.2
+        }
+      }
+    }
+  ],
+  "copy": {
+    "name": "Anna Kowalska",
+    "title": "Założycielka, Pracownia Lipa",
+    "bar-online": "Sklep internetowy",
+    "bar-shop": "Sklep stacjonarny",
+    "bar-trade": "Hurt",
+    "end": "Pracownia Lipa"
+  },
+  "copyStatus": "illustrative",
+  "assets": [],
+  "acceptance": [
+    "The name and title are fully readable from frame 28 until the exit",
+    "Each bar reaches its value and the values never leave the frame",
+    "The end card is stable from frame 350 to the last frame"
+  ],
+  "scenes": [
+    {
+      "id": "speaker",
+      "kind": "lower-third",
+      "params": {
+        "name": "name",
+        "title": "title"
+      },
+      "purpose": "Introduce the speaker",
+      "start": 0,
+      "end": 150,
+      "copy": [
+        "name",
+        "title"
+      ],
+      "holds": [
+        [
+          28,
+          142
+        ]
+      ],
+      "focalPoint": "The name",
+      "entry": "The accent bar rises, the name and title slide up from their masks",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut to the chart",
+      "persistence": "Background",
+      "audio": "Silence"
+    },
+    {
+      "id": "channels",
+      "kind": "bar-chart",
+      "params": {
+        "bars": [
+          {
+            "label": "bar-online",
+            "value": 1240
+          },
+          {
+            "label": "bar-shop",
+            "value": 860
+          },
+          {
+            "label": "bar-trade",
+            "value": 410
+          }
+        ],
+        "locale": "pl-PL",
+        "suffix": " zł"
+      },
+      "purpose": "Show sales by channel",
+      "start": 142,
+      "end": 330,
+      "copy": [
+        "bar-online",
+        "bar-shop",
+        "bar-trade"
+      ],
+      "holds": [
+        [
+          210,
+          322
+        ]
+      ],
+      "focalPoint": "The longest bar",
+      "entry": "Rows arrive in turn; each bar grows and its value counts up",
+      "action": "Hold",
+      "exit": "Fade and lift",
+      "transition": "Cut to the end card",
+      "persistence": "Background",
+      "audio": "Silence"
+    },
+    {
+      "id": "end",
+      "kind": "end-card",
+      "params": {
+        "text": "end"
+      },
+      "purpose": "Close on the brand",
+      "start": 322,
+      "end": 420,
+      "copy": [
+        "end"
+      ],
+      "holds": [
+        [
+          350,
+          420
+        ]
+      ],
+      "focalPoint": "The name",
+      "entry": "Scales in with the rule",
+      "action": "Hold to the last frame",
+      "exit": "None; stable final frame",
+      "transition": "None",
+      "persistence": "Background",
+      "audio": "Silence"
+    }
+  ]
+}

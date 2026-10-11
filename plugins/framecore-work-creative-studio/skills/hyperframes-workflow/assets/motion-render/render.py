@@ -76,7 +76,7 @@ EASINGS = {
     'easeInCubic': bezier(0.32, 0, 0.67, 0),
     'linear': lambda x: min(1.0, max(0.0, x)),
 }
-KINDS = ('line-reveal', 'item-stagger', 'end-card', 'counter', 'quote', 'logo-reveal', 'device')
+KINDS = ('line-reveal', 'item-stagger', 'end-card', 'counter', 'quote', 'logo-reveal', 'device', 'lower-third', 'bar-chart')
 
 
 def progress(frame, start, duration, easing='linear'):
@@ -157,6 +157,43 @@ def resolve_format(score, format_id):
     out['scenes'] = [dict(scene, params=dict(scene.get('params') or {}, **params[scene['id']])) if scene['id'] in params else scene
                      for scene in score['scenes']]
     return out
+
+
+def lower_third_layout(scene, score):
+    """The scene engine's lowerThirdLayout: whole pixels shared by every renderer."""
+    p, m, area = scene.get('params') or {}, margin(score), tokens(score).get('safeArea') or {}
+    center = p.get('align') == 'center'
+    name_size, title_size = px(score, p.get('nameSize', 64)), px(score, p.get('titleSize', 40))
+    name_h = jround(name_size * 1.2)
+    title_h = jround(title_size * 1.3) if as_list(p.get('title')) else 0
+    bar, gap = (0, 0) if center else (px(score, 8), px(score, 24))
+    bottom = score['height'] - max(jround(score['height'] * area.get('bottom', 0)), m)
+    return {'x': m, 'top': bottom - name_h - title_h, 'nameSize': name_size, 'titleSize': title_size, 'nameH': name_h, 'titleH': title_h,
+            'bar': bar, 'center': center, 'textX': m + bar + gap, 'textW': score['width'] - 2 * m - bar - gap}
+
+
+def bar_chart_layout(scene, score):
+    """The scene engine's barChartLayout: rows, bar widths and the room kept for each value."""
+    p, m, area = scene.get('params') or {}, margin(score), tokens(score).get('safeArea') or {}
+    bars = as_list(p.get('bars'))
+    top_value = p['max'] if p.get('max') is not None else max([0] + [(b or {}).get('value', 0) for b in bars])
+    label_size, value_size = px(score, p.get('size', 44)), px(score, p.get('valueSize', p.get('size', 44)))
+    label_h, value_h, thickness = jround(label_size * 1.2), jround(value_size * 1.2), px(score, p.get('thickness', 36))
+    label_gap, gap, value_gap = px(score, 12), px(score, p.get('gap', 40)), px(score, 16)
+    reserve = jround(value_size * p.get('valueWidth', 4.5))
+    full = score['width'] - 2 * m - reserve - value_gap
+    row = label_h + label_gap + thickness
+    total = len(bars) * row + max(0, len(bars) - 1) * gap
+    top, bottom = jround(score['height'] * area.get('top', 0)), score['height'] - jround(score['height'] * area.get('bottom', 0))
+    y0 = jround(top + (bottom - top - total) / 2)
+    rows = []
+    for i, bar in enumerate(bars):
+        label_top = y0 + i * (row + gap)
+        bar_top = label_top + label_h + label_gap
+        width = jround(full * max(0, (bar or {}).get('value', 0)) / top_value) if top_value > 0 else 0
+        rows.append({'labelTop': label_top, 'barTop': bar_top, 'valueTop': bar_top + jround((thickness - value_h) / 2), 'width': width})
+    return {'x': m, 'labelSize': label_size, 'valueSize': value_size, 'labelH': label_h, 'valueH': value_h, 'thickness': thickness,
+            'valueGap': value_gap, 'reserve': reserve, 'full': full, 'labelW': score['width'] - 2 * m, 'rows': rows}
 
 
 def device_layout(scene, score):
@@ -759,6 +796,28 @@ class Scene:
                     x = area['x'] + (area['w'] - block.width) / 2 if d['portrait'] else area['x']
                     self.captions.append((tinted(block.mask(block.width), self.fg), x, y, block.height))
                     y += block.height
+        elif kind == 'lower-third':
+            L = self.lt = lower_third_layout(s, score)
+            align = 'center' if L['center'] else 'left'
+            self.bar_color = color(p.get('barColor') or self.t.get('accent') or self.t.get('foreground'), self.fg)
+            name = self.one_line(copy_text(score, p.get('name')), L['nameSize'], p.get('nameWeight', 700), L['textW'], L['nameH'], align)
+            self.lt_name = tinted(name.mask(L['textW'] if L['center'] else name.width), self.fg)
+            self.lt_title = None
+            if L['titleH']:
+                title = self.one_line(copy_text(score, p.get('title')), L['titleSize'], p.get('titleWeight', 400), L['textW'], L['titleH'], align)
+                self.lt_title = tinted(title.mask(L['textW'] if L['center'] else title.width), self.muted)
+        elif kind == 'bar-chart':
+            c = self.chart = bar_chart_layout(s, score)
+            self.bar_color = color(p.get('barColor') or self.t.get('accent') or self.t.get('foreground'), self.fg)
+            self.value_cache = {}
+            self.chart_labels = []
+            for bar in as_list(p.get('bars')):
+                block = self.one_line(copy_text(score, (bar or {}).get('label')), c['labelSize'], p.get('labelWeight', 500), c['labelW'], c['labelH'])
+                self.chart_labels.append(tinted(block.mask(block.width), self.fg))
+                final = number_text(p, (bar or {}).get('value', 0))
+                width = self.block(final, c['valueSize'], 700, max_width=10 ** 6, tabular=True).width
+                if width > c['reserve'] + 1:
+                    TextBlock.overflows.append({'text': final.replace('\u00a0', ' '), 'width': jround(width), 'max_width': c['reserve']})
         elif kind == 'logo-reveal':
             asset = next((a for a in score.get('assets') or [] if a.get('id') == p.get('asset')), None)
             if not asset or not asset.get('src'):
@@ -769,11 +828,25 @@ class Scene:
             top = self.stack([height], [0])[0]
             self.logo_pos = (self.left + (self.column_width - width) / 2, top)
 
+    def one_line(self, text, size, weight, width, height, align='left'):
+        """A single-line text the scene engine sets with white-space: nowrap; wider text is reported, never cropped."""
+        block = self.block(text, size, weight, max_width=width, line_height=height, align=align)
+        if len(block.lines) > 1:
+            TextBlock.overflows.append({'text': text.replace('\u00a0', ' '), 'width': jround(block.font.getlength(text)), 'max_width': jround(width)})
+        return block
+
     def number_image(self, text):
         if text not in self.number_cache:
             block = self.block(text, self.number_size, 700, line_height=self.number_size, tabular=True)
             self.number_cache[text] = (tinted(block.mask(block.width), self.fg), block.width)
         return self.number_cache[text]
+
+    def value_image(self, text):
+        if text not in self.value_cache:
+            c = self.chart
+            block = self.block(text, c['valueSize'], 700, max_width=10 ** 6, line_height=c['valueH'], tabular=True)
+            self.value_cache[text] = tinted(block.mask(block.width), self.fg)
+        return self.value_cache[text]
 
     def draw(self, frame_image, frame):
         s, p, m, score = self.scene, self.p, self.m, self.score
@@ -825,6 +898,33 @@ class Scene:
             if self.attribution:
                 image, x, y = self.attribution
                 place(layer, image, x, y, progress(frame, s['start'] + p.get('attributionDelay', 30), m['entryFrames'], m['entryEasing']))
+        elif kind == 'lower-third':
+            L = self.lt
+            if L['bar']:
+                k = progress(frame, s['start'], m['entryFrames'], m['entryEasing'])
+                height = (L['nameH'] + L['titleH']) * k
+                if height > 0:
+                    place(layer, solid((L['bar'], height), self.bar_color), L['x'], L['top'] + L['nameH'] + L['titleH'] - height)
+            parts = [(self.lt_name, L['top'], L['nameH'], s['start'] + 4)]
+            if self.lt_title is not None:
+                parts.append((self.lt_title, L['top'] + L['nameH'], L['titleH'], s['start'] + 4 + m['lineStaggerFrames']))
+            for image, top, height, begin in parts:
+                k = progress(frame, begin, m['entryFrames'], m['entryEasing'])
+                box = Image.new('RGBA', (image.width, max(1, height)), (0, 0, 0, 0))
+                box.paste(image, (0, jround((1 - k) * 1.1 * height)))  # translateY(110%) inside the mask
+                place(layer, box, L['textX'], top)
+        elif kind == 'bar-chart':
+            c = self.chart
+            for i, bar in enumerate(as_list(p.get('bars'))):
+                row = c['rows'][i]
+                begin = s['start'] + i * m['itemStaggerFrames']
+                label = progress(frame, begin, m['entryFrames'], m['entryEasing'])
+                k = progress(frame, begin + 6, p.get('duration', 36), p.get('easing', m['resolveEasing']))
+                place(layer, self.chart_labels[i], c['x'], row['labelTop'] + (1 - label) * px(score, 16), label)
+                if row['width'] * k > 0:
+                    place(layer, solid((row['width'] * k, c['thickness']), self.bar_color), c['x'], row['barTop'])
+                value = self.value_image(number_text(p, (bar or {}).get('value', 0) * k))
+                place(layer, value, c['x'] + c['valueGap'] + jround(row['width'] * k), row['valueTop'], label)
         elif kind == 'device':
             f, d = device_frame(s, score, frame), self.device
             screen = Image.new('RGBA', (d['sw'], d['sh']), (0, 0, 0, 255))
