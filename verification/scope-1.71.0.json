@@ -1,0 +1,32 @@
+{
+  "version": "1.71.0",
+  "baseline_tag": "v1.70.0",
+  "baseline": "fc582b3e0186c0b7518912c0ec076fa33be349b9",
+  "change_id": "CC-20261012-05",
+  "origin": "cloud-code",
+  "files": 1181,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
+    "skills/hyperframes-workflow/references/motion-compendium.md",
+    "tests/lyric_timing_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1168,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "A motion compendium (knowledge map, ad creative with dated sources, tools and licences, lyric timing, hybrid generated media, techniques and transitions by name, working sequence, failure fixes) and lyric_timing.py (supplied lyrics aligned to recognised word times, interpolation, beat grid, half-beat snapped board cuts, JSON, LRC and SRT)"
+}

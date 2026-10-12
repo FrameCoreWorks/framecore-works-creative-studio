@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.71.0, 2026-10-12
+
+Motion graphics knowledge and lyric timing:
+
+- **Motion compendium.** One map of where every part of Studio's motion knowledge lives (Studio references, HyperFrames skills, Remotion's agent skills), plus what the other references did not hold: ad creative for Meta and short-form platforms with dated sources (the message in the first 3 seconds, sound-off design, 9:16 and 4:5, the widely cited Reels margins marked as not confirmed on Meta's pages, length ranges), tools and licences (HyperFrames, GSAP, Remotion, Motion Canvas, Revideo, Lottie, Rive, Manim, Theatre.js), lyric timing by forced alignment, hybrid films with generated images and clips, HyperFrames techniques and transitions by name, the working sequence from style frames to delivery, and a failure-to-fix table ([motion compendium](../skills/hyperframes-workflow/references/motion-compendium.md))
+- **Lyric timing.** `lyric_timing.py` gives every word and line of a song its sung time with the user's lyrics as the truth: a recogniser (stable-ts, WhisperX or faster-whisper, installed by the user) or supplied word times, global alignment that keeps the correct spelling, interpolation of unheard words, the bundled beat grid, board cuts snapped to half-beats when close, and JSON, LRC (with word stamps) and SRT ([lyric timing](../skills/hyperframes-workflow/assets/motion-sync/README.md#lyric-timing)). Measured on a reference lyric reel: cuts follow the sung words, beats drive the accents
+- Handover updated with the next step: lyric timing on a real song (repository)
+
 ## 1.70.0, 2026-10-12
 
 Motion graphics for client reels in Claude Code (owner-requested development round):

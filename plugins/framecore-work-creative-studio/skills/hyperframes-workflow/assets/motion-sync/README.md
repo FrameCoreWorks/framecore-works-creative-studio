@@ -61,3 +61,19 @@ Check the result before trusting it: the tempo is what you would tap along to, d
 ## Verification boundary
 
 During package preparation, in a Linux development container, the example captions were imported into the starter contract at 120 BPM and reviewed in all three formats without findings. A synthetic 120 BPM click track was rendered through the Remotion starter: the encoded AAC track kept the 0.5-second beat spacing to the sample, with a constant 2050-sample (42.7 ms, about 1.3 frames) start delay from the encoder. Check sync in the target player. Preview audio playback was not exercised, and host behavior is not verified. On 2026-10-07 `beats.py` found 120.002 BPM, bar 1 at 0.250 s with a clear downbeat and the drop at bar 9 in a synthetic 32-second test track with accented downbeats, and `music_edit.py` cut four bars to exactly 240 frames (8.000 s at 30 FPS).
+
+## Lyric timing
+
+[`lyric_timing.py`](lyric_timing.py) gives every word and line of a song its sung time, with the user's lyrics as the truth. A recogniser says when words are sung; the tool aligns its words to the lyric words (a misheard word keeps the correct spelling, Polish letters included), interpolates words it did not hear between their neighbours, finds the beat grid with [`beats.py`](beats.py) and gives each line a board cut one frame before the line, moved to the nearest half-beat when that is within `--snap-ms` (80 ms). Word times stay on the sung syllables for highlights. It writes JSON (lines, words, cuts in seconds and frames, tempo, the share of matched words and the lines to check by ear), LRC (`--lrc`, `--lrc-words` with word stamps) and SRT.
+
+```sh
+pip install stable-ts                      # recommended recogniser for songs; whisperx or faster-whisper also work
+python3 -m demucs --two-stems vocals song.mp3   # optional: separate the vocals of a dense mix first (pip install demucs)
+python3 lyric_timing.py song.mp3 lyrics.txt --out song.timing.json --lrc-words song.lrc --srt song.srt
+python3 lyric_timing.py song.mp3 lyrics.txt --words words.json  # times from any other tool: [{"text", "start", "end"}]
+```
+
+The user supplies the track and the lyrics and confirms the right to use them. Lines matched below half are listed for a check by ear. Recognisers are not bundled: they download models of several hundred megabytes. During package preparation on 2026-10-12 the alignment, interpolation, beat detection on a click track, snapping and exports passed `tests/lyric_timing_test.py`; no recogniser was run.
+
+Measured on a reference lyric reel (39 s, 84 BPM): its 27 board changes followed the sung words, a median 0.95 s apart; 22 % sat within two frames of a beat and 56 % within two frames of a half-beat. Text arrives with the voice; the beat drives accents (pulses, scale hits, background changes) rather than every cut.
+

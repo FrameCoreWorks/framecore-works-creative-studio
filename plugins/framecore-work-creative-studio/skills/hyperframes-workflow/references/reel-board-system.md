@@ -47,7 +47,7 @@ Lengths are starting points; the brief and the placement decide. Each row names 
 ## 5. Lyric video
 
 - **Rights.** The user supplies a track and lyrics they may use; Studio does not fetch lyrics.
-- **Timing.** Use the user's LRC or SRT, or transcribe the track (`hyperframes transcribe`, whisper) and correct the words against the supplied lyrics; `npx hyperframes beats` writes the beat grid.
+- **Timing.** Use the user's LRC or SRT, or run [lyric timing](../assets/motion-sync/README.md#lyric-timing) on the track and the supplied lyrics: word and line times, the beat grid and board cuts snapped to half-beats when close. Text arrives with the voice; beats drive the accents.
 - **Boards.** One line per board, two short lines at most. Vary the board kind on every line (colour field, pattern, object, photo, negative space) while the frame, type family and accent stay constant. The emphasis word of each line takes the accent colour or scale.
 - **Cuts.** Board changes land on beats or on the first syllable; holds follow sustained notes. Fast sections cut by word (`per-word-rise`, `caption-kinetic-slam`), slow ones by line.
 - **Build.** Skill `music-to-video` analyses the track once, lays out the frames and builds each one; Studio supplies the boards, the locked words and the review.
