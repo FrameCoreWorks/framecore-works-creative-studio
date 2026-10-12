@@ -38,6 +38,8 @@ Studio is a complete working tool, and development is in maintenance mode: do no
 
 Name the trigger in the ledger entry and the commit, and show that case before and after the change. Make the smallest fix in the text the model actually reads (the owning `SKILL.md`, which single-turn runs load) rather than a new file; every package path is permanent. Creative improvements teach how to build an idea from the brief; they never add ready-made ideas, scenarios or category lists (owner decision 2026-10-11). Studio is a base for work with a person who chooses and directs; do not present it as replacing that judgment. An idea without a trigger goes to the owner as a one-line note, not as work. Repository maintenance (CI, release scripts, records) follows the same rule.
 
+Owner decision 2026-10-12, later the same day: motion graphics is Studio's main paid use, so the owner opened one development round for it, released as 1.70.0, as an explicit exception to maintenance mode. In Claude Code, client reels and ads are built as HyperFrames compositions with HyperFrames' own skills, while Studio keeps the brief, idea, copy locks, board plan and review. Work left from that round is listed in `docs/handover-motion-1.70.md`; it follows maintenance mode unless the owner asks for it.
+
 ## Development provenance
 
 Several surfaces develop this repository: the owner, ChatGPT Work, Codex and Cloud Code. Before writing, read `docs/development-ledger.md`, `CHANGELOG.md`, `RELEASE_STATUS.md` and current Git history; preserve compatible work from other surfaces and never overwrite it without inspecting its intent. Record the baseline SHA and re-check the branch head before committing or pushing; do not resolve drift with `reset --hard` or a force push.

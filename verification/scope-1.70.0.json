@@ -1,0 +1,34 @@
+{
+  "version": "1.70.0",
+  "baseline_tag": "v1.66.1",
+  "baseline": "60b0bcda633418e2396844dc361e11af67a4c833",
+  "change_id": "CC-20261012-04",
+  "origin": "cloud-code",
+  "files": 1178,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-quality/README.md",
+    "skills/hyperframes-workflow/references/hyperframes-engine.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py",
+    "skills/hyperframes-workflow/references/claude-code-reels.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "tests/motion_activity_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1163,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "HyperFrames as the default engine for client reels in Claude Code with a map of HyperFrames' 21 skills and an eight-step production loop, a reel board system with twelve ad structures, formats and safe boxes, lyric video, hybrid AI footage, transitions and still frames, and a motion activity check that sends long undeclared stills back for rework"
+}

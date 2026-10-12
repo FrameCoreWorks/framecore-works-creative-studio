@@ -13,6 +13,16 @@ These original, dependency-free adapter functions extend the existing frame cont
 
 Example score is synthetic and not approved client content. Overlap layer/blend ownership remains in the storyboard. A structurally valid score does not prove design quality or audible sync.
 
+## Motion activity
+
+[`motion_activity.py`](motion_activity.py) samples a rendered video at 6 frames per second and reports the share of still time and the longest still stretch outside declared holds. It fails (REVISE, exit code 1) above 40 % undeclared still time or with an undeclared still longer than 2.5 s; `--hold START-END` declares an intended still such as the end card, `--json` prints the report. It measures pixels, not meaning: a slow drift counts as motion. Needs Python 3.8+, numpy and ffmpeg.
+
+```sh
+python3 motion_activity.py film.mp4 --hold 27-30
+```
+
+On 2026-10-12 it returned REVISE for the 6-second film reviewed on 2026-10-11 (83 % still, a 4.7 s still), PASS for a reference client reel (20 % still) and PASS for a HyperFrames example render (35 % still); `tests/motion_activity_test.py` covers moving, still and mixed videos and declared holds.
+
 ## Optional libraries
 
 Paper Shaders 0.0.81: use the installed package's real ShaderMount setup and verified API. Versions from 0.0.77 use Apache-2.0; preserve LICENSE/NOTICE if shipping library code. The adapter vendors no library code. Set dimensions, seed and all uniforms explicitly. A feedback simulation may require fixed prerendering, not arbitrary seeking.

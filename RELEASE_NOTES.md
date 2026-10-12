@@ -1,10 +1,10 @@
-# Creative Studio 1.66.1
+# Creative Studio 1.70.0
 
-Fixes from a full check of how the skills pass work to each other.
+Motion graphics for client reels and ads, built in Claude Code.
 
-- **Animations are reviewed by the motion workflow.** A finished animation built from code is checked by the workflow that made it, with its frame and craft review.
-- **One set of routes.** Every part of Studio now sends the same kind of request to the same specialist.
-- **No improvised render scripts.** In a chat without code execution, an approved animation comes back as a contract you open in the Studio player and export from your browser.
-- **The chosen direction is kept.** Once you pick a direction, later steps carry it out instead of proposing new ones.
+- **HyperFrames in Claude Code.** Reels and ads are built with HyperFrames and its own skills; Studio keeps the idea, the exact copy, the plan and the final check.
+- **Boards for every ad.** Twelve ready structures for common jobs (a local service, an app, an offer, a launch, a lyric video and more), each with the building blocks to use.
+- **No more dead air.** Every rendered film is checked for long stretches where nothing moves, and sent back for rework when they are not intended.
+- **Lyric videos, AI footage, transitions and still frames.** Clear rules for each.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

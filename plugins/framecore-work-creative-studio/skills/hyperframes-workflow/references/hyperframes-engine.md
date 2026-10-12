@@ -1,6 +1,6 @@
 # HyperFrames as an optional engine
 
-Checked 2026-10-09 against [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) at commit `3aa68869f7d4cec8b37cdfcb9cd539389b63abed` (CLI `@hyperframes/cli` 0.8.143, Apache-2.0). HyperFrames is HeyGen's open framework that writes video as HTML compositions and renders them in headless Chrome with FFmpeg. It ships agent skills (a `/hyperframes` router plus workflows such as `product-launch-video`, `motion-graphics`, `general-video`, `embedded-captions`, `music-to-video` and `media-use`) and a desktop Studio app for Mac and Linux. Studio does not bundle any of it; this reference says when to use it and how Studio stays in charge.
+Checked 2026-10-12 against [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) at commit `86521b94f592bcf0ca86aba63068893cf658af16` (npm package `hyperframes` 0.8.149, Apache-2.0); first checked 2026-10-09 at `3aa6886` (0.8.143). In Claude Code it is the default engine for client reels: [client reels in Claude Code](claude-code-reels.md). HyperFrames is HeyGen's open framework that writes video as HTML compositions and renders them in headless Chrome with FFmpeg. It ships agent skills (a `/hyperframes` router plus workflows such as `product-launch-video`, `motion-graphics`, `general-video`, `embedded-captions`, `music-to-video` and `media-use`) and a desktop Studio app for Mac and Linux. Studio does not bundle any of it; this reference says when to use it and how Studio stays in charge.
 
 ## When to offer it
 
@@ -46,4 +46,4 @@ Pass HyperFrames the approved brief, exact copy, asset list with sources and rig
 
 ## Evidence
 
-On 2026-10-09 the owner reported a test in HyperFrames Studio: from a link to a perfume shop, an agent connected to the Studio app collected the site's assets and edited a high-quality reel. That is an owner report about HyperFrames, not a test of this route. No HyperFrames render has been run through Studio; the route is planned, not verified.
+On 2026-10-09 the owner reported a test in HyperFrames Studio: from a link to a perfume shop, an agent connected to the Studio app collected the site's assets and edited a high-quality reel. That is an owner report about HyperFrames, not a test of this route. On 2026-10-12 `hyperframes` 0.8.149 rendered its `kinetic-type` example in a Linux container (1920 x 1080, 30 fps, 450 frames; one `media_load_failed` warning for a network video), recorded in [client reels in Claude Code](claude-code-reels.md#evidence). A Studio-planned client reel through this route has not yet been recorded.

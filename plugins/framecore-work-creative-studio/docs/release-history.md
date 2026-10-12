@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.70.0, 2026-10-12
+
+Motion graphics for client reels in Claude Code (owner-requested development round):
+
+- **HyperFrames by default in Claude Code.** In a shell host with Node.js, FFmpeg and a Chromium, client reels and ads are HyperFrames compositions built with HyperFrames' own skills, while Studio keeps the brief, the idea, copy locks, the board plan and the review ([client reels in Claude Code](../skills/hyperframes-workflow/references/claude-code-reels.md)): setup, who does what, a map of the 21 HyperFrames skills (commit `86521b9`, 0.8.149), an eight-step production loop and the first recorded HyperFrames render in a container
+- **Reel board system.** One statement per board, a persistent frame, type with one accent, objects instead of decoration, recreated UI, real photos, CTA end cards; motion targets measured on reference reels; twelve ad structures (local service, app, offer, before/after, how it works, social proof, event, recruitment, B2B launch, voice-over explainer, lyric video, hybrid AI footage) with the registry blocks that build them; formats and safe boxes; lyric video, hybrid footage, transitions and still frames ([reel board system](../skills/hyperframes-workflow/references/reel-board-system.md))
+- **Motion activity check.** `motion_activity.py` measures still time in a rendered MP4 and returns REVISE above 40 % undeclared still time or a still over 2.5 s; declared holds are excused. It flags the 6-second film reviewed on 2026-10-11 (83 % still) and passes the reference reels; the skill's review step runs it on every render
+- Handover for the next surface (repository): `docs/handover-motion-1.70.md`
+
 ## 1.66.1, 2026-10-12
 
 Handoff fixes from the full check of skills, orchestration and handoffs ([report](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/full-check-2026-10-12.md)); maintenance mode, every change fixes a confirmed defect:

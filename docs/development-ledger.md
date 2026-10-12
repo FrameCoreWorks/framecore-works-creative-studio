@@ -1778,3 +1778,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `60b0bcd`; workflows Check Studio sources 38212164623, Check Studio sources 38212162139, Refresh current release notes 38212160407, Check Studio sources 38212160295, Publish verified Studio release 38212160455: success; [v1.66.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.66.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1174 of 1174) ([record](../verification/github-publication-1.66.1.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261012-04
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261012-04-motion-1.70`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `9e46aa7` (main, package 1.66.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.70.0)
+- Package version: 1.66.1 -> 1.70.0
+- Scope: HyperFrames as the default engine for client reels in Claude Code with a map of HyperFrames' 21 skills and an eight-step production loop, a reel board system with twelve ad structures, formats and safe boxes, lyric video, hybrid AI footage, transitions and still frames, and a motion activity check that sends long undeclared stills back for rework
+- Shared package changed: yes; 11 changed, 4 added, 0 removed ([scope](../verification/scope-1.70.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 7 suite 6, 8 suite 7 (3 skipped without optional dependencies), 23 suite 8, 16 suite 9, 18 suite 10, 17 suite 11, 6 suite 12, 8 suite 13, 9 suite 14, 7 suite 15, 4 suite 16, 5 suite 17, 14 suite 18, 6 suite 19, 5 suite 20, 8 suite 21, 5 suite 22, 4 suite 23, 4 suite 24, 4 suite 25, 2 suite 26, 2 suite 27, 2 suite 28, 5 suite 29, 5 suite 30, 4 suite 31, 14 suite 32: PASS ([record](../verification/release-1.70.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run
