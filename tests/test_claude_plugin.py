@@ -51,6 +51,19 @@ class Manifests(unittest.TestCase):
         self.assertIn('framecore-work-creative-studio@framecore-works', guide)
         self.assertIn('[CLAUDE_INSTALL.md](CLAUDE_INSTALL.md)', (ROOT / 'INSTALL.md').read_text())
 
+    def test_install_guide_runs_from_the_shell_and_handles_a_synced_copy(self):
+        guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
+        prompt = guide.split('## Paste this prompt', 1)[1].split('```text', 1)[1].split('```', 1)[0]
+        for phrase in ('CLAUDE_INSTALL.md', 'claude plugin list', 'Synced from claude.ai', '37 skills', 'ask me once'):
+            self.assertIn(phrase, prompt)
+        for phrase in ('command -v claude', 'framecore-work-creative-studio@synced', 'claude plugin disable framecore-work-creative-studio@synced',
+                       'releases/latest', 'only in the terminal CLI'):
+            self.assertIn(phrase, guide)
+        self.assertIn('CLAUDE_INSTALL.md#paste-this-prompt', (ROOT / 'README.md').read_text())
+        self.assertIn('CLAUDE_INSTALL.md#6-update-and-remove', (ROOT / 'UPDATE.md').read_text())
+        for case in ('CI-01', 'CI-02', 'CI-03', 'CI-04', 'CI-05'):
+            self.assertIn(case, (ROOT / 'docs/host-evals.md').read_text())
+
 
 class Guides(unittest.TestCase):
     def test_installation_ends_with_the_final_check_and_updates_with_the_update_check(self):

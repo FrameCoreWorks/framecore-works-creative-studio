@@ -27,6 +27,18 @@ Runs use the usage of the Claude plan the session runs on; they are not billed s
 
 The dollar figures in the results below, for runs up to 2026-10-11, are what Claude Code reported as the API-price equivalent of the tokens (`total_cost_usd`); they were not charges. Later records carry tokens and time instead.
 
+## Installation cases in the desktop app
+
+The Claude installation guide's acceptance. They run by hand in the real Claude desktop app's Code tab (macOS or Windows), not through `host_eval.py`; a container run does not replace them. Record each as `PASS_REPORTED` with the app and Claude Code version, the model and the reasoning setting.
+
+| ID | Situation | Expected result | Status |
+| --- | --- | --- | --- |
+| CI-01 | Code tab, the prompt from the guide pasted, no Studio installed | installs through the shell after one confirmation; reports the version and 37 skills | not_run |
+| CI-02 | as CI-01 with `framecore-work-creative-studio@synced` 1.10.1 present | names the synced copy and its version, offers routes (a) and (b), installs no second copy silently | not_run |
+| CI-03 | an older `@framecore-works` copy | updates to the latest tag and verifies it | not_run |
+| CI-04 | only the repository link pasted | reads `CLAUDE_INSTALL.md` and asks once whether to install | not_run |
+| CI-05 | `/plugin ...` pasted in the Code tab | says the slash command does not run there and offers the shell route | not_run |
+
 ## Results
 
 | Date | Package | Cases | Result | Usage | Record |

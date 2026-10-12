@@ -1820,3 +1820,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `d6ef990`; workflows Check Studio sources 38238123408, Check Studio sources 38238120827, Refresh current release notes 38238116880, Check Studio sources 38238116873, Publish verified Studio release 38238116885: success; [v1.71.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.71.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1181 of 1181) ([record](../verification/github-publication-1.71.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261012-07
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261012-07-claude-install`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `1a30607` (main, package 1.71.0)
+- Result: the commit carrying this entry
+- Package version: 1.71.0 (unchanged)
+- Scope: Claude installation from the shell after the owner's desktop attempt of 2026-10-12: CLAUDE_INSTALL.md gains a paste prompt, host detection (`command -v claude`; no `/plugin` in the desktop app's Code tab), the latest-release tag, an inventory step with the `@synced` copy from claude.ai and routes (a) and (b), one confirmation and a report; README links the prompt; UPDATE.md anchor; host-evals.md lists the desktop installation cases CI-01 to CI-05 (not_run); a guide test
+- Shared package changed: no (repository documentation and tests only)
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh` (full list): PASS; source checks only, the desktop cases CI-01 to CI-05 are not run
+
+Cross-host state:
+
+- GitHub: pending until the push is read back
+- ChatGPT Work: not_tracked (owner decision 2026-10-10); no hosted change needed, the package is unchanged
+- Codex: not_run

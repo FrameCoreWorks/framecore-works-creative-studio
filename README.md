@@ -67,7 +67,7 @@ See [the code-motion workflow](plugins/framecore-work-creative-studio/skills/hyp
 | Codex | [Codex installation guide](CODEX_INSTALL.md) | One native Studio entry backed by the complete local knowledge bundle |
 | Claude Code and the Claude apps | [Claude installation guide](CLAUDE_INSTALL.md) | The Studio plugin from this repository's Claude marketplace |
 
-Each guide contains the full environment-specific procedure, capability checks, existing-installation handling and verification steps.
+Each guide contains the full environment-specific procedure, capability checks, existing-installation handling and verification steps. To install in Claude Code, including the desktop app's Code tab, paste the prompt at the top of the [Claude installation guide](CLAUDE_INSTALL.md#paste-this-prompt) or ask Claude to install this repository.
 
 [Installation overview](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
 
