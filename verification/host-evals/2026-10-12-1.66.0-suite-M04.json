@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-12",
+  "package_version": "1.66.0",
+  "source": {
+    "commit": "62b80a9ba2a28891ca1aa7a12ae097b323078ac1",
+    "package_uncommitted_changes": false
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3912,
+      "output": 3349,
+      "cache_read": 35891,
+      "cache_write": 27275
+    },
+    "seconds": 34.5
+  },
+  "cases": [
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3912,
+        "output": 3349,
+        "cache_read": 35891,
+        "cache_write": 27275
+      },
+      "seconds": 34.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
+          "reply": "Nie mam tu żadnego narzędzia do uruchamiania kodu ani zapisu plików, więc nie wyrenderowałem pliku MP4. Mam tylko narzędzia do czytania i wyszukiwania. Niczego nie sprawdzałem ani nie oglądałem. Poniżej jest gotowy storyboard do zatwierdzenia. Gdy dostanę środowisko z powłoką (Python/FFmpeg), zbuduję z niego film bez zmian.\n\n## Storyboard: „Kłos”, 6 s, 1080×1920, 30 fps (180 klatek), bez dźwięku\n\n**Pomysł:** napis „Kłos” rośnie jak kłos zboża, a potem „wypieka się” w bochenek. Odrzuciłem klasykę: zdjęcie chleba, drewniany stół i beż z brązem. Zamiast tego jest ciepły ciemny granat tła i złota, jakby pszeniczna typografia.\n\n| Czas | Klatki | Scena | Ruch |\n|---|---|---|---|\n| 0,0–1,5 s | 0–44 | Ciemne tło (#1B2433). Z dołu wyrasta cienka złota linia, czyli łodyga. Po bokach pojawiają się ziarna w układzie kłosa. | Ease-out, ziarna pojawiają się kolejno co 3 klatki |\n| 1,5–3,0 s | 45–89 | Ziarna składają się w napis **„Kłos”** (duży, szeryfowy, złoty #E8B64C, środek kadru). Znaki „ł” i „K” zostają wyraźnie widoczne. | Skalowanie od 0,9 do 1,0 z miękkim przeskokiem, potem spokojny oddech napisu |\n| 3,0–4,5 s | 90–134 | Pod napisem pojawia się hasło **„Świeży chleb codziennie”** (kremowe #FFF3DC, 64 px). Słowa wchodzą po kolei. | Fade i przesunięcie o 24 px w górę, odstęp 6 klatek |\n| 4,5–6,0 s | 135–179 | Spokojne wyciszenie. Pod hasłem rysuje się złota linia w kształcie bochenka. Napis i hasło zostają na ekranie. | Wolny najazd o 3%, ostatnie 20 klatek bez ruchu, żeby tekst dało się spokojnie przeczytać |\n\n**Zablokowane teksty:** „Kłos”, „Świeży chleb codziennie”. Nie dodaję adresu, godzin ani ceny, bo ich nie podałeś. Polskie znaki sprawdzę na klatkach, gdy będzie render. Użyję czcionki z pełnym zestawem polskich znaków, np. DejaVu Serif Bold albo Liberation Serif Bold.\n\n**Do ustalenia:** palety kolorów nie podałeś, więc granat ze złotem to moja propozycja. Możesz ją zmienić albo zostawić.\n\n**Co dalej:** potwierdź storyboard albo wskaż zmiany. Do renderu potrzebuję środowiska z powłoką, Pythonem i FFmpeg. Jeśli go nie będzie, mogę przygotować plik kontraktu `.motion.json`. Otworzysz go w odtwarzaczu Studio i wyeksportujesz film z przeglądarki.",
+          "reply_chars": 2180,
+          "reply_sha256": "53fc50e4d382eacde1230c994c4f4897a5b53bf5a6fe6291767eb8cf56b2b2a1",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1272,
+            "output": 2338,
+            "cache_read": 35891,
+            "cache_write": 22518
+          },
+          "seconds": 34.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['odtwarzacz', 'przeglądar']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2640,
+          "output": 1011,
+          "cache_read": 0,
+          "cache_write": 4757
+        },
+        "items": [
+          {
+            "item": "Says the MP4 cannot be rendered here and why",
+            "verdict": "met",
+            "reason": "The assistant states it has no tool to run code or write files, so it did not render the MP4, and says it only has read and search tools."
+          },
+          {
+            "item": "Delivers the contract and the motion player route instead of switching to a video generator",
+            "verdict": "unclear",
+            "reason": "It does not switch to a video generator and does describe the motion player route (open the contract in the Studio player and export from the browser). But it delivers only a storyboard. The .motion.json contract is offered as a future step ('mogę przygotować'), not produced."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ],
+  "review": "M04 with the no-logo prompt on the released 1.66.0 package: PASS, read by hand. The reply says at the start that it has no tool to run code or write files, so it did not render the MP4; it presents a storyboard for approval (allowed by the case) and names the contract opened in the Studio player with export from the browser; no switch to a video generator and no promise of a render. The judge marked the contract route unclear because the contract is offered, not yet written. Creative note: in this direct task the idea grows the name into a wheat ear in gold, the motif the name carries, while saying it set the classics aside; the name rule sits in the direction owners, not in Motion Graphics Workflow. One run; the earlier M04 records used the old prompt, so they are not a like-for-like comparison."
+}

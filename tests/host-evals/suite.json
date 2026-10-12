@@ -506,7 +506,7 @@
       "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
       "turns": [
         {
-          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację z logo i hasłem „Świeży chleb codziennie”, jako plik MP4.",
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
           "checks": [
             {
               "not_welcome": true
@@ -535,7 +535,7 @@
         "Says the MP4 cannot be rendered here and why",
         "Delivers the contract and the motion player route instead of switching to a video generator"
       ],
-      "host_note": "The harness gives no shell or code execution, so the MP4 cannot be rendered in this session. The first answer may present the storyboard for approval before writing the contract (method step 2), but it must name the route that works without code: the motion player in the browser."
+      "host_note": "The harness gives no shell or code execution, so the MP4 cannot be rendered in this session. The first answer may present the storyboard for approval before writing the contract (method step 2), but it must name the route that works without code: the motion player in the browser. Prompt replaced on 2026-10-12 at the owner's request: the earlier wording (\"z logo i hasłem\") implied the user had a logo, so a reply asking for it was reasonable. The new wording is the one the owner used in ChatGPT Work: no logo, the name as text, no sound. Records before this date used the earlier wording."
     },
     {
       "id": "M05",

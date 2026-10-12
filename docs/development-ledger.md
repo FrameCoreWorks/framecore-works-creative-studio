@@ -1716,3 +1716,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `bc78e66`; workflows Check Studio sources 38180751455, Check Studio sources 38180749654, Refresh current release notes 38180748016, Publish verified Studio release 38180748019, Check Studio sources 38180748060: success; [v1.66.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.66.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1174 of 1174) ([record](../verification/github-publication-1.66.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261012-01
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261012-01-m04-prompt`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `62b80a9` (main, package 1.66.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository only)
+- Package version: 1.66.0 (unchanged)
+- Scope: at the owner's request the M04 host-eval prompt is replaced by the no-logo wording he used in ChatGPT Work (the old one implied the user had a logo). One run on 1.66.0: PASS, read by hand; the reply states it cannot render without code execution and names the Studio player route ([record](../verification/host-evals/2026-10-12-1.66.0-suite-M04.json))
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh --fast`: PASS
+- host eval M04: 1 case, 70,427 tokens, 34 s; single run in headless Claude Code
+
+Cross-host state:
+
+- GitHub: pending until the push is read back
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run
