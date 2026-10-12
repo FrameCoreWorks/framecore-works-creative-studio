@@ -2728,8 +2728,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 9469,
-      "sha256": "9920ee9a0b09acbd365e3253fcdc79d7dce585147f613910d70600af10fae277"
+      "bytes": 9690,
+      "sha256": "72fd9a3d8e8ef49fa18df57c58e1e876b731dc49137d1c8798f877d353f64d21"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -4353,8 +4353,8 @@
     },
     {
       "path": "skills/marketing/SKILL.md",
-      "bytes": 5916,
-      "sha256": "a0d16de84cd35b0efc3e00ae7551e063f03d994a9cd4937df52bae365b243353"
+      "bytes": 6145,
+      "sha256": "10b2480a0722dcb22d016b67dfd0b41fb646091522bd5f730e6c7674cc08570b"
     },
     {
       "path": "skills/marketing/agents/openai.yaml",
@@ -4448,8 +4448,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 20618,
-      "sha256": "3fb54426560513fc15ea73fbce0256d97710d9f0e9875bddb1255661ad35e264"
+      "bytes": 21067,
+      "sha256": "989ea892f6273336f850b93c23c0796ce21dfd686346794f365e214066473e20"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -4700,6 +4700,11 @@
       "path": "skills/pipeline-core/references/role-skill-map.md",
       "bytes": 8877,
       "sha256": "bf1e1ab91baa09b5a98ba632827710886bb315849cf9b181a48c97e54c7d4842"
+    },
+    {
+      "path": "skills/pipeline-core/references/script-and-campaign-patterns.md",
+      "bytes": 9228,
+      "sha256": "f699e118249bf922f29ac23787d1aa0c61e94d67e6548399bb963220fbe35360"
     },
     {
       "path": "skills/pipeline-core/references/short-form-timing.md",
@@ -5343,8 +5348,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 7994,
-      "sha256": "f5fc55cc6b2925362a34d8cfad1d64252bd30c38a3f0fa216146b19c3ced8435"
+      "bytes": 8258,
+      "sha256": "5d74395e9ab8a3a0d42a7130d9938e4c37d785eb2c2e451bc828023cd646030e"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",

@@ -72,6 +72,8 @@ Produce a Marketing Plan with:
 
 ## Decision Rules
 
+- For content series, launch sequences, CTAs by audience temperature, discovery calls, objection answers and follow-up, use the shared [script and campaign patterns](../pipeline-core/references/script-and-campaign-patterns.md).
+
 - Keep claims evidence-backed or label them as assumptions.
 - Prefer channel-specific variants over generic reuse.
 - If audience or offer is unclear, route back to `brief-architect`.

@@ -45,6 +45,8 @@ Opening targets per placement, spoken-word budgets and end-card holds come from 
 
 ## Deliver the requested structure
 
+A script written as beats (time, spoken line, on-screen text, visual change, proof, CTA) maps one beat to one shot card; see [script and campaign patterns](../pipeline-core/references/script-and-campaign-patterns.md#12-from-script-to-generated-video-and-motion).
+
 For explicitly coded motion graphics, use the [motion storyboard contract](../hyperframes-workflow/templates/motion-storyboard-contract.md) and [code-motion method](../hyperframes-workflow/references/code-based-motion-graphics.md). Define integer total frames, master [start,end) intervals, overlaps, fully readable holds and scene entry/action/exit states as designed timing. Carry the approved revision, Style Lock, exact copy and asset IDs to the selected existing runtime owner; planned frame precision does not imply a measured render. A timeline view shows the current revision with its scene IDs; a time, copy or order change updates the contract and revision and names the shifted scenes and frames, while a view change does not ([presentation and interaction](../pipeline-core/references/presentation-and-interaction.md#storyboard-and-motion)).
 
 Use only fields that help the next decision. A useful sequence package can

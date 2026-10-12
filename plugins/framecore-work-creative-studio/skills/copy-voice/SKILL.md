@@ -82,6 +82,8 @@ For teacher-facing lesson content, worksheets, quizzes, games, explanations, ans
 
 ## Decision Rules
 
+- For hooks, retention, CTAs by audience temperature, teaching formats and scripts written as production beats, use the shared [script and campaign patterns](../pipeline-core/references/script-and-campaign-patterns.md).
+
 - If copy contains public facts, statistics, certifications, pricing, or legal
   claims, require an evidence check before final delivery.
 - If the user asks for many variants, make a compact matrix instead of a long
