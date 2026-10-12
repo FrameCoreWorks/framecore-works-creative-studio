@@ -27,6 +27,8 @@ Based on a full audit of package 1.54.0 on 2026-10-10: six independent read-only
 | 5.5 | mascot and stylized character reference with a character sheet; SVG wordmark route (outlined paths, the font's kerning and Polish letterforms); brand guide PDF from the brand kit | 1.64.0 |
 | 3.1, 3.2 open items | deferred: device shadow and depth, footage underlay, a richer logo sting; the scene kinds, styles and templates above cover the commercial cases first | |
 
+Closed on 2026-10-12 by owner decision: the plan is complete and Studio is in maintenance mode ([AGENTS.md](../AGENTS.md#maintenance-mode-owner-decision-2026-10-12)). The deferred items are taken up only for a trigger named there: a defect seen in use or in a host evaluation, a host or model change, or a stale dated fact.
+
 ## Diagnosis
 
 | Theme | Finding | Evidence |

@@ -1737,3 +1737,23 @@ Cross-host state:
 - GitHub: pending until the push is read back
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261012-02
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261012-02-maintenance-mode`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `4d910be` (main, package 1.66.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository only)
+- Package version: 1.66.0 (unchanged)
+- Scope: owner decision 2026-10-12: Studio is a complete working tool and development moves to maintenance mode. AGENTS.md gains the rule (changes only for a defect seen in use or in a host evaluation, a host or model change, or a stale dated fact; the trigger named and shown before and after; the smallest fix in the text the model reads; creative improvements teach rather than add ready-made ideas, from the owner's decision of 2026-10-11). The October improvement plan is marked closed, its deferred items under the same rule
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh --fast`: PASS
+
+Cross-host state:
+
+- GitHub: pending until the push is read back
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

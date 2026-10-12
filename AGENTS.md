@@ -26,7 +26,17 @@ Make focused edits and preserve the user's changes. Run the canonical `node plug
 
 ## Owner product decisions (2026-10-10)
 
-Studio is a general product for any user, not a personal tool: never personalize defaults to one person's rates, tools, clients or teaching context; anything user-specific (rates, VAT status, preferred generators, brand kits) is an input the user supplies at run time. Headless host-evaluation runs use the Claude plan's usage, not separate billing (owner decision 2026-10-11): run them without asking, at most 25 cases per full pass and 5 per release-gate subset, and record cases, tokens and time with every run; a dollar figure from Claude Code is an API-price equivalent, not a cost. The improvement plan in `docs/improvement-plan-2026-10.md` is worked in phase order 0 to 5.
+Studio is a general product for any user, not a personal tool: never personalize defaults to one person's rates, tools, clients or teaching context; anything user-specific (rates, VAT status, preferred generators, brand kits) is an input the user supplies at run time. Headless host-evaluation runs use the Claude plan's usage, not separate billing (owner decision 2026-10-11): run them without asking, at most 25 cases per full pass and 5 per release-gate subset, and record cases, tokens and time with every run; a dollar figure from Claude Code is an API-price equivalent, not a cost. The improvement plan in `docs/improvement-plan-2026-10.md` (phases 0 to 5) was completed on 2026-10-11 and closed by the owner on 2026-10-12; its deferred items follow maintenance mode.
+
+## Maintenance mode (owner decision 2026-10-12)
+
+Studio is a complete working tool, and development is in maintenance mode: do not expand or improve it for its own sake. Change the shared package, or add a skill, reference, template, style, scenario or evaluation case, only for a concrete trigger:
+
+- a defect seen in real use (the owner's or a user's report) or in a host evaluation;
+- a host, model or generator change that breaks or alters behavior;
+- a dated fact that has gone stale (generator maps, dialect cards, platform specifications).
+
+Name the trigger in the ledger entry and the commit, and show that case before and after the change. Make the smallest fix in the text the model actually reads (the owning `SKILL.md`, which single-turn runs load) rather than a new file; every package path is permanent. Creative improvements teach how to build an idea from the brief; they never add ready-made ideas, scenarios or category lists (owner decision 2026-10-11). Studio is a base for work with a person who chooses and directs; do not present it as replacing that judgment. An idea without a trigger goes to the owner as a one-line note, not as work. Repository maintenance (CI, release scripts, records) follows the same rule.
 
 ## Development provenance
 
