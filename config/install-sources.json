@@ -2878,8 +2878,8 @@
     },
     {
       "path": "skills/delivery-documentation/references/print-ready-pdf.md",
-      "bytes": 15116,
-      "sha256": "3e39881359b1f5289c4d6d98eaf091ed5c31c25432d905f723d4a8adf2a0f18e"
+      "bytes": 17417,
+      "sha256": "56970e6c993087c5b85b7c625e36dabbc92c6c546486fd6cc974d0a39080eb35"
     },
     {
       "path": "skills/delivery-documentation/references/production-and-delivery.md",
@@ -5083,8 +5083,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/README.md",
-      "bytes": 6520,
-      "sha256": "6d5dbac6d1d3859301fa977c3c5060889485e5f19ab4f407c0ca559ab07dbace"
+      "bytes": 6692,
+      "sha256": "2579b9e8460198aee3b72286b51a3980fd7b3e9e9bff9501dc158b82cba613f7"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/compose.py",
@@ -5098,8 +5098,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/print_pdf.py",
-      "bytes": 21434,
-      "sha256": "3f441134c178bda39cd26746ea81a221fdb92e17e5592003274c728410f21670"
+      "bytes": 29546,
+      "sha256": "8cba5d1d8eed77eb0c1143fc1ec039ac3178b5e947f3da14d07cb88e777641bb"
     },
     {
       "path": "skills/static-graphic-design-creator/references/exact-copy-compositing.md",
@@ -5913,8 +5913,8 @@
     },
     {
       "path": "tests/print_pdf_test.py",
-      "bytes": 6994,
-      "sha256": "e66bafdba30818261d4525792f8e36d7e80c259a98abce2def22abc41a29634f"
+      "bytes": 9212,
+      "sha256": "5a0ccfe36d1da853e3d3c9341f10332dc8c7fbb4532713e27fd12282fd146dac"
     },
     {
       "path": "tests/prompt_pack_test.py",

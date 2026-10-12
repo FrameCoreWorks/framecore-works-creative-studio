@@ -65,6 +65,22 @@ PDF/X is an ISO family of PDF subsets for print exchange. All parts require embe
 
 `print_pdf.py check` covers points 1 to 7 (the safe margin needs the eye or a render), `print_pdf.py compare` covers point 8, point 9 needs reading against the source, and point 10 is not a technical question.
 
+## Choose the route that makes the PDF
+
+| Route | Good for | Colour and text | After it |
+| --- | --- | --- | --- |
+| [Static compositor](../../static-graphic-design-creator/assets/static-render/README.md) (`compose.py`) | single-page graphics with exact copy over a generated, photographic or flat background | CMYK raster with `--icc`; text rasterised at the print resolution | `finish`, `check` |
+| ReportLab (Python) | business cards, leaflets, price lists, multi-page documents with small type | native CMYK and named spot colours, TrueType fonts embedded, vector text | `finish`, `check` |
+| HTML and CSS printed by Chromium (Playwright `page.pdf`) | text-heavy multi-page documents, brand guides | RGB only, fonts embedded, vector text | `finish`, `check`; tell the printer it is RGB or convert with a colour-managed tool |
+| DTP application (Scribus, Affinity Publisher, InDesign) | tight printer specifications, certified PDF/X | the printer's profile and PDF/X preset | the application's preflight, `check` |
+| Image or layout generator export | concepts; a final only after checks | often RGB, outlined text, transparency, C2PA attachments, missing boxes | `check`, `compare` per export, `blocks`, `remove` and `move` for small fixes |
+
+Whatever the route, the page is the trim plus the bleed on every side (A5 with 3 mm: 154 × 216 mm, 436.5 × 612.3 pt), backgrounds run to the page edge and content is placed in trim coordinates offset by the bleed.
+
+- ReportLab: `canvas.Canvas(path, pagesize=(154 * mm, 216 * mm))`; colours with `setFillColorCMYK(c, m, y, k)` (0 to 1) or `CMYKColorSep(..., spotName=...)` for an ordered spot colour; fonts registered with `pdfmetrics.registerFont(TTFont(name, file))` are embedded as subsets; draw crop marks only when asked, in a slug outside the bleed.
+- Chromium: `@page { size: 154mm 216mm; margin: 0 }` with `page.pdf(print_background=True, prefer_css_page_size=True)` in Python Playwright (`printBackground`, `preferCSSPageSize` in Node); web fonts must be loaded before printing; the output stays RGB.
+- The bundled compositor and ReportLab are the routes Studio can run where Python is available; a DTP application is a person's tool.
+
 ## Studio's route
 
 1. Compose: the [static compositor](../../static-graphic-design-creator/assets/static-render/README.md) writes the print PDF at its exact size with bleed and optional crop marks; `--icc` with the printer's profile converts it to CMYK. Its output is a raster page: text is rasterised at the print resolution, so no fonts need embedding, but very small type (about 6 pt and below) is sharper from a vector route.
@@ -80,7 +96,7 @@ For vector print files (business cards with small type, text-heavy leaflets, mul
 
 - An image or layout generator may change layout, colour and copy between exports even when asked to "only fix X". Compare every new export with the previous one (`compare`), then walk the list of intended changes, not only what you happened to notice.
 - Judge colour from the CMYK values in the file, not from an RGB preview.
-- When no editable source exists (an outlined PDF from a generator), small fixes can be made at the PDF operator level: map the blocks (start, end, operator, bounding box after applying the CTM with the q/Q stack; a page is often one form XObject with thousands of path operators); to remove an element cut only its path and painting operators and keep state operators (`k`, `K`, `w`, `i`) the next elements rely on; to move a block wrap it in a `cm` translation and its inverse, allowing for the form's own scale (often 0.1, which makes a naive shift ten times wrong); save with pikepdf (`compress_streams=True`), never by compressing raw streams by hand; compare the renders before and after, and accept only changes inside the intended area. Operator indices are valid for one file only and must be re-mapped for each version. Studio bundles no tool for this; test any script on a file whose result is known first, where a no-op edit must reproduce the render exactly.
+- When no editable source exists (an outlined PDF from a generator), small fixes can be made at the PDF operator level: map the blocks (start, end, operator, bounding box after applying the CTM with the q/Q stack; a page is often one form XObject with thousands of path operators); to remove an element cut only its path and painting operators and keep state operators (`k`, `K`, `w`, `i`) the next elements rely on; to move a block wrap it in a `cm` translation and its inverse, allowing for the form's own scale (often 0.1, which makes a naive shift ten times wrong); save with pikepdf (`compress_streams=True`), never by compressing raw streams by hand; compare the renders before and after, and accept only changes inside the intended area. Operator indices are valid for one file only and must be re-mapped for each version. `print_pdf.py blocks` maps the blocks (filter with `--region`), `remove` and `move` (shift in mm, right and down) apply this method; before trusting them on a new kind of file, a zero move must reproduce the render exactly (`compare` returns SAME).
 - Do not use operator edits for text that must stay editable or for larger redesigns; those need the source (AI, SVG, InDesign, HTML).
 
 ## Versions and handoff

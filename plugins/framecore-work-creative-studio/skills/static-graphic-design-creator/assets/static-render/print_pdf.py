@@ -6,6 +6,9 @@
         --condition "PSO Coated v3 (FOGRA51)" --out poster-print.pdf
     python3 print_pdf.py check poster-print.pdf --bleed-mm 3 --min-ppi 300 --max-tac 300 --require cmyk
     python3 print_pdf.py compare poster-v02.pdf poster-v03.pdf --region 10,20,90,60
+    python3 print_pdf.py blocks poster.pdf --page 1 --region 10,20,90,60
+    python3 print_pdf.py remove poster.pdf --page 1 --stream Fm0 --blocks 12,13 --out poster-v04.pdf
+    python3 print_pdf.py move poster.pdf --page 1 --stream Fm0 --blocks 14 --dx-mm 0 --dy-mm 3 --out poster-v04.pdf
 
 `finish` centres a TrimBox (the finished size) and a BleedBox (trim plus bleed) on each page, so
 imposition and preflight read the sizes from the file, and with --icc embeds the printer's profile
@@ -24,6 +27,16 @@ are not inspected.
 
 `compare` renders both files with pdftoppm (poppler) and reports per page the share and the box of
 changed pixels, in mm from the top-left of the page; changes outside --region exit 1.
+
+`blocks`, `remove` and `move` correct vector artwork when no editable source exists (for example an
+outlined PDF from a generator). `blocks` maps every painted path in the page and in each form
+XObject it draws (stream, block number, operator range, paint operator, colour, box in mm from the
+top-left). `remove` deletes only the path and painting operators of the named blocks and keeps
+state operators (colour, line width, flatness) that later blocks rely on. `move` wraps each block
+in a translation and its inverse, converted into the stream's own scale (a form drawn at 0.1 needs
+a ten times larger local shift). Both save with compressed streams. Block numbers hold for one
+file only: map again after every edit, and run `compare` before and after; only the intended area
+may change. Text that must stay editable and larger redesigns need the source file instead.
 
 Needs pikepdf (pip install pikepdf, MPL-2.0); numpy and Pillow for total ink and comparison.
 """
@@ -370,6 +383,129 @@ def compare(args):
     return 1 if outside else 0
 
 
+PATH_OPS = ('m', 'l', 'c', 'v', 'y', 'h', 're')
+PAINT_OPS = ('S', 's', 'f', 'F', 'f*', 'B', 'B*', 'b', 'b*', 'n')
+COLOUR_OPS = ('k', 'K', 'rg', 'RG', 'g', 'G', 'sc', 'scn', 'SC', 'SCN')
+
+
+def drawing_streams(page):
+    """The page and every form XObject it draws, as key -> [owner, ctm at first use, uses]."""
+    found = {}
+
+    def visit(owner, resources, ctm, key, chain):
+        found.setdefault(key, [owner, ctm, 0])[2] += 1
+        state, stack = list(ctm), []
+        for operands, operator in pikepdf.parse_content_stream(owner):
+            op = str(operator)
+            if op == 'q':
+                stack.append(state)
+            elif op == 'Q' and stack:
+                state = stack.pop()
+            elif op == 'cm':
+                state = multiply([float(v) for v in operands], state)
+            elif op == 'Do':
+                name = str(operands[0])
+                obj = resources.get('/XObject', {}).get(name)
+                if obj is not None and obj.get('/Subtype') == '/Form' and obj.objgen not in chain and len(chain) < 16:
+                    matrix = [float(v) for v in obj.get('/Matrix', IDENTITY)]
+                    child = name.lstrip('/') if key == 'page' else key + '/' + name.lstrip('/')
+                    visit(obj, obj.get('/Resources', resources), multiply(matrix, state), child, chain + (obj.objgen,))
+
+    visit(page, page.resources, list(IDENTITY), 'page', ())
+    return found
+
+
+def map_blocks(owner, ctm, media):
+    """Painted paths in one stream: number, operator range, paint, colour, box in mm from the page's top-left."""
+    blocks, stack, state = [], [], {'ctm': list(ctm), 'fill': None, 'stroke': None}
+    start, points, clip = None, [], False
+    for index, (operands, operator) in enumerate(pikepdf.parse_content_stream(owner)):
+        op = str(operator)
+        if op == 'q':
+            stack.append(dict(state))
+        elif op == 'Q' and stack:
+            state = stack.pop()
+        elif op == 'cm':
+            state['ctm'] = multiply([float(v) for v in operands], state['ctm'])
+        elif op in COLOUR_OPS:
+            state['fill' if op[0].islower() else 'stroke'] = ' '.join(str(v) for v in operands) + ' ' + op
+        elif op in PATH_OPS:
+            start = index if start is None else start
+            values = [float(v) for v in operands]
+            if op == 're':
+                x, y, w, h = values
+                values = [x, y, x + w, y, x + w, y + h, x, y + h]
+            a, b, c, d, e, f = state['ctm']
+            points += [(a * x + c * y + e, b * x + d * y + f) for x, y in zip(values[::2], values[1::2])]
+        elif op in ('W', 'W*'):
+            clip = True
+        elif op in PAINT_OPS and start is not None:
+            entry = {'block': len(blocks), 'ops': [start, index], 'paint': 'clip' if clip else op}
+            if points:
+                xs, ys = [p[0] for p in points], [p[1] for p in points]
+                entry['box_mm'] = [mm(min(xs) - media[0]), mm(media[3] - max(ys)), mm(max(xs) - media[0]), mm(media[3] - min(ys))]
+            entry['colour'] = state['stroke'] if op in ('S', 's') else state['fill']
+            entry['matrix'] = [round(v, 6) for v in state['ctm'][:4]]  # local scale where the block is drawn
+            blocks.append(entry)
+            start, points, clip = None, [], False
+    return blocks
+
+
+def blocks(args):
+    pdf = pikepdf.open(args.pdf)
+    page = pdf.pages[args.page - 1]
+    media = [float(v) for v in page.mediabox]
+    region = [float(v) for v in args.region.split(',')] if args.region else None
+    report = {'pdf': args.pdf, 'page': args.page, 'streams': []}
+    for key, (owner, ctm, uses) in drawing_streams(page).items():
+        found = map_blocks(owner, ctm, media)
+        if region:
+            found = [b for b in found if 'box_mm' in b and b['box_mm'][0] < region[2] and b['box_mm'][2] > region[0]
+                     and b['box_mm'][1] < region[3] and b['box_mm'][3] > region[1]]
+        report['streams'].append({'stream': key, 'uses': uses, 'blocks': found})
+    print(json.dumps(report, indent=1))
+    return 0
+
+
+def edit(args):
+    pdf = pikepdf.open(args.pdf)
+    page = pdf.pages[args.page - 1]
+    streams = drawing_streams(page)
+    if args.stream not in streams:
+        sys.exit(f'no stream {args.stream} on page {args.page}; streams: {", ".join(streams)}')
+    owner, ctm, uses = streams[args.stream]
+    found = map_blocks(owner, ctm, [float(v) for v in page.mediabox])
+    wanted = sorted({int(v) for v in args.blocks.split(',')}, reverse=True)
+    if any(n >= len(found) for n in wanted):
+        sys.exit(f'stream {args.stream} has {len(found)} blocks')
+    if any(found[n]['paint'] == 'clip' for n in wanted):
+        sys.exit('a clipping path is not an element; removing or moving it changes everything it clips')
+    instructions = list(pikepdf.parse_content_stream(owner))
+    for n in wanted:
+        first, last = found[n]['ops']
+        if args.command == 'remove':
+            instructions[first:last + 1] = [i for i in instructions[first:last + 1]
+                                            if str(i.operator) not in PATH_OPS + PAINT_OPS + ('W', 'W*')]
+        else:
+            a, b, c, d = found[n]['matrix']
+            dx, dy = args.dx_mm * PT_PER_MM, -args.dy_mm * PT_PER_MM
+            det = a * d - b * c
+            u, v = (d * dx - c * dy) / det, (a * dy - b * dx) / det
+            shift = lambda x, y: pikepdf.ContentStreamInstruction([1, 0, 0, 1, x, y], pikepdf.Operator('cm'))
+            instructions[last + 1:last + 1] = [shift(-u, -v)]
+            instructions[first:first] = [shift(u, v)]
+    data = pikepdf.unparse_content_stream(instructions)
+    if args.stream == 'page':
+        page.obj.Contents = pdf.make_stream(data)
+    else:
+        owner.write(data)
+    pdf.save(args.out, compress_streams=True)
+    print(f'{args.out}: {args.command} blocks {",".join(str(n) for n in sorted(wanted))} in {args.stream} on page {args.page}'
+          + (f'; the form is drawn {uses} times and every use changes' if uses > 1 else '')
+          + '; map the blocks again before the next edit and compare the renders')
+    return 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = p.add_subparsers(dest='command', required=True)
@@ -385,8 +521,19 @@ def main(argv=None):
     d.add_argument('before'); d.add_argument('after'); d.add_argument('--dpi', type=int, default=100)
     d.add_argument('--region', help='allowed change box in mm from the top-left of the page: x0,y0,x1,y1')
     d.add_argument('--tolerance', type=int, default=8, help='per-pixel difference ignored (0 to 255)')
+    b = sub.add_parser('blocks')
+    b.add_argument('pdf'); b.add_argument('--page', type=int, default=1)
+    b.add_argument('--region', help='only blocks touching this box, mm from the top-left: x0,y0,x1,y1')
+    for name in ('remove', 'move'):
+        e = sub.add_parser(name)
+        e.add_argument('pdf'); e.add_argument('--page', type=int, default=1)
+        e.add_argument('--stream', default='page', help='page, or a form name from blocks (e.g. Fm0)')
+        e.add_argument('--blocks', required=True, help='block numbers from blocks, e.g. 3,4')
+        e.add_argument('--out', required=True)
+        if name == 'move':
+            e.add_argument('--dx-mm', type=float, default=0.0, help='to the right'); e.add_argument('--dy-mm', type=float, default=0.0, help='down')
     args = p.parse_args(argv)
-    return {'finish': finish, 'check': check, 'compare': compare}[args.command](args)
+    return {'finish': finish, 'check': check, 'compare': compare, 'blocks': blocks, 'remove': edit, 'move': edit}[args.command](args)
 
 
 if __name__ == '__main__':

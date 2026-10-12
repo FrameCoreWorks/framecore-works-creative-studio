@@ -135,6 +135,33 @@ class PrintPdfTest(unittest.TestCase):
         code, text = run('compare', paths[0], paths[2], '--region', '50,35,75,55')
         self.assertEqual((code, json.loads(text)['verdict']), (1, 'CHANGED_OUTSIDE'))
 
+    @unittest.skipUnless(shutil.which('pdftoppm'), 'pdftoppm (poppler) is needed')
+    def test_blocks_remove_and_move_inside_a_scaled_form(self):
+        src = self.root / 'outlined.pdf'
+        with pikepdf.new() as pdf:                                    # a generator-style page: one form at 0.1 scale
+            form = pdf.make_stream(b'0 0 0 1 k 200 500 300 300 re f 0 1 1 0 k 1000 500 300 300 re f',
+                                   Type=pikepdf.Name.XObject, Subtype=pikepdf.Name.Form, BBox=[0, 0, 2835, 2835],
+                                   Matrix=[0.1, 0, 0, 0.1, 0, 0], Resources=pikepdf.Dictionary())
+            page = pdf.add_blank_page(page_size=(100 * 72 / 25.4, 100 * 72 / 25.4))
+            page.Resources = pikepdf.Dictionary(XObject=pikepdf.Dictionary(Fm0=form))
+            page.Contents = pdf.make_stream(b'q /Fm0 Do Q')
+            pdf.save(src)
+        stream = json.loads(run('blocks', str(src))[1])['streams'][1]
+        self.assertEqual(stream['stream'], 'Fm0')
+        self.assertEqual([b['box_mm'] for b in stream['blocks']], [[7.06, 71.78, 17.64, 82.36], [35.28, 71.78, 45.86, 82.36]])
+        same, removed, moved = (self.root / n for n in ('same.pdf', 'removed.pdf', 'moved.pdf'))
+        run('move', str(src), '--stream', 'Fm0', '--blocks', '1', '--out', str(same))
+        self.assertEqual(json.loads(run('compare', str(src), str(same))[1])['verdict'], 'SAME')
+        run('remove', str(src), '--stream', 'Fm0', '--blocks', '0', '--out', str(removed))
+        self.assertEqual(json.loads(run('blocks', str(removed))[1])['streams'][1]['blocks'][0]['colour'], '0 1 1 0 k')
+        self.assertEqual(run('compare', str(src), str(removed), '--region', '5,70,20,84')[0], 0)
+        run('move', str(src), '--stream', 'Fm0', '--blocks', '1', '--dx-mm', '10', '--dy-mm', '-5', '--out', str(moved))
+        box = json.loads(run('blocks', str(moved))[1])['streams'][1]['blocks'][1]['box_mm']
+        self.assertEqual(box, [45.28, 66.78, 55.86, 77.36])
+        self.assertEqual(run('compare', str(src), str(moved), '--region', '33,64,58,85')[0], 0)
+        with self.assertRaises(SystemExit):
+            run('remove', str(src), '--stream', 'Fm9', '--blocks', '0', '--out', str(removed))
+
 
 if __name__ == '__main__':
     unittest.main()
