@@ -25,6 +25,6 @@ Checked 2026-10-10; provisional. The machine-readable list is [presets.json](../
 | Business card | 90 × 50 (Polish), 85 × 55 (EU) | |
 | Roll-up | 850 × 2000 | 5 mm or more bleed and a bottom zone hidden in the stand; ask the shop |
 
-Defaults: 3 mm bleed on each side, 300 ppi effective at the trim size with bleed, text at least 5 mm inside the trim. Colour: Studio's files are RGB unless the user supplies the print shop's ICC profile (coated paper in Poland is usually FOGRA39 or PSO Coated v3, uncoated PSO Uncoated v3). Say which in the delivery. A print-ready claim needs the shop's own specification; these defaults are a starting point.
+Defaults: 3 mm bleed on each side, 300 ppi effective at the trim size with bleed, text at least 5 mm inside the trim. Colour: Studio's files are RGB unless the user supplies the print shop's ICC profile (coated paper in Poland is usually FOGRA39 or PSO Coated v3, uncoated PSO Uncoated v3). Say which in the delivery. A print-ready claim needs the shop's own specification; these defaults are a starting point. Questions for the printer, PDF/X, total ink, black, fonts, the preflight and the tools to install are in [print-ready PDF](../../delivery-documentation/references/print-ready-pdf.md).
 
 In ordinary-language intake, offer the familiar names (a whole printer sheet A4, half a sheet A5, a larger A3; a normal post or a phone story) and keep millimetres and pixels for the specification.

@@ -43,7 +43,7 @@ When editable typography, final font files, QR/barcodes, dielines, exact separat
 7. unresolved bleed, safe zones, stock, finishing and printer requirements;
 8. proofing and acceptance responsibilities.
 
-Unknown is preferable to a guessed bleed/profile. Do not invent universal 3 mm bleed, CMYK settings or a 300-DPI claim for all work. Resolve them with the real production route.
+Unknown is preferable to a guessed bleed/profile; [print-ready PDF](print-ready-pdf.md) lists what to ask the printer and how to check the file. Do not invent universal 3 mm bleed, CMYK settings or a 300-DPI claim for all work. Resolve them with the real production route.
 
 Effective PPI equals pixel dimension divided by physical length in inches on each axis. A metadata tag does not add pixels. Enlarging a source can change apparent sharpness without establishing true detail.
 

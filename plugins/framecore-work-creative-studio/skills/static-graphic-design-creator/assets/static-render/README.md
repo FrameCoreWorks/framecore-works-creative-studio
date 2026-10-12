@@ -49,6 +49,8 @@ Needs Python 3 and Pillow. Fonts come from [the bundled set](../../../pipeline-c
 
 The PDF is an RGB raster at the print resolution with the bleed rounded up to whole pixels, plus a 10 mm slug with crop marks when asked. Say so to the print shop. `--icc profile.icc` converts it to CMYK with the profile the print shop names (often FOGRA39 or PSO Coated v3 for coated paper in Poland); without it, the shop converts. Keep text at least 5 mm inside the trim. The PNG and JPG are the trim size without bleed.
 
+`print_pdf.py` (needs `pip install pikepdf`) finishes and checks the PDF for the printer: `finish file.pdf --trim-mm 148x210 --bleed-mm 3 --icc printer.icc --condition "PSO Coated v3 (FOGRA51)" --out file-print.pdf` sets the TrimBox and BleedBox and embeds the profile as the output intent without changing colours; `check file-print.pdf --require cmyk` reports bleed, effective resolution, colour spaces, total ink, fonts and the output intent and exits 1 with REVISE. It is a preflight, not PDF/X validation; see [print-ready PDF](../../../delivery-documentation/references/print-ready-pdf.md).
+
 ## Hosts
 
 Runs wherever Studio can execute Python with Pillow: ChatGPT and ChatGPT Work with code execution, Codex, Claude Code and the Claude apps with code execution. Without code execution, deliver the spec and the background prompt and say the graphic was not composed.

@@ -2828,8 +2828,8 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 6262,
-      "sha256": "bf9d12067de9a865a4d2b5b391053f21dcc4258c02e2ebab12f36bcf479430c8"
+      "bytes": 6546,
+      "sha256": "5e46f89bd55b83690cfa69c38581bb196f11eaf9a26837f6bde6f32fec86e801"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
@@ -2877,9 +2877,14 @@
       "sha256": "1e84f38c15dd46e0d0ea17774bef07f5d45c8ae24323162ce970f8e514ab6e23"
     },
     {
+      "path": "skills/delivery-documentation/references/print-ready-pdf.md",
+      "bytes": 9192,
+      "sha256": "eb1e285c452a1eac945fe9f1a3f5c209e7b417bd296f4ca2e3d2dd5e2aaee412"
+    },
+    {
       "path": "skills/delivery-documentation/references/production-and-delivery.md",
-      "bytes": 9566,
-      "sha256": "c89198edc13176e26de6707494413af4922759d8488b0d396bf7e0d1e877fa32"
+      "bytes": 9661,
+      "sha256": "758242bcc5df270e734e1a169f212800756e7fd7d7074f6a97f54a0b2a74b67e"
     },
     {
       "path": "skills/delivery-documentation/scripts/asset_manifest.py",
@@ -4003,8 +4008,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 11220,
-      "sha256": "b942edc2afd4b440ad3da087a595ed6cd3b477d3ed34d0f78a295e02f1b21d93"
+      "bytes": 11669,
+      "sha256": "6d2e5386dfd38bbf15c8ee31ab94795bc50d7f45600f4ad83c98561388928c23"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
@@ -4018,8 +4023,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
-      "bytes": 10428,
-      "sha256": "5e765afc663e8bd6f620864c05284d76e2b28c9678d9b060ebddbdab2ba284d2"
+      "bytes": 10481,
+      "sha256": "9ce587eb9a783b84b4ce5a03e30e8d77ae9896381aa033693e23ec853ef2e826"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
@@ -4158,8 +4163,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-compendium.md",
-      "bytes": 12982,
-      "sha256": "ab9a9b33867a7c65b9d5ab9d0b10f18e1a8d7519e83a9c2054ecf167f31f0410"
+      "bytes": 13123,
+      "sha256": "efee87e38d921d5134205416618bf0a5a7c3f6903b9746d35c518b0802d81ae8"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-contract-json.md",
@@ -5078,8 +5083,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/README.md",
-      "bytes": 5630,
-      "sha256": "fa402ee3ef0df32fd1c4ab2db7e1ac8d65c66a2fceba7aa5069dbc98c0aae328"
+      "bytes": 6228,
+      "sha256": "37d4a3e93df89cccb12870d2ab7cbaacbad91716c10a3c3ff71593638c59c91b"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/compose.py",
@@ -5092,14 +5097,19 @@
       "sha256": "f912f9632dc6113b2f44d8a3c39ed31290e77bad7d92b636d546d5494757b956"
     },
     {
+      "path": "skills/static-graphic-design-creator/assets/static-render/print_pdf.py",
+      "bytes": 9554,
+      "sha256": "d7f030ee34694b7789ee2e2c30aa3be66cec0e026e7d8ee84d24508bcb485487"
+    },
+    {
       "path": "skills/static-graphic-design-creator/references/exact-copy-compositing.md",
       "bytes": 3702,
       "sha256": "a42c64d332eb2bb3dbbb423ce337e784e41dd2e7bd1405e4393d2285f3aeae3c"
     },
     {
       "path": "skills/static-graphic-design-creator/references/format-and-print-presets.md",
-      "bytes": 2354,
-      "sha256": "a309402ec7c8cf5cfe8b1d7b1da9a316ea47b727f2bb11aa216d4cb45662edf4"
+      "bytes": 2538,
+      "sha256": "882e644e8a8f15351ff228b9bd9078c31386807cb5a459fbc8499e116ceec513"
     },
     {
       "path": "skills/static-graphic-design-creator/scripts/svg_wordmark.py",
@@ -5900,6 +5910,11 @@
       "path": "tests/presentation.test.mjs",
       "bytes": 5650,
       "sha256": "a2327dae609a143402d44f54cf87b9330f51b3db507a6cbe581204ec162e8352"
+    },
+    {
+      "path": "tests/print_pdf_test.py",
+      "bytes": 4249,
+      "sha256": "45a89155d87e087859c212e24552569b8485d4953ae8bc8b82502c351212a4eb"
     },
     {
       "path": "tests/prompt_pack_test.py",

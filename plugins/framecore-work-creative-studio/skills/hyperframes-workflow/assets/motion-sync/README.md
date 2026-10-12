@@ -67,11 +67,12 @@ During package preparation, in a Linux development container, the example captio
 [`lyric_timing.py`](lyric_timing.py) gives every word and line of a song its sung time, with the user's lyrics as the truth. A recogniser says when words are sung; the tool aligns its words to the lyric words (a misheard word keeps the correct spelling, Polish letters included), interpolates words it did not hear between their neighbours, finds the beat grid with [`beats.py`](beats.py) and gives each line a board cut one frame before the line, moved to the nearest half-beat when that is within `--snap-ms` (80 ms). Word times stay on the sung syllables for highlights. It writes JSON (lines, words, cuts in seconds and frames, tempo, the share of matched words and the lines to check by ear), LRC (`--lrc`, `--lrc-words` with word stamps) and SRT.
 
 ```sh
-pip install stable-ts                      # recommended recogniser for songs; whisperx or faster-whisper also work
-python3 -m demucs --two-stems vocals song.mp3   # optional: separate the vocals of a dense mix first (pip install demucs)
+pip install stable-ts                      # recogniser for songs (MIT, archived 2026-05-30); name the model, e.g. Whisper large-v3 (Apache-2.0)
 python3 lyric_timing.py song.mp3 lyrics.txt --out song.timing.json --lrc-words song.lrc --srt song.srt
 python3 lyric_timing.py song.mp3 lyrics.txt --words words.json  # times from any other tool: [{"text", "start", "end"}]
 ```
+
+For a dense mix, a vocal stem helps: use one the user supplies or a separator whose model licence allows the job. Demucs code is MIT, but its pretrained weights are for research use only (maintainer, issue 327), so it is not a default for client work. With whisperx the tool currently aligns its own transcription, not the supplied lyrics, then maps the lyrics onto it; stable-ts aligns the supplied lyrics directly. Licence verdicts and the planned changes are in `docs/research/motion-2026-10/chatgpt-delta-findings.md` in the repository.
 
 The user supplies the track and the lyrics and confirms the right to use them. Lines matched below half are listed for a check by ear. Recognisers are not bundled: they download models of several hundred megabytes. During package preparation on 2026-10-12 the alignment, interpolation, beat detection on a click track, snapping and exports passed `tests/lyric_timing_test.py`; no recogniser was run.
 

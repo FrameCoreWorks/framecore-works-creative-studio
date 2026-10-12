@@ -14,8 +14,9 @@ Recognisers, first one found is used unless --words is given (none ships with St
   stable-ts (pip install stable-ts)        aligns the lyrics to the audio directly; best for songs
   whisperx (pip install whisperx)          transcription with phoneme-level word alignment
   faster-whisper (pip install faster-whisper)  word timestamps, then the alignment below
-Separating the vocals first (pip install demucs; python3 -m demucs --two-stems vocals song.mp3)
-helps on dense mixes. Beats come from beats.py next to this file (needs ffmpeg).
+A vocal stem helps on dense mixes; Demucs pretrained weights are for research use only, so use a stem
+the user supplies or a separator whose model licence allows the job. Beats come from beats.py next to
+this file (needs ffmpeg).
 """
 import argparse
 import difflib
