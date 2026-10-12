@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-12",
+  "package_version": "1.66.0",
+  "source": {
+    "commit": "3144dd5e8077ad650eb37f90fdf34df1a884553e",
+    "package_uncommitted_changes": true,
+    "note": "uncommitted 1.66.1 candidate: the handoff fixes of the full check of 2026-10-12"
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 6787,
+      "output": 7812,
+      "cache_read": 152960,
+      "cache_write": 42815
+    },
+    "seconds": 46.2
+  },
+  "cases": [
+    {
+      "id": "X03",
+      "title": "Handoff: after the storyboard is approved, the motion contract follows it without re-asking",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6787,
+        "output": 7812,
+        "cache_read": 152960,
+        "cache_write": 42815
+      },
+      "seconds": 46.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 z napisem „Nurt” i hasłem „Spływy od maja”. Bez logo, bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować tego MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania plików (Read, Grep, Glob, Skill). Powłoka (Bash) jest wyłączona, a zapisywać plików też nie mogę. Bez kodu i FFmpeg nie powstanie żaden plik wideo, więc nic nie wyrenderowałem ani nie obejrzałem.\n\nPoniżej plan do zatwierdzenia. Gdy uruchomię powłokę, od razu go zbuduję.\n\n**Propozycja: „Nurt”, 1080×1920, 30 fps, 6 s (180 klatek), bez dźwięku i bez logo**\n\nPomysł: słowo „Nurt” płynie jak woda. Litery przesuwają się poziomo falą, a pod nimi przesuwa się linia nurtu. To odpowiada nazwie i spływom, a nie jest typową falą ani łódką.\n\n| Czas | Klatki | Co się dzieje |\n|---|---|---|\n| 0,0–1,0 s | 0–30 | Ciemnozielono-granatowe tło. Poziome, cienkie linie nurtu wolno płyną przez kadr. |\n| 1,0–2,6 s | 30–78 | „Nurt” wpływa literami jedna po drugiej, od rozmycia i przesunięcia do ostrości. Pozycja: środek, nieco powyżej połowy wysokości. |\n| 2,6–3,6 s | 78–108 | Hasło „Spływy od maja” pojawia się pod słowem, a cienka linia rysuje się pod nim. |\n| 3,6–5,4 s | 108–162 | Spokojne wyświetlenie obu napisów. Tło płynie dalej, a tekst jest nieruchomy i czytelny. |\n| 5,4–6,0 s | 162–180 | Delikatne wygaszenie do tła, bez nowych elementów. |\n\n- **Napisy:** „Nurt” krojem bezszeryfowym, dużym i pogrubionym. „Spływy od maja” mniejszym, z poprawnymi polskimi znakami („ły”). Muszą zmieścić się w bezpiecznych marginesach pionowego formatu.\n- **Kolory:** głęboki granat i zieleń wody, napisy w ciepłej bieli, jeden jasny akcent w linii pod hasłem.\n- **Wyjście:** H.264 (yuv420p), bez ścieżki audio.\n\n**Żeby ruszyć dalej, potrzebuję jednej z dwóch rzeczy:**\n1. Włącz Bash i zapis plików. Wyrenderuję MP4, sprawdzę klatki 0 i 179 oraz granice scen i dostarczę plik razem z kontraktem ruchu.\n2. Zatwierdź plan, a przygotuję plik `.motion.json`. Otworzysz go w odtwarzaczu Studia i wyeksportujesz MP4 z przeglądarki: <https://framecoreworks.github.io/framecore-works-creative-studio/>. Tej drogi też nie sprawdziłem, bo nie mam jak zapisać pliku.\n\nCzy akceptujesz paletę i pomysł z płynącymi literami, czy wolisz coś bardziej minimalistycznego, np. sam jasny tekst na jednolitym tle?",
+          "reply_chars": 2171,
+          "reply_sha256": "34c14e73f83ca85c4e88848b86faf18a6bb4faeac250066f6089826db4735426",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Bash"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1243,
+            "output": 2137,
+            "cache_read": 40806,
+            "cache_write": 15751
+          },
+          "seconds": 21.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Zatwierdzam storyboard. Działaj dalej.",
+          "reply": "Nadal nie mogę wyrenderować MP4. Bash i zapis plików są w tej sesji wyłączone, więc nic nie powstało. Mogę dać tylko kontrakt ruchu, który zatwierdziłeś. Wczytaj go w odtwarzaczu Studia i wyeksportuj MP4 z przeglądarki.\n\n**Jak użyć:**\n1. Zapisz poniższy JSON jako `nurt-r1.motion.json`.\n2. Otwórz <https://framecoreworks.github.io/framecore-works-creative-studio/>, wybierz „Open contract”, a potem wyeksportuj wideo.\n\nKontrakt jest napisany ręcznie według reguł pól. Automatyczne sprawdzenie (`check-score.mjs`) nie działało. Nie widziałem też podglądu ani eksportu, więc oba są NOT VERIFIED.\n\n```json\n{\n  \"schema_version\": 1,\n  \"id\": \"nurt-r1\",\n  \"revision\": 1,\n  \"approval\": {\"status\": \"approved\", \"revision\": 1, \"evidence\": \"Użytkownik: „Zatwierdzam storyboard. Działaj dalej.”\"},\n  \"stage\": \"build\",\n  \"goal\": \"Zapowiedź spływów od maja\",\n  \"audience\": \"Osoby szukające spływów kajakowych\",\n  \"message\": \"Spływy z Nurtem zaczynają się w maju\",\n  \"concept\": \"Słowo „Nurt” wpływa jak woda, hasło dopowiada termin, potem spokojny hold i wygaszenie\",\n  \"runtime\": {\"status\": \"proposed\", \"value\": \"motion player + eksport przeglądarkowy\"},\n  \"viewing\": \"Telefon, pionowo 9:16\",\n  \"audio\": \"Celowa cisza: brak ścieżki dźwiękowej\",\n  \"decisions\": {\n    \"confirmed\": [\"6 s\", \"1080x1920\", \"bez logo\", \"bez dźwięku\", \"napisy: Nurt / Spływy od maja\"],\n    \"proposed\": [\"paleta granat–zieleń wody, ciepła biel\"],\n    \"unknown\": []\n  },\n  \"fps\": {\"num\": 30, \"den\": 1},\n  \"totalFrames\": 180,\n  \"width\": 1080,\n  \"height\": 1920,\n  \"tokens\": {\n    \"background\": \"#0B2230\",\n    \"text\": \"#F4EFE6\",\n    \"accent\": \"#3FB9A8\",\n    \"fontFamily\": \"Inter, sans-serif\",\n    \"margin\": 0.08\n  },\n  \"motion\": {\"tempo\": \"calm\", \"entry\": 30, \"exit\": 162, \"easing\": \"ease-out\", \"transition\": \"fade\"},\n  \"copy\": {\"title\": \"Nurt\", \"tagline\": \"Spływy od maja\"},\n  \"copyStatus\": \"approved\",\n  \"assets\": [],\n  \"acceptance\": [\n    \"„Nurt” jest w pełni czytelne od klatki 78 do 162\",\n    \"„Spływy od maja” ma poprawne znaki „ły” i mieści się w marginesach\",\n    \"Brak logo i brak ścieżki audio w pliku\"\n  ],\n  \"scenes\": [\n    {\n      \"id\": \"main\",\n      \"purpose\": \"Nazwa, hasło i spokojny hold\",\n      \"kind\": \"line-reveal\",\n      \"params\": {\"lines\": [\"title\", \"tagline\"], \"sizes\": [220, 64], \"weights\": [800, 500], \"align\": \"center\", \"entry\": \"lines\"},\n      \"start\": 0,\n      \"end\": 180,\n      \"copy\": [\"title\", \"tagline\"],\n      \"holds\": [[78, 162]],\n      \"focalPoint\": \"Środek kadru, „Nurt” nad hasłem\",\n      \"entry\": \"Linie wynurzają się z masek\",\n      \"action\": \"Hasło dochodzi po „Nurt”\",\n      \"exit\": \"Wygaszenie w klatkach 162–180\",\n      \"transition\": \"fade\",\n      \"persistence\": \"Brak\",\n      \"audio\": \"Cisza\"\n    }\n  ]\n}\n```\n\n**Różnice względem zatwierdzonego storyboardu:** wbudowane typy scen nie mają animowanych linii nurtu w tle, rozmycia liter ani rysowanej linii pod hasłem. Ten kontrakt daje więc tylko wynurzanie napisów i wygaszenie na jednolitym tle. Jeśli ma być pełny pomysł z płynącymi liniami, potrzebuję Basha: napiszę wtedy własny kod sceny i wyrenderuję MP4 lokalnie.\n\nWolisz uruchomić tę prostszą wersję w odtwarzaczu, czy włączysz Basha i zapis plików, żebym zrobił pełną wersję?",
+          "reply_chars": 3182,
+          "reply_sha256": "6579a12e2fe716023cb66100a1aef7803ff0265f903fd7bb6fa7404eed81f95c",
+          "skills": [],
+          "tools": [
+            "Read",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1249,
+            "output": 4521,
+            "cache_read": 110100,
+            "cache_write": 22707
+          },
+          "seconds": 25.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Spływy od maja"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 1)"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded []"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4295,
+          "output": 1154,
+          "cache_read": 2054,
+          "cache_write": 4357
+        },
+        "items": [
+          {
+            "item": "Turn 2 continues on the coded motion route from the approved storyboard (contract or its content), not a new storyboard or a video generator",
+            "verdict": "met",
+            "reason": "Turn 2 delivers a motion contract JSON built from the approved storyboard's content (scenes, timings, copy, palette, 180 frames) and routes export through the Studio motion player, not a video generator. It discloses that the contract drops the background flow lines, letter blur, and underline, so it is a reduced version of the storyboard."
+          },
+          {
+            "item": "The copy stays exact and no settled fact (logo, sound, format, length) is asked again",
+            "verdict": "met",
+            "reason": "The copy 'Nurt' and 'Spływy od maja' appears exactly in the contract. The settled facts (6 s, 1080x1920, no logo, no audio) are recorded as confirmed. The closing question asks only about the runtime route and the simpler-vs-full version, not about settled facts."
+          },
+          {
+            "item": "Without code execution it says what it cannot render and names the route that works",
+            "verdict": "met",
+            "reason": "It states that Bash and file writing are disabled, so no MP4 can be rendered or checked. It names the working route: save the JSON, open the Studio player, and export from the browser. It also marks the automated check and the preview/export as NOT VERIFIED."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ],
+  "review": "Released wording of the motion fix: PASS, read by hand. Turn 1 names the player route beside the storyboard; turn 2 gives the contract in the reply with the player link and \"Open contract\", and says plainly that the built-in scene kinds give a simpler version of the approved idea (no flowing lines), offering the full version where code can run."
+}

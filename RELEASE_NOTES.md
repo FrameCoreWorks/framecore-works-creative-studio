@@ -1,11 +1,10 @@
-# Creative Studio 1.66.0
+# Creative Studio 1.66.1
 
-Ideas built from your brief, not from a catalogue, in graphics, video and motion graphics.
+Fixes from a full check of how the skills pass work to each other.
 
-- **The obvious is named, then set aside.** Before proposing directions, Studio works out what every competitor in your category would show and tells you in one line what it skipped.
-- **Ideas with a mechanism.** Each direction says what changes and why, and comes from something true about you: how the work is done, a place, a habit, your name.
-- **Three different ideas, not three palettes.** At most one uses the category's classic look, and it is labelled as such.
-- **Motion starts with an idea.** An animation is built around a transformation invented for your brief; styles, templates and examples only help to make it.
-- **One idea per campaign.** For a poster, a reel and a logo animation together, each direction covers all three.
+- **Animations are reviewed by the motion workflow.** A finished animation built from code is checked by the workflow that made it, with its frame and craft review.
+- **One set of routes.** Every part of Studio now sends the same kind of request to the same specialist.
+- **No improvised render scripts.** In a chat without code execution, an approved animation comes back as a contract you open in the Studio player and export from your browser.
+- **The chosen direction is kept.** Once you pick a direction, later steps carry it out instead of proposing new ones.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

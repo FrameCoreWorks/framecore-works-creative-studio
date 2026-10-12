@@ -56,6 +56,8 @@
 | workflow-orchestrator | audio-production | goal, source_audio, music_sound_VO_lyrics_scope, delivery_target, evidence_note, acceptance_criteria |
 | audio-production | delivery-documentation | audio_task_pack, track_version, rights_and_source_notes, verified_assumptions, acceptance_criteria, caveats |
 
+The rows are the core role contracts, not every valid handoff: a handoff named in an owner's `SKILL.md` is also valid. When the sender lacks a field the receiver needs, pass what exists, mark the rest unknown and ask only for what blocks the next step; never invent it.
+
 `humanizer` is a supporting skill, not a permanent agent role. Its internal
 copy-polish exchange is recorded in the Copy Pack rather than added as a
 role-to-role handoff row.

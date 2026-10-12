@@ -8,7 +8,7 @@ Identify the changed asset ID and old/new revision, actual delta, dependents, pr
 
 | Change | First responsible owner | Recheck downstream |
 |---|---|---|
-| Product geometry, label, identity or garment reference | Image Prompt Architect for compilation; Commercial Visual Director if the concept/layout must change | Affected stills, boards and video continuity carriers |
+| Product geometry, label, identity or garment reference | Image Prompt Architect for compilation (Static Graphic Design Creator for a designed piece); Commercial Visual Director if the concept/layout must change | Affected stills, boards and video continuity carriers |
 | Headline, price, CTA or editorial wording | Copy Voice, with Research Evidence for consequential claims | Exact-copy prompts, layout fit, voice/caption wording where that same text is used |
 | Narrative dialogue, action or scene turn | Screenplay Story Architect | Sequence, protected dialogue windows, board labels and selected shot prompts |
 | Lyrics, VO pronunciation, arrangement or audio master | Audio Production Director | Music-video timing, lip-sync evidence, cue sheet, captions and AV delivery |
@@ -17,7 +17,7 @@ Identify the changed asset ID and old/new revision, actual delta, dependents, pr
 | Current generator operation/limit | Research Evidence, then relevant prompt owner | Only model-dependent compilation and feasibility |
 | File moved with verified unchanged content | Delivery Documentation | Locator and actual access, not automatic creative reapproval |
 
-The static critic inspects actual stills, Video Prompt Architect inspects video evidence, and Audio Production Director handles audio evidence. A route selects a responsibility; it does not assert that a separate agent or tool ran. A mixed change can have several affected artifacts but should still have one short next action.
+The static critic inspects actual stills, Video Prompt Architect inspects video evidence (the Motion Graphics Workflow a coded render with its contract), and Audio Production Director handles audio evidence. A route selects a responsibility; it does not assert that a separate agent or tool ran. A mixed change can have several affected artifacts but should still have one short next action.
 
 ## Carry a compact change packet
 

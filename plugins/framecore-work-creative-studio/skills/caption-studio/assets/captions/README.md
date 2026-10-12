@@ -38,4 +38,4 @@ During package preparation, in a Linux container with Python 3.13, Pillow 12 and
 
 ## Word timings in a motion contract
 
-Cues built from timed words (`build --words`) carry each word's start and end. `import` writes them into the contract as `captions[].words`, one `[start, end)` frame span per word, kept in order and inside the caption. With `tokens.captions.preset` set to `active-word`, the player and the Python renderer show every word in its own box and light up the word being spoken; one-letter words and numbers with units stay with their neighbours.
+Cues built from timed words (`build --words`) carry each word's start and end. `contract` writes them into the contract as `captions[].words`, one `[start, end)` frame span per word, kept in order and inside the caption. With `tokens.captions.preset` set to `active-word`, the player and the Python renderer show every word in its own box and light up the word being spoken; one-letter words and numbers with units stay with their neighbours.

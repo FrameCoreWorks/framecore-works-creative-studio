@@ -1,0 +1,289 @@
+{
+  "date": "2026-10-12",
+  "package_version": "1.66.0",
+  "source": {
+    "commit": "3144dd5e8077ad650eb37f90fdf34df1a884553e",
+    "package_uncommitted_changes": true,
+    "note": "uncommitted 1.66.1 candidate: the handoff fixes of the full check of 2026-10-12, first wording of the motion fix"
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 9742,
+      "output": 9348,
+      "cache_read": 147230,
+      "cache_write": 55975
+    },
+    "seconds": 52.4
+  },
+  "cases": [
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4025,
+        "output": 3339,
+        "cache_read": 43039,
+        "cache_write": 20107
+      },
+      "seconds": 22.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania plików. Nie mam powłoki, edytora plików ani środowiska z FFmpeg, więc nie powstał żaden plik wideo. Poniżej jest storyboard do zatwierdzenia. Gdy dostanę dostęp do powłoki z FFmpeg i Pythonem, zbuduję według niego animację.\n\n## Koncept: „Kłos” rośnie z chleba\n\nOdrzuciłem oczywiste rozwiązania: zdjęcie bochenka, ciepłą beżową paletę i ikonę kłosa jako logo. Zamiast tego litery tworzą napis „Kłos”, a kłos wyrasta z litery „ł”. Niczego nie podszywa pod logo.\n\n**Format:** 1080×1920, 30 fps, 180 klatek, H.264, bez ścieżki audio.\n\n**Paleta:** tło w ciepłej, głębokiej brązowej barwie skórki (#2B1A10), krem (#F6E9D2) na tekst i złoto zboża (#D9A441) na akcent.\n\n**Krój:** szeryfowy, pogrubiony, z pełnym zestawem polskich znaków. W środowisku jest DejaVu Serif Bold.\n\n| Czas | Klatki | Scena | Ruch |\n|---|---|---|---|\n| 0,0–1,5 s | 0–44 | Pusty ciemny kadr. Złota linia rośnie od dołu do środka, a litery „K·ł·o·s” wjeżdżają jedna po drugiej z lekkim opóźnieniem (ease-out). | Napis „Kłos” stoi w górnej połowie kadru. |\n| 1,5–3,0 s | 45–89 | Z „ł” wyrasta kłos z kilku ziarnami, które pojawiają się kolejno. | Kłos jest rysowany ruchem, bez gotowej grafiki. |\n| 3,0–4,8 s | 90–143 | Pod nazwą pojawia się hasło „Świeży chleb codziennie”, słowo po słowie, w trzech linijkach. | Całe hasło jest widoczne i czytelne przez ok. 1,2 s. |\n| 4,8–6,0 s | 144–179 | Zatrzymanie kadru. Delikatny, powolny zoom (ok. 3%), bez nowych elementów. | Ostatnia klatka jest pełna i czytelna. |\n\n**Zablokowany tekst:** „Kłos” oraz „Świeży chleb codziennie” (z ł, Ś, ż, ć). Nic poza tym nie pojawi się na ekranie.\n\n**Bezpieczne marginesy:** tekst zostaje w środkowych ok. 70% wysokości kadru, z dala od interfejsu Reels i TikToka.\n\n## Co dalej\n1. **Zatwierdzenie.** Napisz, czy koncept i paleta są w porządku, albo co zmienić.\n2. **Środowisko.** Potrzebuję sesji z powłoką (FFmpeg, Python z Pillow). Wtedy zrenderuję plik `klos.mp4` i sprawdzę klatki 0, 44, 89, 143 i 179 pod kątem przycięć i czytelności.\n3. **Bez powłoki.** Mogę przygotować plik kontraktu `.motion.json`, który otwiera się w odtwarzaczu FrameCore i eksportuje do MP4 w przeglądarce. Tego pliku też nie mogę teraz zapisać.\n\nDopóki nic nie jest wyrenderowane, podgląd i eksport mają status NIE ZWERYFIKOWANO.",
+          "reply_chars": 2347,
+          "reply_sha256": "b94882c81eca1a571c56ae62f9dfe5201bc8e8cdaed4bb56e630b5d64b9fba99",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1272,
+            "output": 2269,
+            "cache_read": 40985,
+            "cache_write": 17295
+          },
+          "seconds": 22.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar",
+                  "framecoreworks.github.io",
+                  "Open contract"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['odtwarzacz', 'przeglądar']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2753,
+          "output": 1070,
+          "cache_read": 2054,
+          "cache_write": 2812
+        },
+        "items": [
+          {
+            "item": "Says the MP4 cannot be rendered here and why",
+            "verdict": "met",
+            "reason": "The assistant states plainly that it cannot render the MP4 now, because the session has only file read and search tools, with no shell, file editor, or FFmpeg environment, so no video file was produced."
+          },
+          {
+            "item": "Delivers the contract and the motion player route instead of switching to a video generator",
+            "verdict": "unclear",
+            "reason": "It does not switch to a video generator and gives an inline storyboard with format, palette, font, timings, and locked text, which works as a spec. It names the .motion.json contract and the FrameCore motion player export route, but says it cannot write that file now, so the contract itself is not delivered as an artifact."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "X03",
+      "title": "Handoff: after the storyboard is approved, the motion contract follows it without re-asking",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 5717,
+        "output": 6009,
+        "cache_read": 104191,
+        "cache_write": 35868
+      },
+      "seconds": 30.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 z napisem „Nurt” i hasłem „Spływy od maja”. Bez logo, bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować MP4. W tej sesji nie mam powłoki ani narzędzia do zapisu plików, więc nie uruchomię renderera, nie zapiszę kontraktu `.motion.json` i nie przejrzę klatek. Nic nie zostało wyrenderowane ani sprawdzone.\n\nPoniżej jest storyboard do zatwierdzenia. Po zatwierdzeniu wyrenderuję film, jeśli sesja będzie miała dostęp do powłoki, albo przekażę kontrakt do odtwarzacza Studio.\n\n## Storyboard: „Nurt” (9:16, 1080×1920, 30 fps, 180 klatek, bez dźwięku)\n\n**Pomysł:** Napis „Nurt” jest narysowany przez nurt. Linia wody płynie przez kadr i układa się w litery. Odrzuciłem falki, fale i gradient błękitu, bo to najbardziej oczywisty motyw wody.\n\n| Czas | Klatki | Scena | Ruch |\n|---|---|---|---|\n| 0,0–1,5 s | 0–44 | Pusty, ciemny kadr (głęboka zieleń rzeki) | Jedna cienka jasna linia wpływa od góry i wolno meandruje w dół. |\n| 1,5–3,5 s | 45–104 | Linia zagęszcza się w litery **„Nurt”** | Strumień linii wygładza się w pismo, a litery dopływają od lewej, z lekkim poślizgiem. |\n| 3,5–4,0 s | 105–119 | Przejście | „Nurt” przesuwa się w górę, a pod nim robi się miejsce. |\n| 4,0–5,5 s | 120–164 | **„Spływy od maja”** | Hasło wypływa spod napisu, słowo po słowie. Napis „Nurt” jest nadal widoczny. |\n| 5,5–6,0 s | 165–179 | Wygaszenie | Kadr zostaje nieruchomy, linia znika. Ostatnia klatka to czytelny kadr z oboma napisami. |\n\n**Elementy kadru**\n- **Teksty:** dokładnie „Nurt” i „Spływy od maja”, z polskimi znakami (ł, y).\n- **Wygląd:** ciemna zieleń tła, jasny kremowy napis i jeden ciepły akcent na linii.\n- **Układ:** napisy mieszczą się w bezpiecznej strefie dla Reels, TikToka i Shorts, czyli z marginesem około 250 px od góry i 400 px od dołu.\n- **Bez:** logo, dźwięku i dodatkowych tekstów.\n\n## Do ustalenia\n- **Kolory:** mam dobrać paletę sam (zieleń, krem i ciepły akcent), czy masz kolory marki?\n- **Czcionka:** czy masz własną? Jeśli nie, użyję czytelnego kroju bezszeryfowego.\n\nJeśli nie odpowiesz, przyjmę moje propozycje. Daj znać, czy zatwierdzasz storyboard i czy mam renderować, gdy tylko będę mieć środowisko z powłoką.",
+          "reply_chars": 2059,
+          "reply_sha256": "5c3a3e306c77d81cf9b92396719c8dfc26c5ad6cfe8fe088d61258473bde7ce1",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Bash"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1243,
+            "output": 1983,
+            "cache_read": 40689,
+            "cache_write": 15636
+          },
+          "seconds": 19.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Zatwierdzam storyboard. Działaj dalej.",
+          "reply": "Nadal nie mogę wyrenderować MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania plików (Read, Glob, Grep) oraz wywoływania umiejętności. Powłoka jest wyłączona, a zapisu plików nie mam. Bez nich nie uruchomię renderera ani FFmpeg i nie zapiszę żadnego pliku. Nie mam też pliku, który mógłbym udawać, że dostarczam.\n\nStoryboard jest zatwierdzony i nic w nim nie zmieniam. Przyjmuję moje propozycje z poprzedniej wiadomości: ciemna zieleń, krem i ciepły akcent, a krój bezszeryfowy dobiorę sam. Do renderu brakuje już tylko środowiska.\n\nMożesz zrobić jedno z dwóch:\n1. **Uruchomić sesję z dostępem do powłoki i zapisu plików**, na przykład Claude Code lokalnie albo sesję z włączonym Bashem. Napisz tam „renderuj zatwierdzony storyboard Nurt”. Wyrenderuję MP4 (1080×1920, 30 fps, 6 s, bez ścieżki audio), sprawdzę klatki 0, 179 i granice scen i dołączę kontrakt `nurt.motion.json` oraz skrypt `nurt.render.py`.\n2. **Użyć odtwarzacza Studio.** Po włączeniu zapisu plików przygotuję `nurt.motion.json`. Otworzysz go w <https://framecoreworks.github.io/framecore-works-creative-studio/> przez „Open contract” i wyeksportujesz wideo w przeglądarce.\n\nKtóry wariant wybierasz?",
+          "reply_chars": 1180,
+          "reply_sha256": "97a67515a91c0023b315f1e7572fcdedc7ca20d02815823a20ddc6bb1f9640e6",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1245,
+            "output": 2706,
+            "cache_read": 61448,
+            "cache_write": 16942
+          },
+          "seconds": 10.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Spływy od maja"
+                ]
+              },
+              "passed": false,
+              "detail": "missing ['Spływy od maja']"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 1)"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded []"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3229,
+          "output": 1320,
+          "cache_read": 2054,
+          "cache_write": 3290
+        },
+        "items": [
+          {
+            "item": "Turn 2 continues on the coded motion route from the approved storyboard (contract or its content), not a new storyboard or a video generator",
+            "verdict": "met",
+            "reason": "After approval, the assistant keeps the approved storyboard unchanged and plans the same route: a shell-enabled render script plus an `nurt.motion.json` contract, or the Studio player. It does not create a new storyboard or use a video generator."
+          },
+          {
+            "item": "The copy stays exact and no settled fact (logo, sound, format, length) is asked again",
+            "verdict": "met",
+            "reason": "\"Nurt\" and \"Spływy od maja\" are kept verbatim. Turn 2 restates the format (1080×1920, 30 fps, 6 s, no audio) as settled, and it does not re-ask about logo, sound, format, or length. Its only choices, colours and font, were already open in turn 1 and are not on the settled list."
+          },
+          {
+            "item": "Without code execution it says what it cannot render and names the route that works",
+            "verdict": "met",
+            "reason": "It states that it cannot render the MP4 or run the renderer/FFmpeg, and that it has no shell or file-write tool. It then names two working routes: a session with shell and file-write access, or the Studio player after the contract is written."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ],
+  "review": "First wording of the motion fix (\"write the contract\"): M04 PASS; X03 turn 1 now names the player route, but turn 2 only offered to write the contract once file writing is enabled and gave no contract, so the exact copy was missing: FAIL. The wording was refined to \"give the contract in the reply\"."
+}

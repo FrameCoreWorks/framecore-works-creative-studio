@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.66.1, 2026-10-12
+
+Handoff fixes from the full check of skills, orchestration and handoffs ([report](docs/full-check-2026-10-12.md)); maintenance mode, every change fixes a confirmed defect:
+
+- **The right reviewer for a coded motion render.** A rendered motion video with its contract is reviewed by the Motion Graphics Workflow (craft critique and frame review) in the shared output-review table, the execution adapter, Delivery Documentation, the commercial video director and asset-change routing; eight texts had sent it to Video Prompt Architect
+- **One route table, no contradicting copies.** Route lines in Pipeline Core and the orchestrator's kit now match the table: explainers and coded films to the Motion Graphics Workflow, creator ads to UGC, positioning and channel plans without a priced offer to Marketing, the visual direction of a music video to Creative Music Video Director
+- **The contract after approval without code execution.** Motion Graphics Workflow gives the contract in the reply with the player link instead of a hand-written render script; the new handoff case X03 failed before and passes after
+- **Which text wins.** When an owner's kit method and its `SKILL.md` disagree on scope, entry, inputs or the next owner, the `SKILL.md` and the route table win; the handoff matrix lists core contracts, accepts handoffs named in an owner's `SKILL.md`, and missing fields are marked unknown, never invented
+- **The chosen direction has a place in Project State** (`creative_direction`), so later owners execute it instead of proposing new directions
+- **Creative Video Producer uses the specialists' methods** for the motion thesis, shot cards, generator prompts, creator ads and music videos, and keeps dialogue with Screenplay Story Architect; the motion reference agrees with the skill on who finds the idea of an open motion brief
+- Small corrections: the captions README names the real `contract` command; a changed reference for a designed piece goes to Static Graphic Design Creator
+- **Full check** (repository): connection graph of the 37 skills, handoff contracts read per skill, and 61 host-eval cases including three new multi-turn handoff cases (X01 to X03); open findings are listed in the report
+
 ## 1.66.0, 2026-10-11
 
 Building creative directions from scratch in graphics, video and motion:

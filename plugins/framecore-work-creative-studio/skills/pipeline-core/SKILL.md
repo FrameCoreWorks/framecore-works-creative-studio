@@ -131,12 +131,12 @@ Read only what is needed:
   campaign may use its specialist; pass accepted context and exact-copy locks.
 - Route motion graphics from code (kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation) to `hyperframes-workflow`, which chooses the runtime, renders a finished MP4 where code runs and designs its sound; React/TypeScript compositions go to `remotion-video-production`.
 - Route Hipson-style packets through `hipson-adapter` unless the user chooses full Hipson separately.
-- Route unresolved product, offer, audience, channel, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`.
+- Route a sales campaign with unresolved product, offer, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`; positioning, audiences or a channel plan without a priced offer go to `marketing`.
 - Route screenplay, treatment, scene, dialogue, pitch, coverage, or narrative-rewrite work through `screenplay-story-architect` before storyboard production.
-- Route end-to-end reel, short-form ad, product-video, UGC-video, explainer, cutdown, or mixed video-production work through `creative-video-producer`.
+- Route video work spanning several production stages, or cutdowns, through `creative-video-producer`; a commercial video idea goes to `commercial-video-campaign-director`, coded motion and explainers to `hyperframes-workflow`, and a creator-style ad to `ugc`, as in the orchestrator's route table.
 - Route detailed caption timing, styling, safe zones, render handoffs, or caption repair through `caption-studio`.
 - Route footage-first or timeline-first OpenCut planning through `opencut-video-studio` when OpenCut is available or the user wants an OpenCut Edit Pack.
-- Route text-only music, music-video, visible-singing, lip-sync triage, or named music-provider planning packets through `audio-production-director` without implying provider execution.
+- Route text-only music, song, visible-singing, lip-sync triage, or named music-provider planning packets through `audio-production-director` without implying provider execution; the visual direction of a music video goes to `creative-music-video-director`.
 
 ## Guardrails
 

@@ -5,7 +5,7 @@
 ```sh
 python3 scripts/host_eval.py --list                     # the cases; runs nothing
 python3 scripts/host_eval.py --gate --write             # release-gate subset (5 cases)
-python3 scripts/host_eval.py --write                    # the whole suite (21 cases)
+python3 scripts/host_eval.py --write                    # the whole suite (24 cases)
 python3 scripts/host_eval.py --cases W04,S01 --judge    # chosen cases with the advisory judge
 python3 scripts/host_eval.py --suite routing --write    # the Polish routing set (25 cases)
 python3 scripts/host_eval.py --suite creative --judge --write  # creative directions (11 cases)
@@ -49,3 +49,7 @@ The dollar figures in the results below, for runs up to 2026-10-11, are what Cla
 | 2026-10-11 | 1.66.0 candidate 4 (released wording) | 11 (creative set) | 5 PASS; every reply named the defaults it set aside (11 of 11); held out 3 of 6, several failures being the product inside a fresh mechanism; the name rule shows no measured effect yet; judge 49 of 50 | 567,182 tokens, 291 s | [run](../verification/host-evals/2026-10-11-1.66.0-candidate-creative-4.json) |
 | 2026-10-11 | 1.66.0 candidate 4 | 5 (release gate) | 5 PASS: no regression | 303,341 tokens, 49 s | [gate](../verification/host-evals/2026-10-11-1.66.0-candidate-gate-2.json) |
 | 2026-10-12 | 1.66.0 | 1 (M04 with the no-logo prompt the owner used in ChatGPT Work) | PASS, read by hand: says first that it cannot render here, offers the storyboard, names the contract in the Studio player; no generator, no promised render. The direct-task idea pictured the name literally (a wheat ear) | 70,427 tokens, 34 s | [run](../verification/host-evals/2026-10-12-1.66.0-suite-M04.json) |
+| 2026-10-12 | 1.66.0 (full check) | 25 (routing set) | 21 PASS: RT01 and RT08 without the Studio name answered without a skill (as on 1.63.0); RT14 failed once and passed on the rerun; RT18 named Studio for a teacher worksheet and loaded no skill twice (1.63.0 loaded the orchestrator): open finding | 1,076,060 tokens, 562 s | [routing](../verification/host-evals/2026-10-12-1.66.0-routing.json) |
+| 2026-10-12 | 1.66.0 (full check) | 24 (suite, with the new handoff cases X01 to X03) | 22 PASS as run, 23 rescored (M04 gave the player link without the word "odtwarzacz"); F02 read "katalog" as the working directory (open finding); X03 turn 2 wrote its own render script instead of the contract: fixed in 1.66.1 | 2,174,652 tokens, 471 s | [suite](../verification/host-evals/2026-10-12-1.66.0-suite.json) |
+| 2026-10-12 | 1.66.1 candidate | 2, then 1 (M04, X03) | first wording: M04 PASS, X03 FAIL (offered the contract only once files could be written); refined wording: X03 PASS, the contract in the reply with the player link | 222,295 + 210,374 tokens, 99 s | [first](../verification/host-evals/2026-10-12-1.66.1-candidate-M04-X03-first.json), [after](../verification/host-evals/2026-10-12-1.66.1-candidate-X03.json) |
+| 2026-10-12 | 1.66.1 candidate | 5 (release gate), 4 (routing reruns) | gate 5 PASS; reruns: RT14 PASS, RT01, RT08 and RT18 FAIL again | 392,763 + 113,741 tokens, 142 s | [gate](../verification/host-evals/2026-10-12-1.66.1-candidate-gate.json), [reruns](../verification/host-evals/2026-10-12-1.66.1-candidate-routing-RT01-RT08-RT14-RT18.json) |

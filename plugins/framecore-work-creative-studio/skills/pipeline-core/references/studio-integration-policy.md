@@ -2,7 +2,7 @@
 
 ## Precedence and scope
 
-The user’s current request and applicable host instructions govern the task. This document resolves conflicts between Creative Studio and the workflow kit pinned in the source manifest. The adapted Pipeline Core is the primary operating contract for project state, artifact handoffs, bounded QA loops, prompt revisions and recovery. Specialist entrypoints remain the owners of domain outputs. Use the source snapshot only for provenance, development or an explicitly requested upstream installation; do not load its installation rules as ordinary creative instructions.
+The user’s current request and applicable host instructions govern the task. This document resolves conflicts between Creative Studio and the workflow kit pinned in the source manifest. The adapted Pipeline Core is the primary operating contract for project state, artifact handoffs, bounded QA loops, prompt revisions and recovery. Specialist entrypoints remain the owners of domain outputs. When an owner's `kit/method.md` and its `SKILL.md` disagree on scope, entry conditions, required inputs or the next owner, the `SKILL.md` and the orchestrator's route table win; the kit supplies field names, templates and review structure. Use the source snapshot only for provenance, development or an explicitly requested upstream installation; do not load its installation rules as ordinary creative instructions.
 
 | Decision | Active authority | Reason |
 |---|---|---|

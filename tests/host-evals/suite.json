@@ -525,7 +525,9 @@
               "contains_any": [
                 "odtwarzacz",
                 "player",
-                "przeglądar"
+                "przeglądar",
+                "framecoreworks.github.io",
+                "Open contract"
               ]
             }
           ]
@@ -535,7 +537,7 @@
         "Says the MP4 cannot be rendered here and why",
         "Delivers the contract and the motion player route instead of switching to a video generator"
       ],
-      "host_note": "The harness gives no shell or code execution, so the MP4 cannot be rendered in this session. The first answer may present the storyboard for approval before writing the contract (method step 2), but it must name the route that works without code: the motion player in the browser. Prompt replaced on 2026-10-12 at the owner's request: the earlier wording (\"z logo i hasłem\") implied the user had a logo, so a reply asking for it was reasonable. The new wording is the one the owner used in ChatGPT Work: no logo, the name as text, no sound. Records before this date used the earlier wording."
+      "host_note": "The harness gives no shell or code execution, so the MP4 cannot be rendered in this session. The first answer may present the storyboard for approval before writing the contract (method step 2), but it must name the route that works without code: the motion player in the browser. Prompt replaced on 2026-10-12 at the owner's request: the earlier wording (\"z logo i hasłem\") implied the user had a logo, so a reply asking for it was reasonable. The new wording is the one the owner used in ChatGPT Work: no logo, the name as text, no sound. Records before this date used the earlier wording. On 2026-10-12 the route check also accepts the player link and its \"Open contract\" button: a reply that gave both and the export path failed only because it never used the word \"odtwarzacz\"; the run is rescored in its record."
     },
     {
       "id": "M05",
@@ -568,6 +570,142 @@
         "Does not approve the animation as finished from three stills",
         "Names what needs a viewing in motion: smoothness, rhythm, transitions, sound"
       ]
+    },
+    {
+      "id": "X01",
+      "title": "Handoff: the direction picked in turn 1 is the one the poster executes in turn 2",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu na otwarcie pracowni krawieckiej „Fastryga” w Gdyni.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "min_numbered": 3
+            }
+          ]
+        },
+        {
+          "prompt": "Biorę kierunek 2. Zrób z niego plakat A3. Tekst: „Fastryga”, „Otwarcie 15 listopada”, „ul. Świętojańska 12, Gdynia”.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "contains": [
+                "Otwarcie 15 listopada",
+                "Świętojańska 12"
+              ]
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Turn 2 executes direction 2 from turn 1 (the same idea and mechanism), not a new or merged direction",
+        "The three supplied lines appear exactly as given",
+        "Turn 2 does not ask again for anything turn 1 or the user already settled"
+      ],
+      "host_note": "Handoff case for the full check of 2026-10-12: a decision made in turn 1 must reach the owner of turn 2 unchanged."
+    },
+    {
+      "id": "X02",
+      "title": "Handoff: generator prompts keep the shots and timing of the storyboard from turn 1",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Rozpisz storyboard 15-sekundowej reklamy wideo wypożyczalni kajaków „Nurt” z Bydgoszczy: 5 ujęć z czasami.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            }
+          ]
+        },
+        {
+          "prompt": "Teraz zrób z tego prompty do Veo, po jednym na każde ujęcie.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "video-prompt-architect"
+              ]
+            },
+            {
+              "contains_any": [
+                "Veo"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Turn 2 gives one prompt per shot of the turn 1 storyboard, in the same order",
+        "Each prompt keeps that shot's content and duration; nothing from the storyboard is re-invented",
+        "Turn 2 does not restart the brief or ask for the storyboard again"
+      ],
+      "host_note": "Handoff case for the full check of 2026-10-12: a decision made in turn 1 must reach the owner of turn 2 unchanged. Turn 2 changes owner (storyboard to video prompts), so the new owner's skill is expected to load."
+    },
+    {
+      "id": "X03",
+      "title": "Handoff: after the storyboard is approved, the motion contract follows it without re-asking",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 z napisem „Nurt” i hasłem „Spływy od maja”. Bez logo, bez dźwięku.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "hyperframes-workflow"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt": "Zatwierdzam storyboard. Działaj dalej.",
+          "checks": [
+            {
+              "not_welcome": true
+            },
+            {
+              "language": "pl"
+            },
+            {
+              "contains": [
+                "Spływy od maja"
+              ]
+            },
+            {
+              "max_user_questions": 1
+            },
+            {
+              "no_skills": [
+                "video-prompt-architect"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Turn 2 continues on the coded motion route from the approved storyboard (contract or its content), not a new storyboard or a video generator",
+        "The copy stays exact and no settled fact (logo, sound, format, length) is asked again",
+        "Without code execution it says what it cannot render and names the route that works"
+      ],
+      "host_note": "Handoff case for the full check of 2026-10-12: a decision made in turn 1 must reach the owner of turn 2 unchanged. The harness gives no code execution; writing the contract in the reply is the expected continuation."
     }
   ]
 }

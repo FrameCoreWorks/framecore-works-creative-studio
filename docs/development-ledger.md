@@ -1757,3 +1757,24 @@ Cross-host state:
 - GitHub: pending until the push is read back
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261012-03
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261012-03-full-check`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `3144dd5` (main, package 1.66.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.66.1)
+- Package version: 1.66.0 -> 1.66.1
+- Scope: Fixes for confirmed defects from the full check: coded motion renders reviewed by the Motion Graphics Workflow in eight texts, route lines in Pipeline Core and the orchestrator kit aligned with the single route table, the contract and player link after approval without code execution, SKILL.md and route table over kit methods, the handoff matrix as core contracts with unknown fields never invented, a creative_direction field in Project State, Creative Video Producer using the specialists' methods, the motion reference aligned with the skill, and two small corrections; plus the full-check report and three multi-turn handoff cases
+- Shared package changed: yes; 24 changed, 0 added, 0 removed ([scope](../verification/scope-1.66.1.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 7 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 17 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 5 SVG wordmark, 5 brand guide, 14 host-eval harness: PASS ([record](../verification/release-1.66.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

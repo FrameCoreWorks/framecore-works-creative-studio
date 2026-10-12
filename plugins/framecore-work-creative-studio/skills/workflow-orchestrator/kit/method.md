@@ -80,12 +80,12 @@ Produce Project State with:
 - If references are required but unresolved, route to `reference-curator`.
 - If outputs exist, route to `qa-iteration` before delivery.
 - Use `instruction-packet-factory` when delegation needs a bounded packet.
-- Use `ecommerce-campaign-strategy-director` when product, offer, channel, claim, asset-matrix, or test strategy is unresolved.
+- Use `ecommerce-campaign-strategy-director` when a sales campaign's product, offer, claim, asset-matrix, or test strategy is unresolved; positioning, audiences or a channel plan without a priced offer go to `marketing`.
 - Use `screenplay-story-architect` before storyboard work when narrative structure, treatment, scenes, dialogue, pitch, or rewrite quality is the real blocker.
 - Use `creative-video-producer` when a video request spans several production layers instead of one specialist output.
 - Use `caption-studio` for detailed subtitle timing, styling, safe zones, or caption QA, and `opencut-video-studio` for footage-first timeline planning.
 - Use `remotion-video-production` when the deliverable is a deterministic React/TypeScript video composition, reusable template, or data-driven render plan.
-- Use `audio-production-director` for text-only music and music-video execution packets while keeping provider execution outside the route.
+- Use `audio-production-director` for text-only music and song packets while keeping provider execution outside the route; the visual direction of a music video goes to `creative-music-video-director`.
 - Use workflow blueprints as defaults, not as rigid scripts.
 
 ## Guardrails

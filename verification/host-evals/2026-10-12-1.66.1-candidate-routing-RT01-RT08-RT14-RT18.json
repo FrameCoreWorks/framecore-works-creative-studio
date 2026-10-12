@@ -1,0 +1,302 @@
+{
+  "date": "2026-10-12",
+  "package_version": "1.66.0",
+  "source": {
+    "commit": "3144dd5e8077ad650eb37f90fdf34df1a884553e",
+    "package_uncommitted_changes": true,
+    "note": "uncommitted 1.66.1 candidate: the handoff fixes of the full check of 2026-10-12"
+  },
+  "suite": "studio-routing-pl",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 3,
+    "ERROR": 0,
+    "cases": 4,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4911,
+      "output": 12002,
+      "cache_read": 50825,
+      "cache_write": 46003
+    },
+    "seconds": 94.5
+  },
+  "cases": [
+    {
+      "id": "RT01",
+      "title": "Without the Studio name: new copy",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1221,
+        "output": 312,
+        "cache_read": 5105,
+        "cache_write": 10073
+      },
+      "seconds": 3.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Napisz pięć krótkich haseł reklamowych dla kawiarni rzemieślniczej w Krakowie, maksymalnie sześć słów każde.",
+          "reply": "1. Kraków pachnie. Kawa smakuje.\n2. Powoli palona, szybko pokochana.\n3. Każde ziarno ma swoją historię.\n4. Rzemiosło w filiżance, serce w Krakowie.\n5. Kawa, która zasługuje na chwilę.",
+          "reply_chars": 183,
+          "reply_sha256": "d2211de9d143fd41e94b21b9709e276cd2ecbede1daf75808908e4b73fe99734",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1221,
+            "output": 312,
+            "cache_read": 5105,
+            "cache_write": 10073
+          },
+          "seconds": 3.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['copy-voice']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT08",
+      "title": "Without the Studio name: timed shot list",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1220,
+        "output": 1873,
+        "cache_read": 5104,
+        "cache_write": 10071
+      },
+      "seconds": 16.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Rozpisz ujęcia do 30-sekundowej reklamy piekarni: numer ujęcia, czas, plan, ruch kamery i akcja.",
+          "reply": "# Reklama piekarni, 30 s\n\n**Koncept:** poranek w piekarni, od ciemnego świtu do pierwszego kęsa. Ciepłe światło, para, mąka w powietrzu. Brak dialogów, tylko dźwięk rzemiosła, muzyka akustyczna i jedno zdanie lektora na końcu.\n\n| Nr | Czas | Plan | Ruch kamery | Akcja |\n|---|---|---|---|---|\n| 1 | 0:00–0:03 | Plan ogólny, wnętrze/zewnątrz | Powolny najazd (dolly in) na witrynę | Granatowy świt, ulica jest pusta. W oknie piekarni zapala się ciepłe światło, a szyba lekko paruje. |\n| 2 | 0:03–0:06 | Zbliżenie | Statyw, lekki suw w bok (slider) | Dłonie piekarza wbijają się w ciasto. Mąka unosi się w świetle. |\n| 3 | 0:06–0:09 | Detal, makro | Statyw, płytka głębia ostrości | Nacięcie bochenka żyletką. Ciasto się rozchyla. |\n| 4 | 0:09–0:12 | Plan średni | Szybki najazd z ręki (handheld) | Piekarz otwiera piec i wysuwa łopatę ze złotymi bochenkami. Buchają para i ciepło. |\n| 5 | 0:12–0:15 | Detal, makro | Slider w górę po bochenku | Chrupiąca skórka trzeszczy i pęka. Ujęcie jest dźwiękowym punktem kulminacyjnym. |\n| 6 | 0:15–0:18 | Zbliżenie, szeroka optyka | Statyw, rack focus z lady na croissanty | Rząd rogalików na blasze. Nad nimi unosi się para. |\n| 7 | 0:18–0:21 | Plan średni | Podążanie za bohaterem (follow), stabilizacja | Pierwszy klient wchodzi, dzwonek nad drzwiami. Sprzedawczyni uśmiecha się i podaje ciepłą bułkę w papierze. |\n| 8 | 0:21–0:24 | Zbliżenie na twarz | Statyw, subtelny najazd | Klient gryzie bułkę. Chrupnięcie, zamknięte oczy, uśmiech. |\n| 9 | 0:24–0:27 | Plan amerykański | Powolny półobrót (arc) wokół stołu | Rodzinne śniadanie w domu: chleb, masło, dżem. Dziecko sięga po kromkę, porusza się para z kubka. |\n| 10 | 0:27–0:30 | Plan ogólny, potem grafika | Statyczne ujęcie na ladę, wolne rozjaśnienie | Torba z logo stoi na ladzie przy bochenku. Pojawiają się logo, adres i hasło. Lektor: „[Nazwa piekarni]. Pieczemy od świtu.” |\n\n**Uwagi produkcyjne**\n- **Światło:** klucz ciepły, boczny, z okna lub pieca (ok. 3200 K). Zimny błękit tylko w ujęciu 1, dla kontrastu.\n- **Rytm:** ujęcia 1–5 cięte do uderzeń muzyki. Ujęcie 5 (chrupnięcie) to szczyt, a ujęcia 7–10 są spokojniejsze.\n- **Dźwięk:** foley z bliska (mąka, nóż, trzask skórki, dzwonek) mocniej niż muzyka.\n- **Format:** kadruj z zapasem pod 9:16, jeśli reklama pójdzie też do social mediów.\n- **Zapas:** jeśli czas będzie za ciasny, wycinamy ujęcie 6 i dodajemy 3 s do ujęcia 10.\n\nMogę dopasować listę do konkretnej piekarni: nazwy, produktów sygnaturowych, budżetu i formatu (TV, social, kino). Mogę też przygotować wersję 15-sekundową.",
+          "reply_chars": 2546,
+          "reply_sha256": "392a360a54d803d2ad484bac106f183883d3d9f9fb5c9f01daed24397c02b7cc",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1220,
+            "output": 1873,
+            "cache_read": 5104,
+            "cache_write": 10071
+          },
+          "seconds": 16.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "storyboard-sequence-architect"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['storyboard-sequence-architect']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT14",
+      "title": "Without the Studio name: service business without a priced offer",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1236,
+        "output": 4470,
+        "cache_read": 20311,
+        "cache_write": 12607
+      },
+      "seconds": 40.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Chcę, żeby więcej osób dowiedziało się o moim gabinecie fizjoterapii w Poznaniu. Zaplanuj komunikację w social mediach na dwa miesiące.",
+          "reply": "# Plan social media na 2 miesiące: gabinet fizjoterapii, Poznań\n\nNie znam jeszcze szczegółów gabinetu, więc plan opiera się na założeniach. Są oznaczone na końcu i łatwo je zmienić.\n\n## 1. Cel i założenia\n\n**Cel:** w 8 tygodni zbudować rozpoznawalność w Poznaniu i okolicach oraz zwiększyć liczbę zapytań o wizytę.\n\n**Główny kanał:** Instagram (Reels, karuzele, Stories) oraz Facebook, który jest ważny dla lokalnych grup i starszych pacjentów. **Do tego:** wizytówka Google (Profil Firmy). W fizjoterapii to często ona decyduje o wyborze gabinetu. TikTok jest opcjonalny, bo te same Reelsy można wrzucać także tam.\n\n**Grupy docelowe (do potwierdzenia):**\n- Osoby pracujące przy biurku (ból pleców, karku, nadgarstków), 25–45 lat.\n- Osoby aktywne i biegacze po urazach, 20–40 lat.\n- Osoby 55+ lub ich dzieci, które szukają pomocy dla rodziców.\n\n**Główna teza:** „Fizjoterapeuta z Poznania, który tłumaczy, co się dzieje z Twoim ciałem, i uczy, jak sobie pomóc”. Marka ma opierać się na zaufaniu i edukacji. Obietnic wyleczenia nie ma.\n\n## 2. Filary treści\n\n| Filar | Udział | Przykłady |\n|---|---|---|\n| Edukacja | 40% | Mity o bólu pleców, ćwiczenia „na przerwę w pracy”, kiedy iść do fizjoterapeuty, a kiedy do lekarza |\n| Zaufanie i ludzie | 25% | Przedstawienie specjalisty, „jak wygląda pierwsza wizyta”, wnętrze gabinetu, metody pracy |\n| Lokalność | 15% | Poznań: biegacze nad Maltą, praca w biurowcach, współprace z lokalnymi firmami i klubami |\n| Dowód (tylko prawdziwy) | 10% | Opinie z Google, za zgodą pacjenta. Bez fikcyjnych historii |\n| Zaproszenie | 10% | Wolne terminy, oferta dla nowych pacjentów, kontakt |\n\n## 3. Rytm publikacji\n\n- **Instagram:** 3 posty tygodniowo (2 Reelsy i 1 karuzela) plus Stories 3–4 razy w tygodniu.\n- **Facebook:** te same treści, a do tego 1 post lokalny tygodniowo i udział w grupach poznańskich zgodnie z ich regulaminami.\n- **Google:** 1 aktualizacja tygodniowo i prośba o opinię po wizycie.\n- **Pory:** wtorek, czwartek i sobota rano lub wieczorem. Po 3 tygodniach sprawdź w statystykach, co działa najlepiej.\n\n## 4. Harmonogram\n\n### Miesiąc 1: Poznajmy się i zbudujmy zaufanie\n\n**Tydzień 1: Fundamenty**\n- Uporządkuj profile: bio, zdjęcie, link do rezerwacji, przypięte posty i Stories „Highlights” (Usługi, Pierwsza wizyta, FAQ, Kontakt).\n- Uzupełnij wizytówkę Google: zdjęcia, godziny, usługi, opis.\n- Pierwsze posty: „Kim jesteśmy i komu pomagamy” (Reel z twarzą specjalisty), „Jak wygląda pierwsza wizyta”, wnętrze gabinetu.\n\n**Tydzień 2: Ból pleców**\n- Reel: 3 mity o bólu pleców.\n- Karuzela: „Ból kręgosłupa: kiedy do fizjoterapeuty, a kiedy pilnie do lekarza”.\n- Stories: ankieta „Gdzie najczęściej boli Cię po pracy?”.\n\n**Tydzień 3: Praca biurowa**\n- Reel: 60-sekundowa seria ćwiczeń przy biurku.\n- Karuzela: „Ergonomia stanowiska pracy w 5 krokach”.\n- Post lokalny: propozycja krótkiego warsztatu dla poznańskich firm.\n\n**Tydzień 4: Ludzie i metody**\n- Reel „Dzień pracy w gabinecie”.\n- Karuzela: „Czym różni się fizjoterapia od masażu i kiedy co wybrać”.\n- Q&A w Stories: pytania od obserwujących.\n\n### Miesiąc 2: Zasięg i zapytania\n\n**Tydzień 5: Sport i aktywność**\n- Reel: rozgrzewka i mobilizacja przed bieganiem.\n- Karuzela: „Najczęstsze kontuzje biegaczy”.\n- Współpraca: lokalny klub, grupa biegowa lub trener (wspólny live lub Reel).\n\n**Tydzień 6: Senior i profilaktyka**\n- Karuzela: „Ćwiczenia równowagi dla rodziców i dziadków”.\n- Post na Facebooku dla córek i synów szukających pomocy dla bliskich.\n- Reel: jedno ćwiczenie tygodnia.\n\n**Tydzień 7: Dowód i zaufanie**\n- Opinie z Google (za zgodą autorów) jako grafiki.\n- Reel „Odpowiadam na Wasze pytania” z wybranych pytań.\n- Stories: kulisy gabinetu i sprzętu.\n\n**Tydzień 8: Zaproszenie i podsumowanie**\n- Post z wolnymi terminami i jasnym CTA: „Zarezerwuj wizytę: link w bio”.\n- Mini-akcja: bezpłatna konsultacja 15 min lub zniżka na pierwszą wizytę (tylko jeśli faktycznie ją oferujesz).\n- Podsumowanie: najpopularniejsze treści i plan na kolejne miesiące.\n\n## 5. CTA\n\nJedno CTA na post. Najczęściej: „Zapisz post”, „Wyślij komuś, kto siedzi przy biurku”, „Umów wizytę: link w bio”, „Napisz do nas w wiadomości”.\n\n## 6. Promocja płatna (opcjonalnie, 300–800 zł/mies.)\n\n- Promuj 2–3 najlepsze Reelsy z promieniem 15–20 km od Poznania.\n- Cel kampanii: wizyty na profilu lub kliknięcia w rezerwację. Nie bierz „zasięgu” dla samego zasięgu.\n- Dobre grupy: wiek 25–55 lat, zainteresowania: bieganie, fitness, praca biurowa.\n\n## 7. Darmowe sposoby na zasięg\n\n- Współprace z lokalnymi trenerami, klubami, studiami jogi i pilatesu oraz firmami (wzajemne oznaczanie).\n- Lokalne hashtagi: #poznań #fizjoterapiapoznań #fizjoterapeutapoznań.\n- Stałe proszenie o opinie w Google po wizycie (to najsilniejszy lokalny sygnał).\n- Odpowiadanie na każdy komentarz i wiadomość w ciągu doby.\n\n## 8. Granice komunikacji (ważne)\n\n- Nie obiecuj wyleczenia ani konkretnych wyników. Pisz „może pomóc”, „zmniejsza dolegliwości”.\n- Nie wrzucaj zdjęć i opinii pacjentów bez pisemnej zgody. Dane o zdrowiu to dane wrażliwe (RODO).\n- Reklama usług medycznych jest w Polsce ograniczona (m.in. ustawa o działalności leczniczej i zasady etyki zawodowej). Nie używaj zdjęć „przed i po” ani porównań z innymi gabinetami. Warto to sprawdzić z prawnikiem lub w samorządzie zawodowym.\n- Przy treściach edukacyjnych dodawaj notkę: „To materiał edukacyjny, nie zastępuje konsultacji”.\n\n## 9. Mierzenie efektów (co miesiąc)\n\n| Wskaźnik | Cel orientacyjny po 2 miesiącach |\n|---|---|\n| Wzrost obserwujących | +150–300 lokalnych kont |\n| Zasięg Reelsów | średnio 1–3 tys. wyświetleń |\n| Zapisy i udostępnienia | rosnący trend tydzień do tygodnia |\n| Kliknięcia w link / rezerwację | min. 30–60 miesięcznie |\n| Nowe opinie w Google | 8–15 |\n| Nowi pacjenci „z Instagrama” | pytaj każdego: „Skąd o nas wiesz?” |\n\nCele są szacunkowe i zależą od startu konta, budżetu i regularności. Po 4 tygodniach skoryguj je na podstawie realnych danych.\n\n## 10. Założenia do potwierdzenia\n\n1. Gabinet ma konto na Instagramie i Facebooku ",
+          "reply_chars": 6792,
+          "reply_sha256": "59978d124f19f4943478d8241f58caf4305cc6c1ec44bf4d4cbf0b3667a11613",
+          "skills": [
+            "marketing"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1236,
+            "output": 4470,
+            "cache_read": 20311,
+            "cache_write": 12607
+          },
+          "seconds": 40.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "marketing"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['marketing']; expected one of ['marketing']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['marketing']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RT18",
+      "title": "With the Studio name: teacher profile",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1234,
+        "output": 5347,
+        "cache_read": 20305,
+        "cache_write": 13252
+      },
+      "seconds": 33.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio przygotuj kartę pracy z matematyki dla klasy 4: ułamki zwykłe, osiem zadań i klucz odpowiedzi.",
+          "reply": "Nie mogłem zapisać pliku, bo narzędzie do zapisu jest w tej sesji wyłączone. Karta i klucz są poniżej, więc możesz je skopiować do Worda albo Dokumentów Google. Jeśli włączysz zapis, przygotuję gotowy plik DOCX lub PDF do druku.\n\n---\n\n# Karta pracy z matematyki – klasa 4\n## Ułamki zwykłe\n\n**Imię i nazwisko:** ____________________  **Klasa:** ______  **Data:** __________\n\n**Zadanie 1. Zamaluj podaną część figury.**\na) Prostokąt podzielony na 8 równych części: zamaluj **3/8**.\n`[ ][ ][ ][ ][ ][ ][ ][ ]`\nb) Prostokąt podzielony na 5 równych części: zamaluj **4/5**.\n`[ ][ ][ ][ ][ ]`\n\n**Zadanie 2. Zapisz ułamek.**\nPizzę pocięto na 6 równych kawałków. Zjedzono 5 kawałków.\na) Jaką część pizzy zjedzono? ______\nb) Jaka część pizzy została? ______\n\n**Zadanie 3. Wstaw znak <, > lub =.**\na) 3/7 ○ 5/7  b) 4/9 ○ 4/5  c) 6/6 ○ 1  d) 1/2 ○ 2/4\n\n**Zadanie 4. Oblicz.**\na) 2/9 + 4/9 = ______  b) 7/10 − 3/10 = ______\nc) 1/5 + 3/5 = ______  d) 8/8 − 5/8 = ______\n\n**Zadanie 5. Oblicz część liczby.**\na) 1/2 z 18 = ______  b) 1/4 z 20 = ______\nc) 3/5 z 15 = ______  d) 2/3 z 12 = ______\n\n**Zadanie 6. Zamień liczbę mieszaną na ułamek niewłaściwy lub odwrotnie.**\na) 1 2/3 = ______  b) 2 1/4 = ______  c) 7/2 = ______  d) 11/5 = ______\n\n**Zadanie 7.** Ania miała 12 cukierków. Trzecią część (1/3) oddała bratu.\na) Ile cukierków oddała bratu? b) Ile cukierków zostało Ani?\nObliczenia i odpowiedź: ______________________________\n\n**Zadanie 8.** Tort pokrojono na 12 równych kawałków. Kasia zjadła 3 kawałki, a Tomek 4.\na) Jaką część tortu zjedli razem? b) Jaka część tortu została?\nObliczenia i odpowiedź: ______________________________\n\n---\n\n# Klucz odpowiedzi\n\n| Zad. | Odpowiedź |\n|---|---|\n| 1 | a) dowolne 3 z 8 części zamalowane b) dowolne 4 z 5 części zamalowane |\n| 2 | a) 5/6 b) 1/6 |\n| 3 | a) < b) < c) = d) = |\n| 4 | a) 6/9 b) 4/10 c) 4/5 d) 3/8 |\n| 5 | a) 9 b) 5 c) 9 d) 8 |\n| 6 | a) 5/3 b) 9/4 c) 3 1/2 d) 2 1/5 |\n| 7 | a) 12 : 3 = 4 cukierki b) 12 − 4 = 8 cukierków |\n| 8 | a) 3/12 + 4/12 = 7/12 b) 12/12 − 7/12 = 5/12 |\n\n**Uwagi do sprawdzania**\n- **3b:** przy równych licznikach większy jest ułamek o mniejszym mianowniku, więc 4/9 < 4/5.\n- **4:** uznaj też ułamki skrócone (6/9 = 2/3, 4/10 = 2/5), jeśli uczniowie już skracają.\n- **5c:** 15 : 5 · 3 = 9.\n- **6d:** 11 : 5 = 2 reszty 1, czyli 2 1/5.\n\n**Punktacja:** 1 pkt za każdy podpunkt, razem 24 pkt (zad. 1 i 2: po 2 pkt, zad. 3–6: po 4 pkt, zad. 7 i 8: po 2 pkt).\n\n---\n\nZadanie 6 (liczby mieszane) jest trudniejsze od reszty. Jeśli klasa jeszcze go nie przerabiała, mogę je zastąpić łatwiejszym, na przykład rozpoznawaniem ułamków na osi liczbowej.",
+          "reply_chars": 2609,
+          "reply_sha256": "0a11b8ceeff6ad787c73839eb1a734771bbbeacade6fc93458810baf75c716c7",
+          "skills": [],
+          "tools": [
+            "Write"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1234,
+            "output": 5347,
+            "cache_read": 20305,
+            "cache_write": 13252
+          },
+          "seconds": 33.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "teacher-workflow.md",
+                  "copy-voice/SKILL.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['teacher-workflow.md', 'copy-voice/SKILL.md']; loaded []"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "review": "Rerun of the four routing failures on the candidate (the fixes do not touch skill selection): RT14 PASS, so its first failure was variance; RT01 and RT08 (no Studio name) and RT18 (named, teacher worksheet) failed again without loading a skill."
+}

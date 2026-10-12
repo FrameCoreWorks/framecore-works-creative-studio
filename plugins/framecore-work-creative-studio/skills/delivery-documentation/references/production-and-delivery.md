@@ -81,7 +81,7 @@ For a media package, inventory only real files and their purpose: picture master
 
 When tools are actually available and the user's task authorizes their use, check the export's relevant metadata, readability/playback and affected sync boundaries. Record which checks ran. A tool reading frame count or audio duration does not constitute a full playback/listening review. Report uninspected intervals and unsupported checks without inventing a pass.
 
-For exact-runtime work, compare requested duration with measured media duration using its actual timebase and any specified tolerance. Do not invent a tolerance or infer FPS. Verify caption ordering, intended overlaps, words and speaker assignment; runtime/player compatibility is only verified after the relevant test. Route picture/motion failures to video-prompt-architect and audio failures to audio-production-director with the source and evidence.
+For exact-runtime work, compare requested duration with measured media duration using its actual timebase and any specified tolerance. Do not invent a tolerance or infer FPS. Verify caption ordering, intended overlaps, words and speaker assignment; runtime/player compatibility is only verified after the relevant test. Route picture/motion failures to video-prompt-architect (a rendered motion video with its contract to the Motion Graphics Workflow) and audio failures to audio-production-director with the source and evidence.
 
 If a script, audio take, shot duration or accepted master changes, mark dependent cue sheets, captions, prompts and exports `review_required`. Update only affected dependencies and preserve accepted unrelated files. A previous pass applies to its specific source/version and inspected scope.
 

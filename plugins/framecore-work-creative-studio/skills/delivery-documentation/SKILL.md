@@ -13,7 +13,7 @@ Apply the conditional [public research gate](../research-evidence/SKILL.md) befo
 
 Distinguish prompt, concept raster, reviewed digital raster and production master. State verified properties separately from assumptions and remaining checks. Do not equate a filename extension with editable vectors, transparency, valid QR code or print readiness.
 
-For audio/video, distinguish a script/cue sheet/export specification from actual media, inspected ranges and a verified export. Use the audiovisual section of the reference. Record requested, verified and unknown properties separately; never fill missing FPS, codec, sample rate, loudness, dimensions, duration, channels or caption timing with defaults. Audio Production Director owns audio triage; Video Prompt Architect owns video and audiovisual review. Their evidence scope travels with the handoff.
+For audio/video, distinguish a script/cue sheet/export specification from actual media, inspected ranges and a verified export. Use the audiovisual section of the reference. Record requested, verified and unknown properties separately; never fill missing FPS, codec, sample rate, loudness, dimensions, duration, channels or caption timing with defaults. Audio Production Director owns audio triage; Video Prompt Architect owns video and audiovisual review, except a rendered motion video with its contract to the Motion Graphics Workflow. Their evidence scope travels with the handoff.
 
 Carry exact copy, reference roles, concept invariants, format, safe zones and review status. DTP notes identify unknown bleed/profile/font/dieline requirements instead of inventing them. Do not silently shorten mandatory text.
 

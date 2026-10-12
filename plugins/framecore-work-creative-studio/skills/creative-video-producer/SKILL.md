@@ -64,10 +64,10 @@ Use [templates/creative-video-production-pack.md](templates/creative-video-produ
 2. Establish brief and reference authority, including source roles, ownership uncertainty, product or story truth, claim locks, and continuity anchors.
 3. Choose the primary route: commercial, ecommerce, narrative, UGC, music video, explainer, footage-first edit, or coded video.
 4. Add `screenplay-story-architect` when narrative writing must be solved before storyboard and prompt work.
-5. Build direction (found once with the [ideation method](../pipeline-core/references/ideation-method.md) and shared by every stage), beat map, shot cards, timing, first/last-frame logic, copy, audio, and caption requirements.
-   Route ready-to-use copy, VO, dialogue, supers, and substantive caption
+5. Build direction (found once with the [ideation method](../pipeline-core/references/ideation-method.md) and shared by every stage), beat map, shot cards, timing, first/last-frame logic, copy, audio, and caption requirements, with the owners' methods: the motion thesis from `commercial-video-campaign-director`, beat map and shot cards from `storyboard-sequence-architect`, generator prompts from `video-prompt-architect`, a creator-style ad from `ugc` and a music video from `creative-music-video-director`.
+   Route ready-to-use copy, VO, supers, and substantive caption
    rewrites through `copy-voice` and the bounded Copy Delivery Loop before
-   production handoff.
+   production handoff; dialogue stays with `screenplay-story-architect`.
 6. Prepare keyframe and video prompt handoffs with observable acceptance criteria, reference-role ownership, per-request attachment plans, and actual continuity-carrier requirements, without executing external tools.
 7. Select a local edit route and define asset bin, timeline events, protected windows, cutdowns, and export targets.
 8. Run QA against brief, source truth, continuity, copy, product fidelity, audio, captions, platform constraints, and delivery requirements.

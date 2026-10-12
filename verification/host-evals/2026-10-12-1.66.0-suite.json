@@ -1,0 +1,2471 @@
+{
+  "date": "2026-10-12",
+  "package_version": "1.66.0",
+  "source": {
+    "commit": "3144dd5e8077ad650eb37f90fdf34df1a884553e",
+    "package_uncommitted_changes": false
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 22,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 24,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 95238,
+      "output": 86721,
+      "cache_read": 1361287,
+      "cache_write": 631406
+    },
+    "seconds": 470.5
+  },
+  "cases": [
+    {
+      "id": "W01",
+      "title": "Polish greeting with the Studio name gives the complete Polish welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1186,
+        "output": 972,
+        "cache_read": 19661,
+        "cache_write": 20763
+      },
+      "seconds": 7.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 972,
+            "cache_read": 19661,
+            "cache_write": 20763
+          },
+          "seconds": 7.3,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            },
+            {
+              "check": {
+                "skills": [
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W02",
+      "title": "Bare Studio name gives the complete English welcome (provisional fallback)",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1182,
+        "output": 639,
+        "cache_read": 19657,
+        "cache_write": 20766
+      },
+      "seconds": 6.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "I am FrameCore Works Creative Studio. I help develop ideas, create creative materials and improve projects — from the first concept through production planning and further revisions.\n\nI can help you with:\n\n- **Graphics and advertising materials** — posters, flyers, banners, social media posts and ideas for the look of a campaign.\n- **Video, motion design and storytelling** — reels, ads, animated graphics and typography, scripts, music videos, storyboards, shot plans and character direction.\n- **Writing** — headlines, descriptions, slogans, dialogue and adapting language to your audience.\n- **Prompts and references** — instructions for creating images and video, and organizing examples that guide the project.\n- **Music, voice and sound** — musical concepts, lyrics and instructions for audio tools, and planning sound design.\n- **Editing and refining materials** — scene order, subtitles, rhythm, animation plans and specific improvements to supplied work.\n\nI help with both individual materials and larger campaigns. We can also learn these skills step by step. File preparation and analysis use the tools available in the current conversation.\n\nIf you have a logo, photos, graphics, a video, text, examples or documents, you can add them now or later.\n\n**Choose where to start:**\n\n1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.\n2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.\n3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.\n\nEnter **1**, **2** or **3**.",
+          "reply_chars": 1732,
+          "reply_sha256": "a7cc05dc6250d1cc7e3ae779a0acf196febe1d3992fe00de6b8dd511b6893d08",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1182,
+            "output": 639,
+            "cache_read": 19657,
+            "cache_write": 20766
+          },
+          "seconds": 6.3,
+          "checks": [
+            {
+              "check": {
+                "welcome": "en"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.en.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W04",
+      "title": "Option 3 after the welcome asks what the skill should do; no search yet",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4787,
+        "output": 2905,
+        "cache_read": 65699,
+        "cache_write": 45923
+      },
+      "seconds": 12.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 1010,
+            "cache_read": 20207,
+            "cache_write": 20217
+          },
+          "seconds": 8.4,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "3",
+          "reply": "Opisz, jaką umiejętność chcesz mieć i co ma robić. Podaj efekt, jaki chcesz dostać, na przykład „układa plan postów na miesiąc” albo „sprawdza zgodność napisów z nagraniem”. Najpierw sprawdzę, czy mam coś podobnego wśród moich skilli. Jeśli nie, mogę poszukać w katalogu skills.sh.",
+          "reply_chars": 281,
+          "reply_sha256": "94163f6ee5605d502ead494e5abe186f9fa0cd7a3fd2f143daed9789971c2921",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1188,
+            "output": 1245,
+            "cache_read": 45492,
+            "cache_write": 21180
+          },
+          "seconds": 4.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "0 question marks (max 2)"
+            },
+            {
+              "check": {
+                "max_chars": 1500
+              },
+              "passed": true,
+              "detail": "281 chars (max 1500)"
+            },
+            {
+              "check": {
+                "no_command": "find_skills"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2413,
+          "output": 650,
+          "cache_read": 0,
+          "cache_write": 4526
+        },
+        "items": [
+          {
+            "item": "After 3, one question asks what the skill should do; no menu is repeated",
+            "verdict": "met",
+            "reason": "After the user chose 3, the assistant asked one open request to describe the skill and what it should do, with examples. It did not repeat the 1/2/3 menu."
+          },
+          {
+            "item": "Nothing is searched or installed before the user describes the skill",
+            "verdict": "met",
+            "reason": "The assistant only said it would check its skills and possibly search skills.sh after the user describes the skill. No search, lookup, or installation appears in the conversation."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "W05",
+      "title": "Option 1 after the welcome offers the quick and expanded pace",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4761,
+        "output": 2360,
+        "cache_read": 67674,
+        "cache_write": 43898
+      },
+      "seconds": 10.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 972,
+            "cache_read": 20209,
+            "cache_write": 20218
+          },
+          "seconds": 7.7,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "1",
+          "reply": "Wybierz tempo pracy:\n\n1. **Tryb szybki** — mniej decyzji do podjęcia. Zobaczysz kilka zwięzłych, różnych kierunków i wybierzesz jeden.\n2. **Tryb rozbudowany** — rozwijamy pomysł krok po kroku.\n\nWpisz **1** albo **2**.",
+          "reply_chars": 217,
+          "reply_sha256": "2a301b35ce228bc09a21d271cf0a4e468ca4f428dd07b381efb44e6a1fe1d434",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1188,
+            "output": 1096,
+            "cache_read": 45411,
+            "cache_write": 21232
+          },
+          "seconds": 2.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "min_numbered": 2
+              },
+              "passed": true,
+              "detail": "2 numbered lines (min 2)"
+            },
+            {
+              "check": {
+                "contains": [
+                  "szybki",
+                  "rozbudowany"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2387,
+          "output": 292,
+          "cache_read": 2054,
+          "cache_write": 2448
+        },
+        "items": [
+          {
+            "item": "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany and waits",
+            "verdict": "not_met",
+            "reason": "The assistant's mode-choice message does show the two options, but they are formatted as a numbered list (1. **Tryb szybki** / 2. **Tryb rozbudowany**) with bold labels and an explanation, and the wait instruction reads 'Wpisz **1** albo **2**.' The rubric item asks for the mode-only choice to be shown as '1. Tryb szybki / 2. Tryb rozbudowany' and then wait. The items are present and the assistant waits for input, but the explicit inline format with descriptions is not an exact match to the literal form, so this is a close call."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "W06",
+      "title": "Option 2 after the welcome starts learning mode without creative menus",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4817,
+        "output": 3176,
+        "cache_read": 67674,
+        "cache_write": 43957
+      },
+      "seconds": 12.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 978,
+            "cache_read": 20209,
+            "cache_write": 20219
+          },
+          "seconds": 9.0,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "2",
+          "reply": "Tryb nauki — zaczynamy. Najpierw jedno pytanie:\n\n**Czego chcesz się nauczyć?**\n\n1. Grafika i materiały reklamowe (plakaty, posty, kampanie)\n2. Wideo, motion design i storytelling\n3. Teksty reklamowe i copywriting\n4. Prompty do obrazów i wideo\n5. Muzyka, głos i dźwięk\n6. Montaż i dopracowywanie materiałów\n\nWpisz numer albo opisz własny temat.",
+          "reply_chars": 343,
+          "reply_sha256": "128f7baccee0db995cdfe9fb8f4e9c33f2e26baf2e51ad6a8af176a6c1f91c7e",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1188,
+            "output": 1158,
+            "cache_read": 45411,
+            "cache_write": 21234
+          },
+          "seconds": 3.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Tryb szybki"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "1 question marks (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2443,
+          "output": 1040,
+          "cache_read": 2054,
+          "cache_write": 2504
+        },
+        "items": [
+          {
+            "item": "Learning mode asks what the user wants to learn or offers learning domains",
+            "verdict": "met",
+            "reason": "After the user chose 2, the assistant asked \"Czego chcesz się nauczyć?\" and offered six learning domains: graphics/ads, video/motion/storytelling, copywriting, prompts, music/voice/sound, and editing."
+          },
+          {
+            "item": "No creative pace menu is shown to a learner",
+            "verdict": "met",
+            "reason": "The learner-facing reply after the user selected learning mode contains no fast/extended pace choice. The only mention of 'tryb szybki albo rozbudowany' is in the opening menu's description of creative mode, which appeared before the user picked learning mode."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "LM01",
+      "title": "A Polish start question addressed to Studio reaches the complete welcome",
+      "source": "evals/learning-mode-cases.json#LM01",
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3747,
+        "output": 3559,
+        "cache_read": 21721,
+        "cache_write": 23373
+      },
+      "seconds": 7.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Hej, od czego zaczynamy?",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1196,
+            "output": 1408,
+            "cache_read": 19667,
+            "cache_write": 20765
+          },
+          "seconds": 7.2,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2551,
+          "output": 2151,
+          "cache_read": 2054,
+          "cache_write": 2608
+        },
+        "items": [
+          {
+            "item": "Complete welcome explains the Studio, non-exhaustive capabilities and optional uploads before 1. Tryb kreatywny / 2. Tryb nauki / 3. Szukasz konkretnego skilla; wait.",
+            "verdict": "met",
+            "reason": "The welcome explains the Studio's purpose, lists capabilities under 'Mogę pomóc Ci w:' without claiming to be exhaustive, says uploads can be added now or later, then offers options 1-3 and ends with 'Wpisz 1, 2 albo 3.' and no further work."
+          },
+          {
+            "item": "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany; a pace-only choice then shows the established work-area menu.",
+            "verdict": "unclear",
+            "reason": "No creative choice was made in the conversation, so this behaviour was not exercised."
+          },
+          {
+            "item": "Interpret numbers against the last displayed menu, preserve pace, and do not send a learner through creative menus.",
+            "verdict": "unclear",
+            "reason": "The user has not yet selected a number from any menu, so number interpretation and pace preservation were not tested."
+          },
+          {
+            "item": "A concrete supplied brief bypasses redundant choices; no default domain, onboarding, research or generation before a substantive task.",
+            "verdict": "unclear",
+            "reason": "The user's only message was a greeting with no concrete brief, so this rule was not triggered."
+          },
+          {
+            "item": "Use a genuine choice control if exposed; otherwise numbered text; do not invent buttons.",
+            "verdict": "met",
+            "reason": "Choices are presented as a numbered text list with bold labels, and no buttons or controls are invented."
+          },
+          {
+            "item": "Startup offers choices 1 to 3; a 3 selects skill search, never motion or storyboards. Creative/expanded/area 8 reaches motion; area 3 remains storyboard. Explicit learning intent takes precedence. No execution from menu selection.",
+            "verdict": "met",
+            "reason": "The startup menu offers exactly 1-3, and option 3 is described as skill search (including skills.sh), not motion or storyboards. The selection-to-action paths (creative/expanded/area mapping, learning precedence) were not exercised, and nothing was executed from the menu."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "V01",
+      "title": "Version question answers with the installed version, without the welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1204,
+        "output": 1072,
+        "cache_read": 98559,
+        "cache_write": 23117
+      },
+      "seconds": 13.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio jaką wersję masz zainstalowaną?",
+          "reply": "Masz zainstalowaną wersję **1.66.0** wtyczki FrameCore Works Creative Studio.\n\n- **Źródło:** właśnie odczytany wpis `workflow-orchestrator` (blok PACKAGE IDENTITY). Ten sam numer jest w trzech plikach `plugin.json` w katalogu wtyczki: głównym, `.claude-plugin/` i `.codex-plugin/`. Wszystkie trzy są zgodne.\n- **Zakres:** to wersja pakietu załadowanego w tej sesji. Nie sprawdzałem, czy jest nowsze wydanie na GitHubie ani jaka wersja jest zapisana w wydaniu hostowanym.",
+          "reply_chars": 470,
+          "reply_sha256": "83cc5d81a74a5d297668e92a24372bbb46af60129866830c94030b12be1515dc",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Glob",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1204,
+            "output": 1072,
+            "cache_read": 98559,
+            "cache_write": 23117
+          },
+          "seconds": 13.2,
+          "checks": [
+            {
+              "check": {
+                "contains": [
+                  "{version}"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_chars": 1500
+              },
+              "passed": true,
+              "detail": "470 chars (max 1500)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "D01",
+      "title": "Direct Polish copy task: exactly three slogans, no welcome, no questions",
+      "source": "evals/studio-behavior-cases.json#H01",
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2802,
+        "output": 1101,
+        "cache_read": 6574,
+        "cache_write": 12296
+      },
+      "seconds": 4.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Podaj dokładnie trzy krótkie hasła dla sobotniego warsztatu ceramiki dla początkujących. Glina, szkliwienie i wypał są w cenie. Nie dodawaj innych faktów.",
+          "reply": "1. Sobota z gliną, nawet jeśli to Twój pierwszy raz.\n2. Glina, szkliwienie i wypał w cenie.\n3. Ceramika dla początkujących. Zacznij w sobotę.",
+          "reply_chars": 141,
+          "reply_sha256": "af11275e1b68b5ca3dae7e2598a5e02c6debd27a28992b9c29085866dad54616",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1257,
+            "output": 405,
+            "cache_read": 4520,
+            "cache_write": 10692
+          },
+          "seconds": 4.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "max_user_questions": 0
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 0)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 1545,
+          "output": 696,
+          "cache_read": 2054,
+          "cache_write": 1604
+        },
+        "items": [
+          {
+            "item": "Exactly three supported distinct drafts",
+            "verdict": "met",
+            "reason": "The assistant gave three numbered, distinct headlines. Each uses only the supplied facts: the Saturday workshop, beginners, and clay, glazing and firing included in the price."
+          },
+          {
+            "item": "No forced questionnaire, image prompt or execution",
+            "verdict": "met",
+            "reason": "The response asks no questions, offers no image prompt, and does not start any execution step."
+          },
+          {
+            "item": "No research trigger applies to supplied facts; no search, research claim or no-research disclaimer",
+            "verdict": "met",
+            "reason": "The assistant did no search, made no research claim, and added no no-research disclaimer. The user supplied all the facts used, so no research step was called for."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "E01",
+      "title": "Direct English copy task stays in English",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2689,
+        "output": 1261,
+        "cache_read": 21756,
+        "cache_write": 15836
+      },
+      "seconds": 4.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio write exactly three short taglines for a Saturday beginner pottery workshop. Clay, glazing and firing are included. Add no other facts.",
+          "reply": "1. Saturdays were made for clay.\n2. Shape it, glaze it, fire it. Start here.\n3. Your first pot, from clay to fired.",
+          "reply_chars": 115,
+          "reply_sha256": "7204f1c71d7df6040d8501ce0cbc0caeaf7072d77eb6494377f3cd8baf53f96e",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1227,
+            "output": 336,
+            "cache_read": 19702,
+            "cache_write": 14313
+          },
+          "seconds": 4.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "max_user_questions": 0
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 0)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 1462,
+          "output": 925,
+          "cache_read": 2054,
+          "cache_write": 1523
+        },
+        "items": [
+          {
+            "item": "Exactly three distinct taglines",
+            "verdict": "met",
+            "reason": "The response has three numbered taglines with different wording and no repeats."
+          },
+          {
+            "item": "No invented facts beyond clay, glazing, firing, Saturday and beginners",
+            "verdict": "met",
+            "reason": "The taglines stay within the allowed topics. 'Shape it' and 'your first pot' describe pottery activities implied by clay and beginner work rather than stating new workshop facts, though 'shape' is a borderline addition."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "P01",
+      "title": "Image prompt request returns one copyable prompt",
+      "source": "evals/presentation-cases.json#PI01",
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3448,
+        "output": 2468,
+        "cache_read": 21757,
+        "cache_write": 15840
+      },
+      "seconds": 12.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do generatora obrazów: ceramiczny kubek na lnianym obrusie, poranne światło, bez tekstu.",
+          "reply": "Nie podałeś generatora, więc prompt jest uniwersalny, w naturalnym języku. Zgodnie z domyślną praktyką jest po angielsku, bo większość generatorów najlepiej go rozumie.\n\n```\nA handmade ceramic mug with a soft matte glaze in warm off-white with subtle speckles, standing on a natural linen tablecloth. The linen has a visible loose weave, fine slubs and gentle soft folds. Quiet morning light enters from a window on the left, low and warm. It casts soft, elongated shadows across the cloth and a delicate highlight along the rim and handle of the mug. A faint wisp of steam rises from the mug. Close three-quarter view from slightly above table height, 50mm lens look, shallow depth of field: the mug and the nearest linen texture are sharp, and the background melts into a creamy, out-of-focus pale neutral. Calm, minimalist, cozy still-life mood. Muted palette of cream, warm beige and soft oatmeal with one gentle accent of pale clay. Natural, realistic photographic rendering with true-to-life ceramic and fabric textures. The mug sits slightly off-centre with generous negative space. No text, no letters, no logos, no labels, no watermark, no printed patterns on the mug or cloth.\n```\n\n**Notatka produkcyjna**\n- **Format:** polecam 4:5 (pion) albo 3:2 (poziom). Zostaw wolne miejsce z prawej strony, jeśli planujesz później dodać tekst w osobnej grafice.\n- **Pierwszy odczyt:** kubek z ciepłym światłem na krawędzi, potem faktura lnu.\n- **Do sprawdzenia po wygenerowaniu:**\n  - czy na kubku, obrusie ani w tle nie pojawiły się litery, znaki ani logo,\n  - czy splot lnu wygląda naturalnie, a nie jak powtarzalny wzór,\n  - czy kubek ma jedno poprawne ucho i realistyczne proporcje.\n- **Warianty:** mogę dopasować prompt do konkretnego generatora (np. Midjourney, Flux, DALL·E) albo zmienić nastrój, na przykład chłodniejszy świt, ciemniejsze tło lub inny kolor glazury. Daj znać, którego potrzebujesz.",
+          "reply_chars": 1905,
+          "reply_sha256": "e3103c6418d0f002e561f09a51f5648638da3840fcc12cf64cac45a9a72db458",
+          "skills": [
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1230,
+            "output": 1509,
+            "cache_read": 19703,
+            "cache_write": 13563
+          },
+          "seconds": 12.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "code_block": true
+              },
+              "passed": true,
+              "detail": "has a code block"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "image-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['image-prompt-architect']; expected one of ['image-prompt-architect']"
+            },
+            {
+              "check": {
+                "max_questions": 1
+              },
+              "passed": true,
+              "detail": "0 question marks (max 1)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2218,
+          "output": 959,
+          "cache_read": 2054,
+          "cache_write": 2277
+        },
+        "items": [
+          {
+            "item": "The prompt is complete and copyable in one fenced block",
+            "verdict": "met",
+            "reason": "The full English prompt sits in a single ``` code block with no truncation or split, so it can be copied as-is."
+          },
+          {
+            "item": "No comparison, form or experiment is added to a single obvious deliverable",
+            "verdict": "not_met",
+            "reason": "The user asked for one prompt. The response adds a production note that compares two formats (4:5 vs 3:2), a 'first reading' testing sequence, a post-generation QA checklist, and an offer of variants and alternate moods. These go beyond the single requested deliverable, though they are advisory rather than fully built extra prompts."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "M01",
+      "title": "App promo video: one short choice between a generator prompt and a coded MP4",
+      "source": "evals/motion-sound-cases.json#MS01",
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3223,
+        "output": 2363,
+        "cache_read": 47424,
+        "cache_write": 23366
+      },
+      "seconds": 11.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 15-sekundowy film promocyjny mojej aplikacji do nauki słówek. Mam trzy zrzuty ekranu.",
+          "reply": "Nie widzę żadnych zrzutów ekranu. Katalog roboczy jest pusty, a w wiadomości nie dotarły żadne obrazy. Bez nich nie zrobię filmu, bo ma się on opierać na prawdziwym wyglądzie aplikacji.\n\nMożesz wgrać trzy pliki PNG albo JPG do katalogu roboczego (`/tmp/studio-eval-i30_nn90/work`) albo załączyć je ponownie w wiadomości.\n\nGdy je dostanę, zrobię 15-sekundowy film z ruchomej grafiki. Użyję w nim Twoich ekranów i dodam dźwięk, a wynikiem będzie plik MP4.\n\nŻeby od razu ruszyć, odpowiedz na te pytania. Jeśli nie masz zdania, napisz „wedle uznania”.\n\n1. **Nazwa aplikacji** i jej jedno zdanie opisu (np. do jakiego języka, dla kogo).\n2. **Format:** pionowy 9:16 (Reels, TikTok, Shorts) czy poziomy 16:9?\n3. **Język tekstów na filmie:** polski, angielski czy inny?\n4. **Wezwanie do działania na końcu:** np. „Pobierz w App Store / Google Play”. Podaj dokładne brzmienie albo napisz, że wybiorę je ja.\n5. **Logo i kolory marki,** jeśli je masz.\n\nNie zmyślę żadnych funkcji ani liczb, których nie widać na ekranach i których nie podasz.",
+          "reply_chars": 1031,
+          "reply_sha256": "6bf3de3263179190ac24ad02c5f2c04b9e4271f7580282dea57631cb9ccb28dc",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Glob"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1234,
+            "output": 972,
+            "cache_read": 45370,
+            "cache_write": 21318
+          },
+          "seconds": 11.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "MP4"
+              },
+              "passed": true,
+              "detail": "/MP4/"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "2 question marks (max 2)"
+            },
+            {
+              "check": {
+                "no_command": "render"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 1989,
+          "output": 1391,
+          "cache_read": 2054,
+          "cache_write": 2048
+        },
+        "items": [
+          {
+            "item": "Both routes are named in one short choice; the code route says it delivers a finished MP4 here",
+            "verdict": "not_met",
+            "reason": "The reply names only one route (motion graphics built by code) and says it will produce an MP4. It does not name a second route or offer a choice between routes."
+          },
+          {
+            "item": "The device scene with the user's screenshots is proposed for the code route",
+            "verdict": "not_met",
+            "reason": "The reply says the screenshots will be used in the film but never proposes a device scene, such as a phone mockup, for them."
+          },
+          {
+            "item": "No generator is called and no video is claimed before the choice",
+            "verdict": "met",
+            "reason": "No generation tool is called. The MP4 is described as a future result after the screenshots arrive, not as something already made."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "S01",
+      "title": "Vague film idea: at most one question or a labelled proposal",
+      "source": "evals/story-cases.json#SC01",
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3436,
+        "output": 3257,
+        "cache_read": 21754,
+        "cache_write": 23271
+      },
+      "seconds": 19.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić krótki film o poczuciu, że czas przecieka. Nie wiem jeszcze jak.",
+          "reply": "Robię to w trybie tworzenia. Jeśli wolisz, żebym zamiast tego uczył Cię krok po kroku, napisz „tryb nauki\".\n\nCelowo odłożyłem oczywiste motywy: klepsydrę, topiące się zegary, tykanie i piasek. Zamiast nich mam trzy kierunki. Każdy pokazuje „przeciekanie\" inaczej.\n\n**1. „Herbata\" (akcja nagrana lub generowana)**\n- Jedna codzienna czynność: ktoś robi herbatę.\n- Każde cięcie przesuwa czas o kilkadziesiąt minut, ale bohater tego nie zauważa.\n- Jedyne ślady to światło za oknem, zimny kubek i para, która dawno zniknęła.\n- Czynność nigdy się nie kończy.\n- Ścieżka: wideo generowane albo kręcone.\n\n**2. „168\" (animacja z kodu)**\n- Siatka 168 kropek, czyli godzin tygodnia.\n- Kropki gasną po cichu, zawsze wtedy, gdy patrzysz gdzie indziej.\n- Na końcu zostaje pytanie bez odpowiedzi: „gdzie to poszło?\".\n- Typografia, rytm i zaprojektowany dźwięk, bez aktorów.\n- Ścieżka: motion graphics z kodu, render do MP4 z dźwiękiem.\n\n**3. „Noc bez zegara\" (dźwięk prowadzi obraz)**\n- Prawie nieruchomy kadr mieszkania.\n- Czas widać tylko w dźwięku: lodówka, kroki sąsiada, powiadomienia telefonu, świt ptaków.\n- Obraz prawie się nie zmienia, więc widz sam czuje, że minęły godziny.\n- Ścieżka: wideo plus mocno prowadzony dźwięk.\n\n**Którą z tych dróg chcesz rozwinąć?** Możesz wybrać jedną, połączyć dwie albo powiedzieć, co nie trafia.\n\nPodpowiedź: jeśli masz już długość filmu (np. 30–60 s) albo wiesz, gdzie ma być pokazany, powiedz. To zawęzi wybór ścieżki.",
+          "reply_chars": 1447,
+          "reply_sha256": "6848caca064fc5cd785f4e4187a40abe4b5c130ff7e701a5aa83704cfbba4d93",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1223,
+            "output": 2008,
+            "cache_read": 19700,
+            "cache_write": 20995
+          },
+          "seconds": 19.0,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_questions": 1
+              },
+              "passed": true,
+              "detail": "1 question marks (max 1)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2213,
+          "output": 1249,
+          "cache_read": 2054,
+          "cache_write": 2276
+        },
+        "items": [
+          {
+            "item": "Does not jump to a stock tragedy or reveal",
+            "verdict": "met",
+            "reason": "The assistant explicitly sets aside the obvious motifs (hourglass, melting clocks, ticking, sand). Its three directions end on open states, such as an unfinished task or an unanswered question, not on a tragic or twist reveal."
+          },
+          {
+            "item": "Asks at most one useful association question or offers a clearly labeled specific proposal",
+            "verdict": "met",
+            "reason": "It offers three clearly titled, specific directions with concrete execution paths. It asks one closing question about which to develop. The optional tip about length and placement is an invitation to add detail, not a second question."
+          },
+          {
+            "item": "Keeps form choices provisional until the user reacts",
+            "verdict": "met",
+            "reason": "The directions are framed as options the user can choose, combine, or reject. The assistant does not commit to a form, and it ends by asking the user to react before going further."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "R01",
+      "title": "Store campaign routes to the ecommerce campaign director, not generic marketing",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3315,
+        "output": 2394,
+        "cache_read": 21753,
+        "cache_write": 16084
+      },
+      "seconds": 11.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio zaplanuj kampanię w social media dla mojego sklepu internetowego z miodem na premierę nowego smaku.",
+          "reply": "Żeby plan oparty był na faktach, a nie na zgadywaniu, potrzebuję jednej rzeczy: **linku do sklepu (lub strony produktu nowego smaku)**.\n\nNie mam jeszcze żadnych danych o sklepie ani o nowym smaku. Ze strony wyciągnę nazwę smaku, skład, cenę, gramaturę, opakowanie, dotychczasowy ton marki i zatwierdzone twierdzenia. Jeśli nie masz strony produktu, wystarczy, że podasz mi to w kilku zdaniach:\n\n- nazwa i opis smaku (np. miód spadziowy, miód z dodatkami),\n- cena, ewentualna oferta premierowa i data startu,\n- na jakich kanałach działasz (Instagram, TikTok, Facebook).\n\n**Jak będzie wyglądał plan.** Dostaniesz pakiet strategii kampanii:\n\n1. Prawdę o produkcie i ofercie oraz rejestr dozwolonych twierdzeń. Bez nieudokumentowanych deklaracji zdrowotnych, które w branży miodu są częstą pułapką.\n2. Odbiorców i ich motywacje: prezent, codzienna kuchnia, wypróbowanie czegoś nowego.\n3. Jedną tezę kampanii i maksymalnie cztery różne kąty kreatywne.\n4. Harmonogram w trzech fazach: teaser, premiera, podtrzymanie i retargeting.\n5. Matrycę materiałów: rolkę, karuzelę, relacje i UGC, każdy z konkretną rolą sprzedażową.\n6. Pierwszy test, w którym zmieniamy tylko jedną zmienną.\n7. Przekazanie do dalszej produkcji: copy, grafiki i wideo.\n\nMożesz też od razu dodać budżet na reklamy, jeśli planujesz płatną promocję, ale nie jest to konieczne na tym etapie.",
+          "reply_chars": 1352,
+          "reply_sha256": "cb7de8fa3083b79bcae28ce1904ffdc0cdd92e8941e0fc3d90fc8539cc57a4f1",
+          "skills": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1223,
+            "output": 1617,
+            "cache_read": 19699,
+            "cache_write": 13930
+          },
+          "seconds": 11.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "0 question marks (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2092,
+          "output": 777,
+          "cache_read": 2054,
+          "cache_write": 2154
+        },
+        "items": [
+          {
+            "item": "Asks at most one consequential question or states assumptions and proposes a plan",
+            "verdict": "met",
+            "reason": "The main ask is one blocking question, the store or product link. It then proposes a concrete seven-step campaign plan. The fallback bullet list of details is framed as an alternative to the link, though it adds several asks."
+          },
+          {
+            "item": "Does not invent product facts, prices or claims",
+            "verdict": "met",
+            "reason": "It states it has no data about the store or the new flavor and invents no product details, prices, or claims. The health-claim caution is a general industry remark, not a product claim."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "F01",
+      "title": "Skill search for captions recommends Studio's own Caption Studio first",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3301,
+        "output": 2455,
+        "cache_read": 21751,
+        "cache_write": 15890
+      },
+      "seconds": 11.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio szukam skilla, który zrobi animowane napisy słowo po słowie do rolek z mojego nagrania.",
+          "reply": "Skill **caption-studio** jest już załadowany. Robi animowane napisy słowo po słowie (aktywne słowo podświetlone) do rolek, TikToka i Shortsów. Obsługuje też timing, strefy bezpieczne i kontrolę jakości, a napisy może wypalić w wideo albo oddać jako plik SRT/VTT.\n\nŻeby ruszyć, potrzebuję od Ciebie kilku rzeczy:\n\n1. **Nagranie lub transkrypcja.** Wrzuć plik wideo albo audio do katalogu roboczego. Jeśli masz już transkrypcję z czasami słów, SRT albo VTT, to jeszcze lepiej. Skill sam nie wysyła nagrań do zewnętrznych usług transkrypcji, chyba że wyraźnie o to poprosisz. Bez gotowych czasów zaplanuję lokalną transkrypcję, o ile jest dostępna.\n2. **Język i blokady.** Napisy mają być po polsku. Podaj nazwy własne, nazwy marek i sformułowania, których nie wolno zmieniać.\n3. **Format docelowy.** Pionowe 9:16? Na jaką platformę (Reels, TikTok, Shorts)? Czy napisy mają być wypalone w wideo, czy jako osobny plik?\n4. **Styl.** Mogę pokazać 3–4 propozycje, np. aktywne słowo w kolorze, pop/bounce albo minimalistyczne. Możesz też podać referencję. Stylu nie wybiorę sam, chyba że mi na to pozwolisz.\n5. **Elementy do omijania.** Twarz, produkt, CTA, logo. Napisy ustawię poza nimi.\n\nPrześlij plik i odpowiedz na punkty 2–4. Resztę ustawię sam: segmentację po 1–3 słowa, tempo czytania, pozycję w strefie bezpiecznej i kontrolę klatek.",
+          "reply_chars": 1334,
+          "reply_sha256": "e7396d1e7b215fad315fd1b43d57ed15ec93c7a82dadfdf449d95d4845ccceab",
+          "skills": [
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1220,
+            "output": 1399,
+            "cache_read": 19697,
+            "cache_write": 13746
+          },
+          "seconds": 11.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Caption Studio",
+                  "caption-studio"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['caption-studio']"
+            },
+            {
+              "check": {
+                "no_command": "npx skills add"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2081,
+          "output": 1056,
+          "cache_read": 2054,
+          "cache_write": 2144
+        },
+        "items": [
+          {
+            "item": "Studio's own Caption Studio is recommended before any catalog skill",
+            "verdict": "met",
+            "reason": "The assistant immediately identifies the already-loaded caption-studio skill as the solution and proposes starting with it. It never mentions or recommends any catalog skill, so Caption Studio comes first with no competing option offered."
+          },
+          {
+            "item": "Nothing is installed",
+            "verdict": "met",
+            "reason": "The assistant says the skill is already loaded and asks the user for inputs. It does not install, download, or propose installing any package or skill."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "F02",
+      "title": "Catalog search for UI sounds reads audits and installs nothing",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 3265,
+        "output": 2069,
+        "cache_read": 18400,
+        "cache_write": 18785
+      },
+      "seconds": 10.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio szukam skilla do generowania krótkich dźwięków interfejsu (kliknięcia, powiadomienia). Sprawdź też otwarty katalog.",
+          "reply": "Katalog roboczy (`/tmp/studio-eval-eq4ci3t2/work`) jest pusty. Nie ma w nim plików, projektów ani materiałów referencyjnych.\n\nW FrameCore Works Creative Studio nie ma skilla zrobionego tylko pod dźwięki interfejsu. Najbliższe są dwa:\n\n- **`audio-production-director`**: to najlepszy wybór do samej koncepcji. Obejmuje kierunek dźwięku, mapy cue'ów i prompty do generatorów audio. Sprawdzi się, gdy chcesz zaprojektować zestaw dźwięków (kliknięcie, powiadomienie, sukces, błąd) i dostać opisy lub prompty do generatora.\n- **`hyperframes-workflow`**: obejmuje „designed sound” przy renderowaniu motion graphics w kodzie, więc pasuje, jeśli dźwięki mają trafić do filmu lub animacji produktu. Dźwięki są wtedy tworzone w kodzie i dołączane do MP4.\n\nŻaden z nich nie jest gotowym generatorem plików WAV/MP3 dla UI. Jeśli potrzebujesz samych plików, mogę je zsyntetyzować skryptem (np. Python z numpy, krótkie tony z obwiednią) i zapisać w katalogu roboczym.\n\nCzego potrzebujesz: samej koncepcji i promptów, czy gotowych plików dźwiękowych? Jeśli plików, podaj mi krótko:\n- listę zdarzeń (np. klik, powiadomienie, błąd),\n- charakter dźwięku (miękki, szklany, retro),\n- format wyjściowy.",
+          "reply_chars": 1181,
+          "reply_sha256": "246e542445955b3cc6cee244df47072280a31a9b07ced91f1def3bdd1fc5353d",
+          "skills": [],
+          "tools": [
+            "Bash"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1236,
+            "output": 1156,
+            "cache_read": 16346,
+            "cache_write": 16693
+          },
+          "seconds": 10.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "command": "find_skills"
+              },
+              "passed": false,
+              "detail": "no command containing 'find_skills'"
+            },
+            {
+              "check": {
+                "no_command": "npx skills add"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "not_regex": "skills add [^\\n]*\\s(-y|--yes)\\b"
+              },
+              "passed": true,
+              "detail": "not /skills add [^\\n]*\\s(-y|--yes)\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2029,
+          "output": 913,
+          "cache_read": 2054,
+          "cache_write": 2092
+        },
+        "items": [
+          {
+            "item": "Studio's own capabilities are checked first",
+            "verdict": "unclear",
+            "reason": "The assistant checked the working directory first, then named two studio skills. No lookup of the studio's skill catalog appears in the transcript, so the order and method can't be confirmed."
+          },
+          {
+            "item": "Candidates are shown with audits or verdicts; a blocked skill gets no install command",
+            "verdict": "not_met",
+            "reason": "The two candidates are described by purpose and fit, but no audit or verdict is shown for either. No install command is given, so the blocked-skill clause is not violated."
+          },
+          {
+            "item": "Nothing is installed without an explicit request",
+            "verdict": "met",
+            "reason": "The assistant performed no installation. It offered to synthesize audio files only as a future option and asked the user what they want first."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "Q01",
+      "title": "An offer is priced from the rate and VAT status the user gives",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3946,
+        "output": 5222,
+        "cache_read": 176365,
+        "cache_write": 22118
+      },
+      "seconds": 34.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Przygotuj ofertę dla kawiarni: logo (2 kierunki, 2 rundy poprawek) i karta marki. Moja stawka to 150 zł netto za godzinę; logo zajmie mi 12 godzin, karta marki 5 godzin. Jestem zwolniony z VAT na podstawie art. 113 ust. 1 ustawy o VAT. Zaliczka 50%.",
+          "reply": "Nie udało się uruchomić kalkulatora wyceny ani zapisać pliku z ofertą. Powłoka zablokowała zapis specyfikacji, a narzędzie do zapisu plików jest w tej sesji wyłączone. Poniżej jest oferta w czacie, a arytmetyka jest policzona ręcznie i pokazana linia po linii.\n\n## Oferta: logo i karta marki dla kawiarni\n\n**Zakres**\n- Logo: 2 kierunki wstępne, dopracowanie wybranego kierunku.\n- Karta marki: kolory, fonty, zasady użycia logo.\n- 2 rundy poprawek w cenie.\n\n**Wycena** (stawka 150 zł netto/h)\n\n| Pozycja | Godziny | Cena netto |\n|---|---|---|\n| Logo (2 kierunki, dopracowanie wybranego) | 12 h × 150 zł | 1 800,00 zł |\n| Karta marki | 5 h × 150 zł | 750,00 zł |\n| **Razem** | 17 h | **2 550,00 zł** |\n\n- **VAT:** zw., czyli zwolnienie podmiotowe na podstawie art. 113 ust. 1 ustawy o VAT. Cena brutto jest równa cenie netto: **2 550,00 zł**.\n- **Zaliczka 50%:** 1 275,00 zł, płatna przed rozpoczęciem prac.\n- **Reszta:** 1 275,00 zł, po akceptacji i przed przekazaniem plików finalnych.\n\n**Poza zakresem**\n- druk,\n- zdjęcia,\n- materiały inne niż logo i karta marki,\n- dodatkowe rundy poprawek.\n\nDodatkowa runda poprawek albo nowy kierunek po akceptacji wyboru to zmiana zakresu. Wycenię ją według tej samej stawki i ruszę dopiero po pisemnej zgodzie klienta.\n\n**Prawa autorskie:** zapis do Twojej decyzji. Możesz wybrać przeniesienie majątkowych praw autorskich albo licencję. Pola eksploatacji, zgoda na prawa zależne i moment przejścia praw (np. po zapłacie) muszą być w umowie. To punkty do ustalenia z Tobą lub z prawnikiem, nie porada prawna.\n\n**Założenia, które przyjąłem. Popraw, jeśli się nie zgadzają:**\n- Nazwę kawiarni i teksty dostarcza klient.\n- Termin płatności reszty to 14 dni.\n- Oferta jest ważna do 26.10.2026, czyli 14 dni od dziś.\n\n**Czego brakuje:** nazwy kawiarni i klienta, terminu realizacji, tego, czy ma być przeniesienie praw czy licencja, oraz tego, kto akceptuje projekt po stronie klienta.\n\nJeśli chcesz plik z ofertą, daj znać. Mogę ponowić próbę zapisu w tej sesji albo przygotować tekst do wklejenia w dokument.",
+          "reply_chars": 2043,
+          "reply_sha256": "4cbe5011c12440c55054078e8273dda94ad8055da3128a4be8580819e086c89e",
+          "skills": [
+            "brief-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Grep",
+            "Bash",
+            "Write"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1335,
+            "output": 4227,
+            "cache_read": 174311,
+            "cache_write": 19448
+          },
+          "seconds": 34.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "brief-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['brief-architect']; expected one of ['brief-architect']"
+            },
+            {
+              "check": {
+                "regex": "2[  ]?550"
+              },
+              "passed": true,
+              "detail": "/2[  ]?550/"
+            },
+            {
+              "check": {
+                "contains": [
+                  "art. 113"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "23%",
+                  "23 %"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2611,
+          "output": 995,
+          "cache_read": 2054,
+          "cache_write": 2670
+        },
+        "items": [
+          {
+            "item": "Totals follow from 17 hours at 150 zł with no VAT (2 550,00 zł) and a 50% advance (1 275,00 zł)",
+            "verdict": "met",
+            "reason": "The table gives 12 h + 5 h = 17 h × 150 zł = 2 550,00 zł. VAT is shown as exempt (art. 113 ust. 1), so gross equals net. The 50% advance is 1 275,00 zł."
+          },
+          {
+            "item": "No rate, price or term the user did not give is added",
+            "verdict": "not_met",
+            "reason": "The assistant adds a 14-day payment term for the balance and an offer validity date (26.10.2026, 14 days). The user gave neither. They are listed as assumptions the user can correct, which mitigates the problem but does not remove it. The scope also adds details the user did not specify, such as 'kolory, fonty, zasady użycia logo' and 'dopracowanie wybranego kierunku'."
+          },
+          {
+            "item": "Rights and terms are marked for the user's approval",
+            "verdict": "met",
+            "reason": "The copyright section is explicitly 'zapis do Twojej decyzji', with transfer versus licence presented as a choice. Assumptions are flagged with 'Popraw, jeśli się nie zgadzają', and the missing items are listed for the user to supply or confirm."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "Q02",
+      "title": "Asked what to charge, Studio explains the logic and asks for the user's numbers instead of inventing a price",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3620,
+        "output": 2036,
+        "cache_read": 21745,
+        "cache_write": 15642
+      },
+      "seconds": 14.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Ile powinienem wziąć za zaprojektowanie plakatu A3 na koncert?",
+          "reply": "Nie podam kwoty z sufitu. Bez Twoich stawek i zakresu byłaby zgadywanką, a rynkową stawkę mógłbym podać tylko ze świeżych źródeł. Mogę za to pokazać, jak ją policzyć.\n\n**Wzór**\n\nCena = (godziny pracy × Twoja stawka godzinowa) + licencja/prawa + koszty zewnętrzne + bufor na poprawki, plus VAT, jeśli jesteś płatnikiem.\n\n**Co zmienia cenę plakatu A3**\n\n1. **Zakres:** czy to sama kompozycja z dostarczonych materiałów (logo, zdjęcia, teksty), czy własna koncepcja, ilustracja lub sesja zdjęciowa. To największa różnica.\n2. **Rundy poprawek:** ile masz w cenie (zwykle 2–3). Każda kolejna jest płatna osobno.\n3. **Prawa autorskie:** do czego klient użyje plakatu. Sam druk, czy też internet i social media, i na jak długo. Szersze użycie to wyższa cena.\n4. **Pliki:** PDF do druku (spady, CMYK, znaczniki) i wersje na social media, jeśli klient ich chce. Dodatkowe formaty możesz wycenić osobno.\n5. **Termin:** zlecenia ekspresowe zwykle wyceniasz z dopłatą.\n6. **Klient:** mały lokalny zespół, klub i duży festiwal płacą różnie, a ten sam zakres pracy wyceniasz inaczej.\n7. **Koszty zewnętrzne:** płatne fonty, zdjęcia stockowe, druk, jeśli go organizujesz.\n\n**Dobra praktyka:** zamiast jednej ceny daj 2–3 pakiety. Na przykład podstawowy (kompozycja, 2 rundy, pliki do druku), standard (własna koncepcja, 3 rundy, wersje online) i rozszerzony (ilustracja lub zdjęcia, pełne prawa). Klient wybiera wtedy między pakietami, a nie negocjuje jedną liczbę.\n\n**Żebym mógł to policzyć, napisz mi:**\n- jaką masz stawkę godzinową albo dzienną, albo jaką chcesz mieć,\n- czy jesteś płatnikiem VAT,\n- ile godzin zwykle zajmuje Ci taki plakat, albo jaki to zakres (sama kompozycja czy pełna koncepcja),\n- do czego klient użyje plakatu (tylko druk, czy także internet).\n\nNa tej podstawie przygotuję Ci wycenę, a w razie potrzeby pakiety do oferty. Jeśli chcesz porównać z rynkiem, mogę sprawdzić aktualne stawki w źródłach. Daj znać.",
+          "reply_chars": 1918,
+          "reply_sha256": "9f261e2e11996e14debc6d3c9af20a95a19b18a98fa6c15ff8809b48a718c019",
+          "skills": [
+            "brief-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1214,
+            "output": 1516,
+            "cache_read": 19691,
+            "cache_write": 13173
+          },
+          "seconds": 14.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "not_regex": "\\b\\d{2,5}\\s?(zł|PLN)\\b"
+              },
+              "passed": true,
+              "detail": "not /\\b\\d{2,5}\\s?(zł|PLN)\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2406,
+          "output": 520,
+          "cache_read": 2054,
+          "cache_write": 2469
+        },
+        "items": [
+          {
+            "item": "Explains what drives the price (time, use and rights, urgency, revisions)",
+            "verdict": "met",
+            "reason": "The response covers all four drivers: hours in the formula, rights and intended use, the deadline/express surcharge, and revision rounds. It also adds scope, files, client type, and external costs."
+          },
+          {
+            "item": "Asks for the user's rate or offers to compute from it",
+            "verdict": "met",
+            "reason": "It explicitly asks for the user's hourly or daily rate (or the rate they want) and offers to compute the quote from it."
+          },
+          {
+            "item": "Does not present a market price as fact",
+            "verdict": "met",
+            "reason": "It declines to give a figure without the user's rates and scope, and says any market comparison would require checking current sources. No market price is stated as fact."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "M02",
+      "title": "A storyboard-only request ends with the storyboard: no render, even with a shell",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4972,
+        "output": 3383,
+        "cache_read": 24068,
+        "cache_write": 17562
+      },
+      "seconds": 23.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz tylko storyboard 8-sekundowej animacji logo dla piekarni „Kłos”, bez renderowania, sam plan scen.",
+          "reply": "# Storyboard: animacja logo piekarni „Kłos” (8 s)\n\n**Zakres:** sam plan scen, bez renderu i bez promptów.\n**Czas:** wszystkie czasy to szacunki planistyczne, nie pomiary. Zakładam 8,0 s i 24 kl./s, czyli 192 klatki.\n\n## Założenia (do potwierdzenia)\n- Nie dostałem pliku logo, więc zakładam znak z kłosem zboża i napisem **„Kłos”**. Pisownia z „Ł” i „ł” jest niezmienna.\n- Format: 16:9, z możliwością adaptacji do 1:1 i 9:16 (kluczowe elementy w środkowym polu bezpiecznym).\n- Styl: ciepły, rzemieślniczy, spokojny ruch. Paleta robocza: kremowe tło, złoto-pszeniczny kłos, ciemnobrązowy napis. Do zmiany po dostarczeniu księgi znaku.\n- Dźwięk: nie jest częścią planu. Punkty rytmiczne zaznaczam tylko jako sugestię.\n- Zero claimów, sloganów i dodatkowego tekstu poza nazwą. Slogan dodam tylko, jeśli go podasz.\n\n## Mapa uderzeń (beat map)\n\n| Beat | Czas | Funkcja | Widoczna zmiana |\n|---|---|---|---|\n| 1. Cisza i ziarno | 0,0–1,5 s | Otwarcie, nastrój | Pusta kremowa przestrzeń. Z dołu unoszą się drobne ziarna i mąka. |\n| 2. Wzrost kłosa | 1,5–3,5 s | Budowa znaku | Z ziaren rysuje się łodyga i kłos, ziarno po ziarnie. |\n| 3. Złoty moment | 3,5–5,0 s | Kulminacja | Kłos układa się w pełny znak, przechodzi ciepły błysk światła. |\n| 4. Nazwa | 5,0–6,5 s | Ujawnienie marki | Napis „Kłos” wyłania się obok lub pod znakiem. |\n| 5. Finałowa pieczęć | 6,5–8,0 s | Hold na logo | Lockup stoi nieruchomo, bez ruchu, czytelny przez ≥1,5 s. |\n\n## Karty ujęć\n\n**S01 — Ziarno w powietrzu** (0,0–1,5 s, ok. 36 kl.)\n- **Kadr:** plan ogólny, kamera statyczna, frontalnie.\n- **Akcja:** na kremowym tle powoli unoszą się 8–12 drobnych ziaren i pyłków mąki. Delikatne światło z lewej góry.\n- **Stan początkowy:** pusty kadr. **Końcowy:** ziarna zbiegają się ku środkowi-dołowi.\n- **Ciągłość:** pozycja zbiegu ziaren = punkt startu łodygi w S02.\n\n**S02 — Kłos rośnie** (1,5–3,5 s, ok. 48 kl.)\n- **Kadr:** płaska grafika 2D, bardzo powolny najazd (ok. 3–5%), żeby nie rozpraszać.\n- **Akcja:** łodyga wyrasta pionowo, od dołu środka. Ziarna kolejno „przyklejają się” do kłosa, parami po obu stronach.\n- **Stan początkowy:** kropka u podstawy. **Końcowy:** kłos prawie kompletny, brakuje szczytowego ziarna.\n- **Ciągłość:** kolor i grubość linii zgodne z finalnym znakiem.\n\n**S03 — Złoty błysk** (3,5–5,0 s, ok. 36 kl.)\n- **Kadr:** ten sam kadr co S02, najazd kończy się tutaj.\n- **Akcja:** ostatnie ziarno wskakuje na szczyt. Przez kłos przechodzi jeden ciepły błysk, od lewej do prawej, bez flar i lens-flare’ów. Znak lekko „oddycha” (skala 100→102→100%).\n- **Stan początkowy:** niepełny kłos. **Końcowy:** kompletny znak, wyśrodkowany, nieruchomy.\n- **Sugestia dźwięku:** jeden miękki akcent w chwili błysku (ok. 4,0 s).\n\n**S04 — Nazwa „Kłos”** (5,0–6,5 s, ok. 36 kl.)\n- **Kadr:** bez zmiany kamery. Znak przesuwa się płynnie w górę lub w lewo, robiąc miejsce na napis (w zależności od lockupu).\n- **Akcja:** napis „Kłos” pojawia się miękkim maskowaniem od lewej do prawej, jak przesuwająca się mąka. Bez rozbijania liter.\n- **Stan początkowy:** sam znak. **Końcowy:** pełny lockup znak + napis.\n- **Ciągłość:** napis dokładnie „Kłos”, z poprawnym „Ł”. Wymaga sprawdzenia w docelowym kroju.\n\n**S05 — Hold końcowy** (6,5–8,0 s, ok. 36 kl.)\n- **Kadr:** statyczny, lockup na środku z marginesem bezpiecznym.\n- **Akcja:** brak ruchu poza, opcjonalnie, subtelną drobiną światła w tle (do wycięcia, jeśli rozprasza).\n- **Cel:** czytelny, „zatrzymany” znak do użycia jako klatka końcowa i miniatura.\n\n## Test akceptacji\n- Suma czasów S01–S05 = 8,0 s.\n- Nazwa „Kłos” jest czytelna i poprawnie napisana od 6,5 s do końca.\n- Znak jest kompletny przed pojawieniem się napisu, a każdy ruch ma jedną wyraźną przyczynę.\n- Żadne ujęcie nie dodaje elementów spoza logo.\n\n## Do ustalenia przed realizacją\n1. Plik logo albo księga znaku (kształt kłosa, układ lockupu, kolory, krój).\n2. Czy logo ma wersję pionową, czy poziomą?\n3. Czy dodać slogan lub adres w ostatnim holdzie? Wtedy hold musi być dłuższy albo trzeba skrócić S01.\n4. Czy animacja jest z dźwiękiem, czy bez?\n\nGdy potwierdzisz założenia, następny krok to wersja kodowana jako motion graphics albo prompt do generatora wideo.",
+          "reply_chars": 4158,
+          "reply_sha256": "dfca58e01c2a5346b3aeb262fa18a76e11214ed78ce3e9db71f83e6b234a5fb4",
+          "skills": [
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1235,
+            "output": 2855,
+            "cache_read": 22014,
+            "cache_write": 13766
+          },
+          "seconds": 23.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "no_command": "render"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "ffmpeg"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3737,
+          "output": 528,
+          "cache_read": 2054,
+          "cache_write": 3796
+        },
+        "items": [
+          {
+            "item": "Delivers a scene plan with timing and readable holds",
+            "verdict": "met",
+            "reason": "The response gives a beat map and five scene cards with explicit timecodes that sum to 8.0 s. S05 is a static hold from 6.5–8.0 s, and the text states the logo must stay readable for at least 1.5 s."
+          },
+          {
+            "item": "Does not render, call a provider or ask to render",
+            "verdict": "met",
+            "reason": "It states the scope is the plan only, with no render and no prompts. The closing line offers a possible next step (motion graphics or a video-generator prompt) only after the user confirms assumptions, and it does not request rendering or call any provider."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "M03",
+      "title": "A request for Veo prompts stays on the generator route",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4574,
+        "output": 4016,
+        "cache_read": 43636,
+        "cache_write": 24632
+      },
+      "seconds": 25.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz trzy prompty do Veo 3.1 dla 8-sekundowych ujęć reklamy herbaty: parzenie, nalewanie i packshot.",
+          "reply": "Poniżej trzy samodzielne prompty do Veo 3.1. Każdy jest osobnym zadaniem, bez wspólnej pamięci między ujęciami. Nie sprawdzałem aktualnych dokumentacji Veo (bez przeglądania sieci). Pisałem według mojej notatki o składni Veo z 2026-10-11, więc traktuj je jako wersje robocze i nic jeszcze nie zostało wygenerowane.\n\n**Przyjęte założenia** (daj znać, jeśli coś zmienić):\n- Herbata sypana, czarna, w szklanym dzbanku i przezroczystej filiżance. Marki ani etykiety nie podano, więc jej nie wymyślam.\n- Poranne światło z okna, jasna drewniana powierzchnia, ciepła, spokojna tonacja.\n- Bez twarzy, tylko dłonie. Ułatwia to spójność i omija ograniczenia wiekowe Veo dla ludzi.\n- Napisy, logo i claimy dodajesz w postprodukcji. Generator nie nadaje się do dokładnego tekstu.\n- Ustawienia w interfejsie, nie w prompcie: czas **8 s**, proporcje **16:9** (dla social wybierz 9:16 i przekomponuj kadr), rozdzielczość wg potrzeb.\n\n## 1. Parzenie (8 s)\n\n```\nMacro-to-close shot of loose-leaf black tea steeping in a clear glass teapot on a light oak table beside a window, soft morning side light. Dry dark leaves float at the top, then slowly unfurl and sink as amber tea blooms through the hot water in slow, organic swirls. Fine steam rises from the spout. The camera starts close on the surface of the water and makes one slow, steady push-in and slight downward tilt to follow the leaves as they sink, ending on the deep amber colour filling the pot. Shallow depth of field, warm natural colour palette, calm and unhurried mood. No people, no text, no logos. Sound: the soft trickle of water settling, a faint bubbling hiss, quiet room tone with distant birdsong; no music.\n```\n\n## 2. Nalewanie (8 s)\n\n```\nMedium close-up of a hand lifting a clear glass teapot and pouring amber black tea into a transparent glass cup on a light oak table, soft morning window light from the left. The pour begins in the first second: a smooth, continuous stream of tea falls into the cup, the level rises, and steam curls up and catches the backlight. The hand tilts the pot back upright and sets it down gently, the last drops falling into the filled cup. Camera locked off at a slight low angle on the cup and the stream, with a very slow drift to the right. Shallow depth of field, warm tones, calm mood. Only one hand and forearm in a plain neutral sleeve, no face, no text, no logos. Sound: clear liquid pouring into glass that rises in pitch as the cup fills, a soft ceramic-and-glass clink as the pot is set down, quiet room ambience; no music.\n```\n\n## 3. Packshot (8 s)\n\n```\nStatic hero product shot of a single closed kraft-paper tea box with a plain blank label, placed on a light oak table. Beside it a clear glass cup of freshly poured amber tea with a thin ribbon of steam, and a few loose dark tea leaves scattered on the wood. Soft morning window light from the left, gentle shadows, warm neutral background softly out of focus. The camera begins slightly wide and makes one very slow, smooth push-in over 8 seconds, settling in a centred composition with clear empty space above the box for a logo to be added later. The only motion is the rising steam and a subtle shift of light. The box label is blank, and no readable text or logos appear anywhere in frame. Sound: a quiet, warm room tone and one soft, gentle exhale of ambience at the end; no music, no voice.\n```\n\n## Uwagi produkcyjne\n\n- **Spójność:** są to trzy niezależne generacje, więc dzbanek, filiżanka i stół mogą się różnić między ujęciami. Jeśli to wadzi, wygeneruj najpierw packshot lub kadr referencyjny. Potem użyj go jako obrazu referencyjnego we Flow lub w API (jeśli ta powierzchnia go obsługuje). Veo przyjmuje referencje tylko dla dorosłych osób, ale tu ich nie ma.\n- **Opakowanie i marka:** puste pudełko to atrapa. Prawdziwy pakiet, etykietę i logo nałóż na packshot w montażu, na osobnej warstwie.\n- **Dźwięk:** muzykę i ewentualny lektor w języku polskim dodaj osobno. Veo generuje dźwięk zawsze, a polskich kwestii nie mam sprawdzonych.\n- **Kryteria odbioru:**\n  1. Parzenie: liście widocznie się rozwijają i opadają, kolor rozlewa się w wodzie.\n  2. Nalewanie: strumień jest ciągły, poziom w filiżance rośnie, dzbanek odstawiony bez zniekształceń.\n  3. Packshot: pudełko stabilne i bez czytelnego tekstu, jest wolne miejsce na logo, a ruch ogranicza się do pary i powolnego najazdu.\n- Dla każdego ujęcia generuj kilka wariantów i wybierz najlepszy.\n\nChcesz dopasować prompty do konkretnej marki (nazwa, kolor opakowania, rodzaj herbaty) albo wersję 9:16?",
+          "reply_chars": 4525,
+          "reply_sha256": "d1ce99eb92c202111d15d042db767fc45814d3a6ab0f5e5dd41d459d50b5b4f1",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1241,
+            "output": 3134,
+            "cache_read": 41582,
+            "cache_write": 21240
+          },
+          "seconds": 25.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']; expected one of ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "code_block": true
+              },
+              "passed": true,
+              "detail": "has a code block"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3333,
+          "output": 882,
+          "cache_read": 2054,
+          "cache_write": 3392
+        },
+        "items": [
+          {
+            "item": "Three copyable Veo prompts, one per shot",
+            "verdict": "met",
+            "reason": "The reply gives three separate code blocks, one each for parzenie (brewing), nalewanie (pouring), and packshot, each 8 s and ready to copy into Veo."
+          },
+          {
+            "item": "Does not switch to a coded animation or ask whether to",
+            "verdict": "met",
+            "reason": "All three shots are Veo video prompts. No coded animation is proposed. The closing question asks about brand details or 9:16 format, not whether to switch to code animation."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 5270,
+        "output": 7532,
+        "cache_read": 187787,
+        "cache_write": 36260
+      },
+      "seconds": 55.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
+          "reply": "Nie wyrenderowałem MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania. Zapis plików i uruchamianie poleceń (Pillow, ffmpeg) są wyłączone, więc nie mogę ani utworzyć pliku, ani go sprawdzić. Poniżej jest zatwierdzalny storyboard i gotowy kontrakt `klos.motion.json`.\n\n## Storyboard: „Kłos”, 6 s, 1080×1920, 30 fps, 180 klatek, bez dźwięku\n\nPomysł: trzy ciepłe bloki koloru wjeżdżają od lewej jak kolejne wypieki. Najpierw nazwa, potem obietnica, na końcu znowu nazwa. Napis „Kłos” zastępuje logo.\n\n| Scena | Klatki | Tło | Tekst | Ruch |\n|---|---|---|---|---|\n| Nazwa | 0–68 (czytelny od 24 do 58) | kremowe | **Kłos** (rozmiar 330) | wynurza się spod maski |\n| Obietnica | 56–128 (czytelna od 88 do 120) | złote | **Świeży / chleb / codziennie** | trzy linie wchodzą co 6 klatek, nowy kolor wjeżdża od lewej |\n| Zakończenie | 116–180 (stabilna od 140) | miodowe | **Kłos** (rozmiar 300) z linią | osiada z 94% skali i trzyma do ostatniej klatki |\n\nTekst jest w ciemnym brązie (#2B1A0E) na wszystkich trzech tłach. Kolory, czcionka (Arial) i brak stref bezpiecznych to moje propozycje. Nie dałeś marki kolorów ani czcionki.\n\n## Kontrakt (`klos.motion.json`)\n\n```json\n{\n  \"schema_version\": 1, \"id\": \"klos\", \"revision\": 1,\n  \"approval\": {\"status\": \"approved\", \"revision\": 1, \"evidence\": \"Direct request: 6-second vertical MP4 for bakery Kłos, name as text, tagline 'Świeży chleb codziennie', no sound\"},\n  \"stage\": \"build\",\n  \"goal\": \"Make the Kłos bakery name and promise memorable in six seconds\",\n  \"audience\": \"Local customers watching on a phone\",\n  \"message\": \"Kłos bakes fresh bread every day\",\n  \"concept\": \"Three warm colour blocks wipe in: name, promise, name again\",\n  \"runtime\": {\"status\": \"selected\", \"value\": \"Python renderer (Pillow + ffmpeg)\", \"script\": \"klos.render.py\"},\n  \"viewing\": \"9:16 full screen on a phone\",\n  \"audio\": \"intentional silence\",\n  \"decisions\": {\"confirmed\": [\"1080x1920, 30 FPS, 180 frames\", \"No audio\", \"Name as text\"], \"proposed\": [\"Warm palette\", \"Arial\"], \"unknown\": [\"Brand colours and font\", \"Platform safe zones\"]},\n  \"fps\": {\"num\": 30, \"den\": 1}, \"totalFrames\": 180, \"width\": 1080, \"height\": 1920,\n  \"tokens\": {\"background\": \"#F4E6C8\", \"foreground\": \"#2B1A0E\", \"muted\": \"#6B4A2B\", \"accent\": \"#2B1A0E\", \"fontFamily\": \"Arial, Helvetica, sans-serif\", \"marginRatio\": 0.1},\n  \"motion\": {\"tempo\": \"bouncy-bold\", \"entryFrames\": 14, \"exitFrames\": 8, \"lineStaggerFrames\": 6, \"itemStaggerFrames\": 6, \"entryEasing\": \"easeOutQuart\", \"exitEasing\": \"easeInCubic\", \"resolveEasing\": \"easeOutExpo\"},\n  \"copy\": {\"name\": \"Kłos\", \"l1\": \"Świeży\", \"l2\": \"chleb\", \"l3\": \"codziennie\", \"end\": \"Kłos\"},\n  \"copyStatus\": \"approved\", \"assets\": [],\n  \"acceptance\": [\n    \"Kłos is fully readable from frame 24 to 58\",\n    \"All three promise lines are fully visible from frame 88 to 120\",\n    \"The last 40 frames are a stable Kłos end card with no base canvas between scenes\"\n  ],\n  \"scenes\": [\n    {\"id\": \"name\", \"kind\": \"line-reveal\", \"params\": {\"lines\": [\"name\"], \"sizes\": [330], \"weights\": [800], \"align\": \"center\", \"background\": \"#F4E6C8\"},\n     \"purpose\": \"Introduce the name\", \"start\": 0, \"end\": 68, \"copy\": [\"name\"], \"holds\": [[24, 58]],\n     \"focalPoint\": \"Kłos\", \"entry\": \"Rises from mask\", \"action\": \"Hold\", \"exit\": \"Next colour wipes over\", \"transition\": \"Wipe from left\", \"persistence\": \"Ink\", \"audio\": \"Silence\"},\n    {\"id\": \"promise\", \"kind\": \"line-reveal\", \"params\": {\"lines\": [\"l1\", \"l2\", \"l3\"], \"sizes\": [170, 170, 128], \"weights\": [800, 800, 700], \"align\": \"left\", \"background\": \"#E9B44C\", \"backgroundWipe\": \"left\", \"backgroundFrames\": 12},\n     \"purpose\": \"State the promise\", \"start\": 56, \"end\": 128, \"copy\": [\"l1\", \"l2\", \"l3\"], \"holds\": [[88, 120]],\n     \"focalPoint\": \"chleb\", \"entry\": \"Lines rise 6 frames apart\", \"action\": \"Hold\", \"exit\": \"Next colour wipes over\", \"transition\": \"Wipe from left\", \"persistence\": \"Ink\", \"audio\": \"Silence\"},\n    {\"id\": \"end\", \"kind\": \"end-card\", \"params\": {\"text\": \"end\", \"size\": 300, \"rule\": true, \"background\": \"#D98E32\", \"backgroundWipe\": \"left\", \"backgroundFrames\": 12},\n     \"purpose\": \"Close on the name\", \"start\": 116, \"end\": 180, \"copy\": [\"end\"], \"holds\": [[140, 180]],\n     \"focalPoint\": \"Kłos\", \"entry\": \"Settles from 94% scale\", \"action\": \"Hold to last frame\", \"exit\": \"None\", \"transition\": \"None\", \"persistence\": \"Ink\", \"audio\": \"Silence\"}\n  ]\n}\n```\n\n## Stan\n\n- **Zweryfikowane:** nic. Kontraktu nie uruchomiłem. Szerokości tekstu (np. „codziennie” przy rozmiarze 128) sprawdzi dopiero renderer. Jeśli zgłosi `text_overflow`, zmniejszę rozmiary.\n- **Dźwięk:** nie ma ścieżki audio, zgodnie z prośbą.\n\n## Jak dostać MP4\n\n1. **Bez mojej pomocy:** zapisz kontrakt jako `klos.motion.json`, otwórz <https://framecoreworks.github.io/framecore-works-creative-studio/> (Open contract) i wyeksportuj wideo.\n2. **Ze mną:** uruchom sesję z zapisem plików i powłoką (Pillow + ffmpeg). Wtedy wyrenderuję skryptem `render.py` i sprawdzę klatki graniczne. Obejrzenie całego pliku nadal zostanie oznaczone jako niezweryfikowane, dopóki ktoś go nie obejrzy.\n\nJeśli masz kolory lub czcionkę piekarni, podaj je, a podmienię paletę przed renderem.",
+          "reply_chars": 5120,
+          "reply_sha256": "c4b88fe9dea5922059211a25a900f9eee1e544ab0ae649f023651f5b28dd3300",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Glob",
+            "Read",
+            "Read",
+            "Glob",
+            "Grep",
+            "Read",
+            "Read",
+            "Read",
+            "Write",
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1282,
+            "output": 7258,
+            "cache_read": 185733,
+            "cache_write": 32213
+          },
+          "seconds": 55.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['odtwarzacz', 'player', 'przeglądar']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3988,
+          "output": 274,
+          "cache_read": 2054,
+          "cache_write": 4047
+        },
+        "items": [
+          {
+            "item": "Says the MP4 cannot be rendered here and why",
+            "verdict": "met",
+            "reason": "The assistant opens with 'Nie wyrenderowałem MP4' and explains that in this session it only has read and search tools, with file writes and command execution (Pillow, ffmpeg) disabled, so it cannot create or verify the file."
+          },
+          {
+            "item": "Delivers the contract and the motion player route instead of switching to a video generator",
+            "verdict": "met",
+            "reason": "It provides a full storyboard and a complete `klos.motion.json` contract, and explains how to export the MP4 via the Framecore motion player (Open contract) or in a session with file and shell access. It does not switch to a video generation model."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "M05",
+      "title": "Three stills are not a final pass for an animation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3503,
+        "output": 2383,
+        "cache_read": 21787,
+        "cache_write": 23450
+      },
+      "seconds": 11.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam tylko trzy stopklatki z mojej 10-sekundowej animacji (0 s, 5 s i 10 s) i na każdej logo jest ostre i czytelne. Czy animacja jest gotowa do publikacji?",
+          "reply": "Nie, na podstawie trzech stopklatek nie mogę powiedzieć, że animacja jest gotowa. Ostre logo w 0 s, 5 s i 10 s potwierdza tylko te trzy momenty. Na stopklatkach nie widać tego, co dzieje się między nimi.\n\n**Czego te klatki nie pokazują**\n- **Ruchu między klatkami:** płynności, rytmu, przyspieszeń i zwolnień. Nie widać też przeskoków, szarpania ani nagłych cięć.\n- **Logo w trakcie ruchu:** rozmycia, migotania, drgania krawędzi (aliasing) i artefaktów kompresji. Logo często jest ostre w stanie spoczynku, a rozmyte lub poszarpane podczas animacji. Twoje trzy klatki mogą być właśnie takimi momentami spoczynku.\n- **Czytelności w czasie:** czy logo i tekst są widoczne wystarczająco długo, żeby widz je odczytał.\n- **Dźwięku:** poziomu głośności, synchronizacji z obrazem, trzasków i ciszy na początku lub końcu.\n- **Pierwszej i ostatniej klatki:** czy start i koniec są czyste, bez czarnych klatek, ucięć i błysków.\n- **Parametrów eksportu:** formatu, rozdzielczości, liczby klatek na sekundę, proporcji, bezpiecznych marginesów na platformie docelowej i wagi pliku.\n- **Wszystkiego poza logo:** tekstów, kolorów i spójności z marką.\n\n**Co proponuję przed publikacją**\n1. Obejrzyj całość na docelowym urządzeniu, na przykład na telefonie, jeśli to materiał do social mediów, i ze słuchawkami, jeśli jest dźwięk.\n2. Sprawdź kilka dodatkowych klatek z momentów ruchu, na przykład w 1 s, 2,5 s, 3,5 s, 7 s i 9 s.\n3. Zweryfikuj parametry eksportu pod wybraną platformę.\n\nJeśli prześlesz plik MP4 albo więcej klatek, ocenię je razem z założeniami z briefu: ruch, czytelność i eksport.",
+          "reply_chars": 1582,
+          "reply_sha256": "d56167dc8595d91eb3bb243e2100235137f4daa9648bb2ea3e90336a1e26aa94",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1262,
+            "output": 1357,
+            "cache_read": 19733,
+            "cache_write": 21152
+          },
+          "seconds": 11.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtw",
+                  "w ruchu",
+                  "płynn",
+                  "całość",
+                  "całego filmu",
+                  "normalnej prędkości",
+                  "dźwięk"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['w ruchu', 'płynn', 'całość', 'dźwięk']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2241,
+          "output": 1026,
+          "cache_read": 2054,
+          "cache_write": 2298
+        },
+        "items": [
+          {
+            "item": "Does not approve the animation as finished from three stills",
+            "verdict": "met",
+            "reason": "The response opens with 'Nie' and states that three stills cannot establish that the animation is ready. It says the frames confirm only those three moments."
+          },
+          {
+            "item": "Names what needs a viewing in motion: smoothness, rhythm, transitions, sound",
+            "verdict": "met",
+            "reason": "It names smoothness ('płynności'), rhythm ('rytmu'), and transitions (jumps, stutter, abrupt cuts, start and end frames). It also has a dedicated sound section covering volume, sync, and silence."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "X01",
+      "title": "Handoff: the direction picked in turn 1 is the one the poster executes in turn 2",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6803,
+        "output": 10678,
+        "cache_read": 132872,
+        "cache_write": 43479
+      },
+      "seconds": 55.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu na otwarcie pracowni krawieckiej „Fastryga” w Gdyni.",
+          "reply": "**Co odłożyłem:** nożyczki, centymetr, manekin, igłę z nitką, pastelowy vintage i wstęgę do przecinania. Tak wyglądałby każdy plakat krawca. Każdy kierunek wychodzi z czegoś, co należy do „Fastrygi”.\n\n## 1. „Ściegi tymczasowe” (z nazwy i z procesu)\n**Idea:** fastryga to ścieg, który trzyma ubranie do czasu wersji ostatecznej, a potem się go wyciąga. Otwarcie pracowni to taki sam początek, który dopiero zacznie być na miarę.\n**Obraz:** dwa kawałki surowego płótna, tzw. muślinu, spięte rzędem długich czerwonych ściegów. Ten sam szew jest linią przerywaną, wzdłuż której biegnie data.\n**Hasło (do dopracowania):** „Na razie fastryga. Resztę uszyjemy razem.”\n**Wygląd:** ecru, czerwona nitka, jedna czarna grotesk. Nic więcej.\n\n## 2. „Wykrój na Gdynię” (obcy format: arkusz wykrojów)\n**Idea:** plakat wygląda jak arkusz z wykrojami. Części wykroju mają kształty gdyńskiej modernistycznej architektury i portowych dźwigów. Mają nacięcia, strzałki nitki prostej i opisy części.\n**Obraz:** opisy części niosą informacje: „Część 1: adres”, „Część 2: data otwarcia”, „Kroić wzdłuż linii”.\n**Hasło:** „Gdynia ma nowy krój.”\n**Wygląd:** papier pakowy lub kalka, granatowy i biały nadruk jak w technice krawieckiej. To kierunek najbardziej związany z miejscem.\n\n## 3. „Pierwsza przymiarka” (skutek: zaproszenie jako karta przymiarki)\n**Idea:** plakat nie reklamuje usługi. To karta umówionej przymiarki, na której wpisano termin otwarcia.\n**Obraz:** sam płaszcz bez człowieka, pokazany tylko kredowymi znakami krawieckimi i szpilkami na tle w kolorze morza. Z rękawa zwisa jedna luźna nitka, którą widz ma ochotę pociągnąć.\n**Hasło:** „Zapraszamy na pierwszą przymiarkę.”\n**Wygląd:** cisza, dużo wolnego miejsca, kontrast kredy z głębokim błękitem.\n\n**Moja rekomendacja:** 2, jeśli plakat ma działać lokalnie na ulicy. 1, jeśli ma wyróżnić się w mediach społecznościowych.\n\nŻeby przejść dalej, potrzebuję:\n- daty, godziny i adresu (nie wpisuję ich sam),\n- tego, czy dodać jakąś ofertę albo wydarzenie na otwarciu,\n- formatu:\n  1. wydruk (cały arkusz A4, pół arkusza A5 albo duży A3),\n  2. internet (zwykły post albo pionowa relacja na telefon),\n  3. jedno i drugie.\n\nŻadnego z kierunków jeszcze nie generowałem. Wybierz jeden (lub połącz), a dopracuję hasło i przygotuję kompozycję.",
+          "reply_chars": 2276,
+          "reply_sha256": "1ad6cbdc4df64f447f0734a70c2ec1baa4c2ec43fec0e3cf52c4f77f51c3867d",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1230,
+            "output": 2839,
+            "cache_read": 19705,
+            "cache_write": 15115
+          },
+          "seconds": 25.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "min_numbered": 3
+              },
+              "passed": true,
+              "detail": "3 numbered lines (min 3)"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Biorę kierunek 2. Zrób z niego plakat A3. Tekst: „Fastryga”, „Otwarcie 15 listopada”, „ul. Świętojańska 12, Gdynia”.",
+          "reply": "Nie udało mi się zrobić plakatu. W tej sesji mam tylko narzędzia do czytania i wyszukiwania. Nie mogę zapisać plików, uruchomić kompozytora ani wygenerować tła. Nie mam więc PNG ani PDF i niczego nie sprawdziłem na gotowym obrazie. Poniżej jest projekt oraz gotowa specyfikacja. Da się z nich złożyć plakat tam, gdzie działa kod albo generator obrazów.\n\n**Droga tekstu:** dokładny tekst składany kodem. Dane (data, adres) mają być bezbłędne, a plakat jest do druku. Tło powstaje osobno i bez żadnych liter.\n\n## Projekt\n- **Format:** A3, 297 × 420 mm, spad 3 mm, 300 dpi. W pikselach format po przycięciu to 3508 × 4961.\n- **Tło:** papier pakowy (#D9C7A6) z granatowymi (#14284B) liniami jak na arkuszu wykrojów. Części wykroju mają kształty modernistycznej architektury i portowych dźwigów, z nacięciami i strzałkami nitki prostej. Górna część jest spokojna i pusta pod tytuł, a dolny pas pod informacje.\n- **Tekst:** „Fastryga” to duży tytuł na górze (Fraunces Black). „Otwarcie 15 listopada” i adres leżą w pasie na dole (Archivo Bold i Inter SemiBold). Cały tekst jest granatowy na papierze, więc kontrast jest wysoki.\n\n**Prompt do tła (bez tekstu):**\n> Flat top-down sewing pattern sheet on kraft paper, navy ink line drawing only. Pattern pieces shaped like Gdynia's modernist building facades and harbour cranes, with notches, grain-line arrows, dotted seam lines. Upper 25% and lower 22% of the sheet calm and empty. No text, letters, numbers, logos or watermarks anywhere. Portrait 7:10.\n\n**Specyfikacja `fastryga-a3.static.json`:**\n```json\n{\n  \"id\": \"fastryga-a3\",\n  \"canvas\": {\"print\": {\"width_mm\": 297, \"height_mm\": 420, \"bleed_mm\": 3, \"dpi\": 300, \"crop_marks\": true}, \"background\": \"#D9C7A6\"},\n  \"layers\": [\n    {\"type\": \"image\", \"src\": \"background.png\", \"fit\": \"cover\", \"box\": [0, 0, 3508, 4961], \"bleed\": true},\n    {\"type\": \"text\", \"id\": \"title\", \"text\": \"Fastryga\", \"font\": \"Fraunces Black\", \"size\": 800, \"color\": \"#14284B\",\n     \"box\": [250, 280, 3008, 900], \"align\": \"left\", \"valign\": \"top\", \"fit\": \"shrink\", \"min_size\": 600},\n    {\"type\": \"text\", \"id\": \"date\", \"text\": \"Otwarcie 15 listopada\", \"font\": \"Archivo Bold\", \"size\": 200, \"color\": \"#14284B\",\n     \"box\": [250, 3980, 3008, 260], \"valign\": \"middle\", \"fit\": \"shrink\", \"min_size\": 150},\n    {\"type\": \"text\", \"id\": \"address\", \"text\": \"ul. Świętojańska 12, Gdynia\", \"font\": \"Inter SemiBold\", \"size\": 130, \"color\": \"#14284B\",\n     \"box\": [250, 4300, 3008, 180], \"valign\": \"middle\", \"fit\": \"shrink\", \"min_size\": 100}\n  ]\n}\n```\nKomenda: `python3 compose.py fastryga-a3.static.json --out out/ --formats png,pdf --strict`. Kod zatrzyma się, jeśli jakiś tekst się nie zmieści albo kontrast będzie za niski. Marginesy (250 px, czyli około 21 mm) mieszczą się daleko od linii cięcia.\n\nSpec nie był uruchamiany, więc rozmiary i pozycje tekstu trzeba obejrzeć po pierwszym składzie.\n\n## Na co uważać\n- Plik z kompozytora to PDF w RGB. Drukarnia sama go skonwertuje albo podaj mi jej profil, np. FOGRA39.\n- Nie dodałem haseł „Gdynia ma nowy krój.”, „Część 1: adres” ani „Kroić wzdłuż linii”, bo podałeś tylko trzy teksty. Pasowałyby do pomysłu. Daj znać, to dodam je jako małe opisy części wykroju.\n- Czy uruchomić to w środowisku z kodem i generatorem obrazów? Mogę też przygotować wersję 1080 × 1350 na Instagram z tej samej specyfikacji.",
+          "reply_chars": 3301,
+          "reply_sha256": "ef2aced1cbb6b8755a05e3b917be81c67f17973925edf045cee98daf11c6167e",
+          "skills": [],
+          "tools": [
+            "Glob",
+            "Read",
+            "Read",
+            "Grep",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1238,
+            "output": 6295,
+            "cache_read": 111113,
+            "cache_write": 23968
+          },
+          "seconds": 30.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Otwarcie 15 listopada",
+                  "Świętojańska 12"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4335,
+          "output": 1544,
+          "cache_read": 2054,
+          "cache_write": 4396
+        },
+        "items": [
+          {
+            "item": "Turn 2 executes direction 2 from turn 1 (the same idea and mechanism), not a new or merged direction",
+            "verdict": "met",
+            "reason": "The user chose direction 2, and turn 2 builds that same concept: a sewing-pattern sheet with Gdynia modernist facades and harbour cranes, notches, grain-line arrows and dotted seams. It does not merge in direction 1 or 3."
+          },
+          {
+            "item": "The three supplied lines appear exactly as given",
+            "verdict": "met",
+            "reason": "The JSON spec uses \"Fastryga\", \"Otwarcie 15 listopada\" and \"ul. Świętojańska 12, Gdynia\" verbatim, matching the user's request."
+          },
+          {
+            "item": "Turn 2 does not ask again for anything turn 1 or the user already settled",
+            "verdict": "met",
+            "reason": "Turn 2 does not re-ask for date, address, format or offer, all of which the user supplied or settled. Its closing questions (whether to run the spec in a capable environment, whether to add the unused slogans, and the Instagram variant) are new."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "X02",
+      "title": "Handoff: generator prompts keep the shots and timing of the storyboard from turn 1",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8418,
+        "output": 12532,
+        "cache_read": 107861,
+        "cache_write": 46609
+      },
+      "seconds": 56.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz storyboard 15-sekundowej reklamy wideo wypożyczalni kajaków „Nurt” z Bydgoszczy: 5 ujęć z czasami.",
+          "reply": "# Storyboard: reklama „Nurt” (15 s, Bydgoszcz)\n\n**Założenia (do potwierdzenia):**\n- Format 16:9. Do pionu 9:16 trzeba zachować kadry w środkowej strefie bezpiecznej.\n- Miejsce akcji to rzeka Brda w centrum Bydgoszczy, bo to rozpoznawalny lokalny motyw.\n- Czasy to estymaty planistyczne, nie pomiary z montażu.\n- Nie znam oferty „Nurtu”. Adres, cena, strona i telefon są więc placeholderami w nawiasach kwadratowych.\n- Pomysł: miasto jest głośne i pospieszne, a z poziomu wody robi się cicho i płynnie. Nazwa „Nurt” oznacza tu wejście w nurt.\n\n## Mapa ujęć\n\n| # | Czas | Funkcja |\n|---|------|---------|\n| 1 | 0:00–0:03 | Hak: miasto w pośpiechu |\n| 2 | 0:03–0:06 | Przejście: wejście na wodę |\n| 3 | 0:06–0:09 | Obietnica: cisza i płynięcie |\n| 4 | 0:09–0:12 | Emocja: wspólnie, bez pośpiechu |\n| 5 | 0:12–0:15 | Logo i wezwanie do działania |\n\n## Karty ujęć\n\n**U1 | 0:00–0:03 | Pośpiech**\n- **Kadr:** plan ogólny z nabrzeża lub mostu, kamera statyczna z lekkim najazdem. Piesi, rowery i tramwaj tworzą tło o szybkim rytmie.\n- **Akcja:** w kadrze mijają się ludzie. Pierwszoplanowa postać (ok. 30 lat, casualowy strój) sprawdza telefon i patrzy w dół na wodę.\n- **Stan końcowy:** jej wzrok zatrzymuje się na kajakach przy pomoście.\n- **Dźwięk:** miejski hałas, który rośnie.\n- **Napis:** „Miasto goni.”\n\n**U2 | 0:03–0:06 | Wejście na wodę**\n- **Kadr:** plan średni z boku, na wysokości pomostu. Kamera lekko za postacią.\n- **Akcja:** postać wsuwa telefon do kieszeni lub wodoszczelnego worka. Wchodzi do kajaka, odpycha się wiosłem.\n- **Stan końcowy:** kajak odbija od pomostu, a brzeg zostaje z tyłu.\n- **Dźwięk:** hałas miasta cichnie do plusku wody.\n\n**U3 | 0:06–0:09 | Cisza i płynięcie**\n- **Kadr:** niski plan z poziomu wody, tuż nad taflą. Kajak przepływa przez kadr z lewej do prawej. W tle są zabytkowe budynki nad Brdą.\n- **Akcja:** wiosło wchodzi w wodę, krople spadają w złotym świetle.\n- **Stan końcowy:** postać jest bliżej kamery i widać spokojny wyraz twarzy.\n- **Dźwięk:** pojawia się lekka muzyka, plusk, ptaki.\n- **Napis:** „Tu płyniesz po swojemu.”\n\n**U4 | 0:09–0:12 | Razem**\n- **Kadr:** ujęcie z góry (dron lub wysoki punkt) albo plan średni na dwa kajaki obok siebie.\n- **Akcja:** dwie lub trzy osoby płyną razem, śmieją się i wskazują coś na brzegu. Pierwsza postać z U1 jest w grupie.\n- **Stan końcowy:** kajaki oddalają się, a tafla wody wypełnia kadr.\n- **Dźwięk:** muzyka narasta.\n\n**U5 | 0:12–0:15 | Logo i CTA**\n- **Kadr:** plan ogólny, kajaki na wodzie o złotej godzinie. Na tym kadrze pojawia się plansza końcowa.\n- **Akcja:** kajaki płyną w oddali, a kamera lekko się unosi. Logo „Nurt” wchodzi na ostatnie ok. 2 s.\n- **Napis:** „NURT. Wypożyczalnia kajaków, Bydgoszcz.” i pod spodem „[strona / telefon / adres]”.\n- **Dźwięk:** muzyka wybrzmiewa, a plusk kończy się czystą pauzą.\n\n## Ciągłość\n- **Bohater:** ten sam strój i kolor kamizelki lub kajaka we wszystkich ujęciach, w których występuje.\n- **Kierunek:** w U2 kajak odpływa od pomostu, a w U3 płynie z lewej do prawej. Ten kierunek zostaje do końca.\n- **Światło:** U1 jest chłodniejsze i bardziej płaskie. Od U3 robi się złota godzina, co wzmacnia kontrast między miastem a rzeką.\n- **Bezpieczeństwo:** kamizelki ratunkowe widoczne we wszystkich ujęciach na wodzie.\n\n## Do potwierdzenia\n1. Dokładna lokalizacja wypożyczalni, żebym dopasował tło w U1 i U3.\n2. Wezwanie do działania: rezerwacja online, telefon czy adres.\n3. Czy tekst ma być czytany lektorem. Teraz zakładam napisy i muzykę, bez lektora.\n4. Czy potrzebujesz wersji 9:16 do social mediów.\n\nMogę z tego przygotować plansze storyboardu, teksty (copy) napisów albo prompty do generatora wideo.",
+          "reply_chars": 3644,
+          "reply_sha256": "6a41c21e52fa0a61006793cb70efe2d457a0a5791a9003366e0b601de8e04d08",
+          "skills": [
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1246,
+            "output": 2863,
+            "cache_read": 19721,
+            "cache_write": 13807
+          },
+          "seconds": 23.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Teraz zrób z tego prompty do Veo, po jednym na każde ujęcie.",
+          "reply": "# Prompty do Veo 3.1, ujęcia U1–U5\n\nPrompty piszę po angielsku, bo to najpewniejszy język dla Veo. Nie sprawdzałem teraz dokumentacji Veo w sieci. Opieram się na karcie z 2026-10-11 i traktuję to jako wersję roboczą. Żadnego prompta nie testowałem na renderze.\n\n**Ustawienia w interfejsie, nie w prompcie:**\n- Proporcje 16:9.\n- Czas klipu: Veo 3.1 daje 4, 6 lub 8 s, więc nie wygeneruje równych 3 s. Każde ujęcie generuj jako **4 s** i przytnij w montażu do 3 s z zapasem na cięcie. Ujęcie U5 z planszą końcową może zostać 4 s.\n- Veo zawsze generuje dźwięk, więc opisuję tylko ambient. Muzykę dodaj w postprodukcji.\n\n**Ustalenia, które dopisałem do storyboardu:**\n- **Bohaterka:** kobieta ok. 30 lat, ciemnobrązowe włosy do ramion, biała lniana koszula, granatowe spodnie. Od U2 ma musztardowo-żółtą kamizelkę. Kajak jest morski/turkusowy.\n- **Zmiana ubioru:** kamizelkę zakłada między U1 a U2. Cięcie to ukrywa.\n- **Napisy i logo:** żaden prompt ich nie zawiera. Napisy z karty ujęć („Miasto goni.”, „Tu płyniesz po swojemu.”) i logo „Nurt” dodajesz w montażu.\n- **Miejsce:** zamiast nazw własnych opisuję ceglane, historyczne spichlerze nad rzeką. Veo mógłby błędnie odtworzyć konkretny obiekt.\n\n## U1 | Pośpiech (0:00–0:03)\n\n```\nWide establishing shot from a riverside embankment in a mid-sized Polish city, early morning. Commuters, cyclists and a passing tram move quickly through the frame, slightly motion-blurred, with historic red-brick granary buildings across a calm river in the background. In the foreground a woman in her early 30s, shoulder-length dark brown hair, white linen shirt and navy trousers, stands still while the crowd rushes around her, checking her phone. She lowers her gaze from the phone to the water, then looks toward a wooden pontoon with moored kayaks. Static camera with a very slow push-in. Cool, flat overcast light, desaturated tones. Audio: busy city ambience, tram bell and rolling wheels, footsteps, traffic, growing louder; no music, no speech.\n```\n\n## U2 | Wejście na wodę (0:03–0:06)\n\n```\nMedium side shot at water level on a wooden pontoon on a river. The same woman, early 30s, shoulder-length dark brown hair, white linen shirt and navy trousers, now wearing a mustard-yellow life vest, puts her phone into a small waterproof bag, steps into a teal kayak and pushes off from the pontoon with a paddle. The kayak glides away and the pontoon recedes behind her. Camera slightly behind her, smooth gentle tracking movement following the kayak. Light shifts from flat to soft and warm. Audio: the city noise fades quickly into the quiet lapping of water, the knock of the paddle on the wood, a soft push-off; no music, no speech.\n```\n\n## U3 | Cisza i płynięcie (0:06–0:09)\n\n```\nLow-angle shot just above the surface of a calm river, camera a few centimetres over the water. The woman in a mustard-yellow life vest and white linen shirt paddles a teal kayak across the frame from left to right, the paddle dipping in and out of the water, droplets falling and catching golden light. Historic red-brick granary buildings softly out of focus in the background. At the end of the shot she is close to the camera, calm and relaxed, eyes on the water ahead. Warm golden-hour backlight, gentle reflections on the water. Slow, steady camera, no cuts. Audio: quiet water, paddle strokes, droplets, distant birds; no music, no speech.\n```\n\n## U4 | Razem (0:09–0:12)\n\n```\nElevated high-angle shot, as if from a drone, looking down on a calm river. Three teal kayaks glide side by side, each paddler in a mustard-yellow life vest. The woman in her early 30s with shoulder-length dark brown hair is in the middle kayak; her two companions laugh and one points toward the riverbank. The kayaks slowly pull away along the river, until the sunlit water fills the frame. Smooth, slow camera drift that follows the kayaks. Warm golden-hour light, glittering reflections. Audio: gentle water and paddles, relaxed laughter in the distance; no music, no clear speech.\n```\n\n## U5 | Finał, czyste tło pod logo (0:12–0:15)\n\n```\nWide shot of the river at golden hour, with three teal kayaks with paddlers in mustard-yellow life vests gliding calmly into the distance. Historic red-brick granary buildings line the bank, and the water glows with warm light. The camera rises very slowly while the kayaks move away, leaving a large, calm, uncluttered area of water and sky in the upper part of the frame. No text, no logos, no signs. Audio: soft water, a few birds, gradually fading to near silence; no music, no speech.\n```\n\n## Ograniczenia i ryzyka\n- **Ciągłość bohaterki:** każdy prompt to osobne zlecenie, bez wspólnej pamięci. Te same słowa nie gwarantują tej samej twarzy. Aby ją utrzymać, wygeneruj jeden kadr bohaterki jako obraz i użyj go jako referencji, jeśli Twój interfejs na to pozwala. Veo 3.1 wymaga wtedy klipu 8 s, a referencje działają tylko dla osób dorosłych. Bez tego spodziewaj się różnic w wyglądzie między ujęciami i być może wybierzesz wersje po wyglądzie.\n- **U4:** trzy osoby i kilka kajaków naraz to ujęcie z największym ryzykiem błędów (zniekształcone wiosła, ręce). Przygotuj kilka podejść.\n- **Kamizelki:** są w każdym ujęciu na wodzie, ale Veo może je pominąć. Sprawdź to przy odsłuchu i przeglądzie wyników.\n- **Test akceptacji:** w każdym klipie jest widoczna ta sama postać w tych samych kolorach, kajak płynie w tym samym kierunku (w U3 z lewej do prawej), a na obrazie nie ma żadnego tekstu.\n\nMogę przygotować też wersję pionową 9:16 tych promptów albo plan montażu, który złoży ujęcia, muzykę i napisy.",
+          "reply_chars": 5559,
+          "reply_sha256": "083e51b47c8d9e8813e55b298136ebf29738be9d52063e85aa4ae63d481a94a7",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1252,
+            "output": 6607,
+            "cache_read": 86086,
+            "cache_write": 26821
+          },
+          "seconds": 33.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']; expected one of ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Veo"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Veo']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 5920,
+          "output": 3062,
+          "cache_read": 2054,
+          "cache_write": 5981
+        },
+        "items": [
+          {
+            "item": "Turn 2 gives one prompt per shot of the turn 1 storyboard, in the same order",
+            "verdict": "met",
+            "reason": "Turn 2 provides exactly five prompts, U1 through U5, in the storyboard's order, each headed with its shot number and time range."
+          },
+          {
+            "item": "Each prompt keeps that shot's content and duration; nothing from the storyboard is re-invented",
+            "verdict": "not_met",
+            "reason": "Content is largely kept, including camera moves, kayak direction and the narrative beats. Duration is not: every clip is generated at 4 s and trimmed to 3 s, and U5 stays at 4 s against the storyboard's 3 s. Music is also changed from the storyboard's U3–U5 cues to 'no music' in every prompt. Overlay text is dropped from the prompts. These changes are disclosed as Veo constraints and as post-production tasks, but the prompts still diverge from the storyboard. The appearance details (white linen shirt, navy trousers, mustard vest, teal kayak, red-brick granaries, early morning) are new, though the response labels them as additions it made."
+          },
+          {
+            "item": "Turn 2 does not restart the brief or ask for the storyboard again",
+            "verdict": "met",
+            "reason": "Turn 2 goes straight to the Veo prompts and refers back to the storyboard without re-stating the brief or requesting it again."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "X03",
+      "title": "Handoff: after the storyboard is approved, the motion contract follows it without re-asking",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6969,
+        "output": 6888,
+        "cache_read": 103352,
+        "cache_write": 38489
+      },
+      "seconds": 37.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 z napisem „Nurt” i hasłem „Spływy od maja”. Bez logo, bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować tego MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania plików. Nie mam powłoki, wykonywania kodu ani zapisu plików, więc nie powstał żaden plik wideo, żaden skrypt renderujący ani kontrakt `.motion.json`.\n\nPoniżej jest zatwierdzalny storyboard. Renderuję go od razu, gdy sesja dostanie powłokę z FFmpeg albo wykonywanie kodu.\n\n## Storyboard: „Nurt” (1080×1920, 30 fps, 180 klatek, 6 s, bez dźwięku)\n\n**Pomysł:** napis „Nurt” jest rzeką. Litery płyną i dopiero na końcu się zatrzymują. Odrzuciłem oczywiste motywy: fale, kropelki, niebieski gradient i kajak w kadrze.\n\n| Czas | Klatki | Scena |\n|---|---|---|\n| 0,0–1,5 s | 0–44 | Ciemny granat (#0B1F2A). Poziome, cienkie linie prądu przepływają przez kadr z różną prędkością i dają efekt paralaksy. |\n| 1,5–3,5 s | 45–104 | Litery „N-u-r-t” wpływają z lewej na linii prądu, z krótkim rozmyciem ruchu. Każda hamuje (ease-out), kolejne wchodzą z przesunięciem 4 klatek. Linie zwalniają. |\n| 3,5–4,3 s | 105–128 | Hold: „Nurt” stoi, a linie prądu opływają litery. |\n| 4,3–5,2 s | 129–155 | Hasło „Spływy od maja” wyłania się spod linii wody, pod napisem, z przesunięciem w górę o 24 px i fade. |\n| 5,2–6,0 s | 156–179 | Końcowy hold z obydwoma tekstami czytelnymi. Linie ledwo się poruszają i nie ma wyjścia z kadru. |\n\n- **Typografia:** „Nurt” to gruby bezszeryfowy krój, około 300 px, kość słoniowa (#F2EBDD). Hasło to około 72 px, turkusowy akcent (#4FD1C5). Oba teksty są wycentrowane i leżą w bezpiecznej strefie pionowej, z marginesem min. 150 px od góry i 380 px od dołu.\n- **Teksty:** „Nurt” i „Spływy od maja”, dokładnie tak, z polskim „ł” i „y”. Nie ma logo i nie ma ścieżki audio.\n\n**Nie zweryfikowano:** podgląd, odtworzenie i kodowanie pliku.\n\nChcesz zmienić paletę lub tempo przed renderem? Mogę też przygotować kontrakt i skrypt, gdy tylko będę mieć narzędzia.",
+          "reply_chars": 1864,
+          "reply_sha256": "ff4cf098c5a15df5dc0443b50c733ef471fb481eea0e87952aea066df806fba5",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Grep"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1243,
+            "output": 1953,
+            "cache_read": 40206,
+            "cache_write": 16366
+          },
+          "seconds": 21.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Zatwierdzam storyboard. Działaj dalej.",
+          "reply": "Nadal nie mogę wyrenderować pliku. Zatwierdzenie nic tu nie zmienia, bo w tej sesji nie mam powłoki, wykonywania kodu ani zapisu plików, a żadne takie narzędzie się nie pojawiło. Nie powstał więc żaden MP4.\n\nPoniżej jest skrypt, który renderuje zatwierdzony storyboard u Ciebie. Nie uruchamiałem go, więc nie wiem, czy działa.\n\nPotrzebujesz Pythona z `pillow` i `numpy` oraz `ffmpeg`. Ustaw też ścieżkę do czcionki z polskimi znakami (`FONT`). Jeśli nie masz DejaVu Sans Bold, podaj inną, np. Montserrat Bold.\n\n```python\n# nurt.py  ->  python3 nurt.py   (tworzy nurt.mp4)\nimport subprocess, math\nfrom PIL import Image, ImageDraw, ImageFont, ImageFilter\n\nW, H, FPS, N = 1080, 1920, 30, 180\nFONT = \"/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf\"\nBG, IVORY, TEAL = (11, 31, 42), (242, 235, 221), (79, 209, 197)\nbig, small = ImageFont.truetype(FONT, 300), ImageFont.truetype(FONT, 72)\n\ndef ease(t):  # ease-out cubic\n    t = min(max(t, 0), 1); return 1 - (1 - t) ** 3\n\n# linie prądu: (y, prędkość, długość, grubość)\nlines = [(120 + i * 83 % 1700, 200 + (i * 137) % 700, 160 + (i * 59) % 300, 2 + i % 3)\n         for i in range(22)]\n\n# pozycje liter \"Nurt\" (wyśrodkowane)\nd0 = ImageDraw.Draw(Image.new(\"RGB\", (1, 1)))\nwidths = [d0.textlength(c, font=big) for c in \"Nurt\"]\nx0 = (W - sum(widths)) / 2\nxs = [x0 + sum(widths[:i]) for i in range(4)]\nY_TXT = 760\n\np = subprocess.Popen(\n    [\"ffmpeg\", \"-y\", \"-f\", \"rawvideo\", \"-pix_fmt\", \"rgb24\", \"-s\", f\"{W}x{H}\",\n     \"-r\", str(FPS), \"-i\", \"-\", \"-an\", \"-c:v\", \"libx264\", \"-pix_fmt\", \"yuv420p\",\n     \"-crf\", \"16\", \"-movflags\", \"+faststart\", \"nurt.mp4\"], stdin=subprocess.PIPE)\n\nfor f in range(N):\n    t = f / FPS\n    img = Image.new(\"RGB\", (W, H), BG)\n    d = ImageDraw.Draw(img)\n    # prędkość linii: szybko do 1,5 s, zwalnia do 3,5 s, potem ledwo się rusza\n    k = 1.0 if t < 1.5 else max(0.08, 1 - ease((t - 1.5) / 2.0) * 0.92)\n    for i, (y, v, ln, th) in enumerate(lines):\n        x = (-ln + (t * v * k + i * 211) % (W + ln * 2))\n        d.rounded_rectangle([x, y, x + ln, y + th], radius=th // 2,\n                            fill=(40 + i % 3 * 12, 90 + i % 4 * 14, 105))\n    # litery: wejście 1,5–3,5 s, przesunięcie 4 klatek między literami\n    for i, c in enumerate(\"Nurt\"):\n        s = (f - 45 - i * 4) / 40\n        e = ease(s)\n        if s <= 0: continue\n        x = xs[i] - (1 - e) * 900\n        layer = Image.new(\"RGBA\", (int(widths[i]) + 80, 420), (0, 0, 0, 0))\n        ImageDraw.Draw(layer).text((40, 0), c, font=big, fill=IVORY + (255,))\n        blur = (1 - e) * 14\n        if blur > 0.5: layer = layer.filter(ImageFilter.GaussianBlur(blur))\n        img.paste(layer, (int(x) - 40, Y_TXT), layer)\n    # hasło: 4,3–5,2 s, fade + 24 px w górę\n    e = ease((f - 129) / 27)\n    if e > 0:\n        tag = \"Spływy od maja\"\n        tw = d0.textlength(tag, font=small)\n        layer = Image.new(\"RGBA\", (W, 140), (0, 0, 0, 0))\n        ImageDraw.Draw(layer).text(((W - tw) / 2, 20), tag, font=small,\n                                   fill=TEAL + (int(255 * e),))\n        img.paste(layer, (0, Y_TXT + 400 + int((1 - e) * 24)), layer)\n    p.stdin.write(img.tobytes())\n\np.stdin.close(); p.wait()\n```\n\nPo uruchomieniu sprawdź:\n- `ffprobe nurt.mp4` ma pokazać 1080×1920, 30 fps, 180 klatek, 6,0 s i brak strumienia audio;\n- w kilku klatkach (0, 60, 120, 179) „Nurt” i hasło mają być w całości widoczne i bez przycięć.\n\nJeśli wolisz, żebym wyrenderował plik sam, uruchom sesję z dostępem do powłoki i FFmpeg. Wtedy zbuduję go z tego samego storyboardu, sprawdzę klatki i zwrócę gotowy MP4.",
+          "reply_chars": 3533,
+          "reply_sha256": "caa8410834e65047495c64c337004e826814e0078c745c88bf6ca61ae712b23e",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1245,
+            "output": 4040,
+            "cache_read": 61092,
+            "cache_write": 17581
+          },
+          "seconds": 15.2,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Spływy od maja"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 1)"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded []"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4481,
+          "output": 895,
+          "cache_read": 2054,
+          "cache_write": 4542
+        },
+        "items": [
+          {
+            "item": "Turn 2 continues on the coded motion route from the approved storyboard (contract or its content), not a new storyboard or a video generator",
+            "verdict": "met",
+            "reason": "Turn 2 reuses the approved storyboard's timings, frame ranges, palette, and typography in a Python/PIL + FFmpeg script. It does not create a new storyboard or use a video generator."
+          },
+          {
+            "item": "The copy stays exact and no settled fact (logo, sound, format, length) is asked again",
+            "verdict": "met",
+            "reason": "“Nurt” and “Spływy od maja” appear exactly, including Polish characters. The script keeps 1080×1920, 30 fps, 180 frames, no logo, and no audio (-an) without asking about them again."
+          },
+          {
+            "item": "Without code execution it says what it cannot render and names the route that works",
+            "verdict": "met",
+            "reason": "It states that it has no shell, code execution, or file writing and that no MP4 was produced. It names the working route: a session with shell and FFmpeg access, or running the supplied script locally."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ],
+  "review": "Full check, released 1.66.0: 22 of 24 as run, 23 rescored. M04 failed only on the word list: the reply gave the player link, \"Open contract\" and the export path, and the route check now accepts them. F02 read \"otwarty katalog\" as the open working directory and listed it instead of searching the skills catalog; it considered Studio's own skills first and installed nothing (open finding: the Polish word is ambiguous). The three new handoff cases pass the checks and were read by hand: X01 carried direction 2 and the exact copy into the poster; X02 kept the five shots and their order, with 4-second Veo clips trimmed to 3 seconds because the generator offers no shorter clip; X03 turn 2 wrote a hand-made Python render script instead of the contract and the player route, a defect fixed in 1.66.1.",
+  "rescored": {
+    "checks": "reply checks from tests/host-evals/suite.json as committed with 1.66.1; skill checks as recorded",
+    "PASS": 23,
+    "cases": {
+      "W01": "PASS",
+      "W02": "PASS",
+      "W04": "PASS",
+      "W05": "PASS",
+      "W06": "PASS",
+      "LM01": "PASS",
+      "V01": "PASS",
+      "D01": "PASS",
+      "E01": "PASS",
+      "P01": "PASS",
+      "M01": "PASS",
+      "S01": "PASS",
+      "R01": "PASS",
+      "F01": "PASS",
+      "F02": "FAIL",
+      "Q01": "PASS",
+      "Q02": "PASS",
+      "M02": "PASS",
+      "M03": "PASS",
+      "M04": "PASS",
+      "M05": "PASS",
+      "X01": "PASS",
+      "X02": "PASS",
+      "X03": "PASS"
+    }
+  }
+}
