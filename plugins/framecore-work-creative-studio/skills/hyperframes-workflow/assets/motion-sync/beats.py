@@ -3,7 +3,6 @@ import array
 import json
 import math
 import subprocess
-import sys
 
 SR = 11025
 HOP = 64
@@ -220,14 +219,7 @@ def main():
     ap.add_argument("--json")
     ap.add_argument("--sheet")
     a = ap.parse_args()
-    try:
-        x = decode(a.track)
-    except subprocess.CalledProcessError as error:
-        print(f"cannot read audio {a.track}: " + (error.stderr.decode(errors='replace').strip().splitlines() or ['not audio'])[-1], file=sys.stderr)
-        sys.exit(2)
-    if len(x) < SR:
-        print(f"cannot read audio {a.track}: less than one second decoded", file=sys.stderr)
-        sys.exit(2)
+    x = decode(a.track)
     env = onset_envelope(x)
     bpm, beat0 = fit(env, *fit(env, *tempo(env)))
     bar1, bars, margin = bar_table(x, bpm, beat0, a.beats_per_bar)

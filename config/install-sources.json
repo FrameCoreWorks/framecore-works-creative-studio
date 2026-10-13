@@ -3802,11 +3802,6 @@
       "sha256": "5e4449ea39783e4734ca56dfdd0ef6d3ef6fec8238bd6f06f486197647d79332"
     },
     {
-      "path": "skills/hyperframes-workflow/assets/motion-render/__pycache__/render.cpython-313.pyc",
-      "bytes": 145223,
-      "sha256": "f4d90587a0d310969c08ba9640afe81986a987aab863389ad2c6fcbcb624771f"
-    },
-    {
       "path": "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py",
       "bytes": 2656,
       "sha256": "d7fb6e8ea39bc28b88b18c0c48de003c6d1ec541c589e5749656ceac7923b1c3"
@@ -4022,19 +4017,9 @@
       "sha256": "527bdb4f75b33336a49f17d13b59d624b0ddeba43b59a5443f7070de620094e9"
     },
     {
-      "path": "skills/hyperframes-workflow/assets/motion-sync/__pycache__/beats.cpython-313.pyc",
-      "bytes": 25022,
-      "sha256": "b831e5d259d9857d37286a901908de90f039aa95b586e3cc0a033174bbb53e1a"
-    },
-    {
-      "path": "skills/hyperframes-workflow/assets/motion-sync/__pycache__/lyric_timing.cpython-313.pyc",
-      "bytes": 21662,
-      "sha256": "781ebe9816e35c9ca5693ec22319273590ec0325df2d3300f665f411de18406a"
-    },
-    {
       "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
-      "bytes": 10497,
-      "sha256": "3af5a97a64c25fa0052f37b765742d8e4f3f41667c1aa62f54625514c00ce198"
+      "bytes": 10120,
+      "sha256": "82b67c3297f2765d2892a0ab390754d6c3ea4c34239181c7d5f879a8dbd9f85f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt",
@@ -5122,16 +5107,6 @@
       "sha256": "92c368146c17943fdf2c68a25a5ffe2e4ed41ee0c1e917b0e847325e50165682"
     },
     {
-      "path": "skills/static-graphic-design-creator/assets/static-render/__pycache__/compose.cpython-313.pyc",
-      "bytes": 50747,
-      "sha256": "5dfcaebc678f4cedcae52a34ad4bad777ab0445d11f5badae54226f20425c188"
-    },
-    {
-      "path": "skills/static-graphic-design-creator/assets/static-render/__pycache__/print_pdf.cpython-313.pyc",
-      "bytes": 51471,
-      "sha256": "d3cb1aa0bf550d5a96caf5134eb66caa7853d27c97be208d90162226c83bf8b0"
-    },
-    {
       "path": "skills/static-graphic-design-creator/assets/static-render/compose.py",
       "bytes": 30455,
       "sha256": "4f9e733eed8e05f1f86d8f4820802694093d25f2f0f3c8d5f15af054d478757a"
@@ -5650,11 +5625,6 @@
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
       "bytes": 11540,
       "sha256": "be661d88802ecb05d0e8b228aff33c05edf8ef9ee405abfb313eb148541106e8"
-    },
-    {
-      "path": "skills/workflow-orchestrator/assets/environment-check/__pycache__/check_environment.cpython-313.pyc",
-      "bytes": 42720,
-      "sha256": "8cd6118c5cf9e24e22bc6b8c6755264e928585316d18824d5604acf6a110120a"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
