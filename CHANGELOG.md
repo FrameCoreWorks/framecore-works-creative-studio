@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.75.0, 2026-10-13
+
+Fixes from the gap audit of 1.74.0 (owner's audit in Claude Code, [record](docs/reviews/gap-audit-2026-10-13.md)):
+
+- **Work goes to its owner.** Static Graphic Design Creator, Image Prompt Architect, Caption Studio, Humanizer and the legacy audio alias now hand a request outside their scope to the owning skill instead of doing it themselves; "a small task may be done directly" applies only inside the current owner's domain
+- **No invented claims.** Copy Voice never says it inserted a no-break space the text does not contain; Humanizer adds no health, comfort or performance claim; planning tool costs never records consent to pay
+- **Fewer questions.** The video and image prompt architects ask one question when essentials are missing; after choosing a work area Studio asks one brief question and promises no render before checking the host
+- **Right reading.** Asset Manifest reads `haslo.txt` as a slogan, not a password; captions say 14 % from the bottom is for organic posts and paid Reels use 35 %; a single generator prompt goes to Video Prompt Architect first
+- **Tools fail clearly.** Missing or unreadable inputs exit 2 with one line in the Polish copy checker (a mistyped path used to pass as "no findings"), motion activity, lyric timing, print PDF check and HTML capture; lyric timing and the static compositor never overwrite an existing file; the frame review finds Playwright's Chromium; a plain environment check no longer prints "FINAL CHECK"; HyperFrames is pinned to 0.8.149 everywhere
+- Regression cases in `tests/host-evals/gaps.json` (repository): all five pass in Claude Code after the change
+
 ## 1.74.0, 2026-10-13
 
 One creative menu (owner decision, CR-20261013-01):
