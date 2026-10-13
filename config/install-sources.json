@@ -163,8 +163,8 @@
     },
     {
       "path": "evals/effective-overrides.json",
-      "bytes": 30336,
-      "sha256": "b663a233c009594272874202f51012d9607566d310a97a041cf62f641b008f45"
+      "bytes": 30375,
+      "sha256": "c7d2247356602d58be07b08928fe7e88abdcbba79df8c50a7788f13c0a53a358"
     },
     {
       "path": "evals/knowledge-practice-cases.json",
@@ -173,8 +173,8 @@
     },
     {
       "path": "evals/learning-mode-cases.json",
-      "bytes": 55948,
-      "sha256": "aeb5eb3350429c128ec64530f9b697bfc6fdfbe3c46d0cdeec6720f845ada43e"
+      "bytes": 55808,
+      "sha256": "2c2685ef1c7a3eaee57729be91b6f44540a003735e2206e0140fc4c4886f0a66"
     },
     {
       "path": "evals/motion-sound-cases.json",
@@ -2328,8 +2328,8 @@
     },
     {
       "path": "scripts/validate-learning-mode.mjs",
-      "bytes": 19692,
-      "sha256": "bea00567920b19ad07cc291dcb29ad4892c50679ee1330abad485bd30f74c19f"
+      "bytes": 19820,
+      "sha256": "e3eef16b03c4556d6c0077b7d0fd023f6b40355102cfad31841ce31ac83115fc"
     },
     {
       "path": "scripts/validate-motion-quality.mjs",
@@ -5453,8 +5453,8 @@
     },
     {
       "path": "skills/studio-workstyle-profile/SKILL.md",
-      "bytes": 6830,
-      "sha256": "1f9f902590f461742fabedb1b6fd7604bd36747beac87f3cde86b777d49f65bb"
+      "bytes": 6873,
+      "sha256": "248b4a7b741e5297050fc997d3bb327c7cbf52777dbb4021388da7b09b335e23"
     },
     {
       "path": "skills/studio-workstyle-profile/agents/openai.yaml",
@@ -5598,8 +5598,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 29225,
-      "sha256": "63593e169804b3748b0ad2104d3aafe892900a32841c0e44f0cae416cb2f4afa"
+      "bytes": 30128,
+      "sha256": "2c0da4d2735498301973b0e6cb426db3ea1f9780eef2d36101d718eba2fb3e57"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5728,8 +5728,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
-      "bytes": 15138,
-      "sha256": "bbc562543dcb287b44459e0fe026fcd5071283cebaa918697d7e18f1962b00cb"
+      "bytes": 15128,
+      "sha256": "e2472d899f1fda02a0a37e9e264409501dc5eb16849072207e24c8c96cd7e34c"
     },
     {
       "path": "skills/workflow-orchestrator/references/learning-mode.md",
@@ -5753,8 +5753,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
-      "bytes": 18020,
-      "sha256": "58c980004c6a713e9c49454ad721b60695e009f3bb94f23d1e1c2e9e4b2b6ef1"
+      "bytes": 18365,
+      "sha256": "a4d66d33599e3535c2e93853668af0b49f00ca7e7834635ba9072cb9f6e52000"
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
@@ -5873,8 +5873,8 @@
     },
     {
       "path": "tests/learning-mode.test.mjs",
-      "bytes": 21486,
-      "sha256": "e2d9aecec73b1c79a6e8d9f3af942a9006816c7ad86b6752f068068848a96d64"
+      "bytes": 21531,
+      "sha256": "ba36d0b6b0894ac6bc9524bfa7d5df980f36f2bed25af624a5b921d678a184fb"
     },
     {
       "path": "tests/lyric_timing_test.py",

@@ -99,9 +99,10 @@ In learning onboarding, ask exactly one question about one missing decision,
 accept its numbered option or free text, then wait for the answer. Never show a
 question batch; reuse supplied facts and skip known questions. Sufficient context
 goes directly to the plan and first lesson at every host reasoning setting.
-A mode-only creative choice must show 1. Quick mode / 2. Expanded mode in the user's language;
-a pace-only choice shows the complete work-area menu from the orchestrator's
-startup and creative menus reference, motion graphics included. These steps apply at every host
+A mode-only creative choice must show, in one message in the user's language,
+the complete work-area menu (1-8) from the orchestrator's startup and creative
+menus reference, motion graphics included, and the pace A. Quick mode /
+B. Expanded mode; a bare area means Quick. These steps apply at every host
 reasoning setting. Bind choice tokens only to currently pending displayed groups.
 An explicit specialist learning request follows that same overlay. Quick/Deep
 remains pace, not the learning/creation choice. Use only available authorized tools.

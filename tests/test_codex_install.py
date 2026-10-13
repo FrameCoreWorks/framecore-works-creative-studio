@@ -75,7 +75,7 @@ class InstallationChecks(unittest.TestCase):
         self.run_helper('install')
         entry = (self.skills / 'framecore-work-creative-studio/SKILL.md').read_text()
         menus = (ROOT / 'plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md').read_text()
-        block = menus.split('**Wybierz obszar pracy', 1)[1].split('\n>\n', 1)[0]
+        block = menus.split('Wybierz obszar pracy', 1)[1].split('\n>\n', 1)[0]
         areas = len(re.findall(r'^> \d+\. ', block, re.M))
         self.assertGreaterEqual(areas, 8)
         words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
