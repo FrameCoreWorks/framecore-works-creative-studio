@@ -12,7 +12,7 @@ A board (plansza) is one screen with one statement: a line of copy, a number, a 
 - **Type**: one display family, condensed or heavy for statements, a quiet text face for small labels; one accent colour for the word that carries the meaning (`inline-highlight`, `marker-highlight`, `caption-editorial-emphasis`).
 - **Objects instead of decoration**: each board may hold one object drawn for the idea (a record, a phone, a curve, a ticket). UI is recreated as clean HTML (`chat-message`, `chat-thread`, `native-notification-pop`, `notification-stack`, `device-frame-stage`) when the client has no screenshots; the client's real screens win when they exist.
 - **Real photos** carry type over a calm area; the photo moves (`push-in`, `parallax-zoom`, Ken Burns through `hyperframes-keyframes`), the type lands on the beat.
-- **The end card** says the action in words and shows how: phone, address, button, store badge (`cta-close`, `cta-lockup`, `store-badge-lockup`, `logo-brand-close`), held long enough to read twice.
+- **The end card** says the action in words and shows how: phone, address, button, store badge (`cta-close`, `cta-lockup`, `store-badge-lockup`, `logo-brand-close`), held long enough to read twice. After the reveal the card is clean: whatever covered or framed the reveal clears together within one beat, and no decoration stays on the card unless the user asks for it. An addition Studio proposes (a tagline, a badge) stays off until the user clearly accepts it; on an unclear answer, ask once.
 
 ## 2. Motion that keeps going
 

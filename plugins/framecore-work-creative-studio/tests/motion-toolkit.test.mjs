@@ -391,6 +391,38 @@ test('browser export writes a playable file for a chosen format', {skip: !proces
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
+test('HTML capture counts frames from rational rates and refuses bad ones', async () => {
+  const {parseFps, frameCount} = await import(path.join(root, exportDir, 'capture-html.mjs'));
+  assert.equal(frameCount(6, parseFps('30')), 180);
+  assert.equal(frameCount(6, parseFps('30000/1001')), 180);
+  assert.equal(frameCount(10, parseFps('30000/1001')), 300);
+  assert.throws(() => parseFps('29.97'), /integer or N\/D/);
+  assert.throws(() => parseFps('30/0'), /integer or N\/D/);
+});
+
+// Opt-in: captures a hand-written page twice through a headless browser and FFmpeg (set MOTION_REVIEW_BROWSER=/path/to/chrome).
+test('HTML capture renders a page frame by frame, identically on two runs', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {captureFile} = await import(path.join(root, exportDir, 'capture-html.mjs'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'capture-html-test-'));
+  try {
+    const page = path.join(tmp, 'page.html');
+    fs.writeFileSync(page, `<!doctype html><body style="margin:0"><canvas id=c></canvas><script>
+      const c = document.getElementById('c'); c.width = innerWidth; c.height = innerHeight; const g = c.getContext('2d');
+      const colour = new URLSearchParams(location.search).get('fmt') === '1x1' ? '#e63' : '#3ae';
+      window.renderFrame = t => { g.fillStyle = '#111'; g.fillRect(0, 0, c.width, c.height); g.fillStyle = colour; g.fillRect((c.width - 64) * Math.min(1, t), 40, 64, 64); };
+    </script>`);
+    const options = {width: 320, height: 240, seconds: 1, fps: '30000/1001', browser: process.env.MOTION_REVIEW_BROWSER};
+    const first = await captureFile(page, {...options, out: path.join(tmp, 'a.mp4')});
+    await captureFile(page, {...options, out: path.join(tmp, 'b.mp4')});
+    assert.equal(first.frames, 30);
+    const md5 = file => spawnPython('ffmpeg', ['-v', 'error', '-i', file, '-f', 'framemd5', '-'], {encoding: 'utf8'}).stdout.split('\n').filter(line => /^\d/.test(line));
+    const a = md5(path.join(tmp, 'a.mp4'));
+    assert.equal(a.length, 30);
+    assert.deepEqual(a, md5(path.join(tmp, 'b.mp4')));
+    await assert.rejects(captureFile(page, {...options, out: first.file}), /already exists/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
 test('sweep exit hands over with a crossing line and leaves other exits unchanged', async () => {
   const {buildScene, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));

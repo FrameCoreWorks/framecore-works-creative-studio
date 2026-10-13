@@ -12,7 +12,7 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {previewFor, findBrowser} from '../motion-review/review-frames.mjs';
 
 /** Minimal DevTools protocol client over --remote-debugging-pipe (fd 3 in, fd 4 out, NUL-separated JSON). */
-function devtools(chrome, args) {
+export function devtools(chrome, args) {
   const child = spawn(chrome, [...args, '--remote-debugging-pipe'], {stdio: ['ignore', 'ignore', 'pipe', 'pipe', 'pipe']});
   const waiting = new Map();
   let next = 1, buffer = '', stderr = '';

@@ -39,3 +39,16 @@ The browser needs WebCodecs video encoding and must allow reading back a canvas 
 ## Verification boundary
 
 During package preparation, in a Linux development container with Chromium 1194: drawn frames matched the Remotion still of the same frame pixel for pixel; the captioned starter exported in 16:9 and 9:16 as VP9 WebM files with 300 frames and 10.00 s that ffprobe read, at about 42 dB PSNR against the reference screenshots, in about 2.5 seconds each; the preview's button produced a download named per format. The MP4 writer was verified with an H.264 stream from libx264 instead of a browser encoder: ffprobe reported High profile, 300 frames and 10.00 s, and all frames decoded in order. Browser H.264 encoding, other browsers and host behavior are not verified.
+
+## Hand-written HTML to MP4 without npm
+
+[`capture-html.mjs`](capture-html.mjs) renders any hand-written composition (canvas, GSAP, DOM) to an H.264 MP4 with a local Chrome or Chromium and FFmpeg, for a shell host where the npm registry is unreachable, so `npx hyperframes` and Remotion cannot install. It is dependency-free (Node.js 20+) and finds the browser from `--browser`, `CHROME_PATH`, `HYPERFRAMES_BROWSER_PATH`, the usual names and Playwright's browser folders.
+
+```sh
+node capture-html.mjs outro.html --out outro-9x16.mp4 --width 1080 --height 1920 --seconds 6
+node capture-html.mjs outro.html --out outro-1x1.mp4 --width 1080 --height 1080 --seconds 6 --query fmt=1x1 --audio outro.mix.wav
+```
+
+The page defines `window.renderFrame(t)`, which draws the state at `t` seconds from `t` alone (it may return a promise), and optionally `window.ready`, a promise for loaded fonts and images. Each frame is drawn, captured and piped to FFmpeg (`yuv420p`, `faststart`); `--fps` takes `30000/1001`, `--query` passes a format or variant to the page, and `--audio` muxes a finished mix such as the sound engine's. It refuses to overwrite a file. Then review the MP4 as any render: [motion activity](../motion-quality/README.md#motion-activity), the [visible-text audit](../motion-review/README.md#visible-text-audit) on the page, and `acceptance.py` with NOT_RUN for what could not run.
+
+Verified on 2026-10-13 in a Linux container with Chromium 1194 and FFmpeg 6.1, without npm: a 1080 x 1920 canvas page rendered 60 frames in about 7 s, two runs gave identical frames (framemd5), and a 1080 x 1080 variant at 30000/1001 placed its last frame where the page's formula puts it. The trigger was a client end card on 2026-10-13 whose session had Chromium and FFmpeg but a blocked npm registry and no documented route.

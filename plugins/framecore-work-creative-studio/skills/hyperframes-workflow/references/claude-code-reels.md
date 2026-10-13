@@ -7,7 +7,7 @@ Owner decision 2026-10-12: in Claude Code, or another host with a shell, Node.js
 - **HyperFrames plugin for Claude Code** (recommended, versioned): `claude plugin marketplace add heygen-com/hyperframes`, then install `hyperframes@hyperframes` and enable auto-update for that marketplace in `/plugin`. Its router is `/hyperframes:hyperframes`; its skills load on demand.
 - **Or the pinned CLI** in the project: `npx hyperframes@0.8.149 ...`, with `npx hyperframes skills update` for the core skills.
 - `npx hyperframes doctor` checks Node.js, FFmpeg, memory and the browser. When Chrome is not found but a Chromium exists, set `HYPERFRAMES_BROWSER_PATH` to it. HyperFrames sends anonymous usage data; `npx hyperframes telemetry disable` turns it off.
-- Installing downloads code from npm and GitHub; it is part of the installation the user asked for, never of a single film.
+- Installing downloads code from npm and GitHub; it is part of the installation the user asked for, never of a single film. When the npm registry is blocked (an egress policy, a closed network), HyperFrames cannot run: write the boards as one HTML page and render it with the [HTML capture](../assets/motion-export/README.md#hand-written-html-to-mp4-without-npm), and say so before the build.
 
 ## Who does what
 
