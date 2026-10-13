@@ -1244,6 +1244,8 @@ class Captions:
             text = item['text'].upper() if c.get('uppercase') else item['text']
             block = TextBlock(text, font, 10 ** 6, line)
             items.append({'text': text, 'words': item['words'], 'w': block.width + 2 * pad, 'mask': block.mask(block.width)})
+            if block.width + 2 * pad > width + 0.5:        # one word box wider than the frame is cropped
+                TextBlock.overflows.append({'text': text.replace('\u00a0', ' '), 'width': jround(block.width + 2 * pad), 'max_width': jround(width)})
         rows, current, used = [], [], 0.0
         for item in items:
             need = item['w'] if not current else used + gap + item['w']
@@ -1325,6 +1327,9 @@ class Persistent:
                                                             fill=color(item.get('background') or t.get('accent'), (0, 0, 0, 255)))
                 ink = color(item.get('color') or (t.get('background') if filled else t.get('foreground')), (255, 255, 255, 255))
                 image.alpha_composite(tinted(block.mask(block.width), ink), (pad, 0))
+                room = score['width'] - 2 * m
+                if image.width > room + 0.5:               # a persistent line never runs off the frame
+                    TextBlock.overflows.append({'text': copy_text(score, item.get('copy')).replace('\u00a0', ' '), 'width': jround(image.width), 'max_width': jround(room)})
             inset = max(jround(H * area.get(vertical_side, 0)), m)
             x = m if horizontal_side == 'left' else score['width'] - m - image.width
             y = inset if vertical_side == 'top' else H - inset - image.height
@@ -1353,6 +1358,7 @@ class Renderer:
         self.persistent = Persistent(score, self.fonts, base_dir) if score.get('persistent') else None
         self.overflows = list(TextBlock.overflows)
         self.captions = Captions(score, self.fonts) if score.get('captions') else None
+        self.overflows = list(TextBlock.overflows)
 
     def frame(self, n, blur=1):
         """Frame n; with blur > 1, the average of `blur` subframes over a 180-degree shutter (n to n + 0.5)."""
@@ -1449,6 +1455,12 @@ def main(argv=None):
         return 2
     summary = {'renderer': RENDERER, 'format': score.get('format', 'base'), 'width': score['width'], 'height': score['height'],
                'fps': score['fps'], 'frames': score['totalFrames'], 'blur': args.blur, 'fonts': renderer.fonts.paths, 'stills': []}
+    family = (tokens(score).get('fontFamily') or 'sans-serif').lower()
+    if any(os.path.basename(str(p)).lower().startswith('dejavu') for p in renderer.fonts.paths.values()) and any(n in family for n in ('arial', 'helvetica', 'sans-serif')):
+        # DejaVu Sans is about 10 % wider than Arial: a layout planned for Arial can overflow; install a metric-compatible face.
+        summary['font_warning'] = ('No Arial or metric-compatible font (Liberation Sans, Arimo) was found, so DejaVu Sans is used and '
+                                   'text runs wider than planned. Install fonts-liberation, declare bundled fonts in "fonts", or pass --font.')
+        sys.stderr.write(summary['font_warning'] + '\n')
     if renderer.overflows:
         summary['text_overflow'] = renderer.overflows
         if not args.allow_overflow:

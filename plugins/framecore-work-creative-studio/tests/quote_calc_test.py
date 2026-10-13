@@ -52,6 +52,17 @@ class Pricing(unittest.TestCase):
         self.assertIn('advance_pct from 0 to 100', joined)
         self.assertIn('give exactly one of price, hours or days', ' '.join(quote.validate(offer(packages=[{'name': 'A', 'items': [{'name': 'X', 'price': 1, 'hours': 2}]}]))))
 
+    def test_negative_rates_and_prices_are_refused(self):
+        joined = ' '.join(quote.validate(offer(rates={'hour': -150, 'day': 1000}, extras=[{'name': 'Zwrot', 'price': -50}])))
+        self.assertIn('rates.hour must be a number of zero or more', joined)
+        self.assertIn('Zwrot: price must be zero or more', joined)
+
+    def test_gross_entry_is_labelled_gross_in_the_document(self):
+        data = offer(prices='gross', packages=[{'name': 'A', 'items': [{'name': 'Plakat', 'price': 123}]}])
+        document = quote.markdown(data, quote.price(data))
+        self.assertIn('Cena jedn. brutto', document)
+        self.assertNotIn('Cena jedn. netto', document)
+
     def test_the_example_has_no_prices_of_its_own(self):
         example = quote.EXAMPLE
         self.assertEqual(example['rates'], {'hour': 0, 'day': 0})

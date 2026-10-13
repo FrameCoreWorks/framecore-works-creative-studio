@@ -408,6 +408,11 @@ def compose(spec, base, font_dirs, allow_overflow=False):
         layout = TextLayout(layer, resolve_font(layer.get('font'), index, base), scale)
         layouts[number] = layout
         problem = layout.overflow(scale)
+        x, y, w, h = layer['box']
+        width, height = frame['design']
+        if x < -0.5 or y < -0.5 or x + w > width + 0.5 or y + h > height + 0.5:   # text never leaves the finished page
+            problem = problem or {'layer': layer.get('id'), 'text': layer['text'], 'size': layer['size'], 'reasons': []}
+            problem['reasons'].append(f'box {layer["box"]} is outside the {width:g} x {height:g} px canvas')
         if problem:
             overflows.append(problem)
         if layout.missing:

@@ -110,6 +110,14 @@ class Compose(unittest.TestCase):
             self.assertIn('Najnowocześniejszy', json.dumps(summary, ensure_ascii=False))
             self.assertFalse(pathlib.Path(temp, 'out/story.png').exists())
 
+    def test_a_text_box_outside_the_canvas_stops_the_render(self):
+        with tempfile.TemporaryDirectory() as temp:
+            spec = {'id': 'off', 'canvas': {'width': 800, 'height': 400, 'background': '#FFFFFF'},
+                    'layers': [text('price', '129,00 zł', box=[1000, 40, 700, 120])]}
+            code, summary = run(spec, temp, '--strict')
+            self.assertEqual((code, summary['status']), (4, 'text_overflow'))
+            self.assertIn('outside the 800 x 400 px canvas', ' '.join(summary['text_overflow'][0]['reasons']))
+
     def test_shrink_fits_the_copy_without_dropping_a_word(self):
         with tempfile.TemporaryDirectory() as temp:
             spec = {'id': 'story', 'canvas': {'width': 1080, 'height': 1920},

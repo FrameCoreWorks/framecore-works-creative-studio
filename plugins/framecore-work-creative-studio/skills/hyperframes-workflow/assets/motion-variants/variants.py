@@ -11,7 +11,7 @@ headline font is a bundled font, declares that family's faces in `fonts` so the 
 files; a kit font that is not bundled is named in the report for the user to supply. `expand` reads a matrix
 {"variants": [{"id": "a", "copy": {...}, "tokens": {...}, "language": "pl"}], "formats": ["base", "9x16"]} and writes
 one contract per variant (`<id>-<variant>.motion.json`, copyStatus "variant-draft", approval back to proposed when its
-text changed) plus a `render-plan.json` with a check command per variant and a renderer command per variant and format. Copy overrides may only replace copy IDs the
+text or look changed; a brand kit that changes colours or type does the same) plus a `render-plan.json` with a check command per variant and a renderer command per variant and format. Copy overrides may only replace copy IDs the
 contract already has, so a variant can never add text the layout was not checked for. Nothing is rendered here.
 Exit codes: 0 written, 2 bad input or an output that exists.
 """
@@ -113,6 +113,9 @@ def apply_brand(score, kit):
         else:
             report['notes'].append(f'The headline font {name} is not bundled: ask the client for the font files and their licence, then declare them in "fonts".')
     out['tokens'] = tokens
+    if tokens != (score.get('tokens') or {}) or out.get('fonts') != score.get('fonts'):
+        # A changed look was not what the client approved: back to proposed until the branded version is approved.
+        out['approval'] = {'status': 'proposed', 'revision': None, 'evidence': None}
     # Text is checked at 4.5:1 and the muted and accent colours at 3:1 against the background (WCAG large text).
     for token, needed in (('foreground', 4.5), ('muted', 3.0), ('accent', 3.0)):
         ratio = contrast(tokens.get(token), tokens.get('background'))
@@ -151,8 +154,8 @@ def expand(score, matrix, stem):
         out['copy'] = {**(score.get('copy') or {}), **(variant.get('copy') or {})}
         out['tokens'] = {**(score.get('tokens') or {}), **(variant.get('tokens') or {})}
         out['copyStatus'] = 'variant-draft'
-        # New words need their own approval: the variant goes back to proposed until the client approves its text.
-        if variant.get('copy'):
+        # New words or a new look need their own approval: the variant goes back to proposed until the client approves it.
+        if variant.get('copy') or out['tokens'] != (score.get('tokens') or {}):
             out['approval'] = {'status': 'proposed', 'revision': None, 'evidence': None}
         if variant.get('language'):
             out['language'] = variant['language']

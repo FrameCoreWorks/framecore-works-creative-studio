@@ -19,14 +19,14 @@ from pathlib import Path
 
 GROSZ = Decimal('0.01')
 LABELS = {
-    'pl': {'title': 'Oferta', 'package': 'Pakiet', 'item': 'Pozycja', 'qty': 'Ilość', 'unit_price': 'Cena jedn. netto', 'net': 'Netto',
+    'pl': {'title': 'Oferta', 'package': 'Pakiet', 'item': 'Pozycja', 'qty': 'Ilość', 'unit_price': 'Cena jedn. netto', 'unit_price_gross': 'Cena jedn. brutto', 'net': 'Netto',
            'vat': 'VAT', 'gross': 'Brutto', 'total': 'Razem', 'revisions': 'Rundy poprawek w cenie', 'timeline': 'Termin realizacji',
            'days': 'dni roboczych', 'licence': 'Licencja i pola eksploatacji', 'extras': 'Opcje dodatkowe', 'discount': 'Rabat',
            'payment': 'Płatność', 'advance': 'zaliczka', 'after': 'po odbiorze', 'terms': 'termin płatności', 'valid': 'Oferta ważna do',
            'exempt': 'zw.', 'hours': 'godz.', 'not_included': 'Poza zakresem', 'assumptions': 'Założenia', 'change': 'Zmiany zakresu',
            'change_rule': 'Prace poza zakresem i rundy poprawek ponad liczbę w cenie wyceniamy osobno przed ich rozpoczęciem.',
            'counsel': 'Treść licencji i warunki umowy wymagają akceptacji obu stron; nie stanowią porady prawnej.'},
-    'en': {'title': 'Offer', 'package': 'Package', 'item': 'Item', 'qty': 'Qty', 'unit_price': 'Unit price (net)', 'net': 'Net',
+    'en': {'title': 'Offer', 'package': 'Package', 'item': 'Item', 'qty': 'Qty', 'unit_price': 'Unit price (net)', 'unit_price_gross': 'Unit price (gross)', 'net': 'Net',
            'vat': 'VAT', 'gross': 'Gross', 'total': 'Total', 'revisions': 'Revision rounds included', 'timeline': 'Delivery time',
            'days': 'working days', 'licence': 'Licence and fields of use', 'extras': 'Options', 'discount': 'Discount',
            'payment': 'Payment', 'advance': 'advance', 'after': 'on acceptance', 'terms': 'payment term', 'valid': 'Valid until',
@@ -78,6 +78,9 @@ def validate(spec):
             need(isinstance(vat.get('rate'), (int, float)) and 0 <= vat['rate'] <= 100, problems, 'vat.rate is a percentage from 0 to 100')
     need(spec.get('prices', 'net') in ('net', 'gross'), problems, 'prices is "net" or "gross"')
     rates = spec.get('rates', {})
+    for key in ('hour', 'day'):
+        if key in rates:
+            need(isinstance(rates[key], (int, float)) and rates[key] >= 0, problems, f'rates.{key} must be a number of zero or more')
     packages = spec.get('packages')
     need(isinstance(packages, list) and packages, problems, 'packages: at least one package')
     for p_index, package in enumerate(packages or []):
@@ -98,6 +101,8 @@ def validate(spec):
         need(isinstance(package.get('revisions', 0), int) and package.get('revisions', 0) >= 0, problems, f'{where}: revisions is a whole number')
     for extra in spec.get('extras', []):
         need(('price' in extra) != ('surcharge_pct' in extra), problems, f'extra {extra.get("name", "")}: price or surcharge_pct')
+        if 'price' in extra:
+            need(isinstance(extra['price'], (int, float)) and extra['price'] >= 0, problems, f'extra {extra.get("name", "")}: price must be zero or more')
     discount = spec.get('discount', {})
     if discount:
         need(0 < discount.get('pct', 0) < 100, problems, 'discount.pct between 0 and 100')
@@ -171,7 +176,7 @@ def markdown(spec, totals):
     if spec.get('summary'):
         out += [spec['summary'], '']
     for package in totals['packages']:
-        out += [f"## {t['package']}: {package['name']}", '', f"| {t['item']} | {t['qty']} | {t['unit_price']} | {t['net']} | {vat_label} | {t['gross']} |", '| --- | --- | --- | --- | --- | --- |']
+        out += [f"## {t['package']}: {package['name']}", '', f"| {t['item']} | {t['qty']} | {t['unit_price_gross' if spec.get('prices') == 'gross' else 'unit_price']} | {t['net']} | {vat_label} | {t['gross']} |", '| --- | --- | --- | --- | --- | --- |']
         for line in package['lines']:
             qty = f"{line['qty']} {line['unit']}".strip()
             if line['hours'] is not None:

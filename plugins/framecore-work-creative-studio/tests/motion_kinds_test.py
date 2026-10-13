@@ -43,6 +43,22 @@ class Kinds(unittest.TestCase):
         self.assertEqual(code, 4, err)
         self.assertEqual(summary['status'], 'text_overflow')
 
+    def test_a_persistent_line_wider_than_the_frame_stops_the_render(self):
+        contract = json.loads(json.dumps(PHOTO))
+        contract['copy']['tag'] = 'Bezpłatna dostawa dla każdego zamówienia przez cały październik i listopad'
+        code, summary, err = render(contract)
+        self.assertEqual((code, summary['status']), (4, 'text_overflow'), err)
+        self.assertIn('Bezpłatna dostawa', json.dumps(summary['text_overflow'], ensure_ascii=False))
+
+    def test_an_active_word_wider_than_the_frame_stops_the_render(self):
+        contract = json.loads((PLUGIN / 'skills/hyperframes-workflow/assets/motion-scenes/examples/social-captions.motion-score.json').read_text(encoding='utf-8'))
+        key = contract['captions'][0]['copy']
+        contract['copy'][key] = 'Konstantynopolitańczykiewiczówna'
+        contract['captions'][0]['words'] = [[contract['captions'][0]['start'], contract['captions'][0]['end']]]
+        contract['tokens']['captions']['size'] = 120
+        code, summary, err = render(contract, stills=str(contract['captions'][0]['start']))
+        self.assertEqual((code, summary['status']), (4, 'text_overflow'), err)
+
     def test_a_value_wider_than_its_room_stops_the_render(self):
         contract = json.loads(json.dumps(EXAMPLE))
         contract['scenes'][1]['params']['bars'][0]['value'] = 123456789

@@ -55,6 +55,15 @@ class Brand(unittest.TestCase):
         self.assertGreater(report['contrast']['foreground'], 4.5)
         self.assertEqual(score['tokens']['background'], '#101010', 'the input contract is not changed')
 
+    def test_a_changed_look_needs_new_approval(self):
+        score = json.loads((TEMPLATES / 'ad-offer.motion-score.json').read_text(encoding='utf-8'))
+        score['approval'] = {'status': 'approved', 'revision': 3, 'evidence': 'client email'}
+        out, _ = variants.apply_brand(score, json.loads(KIT.read_text(encoding='utf-8')))
+        self.assertEqual(out['approval']['status'], 'proposed')
+        contracts, _, _ = variants.expand(score, {'variants': [{'id': 'same'}, {'id': 'red', 'tokens': {'accent': '#E63946'}}]}, 'ad')
+        approval = {name: contract['approval']['status'] for name, contract in contracts}
+        self.assertEqual(approval, {'ad-same.motion.json': 'approved', 'ad-red.motion.json': 'proposed'})
+
     def test_a_named_condensed_face_replaces_the_plain_weight(self):
         family, faces, chosen = variants.bundled_faces('Archivo Condensed ExtraBold')
         self.assertEqual((family, chosen), ('Archivo', 'Condensed ExtraBold'))
