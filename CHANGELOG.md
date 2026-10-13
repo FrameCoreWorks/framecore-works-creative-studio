@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.73.0, 2026-10-13
+
+Fixes from a client end-card session (owner's retrospective, 2026-10-13):
+
+- **Hand-written HTML to MP4 without npm.** [`capture-html.mjs`](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-export/README.md#hand-written-html-to-mp4-without-npm) renders a canvas, GSAP or DOM composition frame by frame from `window.renderFrame(t)` with a local Chrome or Chromium and FFmpeg, dependency-free, with rational frame rates, format variants and an optional finished mix. The session had Chromium and FFmpeg but a blocked npm registry, so neither HyperFrames nor Remotion could run and Studio had no route; two captures now give identical frames
+- **Probe before the runtime.** The motion skill checks Node.js, FFmpeg, the browser and the npm registry before choosing or promising a runtime and says which route it chose; the runtime map and the Claude Code reel route name the capture when npm is unreachable
+- **Clean end cards.** After the reveal everything that covered it clears within one beat and no decoration stays unless asked; an addition Studio proposes stays off until the user clearly accepts it
+- Retrospective and decisions in `docs/reviews/retro-outro-end-card-2026-10-13.md` (repository); the one-menu start and a "delicate" sound preset are left as owner notes
+
 ## 1.72.0, 2026-10-13
 
 Lyric timing fixes, a motion technique atlas, print-ready PDF and shared script patterns:

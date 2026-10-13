@@ -1,0 +1,34 @@
+{
+  "version": "1.73.0",
+  "baseline_tag": "v1.72.0",
+  "baseline": "49ee13ee5689683efcc6baeed97f18f7d114fd73",
+  "change_id": "CC-20261013-02",
+  "origin": "cloud-code",
+  "files": 1190,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-export/README.md",
+    "skills/hyperframes-workflow/assets/motion-export/export-video.mjs",
+    "skills/hyperframes-workflow/references/claude-code-reels.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-export/capture-html.mjs"
+  ],
+  "removed": [],
+  "unchanged_count": 1175,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Release 1.73.0 carries CC-20261013-02, fixes from the owner's retrospective of a client end card made on 2026-10-13 with 1.72.0: a dependency-free HTML-to-MP4 capture for shell hosts whose npm registry is blocked (the session had Chromium and FFmpeg but no route), a runtime probe in step 4 of the motion skill, and clean end-card rules; the one-menu start (startup contract) and a delicate sound preset are left as owner notes."
+}
