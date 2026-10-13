@@ -1840,3 +1840,24 @@ Cross-host state:
 - GitHub: pending until the push is read back
 - ChatGPT Work: not_tracked (owner decision 2026-10-10); no hosted change needed, the package is unchanged
 - Codex: not_run
+
+## CC-20261013-01
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `53fc97d` (main, package 1.71.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.72.0)
+- Package version: 1.71.0 -> 1.72.0
+- Scope: Release 1.72.0 finishes change CC-20261012-06, whose release run on another Claude account stopped before it was pushed (its lyric-timing fixes, changelog and release were lost and redone here), and adds CC-20261013-01: the two lyric_timing.py defects named by the GPT Work packet FCW-MOTION-KNOWLEDGE-RESEARCH-01 (negative cut for a line sung from 0 s; inverted interpolation between overlapping heard words), reproduced on 1.71.0 by new tests that fail there and pass now, rational --fps; a 637-technique English atlas projected from gongnyang/awesome-ai-motion (MIT, 1e3c249) with HyperFrames 0.8.149 registry candidates and a lookup tool, requested by the owner; compendium wording the packet found over-categorical; plus the branch's print-ready PDF tools, Demucs caveat and shared script and campaign patterns. Research findings and the proposals left as owner notes are in docs/research/motion-2026-10/gpt-work-findings.md.
+- Shared package changed: yes; 21 changed, 8 added, 0 removed ([scope](../verification/scope-1.72.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 8 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 17 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 7 print PDF (7 skipped without optional dependencies), 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 5 SVG wordmark (5 skipped without optional dependencies), 5 brand guide, 4 motion activity, 8 lyric timing, 4 technique atlas, 14 host-eval harness: PASS ([record](../verification/release-1.72.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

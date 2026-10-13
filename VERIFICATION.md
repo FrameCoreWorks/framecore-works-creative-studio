@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.71.0
+## Current source: 1.72.0
+
+The [1.72.0 source checks](verification/release-1.72.0.json) pass canonical validation and `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 8 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 17 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 7 print PDF (7 skipped without optional dependencies), 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 5 SVG wordmark (5 skipped without optional dependencies), 5 brand guide, 4 motion activity, 8 lyric timing, 4 technique atlas, 14 host-eval harness; `claude plugin validate --strict` passes. [Scope](verification/scope-1.72.0.json) records 21 changed and 8 added shared files out of 1189.
+
+## Previous source: 1.71.0
 
 The [1.71.0 source checks](verification/release-1.71.0.json) pass canonical validation and `scripts/check_all.sh`: 216 Node tests (209 passing, 7 opt-in browser tests skipped there and run separately: 79 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 7 suite 6, 8 suite 7 (3 skipped without optional dependencies), 23 suite 8, 16 suite 9, 18 suite 10, 17 suite 11, 6 suite 12, 8 suite 13, 9 suite 14, 7 suite 15, 4 suite 16, 5 suite 17, 14 suite 18, 6 suite 19, 5 suite 20, 8 suite 21, 5 suite 22, 4 suite 23, 4 suite 24, 4 suite 25, 2 suite 26, 2 suite 27, 2 suite 28, 5 suite 29, 5 suite 30, 4 suite 31, 5 suite 32, 14 suite 33; `claude plugin validate --strict` passes. Owner-requested motion round. Web research on 2026-10-12 (Meta for Business, Remotion, GSAP and Webflow, alignment tools, vendor comparisons; Reddit not reachable by the search tool). lyric_timing passed 5 tests including beat detection on a click track; no speech recogniser was run. A reference lyric reel measured: cuts follow sung words (56 % within two frames of a half-beat). No host evaluation run, to save the owner's plan usage. [Scope](verification/scope-1.71.0.json) records 10 changed and 3 added shared files out of 1181.
 

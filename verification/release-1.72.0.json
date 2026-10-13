@@ -1,0 +1,181 @@
+{
+  "version": "1.72.0",
+  "date": "2026-10-13",
+  "baseline": "53fc97d9540322cb05c93715f5536101d922525e",
+  "change_id": "CC-20261013-01",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1189,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7773 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 216,
+        "pass": 209,
+        "fail": 0,
+        "skipped": 7
+      },
+      "python": {
+        "Codex installer": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "package identity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "benchmark script": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "host smoke": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "hosted readback": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "Claude plugin and guides": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "GEPA pilot": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "asset": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "caption": {
+          "tests": 16,
+          "skipped": 0
+        },
+        "environment check": {
+          "tests": 18,
+          "skipped": 0
+        },
+        "motion acceptance": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "motion fonts": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "motion kinds": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "motion variants": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "skill finder": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "Animate engine": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "Animate voice": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "static render": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "print PDF": {
+          "tests": 7,
+          "skipped": 7
+        },
+        "Polish copy check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "image probe": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "quote calculator": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "voice-over budget": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "edit export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "storyboard compositor": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "sheet export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "shot plan check": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "prompt pack": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "clip review": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "SVG wordmark": {
+          "tests": 5,
+          "skipped": 5
+        },
+        "brand guide": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "motion activity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "lyric timing": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "technique atlas": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "host-eval harness": {
+          "tests": 14,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.296)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Release 1.72.0 finishes change CC-20261012-06, whose release run on another Claude account stopped before it was pushed (its lyric-timing fixes, changelog and release were lost and redone here), and adds CC-20261013-01: the two lyric_timing.py defects named by the GPT Work packet FCW-MOTION-KNOWLEDGE-RESEARCH-01 (negative cut for a line sung from 0 s; inverted interpolation between overlapping heard words), reproduced on 1.71.0 by new tests that fail there and pass now, rational --fps; a 637-technique English atlas projected from gongnyang/awesome-ai-motion (MIT, 1e3c249) with HyperFrames 0.8.149 registry candidates and a lookup tool, requested by the owner; compendium wording the packet found over-categorical; plus the branch's print-ready PDF tools, Demucs caveat and shared script and campaign patterns. Research findings and the proposals left as owner notes are in docs/research/motion-2026-10/gpt-work-findings.md.",
+  "source": "Release 1.72.0: lyric timing fixes, motion technique atlas, print-ready PDF",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

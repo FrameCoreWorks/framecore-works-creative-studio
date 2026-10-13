@@ -1,5 +1,17 @@
 # Historical development notes
 
+## 1.72.0, 2026-10-13
+
+Lyric timing fixes, a motion technique atlas, print-ready PDF and shared script patterns:
+
+- **Lyric timing defects fixed.** Found by the GPT Work research packet (FCW-MOTION-KNOWLEDGE-RESEARCH-01) and reproduced on 1.71.0: a line sung from 0 s got a board cut before 0 (frame -1 or -2), and when the recogniser's neighbouring words overlapped, an unheard word between them ended before it started. Cuts now never go below 0, the gap closes instead of inverting and such lines are listed for a check by ear (`needs_check`); `--fps` accepts rational rates such as `30000/1001`. Three new cases in `tests/lyric_timing_test.py`; the first two fail on 1.71.0
+- **Motion technique atlas.** [`technique-atlas`](../skills/hyperframes-workflow/assets/technique-atlas/README.md) names 637 motion techniques in English (what each does, when to use it, family, purposes, media, pairings, HyperFrames registry candidates by name for 104), projected from the English card text of gongnyang/awesome-ai-motion (MIT, pinned `1e3c249`) against the registry of HyperFrames 0.8.149; `atlas.py "<name>"` resolves a technique a brief names. Order of use: registry block, then the atlas as vocabulary and preview, then the motion written from the brief; card code is never copied. Linked from the motion skill, the compendium and the Claude Code reel route
+- **Compendium wording.** Known words are aligned rather than transcribed, with a full-master versus vocal-stem comparison on dense mixes; linear motion is kept for motion that is mechanical or constant by design; `matched` in lyric timing means heard, not verified
+- **Demucs caveat.** The motion-sync README, the lyric timing docstring and the compendium no longer recommend Demucs without saying its pretrained weights are for research use only
+- **Print-ready PDF.** `print_pdf.py` (static render) finishes a PDF for print (TrimBox and BleedBox, the printer's ICC output intent without converting colours), preflights it through every page and form XObject (bleed, effective ppi, colour spaces including spot colours, total ink, transparency, hairlines, fonts used, attachments such as C2PA, PDF/X declaration), compares two renders per region, and maps, removes or moves vector blocks in a PDF without its source. [Print-ready PDF](../skills/delivery-documentation/references/print-ready-pdf.md) covers questions for the printer, PDF/X, routes for making the PDF and a check list
+- **Shared script and campaign patterns.** One [reference](../skills/pipeline-core/references/script-and-campaign-patterns.md) for scripts, short-form video, campaigns, launches and sales conversations, linked from Pipeline Core, Copy Voice, Marketing and Storyboard Sequence Architect
+- Research findings from Gemini, ChatGPT (two reports and a delta against 1.71.0) and GPT Work, with what was taken and what was left as notes for the owner, in `docs/research/motion-2026-10/` (repository)
+
 ## 1.71.0, 2026-10-12
 
 Motion graphics knowledge and lyric timing:
