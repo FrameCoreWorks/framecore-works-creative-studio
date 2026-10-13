@@ -3013,8 +3013,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 15312,
-      "sha256": "aef3f7f1a9f608470ae1270a4fde1ea8bc496c5e375d0efc8e9757609321fa37"
+      "bytes": 15524,
+      "sha256": "3c934e640e1c8c461ea8c6d51bde5a485d2cec1e66c363d7f0950edf5bc676cd"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4008,8 +4008,18 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 11669,
-      "sha256": "6d2e5386dfd38bbf15c8ee31ab94795bc50d7f45600f4ad83c98561388928c23"
+      "bytes": 11973,
+      "sha256": "527bdb4f75b33336a49f17d13b59d624b0ddeba43b59a5443f7070de620094e9"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/__pycache__/beats.cpython-313.pyc",
+      "bytes": 24109,
+      "sha256": "474eb2c4260916bfeca0ebed091ac9bc22bf22901194c3f9b7d5a2a877dad707"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/__pycache__/lyric_timing.cpython-313.pyc",
+      "bytes": 20159,
+      "sha256": "2a27a1d760954d31e06fbc8300a7f27b27100a7836c911d3cfcee457f99ec52c"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
@@ -4023,8 +4033,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
-      "bytes": 10481,
-      "sha256": "9ce587eb9a783b84b4ce5a03e30e8d77ae9896381aa033693e23ec853ef2e826"
+      "bytes": 11037,
+      "sha256": "9d2a759c47f179a754a4ae9e004c48fd49ee1621ff08c3daf761cb65e289e7ab"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
@@ -4127,14 +4137,34 @@
       "sha256": "332923a70d4cf9d747e6fe76f7f038a15d9b8fca92770e305ef056cddf2adf49"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/technique-atlas/README.md",
+      "bytes": 3401,
+      "sha256": "8a155e49263b1b1a9f39df4cc2ff8670f89cb9423c5a118244b5e87165aea44d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/technique-atlas/__pycache__/atlas.cpython-313.pyc",
+      "bytes": 6965,
+      "sha256": "64c3c89f46a961fae9b1b67e61199eec8c1e4a562deac95e78789fb26b714f46"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/technique-atlas/atlas.json",
+      "bytes": 367257,
+      "sha256": "8ba84258adf32a53174ba9a593c5f7087ba6ebb8f398c8827f336a566ed96928"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/technique-atlas/atlas.py",
+      "bytes": 3281,
+      "sha256": "7bec25f33b3ac9d4768dd1da731e83207684dc1191a54db6b1eee619fef9bd07"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/animate-engine.md",
       "bytes": 7520,
       "sha256": "8df0b143c868229a402d9e8d1d191dd4ff2a70a27739da9066dafab5bf63b0bd"
     },
     {
       "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
-      "bytes": 5959,
-      "sha256": "964e99e73ae5a17bcc7379c59713ec616d6521874805d343b5776ef58eedced3"
+      "bytes": 6076,
+      "sha256": "5ab85afefe7796069977066e47abb63776430780e0732a9168c15e1bae830a17"
     },
     {
       "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
@@ -4163,8 +4193,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-compendium.md",
-      "bytes": 13123,
-      "sha256": "efee87e38d921d5134205416618bf0a5a7c3f6903b9746d35c518b0802d81ae8"
+      "bytes": 14233,
+      "sha256": "23aa2b05fe365f89015e6d53449bb7a8dfe1b2897438bdd5a4bd8ced43d25b0b"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-contract-json.md",
@@ -5858,8 +5888,8 @@
     },
     {
       "path": "tests/lyric_timing_test.py",
-      "bytes": 4841,
-      "sha256": "a083788166ac0a462573553d7165cdaa24e65a6e753c392adb4a85d852825471"
+      "bytes": 6607,
+      "sha256": "3364f151c47cda86cdb22d36215b76446886af653d1b4be0f4ac726528021843"
     },
     {
       "path": "tests/motion-quality.test.mjs",
@@ -5960,6 +5990,11 @@
       "path": "tests/svg_wordmark_test.py",
       "bytes": 6794,
       "sha256": "11604f4dfe67c6b8b456cfeee85920f1d28263918078a327256a7e2b87672e60"
+    },
+    {
+      "path": "tests/technique_atlas_test.py",
+      "bytes": 2788,
+      "sha256": "b69abce4bb9bc7a3d1eb7496df55eea0dca7781780264df1dff582f936a886be"
     },
     {
       "path": "tests/vo_budget_test.py",

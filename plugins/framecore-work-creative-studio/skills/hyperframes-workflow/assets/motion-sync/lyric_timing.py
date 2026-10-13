@@ -24,6 +24,7 @@ import json
 import re
 import sys
 import unicodedata
+from fractions import Fraction
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -93,6 +94,10 @@ def place(lines, heard_words, threshold=0.6):
         after = min((x for x in known if x > k), default=None)
         a = flat[before]['end'] if before is not None else max(0.0, flat[after]['start'] - 0.4)
         b = flat[after]['start'] if after is not None else flat[before]['end'] + 0.4
+        if b < a:                                      # the heard neighbours overlap: no room, check by ear
+            b = a
+            for x in flat[(before if before is not None else -1) + 1:(after if after is not None else len(flat))]:
+                x['squeezed'] = True
         lo, hi = (before if before is not None else -1) + 1, (after if after is not None else len(flat))
         span = flat[lo:hi]
         total = sum(max(len(x['text']), 1) for x in span)
@@ -104,6 +109,7 @@ def place(lines, heard_words, threshold=0.6):
     for line in lines:
         line['start'], line['end'] = line['words'][0]['start'], line['words'][-1]['end']
         line['matched_share'] = round(sum(w['matched'] for w in line['words']) / len(line['words']), 2)
+        line['needs_check'] = line['matched_share'] < 0.5 or any(w.pop('squeezed', False) for w in line['words'])
     return sum(w['matched'] for w in flat) / len(flat)
 
 
@@ -120,9 +126,9 @@ def snap(lines, bpm, beat0, snap_ms=80, lead_frames=1, fps=30):
     """Board cut per line: the line start minus a small lead, moved to the nearest half-beat if close."""
     half = 30.0 / bpm
     for line in lines:
-        want = line['start'] - lead_frames / fps
+        want = max(0.0, line['start'] - lead_frames / fps)    # a line sung from 0 s cuts at 0, never before
         nearest = beat0 + round((want - beat0) / half) * half
-        snapped = abs(nearest - want) * 1000 <= snap_ms and nearest <= line['start']
+        snapped = abs(nearest - want) * 1000 <= snap_ms and 0.0 <= nearest <= line['start']
         line['cut'] = round(nearest if snapped else want, 3)
         line['cut_on_beat'] = snapped
         line['cut_frame'] = int(round(line['cut'] * fps))
@@ -183,7 +189,7 @@ def main(argv=None):
     p.add_argument('--model', default='large-v3', help='recogniser model name')
     p.add_argument('--bpm', type=float, help='known tempo instead of detecting it')
     p.add_argument('--offset', type=float, default=0.0, help='first beat in seconds, with --bpm')
-    p.add_argument('--fps', type=int, default=30)
+    p.add_argument('--fps', type=Fraction, default=Fraction(30), help='frame rate, e.g. 25, 30 or 30000/1001')
     p.add_argument('--snap-ms', type=float, default=80)
     p.add_argument('--threshold', type=float, default=0.6, help='word similarity needed to count as the same word')
     p.add_argument('--out'); p.add_argument('--lrc'); p.add_argument('--lrc-words'); p.add_argument('--srt')
@@ -196,9 +202,9 @@ def main(argv=None):
         heard, engine = recognise(a.audio, '\n'.join(l['text'] for l in lines), a.model)
     share = place(lines, heard, a.threshold)
     bpm, beat0 = (a.bpm, a.offset) if a.bpm else beat_grid(a.audio)
-    snap(lines, bpm, beat0, a.snap_ms, fps=a.fps)
-    weak = [i + 1 for i, l in enumerate(lines) if l['matched_share'] < 0.5]
-    report = {'audio': a.audio, 'engine': engine, 'fps': a.fps, 'bpm': round(bpm, 3), 'first_beat': round(beat0, 3),
+    snap(lines, bpm, beat0, a.snap_ms, fps=float(a.fps))
+    weak = [i + 1 for i, l in enumerate(lines) if l['needs_check']]
+    report = {'audio': a.audio, 'engine': engine, 'fps': str(a.fps), 'bpm': round(bpm, 3), 'first_beat': round(beat0, 3),
               'matched_words': round(share, 3), 'check_lines': weak, 'lines': lines}
     for path, body in ((a.out, json.dumps(report, ensure_ascii=False, indent=1) + '\n'), (a.lrc, to_lrc(lines) if a.lrc else None),
                        (a.lrc_words, to_lrc(lines, True) if a.lrc_words else None), (a.srt, to_srt(lines) if a.srt else None)):

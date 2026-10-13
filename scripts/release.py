@@ -31,12 +31,12 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = 'plugins/framecore-work-creative-studio'
 PLUGIN = ROOT / PACKAGE
 REPO = 'FrameCoreWorks/framecore-works-creative-studio'
-SESSION_BRANCHES = ['ccr-b6d36a1c-4hszow']
+SESSION_BRANCHES = ['ccr-06247e92-aihwc6']
 TRAILER_TAIL = ('Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n'
-                'Claude-Session: https://claude.ai/code/session_0187TnJYu2qDShCj23GszTm5')
+                'Claude-Session: https://claude.ai/code/session_01BJiprAkxWcoxgDpzdVuk2n')
 PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides',
                  'GEPA pilot', 'asset', 'caption', 'environment check', 'motion acceptance', 'motion fonts', 'motion kinds', 'motion variants', 'skill finder', 'Animate engine', 'Animate voice',
-                 'static render', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'host-eval harness']
+                 'static render', 'print PDF', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'motion activity', 'lyric timing', 'technique atlas', 'host-eval harness']
 
 
 class ReleaseError(Exception):

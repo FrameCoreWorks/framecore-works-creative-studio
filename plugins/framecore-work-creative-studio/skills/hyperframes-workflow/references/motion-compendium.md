@@ -15,6 +15,7 @@ The map of what Studio knows about motion graphics and where each part lives, pl
 | Sound design and mixing | [motion sound design](motion-sound-design.md) |
 | Product interface films | [product films](product-films.md) |
 | The idea before the look | [ideation method](../../pipeline-core/references/ideation-method.md) |
+| A technique by name (637 techniques: what it does, when, pairings, registry candidates) | [technique atlas](../assets/technique-atlas/README.md), `atlas.py "<name>"` |
 | HyperFrames craft: 47 motion rules, 22 scene blueprints, 13 transition families, text effects, runtime adapters | HyperFrames skill `hyperframes-animation` (installed with HyperFrames) |
 | Remotion craft (when the user chose React) | Remotion's own agent skills, `npx skills add remotion-dev/skills` (`remotion-best-practices`, `remotion-markup`, `remotion-captions`, `remotion-render` and others) |
 
@@ -41,6 +42,7 @@ The map of what Studio knows about motion graphics and where each part lives, pl
 | Lottie | Vector animation exported from After Effects (Bodymovin), small files, plays in apps and HTML | Open format; player licences vary by library |
 | Rive | Interactive, state-machine animation for apps and the web | Editor is a paid product with a free tier; runtimes are open source |
 | Manim | Mathematical and diagram animation in Python | MIT (community edition) |
+| awesome-ai-motion | A named vocabulary of 637 motion techniques with cards and 128 rendered clips (HTML with GSAP); Studio projects its English card text into the technique atlas, pinned at `1e3c249` | MIT for the author's cards; bundled GSAP and fonts keep their own licences; cards cite third-party concept sources; two commits when pinned, so check activity before moving the pin |
 | Theatre.js | A keyframe editor and sequencer for web animation | Open source; check the package licence per module |
 
 Choose by the deliverable and the host, not by habit: a client reel in Claude Code goes to HyperFrames; a React codebase or batch personalisation goes to Remotion; a host without a shell gets the contract and the motion player.
@@ -48,7 +50,7 @@ Choose by the deliverable and the host, not by habit: a client reel in Claude Co
 ## 4. Lyric timing that holds
 
 - **Rights first.** The user supplies the track and the lyrics and confirms they may use them.
-- **Forced alignment beats free transcription.** When the words are known, align them instead of recognising them: WhisperX aligns words with a phoneme model; `syncalong` maps Whisper word times onto the supplied lyrics and writes LRC; `lyric-align` anchors lyric lines onto recognised words and writes LRC, SRT, ASS or JSON, with an option to separate the vocals first. Music blurs word boundaries, so isolate the vocals when the mix is dense and correct by ear; check the separation model's licence first (Demucs pretrained weights are for research use only, and allin1's default pipeline runs Demucs).
+- **Align known words rather than transcribe them.** When the words are known, align them instead of recognising them (a recogniser can change or drop words; the supplied text stays the spelling): WhisperX aligns words with a phoneme model; `syncalong` maps Whisper word times onto the supplied lyrics and writes LRC; `lyric-align` anchors lyric lines onto recognised words and writes LRC, SRT, ASS or JSON, with an option to separate the vocals first. Music blurs word boundaries, so on a dense mix compare the full master and a vocal stem on a short excerpt (a stem can also smear consonants), keep the better one and correct by ear; check the separation model's licence first (Demucs pretrained weights are for research use only, and allin1's default pipeline runs Demucs).
 - **Line, then word.** Board changes follow line starts; word emphasis follows the word times; accents land on the beat grid. Studio's [lyric timing](../assets/motion-sync/README.md#lyric-timing) does the alignment, the beat grid and half-beat snapping in one run. In a reference lyric reel the cuts followed the sung words (56 % within two frames of a half-beat, 22 % of a beat), not the bar.
 - **Choruses.** A repeated chorus repeats its visual motif and escalates it (scale, colour, a new layer), so the viewer recognises it and still sees something new.
 - **Reading time wins** over sync: a line that cannot be read before the next one arrives is split or held.
@@ -70,6 +72,7 @@ HyperFrames names its craft, which lets a board plan say exactly what to build.
 - **Motion rules** in `hyperframes-animation` include kinetic beat slams, spring pop entrances, scale swaps, counting with dynamic scale, gradient text sweeps, chromatic glitches, motion-blur streaks, depth-of-field blur, SVG path draws, particle bursts, multi-phase camera moves, cursor choreography and 3D text depth. Pick two to four per film and compose them; a film that uses every effect has no signature.
 - **Scene blueprints** cover recurring structures: kinetic type on beats, title card reveal, typewriter reveal, logo assemble and lockup, comparison split, data count-up, device showcase, cursor UI demo, CTA morph and press, ticker takeover, camera journey and others.
 - **Transition families**: push, cover, grid, light, radial, scale, blur, dissolve, distortion, destruction, mechanical, 3D and others, each with variants in the registry. Use the [transition grammar](motion-craft.md#transition-grammar) to choose: a transition must say something (continuity, energy, reveal, depth) or be a plain cut on the beat.
+- **Names outside HyperFrames.** For a technique a client names that the registry does not have, `python3 assets/technique-atlas/atlas.py "<name>"` gives what it does, when it fits, its pairings and a card with a preview clip; order: registry block, then the atlas as vocabulary and preview, then your own implementation.
 - **Text effects** (`animate-text` adapter): per-word and per-character entrances, decoding, typing, weight and variable-axis shifts, highlights and strike-throughs.
 
 ## 7. The working sequence
@@ -89,7 +92,7 @@ HyperFrames names its craft, which lets a board plan say exactly what to build.
 | --- | --- |
 | Nothing moves for seconds (motion activity REVISE) | Add a change that belongs to the idea: the next board, a camera move, a reveal; or declare the hold if the idea needs it |
 | Everything moves at once | One hero move per board; stagger the rest by 2 to 4 frames; let the eye land |
-| Motion feels floaty or cheap | Ease out on entrances, ease in on exits, no linear moves except constant drifts; add overshoot only to small elements |
+| Motion feels floaty or cheap | Ease out on entrances, ease in on exits; keep linear moves for motion that is mechanical or constant by design (drifts, conveyors, clocks); add overshoot only to small elements |
 | Text unreadable on a phone | Fewer words per board, bigger type, more contrast, longer hold; check the snapshot at thumbnail size |
 | It looks like a template | Go back to the idea; change the structure, not the colours |
 | Generated media looks mismatched | Grade-match, unify grain, give every plate the same camera language |
