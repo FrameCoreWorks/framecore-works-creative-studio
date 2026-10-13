@@ -67,11 +67,11 @@ test('both intent labels and immediate production entry remain discoverable', ()
   });
 });
 
-test('startup cannot lose its welcome, creative pace step or displayed-menu number binding', () => {
+test('startup cannot lose its welcome, combined area and pace menu or displayed-menu number binding', () => {
   const startup = 'skills/workflow-orchestrator/references/startup-and-creative-menus.md';
   const welcome = 'skills/workflow-orchestrator/assets/startup-welcome.pl.md';
   for (const [file, phrase] of [
-    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Creative pace choice', '## Established work-area menu', '## Motion graphics in creative work', 'choose Creative Mode, Expanded Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the startup menu selects skill search, never storyboards or motion', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
+    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Work-area and pace menu', 'A. **Tryb szybki**', 'B. **Tryb rozbudowany**', '## Motion graphics in creative work', 'choose Creative Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the startup menu selects skill search, never storyboards or motion', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
     ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **Tryb nauki**'].map(phrase => [welcome, phrase]),
     ['skills/workflow-orchestrator/SKILL.md', 'copy verbatim the entire file']
   ]) fixture(root => {
@@ -83,7 +83,7 @@ test('startup cannot lose its welcome, creative pace step or displayed-menu numb
 test('orchestrator and shared intake cannot bypass the creative pace transition', () => {
   for (const [path, phrase] of [
     ['skills/workflow-orchestrator/SKILL.md', 'After a mode-only creative choice'],
-    ['skills/workflow-orchestrator/references/intake-and-reference-authority.md', 'mode-only creative choice gets Quick/Deep pace selection'],
+    ['skills/workflow-orchestrator/references/intake-and-reference-authority.md', 'mode-only creative choice gets the work areas and the Quick/Expanded pace in one message'],
     ['skills/pipeline-core/templates/project-state.md', 'last menu actually shown']
   ]) fixture(root => {
     edit(root, path, text => text.replaceAll(phrase, 'removed'));

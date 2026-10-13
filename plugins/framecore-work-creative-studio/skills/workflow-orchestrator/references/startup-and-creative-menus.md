@@ -36,29 +36,17 @@ Option `3` of the welcome is skill search. Close the startup choice and follow t
 
 ## Motion graphics in creative work
 
-The complete welcome offers Creative Mode, Learning Mode and skill search. Code-based motion graphics remains available in the established work-area menu: choose Creative Mode, Expanded Mode, then area `8`. Retain the selected pace and motion work area in the existing `entry_context`; add no new state field. Preserve a runtime explicitly supplied with the answer, such as "8, Remotion".
+The complete welcome offers Creative Mode, Learning Mode and skill search. Code-based motion graphics remains available in the work-area menu: choose Creative Mode, then area `8` (with `B` for Expanded Mode). Retain the selected pace and motion work area in the existing `entry_context`; add no new state field. Preserve a runtime explicitly supplied with the answer, such as "8, Remotion".
 
 After area `8`, ask only the missing motion brief. A concrete task uses the existing direct-task rule without making menu completion a prerequisite. Supplied areas, runtimes and pace choices retain the existing skip rules, including Quick Mode. An explicit request to learn motion graphics follows Learning Mode instead of creation.
 
 Use the existing [runtime selection policy](../../hyperframes-workflow/references/code-based-motion-graphics.md#runtime-selection). Area `8` selects motion graphics from code, not an engine. Introduce the area neutrally; do not announce HyperFrames as selected from the menu choice or technical skill ID. Motion Graphics Workflow owns general motion planning and HTML/SVG/Canvas/GSAP or HyperFrames implementation. Remotion Video Production owns React/TypeScript composition, whether explicitly requested or recommended from the brief and verified capabilities. Name technologies as supported routes until a specific stack is justified, not as installed tools. Preview, inspection and encoded export depend on actual host capabilities. Selecting the area authorizes no installation, rendering, paid provider, upload or publication. Storyboard approval and existing execution boundaries still apply.
 
-## Creative pace choice
+## Work-area and pace menu
 
-A mode-only choice of `1` from the intent menu, “Tryb kreatywny”, “Tryb tworzenia”, “tryb produkcyjny” or an equivalent creation request sets `interaction_mode: creation`. If neither a concrete task nor a pace is supplied, the next response must show the pace menu in the selected user language and wait. The Polish text below is its approved localized example; translate every label and description for other languages:
+A mode-only choice of `1` from the intent menu, “Tryb kreatywny”, “Tryb tworzenia”, “tryb produkcyjny” or an equivalent creation request sets `interaction_mode: creation`. If neither a concrete task nor an area is supplied, the next response shows the work areas and the pace together in one message, in the selected user language, and waits. Areas use `1–8`, pace uses `A–B`. This Polish example fixes option meanings and order, not the response language; translate every label and description for other languages:
 
-> **Tryb kreatywny. Wybierz tempo pracy:**
-> 1. **Tryb szybki**: kilka potrzebnych ustaleń i zwięzły, konkretny wynik.
-> 2. **Tryb rozbudowany**: pogłębiony brainstorming, sprawdzenie kontekstu i rozwinięcie wybranego kierunku krok po kroku.
->
-> Który tryb wybierasz?
-
-Do not substitute “Co chcesz stworzyć?” for this requested menu. Do not show a learning questionnaire, begin a lesson, research a default topic or generate an asset after a mode-only choice. Quick and Deep describe pace, never a second learning/creation classification.
-
-## Established work-area menu
-
-After a pace-only choice, preserve `pace: quick` for `1` or `pace: deep` for `2` from the pace menu. If the user has not already supplied a project or work area, show the following menu in the selected user language and wait. This Polish example fixes option meanings and order, not the response language:
-
-> **Wybierz obszar pracy lub opisz własne zadanie:**
+> **Tryb kreatywny. Wybierz obszar pracy i tempo albo opisz własne zadanie:**
 > 1. Grafika statyczna i prompty do obrazów: plakaty, ulotki, banery, reklamy social, POS i key visuale.
 > 2. Wideo i prompty: kierunek, ujęcia oraz prompt pod wybrany generator.
 > 3. Storyboardy, plansze referencyjne i plany ujęć.
@@ -68,15 +56,23 @@ After a pace-only choice, preserve `pace: quick` for `1` or `pace: deep` for `2`
 > 7. Analiza dostarczonej grafiki, wideo lub audio i wskazanie konkretnej poprawki, w zakresie dostępnych narzędzi.
 > 8. Motion graphics z kodu: animowane napisy, logotypy, diagramy i sekwencje graficzne; storyboard, kod i kontrola animacji w HTML/SVG, GSAP, HyperFrames lub Remotion (React/TypeScript). Podgląd i eksport zależą od dostępnych narzędzi.
 >
-> Możesz dodać materiały wejściowe teraz albo później. Podaj numer lub opisz, czego potrzebujesz.
+> **Tempo:**
+> A. **Tryb szybki**: kilka potrzebnych ustaleń i zwięzły, konkretny wynik.
+> B. **Tryb rozbudowany**: pogłębiony brainstorming, sprawdzenie kontekstu i rozwinięcie wybranego kierunku krok po kroku.
+>
+> Odpowiedz np. „8, B”. Sam numer obszaru oznacza tryb szybki. Możesz dodać materiały wejściowe teraz albo później.
+
+Do not substitute “Co chcesz stworzyć?” for this menu. Do not show a learning questionnaire, begin a lesson, research a default topic or generate an asset after a mode-only choice. Quick and Expanded describe pace, never a second learning/creation classification.
+
+A reply with an area and a pace (“8, B”, “B 8”) retains both. A bare area number retains `pace: quick` and the next reply says in one line that Quick mode is on and Expanded mode is available on request. A bare `A` or `B` retains the pace and asks only for the area. A pace supplied before the menu (“Tryb kreatywny, rozbudowany”) skips the pace group: show the eight areas only, with the same wording and order.
 
 These eight entries expose the existing creative paths; they are not new owners. Area `8` selects the existing code-motion workflow, preserving the already chosen pace. Area `3` still selects storyboards. Resolve combined entries only when the actual task needs it. For example, after area `3`, ask whether the needed output is a timed sequence or a static board if it is still unclear; do not assume both. After area `1`, ask what graphic/result is needed and reuse supplied copy and references. Choosing an area alone is not a complete brief or generation consent.
 
 ## State and numbers
 
-Retain only applicable entry fields in the existing Project State: `interaction_mode`, `pace`, and optional `entry_context` with `stage`, `last_menu`, selected work area, next unresolved choice and `pending_choice_groups`. The stage is `intent_choice`, `pace_choice`, `area_choice`, `brief` or `working`. Each pending group retains its purpose and the token-to-option mapping actually displayed. Advance only after the relevant answer or a clear supplied task. Keep this backstage, never require a state form from the user.
+Retain only applicable entry fields in the existing Project State: `interaction_mode`, `pace`, and optional `entry_context` with `stage`, `last_menu`, selected work area, next unresolved choice and `pending_choice_groups`. The stage is `intent_choice`, `area_choice` (areas with pace), `pace_choice` (only a pending pre-1.74.0 pace menu), `brief` or `working`. Each pending group retains its purpose and the token-to-option mapping actually displayed. Advance only after the relevant answer or a clear supplied task. Keep this backstage, never require a state form from the user.
 
-Interpret a bare number only against a currently pending displayed choice group. In a pending new startup menu, `1` means creative, `2` means learning and `3` means skill search ([skill finder](skill-finder.md)); in its pending pace menu, `1` means quick and `2` means expanded; in its pending area menu, `1` means graphics, `2` means video, `3` means storyboards and `8` means motion graphics. A `3` from the startup menu selects skill search, never storyboards or motion; a `3` from a startup menu displayed before 1.53.0, which had two options, asks for clarification without selecting motion or changing its mapping. Remove a group as soon as it is answered, skipped by a concrete request or replaced by another menu. Keep `last_menu` only as history, never as an active mapping after resolution. In `brief` or `working`, no entry group remains unless a new choice was explicitly offered. A follow-up bare `2` after area `4` and an open brief question asks one clarification and preserves campaign/pace; it does not select video. Never reinterpret a lesson answer as a creative-menu selection. On actual resume, honor a genuinely still-pending older displayed menu, including the older 1.2.0 order or three-option startup, rather than retroactively applying the new numbering. If the active mapping cannot be recovered, ask one focused clarification rather than inventing its meaning.
+Interpret a bare number only against a currently pending displayed choice group. In a pending new startup menu, `1` means creative, `2` means learning and `3` means skill search ([skill finder](skill-finder.md)); in its pending work-area and pace menu, `1` means graphics, `2` means video, `3` means storyboards, `8` means motion graphics, `A` means quick and `B` means expanded. A separate pace menu displayed before 1.74.0 (`1` quick, `2` expanded) keeps that mapping while it is still pending on resume. A `3` from the startup menu selects skill search, never storyboards or motion; a `3` from a startup menu displayed before 1.53.0, which had two options, asks for clarification without selecting motion or changing its mapping. Remove a group as soon as it is answered, skipped by a concrete request or replaced by another menu. Keep `last_menu` only as history, never as an active mapping after resolution. In `brief` or `working`, no entry group remains unless a new choice was explicitly offered. A follow-up bare `2` after area `4` and an open brief question asks one clarification and preserves campaign/pace; it does not select video. Never reinterpret a lesson answer as a creative-menu selection. On actual resume, honor a genuinely still-pending older displayed menu, including the older 1.2.0 order or three-option startup, rather than retroactively applying the new numbering. If the active mapping cannot be recovered, ask one focused clarification rather than inventing its meaning.
 
 Every offered set of alternatives, including learning formats and subroutes, gets explicit reply tokens. Separate groups in one response use distinct namespaces: the first `1, 2, …`, the second `A, B, …`; an additional group can use `X1, X2, …`. State what each group selects and give one combined reply example. For example, when a production task calls for grouped choices, concept variants `1–3` and output formats `A. kwadrat / B. pion` allow `2, A`. Learning onboarding still asks exactly one question at a time. Resolve only matching pending groups, retain any unambiguous supplied decisions and ask only for the remaining choice. Never reuse `1/2` for two independent groups in one message. An open free-text brief is not a numbered choice menu. Quiz tokens stay with their pending quiz and expire when its answer is processed. Clear text such as “zmień obszar na wideo” can switch an already resolved choice explicitly.
 

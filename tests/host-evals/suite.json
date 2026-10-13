@@ -78,7 +78,7 @@
     },
     {
       "id": "W05",
-      "title": "Option 1 after the welcome offers the quick and expanded pace",
+      "title": "Option 1 after the welcome offers the work areas and the pace in one message",
       "turns": [
         {
           "prompt": "Cześć @FrameCore Works Creative Studio",
@@ -98,19 +98,41 @@
               "language": "pl"
             },
             {
-              "min_numbered": 2
+              "min_numbered": 8
             },
             {
               "contains": [
                 "szybki",
                 "rozbudowany"
               ]
+            },
+            {
+              "regex": "(?m)^\\s*([-*]\\s*)?(\\*\\*)?A[.)]"
+            },
+            {
+              "regex": "(?m)^\\s*([-*]\\s*)?(\\*\\*)?B[.)]"
+            },
+            {
+              "max_user_questions": 1
+            },
+            {
+              "regex": "(?m)^\\s*2\\.[^\\n]*[Ww]ideo"
+            },
+            {
+              "regex": "(?m)^\\s*3\\.[^\\n]*[Ss]toryboard"
+            },
+            {
+              "regex": "(?m)^\\s*7\\.[^\\n]*[Aa]naliz"
+            },
+            {
+              "regex": "(?m)^\\s*8\\.[^\\n]*[Mm]otion"
             }
           ]
         }
       ],
       "rubric": [
-        "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany and waits"
+        "A mode-only creative choice shows the eight work areas 1-8 and the pace A. Tryb szybki / B. Tryb rozbudowany in one message with a reply example, and waits (CR-20261013-01)",
+        "Option meanings and the order of the eight areas are unchanged"
       ]
     },
     {

@@ -46,13 +46,11 @@
           "execution_status": "not_run",
           "user_messages": [
             "1",
-            "1",
             "1"
           ],
           "expected_steps": [
-            "creative_pace_menu",
-            "creative_work_area_menu_quick",
-            "missing_graphic_brief_quick"
+            "creative_area_and_pace_menu",
+            "missing_graphic_brief_quick_by_default"
           ]
         },
         {
@@ -60,12 +58,10 @@
           "execution_status": "not_run",
           "user_messages": [
             "1",
-            "2",
-            "2"
+            "2, B"
           ],
           "expected_steps": [
-            "creative_pace_menu",
-            "creative_work_area_menu_deep",
+            "creative_area_and_pace_menu",
             "missing_video_brief_deep"
           ]
         },
@@ -104,12 +100,10 @@
           "execution_status": "not_run",
           "user_messages": [
             "1",
-            "2",
-            "8"
+            "8, B"
           ],
           "expected_steps": [
-            "creative_pace_menu",
-            "creative_work_area_menu_deep",
+            "creative_area_and_pace_menu",
             "missing_motion_brief_deep"
           ]
         },

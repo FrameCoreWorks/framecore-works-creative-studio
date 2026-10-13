@@ -1,0 +1,445 @@
+{
+  "date": "2026-10-13",
+  "package_version": "1.73.0",
+  "source": {
+    "commit": "b21ddb04d6941b7c03fa5f6ceb68f678f884b6e0",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8375,
+      "output": 6738,
+      "cache_read": 209603,
+      "cache_write": 154116
+    },
+    "seconds": 53.3
+  },
+  "cases": [
+    {
+      "id": "W01",
+      "title": "Polish greeting with the Studio name gives the complete Polish welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1186,
+        "output": 978,
+        "cache_read": 20014,
+        "cache_write": 20125
+      },
+      "seconds": 10.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 978,
+            "cache_read": 20014,
+            "cache_write": 20125
+          },
+          "seconds": 10.0,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            },
+            {
+              "check": {
+                "skills": [
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W02",
+      "title": "Bare Studio name gives the complete English welcome (provisional fallback)",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1182,
+        "output": 660,
+        "cache_read": 19457,
+        "cache_write": 20694
+      },
+      "seconds": 7.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "I am FrameCore Works Creative Studio. I help develop ideas, create creative materials and improve projects — from the first concept through production planning and further revisions.\n\nI can help you with:\n\n- **Graphics and advertising materials** — posters, flyers, banners, social media posts and ideas for the look of a campaign.\n- **Video, motion design and storytelling** — reels, ads, animated graphics and typography, scripts, music videos, storyboards, shot plans and character direction.\n- **Writing** — headlines, descriptions, slogans, dialogue and adapting language to your audience.\n- **Prompts and references** — instructions for creating images and video, and organizing examples that guide the project.\n- **Music, voice and sound** — musical concepts, lyrics and instructions for audio tools, and planning sound design.\n- **Editing and refining materials** — scene order, subtitles, rhythm, animation plans and specific improvements to supplied work.\n\nI help with both individual materials and larger campaigns. We can also learn these skills step by step. File preparation and analysis use the tools available in the current conversation.\n\nIf you have a logo, photos, graphics, a video, text, examples or documents, you can add them now or later.\n\n**Choose where to start:**\n\n1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.\n2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.\n3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.\n\nEnter **1**, **2** or **3**.",
+          "reply_chars": 1732,
+          "reply_sha256": "a7cc05dc6250d1cc7e3ae779a0acf196febe1d3992fe00de6b8dd511b6893d08",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1182,
+            "output": 660,
+            "cache_read": 19457,
+            "cache_write": 20694
+          },
+          "seconds": 7.9,
+          "checks": [
+            {
+              "check": {
+                "welcome": "en"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.en.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W04",
+      "title": "Option 3 after the welcome asks what the skill should do; no search yet",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2376,
+        "output": 2423,
+        "cache_read": 100491,
+        "cache_write": 52458
+      },
+      "seconds": 16.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 1033,
+            "cache_read": 20006,
+            "cache_write": 20142
+          },
+          "seconds": 9.9,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "3",
+          "reply": "Szukasz konkretnego skilla, więc zacznijmy od jednego pytania.\n\n**Opisz, co ten skill ma robić:** jakie zadanie, na jakim materiale i jaki ma być wynik.\n\nNajpierw sprawdzę wśród skilli Studia. Jeśli żaden nie pokryje potrzeby, albo poprosisz o alternatywy, przeszukam otwarty katalog skills.sh. Niczego nie zainstaluję bez Twojej wyraźnej prośby.",
+          "reply_chars": 346,
+          "reply_sha256": "55dbfc3a006cdeedc5b99654a6bce363cea5f01cb175f1b512f264c9957dcd7e",
+          "skills": [],
+          "tools": [
+            "Read"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1190,
+            "output": 1390,
+            "cache_read": 80485,
+            "cache_write": 32316
+          },
+          "seconds": 6.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "0 question marks (max 2)"
+            },
+            {
+              "check": {
+                "max_chars": 1500
+              },
+              "passed": true,
+              "detail": "346 chars (max 1500)"
+            },
+            {
+              "check": {
+                "no_command": "find_skills"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W05",
+      "title": "Option 1 after the welcome offers the work areas and the pace in one message",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2374,
+        "output": 2324,
+        "cache_read": 65121,
+        "cache_write": 50343
+      },
+      "seconds": 13.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1812,
+          "reply_sha256": "5a81f75094fc4d01850186b0d99f1c06d4472aff8a8970ed102430ebcf649c95",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 978,
+            "cache_read": 20008,
+            "cache_write": 20119
+          },
+          "seconds": 9.0,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "1",
+          "reply": "Wybrano **Tryb kreatywny**. Teraz wybierz obszar pracy i tempo.\n\n**Obszar pracy:**\n\n1. Grafika i materiały reklamowe (plakaty, ulotki, banery, posty)\n2. Teksty (nagłówki, hasła, opisy, dialogi)\n3. Prompty do obrazów i referencje\n4. Wideo generowane (prompty do generatorów, plan ujęć)\n5. Scenariusz, historia, teledysk, postać\n6. Muzyka, głos i dźwięk\n7. Montaż i napisy\n8. Motion design z kodu (animowane logo, typografia, tytuły, wideo z ekranów i zdjęć, render do MP4)\n\n**Tempo:**\n\n**A. Tryb szybki** — mniej decyzji po drodze, kilka konkretnych kierunków do wyboru.\n**B. Tryb rozbudowany** — rozwijamy pomysł krok po kroku.\n\nOdpowiedz np. `8, B`. Sam numer obszaru oznacza tryb szybki.",
+          "reply_chars": 689,
+          "reply_sha256": "8eaa6bd8f6fc689c21373f8f02f504c845a19918f8dae092d0836050841a4295",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1188,
+            "output": 1346,
+            "cache_read": 45113,
+            "cache_write": 30224
+          },
+          "seconds": 4.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "min_numbered": 8
+              },
+              "passed": true,
+              "detail": "8 numbered lines (min 8)"
+            },
+            {
+              "check": {
+                "contains": [
+                  "szybki",
+                  "rozbudowany"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "regex": "(?m)^\\s*(\\*\\*)?A[.)]"
+              },
+              "passed": true,
+              "detail": "/(?m)^\\s*(\\*\\*)?A[.)]/"
+            },
+            {
+              "check": {
+                "regex": "(?m)^\\s*(\\*\\*)?B[.)]"
+              },
+              "passed": true,
+              "detail": "/(?m)^\\s*(\\*\\*)?B[.)]/"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 1)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "D01",
+      "title": "Direct Polish copy task: exactly three slogans, no welcome, no questions",
+      "source": "evals/studio-behavior-cases.json#H01",
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1257,
+        "output": 353,
+        "cache_read": 4520,
+        "cache_write": 10496
+      },
+      "seconds": 4.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Podaj dokładnie trzy krótkie hasła dla sobotniego warsztatu ceramiki dla początkujących. Glina, szkliwienie i wypał są w cenie. Nie dodawaj innych faktów.",
+          "reply": "1. Sobota z gliną. Zacznij od zera.\n2. Glina, szkliwo i wypał w cenie.\n3. Ceramika dla początkujących. Ulep, wyszkliw, wypal.",
+          "reply_chars": 125,
+          "reply_sha256": "b074ed0dec96ef476daed83d9ae179dc9bc0ede50f9486e7088935126318b28a",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1257,
+            "output": 353,
+            "cache_read": 4520,
+            "cache_write": 10496
+          },
+          "seconds": 4.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "max_user_questions": 0
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 0)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
