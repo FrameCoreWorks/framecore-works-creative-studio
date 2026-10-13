@@ -1,9 +1,7 @@
-# Creative Studio 1.73.0
+# Creative Studio 1.74.0
 
-Motion graphics that render even where npm is blocked, and cleaner end cards.
+A shorter start.
 
-- **Render without npm.** When Claude Code cannot download HyperFrames, Studio still renders your animation to MP4 with the browser and FFmpeg already on the machine, in every format you need, with sound when you have it.
-- **The route is named before the build.** Studio checks what the machine can run before it promises a renderer, and tells you which one it chose.
-- **Cleaner end cards.** Once the logo is revealed, the card stays clean; extras Studio suggests, such as a tagline, are added only when you say yes.
+- **One menu instead of two.** After you choose Creative mode, Studio shows the eight work areas and the pace together. Reply with an area and a pace, for example `8, B`, or just an area number for Quick mode.
 
-The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
+The welcome text and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

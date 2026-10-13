@@ -1882,3 +1882,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `b21ddb0`; workflows Check Studio sources 38370062798, Refresh current release notes 38370060248, Check Studio sources 38370060284, Publish verified Studio release 38370060322: success; [v1.73.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.73.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1190 of 1190) ([record](../verification/github-publication-1.73.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261013-03
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `8a61b15` (main, package 1.73.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.74.0)
+- Package version: 1.73.0 -> 1.74.0
+- Scope: Release 1.74.0 carries CC-20261013-03, the owner-adopted change request CR-20261013-01: after a mode-only creative choice the eight work areas and the A/B pace appear in one message; the orchestrator names the areas in order. Host eval W05 in Claude Code failed on 1.73.0 and passes now; W01, W02, W04 and D01 pass; the owner's ChatGPT startup check is pending.
+- Shared package changed: yes; 14 changed, 0 added, 0 removed ([scope](../verification/scope-1.74.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 218 Node tests (210 passing, 8 opt-in browser tests skipped there), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 8 Claude plugin and guides, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 16 caption, 18 environment check, 17 motion acceptance, 6 motion fonts, 8 motion kinds, 9 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 14 static render, 7 print PDF (7 skipped without optional dependencies), 6 Polish copy check, 5 image probe, 8 quote calculator, 5 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 2 clip review, 5 SVG wordmark (5 skipped without optional dependencies), 5 brand guide, 4 motion activity, 8 lyric timing, 4 technique atlas, 14 host-eval harness: PASS ([record](../verification/release-1.74.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

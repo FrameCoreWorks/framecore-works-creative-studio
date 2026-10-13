@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.74.0, 2026-10-13
+
+One creative menu (owner decision, CR-20261013-01):
+
+- **Work areas and pace in one message.** After choosing Creative mode, Studio shows the eight work areas `1–8` and the pace `A. Quick / B. Expanded` together, with a reply such as `8, B`; a bare area number takes Quick mode. Before, three menus came before the first question about the project. A pace given up front shows the areas only; a pace menu still pending from an earlier version keeps its numbers on resume
+- **The areas keep their names and order.** The orchestrator now names the eight areas itself; in the first test of the combined menu the model renamed and reordered them because the list lived only in a reference
+- Host evaluation in Claude Code: W05 failed on 1.73.0 and passes now; the welcome, skill search and direct-task cases still pass (records in `verification/host-evals/`). The owner's ChatGPT startup check is pending
+
 ## 1.73.0, 2026-10-13
 
 Fixes from a client end-card session (owner's retrospective, 2026-10-13):

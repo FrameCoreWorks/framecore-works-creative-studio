@@ -1,0 +1,32 @@
+{
+  "version": "1.74.0",
+  "baseline_tag": "v1.73.0",
+  "baseline": "b21ddb04d6941b7c03fa5f6ceb68f678f884b6e0",
+  "change_id": "CC-20261013-03",
+  "origin": "cloud-code",
+  "files": 1190,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "evals/effective-overrides.json",
+    "evals/learning-mode-cases.json",
+    "plugin.json",
+    "scripts/validate-learning-mode.mjs",
+    "skills/studio-workstyle-profile/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
+    "tests/learning-mode.test.mjs"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1176,
+  "welcome": "byte_identical",
+  "menus": "changed",
+  "vendored_snapshots": "byte_identical",
+  "note": "Release 1.74.0 carries CC-20261013-03, the owner-adopted change request CR-20261013-01: after a mode-only creative choice the eight work areas and the A/B pace appear in one message; the orchestrator names the areas in order. Host eval W05 in Claude Code failed on 1.73.0 and passes now; W01, W02, W04 and D01 pass; the owner's ChatGPT startup check is pending."
+}
