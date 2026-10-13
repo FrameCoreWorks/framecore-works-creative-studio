@@ -7,6 +7,8 @@ description: "Captions and subtitles for Reels, TikTok, Shorts, ads and explaine
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
+**Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. When the user has no wording yet, the words come from [Copy Voice](../copy-voice/SKILL.md); this skill times, styles and checks captions.
+
 Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
@@ -61,7 +63,7 @@ Use [templates/caption-task-pack.md](templates/caption-task-pack.md) for nontriv
 3. Normalize timing into monotonic segments; keep word timing within segment bounds when available.
 4. If no style was selected, show a compact set of suitable options. Choose automatically only when the user explicitly allows it.
 5. Set line count, words per beat, reading speed, emphasis behavior, position, safe zones, and collision priorities. Start from the dated [readability defaults](references/readability-defaults.md) unless a distributor, client or platform specification applies, and record which one the plan uses.
-6. Define an available local route such as an editor timeline, coded-video captions, ASS/subtitle burn-in, or sidecar subtitle delivery. Where code runs, the [captions tool](assets/captions/README.md) checks a file against the chosen profile, converts SRT and WebVTT, builds cues from timed words or segments, imports them into a motion contract and burns them into a supplied video; report its check, not an impression.
+6. Define an available local route such as an editor timeline, coded-video captions, ASS/subtitle burn-in, or sidecar subtitle delivery. Where code runs, the [captions tool](assets/captions/README.md) checks a file against the chosen profile, converts SRT and WebVTT, builds cues from timed words or segments, imports them into a motion contract and burns them into a supplied video; report its check, not an impression. Burn-in sits 14 % above the bottom by default, which suits organic 9:16 posts; for a paid Reels or Stories placement pass `--bottom 0.35`, the conservative ad margin in the [motion compendium](../hyperframes-workflow/references/motion-compendium.md).
 7. Review dense frames, timing boundaries, spelling, speaker changes, occlusion, contrast, CTA conflicts, and final duration.
 8. Treat any wording change as a copy decision: preserve author context, facts,
    names, exact copy locks, and controlled-imperfection status rather than

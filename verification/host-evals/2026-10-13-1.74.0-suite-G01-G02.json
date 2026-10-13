@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-13",
+  "package_version": "1.74.0",
+  "source": {
+    "commit": "99eefe9546255c824a9f610cbae5092715af0a06",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8,
+      "output": 2621,
+      "cache_read": 48702,
+      "cache_write": 27177
+    },
+    "seconds": 42.7
+  },
+  "cases": [
+    {
+      "id": "G01",
+      "title": "Caption Studio sends missing wording to Copy Voice (gap audit GAP-04)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 1431,
+        "cache_read": 25661,
+        "cache_write": 13673
+      },
+      "seconds": 23.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:caption-studio Wymyśl treść napisów reklamowych do rolki lampki biurkowej, bo nie mam tekstu.",
+          "reply": "Nie znam produktu, więc to szkic (`draft`), a nie tekst gotowy do użycia. Piszę tylko o tym, co widać w kadrze: światło, biurko, wieczór. Nie dodaję obietnic ani cech, których nie podałeś(-aś).\n\n## Wariant A: nastrój (5 napisów, ok. 12–15 s)\n\n1. Biurko po zmroku.\n2. Jedno światło. Reszta może poczekać.\n3. Włączasz i od razu robi się spokojniej.\n4. Praca, nauka, ostatnie pięć minut przed snem.\n5. [Nazwa lampki]\n\n## Wariant B: praktyczny (5 napisów)\n\n1. Za dużo światła? Za mało?\n2. [Funkcja 1, np. regulacja jasności]\n3. [Funkcja 2, np. ruchome ramię]\n4. Mała lampka na duże biurko. *(tylko jeśli to prawda dla Twojego modelu)*\n5. [Nazwa lampki]\n\n## Do uzupełnienia\n\n- **Fakty.** Wariant B potrzebuje prawdziwych cech: jasność, barwa światła, regulacja, zasilanie, cena. Bez nich go nie dopiszę. Nie podam też obietnic typu „nie męczy oczu”, dopóki nie masz na nie dowodu.\n- **CTA.** Nie dodałem wezwania do działania. Jeśli chcesz, podaj, dokąd kierować, np. „Link w profilu”, i dopiszę je jako ostatni napis.\n- **Typografia.** Przy publikacji w napisach dodaj twardą spację po jednoliterowych spójnikach i przyimkach, np. między „i” a następnym słowem. Ten szkic nie przeszedł jeszcze sprawdzenia skryptem.\n\n## Następny krok\n\nWybierz wariant (lub połącz A i B) i podaj brakujące fakty. Potem oznaczę tekst jako zatwierdzony i przekażę do Caption Studio. Tam dobiorę czas, styl, bezpieczne pola i kontrolę napisów. Do tego potrzebuję jeszcze długości rolki i platformy (np. Reels, TikTok, reklama płatna).",
+          "reply_chars": 1509,
+          "reply_sha256": "9ea921ee5495df76634efa6fe34a61e4489ead078b9be6e3cb0b49b6a460d141",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1431,
+            "cache_read": 25661,
+            "cache_write": 13673
+          },
+          "seconds": 23.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['copy-voice']; expected one of ['copy-voice']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G02",
+      "title": "Humanizer hands new copy to Copy Voice and adds no comfort claim (GAP-03, GAP-04)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 1190,
+        "cache_read": 23041,
+        "cache_write": 13504
+      },
+      "seconds": 19.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:humanizer Napisz od zera opis produktu lampki biurkowej do sklepu.",
+          "reply": "Nie podałeś/-aś żadnych danych o produkcie, więc nie wymyślam parametrów, takich jak moc, barwa światła czy materiał. Poniżej jest szkic opisu z miejscami na fakty w [nawiasach]. Oznaczam go jako **draft**, bo nie jest gotowy do publikacji.\n\n## Opis produktu (draft)\n\n**[Nazwa lampki] – lampka biurkowa, która oświetla pracę, a nie rozprasza**\n\nDobre światło na biurku robi różnicę: łatwiej czytać, rysować i pracować przy komputerze. [Nazwa lampki] daje je tam, gdzie go potrzebujesz, a poza tym nie rzuca się w oczy.\n\n- **Regulowane ramię** – światło ustawisz nad zeszytem, klawiaturą albo modelem, który właśnie składasz. [Zakres regulacji / typ przegubów]\n- **[Liczba] poziomów jasności i [liczba] barw światła** – od ciepłego wieczornego po chłodne dzienne. [Dokładne wartości w K i lm]\n- **Prosta obsługa** – [rodzaj sterowania: dotykowy panel / przycisk / pokrętło].\n- **Zasilanie** – [przewód USB-C / zasilacz / akumulator]. [Długość kabla, pobór mocy]\n- **Wykonanie** – [materiał i kolor]. Podstawa: [rozmiar, waga lub mocowanie na klips].\n\n**W zestawie:** [zawartość opakowania]\n**Wymiary:** [wysokość × szerokość × głębokość, w cm]\n**Gwarancja:** [okres]\n\n## Czego brakuje do wersji ostatecznej\n\nNapisz mi proszę:\n1. Jakie są **parametry**: moc, jasność, barwa światła, rodzaj zasilania.\n2. Kto jest **odbiorcą**: biuro, uczniowie, hobbyści czy gaming.\n3. Jaki **ton** pasuje do sklepu: rzeczowy, ciepły czy z humorem.\n\nNie dopisałem twierdzeń o ochronie wzroku, braku migotania ani oszczędności energii. Dodam je tylko wtedy, gdy podasz je jako fakt, najlepiej z dokumentem potwierdzającym, na przykład kartą produktu.\n\nPo uzupełnieniu danych przygotuję wersję końcową z krótszym wariantem (do 160 znaków) na kartę produktu lub listing.",
+          "reply_chars": 1748,
+          "reply_sha256": "815308b5815b36cc456a33db75c5191cb644cab37aefbf92b50baf01210dfcbd",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1190,
+            "cache_read": 23041,
+            "cache_write": 13504
+          },
+          "seconds": 19.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['copy-voice']; expected one of ['copy-voice']"
+            },
+            {
+              "check": {
+                "not_regex": "\\b(nie męczy (oczu|wzroku)|chroni (oczy|wzrok))"
+              },
+              "passed": true,
+              "detail": "not /\\b(nie męczy (oczu|wzroku)|chroni (oczy|wzrok))/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

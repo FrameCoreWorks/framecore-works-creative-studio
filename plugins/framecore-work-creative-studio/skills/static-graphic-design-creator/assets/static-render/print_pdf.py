@@ -533,6 +533,19 @@ def main(argv=None):
         if name == 'move':
             e.add_argument('--dx-mm', type=float, default=0.0, help='to the right'); e.add_argument('--dy-mm', type=float, default=0.0, help='down')
     args = p.parse_args(argv)
+    for name in ('pdf', 'before', 'after'):              # an input problem exits 2, never 1, which means REVISE
+        value = getattr(args, name, None)
+        if value and not Path(value).is_file():
+            print(f'file not found: {value}', file=sys.stderr)
+            return 2
+    try:
+        return run_command(args)
+    except pikepdf.PdfError as error:
+        print(f'not a readable PDF: {error}', file=sys.stderr)
+        return 2
+
+
+def run_command(args):
     return {'finish': finish, 'check': check, 'compare': compare, 'blocks': blocks, 'remove': edit, 'move': edit}[args.command](args)
 
 

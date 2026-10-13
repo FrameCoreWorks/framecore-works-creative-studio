@@ -74,7 +74,7 @@ Produce an Asset Manifest with:
 
 ## Guardrails
 
-- Do not include secrets, credentials, private cloud links, local-only sensitive paths, or user-private notes.
+- Do not include secrets, credentials, private cloud links, local-only sensitive paths, or user-private notes. Judge by content, not by file name: in Polish projects `haslo`/`hasło` usually means the slogan; mark an unclear role "to confirm" instead of excluding the file.
 - Do not include metadata sidecars, caches, logs, backups, temporary files, or hidden operating-system files as workflow assets.
 - Do not upload, publish, compress, or delete files.
 - Do not approve assets for delivery without `qa-iteration` when generated assets exist.

@@ -7,6 +7,8 @@ description: Polish existing copy, headlines, short voice-over or editorial text
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
+**Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. A request for new copy ("napisz od zera", a product description from nothing) goes to [Copy Voice](../copy-voice/SKILL.md). Never add a health, comfort, safety or performance claim that the source text does not contain.
+
 Read [copy and voice](references/copy-and-voice.md) for focused voice polish and bounded edits. [Copy Voice](../copy-voice/SKILL.md) owns new commercial/editorial text and its Copy Pack; support it without restarting intake. Within a static-design project apply the relevant copy craft inside the existing design contract. Authored narrative scenes, scene dialogue and dramatic structure belong to [screenplay-story-architect](../screenplay-story-architect/SKILL.md); lyrics and song-production text belong to [audio-production-director](../audio-production-director/SKILL.md). Share copy locks without transferring ownership.
 
 For a voice that needs calibration across contexts, evidence-sensitive editorial work or a revision that risks adding claims, use [the applied voice workshop](references/applied-voice-workshop.md) and its optional worksheet/example. Do not require a voice system for a single mechanical correction.

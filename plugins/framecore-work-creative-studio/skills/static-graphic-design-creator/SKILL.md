@@ -7,6 +7,8 @@ description: "Complete static graphic design: concepts and copy, logos and ident
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
+**Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. Anything that moves (an animated banner, a GIF, a reel) goes to [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) for coded motion or [Video Prompt Architect](../video-prompt-architect/SKILL.md) for a generator.
+
 This is the Studio's complete static-design owner. It includes the full Static Graphic Design Creator knowledge system, code catalog, workflows, prompt contract, reference material, templates, scripts and tests under [the pinned upstream bundle](upstream/SKILL.source.md). The upstream source files are preserved under the upstream directory; read the source skill for design work and load its linked reference chapters selectively.
 
 The Studio integration contract below governs routing, shared research, work mode, cross-media handoffs and host boundaries. It augments the upstream design method and overrides it only where the two environments differ. The bundled upstream maintenance chapter is retained for provenance, not as instructions to manage this plugin: use the active Plugin Creator path for plugin maintenance.

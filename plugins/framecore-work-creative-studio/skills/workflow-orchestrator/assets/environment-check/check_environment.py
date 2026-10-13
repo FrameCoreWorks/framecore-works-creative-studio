@@ -420,7 +420,7 @@ def text(data):
     if not data['install']:
         lines += ['', 'Nothing to install or update.']
     final = data['final']
-    lines += ['', ('UPDATE CHECK: ' if data.get('mode') == 'update' else 'FINAL CHECK: ') + final['verdict'].upper() + (': ' + ', '.join(f'{f["id"]} ({f["status"]})' for f in final['failing']) if final['failing'] else '')
+    lines += ['', {'update': 'UPDATE CHECK: ', 'final': 'FINAL CHECK: '}.get(data.get('mode'), 'SUMMARY (not a final check; run --final for a verdict): ') + final['verdict'].upper() + (': ' + ', '.join(f'{f["id"]} ({f["status"]})' for f in final['failing']) if final['failing'] else '')
               + ('; newer versions: ' + ', '.join(f'{u["id"]} {u["version"]} -> {u["latest"]}' for u in final['updates']) if final.get('updates') else '')
               + (f'; not on this host: {", ".join(final["not_on_this_host"])}' if final.get('not_on_this_host') else '') + (f' ({final["detail"]})' if final.get('detail') else '')]
     return '\n'.join(lines)

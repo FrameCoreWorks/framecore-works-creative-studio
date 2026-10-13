@@ -83,7 +83,13 @@ def main(argv=None):
     parser.add_argument('--max-still', type=float, default=MAX_STILL_SECONDS)
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
-    report = measure(samples(args.video), holds=args.hold)
+    try:                                   # an input problem exits 2, never 1, which means REVISE
+        frames = samples(args.video)
+    except (subprocess.CalledProcessError, ValueError) as error:
+        print(f'cannot read video {args.video}: ' + (error.stderr.decode(errors='replace').strip().splitlines() or ['not a video'])[-1]
+              if isinstance(error, subprocess.CalledProcessError) else str(error), file=sys.stderr)
+        return 2
+    report = measure(frames, holds=args.hold)
     problems = verdict(report, args.max_share, args.max_still)
     report['verdict'] = 'REVISE' if problems else 'PASS'
     report['problems'] = problems

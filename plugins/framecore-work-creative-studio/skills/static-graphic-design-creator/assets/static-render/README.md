@@ -43,6 +43,7 @@ Needs Python 3 and Pillow. Fonts come from [the bundled set](../../../pipeline-c
 - **Nothing cropped.** A word wider than its box, lines taller than the box or more than `max_lines` stop the render with exit code 4 and `"status": "text_overflow"`, naming the layer and the reason; `fit: "shrink"` tries smaller sizes down to `min_size` first. `--allow-overflow` exists for drafts only.
 - **No tofu.** A character the font cannot draw stops the render with exit code 4 and `"status": "missing_glyphs"`.
 - **Contrast.** For each text layer the weakest tenth of the background right around the letters is measured against the text colour (WCAG ratio). The threshold is 4.5 for text under 48 px and 3.0 from 48 px; the summary reports pass or fail, and `--strict` makes a failure exit code 5 (`low_contrast`).
+- **No overwrite.** When a file it would write already exists in `--out`, it stops with exit code 6 and `"status": "output_exists"`; choose a new folder or `id`.
 - **Sharpness.** An image enlarged beyond its pixels is reported with its effective resolution for print.
 
 ## Print

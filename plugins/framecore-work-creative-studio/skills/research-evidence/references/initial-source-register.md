@@ -60,7 +60,7 @@ These primary pages support bounded distinctions in the static references. They 
 
 ## Image snapshot added in dev.23
 
-The dated image-family snapshot is separately documented in `../../../Execution/research/r07-image-generator-snapshot.md` and integrated under the single `research-evidence` owner at `image-generator-snapshot.md`. It is an audited, finite 2026-09-24 image scope: 19 family cards plus a watchlist, not a live market census. The report separates exact model/version/surface/operation, official claims, practitioner evidence quality, unknowns and exclusions. It does not complete video/audio mapping, a systematic user-experiment ledger, current native prompt examples for every family, target-host retrieval, or actual creative-output evaluation.
+The dated image-family snapshot is separately integrated under the single `research-evidence` owner at `image-generator-snapshot.md`. It is an audited, finite 2026-09-24 image scope: 19 family cards plus a watchlist, not a live market census. The report separates exact model/version/surface/operation, official claims, practitioner evidence quality, unknowns and exclusions. It does not complete video/audio mapping, a systematic user-experiment ledger, current native prompt examples for every family, target-host retrieval, or actual creative-output evaluation.
 
 No undocumented current model, model alias, or third-party wrapper is treated as verified. Product nicknames and API identifiers are recorded separately. A leaderboard or provider demonstration can nominate research leads but is not treated as a reproducible user test.
 

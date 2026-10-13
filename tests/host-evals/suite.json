@@ -728,6 +728,113 @@
         "Without code execution it says what it cannot render and names the route that works"
       ],
       "host_note": "Handoff case for the full check of 2026-10-12: a decision made in turn 1 must reach the owner of turn 2 unchanged. The harness gives no code execution; writing the contract in the reply is the expected continuation."
+    },
+    {
+      "id": "G01",
+      "title": "Caption Studio sends missing wording to Copy Voice (gap audit GAP-04)",
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:caption-studio Wymyśl treść napisów reklamowych do rolki lampki biurkowej, bo nie mam tekstu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "copy-voice"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "The words come from Copy Voice; Caption Studio does not write the ad copy itself"
+      ]
+    },
+    {
+      "id": "G02",
+      "title": "Humanizer hands new copy to Copy Voice and adds no comfort claim (GAP-03, GAP-04)",
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:humanizer Napisz od zera opis produktu lampki biurkowej do sklepu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "copy-voice"
+              ]
+            },
+            {
+              "not_regex": "\\b(nie męczy (oczu|wzroku)|chroni (oczy|wzrok))"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "New copy goes to Copy Voice; no health or comfort claim without source facts"
+      ]
+    },
+    {
+      "id": "G03",
+      "title": "Video Prompt Architect asks one question when essentials are missing (GAP-06)",
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:video-prompt-architect Zrób prompt do wideo.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "max_user_questions": 1
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "One question (the subject); no questionnaire"
+      ]
+    },
+    {
+      "id": "G04",
+      "title": "Asset Manifest keeps haslo.txt as the slogan, not a credential (GAP-05)",
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:asset-manifest Pliki projektu: plakat_v1.psd, plakat_v2_final.psd, plakat_v2_final_POPRAWKA.psd, logo.svg, packshot_01.jpg, packshot_02.jpg, haslo.txt. Zrób manifest.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_regex": "haslo\\.txt[^\\n]*(uwierzytel|credential|dane logowania|poufn)"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "haslo.txt is listed as the slogan or as a role to confirm, never excluded as a credential"
+      ]
+    },
+    {
+      "id": "G05",
+      "title": "Copy Voice never claims a no-break space the reply does not contain (GAP-02)",
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:copy-voice Napisz 3 nagłówki i CTA do posta o lampce biurkowej. Fakty zablokowane: cena 199 zł, 3 barwy światła, ściemniacz. Nie dodawaj innych cech.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_regex": "(jest|zapisan\\w*|użył\\w*|wstawił\\w*|zawiera)\\s[^\\n]{0,30}tward\\w* spacj"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "No claim of an inserted U+00A0 unless the text has it; a note to insert one is fine"
+      ]
     }
   ]
 }

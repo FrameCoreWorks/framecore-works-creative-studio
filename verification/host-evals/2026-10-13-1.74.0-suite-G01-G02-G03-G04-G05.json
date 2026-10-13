@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-13",
+  "package_version": "1.74.0",
+  "source": {
+    "commit": "99eefe9546255c824a9f610cbae5092715af0a06",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.296, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 16,
+      "output": 6495,
+      "cache_read": 69365,
+      "cache_write": 80612
+    },
+    "seconds": 94.2
+  },
+  "cases": [
+    {
+      "id": "G01",
+      "title": "Caption Studio sends missing wording to Copy Voice (gap audit GAP-04)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 1794,
+        "cache_read": 17747,
+        "cache_write": 21552
+      },
+      "seconds": 23.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:caption-studio Wymyśl treść napisów reklamowych do rolki lampki biurkowej, bo nie mam tekstu.",
+          "reply": "Napisałem dwa warianty roboczego tekstu. Nie znam parametrów lampki, więc tekst nie zawiera żadnych twierdzeń o niej. To wersja `draft`: nie przeszła jeszcze pełnego przeglądu jako `ready_to_use`. Nie uruchamiałem też sprawdzarki polskiej typografii.\n\n## Wariant A: spokojny, wieczorna praca (ok. 15 s)\n\n| # | Napis |\n|---|---|\n| 1 | Biurko po zmroku. |\n| 2 | Jedno światło. |\n| 3 | Dokładnie tam, gdzie go potrzebujesz. |\n| 4 | Reszta pokoju może odpocząć. |\n| 5 | [Nazwa lampki] |\n\n## Wariant B: krótki, rytmiczny (ok. 10 s)\n\n| # | Napis |\n|---|---|\n| 1 | Za oknem ciemno. |\n| 2 | Na biurku jasno. |\n| 3 | Włączasz — i działasz. |\n| 4 | [Nazwa lampki] |\n\n## Opcjonalne wstawki\nDodaj je tylko wtedy, gdy są prawdziwe. Każda jest osobnym napisem.\n- `[funkcja]`, np. „Trzy poziomy jasności.” albo „Ciepłe i chłodne światło.”\n- `[CTA]`, np. „Sprawdź w sklepie.” Dodałem tylko miejsce na nią, bo nie prosiłeś o wezwanie do działania.\n- `[cena lub promocja]`. Musi być zgodna z ofertą.\n\n## Uwagi\n- Wszystkie napisy są krótkie (do 5–6 słów), więc zmieszczą się w 1–2 liniach na formacie 9:16.\n- Dla Caption Studio: blokuję nazwę lampki i ewentualną funkcję. Czas i styl dobierzemy po wyborze wariantu.\n- W finalnym pliku w „w”, „i”, „z” trzeba wstawić twardą spację po jednoliterowych spójnikach i przyimkach. Tu sprawdzę ją plikiem, gdy tekst będzie zatwierdzony.\n\n**Jedno pytanie:** który wariant bierzemy i co jest najmocniejszą cechą lampki (np. regulacja jasności, barwa światła, wygląd, cena)? Dopiszę ją jako jeden napis i przekażę tekst do Caption Studio.",
+          "reply_chars": 1558,
+          "reply_sha256": "7940b299a049d8c08bff1becbd4b4210bf0a4043885354294147a9b2bbf365d0",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1794,
+            "cache_read": 17747,
+            "cache_write": 21552
+          },
+          "seconds": 23.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Copy Voice",
+                  "copy-voice"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['Copy Voice', 'copy-voice']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G02",
+      "title": "Humanizer hands new copy to Copy Voice and adds no comfort claim (GAP-03, GAP-04)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 1249,
+        "cache_read": 20957,
+        "cache_write": 15581
+      },
+      "seconds": 21.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:humanizer Napisz od zera opis produktu lampki biurkowej do sklepu.",
+          "reply": "Nie podałeś/-aś żadnych danych o lampce, więc nie wymyślam parametrów. Poniżej jest szkic opisu z miejscami na fakty w nawiasach kwadratowych. Gdy je uzupełnisz, wyślę wersję końcową.\n\n## Opis produktu (szkic)\n\n**[Nazwa modelu] — lampka biurkowa, która oświetla pracę, a nie przeszkadza w niej**\n\nBiurko ma już wystarczająco dużo na głowie: laptop, notatki, kubek, kable. Lampka powinna dawać światło tam, gdzie go potrzebujesz, i nie zajmować przy tym miejsca.\n\n[Nazwa modelu] ma [kształt/konstrukcję, np. regulowane ramię] i [typ podstawy, np. stabilną podstawę o średnicy X cm]. Światło ustawisz nad klawiaturą, nad zeszytem albo nad czymkolwiek, co akurat robisz. [Jeśli prawda: Możesz zmieniać jasność i barwę światła.]\n\n**Co dostajesz**\n- Wysokość: [X cm], podstawa: [X × X cm]\n- Źródło światła: [LED / żarówka E27 w zestawie lub osobno]\n- Moc: [X W], barwa: [X K]\n- Sterowanie: [przycisk / pokrętło / dotyk]\n- Zasilanie: [kabel X m, wtyczka / USB]\n- Materiał i kolor: [np. metal, matowa czerń]\n- W zestawie: [lista]\n\n**Dla kogo**\nDla każdego, kto pracuje, uczy się albo czyta przy biurku i chce mieć dobre światło pod ręką. [Dopisz, jeśli pasuje: do domu, biura, pokoju ucznia.]\n\n**Gwarancja i dostawa:** [warunki sklepu]\n\n## Czego nie dopisałem\nNie ma tu haseł o ochronie wzroku, braku migotania ani oszczędności energii. Takie twierdzenia wstawię tylko wtedy, gdy podasz dane z karty produktu albo certyfikatu.\n\n## Czego potrzebuję\nDo wersji końcowej wystarczą: nazwa i model, specyfikacja z karty produktu oraz główny odbiorca (dom, biuro czy dziecko do szkoły). Jeśli lampka ma jakąś cechę wyróżniającą, np. ładowarkę bezprzewodową w podstawie, napisz o niej, bo na niej oprę akapit otwierający.\n\nStatus: `draft`. Ocenę końcową wykonam po uzupełnieniu faktów.",
+          "reply_chars": 1770,
+          "reply_sha256": "8e2c2c07a5e91e3da861327c228463c95a3bca67bb97c59762bb5bc2367080ab",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1249,
+            "cache_read": 20957,
+            "cache_write": 15581
+          },
+          "seconds": 21.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Copy Voice",
+                  "copy-voice"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['Copy Voice', 'copy-voice']"
+            },
+            {
+              "check": {
+                "not_regex": "(nie męczy|męcz\\w* (oczu|wzrok)|chroni\\w* (oczy|wzrok))"
+              },
+              "passed": false,
+              "detail": "not /(nie męczy|męcz\\w* (oczu|wzrok)|chroni\\w* (oczy|wzrok))/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G03",
+      "title": "Video Prompt Architect asks one question when essentials are missing (GAP-06)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2,
+        "output": 364,
+        "cache_read": 4520,
+        "cache_write": 16778
+      },
+      "seconds": 11.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:video-prompt-architect Zrób prompt do wideo.",
+          "reply": "Zrobię to chętnie. Jedno pytanie: **co ma być głównym tematem wideo (kto lub co jest w kadrze i co się dzieje)?**\n\nResztę ustawiam domyślnie. Zmienię to, jeśli podasz inne wartości:\n\n- **Generator:** nie wskazany, więc napiszę prompt uniwersalny, bez składni konkretnego modelu.\n- **Operacja:** tekst na wideo (T2V), jedno ciągłe ujęcie.\n- **Format i długość:** 9:16, ok. 8 s.\n- **Dźwięk:** bez dialogu. Dźwięk otoczenia opiszę osobno, jako plan do postprodukcji.\n- **Język promptu:** angielski. Napisy i tekst na ekranie zostają w języku, który podasz.\n\nDodatkowe informacje, jeśli je masz, pozwolą dopracować wynik: marka lub produkt, nastrój, miejsce akcji i to, do czego wideo ma służyć (reklama, rolka, klip).",
+          "reply_chars": 714,
+          "reply_sha256": "a71e9a4cef1fd65e8be0de7dde6a7faf94aaf07f22b10c32e7a58287b19cf9db",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 364,
+            "cache_read": 4520,
+            "cache_write": 16778
+          },
+          "seconds": 11.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 1)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G04",
+      "title": "Asset Manifest keeps haslo.txt as the slogan, not a credential (GAP-05)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 1768,
+        "cache_read": 21621,
+        "cache_write": 12766
+      },
+      "seconds": 20.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:asset-manifest Pliki projektu: plakat_v1.psd, plakat_v2_final.psd, plakat_v2_final_POPRAWKA.psd, logo.svg, packshot_01.jpg, packshot_02.jpg, haslo.txt. Zrób manifest.",
+          "reply": "# Asset Manifest – plakat\n\n**Stan weryfikacji:** w katalogu roboczym nie ma żadnych plików (`/tmp/studio-eval-5xyh6yyz/work` jest pusty). Manifest powstał więc wyłącznie z podanych nazw. Niczego nie otwierałem, nie liczyłem sum kontrolnych i nie sprawdzałem wymiarów ani zawartości. Role poniżej to propozycje do potwierdzenia.\n\n## Lista plików\n\n| Plik | Proponowana rola | Źródło | Status |\n|---|---|---|---|\n| `plakat_v1.psd` | Roboczy, starsza wersja | brak informacji | Zastąpiony przez v2, jeśli to potwierdzisz. Nie jest kandydatem do dostawy. |\n| `plakat_v2_final.psd` | Kandydat finalny (do potwierdzenia) | brak informacji | Niejednoznaczny. Zobacz pytanie 1. |\n| `plakat_v2_final_POPRAWKA.psd` | Kandydat finalny (do potwierdzenia) | brak informacji | Prawdopodobnie najnowszy, bo nazwa wskazuje poprawkę po „final”. Niepotwierdzone. |\n| `logo.svg` | Źródłowy element graficzny | brak informacji | Do sprawdzenia: wektor, brak osadzonych rastrów, brak zewnętrznych fontów. |\n| `packshot_01.jpg` | Źródłowy element graficzny | brak informacji | Do sprawdzenia: rozdzielczość, profil kolorów, prawa do użycia. |\n| `packshot_02.jpg` | Źródłowy element graficzny | brak informacji | Jak wyżej. |\n| `haslo.txt` | Źródłowy tekst (do potwierdzenia) | brak informacji | Po polsku „hasło” zwykle znaczy slogan, więc nie wykluczam pliku. Zobacz pytanie 2. |\n\n## Wykluczone pliki\nBrak. Nie ma podstaw, by wykluczyć któryś z plików na podstawie samej nazwy.\n\n## Brakujące lub niejednoznaczne\n- **Brak kryteriów akceptacji.** Nie podałeś wymaganego formatu wyjściowego (druk lub ekran), wymiarów, spadów ani profilu kolorów.\n- **Brak notatek o pochodzeniu.** Nie wiadomo, które pliki dostarczył klient, a które powstały u nas.\n- **Brak wyeksportowanego pliku do podglądu lub dostawy** (PDF, PNG lub JPG). Wszystkie trzy pliki plakatu to PSD.\n- **Zależności PSD:** nie wiadomo, czy `logo.svg` i packshoty są w PSD osadzone, czy podlinkowane. Nie wiadomo też, czy teksty są zrasteryzowane, i czy fonty są dostępne.\n\n## Ciągłość i zaakceptowane wyjścia\nNie dotyczy. Nie wskazano sekwencji generowanej, nośników ciągłości ani zaakceptowanych wyjść. Nic tu nie wymyślam.\n\n## Pytania otwarte\n1. Który plik jest obowiązującą wersją: `plakat_v2_final.psd` czy `plakat_v2_final_POPRAWKA.psd`? Czy v2_final ma trafić do archiwum jako odrzucony?\n2. Czy `haslo.txt` to slogan na plakacie? Jeśli to hasło dostępowe, wyłączam go z manifestu. Podaj też, czy tekst ma być użyty dosłownie.\n3. Skąd pochodzą `logo.svg` i packshoty: od klienta czy z naszej produkcji? Czy mamy zgodę na ich użycie?\n4. Jakie są specyfikacje wyjściowe i kryteria akceptacji?\n5. Czy mam sprawdzić pliki i dodać sumy kontrolne po wgraniu ich do katalogu projektu?\n\n## Przekazanie do `qa-iteration`\nNa razie nie ma czego przekazywać. Nie mogę potwierdzić istnienia żadnego z plików ani wskazać pliku do przeglądu. Gdy odpowiesz na pytania 1–4 i wgrasz pliki, zaktualizuję manifest. Dopiero wtedy przekażę go dalej.",
+          "reply_chars": 2970,
+          "reply_sha256": "36c75ffc038c92d695a4541a059990480c39907bc8dbbc9a9ff4a6a5b0cf60d4",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1768,
+            "cache_read": 21621,
+            "cache_write": 12766
+          },
+          "seconds": 20.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "haslo\\.txt[^\\n]*(uwierzytel|credential|dane logowania|poufn)"
+              },
+              "passed": true,
+              "detail": "not /haslo\\.txt[^\\n]*(uwierzytel|credential|dane logowania|poufn)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G05",
+      "title": "Copy Voice never claims a no-break space the reply does not contain (GAP-02)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2,
+        "output": 1320,
+        "cache_read": 4520,
+        "cache_write": 13935
+      },
+      "seconds": 17.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:copy-voice Napisz 3 nagłówki i CTA do posta o lampce biurkowej. Fakty zablokowane: cena 199 zł, 3 barwy światła, ściemniacz. Nie dodawaj innych cech.",
+          "reply": "**Nagłówki i CTA do posta o lampce biurkowej**\n\n| # | Nagłówek | CTA |\n|---|---|---|\n| 1 | Trzy barwy światła i ściemniacz. Lampka biurkowa za 199 zł | Zobacz lampkę |\n| 2 | Ustaw światło na biurku: wybierz barwę i przyciemnij | Wybierz swoje światło |\n| 3 | 199 zł za lampkę, w której sam ustawisz barwę i jasność | Sprawdź szczegóły |\n\n**Zablokowane fakty w tekście**\n- Cena to 199 zł (nagłówki 1 i 3).\n- Są 3 barwy światła (nagłówki 1 i 2, w 3 jako „barwę\").\n- Jest ściemniacz (nagłówki 1 i 2, w 3 jako „jasność\").\n- Nie dodałem żadnych innych cech ani obietnic.\n\n**Uwagi**\n- W nagłówku 3 „sam\" mówi o użytkowniku, więc adresat jest jeden (liczba pojedyncza). Jeśli ton marki ma być w liczbie mnogiej albo w formie „Państwo\", daj znać, a dopasuję wszystkie trzy.\n- W nagłówkach 1 i 3 wstaw twardą spaceję między 199 a zł. W tej odpowiedzi użyłem zwykłej spacji, więc nie potwierdzam, że jest tam twarda.\n- Nie sprawdzałem tekstu skryptem `pl_copy_check.py` ani limitów konkretnego kanału.\n- Status to szkic (`draft`). Zaproponowałem CTA do każdego nagłówka, więc wystarczy wybrać parę.",
+          "reply_chars": 1088,
+          "reply_sha256": "6745558023359c062c417ebe62cb9ede20591e1aef8b4cd3c62a4627f5e8c7ab",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 1320,
+            "cache_read": 4520,
+            "cache_write": 13935
+          },
+          "seconds": 17.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "(jest|zapisan\\w*|użył\\w*|wstawił\\w*|zawiera)\\s[^\\n]{0,30}tward\\w* spacj"
+              },
+              "passed": true,
+              "detail": "not /(jest|zapisan\\w*|użył\\w*|wstawił\\w*|zawiera)\\s[^\\n]{0,30}tward\\w* spacj/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

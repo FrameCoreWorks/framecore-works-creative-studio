@@ -7,6 +7,8 @@ description: Write a video-generator prompt for a clear brief, approved shot car
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
+**Missing essentials.** With essentials missing ("zrób prompt do wideo"), ask one question, the subject; default the rest and label the defaults. Coded motion goes to [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md).
+
 Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to substantive direction or prompt work. Without a named generator, write a model-agnostic prompt and search only when another trigger applies; verify material public facts. The deeper model-mapping requirements below apply whenever a generator is named.
 
 Own the video craft and prompt-compilation stage. Produce a complete, usable

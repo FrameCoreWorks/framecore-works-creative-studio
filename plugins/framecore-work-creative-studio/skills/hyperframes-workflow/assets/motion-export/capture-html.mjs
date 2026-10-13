@@ -17,24 +17,9 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {devtools} from './export-video.mjs';
 import {findBrowser} from '../motion-review/review-frames.mjs';
 
-const EXTRA_BROWSERS = [process.env.HYPERFRAMES_BROWSER_PATH, '/opt/pw-browsers/chromium',
-  path.join(os.homedir(), '.cache/ms-playwright')];
-
-/** A Chrome or Chromium: the explicit path, the usual names, then Playwright's browser folders. */
+/** A Chrome or Chromium: the explicit path, CHROME_PATH, HYPERFRAMES_BROWSER_PATH, the usual names, Playwright's folders. */
 export function locateBrowser(explicit) {
-  const found = findBrowser(explicit);
-  if (found) return found;
-  for (const candidate of EXTRA_BROWSERS.filter(Boolean)) {
-    if (!fs.existsSync(candidate)) continue;
-    if (fs.statSync(candidate).isFile()) return candidate;
-    for (const dir of fs.readdirSync(candidate).filter(name => name.startsWith('chromium')).sort().reverse()) {
-      for (const sub of ['chrome-linux/chrome', 'chrome-linux64/chrome', 'chrome-mac/Chromium.app/Contents/MacOS/Chromium']) {
-        const file = path.join(candidate, dir, sub);
-        if (fs.existsSync(file)) return file;
-      }
-    }
-  }
-  return undefined;
+  return findBrowser(explicit);
 }
 
 /** Frame rate as a fraction: "30", "29.97" is refused, "30000/1001". */
@@ -52,14 +37,16 @@ export function frameCount(seconds, fps) {
 export async function captureFile(input, {out, width, height, seconds, frames, fps = '30', query, audio, browser, crf = 16} = {}) {
   if (!out) throw new Error('Choose a new output file with --out');
   if (fs.existsSync(out)) throw new Error(`Output file already exists: ${out}`);
+  if (!input || !fs.existsSync(input)) throw new Error(`Page not found: ${input}`);
   if (!width || !height) throw new Error('Give --width and --height in pixels');
+  if (width % 2 || height % 2) throw new Error('H.264 with yuv420p needs an even width and height');
   const rate = parseFps(fps);
   const total = frames ? Number(frames) : frameCount(Number(seconds), rate);
   if (!Number.isInteger(total) || total < 1) throw new Error('Give --seconds or --frames');
   const chrome = locateBrowser(browser);
   if (!chrome) throw new Error('No Chrome or Chromium found; pass --browser or set CHROME_PATH or HYPERFRAMES_BROWSER_PATH');
   const work = fs.mkdtempSync(path.join(os.tmpdir(), 'capture-html-'));
-  const args = ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--hide-scrollbars',
+  const args = ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--hide-scrollbars', '--disable-background-networking', '--disable-component-update',
     '--force-device-scale-factor=1', `--user-data-dir=${path.join(work, 'profile')}`, 'about:blank'];
   if (process.platform === 'linux' && process.getuid?.() === 0) args.unshift('--no-sandbox');
   const session = devtools(chrome, args);
@@ -73,6 +60,7 @@ export async function captureFile(input, {out, width, height, seconds, frames, f
     encoder.on('error', error => reject(new Error(`FFmpeg could not start: ${error.message}`)));
     encoder.on('exit', code => code === 0 ? resolve() : reject(new Error(`FFmpeg failed: ${encoderError.trim().slice(-300)}`)));
   });
+  encoded.catch(() => {});   // a failure is reported once, from the frame loop or from awaiting it below
   const started = Date.now();
   try {
     const url = pathToFileURL(path.resolve(input)).href + (query ? `?${query}` : '');

@@ -1,5 +1,7 @@
 """Lyric timing (hyperframes-workflow/assets/motion-sync/lyric_timing.py): alignment, interpolation, beats, snapping, exports."""
+import contextlib
 import importlib.util
+import io
 import json
 import math
 import pathlib
@@ -83,12 +85,29 @@ class LyricTimingTest(unittest.TestCase):
             root = pathlib.Path(tmp)
             (root / 'lyrics.txt').write_text(LYRICS, encoding='utf-8')
             (root / 'words.json').write_text(json.dumps(heard()), encoding='utf-8')
+            (root / 'song.wav').write_bytes(b'')          # not decoded: --words and --bpm are given
             lt.main([str(root / 'song.wav'), str(root / 'lyrics.txt'), '--words', str(root / 'words.json'),
                      '--bpm', '120', '--fps', '30000/1001', '--out', str(root / 'out.json')])
             report = json.loads((root / 'out.json').read_text(encoding='utf-8'))
             self.assertEqual(report['fps'], '30000/1001')
             for line in report['lines']:
                 self.assertEqual(line['cut_frame'], round(line['cut'] * 30000 / 1001))
+
+    def test_input_problems_exit_2_and_outputs_are_never_overwritten(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            (root / 'lyrics.txt').write_text(LYRICS, encoding='utf-8')
+            (root / 'words.json').write_text(json.dumps(heard()), encoding='utf-8')
+            (root / 'bad.json').write_text('not json', encoding='utf-8')
+            (root / 'song.wav').write_bytes(b'')
+            (root / 'out.json').write_text('keep', encoding='utf-8')
+            base = [str(root / 'lyrics.txt'), '--bpm', '120']
+            with contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(lt.main([str(root / 'nope.wav'), *base, '--words', str(root / 'words.json')]), 2)
+                self.assertEqual(lt.main([str(root / 'song.wav'), *base, '--words', str(root / 'nope.json')]), 2)
+                self.assertEqual(lt.main([str(root / 'song.wav'), *base, '--words', str(root / 'bad.json')]), 2)
+                self.assertEqual(lt.main([str(root / 'song.wav'), *base, '--words', str(root / 'words.json'), '--out', str(root / 'out.json')]), 2)
+            self.assertEqual((root / 'out.json').read_text(encoding='utf-8'), 'keep')
 
     def test_no_match_is_an_error(self):
         with self.assertRaises(ValueError):

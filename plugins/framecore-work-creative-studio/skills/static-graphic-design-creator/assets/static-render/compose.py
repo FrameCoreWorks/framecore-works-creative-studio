@@ -581,6 +581,12 @@ def main(argv=None):
     if spec.get('print'):
         summary['print'] = {'trim_mm': frame['trim_mm'], 'bleed_mm': frame['bleed_mm'], 'dpi': frame['dpi']}
     formats = {f.strip() for f in args.formats.split(',') if f.strip()}
+    name = spec.get('id', 'design')
+    existing = [p.name for p in [Path(args.out) / f'{name}.{ext}' for ext in sorted(formats)] + [Path(args.out) / f'{name}.audit.json'] if p.exists()]
+    if existing:                                  # never overwrite a delivered file; choose a new --out or id
+        summary.update(status='output_exists', detail=', '.join(existing))
+        print(json.dumps(summary, ensure_ascii=False))
+        return 6
     summary['files'] = save(image, frame, spec, Path(args.out), formats, args.icc)
     weak = [c for c in result['contrast'] if c.get('pass') is False]
     summary['status'] = 'low_contrast' if weak and args.strict else 'ok'

@@ -194,13 +194,26 @@ def main(argv=None):
     p.add_argument('--threshold', type=float, default=0.6, help='word similarity needed to count as the same word')
     p.add_argument('--out'); p.add_argument('--lrc'); p.add_argument('--lrc-words'); p.add_argument('--srt')
     a = p.parse_args(argv)
+    problem = next((f'file not found: {f}' for f in (a.audio, a.lyrics, a.words) if f and not Path(f).is_file()), None)
+    problem = problem or next((f'output file already exists: {f}' for f in (a.out, a.lrc, a.lrc_words, a.srt) if f and Path(f).exists()), None)
+    if problem:                                   # input problems exit 2
+        print(problem, file=sys.stderr)
+        return 2
     text = Path(a.lyrics).read_text(encoding='utf-8')
     lines = read_lyrics(text)
     if a.words:
-        heard, engine = json.loads(Path(a.words).read_text(encoding='utf-8')), 'supplied'
+        try:
+            heard, engine = json.loads(Path(a.words).read_text(encoding='utf-8')), 'supplied'
+        except ValueError as error:
+            print(f'{a.words} is not word-time JSON: {error}', file=sys.stderr)
+            return 2
     else:
         heard, engine = recognise(a.audio, '\n'.join(l['text'] for l in lines), a.model)
-    share = place(lines, heard, a.threshold)
+    try:
+        share = place(lines, heard, a.threshold)
+    except ValueError as error:
+        print(error, file=sys.stderr)
+        return 2
     bpm, beat0 = (a.bpm, a.offset) if a.bpm else beat_grid(a.audio)
     snap(lines, bpm, beat0, a.snap_ms, fps=float(a.fps))
     weak = [i + 1 for i, l in enumerate(lines) if l['needs_check']]

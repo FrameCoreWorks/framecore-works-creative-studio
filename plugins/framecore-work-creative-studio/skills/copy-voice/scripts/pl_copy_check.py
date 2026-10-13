@@ -154,6 +154,9 @@ def main(argv=None):
         text = sys.stdin.read()
     elif Path(args.source).is_file():
         text = Path(args.source).read_text(encoding='utf-8')
+    elif re.fullmatch(r'\S+\.(txt|md|srt|vtt|csv|json|html?)|\S*[/\\]\S*', args.source.strip()):
+        print(f'file not found: {args.source}', file=sys.stderr)   # a mistyped path is not text to check
+        return 3
     else:
         text = args.source
     if not text.strip():

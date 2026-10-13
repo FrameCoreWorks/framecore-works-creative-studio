@@ -696,10 +696,10 @@
       "kind": "hyperframes",
       "package": "hyperframes",
       "minimum_node": "22",
-      "known_latest": "0.8.143",
+      "known_latest": "0.8.149",
       "latest_source": "npm:hyperframes",
       "install": {
-        "any": "HyperFrames' own plugin through the client's plugin manager (Codex, Claude Code), or npx hyperframes@0.8.143 skills update for its skills. Needs Node.js 22, FFmpeg and Chrome; npx hyperframes@0.8.143 doctor checks its own needs. The HeyGen catalog stays off unless the user asks for it. See skills/hyperframes-workflow/references/hyperframes-engine.md"
+        "any": "HyperFrames' own plugin through the client's plugin manager (Codex, Claude Code), or npx hyperframes@0.8.149 skills update for its skills. Needs Node.js 22, FFmpeg and Chrome; npx hyperframes@0.8.149 doctor checks its own needs. The HeyGen catalog stays off unless the user asks for it. See skills/hyperframes-workflow/references/hyperframes-engine.md"
       },
       "hosts": {
         "chatgpt": {

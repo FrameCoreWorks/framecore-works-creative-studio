@@ -95,6 +95,10 @@ class Compose(unittest.TestCase):
             self.assertEqual(summary['texts'][1]['lines'], ['1 299,00 zł'])
             self.assertTrue(pathlib.Path(temp, 'out/post.audit.json').is_file())
             self.assertTrue(all(c['pass'] for c in summary['contrast']))
+            before = pathlib.Path(temp, 'out/post.png').read_bytes()
+            code, summary = run(spec, temp, '--formats', 'png')     # a second run never overwrites a delivered file
+            self.assertEqual((code, summary['status']), (6, 'output_exists'))
+            self.assertEqual(pathlib.Path(temp, 'out/post.png').read_bytes(), before)
 
     def test_a_word_wider_than_its_box_stops_the_render(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -144,6 +148,7 @@ class Compose(unittest.TestCase):
             code, summary = run(spec, temp)
             self.assertEqual(code, 0)
             self.assertFalse(summary['contrast'][0]['pass'])
+        with tempfile.TemporaryDirectory() as temp:
             code, summary = run(spec, temp, '--strict')
             self.assertEqual((code, summary['status']), (5, 'low_contrast'))
 

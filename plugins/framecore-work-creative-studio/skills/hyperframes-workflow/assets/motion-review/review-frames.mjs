@@ -82,12 +82,27 @@ ${audit}
   return html.replace(/<\/body>(?![\s\S]*<\/body>)/i, merge + '</body>');
 }
 
+/** Chromium inside Playwright's browser folders (PLAYWRIGHT_BROWSERS_PATH, /opt/pw-browsers, ~/.cache/ms-playwright). */
+function playwrightChromium() {
+  const roots = [process.env.PLAYWRIGHT_BROWSERS_PATH, '/opt/pw-browsers', path.join(process.env.HOME ?? '', '.cache/ms-playwright')];
+  for (const root of roots.filter(Boolean)) {
+    if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) continue;
+    for (const dir of fs.readdirSync(root).filter(name => /^chromium-\d/.test(name)).sort().reverse()) {
+      for (const sub of ['chrome-linux/chrome', 'chrome-linux64/chrome', 'chrome-mac/Chromium.app/Contents/MacOS/Chromium']) {
+        const file = path.join(root, dir, sub);
+        if (fs.existsSync(file)) return file;
+      }
+    }
+  }
+  return undefined;
+}
+
 export function findBrowser(explicit) {
-  const candidates = [explicit, process.env.CHROME_PATH,
+  const candidates = [explicit, process.env.CHROME_PATH, process.env.HYPERFRAMES_BROWSER_PATH,
     ...['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome'].flatMap(name => (process.env.PATH ?? '').split(path.delimiter).map(dir => path.join(dir, name))),
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/Applications/Chromium.app/Contents/MacOS/Chromium',
     'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'];
-  return candidates.find(candidate => candidate && fs.existsSync(candidate));
+  return candidates.find(candidate => candidate && fs.existsSync(candidate)) ?? playwrightChromium();
 }
 
 /** Format IDs to review: 'all' (default) is the base size plus every entry in score.formats. */
