@@ -16,6 +16,7 @@ python3 -m unittest discover -s tests -p 'test_package_identity.py' -v
 python3 -m unittest discover -s tests -p 'test_host_smoke.py' -v
 python3 -m unittest discover -s tests -p 'test_hosted_readback.py' -v
 python3 -m unittest discover -s tests -p 'test_claude_plugin.py' -v
+python3 -m unittest discover -s tests -p 'test_release.py' -v
 NODE_TESTS=("$P/tests/studio.test.mjs" "$P/tests/workflow-kit.test.mjs" "$P/tests/creative-upgrade.test.mjs" \
   "$P/tests/learning-mode.test.mjs" "$P/tests/quality-methods.test.mjs" "$P/tests/presentation.test.mjs")
 # motion-toolkit.test.mjs also runs motion-quality.test.mjs, which it imports.

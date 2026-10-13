@@ -34,7 +34,7 @@ REPO = 'FrameCoreWorks/framecore-works-creative-studio'
 SESSION_BRANCHES = ['ccr-06247e92-aihwc6']
 TRAILER_TAIL = ('Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n'
                 'Claude-Session: https://claude.ai/code/session_01BJiprAkxWcoxgDpzdVuk2n')
-PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides',
+PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides', 'release helper',
                  'GEPA pilot', 'asset', 'caption', 'environment check', 'motion acceptance', 'motion fonts', 'motion kinds', 'motion variants', 'skill finder', 'Animate engine', 'Animate voice',
                  'static render', 'print PDF', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'motion activity', 'lyric timing', 'technique atlas', 'host-eval harness']
 
@@ -119,7 +119,7 @@ def write_notes(new, changelog, notes):
 
 
 def parse_checks(log):
-    node = {key: int(value) for key, value in re.findall(r'^# (tests|pass|skipped|fail) (\d+)$', log, re.M)}
+    node = {key: int(value) for key, value in re.findall(r'^(?:#|\u2139) (tests|pass|skipped|fail) (\d+)$', log, re.M)}  # TAP (Node 22) or spec reporter (Node 24)
     ran = [(int(n), int(skipped or 0)) for n, skipped in re.findall(r'^Ran (\d+) tests? in [^\n]*\n+OK(?: \(skipped=(\d+)\))?$', log, re.M)]
     names = PYTHON_SUITES if len(ran) == len(PYTHON_SUITES) else [f'suite {i + 1}' for i in range(len(ran))]
     return {'node': node, 'python': {name: {'tests': n, 'skipped': skipped} for name, (n, skipped) in zip(names, ran)}}
@@ -289,6 +289,9 @@ def push(baseline):
 
 def prepare(args):
     old, new = current_version(), args.version
+    dirty = git('status', '--porcelain')
+    if dirty:  # the release commit stages everything it touched; unrelated work must not ride along
+        raise ReleaseError('the working tree has uncommitted changes; commit or stash them before a release:\n' + dirty)
     if version_tuple(new) <= version_tuple(old):
         raise ReleaseError(f'{new} is not newer than {old}')
     git('fetch', '-q', 'origin', 'main', f'refs/tags/v{old}:refs/tags/v{old}', check=False)

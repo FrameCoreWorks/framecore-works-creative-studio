@@ -793,7 +793,8 @@ test('Python renderer draws taps, the browser frame and wiping backgrounds deter
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
-test('the craft critique scores a contract, renders its review frames and gives concrete fixes', {skip: !python && 'python3 with Pillow not installed'}, () => {
+const arialFont = spawnPython('python3', ['-B', '-c', "import sys;sys.path.insert(0,sys.argv[1]);import render as r;f=r.font_files();print(any(r.find_font(n,False,f) for n in ('Arial','LiberationSans','Arimo','Helvetica')))", path.join(root, 'skills/hyperframes-workflow/assets/motion-render')], {encoding: 'utf8'}).stdout?.trim() === 'True';
+test('the craft critique scores a contract, renders its review frames and gives concrete fixes', {skip: (!python && 'python3 with Pillow not installed') || (!arialFont && 'no Arial or metric-compatible font (Liberation Sans, Arimo): color-block is laid out for Arial')}, () => {
   const critique = path.join(root, 'skills/hyperframes-workflow/assets/motion-review/critique.py');
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-critique-'));
   try {

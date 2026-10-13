@@ -2483,8 +2483,8 @@
     },
     {
       "path": "skills/brief-architect/scripts/quote_calc.py",
-      "bytes": 14892,
-      "sha256": "c29531b74a289b20d2c411d2e256a18d294f5d1e97dd4d5e783fe81965b29f67"
+      "bytes": 15407,
+      "sha256": "b150c061b36449dd8c9d9f677d271cfabfd03a87ecdc1992197df0a7b13879e7"
     },
     {
       "path": "skills/caption-studio/SKILL.md",
@@ -3798,8 +3798,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/README.md",
-      "bytes": 5015,
-      "sha256": "5e4449ea39783e4734ca56dfdd0ef6d3ef6fec8238bd6f06f486197647d79332"
+      "bytes": 5293,
+      "sha256": "ca06dc3608e3ca7564dfe095f389426c66053bbcbe0d866e9957390846520f37"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py",
@@ -3808,8 +3808,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
-      "bytes": 84072,
-      "sha256": "b0dc257b76bb3bd107cd52a4d6954bb44a3aa4dac4a2ce8b9e51a371d245e833"
+      "bytes": 85412,
+      "sha256": "2e92f66e652d5449aa317b91016a47e27b1d3d19dfa4ef3063a50d4ea80e98cd"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
@@ -4108,8 +4108,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-variants/variants.py",
-      "bytes": 10600,
-      "sha256": "48e1eaff5a42aab11f91a3d0c43870d0d88ce78605a16b78a5df3262fdb47ba6"
+      "bytes": 11008,
+      "sha256": "6a7eb093746de631118a218f579b8ccca3cc151215b271154d51a252c87c28ed"
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
@@ -5108,8 +5108,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/compose.py",
-      "bytes": 30455,
-      "sha256": "4f9e733eed8e05f1f86d8f4820802694093d25f2f0f3c8d5f15af054d478757a"
+      "bytes": 30879,
+      "sha256": "6aba3147001c2653c42ee3d3aade4246792df355b7493c2c5bdea2117581689c"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/presets.json",
@@ -5883,13 +5883,13 @@
     },
     {
       "path": "tests/motion-quality.test.mjs",
-      "bytes": 8700,
-      "sha256": "d9e358c084a50f65cf4b7152afa13435893dfe34fdde4f6f04af8880e34e0fd3"
+      "bytes": 9356,
+      "sha256": "935e3f5f38c30b8983152998765f662dc56574c986537007b5d2c48611b3319a"
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 115643,
-      "sha256": "4568a75e85cce4dc81aa2aea388e25dbd2b1bc1fbe6682562525defbbaf51279"
+      "bytes": 116104,
+      "sha256": "a730502b71584456b99b387b0a4ab63c86f0c31aa1d2e37ea843ebca151df3a8"
     },
     {
       "path": "tests/motion_acceptance_test.py",
@@ -5908,13 +5908,13 @@
     },
     {
       "path": "tests/motion_kinds_test.py",
-      "bytes": 5645,
-      "sha256": "0ace49264d7d00f9b9336f11e96e47262fc24ebec0eedf41c19465e25747ac69"
+      "bytes": 6803,
+      "sha256": "b04cc1933d304a9cf4fe473527b2274ec0d5d9e3b44d71e41bd06e9c0a51c358"
     },
     {
       "path": "tests/motion_variants_test.py",
-      "bytes": 9794,
-      "sha256": "bad25aab0adb24c58bdcff464b97e757ff23c5f191bb33b42a613faaa7ec591c"
+      "bytes": 10527,
+      "sha256": "36954bef00a54708e00982fa187f0d04b2c989a1515ba87157d7d6432f1d5fd1"
     },
     {
       "path": "tests/package.test.mjs",
@@ -5948,8 +5948,8 @@
     },
     {
       "path": "tests/quote_calc_test.py",
-      "bytes": 4735,
-      "sha256": "27e160983becd6a9ed6572e859a6af7aa37bdb5fc4732a94d1766395fb2d8c6f"
+      "bytes": 5406,
+      "sha256": "b92b1c96dc2a9dc8682156e6f02841a928d8b81a093043c718b9b21150009821"
     },
     {
       "path": "tests/sheet_export_test.py",
@@ -5968,8 +5968,8 @@
     },
     {
       "path": "tests/static_render_test.py",
-      "bytes": 11019,
-      "sha256": "a1faef989f31578617fd9c8958320b26bc03b75b452f347b03e066d611411db3"
+      "bytes": 11570,
+      "sha256": "11cff69fd062196f1a928a5414c960cec4b96913a6cf882fd637b98d12532d55"
     },
     {
       "path": "tests/studio.test.mjs",

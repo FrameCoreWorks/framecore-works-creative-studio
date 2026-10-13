@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {spawnSync as spawnFontProbe} from 'node:child_process';
 import {validateScore,secondsAtFrame,reviewFrames,cueTimes,renderPaperFrame,renderToneCues} from '../skills/hyperframes-workflow/assets/motion-quality/score.mjs';
 import {loadLibrary,searchLibrary,presentEntry,validateLibrary,loadBriefIndex,matchBrief,presentBrief,validateBriefIndex,loadSnippets,validateSnippets,snippetContract} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
 const score=JSON.parse(fs.readFileSync(new URL('../skills/hyperframes-workflow/assets/motion-quality/example-score.json',import.meta.url),'utf8'));
@@ -79,7 +80,9 @@ test('brief tags name scene kinds that the linked contract shows',()=>{
   const errors=validateBriefIndex(index,entries).join('\n');
   assert.match(errors,/has no bar-chart scene/);assert.match(errors,/need a contract/);assert.match(errors,/contract must be null/);
 });
-test('twenty runnable snippets build complete storyboards that the renderer draws without cropping',async()=>{
+const arialLike=(()=>{const {spawnSync}={spawnSync:spawnFontProbe};const dir=new URL('../skills/hyperframes-workflow/assets/motion-render/',import.meta.url).pathname;const out=spawnSync('python3',['-B','-c',"import sys;sys.path.insert(0,sys.argv[1]);import render as r;f=r.font_files();print(any(r.find_font(n,False,f) for n in ('Arial','LiberationSans','Arimo','Helvetica')))",dir],{encoding:'utf8'});return out.stdout?.trim()==='True';})();
+const ARIAL_SKIP=!arialLike&&'no Arial or metric-compatible font (Liberation Sans, Arimo): these examples are laid out for Arial';
+test('twenty runnable snippets build complete storyboards that the renderer draws without cropping',{skip:ARIAL_SKIP},async()=>{
   const os=await import('node:os'),path=await import('node:path'),{spawnSync}=await import('node:child_process');
   const {checkScore}=await import('../skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs');
   const entries=loadLibrary(),file=loadSnippets();
