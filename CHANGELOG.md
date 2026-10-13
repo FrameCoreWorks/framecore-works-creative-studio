@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.76.0, 2026-10-13
+
+Fixes from the owner's evaluation of 1.75.0 ([record](docs/reviews/evaluation-1.75.0-2026-10-13.md)):
+
+- **No invisible text.** The static compositor stops with `text_overflow` when a text box lies outside the canvas (a price placed off the page rendered nothing and passed); the motion renderer stops when a persistent line or an active-word caption is wider than the frame
+- **Offers read right.** Prices entered gross are labelled as gross unit prices; negative hourly or day rates and negative extras are refused
+- **A new look needs a new approval.** A brand kit or a variant that changes colours or type puts the contract back to proposed
+- **Fonts.** When no Arial or metric-compatible font is installed, the motion renderer says so (`font_warning`); install Liberation Sans for the bundled examples
+- Repository: a release refuses a working tree with uncommitted changes, so unrelated drafts never ride along; release counts read both Node test reporters
+
 ## 1.75.0, 2026-10-13
 
 Fixes from the gap audit of 1.74.0 (owner's audit in Claude Code, [record](docs/reviews/gap-audit-2026-10-13.md)):
