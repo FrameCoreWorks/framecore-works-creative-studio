@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.78.0, 2026-10-14
+
+Owner decision after reviewing [motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) (Apache-2.0, idea only):
+
+- **No page chrome.** Motion Graphics Workflow checks plans and frames for the tells of a template film (a small label in a corner, a "02 / 04" counter, a timecode or progress bar, a kicker above a headline, the same left headline beside a card in scene after scene, a headline typed letter by letter) and removes what the idea does not need; a persistent logo, the offer, phone and address stay
+- Repository: host case G06 in `tests/host-evals/gaps.json` (passes before and after; after the change the reply states the rule); NOTICE credits the source
+
 ## 1.77.0, 2026-10-14
 
 Fixes from an external review of 1.76.0, each reproduced before the change ([decisions](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/argon-review-1.76.0-2026-10-13.md)):

@@ -1,0 +1,27 @@
+{
+  "version": "1.78.0",
+  "baseline_tag": "v1.77.0",
+  "baseline": "d48c049d3bbf9915f912b0c7a709c7db50811381",
+  "change_id": "CC-20261014-01",
+  "origin": "cloud-code",
+  "files": 1190,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1181,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Release 1.78.0 carries CC-20261014-01: after reviewing the motionmaxxing repository the owner chose one adoption, a page-chrome check in Motion Graphics Workflow's review (corner labels, counters, timecodes, progress bars, kickers, repeated slide layouts), with the ad's logo, offer, phone and address kept; host case G06 passes before and after, and after the change the reply states the rule."
+}
