@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.77.0, 2026-10-14
+
+Fixes from an external review of 1.76.0, each reproduced before the change ([decisions](docs/reviews/argon-review-1.76.0-2026-10-13.md)):
+
+- **Files stay in the project.** The motion renderer reads assets only from the contract's folder and font files only from that folder, the font folders it is given or the bundled fonts; the sound tool reads its WAV inputs only from the contract's folder
+- **Offers read right.** Hours and days lines show the quantity with the hourly or daily rate, a discount gets its own line, and no empty payment line appears
+- **Right clip, right timing, right check.** Clip review never matches shot S1 to `S10.mp4`; the voice-over budget counts the pause of a standalone dash and of a full stop inside quotes; the OCR copy check keeps signs, decimals and per cent and counts repeated words
+- **Versions keep their names.** Exports of `spot.v2.json` no longer overwrite those of `spot.v1.json` (variants, sheet export, prompt pack, edit export, board compositor)
+- **Polish copy.** "Ci klienci" is no longer flagged as mixed address; no-break spaces bind only after Polish one-letter words, never after "B" or English "A"
+- **UGC disclosure** goes both in the video (on screen and spoken) and at the start of the caption
+- Repository: the release job no longer installs the pilot from a Git URL; release branches and trailers come from the environment; CI runs the headless frame-review tests; NOTICE and LICENSE_STATUS list the components added after 1.0.0
+
 ## 1.76.0, 2026-10-13
 
 Fixes from the owner's evaluation of 1.75.0 ([record](docs/reviews/evaluation-1.75.0-2026-10-13.md)):
