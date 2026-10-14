@@ -76,8 +76,9 @@ def main():
     outputs = []
     outputs.extend(package(PLUGIN, name, name + '-' + version + '.zip'))
     # The archive must hold exactly the declared files: paths, sizes and hashes.
-    packed = json.loads(outputs[1].read_text())['files']
-    if packed != declared['files']:
+    # (Compared by path: the two inventories may list the same files in a different order.)
+    packed = {entry['path']: entry for entry in json.loads(outputs[1].read_text())['files']}
+    if packed != {entry['path']: entry for entry in declared['files']}:
         raise SystemExit('The plugin ZIP differs from config/install-sources.json; rebuild the manifest from a clean tree')
     outputs.extend(package(ROOT, ROOT.name, 'framecore-works-creative-studio-' + version + '-repository.zip'))
     # The motion player: the single-file preview template, byte for byte, as a standalone download.
