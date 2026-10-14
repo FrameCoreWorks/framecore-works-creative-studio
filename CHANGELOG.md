@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.81.0, 2026-10-14
+
+Fixes from the owner's technical audit of 1.80.0, each with a regression test ([fixes](docs/reviews/technical-audit-1.80.0-2026-10-14.md)):
+
+- **Approvals stay honest.** Importing captions into a contract makes a new revision that needs approval again (Python and Node tools); exact copy must appear whole and in order within one frame (10 is not 100, "do not buy" is not "do buy not"); the technical verdict fails a file whose picture or audio runs longer than the contract
+- **Exports keep their picture and timing.** HTML capture pads short audio instead of cutting the film to it and checks the encoded frame count; the browser MP4 writer stores composition offsets correctly; extending a scene moves active-word caption timings with it
+- **Without code execution** Studio gives the contract and the motion player first, instead of asking to switch on a shell
+- **Environment check.** A program that does not run is reported missing; Node.js below HyperFrames' minimum fails the check where HyperFrames runs; printed install commands keep folder names literal; an older HyperFrames on a host that cannot run it is never shown as usable
+- **Asset check.** A grey subject moved between the white and black versions is refused; a fully transparent file is not an asset
+- Learning mode returns to the complete welcome with all its options
+- Repository: publication commits only its records, refuses a dirty tree and stops when a downloaded asset differs; manifest and ZIP share one file rule and are compared after packing; the host-eval harness pairs tool calls with their results, counts questions in lists, keeps usage of finished turns, and stops when an API key is set unless the owner allows it; stronger checks for M04, M05, X02 and X03
+
 ## 1.80.0, 2026-10-14
 
 From a production session on 2026-10-14 (a lyric video built from assets the user generated in Gemini) and its handover:

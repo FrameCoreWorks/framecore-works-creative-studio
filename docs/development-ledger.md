@@ -2029,3 +2029,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `8eba8c0`; workflows Publish verified Studio release 38573157444, Check Studio sources 38573158950, Check Studio sources 38573157367, Refresh current release notes 38573157239: success; [v1.80.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.80.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1194 of 1194) ([record](../verification/github-publication-1.80.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261014-04
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `dcb0aa9` (main, package 1.80.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.81.0)
+- Package version: 1.80.0 -> 1.81.0
+- Scope: Release 1.81.0 carries CC-20261014-04: all 18 findings of the owner's technical audit of 1.80.0 and the two earlier asset findings fixed with regression tests (publication integrity, manifest and ZIP rule, environment check runnability, Node minimum, literal paths and host normalization; MP4 composition offsets, exact copy order, caption approval, audio length, word retiming, playback length; harness questions, tool results, billing guard and partial usage; learning-mode welcome; asset shift and empty files). Live runs: gate 5/5; stronger M04 and X03 checks found the no-code route skipped, fixed in SKILL.md, then passed.
+- Shared package changed: yes; 24 changed, 0 added, 0 removed ([scope](../verification/scope-1.81.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 219 Node tests (211 passing, 8 opt-in browser tests skipped there and run separately: 82 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 8 Claude plugin and guides, 6 release helper, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 17 caption, 22 environment check, 19 motion acceptance, 6 motion fonts, 10 motion kinds, 10 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 15 static render, 7 print PDF, 6 Polish copy check, 6 image probe, 11 quote calculator, 6 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 3 clip review, 5 SVG wordmark (5 skipped without optional dependencies), 5 brand guide, 4 motion activity, 9 lyric timing, 4 technique atlas, 9 motion assets, 18 host-eval harness: PASS ([record](../verification/release-1.81.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run
