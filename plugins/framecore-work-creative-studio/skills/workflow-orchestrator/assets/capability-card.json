@@ -4,7 +4,7 @@
   "path_base": "plugin_root",
   "scope": "What Studio executes itself with bundled tools, what each tool needs from the host, what it delivers and what to deliver instead when a requirement is missing. Host tools and external providers are listed only to mark the boundary. A requirement is checked in the current host before a file is promised; a listed observation is past evidence, not a guarantee for another host or day.",
   "host_profiles": {
-    "code_execution": "The conversation can run Python in a sandbox (ordinary ChatGPT or ChatGPT Work with code execution). Whether Node.js, ffmpeg, numpy or a browser exist there is checked by trying, not assumed.",
+    "code_execution": "The conversation can run Python in a sandbox (ordinary ChatGPT or ChatGPT Work with code execution). Whether Node.js, ffmpeg, numpy or a browser exist there is checked by trying, not assumed. ChatGPT Work's sandbox had Node.js, FFmpeg, Chromium and the npm registry (owner test 2026-10-14), so HyperFrames installs there on request for the session.",
     "shell": "A local shell, for example Codex or a local project, usually with Python, Node.js 20 and sometimes a local Chrome or Chromium.",
     "none": "No code execution, for example voice or a host with code execution switched off. Studio writes text, contracts and prompts only."
   },
@@ -270,6 +270,7 @@
       ],
       "optional": [],
       "hosts": [
+        "code_execution",
         "shell"
       ],
       "delivers": "text-audit.json and a phone-scale contact sheet with cut words outlined; exit code 1 when a word is cut in a hold",
@@ -625,7 +626,7 @@
       "id": "hyperframes_engine",
       "executed_by": "external",
       "owner": "hyperframes-workflow",
-      "does": "HeyGen's open HyperFrames framework, installed on request in a shell host, builds and renders HTML compositions: launch films from a website, longer narrated videos, word-level captions, music-driven edits",
+      "does": "HeyGen's open HyperFrames framework, installed on request in a shell host or, for the session, in the ChatGPT Work sandbox, builds and renders HTML compositions: launch films from a website, longer narrated videos, word-level captions, music-driven edits",
       "tools": [],
       "requires": [
         "node",
@@ -637,11 +638,12 @@
         "host_tool"
       ],
       "hosts": [
+        "code_execution",
         "shell"
       ],
       "delivers": "An MP4 rendered by HyperFrames from the approved brief, reviewed by the Motion Graphics Workflow before delivery",
       "when_missing": "The bundled route: the Python renderer or the motion player, with Studio's sound design and captions tool",
-      "observed": "2026-10-09: the owner reported a high-quality reel made in the HyperFrames Studio app from a shop link; no HyperFrames render has run through Studio"
+      "observed": "2026-10-09: the owner reported a high-quality reel made in the HyperFrames Studio app from a shop link; no HyperFrames render has run through Studio; 2026-10-14: in ChatGPT Work the owner had the CLI installed on request and a 1080x1920 test rendered (check --strict passed)"
     },
     {
       "id": "image_generation",

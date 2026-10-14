@@ -372,6 +372,10 @@ def report(args):
                 found = results[tool['id']].get('skills') or [results[tool['id']].get('path')]
                 results[tool['id']]['note'] = 'files present (' + ', '.join(str(f) for f in found if f) + '), but this host cannot run it'
             results[tool['id']]['status'] = 'not_on_this_host'
+        # In a chat sandbox that can install HyperFrames (ChatGPT Work), its skills alone do not render: the CLI must be there.
+        elif entry and tool['kind'] == 'hyperframes' and results[tool['id']]['status'] == 'ok' and not results[tool['id']]['version'] \
+                and next((h['profile'] for h in spec['hosts'] if h['id'] == host), None) == 'code_execution':
+            results[tool['id']]['status'], results[tool['id']]['note'] = 'missing', 'skills found, but this sandbox renders only with the CLI installed for the session'
     state = requirement_state(spec['tools'], results, network)
     profile = next((h['profile'] for h in spec['hosts'] if h['id'] == host), None)
     return {

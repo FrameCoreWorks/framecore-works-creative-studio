@@ -216,11 +216,16 @@ class Hosts(unittest.TestCase):
             real = pathlib.Path(home, '.agents/skills/hyperframes')
             real.mkdir(parents=True)
             (real / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
-            _, report, _ = run_check('--host', 'chatgpt_work', home=home, project=project)
+            _, report, _ = run_check('--host', 'chatgpt', home=home, project=project)
             tool = by_id(report['tools'])['hyperframes']
             self.assertEqual(tool['status'], 'not_on_this_host')
             self.assertIn('this host cannot run it', tool['note'])
             self.assertIn(str(real), tool['note'])
+            # ChatGPT Work installs the CLI on request for the session (owner test 2026-10-14); skills alone do not render.
+            _, report, _ = run_check('--host', 'chatgpt_work', home=home, project=project)
+            tool = by_id(report['tools'])['hyperframes']
+            self.assertEqual(tool['status'], 'missing')
+            self.assertIn('CLI', tool['note'])
             _, report, _ = run_check('--host', 'codex', home=home, project=project)
             self.assertEqual(by_id(report['tools'])['hyperframes']['status'], 'ok', 'on Codex the skills count')
 

@@ -136,7 +136,10 @@ test('HyperFrames is an optional engine under Studio routing, never selected by 
   assert.match(engine, /only when the user asks for it and has a HeyGen account/);
   assert.match(read('skills/hyperframes-workflow/SKILL.md'), /\(references\/hyperframes-engine\.md\)/);
   const card = JSON.parse(read('skills/workflow-orchestrator/assets/capability-card.json'));
-  assert.deepEqual(card.capabilities.find(item => item.id === 'hyperframes_engine').hosts, ['shell']);
+  // A shell host, or ChatGPT Work's sandbox, where the CLI installs on request for the session (owner test 2026-10-14).
+  assert.deepEqual(card.capabilities.find(item => item.id === 'hyperframes_engine').hosts, ['code_execution', 'shell']);
+  const hosts = JSON.parse(read('skills/workflow-orchestrator/assets/environment-check/tools.json')).tools.find(tool => tool.id === 'hyperframes').hosts;
+  assert.deepEqual([hosts.chatgpt.status, hosts.chatgpt_work.status, hosts.claude_apps.status], ['not_supported', 'install', 'not_supported']);
 });
 
 test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {

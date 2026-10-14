@@ -42,7 +42,7 @@ It then reads the [capability card](../capability-card.json) and marks each capa
 | --- | --- | --- |
 | `pass` | 0 | Every required tool is usable; the installation is complete |
 | `fail` | 1 | On Codex or Claude Code, something is missing, too old or of another version; install it with the printed commands and run the final check again |
-| `limited` | 3 | In a chat sandbox (ChatGPT, ChatGPT Work, Claude apps) something is missing that the user cannot install there; the plugin is installed, and Studio names these limits and uses the capability card's alternatives |
+| `limited` | 3 | In a chat sandbox (ChatGPT, ChatGPT Work, Claude apps) something is missing; the plugin is installed, and Studio names these limits and uses the capability card's alternatives. In ChatGPT Work, HyperFrames can be installed on request for the session (`install` in the table below) |
 | `unknown_host` | 2 | The host was not detected; name it with `--host` |
 
 The installation guides (`CODEX_INSTALL.md`, `CHATGPT_INSTALL.md`, `CLAUDE_INSTALL.md`) end with this check and report its verdict.
@@ -78,21 +78,21 @@ The required set, for every host the plugin runs in. The validator checks that e
 | Manim Community (mathematical animation) | check | check | install | install | check |
 | FFmpeg | observed | observed | install | install | check |
 | FFprobe (comes with FFmpeg) | check | check | install | install | check |
-| Node.js | check | check | install | install | check |
-| npx (comes with Node.js) | check | check | install | install | check |
-| Chrome or Chromium | check | check | install | install | check |
+| Node.js | check | observed | install | install | check |
+| npx (comes with Node.js) | check | observed | install | install | check |
+| Chrome or Chromium | check | observed | install | install | check |
 | Remotion kinetic type starter (Remotion, React, TypeScript) | not_supported | not_supported | per_project | per_project | not_supported |
 | GSAP motion starter | not_supported | not_supported | per_project | per_project | not_supported |
 | Remotion 3D example (Three.js, React Three Fiber) | not_supported | not_supported | per_project | per_project | not_supported |
 | Remotion glTF product turntable | not_supported | not_supported | per_project | per_project | not_supported |
 | Motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild) | not_supported | not_supported | per_project | per_project | not_supported |
 | Animate engine (procedural canvas films, Playwright) | not_supported | not_supported | per_project | per_project | not_supported |
-| HyperFrames (engine) | not_supported | not_supported | install | install | not_supported |
+| HyperFrames (engine) | not_supported | install | install | install | not_supported |
 <!-- END HOST MATRIX -->
 
 - **observed:** the owner reported it working on that host (the evidence is in `tools.json`); the check still runs before a file is promised.
 - **check:** may be present in that host's code sandbox; only running the check shows it. Sandbox contents differ between accounts and change over time.
-- **install:** the user's own machine (Codex, Claude Code); the check lists the install command when it is missing.
+- **install:** the user's own machine (Codex, Claude Code), or the ChatGPT Work sandbox for that session only (HyperFrames); the check lists the install command when it is missing, and nothing is installed without the user's agreement.
 - **per_project:** installed into the Studio workspace with `npm ci`, which needs network once.
 - **not_supported:** that host cannot run it; Studio delivers the capability card's alternative (for example the bundled Python renderer instead of Remotion or HyperFrames).
 
