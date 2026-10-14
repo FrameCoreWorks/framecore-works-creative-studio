@@ -37,3 +37,4 @@ Third-party components (added after 1.0.0; MIT unless stated; each folder keeps 
 - gongnyang/awesome-ai-motion, commit 1e3c249073c61b42ceb556d7800f628d565d9312, Copyright (c) 2026 gongnyang, MIT: English card text only, in skills/hyperframes-workflow/assets/technique-atlas/ (its README.md carries the licence text).
 - heygen-com/hyperframes, commit 86521b94f592bcf0ca86aba63068893cf658af16, Apache-2.0: registry block names only, listed in the technique atlas; no HyperFrames code is bundled.
 - Fonts in skills/pipeline-core/assets/fonts/ (Anton, Archivo, Bricolage Grotesque, Fraunces, Inter, Source Serif 4): SIL Open Font License 1.1; each family folder keeps its OFL.txt with the copyright notice.
+- Tejashmakwana/motionmaxxing, commit 8c8ec0f2a6f6c9a0da15cd24f7b1298ab298368c, Copyright Tejas Makwana, Apache-2.0: the page-chrome review idea only, restated in Studio's own words in skills/hyperframes-workflow/SKILL.md; no code, media or text is copied.

@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-14",
+  "package_version": "1.77.0",
+  "source": {
+    "commit": "9cefe9c7ffcb8bbdba0f72e1dda24055e79b34cb",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.299, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2,
+      "output": 4382,
+      "cache_read": 11035,
+      "cache_write": 9837
+    },
+    "seconds": 42.8
+  },
+  "cases": [
+    {
+      "id": "G06",
+      "title": "A planned reel carries no page chrome and keeps the ad's real information (motionmaxxing review, owner 2026-10-14)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2,
+        "output": 4382,
+        "cache_read": 11035,
+        "cache_write": 9837
+      },
+      "seconds": 42.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:hyperframes-workflow Zaplanuj kadry 15-sekundowej rolki 9:16 dla pizzerii Forno Nero, którą zbuduję w HyperFrames. Hasło: „Pizza z pieca opalanego drewnem”. Oferta: −20% we wtorki. Telefon 600 100 200, ul. Długa 5. Pomysł wybierz sam. Daj tabelę kadrów z opisem, co i gdzie jest na ekranie.",
+          "reply": "# Forno Nero – rolka 9:16, 15 s: plan kadrów\n\n**Odrzuciłem:** wyciągany ser, drewniane tło w czerwieni i brązie oraz zwykłe ujęcia płomieni.\n\n**Pomysł: „Jedna piąta”.** Pizza dzieli się na 5 równych kawałków, jeden odjeżdża i staje się plakietką „−20%”. Rabat jest więc widoczny jako kawałek, który dostajesz taniej. Ogień z pieca (żar, potem łuk wlotu pieca) otwiera film, a na końcu wraca jako zamknięcie.\n\n## Ustalenia\n\n| Status | Treść |\n|---|---|\n| **Potwierdzone** | Forno Nero · 15 s · 9:16 (1080×1920) · hasło „Pizza z pieca opalanego drewnem” · −20% we wtorki · tel. 600 100 200 · ul. Długa 5 |\n| **Proponuję** | 30 fps = 450 klatek · pizza narysowana wektorowo (SVG/CSS, widok z góry) · kolory: czerń `#0E0B09`, żar `#FF6A1A`, krem `#F4E9D8` · cały tekst w obrębie y 250–1500 (roboczy margines na interfejs aplikacji) |\n| **Nieznane** | logo i fonty marki (zakładam napis „FORNO NERO” w kroju z Twojego projektu) · zdjęcia pizzy (bez nich zostaje wersja wektorowa) · dźwięk (domyślnie film jest niemy) · czy margines y 250–1500 pasuje do platformy |\n\n## Tabela kadrów (płótno 1080×1920, współrzędne to środek elementu)\n\n| # | Czas (klatki) | Co się dzieje | Gdzie na ekranie | Tekst |\n|---|---|---|---|---|\n| 1 | 0,0–2,5 s (0–75) | Czarny ekran. Iskra rośnie w żar, żar w świecący łuk wlotu pieca. Migotanie liczone z ziarna (bez losowości zegarowej). | Iskra (540, 1000). Łuk rozciąga się do ok. 700×800 px wokół środka. | brak |\n| 2 | 2,5–6,0 s (75–180) | Łuk otwiera się jak maska i odsłania pizzę. Hasło wchodzi słowo po słowie co 0,08 s, ease `power3.out`, 0,5 s na słowo. Pełne hasło stoi ≥ 1,5 s. | Logo (540, 280), wys. ok. 44 px. Hasło w 3 liniach (540, 360–600), ok. 80 px, krem. Pizza (540, 1020), średnica 720. | „FORNO NERO” · „Pizza z pieca / opalanego / drewnem” |\n| 3 | 6,0–9,5 s (180–285) | Żarzące się linie wycinają pizzę na 5 równych kawałków. Kawałki unoszą się o ok. 12 px, hasło gaśnie do 0 w 0,4 s. | Pizza bez zmian (540, 1020). Linie żar-pomarańcz. Pod nią, wejście od 7,5 s: napis wtorku (540, 1450), 64 px. | „WE WTORKI” |\n| 4 | 9,5–11,5 s (285–345) | Jeden kawałek odjeżdża łukiem w górę, rośnie i zamienia się w plakietkę klinową. Pozostałe 4 zsuwają się niżej i zmniejszają. Przejście 0,6 s, `power2.inOut`. Plakietka ma ≥ 1,2 s postoju. | Plakietka (540, 700), szer. ok. 420, „−20%” ok. 150 px, krem na żarze. Pozostałe 4 kawałki (540, 1250), średnica 600. „WE WTORKI” przesuwa się pod plakietkę (540, 900). | „−20%” · „WE WTORKI” |\n| 5 | 11,5–15,0 s (345–450) | Pizza przygasa do ok. 25%. Plakietka zmniejsza się i zostaje na stałe. Telefon i adres wchodzą kolejno. Żar z kadru 1 wraca jako ciepła poświata pod tekstem. Końcowy postój ≥ 2,0 s (od 13,0 s). | Logo (540, 420), 60 px. Plakietka z „−20% we wtorki” (540, 640), szer. ok. 300. Telefon (540, 1100), 84 px, krem, najmocniejszy element. Adres (540, 1220), 44 px. Przygaszona pizza w tle (540, 1300). | „FORNO NERO” · „−20% we wtorki” · „600 100 200” · „ul. Długa 5” |\n\n## System ruchu\n\n- **Wejścia:** ease `power3.out`, 0,4–0.6 s, stagger 0,08 s.\n- **Przejścia:** maska łuku w kadrze 2, transformacja kawałka w kadrze 4. Bez przenikań.\n- **Postoje:** hasło ≥ 1,5 s, plakietka ≥ 1,2 s, telefon i adres ≥ 2,0 s.\n- **Bez ozdobników:** żadnych liczników, pasków postępu ani małych etykiet w rogach.\n- **Elementy stałe:** logo i oferta są zawsze na ekranie od kadru 2 (oferta od 4).\n\n## Do sprawdzenia po zbudowaniu\n\n- Klatki 0, 449, początek i koniec każdego postoju, obie strony każdego przejścia.\n- Czytelność telefonu i hasła w skali telefonu.\n- Czy żaden tekst nie wychodzi poza y 250–1500.\n\nNic tu nie zostało zbudowane ani wyrenderowane, więc podgląd i eksport mają status NOT VERIFIED.\n\n**Co mam przygotować dalej?** Mogę przepisać plan na plik kontraktu `.motion.json` albo na szkielet kompozycji HyperFrames (HTML + GSAP) z tymi czasami i współrzędnymi. Wystarczy powiedzieć, które.",
+          "reply_chars": 3888,
+          "reply_sha256": "8893e671755eb53ca26997cf1b34486eafeb28626b62246558e775091b3e35d4",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 4382,
+            "cache_read": 11035,
+            "cache_write": 9837
+          },
+          "seconds": 42.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)\\b0?[1-9] ?/ ?0?[2-9]\\b|licznik (scen|kadr|ujęć)|numer (sceny|kadru) na ekranie"
+              },
+              "passed": true,
+              "detail": "not /(?i)\\b0?[1-9] ?/ ?0?[2-9]\\b|licznik (scen|kadr|ujęć)|numer (sceny|kadru) na ekranie/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)pas(ek|ka|kiem) postępu|progress bar|timecode|kod czasowy"
+              },
+              "passed": true,
+              "detail": "not /(?i)pas(ek|ka|kiem) postępu|progress bar|timecode|kod czasowy/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)\\bkicker\\b|nadtytu|eyebrow"
+              },
+              "passed": true,
+              "detail": "not /(?i)\\bkicker\\b|nadtytu|eyebrow/"
+            },
+            {
+              "check": {
+                "regex": "600 100 200"
+              },
+              "passed": true,
+              "detail": "/600 100 200/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

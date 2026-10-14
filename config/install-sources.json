@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 4960,
-      "sha256": "43a9b463ff7d978a55bc6554d1f00442a126d9bf85484bed1869596d58ee26b3"
+      "bytes": 5217,
+      "sha256": "fe4e88d09850fc13f8111cba8a760b8b9613906f604ee947882b19262671fe7e"
     },
     {
       "path": "README.md",
@@ -3013,8 +3013,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 16024,
-      "sha256": "c3f1065143bbc6ce7a5ff120cefe4b7563caf72e809e9a35bf389b393dec8402"
+      "bytes": 16683,
+      "sha256": "de20d905c88adaf4f0e918a90c970c93340c397bd311640885bd6310f9245eb9"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
