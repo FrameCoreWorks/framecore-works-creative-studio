@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.79.0, 2026-10-14
+
+From the owner's ChatGPT Work test of 1.78.0 (2026-10-14): the sandbox had Node.js 24, FFmpeg 6.1, Chromium 153 and the npm registry, installed the HyperFrames CLI on request and rendered a 1080x1920 test; Studio had said HyperFrames could not run there.
+
+- **HyperFrames in ChatGPT Work.** Motion Graphics Workflow offers to install the pinned HyperFrames CLI for the session when the check finds Node.js, FFmpeg, Chromium and the npm registry, runs `doctor` and a short test render, then builds client reels there as in Claude Code; the install lasts only for that session
+- **Environment check.** On ChatGPT Work, Node.js, npx and Chromium are observed and HyperFrames is installable (`install`), with the session install command; HyperFrames skills without the CLI count as missing there. Ordinary ChatGPT and the Claude apps are unchanged
+- Capability card and runtime map: the HyperFrames engine and the visible-text audit are open to a code sandbox whose check finds their needs
+
 ## 1.78.0, 2026-10-14
 
 Owner decision after reviewing [motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) (Apache-2.0, idea only):

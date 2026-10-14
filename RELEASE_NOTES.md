@@ -1,5 +1,5 @@
-# Creative Studio 1.78.0
+# Creative Studio 1.79.0
 
-- **Less template, more design.** Motion videos are checked for slide-like details (corner labels, scene counters, progress bars, labels above headlines) and lose the ones the idea does not need. Your logo, offer, phone and address stay.
+- **HyperFrames now works in ChatGPT Work.** When your sandbox has the tools (Node.js, FFmpeg, Chromium), Studio offers to install HyperFrames for the conversation and renders client reels with it, as in Claude Code. The install lasts for that conversation.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).
