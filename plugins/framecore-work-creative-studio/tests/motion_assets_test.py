@@ -91,6 +91,21 @@ class Check(unittest.TestCase):
         self.assertEqual(report['verdict'], 'REPAIR')
         self.assertFalse(out.exists())
 
+    def test_a_grey_subject_that_moved_is_refused_too(self):
+        # Audit ASSET-01: a grey subject's difference has no colour, so only its edges show the move.
+        white = disc(fill=(128, 128, 128, 255), background=(255, 255, 255, 255), mode='RGBA').convert('RGB')
+        black = disc(fill=(128, 128, 128, 255), background=(0, 0, 0, 255), mode='RGBA', offset=20).convert('RGB')
+        aligned = disc(fill=(128, 128, 128, 255), background=(0, 0, 0, 255), mode='RGBA').convert('RGB')
+        moved = ac.difference_matte(self.save(white, 'w.png'), self.save(black, 'b.png'), str(self.dir / 'moved.png'))
+        self.assertEqual(moved['verdict'], 'REPAIR')
+        kept = ac.difference_matte(self.save(white, 'w2.png'), self.save(aligned, 'b2.png'), str(self.dir / 'kept.png'))
+        self.assertEqual(kept['verdict'], 'PASS', kept)
+
+    def test_a_fully_transparent_file_is_not_an_asset(self):
+        report = ac.check_file(self.save(Image.new('RGBA', (200, 200), (0, 0, 0, 0)), 'empty.png'))
+        self.assertEqual(report['verdict'], 'REPAIR')
+        self.assertIn('nothing visible', report['problems'][0])
+
     def test_chroma_key_cuts_a_solid_subject_and_refuses_one_with_its_own_green(self):
         grey = self.save(disc(fill=(120, 120, 130, 255), background=(0, 255, 0, 255), mode='RGBA'), 'grey.png')
         out = self.dir / 'grey-cut.png'

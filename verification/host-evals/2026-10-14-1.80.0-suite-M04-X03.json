@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-14",
+  "package_version": "1.80.0",
+  "source": {
+    "commit": "dcb0aa9c302c7638a580ba8141e75310d76a3544",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.300, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3774,
+      "output": 11177,
+      "cache_read": 323358,
+      "cache_write": 85237
+    },
+    "seconds": 81.1
+  },
+  "cases": [
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1274,
+        "output": 4073,
+        "cache_read": 63916,
+        "cache_write": 26484
+      },
+      "seconds": 36.7,
+      "wall_seconds": 36.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
+          "reply": "Nie wyrenderowałem pliku MP4. W tej sesji nie mam powłoki ani wykonywania kodu, tylko odczyt i wyszukiwanie. Nie mogę więc uruchomić renderera ani zapisać pliku, a nie chcę udawać, że wideo istnieje. Poniżej jest kompletny kontrakt animacji. Wgrany do odtwarzacza, wyeksportuje MP4.\n\n## Storyboard (1080×1920, 30 fps, 180 klatek = 6 s, bez dźwięku)\n\n| # | Klatki | Co widać | Ruch |\n|---|---|---|---|\n| 1 | 0–84 | Duży napis **Kłos** na kremowym tle, w kolorze ciemnego brązu | Wyłania się spod maski od dołu, czytelny od klatki ok. 28 do 70, potem łagodnie znika |\n| 2 | 72–180 | **Świeży chleb** / **codziennie** w dwóch liniach | Linie wyjeżdżają kolejno spod masek, ostatnie ok. 2,5 s to stały, czytelny kadr końcowy |\n\n- **Paleta:** krem `#F4E9D4`, brąz `#3B2314`, akcent złoty `#C98B2B`.\n- **Czcionka:** Inter, ma pełne polskie znaki (ł, Ś, ż).\n- **Napis zamiast logo:** nazwa „Kłos\" jest tylko tekstem, bez wymyślonego znaku.\n\nWybór palety, czcionki i podziału hasła na dwie linie to moja propozycja. Daj znać, jeśli chcesz inną.\n\n## Kontrakt `klos-bakery.motion.json`\n\n```json\n{\n  \"schema_version\": 1,\n  \"id\": \"klos-bakery\",\n  \"revision\": 1,\n  \"approval\": {\"status\": \"approved\", \"revision\": 1, \"evidence\": \"Bezpośrednia prośba użytkownika o 6-sekundową animację dla piekarni Kłos\"},\n  \"stage\": \"build\",\n  \"goal\": \"Pokazać nazwę piekarni i hasło w 6 s\",\n  \"audience\": \"Klienci piekarni w mediach społecznościowych (pionowo, pełny ekran telefonu)\",\n  \"message\": \"Świeży chleb codziennie\",\n  \"concept\": \"Najpierw nazwa, potem obietnica: dwa czytelne ujęcia bez ozdobników\",\n  \"runtime\": {\"status\": \"proposed\", \"value\": \"motion player / Python renderer\"},\n  \"viewing\": \"9:16 pełny ekran telefonu\",\n  \"audio\": \"Celowa cisza, brak ścieżki dźwiękowej\",\n  \"decisions\": {\n    \"confirmed\": [\"Nazwa: Kłos (napis, brak logo)\", \"Hasło: Świeży chleb codziennie\", \"6 s, pionowo, bez dźwięku\"],\n    \"proposed\": [\"Paleta krem/brąz/złoto\", \"Czcionka Inter\", \"Podział hasła na dwie linie\"],\n    \"unknown\": [\"Dane kontaktowe i adres (nie podano, nie dodaję)\"]\n  },\n  \"fps\": {\"num\": 30, \"den\": 1},\n  \"totalFrames\": 180,\n  \"width\": 1080,\n  \"height\": 1920,\n  \"tokens\": {\n    \"background\": \"#F4E9D4\",\n    \"text\": \"#3B2314\",\n    \"accent\": \"#C98B2B\",\n    \"fontFamily\": \"Inter, sans-serif\",\n    \"margin\": 0.08\n  },\n  \"motion\": {\"tempo\": \"calm\", \"easing\": \"easeOutCubic\", \"entryFrames\": 18, \"exitFrames\": 12, \"lineStaggerFrames\": 8},\n  \"copy\": {\n    \"name\": \"Kłos\",\n    \"tag1\": \"Świeży chleb\",\n    \"tag2\": \"codziennie\"\n  },\n  \"copyStatus\": \"approved\",\n  \"assets\": [],\n  \"acceptance\": [\n    \"Napis „Kłos” jest w pełni widoczny i czytelny w klatkach 28–70\",\n    \"„Świeży chleb” i „codziennie” są w pełni widoczne w klatkach 112–179, ze wszystkimi polskimi znakami\",\n    \"Brak dźwięku w pliku i brak elementów poza kadrem\"\n  ],\n  \"scenes\": [\n    {\n      \"id\": \"name\", \"purpose\": \"Przedstawić piekarnię\",\n      \"kind\": \"line-reveal\", \"params\": {\"lines\": [\"name\"], \"sizes\": [300], \"weights\": [800], \"align\": \"center\"},\n      \"start\": 0, \"end\": 84, \"copy\": [\"name\"], \"holds\": [[28, 70]],\n      \"focalPoint\": \"środek kadru\", \"entry\": \"wyjazd spod maski\", \"action\": \"spokojny postój\", \"exit\": \"krótki zanik\",\n      \"transition\": \"krótkie nałożenie na scenę 2\", \"persistence\": \"brak\", \"audio\": \"cisza\"\n    },\n    {\n      \"id\": \"tagline\", \"purpose\": \"Obietnica świeżości\",\n      \"kind\": \"line-reveal\", \"params\": {\"lines\": [\"tag1\", \"tag2\"], \"sizes\": [140, 140], \"weights\": [800, 500], \"align\": \"center\"},\n      \"start\": 72, \"end\": 180, \"copy\": [\"tag1\", \"tag2\"], \"holds\": [[112, 180]],\n      \"focalPoint\": \"środek kadru\", \"entry\": \"linie kolejno spod masek\", \"action\": \"kadr końcowy\", \"exit\": \"brak (ostatnia scena)\",\n      \"transition\": \"-\", \"persistence\": \"brak\", \"audio\": \"cisza\"\n    }\n  ]\n}\n```\n\n## Jak z tego zrobić MP4\n1. Zapisz kontrakt jako `klos-bakery.motion.json`.\n2. Otwórz odtwarzacz: <https://framecoreworks.github.io/framecore-works-creative-studio/>.\n3. Wybierz **Open contract**, obejrzyj podgląd i wyeksportuj wideo.\n\n**Stan weryfikacji:** podgląd, eksport i kontrola klatek są NIEZWERYFIKOWANE. Nie sprawdziłem też kontrolerem `check-score.mjs`, bo nie mam jak go uruchomić. Układ i czytelność zweryfikuję dopiero po obejrzeniu podglądu. Jeśli uruchomisz mnie w środowisku z powłoką, Node, FFmpeg i Chrome, wyrenderuję MP4 sam. Kontrakt jest gotowy do tego bez zmian.",
+          "reply_chars": 4354,
+          "reply_sha256": "095875ef096ba643df9c7dce7361669ea6a36a199c5eef36ad8ee7e9371c4f8a",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1274,
+            "output": 4073,
+            "cache_read": 63916,
+            "cache_write": 26484
+          },
+          "seconds": 36.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar",
+                  "framecoreworks.github.io",
+                  "Open contract"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['odtwarzacz', 'player', 'framecoreworks.github.io', 'Open contract']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(wyrenderowa(łem|łam|no|ny)|oto (gotowy|twój) (plik )?mp4|plik mp4 jest gotowy|here is (the|your) (rendered )?mp4)"
+              },
+              "passed": false,
+              "detail": "not /(?i)(wyrenderowa(łem|łam|no|ny)|oto (gotowy|twój) (plik )?mp4|plik mp4 jest gotowy|here is (the|your) (rendered )?mp4)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "X03",
+      "title": "Handoff: after the storyboard is approved, the motion contract follows it without re-asking",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2500,
+        "output": 7104,
+        "cache_read": 259442,
+        "cache_write": 58753
+      },
+      "seconds": 44.4,
+      "wall_seconds": 44.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 z napisem „Nurt” i hasłem „Spływy od maja”. Bez logo, bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania, bez powłoki, uruchamiania kodu i zapisu plików. Nie ma więc pliku wideo. Poniżej jest gotowy kontrakt ruchu, który odtworzy i wyeksportuje do MP4 [odtwarzacz Studio](https://framecoreworks.github.io/framecore-works-creative-studio/) (Open contract). Ani kontraktu, ani eksportu nie sprawdzałem, więc ich stan to NOT VERIFIED.\n\n**Storyboard (1080×1920, 30 fps, 180 klatek = 6 s, cisza)**\n\n| Klatki | Scena | Co widać |\n|---|---|---|\n| 0–180 | `line-reveal` | „Nurt” bardzo dużym krojem wyjeżdża z maski (ok. 0,3 s). Około 1,2 s później pod nim wyjeżdża „Spływy od maja”. Od ok. 2,2 s do końca oba napisy stoją nieruchomo, bez wyjścia. |\n\nTło jest ciemnogranatowe, kolor akcentu to turkus. Nie ma logo ani dźwięku.\n\n**Kontrakt `nurt.motion.json`**\n\n```json\n{\n  \"schema_version\": 1,\n  \"id\": \"nurt\",\n  \"revision\": 1,\n  \"approval\": {\"status\": \"approved\", \"revision\": 1, \"evidence\": \"Użytkownik poprosił o 6-sekundową animację z napisem „Nurt” i hasłem „Spływy od maja”.\"},\n  \"stage\": \"build\",\n  \"goal\": \"Zapowiedź sezonu spływów\",\n  \"audience\": \"Osoby szukające spływów\",\n  \"message\": \"Spływy od maja\",\n  \"concept\": \"Duża nazwa wypływa z maski jak z wody, hasło dopływa pod nią i oba napisy zostają na ekranie.\",\n  \"runtime\": {\"status\": \"proposed\", \"value\": \"python-renderer / motion player\"},\n  \"viewing\": \"telefon, pion 9:16\",\n  \"audio\": \"Celowa cisza, bez ścieżki dźwiękowej.\",\n  \"decisions\": {\"confirmed\": [\"napisy\", \"6 s\", \"pion\", \"bez logo\", \"bez dźwięku\"], \"proposed\": [\"paleta granat/turkus\", \"krój i rozmiary\"], \"unknown\": []},\n  \"fps\": {\"num\": 30, \"den\": 1},\n  \"totalFrames\": 180,\n  \"width\": 1080,\n  \"height\": 1920,\n  \"tokens\": {\n    \"background\": \"#0B1F33\",\n    \"text\": \"#F4F1EA\",\n    \"accent\": \"#2EC4B6\",\n    \"fontFamily\": \"Inter, sans-serif\",\n    \"margin\": 0.08\n  },\n  \"motion\": {\"tempo\": \"calm\", \"easing\": \"easeOutCubic\", \"entryFrames\": 18, \"lineStaggerFrames\": 30},\n  \"copy\": {\"title\": \"Nurt\", \"tagline\": \"Spływy od maja\"},\n  \"copyStatus\": \"approved\",\n  \"assets\": [],\n  \"acceptance\": [\n    \"Na klatce 179 widać oba napisy w całości, bez przycięcia.\",\n    \"Nie ma logo ani żadnego elementu poza dwoma napisami.\",\n    \"Napisy są czytelne na ekranie telefonu, a ścieżka dźwiękowa nie istnieje.\"\n  ],\n  \"scenes\": [\n    {\n      \"id\": \"s1\",\n      \"purpose\": \"Pokazać nazwę i hasło\",\n      \"kind\": \"line-reveal\",\n      \"params\": {\"lines\": [\"title\", \"tagline\"], \"sizes\": [260, 72], \"weights\": [800, 400], \"align\": \"center\", \"exit\": false},\n      \"start\": 0,\n      \"end\": 180,\n      \"copy\": [\"title\", \"tagline\"],\n      \"holds\": [{\"start\": 66, \"end\": 180}],\n      \"focalPoint\": \"środek kadru\",\n      \"entry\": \"wyjazd z maski\",\n      \"action\": \"nazwa, potem hasło\",\n      \"exit\": \"brak, ostatnia scena\",\n      \"transition\": \"brak\",\n      \"persistence\": \"napisy do końca\",\n      \"audio\": \"cisza\"\n    }\n  ]\n}\n```\n\n**Co zrobić dalej**\n1. Zapisz kontrakt jako `nurt.motion.json`.\n2. Otwórz go w odtwarzaczu przez „Open contract”.\n3. Wyeksportuj wideo (eksport w przeglądarce). Pliki będą bez ścieżki audio.\n\nJeśli włączysz sesję z powłoką (Node, FFmpeg, Chrome albo Python), wyrenderuję MP4 sam i obejrzę klatki 0, 66 i 179. Mogę też zmienić paletę, krój albo dodać drugi ruch (np. fala pod napisem).",
+          "reply_chars": 3288,
+          "reply_sha256": "3602d032b35c17522475ba949a102887b958ef5942d4860b2e155c556bc2dca8",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1249,
+            "output": 3200,
+            "cache_read": 115227,
+            "cache_write": 23862
+          },
+          "seconds": 32.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Zatwierdzam storyboard. Działaj dalej.",
+          "reply": "Dziękuję za zatwierdzenie. Nadal nie mogę zrobić pliku MP4, bo od ostatniej wiadomości nic się nie zmieniło. W tej sesji mam tylko narzędzia do czytania i wyszukiwania. Nie mam powłoki ani uruchamiania kodu, więc nie mogę zrenderować wideo. Nie mam też zapisu plików, więc nie mogę nawet zapisać kontraktu na dysku.\n\nKontrakt `nurt.motion.json` z mojej poprzedniej odpowiedzi jest już zatwierdzony (`approval.status: \"approved\"`, rewizja 1) i nie wymaga zmian. Możesz go użyć od razu:\n\n1. Skopiuj JSON z poprzedniej odpowiedzi do pliku `nurt.motion.json`.\n2. Otwórz [odtwarzacz Studio](https://framecoreworks.github.io/framecore-works-creative-studio/) i wybierz „Open contract”.\n3. Wyeksportuj wideo z odtwarzacza. Eksport powstaje bez ścieżki dźwiękowej, a w kontrakcie nie ma logo.\n\nNie widziałem ani odtworzenia, ani eksportu. Dopóki ktoś nie obejrzy gotowego pliku, jego stan to NOT VERIFIED. Po eksporcie sprawdź trzy rzeczy:\n\n- klatkę 0,\n- klatkę około 66 (oba napisy w całości),\n- klatkę 179 (napisy bez przycięcia).\n\nJeśli chcesz, żebym sam zrenderował i obejrzał klatki, uruchom sesję z dostępem do powłoki (Node, FFmpeg i Chrome albo Python). Zacznę wtedy od tego samego kontraktu.",
+          "reply_chars": 1192,
+          "reply_sha256": "89d0b843478c3ff27417e3cb89ce3c932564a009892a7ebefb9d9f5295b18c2c",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1251,
+            "output": 3904,
+            "cache_read": 144215,
+            "cache_write": 34891
+          },
+          "seconds": 11.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Spływy od maja"
+                ]
+              },
+              "passed": false,
+              "detail": "missing ['Spływy od maja']"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 1)"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded []"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Nurt"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "kontrakt",
+                  "contract",
+                  "motion.json",
+                  "motion-score"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['kontrakt', 'contract', 'motion.json']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

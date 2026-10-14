@@ -141,6 +141,55 @@ class Environment(unittest.TestCase):
         self.assertIn(workspace, commands['remotion_three']['command'])
 
 
+class AuditFixes(unittest.TestCase):
+    """Regressions from the technical audit of 1.80.0 (2026-10-14): INSTALL-04 to INSTALL-07."""
+
+    def test_a_program_that_does_not_run_is_not_available(self):
+        with tempfile.TemporaryDirectory() as bin_dir:
+            broken = pathlib.Path(bin_dir, 'node')
+            broken.write_text('#!/bin/sh\nexit 127\n'); broken.chmod(0o755)
+            chrome = pathlib.Path(bin_dir, 'chromium')
+            chrome.write_text('#!/bin/sh\necho Chromium 150.0.1\n'); chrome.chmod(0o644)      # no execute permission
+            _, report, _ = run_check(path=bin_dir)
+        tools = by_id(report['tools'])
+        self.assertEqual(tools['node']['status'], 'missing')
+        self.assertIn('does not run', tools['node']['note'])
+        self.assertNotEqual(tools['browser']['status'], 'ok')
+        self.assertNotEqual(report['final']['verdict'], 'pass')
+
+    def test_hyperframes_needs_node_22_for_the_final_verdict(self):
+        results = {'node': {'id': 'node', 'status': 'ok', 'version': '20.19.0'}, 'hyperframes': {'id': 'hyperframes', 'status': 'ok', 'version': '0.8.149'}}
+        tools = [{'id': 'node', 'label': 'Node.js', 'kind': 'binary', 'install': {'any': 'install Node.js'}},
+                 {'id': 'hyperframes', 'label': 'HyperFrames', 'kind': 'hyperframes', 'minimum_node': '22', 'install': {'any': 'x'}}]
+        dependencies = [{'id': 'node', 'status': 'below_minimum', 'for': 'hyperframes', 'needs': '22'}]
+        self.assertEqual(check.final_verdict(results.values(), 'codex', 'shell', dependencies=dependencies)['verdict'], 'fail')
+        steps = check.install_steps(tools, results, 'linux', dependencies=dependencies)
+        self.assertEqual([(s['id'], s['action'], s['below']) for s in steps], [('node', 'update', True)])
+        self.assertIn('hyperframes needs Node.js 22', steps[0]['reason'])
+
+    def test_printed_commands_keep_folder_names_literal(self):
+        gsap = next(t for t in SPEC['tools'] if t['id'] == 'gsap')
+        folder = '/tmp/a $STUDIO_TEST_FOLDER `x` "q"'
+        command = check.literal_paths(gsap['install']['linux'], 'linux', folder)
+        with tempfile.TemporaryDirectory() as tmp:
+            log = pathlib.Path(tmp, 'args.log')
+            # Harmless stand-ins record the arguments the shell actually passes.
+            stub = 'record() { for a in "$@"; do printf "%s\\n" "$a" >> "$LOG"; done; }; mkdir() { record mkdir "$@"; }; rm() { record rm "$@"; }; cp() { record cp "$@"; }; npm() { record npm "$@"; }; cd() { :; }; '
+            subprocess.run(['sh', '-c', stub + command], env={'LOG': str(log), 'STUDIO_TEST_FOLDER': 'expanded', 'PATH': os.environ['PATH']}, check=True)
+            arguments = log.read_text().splitlines()
+        self.assertIn(folder + '/gsap-motion-starter', arguments)
+        self.assertFalse(any('expanded' in a for a in arguments))
+
+    def test_an_older_hyperframes_on_an_unsupported_host_is_not_usable(self):
+        with tempfile.TemporaryDirectory() as bin_dir:
+            fake_program(bin_dir, 'hyperframes', '0.8.100')
+            fake_program(bin_dir, 'node', 'v24.0.0')
+            _, report, _ = run_check('--host', 'chatgpt', path=bin_dir)
+        tools = by_id(report['tools'])
+        self.assertEqual(tools['hyperframes']['status'], 'not_on_this_host')
+        self.assertEqual(by_id(report['capabilities'])['hyperframes_engine']['status'], 'missing')
+
+
 class FinalCheck(unittest.TestCase):
     def results(self, **statuses):
         return [{'id': tool, 'status': status} for tool, status in statuses.items()]

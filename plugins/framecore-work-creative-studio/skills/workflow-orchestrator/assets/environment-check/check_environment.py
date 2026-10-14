@@ -27,6 +27,7 @@ import os
 import pathlib
 import platform
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -108,19 +109,27 @@ def python_module_version(tool):
 
 
 def check_binary(tool):
+    broken = None
     for command in tool['commands']:
         path = shutil.which(command)
         if path:
             output = run([path, *tool.get('version_args', ['--version'])])
+            if output is None:              # found but it does not run (missing library, no execute permission, crash)
+                broken = broken or path
+                continue
             return version_of(output) or 'unknown', path, None
     fallback = tool.get('python_fallback')
     if fallback and importlib.util.find_spec(fallback) is not None:
         try:
             module = __import__(fallback)
             path = module.get_ffmpeg_exe()
-            return version_of(run([path, '-version'])) or 'unknown', path, f'bundled by the Python package {fallback}; the renderer uses it, other tools need ffmpeg on PATH'
+            output = run([path, '-version'])
+            if output is not None:
+                return version_of(output) or 'unknown', path, f'bundled by the Python package {fallback}; the renderer uses it, other tools need ffmpeg on PATH'
         except Exception:
             pass
+    if broken:
+        return None, broken, f'found at {broken} but it does not run; reinstall it'
     return None, None, None
 
 
@@ -150,10 +159,16 @@ def browser_candidates(explicit):
 
 
 def check_browser(tool, explicit):
+    broken = None
     for path, where in browser_candidates(explicit):
-        version = version_of(run([path, '--version'], timeout=20)) or 'unknown'
+        output = run([path, '--version'], timeout=20)
+        if output is None:                  # not executable or it crashes: try the next candidate
+            broken = broken or path
+            continue
         note = None if where == 'studio' else f'found outside the usual places; pass --browser "{path}" or set CHROME_PATH to it ({STUDIO_FINDS_BROWSER})'
-        return version, path, note
+        return version_of(output) or 'unknown', path, note
+    if broken:
+        return None, broken, f'found at {broken} but it does not run; reinstall it or pass another with --browser'
     return None, None, None
 
 
@@ -287,21 +302,39 @@ def capability_state(card, tools, results, state):
     return out
 
 
-def install_steps(tools, results, system, workspace=None):
+def literal_paths(command, system, workspace):
+    """Put the plugin folder and the workspace into a printed command as literal data: quoted for the shell, so a `$`,
+    a quote, a backtick or a space in a folder name can never be expanded into another path. The home folder ($HOME)
+    is expanded on purpose only in the default form the plugin itself writes."""
+    def quote(path):
+        if system == 'windows':
+            return "'" + path.replace("'", "''") + "'"
+        return shlex.quote(path)
+    home = r'\$HOME\\\.framecore-studio\\workspace' if system == 'windows' else r'\$HOME/\.framecore-studio/workspace'
+    command = re.sub(r'"<plugin>([^"]*)"', lambda m: quote(str(PLUGIN_ROOT) + m.group(1)), command)
+    if workspace:
+        command = re.sub('"' + home + r'([^"]*)"', lambda m: quote(workspace + m.group(1)), command)
+    return command.replace('<plugin>', quote(str(PLUGIN_ROOT)))
+
+
+def install_steps(tools, results, system, workspace=None, dependencies=()):
     steps = []
     for tool in tools:
         result = results[tool['id']]
-        if result['status'] not in FAILING + ('behind',):
+        needed = [d for d in dependencies if d['id'] == tool['id']]
+        if result['status'] not in FAILING + ('behind',) and not needed:
             continue
         hints = tool['install']
-        command = (hints.get(system) or hints.get('any')).replace('<plugin>', str(PLUGIN_ROOT))
-        if tool['kind'] == 'workspace' and workspace:
-            command = command.replace('$HOME/.framecore-studio/workspace', workspace).replace('$HOME\\.framecore-studio\\workspace', workspace)
+        command = literal_paths(hints.get(system) or hints.get('any'), system, workspace if tool['kind'] == 'workspace' else None)
         if result['status'] == 'behind' and tool['kind'] == 'python_module':
             command = f'python3 -m pip install --user --upgrade {tool["package"]}'
-        action = 'update' if result['status'] in ('behind', 'below_minimum') else 'install'
-        steps.append({'id': tool['id'], 'action': action, 'below': result['status'] in ('below_minimum', 'wrong_version'), 'command': command,
-                      'more': hints.get('any') if command != hints.get('any') else None})
+        below = result['status'] in ('below_minimum', 'wrong_version') or bool(needed)
+        action = 'update' if result['status'] in ('behind', 'below_minimum') or needed else 'install'
+        step = {'id': tool['id'], 'action': action, 'below': below, 'command': command,
+                'more': hints.get('any') if command != hints.get('any') else None}
+        if needed:
+            step['reason'] = ', '.join(f'{d["for"]} needs {tool["label"]} {d["needs"]} or newer' for d in needed)
+        steps.append(step)
     return steps
 
 
@@ -333,12 +366,12 @@ def matrix(spec, markdown=False):
     return '\n'.join(lines)
 
 
-def final_verdict(results, host, profile, update=False):
+def final_verdict(results, host, profile, update=False, dependencies=()):
     """The final check of an installation (or, with update, of an update): every tool of the one required set that this
     host can run is usable; after an update, tools with a newer version are listed as updates."""
     if not host:
         return {'verdict': 'unknown_host', 'failing': [], 'detail': 'name the host with --host; the required set depends on it'}
-    failing = [{'id': r['id'], 'status': r['status']} for r in results if r['status'] in FAILING]
+    failing = [{'id': r['id'], 'status': r['status']} for r in results if r['status'] in FAILING] + list(dependencies)
     excluded = [r['id'] for r in results if r['status'] == 'not_on_this_host']
     updates = [{'id': r['id'], 'version': r.get('version'), 'latest': r.get('latest')} for r in results if r['status'] == 'behind'] if update else []
     if not failing:
@@ -366,9 +399,10 @@ def report(args):
         entry = tool['hosts'].get(host) if host else None
         results[tool['id']]['on_host'] = entry
         # A tool this host cannot run is not a defect here: the capability falls back as the card says.
-        if entry and entry['status'] == 'not_supported' and (results[tool['id']]['status'] in FAILING or results[tool['id']]['status'] == 'ok'):
-            # Files found on such a host (skills copied into a chat sandbox, for example) do not make the tool run there.
-            if results[tool['id']]['status'] == 'ok':
+        if entry and entry['status'] == 'not_supported':
+            # Files found on such a host (skills copied into a chat sandbox, for example) do not make the tool run there,
+            # whatever their version.
+            if results[tool['id']]['status'] in USABLE:
                 found = results[tool['id']].get('skills') or [results[tool['id']].get('path')]
                 results[tool['id']]['note'] = 'files present (' + ', '.join(str(f) for f in found if f) + '), but this host cannot run it'
             results[tool['id']]['status'] = 'not_on_this_host'
@@ -376,11 +410,17 @@ def report(args):
         elif entry and tool['kind'] == 'hyperframes' and results[tool['id']]['status'] == 'ok' and not results[tool['id']]['version'] \
                 and next((h['profile'] for h in spec['hosts'] if h['id'] == host), None) == 'code_execution':
             results[tool['id']]['status'], results[tool['id']]['note'] = 'missing', 'skills found, but this sandbox renders only with the CLI installed for the session'
+    # Requirements between tools: on a host that can run HyperFrames, Node.js must meet HyperFrames' own minimum, so an
+    # older Node fails the final check instead of passing it with the engine quietly unusable.
+    # (Node itself stays usable for the tools that run on it.)
+    dependencies = [{'id': 'node', 'status': 'below_minimum', 'for': tool['id'], 'needs': tool['minimum_node']}
+                    for tool in spec['tools'] if tool.get('minimum_node') and results.get('node', {}).get('status') in USABLE
+                    and results[tool['id']]['status'] != 'not_on_this_host' and older(results['node']['version'], tool['minimum_node'])]
     state = requirement_state(spec['tools'], results, network)
     profile = next((h['profile'] for h in spec['hosts'] if h['id'] == host), None)
     return {
         'host': host, 'host_detected_by': detected_by, 'host_profile': profile, 'workspace': str(pathlib.Path(getattr(args, 'workspace', DEFAULT_WORKSPACE)).expanduser()),
-        'final': final_verdict(results.values(), host, profile, update=getattr(args, 'update', False)),
+        'final': final_verdict(results.values(), host, profile, update=getattr(args, 'update', False), dependencies=dependencies),
         'mode': 'update' if getattr(args, 'update', False) else 'final' if getattr(args, 'final', False) else 'check',
         'checked': spec['checked'],
         'latest_from': 'online' if network else f'snapshot of {spec["checked"]}' + (' (online lookup failed)' if args.online else ''),
@@ -388,7 +428,7 @@ def report(args):
         'tools': list(results.values()),
         'requirements': state,
         'capabilities': capability_state(card, spec['tools'], results, state),
-        'install': install_steps(spec['tools'], results, system, str(pathlib.Path(getattr(args, 'workspace', DEFAULT_WORKSPACE)).expanduser())),
+        'install': install_steps(spec['tools'], results, system, str(pathlib.Path(getattr(args, 'workspace', DEFAULT_WORKSPACE)).expanduser()), dependencies),
         'installs_nothing': True,
     }
 

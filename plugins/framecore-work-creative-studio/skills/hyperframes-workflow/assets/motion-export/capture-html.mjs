@@ -12,7 +12,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {spawn} from 'node:child_process';
+import {spawn, spawnSync} from 'node:child_process';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {devtools} from './export-video.mjs';
 import {findBrowser} from '../motion-review/review-frames.mjs';
@@ -34,6 +34,24 @@ export function frameCount(seconds, fps) {
   return Math.round(seconds * fps.num / fps.den);
 }
 
+/** Frames actually written to the file (ffprobe), or null when ffprobe is not installed. */
+export function encodedFrames(file) {
+  const probe = spawnSync('ffprobe', ['-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', file], {encoding: 'utf8'});
+  if (probe.error) return null;
+  const frames = parseInt(probe.stdout, 10);
+  return Number.isFinite(frames) ? frames : null;
+}
+
+/** The FFmpeg arguments for the frame pipe and optional audio. The picture sets the length: shorter audio is padded
+ * with silence and longer audio is cut at the last frame (-shortest would end the film with a short voice-over). */
+export function encoderArgs({out, rate, total, audio, crf = 16}) {
+  const args = ['-hide_banner', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', `${rate.num}/${rate.den}`, '-i', '-'];
+  const length = (total * rate.den / rate.num).toFixed(6);
+  if (audio) args.push('-i', audio, '-map', '0:v:0', '-map', '1:a:0', '-af', 'apad', '-c:a', 'aac', '-b:a', '192k', '-t', length);
+  args.push('-c:v', 'libx264', '-crf', String(crf), '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out);
+  return args;
+}
+
 export async function captureFile(input, {out, width, height, seconds, frames, fps = '30', query, audio, browser, crf = 16} = {}) {
   if (!out) throw new Error('Choose a new output file with --out');
   if (fs.existsSync(out)) throw new Error(`Output file already exists: ${out}`);
@@ -50,9 +68,7 @@ export async function captureFile(input, {out, width, height, seconds, frames, f
     '--force-device-scale-factor=1', `--user-data-dir=${path.join(work, 'profile')}`, 'about:blank'];
   if (process.platform === 'linux' && process.getuid?.() === 0) args.unshift('--no-sandbox');
   const session = devtools(chrome, args);
-  const ffmpegArgs = ['-hide_banner', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', `${rate.num}/${rate.den}`, '-i', '-'];
-  if (audio) ffmpegArgs.push('-i', audio, '-c:a', 'aac', '-b:a', '192k', '-shortest');
-  ffmpegArgs.push('-c:v', 'libx264', '-crf', String(crf), '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out);
+  const ffmpegArgs = encoderArgs({out, rate, total, audio, crf});
   const encoder = spawn('ffmpeg', ffmpegArgs, {stdio: ['pipe', 'ignore', 'pipe']});
   let encoderError = '';
   encoder.stderr.on('data', data => { encoderError = (encoderError + data).slice(-2000); });
@@ -89,6 +105,8 @@ export async function captureFile(input, {out, width, height, seconds, frames, f
     }
     encoder.stdin.end();
     await encoded;
+    const written = encodedFrames(out);
+    if (written !== null && written !== total) throw new Error(`The encoded file has ${written} frames, not ${total}`);
     return {file: out, frames: total, fps: `${rate.num}/${rate.den}`, width, height, audio: Boolean(audio), ms: Date.now() - started, browser: path.basename(chrome)};
   } catch (error) {
     encoder.stdin.destroy();

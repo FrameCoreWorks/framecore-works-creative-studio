@@ -296,6 +296,36 @@ class Technical(unittest.TestCase):
         self.assertEqual(good['status'], 'pass', good)
         self.assertEqual(wrong['status'], 'fail')
 
+    @unittest.skipUnless(have_media(), 'ffmpeg and ffprobe are needed')
+    def test_a_long_audio_tail_fails_the_length_check(self):
+        score = {'width': 64, 'height': 64, 'fps': {'num': 30, 'den': 1}, 'totalFrames': 30, 'music': {'src': 'm.wav'}}
+        with tempfile.TemporaryDirectory() as temp:
+            video = os.path.join(temp, 'tail.mp4')
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'color=c=black:s=64x64:r=30:d=1', '-f', 'lavfi', '-i', 'sine=d=5',
+                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', video], check=True)
+            tail = acceptance.technical(score, video)
+            exact = os.path.join(temp, 'exact.mp4')
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'color=c=black:s=64x64:r=30:d=1', '-f', 'lavfi', '-i', 'sine=d=1',
+                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-shortest', exact], check=True)
+            same = acceptance.technical(score, exact)
+        self.assertEqual(tail['status'], 'fail')
+        self.assertTrue(any('plays' in f for f in tail['findings']), tail)
+        self.assertEqual(same['status'], 'pass', same)
+
+
+class ExactCopy(unittest.TestCase):
+    def audit(self, *frames):
+        return {'samples': [{'texts': [{'text': t} for t in frame]} for frame in frames]}
+
+    def test_copy_must_appear_whole_and_in_order_in_one_frame(self):
+        def status(copy_text, *frames):
+            return acceptance.fidelity({'copy': {'line': copy_text}}, self.audit(*frames), 'pass')['status']
+        self.assertEqual(status('Pay only 10', ['Pay only 10']), 'pass')
+        self.assertEqual(status('Pay only 10', ['Pay', 'only', '10']), 'pass')          # split into elements in one frame
+        self.assertEqual(status('Pay only 10', ['Pay only 100']), 'fail')
+        self.assertEqual(status('Do not buy', ['Do buy not']), 'fail')
+        self.assertEqual(status('Do not buy', ['Do not'], ['buy']), 'fail')             # words from different frames
+
 
 if __name__ == '__main__':
     unittest.main()

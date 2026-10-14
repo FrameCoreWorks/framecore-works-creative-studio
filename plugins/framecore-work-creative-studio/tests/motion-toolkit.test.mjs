@@ -349,7 +349,12 @@ test('MP4 muxer writes H.264 sample tables that point into mdat', async () => {
   assert.equal(find('ctts'), undefined);
   assert.deepEqual([...bytes.subarray(find('mdat').body, find('mdat').body + 6)], [0, 0, 0, 2, 0, 7]);
   const reordered = chunks.map((chunk, i) => ({...chunk, timestamp: chunks[i % 2 ? i - 1 : Math.min(i + 1, 89)].timestamp}));
-  assert.ok(boxes(muxMP4({width: 1920, height: 1080, fps: {num: 30000, den: 1001}, codec: 'avc1.640028', description, chunks: reordered})).some(b => b.type === 'ctts'));
+  const withOffsets = muxMP4({width: 1920, height: 1080, fps: {num: 30000, den: 1001}, codec: 'avc1.640028', description, chunks: reordered});
+  const ctts = boxes(withOffsets).find(b => b.type === 'ctts'), cview = new DataView(withOffsets.buffer, withOffsets.byteOffset);
+  // Each entry is a (sample_count, sample_offset) pair: 90 entries are 8 + 4 + 4 + 90 x 8 bytes (audit MEDIA-01).
+  assert.equal(cview.getUint32(ctts.start), 8 + 4 + 4 + 90 * 8);
+  assert.equal(cview.getUint32(ctts.body + 4), 90);
+  assert.deepEqual([cview.getUint32(ctts.body + 8), cview.getInt32(ctts.body + 12), cview.getUint32(ctts.body + 16), cview.getInt32(ctts.body + 20)], [1, 1001, 1, -1001]);
   assert.throws(() => muxMP4({width: 2, height: 2, fps: {num: 30, den: 1}, codec: 'vp8', description, chunks}), /H.264 only/);
   assert.throws(() => muxMP4({width: 2, height: 2, fps: {num: 30, den: 1}, codec: 'avc1.640028', chunks}), /avcC/);
 });
@@ -398,6 +403,23 @@ test('HTML capture counts frames from rational rates and refuses bad ones', asyn
   assert.equal(frameCount(10, parseFps('30000/1001')), 300);
   assert.throws(() => parseFps('29.97'), /integer or N\/D/);
   assert.throws(() => parseFps('30/0'), /integer or N\/D/);
+});
+
+test('HTML capture keeps every frame when the audio is shorter than the picture (audit MEDIA-04)', async t => {
+  const {spawnSync} = await import('node:child_process');
+  if (spawnSync('ffmpeg', ['-version']).error || spawnSync('ffprobe', ['-version']).error) return t.skip('ffmpeg and ffprobe are needed');
+  const {encoderArgs, encodedFrames, parseFps} = await import(path.join(root, exportDir, 'capture-html.mjs'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'capture-audio-'));
+  try {
+    const wav = path.join(tmp, 'short.wav'), out = path.join(tmp, 'film.mp4');
+    spawnSync('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'sine=d=0.5', wav]);
+    const frames = spawnSync('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'testsrc=s=64x64:r=30:d=3', '-f', 'image2pipe', '-c:v', 'png', '-'], {maxBuffer: 64 << 20}).stdout;
+    const done = spawnSync('ffmpeg', encoderArgs({out, rate: parseFps('30'), total: 90, audio: wav}), {input: frames});
+    assert.equal(done.status, 0, String(done.stderr));
+    assert.equal(encodedFrames(out), 90);
+    const seconds = Number(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', out], {encoding: 'utf8'}).stdout);
+    assert.ok(Math.abs(seconds - 3) < 0.1, `file plays ${seconds} s`);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
 });
 
 // Opt-in: captures a hand-written page twice through a headless browser and FFmpeg (set MOTION_REVIEW_BROWSER=/path/to/chrome).
@@ -551,6 +573,16 @@ test('contract revisions diff values and extend a scene while moving everything 
   assert.equal(resounded.soundDesign.status, 'stale');
   assert.equal(withSound.soundDesign.status, 'planned', 'input untouched');
   assert.throws(() => extendScene(score, first.id, 0), /non-zero integer/);
+  // Word timings of an active-word caption move with it (audit MEDIA-05), longer or shorter, and stay valid.
+  const at = second.start + 4, worded = structuredClone(score);
+  worded.copy = {...worded.copy, cap: 'Two words'};
+  worded.captions = [{id: 'cap', start: at, end: at + 60, copy: 'cap', words: [[at, at + 30], [at + 30, at + 60]]}];
+  assert.deepEqual(checkScore(worded).errors, []);
+  for (const frames of [30, -10]) {
+    const moved = extendScene(worded, first.id, frames);
+    assert.deepEqual(moved.captions[0].words, [[at + frames, at + 30 + frames], [at + 30 + frames, at + 60 + frames]]);
+    assert.deepEqual(checkScore(moved).errors, []);
+  }
   assert.throws(() => extendScene(score, first.id, 1.5), /non-zero integer/);
   assert.throws(() => extendScene(score, first.id, -(first.end - first.start)), /empty/);
   const changes = diffContracts(score, outro);

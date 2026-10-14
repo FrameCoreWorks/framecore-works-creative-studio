@@ -90,6 +90,9 @@ def check_file(path, screen_px=None, zoom=1.0):
     if checkerboard(rgb, alpha):
         problems.append('a painted checkerboard, not real transparency')
         fixes.append('regenerate: on a model with real alpha use its transparent-background option; on Gemini generate on white, edit to black, then run matte')
+    elif has_alpha and (alpha > 30).mean() < 0.001:
+        problems.append('nothing visible: every pixel is (almost) fully transparent')
+        fixes.append('regenerate or re-export the asset; the file holds no visible subject')
     elif not result['alpha']:
         problems.append('opaque: no transparent pixels')
         fixes.append('use the transparency route for its generator (native alpha, matte from white and black, key for a solid subject on green, or screen-blend a light effect generated on black)')
@@ -124,6 +127,24 @@ def check_file(path, screen_px=None, zoom=1.0):
     return result
 
 
+def edge_shift(white, black):
+    """Pixel shift between the subject's edges in the two versions (phase correlation of gradient magnitude).
+    Catches a moved subject of any colour, grey included, where the colour test sees nothing."""
+    def edges(rgb):
+        luma = rgb @ np.array([0.299, 0.587, 0.114], dtype=np.float32)
+        step = max(1, int(np.ceil(max(luma.shape) / 512)))
+        luma = luma[::step, ::step]
+        gy, gx = np.gradient(luma)
+        return np.hypot(gx, gy), step
+    a, step = edges(white)
+    b, _ = edges(black)
+    spectrum = np.fft.fft2(a) * np.conj(np.fft.fft2(b))
+    spectrum /= np.maximum(np.abs(spectrum), 1e-6)
+    peak = np.unravel_index(np.argmax(np.abs(np.fft.ifft2(spectrum))), a.shape)
+    dy, dx = [(p if p <= n // 2 else p - n) for p, n in zip(peak, a.shape)]
+    return float(np.hypot(dy, dx) * step)
+
+
 def difference_matte(white_path, black_path, out):
     white, black = rgba(load(white_path))[..., :3], rgba(load(black_path))[..., :3]
     if white.shape != black.shape:
@@ -138,8 +159,9 @@ def difference_matte(white_path, black_path, out):
     subject = alpha > 0.05
     share = float((subject & (spread > 40)).sum()) / max(1, int(subject.sum()))
     opaque = alpha > 0.9
-    report = {'out': out, 'opaque_share': round(float(opaque.mean()), 4), 'misaligned_share': round(share, 4)}
-    if share > MISALIGNED:
+    shift = edge_shift(white, black)
+    report = {'out': out, 'opaque_share': round(float(opaque.mean()), 4), 'misaligned_share': round(share, 4), 'edge_shift_px': round(shift, 1)}
+    if share > MISALIGNED or shift > 2:
         report['verdict'] = 'REPAIR'
         report['fix'] = 'the subject moved between the two versions; regenerate the black one as an edit that changes only the background, or key a solid subject instead'
         return report

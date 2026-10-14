@@ -7,12 +7,11 @@ import shutil
 import stat
 import subprocess
 import zipfile
-from build_install_manifest import verify_source
+from build_install_manifest import EXCLUDED_DIRS, excluded, verify_source
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / 'plugins' / 'framecore-work-creative-studio'
 DIST = ROOT / 'dist'
-EXCLUDED_DIRS = {'.git', 'dist', 'node_modules', '__pycache__'}
 
 
 def inventory(directory):
@@ -25,7 +24,7 @@ def inventory(directory):
                 if p.name not in EXCLUDED_DIRS:
                     walk(p)
             elif p.is_file():
-                if p.name == '.DS_Store' or p.name.startswith('._') or p.suffix in {'.pyc', '.log'}:
+                if excluded(p, directory):
                     continue
                 if p.name == '.env' or p.name.startswith('.env.'):
                     raise ValueError('Refusing environment file: ' + str(p.relative_to(directory)))
@@ -72,10 +71,14 @@ def main():
     version, name = manifest['version'], manifest['name']
     if '/' in version or '\\' in version or name != PLUGIN.name:
         raise SystemExit('Unsafe or inconsistent manifest identity')
-    verify_source()
+    declared = verify_source()
     DIST.mkdir(exist_ok=True)
     outputs = []
     outputs.extend(package(PLUGIN, name, name + '-' + version + '.zip'))
+    # The archive must hold exactly the declared files: paths, sizes and hashes.
+    packed = json.loads(outputs[1].read_text())['files']
+    if packed != declared['files']:
+        raise SystemExit('The plugin ZIP differs from config/install-sources.json; rebuild the manifest from a clean tree')
     outputs.extend(package(ROOT, ROOT.name, 'framecore-works-creative-studio-' + version + '-repository.zip'))
     # The motion player: the single-file preview template, byte for byte, as a standalone download.
     player = DIST / ('framecore-motion-player-' + version + '.html')

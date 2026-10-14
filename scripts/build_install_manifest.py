@@ -11,9 +11,23 @@ IDENTITY_BEGIN = '<!-- BEGIN PACKAGE IDENTITY -->'
 IDENTITY_END = '<!-- END PACKAGE IDENTITY -->'
 
 
+# One rule for the install manifest and the release ZIP (package_release.py imports it): generated files are never
+# declared, so a stray cache or log can no longer sit in the manifest but not in the archive.
+EXCLUDED_DIRS = {'.git', 'dist', 'node_modules', '__pycache__'}
+
+
+def excluded(path, root):
+    parts = path.relative_to(root).parts
+    if any(part in EXCLUDED_DIRS for part in parts[:-1]):
+        return True
+    return path.name == '.DS_Store' or path.name.startswith('._') or path.suffix in {'.pyc', '.log'}
+
+
 def files_at(root):
     result = []
     for path in sorted(root.rglob('*')):
+        if excluded(path, root) and not path.is_dir():
+            continue
         if path.is_symlink():
             raise ValueError('Symlink in source: ' + str(path))
         if path.is_file():

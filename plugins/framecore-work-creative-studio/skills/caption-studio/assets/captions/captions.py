@@ -368,6 +368,15 @@ def import_captions(score, cues, prefix='caption', replace=False):
     return result, warnings
 
 
+def mark_revised(score, result, warnings):
+    """New on-screen words are a new revision, as sync.mjs and revise.mjs write it: an approval of the old captions
+    never carries over."""
+    result['revision'] = (score.get('revision') or 0) + 1
+    result['approval'] = {'status': 'proposed', 'revision': None, 'evidence': None}
+    if (score.get('approval') or {}).get('status') == 'approved':
+        warnings.append(f'revision {result["revision"]} needs approval again; the approval of revision {score.get("revision")} does not cover the new captions')
+
+
 # ---------------------------------------------------------------- burn-in
 
 def load_renderer():
@@ -511,6 +520,7 @@ def main(argv=None):
             with open(args.contract, encoding='utf-8') as handle:
                 score = json.load(handle)
             result, warnings = import_captions(score, read_cues(args.file), args.prefix, args.replace)
+            mark_revised(score, result, warnings)
             with open(args.out, 'w', encoding='utf-8') as handle:
                 handle.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
             print(json.dumps({'captions': len(result['captions']), 'warnings': warnings, 'out': args.out}, ensure_ascii=False))

@@ -81,6 +81,15 @@ def load_suite(name='suite'):
 
 # ------------------------------------------------------------------ running
 
+API_BILLING = ('ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN', 'CLAUDE_CODE_USE_BEDROCK', 'CLAUDE_CODE_USE_VERTEX', 'CLAUDE_CODE_USE_FOUNDRY')
+
+
+def billing_variables(environ=None):
+    """Names (never values) of variables that make Claude Code bill an API account instead of the user's plan."""
+    environ = os.environ if environ is None else environ
+    return [name for name in API_BILLING if environ.get(name)]
+
+
 def claude_env(config):
     env = dict(os.environ)
     env.update({'CLAUDE_CONFIG_DIR': str(config), 'DO_NOT_TRACK': '1', 'DISABLE_AUTOUPDATER': '1'})
@@ -123,26 +132,42 @@ def run_turn(prompt, workspace, config, args, tools, session=None, max_turns=Non
     result = next((e for e in reversed(events) if e.get('type') == 'result'), None)
     if result is None:
         raise EvalError(f'no result from claude (exit {done.returncode}): {(done.stderr or done.stdout)[-800:]}')
-    tools_used = []
+    return {**parse_events(events, result), 'seconds': round(time.time() - started, 1)}
+
+
+def parse_events(events, result):
+    """The reply, usage and tool calls of one turn. Each call is paired with its result by ID: ok is True when it ran,
+    False when the host returned an error (a skill not found, a failed read), None when no result came back."""
+    tools_used, by_id = [], {}
     for event in events:
-        if event.get('type') != 'assistant':
+        content = event.get('message', {}).get('content', []) or []
+        if not isinstance(content, list):
             continue
-        for block in event.get('message', {}).get('content', []) or []:
-            if block.get('type') == 'tool_use':
-                tools_used.append({'name': block.get('name'), 'input': block.get('input', {})})
+        for block in content:
+            if event.get('type') == 'assistant' and block.get('type') == 'tool_use':
+                call = {'name': block.get('name'), 'input': block.get('input', {}), 'ok': None}
+                tools_used.append(call)
+                by_id[block.get('id')] = call
+            elif event.get('type') == 'user' and block.get('type') == 'tool_result' and block.get('tool_use_id') in by_id:
+                by_id[block['tool_use_id']]['ok'] = not block.get('is_error')
     return {
         'reply': result.get('result') or '', 'is_error': bool(result.get('is_error')), 'subtype': result.get('subtype'),
         'session': result.get('session_id'), 'tokens': tokens_of(result),
         'turns': result.get('num_turns'), 'models': sorted((result.get('modelUsage') or {}).keys()),
-        'seconds': round(time.time() - started, 1), 'tools': tools_used,
+        'tools': tools_used,
     }
 
 
 # ------------------------------------------------------------------ checks
 
+def ran(tools):
+    """Calls that ran: a call whose result was an error or never came back does not count as done."""
+    return [tool for tool in tools if tool.get('ok', True) is True]
+
+
 def skills_of(tools):
     names = []
-    for tool in tools:
+    for tool in ran(tools):
         if tool['name'] == 'Skill':
             name = str(tool['input'].get('skill') or tool['input'].get('command') or '')
             names.append(name[len(NAMESPACE):] if name.startswith(NAMESPACE) else name)
@@ -155,12 +180,12 @@ def skills_of(tools):
 
 def touched(tools):
     """Files the host read and skills it loaded, as paths: a Skill call counts as reading that skill's SKILL.md."""
-    paths = [str(tool['input'].get('file_path', '')) for tool in tools if tool['name'] == 'Read']
+    paths = [str(tool['input'].get('file_path', '')) for tool in ran(tools) if tool['name'] == 'Read']
     return paths + [f'skills/{name}/SKILL.md' for name in skills_of([t for t in tools if t['name'] == 'Skill'])]
 
 
 def commands_of(tools):
-    return [str(tool['input'].get('command', '')) for tool in tools if tool['name'] == 'Bash']
+    return [str(tool['input'].get('command', '')) for tool in ran(tools) if tool['name'] == 'Bash']
 
 
 def language_of(text):
@@ -175,10 +200,16 @@ def questions(text):
     return len(re.findall(r'\?(?=\s|$|\*|\))', prose))
 
 
+ASKING = re.compile(r'\s*(?:[-*\u2022]|\d+[.)])\s+(?:\*\*|_)?\s*(?:czy|jak\w*|jaki\w*|jaka|jakie\w*|kto|kogo|komu|kim|co|czego|czym|gdzie|kiedy|ile|dlaczego|któr\w+|do kogo|dla kogo|'
+                    r'what|which|who|whom|where|when|how|why|do|does|did|is|are|can|could|would|should|will|shall)\b', re.I)
+
+
 def user_questions(text):
-    """Questions put to the user: prose outside code, list items and quoted copy (a slogan may end with a question mark)."""
+    """Questions put to the user: prose outside code and quoted copy (a slogan may end with a question mark). A list item
+    counts when it asks the user something (it starts with a question word: "1. Jaki produkt?"); a rhetorical line of
+    requested copy ("1. Masz dość czekania?") does not."""
     prose = re.sub(r'```[\s\S]*?```', ' ', text)
-    prose = '\n'.join(line for line in prose.splitlines() if not re.match(r'\s*(?:[-*\u2022]|\d+[.)])\s', line))
+    prose = '\n'.join(line for line in prose.splitlines() if not re.match(r'\s*(?:[-*\u2022]|\d+[.)])\s', line) or ASKING.match(line))
     prose = re.sub(r'\u201e[^\u201d\u201c]*[\u201d\u201c]|\u201c[^\u201d]*\u201d|"[^"\n]*"', ' ', prose)
     return questions(prose)
 
@@ -318,8 +349,14 @@ def run_case(case, args):
         config.mkdir()
         workspace.mkdir()
         session, turns, used, seconds = None, [], add_tokens(), 0.0
+        started, failure = time.time(), None
         for index, step in enumerate(case['turns']):
-            turn = run_turn(step['prompt'], workspace, config, args, tools, session, case.get('max_turns'))
+            try:
+                turn = run_turn(step['prompt'], workspace, config, args, tools, session, case.get('max_turns'))
+            except (EvalError, subprocess.TimeoutExpired) as error:
+                # Keep the turns that finished and their usage; this turn's usage is unknown, not zero.
+                failure = f'turn {index + 1}: {str(error)[:600]}'
+                break
             session, used, seconds = turn['session'], add_tokens(used, turn['tokens']), seconds + turn['seconds']
             results = []
             for spec in step.get('checks', []):
@@ -330,13 +367,24 @@ def run_case(case, args):
             turns.append({'index': index + 1, 'prompt': step['prompt'], 'reply': turn['reply'][:args.keep_chars],
                           'reply_chars': len(turn['reply']), 'reply_sha256': hashlib.sha256(turn['reply'].encode('utf-8')).hexdigest(),
                           'skills': skills_of(turn['tools']), 'tools': [t['name'] for t in turn['tools']],
+                          'failed_tools': [{'name': t['name'], 'ok': t.get('ok')} for t in turn['tools'] if t.get('ok') is not True],
                           'models': turn['models'], 'tokens': turn['tokens'], 'seconds': turn['seconds'], 'checks': results})
-        verdict = 'PASS' if all(r['passed'] for t in turns for r in t['checks']) else 'FAIL'
-        graded = judge(case, turns, args, config, workspace) if args.judge else None
+        verdict = 'ERROR' if failure else 'PASS' if all(r['passed'] for t in turns for r in t['checks']) else 'FAIL'
+        graded = None
+        if args.judge and not failure:
+            try:
+                graded = judge(case, turns, args, config, workspace)
+            except subprocess.TimeoutExpired:
+                graded = {'model': args.judge_model, 'error': 'judge timed out', 'tokens': add_tokens()}
         if graded:
             used = add_tokens(used, graded.get('tokens'))
-    return {'id': case['id'], 'title': case['title'], 'source': case.get('source'), 'gate': bool(case.get('gate')),
-            'verdict': verdict, 'tokens': used, 'seconds': round(seconds, 1), 'turns': turns, 'judge_advisory': graded}
+    outcome = {'id': case['id'], 'title': case['title'], 'source': case.get('source'), 'gate': bool(case.get('gate')),
+               'verdict': verdict, 'tokens': used, 'seconds': round(seconds, 1), 'wall_seconds': round(time.time() - started, 1),
+               'turns': turns, 'judge_advisory': graded}
+    if failure:
+        outcome['detail'] = failure
+        outcome['usage_note'] = 'tokens count the finished turns only; the failed turn used an unknown amount'
+    return outcome
 
 
 def main(argv=None):
@@ -354,6 +402,7 @@ def main(argv=None):
     parser.add_argument('--timeout', type=int, default=600)
     parser.add_argument('--keep-chars', type=int, default=6000, help='reply characters kept in the record')
     parser.add_argument('--write', action='store_true', help='write the record under verification/host-evals/')
+    parser.add_argument('--allow-api-billing', action='store_true', help='run although an API key or cloud provider is configured (only on the owner\'s request: those runs are billed)')
     args = parser.parse_args(argv)
     suite = load_suite(args.suite)
     cases = suite['cases']
@@ -371,6 +420,11 @@ def main(argv=None):
         return 0
     if not shutil.which('claude'):
         print('host_eval: Claude Code (claude) is not installed', file=sys.stderr)
+        return 2
+    billing = billing_variables()
+    if billing and not args.allow_api_billing:
+        print(f'host_eval: {", ".join(billing)} is set, so these runs would be billed to an API account, not the Claude plan; '
+              'unset it, or pass --allow-api-billing on the owner\'s request', file=sys.stderr)
         return 2
     claude_version = subprocess.run(['claude', '--version'], capture_output=True, text=True).stdout.split()[0]
     limit = args.max_cases or CASE_LIMITS['gate' if args.gate else 'full']
@@ -394,6 +448,7 @@ def main(argv=None):
         'source': {'commit': head, 'package_uncommitted_changes': bool(dirty)},
         'suite': suite['name'] + (' (gate)' if args.gate else ''), 'host': f'Claude Code {claude_version}, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir',
         'model': args.model, 'judge': args.judge_model if args.judge else None, 'allowed_tools_default': DEFAULT_TOOLS,
+        'billing': f'API account allowed by the owner ({", ".join(billing)})' if billing else 'no API key or cloud provider variable set (plan or host-managed sign-in)',
         'scope': 'Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.',
         'summary': {**counts, 'cases': len(results), 'case_limit': limit, 'skipped_over_limit': skipped, 'tokens': used, 'seconds': round(seconds, 1)},
         'cases': results,

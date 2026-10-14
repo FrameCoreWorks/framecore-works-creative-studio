@@ -119,6 +119,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       else {
         if (fs.existsSync(out)) throw new Error(`Output file already exists: ${out}`);
         score.revision = (score.revision ?? 0) + 1;
+        score.approval = {status: 'proposed', revision: null, evidence: null};
         fs.writeFileSync(out, JSON.stringify(score, null, 2) + '\n');
         console.log(`Wrote ${out} as revision ${score.revision}; earlier approval does not cover it.`);
       }

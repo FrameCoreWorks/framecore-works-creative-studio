@@ -1,0 +1,486 @@
+{
+  "date": "2026-10-14",
+  "package_version": "1.80.0",
+  "source": {
+    "commit": "dcb0aa9c302c7638a580ba8141e75310d76a3544",
+    "package_uncommitted_changes": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.300, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 4,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 7518,
+      "output": 15410,
+      "cache_read": 271230,
+      "cache_write": 120897
+    },
+    "seconds": 112.2
+  },
+  "cases": [
+    {
+      "id": "M04",
+      "title": "Without code execution a coded animation is delivered as a contract, never silently as generator prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1272,
+        "output": 1866,
+        "cache_read": 41093,
+        "cache_write": 17224
+      },
+      "seconds": 18.6,
+      "wall_seconds": 18.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 dla piekarni „Kłos”. Nie mam logo: nazwę „Kłos” pokaż jako napis. Hasło: „Świeży chleb codziennie”. Bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować tego MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania plików. Nie mam powłoki, więc nie sprawdzę Node, FFmpeg ani Chrome. Nie mogę też uruchomić renderera ani zapisać pliku. Nie ma więc żadnego pliku do pobrania i nic nie zostało obejrzane.\n\nPoniżej jest plan animacji do zatwierdzenia. Gdy dostanę dostęp do powłoki, zbuduję i wyrenderuję go bez dalszych pytań.\n\n**Specyfikacja:** 1080×1920, 30 fps, 180 klatek, H.264, bez ścieżki audio.\n\n**Pomysł:** napis „Kłos\" rośnie jak kłos zboża. Nie użyję ikon chleba ani kłosa jako logo. Zamiast tego linie zboża układają się w literę „ł\", która jest ukośnym kreskowanym „ł\" w nazwie. Ciepłe tło mąki i krzepka szeryfowa czcionka dają rzemieślniczy charakter.\n\n| Czas | Scena | Ruch |\n|---|---|---|\n| 0,0–1,2 s | Kremowe tło (#F4E9D8). Od dołu wyrasta cienka złota łodyga. | Łodyga rośnie, ease-out. |\n| 1,2–3,0 s | Wordmark „Kłos\" (duży, szeryfowy, ciemny brąz #3B2414). | Litery wchodzą kolejno z lekkim wzrostem, jak ciasto. Ukośna kreska „ł\" jest złotym ziarnem. |\n| 3,0–4,8 s | Hasło „Świeży chleb codziennie\" pod nazwą. | Pojawia się słowo po słowie, z miękkim przesunięciem. |\n| 4,8–6,0 s | Spokojny końcowy kadr. | Delikatny oddech tła i złota kreska pod hasłem. Wszystko widać w całości. |\n\n- **Napisy:** tylko „Kłos\" i „Świeży chleb codziennie\". Bez liczników, znaczników w rogach i paska postępu.\n- **Margines:** tekst ma bezpieczny margines ok. 150 px od góry i dołu.\n- **Polskie znaki:** użyję czcionki z pełnym zestawem polskich znaków (np. Playfair Display lub Noto Serif). Na kadrach kontrolnych sprawdzę „ł\", „Ś\", „ż\" i „ś\".\n\n**Co dostaniesz po renderze:**\n- MP4 bez dźwięku,\n- plik `.motion.json` z kontraktem animacji,\n- skrypt renderujący, żeby łatwo wprowadzać poprawki.\n\n**Do ustalenia:** czy paleta kremowo-brązowo-złota jest w porządku? Jeśli masz własne kolory piekarni, podaj je. Jeśli nie odpowiesz, użyję tej palety.\n\nŻeby ruszyć, włącz dostęp do powłoki (Bash) w tej sesji i napisz „zatwierdzam\".",
+          "reply_chars": 2011,
+          "reply_sha256": "d1b5b19047c66c3b9b6904480d387334a412f6b018c46c296b3a885efe16572f",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1272,
+            "output": 1866,
+            "cache_read": 41093,
+            "cache_write": 17224
+          },
+          "seconds": 18.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtwarzacz",
+                  "player",
+                  "przeglądar",
+                  "framecoreworks.github.io",
+                  "Open contract"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['odtwarzacz', 'player', 'przeglądar', 'framecoreworks.github.io', 'Open contract']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(wyrenderowa(łem|łam|no|ny)|oto (gotowy|twój) (plik )?mp4|plik mp4 jest gotowy|here is (the|your) (rendered )?mp4)"
+              },
+              "passed": true,
+              "detail": "not /(?i)(wyrenderowa(łem|łam|no|ny)|oto (gotowy|twój) (plik )?mp4|plik mp4 jest gotowy|here is (the|your) (rendered )?mp4)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M05",
+      "title": "Three stills are not a final pass for an animation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1260,
+        "output": 1338,
+        "cache_read": 4520,
+        "cache_write": 10566
+      },
+      "seconds": 14.7,
+      "wall_seconds": 14.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam tylko trzy stopklatki z mojej 10-sekundowej animacji (0 s, 5 s i 10 s) i na każdej logo jest ostre i czytelne. Czy animacja jest gotowa do publikacji?",
+          "reply": "Nie, na podstawie tych trzech klatek nie mogę tego potwierdzić. Ostre logo w 0 s, 5 s i 10 s sprawdza tylko stan w trzech punktach, a o gotowości animacji decyduje to, co dzieje się między nimi.\n\n**Czego te klatki nie pokazują**\n- **Ruch logo między klatkami:** rozmycie w ruchu, przeskoki, nagłe zmiany skali, przycięcie logo na krawędzi kadru albo chwilowy spadek czytelności w trakcie animacji.\n- **Timing:** czy logo jest widoczne wystarczająco długo i czy wejście oraz wyjście są płynne. Klatka dokładnie w 0 s i w 10 s często jest pustą lub przejściową klatką, więc ostre logo w obu miejscach może oznaczać, że animacja wygląda inaczej, niż zakładasz.\n- **Płynność:** zacinanie, błędy interpolacji i artefakty kompresji. Pojawiają się dopiero po eksporcie i nie widać ich na pojedynczych klatkach.\n- **Dźwięk:** poziomy głośności, synchronizacja z obrazem, cisza lub trzaski na początku i na końcu.\n- **Specyfikacja platformy:** format, proporcje, rozdzielczość, snr klatek, bezpieczne strefy interfejsu (np. Reels, TikTok, Shorts) i limit długości.\n- **Napisy i teksty:** czy mieszczą się w bezpiecznych strefach i czy nie ma literówek.\n\n**Co zrobić przed publikacją**\n1. Obejrzyj cały eksportowany plik, a nie podgląd z edytora, najlepiej na telefonie i na dużym ekranie, z dźwiękiem.\n2. Zrób dodatkowe stopklatki w krytycznych momentach: w trakcie wejścia logo, w środku najszybszego ruchu i tuż przed końcem. Wystarczą 2–3 klatki więcej, np. w 1 s, 2,5 s i 8 s.\n3. Sprawdź logo przy skompresowanym eksporcie, bo kompresja najczęściej rozmywa drobne detale.\n4. Sprawdź parametry techniczne pod docelową platformę.\n\nJeśli wrzucisz sam plik animacji albo klatki z kilku dodatkowych momentów, razem z informacją, gdzie ma być opublikowana, ocenię je konkretnie.",
+          "reply_chars": 1767,
+          "reply_sha256": "215a8b9cb1ea8d06730ffe6ee6617922c429a01b584efb592aa2f8d6a9fc71ab",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1260,
+            "output": 1338,
+            "cache_read": 4520,
+            "cache_write": 10566
+          },
+          "seconds": 14.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "odtw",
+                  "w ruchu",
+                  "płynn",
+                  "całość",
+                  "całego filmu",
+                  "normalnej prędkości",
+                  "dźwięk"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['w ruchu', 'płynn', 'dźwięk']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(^\\s*\\**tak\\b|(?<!nie )jest gotowa do publikacji|można (ją )?publikować)"
+              },
+              "passed": true,
+              "detail": "not /(?i)(^\\s*\\**tak\\b|(?<!nie )jest gotowa do publikacji|można (ją )?publikować)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "X02",
+      "title": "Handoff: generator prompts keep the shots and timing of the storyboard from turn 1",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2498,
+        "output": 7986,
+        "cache_read": 121758,
+        "cache_write": 48402
+      },
+      "seconds": 51.9,
+      "wall_seconds": 52.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz storyboard 15-sekundowej reklamy wideo wypożyczalni kajaków „Nurt” z Bydgoszczy: 5 ujęć z czasami.",
+          "reply": "# Storyboard: reklama wypożyczalni kajaków „Nurt\", 15 s\n\n**Założenia (do potwierdzenia):**\n- Format 16:9, a wersję 9:16 da się wykadrować z tych ujęć.\n- Lokalizacja to Brda w Bydgoszczy. Konkretne miejsca (np. Wyspa Młyńska, Młyny Rothera) wstawię dopiero po potwierdzeniu, że mamy do nich prawo i dostęp.\n- Nie dostałem logo, telefonu, adresu ani cennika, więc w ujęciu 5 są placeholdery.\n- Ton: spokojny, ciepły, z poczuciem wolności. Czasy są planistyczne, nie zmierzone na montażu.\n- Bohaterowie: dwoje dorosłych, bez szczegółów wyglądu. Ten sam strój i ten sam kajak (jeden kolor) w każdym ujęciu.\n\n**Idea:** miasto zostaje na brzegu, a człowiek wchodzi w nurt. Obraz prowadzi od pośpiechu do ciszy.\n\n| # | Czas | Plan i kamera | Akcja | Dźwięk / napis |\n|---|------|---------------|-------|----------------|\n| 1 | 0,0–2,5 s | Plan ogólny z góry, wolny najazd w dół | Nabrzeże miejskie w ruchu: ludzie idą szybko, w tle ruch uliczny. Dwie osoby idą ku rampie wodnej. | Miejski gwar. Bez napisu, żeby hak był wizualny. |\n| 2 | 2,5–5,5 s | Plan średni z boku, kamera na wysokości wody | Para schodzi do wody, wypożyczalnia wypycha kajak. Pierwsze zanurzenie wiosła i rozchodzące się koło. | Gwar cichnie (ducking), wchodzi plusk i muzyka. |\n| 3 | 5,5–9,0 s | Plan połączony z kajaka (POV nad dziobem), potem ujęcie za kajakiem | Kajak wchodzi w nurt. Brzegi i zieleń przesuwają się obok, a miasto zostaje coraz dalej. | Muzyka rośnie. Napis: „Odpłyń od miasta\" (propozycja). |\n| 4 | 9,0–12,0 s | Zbliżenie, następnie plan amerykański | Uśmiech jednej osoby, kropla z wiosła w świetle. Druga osoba odchyla głowę, chłonie ciszę. | Same dźwięki wody i wiatru, muzyka na chwilę zwalnia. |\n| 5 | 12,0–15,0 s | Plan ogólny, kajak na tle rzeki, potem end card | Kajak oddala się po wodzie. Przejście w tło z logo. | Napis: „Nurt – wypożyczalnia kajaków, Bydgoszcz\". Pod spodem [adres / telefon / strona]. |\n\n**Rytm:** 2,5 + 3 + 3,5 + 3 + 3 = 15 s. Najdłuższe ujęcie (3) niesie obietnicę produktu. End card (ujęcie 5) trwa około 3 s i wystarcza na przeczytanie nazwy i danych kontaktowych.\n\n**Ciągłość:**\n- Kierunek ruchu kajaka to konsekwentnie lewo → prawo w ujęciach 3 i 5.\n- Pora dnia to złota godzina, bez zmian światła między ujęciami.\n- Rekwizyty: te same kamizelki ratunkowe, ten sam kolor kajaka i wioseł.\n- Bezpieczeństwo: kamizelki widoczne w kadrze. Zalecam to, bo reklama wypożyczalni nie powinna pokazywać osób na wodzie bez nich.\n\n**Do uzupełnienia przed realizacją:**\n1. Dane końcowe: logo, adres, telefon lub strona, ewentualna oferta i cena.\n2. Lektor czy sam napis? Teraz plan zakłada napisy i muzykę, bez lektora.\n3. Konkretna lokacja nad Brdą i zgody na zdjęcia.\n4. Wersje pionowe 9:16 (Reels, TikTok): mogę dostosować kadry i hak.\n\nMogę przejść dalej do haseł (Copy Voice), promptów do generatora wideo (Video Prompt Architect) albo graficznej planszy storyboardu.",
+          "reply_chars": 2881,
+          "reply_sha256": "fa47db1d3809ca4618ea06b483c37bb44ecfb76e067547db05967dc70767858a",
+          "skills": [
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1246,
+            "output": 2376,
+            "cache_read": 19595,
+            "cache_write": 13544
+          },
+          "seconds": 21.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Teraz zrób z tego prompty do Veo, po jednym na każde ujęcie.",
+          "reply": "# Prompty do Veo 3.1: „Nurt\", 5 ujęć\n\n**Stan sprawdzenia:** nie przeglądałem sieci. Składnię Veo wziąłem z karty dialektów sprawdzonej 2026-10-11, więc traktuj ją jako wstępną. Prompty są nieprzetestowane i niczego nie wygenerowałem.\n\n**Ustawienia (poza promptem):**\n- Proporcje 16:9.\n- Czas klipu 4 s dla każdego ujęcia, bo Veo oferuje tylko 4, 6 i 8 s. Docinasz do czasów ze storyboardu (2,5 / 3 / 3,5 / 3 / 3 s), a w ujęciach 4 i 5 możesz wybrać najlepsze sekundy.\n- Rozdzielczość: domyślne 720p, wyższa tylko przy 8 s. Jeśli potrzebujesz 1080p, wygeneruj klipy po 8 s i potnij je w montażu.\n- Osoby są dorosłe.\n\n**Wspólny opis bohaterów** (powtórzony w każdym prompcie, bo klipy są niezależne): kobieta i mężczyzna w ciemnozielonych kamizelkach ratunkowych i jasnych strojach, pomarańczowy kajak dwuosobowy, szare wiosła, złota godzina.\n\n**Ograniczenia:**\n- Nie dołączyłem żadnych obrazów referencyjnych. Spójność twarzy i ubrań wynika tylko z tekstu, więc będzie przybliżona. Jeśli potrzebujesz ścisłej, wygeneruj ujęcie 2 jako wzorzec i użyj go jako referencji w pozostałych.\n- Napisy i logo dodaj w montażu, nie w generatorze.\n- Muzykę dodaj w postprodukcji. W promptach jest tylko dźwięk diegetyczny (woda, gwar, wiatr).\n- Ujęcia 3 i 4 uprościłem względem storyboardu. Jeden klip 4 s ma jedno ujęcie ciągłe, więc w ujęciu 3 zostaje tylko kamera za kajakiem (bez POV), a w ujęciu 4 tylko zbliżenie jednej osoby.\n\n### Ujęcie 1 (0,0–2,5 s): miasto w pośpiechu\n\n```\nA high-angle wide shot of a busy city riverside promenade in late afternoon golden light, with brick buildings and a calm river at the edge of the frame. Commuters walk briskly along the embankment, and a distant street carries traffic. A woman and a man, both adults in dark green life jackets over light clothing, walk against the flow of hurried pedestrians toward a concrete ramp leading to the water. The camera slowly descends and pushes in toward them. Warm backlight, soft haze, realistic colour. Audio: layered city ambience, footsteps, distant traffic hum, no music, no speech.\n```\n\n### Ujęcie 2 (2,5–5,5 s): wejście na wodę\n\n```\nA medium side shot at water level on a calm river at golden hour. A woman and a man, adults in dark green life jackets over light clothing, push an orange two-person kayak off a concrete ramp and step in. The woman dips a grey paddle into the water for the first stroke, and a ring of ripples spreads across the surface. The camera stays low and steady, tracking slowly with the kayak. Warm low sun, glittering reflections, natural colour. Audio: the city noise fades quickly into soft water sounds, a gentle splash of the paddle, quiet dripping, no music, no speech.\n```\n\n### Ujęcie 3 (5,5–9,0 s): w nurcie\n\n```\nIn a single continuous shot, the camera glides just behind and slightly above an orange two-person kayak moving down a wide, calm river. A woman and a man, adults in dark green life jackets over light clothing, paddle in an easy rhythm with grey paddles. Green riverbanks with trees slide past on both sides, and the city skyline recedes behind them. Golden hour light, long soft reflections on the water, gentle forward movement, a sense of freedom. Audio: steady paddle strokes, water lapping against the hull, birds and light wind, no music, no speech.\n```\n\n### Ujęcie 4 (9,0–12,0 s): cisza\n\n```\nA medium close-up of a woman in a dark green life jacket, seated in an orange kayak on a calm river at golden hour. A drop of water slides off the grey paddle in the foreground and catches the sunlight. She tilts her head back slightly, closes her eyes for a moment and smiles with quiet relief. The camera makes a very slow push-in with shallow depth of field and a softly blurred green riverbank behind her. Warm rim light, natural skin tones. Audio: only gentle water, a light breeze and a distant bird, very quiet, no music, no speech.\n```\n\n### Ujęcie 5 (12,0–15,0 s): odpływ i end card\n\n```\nA wide static shot over a wide, calm river at golden hour. An orange two-person kayak with a woman and a man in dark green life jackets drifts slowly away from the camera and settles toward the right of the frame. The upper left third of the frame stays calm and uncluttered, with soft sky and smooth water. The camera is locked off, no movement. Warm light, gentle ripples, serene mood. Audio: quiet water, a soft breeze and distant birds, no music, no speech.\n```\n\n**Co sprawdzić po wygenerowaniu:**\n- Ujęcie 1: czy nikt nie idzie w kierunku wody bez kamizelki i czy para wyraźnie wyróżnia się z tłumu.\n- Ujęcia 2–5: czy kajak, wiosła i kamizelki mają ten sam kolor i czy kajak płynie w jednym kierunku.\n- Ujęcie 5: czy w lewej górnej części kadru jest wolne miejsce na logo i dane.\n- Żaden klip nie powinien zawierać przypadkowych napisów, logotypów ani mowy.\n\nJeśli rezultat będzie odbiegał, poprawiam jedną przyczynę naraz. Mogę też przygotować wersję pionową 9:16 albo hasła do nałożenia w montażu.",
+          "reply_chars": 4922,
+          "reply_sha256": "fbff418ec5544b38085d1a725f4beb1fa7d562904703d45fe52f2b39bf14a852",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1252,
+            "output": 5610,
+            "cache_read": 102163,
+            "cache_write": 34858
+          },
+          "seconds": 30.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['video-prompt-architect']; expected one of ['video-prompt-architect']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Veo"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Veo']"
+            },
+            {
+              "check": {
+                "regex": "(?is)(ujęci\\w*|shot)\\s*1\\b.*(ujęci\\w*|shot)\\s*5\\b"
+              },
+              "passed": true,
+              "detail": "/(?is)(ujęci\\w*|shot)\\s*1\\b.*(ujęci\\w*|shot)\\s*5\\b/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(ujęci\\w*|shot)\\s*6\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)(ujęci\\w*|shot)\\s*6\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "X03",
+      "title": "Handoff: after the storyboard is approved, the motion contract follows it without re-asking",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2488,
+        "output": 4220,
+        "cache_read": 103859,
+        "cache_write": 44705
+      },
+      "seconds": 27.0,
+      "wall_seconds": 27.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 6-sekundową pionową animację MP4 z napisem „Nurt” i hasłem „Spływy od maja”. Bez logo, bez dźwięku.",
+          "reply": "Nie mogę teraz wyrenderować tego MP4. W tej sesji mam tylko narzędzia do czytania i wyszukiwania. Powłoka (Bash) jest wyłączona i nie mam narzędzia do zapisu plików. Nie sprawdziłem więc, czy są tu Node, FFmpeg i Chrome, i nic nie powstało w `/tmp/studio-eval-kobbqxx2/work`. Plik nie istnieje, a podgląd i eksport są NOT VERIFIED.\n\nPoniżej propozycja do zatwierdzenia. Po włączeniu powłoki zbuduję i wyrenderuję ją bez dalszych pytań.\n\n**Propozycja: „Nurt\"** (1080×1920, 30 fps, 180 klatek, 6,0 s, bez dźwięku, bez logo)\n\nPomysł: napis jest rzeką. Litery płyną razem z nurtem, a potem się zatrzymują. Odrzuciłem oczywiste fale, kajak i błękitno-turkusowy klip turystyczny.\n\n| Czas | Obraz |\n|---|---|\n| 0,0–1,5 s | Ciemnozielona woda. Z lewej wpływają poziome pasma nurtu o różnej prędkości. Na tle jest tylko ruch, bez tekstu. |\n| 1,5–3,2 s | „Nurt\" (duży, półgruby krój bezszeryfowy, wyśrodkowany, jasny piaskowy kolor) wpływa w litery z prądem. Każda litera przychodzi z lekkim przesunięciem czasowym i wyhamowuje na swoim miejscu. |\n| 3,2–4,4 s | Pasma zwalniają. „Nurt\" stoi w spokoju z drobnym falowaniem tła. |\n| 4,4–5,2 s | Pod napisem pojawia się „Spływy od maja\" (mniejszy, ten sam krój). Wpływa jak jedna linia, bez pisania litera po literze. |\n| 5,2–6,0 s | Wszystko zostaje w kadrze jako czytelny hold. Tło płynie dalej, żeby klatka końcowa nie była martwa. |\n\n- **Treść:** dokładnie „Nurt\" i „Spływy od maja\", z polskimi znakami.\n- **Układ:** tekst mieści się w pionowym obszarze bezpiecznym (min. ~250 px od góry i dołu).\n- **Pominięte:** liczniki, etykiety w rogach, pasek postępu i logo.\n- **Narzędzie:** HTML z GSAP albo własny renderer, w zależności od tego, co będzie dostępne.\n\nCo zmienić, jeśli chcesz inaczej: paletę (domyślnie ciemna zieleń i piasek), układ lub tempo. Jeśli nic nie zmieniasz, wystarczy, że włączysz Bash i napiszesz „działaj\".",
+          "reply_chars": 1869,
+          "reply_sha256": "98de1d740e88f4b4197bf3692f6ae681e2696f21e650bf1fc7d83e58f9b7fcca",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1243,
+            "output": 1796,
+            "cache_read": 41062,
+            "cache_write": 17215
+          },
+          "seconds": 19.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "Zatwierdzam storyboard. Działaj dalej.",
+          "reply": "Storyboard jest zatwierdzony, ale nadal nie mogę zbudować ani wyrenderować filmu. Mam te same narzędzia co wcześniej: Glob, Grep, Read i Skill. Bash nie jest włączony i nie mam narzędzia do zapisu plików, więc nie mogę uruchomić renderera ani zapisać MP4 w `/tmp/studio-eval-kobbqxx2/work`. Nic nie powstało, a renderu i podglądu nie sprawdziłem.\n\nNie wkleję Ci też kodu z komunikatem, że film jest gotowy. Bez uruchomienia nie wiem, czy taki kod się wyrenderuje.\n\nŻeby ruszyć dalej, potrzebuję jednej z dwóch rzeczy:\n1. **Włączenie Bash i zapisu plików w tej sesji.** Wtedy sprawdzę Node, FFmpeg i Chrome, zbuduję animację zgodnie z zatwierdzonym storyboardem i wyrenderuję `nurt.mp4` (1080×1920, 30 fps, 6 s, bez dźwięku i logo). Obejrzę klatki: pierwszą, ostatnią i końcowy hold. Dostaniesz plik razem ze skryptem renderu.\n2. **Uruchomienie we własnym środowisku.** Mogę napisać skrypt w odpowiedzi, ale dopiero po tym, jak powiesz, że chcesz go uruchomić u siebie. Będzie wtedy nieprzetestowany.\n\nKtórą drogę wybierasz?",
+          "reply_chars": 1023,
+          "reply_sha256": "bde6961e4c05200feb8312f8acf0c7a86fed824d6211b111e24ac849a6d1a763",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1245,
+            "output": 2424,
+            "cache_read": 62797,
+            "cache_write": 27490
+          },
+          "seconds": 7.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Spływy od maja"
+                ]
+              },
+              "passed": false,
+              "detail": "missing ['Spływy od maja']"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 1)"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded []"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Nurt"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "kontrakt",
+                  "contract",
+                  "motion.json",
+                  "motion-score"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['kontrakt', 'contract', 'motion.json', 'motion-score']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

@@ -58,6 +58,16 @@ export function extendScene(score, sceneId, frames) {
   for (const caption of next.captions ?? []) {
     caption.start = move(caption.start); caption.end = move(caption.end);
     if (caption.end <= caption.start) throw new Error(`Caption ${caption.id} would become empty`);
+    // Word timings for the active-word preset are absolute frames too: they move with the caption, stay in order and
+    // inside it, and keep at least one frame each.
+    if (Array.isArray(caption.words)) {
+      let last = caption.start;
+      caption.words = caption.words.map(([a, b]) => {
+        const start = Math.min(Math.max(move(a), last), caption.end - 1);
+        last = start;
+        return [start, Math.min(Math.max(move(b), start + 1), caption.end)];
+      });
+    }
   }
   for (const cue of next.cues ?? []) cue.frame = move(cue.frame);
   for (const cue of next.sfx ?? []) cue.frame = move(cue.frame);

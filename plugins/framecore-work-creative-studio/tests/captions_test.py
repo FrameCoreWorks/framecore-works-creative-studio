@@ -1,6 +1,8 @@
 """Tests for skills/caption-studio/assets/captions/captions.py: files, limits, building, contract import and burn-in."""
 import importlib.util
 import json
+import io
+import contextlib
 import os
 import pathlib
 import shutil
@@ -197,6 +199,20 @@ class Contract(unittest.TestCase):
         self.assertTrue(any('after the last frame' in w for w in warnings))
         with self.assertRaises(ValueError):
             captions.import_captions(result, [cue(0, 500, 'x')])
+
+    def test_importing_into_an_approved_contract_needs_approval_again(self):
+        score = json.loads(STARTER.read_text())
+        score.update(revision=7, approval={'status': 'approved', 'revision': 7, 'evidence': 'user: ok'})
+        with tempfile.TemporaryDirectory() as tmp:
+            src, srt, out = pathlib.Path(tmp, 'in.json'), pathlib.Path(tmp, 'new.srt'), pathlib.Path(tmp, 'out.json')
+            src.write_text(json.dumps(score), encoding='utf-8')
+            srt.write_text('1\n00:00:00,500 --> 00:00:02,000\nNew unapproved claim\n', encoding='utf-8')
+            with contextlib.redirect_stdout(io.StringIO()) as printed:
+                self.assertEqual(captions.main(['contract', str(srt), str(src), '--replace', '--out', str(out)]), 0)
+            result = json.loads(out.read_text(encoding='utf-8'))
+        self.assertEqual(result['revision'], 8)
+        self.assertEqual(result['approval'], {'status': 'proposed', 'revision': None, 'evidence': None})
+        self.assertIn('needs approval again', printed.getvalue())
 
 
 @unittest.skipUnless(have_media(), 'Pillow, ffmpeg and ffprobe are needed for burn-in')

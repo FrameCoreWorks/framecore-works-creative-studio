@@ -551,6 +551,9 @@
                 "framecoreworks.github.io",
                 "Open contract"
               ]
+            },
+            {
+              "not_regex": "(?i)((?<!nie )(?<!nie zostanie )wyrenderowa(łem|łam|no)|oto (gotowy|twój) (plik )?mp4|plik mp4 jest gotowy|here is (the|your) (rendered )?mp4)"
             }
           ]
         }
@@ -584,6 +587,9 @@
             },
             {
               "language": "pl"
+            },
+            {
+              "not_regex": "(?i)(^\\s*\\**tak\\b|(?<!nie )jest gotowa do publikacji|można (ją )?publikować)"
             }
           ]
         }
@@ -669,6 +675,12 @@
               "contains_any": [
                 "Veo"
               ]
+            },
+            {
+              "regex": "(?is)(ujęci\\w*|shot)\\s*1\\b.*(ujęci\\w*|shot)\\s*5\\b"
+            },
+            {
+              "not_regex": "(?i)(ujęci\\w*|shot)\\s*6\\b"
             }
           ]
         }
@@ -707,16 +719,26 @@
               "language": "pl"
             },
             {
-              "contains": [
-                "Spływy od maja"
-              ]
-            },
-            {
               "max_user_questions": 1
             },
             {
               "no_skills": [
                 "video-prompt-architect"
+              ]
+            },
+            {
+              "contains_any": [
+                "kontrakt",
+                "contract",
+                "motion.json",
+                "motion-score"
+              ]
+            },
+            {
+              "contains_any": [
+                "Spływy od maja",
+                "nurt.motion.json",
+                "motion.json"
               ]
             }
           ]

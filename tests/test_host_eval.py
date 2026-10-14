@@ -2,7 +2,9 @@
 import importlib.util
 import json
 import pathlib
+import types
 import unittest
+from unittest import mock
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('host_eval', ROOT / 'scripts/host_eval.py')
@@ -91,6 +93,50 @@ class Checks(unittest.TestCase):
         self.assertTrue(host_eval.check({'max_user_questions': 0}, turn(reply))[0])
         self.assertFalse(host_eval.check({'max_user_questions': 0}, turn(reply + '\n\nKtóre wybierasz?'))[0])
         self.assertEqual(host_eval.check({'items': 3}, turn(reply))[0], True)
+
+    def test_questions_in_a_list_count_when_they_ask_the_user(self):
+        # Audit WF-01: three numbered questions are not three slogans.
+        asked = '1. Jaki produkt reklamujemy?\n2. Do kogo kierujesz reklamę?\n3. Czy masz logo?'
+        self.assertFalse(host_eval.check({'max_user_questions': 0}, turn(asked))[0])
+        self.assertFalse(host_eval.check({'max_user_questions': 1}, turn(asked + '\n4. What is the budget?'))[0])
+        self.assertTrue(host_eval.check({'max_user_questions': 0}, turn('1. Masz dość czekania? Zamów dziś.\n2. Chleb z rana.\n3. Ciepły do drzwi.'))[0])
+
+    def test_a_failed_tool_call_is_not_a_loaded_skill(self):
+        # Audit WF-02: the call is paired with its result; an error or a missing result does not count.
+        def events(is_error):
+            call = {'type': 'assistant', 'message': {'content': [{'type': 'tool_use', 'id': 't1', 'name': 'Skill',
+                                                                  'input': {'skill': 'framecore-work-creative-studio:workflow-orchestrator'}}]}}
+            answer = {'type': 'user', 'message': {'content': [{'type': 'tool_result', 'tool_use_id': 't1', 'is_error': is_error,
+                                                                'content': 'Skill not found' if is_error else 'ok'}]}}
+            return [call, answer] if is_error is not None else [call]
+        result = {'type': 'result', 'result': 'Hej'}
+        for is_error, loaded in ((False, ['workflow-orchestrator']), (True, []), (None, [])):
+            parsed = host_eval.parse_events(events(is_error), result)
+            self.assertEqual(host_eval.skills_of(parsed['tools']), loaded, is_error)
+            self.assertEqual(host_eval.check({'skills': ['workflow-orchestrator']}, parsed)[0], bool(loaded))
+
+    def test_an_api_key_stops_the_runs_unless_the_owner_allows_it(self):
+        # Audit WF-03: names only, never values; a plan or host-managed sign-in has none of these.
+        self.assertEqual(host_eval.billing_variables({'ANTHROPIC_API_KEY': 'x', 'HOME': '/h'}), ['ANTHROPIC_API_KEY'])
+        self.assertEqual(host_eval.billing_variables({'ANTHROPIC_BASE_URL': 'https://proxy', 'HOME': '/h'}), [])
+        with mock.patch.dict(host_eval.os.environ, {'ANTHROPIC_API_KEY': 'FAKE_OFFLINE_MARKER'}), \
+                mock.patch.object(host_eval.shutil, 'which', return_value='/bin/claude'), mock.patch.object(host_eval, 'run_case') as runner:
+            self.assertEqual(host_eval.main(['--cases', 'W01']), 2)
+            runner.assert_not_called()
+
+    def test_a_failed_later_turn_keeps_the_finished_turns_and_their_usage(self):
+        # Audit WF-04.
+        first = {'reply': 'ok', 'is_error': False, 'subtype': 'success', 'session': 's', 'tokens': {'input': 101, 'output': 202, 'cache_read': 303, 'cache_write': 404},
+                 'turns': 1, 'models': ['m'], 'seconds': 7.0, 'tools': []}
+        case = {'id': 'T', 'title': 't', 'turns': [{'prompt': 'a', 'checks': []}, {'prompt': 'b', 'checks': []}]}
+        args = types.SimpleNamespace(keep_chars=100, judge=False)
+        with mock.patch.object(host_eval, 'run_turn', side_effect=[first, host_eval.EvalError('boom')]):
+            outcome = host_eval.run_case(case, args)
+        self.assertEqual(outcome['verdict'], 'ERROR')
+        self.assertEqual(len(outcome['turns']), 1)
+        self.assertEqual(outcome['tokens']['output'], 202)
+        self.assertEqual(outcome['seconds'], 7.0)
+        self.assertIn('turn 2', outcome['detail'])
 
     def test_skills_and_commands_come_from_the_tool_calls(self):
         tools = [{'name': 'Skill', 'input': {'skill': 'framecore-work-creative-studio:caption-studio'}},

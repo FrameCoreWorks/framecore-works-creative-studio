@@ -46,7 +46,7 @@ def technical(score, video):
     if not ffprobe or not os.path.isfile(video):
         return verdict('not_verified', findings=['ffprobe or the video is missing'])
     probe = json.loads(subprocess.run([ffprobe, '-v', 'error', '-count_packets', '-show_entries',
-                                       'stream=codec_type,width,height,r_frame_rate,nb_read_packets:format=duration', '-of', 'json', video],
+                                       'stream=codec_type,width,height,r_frame_rate,nb_read_packets,duration:format=duration', '-of', 'json', video],
                                       capture_output=True, text=True, check=True).stdout)
     streams = probe.get('streams', [])
     v = next((s for s in streams if s.get('codec_type') == 'video'), None)
@@ -64,6 +64,16 @@ def technical(score, video):
         findings.append(f'{fps:.3f} fps, contract {want:.3f}')
     if abs(frames - score['totalFrames']) > 1:
         findings.append(f"{frames} frames, contract {score['totalFrames']}")
+    # Playback length: the picture and the whole file must run the contract's time (a frame of tolerance; a short
+    # audio tail of encoder padding is allowed, a long one is a different video).
+    expected = score['totalFrames'] * score['fps']['den'] / score['fps']['num']
+    frame = score['fps']['den'] / score['fps']['num']
+    video_seconds = float(v.get('duration') or 0)
+    file_seconds = float(probe.get('format', {}).get('duration') or 0)
+    if video_seconds and abs(video_seconds - expected) > 1.5 * frame:
+        findings.append(f'picture runs {video_seconds:.3f} s, contract {expected:.3f} s')
+    if file_seconds and file_seconds - expected > max(2 * frame, 0.1):
+        findings.append(f'the file plays {file_seconds:.3f} s, contract {expected:.3f} s (a tail without the planned picture)')
     if expects_audio and not has_audio:
         findings.append('the contract has sound but the file has no audio stream')
     evidence = [f"{v['width']}x{v['height']}, {fps:.3f} fps, {frames} frames, {float(probe.get('format', {}).get('duration') or 0):.3f} s, audio {'yes' if has_audio else 'no'}"]
@@ -74,6 +84,16 @@ def technical(score, video):
 
 def norm(text):
     return re.sub(r'\s+', ' ', str(text)).strip()
+
+
+def tokens(text):
+    """Whole words and numbers in reading order (10 is not 100, 99,99 stays one token); punctuation and case aside."""
+    return re.findall(r'[-−]?\d+(?:[.,]\d+)*%?|[^\W\d_]+', str(text).lower())
+
+
+def shown_in_order(want, sample_tokens):
+    n = len(want)
+    return any(sample_tokens[i:i + n] == want for i in range(len(sample_tokens) - n + 1))
 
 
 def fidelity(score, audit, source_review):
@@ -88,13 +108,14 @@ def fidelity(score, audit, source_review):
         if not asset.get('authority'):
             unknown.append(f'asset {asset.get("id")} has no recorded authority')
     if audit:
-        shown = [norm(t['text']) for s in audit.get('samples', []) for t in s.get('texts', []) if t.get('visible') != 'hidden']
-        flat = ' | '.join(shown)
-        missing = [k for k, v in copy.items() if norm(v) and norm(v) not in flat and not all(word in flat for word in norm(v).split())]
+        # Each copy entry must appear whole, its words in order, inside one audited frame; words gathered from
+        # different frames, a changed number or a changed word order do not count.
+        frames = [tokens(' '.join(t['text'] for t in s.get('texts', []) if t.get('visible') != 'hidden')) for s in audit.get('samples', [])]
+        missing = [k for k, v in copy.items() if tokens(v) and not any(shown_in_order(tokens(v), f) for f in frames)]
         if missing:
-            findings.append('copy not found in any audited frame: ' + ', '.join(missing))
+            findings.append('copy not found whole and in order in any audited frame: ' + ', '.join(missing))
         else:
-            evidence.append(f'all {len(copy)} copy entries found verbatim in audited frames')
+            evidence.append(f'all {len(copy)} copy entries found word for word, in order, within one audited frame each')
     else:
         unknown.append('no text audit: exact copy in the picture not checked')
     if source_review == 'fail':

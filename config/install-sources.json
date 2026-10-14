@@ -2503,8 +2503,8 @@
     },
     {
       "path": "skills/caption-studio/assets/captions/captions.py",
-      "bytes": 28628,
-      "sha256": "76a7ce6d34b54474462e0483f4fc4e77a2aa28586dc23315ebdb44a4ac8292a9"
+      "bytes": 29235,
+      "sha256": "dda445d64045097c4ff92a53ee4985d2274d978e544cb40e9cb872ba02897f2b"
     },
     {
       "path": "skills/caption-studio/references/readability-defaults.md",
@@ -3013,8 +3013,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 17678,
-      "sha256": "45511b3cc2f7fd7f3da0df84b8aa7aa03d57ae9fc94af39fe168dfa35c62927d"
+      "bytes": 18154,
+      "sha256": "a26effe24ce1cf842facb0217d1ff61f366cfaed53f445097f7d6ecb1116a4b2"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -3638,13 +3638,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-assets/README.md",
-      "bytes": 2765,
-      "sha256": "73fab939a852aafdc42c7bb124c4882e230245e581d0f7941442683c5243777e"
+      "bytes": 2904,
+      "sha256": "ab498a176d9dd5c53a63007e1f016147d2cb58f5551f186bae430a48cde4f079"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-assets/asset_check.py",
-      "bytes": 11175,
-      "sha256": "a09ed5709c2691c3b05d88ac4e33dd032ca3e4c79498c86edad4aa1e3d4c6d05"
+      "bytes": 12344,
+      "sha256": "1936527b0252f82c77b09f1b8f51a4a138ff778709ba3633c2e1801079131195"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-export/README.md",
@@ -3653,8 +3653,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-export/capture-html.mjs",
-      "bytes": 8108,
-      "sha256": "d47a29fec1a7f0784fb5fdd9c1106b2e0bccb81e85cf8405f69b5d54a47f7e3e"
+      "bytes": 9200,
+      "sha256": "fa25d9c3e332cb86ca5835ed110c8b54c37f7110a59d7be45916ba517a6b6e9c"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-export/export-video.mjs",
@@ -3663,8 +3663,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-export/video-export.mjs",
-      "bytes": 11219,
-      "sha256": "d5c5d36afb20dc997f87623178f00526b4e12d58507689a99796c7c3a820cf96"
+      "bytes": 11273,
+      "sha256": "4d1a685964ade0dc2567e8fa43e95b13866b029d96ebd6c56e42fc5c29503cf3"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
@@ -3828,8 +3828,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
-      "bytes": 15254,
-      "sha256": "755509d6fc4354a1d2b8d76743c279202a08db3881f449f33ae37382b7e5cbd1"
+      "bytes": 16646,
+      "sha256": "4339069eb11cdab424e672747cab5f5c69d4b314f864e1704465ec8fb8cc6f91"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/critique.py",
@@ -3898,8 +3898,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-revise/revise.mjs",
-      "bytes": 7172,
-      "sha256": "ebe39b323fa9a250fcf3afa8497c6235dfdc5c9df2f7627977f72ffe3306e9a9"
+      "bytes": 7657,
+      "sha256": "991f0ee66d978bee4005a766ca2090753e25ed1585217e1dc4b1bc1813d068ca"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-scenes/README.md",
@@ -4048,8 +4048,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/sync.mjs",
-      "bytes": 7980,
-      "sha256": "165773932e88895d9d3ad8824627ecab98f62d901849265df05a8072dda9a25b"
+      "bytes": 8059,
+      "sha256": "c867d15d23c5ac48c2093af10902c9057beb17edfc5c05dc264010a925cdb3b1"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-toolkit/README.md",
@@ -4133,8 +4133,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
-      "bytes": 92398,
-      "sha256": "a6e26f5b0e1d0945122840435ffcc518daa71d082fc6f247df9640eae7280060"
+      "bytes": 92452,
+      "sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad"
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs",
@@ -5643,8 +5643,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
-      "bytes": 27149,
-      "sha256": "7a467509fbad7da68a702c6b885c86d405a1eea806fd492dfa52f6d526f90463"
+      "bytes": 29558,
+      "sha256": "b40901cf00d402034340c5d4cca0873398b240eef4a4b80d3e5f121364492249"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
@@ -5748,8 +5748,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/learning-mode.md",
-      "bytes": 25885,
-      "sha256": "f017f86f5059838ed89804c81547a564ce3acff1b5494d3fb7d6e6126ae9008a"
+      "bytes": 25932,
+      "sha256": "b6519c98d98c2b5c177ea4dd6885c89b593c59d5f79404483ca0de48cb8ba705"
     },
     {
       "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
@@ -5858,8 +5858,8 @@
     },
     {
       "path": "tests/captions_test.py",
-      "bytes": 14025,
-      "sha256": "16daeb1b9dccde3ad6919557bd97c25b2fd77b27125c30bf644a60c6cd146337"
+      "bytes": 15094,
+      "sha256": "36b46528fdb80f2e8bc7d1f27cdec6ed8e07a64d8ef20efec7951c502b5c260e"
     },
     {
       "path": "tests/clip_review_test.py",
@@ -5878,8 +5878,8 @@
     },
     {
       "path": "tests/environment_check_test.py",
-      "bytes": 16524,
-      "sha256": "4d43fca5f28ff75f4c7cfbe91396db2b836e26456bc0c810f7cc55c76967eb79"
+      "bytes": 19924,
+      "sha256": "73a3678617ee644e5ebee512c794b93a4a43ecb212e9d98b357ff7e234ea09db"
     },
     {
       "path": "tests/image_probe_test.py",
@@ -5903,13 +5903,13 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 116104,
-      "sha256": "a730502b71584456b99b387b0a4ab63c86f0c31aa1d2e37ea843ebca151df3a8"
+      "bytes": 118621,
+      "sha256": "45d5e025f433ffb6a49f46c77aa1f3df1bf16be6cd47dd443f3a292f8cf45893"
     },
     {
       "path": "tests/motion_acceptance_test.py",
-      "bytes": 17904,
-      "sha256": "c49db2ee72d2aa931160f8323eee8d9e806ecf09c537e26b3afaedb89338d9b3"
+      "bytes": 19941,
+      "sha256": "db16ee314ac542ccc043d2466eef30ee4302c1ab614906d02587f2109c5a3668"
     },
     {
       "path": "tests/motion_activity_test.py",
@@ -5918,8 +5918,8 @@
     },
     {
       "path": "tests/motion_assets_test.py",
-      "bytes": 5710,
-      "sha256": "99c871885bbceebfac09c650482ae326330cf11efa51def65861faf759c0a437"
+      "bytes": 6831,
+      "sha256": "deb5c7f4565e027c1993b7a555bcaae0e99ef3778d95bfc28dfb6fd9869829fc"
     },
     {
       "path": "tests/motion_fonts_test.py",

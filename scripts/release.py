@@ -46,8 +46,8 @@ class ReleaseError(Exception):
     pass
 
 
-def run(*args, check=True, cwd=ROOT, env=None, timeout=None):
-    done = subprocess.run(list(args), cwd=cwd, capture_output=True, text=True, env=env, timeout=timeout)
+def run(*args, check=True, cwd=None, env=None, timeout=None):
+    done = subprocess.run(list(args), cwd=cwd or ROOT, capture_output=True, text=True, env=env, timeout=timeout)
     if check and done.returncode != 0:
         raise ReleaseError(f'{" ".join(args[:3])} failed ({done.returncode}): {(done.stderr or done.stdout)[-1500:]}')
     return done
@@ -256,7 +256,8 @@ def zip_facts(new):
     return path, count, path.stat().st_size
 
 
-def commit(title, body, change_id, baseline, shared):
+def commit(title, body, change_id, baseline, shared, paths=None):
+    """Commit the release's own changes. With paths, only those files are staged, and anything else already staged stops it."""
     message = f"""{title}
 
 {body.strip()}
@@ -269,7 +270,14 @@ ChatGPT-Work-Sync: not_tracked
 Codex-Sync: not_run
 {TRAILER_TAIL}
 """
-    git('add', '-A')
+    if paths:
+        git('add', '--', *paths)
+        staged = git('diff', '--cached', '--name-only').splitlines()
+        stray = sorted(set(staged) - set(paths))
+        if stray:
+            raise ReleaseError('files outside this release step are staged; unstage them and run again: ' + ', '.join(stray))
+    else:
+        git('add', '-A')
     with tempfile.NamedTemporaryFile('w', delete=False, suffix='.txt', encoding='utf-8') as handle:
         handle.write(message)
     try:
@@ -363,8 +371,22 @@ def download(url, target):
         target.write_bytes(response.read())
 
 
+def require_matches(matches):
+    """Every downloaded release asset must equal the local build; a record never claims a comparison that failed."""
+    differ = [name for name, same in matches.items() if not same]
+    if differ:
+        raise ReleaseError('downloaded release assets differ from the local build (or the local file is missing): ' + ', '.join(differ)
+                           + '; rebuild with scripts/package_release.py at the tag and run publish again')
+
+
+PUBLICATION_FILES = ['RELEASE_STATUS.md', 'docs/development-ledger.md']
+
+
 def publish(args):
     version = args.version
+    dirty = git('status', '--porcelain')
+    if dirty:  # the publication commit holds its three records only; unrelated work must not ride along
+        raise ReleaseError('the working tree has uncommitted changes; commit or stash them before publish:\n' + dirty)
     sha = git('rev-list', '-n', '1', f'v{version}', check=False) or git('rev-parse', 'HEAD')
     deadline = time.time() + args.wait
     while True:
@@ -404,6 +426,7 @@ def publish(args):
                     frontmatters += 1
         except ImportError:
             frontmatters = None
+    require_matches(matches)
     if mismatched or len(members) != len(tree):
         raise ReleaseError(f'release ZIP differs from the tag tree: {len(members)} vs {len(tree)} files, {len(mismatched)} mismatched')
     by_name = {r['name'].split()[0]: r for r in runs}
@@ -435,7 +458,7 @@ def publish(args):
     run('node', f'{PACKAGE}/scripts/validate-studio.mjs')
     baseline = git('rev-parse', 'HEAD')
     commit(f'docs: record {version} GitHub publication', 'Release workflow and checks are green; the downloaded assets equal the local build and the tag tree.',
-           args.change_id, baseline, False)
+           args.change_id, baseline, False, paths=PUBLICATION_FILES + [f'verification/github-publication-{version}.json'])
     print(json.dumps(record, indent=2))
     if args.push:
         push(baseline)
