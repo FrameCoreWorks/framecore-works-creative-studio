@@ -1,5 +1,5 @@
-# Creative Studio 1.79.0
+# Creative Studio 1.80.0
 
-- **HyperFrames now works in ChatGPT Work.** When your sandbox has the tools (Node.js, FFmpeg, Chromium), Studio offers to install HyperFrames for the conversation and renders client reels with it, as in Claude Code. The install lasts for that conversation.
+- **Photographic motion without stock footage.** When your film needs real-looking objects, hands or light and you have no photos, Studio plans the stills to generate, gives you a prompt for each (with the right background for your generator so the cut-out is clean), checks the files you bring back and animates them.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

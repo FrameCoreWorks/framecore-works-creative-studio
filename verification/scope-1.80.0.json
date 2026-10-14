@@ -1,0 +1,35 @@
+{
+  "version": "1.80.0",
+  "baseline_tag": "v1.79.0",
+  "baseline": "7310046f64e0c26fafda979767a35bb71e84b208",
+  "change_id": "CC-20261014-03",
+  "origin": "cloud-code",
+  "files": 1194,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/asset-manifest/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-assets/README.md",
+    "skills/hyperframes-workflow/assets/motion-assets/asset_check.py",
+    "skills/hyperframes-workflow/references/generated-motion-assets.md",
+    "tests/motion_assets_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1178,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Release 1.80.0 carries CC-20261014-03: from a 2026-10-14 production handover, Motion Graphics Workflow plans generated cut-out assets for realistic objects, hands and light instead of drawing them in code, with a transparency route per generator (checked 2026-10-14) and a new asset check tool (check, difference matte, chroma key) used before compositing, plus an edge check in the rendered film; host case G07 fails before and passes after. A clip-level automatic edge audit and a motion-contract field for generated assets are left for a later trigger."
+}

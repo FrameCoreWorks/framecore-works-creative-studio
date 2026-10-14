@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.80.0, 2026-10-14
+
+From a production session on 2026-10-14 (a lyric video built from assets the user generated in Gemini) and its handover:
+
+- **Generated cut-out assets.** When a motion film needs realistic objects, products, hands, close-ups or photographic light and nothing is supplied, Motion Graphics Workflow plans one generated still per need from the storyboard, with ready prompts (or, with an approved connected generator, makes them), and never draws realistic objects or hands in code ([generated cut-out assets](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/generated-motion-assets.md))
+- **Transparency by generator** (checked 2026-10-14): OpenAI's API `background="transparent"` with PNG or WebP; Gemini has no alpha, so white then an edit to black for a difference matte, or flat green for a solid subject; light and neon on black with no backing plate, composited with screen
+- **Asset check tool** (`assets/motion-assets/asset_check.py`): `check` (real alpha, painted checkerboard, edge fringe, pixels for the largest zoom), `matte` (difference matte that refuses a moved subject) and `key` (soft chroma key with despill that refuses a subject with green of its own); edges are checked again in the rendered film at peak zoom
+- Image Prompt Architect gains the animatable-asset rules; Asset Manifest records generator, transparency method, resolution and moving parts
+- Repository: host case G07 in `tests/host-evals/gaps.json` (before FAIL, after PASS)
+
 ## 1.79.0, 2026-10-14
 
 From the owner's ChatGPT Work test of 1.78.0 (2026-10-14): the sandbox had Node.js 24, FFmpeg 6.1, Chromium 153 and the npm registry, installed the HyperFrames CLI on request and rendered a 1080x1920 test; Studio had said HyperFrames could not run there.
