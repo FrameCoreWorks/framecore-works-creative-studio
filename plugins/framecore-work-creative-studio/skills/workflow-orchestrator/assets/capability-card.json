@@ -256,6 +256,28 @@
       "observed": "Container checks only"
     },
     {
+      "id": "motion_asset_check",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Checks generated cut-out assets before they enter a motion film (real alpha, painted checkerboard, edge fringe, resolution for the largest zoom) and cuts them out with a difference matte from white and black versions or a soft chroma key",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-assets/asset_check.py"
+      ],
+      "requires": [
+        "python",
+        "pillow",
+        "numpy"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A PASS or REPAIR report per asset with the fix, and new cut-out PNG files",
+      "when_missing": "Inspect each asset over black, white and magenta at full size and at the largest zoom by eye, and say the asset check did not run",
+      "observed": "2026-10-14: synthetic tests only (tests/motion_assets_test.py); not yet run on a real production's assets"
+    },
+    {
       "id": "motion_text_audit",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-14",
+  "package_version": "1.79.0",
+  "source": {
+    "commit": "35834a7976a5b4b3cd0da65809fccc5d7ea383f4",
+    "package_uncommitted_changes": false
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.299, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2,
+      "output": 2589,
+      "cache_read": 0,
+      "cache_write": 20972
+    },
+    "seconds": 29.9
+  },
+  "cases": [
+    {
+      "id": "G07",
+      "title": "Realistic objects come from generated cut-out assets, not procedural drawing (handover 2026-10-14)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 2589,
+        "cache_read": 0,
+        "cache_write": 20972
+      },
+      "seconds": 29.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:hyperframes-workflow Zrobię w HyperFrames 20-sekundowy lyric video do mojego kawałka. Koncepcja zatwierdzona: realistyczny boombox na plaży, dłoń wciska PLAY, kasety się kręcą, a na koniec świeci neon z nazwą utworu. Nie mam żadnych zdjęć ani nagrań. Jak przygotować te elementy wizualne?",
+          "reply": "Bez zdjęć i nagrań \"realistycznie\" da się zrobić, ale HyperFrames niczego nie generuje. Składa, animuje i renderuje gotowe warstwy kodem. Realistyczne obrazy trzeba więc skądś wziąć, a resztę zrobi kod.\n\n## Co z czego\n\n| Element | Najlepsza droga | Dlaczego |\n|---|---|---|\n| **Plaża (tło)** | Wygenerowany obraz AI albo licencjonowane zdjęcie ze stocka (Pexels/Unsplash, z potwierdzoną licencją). Kod dodaje powolny najazd kamery i ruch fali. | Tło nie wymaga precyzji. |\n| **Boombox** | Jeden wygenerowany obraz bohatera: boombox na piasku, otwarta kieszeń kasety, spokojne światło. Najlepiej generować go razem z tłem, żeby cienie i światło się zgadzały. | Spójne światło daje wrażenie realizmu. |\n| **Kręcące się kasety** | Kod: kaseta jako SVG/CSS (szpulki, taśma) nałożona na okno magnetofonu i obracana klatka po klatce. | Obrót w obrazie AI będzie drgał. Wektor kręci się idealnie i zgodnie z rytmem. |\n| **Dłoń wciska PLAY** | Najtrudniejszy element. Masz trzy opcje (niżej). | Dłoń kodem nie wygląda realistycznie. |\n| **Neon z tytułem** | Wyłącznie kod: żywy tekst z warstwami glow, delikatnym migotaniem i zapalaniem się. | Tytuł musi być czytelny i bez literówek. Generator obrazu psuje napisy. |\n| **Lyrics** | Kod, synchronizowany z Twoim audio. | Wymaga pliku audio i tekstu, patrz niżej. |\n\n**Dłoń, trzy opcje (polecam pierwszą):**\n1. **Telefon, 5 sekund.** Nagrywasz własną dłoń naciskającą przycisk dowolnego magnetofonu lub zabawki. Wygląda najbardziej autentycznie i jest bezpłatne. Dopasuję je kolorystycznie do sceny.\n2. **Wygenerowany obraz dłoni nad klawiszem.** Naciśnięcie robi kod: dłoń zjeżdża o kilka pikseli, klawisz się zapada, a w tej samej klatce startują szpulki. Jest tanio, ale to najsłabsze ogniwo realizmu.\n3. **Krótki klip image-to-video** z generatora. Daje najlepszy efekt wizualny, ale wymaga kilku prób i kosztuje. Przygotuję do niego prompt.\n\n## Czego potrzebuję, żeby ruszyć\n1. **Plik audio utworu.** Bez niego nie zsynchronizuję napisów ani animacji z rytmem, bo to nie jest \"nagranie wizualne\", tylko podstawa lyric video. Jeśli nie masz jeszcze finalnej wersji, daj choć wersję roboczą.\n2. **Tekst lyrics** (dokładnie tak, jak ma się pojawić) i **dokładna pisownia tytułu** do neonu.\n3. **Format:** pion 9:16 (Reels/TikTok/Shorts) czy poziom 16:9 (YouTube)?\n4. **Zgoda na obrazy generowane AI** dla tła i boomboxa, czy wolisz tylko stock lub własne ujęcia?\n\n## Plan po Twoich odpowiedziach\n1. Sprawdzę środowisko (Node, FFmpeg, Chrome), żeby potwierdzić, że lokalny render HyperFrames zadziała.\n2. Przygotuję tabelę storyboardu na 20 s do zatwierdzenia. Wstępnie wygląda to tak: plaża i boombox 0–5 s, dłoń i PLAY 5–8 s, kasety i lyrics 8–17 s, neon z tytułem 17–20 s.\n3. Dam listę zasobów z gotowymi promptami do obrazu bohatera (tło i boombox razem) oraz do dłoni, bez promptów na tekst.\n4. Zbuduję projekt, wyrenderuję MP4 i sprawdzę klatki. Dźwięk dodam z Twojego utworu, bo sam nie generuję muzyki.\n\nNic jeszcze nie zbudowałem ani nie wyrenderowałem.",
+          "reply_chars": 3004,
+          "reply_sha256": "72dfd7c8d7f17ef661f49cf493006f70280dae23af22c59fd58a48c0786b7d37",
+          "skills": [],
+          "tools": [],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 2589,
+            "cache_read": 0,
+            "cache_write": 20972
+          },
+          "seconds": 29.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)(wygeneruj|wygenerowa|generator\\w* obraz|gpt image|gemini|nano banana)"
+              },
+              "passed": true,
+              "detail": "/(?i)(wygeneruj|wygenerowa|generator\\w* obraz|gpt image|gemini|nano banana)/"
+            },
+            {
+              "check": {
+                "regex": "(?i)(przezroczyst|kanał\\w* alfa|\\balpha\\b|na czarnym tle|na białym)"
+              },
+              "passed": false,
+              "detail": "/(?i)(przezroczyst|kanał\\w* alfa|\\balpha\\b|na czarnym tle|na białym)/"
+            },
+            {
+              "check": {
+                "regex": "(?i)(bez (tła|podkładu|płyty|ramki)|tylko (same )?(rurki|świat)|no backing|akryl)"
+              },
+              "passed": false,
+              "detail": "/(?i)(bez (tła|podkładu|płyty|ramki)|tylko (same )?(rurki|świat)|no backing|akryl)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

@@ -63,6 +63,7 @@ Produce an Asset Manifest with:
 3. For generated sequences, record the actual continuity carrier used by each dependent request and identify which outputs have been accepted for rewrite-forward.
 4. Preserve relative paths when possible so the manifest remains portable.
 5. Flag missing source context, uncertain versions, or files that need human confirmation.
+   For a generated cut-out that a motion film animates, also record the generator and model, the transparency method (native alpha, difference matte, chroma key, or screen blend on black), the resolution, the parts that move and the asset check result.
 6. Hand off only files that can be explained and traced.
 
 ## Decision Rules

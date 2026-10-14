@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-14",
+  "package_version": "1.79.0",
+  "source": {
+    "commit": "35834a7976a5b4b3cd0da65809fccc5d7ea383f4",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.299, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 6,
+      "output": 3620,
+      "cache_read": 47213,
+      "cache_write": 19720
+    },
+    "seconds": 36.5
+  },
+  "cases": [
+    {
+      "id": "G07",
+      "title": "Realistic objects come from generated cut-out assets, not procedural drawing (handover 2026-10-14)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 3620,
+        "cache_read": 47213,
+        "cache_write": 19720
+      },
+      "seconds": 36.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:hyperframes-workflow Zrobię w HyperFrames 20-sekundowy lyric video do mojego kawałka. Koncepcja zatwierdzona: realistyczny boombox na plaży, dłoń wciska PLAY, kasety się kręcą, a na koniec świeci neon z nazwą utworu. Nie mam żadnych zdjęć ani nagrań. Jak przygotować te elementy wizualne?",
+          "reply": "Skoro nie masz zdjęć ani nagrań, każdy realistyczny element wygenerujesz jako osobny obraz, a HyperFrames je animuje. Rzeczy fotograficzne, czyli boombox, dłoń i kasety, nie powinny być rysowane kodem. Kod robi tylko napisy, światło i ruch.\n\n## Lista assetów (1 obiekt = 1 obraz, najwyższa dostępna rozdzielczość)\n\n| # | Asset | Gdzie w 20 s | Co się rusza | Przezroczystość |\n|---|---|---|---|---|\n| A1 | Boombox, widok na wprost, długi obiektyw | cały film | lekki push-in | zielone tło lub biało/czarna matryca |\n| A2 | Ten sam boombox z wciśniętym PLAY | po wciśnięciu | zmiana stanu | edycja A1, zmienia się tylko klawisz |\n| A3 | Dłoń z wyciągniętym palcem | wejście i wciśnięcie | dojazd i dociśnięcie | biało/czarna matryca (miękkie krawędzie skóry) |\n| A4 | Kaseta z bliska, na wprost, bez rolek | zbliżenie | rama kasety, okno puste | zielone tło |\n| A5 | Rolka kasety (szpulka) osobno | zbliżenie | obrót w kodzie | zielone tło |\n| A6 | Plaża jako tło z pustym miejscem na tekst | cały film | powolny drift | niepotrzebna, to tło |\n| A7 | Neon (opcjonalnie) | finał | miganie, rozbłysk | czarne tło, składanie przez blend `screen` |\n\nZasady dla promptów:\n- **Bez napisów i marek.** Generator zepsuje litery, a prawdziwa marka to ryzyko. Klawisz PLAY ma być pusty, a trójkąt ▶ dorysuje kod.\n- **Ruchome części czyste.** Okno kasety i rolki mają być okrągłe, bez refleksów i bez zasłaniających elementów. Wyświetlacze mają być zgaszone.\n- **Spójność.** Wygeneruj A1 pierwszy, zatwierdź go i używaj jako referencji do A2–A5, żeby światło się zgadzało.\n- **Neon: tytuł lepiej zrobić w kodzie.** Neonowy napis w stylu rurek da dokładne litery, a w wygenerowanym obrazie litery często się psują. Generator da tylko poświatę i odbicie światła.\n\n## Gotowe prompty (po angielsku, wklej do generatora)\n\n**A1 – boombox**\n> Real studio product photograph, not a 3D render. A vintage 1980s portable boombox with two round speakers, straight-on front view, long lens (85mm, f/8), no perspective distortion, centered, filling most of the frame. Cassette door closed, display unlit and blank, buttons blank with no printing, no brand names, no logos, no text anywhere. Real materials: brushed metal, scuffed plastic, slight wear, neutral studio reflections. Flat pure #00FF00 background, no green on the subject, no green reflections, generous margin, sharp edges.\n\n**A2 – wciśnięty PLAY**\n> Edit the previous image: change only the PLAY key so it is pressed down about 2 mm. Keep framing, scale, light and background identical.\n\n**A3 – dłoń**\n> Real photograph, not a 3D render. A right hand seen from the side, index finger extended as if about to press a button, relaxed natural pose, realistic skin with fine detail, neutral studio light, 85mm, no jewelry, no text. Pure white #FFFFFF background, generous margin.\n>\n> Potem druga edycja: *„Change only the background to pure black #000000, keep everything else identical.\"*\n\n**A4 – kaseta**\n> Real studio product photograph. A compact cassette tape, straight-on top-down view, long lens, centered, filling the frame. Label area completely blank, no text, no printing. The two reel windows are empty circular openings with no reels, no glare. Flat pure #00FF00 background, no green on the subject, sharp edges.\n\n**A5 – rolka**\n> Real studio product photograph. A single cassette tape reel hub, white plastic with six teeth, straight-on view, perfectly round, centered, filling the frame, no text. Flat pure #00FF00 background, no green on the subject, sharp edges.\n\n**A6 – plaża**\n> Real photograph of an empty beach at golden hour, calm sea, soft sand in the foreground, wide 35mm lens. The upper third is open sky with no objects, no people, no text, no signs, no brand names. Slight film grain, warm light.\n\n**A7 – neon (tylko światło)**\n> Neon tube glow only: a thin pink and cyan neon line with soft bloom, on a pure black #000000 background. No acrylic backing, no wall, no frame, no standoffs, no text.\n\n## Uwagi o przezroczystości\n\n- **Gemini nie daje prawdziwej przezroczystości.** Poprosi o nią i dostaniesz białe tło, czarne albo namalowaną szachownicę. Używaj zielonego tła albo pary biało/czarnej.\n- **OpenAI GPT Image przez API** wspiera `background=\"transparent\"` w PNG lub WebP. Przezroczystość trzeba zamówić parametrem, nie samym promptem, i sprawdzić plik. ChatGPT i inne nakładki mogą tej opcji nie przekazywać.\n- Po otrzymaniu plików sprawdzę je narzędziem `asset_check.py` pod kątem alfy, zielonych obwódek i liczby pikseli. Potem wytnę zielone tła i zrobię matrycę biało/czarną dla dłoni. Na koniec obejrzę krawędzie w renderze na maksymalnym zbliżeniu.\n\nNie mam tu narzędzia do generowania obrazów. Prompty musisz więc puścić sam, a ja ruszam, gdy pliki dotrą.\n\n## Czego potrzebuję\n\n1. **Tytuł utworu** (dokładna pisownia) oraz **tekst piosenki z plikiem audio**. Bez nich nie ustawię timingu lyric video. 20 s mieści tylko krótki fragment, więc podaj, który.\n2. **Format:** 16:9 czy 9:16. Od niego zależy rozdzielczość generowania.\n3. **Którego generatora użyjesz.** Od tego zależy droga do przezroczystości.\n\nDźwięk: film będzie niemy, dopóki nie dołączysz swojej ścieżki. Jeśli chcesz, doda ją jako ścieżkę audio w MP4.",
+          "reply_chars": 5194,
+          "reply_sha256": "b2a40908e07b1af40934334f8676ed0f7fdff8ed77e53656491b2222b4c01d06",
+          "skills": [],
+          "tools": [
+            "Glob",
+            "Read"
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 3620,
+            "cache_read": 47213,
+            "cache_write": 19720
+          },
+          "seconds": 36.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)(wygeneruj|wygenerowa|generator\\w* obraz|gpt image|gemini|nano banana)"
+              },
+              "passed": true,
+              "detail": "/(?i)(wygeneruj|wygenerowa|generator\\w* obraz|gpt image|gemini|nano banana)/"
+            },
+            {
+              "check": {
+                "regex": "(?i)(przezroczyst|kanał\\w* alfa|\\balpha\\b|na czarnym tle|na białym)"
+              },
+              "passed": true,
+              "detail": "/(?i)(przezroczyst|kanał\\w* alfa|\\balpha\\b|na czarnym tle|na białym)/"
+            },
+            {
+              "check": {
+                "regex": "(?i)(bez (tła|podkładu|płyty|ramki)|tylko (same )?(rurki|świat)|no backing|akryl)"
+              },
+              "passed": true,
+              "detail": "/(?i)(bez (tła|podkładu|płyty|ramki)|tylko (same )?(rurki|świat)|no backing|akryl)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

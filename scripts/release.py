@@ -39,7 +39,7 @@ SESSION_BRANCHES = [b for b in os.environ.get('STUDIO_RELEASE_BRANCHES', '').spl
 TRAILER_TAIL = os.environ.get('STUDIO_COMMIT_TRAILERS', '').replace('\\n', '\n').strip()
 PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides', 'release helper',
                  'GEPA pilot', 'asset', 'caption', 'environment check', 'motion acceptance', 'motion fonts', 'motion kinds', 'motion variants', 'skill finder', 'Animate engine', 'Animate voice',
-                 'static render', 'print PDF', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'motion activity', 'lyric timing', 'technique atlas', 'host-eval harness']
+                 'static render', 'print PDF', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'motion activity', 'lyric timing', 'technique atlas', 'motion assets', 'host-eval harness']
 
 
 class ReleaseError(Exception):

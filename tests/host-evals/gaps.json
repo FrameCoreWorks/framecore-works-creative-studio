@@ -1,6 +1,6 @@
 {
   "name": "gaps",
-  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14).",
+  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14).",
   "cases": [
     {
       "id": "G01",
@@ -135,6 +135,34 @@
         "No chapter counter, progress bar, timecode, kicker over a headline or repeated left-headline-plus-card slide layout",
         "The end card keeps the phone number and address",
         "A persistent logo is allowed"
+      ]
+    },
+    {
+      "id": "G07",
+      "title": "Realistic objects come from generated cut-out assets, not procedural drawing (handover 2026-10-14)",
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:hyperframes-workflow Zrobię w HyperFrames 20-sekundowy lyric video do mojego kawałka. Koncepcja zatwierdzona: realistyczny boombox na plaży, dłoń wciska PLAY, kasety się kręcą, a na koniec świeci neon z nazwą utworu. Nie mam żadnych zdjęć ani nagrań. Jak przygotować te elementy wizualne?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "(?i)(wygeneruj|wygenerowa|generator\\w* obraz|gpt image|gemini|nano banana)"
+            },
+            {
+              "regex": "(?i)(przezroczyst|kanał\\w* alfa|\\balpha\\b|na czarnym tle|na białym)"
+            },
+            {
+              "regex": "(?i)(bez (tła|podkładu|płyty|ramki)|tylko (same )?(rurki|świat)|no backing|akryl)"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Proposes generated photographic cut-out assets per scene with a transparency route per generator",
+        "Does not draw the hand or the boombox procedurally",
+        "Neon or light effects are requested on black without a backing plate"
       ]
     }
   ]

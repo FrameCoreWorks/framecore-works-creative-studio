@@ -2373,8 +2373,8 @@
     },
     {
       "path": "skills/asset-manifest/SKILL.md",
-      "bytes": 5937,
-      "sha256": "2f2dc1c0f74e8efb2168f68eebf67f3e0667896abe39f650bdb7dd14c8b2c2f6"
+      "bytes": 6190,
+      "sha256": "a33bd3895d414cce7948040cf75911b8c9f6291962e035a89f5e4ffdbbad3bdd"
     },
     {
       "path": "skills/asset-manifest/agents/openai.yaml",
@@ -3013,8 +3013,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 17065,
-      "sha256": "8ccdf6293abff3e228eeba7e3cb6fc73bc3642238981c44c3078179aa7318919"
+      "bytes": 17678,
+      "sha256": "45511b3cc2f7fd7f3da0df84b8aa7aa03d57ae9fc94af39fe168dfa35c62927d"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -3637,6 +3637,16 @@
       "sha256": "9cbb4b4f5040d2d508bd340ee780937376a79d9422e5c82a1a9fd731ba8dda77"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/motion-assets/README.md",
+      "bytes": 2765,
+      "sha256": "73fab939a852aafdc42c7bb124c4882e230245e581d0f7941442683c5243777e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-assets/asset_check.py",
+      "bytes": 11175,
+      "sha256": "a09ed5709c2691c3b05d88ac4e33dd032ca3e4c79498c86edad4aa1e3d4c6d05"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/motion-export/README.md",
       "bytes": 6073,
       "sha256": "b0fb089c25f7f59b14512925d10634a8628af5cf7e829f63a6860a54b20a592f"
@@ -4172,6 +4182,11 @@
       "sha256": "f7894f7c4d3cd9484596103548e1727809b27bb3119bbba999431b0538074d8b"
     },
     {
+      "path": "skills/hyperframes-workflow/references/generated-motion-assets.md",
+      "bytes": 7117,
+      "sha256": "e5cd8918cfb316aa3913e1aaf5ea23f590264392eba462e3967e08e30a886757"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
       "bytes": 6457,
       "sha256": "5e3492ba285f73e9fba7a7628ef6a3bbf9f856bebf4cebd714fb46e2e5450568"
@@ -4248,8 +4263,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 6122,
-      "sha256": "888e992906bed9fc68ba14bec7aba5a1c47fd378e9cdbeb2eedf66369074d05d"
+      "bytes": 6229,
+      "sha256": "05e50e96bdc75464bb22f0cf5e846fa355b9a487ce1d01528416a86390876e7f"
     },
     {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
@@ -4278,8 +4293,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 8491,
-      "sha256": "2430a19cc453a0a919fe6df1b162067743dec395818a1b5cff684a1b062b0568"
+      "bytes": 8970,
+      "sha256": "34fd650323efc2ce89c07e36c89ce729ddd796db74830ff6c88d22057dfe6e07"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5613,8 +5628,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 32080,
-      "sha256": "481edc4d82deda0b4507f76347ab19460377e863d7aff13647b704c2c3349584"
+      "bytes": 33099,
+      "sha256": "b40d09d0d5f6990ee4bce68cb6b4396bf443aeb1aee0e94e0b048baf267fe822"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -5900,6 +5915,11 @@
       "path": "tests/motion_activity_test.py",
       "bytes": 2688,
       "sha256": "af67b01e24afacbd400b167b8cfcf668e1016696fc569adce6648d407e1e9c40"
+    },
+    {
+      "path": "tests/motion_assets_test.py",
+      "bytes": 5710,
+      "sha256": "99c871885bbceebfac09c650482ae326330cf11efa51def65861faf759c0a437"
     },
     {
       "path": "tests/motion_fonts_test.py",
