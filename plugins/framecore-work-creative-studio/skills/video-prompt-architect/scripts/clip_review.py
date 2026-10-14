@@ -12,6 +12,7 @@ no quality verdict is made: look at the sheet. Three frames per clip show states
 so review.json marks those UNVERIFIED until the clips are watched at normal speed. Needs ffmpeg with ffprobe and Pillow.
 Exit codes: 0 no findings, 1 findings, 2 setup problem or an output folder that exists.
 """
+import re
 import argparse
 import io
 import json
@@ -89,7 +90,9 @@ def main(argv=None):
         for clip in args.clips:
             path = Path(clip)
             info = probe(path, ffprobe) if path.is_file() else None
-            shot = next((s for s in shots if s.get('id') and str(s['id']) in path.name), None)
+            # The shot ID must stand alone in the name: S1 matches S1.mp4 or spot_S1_v2.mp4, never S10.mp4.
+            shot = next((s for s in sorted(shots, key=lambda s: -len(str(s.get('id', ''))))
+                         if s.get('id') and re.search(rf'(?<![A-Za-z0-9]){re.escape(str(s["id"]))}(?![A-Za-z0-9])', path.stem, re.I)), None)
             entry = {'clip': str(path), 'shot': shot.get('id') if shot else None, 'measured': info, 'findings': []}
             if not info:
                 entry['findings'].append('unreadable: no video stream')

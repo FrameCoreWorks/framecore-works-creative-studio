@@ -26,7 +26,7 @@ UNIT = r'(?:zł|gr|kg|km|cm|mm|ml|min|PLN|EUR|USD|[gmlhs])(?![^\W\d_])'
 MONTHS = ('stycznia lutego marca kwietnia maja czerwca lipca sierpnia września października listopada grudnia '
           'styczeń luty marzec kwiecień maj czerwiec lipiec sierpień wrzesień październik listopad grudzień').split()
 DAYS = 'poniedziałek wtorek środa czwartek piątek sobota niedziela poniedziałki wtorki środy czwartki piątki soboty niedziele'.split()
-TY = re.compile(r'\b(ty|ciebie|cię|tobie|ci|twój|twoja|twoje|twojego|twojej|twoim|twoich|masz|możesz|chcesz|jesteś|sprawdź|kup|zamów|zobacz|dołącz|zapisz się|weź|odbierz|skorzystaj)\b', re.I)
+TY = re.compile(r'\b(ty|ciebie|cię|tobie|twój|twoja|twoje|twojego|twojej|twoim|twoich|masz|możesz|chcesz|jesteś|sprawdź|kup|zamów|zobacz|dołącz|zapisz się|weź|odbierz|skorzystaj)\b', re.I)
 PAN = re.compile(r'\b(Pan|Pani|Państwo|Pana|Panu|Panią|Państwa|Państwu|Panem)\b')
 ONE_LETTER = re.compile(r'(?:^|\s)([aiouwzAIOUWZ])$')
 
@@ -50,7 +50,7 @@ def safe_fixes(text):
     out = re.sub(r'(?<=\w) +([,;:!?]|\.(?=\s|$))', '\\1', out, flags=re.M)          # space before punctuation
     out = re.sub(r'(?<=[^\W\d_])([,;])(?=[^\W\d_])', '\\1 ', out)                     # missing space after a comma
     out = re.sub(r'(\d)(' + UNIT + ')', '\\1 \\2', out)                               # 5kg -> 5 kg
-    out = re.sub(r'(?<!\S)([^\W\d_]) +(?=\S)', '\\1' + NBSP, out)                     # one-letter word + nbsp
+    out = re.sub(r'(?<!\S)([aiouwzAIOUWZ]) +(?=\S)', '\\1' + NBSP, out)                  # Polish one-letter word + nbsp
     out = re.sub(r'(\d) (?=' + UNIT + '|%)', '\\1' + NBSP, out)                       # number + unit
     out = re.sub(r'(\d) (?=\d{3}(?!\d))', '\\1' + NBSP, out)                          # digit groups
     return out

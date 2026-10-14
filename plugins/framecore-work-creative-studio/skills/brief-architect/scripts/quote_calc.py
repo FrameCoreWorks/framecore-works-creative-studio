@@ -23,14 +23,14 @@ LABELS = {
            'vat': 'VAT', 'gross': 'Brutto', 'total': 'Razem', 'revisions': 'Rundy poprawek w cenie', 'timeline': 'Termin realizacji',
            'days': 'dni roboczych', 'licence': 'Licencja i pola eksploatacji', 'extras': 'Opcje dodatkowe', 'discount': 'Rabat',
            'payment': 'Płatność', 'advance': 'zaliczka', 'after': 'po odbiorze', 'terms': 'termin płatności', 'valid': 'Oferta ważna do',
-           'exempt': 'zw.', 'hours': 'godz.', 'not_included': 'Poza zakresem', 'assumptions': 'Założenia', 'change': 'Zmiany zakresu',
+           'exempt': 'zw.', 'hours': 'godz.', 'day_unit': 'dni', 'discount_note': 'uwzględniony w kwotach netto, VAT i brutto pozycji; cena jedn. przed rabatem', 'not_included': 'Poza zakresem', 'assumptions': 'Założenia', 'change': 'Zmiany zakresu',
            'change_rule': 'Prace poza zakresem i rundy poprawek ponad liczbę w cenie wyceniamy osobno przed ich rozpoczęciem.',
            'counsel': 'Treść licencji i warunki umowy wymagają akceptacji obu stron; nie stanowią porady prawnej.'},
     'en': {'title': 'Offer', 'package': 'Package', 'item': 'Item', 'qty': 'Qty', 'unit_price': 'Unit price (net)', 'unit_price_gross': 'Unit price (gross)', 'net': 'Net',
            'vat': 'VAT', 'gross': 'Gross', 'total': 'Total', 'revisions': 'Revision rounds included', 'timeline': 'Delivery time',
            'days': 'working days', 'licence': 'Licence and fields of use', 'extras': 'Options', 'discount': 'Discount',
            'payment': 'Payment', 'advance': 'advance', 'after': 'on acceptance', 'terms': 'payment term', 'valid': 'Valid until',
-           'exempt': 'exempt', 'hours': 'h', 'not_included': 'Not included', 'assumptions': 'Assumptions', 'change': 'Changes of scope',
+           'exempt': 'exempt', 'hours': 'h', 'day_unit': 'days', 'discount_note': 'included in the net, VAT and gross amounts; unit prices before discount', 'not_included': 'Not included', 'assumptions': 'Assumptions', 'change': 'Changes of scope',
            'change_rule': 'Work outside this scope and revision rounds beyond those included are quoted separately before they start.',
            'counsel': 'The licence text and contract terms need both parties\' agreement; this is not legal advice.'},
 }
@@ -146,7 +146,16 @@ def price(spec):
                 amount = money(amount * (1 - discount))
             net, tax, gross = split(amount, vat, prices)
             sums = [sums[0] + net, sums[1] + tax, sums[2] + gross]
+            qty = Decimal(str(item.get('qty', 1)))
+            # The unit price shown is the rate per hour or day for time items, so quantity x unit price = the line amount.
+            if 'hours' in item:
+                shown_qty, shown_unit, unit_price = Decimal(str(item['hours'])) * qty, 'hours', money(Decimal(str(rates['hour'])))
+            elif 'days' in item:
+                shown_qty, shown_unit, unit_price = Decimal(str(item['days'])) * qty, 'days', money(Decimal(str(rates['day'])))
+            else:
+                shown_qty, shown_unit, unit_price = qty, item.get('unit', ''), unit
             lines.append({'name': item['name'], 'qty': item.get('qty', 1), 'unit': item.get('unit', ''), 'hours': item.get('hours'), 'days': item.get('days'),
+                          'shown_qty': format(shown_qty.normalize(), 'f'), 'shown_unit': shown_unit, 'unit_price': str(unit_price),
                           'unit_amount': str(unit), 'net': str(net), 'vat': str(tax), 'gross': str(gross)})
         advance = Decimal(str(spec.get('payment', {}).get('advance_pct', 0))) / 100
         total_gross = sums[2]
@@ -178,13 +187,14 @@ def markdown(spec, totals):
     for package in totals['packages']:
         out += [f"## {t['package']}: {package['name']}", '', f"| {t['item']} | {t['qty']} | {t['unit_price_gross' if spec.get('prices') == 'gross' else 'unit_price']} | {t['net']} | {vat_label} | {t['gross']} |", '| --- | --- | --- | --- | --- | --- |']
         for line in package['lines']:
-            qty = f"{line['qty']} {line['unit']}".strip()
-            if line['hours'] is not None:
-                qty = f"{line['hours']} {t['hours']}"
-            out.append(f"| {line['name']} | {qty} | {fmt(line['unit_amount'], cur, lang)} | {fmt(line['net'], cur, lang)} | {fmt(line['vat'], cur, lang)} | {fmt(line['gross'], cur, lang)} |")
+            unit = {'hours': t['hours'], 'days': t['day_unit']}.get(line['shown_unit'], line['shown_unit'])
+            qty = f"{line['shown_qty']} {unit}".strip()
+            out.append(f"| {line['name']} | {qty} | {fmt(line['unit_price'], cur, lang)} | {fmt(line['net'], cur, lang)} | {fmt(line['vat'], cur, lang)} | {fmt(line['gross'], cur, lang)} |")
         out.append(f"| **{t['total']}** | | | **{fmt(package['net'], cur, lang)}** | **{fmt(package['vat'], cur, lang)}** | **{fmt(package['gross'], cur, lang)}** |")
         out.append('')
         facts = [f"- {t['revisions']}: {package['revisions']}"]
+        if spec.get('discount', {}).get('pct'):
+            facts.insert(0, f"- {t['discount']}: {spec['discount']['pct']}% ({t['discount_note']})")
         if package['timeline_days']:
             facts.append(f"- {t['timeline']}: {package['timeline_days']} {t['days']}")
         if package['licence']:
@@ -205,7 +215,8 @@ def markdown(spec, totals):
             parts.append(f"{payment['advance_pct']}% {t['advance']}, {100 - payment['advance_pct']}% {t['after']}")
         if payment.get('terms_days'):
             parts.append(f"{t['terms']} {payment['terms_days']} dni" if lang == 'pl' else f"{t['terms']} {payment['terms_days']} days")
-        out += [f"**{t['payment']}:** " + '; '.join(parts), '']
+        if parts:
+            out += [f"**{t['payment']}:** " + '; '.join(parts), '']
     if spec.get('valid_until'):
         out += [f"**{t['valid']}:** {spec['valid_until']}", '']
     if spec.get('assumptions'):

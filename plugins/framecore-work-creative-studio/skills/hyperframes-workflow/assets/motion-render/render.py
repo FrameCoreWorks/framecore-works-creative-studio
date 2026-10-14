@@ -455,6 +455,12 @@ def match_weight(available, wanted):
     return order[0]
 
 
+def inside(path, roots):
+    """True when path resolves inside one of the roots (no ../ or absolute escape from a contract)."""
+    real = os.path.realpath(path)
+    return any(os.path.commonpath([real, os.path.realpath(r)]) == os.path.realpath(r) for r in roots if r)
+
+
 def font_source(face, base_dir, font_dirs):
     """A path or the decoded bytes of one declared face."""
     data = face.get('data')
@@ -465,9 +471,12 @@ def font_source(face, base_dir, font_dirs):
     file = face.get('file')
     if not file:
         raise ValueError(f"fonts: {face.get('family')} {face.get('weight', 400)} needs a file or embedded data for the renderer (a url is for the player)")
-    tried = [file] if os.path.isabs(file) else [os.path.join(folder, file) for folder in [base_dir, *font_dirs, os.environ.get('STUDIO_FONT_DIR', ''), BUNDLED_FONTS] if folder]
+    roots = [folder for folder in [base_dir, *font_dirs, os.environ.get('STUDIO_FONT_DIR', ''), BUNDLED_FONTS] if folder]
+    tried = [file] if os.path.isabs(file) else [os.path.join(folder, file) for folder in roots]
     for path in tried:
         if os.path.isfile(path):
+            if not inside(path, roots):
+                raise ValueError(f"fonts: {file} is outside the contract folder and the font folders; copy it there or pass --font-dir")
             return path
     raise RuntimeError(f"Font file {file} not found (looked in: {', '.join(os.path.dirname(t) or '.' for t in tried)}); pass --font-dir")
 
@@ -675,7 +684,10 @@ def load_asset(src, base_dir, width):
     elif '://' in src:
         raise RuntimeError(f'Asset {src} is a URL; supply the file next to the contract or as a data URI')
     else:
-        with open(os.path.join(base_dir, src), 'rb') as handle:
+        path = os.path.join(base_dir, src)
+        if not inside(path, [base_dir]):
+            raise ValueError(f'Asset {src} is outside the contract folder; copy it next to the contract')
+        with open(path, 'rb') as handle:
             data = handle.read()
         is_svg = src.lower().endswith('.svg')
     if is_svg:

@@ -23,7 +23,7 @@ Send this to a creator with the offer; every right and fee below is agreed in wr
 
 ## Disclosure
 
-The content is labelled as an advertisement inside the video or caption (for example "reklama" or "współpraca reklamowa z {marka}" at the start, not hidden among hashtags) and with the platform's paid-partnership label. Follow the [disclosure rules](../references/formats-scripts-and-disclosure.md#5-disclosure) and the UOKiK recommendations listed in the [marketing rules snapshot](../../research-evidence/references/marketing-rules-snapshot.md).
+The content is labelled as an advertisement both inside the video (on screen, and spoken when the creator talks) and at the start of the caption (for example "reklama" or "współpraca reklamowa z {marka}", not hidden among hashtags or only in English tags such as #ad) and with the platform's paid-partnership label. Follow the [disclosure rules](../references/formats-scripts-and-disclosure.md#5-disclosure) and the UOKiK recommendations listed in the [marketing rules snapshot](../../research-evidence/references/marketing-rules-snapshot.md).
 
 ## Deliverables
 

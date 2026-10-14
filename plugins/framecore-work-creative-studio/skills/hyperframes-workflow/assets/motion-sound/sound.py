@@ -552,6 +552,13 @@ def write_wav(audio, path, codec='pcm_s24le'):
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(RATE), '-ac', '2', '-i', raw, '-c:a', codec, path], check=True)
 
 
+def contained(path, base_dir):
+    """A contract's audio path, refused when it resolves outside the contract folder (../ or an absolute path)."""
+    real, root = os.path.realpath(path), os.path.realpath(base_dir)
+    if os.path.commonpath([real, root]) != root:
+        raise ValueError(f'{path} is outside the contract folder; copy the audio next to the contract')
+    return path
+
 def read_wav(path):
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-ac', '2', '-ar', str(RATE), '-f', 'f32le', '-'], check=True, capture_output=True).stdout
     return np.frombuffer(raw, '<f4').reshape(-1, 2).astype(np.float64)
@@ -566,7 +573,7 @@ def full_mix(score, base_dir):
     bed_track = np.zeros((length, 2))
     source = (score.get('music') or {}).get('src')
     if source:
-        track = read_wav(os.path.join(base_dir, source))[:length]
+        track = read_wav(contained(os.path.join(base_dir, source), base_dir))[:length]
         bed_track[:len(track)] = track * float((score.get('music') or {}).get('volume', 1))
     elif music_plan.get('compose'):
         if music_plan.get('recipe'):
@@ -580,13 +587,13 @@ def full_mix(score, base_dir):
         send[:len(bed)] += bed[:length] * 10 ** (music_plan.get('gain', -9) / 20) * 0.12
     voice, under = np.zeros((length, 2)), []
     if (score.get('voiceover') or {}).get('src'):
-        track = read_wav(os.path.join(base_dir, score['voiceover']['src']))[:length]
+        track = read_wav(contained(os.path.join(base_dir, score['voiceover']['src']), base_dir))[:length]
         voice[:len(track)] = track * float(score['voiceover'].get('volume', 1))
         under += score.get('captions') or []
     original = (score.get('source') or {}).get('originalAudio') or {}
     if original.get('src'):
         # Supplied footage keeps its own sound; the music ducks under the stretches where that sound is present.
-        track = read_wav(os.path.join(base_dir, original['src']))[:length]
+        track = read_wav(contained(os.path.join(base_dir, original['src']), base_dir))[:length]
         voice[:len(track)] += track * float(original.get('volume', 1))
         under += (score.get('source') or {}).get('duck') or []
     if under:

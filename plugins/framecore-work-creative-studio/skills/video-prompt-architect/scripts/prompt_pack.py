@@ -14,6 +14,7 @@ exist, and with --plan a prompt shorter than its shot's edit interval or a plann
 holds each prompt in its own block exactly as written; the CSV and JSONL suit bulk tools. Nothing is sent to a
 generator. Exit codes: 0 written without findings, 1 written with findings, 2 bad input or an output that exists.
 """
+import re
 import argparse
 import csv
 import io
@@ -61,7 +62,7 @@ def main(argv=None):
         for sid in plan:
             if sid and sid not in seen:
                 findings.append(f'{sid}: planned shot without a prompt')
-        stem = source.name.split('.')[0]
+        stem = re.sub(r'(\.(example|motion-score|motion|shot-plan|shots|edit|board|prompts|plan|static))*\.json$', '', source.name)
         folder = Path(args.out_dir)
         files = {folder / f'{stem}-prompts.md': None, folder / f'{stem}-prompts.csv': None, folder / f'{stem}-prompts.jsonl': None}
         existing = [str(p) for p in files if p.exists()]

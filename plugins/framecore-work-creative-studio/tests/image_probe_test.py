@@ -20,6 +20,16 @@ def probe(image, *args):
         return done.returncode, json.loads(done.stdout)
 
 
+class Words(unittest.TestCase):
+    def test_numbers_keep_their_sign_decimals_and_per_cent(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('image_probe', TOOL)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        self.assertEqual(mod.normalise('Promocja -50% — 99,99 zł'), ['promocja', '-50%', '99,99', 'zł'])
+        self.assertNotEqual(mod.normalise('-50%'), mod.normalise('50'))
+
+
 class Probe(unittest.TestCase):
     def test_a_matching_feed_image_has_no_problem(self):
         code, report = probe(Image.new('RGB', (1080, 1350), '#336699'), '--preset', 'instagram-feed-portrait')

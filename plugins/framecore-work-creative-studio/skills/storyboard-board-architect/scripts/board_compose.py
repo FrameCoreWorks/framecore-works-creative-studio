@@ -72,7 +72,7 @@ def main(argv=None):
                      {'title': ('Bold', 34), 'subtitle': ('Regular', 20), 'head': ('Bold', 19), 'body': ('Regular', 17), 'notes': ('Regular', 18)}.items()}
         except OSError:
             raise InputError(f'Inter-Regular.ttf and Inter-Bold.ttf are needed in {font_dir}')
-        stem = source.name.split('.')[0]
+        stem = re.sub(r'(\.(example|motion-score|motion|shot-plan|shots|edit|board|prompts|plan|static))*\.json$', '', source.name)
         folder = Path(args.out_dir)
 
         margin, gutter, line = 60, 26, 23

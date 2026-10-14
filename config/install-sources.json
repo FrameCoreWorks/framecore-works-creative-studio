@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 3347,
-      "sha256": "68baf163396a58a6ab24454249420d140ddf11d1d8642df92324d36aad38ebf4"
+      "bytes": 4960,
+      "sha256": "43a9b463ff7d978a55bc6554d1f00442a126d9bf85484bed1869596d58ee26b3"
     },
     {
       "path": "README.md",
@@ -2483,8 +2483,8 @@
     },
     {
       "path": "skills/brief-architect/scripts/quote_calc.py",
-      "bytes": 15407,
-      "sha256": "b150c061b36449dd8c9d9f677d271cfabfd03a87ecdc1992197df0a7b13879e7"
+      "bytes": 16548,
+      "sha256": "a23094119fbde07756299c2564c61c24c482c6651540becf8b3d959d559d313f"
     },
     {
       "path": "skills/caption-studio/SKILL.md",
@@ -2763,13 +2763,13 @@
     },
     {
       "path": "skills/copy-voice/scripts/pl_copy_check.py",
-      "bytes": 11770,
-      "sha256": "db5bf79160bb75ce119e5986c005db6b66b51ac8ae5c014e77dfc3d5f54fbbdb"
+      "bytes": 11777,
+      "sha256": "328363e4288af23ca228801598c7a66b4bd674d384bf214ea8019d97fc9ac7a6"
     },
     {
       "path": "skills/copy-voice/scripts/vo_budget.py",
-      "bytes": 5580,
-      "sha256": "6671e9620ed586bb49ae64f40d77962c9d2d23447241493db1eaa91bf6f60ce3"
+      "bytes": 5792,
+      "sha256": "6a7bfda7ebd552d28c43314fed5ed55a96ca125349bdf7667baa467cf854c94b"
     },
     {
       "path": "skills/creative-music-video-director/SKILL.md",
@@ -2893,8 +2893,8 @@
     },
     {
       "path": "skills/delivery-documentation/scripts/brand_guide.py",
-      "bytes": 21502,
-      "sha256": "2c7dd21e0df05e41c78a4fa5cfa6a52207398cf30eb9c7edd619b20bc49dcab6"
+      "bytes": 21552,
+      "sha256": "72fd5015fd78fdf1fba54bf2043bb6dc931af999634dfe9af539968b1d3cfa2b"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
@@ -3808,8 +3808,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
-      "bytes": 85412,
-      "sha256": "2e92f66e652d5449aa317b91016a47e27b1d3d19dfa4ef3063a50d4ea80e98cd"
+      "bytes": 86068,
+      "sha256": "0920ad02dd971b68c71742cd721189227c15512fa9d59977a19927b725733578"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
@@ -3993,8 +3993,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/sound.py",
-      "bytes": 51729,
-      "sha256": "80dadc904e4a85a93e3b4550a0706ee2f36a7156f1c36be24a4e7a5b4bac91a9"
+      "bytes": 52176,
+      "sha256": "110ffd9fa008c5d67ab48273db03b21851d323d73ff4177368db1c34d2d2707c"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/synth.py",
@@ -4108,8 +4108,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-variants/variants.py",
-      "bytes": 11008,
-      "sha256": "6a7eb093746de631118a218f579b8ccca3cc151215b271154d51a252c87c28ed"
+      "bytes": 11109,
+      "sha256": "6bc3a888415e7499be998874928c189571ebfbb8bc29349bf2d69102ef1cc3b4"
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
@@ -4408,8 +4408,8 @@
     },
     {
       "path": "skills/opencut-video-studio/scripts/edit_export.py",
-      "bytes": 8627,
-      "sha256": "ed8b7a88b0f3554e00b0e058fdee30447af3417330dff116262003b72960b872"
+      "bytes": 8718,
+      "sha256": "6e27f2a694244d57fe2ddfa06dde892625cef593f5c0c6675712cb3f3ba9d513"
     },
     {
       "path": "skills/opencut-video-studio/templates/opencut-edit-pack.md",
@@ -4468,8 +4468,8 @@
     },
     {
       "path": "skills/output-critic-iteration/scripts/image_probe.py",
-      "bytes": 9625,
-      "sha256": "16dc88ffd84733e690ba0f4e899b405e43d61fcff11f0d6460ac84c3a887be21"
+      "bytes": 10014,
+      "sha256": "62b328a1b0afb6252405e5bc4663782b5cea46c7e3af04d97ddf698f02524a98"
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
@@ -5373,8 +5373,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/scripts/board_compose.py",
-      "bytes": 10048,
-      "sha256": "6dca88355474910d2f2bd59b19ea285d4b1023045da7d3d993977a83ef141155"
+      "bytes": 10139,
+      "sha256": "06e45799984ab859a51baa2b82bfab647195ef7bb135d05353ee05f856b9eb00"
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
@@ -5433,8 +5433,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/scripts/sheet_export.py",
-      "bytes": 14748,
-      "sha256": "74c731001421e51178c397cd95c1831f3a9cd099ad301a9d0634b7f720ba7fe9"
+      "bytes": 14839,
+      "sha256": "ede25e31970eaec757ecae00ad81646277b8a6e3c97ea7546f370c1b33e21304"
     },
     {
       "path": "skills/storytelling/SKILL.md",
@@ -5543,8 +5543,8 @@
     },
     {
       "path": "skills/ugc/assets/creator-brief.template.md",
-      "bytes": 3189,
-      "sha256": "56c0185a5ecca5a5bc990e3415a8a03a0f50e26de8cc98a6899445567caf78d1"
+      "bytes": 3285,
+      "sha256": "eec335d941b95a05f5154384814ee9576fc26f87a093b86f396472030613199a"
     },
     {
       "path": "skills/ugc/references/formats-scripts-and-disclosure.md",
@@ -5588,13 +5588,13 @@
     },
     {
       "path": "skills/video-prompt-architect/scripts/clip_review.py",
-      "bytes": 8513,
-      "sha256": "72adacd1809ca93b94dde8dd4d8fda512dcf2c1c9062228653f8cadc722f68d8"
+      "bytes": 8769,
+      "sha256": "7b7f8e2167e4c3777f7c0b46a1dbc108ac18bd06261daa381e690695f35d252f"
     },
     {
       "path": "skills/video-prompt-architect/scripts/prompt_pack.py",
-      "bytes": 5878,
-      "sha256": "d3404cbe6d638645c8bdbe2fe5ffcb0789fa7d41944779c2f186602b76ae47f2"
+      "bytes": 5979,
+      "sha256": "ccc6474004b238acb4be687c090c778f5634522476f42aee1b0e3688d84e75b4"
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
@@ -5848,8 +5848,8 @@
     },
     {
       "path": "tests/clip_review_test.py",
-      "bytes": 3467,
-      "sha256": "9d193503ed3df4a0a79cbb3c9f4eaa83224925cca1f685a7bfaebe5dcfad1cfb"
+      "bytes": 4309,
+      "sha256": "a12b2b0a6c99644316587e904241fc8f39aa1f820f8b2f8b1c4b1579df40fdbe"
     },
     {
       "path": "tests/creative-upgrade.test.mjs",
@@ -5868,8 +5868,8 @@
     },
     {
       "path": "tests/image_probe_test.py",
-      "bytes": 3081,
-      "sha256": "bb76661ab184cde8e963ec0c9872212bbea71ee1ea82efb08c1f4ecd50a7c8cd"
+      "bytes": 3556,
+      "sha256": "f94160aa6970789eed386b0bc9e71d8bc8d96464b719c61aca1f0dc422ebd412"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -5948,8 +5948,8 @@
     },
     {
       "path": "tests/quote_calc_test.py",
-      "bytes": 5406,
-      "sha256": "b92b1c96dc2a9dc8682156e6f02841a928d8b81a093043c718b9b21150009821"
+      "bytes": 5980,
+      "sha256": "a1bb54d86ee7af16cb42d72e2e6a293e54b5dbb44b818d897ac36ff51a72b59a"
     },
     {
       "path": "tests/sheet_export_test.py",
@@ -5988,8 +5988,8 @@
     },
     {
       "path": "tests/vo_budget_test.py",
-      "bytes": 3022,
-      "sha256": "0e651a2a7933064d2d2f60abf73fa536e9f75a4a008eaab06f17229d5c5dd8a8"
+      "bytes": 3442,
+      "sha256": "b32f4db0f2d2a49da0c00893ceaa1e98fc25f5256700c541c745e09809c764e7"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

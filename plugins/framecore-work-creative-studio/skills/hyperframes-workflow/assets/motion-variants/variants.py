@@ -15,6 +15,7 @@ text or look changed; a brand kit that changes colours or type does the same) pl
 contract already has, so a variant can never add text the layout was not checked for. Nothing is rendered here.
 Exit codes: 0 written, 2 bad input or an output that exists.
 """
+import re
 import argparse
 import copy
 import json
@@ -195,7 +196,7 @@ def main(argv=None):
         folder = Path(args.out_dir)
         if folder.exists():
             raise InputError(f'Output folder already exists: {folder}')
-        stem = Path(args.contract).name.split('.')[0]
+        stem = re.sub(r'(\.(example|motion-score|motion|shot-plan|shots|edit|board|prompts|plan|static))*\.json$', '', Path(args.contract).name)
         contracts, checks, plan = expand(score, load(args.matrix), stem)
         folder.mkdir(parents=True)
         for name, data in contracts:

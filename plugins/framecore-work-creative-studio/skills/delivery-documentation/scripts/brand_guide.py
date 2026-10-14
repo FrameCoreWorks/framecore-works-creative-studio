@@ -64,7 +64,7 @@ class InputError(Exception):
 
 def keep_together(text):
     """Polish typesetting, as in the other Studio compositors: no one-letter word at a line end, numbers kept with units."""
-    text = re.sub(r'(?<!\S)([^\W\d_]) +(?=\S)', '\\1\u00a0', str(text))
+    text = re.sub(r'(?<!\S)([aiouwzAIOUWZ]) +(?=\S)', '\\1\u00a0', str(text))  # Polish one-letter words, not 'Wariant B'
     text = re.sub(r'(\d) (?=\d{3}(?!\d))', '\\1\u00a0', text)
     return re.sub(r'(\d) (?=' + UNIT + ')', '\\1\u00a0', text)
 

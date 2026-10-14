@@ -33,7 +33,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: |
-          python3 -m pip install --no-deps -r requirements-gepa-pilot.txt
+          # The optional GEPA pilot is not installed here: this job holds a write token (its tests skip without it; checks.yml runs them)
           bash scripts/check_all.sh
           python3 scripts/package_release.py
       - name: Upload, verify and publish the source commit

@@ -28,3 +28,14 @@ The 200-entry Event Poster Design Codes catalog and skill material are included 
 The dev.29 short-form motion workbook, audio planning and rights notes, workstyle profile/schema, handoff template and reference-capture card are original Studio synthesis. Their external research sources, access dates and scope are recorded in docs/research-ledger.json and the applicable references. No third-party media is included.
 
 Workflow kit integration: FrameCore Works Creative Workflow Skill Kit v1.1.0, source commit 55c8bf19962c7bf7fb43648637ee433d990eb2a9 from https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit (Apache-2.0). All 359 tracked source files and their notices are preserved byte-for-byte at their original paths inside integrations/workflow-kit/workflow-kit-55c8bf1-source.tar.gz. The expanded reference mirror under integrations/workflow-kit/upstream renames skill entrypoints to SKILL.source.md; inert pointers remain at the old SKILL.md paths. Active Studio adaptations are modified derivatives; see docs/workflow-kit-integration.md and integrations/workflow-kit/source-manifest.json.
+
+Third-party components (added after 1.0.0; MIT unless stated; each folder keeps the upstream LICENSE text and a source-manifest.json with the pinned commit):
+
+- cth9191/animate 0.4.0, commit 7e5eb56feb2dd573f890e1b7b34748af43d58263, Copyright (c) 2026 cth9191, MIT. See integrations/animate/.
+- kaventro/motion-designer, commit 7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8, Copyright (c) 2026 kaventro, MIT. See integrations/kaventro-motion-designer/.
+- aievolutionpl/meta-ads-designer 6.5.0, commit 656ce907380448389559958f055c8b43d71ab26e, Copyright (c) 2026 AI Evolution Labs, MIT. See integrations/meta-ads-designer/.
+- aievolutionpl/motion-designer-studio, commit 7c215ed50355ca6ad592a3a4ed88e2ef49bb4bb3, Copyright (c) 2026 Tabasco Creatives / AI Evolution Labs, MIT. See integrations/motion-designer-studio/ and its THIRD_PARTY_NOTICES.md.
+- vercel-labs/skills 1.7.2, commit 13e4063a1cf913f5606d57d42ab83a86f5001e04, Copyright (c) 2026 Vercel, Inc., MIT. See integrations/skill-finder/.
+- gongnyang/awesome-ai-motion, commit 1e3c249073c61b42ceb556d7800f628d565d9312, Copyright (c) 2026 gongnyang, MIT: English card text only, in skills/hyperframes-workflow/assets/technique-atlas/ (its README.md carries the licence text).
+- heygen-com/hyperframes, commit 86521b94f592bcf0ca86aba63068893cf658af16, Apache-2.0: registry block names only, listed in the technique atlas; no HyperFrames code is bundled.
+- Fonts in skills/pipeline-core/assets/fonts/ (Anton, Archivo, Bricolage Grotesque, Fraunces, Inter, Source Serif 4): SIL Open Font License 1.1; each family folder keeps its OFL.txt with the copyright notice.

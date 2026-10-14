@@ -50,7 +50,8 @@ def sharpness(image):
 
 def normalise(text):
     text = unicodedata.normalize('NFC', text).lower()
-    return re.findall(r'[^\W_]+', text)
+    # Numbers keep their sign, decimals and per cent (-50%, 99,99), so a dropped sign or digit is a missing word.
+    return re.findall(r'[-−]?\d+(?:[.,]\d+)?%?|[^\W\d_]+', text.replace('\u00a0', ' '))
 
 
 def ocr_compare(image, copy):
@@ -60,7 +61,14 @@ def ocr_compare(image, copy):
     except Exception as error:  # missing module, program or language data
         return {'status': 'not_run', 'reason': str(error).splitlines()[0][:160] if str(error) else type(error).__name__}
     want, got = normalise(copy), normalise(seen)
-    missing = [w for w in want if w not in got]
+    from collections import Counter
+    have = Counter(got)
+    missing = []
+    for w in want:                      # each occurrence counts: a repeated word must appear as often
+        if have[w] > 0:
+            have[w] -= 1
+        else:
+            missing.append(w)
     extra = [w for w in got if w not in want and len(w) > 2]
     return {'status': 'match' if not missing else 'mismatch', 'missing_words': missing, 'unexpected_words': extra[:20], 'ocr_text': seen.strip()[:500]}
 

@@ -56,7 +56,9 @@ def estimate(text, language, rate):
     syl = sum(syllables(w, language) for w in words)
     by_words = len(words) / RATES[language][rate]
     by_syllables = syl / SYLLABLES_PER_SECOND[language][rate] if language in SYLLABLES_PER_SECOND else 0
-    pauses = sum(PAUSES.get(w[-1:], 0) for w in words[:-1]) + 0.3 * max(0, len(lines) - 1)
+    # Pauses come from every token, a standalone dash included, with closing quotes and brackets set aside ("Kup teraz.”).
+    tokens = [t.rstrip('”"\'’»)]') for line in lines for t in line.split()]
+    pauses = sum(PAUSES.get(t[-1:], 0) for t in tokens[:-1] if t) + 0.3 * max(0, len(lines) - 1)
     return {'lines': len(lines), 'words': len(words), 'syllables': syl, 'seconds': round(max(by_words, by_syllables) + pauses, 2)}
 
 

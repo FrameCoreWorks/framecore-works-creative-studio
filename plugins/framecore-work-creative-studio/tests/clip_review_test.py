@@ -44,6 +44,16 @@ class Review(unittest.TestCase):
             with Image.open(pathlib.Path(temp, 'review', 'contact-sheet.png')) as sheet:
                 self.assertEqual(sheet.height, 3 * (240 + 28) + 14)
 
+    def test_a_short_shot_id_never_claims_a_longer_one(self):
+        with tempfile.TemporaryDirectory() as temp:
+            plan = pathlib.Path(temp, 'plan.json')
+            plan.write_text(json.dumps({'shots': [{'id': 'S1', 'start_s': 0, 'end_s': 1}, {'id': 'S10', 'start_s': 1, 'end_s': 2}]}), encoding='utf-8')
+            clips = [clip(temp, 'S10.mp4', '360x640', 1, 30), clip(temp, 'spot_S1_v2.mp4', '360x640', 1, 30)]
+            subprocess.run([sys.executable, '-B', str(TOOL), *map(str, clips), '--plan', str(plan), '--out-dir', str(pathlib.Path(temp, 'review'))],
+                           capture_output=True, text=True, timeout=300)
+            review = json.loads(pathlib.Path(temp, 'review', 'review.json').read_text(encoding='utf-8'))
+            self.assertEqual(sorted(c['shot'] for c in review['clips']), ['S1', 'S10'])
+
     def test_without_a_plan_clips_are_only_measured(self):
         with tempfile.TemporaryDirectory() as temp:
             path = clip(temp, 'a.mp4', '320x320', 1, 24)

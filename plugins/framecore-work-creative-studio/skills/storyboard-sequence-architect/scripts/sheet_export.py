@@ -221,7 +221,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         source = Path(args.input)
-        stem = source.name.split('.')[0]
+        stem = re.sub(r'(\.(example|motion-score|motion|shot-plan|shots|edit|board|prompts|plan|static))*\.json$', '', source.name)
         title, sheet, columns, rows = table(json.loads(source.read_text(encoding='utf-8')), stem)
         wanted = [f.strip() for f in args.formats.split(',') if f.strip()]
         if not wanted or any(f not in ('xlsx', 'csv', 'pdf') for f in wanted):

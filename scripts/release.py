@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""One command for a Studio release, and one for its publication record.
+"""
+One command for a Studio release, and one for its publication record.
+Session-specific settings come from the environment: STUDIO_RELEASE_BRANCHES (extra branches to push, comma-separated) and
+STUDIO_COMMIT_TRAILERS (trailer lines appended to the release commit, \\n between lines).
 
   python3 scripts/release.py prepare 1.55.0 --change-id CC-20261010-13 --title "Release 1.55.0: …" \
       --changelog notes/changelog.md --notes notes/release-notes.md --summary "…" [--extra "…"] [--push]
@@ -31,9 +34,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = 'plugins/framecore-work-creative-studio'
 PLUGIN = ROOT / PACKAGE
 REPO = 'FrameCoreWorks/framecore-works-creative-studio'
-SESSION_BRANCHES = ['ccr-06247e92-aihwc6']
-TRAILER_TAIL = ('Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n'
-                'Claude-Session: https://claude.ai/code/session_01BJiprAkxWcoxgDpzdVuk2n')
+# Extra branches to push and commit trailer lines come from the releasing session, never from this file.
+SESSION_BRANCHES = [b for b in os.environ.get('STUDIO_RELEASE_BRANCHES', '').split(',') if b.strip()]
+TRAILER_TAIL = os.environ.get('STUDIO_COMMIT_TRAILERS', '').replace('\\n', '\n').strip()
 PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides', 'release helper',
                  'GEPA pilot', 'asset', 'caption', 'environment check', 'motion acceptance', 'motion fonts', 'motion kinds', 'motion variants', 'skill finder', 'Animate engine', 'Animate voice',
                  'static render', 'print PDF', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'motion activity', 'lyric timing', 'technique atlas', 'host-eval harness']

@@ -37,5 +37,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: |
+          # The headless frame-review tests run only when a browser is named; the runner image ships Google Chrome.
+          if command -v google-chrome >/dev/null; then export MOTION_REVIEW_BROWSER="$(command -v google-chrome)"; fi
           python3 -m pip install --no-deps -r requirements-gepa-pilot.txt
           bash scripts/check_all.sh

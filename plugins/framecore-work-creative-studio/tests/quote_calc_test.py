@@ -63,6 +63,14 @@ class Pricing(unittest.TestCase):
         self.assertIn('Cena jedn. brutto', document)
         self.assertNotIn('Cena jedn. netto', document)
 
+    def test_time_lines_show_rate_and_quantity_discount_and_no_empty_payment(self):
+        data = offer(discount={'pct': 10}, payment={}, packages=[{'name': 'A', 'items': [{'name': 'Retusz', 'hours': 4}, {'name': 'Sesja', 'days': 0.5, 'qty': 2}]}])
+        document = quote.markdown(data, quote.price(data))
+        self.assertIn('| Retusz | 4 godz. | 150,00', document)       # 4 h at 150 zł, not 600 zł per unit
+        self.assertIn('| Sesja | 1 dni | 1', document)
+        self.assertIn('Rabat: 10%', document)
+        self.assertNotIn('**Płatność:**', document)
+
     def test_the_example_has_no_prices_of_its_own(self):
         example = quote.EXAMPLE
         self.assertEqual(example['rates'], {'hour': 0, 'day': 0})

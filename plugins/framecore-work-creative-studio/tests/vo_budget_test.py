@@ -59,6 +59,12 @@ class Scripts(unittest.TestCase):
     def test_polish_syllables_and_numbers(self):
         self.assertEqual([vo.syllables(w, 'pl') for w in ('w', 'nie', 'przedsprzedaży', '24')], [0, 1, 4, 4])
 
+    def test_a_dash_and_a_quoted_sentence_end_still_pause(self):
+        seconds = lambda text: vo.estimate(text, 'pl', 'standard')['seconds']
+        plain = seconds('Kup teraz miód')
+        self.assertAlmostEqual(seconds('Kup teraz — miód') - plain, 0.2, places=2)       # a standalone dash
+        self.assertAlmostEqual(seconds('Kup „teraz.” miód') - plain, 0.35, places=2)    # a full stop inside quotes
+
     def test_bad_input(self):
         self.assertEqual(subprocess.run([sys.executable, '-B', str(TOOL), '--length', '15'], capture_output=True).returncode, 2)
 

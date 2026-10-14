@@ -153,7 +153,7 @@ def main(argv=None):
     try:
         timeline = build(json.loads(Path(args.edit).read_text(encoding='utf-8')))
         folder = Path(args.out_dir)
-        stem = args.stem or Path(args.edit).name.split('.')[0]
+        stem = args.stem or re.sub(r'(\.(example|motion-score|motion|shot-plan|shots|edit|board|prompts|plan|static))*\.json$', '', Path(args.edit).name)
         files = {folder / f'{stem}.edl': edl(timeline), folder / f'{stem}.otio': json.dumps(otio(timeline), ensure_ascii=False, indent=2) + '\n',
                  folder / f'{stem}-shots.csv': shot_list(timeline)}
         existing = [str(p) for p in files if p.exists()]
