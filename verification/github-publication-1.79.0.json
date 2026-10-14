@@ -1,0 +1,44 @@
+{
+  "version": "1.79.0",
+  "change_id": "CC-20261014-02",
+  "origin": "cloud-code",
+  "commit": "7310046f64e0c26fafda979767a35bb71e84b208",
+  "package_commit": "7310046f64e0c26fafda979767a35bb71e84b208",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.79.0",
+  "workflows": [
+    {
+      "id": 38543752451,
+      "name": "Check Studio sources",
+      "branch": "ccr-06247e92-aihwc6",
+      "conclusion": "success"
+    },
+    {
+      "id": 38543750854,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 38543750755,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 38543750799,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "8a5d53cb5c3fbd984b002be41cc029cfeac98f1d221acfdc511643ad95757c28",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1190 of 1190 files byte-identical to v1.79.0:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_sha256": "056d770fe73df0d8864ac5695547db782d682fb49154753b61f409f8bbc86dae",
+  "plugin_inventory_matches_local": true,
+  "motion_player_sha256": "a6e26f5b0e1d0945122840435ffcc518daa71d082fc6f247df9640eae7280060",
+  "motion_player_asset_matches_local": true,
+  "published_skill_yaml": "37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "hosted_plugin": "not_tracked (owner decision 2026-10-10: the owner updates and tests it)",
+  "host_behavior": "NOT_RUN"
+}
