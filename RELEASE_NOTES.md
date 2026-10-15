@@ -1,5 +1,5 @@
-# Creative Studio 1.84.0
+# Creative Studio 1.84.1
 
-- **Image reconstruction that understands optics.** A person in a mirror is described as a real reflection, not a framed picture; Studio states which face is sharp and which soft and where each person looks, and measures the image (palette with accents, black and white points, focus and light maps) whenever it can run code.
+- **Cleaner reconstruction method.** The image-reconstruction guidance keeps only general rules, without references to the single example they came from. Behaviour is unchanged.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

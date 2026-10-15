@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.84.0",
+  "version": "1.84.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 970,
-      "sha256": "235beffd0c73cc08c4f8af986919df30863a1bed2c02857afb9352ec32baafcb"
+      "sha256": "8470eaaef4feeb343380c5d448c85dcd5c4c452135c821b7b69e545a06f7d700"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "ecce92168d8d560c86a9fe6bb5bbecd2a9bd2522fa6f6f0ebe64fbaa7aa37956"
+      "sha256": "982461e19a13fd29ba6c3c537404b2778b90ef9597f94a5022a99dbf47baab2c"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22073,
-      "sha256": "627540390a79c3f2921f7e66c70e027edc54ca82a5e8576b98d5ac76df923015"
+      "sha256": "7089031774aaa5bb3b9ff53d319d69b56757ff7e6607f15f6a5306f9ee36ad40"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "4115a58010a7e44d76325f40be0581084f6937f1b8137f894a65977b5bbcb777"
+      "sha256": "f202749a0c3b6a52c378b220d8146cbb3b54ada168d096957ba37ad9bfc6e431"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 157838,
-      "sha256": "5ef582e729aa87fe9bd1fedd024e1023bd91da80321896e0007f2d9d598dfca6"
+      "bytes": 158073,
+      "sha256": "3f943470f7501e7cd883326615e563cd5bab0fd117432ca342bbb10e16a98c23"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2294,7 +2294,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "3a66040d0a719c1a75ee58a3d78be47ea2f0e0b0311d92add4f830596a383aed"
+      "sha256": "23ac1a0b7e7f23f1f92b880c1ec0836869b9f19e91209314c5ade746e8b98cfe"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -5619,7 +5619,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 30331,
-      "sha256": "1953e7727bcce6fac8289fe8b22719cc7a9f8131b01c957a233825deb62c0274"
+      "sha256": "ba5cd61f13a50e7b4dc8674b343b2fd9cd9a58688e7ddda257cf81617130ce3f"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",

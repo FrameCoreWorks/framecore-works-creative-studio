@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.84.1, 2026-10-15
+
+At the owner's request: the reconstruction method states general rules only; two notes naming the single photograph and generator result they were learnt from are removed from the package text. No rule changes.
+
 ## 1.84.0, 2026-10-15
 
 Trigger: defects seen in a host evaluation on the owner's real case, a black-and-white mirror portrait from his reverse-engineering project (2026-10-15):

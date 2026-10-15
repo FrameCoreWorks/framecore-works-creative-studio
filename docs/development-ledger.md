@@ -2113,3 +2113,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `3f0e3d1`; workflows Check Studio sources 38764537942, Refresh current release notes 38764534394, Publish verified Studio release 38764534743, Check Studio sources 38764534661: success; [v1.84.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.84.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1195 of 1195) ([record](../verification/github-publication-1.84.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261015-04
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `7f490d1` (main, package 1.84.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.84.1)
+- Package version: 1.84.0 -> 1.84.1
+- Scope: At the owner's request the reconstruction method keeps general rules only; two provenance notes naming the single example are removed from the package text, with no rule change.
+- Shared package changed: yes; 9 changed, 0 added, 0 removed ([scope](../verification/scope-1.84.1.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 219 Node tests (211 passing, 8 opt-in browser tests skipped there and run separately: 82 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 8 Claude plugin and guides, 6 release helper, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 17 caption, 22 environment check, 19 motion acceptance, 6 motion fonts, 10 motion kinds, 10 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 15 static render, 7 print PDF, 6 Polish copy check, 14 image probe, 11 quote calculator, 6 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 3 clip review, 5 SVG wordmark (5 skipped without optional dependencies), 5 brand guide, 4 motion activity, 9 lyric timing, 4 technique atlas, 9 motion assets, 21 host-eval harness: PASS ([record](../verification/release-1.84.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

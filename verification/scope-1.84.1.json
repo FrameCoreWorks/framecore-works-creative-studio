@@ -1,0 +1,27 @@
+{
+  "version": "1.84.1",
+  "baseline_tag": "v1.84.0",
+  "baseline": "3f0e3d1574d37df3b83b44c73e403395b622dd55",
+  "change_id": "CC-20261015-04",
+  "origin": "cloud-code",
+  "files": 1195,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/image-prompt-architect/references/reference-reconstruction.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/image_probe_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1186,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "At the owner's request the reconstruction method keeps general rules only; two provenance notes naming the single example are removed from the package text, with no rule change."
+}
