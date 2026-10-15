@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.84.0, 2026-10-15
+
+Trigger: defects seen in a host evaluation on the owner's real case, a black-and-white mirror portrait from his reverse-engineering project (2026-10-15):
+
+- **Optical effects by their cause.** Studio read the reflected person as "a window onto another world" or "a small portrait in a frame", the result the owner had to correct by hand. The method now describes a mirror as a real reflection (smaller with distance, inside the reflected room, sharing the light, never touching the rim), and the same for glass, water, shadows and lens blur
+- **Focus and gaze per figure.** Both runs made the near face the sharpest, the reverse of the photo, and one had both people looking the same way. Studio now states which face is sharp and which soft, each figure's gaze and expression, and the camera's height and lens, and repeats a soft near face in the closing lock
+- **The measurement runs when it can.** With a shell available Studio skipped the probe; it now runs it before writing. `image_probe.py --analyze` merges near-identical shades (a white logo was four "colours"), keeps small accents apart (a red sign, a white hat on a dark photograph), gives the black and white points, colour character (monochrome, muted or saturated; warm, neutral or cool), a 4 × 4 focus grid, a 3 × 3 brightness grid with the brighter side, converts Display P3 and other profiles to sRGB, and no longer places a "subject" on paper grain
+- **After a generation** Studio checks the usual generator drift first (a profile turned to the camera, a smile, extra headroom, both faces sharp, a tilted object turned flat), seen in the owner's Nano Banana result; a stated length limit is counted with a tool; a handoff for a new conversation; a future REF is named by its label, not the model person's gender
+- Repository: before and after records of the mirror case (`verification/host-evals/2026-10-15-1.83.0-reverse-mirror-*.json`); the photo is a third-party image and is not committed. Seven probe tests, six of which fail on the old probe
+
 ## 1.83.0, 2026-10-15
 
 At the owner's request, from the knowledge of his reverse-engineering project:

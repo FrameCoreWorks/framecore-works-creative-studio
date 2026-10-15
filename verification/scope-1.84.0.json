@@ -1,0 +1,30 @@
+{
+  "version": "1.84.0",
+  "baseline_tag": "v1.83.0",
+  "baseline": "f6f95f6007b03b0e0fbfa21a86509a39ad772ecd",
+  "change_id": "CC-20261015-03",
+  "origin": "cloud-code",
+  "files": 1195,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/image-prompt-architect/references/reference-reconstruction.md",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/output-critic-iteration/scripts/image_probe.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/image_probe_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1183,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Image reconstruction fixes from a host evaluation on the owner's mirror portrait: optical effects described by their cause, focus and gaze per figure, the probe run whenever code runs, and image_probe --analyze with merged shades, accents, black and white points, colour character, focus and brightness grids, sRGB conversion and no subject on texture."
+}
