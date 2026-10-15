@@ -48,7 +48,7 @@ ENGLISH_WORDS = re.compile(r'\b(the|and|you|your|for|with|is|are|to|of|can|or|th
 
 CHECK_KINDS = ('welcome', 'not_welcome', 'contains', 'contains_any', 'not_contains', 'regex', 'not_regex', 'max_questions',
                'max_user_questions', 'min_numbered', 'items', 'max_chars', 'code_block', 'language', 'skills', 'skills_any',
-               'reads_any', 'no_skills', 'no_command', 'command', 'max_sections_matching')
+               'reads_any', 'no_skills', 'no_command', 'command', 'max_sections_matching', 'directions')
 
 
 class EvalError(Exception):
@@ -215,7 +215,7 @@ def user_questions(text):
 
 
 HEADING = re.compile(r'^#{1,4}\s')
-LABEL = r'(?:kierunek|direction|pomysł|koncept|route|trasa)\b|\d+[.):]|\b[A-E][.):]'
+LABEL = r'(?:kierunek|direction|pomysł|koncept|route|trasa(?!\s+pracy)|wariant|variant|opcj\w*|option|propozycj\w*)\b|\d+[.):]|\b[A-E][.):]'
 HEADED_DIRECTION = re.compile(r'^#{1,4}\s+(?:\*\*)?\s*(?:' + LABEL + ')', re.I)
 BOLD_DIRECTION = re.compile(r'^\s*\*\*\s*(?:' + LABEL + ')', re.I)
 NUMBERED = re.compile(r'^\d+[.)]\s')
@@ -234,7 +234,17 @@ def sections(text):
     return []
 
 
-NEGATION = re.compile(r'(?:\bbez|\bnie|zamiast|unika\w*|odrzuc\w*|pomij\w*|pominął\w*|żadn\w*|without|instead of|avoid\w*|no)\W+(?:\w+\W+){0,3}$', re.I)
+NEGATION = re.compile(r'(?:\bbez|\bnie(?!\s+tylko)|zamiast|unika\w*|odrzuc\w*|pomij\w*|pominął\w*|żadn\w*|without|instead of|avoid\w*|no)\W+(?:\w+\W+){0,3}$', re.I)
+
+
+def words_of(text):
+    return {w for w in re.findall(r'[^\W\d_]{3,}', text.lower())}
+
+
+def similarity(a, b):
+    """Share of words two directions have in common (Jaccard): near 1 when they differ only in a colour or a label."""
+    x, y = words_of(a), words_of(b)
+    return len(x & y) / len(x | y) if x | y else 1.0
 
 
 def stock_in(pattern, text):
@@ -290,6 +300,22 @@ def check(spec, turn):
         enough = len(found) >= value.get('min_sections', 2)
         return enough and len(hits) <= value['max'], (f'{len(found)} directions, stock motif in {len(hits)} ({hits}); allowed {value["max"]}'
                                                       if enough else f'only {len(found)} directions found')
+    if kind == 'directions':
+        # The directions themselves: how many, that each is about this brief (not a template that fits any client),
+        # and that they are not one idea repeated with another colour or label.
+        found = sections(reply)
+        problems = []
+        if 'count' in value and len(found) != value['count']:
+            problems.append(f'{len(found)} directions, expected {value["count"]}')
+        if value.get('each_mentions'):
+            generic = [i + 1 for i, d in enumerate(found) if not re.search(value['each_mentions'], d, re.I)]
+            if generic:
+                problems.append(f'directions {generic} never mention this brief')
+        limit = value.get('max_similarity', 0.6)
+        twins = [(i + 1, j + 1) for i in range(len(found)) for j in range(i + 1, len(found)) if similarity(found[i], found[j]) > limit]
+        if twins:
+            problems.append(f'directions {twins} are near copies of each other')
+        return not problems and bool(found), '; '.join(problems) or f'{len(found)} distinct directions about this brief'
     if kind == 'max_chars':
         return len(reply) <= value, f'{len(reply)} chars (max {value})'
     if kind == 'code_block':

@@ -4698,8 +4698,8 @@
     },
     {
       "path": "skills/pipeline-core/references/ideation-method.md",
-      "bytes": 8403,
-      "sha256": "739047c53b4c5de65e378a43bcabc853cdc6bfb91830d3fdd94d6a8eacb6c78c"
+      "bytes": 9228,
+      "sha256": "ca4e56ff71f886629dd800df3a710143d72c26377f79be1d98db25608a5361ed"
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
@@ -5813,8 +5813,8 @@
     },
     {
       "path": "skills/workflow-self-improvement/assets/change-request.template.json",
-      "bytes": 1262,
-      "sha256": "10b969d32e15e90ad74ebbe70435d8ed3ef98165206406763d82477cde9b2218"
+      "bytes": 1280,
+      "sha256": "eccf4c498629599a6be03385a8e1bb7cbf6c87bd8b42f993f148f0d1bedb733a"
     },
     {
       "path": "skills/workflow-self-improvement/assets/reflexion-lesson.template.json",

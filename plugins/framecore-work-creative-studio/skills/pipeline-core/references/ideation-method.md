@@ -46,6 +46,7 @@ An idea becomes a direction when it has a mechanism: something changes, and the 
 ## 5. Spread three directions
 
 - Three by default; respect a number the user gives. Directions differ in mechanism (what happens) and in source (which lens), not in palette, font or effect.
+- They differ in argument too: for each, write in one sentence what the viewer concludes. If two of these sentences could swap places, rebuild one around another truth of the brief; a new metaphor, name or reveal order on the same argument is not a new direction.
 - At most one direction uses the category's defaults, and it is labelled as the deliberate classic. At least one breaks them: nothing from the step 1 list in its motif, palette or move.
 - Each in one sentence: what we see, what happens, why it fits this client. The look (palette, type, style) follows from the idea, never from the category.
 - For several assets (a poster, a reel and a logo animation), each direction covers all of them, so the user chooses one idea for the whole campaign.
@@ -53,6 +54,8 @@ An idea becomes a direction when it has a mechanism: something changes, and the 
 ## 6. Test before showing
 
 - **Swap test.** Put a competitor's name on it. If the direction still works unchanged, it is generic: rework or drop it.
+- **Brand test.** Tell apart what fits the category, what uses a true trait of this product and what only this brand could own. When the brief gives no fact that sets the brand apart, ask for one, or say plainly that this part stays open; never invent a history, a patent or an advantage to pass the swap test.
+- **Removal test.** For every effect, and above all one added when the user asks for "stronger": what does the viewer stop understanding if it is removed? If nothing, find a better event or relation instead of adding particles, moves or transitions.
 - **Retell test.** Could someone describe it in one sentence after seeing it once?
 - **Fit test.** Does it serve the goal and the audience, keep the offer and the name readable, and can it be made with the real assets and tools (code motion, a generator, the user's photos)?
 - Clarity beats strangeness: a fresh direction that hides the name or the offer fails.

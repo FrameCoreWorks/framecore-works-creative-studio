@@ -50,7 +50,8 @@
     "no_skills",
     "no_command",
     "command",
-    "max_sections_matching"
+    "max_sections_matching",
+    "directions"
   ],
   "privacy": "Client names, facts and files are replaced with neutral stand-ins before the case leaves the conversation.",
   "risk": "",

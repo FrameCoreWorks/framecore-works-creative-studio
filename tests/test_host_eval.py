@@ -138,6 +138,41 @@ class Checks(unittest.TestCase):
         self.assertEqual(outcome['seconds'], 7.0)
         self.assertIn('turn 2', outcome['detail'])
 
+    def creative(self, case_id):
+        return next(c for c in json.loads((ROOT / 'tests/host-evals/creative.json').read_text(encoding='utf-8'))['cases'] if c['id'] == case_id)['turns'][0]['checks']
+
+    def passes(self, checks, reply):
+        return all(host_eval.check(spec, turn(reply))[0] for spec in checks if list(spec)[0] not in ('not_welcome', 'language', 'contains_any'))
+
+    def test_one_template_answer_does_not_pass_every_brief(self):
+        # Creativity audit 2026-10-15: the same three coloured squares passed all 11 briefs.
+        squares = ('### Kierunek 1\nCzerwony kwadrat wjeżdża na środek, potem nazwa firmy.\n\n'
+                   '### Kierunek 2\nZielony kwadrat wjeżdża na środek, potem nazwa firmy.\n\n'
+                   '### Kierunek 3\nPomarańczowy kwadrat wjeżdża na środek, potem nazwa firmy.\n\nOdrzuciłem typowe motywy. Plakat, rolka 9:16 i animacja logo.')
+        cases = [c['id'] for c in json.loads((ROOT / 'tests/host-evals/creative.json').read_text(encoding='utf-8'))['cases']]
+        self.assertEqual(len(cases), 11)
+        for case_id in cases:
+            self.assertFalse(self.passes(self.creative(case_id), squares), case_id)
+
+    def test_a_changed_offer_fails_and_the_count_of_directions_is_exact(self):
+        good = ('### Kierunek 1\nGabinet „Uśmiech” w Poznaniu: -20% na pierwszy przegląd, kalendarz wizyt odlicza dni do otwarcia.\n\n'
+                '### Kierunek 2\nPlakat jak karta pacjenta stomatologa, pierwszy przegląd z rabatem -20%, adres w Poznaniu.\n\n'
+                '### Kierunek 3\nMapa Poznania z jednym punktem: nowy gabinet i -20% na pierwszy przegląd.')
+        checks = self.creative('C02')
+        facts = [c for c in checks if list(c)[0] in ('regex', 'not_regex', 'directions')]
+        self.assertTrue(all(host_eval.check(c, turn(good))[0] for c in facts))
+        wrong = good.replace('-20% na pierwszy', '+20% na drugi').replace('Poznaniu', 'Warszawie').replace('Poznania', 'Warszawy').replace('w Poznaniu', 'w Warszawie')
+        self.assertFalse(all(host_eval.check(c, turn(wrong))[0] for c in facts))
+        four = good + '\n\n### Kierunek 4\nUśmiech pacjenta z gabinetu w Poznaniu.'
+        self.assertFalse(host_eval.check({'directions': {'count': 3, 'each_mentions': 'gabinet'}}, turn(four))[0])
+
+    def test_not_only_is_not_a_negation_and_variant_labels_are_directions(self):
+        self.assertTrue(host_eval.stock_in('kłos', 'Nie tylko kłosy zajmują cały kadr'))
+        self.assertFalse(host_eval.stock_in('kłos', 'Bez kłosów: sam bochenek'))
+        labelled = '**Wariant A**\nBochenek.\n\n**Wariant B**\nPiec.\n\n**Wariant C**\nDrzwi piekarni.'
+        self.assertEqual(len(host_eval.sections(labelled)), 3)
+        self.assertEqual(len(host_eval.sections('**1. Piec**\nx\n\n**2. Drzwi**\ny\n\n**Trasa pracy:** kod.')), 2)
+
     def test_skills_and_commands_come_from_the_tool_calls(self):
         tools = [{'name': 'Skill', 'input': {'skill': 'framecore-work-creative-studio:caption-studio'}},
                  {'name': 'Bash', 'input': {'command': 'python3 find_skills.py "ui sounds"'}}]
@@ -158,7 +193,7 @@ class Checks(unittest.TestCase):
         self.assertEqual(template['check_vocabulary'], list(host_eval.CHECK_KINDS))
         self.assertEqual((template['status'], template['test']['result'], template['adoption']['explicit']), ('proposed', 'NOT_RUN', False))
         samples = {'welcome': 'pl', 'language': 'pl', 'regex': 'x', 'not_regex': 'x', 'command': 'x', 'no_command': 'x', 'code_block': True, 'not_welcome': True,
-                   'max_sections_matching': {'pattern': 'x', 'max': 1}}
+                   'max_sections_matching': {'pattern': 'x', 'max': 1}, 'directions': {'count': 3}}
         for kind in host_eval.CHECK_KINDS:
             value = samples.get(kind, 1 if kind.startswith(('max_', 'min_')) or kind == 'items' else ['x'])
             host_eval.check({kind: value}, turn('x'))
