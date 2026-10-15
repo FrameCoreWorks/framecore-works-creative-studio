@@ -2134,3 +2134,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `047e810`; workflows Check Studio sources 38769656353, Refresh current release notes 38769653446, Publish verified Studio release 38769653256, Check Studio sources 38769653339: success; [v1.84.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.84.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1195 of 1195) ([record](../verification/github-publication-1.84.1.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261015-05
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `7f83820` (main, package 1.84.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.85.0)
+- Package version: 1.84.1 -> 1.85.0
+- Scope: From the owner's request to review morluto/rea: a web motion probe that reads a page's motion libraries, tweens, CSS animations and frames; a curated extension registry with REA pinned at rea-agents 6.5.0, per-host status and dry-run, install, verify and remove steps, installed only on an explicit request; skill-finder, orchestrator and install-guide hooks and a maintainer guide.
+- Shared package changed: yes; 12 changed, 8 added, 0 removed ([scope](../verification/scope-1.85.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 221 Node tests (212 passing, 9 opt-in browser tests skipped there and run separately: 84 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 22 suite 11, 19 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 6 suite 17, 4 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 6 suite 22, 14 suite 23, 11 suite 24, 6 suite 25, 4 suite 26, 4 suite 27, 4 suite 28, 2 suite 29, 2 suite 30, 3 suite 31, 5 suite 32 (5 skipped without optional dependencies), 5 suite 33, 4 suite 34, 9 suite 35, 4 suite 36, 9 suite 37, 21 suite 38: PASS ([record](../verification/release-1.85.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

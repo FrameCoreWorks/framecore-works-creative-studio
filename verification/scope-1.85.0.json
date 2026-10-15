@@ -1,0 +1,39 @@
+{
+  "version": "1.85.0",
+  "baseline_tag": "v1.84.1",
+  "baseline": "047e8108a933d6ff27f2d4d5d3c5753ccea562c5",
+  "change_id": "CC-20261015-05",
+  "origin": "cloud-code",
+  "files": 1203,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "skills/workflow-orchestrator/references/skill-finder.md",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "added": [
+    "integrations/rea/LICENSE",
+    "integrations/rea/README.md",
+    "skills/hyperframes-workflow/assets/web-motion-probe/README.md",
+    "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.py",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1183,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "From the owner's request to review morluto/rea: a web motion probe that reads a page's motion libraries, tweens, CSS animations and frames; a curated extension registry with REA pinned at rea-agents 6.5.0, per-host status and dry-run, install, verify and remove steps, installed only on an explicit request; skill-finder, orchestrator and install-guide hooks and a maintainer guide."
+}

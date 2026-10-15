@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.85.0, 2026-10-15
+
+At the owner's request, from a review of [morluto/rea](https://github.com/morluto/rea) ([decision map](../integrations/rea/README.md)):
+
+- **How is this web animation built?** The [web motion probe](../skills/hyperframes-workflow/assets/web-motion-probe/README.md) opens a page in a local browser and reads its motion libraries and versions, each GSAP tween (targets, properties, duration, delay, ease, stagger, scroll range; finished entrances kept), every CSS animation and transition with its timing and keyframes, Lottie files, fonts, and optional frames. Studio takes the values and rebuilds the technique in its own runtime; it never copies the site's code, assets or text
+- **Recommended extensions.** A curated [registry](../skills/workflow-orchestrator/references/extensions.md) of outside repositories the owner reviewed as engines or knowledge, each pinned, with its rights terms and per-host status (native, desktop only, not supported with the reason) and its own dry-run plan, install, verify and remove commands. Studio installs one only on an explicit request, the plan shown first. The first entry is REA (software reverse engineering: apps, Electron, .NET, Android, websites), installable natively in Codex, Claude Code and the Claude desktop app; not in ChatGPT or ChatGPT Work
+- The skill finder names a fitting extension before the open catalog; the Codex and Claude installation guides end with an optional extensions question
+- Repository: a maintainer guide for adding repositories ([extension registry](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/extension-registry.md)); host cases G09 (motion read from a page) and G10 (extensions and host status)
+
 ## 1.84.1, 2026-10-15
 
 At the owner's request: the reconstruction method states general rules only; two notes naming the single photograph and generator result they were learnt from are removed from the package text. No rule changes.
