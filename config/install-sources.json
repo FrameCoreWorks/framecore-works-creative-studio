@@ -4353,8 +4353,8 @@
     },
     {
       "path": "skills/image-prompt-architect/references/reference-reconstruction.md",
-      "bytes": 11444,
-      "sha256": "38928d239eea740bf4c66eabfa6e37c9d5fdef132f5460179ffec778ea33e9a5"
+      "bytes": 11334,
+      "sha256": "544b1ebf75e14f5d34ac2aea9407371fe348826df146bceef8c21e2acc33ec28"
     },
     {
       "path": "skills/image-prompt-architect/references/reference-transfer-playbook.md",
@@ -5888,8 +5888,8 @@
     },
     {
       "path": "tests/image_probe_test.py",
-      "bytes": 9548,
-      "sha256": "ea61b901d804e9cddbf751ff9b745f5dd89df860257d597c0b768d1ac2093e2a"
+      "bytes": 9535,
+      "sha256": "d1d36728584e1337a9ce6f0c86d7b6db03901589bfd2acf274ac1b79b0b430b4"
     },
     {
       "path": "tests/learning-mode.test.mjs",

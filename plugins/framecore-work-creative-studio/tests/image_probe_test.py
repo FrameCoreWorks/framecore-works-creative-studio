@@ -72,7 +72,7 @@ class Reconstruction(unittest.TestCase):
         self.assertTrue(any(int(h[1:3], 16) > 180 and int(h[3:5], 16) < 80 for h in reds), analysis['accents'])
 
     def test_a_small_white_is_the_white_point_of_a_dark_photograph(self):
-        # The owner's mirror portrait (2026-10-15): a white hat on a dark frame vanished from the palette.
+        # A small white (a hat) on a dark photograph vanished from the palette before 1.84.0.
         from PIL import ImageDraw
         image = Image.new('RGB', (600, 900), '#2A2A2A')
         ImageDraw.Draw(image).ellipse([300, 500, 340, 530], fill='#F4F4F4')
