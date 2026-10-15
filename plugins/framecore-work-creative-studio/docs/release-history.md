@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.82.0, 2026-10-15
+
+From the owner's creativity audit of 1.81.0 ([decisions](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/creativity-audit-1.81.0-2026-10-15.md)):
+
+- **Directions that argue differently.** The ideation method asks for each direction's conclusion in one sentence; two that could swap places are one direction, whatever their metaphor or reveal order
+- **Brand, not only category.** Studio tells apart what fits the category, what uses a true product trait and what only this brand could own; with no brand fact it asks for one or leaves that part open, and never invents one
+- **Effects must earn their place.** Every effect, above all one added for "stronger", passes a removal test: if nothing is lost without it, Studio looks for a better event instead
+- Repository: the creative evaluation can no longer be passed by a template (the same three coloured squares now fail all 11 briefs), a changed offer, "nie tylko", variant labels or a wrong number of directions; a live run of the creative suite is recorded (7 of 11; the remaining failures are category motifs in two of three directions, a limit known since 1.66)
+
 ## 1.81.0, 2026-10-14
 
 Fixes from the owner's technical audit of 1.80.0, each with a regression test ([fixes](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/technical-audit-1.80.0-2026-10-14.md)):

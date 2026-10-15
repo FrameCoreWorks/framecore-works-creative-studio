@@ -1,0 +1,27 @@
+{
+  "version": "1.82.0",
+  "baseline_tag": "v1.81.0",
+  "baseline": "0341238d508ae4259ed2fd6bb9f198f5d7ad7ee1",
+  "change_id": "CC-20261015-01",
+  "origin": "cloud-code",
+  "files": 1194,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-self-improvement/assets/change-request.template.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1185,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Release 1.82.0 carries CC-20261015-01: from the owner's creativity audit of 1.81.0, the creative evaluation gains a directions check (exact count, each about the brief, no near copies) and offer facts, fixes 'nie tylko' and variant labels, so a template answer no longer passes; the ideation method adds argument, brand and removal tests. Live creative run 7 of 11; the remaining failures are category motifs, a known limit recorded without tuning on the suite. Media evidence and comparative studies stay owner decisions."
+}
