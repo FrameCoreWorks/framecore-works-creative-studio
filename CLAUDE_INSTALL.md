@@ -93,6 +93,10 @@ Open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCore
 - Personal edits inside an installed plugin copy are replaced by an update; keep personal preferences in Studio's portable profile instead.
 - Finish every update with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update): `python3 <plugin folder>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host claude_code` (`--host claude_apps` in a Claude app's sandbox). It checks the required tools again, finds Studio workspace starters installed from the previous version, and lists newer versions; the update is complete at `pass` or `pass_with_updates`. It installs nothing.
 
+## Recommended extensions (optional)
+
+After the final check, Studio may offer its [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md): outside repositories the owner reviewed as engines or knowledge. In Claude Code run `python3 <plugin>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host claude_code` (`--host claude_apps` for the Claude apps, where an extension may work only in the desktop app). Install one only when the user explicitly asks, with its pinned dry-run plan first, then its install and verify commands, and a restart. Skipping leaves the installation complete.
+
 ## Differences from ChatGPT and Codex
 
 - **Explicit-only skills.** In ChatGPT and Codex, Producer AI Task Builder, Hipson Adapter and Workflow Self-Improvement run only when called by name (`agents/openai.yaml`). Claude reads a different flag, `disable-model-invocation`, which the shared skill files do not set yet; whether ChatGPT and Codex accept that flag is Unknown, so their descriptions, which say they are explicit-only, are what keeps Claude from using them unasked.

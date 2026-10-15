@@ -292,6 +292,16 @@
       "sha256": "d62e2e0bea5ee908fe5872d9f64e14b25b0ef350d4c18355ff1be28a68224a11"
     },
     {
+      "path": "integrations/rea/LICENSE",
+      "bytes": 1064,
+      "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b"
+    },
+    {
+      "path": "integrations/rea/README.md",
+      "bytes": 2642,
+      "sha256": "3fb2c010c0803708ce65f57564e491822107ffffea91aba76b3f48472fed42fc"
+    },
+    {
       "path": "integrations/skill-finder/LICENSE",
       "bytes": 1069,
       "sha256": "661142e53c313d2bb5e1b055f5c0a39001450ff1b5e27b89dc4bc7de9a6352ca"
@@ -3013,8 +3023,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 18154,
-      "sha256": "a26effe24ce1cf842facb0217d1ff61f366cfaed53f445097f7d6ecb1116a4b2"
+      "bytes": 18555,
+      "sha256": "fc93875cfc92b3604a461462200dfe30dc2b709ae814ebc8a6ad274c21c1b75a"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4157,6 +4167,16 @@
       "sha256": "7bec25f33b3ac9d4768dd1da731e83207684dc1191a54db6b1eee619fef9bd07"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/web-motion-probe/README.md",
+      "bytes": 2657,
+      "sha256": "0b8b3df0114764626eca7a8e6467dd0fc60b7f88ee2b0d3c6d9b9024f0001a2a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs",
+      "bytes": 15697,
+      "sha256": "3aa89c54096ec989cd7ec363570bcc308aacc3ee0c162317f005aba18146288a"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/animate-engine.md",
       "bytes": 7589,
       "sha256": "7cd2380447a9a53314b4d6cba1b5a3f777ed5452874d0eb90eca1f27840d2d2c"
@@ -4263,8 +4283,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 6229,
-      "sha256": "05e50e96bdc75464bb22f0cf5e846fa355b9a487ce1d01528416a86390876e7f"
+      "bytes": 6361,
+      "sha256": "6250484bcab9f53a57947c96b930372b0781867203ad2b402b532805800fbef0"
     },
     {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
@@ -5618,8 +5638,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 30331,
-      "sha256": "ba5cd61f13a50e7b4dc8674b343b2fd9cd9a58688e7ddda257cf81617130ce3f"
+      "bytes": 30549,
+      "sha256": "a1e0096702a1d95e14857a43ef97fd38fad16a8d43af4250beabcdea8390da9f"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5633,8 +5653,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 33099,
-      "sha256": "b40d09d0d5f6990ee4bce68cb6b4396bf443aeb1aee0e94e0b048baf267fe822"
+      "bytes": 34941,
+      "sha256": "5c1f0ac08688b45f99eb6e62cadd9e096b1804d30b8c2c790ee442f06b4ecfc3"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -5655,6 +5675,16 @@
       "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
       "bytes": 31706,
       "sha256": "1c7ee61f9efdf28043cd8a1c6b9a7c8d479aef41543484869aa164e25aabb127"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
+      "bytes": 5600,
+      "sha256": "c6eea799607009ee2c6d1ba488fb1b8b71f4e0b8c2167f01f399486da828c09f"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
+      "bytes": 7905,
+      "sha256": "8ec0473eb0efd4fd9d7cb5f9e4aa067b6246af707903ef67378b60609f0f4cbb"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -5747,6 +5777,11 @@
       "sha256": "8273922fd887e34f9d33cc0c31c2db00adb6b8d6b1148263f59740f9de1f4fab"
     },
     {
+      "path": "skills/workflow-orchestrator/references/extensions.md",
+      "bytes": 3717,
+      "sha256": "195171aa1814ccb23ed9d66dd4dbf4148cd515c0b0e851d6a3afd85512ee68a6"
+    },
+    {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
       "bytes": 15128,
       "sha256": "e2472d899f1fda02a0a37e9e264409501dc5eb16849072207e24c8c96cd7e34c"
@@ -5768,8 +5803,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
-      "bytes": 5301,
-      "sha256": "e47a28b470fdbad2661fe2e6a5d107f03afdc80b8cde40596f01bdb4de98cab2"
+      "bytes": 5458,
+      "sha256": "7d88f117412e758b85b6ac2773de851a75f0870b9d7ee0db27b54752a4548a36"
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
@@ -5887,6 +5922,11 @@
       "sha256": "73a3678617ee644e5ebee512c794b93a4a43ecb212e9d98b357ff7e234ea09db"
     },
     {
+      "path": "tests/extensions_test.py",
+      "bytes": 3668,
+      "sha256": "3d82922ec7385185d694e1653c1ac9451aa3438dbecfeda7cedab9262f6a0581"
+    },
+    {
       "path": "tests/image_probe_test.py",
       "bytes": 9535,
       "sha256": "d1d36728584e1337a9ce6f0c86d7b6db03901589bfd2acf274ac1b79b0b430b4"
@@ -5908,8 +5948,8 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 118621,
-      "sha256": "45d5e025f433ffb6a49f46c77aa1f3df1bf16be6cd47dd443f3a292f8cf45893"
+      "bytes": 121532,
+      "sha256": "acddd4521f3d688911b98a24989e8dfc7cb21ad721ba4c376369eb1a2c114088"
     },
     {
       "path": "tests/motion_acceptance_test.py",

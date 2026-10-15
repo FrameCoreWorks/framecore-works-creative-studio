@@ -59,6 +59,10 @@ Then read the bundled [provider setup guide](plugins/framecore-work-creative-stu
 
 Installation does not connect providers, modify unrelated settings, generate media, spend credits, upload client assets or publish anything. Skipping provider setup leaves the Studio installation complete. On updates, preserve private preferences and do not repeat onboarding unless requested or materially needed.
 
+## 7. Offer recommended extensions (optional)
+
+After the providers question, Studio may offer its [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md): outside repositories the owner reviewed as engines or knowledge. Run `python3 <persistent-bundle-dir>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host codex` and ask one optional question. Install one only when the user explicitly asks, with its pinned dry-run plan first, then its install and verify commands, and a restart. Skipping leaves the installation complete.
+
 ## References
 
 - [OpenAI: Build skills](https://learn.chatgpt.com/docs/build-skills).

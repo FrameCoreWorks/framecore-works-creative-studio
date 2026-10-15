@@ -10,6 +10,8 @@ After `3`, close the startup choice and ask one question in the user's language,
 
 Match the description against the [route table](../SKILL.md#choose-the-owner) and the descriptions of the installed Studio skills. When one covers the need, name it, say in one or two sentences what it will do for this task, and offer to start with it at once; on a yes, route there with the description as the brief. Several partial matches: name up to three, each with what it covers, and recommend one. This step needs no code and works on every host.
 
+When no Studio skill covers it, check the [recommended extensions](extensions.md) next: an entry whose `studio_uses` fits is named before the open catalog.
+
 Studio's skill is recommended first whenever it covers the need. An external skill is never called better without evidence: compare what each does for the stated task, never popularity alone.
 
 ## 3. The open catalog (Codex and Claude Code)

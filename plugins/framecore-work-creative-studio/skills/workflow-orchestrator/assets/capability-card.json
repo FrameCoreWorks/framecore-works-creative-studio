@@ -800,6 +800,50 @@
       "delivers": "The piece's voice.json with matched or estimated word times and how they were obtained",
       "when_missing": "Keep the engine estimate, say the word times are estimated and check the cues on the contact sheet",
       "observed": "2026-10-11: container tests only (no recogniser run)"
+    },
+    {
+      "id": "web_motion_probe",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Opens a website in a local browser and reads its motion libraries, each GSAP tween, CSS animation and transition with duration, delay, ease and properties, Lottie files, fonts and optional frames; never copies the site",
+      "tools": [
+        "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs"
+      ],
+      "requires": [
+        "node",
+        "browser"
+      ],
+      "optional": [
+        "network"
+      ],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "A summary or JSON report of the page's motion and an optional folder of frames",
+      "when_missing": "Ask for a screen recording of the effect and read its timing from the frames, or describe it by eye and say the values are estimates",
+      "observed": "2026-10-15: container tests on local pages only"
+    },
+    {
+      "id": "recommended_extensions",
+      "executed_by": "studio",
+      "owner": "workflow-orchestrator",
+      "does": "Lists the owner-reviewed outside repositories that can be added as engines or knowledge, with their status per host, rights terms and pinned plan, install, verify and remove commands; installs nothing itself",
+      "tools": [
+        "skills/workflow-orchestrator/assets/extensions/extensions.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [
+        "node"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "The fitting extensions for this host and, on an explicit request, the dry-run plan, installation and verification",
+      "when_missing": "Read the registry file and give the steps for Codex or Claude Code",
+      "observed": "2026-10-15: container checks; REA's dry-run plans only"
     }
   ]
 }

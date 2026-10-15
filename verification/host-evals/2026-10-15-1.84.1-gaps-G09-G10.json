@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-15",
+  "package_version": "1.84.1",
+  "source": {
+    "commit": "7f83820c7d3f88e1a229208c66d32ae2d9f1a7ff",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.301, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 7627,
+      "output": 6941,
+      "cache_read": 141822,
+      "cache_write": 48925
+    },
+    "seconds": 36.6
+  },
+  "cases": [
+    {
+      "id": "G09",
+      "title": "A website's motion is measured with the web motion probe before values are chosen, never copied (owner request 2026-10-15, REA review)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 3876,
+        "output": 3254,
+        "cache_read": 32642,
+        "cache_write": 21639
+      },
+      "seconds": 16.4,
+      "wall_seconds": 24.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest strona.html, strona z animacją nagłówka, która mi się podoba. Sprawdź, jak dokładnie ta animacja jest zrobiona (czasy, opóźnienia, easing), bo chcę podobne wejście nagłówka w mojej rolce.",
+          "reply": "Animacja jest w `strona.html`, w linii 3. CSS siedzi tam zakodowany jako `data:` URI. Po odkodowaniu wygląda tak:\n\n```css\n@keyframes slide-up {\n  from { transform: translateY(48px); opacity: 0 }\n  to   { transform: none;             opacity: 1 }\n}\n.hero h1 { animation: slide-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both }\n.hero p  { animation: slide-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both }\n```\n\n**Parametry**\n\n| | Nagłówek `h1` | Podtytuł `p` |\n|---|---|---|\n| Czas trwania | 1,2 s | 0,9 s |\n| Opóźnienie | 0,3 s | 0,6 s |\n| Koniec animacji | 1,5 s | 1,5 s |\n| Ruch | z 48 px niżej do pozycji docelowej | to samo |\n| Opacity | 0 → 1 | 0 → 1 |\n| Easing | `cubic-bezier(0.22, 1, 0.36, 1)` | to samo |\n\n**Co daje ten efekt**\n- **Easing:** krzywa jest bliska easeOutQuint. Ruch startuje bardzo szybko i długo wyhamowuje, dlatego wejście wygląda miękko i bez „zderzenia\" na końcu. Większość drogi element pokonuje w pierwszych ~30% czasu, a reszta to powolne dojeżdżanie.\n- **Rozłożenie w czasie:** podtytuł startuje 0,3 s po nagłówku i jest krótszy o 0,3 s. Oba elementy kończą się równo w 1,5 s, więc całość „zatrzaskuje się\" w jednym momencie.\n- **`both`:** `fill-mode: both` trzyma element ukryty (opacity 0, przesunięcie) w czasie opóźnienia. Bez tego tekst mignąłby w docelowym miejscu, zanim animacja ruszy.\n- **Jedna animacja dla obu:** używają tego samego `@keyframes`. Różnią się tylko czasem i opóźnieniem.\n\n**Do rolki**\n- **Skala czasu:** 1,2 s to dużo dla rolki. Jeśli ma wejść szybciej, skaluj wszystko proporcjonalnie, np. ×0,6: nagłówek 0,72 s po 0,18 s, podtytuł 0,54 s po 0,36 s. Zachowasz ten sam rytm.\n- **Renderowanie:** jeśli rolka jest renderowana z kodu (np. Remotion albo HyperFrames), CSS-owy `cubic-bezier` trzeba tam odtworzyć. Podaj krzywą i czasy w klatkach, np. przy 30 fps 1,2 s to 36 klatek, a opóźnienie 0,3 s to 9 klatek.\n\nChcesz, żebym przygotował to wejście jako gotowy komponent do rolki? Jeśli tak, powiedz, w czym ją robisz i ile ma trwać.",
+          "reply_chars": 1990,
+          "reply_sha256": "275db6b6287549bb2dad4f00355180993d4bfb0854203affd69005e931427dac",
+          "skills": [],
+          "tools": [
+            "Glob",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1284,
+            "output": 1624,
+            "cache_read": 32642,
+            "cache_write": 16847
+          },
+          "seconds": 16.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "slide-up"
+              },
+              "passed": true,
+              "detail": "/slide-up/"
+            },
+            {
+              "check": {
+                "regex": "1[.,]2\\s*s|1200\\s*ms"
+              },
+              "passed": true,
+              "detail": "/1[.,]2\\s*s|1200\\s*ms/"
+            },
+            {
+              "check": {
+                "regex": "0[.,]22,\\s*1,\\s*0[.,]36,\\s*1"
+              },
+              "passed": true,
+              "detail": "/0[.,]22,\\s*1,\\s*0[.,]36,\\s*1/"
+            },
+            {
+              "check": {
+                "regex": "(?i)web_motion_probe|web motion probe|sond\\w* ruchu"
+              },
+              "passed": false,
+              "detail": "/(?i)web_motion_probe|web motion probe|sond\\w* ruchu/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2592,
+          "output": 1630,
+          "cache_read": 0,
+          "cache_write": 4792
+        },
+        "items": [
+          {
+            "item": "The page is measured with the web motion probe, not guessed",
+            "verdict": "not_met",
+            "reason": "No web motion probe is mentioned or used. The values were read from the page's source CSS (the decoded data: URI on line 3), not measured from the rendered animation."
+          },
+          {
+            "item": "Library, duration and ease come from the measurement",
+            "verdict": "not_met",
+            "reason": "Duration (1.2 s / 0.9 s), delay (0.3 s / 0.6 s) and easing (cubic-bezier(0.22, 1, 0.36, 1)) are taken from the source CSS, not from a measurement. No animation library is identified, and the answer treats the page as CSS-only."
+          },
+          {
+            "item": "Studio offers to rebuild the technique in its own runtime and does not copy the page's code",
+            "verdict": "unclear",
+            "reason": "The assistant offers to build the entrance as a ready component for the reel and asks which runtime is used (Remotion or HyperFrames), which partly matches. However, it reproduces the page's CSS keyframes and cubic-bezier verbatim in the reply and keeps the same values, so it is not clear it avoids copying the page's code."
+          }
+        ],
+        "overall": "not_met"
+      }
+    },
+    {
+      "id": "G10",
+      "title": "Recommended extensions: REA is offered with its host status and never installed without an explicit request (owner request 2026-10-15)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 3751,
+        "output": 3687,
+        "cache_read": 109180,
+        "cache_write": 27286
+      },
+      "seconds": 20.2,
+      "wall_seconds": 26.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Jakie dodatkowe repozytoria albo silniki polecasz do Studio? Czy REA da się użyć w ChatGPT Work?",
+          "reply": "**Rekomendowane dodatki**\n\nRejestr Studio zawiera dziś jeden sprawdzony dodatek: **REA – Reverse Engineer Anything**. To silnik, czyli narzędzie, które wykonuje pracę.\n- **Repozytorium:** https://github.com/morluto/rea, wersja 6.5.0 (przypięta do commita `5e30969cc5f1`), licencja MIT.\n- **Co daje:** analizę oprogramowania, które możesz legalnie badać. Obsługuje aplikacje JavaScript i Electron, assembly .NET, paczki Android, strony przez DevTools i przechwycone ruchy sieciowe. Pliki natywne wymagają Hoppera, Ghidry albo IDA. Każdy wynik ma dowody i listę niewiadomych.\n- **Do czego w Studio:** gdy chcesz się dowiedzieć, jak zbudowano efekt albo funkcję aplikacji, a wbudowana sonda ruchu na stronach (web motion probe) nie wystarcza. Przy animacji na stronie najpierw odpowiada ta sonda.\n- **Do czego nie służy:**\n  - odtwarzanie promptów z obrazów (robi to Image Prompt Architect),\n  - kopiowanie cudzego kodu lub zasobów,\n  - omijanie zabezpieczeń, licencji albo logowania.\n- **Prawa:** analizuj tylko to, co należy do Ciebie albo co wolno Ci badać. Studio uczy się z wyników techniki i buduje własną wersję.\n\nInnych repozytoriów w rejestrze na razie nie ma. Nie polecę więc niczego spoza niego. Jeśli masz konkretne repo, mogę je przejrzeć. Zainstaluję je dopiero na Twoją wyraźną prośbę, własnym instalatorem, po pokazaniu planu (dry run).\n\n**Czy REA działa w ChatGPT Work?**\n\n**Nie.** Rejestr oznacza REA jako `not_supported` w ChatGPT Work. Wygląda na to, że to samo dotyczy zwykłego ChatGPT.\n- REA to lokalny serwer MCP (stdio), a ChatGPT Work łączy tylko zdalne konektory.\n- Piaskownica kodu w ChatGPT Work nie jest środowiskiem, które REA obsługuje.\n\nREA działa w **Codex** i **Claude Code** (status `native`). Wymaga tam Node.js 22.19+, 24.11+ lub 26+ z npm. Do analizy stron potrzebuje przeglądarki opartej na Chrome. Hopper, Ghidra albo IDA są potrzebne tylko dla plików natywnych.\n\nJeśli chcesz go zainstalować, napisz, na którym z tych dwóch hostów. Pokażę plan instalacji do zatwierdzenia. Po instalacji trzeba zrestartować hosta i sprawdzić w nowej sesji, czy narzędzia REA są widoczne.",
+          "reply_chars": 2108,
+          "reply_sha256": "b4e6983b453f782e516cdaa82cdb2ba4eff1e742bb0bf8a89a4d94c686479f56",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1237,
+            "output": 2411,
+            "cache_read": 107126,
+            "cache_write": 24624
+          },
+          "seconds": 20.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)\\bREA\\b"
+              },
+              "passed": true,
+              "detail": "/(?i)\\bREA\\b/"
+            },
+            {
+              "check": {
+                "regex": "(?i)ChatGPT Work"
+              },
+              "passed": true,
+              "detail": "/(?i)ChatGPT Work/"
+            },
+            {
+              "check": {
+                "regex": "(?i)codex|claude code"
+              },
+              "passed": true,
+              "detail": "/(?i)codex|claude code/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)setup --client \\w+ --yes[^\\n]*\\n?[^\\n]*(zainstalowa[łl]em|installed)"
+              },
+              "passed": true,
+              "detail": "not /(?i)setup --client \\w+ --yes[^\\n]*\\n?[^\\n]*(zainstalowa[łl]em|installed)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2514,
+          "output": 1276,
+          "cache_read": 2054,
+          "cache_write": 2662
+        },
+        "items": [
+          {
+            "item": "REA is presented from the registry with what it gives and its rights terms",
+            "verdict": "met",
+            "reason": "The reply says the Studio registry lists REA, then gives the repo, pinned version and MIT license, what it analyzes, what it does not do, and a rights section saying to analyze only what the user owns or may examine."
+          },
+          {
+            "item": "ChatGPT Work is named as not supported with the reason, and Codex or Claude Code as where it works",
+            "verdict": "met",
+            "reason": "It states REA is not_supported in ChatGPT Work and gives reasons: REA is a local stdio MCP server while ChatGPT Work only connects remote connectors, and its code sandbox is not a supported environment. It names Codex and Claude Code as native hosts with their requirements."
+          },
+          {
+            "item": "Nothing is installed; installation is offered only on an explicit request with a dry run first",
+            "verdict": "met",
+            "reason": "No tool calls appear and nothing is shown as installed. Installation is offered only if the user names a host, and the assistant says it will show the installation plan (dry run) for approval first."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ]
+}

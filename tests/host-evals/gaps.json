@@ -203,6 +203,73 @@
         "Exact lettering is kept",
         "Colours carry roles and say whether they are measured or approximate"
       ]
+    },
+    {
+      "id": "G09",
+      "title": "A website's motion is read from the page (its source or the web motion probe), with exact values and no copied code (owner request 2026-10-15, REA review)",
+      "files": {
+        "strona.html": "tests/host-evals/fixtures/strona.html"
+      },
+      "extra_tools": [
+        "Bash"
+      ],
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest strona.html, strona z animacją nagłówka, która mi się podoba. Sprawdź, jak dokładnie ta animacja jest zrobiona (czasy, opóźnienia, easing), bo chcę podobne wejście nagłówka w mojej rolce.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "slide-up"
+            },
+            {
+              "regex": "1[.,]2\\s*s|1200\\s*ms"
+            },
+            {
+              "regex": "0[.,]22,\\s*1,\\s*0[.,]36,\\s*1"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Library, duration, delay and ease come from the page itself (its source or the web motion probe), not guesses",
+        "Studio offers to rebuild the technique in its own runtime and does not copy the page's code"
+      ]
+    },
+    {
+      "id": "G10",
+      "title": "Recommended extensions: REA is offered with its host status and never installed without an explicit request (owner request 2026-10-15)",
+      "extra_tools": [
+        "Bash"
+      ],
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Jakie dodatkowe repozytoria albo silniki polecasz do Studio? Czy REA da się użyć w ChatGPT Work?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "(?i)\\bREA\\b"
+            },
+            {
+              "regex": "(?i)ChatGPT Work"
+            },
+            {
+              "regex": "(?i)codex|claude code"
+            },
+            {
+              "not_regex": "(?i)setup --client \\w+ --yes[^\\n]*\\n?[^\\n]*(zainstalowa[łl]em|installed)"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "REA is presented from the registry with what it gives and its rights terms",
+        "ChatGPT Work is named as not supported with the reason, and Codex or Claude Code as where it works",
+        "Nothing is installed; installation is offered only on an explicit request with a dry run first"
+      ]
     }
   ]
 }

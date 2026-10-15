@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "checked": "2026-10-15",
+  "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
+  "hosts": ["codex", "claude_code", "claude_apps", "chatgpt", "chatgpt_work"],
+  "statuses": {
+    "native": "Installs and runs in this host with the commands given",
+    "desktop_only": "Only in the desktop app of this host, not in its web or mobile app",
+    "not_supported": "Cannot run in this host; the reason says why and where it can"
+  },
+  "extensions": [
+    {
+      "id": "rea",
+      "name": "REA: Reverse Engineer Anything",
+      "repository": "https://github.com/morluto/rea",
+      "reviewed_commit": "5e30969cc5f1255d44ec7a1f1ca8dbac0af5e7c4",
+      "package": {"registry": "npm", "name": "rea-agents", "version": "6.5.0"},
+      "license": "MIT",
+      "kind": ["mcp_server", "skill", "cli"],
+      "role": "engine",
+      "gives": "Reverse engineering of software the user may analyse: native binaries (with Hopper, Ghidra or IDA), JavaScript and Electron apps, .NET assemblies, Android packages, websites through the browser's DevTools, network captures; every finding comes with its evidence and unknowns",
+      "studio_uses": "Optional depth when the user wants to know how a feature or an effect of an app or a website is built and Studio's own web motion probe is not enough: an Electron or desktop app, a bundled script, a source map. For a web animation, the web motion probe answers first",
+      "not_for": "Image or prompt reverse engineering (that is Image Prompt Architect's reference reconstruction), copying another product's code or assets, bypassing protection, licences or logins",
+      "requires": [
+        {"tool": "node", "ranges": [["22.19.0", "23.0.0"], ["24.11.0", "25.0.0"], ["26.0.0", null]], "note": "Node.js 22.19+, 24.11+ or 26+, with npm"},
+        {"tool": "browser", "note": "A Chrome-family browser for website analysis"},
+        {"tool": "native_engine", "note": "Hopper, Ghidra or IDA only for native binaries; JavaScript and .NET analysis need none"}
+      ],
+      "rights": "Analyse only software and sites the user owns or may examine, within the law and the target's licence and terms; the results grant no right to the original code, data or design. Studio uses findings to learn a technique and builds its own version; it never copies code, assets or text.",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "npx -y rea-agents@6.5.0 setup --client codex --dry-run --json",
+          "install": "npx -y rea-agents@6.5.0 setup --client codex --yes",
+          "writes": "~/.codex/config.toml (MCP registration, with a backup) and ~/.agents/skills/reverse-engineer-anything",
+          "verify": "npx -y rea-agents@6.5.0 doctor --client codex --json",
+          "after": "Restart Codex; the REA tools must appear in the new session",
+          "remove": "npx -y rea-agents@6.5.0 uninstall"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "npx -y rea-agents@6.5.0 setup --client claude_code --dry-run --json",
+          "install": "npx -y rea-agents@6.5.0 setup --client claude_code --yes",
+          "writes": "~/.claude.json (MCP registration, with a backup) and ~/.claude/skills/reverse-engineer-anything",
+          "verify": "npx -y rea-agents@6.5.0 doctor --client claude_code --json",
+          "after": "Restart Claude Code; the REA tools must appear in the new session",
+          "remove": "npx -y rea-agents@6.5.0 uninstall"
+        },
+        "claude_apps": {
+          "status": "desktop_only",
+          "plan": "npx -y rea-agents@6.5.0 setup --client claude_desktop --dry-run --json",
+          "install": "npx -y rea-agents@6.5.0 setup --client claude_desktop --yes",
+          "writes": "the Claude desktop app's claude_desktop_config.json (with a backup) and ~/.agents/skills/reverse-engineer-anything",
+          "verify": "npx -y rea-agents@6.5.0 doctor --client claude_desktop --json",
+          "after": "Run the commands in a terminal on the same computer, then restart the desktop app; the web and mobile apps cannot run a local MCP server",
+          "remove": "npx -y rea-agents@6.5.0 uninstall"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "REA is a local MCP server that runs on the user's computer; ChatGPT chats cannot start one. Use it from Codex or Claude Code on the same computer"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "REA is a local (stdio) MCP server; ChatGPT Work connects remote connectors, and its code sandbox is not a host REA supports. Use it from Codex or Claude Code"
+        }
+      },
+      "observed": "2026-10-15, Linux container with Node.js 22.22: rea-agents 6.5.0 ran; setup --dry-run planned the registration and skill for claude_code, codex and claude_desktop with backups; doctor reported the missing registration before setup; inspect-web-page refused a public page loading third-party resources (target_not_allowed), and analyze-web-bundle listed a local page's scripts without naming its motion library. Not installed into a real host",
+      "update": "When the owner reviews a newer release, change package.version and reviewed_commit together; users then rerun plan, install and verify"
+    }
+  ]
+}

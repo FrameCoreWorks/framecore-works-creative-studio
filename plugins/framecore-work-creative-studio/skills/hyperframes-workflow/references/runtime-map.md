@@ -29,6 +29,7 @@ The [environment check](../../workflow-orchestrator/assets/environment-check/REA
 | Beat grid and caption sync | `motion_sync` | no | no | yes | Node |
 | Contract revision with a change list | `motion_revise` | no | no | yes | Node |
 | Automated frame review | `motion_frame_review` | no | no | yes | Node, browser |
+| Web motion probe (a website's motion libraries, tweens and CSS animations) | `web_motion_probe` | no | no | yes | Node, browser |
 | Check, matte or key generated cut-outs | `motion_asset_check` | no | yes | yes | Python, Pillow, numpy |
 | Visible-text audit of custom HTML | `motion_text_audit` | no | yes | yes | Node, browser |
 | Remotion render | `remotion_render` | no | no | yes | Node, network, browser |

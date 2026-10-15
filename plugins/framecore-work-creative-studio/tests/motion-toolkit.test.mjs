@@ -1425,3 +1425,44 @@ test('active-word captions keep Polish word groups, light the spoken word and ma
   assert.match(errors, /words must list one \[start, end\) frame span per word of its copy \(6\)/);
   assert.match(errors, /tokens.captions.preset must be box or active-word/);
 });
+
+test('web motion probe takes a URL or an existing local page and nothing else', async () => {
+  const {pageUrl} = await import(path.join(root, 'skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs'));
+  assert.equal(pageUrl('https://example.com/a'), 'https://example.com/a');
+  assert.match(pageUrl(path.join(root, 'README.md')), /^file:\/\//);
+  assert.throws(() => pageUrl('no-such-page.html'), /no such file/);
+});
+
+// Opt-in: opens a page in a headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
+test('web motion probe reads CSS animations, transitions and GSAP tweens from a page', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
+  const {probePage} = await import(path.join(root, 'skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs'));
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'web-motion-probe-test-'));
+  try {
+    const page = path.join(tmp, 'page.html');
+    fs.writeFileSync(page, `<!doctype html><style>
+      @keyframes rise { from { transform: translateY(40px); opacity: 0 } to { transform: none; opacity: 1 } }
+      .card { animation: rise 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s infinite alternate; }
+      .bar { width: 10px; transition: width 4s ease-in-out; }
+    </style><div class="card">Card</div><div class="bar" id="bar">Bar</div><script>
+      requestAnimationFrame(() => requestAnimationFrame(() => { document.getElementById('bar').style.width = '300px'; }));
+      const title = document.querySelector('.card');
+      // A stand-in for GSAP's public API: one finished tween left on the global timeline.
+      window.gsap = {version: '3.99.0', globalTimeline: {getChildren: () => [{vars: {x: 120, opacity: 1, ease: 'back.out(1.7)', stagger: 0.1},
+        targets: () => [title], duration: () => 0.8, startTime: () => 0.5, delay: () => 0.5}]}};
+    </script>`);
+    const report = await probePage(page, {wait: 0.5, width: 640, height: 400, browser: process.env.MOTION_REVIEW_BROWSER});
+    assert.equal(report.libraries.gsap, '3.99.0');
+    const tween = report.gsap_tweens[0];
+    assert.deepEqual([tween.targets[0], tween.properties, tween.ease, tween.duration, tween.stagger], ['div.card', ['x', 'opacity'], 'back.out(1.7)', 0.8, 0.1]);
+    const css = report.web_animations.find(a => a.kind === 'CSSAnimation');
+    assert.equal(css.name, 'rise');
+    assert.equal(css.duration, 1600);
+    assert.equal(css.delay, 200);
+    assert.equal(css.iterations, 'infinite');
+    assert.match(css.easing, /cubic-bezier\(0\.22, 1, 0\.36, 1\)/);
+    const transition = report.web_animations.find(a => a.kind === 'CSSTransition');
+    assert.equal(transition.name, 'width');
+    assert.equal(transition.duration, 4000);
+    await assert.rejects(probePage(path.join(tmp, 'missing.html'), {browser: process.env.MOTION_REVIEW_BROWSER}), /no such file/);
+  } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});

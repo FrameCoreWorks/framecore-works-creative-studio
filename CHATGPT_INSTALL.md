@@ -47,6 +47,10 @@ Then read the bundled [provider setup guide](plugins/framecore-work-creative-stu
 
 After installation in ChatGPT Work, the owner's own tests used Studio both in ChatGPT Work and in ordinary ChatGPT chats, including on a phone (reports of 2026-10-07 and 2026-10-08 in `verification/`); whether every plan and account behaves the same is not verified. Which interactive elements appear in a reply depends on the client. Installation creates the user's own private Studio copy. It does not connect providers, spend credits, upload client assets, generate media, publish the copy publicly, synchronize account history or automatically apply future repository changes. Skipping provider setup leaves the Studio installation complete. On updates, preserve private preferences and do not repeat onboarding unless requested or materially needed.
 
+## Recommended extensions
+
+Studio's [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) are outside repositories the owner reviewed as engines or knowledge. Each states whether it runs in ChatGPT and ChatGPT Work; one that needs a local MCP server (such as REA) is not installed there, and Studio names Codex or Claude Code instead. Do not install an extension during the ChatGPT installation.
+
 ## References
 
 - [OpenAI: Package your plugin](https://developers.openai.com/plugins/build/plugins).
