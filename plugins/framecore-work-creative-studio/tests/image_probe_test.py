@@ -30,6 +30,32 @@ class Words(unittest.TestCase):
         self.assertNotEqual(mod.normalise('-50%'), mod.normalise('50'))
 
 
+class Reconstruction(unittest.TestCase):
+    def test_palette_tones_and_subject_position_are_measured(self):
+        from PIL import ImageDraw
+        image = Image.new('RGB', (1200, 900), '#F3F2EF')
+        ImageDraw.Draw(image).ellipse([400, 300, 640, 780], fill='#B95A40')
+        code, report = probe(image, '--analyze')
+        analysis = report['analysis']
+        self.assertEqual(analysis['palette'][0]['hex'], '#F3F2EF')
+        self.assertIn('#B95A40', [c['hex'] for c in analysis['palette']])
+        self.assertEqual(analysis['tones']['key'], 'high')
+        subject = analysis['subject']
+        self.assertEqual(subject['status'], 'measured')
+        self.assertEqual(subject['centre_percent'], {'x': 43, 'y': 60})
+        self.assertEqual(subject['box_percent'], {'left': 33, 'top': 33, 'right': 54, 'bottom': 87})
+        self.assertIn('no colour profile', analysis['colour_basis'])
+
+    def test_a_busy_border_is_not_given_a_false_position(self):
+        from PIL import ImageDraw
+        image = Image.new('RGB', (400, 300), 'white')
+        draw = ImageDraw.Draw(image)
+        for x in range(0, 400, 10):
+            draw.rectangle([x, 0, x + 4, 300], fill=(30 + x % 200, 90, 160))
+        code, report = probe(image, '--analyze')
+        self.assertEqual(report['analysis']['subject']['status'], 'not_measured')
+
+
 class Probe(unittest.TestCase):
     def test_a_matching_feed_image_has_no_problem(self):
         code, report = probe(Image.new('RGB', (1080, 1350), '#336699'), '--preset', 'instagram-feed-portrait')

@@ -374,6 +374,8 @@ def run_case(case, args):
         config, workspace = Path(temp, 'config'), Path(temp, 'work')
         config.mkdir()
         workspace.mkdir()
+        for name, source in (case.get('files') or {}).items():   # files the case puts in the workspace, by repository path
+            shutil.copyfile(ROOT / source, workspace / name)
         session, turns, used, seconds = None, [], add_tokens(), 0.0
         started, failure = time.time(), None
         for index, step in enumerate(case['turns']):

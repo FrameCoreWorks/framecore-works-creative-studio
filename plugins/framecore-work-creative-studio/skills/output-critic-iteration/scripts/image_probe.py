@@ -5,6 +5,7 @@ print, transparency, sharpness, and previews a reviewer should look at (phone wi
   python3 image_probe.py poster.png --preset a3 --previews review/
   python3 image_probe.py post.jpg --preset instagram-feed-portrait --copy "Miód lipowy z pasieki" --previews review/
   python3 image_probe.py render.png --size 1080x1920 --json
+  python3 image_probe.py reference.jpg --analyze --json     # measured palette, tones and subject position for a reconstruction
 
 It reads the image and writes previews; it never edits the image. With --copy it compares the visible text with the
 locked copy through OCR when pytesseract and the tesseract program are installed, and says "not_run" otherwise; OCR
@@ -73,6 +74,59 @@ def ocr_compare(image, copy):
     return {'status': 'match' if not missing else 'mismatch', 'missing_words': missing, 'unexpected_words': extra[:20], 'ocr_text': seen.strip()[:500]}
 
 
+def percentile(histogram, share):
+    total, running = sum(histogram), 0
+    for value, count in enumerate(histogram):
+        running += count
+        if running >= share * total:
+            return value
+    return 255
+
+
+def analyze(image):
+    """Measured facts for reconstructing an image in a prompt: the dominant colour fields with their share, the tonal
+    range, and (on a plain background) where the subject sits. Figures describe the stored file, not the scene's true
+    colours: light, the colour profile and compression shape them, so a reconstruction gives colours roles."""
+    rgb = image.convert('RGB')
+    small = rgb.copy()
+    small.thumbnail((256, 256))
+    quantized = small.quantize(colors=8, method=Image.Quantize.MEDIANCUT)
+    palette, counts = quantized.getpalette(), sorted(quantized.getcolors(), reverse=True)
+    total = sum(c for c, _ in counts)
+    colours = [{'hex': '#{:02X}{:02X}{:02X}'.format(*palette[i * 3:i * 3 + 3]), 'share': round(c / total, 3)} for c, i in counts if c / total >= 0.01]
+    grey = ImageOps.grayscale(small).histogram()
+    p = {k: percentile(grey, v) for k, v in (('p01', 0.01), ('p05', 0.05), ('p50', 0.5), ('p95', 0.95), ('p99', 0.99))}
+    pixels = sum(grey)
+    tones = {**p, 'contrast_p05_p95': p['p95'] - p['p05'], 'shadows_clipped': round(sum(grey[:4]) / pixels, 3),
+             'highlights_clipped': round(sum(grey[252:]) / pixels, 3),
+             'key': 'low' if p['p50'] < 85 else 'high' if p['p50'] > 170 else 'middle'}
+    result = {'palette': colours, 'tones': tones, 'colour_basis': 'stored RGB values' + (' with an embedded ICC profile' if image.info.get('icc_profile') else ', no colour profile: interpret as sRGB, Unknown otherwise')}
+    # Subject position, only where the border is one plain colour (studio, poster field): x from the left, y from the top.
+    w, h = small.size
+    band = max(1, min(w, h) // 50)
+    border = [small.getpixel((x, y)) for x in range(w) for y in (*range(band), *range(h - band, h))] + \
+             [small.getpixel((x, y)) for y in range(h) for x in (*range(band), *range(w - band, w))]
+    median = tuple(sorted(c[i] for c in border)[len(border) // 2] for i in range(3))
+    spread = sum(1 for c in border if max(abs(c[i] - median[i]) for i in range(3)) > 24) / len(border)
+    if spread > 0.1:
+        result['subject'] = {'status': 'not_measured', 'reason': 'the border is not one plain colour; place the subject by eye and say the position is approximate'}
+        return result
+    mask = [[max(abs(small.getpixel((x, y))[i] - median[i]) for i in range(3)) > 40 for x in range(w)] for y in range(h)]
+    points = [(x, y) for y in range(h) for x in range(w) if mask[y][x]]
+    if not points or len(points) / (w * h) < 0.005:
+        result['subject'] = {'status': 'not_measured', 'reason': 'nothing stands out from the plain background'}
+        return result
+    xs, ys = [x for x, _ in points], [y for _, y in points]
+    cx, cy = sum(xs) / len(xs) / w, sum(ys) / len(ys) / h
+    thirds = min(((a, b) for a in (1 / 3, 2 / 3) for b in (1 / 3, 2 / 3)), key=lambda t: (t[0] - cx) ** 2 + (t[1] - cy) ** 2)
+    result['subject'] = {'status': 'measured', 'background_hex': '#{:02X}{:02X}{:02X}'.format(*median),
+                         'box_percent': {'left': round(100 * min(xs) / w), 'top': round(100 * min(ys) / h), 'right': round(100 * (max(xs) + 1) / w), 'bottom': round(100 * (max(ys) + 1) / h)},
+                         'centre_percent': {'x': round(100 * cx), 'y': round(100 * cy)}, 'area_share': round(len(points) / (w * h), 3),
+                         'nearest_third': {'x': round(100 * thirds[0]), 'y': round(100 * thirds[1])},
+                         'note': 'everything that differs from the background, taken together; separate objects are placed by eye'}
+    return result
+
+
 def probe(path, args):
     image = Image.open(path)
     image.load()
@@ -128,6 +182,8 @@ def probe(path, args):
             report['notes'].append('RGB image: the print shop converts to CMYK unless a profile conversion was agreed')
     if args.copy:
         report['ocr'] = ocr_compare(image, args.copy)
+    if getattr(args, 'analyze', False):
+        report['analysis'] = analyze(image)
     if args.previews:
         out = Path(args.previews)
         out.mkdir(parents=True, exist_ok=True)
@@ -170,6 +226,7 @@ def main(argv=None):
     parser.add_argument('--dpi', type=int, help='resolution the print needs (default from the preset or 300)')
     parser.add_argument('--copy', help='the locked visible text, for an OCR comparison when OCR is installed')
     parser.add_argument('--previews', help='folder for phone, thumbnail, greyscale and safe-area previews')
+    parser.add_argument('--analyze', action='store_true', help='measured palette, tones and subject position, for reconstructing the image in a prompt')
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
     reports, code = [], 0
@@ -194,6 +251,13 @@ def main(argv=None):
                 print('  problem: ' + problem)
             for note in r['notes']:
                 print('  note: ' + note)
+            if r.get('analysis'):
+                a = r['analysis']
+                print('  palette: ' + ', '.join(f"{c['hex']} {c['share']:.0%}" for c in a['palette']))
+                t = a['tones']
+                print(f"  tones: {t['key']} key, 5-95 % range {t['p05']}-{t['p95']}, median {t['p50']}, clipped shadows {t['shadows_clipped']:.1%}, highlights {t['highlights_clipped']:.1%}")
+                sub = a['subject']
+                print('  subject: ' + (f"centre x {sub['centre_percent']['x']} %, y {sub['centre_percent']['y']} %, box {sub['box_percent']}, on {sub['background_hex']}" if sub['status'] == 'measured' else sub['reason']))
             if r.get('ocr'):
                 print(f"  ocr: {r['ocr']['status']}" + (f" missing {r['ocr'].get('missing_words')}" if r['ocr'].get('missing_words') else ''))
     return code

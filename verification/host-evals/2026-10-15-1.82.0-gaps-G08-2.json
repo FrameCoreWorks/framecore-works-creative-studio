@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-15",
+  "package_version": "1.82.0",
+  "source": {
+    "commit": "2a700cc1bf515fab26a70eafcd6eac9951b7b476",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.300, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8,
+      "output": 6585,
+      "cache_read": 77896,
+      "cache_write": 23608
+    },
+    "seconds": 60.4
+  },
+  "cases": [
+    {
+      "id": "G08",
+      "title": "An image becomes a reconstruction prompt: model image is not a REF, the medium stays, colours measured or approximate (owner request 2026-10-15)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 6585,
+        "cache_read": 77896,
+        "cache_write": 23608
+      },
+      "seconds": 60.4,
+      "wall_seconds": 60.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:image-prompt-architect W folderze roboczym jest plik grafika.png. Rozbierz tę grafikę bardzo dokładnie i daj mi gotowy prompt do GPT Image, żeby ktoś mógł wgrać zdjęcie swojego psa i dostać taką samą grafikę, w której jego pies stoi zamiast świnki. Napisy zostają bez zmian.",
+          "reply": "Poniżej jest prompt do wklejenia razem ze zdjęciem psa. Grafikę obejrzałem, ale nie mierzyłem jej kolorów. W tej sesji nie mam dostępu do powłoki ani wyszukiwarki, więc wartości HEX są szacunkowe. Aktualnych zaleceń dla GPT Image też nie sprawdzałem na żywo, dlatego prompt jest zwykłym opisem w prozie, bez parametrów API.\n\nZdjęcie psa to jedyny obraz wgrywany do generatora (REF 1), a oryginalna grafika nie jest potrzebna. Z REF 1 bierze się tylko wygląd psa: rasę, maść, znaczenia, uszy, pysk i proporcje. Pozę, styl, scenę i napisy opisuje sam prompt. Prompt jest po angielsku. Napisy na grafice są dokładnie takie jak w oryginale.\n\n```\nUse the uploaded photo (image 1) only as the identity source for one dog: its breed look, coat colour and markings, ear shape and carriage, muzzle, eye colour, body proportions and tail. Do not copy the photo's background, pose, lighting or camera. Create ONE finished vertical illustration (portrait, 9:16 composition, full frame, no border, no mockup) in a handmade paper-and-felt cut-out collage style: layered cut paper and fuzzy felt shapes with slightly rough cut edges, soft contact shadows between layers, flat simplified shapes, no outlines, no photographic realism, no 3D render, no glossy shading. The scene is a quiet snowy winter day, with a small grumpy dog standing in the lower right in front of a closed little laboratory building.\n\nBACKGROUND AND LAYERS (back to front)\n- Sky: soft pale blue paper, about #BBD7E8 at the top fading to a lighter #D5E6F0 toward the horizon, with a faint paper grain.\n- Far hills: two low, gentle hill shapes in very pale blue-white (about #DCE8F0), with a subtle fine diagonal-line paper texture. The hill line sits at roughly 45-47% of the frame height from the top.\n- Snow field: the whole lower half is off-white snow paper (about #EEF3F7) with a fine regular vertical pinstripe texture in a slightly darker blue-grey, running top to bottom. Its upper edge is a soft gentle curve rising a little toward the left behind the figures. The lower third is large, calm, empty snow, which is deliberate negative space.\n- Snowfall: about 60-70 plain white dots of varied size (roughly 1% to 2.5% of the frame width), scattered unevenly over the whole frame, denser in the sky and around the house, a few overlapping the roof and the wall. Keep them away from the three text elements, the dog's face and the star's face.\n\nTOP LEFT NOTE\n- A cream paper label (about #F1EBDD), slightly rough-cut and tilted a degree or two, spanning about 6%-31% of the width and 14%-20% of the height from the top. A small translucent yellowish strip of tape holds its top edge. On it, the text \"1974\" in thin, upright handwritten pen script, dark charcoal grey, centred.\n\nPOWER LINE AND BIRDS\n- A very thin dark line enters from the left edge at about 27% of the height and slopes gently down to the right, ending at about 48% of the width and 31% of the height. Three small round blue-grey felt birds with tiny beaks sit on it side by side at about 11%, 18% and 23% of the width, with small uneven gaps.\n\nBARE TREES\n- Left: a bare brown paper tree (about #7A4F3C) with a straight trunk and four thin angled branches, cropped by the left frame edge, spanning about 0%-20% of the width and 38%-55% of the height. Right: a smaller, similar bare tree at about 83%-97% of the width and 39%-52% of the height, partly behind the house corner.\n\nTHE LAB BUILDING (centre-right, behind the characters)\n- A small two-storey-looking house spanning about 44%-86% of the width and 29%-58% of the height. Walls in dusty rose-brown paper (about #B5776B) with fine horizontal clapboard lines. The roof is a steep gable with a thick white snow cap on top (apex at about 65% of the width, 29% of the height) and a brown roof band (about #7A4A40) below it. Along the eave hangs a row of small white icicle triangles.\n- A wooden sign board in warm tan-orange (about #D9A25E), at about 53%-77% of the width and 41%-45% of the height, carrying the text \"AI LAB\" in thin, widely letter-spaced dark brown sans-serif capitals.\n- Two small dark navy shuttered windows (about #2F3E5C), one at the left of the facade and one at the right, symmetrical around the door.\n- A dark brown door at about 59%-70% of the width, 47%-58% of the height. A small cream paper tag hangs on it from a thin V-shaped string, at about 58%-71% of the width and 49%-52% of the height, carrying the text \"CLOSED\" in red capitals (about #C0392B).\n\nLEFT CHARACTER (keep exactly as described; it is not the dog)\n- A small orange felt star character (about #E4733A) with five stubby arms, at about 19%-40% of the width and 54%-71% of the height, with an angry frowning face with slanted brows. It wears a blue-and-white horizontally striped knitted beanie with a white pompom, and a teal-and-white striped scarf trailing behind it. It strides forward through the snow. A tiny glowing yellow diamond-shaped spark floats just to its right, with a soft warm glow. Small pale blue footprints and short motion dashes mark the snow around it.\n\nTHE DOG (main character, replaces the original pink pig)\n- The dog from image 1, redrawn in the same felt-and-paper cut-out style as the rest of the scene: simplified felt shapes, a slightly fuzzy soft edge, a coat in the real colours and markings from the photo, and the real ear shape. Make it clearly recognisable as that specific dog (same breed look, coat pattern, ear type, muzzle shape and eye colour), but simplified, as if hand-cut from felt.\n- The dog STANDS on all four legs in the snow, in side view facing right, the head turned slightly toward the viewer so both eyes show. Legs are short, straight felt shapes planted on the snow, with a soft blue-grey contact shadow under the paws. Show the tail if it is visible in the photo; otherwise make a plausible tail for that breed.\n- Expression: sulky and grumpy, with a small furrowed brow and a closed mouth, the same sulky mood as the original character, with no smile and no open mout",
+          "reply_chars": 8486,
+          "reply_sha256": "f59827f23ec1c3037814891335d11ae910af2c1f5fe5f523327775628d240148",
+          "skills": [],
+          "tools": [
+            "Read",
+            "Read",
+            "Read",
+            "Grep",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 6585,
+            "cache_read": 77896,
+            "cache_write": 23608
+          },
+          "seconds": 60.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)REF\\s*1"
+              },
+              "passed": true,
+              "detail": "/(?i)REF\\s*1/"
+            },
+            {
+              "check": {
+                "regex": "(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow"
+              },
+              "passed": true,
+              "detail": "/(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow/"
+            },
+            {
+              "check": {
+                "regex": "#[0-9A-Fa-f]{6}"
+              },
+              "passed": true,
+              "detail": "/#[0-9A-Fa-f]{6}/"
+            },
+            {
+              "check": {
+                "regex": "AI winter: the money runs out"
+              },
+              "passed": true,
+              "detail": "/AI winter: the money runs out/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)"
+              },
+              "passed": true,
+              "detail": "not /(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

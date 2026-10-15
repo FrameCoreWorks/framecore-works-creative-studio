@@ -1,6 +1,6 @@
 {
   "name": "gaps",
-  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14).",
+  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15).",
   "cases": [
     {
       "id": "G01",
@@ -163,6 +163,45 @@
         "Proposes generated photographic cut-out assets per scene with a transparency route per generator",
         "Does not draw the hand or the boombox procedurally",
         "Neon or light effects are requested on black without a backing plate"
+      ]
+    },
+    {
+      "id": "G08",
+      "title": "An image becomes a reconstruction prompt: model image is not a REF, the medium stays, colours measured or approximate (owner request 2026-10-15)",
+      "files": {
+        "grafika.png": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/sample.png"
+      },
+      "turns": [
+        {
+          "prompt": "/framecore-work-creative-studio:image-prompt-architect W folderze roboczym jest plik grafika.png. Rozbierz tę grafikę bardzo dokładnie i daj mi gotowy prompt do GPT Image, żeby ktoś mógł wgrać zdjęcie swojego psa i dostać taką samą grafikę, w której jego pies stoi zamiast świnki. Napisy zostają bez zmian.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "(?i)REF\\s*1"
+            },
+            {
+              "regex": "(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow"
+            },
+            {
+              "regex": "#[0-9A-Fa-f]{6}"
+            },
+            {
+              "regex": "AI winter: the money runs out"
+            },
+            {
+              "not_regex": "(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "The supplied image is analysed and never asked for as a generator reference; the dog photo is REF 1 and only its features transfer",
+        "The cut-paper medium is kept, not turned into a photograph",
+        "The dog keeps its own colours from REF 1, not the pig's pink",
+        "Exact lettering is kept",
+        "Colours carry roles and say whether they are measured or approximate"
       ]
     }
   ]

@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-15",
+  "package_version": "1.82.0",
+  "source": {
+    "commit": "2a700cc1bf515fab26a70eafcd6eac9951b7b476",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.300, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8,
+      "output": 7396,
+      "cache_read": 67425,
+      "cache_write": 29196
+    },
+    "seconds": 64.6
+  },
+  "cases": [
+    {
+      "id": "G08",
+      "title": "An image becomes a reconstruction prompt: model image is not a REF, the medium stays, colours measured or approximate (owner request 2026-10-15)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 8,
+        "output": 7396,
+        "cache_read": 67425,
+        "cache_write": 29196
+      },
+      "seconds": 64.6,
+      "wall_seconds": 64.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:image-prompt-architect W folderze roboczym jest plik grafika.png. Rozbierz tę grafikę bardzo dokładnie i daj mi gotowy prompt do GPT Image, żeby ktoś mógł wgrać zdjęcie swojego psa i dostać taką samą grafikę, w której jego pies stoi zamiast świnki. Napisy zostają bez zmian.",
+          "reply": "Źródło obejrzałem i rozebrałem. Prompt jest zbudowany jako edycja: ktoś wgrywa grafikę i zdjęcie psa, a zmienia się tylko świnka.\n\n```\nEdit an existing illustration. Two images are attached. Image 1 (the first attached image) is the finished artwork and is the edit source. Image 2 (the second attached image) is a photo of a real dog. Make exactly ONE change: replace the pink pig with the dog from Image 2, standing in the pig's place. Everything else in Image 1 stays as it is.\n\nTHE CHANGE\nRemove the pink felt piggy bank completely: body, ear, tail, coin slot, snout, pink legs and its small shadow. In its place put the dog from Image 2, standing on the snow on all four legs, in side view facing right, the same direction the pig faced. The head may be turned very slightly toward the viewer.\n- Take from Image 2 only the dog's identity: breed type, coat colour and pattern, markings and their placement, ear shape, muzzle length, tail shape, body build and proportions, and a collar only if one is clearly visible. Keep ordinary visible traits as they are, without beautifying or idealising. Do not take the background, pose, lighting, leash, people, objects or photographic look from Image 2.\n- Render the dog in the artwork's handmade cut-felt and paper-collage language, so it looks like it was made by the same hand as the pig and the orange star character. Use a soft, fine, fibrous felt surface, simplified clean-edged rounded shapes, and coat markings as felt patches. Use small dark bead-like eyes and legs built as separate stubby felt pieces, like the pig's legs. The dog must not look like a pasted photo and must not be photorealistic, but it must be clearly recognisable as this specific dog.\n- Give the dog the same grumpy, scowling expression the pig had: small angled brows and a downturned frown. It should still look like this dog's face.\n- Place and scale: the dog occupies the pig's spot, roughly 65–88% of the image width and 60–72% of the image height from the top, with its paws on the same ground line as the pig's feet. Keep the overall size similar to the pig's. A long-legged breed may be up to about 15% larger. The dog must not touch the house, the caption strip or the orange star character.\n- Contact: a soft felt-like shadow under the dog on the snow, the same kind the pig had, and a tiny dusting of snow around the paws. Keep the light flat, soft and overcast like the rest of the scene.\n- No pig traits remain: no pink felt, no pig snout, no curly tail, no coin slot, no second animal.\n\nPROTECTED – KEEP EXACTLY AS IN IMAGE 1 (same positions, sizes, colours, textures)\nFormat: portrait 9:16, the same proportions as Image 1. If the tool offers only a nearby portrait ratio, extend only the sky at the top and the snow at the bottom. Do not crop, squash or move any element.\nStyle: soft paper-cut and felt collage with subtle paper grain and gentle drop shadows, in a pastel winter palette.\n- Sky: pale powder blue, slightly lighter toward the horizon. Round white snowflakes of various sizes, some larger and softer, fall over the whole scene in the same positions and density.\n- Top left: a cream paper note with a strip of translucent yellow tape on top, very slightly tilted, containing the handwritten thin-script text \"1974\".\n- Left, below the note: a thin dark power line running from the left edge and sloping gently down to the right. Three small round blue-grey birds with tiny beaks sit on it in a row.\n- Centre right: a two-storey dusty rose-brown clapboard house with fine horizontal lines. It has a snow-covered white peaked roof with a dark brown eave edge and a row of white icicles. Two dark navy shuttered windows with snowy sills flank it. A brown door is below, with a small V-shaped detail above it. An ochre-orange paper sign on the front reads \"AI LAB\". A small white sign on the door reads \"CLOSED\" in red capitals.\n- Two bare brown trees with thin branches: one at the left edge, one at the right edge behind the house.\n- Ground: a pale blue-white background hill behind, and a bright snow field in front. It is white with a very fine vertical pinstripe texture and covers the lower half. Small blue-grey footprint marks stay scattered in the snow.\n- Left character: the angry orange felt star-shaped creature with furrowed brows. It wears a blue-striped knit beanie with a white pom-pom and a teal-and-white striped scarf. It has small blue motion dashes beside it and a tiny glowing yellow flame or spark with a warm halo to its right. Nothing about it changes.\n- Bottom: a cream paper strip in handwritten script reading \"AI winter: the money runs out\", at the same position and size.\n\nTEXT\nThe only visible text is these four strings, exactly as written, with the same wording, case, punctuation and handwriting-style lettering: \"1974\", \"AI LAB\", \"CLOSED\", \"AI winter: the money runs out\". Add no other text, logos, watermarks or labels.\n\nDo not restyle, redraw, recolour or re-lay-out anything except the pig-to-dog swap.\n```\n\n**Uwagi produkcyjne**\n- **Jak używać:** wgrać dwa pliki w tej kolejności: najpierw `grafika.png`, potem zdjęcie psa. Prompt odwołuje się do „pierwszego” i „drugiego” załączonego obrazu.\n- **Pierwszy odczyt:** gniewny pies na śniegu w miejscu świnki, a reszta kadru bez zmian. Pozostają napisy „1974”, „AI LAB”, „CLOSED” i „AI winter: the money runs out”.\n- **Zdjęcie psa:** najlepiej wyraźne, z boku lub z przodu, bez innych zwierząt i ludzi. Jeśli rasa lub umaszczenie wyjdą źle, dodaj drugie zdjęcie i dopisz, co każde z nich pokazuje.\n- **Czego nie sprawdzałem:** nie szukałem w sieci i nie opieram się na świeżych testach. Korzystałem tylko z lokalnej migawki o GPT Image. Wynika z niej, że istnieją edycje i obrazy referencyjne, ale nie ma testów praktyków dla wersji 2.5 z referencjami. Nie wiem też, jakie opcje daje obecnie sam interfejs ChatGPT, więc prompt jest zwykłym opisem bez parametrów API. Proporcje ustawia narzędzie, a w prompcie jest tylko zapisana intencja.\n- **Jakość źródła:** `g",
+          "reply_chars": 6566,
+          "reply_sha256": "d60cbbf60cbb38c5a0ea56aeb2236baf027ed6ba9d7d3cfdea0087354123667c",
+          "skills": [],
+          "tools": [
+            "Read",
+            "Read",
+            "Glob",
+            "Grep",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 7396,
+            "cache_read": 67425,
+            "cache_write": 29196
+          },
+          "seconds": 64.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)REF\\s*1"
+              },
+              "passed": false,
+              "detail": "/(?i)REF\\s*1/"
+            },
+            {
+              "check": {
+                "regex": "(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow"
+              },
+              "passed": true,
+              "detail": "/(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow/"
+            },
+            {
+              "check": {
+                "regex": "#[0-9A-Fa-f]{6}"
+              },
+              "passed": false,
+              "detail": "/#[0-9A-Fa-f]{6}/"
+            },
+            {
+              "check": {
+                "regex": "AI winter: the money runs out"
+              },
+              "passed": true,
+              "detail": "/AI winter: the money runs out/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)"
+              },
+              "passed": true,
+              "detail": "not /(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
