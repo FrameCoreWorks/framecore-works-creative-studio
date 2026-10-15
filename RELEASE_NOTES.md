@@ -1,5 +1,5 @@
-# Creative Studio 1.82.0
+# Creative Studio 1.83.0
 
-- **Sharper ideas.** Each proposed direction now has to make a different point, use something true about your brand rather than just your category, and every effect has to earn its place.
+- **Turn any image into a prompt.** Send a photo, poster or illustration and get a precise prompt that recreates it with your own face, pet or product: measured colours, exact positions, the same medium, and your own prompt template if you have one.
 
 The welcome, menus and all 37 skill IDs are unchanged. See [verification](VERIFICATION.md) and [release status](RELEASE_STATUS.md).

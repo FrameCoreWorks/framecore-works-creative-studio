@@ -2071,3 +2071,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `6b93b04`; workflows Check Studio sources 38688538676, Refresh current release notes 38688536035, Publish verified Studio release 38688536015, Check Studio sources 38688535974: success; [v1.82.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.82.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1194 of 1194) ([record](../verification/github-publication-1.82.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261015-02
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `2a700cc` (main, package 1.82.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.83.0)
+- Package version: 1.82.0 -> 1.83.0
+- Scope: Release 1.83.0 carries CC-20261015-02: at the owner's request, Image Prompt Architect gains a reference reconstruction method generalized from his reverse-engineering project (model image versus REF, mechanism first, spatial relations, colour roles, medium kept, user template filled exactly, ordered corrections), and the image probe gains --analyze for a measured palette, tones and subject position. Host case G08 fails before and passes after.
+- Shared package changed: yes; 11 changed, 1 added, 0 removed ([scope](../verification/scope-1.83.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 219 Node tests (211 passing, 8 opt-in browser tests skipped there and run separately: 82 passing in the browser run), 13 Codex installer, 4 package identity, 5 benchmark script, 6 host smoke, 6 hosted readback, 8 Claude plugin and guides, 6 release helper, 8 GEPA pilot (3 skipped without optional dependencies), 23 asset, 17 caption, 22 environment check, 19 motion acceptance, 6 motion fonts, 10 motion kinds, 10 motion variants, 7 skill finder, 4 Animate engine, 5 Animate voice, 15 static render, 7 print PDF, 6 Polish copy check, 8 image probe, 11 quote calculator, 6 voice-over budget, 4 edit export, 4 storyboard compositor, 4 sheet export, 2 shot plan check, 2 prompt pack, 3 clip review, 5 SVG wordmark (5 skipped without optional dependencies), 5 brand guide, 4 motion activity, 9 lyric timing, 4 technique atlas, 9 motion assets, 21 host-eval harness: PASS ([record](../verification/release-1.83.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

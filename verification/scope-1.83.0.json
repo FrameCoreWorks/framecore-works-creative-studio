@@ -1,0 +1,31 @@
+{
+  "version": "1.83.0",
+  "baseline_tag": "v1.82.0",
+  "baseline": "6b93b04dfce03d8a260c64eb11cfa35753c51a81",
+  "change_id": "CC-20261015-02",
+  "origin": "cloud-code",
+  "files": 1195,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/output-critic-iteration/scripts/image_probe.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/image_probe_test.py"
+  ],
+  "added": [
+    "skills/image-prompt-architect/references/reference-reconstruction.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1183,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Release 1.83.0 carries CC-20261015-02: at the owner's request, Image Prompt Architect gains a reference reconstruction method generalized from his reverse-engineering project (model image versus REF, mechanism first, spatial relations, colour roles, medium kept, user template filled exactly, ordered corrections), and the image probe gains --analyze for a measured palette, tones and subject position. Host case G08 fails before and passes after."
+}

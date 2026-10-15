@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.83.0, 2026-10-15
+
+At the owner's request, from the knowledge of his reverse-engineering project:
+
+- **Reconstruct an image in a prompt.** Image Prompt Architect analyses a supplied photograph, poster or illustration and writes a prompt that recreates its effect with the user's own person, animal or product: the model image is analysed and never uploaded as a reference, the mechanism comes first, space is described as relations from the viewer's side, colours have roles, the medium stays (an illustration is not turned into a photograph), and a template the user supplies is filled exactly ([reference reconstruction](../skills/image-prompt-architect/references/reference-reconstruction.md))
+- **Measured, not guessed.** `image_probe.py --analyze` gives the dominant colour fields in HEX with their share, the tonal range and, on a plain background, where the subject sits in percent of width and height
+- **After a generation** Studio corrects in a fixed order (mechanism, then scale, colour and light, then texture) and gives a full corrected prompt for the original references
+- Repository: host case G08 (before FAIL, after PASS); the harness can place repository files in a case workspace
+
 ## 1.82.0, 2026-10-15
 
 From the owner's creativity audit of 1.81.0 ([decisions](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/creativity-audit-1.81.0-2026-10-15.md)):
