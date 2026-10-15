@@ -4293,8 +4293,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 9385,
-      "sha256": "7e60a75668e55805ba7d50395b3305cc19bd7da501c05a42b447bd086d98ff12"
+      "bytes": 9582,
+      "sha256": "8337ba1e398a7b8aaf7d89e1425c8d9e837a63e3fa5a328a039381664e860a48"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -4353,8 +4353,8 @@
     },
     {
       "path": "skills/image-prompt-architect/references/reference-reconstruction.md",
-      "bytes": 8374,
-      "sha256": "8283254027c068e25ed0f3939b10d5a204b7bf3479754a98917e55fba3308ea9"
+      "bytes": 11357,
+      "sha256": "c9a3eeb7772c08c27d7f1b2995856dfab85796ac6c7d710d980a96cf28125f42"
     },
     {
       "path": "skills/image-prompt-architect/references/reference-transfer-playbook.md",
@@ -4438,8 +4438,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 6968,
-      "sha256": "880541020697469b3d90a62d220383478ae4220ca15b32266c0ac17d94f21ea9"
+      "bytes": 7050,
+      "sha256": "886e22f41b0fca80ea73ca651a9fe313b3c300de55a58eec936172e7b23dae53"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -4488,8 +4488,8 @@
     },
     {
       "path": "skills/output-critic-iteration/scripts/image_probe.py",
-      "bytes": 14835,
-      "sha256": "d3881e809199db33a21e7a16aa44af823d07f318e1f9674c1b63e27f959da3e3"
+      "bytes": 22875,
+      "sha256": "b510b399754411eaf52bd573961dc3b62faa86f50b8182e0a9aef8cfda63998c"
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
@@ -5888,8 +5888,8 @@
     },
     {
       "path": "tests/image_probe_test.py",
-      "bytes": 4891,
-      "sha256": "b5ca6fb445096e463520594e9fffd1e6b6a3b1ad58f97b20cf4c72776ab1aa29"
+      "bytes": 9548,
+      "sha256": "ea61b901d804e9cddbf751ff9b745f5dd89df860257d597c0b768d1ac2093e2a"
     },
     {
       "path": "tests/learning-mode.test.mjs",

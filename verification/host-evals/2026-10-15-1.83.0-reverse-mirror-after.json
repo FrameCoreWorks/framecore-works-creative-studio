@@ -1,0 +1,304 @@
+{
+  "date": "2026-10-15",
+  "package_version": "1.83.0",
+  "source": {
+    "commit": "d030bf88eb112cba314099790b65708e21790036",
+    "package_uncommitted_changes": true
+  },
+  "suite": "scratch",
+  "host": "Claude Code 2.1.300, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 12394,
+      "output": 20660,
+      "cache_read": 137345,
+      "cache_write": 50960
+    },
+    "seconds": 136.6
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "title": "Mirror portrait, no shell",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6119,
+        "output": 10229,
+        "cache_read": 42028,
+        "cache_write": 23130
+      },
+      "seconds": 69.0,
+      "wall_seconds": 84.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest plik zdjecie.png. Rozbierz to zdjęcie i daj mi gotowy prompt do GPT Image, który odtworzy je wiernie z dwiema osobami referencyjnymi: REF 1 to osoba trzymająca lustro, REF 2 to osoba widoczna w lustrze; ubrania, kapelusze, tło i światło ze wzorca. Prompt narracyjny, poniżej 8000 znaków.",
+          "reply": "Poniżej rozbiórka wzorca i gotowy prompt. W tym środowisku nie mam powłoki, więc nie uruchomiłem pomiaru obrazu (image probe). Kolory i proporcje są szacowane na oko.\n\n## Rozbiórka wzorca\n\n- **Mechanizm:** zdjęcie działa dzięki temu, że w okrągłym lustrze widać odbicie drugiej osoby, a nie wklejony portret w ramce. Ta osoba stoi w pomieszczeniu za aparatem, więc jest mała, ma wokół siebie przestrzeń i tę samą ścianę oraz światło. Nie dotyka krawędzi lustra.\n- **REF 1** to osoba stojąca. Ma profil zwrócony w prawo, patrzy poziomo poza kadr, wyraz twarzy obojętny i surowy. Czapka dotyka górnej krawędzi kadru.\n- **REF 2** to osoba w lustrze. Ma profil w lewo i patrzy w górę w lewo, z lekko uniesioną brodą. Spojrzenia nie spotykają się.\n- **Ubrania i kapelusze:** REF 1 ma czarny filcowy kapelusz z szerokim, płaskim rondem i niewielki metalowy kolczyk. Nosi obszerny czarny wełniany płaszcz, rozpięty, z szerokim klapowym kołnierzem i odsłoniętą szyją. REF 2 ma jasny kapelusz z szerokim rondem, odchylony do tyłu, oraz jasną bluzkę z odkrytymi ramionami i marszczonym dekoltem.\n- **Tło i światło:** tło to szara, plamista ściana z tynku, jaśniejsza u góry i przy lewej stronie, ciemniejsza w rogach, z pionowymi smugami po prawej. Światło jest miękkie i rozproszone, z dużego źródła z góry po lewej. Kontrast jest głęboki, czernie płaszcza zlewają się w jedną masę.\n- **Ostrość:** odbicie w lustrze jest najostrzejsze. Twarz i górna dłoń REF 1 są lekko miękkie, a płaszcz i dolna dłoń jeszcze bardziej.\n- **Kadr 2:3 pion.** Lustro ma średnicę około 78% szerokości kadru, środek przy 54% szerokości i 69% wysokości. Jego lewą część zasłania rękaw płaszcza.\n\n## Prompt (GPT Image)\n\n```\nCreate a vertical 2:3 black-and-white studio portrait photograph. One person (REF 1) stands in the upper part of the frame holding a large round mirror, and a second person (REF 2) appears only as a small reflection inside that mirror. REF 1 supplies the face, hair, skin, age and body proportions of the standing person; REF 2 supplies the face, hair, skin, age and body proportions of the person in the mirror. Keep each identity faithful, including ordinary visible traits, rendered in greyscale. Clothing, hats, pose, setting, light and framing come from this description, not from the REFs. The whole image is strictly monochrome.\n\nThe mechanism of the picture is a true mirror reflection. REF 2 is not a portrait pasted into a frame: she or he stands in the room behind the camera, and the glass shows that part of the room. Because REF 2 is far from the mirror, the figure is small, sits inside the reflected room with plain wall around it, shares the same soft light and perspective, and never touches or leans on the rim. The reflected wall is a different stretch of plaster, so its marks do not run straight across the rim into the real wall.\n\nSetting and light: a bare, mottled grey concrete-plaster studio wall with soft cloudy patches and a few faint vertical streaks on the right. It is lighter at the top and left, falling to darker corners. Light is soft, large and diffuse, from high camera-left, giving gentle modelling on the face, a quiet shadow under the hat brim and neck, and almost no hard shadows. The finish is a fine-art film-like monochrome: deep but not crushed blacks, slightly soft contours on the foreground, subtle grain, no HDR crunch, no glossy retouching.\n\nCamera: eye level about at the standing person's neck, a medium-telephoto look (around 85mm) with compressed background and moderate depth of field. Focus: the reflected figure in the mirror is the sharpest element; the standing person's face and upper hand are only slightly soft; the coat and the lower hand are softer still.\n\nREF 1, the standing person: shown in strict profile facing the viewer's right, head in the upper right of the frame (face at roughly 53–74% of the width and 13–27% of the height). The gaze runs horizontally to the right, past the frame, with a calm, stern, neutral expression and a closed mouth. REF 1 wears a black felt hat with a tall crown and a wide flat brim; the crown nearly touches the top edge of the frame and the brim spans roughly 33–88% of the width. A small metal earring hangs at the visible ear. The oversized, long black wool coat is worn open, with a wide notched lapel, heavy shoulders and long sleeves, and the bare neck and upper chest show in the opening with no visible shirt. The body leans forward and slants from upper right down to lower left; the coat mass fills the left half of the frame, its back edge about 8% from the left edge, as one almost featureless black shape with only soft folds.\n\nThe mirror: a large round mirror with a thin black rim, diameter about 78% of the frame width, centre at about 54% of the width and 69% of the height, so its top rim sits near 42% of the height and its bottom near 96%. The coat sleeve overlaps and hides the left third of the circle, and a dark panel of the coat hangs behind its lower right. REF 1 holds it with two hands: the upper hand drapes over the top rim at the upper right with long fingers curled over the edge and knuckles toward the viewer, the wrist and forearm continuous with the sleeve; the lower hand grips the bottom rim near the bottom edge of the frame, the thumb visible, partly cropped by the frame. The glass reflects a lighter, mid-grey plaster wall with a soft darker vignette toward its edge.\n\nREF 2, in the reflection: in profile facing the viewer's left, centred slightly right inside the mirror (head at about 53–73% of the frame width and 52–70% of its height). The gaze goes up and to the left with the chin slightly raised and a serious, quiet expression. REF 2 wears a light, wide-brimmed hat set back on the head, its brim sweeping down diagonally toward the viewer's right behind the head. The hair is styled back and mostly tucked under the hat, as far as REF 2's own hair allows. The light blouse has an off-the-shoulder neckline with a gathered, ruffled elastic edge and bare shoulders, and the torso is cut off by the mirror's lower rim around the waist. Around the figure there is empty reflected wall on the left, right and above the hat.\n\nTones, by role: the coat is near black (about #0D0D0D); the wall mid-grey (about #70–#88) darkening to about #4A at the corners; the mirror glass a slightly lighter grey (about #8E); the reflected hat bright off-white (about #E6) and the blouse light grey (about #CF).\n\nClosing lock: exactly two people; REF 1 as the large, dark, softly focused foreground figure with the face in profile to the right; REF 2 only as a small, sharp reflection in profile to the left, not touching the rim; both gazes held apart, neither looking at the camera; monochrome throughout; the mirror partly hidden by the coat sleeve; no text, no logos, no extra props.\n```\n\n## Notatka produkcyjna\n\n- **Wgranie referencji:** wgraj dwa zdjęcia, REF 1 pierwsze i REF 2 drugie. Wzorzec nie jest REF-em i nie wgrywa się go do generatora.\n- **Długość:** prompt ma około 4 300 znaków, to szacunek bez licznika, więc mieści się w limicie 8000.\n- **Co sprawdzić po generacji:**\n  1. Czy REF 1 jest w profilu w prawo, a REF 2 w profilu w lewo. Generatory chętnie obracają twarz do kamery.\n  2. Czy odbicie jest małe i ostre, a nie duże i wciśnięte w ramę.\n  3. Czy lewa część lustra jest zasłonięta rękawem.\n  4. Czy obie twarze nie wyszły równie ostre.\n- **Ryzyko tożsamości:** nie opisałem twarzy ani włosów osób ze wzorca. Jeśli włosy REF 2 są krótkie, fryzura \"zaczesana pod kapelusz\" ustąpi ich długości. Wspomniany kolczyk pochodzi z ubioru wzorca. Jeśli go nie chcesz, usuń to jedno zdanie.",
+          "reply_chars": 7631,
+          "reply_sha256": "cc91b49dea6b7a861956a4a97cf655e63c93f2ce5a7552c475acd1eef1f2befe",
+          "skills": [
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1345,
+            "output": 7282,
+            "cache_read": 39974,
+            "cache_write": 18210
+          },
+          "seconds": 69.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "REF\\s*1"
+              },
+              "passed": true,
+              "detail": "/REF\\s*1/"
+            },
+            {
+              "check": {
+                "regex": "REF\\s*2"
+              },
+              "passed": true,
+              "detail": "/REF\\s*2/"
+            },
+            {
+              "check": {
+                "regex": "(?i)out of focus|defocus|soft focus|nieostr|shallow depth|depth of field|głębi"
+              },
+              "passed": true,
+              "detail": "/(?i)out of focus|defocus|soft focus|nieostr|shallow depth|depth of field|głębi/"
+            },
+            {
+              "check": {
+                "regex": "(?i)virtual image|recess|beyond the glass|behind the (glass|mirror)|farther|further from the mirror|reflected room|głęb\\w* odbici"
+              },
+              "passed": true,
+              "detail": "/(?i)virtual image|recess|beyond the glass|behind the (glass|mirror)|farther|further from the mirror|reflected room|głęb\\w* odbici/"
+            },
+            {
+              "check": {
+                "regex": "#[0-9A-Fa-f]{6}"
+              },
+              "passed": true,
+              "detail": "/#[0-9A-Fa-f]{6}/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)window onto|frame within the frame|portrait inside|both (look|face) the same|same direction"
+              },
+              "passed": true,
+              "detail": "not /(?i)window onto|frame within the frame|portrait inside|both (look|face) the same|same direction/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4774,
+          "output": 2947,
+          "cache_read": 2054,
+          "cache_write": 4920
+        },
+        "items": [
+          {
+            "item": "The photo is analysed, never asked for as a generator upload; REF 1 is the holder and REF 2 the reflected person",
+            "verdict": "met",
+            "reason": "The reply breaks down the reference photo and states that the pattern is not a REF and must not be uploaded. It assigns REF 1 as the standing mirror holder and REF 2 as the reflected person."
+          },
+          {
+            "item": "The reflection reads as a real mirror image: the reflected person is smaller and recessed in reflected room depth, not a framed picture or a cut-out sitting in the rim",
+            "verdict": "met",
+            "reason": "The prompt makes REF 2 small, standing in the room behind the camera, with surrounding reflected wall and no contact with the rim. It explicitly rejects a pasted portrait in a frame."
+          },
+          {
+            "item": "Focus: the reflected face is sharp and the holder's closer face is slightly out of focus, as in the photo",
+            "verdict": "met",
+            "reason": "The prompt makes the reflection the sharpest element and sets REF 1's face and upper hand as only slightly soft, with the coat and lower hand softer still."
+          },
+          {
+            "item": "Two hands grip the rim at upper right and lower left; the large figure is cropped at the top by the hat and faces right, the reflected person faces left",
+            "verdict": "not_met",
+            "reason": "Facing directions are correct (REF 1 right, REF 2 left). However, the hat crown only 'nearly touches' the top edge rather than being cropped by it, and the lower hand is placed at the bottom rim without a lower-left position."
+          },
+          {
+            "item": "Full black-to-white tonal range with grain and a textured grey wall; colours carry roles and say whether measured or approximate",
+            "verdict": "unclear",
+            "reason": "Grain, a mottled plaster wall, and role-tagged tones with hex values are present, and the reply says colours are estimated by eye. But the range runs from near-black #0D to off-white #E6 with no stated white endpoint, so a full black-to-white range is not confirmed."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "R02",
+      "title": "Mirror portrait, with Bash",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6275,
+        "output": 10431,
+        "cache_read": 95317,
+        "cache_write": 27830
+      },
+      "seconds": 67.6,
+      "wall_seconds": 78.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest plik zdjecie.png. Rozbierz to zdjęcie i daj mi gotowy prompt do GPT Image, który odtworzy je wiernie z dwiema osobami referencyjnymi: REF 1 to osoba trzymająca lustro, REF 2 to osoba widoczna w lustrze; ubrania, kapelusze, tło i światło ze wzorca. Prompt narracyjny, poniżej 8000 znaków.",
+          "reply": "Rozebrałem `zdjecie.png` (731 × 1110 px, czarno-białe, pion 2:3) i napisałem prompt po angielsku, bo tak działa najpewniej w GPT Image. Ma 5556 znaków, policzone narzędziem. Zapisałem go też w `/tmp/studio-eval-sbsrld63/work/prompt-gpt-image.txt`.\n\n## Rozbiór wzorca\n\n- **Mechanizm:** okrągłe lustro trzyma REF 1. Druga osoba jest w nim tylko odbiciem. Nie jest zdjęciem w ramce ani oknem na inny świat. Odbija się pokój za aparatem, więc REF 2 wygląda na małą, z powietrzem wokół, i nie dotyka obrzeża.\n- **REF 1:** pochylona do przodu, głowa w prawej górnej ćwiartce, ostry profil w prawo, wzrok prosto poza kadr. Czarny kapelusz z szerokim rondem dotyka górnej krawędzi. Ma ogromny czarny wełniany płaszcz i małe kółko w uchu. Lewy rękaw (z perspektywy widza) zasłania lewy brzeg lustra. Prawa dłoń leży na górnym prawym obrzeżu, a druga chwyta lustro od dołu.\n- **REF 2 w lustrze:** profil w lewo, spojrzenie lekko w górę i w lewo, poważna. Biały kapelusz z szerokim rondem, jasna bluzka z odkrytymi ramionami i marszczonym dekoltem. Kadr kończy się w połowie tułowia.\n- **Tło i światło:** surowy tynk w średnich szarościach. Jedno duże miękkie światło z góry z prawej, jaśniejsze w prawym górnym rogu. Płaszcz i czarny kapelusz toną w cieniu, ale fałdy zostają czytelne.\n- **Pomiar (probe):**\n  - czerń `#050505`, płaszcz `#0A0A0A` (43% kadru), szarości ściany `#474747`–`#9B9B9B`, biel `#F8F8F8`, brak odcienia;\n  - najostrzejsze miejsca to odbicie REF 2 i dolna dłoń, twarz REF 1 jest nieco miększa, lewy rękaw wyraźnie miękki.\n\n## Prompt\n\n```\nCreate a single black-and-white fine-art portrait photograph in a vertical 2:3 frame, about 1024 x 1536. Two uploaded reference photos supply the two people. REF 1 is the person holding the mirror. REF 2 is the person seen only as a reflection inside the mirror. From each reference take only the face, head shape, hair, skin character and body proportions, and render both people in neutral greyscale. Clothing, hats, pose, setting, light and framing come from this description, not from the references. Keep every ordinary visible trait of each person; do not beautify, age or change either of them. Where a reference does not show a view, such as the profile needed here, infer it faithfully from the face shown.\n\nThe mechanism of the picture: a large round mirror is held in front of the body of REF 1, and the second person exists only as its reflection. She is not a print, a photo in a frame or a window onto another place. The mirror shows the part of the room behind the camera. REF 2 stands that far behind the camera, so in the glass she appears small, with the reflected wall and air around her. She shares the room's light and perspective, does not touch or lean on the rim, and no part of her crosses the edge. The reflected wall is a different stretch of the same plaster wall, so its marks do not continue across the rim.\n\nFrame and figures. Portrait frame, the camera at about the height of REF 1's chest, looking slightly up at the face, with an 85 mm perspective and a moderately compressed, soft background. REF 1 fills the frame as a large dark silhouette. They are bent forward at the waist, shoulders to the left, so the body slopes from the lower left up to the head in the upper right. The head sits in the upper right quarter, in strict profile facing the viewer's right, the face about 60 to 75 percent of the way across the frame and 15 to 25 percent down from the top. The gaze goes straight ahead to the right, past the frame, calm and severe, lips closed, jaw set, chin very slightly lifted. They do not look at the camera or at the mirror. A small hoop earring shows on the visible ear. The crown of the hat just touches the top edge of the frame.\n\nREF 1 wears a black wide-brimmed felt hat with a flat, broad brim and a softly pinched crown, and a very oversized black wool coat with wide notched lapels, heavy vertical folds, sloping shoulders and long sleeves. The collar is open and shows a narrow strip of pale skin at the throat. The coat is almost pure black with only faint sheen on the folds. The huge left sleeve (the viewer's left) runs down in front of the mirror's left edge and hides that part of the rim.\n\nThe mirror is a thin-rimmed round mirror with a slim black frame. It is about 80 percent of the frame's width in diameter. It spans from the left, where the sleeve covers its edge, to about 93 percent of the width at its right edge, and from about 42 percent down from the top to about 96 percent. The right hand of REF 1 (the viewer's right side of the image) rests on the upper right rim. The hand, wrist and forearm form one continuous limb: the back of the hand faces the viewer, the fingers curl over the front of the rim and point down and to the left, and the knuckles are lit. The other hand grips the rim from below at the bottom centre of the frame, with fingers and thumb visible against the glass, partly cropped by the lower edge.\n\nThe reflection of REF 2 sits in the lower right two thirds of the mirror. She is seen in profile, facing the viewer's left, with her head tilted very slightly up. She looks past REF 1, to the left and slightly up, with a serious, quiet expression and closed lips. Her head spans roughly 55 to 74 percent of the frame width and 52 to 70 percent of its height. She wears a white wide-brimmed hat with a soft, slightly tilted brim and a rounded crown. Her blouse is light, loose and off the shoulder, with a gathered elastic neckline that forms small ruffles. One bare shoulder is visible on the right of her neck, and the neck is long and upright. The reflection is cropped at the mid-torso by the mirror's lower rim. She is smaller than REF 1 and clearly farther from the camera. The gazes of the two people are not directed at each other.\n\nBackground and light. The wall is raw, mottled plaster or microcement in mid grey, with soft trowel marks, faint cracks, small patches and uneven tonality. It is lighter towards the upper right and falls into darkness at the lower left, with no objects in the room. The light is one large soft window source, high and to the right, slightly in front of REF 1, with a gentle falloff. It models the faces and the hand with soft shadows, lights the mirrored wall and the white hat and blouse, and leaves the coat and the black hat in deep shadow with their folds still readable.\n\nFocus and finish. The sharpest areas are the reflected face and blouse of REF 2 and the lower hand on the rim. The face of REF 1 is only slightly softer. The large left sleeve and the coat at the far left are clearly soft, and the plaster wall is soft. The tones are monochrome and neutral with no colour cast: near-black blacks (about #050505, the coat about #0A0A0A, covering around 40 percent of the frame), wall mid-greys (about #474747 to #9B9B9B), and bright but unclipped whites for the hat and blouse (about #F8F8F8). It is a low-key image with lifted, velvety shadows and fine natural film grain and a slightly soft, analogue rendering. It is not an over-sharpened, glossy or HDR studio look. No text, no logos, no frame or border.\n```\n\n## Uwagi produkcyjne\n\n- **Wgrywanie:** wgraj tylko REF 1 i REF 2. Wzorzec nie jest referencją. Użyłem go tylko do analizy.\n- **Profil:** prompt wymaga profilu obu osób. Jeśli Twoje zdjęcia referencyjne są z przodu, profil zostanie wywnioskowany. Wtedy podobieństwo może być słabsze. Najlepiej dać REF-y z profilu albo z półprofilu.\n- **Czego pilnować po wygenerowaniu:**\n  - czy REF 2 jest odbiciem, a nie wklejonym portretem;\n  - czy REF 1 patrzy w prawo poza kadr, a nie w obiektyw;\n  - czy dłoń na górnym obrzeżu obejmuje je z przodu, a nie leży obok;\n  - czy twarz REF 2 jest ostra, a płaszcz po lewej miękki.\n- **Czego nie sprawdzałem:** nie badałem aktualnych wytycznych GPT Image i niczego nie generowałem. Prompt jest sprawdzony tylko względem wzorca.\n- **Prawa:** odtwarzam kompozycję, światło i klimat. Nie obiecuję kopii 1:1 do publikacji.\n\nJeśli po pierwszej generacji coś odbiegnie, wklej wynik. Poprawię prompt dla tych samych REF-ów, a nie jako edycję poprzedniego obrazu.",
+          "reply_chars": 8099,
+          "reply_sha256": "1a877d199a905a0d8657eaf35e35500b783d311ba2555561d24b64d5c4328738",
+          "skills": [
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1349,
+            "output": 8163,
+            "cache_read": 93263,
+            "cache_write": 22760
+          },
+          "seconds": 67.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "REF\\s*1"
+              },
+              "passed": true,
+              "detail": "/REF\\s*1/"
+            },
+            {
+              "check": {
+                "regex": "REF\\s*2"
+              },
+              "passed": true,
+              "detail": "/REF\\s*2/"
+            },
+            {
+              "check": {
+                "regex": "(?i)out of focus|defocus|soft focus|nieostr|shallow depth|depth of field|głębi"
+              },
+              "passed": false,
+              "detail": "/(?i)out of focus|defocus|soft focus|nieostr|shallow depth|depth of field|głębi/"
+            },
+            {
+              "check": {
+                "regex": "(?i)virtual image|recess|beyond the glass|behind the (glass|mirror)|farther|further from the mirror|reflected room|głęb\\w* odbici"
+              },
+              "passed": true,
+              "detail": "/(?i)virtual image|recess|beyond the glass|behind the (glass|mirror)|farther|further from the mirror|reflected room|głęb\\w* odbici/"
+            },
+            {
+              "check": {
+                "regex": "#[0-9A-Fa-f]{6}"
+              },
+              "passed": true,
+              "detail": "/#[0-9A-Fa-f]{6}/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)window onto|frame within the frame|portrait inside|both (look|face) the same|same direction"
+              },
+              "passed": false,
+              "detail": "not /(?i)window onto|frame within the frame|portrait inside|both (look|face) the same|same direction/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4926,
+          "output": 2268,
+          "cache_read": 2054,
+          "cache_write": 5070
+        },
+        "items": [
+          {
+            "item": "The photo is analysed, never asked for as a generator upload; REF 1 is the holder and REF 2 the reflected person",
+            "verdict": "met",
+            "reason": "The reply says the pattern photo is used only for analysis, tells the user to upload only REF 1 and REF 2, and the prompt assigns REF 1 as the mirror holder and REF 2 as the reflection."
+          },
+          {
+            "item": "The reflection reads as a real mirror image: the reflected person is smaller and recessed in reflected room depth, not a framed picture or a cut-out sitting in the rim",
+            "verdict": "met",
+            "reason": "The prompt explains that the mirror shows the room behind the camera, that REF 2 is farther away and smaller, and that she is not a print, framed photo, or window, and does not touch the rim."
+          },
+          {
+            "item": "Focus: the reflected face is sharp and the holder's closer face is slightly out of focus, as in the photo",
+            "verdict": "met",
+            "reason": "The prompt makes the reflected face and blouse the sharpest areas and makes REF 1's face only slightly softer."
+          },
+          {
+            "item": "Two hands grip the rim at upper right and lower left; the large figure is cropped at the top by the hat and faces right, the reflected person faces left",
+            "verdict": "not_met",
+            "reason": "The upper-right hand and the top crop by the hat are correct, and the figure faces right while the reflection faces left. But the second hand is placed at bottom centre, not lower left as the rubric requires."
+          },
+          {
+            "item": "Full black-to-white tonal range with grain and a textured grey wall; colours carry roles and say whether measured or approximate",
+            "verdict": "met",
+            "reason": "The prompt covers near-black to near-white tones, fine film grain and mottled plaster, and assigns roles to blacks, wall greys and whites. The reply separates probe measurements from the prompt's 'about' values."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ],
+  "note": "Owner's real case, 2026-10-15: a black-and-white mirror portrait from the owner's reverse-engineering project, cropped from his phone screenshot (Display P3). The photo is a third-party image used for private study and is not committed; the case ran from a local copy. R01 has Claude Code's read-only tools, R02 adds Bash. After the change (1.84.0 text and probe, run before the version bump). R02's two failed checks are check-design errors: the focus pattern missed 'sharpest'/'softer', and the refused phrase matched a negated sentence ('not a print, a photo in a frame or a window onto another place'); the advisory judge marks focus and reflection met in both cases."
+}

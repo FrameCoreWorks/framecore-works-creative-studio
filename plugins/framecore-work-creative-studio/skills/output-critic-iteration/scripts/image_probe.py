@@ -5,7 +5,7 @@ print, transparency, sharpness, and previews a reviewer should look at (phone wi
   python3 image_probe.py poster.png --preset a3 --previews review/
   python3 image_probe.py post.jpg --preset instagram-feed-portrait --copy "Miód lipowy z pasieki" --previews review/
   python3 image_probe.py render.png --size 1080x1920 --json
-  python3 image_probe.py reference.jpg --analyze --json     # measured palette, tones and subject position for a reconstruction
+  python3 image_probe.py reference.jpg --analyze --json     # measured palette, accents, tones, focus, light and subject position for a reconstruction
 
 It reads the image and writes previews; it never edits the image. With --copy it compares the visible text with the
 locked copy through OCR when pytesseract and the tesseract program are installed, and says "not_run" otherwise; OCR
@@ -83,24 +83,167 @@ def percentile(histogram, share):
     return 255
 
 
-def analyze(image):
-    """Measured facts for reconstructing an image in a prompt: the dominant colour fields with their share, the tonal
-    range, and (on a plain background) where the subject sits. Figures describe the stored file, not the scene's true
-    colours: light, the colour profile and compression shape them, so a reconstruction gives colours roles."""
+def to_lab(rgb):
+    """sRGB (0-255) to CIE Lab (D65), for judging how far apart two colours look."""
+    def linear(c):
+        c /= 255
+        return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (linear(v) for v in rgb)
+    x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047
+    y = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883
+    f = lambda t: t ** (1 / 3) if t > 0.008856 else 7.787 * t + 16 / 116
+    fx, fy, fz = f(x), f(y), f(z)
+    return 116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)
+
+
+def distance(a, b):
+    return sum((p - q) ** 2 for p, q in zip(a, b)) ** 0.5
+
+
+def hex_of(rgb):
+    return '#{:02X}{:02X}{:02X}'.format(*(round(v) for v in rgb))
+
+
+def to_srgb(image):
+    """Convert an image with an embedded colour profile (Display P3, Adobe RGB) to sRGB, so hex values mean what they say."""
+    icc = image.info.get('icc_profile')
     rgb = image.convert('RGB')
+    if not icc:
+        return rgb, 'no colour profile: interpreted as sRGB'
+    try:
+        import io
+        from PIL import ImageCms
+        source = ImageCms.ImageCmsProfile(io.BytesIO(icc))
+        name = (ImageCms.getProfileDescription(source) or 'embedded profile').strip()
+        if 'srgb' in name.lower():
+            return rgb, f'embedded {name}'
+        return ImageCms.profileToProfile(rgb, source, ImageCms.createProfile('sRGB'), outputMode='RGB'), f'converted from the embedded {name} to sRGB'
+    except Exception as error:  # an unreadable profile: say so instead of guessing
+        return rgb, f'embedded profile not converted ({type(error).__name__}): values are approximate'
+
+
+def palette_of(small):
+    """Colour fields, near-identical shades merged (a difference under 6 in Lab), and small accents kept apart:
+    a few per cent of the frame (a red sign, a pink nose) can carry the image even when its area is small."""
+    quantized = small.quantize(colors=32, method=Image.Quantize.FASTOCTREE)
+    values, counts = quantized.getpalette(), sorted(quantized.getcolors(), reverse=True)
+    total, groups = sum(c for c, _ in counts), []
+    for count, index in counts:
+        rgb = tuple(values[index * 3:index * 3 + 3])
+        lab = to_lab(rgb)
+        for group in groups:
+            if distance(group['lab'], lab) < 6:
+                weight = group['n'] + count
+                group['rgb'] = tuple((group['rgb'][i] * group['n'] + rgb[i] * count) / weight for i in range(3))
+                group['n'] = weight
+                group['lab'] = to_lab(group['rgb'])
+                break
+        else:
+            groups.append({'rgb': rgb, 'lab': lab, 'n': count})
+    # Report a flat field by its exact stored value (a poster's #F3F2EF), a varied one by its mean.
+    exact = small.getcolors(maxcolors=256 * 256) or []
+    for count, rgb in exact:
+        lab = to_lab(rgb)
+        group = min(groups, key=lambda g: distance(g['lab'], lab))
+        group.setdefault('exact', []).append((count, rgb))
+    for group in groups:
+        if group.get('exact'):
+            count, rgb = max(group['exact'])
+            if count >= 0.3 * sum(c for c, _ in group['exact']):
+                group['rgb'] = rgb
+    groups.sort(key=lambda g: -g['n'])
+    main = [g for g in groups if g['n'] / total >= 0.01][:8]
+    accents = [g for g in groups if g not in main and g['n'] / total >= 0.001 and min(distance(g['lab'], m['lab']) for m in main) > 25]
+    accents.sort(key=lambda g: -(g['lab'][1] ** 2 + g['lab'][2] ** 2))
+    entry = lambda g: {'hex': hex_of(g['rgb']), 'share': round(g['n'] / total, 3)}
+    return [entry(g) for g in main], [entry(g) for g in accents[:4]]
+
+
+def extreme_points(small, grey):
+    """The mean colour near the darkest and the lightest tenth of a per cent: the real black and white points, which a
+    palette of large fields averages away (a white hat on a dark photograph)."""
+    hist = grey.histogram()
+    low, high = percentile(hist, 0.001), percentile(hist, 0.999)
+    dark, light = [], []
+    for colour, value in zip(pixels(small), pixels(grey)):
+        if value <= low + 6:
+            dark.append(colour)
+        elif value >= high - 6:
+            light.append(colour)
+    mean = lambda items: tuple(sum(c[i] for c in items) / len(items) for i in range(3)) if items else (0, 0, 0)
+    return hex_of(mean(dark)), hex_of(mean(light))
+
+
+def pixels(image):
+    flat = getattr(image, 'get_flattened_data', None)        # Pillow 12+; getdata is deprecated there
+    return list(flat() if flat else image.getdata())
+
+
+def grid(image, n, measure):
+    w, h = image.size
+    return [[measure(image.crop((c * w // n, r * h // n, (c + 1) * w // n, (r + 1) * h // n))) for c in range(n)] for r in range(n)]
+
+
+def focus_map(grey):
+    """Where the image is sharp: in a 4 x 4 grid, the strong end (98th percentile) of the fine detail (a Laplacian),
+    scaled so the sharpest cell is 100. A soft face next to a sharp one shows as a lower number; compare cells
+    that hold similar subjects, because a plain wall has little detail at any focus."""
+    detail = grey.filter(ImageFilter.Kernel((3, 3), [0, 1, 0, 1, -4, 1, 0, 1, 0], 1, 128))
+
+    def strong(cell):
+        folded = [0] * 129
+        for value, count in enumerate(cell.histogram()):
+            folded[min(128, abs(value - 128))] += count
+        return percentile(folded, 0.98)
+    cells = grid(detail, 4, strong)
+    top = max(max(row) for row in cells) or 1
+    return [[round(100 * v / top) for v in row] for row in cells]
+
+
+def light_map(grey):
+    """Mean brightness (0-255) in a 3 x 3 grid, and which side is brighter: a lead for the light's direction."""
+    cells = grid(grey, 3, lambda cell: round(ImageStat.Stat(cell).mean[0]))
+    left, right = sum(r[0] for r in cells) / 3, sum(r[2] for r in cells) / 3
+    top, bottom = sum(cells[0]) / 3, sum(cells[2]) / 3
+    sides = [name for name, gap in (('left' if left > right else 'right', abs(left - right)), ('top' if top > bottom else 'bottom', abs(top - bottom))) if gap >= 12]
+    return {'grid': cells, 'brighter_side': ' and '.join(sides) if sides else 'even'}
+
+
+def colour_character(small):
+    """Saturation and temperature from Lab chroma and the yellow-blue axis of the mid-tones."""
+    labs = [to_lab(c) for c in pixels(small)]
+    chroma = sorted((a * a + b * b) ** 0.5 for _, a, b in labs)
+    typical, strong = chroma[len(chroma) // 2], chroma[int(len(chroma) * 0.95)]
+    mids = [(a, b) for l, a, b in labs if 25 <= l <= 85] or [(a, b) for _, a, b in labs]
+    warmth = sum(b for _, b in mids) / len(mids)
+    saturation = 'monochrome' if strong < 6 else 'muted' if typical < 15 else 'moderate' if typical < 35 else 'saturated'
+    temperature = 'neutral' if abs(warmth) < 5 else 'warm' if warmth > 0 else 'cool'
+    return {'saturation': saturation, 'temperature': temperature if saturation != 'monochrome' or abs(warmth) >= 3 else 'neutral (no tint)',
+            'median_chroma': round(typical, 1), 'midtone_yellow_blue': round(warmth, 1)}
+
+
+def analyze(image):
+    """Measured facts for reconstructing an image in a prompt: colour fields, accents, black and white points, tones,
+    colour character, where it is sharp, where it is bright, and (on a plain background) where the subject sits.
+    Figures describe the stored file, not the scene's true colours: light and compression shape them, so a
+    reconstruction gives colours roles."""
+    rgb, basis = to_srgb(image)
     small = rgb.copy()
     small.thumbnail((256, 256))
-    quantized = small.quantize(colors=8, method=Image.Quantize.MEDIANCUT)
-    palette, counts = quantized.getpalette(), sorted(quantized.getcolors(), reverse=True)
-    total = sum(c for c, _ in counts)
-    colours = [{'hex': '#{:02X}{:02X}{:02X}'.format(*palette[i * 3:i * 3 + 3]), 'share': round(c / total, 3)} for c, i in counts if c / total >= 0.01]
-    grey = ImageOps.grayscale(small).histogram()
+    colours, accents = palette_of(small)
+    grey_small = ImageOps.grayscale(small)
+    grey = grey_small.histogram()
     p = {k: percentile(grey, v) for k, v in (('p01', 0.01), ('p05', 0.05), ('p50', 0.5), ('p95', 0.95), ('p99', 0.99))}
     pixels = sum(grey)
+    dark, light = extreme_points(small, grey_small)
     tones = {**p, 'contrast_p05_p95': p['p95'] - p['p05'], 'shadows_clipped': round(sum(grey[:4]) / pixels, 3),
-             'highlights_clipped': round(sum(grey[252:]) / pixels, 3),
+             'highlights_clipped': round(sum(grey[252:]) / pixels, 3), 'black_point': dark, 'white_point': light,
              'key': 'low' if p['p50'] < 85 else 'high' if p['p50'] > 170 else 'middle'}
-    result = {'palette': colours, 'tones': tones, 'colour_basis': 'stored RGB values' + (' with an embedded ICC profile' if image.info.get('icc_profile') else ', no colour profile: interpret as sRGB, Unknown otherwise')}
+    detail = ImageOps.grayscale(rgb)
+    detail.thumbnail((512, 512))
+    result = {'palette': colours, 'accents': accents, 'tones': tones, 'character': colour_character(small),
+              'focus_grid': focus_map(detail), 'light': light_map(grey_small), 'colour_basis': basis}
     # Subject position, only where the border is one plain colour (studio, poster field): x from the left, y from the top.
     w, h = small.size
     band = max(1, min(w, h) // 50)
@@ -117,6 +260,10 @@ def analyze(image):
         result['subject'] = {'status': 'not_measured', 'reason': 'nothing stands out from the plain background'}
         return result
     xs, ys = [x for x, _ in points], [y for _, y in points]
+    if (max(xs) - min(xs)) > 0.9 * w and (max(ys) - min(ys)) > 0.6 * h and len(points) / (w * h) < 0.25:
+        # Scattered marks across the whole frame (paper grain, noise, pattern): no single subject to place.
+        result['subject'] = {'status': 'not_measured', 'reason': 'differences are scattered over the whole frame (texture or pattern); place the subject by eye and say the position is approximate'}
+        return result
     cx, cy = sum(xs) / len(xs) / w, sum(ys) / len(ys) / h
     thirds = min(((a, b) for a in (1 / 3, 2 / 3) for b in (1 / 3, 2 / 3)), key=lambda t: (t[0] - cx) ** 2 + (t[1] - cy) ** 2)
     result['subject'] = {'status': 'measured', 'background_hex': '#{:02X}{:02X}{:02X}'.format(*median),
@@ -226,7 +373,7 @@ def main(argv=None):
     parser.add_argument('--dpi', type=int, help='resolution the print needs (default from the preset or 300)')
     parser.add_argument('--copy', help='the locked visible text, for an OCR comparison when OCR is installed')
     parser.add_argument('--previews', help='folder for phone, thumbnail, greyscale and safe-area previews')
-    parser.add_argument('--analyze', action='store_true', help='measured palette, tones and subject position, for reconstructing the image in a prompt')
+    parser.add_argument('--analyze', action='store_true', help='measured palette, accents, tones, colour character, focus and light maps and subject position, for reconstructing the image in a prompt')
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
     reports, code = [], 0
@@ -254,8 +401,14 @@ def main(argv=None):
             if r.get('analysis'):
                 a = r['analysis']
                 print('  palette: ' + ', '.join(f"{c['hex']} {c['share']:.0%}" for c in a['palette']))
+                if a['accents']:
+                    print('  accents: ' + ', '.join(f"{c['hex']} {c['share']:.1%}" for c in a['accents']))
                 t = a['tones']
-                print(f"  tones: {t['key']} key, 5-95 % range {t['p05']}-{t['p95']}, median {t['p50']}, clipped shadows {t['shadows_clipped']:.1%}, highlights {t['highlights_clipped']:.1%}")
+                print(f"  tones: {t['key']} key, 5-95 % range {t['p05']}-{t['p95']}, median {t['p50']}, black point {t['black_point']}, white point {t['white_point']}, clipped shadows {t['shadows_clipped']:.1%}, highlights {t['highlights_clipped']:.1%}")
+                ch = a['character']
+                print(f"  colour: {ch['saturation']}, {ch['temperature']}; {a['colour_basis']}")
+                print('  focus (4 x 4, sharpest 100): ' + ' / '.join(' '.join(f'{v:3d}' for v in row) for row in a['focus_grid']))
+                print('  brightness (3 x 3): ' + ' / '.join(' '.join(f'{v:3d}' for v in row) for row in a['light']['grid']) + f"; brighter side: {a['light']['brighter_side']}")
                 sub = a['subject']
                 print('  subject: ' + (f"centre x {sub['centre_percent']['x']} %, y {sub['centre_percent']['y']} %, box {sub['box_percent']}, on {sub['background_hex']}" if sub['status'] == 'measured' else sub['reason']))
             if r.get('ocr'):

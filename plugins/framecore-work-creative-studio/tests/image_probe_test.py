@@ -55,6 +55,80 @@ class Reconstruction(unittest.TestCase):
         code, report = probe(image, '--analyze')
         self.assertEqual(report['analysis']['subject']['status'], 'not_measured')
 
+    def test_near_identical_shades_merge_and_a_small_accent_is_kept(self):
+        # Before 1.84.0 a white field came back as four "colours" (#FEFEFE, #FFFFFF, #FFFEFF, ...) and a small red sign was lost.
+        from PIL import ImageDraw
+        image = Image.new('RGB', (800, 800), '#FEFEFE')
+        draw = ImageDraw.Draw(image)
+        for i, shade in enumerate(('#FFFFFF', '#FFFEFF', '#FDFEFD')):
+            draw.rectangle([0, 200 * i, 800, 200 * i + 120], fill=shade)
+        draw.rectangle([100, 700, 700, 790], fill='#202020')
+        draw.rectangle([600, 40, 640, 80], fill='#D8231F')           # 0.25 % of the frame
+        analysis = probe(image, '--analyze')[1]['analysis']
+        whites = [c for c in analysis['palette'] if c['hex'] >= '#F0F0F0']
+        self.assertEqual(len(whites), 1, analysis['palette'])
+        self.assertGreater(whites[0]['share'], 0.8)
+        reds = [c['hex'] for c in analysis['accents']]
+        self.assertTrue(any(int(h[1:3], 16) > 180 and int(h[3:5], 16) < 80 for h in reds), analysis['accents'])
+
+    def test_a_small_white_is_the_white_point_of_a_dark_photograph(self):
+        # The owner's mirror portrait (2026-10-15): a white hat on a dark frame vanished from the palette.
+        from PIL import ImageDraw
+        image = Image.new('RGB', (600, 900), '#2A2A2A')
+        ImageDraw.Draw(image).ellipse([300, 500, 340, 530], fill='#F4F4F4')
+        tones = probe(image, '--analyze')[1]['analysis']['tones']
+        self.assertLessEqual(abs(int(tones['white_point'][1:3], 16) - 0xF4), 4, tones)   # resampling may overshoot a little
+        self.assertLessEqual(abs(int(tones['black_point'][1:3], 16) - 0x2A), 4, tones)
+
+    def test_the_focus_map_finds_the_sharp_region_and_the_light_map_the_bright_side(self):
+        from PIL import ImageDraw, ImageFilter
+        image = Image.new('RGB', (800, 800), (110, 110, 110))
+        draw = ImageDraw.Draw(image)
+        for x in range(0, 800, 12):
+            draw.line([x, 0, x, 800], fill=(40, 40, 40), width=3)
+        blurred = image.filter(ImageFilter.GaussianBlur(6))
+        blurred.paste(image.crop((400, 400, 800, 800)), (400, 400))  # only the lower right quarter is sharp
+        ramp = Image.linear_gradient('L').rotate(-90).resize((800, 800))   # brighter on the left
+        lit = Image.composite(blurred, Image.new('RGB', (800, 800), (0, 0, 0)), ramp.point(lambda v: 120 + v // 2))
+        analysis = probe(lit, '--analyze')[1]['analysis']
+        focus = analysis['focus_grid']
+        self.assertGreater(min(focus[r][c] for r in (2, 3) for c in (2, 3)), 2 * max(focus[r][c] for r in (0, 1) for c in (0, 1)), focus)
+        self.assertIn('left', analysis['light']['brighter_side'])
+        self.assertEqual(analysis['character']['saturation'], 'monochrome')
+
+    def test_warm_and_cool_images_are_told_apart(self):
+        warm = probe(Image.new('RGB', (200, 200), (196, 150, 98)), '--analyze')[1]['analysis']['character']
+        cool = probe(Image.new('RGB', (200, 200), (98, 140, 196)), '--analyze')[1]['analysis']['character']
+        self.assertEqual(warm['temperature'], 'warm')
+        self.assertEqual(cool['temperature'], 'cool')
+
+    def test_a_display_p3_file_is_converted_to_srgb(self):
+        from PIL import ImageCms
+        try:
+            p3 = ImageCms.ImageCmsProfile(ImageCms.createProfile('sRGB'))
+        except Exception:
+            self.skipTest('no colour management')
+        # A profile that only names itself differently stands in for Display P3: the conversion path must run and say so.
+        image = Image.new('RGB', (100, 100), (200, 30, 30))
+        with tempfile.TemporaryDirectory() as temp:
+            path = pathlib.Path(temp, 'p3.png')
+            image.save(path, icc_profile=p3.tobytes())
+            done = subprocess.run([sys.executable, str(TOOL), str(path), '--json', '--analyze'], capture_output=True, text=True, timeout=60)
+        basis = json.loads(done.stdout)['analysis']['colour_basis']
+        self.assertTrue(basis.startswith(('embedded', 'converted')), basis)
+
+    def test_paper_grain_over_the_whole_frame_is_not_a_subject(self):
+        # Before 1.84.0 a sketchbook texture was "measured" as a subject filling 3-97 % of the width.
+        import random
+        rng = random.Random(4)
+        image = Image.new('RGB', (400, 600), (230, 222, 205))
+        from PIL import ImageDraw
+        draw = ImageDraw.Draw(image)
+        for _ in range(500):
+            x, y = rng.randrange(10, 386), rng.randrange(10, 586)
+            draw.rectangle([x, y, x + 3, y + 3], fill=(120, 110, 95))
+        self.assertEqual(probe(image, '--analyze')[1]['analysis']['subject']['status'], 'not_measured')
+
 
 class Probe(unittest.TestCase):
     def test_a_matching_feed_image_has_no_problem(self):
