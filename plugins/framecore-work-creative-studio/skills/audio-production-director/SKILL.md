@@ -11,7 +11,7 @@ Own the sound and music decisions within FrameCore Works Creative Studio. This o
 
 ## Voice-over budgets
 
-Cast and direct a voice-over to the rate in the [short-form timing card](../pipeline-core/references/short-form-timing.md) (calm, standard or fast, Polish or English) and measure the recorded read.
+Cast and direct a voice-over to the rate in the [short-form timing card](../pipeline-core/references/short-form-timing.md) (calm, standard or fast, Polish or English) and measure the recorded read. When the voice is to be generated on the user's computer, let the user choose the engine (Voicebox, OmniVoice, VoxCPM2, MOSS-TTS or MOSS-TTSD); when they do not know, describe what each can do and recommend one for their need and computer with [local voice engines](references/local-tts-engines.md).
 
 ## Sound Studio makes itself
 

@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-16",
+  "package_version": "1.86.1",
+  "source": {
+    "commit": "30246c97db9ca0166844a4798c7c7d91ddd562ab",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.301, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4096,
+      "output": 3784,
+      "cache_read": 35891,
+      "cache_write": 28919
+    },
+    "seconds": 22.5
+  },
+  "cases": [
+    {
+      "id": "G11",
+      "title": "A user who does not know the local voice engines gets them described and a recommendation, nothing installed (owner request 2026-10-16)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4096,
+        "output": 3784,
+        "cache_read": 35891,
+        "cache_write": 28919
+      },
+      "seconds": 22.5,
+      "wall_seconds": 32.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję polskiego lektora do 20-sekundowej reklamy dla klienta. Chcę go wygenerować u siebie na komputerze, mam kartę z 12 GB VRAM. Nie znam tych silników TTS, który wybrać?",
+          "reply": "Dla reklamy dla klienta polecam **VoxCPM2**.\n\n**Dlaczego on**\n- **Licencja:** Apache-2.0, więc wolno go użyć komercyjnie. Przy pracy płatnej dla klienta to najważniejszy warunek.\n- **Karta:** potrzebuje ok. 8 GB VRAM, więc 12 GB wystarczy z zapasem.\n- **Dźwięk:** 48 kHz, czyli czystszy niż u pozostałych. Dobrze się to sprawdza w reklamie.\n- **Polski:** jest wśród 30 obsługiwanych języków.\n- **Głos:** można go opisać tekstem (np. „ciepły męski głos, spokojny, premium”) albo sklonować z nagrania.\n\n**Pozostałe silniki**\n\n| Silnik | Kiedy ma sens | Dlaczego nie tu |\n|---|---|---|\n| Voicebox | Aplikacja z interfejsem, bez kodu, do pierwszej próby | Licencję trzeba sprawdzać osobno dla każdego silnika w środku |\n| OmniVoice | Szybkie szkice, słabsza karta | Wagi są podobno tylko niekomercyjne, więc nie do płatnej reklamy |\n| MOSS-TTS / TTSD | Długa narracja z dokładnymi pauzami, dialogi kilku głosów | Wersje 8B potrzebują mocniejszej karty niż Twoja, a Ty masz jeden krótki lektor |\n\nJeśli wolisz klikać niż pracować w terminalu, Voicebox nadaje się do przetestowania barwy głosu. Do finalnego pliku dla klienta i tak wróciłbym do VoxCPM2.\n\n**Długość tekstu przy 20 sekundach**\n\nOdejmując 2 s na ekran końcowy, zostaje ok. 17,5 s mówienia. Po polsku to:\n- spokojnie (premium): ok. 31 słów,\n- standardowo: ok. 36 słów,\n- szybko (oferty): ok. 42 słowa.\n\nZwykle celuję w 31–36 słów. Prawdziwy czas pokaże dopiero wygenerowane nagranie, więc zmierz je i skróć tekst, jeśli się nie mieści.\n\n**Uwagi**\n- Silnik pobiera przy pierwszym uruchomieniu kilka GB wag.\n- Sklonować wolno tylko głos, na który masz pisemną zgodę właściciela. Nie naśladuj prawdziwych osób ani lektorów z innych reklam.\n- Zapisz w dokumentacji dla klienta silnik, wersję, licencję i źródło głosu.\n- Dane o silnikach pochodzą z wewnętrznej ściągi Studia, nie z dzisiejszego sprawdzenia dokumentacji. Przed płatnym zleceniem zajrzyj do karty modelu VoxCPM2 i potwierdź licencję oraz wymagania.\n- Niczego nie instalowałem i nie uruchamiałem. Zainstaluję VoxCPM2 tylko na Twoje wyraźne polecenie.\n\n**Co dalej**\n1. Wyślij mi brief: produkt, grupę docelową, główny przekaz i wezwanie do działania.\n2. Napiszę tekst na ok. 33 słowa z uwagami do wymowy (nazwy, liczby) i opiszę głos oraz tempo.\n3. Dostaniesz ustawienia pod VoxCPM2. Wygenerujesz nagranie u siebie, a ja pomogę ocenić je i poprawić tylko błędne linie.\n\nCzy zostajemy przy VoxCPM2, czy wolisz najpierw wypróbować Voicebox?",
+          "reply_chars": 2453,
+          "reply_sha256": "d25a631090be5bf87788d49cd0626440a89fe05b1ee04f8eb05ccce516b37e25",
+          "skills": [
+            "audio-production-director"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1272,
+            "output": 2144,
+            "cache_read": 35891,
+            "cache_write": 23897
+          },
+          "seconds": 22.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "Voicebox"
+              },
+              "passed": true,
+              "detail": "/Voicebox/"
+            },
+            {
+              "check": {
+                "regex": "OmniVoice"
+              },
+              "passed": true,
+              "detail": "/OmniVoice/"
+            },
+            {
+              "check": {
+                "regex": "VoxCPM"
+              },
+              "passed": true,
+              "detail": "/VoxCPM/"
+            },
+            {
+              "check": {
+                "regex": "MOSS"
+              },
+              "passed": true,
+              "detail": "/MOSS/"
+            },
+            {
+              "check": {
+                "regex": "(?i)polsk"
+              },
+              "passed": true,
+              "detail": "/(?i)polsk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)komercyj|licencj"
+              },
+              "passed": true,
+              "detail": "/(?i)komercyj|licencj/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(zainstalowa[łl]em|installed)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)(zainstalowa[łl]em|installed)\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2824,
+          "output": 1640,
+          "cache_read": 0,
+          "cache_write": 5022
+        },
+        "items": [
+          {
+            "item": "All four engines are described with what each does best, Polish support, hardware and licence",
+            "verdict": "not_met",
+            "reason": "Only VoxCPM2 is covered on all four points. Voicebox has no stated Polish support or hardware and defers licence checks to each model. OmniVoice has no Polish or hardware detail beyond 'weaker card'. MOSS-TTS/TTSD has no licence or Polish information."
+          },
+          {
+            "item": "A recommendation fits a paid client ad on a 12 GB GPU (VoxCPM2) with the reason",
+            "verdict": "met",
+            "reason": "It recommends VoxCPM2, gives Apache-2.0 as the reason it is usable commercially for paid client work, and notes it needs about 8 GB VRAM, which fits the 12 GB card."
+          },
+          {
+            "item": "Nothing is installed; installation is offered only on an explicit request",
+            "verdict": "met",
+            "reason": "It states 'Niczego nie instalowałem i nie uruchamiałem' and says it will install VoxCPM2 only on the user's explicit instruction."
+          },
+          {
+            "item": "Consent for voice cloning is mentioned",
+            "verdict": "met",
+            "reason": "It says cloning is allowed only for a voice the user has written consent from the owner for, and warns against imitating real people or voice actors from other ads."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ]
+}

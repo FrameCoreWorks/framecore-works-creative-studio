@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-15",
+  "checked": "2026-10-16",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -282,6 +282,299 @@
       },
       "observed": "2026-10-16, sandbox home: skills CLI 1.7.2 copied the pinned skill to ~/.claude/skills and ~/.agents/skills. Manual chat routes not run",
       "update": "Review a newer commit, then change reviewed_commit and every command's commit together"
+    },
+    {
+      "id": "voicebox",
+      "name": "Voicebox",
+      "repository": "https://github.com/jamiepine/voicebox",
+      "reviewed_commit": "2bcb98d1a8b6fe05e15fbc1559e3085669e4035d",
+      "package": {
+        "registry": "github_release",
+        "name": "voicebox",
+        "version": "0.5.0"
+      },
+      "license": "MIT (app); each bundled engine's model has its own licence",
+      "kind": [
+        "desktop_app",
+        "mcp_server",
+        "rest_api"
+      ],
+      "role": "engine",
+      "gives": "A local voice studio app (macOS, Windows; Linux from source) that runs several TTS engines (Qwen3-TTS with voice design, Chatterbox Multilingual with Polish, HumeAI TADA, Kokoro, LuxTTS): voice cloning from a few seconds, voices designed from a description, long texts, a multi-voice Stories editor and effects; a REST API and an MCP server for agents",
+      "studio_uses": "The no-code choice for voice-overs on the user's computer: Studio writes the script and direction, the user generates in the app, or an agent calls its REST API (POST /generate) on 127.0.0.1:17493",
+      "not_for": "Cloning a voice without its owner's permission; chat hosts",
+      "requires": [
+        {
+          "tool": "desktop",
+          "note": "macOS (Apple Silicon or Intel) or Windows; Linux builds from source; about 1 GB of VRAM or a CPU for the lightest engine, more for Qwen3-TTS"
+        }
+      ],
+      "rights": "Clone a voice only with its owner's documented permission; never impersonate a real person; disclose synthetic voices where the platform or law asks. The engine's own disclaimer forbids unauthorized cloning, impersonation and fraud. Check the licence of the engine model you pick inside the app before client work",
+      "hosts": {
+        "codex": {
+          "status": "manual",
+          "manual_steps": "Download the installer for v0.5.0 from https://github.com/jamiepine/voicebox/releases/tag/v0.5.0 (Linux: build from source as its README says), start the app, then add its MCP server in Codex as a streamable HTTP server at http://127.0.0.1:17493/mcp, or call its REST API on 127.0.0.1:17493"
+        },
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "Download the installer for v0.5.0 from https://github.com/jamiepine/voicebox/releases/tag/v0.5.0 (Linux: build from source), start the app, then run: claude mcp add voicebox --transport http --url http://127.0.0.1:17493/mcp --header \"X-Voicebox-Client-Id: claude-code\""
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Desktop app only: install Voicebox v0.5.0 as above and add its bundled voicebox-mcp binary as a local MCP server, as Voicebox's README describes; the web and mobile apps cannot reach it"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "Voicebox is an app on the user's computer; ChatGPT cannot reach it. Use the app directly with Studio's script"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "Voicebox is an app on the user's computer; the ChatGPT Work sandbox cannot reach it. Use the app directly with Studio's script"
+        }
+      },
+      "observed": "2026-10-16: README, release tags and responsible-use terms read at v0.5.0 and main (main is 0.6.0, not yet tagged); the app was not installed or run",
+      "update": "Review a newer tagged release, then change package.version, reviewed_commit and the release links together",
+      "category": "tts"
+    },
+    {
+      "id": "omnivoice",
+      "name": "OmniVoice (k2-fsa)",
+      "repository": "https://github.com/k2-fsa/OmniVoice",
+      "reviewed_commit": "08be0b4ccbac3e13e374e86fbfead4b4cac343e2",
+      "package": {
+        "registry": "pypi",
+        "name": "omnivoice",
+        "version": "0.2.1"
+      },
+      "license": "Apache-2.0 (code); model weights k2-fsa/OmniVoice reported as non-commercial (CC BY-NC), not verified here",
+      "kind": [
+        "python_library",
+        "cli"
+      ],
+      "role": "engine",
+      "gives": "Text to speech in 646 languages (Polish trained on about 900 hours), voice cloning from 3 to 10 seconds of audio, voices from attributes (gender, age, pitch, accent, whisper; most stable in English and Chinese), non-verbal tags such as [laughter], long texts, LoRA fine-tuning; 24 kHz; fast on a small GPU (CUDA, Apple MPS, Intel XPU)",
+      "studio_uses": "Voice-overs in rare languages or on a modest GPU, and quick drafts; check the weights' licence before any paid or client use",
+      "not_for": "Commercial work until the model card's licence allows it; cloning without permission",
+      "requires": [
+        {
+          "tool": "python",
+          "note": "Python 3.10+, PyTorch; a CUDA, Apple MPS or Intel XPU device is recommended"
+        }
+      ],
+      "rights": "Clone a voice only with its owner's documented permission; never impersonate a real person; disclose synthetic voices where the platform or law asks. The engine's own disclaimer forbids unauthorized cloning, impersonation and fraud. The weights' licence is reported as non-commercial: read the model card at huggingface.co/k2-fsa/OmniVoice before client work",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "python3 -m pip install --dry-run --no-deps --ignore-installed omnivoice==0.2.1",
+          "install": "python3 -m venv ~/.framecore-studio/extensions/omnivoice-venv && ~/.framecore-studio/extensions/omnivoice-venv/bin/pip install omnivoice==0.2.1",
+          "writes": "~/.framecore-studio/extensions/omnivoice-venv (a virtual environment with omnivoice 0.2.1, PyTorch and their dependencies); the model weights download from Hugging Face on first use into ~/.cache/huggingface",
+          "verify": "~/.framecore-studio/extensions/omnivoice-venv/bin/omnivoice-infer --help",
+          "after": "Synthesize: omnivoice-infer --model k2-fsa/OmniVoice --text \"...\" --output out.wav; clone with --ref_audio ref.wav",
+          "remove": "rm -rf ~/.framecore-studio/extensions/omnivoice-venv"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "python3 -m pip install --dry-run --no-deps --ignore-installed omnivoice==0.2.1",
+          "install": "python3 -m venv ~/.framecore-studio/extensions/omnivoice-venv && ~/.framecore-studio/extensions/omnivoice-venv/bin/pip install omnivoice==0.2.1",
+          "writes": "~/.framecore-studio/extensions/omnivoice-venv (a virtual environment with omnivoice 0.2.1, PyTorch and their dependencies); the model weights download from Hugging Face on first use into ~/.cache/huggingface",
+          "verify": "~/.framecore-studio/extensions/omnivoice-venv/bin/omnivoice-infer --help",
+          "after": "Synthesize: omnivoice-infer --model k2-fsa/OmniVoice --text \"...\" --output out.wav; clone with --ref_audio ref.wav",
+          "remove": "rm -rf ~/.framecore-studio/extensions/omnivoice-venv"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        }
+      },
+      "observed": "2026-10-16: README, docs and pyproject read at the reviewed commit; pip --dry-run resolved omnivoice 0.2.1; the model was not downloaded or run (Hugging Face was not reachable from the container)",
+      "update": "Review a newer release, then change package.version and reviewed_commit together",
+      "category": "tts"
+    },
+    {
+      "id": "voxcpm",
+      "name": "VoxCPM2 (OpenBMB)",
+      "repository": "https://github.com/OpenBMB/VoxCPM",
+      "reviewed_commit": "cce58a5b59303c9bd63d12f23afe6a49a4a80c59",
+      "package": {
+        "registry": "pypi",
+        "name": "voxcpm",
+        "version": "2.0.3"
+      },
+      "license": "Apache-2.0 (code and weights; commercial use allowed)",
+      "kind": [
+        "python_library",
+        "cli"
+      ],
+      "role": "engine",
+      "gives": "Studio-quality 48 kHz speech in 30 languages including Polish (low error rate in its benchmarks), voices designed from a written description, cloning with style and emotion control or exact cloning from audio plus transcript, streaming, LoRA fine-tuning from 5 to 10 minutes of audio; about 8 GB of VRAM (2B model)",
+      "studio_uses": "The default recommendation for client voice-overs and ads: highest audio quality, Polish, a designed voice when there is no reference, and a licence that allows commercial use",
+      "not_for": "Machines without a GPU of about 8 GB (a slower CPU or Apple route exists through llama.cpp); cloning without permission",
+      "requires": [
+        {
+          "tool": "python",
+          "note": "Python 3.10 to 3.12, PyTorch with CUDA 12+, about 8 GB of VRAM; --device mps or cpu is slower"
+        }
+      ],
+      "rights": "Clone a voice only with its owner's documented permission; never impersonate a real person; disclose synthetic voices where the platform or law asks. The engine's own disclaimer forbids unauthorized cloning, impersonation and fraud. Weights are Apache-2.0, so voice-overs can be used commercially",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "python3 -m pip install --dry-run --no-deps --ignore-installed voxcpm==2.0.3",
+          "install": "python3 -m venv ~/.framecore-studio/extensions/voxcpm-venv && ~/.framecore-studio/extensions/voxcpm-venv/bin/pip install voxcpm==2.0.3",
+          "writes": "~/.framecore-studio/extensions/voxcpm-venv (a virtual environment with voxcpm 2.0.3, PyTorch and their dependencies); the model weights download from Hugging Face on first use into ~/.cache/huggingface",
+          "verify": "~/.framecore-studio/extensions/voxcpm-venv/bin/voxcpm --help",
+          "after": "Design: voxcpm design --text \"(warm, calm female voice) ...\" --output out.wav; clone: voxcpm clone --text \"...\" --reference-audio voice.wav --output out.wav",
+          "remove": "rm -rf ~/.framecore-studio/extensions/voxcpm-venv"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "python3 -m pip install --dry-run --no-deps --ignore-installed voxcpm==2.0.3",
+          "install": "python3 -m venv ~/.framecore-studio/extensions/voxcpm-venv && ~/.framecore-studio/extensions/voxcpm-venv/bin/pip install voxcpm==2.0.3",
+          "writes": "~/.framecore-studio/extensions/voxcpm-venv (a virtual environment with voxcpm 2.0.3, PyTorch and their dependencies); the model weights download from Hugging Face on first use into ~/.cache/huggingface",
+          "verify": "~/.framecore-studio/extensions/voxcpm-venv/bin/voxcpm --help",
+          "after": "Design: voxcpm design --text \"(warm, calm female voice) ...\" --output out.wav; clone: voxcpm clone --text \"...\" --reference-audio voice.wav --output out.wav",
+          "remove": "rm -rf ~/.framecore-studio/extensions/voxcpm-venv"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        }
+      },
+      "observed": "2026-10-16: README and pyproject read at the reviewed commit; pip --dry-run resolved voxcpm 2.0.3; the model was not downloaded or run",
+      "update": "Review a newer release, then change package.version and reviewed_commit together",
+      "category": "tts"
+    },
+    {
+      "id": "moss-tts",
+      "name": "MOSS-TTS (OpenMOSS)",
+      "repository": "https://github.com/OpenMOSS/MOSS-TTS",
+      "reviewed_commit": "934d6826b084c46a0d033402174d5f8ac4ed2519",
+      "package": null,
+      "license": "Apache-2.0 (code and models)",
+      "kind": [
+        "python_library",
+        "models"
+      ],
+      "role": "engine",
+      "gives": "A model family: an 8B flagship for long narration up to an hour with duration and pause control, cloning from short audio, 31 languages including Polish (24 kHz; a 4B local model at 48 kHz stereo), a voice generator from descriptions, a realtime streaming model, sound effects and a tiny CPU model",
+      "studio_uses": "Long narration (audiobooks, explainers) with exact timing and pauses, on a strong CUDA GPU",
+      "not_for": "Laptops without an NVIDIA GPU (the 8B model; a GGUF route fits 8 GB); cloning without permission",
+      "requires": [
+        {
+          "tool": "python",
+          "note": "Python 3.12, an NVIDIA GPU with CUDA 12.8 (PyTorch 2.9.1); Linux recommended"
+        }
+      ],
+      "rights": "Clone a voice only with its owner's documented permission; never impersonate a real person; disclose synthetic voices where the platform or law asks. The engine's own disclaimer forbids unauthorized cloning, impersonation and fraud. Models are Apache-2.0",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "git clone https://github.com/OpenMOSS/MOSS-TTS ~/.framecore-studio/extensions/moss-tts && git -C ~/.framecore-studio/extensions/moss-tts checkout 934d6826b084c46a0d033402174d5f8ac4ed2519 && ls ~/.framecore-studio/extensions/moss-tts",
+          "install": "test \"$(git -C ~/.framecore-studio/extensions/moss-tts rev-parse HEAD)\" = 934d6826b084c46a0d033402174d5f8ac4ed2519 && python3.12 -m venv ~/.framecore-studio/extensions/moss-tts/.venv && ~/.framecore-studio/extensions/moss-tts/.venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cu128 -e \"~/.framecore-studio/extensions/moss-tts[torch-runtime]\"",
+          "writes": "~/.framecore-studio/extensions/moss-tts (the checkout at the reviewed commit and its .venv with PyTorch for CUDA 12.8); weights download from Hugging Face on first use",
+          "verify": "~/.framecore-studio/extensions/moss-tts/.venv/bin/python -c \"import transformers, torch; print(torch.cuda.is_available())\"",
+          "after": "Load OpenMOSS-Team/MOSS-TTS-v1.5 with transformers AutoModel (trust_remote_code) as the README shows, language=\"Polish\"",
+          "remove": "rm -rf ~/.framecore-studio/extensions/moss-tts"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "git clone https://github.com/OpenMOSS/MOSS-TTS ~/.framecore-studio/extensions/moss-tts && git -C ~/.framecore-studio/extensions/moss-tts checkout 934d6826b084c46a0d033402174d5f8ac4ed2519 && ls ~/.framecore-studio/extensions/moss-tts",
+          "install": "test \"$(git -C ~/.framecore-studio/extensions/moss-tts rev-parse HEAD)\" = 934d6826b084c46a0d033402174d5f8ac4ed2519 && python3.12 -m venv ~/.framecore-studio/extensions/moss-tts/.venv && ~/.framecore-studio/extensions/moss-tts/.venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cu128 -e \"~/.framecore-studio/extensions/moss-tts[torch-runtime]\"",
+          "writes": "~/.framecore-studio/extensions/moss-tts (the checkout at the reviewed commit and its .venv with PyTorch for CUDA 12.8); weights download from Hugging Face on first use",
+          "verify": "~/.framecore-studio/extensions/moss-tts/.venv/bin/python -c \"import transformers, torch; print(torch.cuda.is_available())\"",
+          "after": "Load OpenMOSS-Team/MOSS-TTS-v1.5 with transformers AutoModel (trust_remote_code) as the README shows, language=\"Polish\"",
+          "remove": "rm -rf ~/.framecore-studio/extensions/moss-tts"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        }
+      },
+      "observed": "2026-10-16: README, model card and pyproject read at the reviewed commit; not installed or run",
+      "update": "Review a newer commit, then change reviewed_commit and the commands together",
+      "category": "tts"
+    },
+    {
+      "id": "moss-ttsd",
+      "name": "MOSS-TTSD (OpenMOSS)",
+      "repository": "https://github.com/OpenMOSS/MOSS-TTSD",
+      "reviewed_commit": "46973e425da227bfa3b315dcd7a4aba8b6be5574",
+      "package": null,
+      "license": "Apache-2.0 (code and models)",
+      "kind": [
+        "python_library",
+        "models"
+      ],
+      "role": "engine",
+      "gives": "Spoken dialogue: 1 to 5 speakers tagged [S1] to [S5], each cloned from a short reference with its transcript, up to 60 minutes in one pass, natural turn-taking and overlapping speech, 20 languages including Polish (8B model)",
+      "studio_uses": "Dialogues, podcasts and multi-voice scenes, where separate single-voice reads would sound stitched",
+      "not_for": "A single narrator (MOSS-TTS or VoxCPM2 fit better); machines without an NVIDIA GPU; cloning without permission",
+      "requires": [
+        {
+          "tool": "python",
+          "note": "Python 3.12, an NVIDIA GPU with CUDA 12.8 and flash-attn (compiled on install)"
+        }
+      ],
+      "rights": "Clone a voice only with its owner's documented permission; never impersonate a real person; disclose synthetic voices where the platform or law asks. The engine's own disclaimer forbids unauthorized cloning, impersonation and fraud. Models are Apache-2.0",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "git clone https://github.com/OpenMOSS/MOSS-TTSD ~/.framecore-studio/extensions/moss-ttsd && git -C ~/.framecore-studio/extensions/moss-ttsd checkout 46973e425da227bfa3b315dcd7a4aba8b6be5574 && ls ~/.framecore-studio/extensions/moss-ttsd",
+          "install": "test \"$(git -C ~/.framecore-studio/extensions/moss-ttsd rev-parse HEAD)\" = 46973e425da227bfa3b315dcd7a4aba8b6be5574 && python3.12 -m venv ~/.framecore-studio/extensions/moss-ttsd/.venv && ~/.framecore-studio/extensions/moss-ttsd/.venv/bin/pip install -r ~/.framecore-studio/extensions/moss-ttsd/requirements.txt && ~/.framecore-studio/extensions/moss-ttsd/.venv/bin/pip install flash-attn",
+          "writes": "~/.framecore-studio/extensions/moss-ttsd (the checkout at the reviewed commit and its .venv with PyTorch for CUDA 12.8); weights download from Hugging Face on first use",
+          "verify": "~/.framecore-studio/extensions/moss-ttsd/.venv/bin/python ~/.framecore-studio/extensions/moss-ttsd/inference.py --help",
+          "after": "Run inference.py with --model_path OpenMOSS-Team/MOSS-TTSD-v1.0 --codec_model_path OpenMOSS-Team/MOSS-Audio-Tokenizer --mode voice_clone_and_continuation on a JSONL script",
+          "remove": "rm -rf ~/.framecore-studio/extensions/moss-ttsd"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "git clone https://github.com/OpenMOSS/MOSS-TTSD ~/.framecore-studio/extensions/moss-ttsd && git -C ~/.framecore-studio/extensions/moss-ttsd checkout 46973e425da227bfa3b315dcd7a4aba8b6be5574 && ls ~/.framecore-studio/extensions/moss-ttsd",
+          "install": "test \"$(git -C ~/.framecore-studio/extensions/moss-ttsd rev-parse HEAD)\" = 46973e425da227bfa3b315dcd7a4aba8b6be5574 && python3.12 -m venv ~/.framecore-studio/extensions/moss-ttsd/.venv && ~/.framecore-studio/extensions/moss-ttsd/.venv/bin/pip install -r ~/.framecore-studio/extensions/moss-ttsd/requirements.txt && ~/.framecore-studio/extensions/moss-ttsd/.venv/bin/pip install flash-attn",
+          "writes": "~/.framecore-studio/extensions/moss-ttsd (the checkout at the reviewed commit and its .venv with PyTorch for CUDA 12.8); weights download from Hugging Face on first use",
+          "verify": "~/.framecore-studio/extensions/moss-ttsd/.venv/bin/python ~/.framecore-studio/extensions/moss-ttsd/inference.py --help",
+          "after": "Run inference.py with --model_path OpenMOSS-Team/MOSS-TTSD-v1.0 --codec_model_path OpenMOSS-Team/MOSS-Audio-Tokenizer --mode voice_clone_and_continuation on a JSONL script",
+          "remove": "rm -rf ~/.framecore-studio/extensions/moss-ttsd"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "The engine runs a model of several gigabytes on the user's computer, best with a GPU; a chat sandbox has no GPU and cannot keep the model. Studio writes the script and voice direction there, and the user generates the voice-over in Codex or Claude Code on their computer"
+        }
+      },
+      "observed": "2026-10-16: README and requirements read at the reviewed commit; not installed or run",
+      "update": "Review a newer commit, then change reviewed_commit and the commands together",
+      "category": "tts"
     }
   ]
 }

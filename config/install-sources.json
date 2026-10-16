@@ -317,6 +317,36 @@
       "sha256": "d0b613e99aab6c092deb76492a20daf15c849d566be1564030f8616622be7846"
     },
     {
+      "path": "integrations/tts-engines/LICENSE-MOSS-TTS",
+      "bytes": 11375,
+      "sha256": "e83b87b4c86fc39a3e3278705e02f3599d63b0a9fd006a6ec7aa721d38d4086d"
+    },
+    {
+      "path": "integrations/tts-engines/LICENSE-MOSS-TTSD",
+      "bytes": 11375,
+      "sha256": "198c6644449b1a3c5d7f4a2c2fb49b1a70b33b20d78d46392653deb49cb6eaf0"
+    },
+    {
+      "path": "integrations/tts-engines/LICENSE-OmniVoice",
+      "bytes": 11342,
+      "sha256": "c843a20ede4d1e7595c2736b88fc62cb7483a8c082eb7092a3772248849c59e2"
+    },
+    {
+      "path": "integrations/tts-engines/LICENSE-VoxCPM",
+      "bytes": 11298,
+      "sha256": "4f10acc209addacfad28293315c74c4cd648f771ee1263a748f1781d1e0265e4"
+    },
+    {
+      "path": "integrations/tts-engines/LICENSE-voicebox",
+      "bytes": 1078,
+      "sha256": "5d515f5a28ec4b8028c2b7410ad3bb338b9d3a73dd187f9c0fc720e01e387547"
+    },
+    {
+      "path": "integrations/tts-engines/README.md",
+      "bytes": 2715,
+      "sha256": "b188681503a17be5517ee46a5c1220c70917440ca589b4966126187aaebf14c9"
+    },
+    {
       "path": "integrations/workflow-kit/source-manifest.json",
       "bytes": 138877,
       "sha256": "d193b35f5a0d57dcde3195635a8f1bd1b6585457ca415d0b8c9e740751422a3b"
@@ -2403,8 +2433,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 8712,
-      "sha256": "94b6891a73889108a9ae956709d3f7a959b9f659e0e5268533bb82888edd808c"
+      "bytes": 9012,
+      "sha256": "3f02abeedc890380ef67855f26524c8a1a01119d85a00030e99b58045fd62c76"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2455,6 +2485,11 @@
       "path": "skills/audio-production-director/references/audio-to-picture-and-tempo-workbook.md",
       "bytes": 3900,
       "sha256": "660a0281fafca39a6f21dd633685b83bec8adcf37a043c89f3df18e384aef9c8"
+    },
+    {
+      "path": "skills/audio-production-director/references/local-tts-engines.md",
+      "bytes": 4382,
+      "sha256": "b41ce9d229df9a0f72007b9226a8ba51f8151cca020940ee235d571f421b2d74"
     },
     {
       "path": "skills/audio-production-director/references/music-provider-routing-and-rights.md",
@@ -5678,13 +5713,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 18107,
-      "sha256": "03ff0ad9d569e9244a5555c0d4e63cc4e34e5c07cac587a49ee6f9d738912d77"
+      "bytes": 41930,
+      "sha256": "de7354195385bca8994c1c9e262ba204b651b8e24b630bcf8758ab5950ae9298"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
-      "bytes": 8552,
-      "sha256": "66fd951b5795bb9e6666aa0f691f7f21fe8e51df7c1428658761aaadba2f79f5"
+      "bytes": 9053,
+      "sha256": "e3251b18c3e66d264e283cb783a2780f4cf91ef732c80e7e80477db5c0e28309"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -5923,8 +5958,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 5160,
-      "sha256": "ed3cae2a6ec1a5545c3c809530a47cf1c3b4e2aaefe03dcd09d707973bc6c161"
+      "bytes": 6253,
+      "sha256": "b398a4220cafb5d697af270d1d77608a79d1c90423441f107d5ed8f7867e9220"
     },
     {
       "path": "tests/image_probe_test.py",

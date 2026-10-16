@@ -270,6 +270,50 @@
         "ChatGPT Work is named as not supported with the reason, and Codex or Claude Code as where it works",
         "Nothing is installed; installation is offered only on an explicit request with a dry run first"
       ]
+    },
+    {
+      "id": "G11",
+      "title": "A user who does not know the local voice engines gets them described and a recommendation, nothing installed (owner request 2026-10-16)",
+      "extra_tools": [
+        "Bash"
+      ],
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję polskiego lektora do 20-sekundowej reklamy dla klienta. Chcę go wygenerować u siebie na komputerze, mam kartę z 12 GB VRAM. Nie znam tych silników TTS, który wybrać?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "Voicebox"
+            },
+            {
+              "regex": "OmniVoice"
+            },
+            {
+              "regex": "VoxCPM"
+            },
+            {
+              "regex": "MOSS"
+            },
+            {
+              "regex": "(?i)polsk"
+            },
+            {
+              "regex": "(?i)komercyj|licencj"
+            },
+            {
+              "not_regex": "(?i)(zainstalowa[łl]em|installed)\\b"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "All four engines are described with what each does best, Polish support, hardware and licence",
+        "A recommendation fits a paid client ad on a 12 GB GPU (VoxCPM2) with the reason",
+        "Nothing is installed; installation is offered only on an explicit request",
+        "Consent for voice cloning is mentioned"
+      ]
     }
   ]
 }

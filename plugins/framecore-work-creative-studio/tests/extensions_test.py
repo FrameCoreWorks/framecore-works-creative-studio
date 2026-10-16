@@ -80,6 +80,22 @@ class Registry(unittest.TestCase):
         designer = next(e for e in DATA['extensions'] if e['id'] == 'motion-designer')
         self.assertIn('YAML', designer['hosts']['codex']['reason'])
 
+    def test_the_voice_engines_form_one_choice_described_in_the_audio_guide(self):
+        tts = [e for e in DATA['extensions'] if e.get('category') == 'tts']
+        self.assertEqual(sorted(e['id'] for e in tts), ['moss-tts', 'moss-ttsd', 'omnivoice', 'voicebox', 'voxcpm'])
+        guide = (PLUGIN / 'skills/audio-production-director/references/local-tts-engines.md').read_text(encoding='utf-8')
+        for name in ('Voicebox', 'OmniVoice', 'VoxCPM2', 'MOSS-TTS', 'MOSS-TTSD'):
+            self.assertIn(name, guide)
+        for entry in tts:
+            self.assertIn('permission', entry['rights'])
+            for host in ('chatgpt', 'chatgpt_work'):
+                self.assertEqual(entry['hosts'][host]['status'], 'not_supported')
+        code, out, _ = run('list', '--category', 'tts', '--host', 'codex')
+        self.assertEqual(code, 0)
+        self.assertEqual(sum(1 for line in out.splitlines() if line and not line.startswith(' ')), 5)
+        voxcpm = next(e for e in tts if e['id'] == 'voxcpm')
+        self.assertIn('voxcpm==2.0.3', voxcpm['hosts']['claude_code']['install'])
+
     def test_a_broken_registry_exits_2(self):
         with tempfile.TemporaryDirectory() as temp:
             path = pathlib.Path(temp, 'bad.json')

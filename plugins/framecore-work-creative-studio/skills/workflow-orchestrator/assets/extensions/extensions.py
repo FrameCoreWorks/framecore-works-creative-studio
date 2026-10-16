@@ -4,6 +4,7 @@
   python3 extensions.py list --host codex                 # what can be added in this host
   python3 extensions.py show rea --host claude_code       # what it gives, rights, requirements and the exact commands
   python3 extensions.py show rea --host codex --json
+  python3 extensions.py list --category tts --host claude_code   # the voice engines a user can choose from
 
 It only reads the registry and, for `show`, checks the local requirements it can (the Node.js version). It installs
 nothing: the printed commands are run only when the user explicitly asks, the plan (dry run) first.
@@ -54,7 +55,13 @@ def validate(data):
         if not str(entry.get('repository', '')).startswith('https://'):
             problems.append(f'{where}: repository must be an https URL')
         package = entry.get('package')
-        pinned = f"{package['name']}@{package['version']}" if package else str(entry.get('reviewed_commit'))
+        if not package:
+            pinned = str(entry.get('reviewed_commit'))
+        elif package.get('registry') == 'pypi':
+            pinned = f"{package['name']}=={package['version']}"
+        else:
+            pinned = f"{package['name']}@{package['version']}"
+        npm_pin = bool(package) and package.get('registry') == 'npm'
         for host in hosts:
             spec = (entry.get('hosts') or {}).get(host)
             if not spec or spec.get('status') not in HOST_FIELDS:
@@ -63,7 +70,7 @@ def validate(data):
             for field in HOST_FIELDS[spec['status']]:
                 if not spec.get(field):
                     problems.append(f'{where}: {host} {field} missing')
-            for field in ('plan', 'install') + (('verify', 'remove') if package else ()):
+            for field in ('plan', 'install') + (('verify', 'remove') if npm_pin else ()):
                 if spec.get(field) and pinned not in spec[field]:
                     problems.append(f'{where}: {host} {field} must use the pinned {pinned}')
             plan = (spec.get('plan') or '').replace('npx -y ', 'npx ')   # npx's own -y only skips its download prompt
@@ -111,6 +118,7 @@ def main(argv=None):
     parser.add_argument('action', choices=['list', 'show'])
     parser.add_argument('extension', nargs='?')
     parser.add_argument('--host', help='codex, claude_code, claude_apps, chatgpt or chatgpt_work')
+    parser.add_argument('--category', help='only one category, for example tts')
     parser.add_argument('--registry', default=str(REGISTRY), help=argparse.SUPPRESS)
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
@@ -122,7 +130,7 @@ def main(argv=None):
     if args.host and args.host not in data['hosts']:
         print(f"extensions: unknown host {args.host}; use one of {', '.join(data['hosts'])}", file=sys.stderr)
         return 1
-    entries = {e['id']: e for e in data['extensions']}
+    entries = {e['id']: e for e in data['extensions'] if not args.category or e.get('category') == args.category or args.action == 'show'}
     if args.action == 'list':
         rows = [{'id': e['id'], 'name': e['name'], 'role': e['role'], 'gives': e['gives'],
                  'status': e['hosts'][args.host]['status'] if args.host else {h: e['hosts'][h]['status'] for h in data['hosts']}} for e in entries.values()]
