@@ -2218,3 +2218,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `23c895f`; workflows Check Studio sources 38857297467, Publish verified Studio release 38857294991, Refresh current release notes 38857295118, Check Studio sources 38857295117: success; [v1.87.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.87.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1210 of 1210) ([record](../verification/github-publication-1.87.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261016-04
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `f46de00` (main, package 1.87.0); full SHA in the commit trailer
+- Result: the commit carrying this entry; no release (repository documentation only)
+- Package version: 1.87.0 (unchanged)
+- Scope: owner request 2026-10-16: `docs/roadmap.md` for Codex and ChatGPT Work (direction in order of value, what Cloud Code did from 1.70.0 to 1.87.0 and why, open items, notes per surface); `AGENTS.md` points every surface to it
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh --fast`: PASS
+
+Cross-host state:
+
+- GitHub: pushed to `main` and the working branch
+- ChatGPT Work: not_tracked (no package change)
+- Codex: not_run

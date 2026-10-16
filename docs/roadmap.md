@@ -1,0 +1,52 @@
+# Roadmap for the development surfaces
+
+Written 2026-10-16 by Cloud Code (change CC-20261016-04) at the owner's request, for Codex and ChatGPT Work: which way to develop Studio, what Cloud Code did from 1.70.0 to 1.87.0, and why. Read it after `AGENTS.md` and before the ledger. `AGENTS.md` and the owner's newest decision win over anything here; when one changes, update this file in the same change.
+
+## 1. Where Studio stands (1.87.0)
+
+- **A complete working tool in maintenance mode.** Change the package only for a trigger: a defect seen in real use or in a host evaluation, a host, model or generator change, a stale dated fact, or an explicit owner request. Name the trigger in the commit and the ledger and show the case before and after.
+- **A general product.** Nothing is tuned to the owner's own rates, tools, clients or photos; what is user-specific is an input at run time. An example the owner shows is studied for its method, never written into the package (owner, 2026-10-15: "extract the essence, not the single example").
+- **Motion graphics is the main paid use.** Client reels and Meta ads, built as HyperFrames compositions in Claude Code and, since 1.79.0, in a ChatGPT Work session that has Node.js, FFmpeg, Chromium and npm. Studio keeps the brief, the idea, copy locks, the board plan and the review.
+- **A base for a person who chooses and directs.** Studio offers choices, recommends one with a reason, and never decides silently for the user (engines, extensions, directions).
+
+## 2. Direction, in order of value
+
+1. **Fix what real use shows.** Owner reports and host evaluations come first. Reproduce the defect, fix it in the text the model reads (the owning `SKILL.md`, then its reference), add a regression test or host case, and record before and after.
+2. **Motion graphics quality.** Continue `docs/handover-motion-1.70.md` only when the owner asks: a recorded client reel through the HyperFrames route, starter compositions for the three most common jobs, lyric timing on a real song, motion activity inside `acceptance.py`. Open since 1.85.0: run the [web motion probe](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/web-motion-probe/README.md) on a live public site (the Cloud Code container could not reach one).
+3. **Recommended extensions.** Every repository the owner sends is reviewed, adapted where it fits, and added to the [registry](../plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) by [the maintainer guide](extension-registry.md). Nothing in it has yet been installed into a real host: the highest-value next evidence is one real install per kind (REA in Codex or Claude Code, VoxCPM2 on a GPU machine, Voicebox with its MCP server), recorded in each entry's `observed`.
+4. **Evidence in the hosts users actually use.** ChatGPT Work is `not_tracked` (the owner tests and reports); Codex has not run any of 1.77.0 to 1.87.0 (`Codex-Sync: not_run`). A Codex surface adds the most by running the host-eval cases and the extension installs in a real Codex session and recording the results.
+5. **Creative quality, measured honestly.** The creative suite passes 7 of 11; the remaining failures are category motifs in two of three directions, a limit known since 1.66. Do not tune the instructions to the suite; a change needs a real defect, and the rubric judge stays advisory.
+
+Not the direction: new skills, ready-made ideas, scenario or category lists, personal defaults, deleting or moving package paths, or growing a reference without a trigger. An idea without a trigger goes to the owner as a one-line note.
+
+## 3. What Cloud Code did, and why
+
+| Version | Change | Why (trigger) |
+|---|---|---|
+| 1.70.0 to 1.73.0 | HyperFrames as the default for client reels in Claude Code, the reel board system, motion activity check, lyric timing, technique atlas, print-ready PDF, HTML capture without npm | Owner-opened motion round (2026-10-12) and the owner's client sessions |
+| 1.74.0 to 1.77.0 | One creative menu; handoffs to the owning skill; no invented claims; files stay in the project; fixes from the owner's evaluation and an external review | Defects reproduced from audits and evaluations |
+| 1.78.0 | No page chrome in motion (corner labels, counters, kicker lines) | Owner decision after reviewing motionmaxxing |
+| 1.79.0 | HyperFrames installable in a ChatGPT Work session | Owner test: the sandbox ran it while Studio said it could not |
+| 1.80.0 | Generated cut-out assets and `asset_check.py` | A production session (lyric video from Gemini assets) |
+| 1.81.0 | Eighteen fixes from the owner's technical audit, each with a regression test; no-code route first | Owner's technical audit of 1.80.0 |
+| 1.82.0 | Directions that argue differently, brand versus category, effects must earn their place; the eval can no longer be passed by a template | Owner's creativity audit of 1.81.0 |
+| 1.83.0 to 1.84.1 | Reconstructing an image in a prompt (model image vs REF, mechanism first, space as relations, measured colours); `image_probe.py --analyze` with accents, black and white points, focus and light maps, sRGB conversion; optics, focus and gaze per figure | Owner's reverse-engineering project knowledge; a host case on his mirror portrait where Studio misread the reflection and the focus |
+| 1.85.0 | Web motion probe; recommended-extension registry with REA | Owner request to review morluto/rea and offer native installs |
+| 1.86.0, 1.86.1 | Animate, Motion Designer and Meta Ads Designer as pinned extensions; probe cleanup fix | Owner request; CI failure of the 1.86.0 release |
+| 1.87.0 | The user chooses a local voice engine (Voicebox, OmniVoice, VoxCPM2, MOSS-TTS, MOSS-TTSD), with a comparison and a recommendation when they do not know | Owner request |
+
+The pattern behind these: reproduce first, change the smallest text the model reads, add a test that fails on the old behaviour, run a host case when behaviour is the point, report what was not run. Details and evidence are in `CHANGELOG.md`, `docs/reviews/` and the ledger.
+
+## 4. Open items with a known trigger
+
+- OmniVoice weights' licence (reported non-commercial) is unverified; Hugging Face was unreachable from the container. Check the model card and update the registry entry and the voice-engine guide.
+- Motion Designer cannot install in Codex: its `SKILL.md` front matter does not parse at the reviewed commit. Recheck when upstream changes.
+- G09: for a static page Studio read the animation from the source without loading a skill. The probe's value is on script-driven sites; run it there before changing routing.
+- Image reconstruction has one real-photo case; the owner's own template (PRISM) filled by Studio has not been tested.
+- Skill descriptions are at about 7,773 of 7,800 characters; measure before editing any description.
+
+## 5. Notes per surface
+
+- **Codex.** A shell host: run `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` and `bash scripts/check_all.sh` before every push; you can try extension installs for real (record `observed`) and run the motion routes end to end. Releases use `scripts/release.py prepare` then `publish`; never force-push, never delete a package path.
+- **ChatGPT Work.** Plugin Creator updates the hosted copy from a pinned commit (`CHATGPT_UPDATE.md`); it only adds and overwrites files. The sandbox runs Python and, when the check finds them, HyperFrames for the session; it cannot run local MCP servers or GPU voice engines. Report findings from real use with the reply, the host and the version, so another surface can reproduce them.
+- **All surfaces.** Read the ledger and Git history first, record the baseline SHA, add a ledger entry per change, write `synchronized` only with readback evidence, and keep this roadmap current when the direction changes.
