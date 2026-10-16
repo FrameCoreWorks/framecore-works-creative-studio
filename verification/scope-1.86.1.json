@@ -1,0 +1,26 @@
+{
+  "version": "1.86.1",
+  "baseline_tag": "v1.86.0",
+  "baseline": "4d8f1c3d461400e1a17503aa1d26fbe9da3b46d6",
+  "change_id": "CC-20261016-02",
+  "origin": "cloud-code",
+  "files": 1203,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1195,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "The web motion probe retries the cleanup of its temporary browser profile instead of failing (CI failure of the 1.86.0 release); publishes the 1.86.0 extension entries."
+}

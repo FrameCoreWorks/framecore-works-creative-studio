@@ -2176,3 +2176,24 @@ Cross-host state:
 - GitHub: pending (release commit, tag workflow and readback follow)
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261016-02
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `4d8f1c3` (main, package 1.86.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.86.1)
+- Package version: 1.86.0 -> 1.86.1
+- Scope: The web motion probe retries the cleanup of its temporary browser profile instead of failing (CI failure of the 1.86.0 release); publishes the 1.86.0 extension entries.
+- Shared package changed: yes; 8 changed, 0 added, 0 removed ([scope](../verification/scope-1.86.1.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 221 Node tests (212 passing, 9 opt-in browser tests skipped there and run separately: 84 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 22 suite 11, 19 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 8 suite 17, 4 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 6 suite 22, 14 suite 23, 11 suite 24, 6 suite 25, 4 suite 26, 4 suite 27, 4 suite 28, 2 suite 29, 2 suite 30, 3 suite 31, 5 suite 32 (5 skipped without optional dependencies), 5 suite 33, 4 suite 34, 9 suite 35, 4 suite 36, 9 suite 37, 21 suite 38: PASS ([record](../verification/release-1.86.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

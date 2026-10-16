@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.86.1, 2026-10-16
+
+- The web motion probe no longer fails when the browser is still writing its temporary profile as it exits; its cleanup retries and warns, like the other browser tools (CI run of the 1.86.0 release). 1.86.0's changes are published with this release
+
 ## 1.86.0, 2026-10-16
 
 At the owner's request:
