@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.87.0, 2026-10-16
+
+At the owner's request:
+
+- **Choose a local voice engine.** For a voice-over generated on the user's computer, Studio asks which engine to use: [Voicebox](https://github.com/jamiepine/voicebox), [OmniVoice](https://github.com/k2-fsa/OmniVoice), [VoxCPM2](https://github.com/OpenBMB/VoxCPM) or [MOSS-TTS / MOSS-TTSD](https://github.com/OpenMOSS/MOSS-TTS). A user who does not know them gets a comparison (what each is best at, Polish, cloning, voice design, sound, computer, commercial licence) and a recommendation for their need and computer ([local voice engines](plugins/framecore-work-creative-studio/skills/audio-production-director/references/local-tts-engines.md)). Cloning needs the voice owner's permission; engine, model and licence go into the delivery notes
+- All five are [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) (category `tts`), pinned and installed only on request: Voicebox from its v0.5.0 release with its MCP server or REST API, OmniVoice and VoxCPM2 from PyPI in their own virtual environment, MOSS-TTS and MOSS-TTSD from their reviewed commits. In chat hosts Studio delivers the script, voice direction and engine settings instead
+- Repository: provenance and licences in `integrations/tts-engines`; host case G11 (PASS)
+
 ## 1.86.1, 2026-10-16
 
 - The web motion probe no longer fails when the browser is still writing its temporary profile as it exits; its cleanup retries and warns, like the other browser tools (CI run of the 1.86.0 release). 1.86.0's changes are published with this release

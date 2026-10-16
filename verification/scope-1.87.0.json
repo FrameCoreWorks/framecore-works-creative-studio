@@ -1,0 +1,37 @@
+{
+  "version": "1.87.0",
+  "baseline_tag": "v1.86.1",
+  "baseline": "9d9427bdd30ffbc17a006f7164c14e1ff1cfa757",
+  "change_id": "CC-20261016-03",
+  "origin": "cloud-code",
+  "files": 1210,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.py",
+    "tests/extensions_test.py"
+  ],
+  "added": [
+    "integrations/tts-engines/LICENSE-MOSS-TTS",
+    "integrations/tts-engines/LICENSE-MOSS-TTSD",
+    "integrations/tts-engines/LICENSE-OmniVoice",
+    "integrations/tts-engines/LICENSE-VoxCPM",
+    "integrations/tts-engines/LICENSE-voicebox",
+    "integrations/tts-engines/README.md",
+    "skills/audio-production-director/references/local-tts-engines.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1192,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Voicebox, OmniVoice, VoxCPM2, MOSS-TTS and MOSS-TTSD as pinned voice-engine extensions the user chooses from, with a comparison and recommendation in Audio Production Director when the user does not know them."
+}
