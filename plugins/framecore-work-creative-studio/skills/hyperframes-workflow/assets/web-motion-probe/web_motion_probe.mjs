@@ -200,7 +200,7 @@ export async function probePage(page, options = {}) {
     return report;
   } finally {
     await browserSession.close();
-    fs.rmSync(work, {recursive: true, force: true});
+    try { fs.rmSync(work, {recursive: true, force: true, maxRetries: 10, retryDelay: 300}); } catch (error) { console.warn(`WARN could not remove the temporary folder ${work}: ${error.message}`); }
   }
 }
 

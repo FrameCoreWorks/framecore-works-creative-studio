@@ -4173,8 +4173,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs",
-      "bytes": 15697,
-      "sha256": "3aa89c54096ec989cd7ec363570bcc308aacc3ee0c162317f005aba18146288a"
+      "bytes": 15842,
+      "sha256": "5d1a615adbba595c1c59aae7d349cb8563525c661d77637d6bbadc4a94cb8597"
     },
     {
       "path": "skills/hyperframes-workflow/references/animate-engine.md",
