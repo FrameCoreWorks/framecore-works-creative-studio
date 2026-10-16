@@ -36,3 +36,7 @@ Primary-source checks:
 - [Meta's Ad Library announcement](https://about.fb.com/news/2019/03/a-better-way-to-learn-about-ads/) is historical context, not verification of today's fields. Read the actual accessible source for a particular campaign; unavailable fields remain Unknown.
 
 Saved instructions and source checks do not prove active-client behavior, image quality or campaign lift. No account connector, dependency, generation provider, ad publication or budget change is introduced.
+
+## Installing the original
+
+The original repository can also be installed in full, natively and pinned to the reviewed commit, as a [recommended extension](../../skills/workflow-orchestrator/references/extensions.md) (registry entry `meta-ads-designer`), only on the user's explicit request.

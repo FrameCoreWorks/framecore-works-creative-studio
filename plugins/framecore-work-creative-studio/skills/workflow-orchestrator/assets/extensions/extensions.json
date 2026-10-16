@@ -2,11 +2,18 @@
   "schema_version": 1,
   "checked": "2026-10-15",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
-  "hosts": ["codex", "claude_code", "claude_apps", "chatgpt", "chatgpt_work"],
+  "hosts": [
+    "codex",
+    "claude_code",
+    "claude_apps",
+    "chatgpt",
+    "chatgpt_work"
+  ],
   "statuses": {
     "native": "Installs and runs in this host with the commands given",
     "desktop_only": "Only in the desktop app of this host, not in its web or mobile app",
-    "not_supported": "Cannot run in this host; the reason says why and where it can"
+    "not_supported": "Cannot run in this host; the reason says why and where it can",
+    "manual": "No installer runs in this host; the user adds the named files by hand (for example as a project's knowledge)"
   },
   "extensions": [
     {
@@ -14,17 +21,48 @@
       "name": "REA: Reverse Engineer Anything",
       "repository": "https://github.com/morluto/rea",
       "reviewed_commit": "5e30969cc5f1255d44ec7a1f1ca8dbac0af5e7c4",
-      "package": {"registry": "npm", "name": "rea-agents", "version": "6.5.0"},
+      "package": {
+        "registry": "npm",
+        "name": "rea-agents",
+        "version": "6.5.0"
+      },
       "license": "MIT",
-      "kind": ["mcp_server", "skill", "cli"],
+      "kind": [
+        "mcp_server",
+        "skill",
+        "cli"
+      ],
       "role": "engine",
       "gives": "Reverse engineering of software the user may analyse: native binaries (with Hopper, Ghidra or IDA), JavaScript and Electron apps, .NET assemblies, Android packages, websites through the browser's DevTools, network captures; every finding comes with its evidence and unknowns",
       "studio_uses": "Optional depth when the user wants to know how a feature or an effect of an app or a website is built and Studio's own web motion probe is not enough: an Electron or desktop app, a bundled script, a source map. For a web animation, the web motion probe answers first",
       "not_for": "Image or prompt reverse engineering (that is Image Prompt Architect's reference reconstruction), copying another product's code or assets, bypassing protection, licences or logins",
       "requires": [
-        {"tool": "node", "ranges": [["22.19.0", "23.0.0"], ["24.11.0", "25.0.0"], ["26.0.0", null]], "note": "Node.js 22.19+, 24.11+ or 26+, with npm"},
-        {"tool": "browser", "note": "A Chrome-family browser for website analysis"},
-        {"tool": "native_engine", "note": "Hopper, Ghidra or IDA only for native binaries; JavaScript and .NET analysis need none"}
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "22.19.0",
+              "23.0.0"
+            ],
+            [
+              "24.11.0",
+              "25.0.0"
+            ],
+            [
+              "26.0.0",
+              null
+            ]
+          ],
+          "note": "Node.js 22.19+, 24.11+ or 26+, with npm"
+        },
+        {
+          "tool": "browser",
+          "note": "A Chrome-family browser for website analysis"
+        },
+        {
+          "tool": "native_engine",
+          "note": "Hopper, Ghidra or IDA only for native binaries; JavaScript and .NET analysis need none"
+        }
       ],
       "rights": "Analyse only software and sites the user owns or may examine, within the law and the target's licence and terms; the results grant no right to the original code, data or design. Studio uses findings to learn a technique and builds its own version; it never copies code, assets or text.",
       "hosts": {
@@ -66,6 +104,184 @@
       },
       "observed": "2026-10-15, Linux container with Node.js 22.22: rea-agents 6.5.0 ran; setup --dry-run planned the registration and skill for claude_code, codex and claude_desktop with backups; doctor reported the missing registration before setup; inspect-web-page refused a public page loading third-party resources (target_not_allowed), and analyze-web-bundle listed a local page's scripts without naming its motion library. Not installed into a real host",
       "update": "When the owner reviews a newer release, change package.version and reviewed_commit together; users then rerun plan, install and verify"
+    },
+    {
+      "id": "animate",
+      "name": "Animate (cth9191)",
+      "repository": "https://github.com/cth9191/animate",
+      "reviewed_commit": "7e5eb56feb2dd573f890e1b7b34748af43d58263",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "claude_code_plugin",
+        "skill"
+      ],
+      "role": "engine",
+      "gives": "Short procedural animations as single-file canvas videos with a synthesized score, in seven built-in illustrated styles or a look matched from references, through story, look and storyboard check-ins, rendered to MP4",
+      "studio_uses": "The original skill next to Studio's own Animate engine, which adapts it (integrations/animate); install it when the user wants the upstream skill itself or its newest styles",
+      "not_for": "Replacing Studio's brief, copy locks, approvals and review; Studio's adapted engine is already part of the plugin",
+      "requires": [
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "18.0.0",
+              null
+            ]
+          ],
+          "note": "Node.js 18+, Playwright with Chromium and FFmpeg on PATH; Python with faster-whisper only for voice-over timing"
+        }
+      ],
+      "rights": "MIT; generated films belong to the user, subject to the fonts and any references they supply",
+      "hosts": {
+        "claude_code": {
+          "status": "native",
+          "plan": "git clone https://github.com/cth9191/animate ~/.framecore-studio/extensions/animate && git -C ~/.framecore-studio/extensions/animate checkout 7e5eb56feb2dd573f890e1b7b34748af43d58263 && cat ~/.framecore-studio/extensions/animate/.claude-plugin/marketplace.json",
+          "install": "test \"$(git -C ~/.framecore-studio/extensions/animate rev-parse HEAD)\" = 7e5eb56feb2dd573f890e1b7b34748af43d58263 && claude plugin marketplace add ~/.framecore-studio/extensions/animate && claude plugin install animate@animate",
+          "writes": "~/.framecore-studio/extensions/animate (the checkout at the reviewed commit) and Claude Code's user plugin settings (one marketplace, one plugin)",
+          "verify": "claude plugin list",
+          "after": "Restart Claude Code; the animate skill must appear in the new session",
+          "remove": "claude plugin uninstall animate@animate && claude plugin marketplace remove animate && rm -rf ~/.framecore-studio/extensions/animate"
+        },
+        "codex": {
+          "status": "native",
+          "plan": "DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/cth9191/animate/tree/7e5eb56feb2dd573f890e1b7b34748af43d58263/plugins/animate/skills/animate --list",
+          "install": "DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/cth9191/animate/tree/7e5eb56feb2dd573f890e1b7b34748af43d58263/plugins/animate/skills/animate --skill animate -a codex -g --copy",
+          "writes": "~/.agents/skills/animate (a copy of the skill at the reviewed commit)",
+          "verify": "DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Codex; the skill is written for Claude Code, so check its first run",
+          "remove": "DO_NOT_TRACK=1 npx -y skills@1.7.2 remove animate -g -a codex"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "It needs a shell with Node.js, a headless Chrome and FFmpeg, which a chat sandbox is not; Studio already carries the adapted method; use Claude Code (also the desktop app's Code tab)"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "It needs a shell with Node.js, a headless Chrome and FFmpeg, which a chat sandbox is not; Studio already carries the adapted method"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "It needs a shell with Node.js, a headless Chrome and FFmpeg, which a chat sandbox is not; Studio already carries the adapted method"
+        }
+      },
+      "observed": "2026-10-16, sandbox home in a Linux container with Claude Code 2.1.301: the pinned local marketplace installed animate@animate (enabled, manifest valid); the skills CLI copied the pinned skill to ~/.agents/skills for Codex. Not run in a real Codex or Claude Code session",
+      "update": "Review a newer commit, then change reviewed_commit and every command's commit together"
+    },
+    {
+      "id": "motion-designer",
+      "name": "Motion Designer (kaventro)",
+      "repository": "https://github.com/kaventro/motion-designer",
+      "reviewed_commit": "7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "claude_code_plugin",
+        "skill"
+      ],
+      "role": "engine",
+      "gives": "App launch films and short videos from code: the real UI in an iPhone or laptop window or a story in panels, cut to music on the beat, styled, voiced, checked frame by frame and rendered",
+      "studio_uses": "The original plugin next to Studio's partial adaptation (integrations/kaventro-motion-designer), for a user who wants its own launch-film pipeline",
+      "not_for": "Replacing Studio's brief, idea, copy locks and four-verdict review",
+      "requires": [
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "22.0.0",
+              null
+            ]
+          ],
+          "note": "Node.js 22+, Chrome or Chromium, FFmpeg, Python 3 and uv"
+        }
+      ],
+      "rights": "MIT; the user's app UI and music must be theirs or licensed",
+      "hosts": {
+        "claude_code": {
+          "status": "native",
+          "plan": "git clone https://github.com/kaventro/motion-designer ~/.framecore-studio/extensions/motion-designer && git -C ~/.framecore-studio/extensions/motion-designer checkout 7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8 && cat ~/.framecore-studio/extensions/motion-designer/.claude-plugin/marketplace.json",
+          "install": "test \"$(git -C ~/.framecore-studio/extensions/motion-designer rev-parse HEAD)\" = 7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8 && claude plugin marketplace add ~/.framecore-studio/extensions/motion-designer && claude plugin install motion-designer@motion-designer",
+          "writes": "~/.framecore-studio/extensions/motion-designer (the checkout at the reviewed commit) and Claude Code's user plugin settings (one marketplace, one plugin)",
+          "verify": "claude plugin list",
+          "after": "Restart Claude Code; on its first run the plugin checks Node 22, Chrome, FFmpeg, Python and uv itself",
+          "remove": "claude plugin uninstall motion-designer@motion-designer && claude plugin marketplace remove motion-designer && rm -rf ~/.framecore-studio/extensions/motion-designer"
+        },
+        "codex": {
+          "status": "not_supported",
+          "reason": "At the reviewed commit the skill's front matter is not valid YAML (an unquoted colon in its description), so the skills CLI refuses it; use Claude Code until upstream fixes it"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "It needs a shell with Node.js, a headless Chrome and FFmpeg, which a chat sandbox is not; Studio already carries the adapted method; use Claude Code"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "It needs a shell with Node.js, a headless Chrome and FFmpeg, which a chat sandbox is not; Studio already carries the adapted method"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "It needs a shell with Node.js, a headless Chrome and FFmpeg, which a chat sandbox is not; Studio already carries the adapted method"
+        }
+      },
+      "observed": "2026-10-16, sandbox home with Claude Code 2.1.301: the pinned local marketplace installed motion-designer@motion-designer 1.2.0 (enabled, manifest valid); skills CLI 1.7.2 refused the SKILL.md front matter. Not run in a real session",
+      "update": "Review a newer commit, then change reviewed_commit and every command's commit together; recheck Codex once the front matter parses"
+    },
+    {
+      "id": "meta-ads-designer",
+      "name": "Meta Ads Designer (AI Evolution Labs)",
+      "repository": "https://github.com/aievolutionpl/meta-ads-designer",
+      "reviewed_commit": "656ce907380448389559958f055c8b43d71ab26e",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "skill",
+        "knowledge"
+      ],
+      "role": "knowledge",
+      "gives": "Rules and examples for social ads, posters and flyers made with image models: research, questions, art direction, strong prompts and post-generation analysis",
+      "studio_uses": "The original skill next to Studio's adaptation in Static Graphic Design Creator (integrations/meta-ads-designer), for a user who wants the full upstream rules",
+      "not_for": "Overriding Studio's exact-copy, claim and review rules; Studio's own routes stay in charge",
+      "requires": [
+        {
+          "tool": "python",
+          "note": "Python with Pillow and NumPy only for its scripts"
+        }
+      ],
+      "rights": "MIT; ads must use the user's own logo, photos and true claims",
+      "hosts": {
+        "claude_code": {
+          "status": "native",
+          "plan": "DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e --list",
+          "install": "DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e --skill meta-ads-designer -a claude-code -g --copy",
+          "writes": "~/.claude/skills/meta-ads-designer (a copy at the reviewed commit)",
+          "verify": "DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Claude Code; the skill must appear in the new session",
+          "remove": "DO_NOT_TRACK=1 npx -y skills@1.7.2 remove meta-ads-designer -g -a claude-code"
+        },
+        "codex": {
+          "status": "native",
+          "plan": "DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e --list",
+          "install": "DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e --skill meta-ads-designer -a codex -g --copy",
+          "writes": "~/.agents/skills/meta-ads-designer (a copy at the reviewed commit)",
+          "verify": "DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Codex; the skill must appear in the new session",
+          "remove": "DO_NOT_TRACK=1 npx -y skills@1.7.2 remove meta-ads-designer -g -a codex"
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Attach core.md, references/layout-system.md and references/headline-system.md from https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e to a project's knowledge, as the repository's INSTALL.md (section 5) describes"
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Attach core.md, references/layout-system.md and references/headline-system.md from https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e to a project, as the repository's INSTALL.md (section 5) describes"
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Attach core.md, references/layout-system.md and references/headline-system.md from https://github.com/aievolutionpl/meta-ads-designer/tree/656ce907380448389559958f055c8b43d71ab26e to the project's knowledge; Studio's adapted rules already run there"
+        }
+      },
+      "observed": "2026-10-16, sandbox home: skills CLI 1.7.2 copied the pinned skill to ~/.claude/skills and ~/.agents/skills. Manual chat routes not run",
+      "update": "Review a newer commit, then change reviewed_commit and every command's commit together"
     }
   ]
 }

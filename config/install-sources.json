@@ -228,8 +228,8 @@
     },
     {
       "path": "integrations/animate/README.md",
-      "bytes": 3874,
-      "sha256": "add279add6b47675d717eaee03bb815ee553d2f79ec57160e2256156b62830b9"
+      "bytes": 4157,
+      "sha256": "f02ce1528db4725861b1b20a5bff282c04f4edefbfd284b147422396d23cc221"
     },
     {
       "path": "integrations/animate/source-manifest.json",
@@ -248,8 +248,8 @@
     },
     {
       "path": "integrations/kaventro-motion-designer/README.md",
-      "bytes": 880,
-      "sha256": "10a012110c7c5c1865770a90f79ea77be3c0fa0ada2cd6f95ac70493c09ba0d0"
+      "bytes": 1171,
+      "sha256": "7e545e8733bdaf44cec440861177c5095c1ce47eab1b8108792d6d294a100b55"
     },
     {
       "path": "integrations/kaventro-motion-designer/source-manifest.json",
@@ -263,8 +263,8 @@
     },
     {
       "path": "integrations/meta-ads-designer/README.md",
-      "bytes": 5173,
-      "sha256": "93233697bc8437d8375570ceaa1576f243fd49d618711781fc0ac2ef8d193cf1"
+      "bytes": 5466,
+      "sha256": "32945c25893e7ac2a73432577423955f4ee5984fbcf5e4f7cfab992fc350e37d"
     },
     {
       "path": "integrations/meta-ads-designer/source-manifest.json",
@@ -5678,13 +5678,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 5600,
-      "sha256": "c6eea799607009ee2c6d1ba488fb1b8b71f4e0b8c2167f01f399486da828c09f"
+      "bytes": 18107,
+      "sha256": "03ff0ad9d569e9244a5555c0d4e63cc4e34e5c07cac587a49ee6f9d738912d77"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
-      "bytes": 7905,
-      "sha256": "8ec0473eb0efd4fd9d7cb5f9e4aa067b6246af707903ef67378b60609f0f4cbb"
+      "bytes": 8552,
+      "sha256": "66fd951b5795bb9e6666aa0f691f7f21fe8e51df7c1428658761aaadba2f79f5"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -5778,8 +5778,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 3717,
-      "sha256": "195171aa1814ccb23ed9d66dd4dbf4148cd515c0b0e851d6a3afd85512ee68a6"
+      "bytes": 4160,
+      "sha256": "6f1dd797ebaf25a20db6c725430f28f2d9640f1a6ef41d4d30520b2d99831fcd"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -5923,8 +5923,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 3668,
-      "sha256": "3d82922ec7385185d694e1653c1ac9451aa3438dbecfeda7cedab9262f6a0581"
+      "bytes": 5160,
+      "sha256": "ed3cae2a6ec1a5545c3c809530a47cf1c3b4e2aaefe03dcd09d707973bc6c161"
     },
     {
       "path": "tests/image_probe_test.py",

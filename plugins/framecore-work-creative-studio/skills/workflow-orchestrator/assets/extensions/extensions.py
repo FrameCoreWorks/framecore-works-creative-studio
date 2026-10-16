@@ -20,8 +20,9 @@ from pathlib import Path
 REGISTRY = Path(__file__).resolve().parent / 'extensions.json'
 HOST_FIELDS = {'native': ('plan', 'install', 'writes', 'verify', 'after', 'remove'),
                'desktop_only': ('plan', 'install', 'writes', 'verify', 'after', 'remove'),
-               'not_supported': ('reason',)}
-ENTRY_FIELDS = ('id', 'name', 'repository', 'reviewed_commit', 'package', 'license', 'kind', 'role', 'gives', 'studio_uses',
+               'not_supported': ('reason',),
+               'manual': ('manual_steps',)}
+ENTRY_FIELDS = ('id', 'name', 'repository', 'reviewed_commit', 'license', 'kind', 'role', 'gives', 'studio_uses',
                 'not_for', 'requires', 'rights', 'hosts', 'observed', 'update')
 
 
@@ -52,7 +53,8 @@ def validate(data):
             problems.append(f'{where}: reviewed_commit must be a full commit hash')
         if not str(entry.get('repository', '')).startswith('https://'):
             problems.append(f'{where}: repository must be an https URL')
-        pinned = f"{(entry.get('package') or {}).get('name')}@{(entry.get('package') or {}).get('version')}"
+        package = entry.get('package')
+        pinned = f"{package['name']}@{package['version']}" if package else str(entry.get('reviewed_commit'))
         for host in hosts:
             spec = (entry.get('hosts') or {}).get(host)
             if not spec or spec.get('status') not in HOST_FIELDS:
@@ -61,11 +63,15 @@ def validate(data):
             for field in HOST_FIELDS[spec['status']]:
                 if not spec.get(field):
                     problems.append(f'{where}: {host} {field} missing')
-            for field in ('plan', 'install', 'verify', 'remove'):
+            for field in ('plan', 'install') + (('verify', 'remove') if package else ()):
                 if spec.get(field) and pinned not in spec[field]:
                     problems.append(f'{where}: {host} {field} must use the pinned {pinned}')
-            if spec.get('plan') and '--dry-run' not in spec['plan']:
+            plan = (spec.get('plan') or '').replace('npx -y ', 'npx ')   # npx's own -y only skips its download prompt
+            reads_only = any(mark in plan for mark in ('--dry-run', '--list', ' checkout '))
+            if plan and (not reads_only or re.search(r'(^|\s)(-y|--yes)(\s|$)|plugin install', plan)):
                 problems.append(f'{where}: {host} plan must be a dry run')
+            if spec.get('install') and re.search(r'(^|\s)(-y|--yes)(\s|$)', spec['install'].replace('npx -y ', 'npx ')) and package is None:
+                problems.append(f'{where}: {host} install must keep the installer\'s own confirmation')
     return problems
 
 
@@ -134,7 +140,8 @@ def main(argv=None):
     if args.json:
         print(json.dumps(report, indent=2, ensure_ascii=False))
         return 0
-    print(f"{report['name']} ({report['repository']} at {report['reviewed_commit'][:12]}, {report['package']['name']} {report['package']['version']}, {report['license']})")
+    package = f", {report['package']['name']} {report['package']['version']}" if report.get('package') else ''
+    print(f"{report['name']} ({report['repository']} at {report['reviewed_commit'][:12]}{package}, {report['license']})")
     print(f"  gives: {report['gives']}\n  Studio uses it for: {report['studio_uses']}\n  not for: {report['not_for']}\n  rights: {report['rights']}")
     print(f"  {args.host}: {report['status']}")
     for key, value in report['steps'].items():

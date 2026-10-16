@@ -58,6 +58,28 @@ class Registry(unittest.TestCase):
         self.assertEqual(run('show', 'nothing', '--host', 'codex')[0], 1)
         self.assertEqual(run('list', '--host', 'mars')[0], 1)
 
+    def test_git_pinned_entries_check_out_the_reviewed_commit_and_keep_confirmation(self):
+        entries = {e['id']: e for e in DATA['extensions']}
+        self.assertTrue({'animate', 'motion-designer', 'meta-ads-designer'} <= set(entries))
+        animate = entries['animate']['hosts']['claude_code']
+        self.assertIn('checkout ' + entries['animate']['reviewed_commit'], animate['plan'])
+        self.assertIn(entries['animate']['reviewed_commit'], animate['install'])
+        self.assertNotIn('plugin install', animate['plan'])
+        bad = copy.deepcopy(DATA)
+        meta = next(e for e in bad['extensions'] if e['id'] == 'meta-ads-designer')
+        meta['hosts']['codex']['install'] += ' -y'
+        meta['hosts']['claude_code']['plan'] = meta['hosts']['claude_code']['install']
+        problems = ' '.join(ext.validate(bad))
+        self.assertIn("codex install must keep the installer's own confirmation", problems)
+        self.assertIn('claude_code plan must be a dry run', problems)
+
+    def test_a_manual_host_gives_steps_and_an_unsupported_one_a_reason(self):
+        meta = next(e for e in DATA['extensions'] if e['id'] == 'meta-ads-designer')
+        self.assertEqual(meta['hosts']['chatgpt_work']['status'], 'manual')
+        self.assertIn(meta['reviewed_commit'], meta['hosts']['chatgpt_work']['manual_steps'])
+        designer = next(e for e in DATA['extensions'] if e['id'] == 'motion-designer')
+        self.assertIn('YAML', designer['hosts']['codex']['reason'])
+
     def test_a_broken_registry_exits_2(self):
         with tempfile.TemporaryDirectory() as temp:
             path = pathlib.Path(temp, 'bad.json')

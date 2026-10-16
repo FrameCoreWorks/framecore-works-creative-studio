@@ -24,3 +24,7 @@ Source: [cth9191 / animate](https://github.com/cth9191/animate/tree/7e5eb56feb2d
 ## Evidence scope
 
 Checked on 2026-10-10 in a Linux container with Node.js 22, FFmpeg 6.1 and Playwright 1.56.1 with its Chromium: the riso demo built, exported 144 frames to MP4 in about a minute and passed its review (cuts and morphs on the grid, story arc, text, dead beats; −14.6 LUFS); the gallery rendered all seven styles; the math demo built and rendered stills from a workspace copy installed with `npm ci`. The source repository's newest Playwright is 1.64.0; Studio pins 1.56.1, the version tested here, and the update check lists the newer one. Codex, Claude Code on a user's machine, macOS, Windows and voice-over timing with faster-whisper were not run.
+
+## Installing the original
+
+The original repository can also be installed in full, natively and pinned to the reviewed commit, as a [recommended extension](../../skills/workflow-orchestrator/references/extensions.md) (registry entry `animate`), only on the user's explicit request.

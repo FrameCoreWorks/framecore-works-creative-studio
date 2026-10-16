@@ -40,6 +40,10 @@ Name the trigger in the ledger entry and the commit, and show that case before a
 
 Owner decision 2026-10-12, later the same day: motion graphics is Studio's main paid use, so the owner opened one development round for it, released as 1.70.0, as an explicit exception to maintenance mode. In Claude Code, client reels and ads are built as HyperFrames compositions with HyperFrames' own skills, while Studio keeps the brief, idea, copy locks, board plan and review. Work left from that round is listed in `docs/handover-motion-1.70.md`; it follows maintenance mode unless the owner asks for it.
 
+## Recommended extensions (owner decision 2026-10-16)
+
+Every repository the owner sends for review is also added to the [extension registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) as a natively installable option, following `docs/extension-registry.md`: pinned to the reviewed commit or package version, with each host's status and its plan, install, verify and remove steps tried in a sandbox. This is the trigger for such an entry under maintenance mode. Studio installs an extension only on a user's explicit request.
+
 ## Development provenance
 
 Several surfaces develop this repository: the owner, ChatGPT Work, Codex and Cloud Code. Before writing, read `docs/development-ledger.md`, `CHANGELOG.md`, `RELEASE_STATUS.md` and current Git history; preserve compatible work from other surfaces and never overwrite it without inspecting its intent. Record the baseline SHA and re-check the branch head before committing or pushing; do not resolve drift with `reset --hard` or a force push.
