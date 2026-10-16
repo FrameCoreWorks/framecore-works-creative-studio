@@ -1,0 +1,32 @@
+{
+  "version": "1.86.0",
+  "baseline_tag": "v1.85.0",
+  "baseline": "26e03d5df63192c91628025c151fa7c2bb77bfa7",
+  "change_id": "CC-20261016-01",
+  "origin": "cloud-code",
+  "files": 1203,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/animate/README.md",
+    "integrations/kaventro-motion-designer/README.md",
+    "integrations/meta-ads-designer/README.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.py",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1189,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Animate, Motion Designer and Meta Ads Designer added to the extension registry, each pinned to its reviewed commit with per-host routes tried in a sandbox home; a manual host status; every repository the owner sends is now added to the registry."
+}

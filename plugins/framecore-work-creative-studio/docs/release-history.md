@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.86.0, 2026-10-16
+
+At the owner's request:
+
+- **The original repositories as extensions.** [Animate](https://github.com/cth9191/animate), [Motion Designer](https://github.com/kaventro/motion-designer) and [Meta Ads Designer](https://github.com/aievolutionpl/meta-ads-designer), whose methods Studio already adapts, can now be installed in full and natively from the [recommended extensions](../skills/workflow-orchestrator/references/extensions.md), each pinned to its reviewed commit. In Claude Code, Animate and Motion Designer install as plugins from a checkout at that commit, and Meta Ads Designer as a skill. In Codex, Animate and Meta Ads Designer install as skills; Motion Designer cannot, because its skill's front matter does not parse at that commit. In ChatGPT, ChatGPT Work and the Claude apps, Meta Ads Designer's rule files can be added to a project by hand; the other two need a shell
+- A new host status, `manual`, gives the files to add by hand; a plan never changes a host setting, and a skills CLI install keeps its own confirmation
+- Repository: every repository the owner sends for review is now also added to the registry (owner decision 2026-10-16, AGENTS.md and the [maintainer guide](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/extension-registry.md))
+
 ## 1.85.0, 2026-10-15
 
 At the owner's request, from a review of [morluto/rea](https://github.com/morluto/rea) ([decision map](../integrations/rea/README.md)):
