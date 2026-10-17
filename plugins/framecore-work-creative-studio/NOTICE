@@ -40,3 +40,8 @@ Third-party components (added after 1.0.0; MIT unless stated; each folder keeps 
 - heygen-com/hyperframes, commit 86521b94f592bcf0ca86aba63068893cf658af16, Apache-2.0: registry block names only, listed in the technique atlas; no HyperFrames code is bundled.
 - Fonts in skills/pipeline-core/assets/fonts/ (Anton, Archivo, Bricolage Grotesque, Fraunces, Inter, Source Serif 4): SIL Open Font License 1.1; each family folder keeps its OFL.txt with the copyright notice.
 - Tejashmakwana/motionmaxxing, commit 8c8ec0f2a6f6c9a0da15cd24f7b1298ab298368c, Copyright Tejas Makwana, Apache-2.0: the page-chrome review idea only, restated in Studio's own words in skills/hyperframes-workflow/SKILL.md; no code, media or text is copied.
+
+- kaankiziltug/logo-design-skill 1.4.4, commit 0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134, Copyright (c) 2026 kaankiziltug, MIT: reusable tools, references, templates, catalogue assets and fictional examples bundled under Static Graphic Design Creator; see integrations/logo-design-skill/LICENSE, README.md and source-manifest.json. Real-company reference trademark SVGs are not redistributed and remain outside MIT.
+
+Anatomy (wheresryan22), commit e9488296a44211c42701ff71705b7901470ec78f
+MIT, Copyright (c) 2026 Ryan. Complete SVG/WebGL/3D kit, rendering/review tools, technical references and source examples bundled under skills/hyperframes-workflow/assets/anatomy-engine/. See integrations/anatomy/LICENSE and source-manifest.json. Publishing/session-log tools are excluded.

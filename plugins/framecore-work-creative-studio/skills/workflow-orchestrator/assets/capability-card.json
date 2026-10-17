@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-08",
+  "checked": "2026-10-17",
   "path_base": "plugin_root",
   "scope": "What Studio executes itself with bundled tools, what each tool needs from the host, what it delivers and what to deliver instead when a requirement is missing. Host tools and external providers are listed only to mark the boundary. A requirement is checked in the current host before a file is promised; a listed observation is past evidence, not a guarantee for another host or day.",
   "host_profiles": {
@@ -844,6 +844,70 @@
       "delivers": "The fitting extensions for this host and, on an explicit request, the dry-run plan, installation and verification",
       "when_missing": "Read the registry file and give the steps for Codex or Claude Code",
       "observed": "2026-10-15: container checks; REA's dry-run plans only"
+    },
+    {
+      "id": "anatomy_build",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Builds explanatory SVG, WebGL and moving 3D HTML with the complete bundled Anatomy kit, source examples and React adapters; checks Node 20.10+ before work",
+      "tools": [
+        "skills/hyperframes-workflow/assets/anatomy-engine/studio.mjs"
+      ],
+      "requires": [
+        "node"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Editable source project, standalone HTML and the shared deterministic frame adapter; React needs the existing host project",
+      "when_missing": "Deliver the complete source and exact missing runtime requirements; mark preview/render unverified. No separate Anatomy installation is needed.",
+      "observed": "2026-10-17: macOS Node/Chrome integration fixtures; not an ordinary ChatGPT or Work execution claim"
+    },
+    {
+      "id": "anatomy_review",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Drives trusted local figures in Chrome/Chromium for screenshots, input/fallback checks, geometry and 3D diagnostics; GPU/WebGL is probed on the actual page",
+      "tools": [
+        "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.mjs"
+      ],
+      "requires": [
+        "node",
+        "browser"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Rendered frames/contact sheets and scoped diagnostics; an actual WebGL result is separate from its SVG fallback",
+      "when_missing": "Deliver the complete source and exact missing runtime requirements; mark preview/render unverified. No separate Anatomy installation is needed.",
+      "observed": "2026-10-17: macOS Node/Chrome integration fixtures; not an ordinary ChatGPT or Work execution claim"
+    },
+    {
+      "id": "logo_design_tools",
+      "executed_by": "studio",
+      "owner": "static-graphic-design-creator",
+      "does": "Runs the bundled Logo Design tools through a Studio adapter: blank project, reference-catalogue search, SVG craft audit, preview/concept/presentation sheets, colour/mono variants and optional PNG/favicon exports. Checks actual renderer availability.",
+      "tools": [
+        "skills/static-graphic-design-creator/assets/logo-design-engine/studio_logo.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [
+        "cairosvg",
+        "browser"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Editable logo source, SVG/HTML review assets, scoped advisory audit and export manifest; PNG/icons only with an available renderer. Reference trademark files are not bundled.",
+      "when_missing": "Deliver design direction and exact missing runtime requirements; do not claim an audit or render ran.",
+      "observed": "2026-10-17: local Python/CairoSVG build and export tests; fresh ChatGPT/Work invocation not_run"
     }
   ]
 }

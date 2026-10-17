@@ -96,11 +96,63 @@ class Registry(unittest.TestCase):
         voxcpm = next(e for e in tts if e['id'] == 'voxcpm')
         self.assertIn('voxcpm==2.0.3', voxcpm['hosts']['claude_code']['install'])
 
+    def test_logo_design_is_pinned_optional_and_separates_trademark_rights(self):
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'logo-design')
+        for host in DATA['hosts']:
+            code, out, err = run('show', 'logo-design', '--host', host, '--json')
+            self.assertEqual((code, err), (0, ''))
+            report = json.loads(out)
+            self.assertEqual(report['reviewed_commit'], entry['reviewed_commit'])
+            self.assertIn('trademark', report['rights'])
+        for host in ('codex', 'claude_code'):
+            spec = entry['hosts'][host]
+            self.assertEqual(spec['status'], 'native')
+            self.assertIn(entry['reviewed_commit'], spec['plan'])
+            self.assertIn(entry['reviewed_commit'], spec['install'])
+            self.assertNotIn('plugin install', spec['plan'])
+        self.assertIn('--list', entry['hosts']['codex']['plan'])
+        node = next(r for r in entry['requires'] if r['tool'] == 'node')
+        self.assertEqual(node['ranges'], [['22.20.0', None]])
+        self.assertIn('TRADEMARKS.md', entry['hosts']['codex']['install'])
+        for host in ('claude_apps', 'chatgpt', 'chatgpt_work'):
+            self.assertEqual(entry['hosts'][host]['status'], 'manual')
+            self.assertIn(entry['reviewed_commit'], entry['hosts'][host]['manual_steps'])
+        self.assertIn('not_run', entry['observed'])
+        self.assertTrue((PLUGIN / 'integrations/logo-design-skill/LICENSE').is_file())
+        self.assertFalse((PLUGIN / 'skills/logo-design').exists())
+
+    def test_logo_craft_uses_the_existing_owner_without_importing_renderer_defaults(self):
+        skill = (PLUGIN / 'skills/static-graphic-design-creator/SKILL.md').read_text(encoding='utf-8')
+        section = skill.split('## Logo concept and craft pass\n', 1)[1].split('\n## ', 1)[0]
+        for phrase in ('preserve the requested medium', 'actual intended sizes',
+                       'approved geometry', 'existing review budget', 'advisory',
+                       'not trademark clearance', 'bundled'):
+            self.assertIn(phrase, section)
+        profile = (PLUGIN / 'skills/workflow-orchestrator/references/brand-identity-workflow.md').read_text(encoding='utf-8')
+        self.assertIn('SKILL.md#logo-concept-and-craft-pass', profile)
+        provenance = json.loads((PLUGIN / 'integrations/logo-design-skill/source-manifest.json').read_text(encoding='utf-8'))
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'logo-design')
+        self.assertEqual(provenance['commit'], entry['reviewed_commit'])
+
     def test_a_broken_registry_exits_2(self):
         with tempfile.TemporaryDirectory() as temp:
             path = pathlib.Path(temp, 'bad.json')
             path.write_text('{"schema_version": 2}', encoding='utf-8')
             self.assertEqual(run('list', '--registry', str(path))[0], 2)
+
+    def test_anatomy_bundle_and_original_extension_have_separate_runtime_requirements(self):
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'anatomy')
+        manifest = json.loads((PLUGIN / 'integrations/anatomy/source-manifest.json').read_text())
+        self.assertEqual(entry['reviewed_commit'], manifest['commit'])
+        self.assertEqual(len([f for f in manifest['files'] if f['source_path'].startswith('kit/')]), 15)
+        for host in DATA['hosts']:
+            self.assertEqual(run('show', 'anatomy', '--host', host)[0], 0)
+        for host in ('codex', 'claude_code'):
+            self.assertIn('--list', entry['hosts'][host]['plan'])
+            self.assertIn(entry['reviewed_commit'], entry['hosts'][host]['install'])
+        skill = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
+        self.assertIn('no separate Anatomy install', skill)
+        self.assertFalse((PLUGIN / 'skills/anatomy/SKILL.md').exists())
 
     def test_node_versions_are_checked_against_the_ranges(self):
         ranges = DATA['extensions'][0]['requires'][0]['ranges']

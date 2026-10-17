@@ -2259,3 +2259,26 @@ Cross-host state:
 - GitHub: synchronized package commit `90ec991`, tag v1.87.1; source-check and release workflows PASS. Downloaded plugin ZIP, inventory and player match the build; all 1211 source files match the tag ([publication](../verification/github-publication-1.87.1.json)). The release-notes refresh rejected the heading prefix; the repository-only follow-up corrects that one line.
 - ChatGPT Work: synchronized, saved release `pluginrel_6ad3630b000c8191ab2725003b5b7302`; all 1211 source files match except the approved PoYo bindings and documented JSON layout normalization; two PoYo files preserved ([readback](../verification/hosted-sync-1.87.1.json)).
 - Codex: synchronized managed cache 1.87.1, all 1213 files byte-identical to the saved plugin; fresh-chat behavior not_run.
+
+## CX-20261017-02
+
+- Origin: codex
+- Branch: `codex/logo-design-assimilation`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `08a45bf` (main, package 1.87.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.88.0)
+- Package version: 1.87.1 -> 1.88.0
+- Scope: Owner-requested full reusable Logo Design resources and complete Anatomy SVG/WebGL/3D toolkit, integrated into the existing owners with project adapters, runtime checks, tests, source hashes and optional original extensions.
+- Shared package changed: yes; 17 changed, 248 added, 0 removed ([scope](../verification/scope-1.88.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: 237 Node tests (226 passing, 11 opt-in rendering/browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21 (7 skipped without optional dependencies), 6 suite 22, 14 suite 23, 11 suite 24, 6 suite 25, 4 suite 26, 4 suite 27, 4 suite 28, 2 suite 29, 2 suite 30, 3 suite 31, 5 suite 32, 5 suite 33, 4 suite 34, 9 suite 35, 4 suite 36, 9 suite 37, 21 suite 38: PASS ([record](../verification/release-1.88.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending guarded update and readback; PoYo preserved
+- Codex: pending managed-cache readback; fresh-chat behavior not_run
+
+- Additional verification: Anatomy browser 5/5, final Logo adapter 11/11 with PNG/icons; Olga confirmed the avatar-export P2 fixed. Final CI will include the added regression. New Anatomy MP4 export not_run after automatic approval review rejected the requested file write.

@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-17",
+  "change_id": "CX-20261017-02",
+  "trigger": "Owner supplied Logo Design Skill and explicitly requested the full implementation of its resources, replacing the initial methods-only plan.",
+  "baseline": "08a45bfec70ce0701cd723b7d0231e9320609cdb",
+  "upstream": {
+    "repository": "https://github.com/kaankiziltug/logo-design-skill",
+    "commit": "0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134",
+    "version": "1.4.4",
+    "license": "MIT, reference trademark SVG library excluded"
+  },
+  "before": {
+    "registry_entry": "absent",
+    "logo_method": "Existing brand profile and wordmark tools; no dedicated letter/junction, redesign-recognition or advisory upstream-audit contract."
+  },
+  "after": {
+    "registry_entry": "logo-design, pinned, five host routes",
+    "method_owner": "static-graphic-design-creator",
+    "new_skills": 0,
+    "upstream_tools_or_brand_assets_bundled": true,
+    "actual_extension_install": "not_run",
+    "bundled": {
+      "source_files": 120,
+      "python_tools": 9,
+      "chapters": 14,
+      "templates": 2,
+      "catalog_records": 1432,
+      "example_images": 87,
+      "trademark_svgs": 0,
+      "adapter": "skills/static-graphic-design-creator/assets/logo-design-engine/studio_logo.py",
+      "automatic_dependency_installation": false
+    },
+    "rights_exception": "The third-party trademark corpus is explicitly outside MIT and not redistributed. Full index, file hashes, external pinned-source links and verified local-corpus connection are provided."
+  },
+  "checks": [
+    {
+      "command": "python3 tools/smoke_test.py (upstream scratch checkout)",
+      "status": "PASS",
+      "scope": "All upstream checks including PNG and ZIP; functional smoke only, not visual quality."
+    },
+    {
+      "command": "skills@1.7.2 add <pinned GitHub tree URL>/skills/logo-design --list",
+      "status": "PASS",
+      "scope": "Detected logo-design; no installation."
+    },
+    {
+      "command": "claude plugin validate . --strict (upstream scratch checkout)",
+      "status": "PASS",
+      "scope": "Marketplace metadata only."
+    },
+    {
+      "command": "claude plugin list --json; skills@1.7.2 list -g",
+      "status": "PASS",
+      "scope": "Readable host listings; extension absent."
+    },
+    {
+      "command": "python3 plugins/framecore-work-creative-studio/tests/extensions_test.py",
+      "status": "PASS",
+      "tests": 11
+    },
+    {
+      "command": "node --test plugins/framecore-work-creative-studio/tests/logo-design-engine.test.mjs",
+      "status": "PASS",
+      "tests": 10,
+      "passed": 9,
+      "skipped": 1,
+      "scope": "Source contracts and complete SVG/HTML pipeline; raster test opt-in."
+    },
+    {
+      "command": "STUDIO_LOGO_RENDER_TEST=1 node --test plugins/framecore-work-creative-studio/tests/logo-design-engine.test.mjs",
+      "status": "PASS",
+      "tests": 10,
+      "passed": 10,
+      "skipped": 0,
+      "scope": "Includes actual color concept PNG, all variant PNGs, favicon ICO and web icon export with existing CairoSVG; additional browser filter run recorded separately."
+    },
+    {
+      "command": "python3 <engine>/studio_logo.py verify-corpus <reviewed upstream checkout>",
+      "status": "PASS",
+      "scope": "1432 original SVG SHA-256 hashes verified; no marks copied."
+    },
+    {
+      "command": "python3 <engine>/studio_logo.py catalog-check <reviewed upstream checkout>",
+      "status": "PASS",
+      "scope": "1432 SVGs, 1432 classifications, zero missing."
+    },
+    {
+      "command": "python3 <engine>/studio_logo.py gallery --reference-library <reviewed checkout> --out <new local directory>",
+      "status": "PASS",
+      "scope": "Gallery with external local reference paths, no trademark SVG copied."
+    },
+    {
+      "command": "python3 <engine>/studio_logo.py build <synthetic two-concept spec> --out <new directory> --raster required",
+      "status": "PASS",
+      "scope": "56 generated files, including actual Chromium greyscale contact sheet. Visual inspection confirmed coherent shapes, legible contact-sheet labels and open negative space; not client identity evaluation."
+    },
+    {
+      "command": "python3 <engine>/scripts/render_png.py <generated presentation.html> -o <new screenshot.png> --width 1280 --height 800",
+      "status": "PASS",
+      "scope": "Existing Chrome captured HTML presentation cover; scope is first slide only."
+    },
+    {
+      "command": "STUDIO_LOGO_RENDER_TEST=1 node --test plugins/framecore-work-creative-studio/tests/logo-design-engine.test.mjs (after independent review)",
+      "tests": 11,
+      "passed": 11,
+      "skipped": 0,
+      "status": "PASS",
+      "scope": "Final adapter including separate avatar geometry for favicon/app-icon export."
+    }
+  ],
+  "independent_review": {
+    "agent": "eryk_logo_review",
+    "mode": "read_only",
+    "findings_applied": [
+      "Audit FAIL exit code/score cannot certify production readiness",
+      "Preserve LICENSE and TRADEMARKS omitted by upstream skill-only packaging",
+      "Do not import blanket SVG/iteration/count defaults",
+      "Preserve recognition and accepted geometry in redesigns",
+      "Keep technical geometry/renderer limitations explicit"
+    ]
+  },
+  "host_behavior": "NOT_RUN",
+  "visual_logo_evaluation": "NOT_RUN",
+  "sync": "pending release",
+  "bundled_render_review": {
+    "status": "PASS_LIMITED",
+    "subject": "Synthetic square and diamond, contact-sheet geometry, small-size visibility, true transparent cutout and presentation cover",
+    "original_example_brands": "NOT_EVALUATED",
+    "client_identity_quality": "NOT_RUN",
+    "observed_defect": "CairoSVG ignored upstream contact-sheet feColorMatrix and rendered colored marks in requested greyscale.",
+    "adapter_fix": "Greyscale contact sheets require detected Chromium renderer; absence or failure leaves required raster build incomplete. Vendored sources unchanged.",
+    "after_pixel_rgb": [
+      100,
+      100,
+      100
+    ],
+    "fixtures_committed": false
+  },
+  "local_artifact_hashes": {
+    "review-filter-fix/concepts.png": "beacedc543c531ce501924679420ba5a07cf0fde7c1acfb07a697f8f1315c856",
+    "presentation.png": "ad07bb6daa80940a6371d67e76be0d0c4b43754e414b9810541e315c1e63ff6b",
+    "review-filter-fix/delivery.json": "32762cb459b0578c46475ef94cc19c7cdbe9e80f7d8bca2d5634f164f16d8220"
+  },
+  "independent_final_review": {
+    "agent": "olga_bundle_review",
+    "source_hashes": "Anatomy 113/113; Logo 120/120 byte-identical to reviewed upstream",
+    "finding": "P2 separate avatar was ignored by icon export",
+    "before": "New regression failed: icon contained the master square instead of the supplied circle avatar.",
+    "fix": "Pass the existing upstream --favicon-source option from the copied concept.avatar; master variants remain unchanged.",
+    "after": "11/11 logo tests pass; no upstream code changed."
+  }
+}

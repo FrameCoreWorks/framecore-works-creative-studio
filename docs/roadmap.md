@@ -2,6 +2,12 @@
 
 Written 2026-10-16 by Cloud Code (change CC-20261016-04) at the owner's request, for Codex and ChatGPT Work: which way to develop Studio, what Cloud Code did from 1.70.0 to 1.87.0, and why. Read it after `AGENTS.md` and before the ledger. `AGENTS.md` and the owner's newest decision win over anything here; when one changes, update this file in the same change.
 
+## Owner-directed update, 2026-10-17 (1.88.0)
+
+The owner explicitly requested the full reusable resources from Logo Design Skill and the complete SVG/WebGL/3D Anatomy toolset inside Studio. This authorizes the bounded addition of their engines, technical references, templates and source examples; use examples to study APIs and craft, not as preselected client ideas. The existing static and motion owners remain responsible. Both originals are also optional pinned extensions, installed only on a separate request. Trademark SVGs excluded from upstream MIT are not republished; the logo catalogue and verified local-corpus connection retain reference functionality.
+
+The owner also explicitly requested paired GitHub, hosted-plugin and Codex updates with PoYo preserved. Record saved-package/cache equality separately from fresh-client behavior; 1.87.1 already has that readback evidence. This supersedes the historical not-tracked/not-run distribution status below, not the requirement to test behavior honestly.
+
 ## 1. Where Studio stands (1.87.0)
 
 - **A complete working tool in maintenance mode.** Change the package only for a trigger: a defect seen in real use or in a host evaluation, a host, model or generator change, a stale dated fact, or an explicit owner request. Name the trigger in the commit and the ledger and show the case before and after.

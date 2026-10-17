@@ -1,0 +1,101 @@
+{
+  "version": "1.88.0",
+  "date": "2026-10-17",
+  "change_id": "CX-20261017-02",
+  "origin": "codex",
+  "trigger": "Owner supplied Anatomy, then explicitly required its complete SVG/WebGL/3D graphics toolset bundled inside Studio.",
+  "upstream_commit": "e9488296a44211c42701ff71705b7901470ec78f",
+  "bundled": {
+    "kit_files": 15,
+    "upstream_source_files": 113,
+    "new_owners": 0,
+    "new_dependencies_installed": 0,
+    "studio_adapter": "studio.mjs and frame-bridge.mjs"
+  },
+  "checks": [
+    {
+      "command": "Eight selected upstream geometry/browser test files",
+      "tests": 62,
+      "pass": 62,
+      "fail": 0,
+      "status": "PASS",
+      "environment": "macOS, existing Node and Chrome, scoped browser permission"
+    },
+    {
+      "command": "STUDIO_ANATOMY_BROWSER_TEST=1 node --test plugins/framecore-work-creative-studio/tests/anatomy-engine.test.mjs",
+      "tests": 5,
+      "pass": 5,
+      "fail": 0,
+      "status": "PASS",
+      "includes": [
+        "all upstream file hashes",
+        "no-overwrite workspace and output",
+        "SVG/WebGL/3D actual browser renders",
+        "direct, backward, repeated frame seeks",
+        "PNG equality for repeated frames and difference for changed frames",
+        "keyboard frame selection",
+        "mobile reduced-motion, non-WebGL fallback and no horizontal overflow"
+      ]
+    },
+    {
+      "command": "node scripts/drive.mjs local SVG, WebGL and 3D fixtures",
+      "status": "PASS",
+      "console": "clean",
+      "webgl_actual": true,
+      "visual_inspection": "Fixture geometry, shader and phone fallback inspected; these are technical fixtures, not a finished creative deliverable"
+    }
+  ],
+  "first_browser_regression": {
+    "result": "FAIL on immediate 3D screenshot equality",
+    "cause": "Browser paint had not completed before capture; DOM frame setting is synchronous but compositing is asynchronous",
+    "fix": "Wait two browser animation frames before taking each regression screenshot, matching existing capture pipeline",
+    "repeat": "5/5 PASS"
+  },
+  "mp4_export": {
+    "status": "NOT_RUN",
+    "reason": "Automatic approval review rejected the requested MP4 file write based on the earlier user constraint. No substitute MP4 export attempted. Frame tests and existing exporter-contract integration remain separate evidence."
+  },
+  "host_behavior": "NOT_RUN; local browser execution does not prove a fresh ChatGPT or Work invocation",
+  "proof_files": [
+    {
+      "name": "3d-middle.png",
+      "sha256": "ddab91a3e5b5bb711b68fe7e480c4b5565672dc9b88cf2c334f1cd2c318a1d80"
+    },
+    {
+      "name": "3d-replay.png",
+      "sha256": "49dc6a70bf00c870a8256dbcd8f9fb9b4ff515b65491a1fd3033bf437ddc7e1f"
+    },
+    {
+      "name": "3d-start.png",
+      "sha256": "49dc6a70bf00c870a8256dbcd8f9fb9b4ff515b65491a1fd3033bf437ddc7e1f"
+    },
+    {
+      "name": "fallback-phone.png",
+      "sha256": "a08ba1398edfeaaa85047fc0318063119b936a44703a6d712b2f472bf2b4149c"
+    },
+    {
+      "name": "svg-middle.png",
+      "sha256": "a2d9641de05eeffe66a53795beb3f1f629f30634245f7c8d045c85e507dd0b75"
+    },
+    {
+      "name": "svg-replay.png",
+      "sha256": "131ccfedb6e3d8919a52826ebb35c54eecb5077eaf20b87b6954348963f6c20b"
+    },
+    {
+      "name": "svg-start.png",
+      "sha256": "131ccfedb6e3d8919a52826ebb35c54eecb5077eaf20b87b6954348963f6c20b"
+    },
+    {
+      "name": "webgl-middle.png",
+      "sha256": "1ac378f6ec5a54435deff2335e6f138bb98717b2bbc5c6944cad66b55c8ca7dc"
+    },
+    {
+      "name": "webgl-replay.png",
+      "sha256": "edd7a37c1f545f227f6cb542b3ec5c59599b5331af42d811aa9e130580c3e157"
+    },
+    {
+      "name": "webgl-start.png",
+      "sha256": "edd7a37c1f545f227f6cb542b3ec5c59599b5331af42d811aa9e130580c3e157"
+    }
+  ]
+}

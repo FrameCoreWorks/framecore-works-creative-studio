@@ -33,6 +33,8 @@ Carry `brief_revision`, `strategy_revision`, selected direction, exact-name/copy
 
 ## Logo and visual-system acceptance
 
+Use the static owner's [logo concept and craft pass](../../static-graphic-design-creator/SKILL.md#logo-concept-and-craft-pass) for idea selection, letter/junction inspection, optical balance and size/context comparisons. Its optional upstream tools remain advisory; they never replace the inspected evidence below.
+
 - Preserve the exact brand-name spelling, diacritics, selected wording and approved mark geometry. Present materially distinct directions when requested; do not copy a reference logo or treat resemblance search as clearance.
 - Define only the requested useful variants: primary lockup, alternate orientation, symbol/wordmark, monochrome and reversed versions as relevant. Variants retain the selected identity and correspond to identifiable source revisions.
 - Define clear space using an explicit reference unit from the mark. Minimum size is proposed until checked at the actual target sizes and contexts; inspect silhouette, counters, strokes, exact lettering and legibility. Never invent measured test results.

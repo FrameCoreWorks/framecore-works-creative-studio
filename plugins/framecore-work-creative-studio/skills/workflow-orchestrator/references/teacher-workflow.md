@@ -50,6 +50,8 @@ Apply the conditional Research Evidence gate proportionally: curriculum, policy,
 
 The optional [pack template](../assets/teacher-studio/lesson-pack.template.md) is a view of the current artifact, not an extra mandatory contract. Store its path/revision and dependent assets in the existing Project State. Content corrections propagate only to affected tasks, keys, slides and graphics.
 
+For a requested interactive explanation, use the motion owner's [technical explainer profile](../../hyperframes-workflow/SKILL.md#technical-explainers-and-interactive-figures) with the same educational objective and approved facts. Tie each control to an observable relationship and a question the learner can answer; explain where a physical analogy or simplified model stops matching the subject. A static diagram stays with the static owner. Do not turn a worksheet into a simulation or claim classroom effectiveness from a working animation.
+
 ## Original starting materials
 
 - [Instruction sequencing, ages approximately 7–9](../assets/teacher-studio/lesson-01-instructions.pl.md).

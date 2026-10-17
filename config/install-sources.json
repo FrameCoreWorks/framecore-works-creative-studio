@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.87.1",
+  "version": "1.88.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 970,
-      "sha256": "bc332c09ddf2e2b31f64e9d3e538b30320edc802b71da647a2759e18429b4e5a"
+      "sha256": "d5f0cf29008b92de48c2b47caff0a79804d5588b83a53f21fb5bbe209dbf2a10"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2284,
-      "sha256": "e50a0de5901e6c9656bf10df2d4639eec8f78b5523142d9b837c89f095ba531b"
+      "sha256": "58f653cb1a12a6ba272a24b7d14f7cb933b27dba8a3bc151c6e59eda630b0cdc"
     },
     {
       "path": "LICENSE",
@@ -63,13 +63,13 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 5217,
-      "sha256": "fe4e88d09850fc13f8111cba8a760b8b9613906f604ee947882b19262671fe7e"
+      "bytes": 5996,
+      "sha256": "fb72726ca03fe02a29af8f7375042b3b3f6f4f7341405011c0abf2677c546999"
     },
     {
       "path": "README.md",
       "bytes": 22073,
-      "sha256": "29e3fb8e86acd49faaae29e9d4621499e125446346390a48d10a36aef1d18c8f"
+      "sha256": "9558b4981171bf01e4947832f6ac0c03400292961b7777dcf3c2e69827d0d436"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13883,
-      "sha256": "48dae653a28471f92d2db639a95e0ef847acfa9b6f097813a6bad3f085feafda"
+      "sha256": "44044ef163e43a7c707284704c789e01cd800eb6f8dfbe9077faad79f61d0f7a"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 163865,
-      "sha256": "a54eb9bf2c3aaa04c873a0ddb1c6bd8b94d0d4ecb27a58ef50b8bcb9e28d0481"
+      "bytes": 165441,
+      "sha256": "7a3aa5114439c7df43917e59ebb3953aeb17bb9bf7cc6f61dad22e2f45eb3140"
     },
     {
       "path": "docs/research-ledger.json",
@@ -222,6 +222,21 @@
       "sha256": "d3488368f941cc96a9f843970a3ec9ecd1a6ccb092306e71c8fbd92871d5d9a5"
     },
     {
+      "path": "integrations/anatomy/LICENSE",
+      "bytes": 1061,
+      "sha256": "87c078ab9d90a3044f359e6b563d4e6afea7aa060897cf4f21618687b3856796"
+    },
+    {
+      "path": "integrations/anatomy/README.md",
+      "bytes": 3112,
+      "sha256": "d8630ebd12ee4d7d6365691684f65b5e315301c512a1ccd06cf3972c44d96ac3"
+    },
+    {
+      "path": "integrations/anatomy/source-manifest.json",
+      "bytes": 28288,
+      "sha256": "ac3eeeed4f1708b91127b4d235849941ff03b915fb30fca0b64e652a58e50340"
+    },
+    {
       "path": "integrations/animate/LICENSE",
       "bytes": 1064,
       "sha256": "fe0cbecb2244c397885aae6962df8a0b7d43805d663ee9cda344d05b87bd8625"
@@ -255,6 +270,26 @@
       "path": "integrations/kaventro-motion-designer/source-manifest.json",
       "bytes": 4695,
       "sha256": "fc7bfb5ff6f8e72ae7b77d886433fdba5755629427397a19fef578579ac61043"
+    },
+    {
+      "path": "integrations/logo-design-skill/LICENSE",
+      "bytes": 1069,
+      "sha256": "f68cc121d7f856ec3f48993c5082960f267bd752acea4e2f694408ef55d6cfdd"
+    },
+    {
+      "path": "integrations/logo-design-skill/README.md",
+      "bytes": 6576,
+      "sha256": "e4c55600ca0e44b31320141443bb7f58e1f8f67eb667070ac62aad00e3cba554"
+    },
+    {
+      "path": "integrations/logo-design-skill/TRADEMARKS.md",
+      "bytes": 1121,
+      "sha256": "ab18040350a507ad0f6e246ffc0cae00f38b5c933a4c62a27d8d5ee898e1325d"
+    },
+    {
+      "path": "integrations/logo-design-skill/source-manifest.json",
+      "bytes": 34740,
+      "sha256": "d5e6e4b6f7bb6a92685697e55a471c4491fe052d3010ea908a53568e42e69f4a"
     },
     {
       "path": "integrations/meta-ads-designer/LICENSE",
@@ -2334,7 +2369,7 @@
     {
       "path": "plugin.json",
       "bytes": 2407,
-      "sha256": "ea2f8b43ce5974208ed0ec61ff8d7046df73aeb3ecd18dc8c96ba755f655daab"
+      "sha256": "26576730fde1db6266e2ba95d26452549fbf834f26a1b140d3546b456a5edd92"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -3058,13 +3093,593 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 18555,
-      "sha256": "fc93875cfc92b3604a461462200dfe30dc2b709ae814ebc8a6ad274c21c1b75a"
+      "bytes": 21890,
+      "sha256": "5d54a38fb3f9aa87d8dee6bb116d773b0c2e303b9e40085afdb0d2f8708d11c6"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
       "bytes": 333,
       "sha256": "2289c53f2029250087af177b4c73ba99e042e5afdd9e9d0cecfe508f578d3f09"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/LICENSE",
+      "bytes": 1061,
+      "sha256": "87c078ab9d90a3044f359e6b563d4e6afea7aa060897cf4f21618687b3856796"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/README.md",
+      "bytes": 7539,
+      "sha256": "c3a833fff9769956d87f9a79e77bc2024dc79d085aeb96fa91e4fc9975df9313"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/arcade-cabinet.css",
+      "bytes": 3221,
+      "sha256": "a0ea7bce89a665ddd13f72daf31849c07d8b517b66a3d555543aa506b8933629"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/build.mjs",
+      "bytes": 51493,
+      "sha256": "a5e92188b54fb18fe7fbce3dbc86a8e55abf32f2560be667ac0866d089ba7b84"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/live.js",
+      "bytes": 21286,
+      "sha256": "d9f02ea9193f3109501333bdfb4ab297a71457aaba431f05f5df667ea8c40c8f"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/parts.mjs",
+      "bytes": 4296,
+      "sha256": "3ba74b8c55e72933b1e119e3d24c939f654b2c43d41ff26cf855f064cbc7d2a3"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/screen.mjs",
+      "bytes": 6701,
+      "sha256": "8fbb8aebb1d657508979ec9b58a29281c71403396df1fcdc6f8f834fe9097be9"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/desk-computer/build.mjs",
+      "bytes": 23023,
+      "sha256": "d378f9814acf75bc915921d4f2d83ed1eb4991a8b4298eb0de0e10383b2ff66d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/dial-indicator/build.mjs",
+      "bytes": 14973,
+      "sha256": "e4eaa2324af7f2630650ca72e52a78d56159213a786e14fba8321344789f990d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/build.mjs",
+      "bytes": 70705,
+      "sha256": "26064df05bb650845ec485195f972f5a0fed3c21ee152f0b8db8194fdc26d916"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/live.js",
+      "bytes": 30752,
+      "sha256": "03d801ef2b75e17a38ebc3d5cb9178747226ea8c2e0c527caafb9c72844d88d8"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/raptor.css",
+      "bytes": 6792,
+      "sha256": "f850575feeeacac8ef5d9d9c49359f4deaef848666c68a4dafa9727fe926cd6e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/build.mjs",
+      "bytes": 32062,
+      "sha256": "5a5b846bcd146630be3eafb73ebd04cfdd2101d05def15a877fff7188822b493"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/live.js",
+      "bytes": 21741,
+      "sha256": "5bff25143635ff13af50a7bee015289d8ada5a2f5b13c0cdb8a1516897f03944"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/model.mjs",
+      "bytes": 5004,
+      "sha256": "f6315aa53e80c0c69bf3c52baf0a1340ca4daacfae80245def02f357c2d33882"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/ripple.css",
+      "bytes": 1675,
+      "sha256": "1bf7a778f0b50928adcd54e67c44aa2b12a6877b45f15a0b697d87ab7be0dd5c"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/art.tsx",
+      "bytes": 4491,
+      "sha256": "aecef8d6ee247e99d52717371a319283af8b1bbba2adfcdd4d012553d2963b38"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/drops.ts",
+      "bytes": 19131,
+      "sha256": "9bec874c5e324d69a25cc9085ecf2c5d9c3c2e3bd1a8c667c45e048301b899d4"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/fan.ts",
+      "bytes": 2715,
+      "sha256": "648c1d946e9512afcae60e077d2436926ca1ea94b02c944df8624419812077b1"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/figure.tsx",
+      "bytes": 1078,
+      "sha256": "b9db1ef99bfac58d55d0506f05e0c178e5c9566c61cbf26826ea25cfaa57805f"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/geometry.ts",
+      "bytes": 10962,
+      "sha256": "faf7d6bf1b475daacd4751687d409d7a5c03a6c2bb216ae81beadce5a3cea99a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/live.tsx",
+      "bytes": 11718,
+      "sha256": "e96fd47aa4ab250a6b2c6fe3c6c3c96d4bcf737dff7f084d4912f5d1ef195116"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/rig.ts",
+      "bytes": 8160,
+      "sha256": "b19fc1637a1f4c411c23f34c7a48361f308402b15b11efc44fb6555e8f67ceea"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/spot-plate.css",
+      "bytes": 1518,
+      "sha256": "b31e4c8e02f4de0b77fe0a71718f59d7df2e3abc3d9772f802e00fc3d8a582bd"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/art.tsx",
+      "bytes": 7372,
+      "sha256": "a6b8c1094a9402380d9835ecedbcc677254686b7391027a20da10fc8bf24dae5"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/figure.tsx",
+      "bytes": 850,
+      "sha256": "2dbaef167b9a6a96de74357fc57ae2a650159007852d3d4e8c471b8837e463a9"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/geometry.ts",
+      "bytes": 13085,
+      "sha256": "b8c275eb58b093a85c312f90dc5d79fd9d9a93ae266e42a8a6fa7f6f9aaeb571"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/live.tsx",
+      "bytes": 17463,
+      "sha256": "46a4c338a2805fc0078a20d6f4e12d9de20fc4145ec051ffce3964b164c5a7da"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/pose.ts",
+      "bytes": 3894,
+      "sha256": "380e1d07afcaa3a4e2cd1b13556500f2b336e354fa1c369918b3173f0c9d0866"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/rig.ts",
+      "bytes": 5604,
+      "sha256": "9672431d6982acaa7b6f28e88e1371443bd6a10fb906ff52fc7bdb0f5fd88b05"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/stretch.css",
+      "bytes": 1210,
+      "sha256": "dd15f4582b5fb9b228dc7e32ef57dbcba0129dad38b36e5707247eeb7a2abe8b"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/view.ts",
+      "bytes": 3116,
+      "sha256": "5465a3e122c2074f8de755b874c7bdb783b365e4140e3e741fc91a32cd69500c"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/build.mjs",
+      "bytes": 32098,
+      "sha256": "dcb1b2a1fec2c98c2cea401c6a5b1c7e6545da3b5ea08433cfd72a7f27a49248"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/dial.css",
+      "bytes": 509,
+      "sha256": "769fc9596dcd2bbc46823d6e2816a3e584b52e0a6db359d93bedce16f354bedd"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/live.js",
+      "bytes": 12523,
+      "sha256": "e872f0d930ba583ce7c4c252a3767aa6b9f6cd1f97fe6dddb212653a0579b41f"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/stress.mjs",
+      "bytes": 19414,
+      "sha256": "6d3aec19d8ce6daadffe15113da9415c2fe084c6407d1bb7fb4b5fec86330314"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/frame-bridge.mjs",
+      "bytes": 1201,
+      "sha256": "bf42dcb507980f83a96c3c6ef41e19e63bc94f7c57bc461ce8a8b7a600a1335e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/audit.mjs",
+      "bytes": 92618,
+      "sha256": "74e605b5d549c1f31c8a1104db7560057105cf86809bf6ced00e4ac79194c8e2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/canvas-painter.mjs",
+      "bytes": 27535,
+      "sha256": "1918db10279c9d9df87d7df52c7ed8c2de8acd0bbce214c8f2115a39e7f955ac"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/gl-shared.mjs",
+      "bytes": 8863,
+      "sha256": "8c3773cf3e15844df332db3ba55af940186edb2227201e5839347ecc390c039c"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/gl.mjs",
+      "bytes": 8763,
+      "sha256": "17a477411e0b9fcb8e84e718094eaefa6be2c0b7d6ce15ee03fe8e252944130a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso-kit.mjs",
+      "bytes": 35175,
+      "sha256": "6d3ecc725d30c3b0346da309cf61dfa5a65017c23620bbd4093009d4fb104018"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso-kit.ts",
+      "bytes": 38631,
+      "sha256": "e9fc988c61a11bfac1f097e62419915ea86b2130ab091f1b50c0e019c907e253"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso.css",
+      "bytes": 7698,
+      "sha256": "ef19bac5a42ba9be42b56b2c1cf7fc7e21d332a8060765e9ca1d987b8ab23924"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/lathe.mjs",
+      "bytes": 48028,
+      "sha256": "a4e7e974b1a37e603ad2b76363b6f9815cc101dfff0ad277a5d4e8f1dc56fccb"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/react/draw.tsx",
+      "bytes": 6602,
+      "sha256": "d5389bd78aa3d5424a37b1ce6f635bd102eb86faf27d064b10957716278a631c"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/react/live.tsx",
+      "bytes": 4359,
+      "sha256": "6d01fa12bca4ec14d1b7d7d5331d18a997dd3ee131d59dd57f83b932a1705f42"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/tube.mjs",
+      "bytes": 14230,
+      "sha256": "bcb3cc360f6d83e6a5753f4c464b4587ab7965028b05a5d58e285abce58667c9"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-audit.mjs",
+      "bytes": 57356,
+      "sha256": "e4385f1a8a388c4544b49c6677ff8ab7048f7fcfa8cd5fe653d96a4a0df62843"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-build.mjs",
+      "bytes": 65975,
+      "sha256": "0c088efd9f22329d1b0c2190c95e5b5b43a2c46deae6ff047b3166ef643cfa83"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-fixed.mjs",
+      "bytes": 147055,
+      "sha256": "7429b46eb7673aefb6ed90adeaf130c1dafe8e32af038cbde24a04e693d13fc7"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn.mjs",
+      "bytes": 139815,
+      "sha256": "cb4b530b5e1750ba0e4fd2367d5f25e00195c0136672aa2ecd665c0622ffd1a2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/3d.md",
+      "bytes": 44644,
+      "sha256": "de58da5415b4c9fe7712b5b71e0868c4d36363d54e4e32d98a6b016363554536"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/craft.md",
+      "bytes": 50299,
+      "sha256": "38761fa9b81d66b30e50b05488501d4815830d3627f153d60f76ca783f598936"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/kit.md",
+      "bytes": 67873,
+      "sha256": "684672e069fdb52735efabc3f4310dedd840d0c8066a8dc7784be2b7e656be71"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/motion.md",
+      "bytes": 22611,
+      "sha256": "dda401ca1b4661a5f0b7c1e33dac6e7e4b8c13d51ca5d9312123a5c02dab320b"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/react.md",
+      "bytes": 3614,
+      "sha256": "76b5cee6e0a7513e3c77a832e3f58b1343806597d469774e1749f141525801fd"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/verify.md",
+      "bytes": 43574,
+      "sha256": "fb81437fc5d75094a34432eb6f545644aa228e15173a27d08b3cace912033561"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/walkthrough.md",
+      "bytes": 5276,
+      "sha256": "4d157e0169080a6ed44d5b06de0a5de2931baf3d0fac30283d2644dd66506dfa"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/webgl.md",
+      "bytes": 61104,
+      "sha256": "fb4e2421c6a705d4ad849c8e516731ebc958bc5ff0855548ff58232b0aa01923"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-affine-bounds.test.mjs",
+      "bytes": 4175,
+      "sha256": "038e0a879363c4b0d2c7146a62065b09f2973210114928d5005e9082219654d2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-cache.test.mjs",
+      "bytes": 1603,
+      "sha256": "00b49601c068897e94bf8309d652bb55595e541283c510bba34957c457edd57e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-clearance-envelope.test.mjs",
+      "bytes": 2407,
+      "sha256": "ffa8321d25996ac165dd1fdb6473a903c1c6f03b86996b2fef6978203b8f2bd8"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-empty-clipping.test.mjs",
+      "bytes": 3936,
+      "sha256": "a28384ccbf303acc32f7788753459a7338c94bc74ee5efe70762daa75a62c8cb"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-order-convergence.test.mjs",
+      "bytes": 2875,
+      "sha256": "9ad7b9a645d9e90a788e561484013b0fdefb1a8abd38fcb160f5d1a6464be278"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-path-origin.test.mjs",
+      "bytes": 1594,
+      "sha256": "1e5917a4a3bc337aa4497e5717de47b198db8fc9538d5f10d40a788f5f821d37"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-profile.test.mjs",
+      "bytes": 2171,
+      "sha256": "80179ae38afa6e58ed254a597daeee27240e85f87d1bbd0421def4e347ec37c0"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-projection.test.mjs",
+      "bytes": 1934,
+      "sha256": "0cd790e0dfc64633019db3233b87fec823c6148037d9335e1c2b16ea1c722db6"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-slide-clearance.test.mjs",
+      "bytes": 2875,
+      "sha256": "007f68aa5262eae40aceef00eec91e4d5be0164bd5fb9377680996164ff9ac19"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-svg-attributes.test.mjs",
+      "bytes": 3484,
+      "sha256": "2d2a949639f90d6328eeea401f6b7f3a3dc1fcc17f1d46cbe2de208afc3c6533"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-taper.test.mjs",
+      "bytes": 1267,
+      "sha256": "ea4415ef743efc4ba1393457c571cdfc2b91bfd5ea931ae32829926c80aed487"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-tube-support.test.mjs",
+      "bytes": 2636,
+      "sha256": "2bbc676aee00f03394a1c9a0594dfb3aeecec6a40698db1c71b68377fd3b762f"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture-current-geometry.test.mjs",
+      "bytes": 5109,
+      "sha256": "ad0c0555e693c8c9e2b14a3098b91acd04df6e7c45779615aaa86e81be452756"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture-selector.test.mjs",
+      "bytes": 7665,
+      "sha256": "046ce21a686e99c1a5a760f529b999cdca5b7f504961784bc087395b0b586eff"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture.mjs",
+      "bytes": 15024,
+      "sha256": "12e901efe79df75073eeeaf5462ac989a8e2892279253d27f8ee114c54be43d3"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture.test.mjs",
+      "bytes": 3224,
+      "sha256": "7d45da7f2862a45113fd677b511e3a3708161954615d5b7bf39e57f6e7b2bb6a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/chrome-port.mjs",
+      "bytes": 1083,
+      "sha256": "6775d3d389d26f37a52be8358aa88d1dc0aded63cb24ae20a936505a192e5d9d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/chrome-startup.test.mjs",
+      "bytes": 1838,
+      "sha256": "bd3c0eb4b699ebfbfd4efa5920acf386f31876ed490aaee839886dd8ed4cf797"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/curve-density.test.mjs",
+      "bytes": 4196,
+      "sha256": "5679ff6f139bfee47099cab2f475b041ddcb6813e812c67d13526679915831b6"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-actions.test.mjs",
+      "bytes": 3061,
+      "sha256": "bf3e2525ae4abbf07d27565418757139a8b305dcef4c287e11ae3da96f2107d3"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-async-until.test.mjs",
+      "bytes": 2743,
+      "sha256": "86058cb8456c1c9c2822c7a3ece698e2dba40a1a01f2746668cfe2e2cb193435"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-page-load.test.mjs",
+      "bytes": 1318,
+      "sha256": "a19d8f9335b023100cce3704013ae8e73d06e9b447978ffef66ed1aa3b4e2733"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-turn-controller.test.mjs",
+      "bytes": 2702,
+      "sha256": "2b7deda0e9706208ae9c21cc2ada09d623eebee9e0dfc512503b8ddbeb4ddcac"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.mjs",
+      "bytes": 23905,
+      "sha256": "49c22499827a2a5effb802513976bcb8b6dfced139bb4d677ff6e9edd2700eec"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.test.mjs",
+      "bytes": 3690,
+      "sha256": "c4f354f8c79e766858d913321fcb84786355e814ca2e096992a088b2181529f0"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/enter-key.test.mjs",
+      "bytes": 2560,
+      "sha256": "2592318f2b41735e4ff8ed2edcbc3abee46d81f9184b02dd99c121d8900d3838"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/fidelity-cut.test.mjs",
+      "bytes": 4852,
+      "sha256": "ab6cf4423852a1c1d32c3cb87f7bfab9e796effd57883a717ff8836adb2ac6c6"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/fidelity-tube-coverage.test.mjs",
+      "bytes": 3223,
+      "sha256": "eef7300ea786d82268811cc4e4153c1de913bae17cec58bd4a28f64ea875c525"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/inline-kit.mjs",
+      "bytes": 648,
+      "sha256": "01e08df7c2556ce52a7e8ed9009a332036b209ab7e42389874af2a65fda6e9db"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/line-ends.mjs",
+      "bytes": 16206,
+      "sha256": "da79cc624c5bda0cb8af8f864dbe53026e44ca2377dab3665076ad570d804f42"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-arcs.test.mjs",
+      "bytes": 2059,
+      "sha256": "ae915157d4bbdfe8e4af031c0e2e5f5f566c938ba7bb88884ae377489aff540e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-bezier.test.mjs",
+      "bytes": 1769,
+      "sha256": "7a95169325fed35eecb0c7aefcb806a48bfd09eaba3df5461dc2e30c5d0695f4"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-round.test.mjs",
+      "bytes": 2458,
+      "sha256": "7a012c3eb010b7f8082ee49ce939d6f35f384d188d897e3fd3708682c5d3a657"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-rounded-rect.test.mjs",
+      "bytes": 2527,
+      "sha256": "88d0a27b047895a00f5654f59d93c775fb8312a5c28be3b47b5e673d80efe5b6"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines.mjs",
+      "bytes": 1700,
+      "sha256": "b0ca73ab3a0d1cd4a28fda933496cbd7384ef315d821b5d2fffae1c704ce79cc"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines.test.mjs",
+      "bytes": 1537,
+      "sha256": "82931231d33d977bcc44c54b05bdb7b78c4ddebc422848ab59539018dd43583a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/navigation.test.mjs",
+      "bytes": 2255,
+      "sha256": "b9bd9d7360735e178b24e086e5c875e1703e3e0593e7ddff5f10fe0b4f0f7587"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/orbit-sampling.test.mjs",
+      "bytes": 2810,
+      "sha256": "ed6ce6b0dd32f6c7ab51a5a50ea2dd4b920858ff35d725bea22bee79e323b97a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-dots-opacity.test.mjs",
+      "bytes": 2817,
+      "sha256": "e7d2b5386f397efe4197b4607f2131170bf88dc52ccc3cfcfea2677f28d41aec"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-readout-first-write.test.mjs",
+      "bytes": 3846,
+      "sha256": "088a2d29d67e9638f7e43e9b5204c027566934d38302c0ee5e406752f2a4780a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-readout-target.test.mjs",
+      "bytes": 4657,
+      "sha256": "1354dc4a3fc44063034bd586b7e0e1e589804c65e47ee522c5c553dbded9e05d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-solid-seamless.test.mjs",
+      "bytes": 2752,
+      "sha256": "f45927c14dd6023eec7109da5db10cddd46cd46b21f58675a6d4dc6ca12122b0"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-visibility-target.test.mjs",
+      "bytes": 3844,
+      "sha256": "78c630aa974d2fbd04cb096a95b528d64d3027e2a9666b85e9d7a50965160925"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-audit-samples.test.mjs",
+      "bytes": 1370,
+      "sha256": "52eaa87e9cfea81c0b4b27ef35df9b1be7c28f823a9a12c1920b21272ff3f506"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-bench.mjs",
+      "bytes": 3863,
+      "sha256": "d86cd53e3702fa92e22b4052ee9bf47da10fd0a71401fe477bd8da2fe30b1631"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-check.mjs",
+      "bytes": 38355,
+      "sha256": "c76f93ad3aad63006b4539dd420d671e4665ac148ba733d3cd50b2ffd4b5c5f2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-convex-check.test.mjs",
+      "bytes": 1875,
+      "sha256": "044c35b5942d98c392753818297e3643777d55244508c3718f415c33ec90bd8d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-fidelity.mjs",
+      "bytes": 20340,
+      "sha256": "d033fa1fcff2672db9a823d5155b531d190875a42e2812091cb6079b14d4bf20"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-group-reference.test.mjs",
+      "bytes": 2174,
+      "sha256": "bfac2f910c80c7fcfba9e4861391552000a0f25414ae86576a9ef9ef46291412"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-rounded-polygon.test.mjs",
+      "bytes": 1533,
+      "sha256": "a6a7dec89a2864f68b559c64cb94731d697ef36221dc54ed100a539744f2ac04"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-split-owner.test.mjs",
+      "bytes": 3411,
+      "sha256": "829febf610ba09cdca651fbd86340f13932f241b4e3525a3d8566ac70d75a69d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/studio.mjs",
+      "bytes": 8672,
+      "sha256": "c229d3289a903ed0f588c2feb5724d09375cfdaf82a78ef16e77b824c131704e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-dots-dark.png",
+      "bytes": 4032,
+      "sha256": "f2e7655868e8564d81d274464c618cb330a603459a5fe63bf0bd22992e9c396d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-dots-light.png",
+      "bytes": 3848,
+      "sha256": "df72b8d04fd82bf1a1f63b29ea1676ead0570f9b36d55057d8b886087d869543"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-solid-dark.png",
+      "bytes": 9416,
+      "sha256": "529b58a497268540c2d74b590691f65605ba5d1882566d0462ff984e7a9248e1"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-solid-light.png",
+      "bytes": 9847,
+      "sha256": "5b344ec9017d06267531b8d01ad3b88062fb8003cd77ad90ecff37319c8dd085"
     },
     {
       "path": "skills/hyperframes-workflow/assets/animate-engine/ENGINE.md",
@@ -4298,8 +4913,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
-      "bytes": 6463,
-      "sha256": "9a0d626765a6f53b355317a6b587852436008d17ebd5d36f4b73a629a0c11550"
+      "bytes": 6801,
+      "sha256": "82f7d4b1380b9f299010f9da43be56a3c0f5fde5a3b72c0597a46679dc132bee"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
@@ -4323,8 +4938,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 6361,
-      "sha256": "6250484bcab9f53a57947c96b930372b0781867203ad2b402b532805800fbef0"
+      "bytes": 6837,
+      "sha256": "20eef7742519f7f105285553932ff415fe538d22348f19d15a2c9459fc56bbd3"
     },
     {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
@@ -5173,13 +5788,628 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 13162,
-      "sha256": "0009a37343aa62831275aef1af6cb1f46094625eefcc9942aec3114a5dc85b4c"
+      "bytes": 18179,
+      "sha256": "66a8c4044768f5a32e9a70f5e906b4358faf670e3a51f4d00c17959601f30a3d"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
       "bytes": 349,
       "sha256": "c72c02ffadbcb052a4315dced06ac60cdbacea498558eaaf8a17d8ae90ab3eec"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/LICENSE",
+      "bytes": 1069,
+      "sha256": "f68cc121d7f856ec3f48993c5082960f267bd752acea4e2f694408ef55d6cfdd"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/README.md",
+      "bytes": 10418,
+      "sha256": "e819039d09bc8bdda9566c5f376166622c62055194d6b1f463a1dc2506bc3fac"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/SKILL.source.md",
+      "bytes": 17630,
+      "sha256": "65ec4bd58732e8cc11e244724e8666de78764b973f6d3b03b233904639cf47c6"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/TRADEMARKS.md",
+      "bytes": 1121,
+      "sha256": "ab18040350a507ad0f6e246ffc0cae00f38b5c933a4c62a27d8d5ee898e1325d"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/catalog.json",
+      "bytes": 911658,
+      "sha256": "02361c9f9867cdc009893cae669079492d71330e1aaa60dfa4d3b99e65f47457"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/classifications.json",
+      "bytes": 562578,
+      "sha256": "92e948074f4c1ac0f745c5b166932edb391cb94742b1f7b35850059c34153b3e"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/gallery.html",
+      "bytes": 512828,
+      "sha256": "15c3cf6c6b975ffcb41f670524df3cc9df53abbf15fc6fe1746efb27bba2b16b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/stats.json",
+      "bytes": 3544,
+      "sha256": "d7d606a6124230e4a7e6fe9443a291bb0e5b8d4d1d00d25656e14ab33c604dd8"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/alderpeak-board.png",
+      "bytes": 32207,
+      "sha256": "13209e64e5ef0ecbf8f57ffb1de29596b24067e81bae572d67f4a8f2759fc5eb"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/alderpeak-concepts.png",
+      "bytes": 63278,
+      "sha256": "989d5f1d39d243c49b0575201f9ad902b2d32ec904de8afbff12d4edcc07905f"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/bramble-vet-board.png",
+      "bytes": 41479,
+      "sha256": "ab73a44187ce774141ab8abbc76649a38c749d3d004c45c2d23046b1592c6842"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/bramble-vet-concepts.png",
+      "bytes": 59925,
+      "sha256": "ebfa014ff9fbe28cd0c17a701a2b5c36039300e8de497b757acbab0da4f9d3ba"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brawnhall-board.png",
+      "bytes": 38769,
+      "sha256": "c4dd3b94e9c98619e80bc5e3261984ca42b94486784e5223133af0b1a9ee38e0"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brawnhall-concepts.png",
+      "bytes": 52397,
+      "sha256": "93759aee67022de0f66056fdfdf230845ec149a946261d85b6d0ddf4921c2d4e"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brightdose-board.png",
+      "bytes": 41161,
+      "sha256": "bf5e98dc195b365b6b24a7a2c61a7ffe8b5a57b39e2a715a999768232809f710"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brightdose-concepts.png",
+      "bytes": 58145,
+      "sha256": "ede9c6d1c839cedbbb0d6e5e7ea7eca38e03f4bbad3f71ae26779659e2bbf390"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/calmera-board.png",
+      "bytes": 38313,
+      "sha256": "8e7ffaea3d0feb0d2ff96b371a9a83471801b2c2d35c74c0f3e280d5ae95df1d"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/calmera-concepts.png",
+      "bytes": 52270,
+      "sha256": "d8c63217c1f6c4fd09e525bc910fca111cf109c8013010f688c88f2777cec133"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/covers-28.png",
+      "bytes": 149434,
+      "sha256": "617273ecec48a47ea98f1b615c9f7d8badda4a44df486c05ab2902b31303e620"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/driftwell-board.png",
+      "bytes": 35604,
+      "sha256": "99f6a3ba21d179c35cee75ef4d5242a7e81c3bf47b0438ec3f021843074cf976"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/driftwell-concepts.png",
+      "bytes": 65307,
+      "sha256": "509b9b1c1ad892419347d37131ade1860d80a0946973c3f582611863dbf7d8c1"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/hearsay-board.png",
+      "bytes": 43515,
+      "sha256": "fbc28fc9a4ba011af3f20e06736a880392bedd4bffffd9c89e27f658fe2218d3"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/hearsay-concepts.png",
+      "bytes": 53174,
+      "sha256": "b019531e098b3bbafce75dbeb5e6cea73c909e35a1a50162c28d7d0b0f693030"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/hero.png",
+      "bytes": 82093,
+      "sha256": "2dca895f48c52b751ccd8c0a62f2d6a5bfca307edced748f97839c7ba9109fc1"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/keyfort-board.png",
+      "bytes": 43045,
+      "sha256": "78dad8b3433b5ccda3df05c9c3b6c4b0573524047628eb118be1f9d7e198baee"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/keyfort-concepts.png",
+      "bytes": 48711,
+      "sha256": "8c9d23928aad99777f15335eb598f342328c51606e3936010a2ae6e30a8201a9"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kiln-board.png",
+      "bytes": 33413,
+      "sha256": "b5c5d6d3b0187be63d4dd2fd06e0f2d598b861e68146a4491a7e78e3938adc06"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kiln-concepts.png",
+      "bytes": 42839,
+      "sha256": "f305687fb39e19c0ad8bf56af6c195fd474168d9a3204abfb233c249c08529d8"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kitewire-board.png",
+      "bytes": 42073,
+      "sha256": "faa6adf11402e93864e0eb03eb71b60a3a5c82585c2c64572bd1014416578199"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kitewire-concepts.png",
+      "bytes": 52750,
+      "sha256": "1ac3c81f33ad49a6ad146263e09293d4fc0102a1b42e68491edde4ec2ae3582f"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/loafwright-board.png",
+      "bytes": 34671,
+      "sha256": "49a38fc20d62d5fd38fe84f6548260385a97345a9ee1f8c84e85bf4f5b0c2129"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/loafwright-concepts.png",
+      "bytes": 56876,
+      "sha256": "adc23c82602dd8fb9d48387c9cc3b483af04c3c9862773650ad80c9a2160de06"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/maison-orvelle-board.png",
+      "bytes": 34376,
+      "sha256": "b659b52f490f588ec5593b5b47b4438b9f0d07e7019244f83c65be175c820225"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/maison-orvelle-concepts.png",
+      "bytes": 56836,
+      "sha256": "a7678e78bb8e0dd1eae38235d89832c8f465708c8716c74ec8679915d5c0e6ad"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/marlow-finch-board.png",
+      "bytes": 46369,
+      "sha256": "db653386d922bcf82b23b895999f5f1c0c484fd62beef83e83f926a932b3523b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/marlow-finch-concepts.png",
+      "bytes": 60623,
+      "sha256": "96605b83a9f94b6c9d857290857eca4d9ec392ab6e1d5a07dd5420c79f9e9910"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mediora-board.png",
+      "bytes": 42834,
+      "sha256": "cbb27a9a25e698a2d28607a8a90ee9a547e5ec73cea013a5259d3bb2ae51eff5"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mediora-concepts.png",
+      "bytes": 59160,
+      "sha256": "f7a099f3c75be28f506b8a5cfd53bdfbf79a0a1a1fde4d630b988e45c9374625"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mothlight-board.png",
+      "bytes": 41665,
+      "sha256": "ce630e616324b60f01a5f1d93b136cc9ad68ca2b98cf6110411ac01723dabb42"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mothlight-concepts.png",
+      "bytes": 57074,
+      "sha256": "45e4caa0e1e39512abafffd1fa535e7a302cdfb59380e9bc2067a18bd2d9792d"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/norrvik-board.png",
+      "bytes": 44310,
+      "sha256": "4455290323861f935f4d6d5047478b7fcfac409374f12cc41de1239d39011cce"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/norrvik-concepts.png",
+      "bytes": 58187,
+      "sha256": "118dad0576093dfe1b02e65d7374370cd3da497d4c0de2facbbd5f97c9e4ae6d"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/northvault-board.png",
+      "bytes": 42346,
+      "sha256": "e0b011bd200bb8a2ad5b5a55c1d4ea1baa9e64c9234f8245b4491a2ef90635ff"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/northvault-concepts.png",
+      "bytes": 49216,
+      "sha256": "0b192645d8b602c4fca92862fbd8acf3d18a74d2d639f8b5bc6b7b33e487c28c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/pulsewave-board.png",
+      "bytes": 35835,
+      "sha256": "44d355dde34ce3db99a0dcaa82b2ae52b83367af0a358881be9fc34ae5bbeb6d"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/pulsewave-concepts.png",
+      "bytes": 66333,
+      "sha256": "2a4597ea0ccaf8492c1715583a4cc081dcb8d5677c2fb93196498ff2ff23413f"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/ralli-board.png",
+      "bytes": 36887,
+      "sha256": "bf671732995f422940d9395809c26f748901ebf39e9362f906b7a59a48ca498a"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/ralli-concepts.png",
+      "bytes": 53869,
+      "sha256": "fc7f90b5ebdc16cf922df671aca9c9bcb0492cfb65d517d93237755665da65b3"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/relaydesk-board.png",
+      "bytes": 45280,
+      "sha256": "87668d012564689f7aaead972a38cbdb7ec9d689c77c2a9f314bedb4d8d78a0e"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/relaydesk-concepts.png",
+      "bytes": 56132,
+      "sha256": "dd013a2e20bf9aa1b7664209728530a3ed617d17f70d7e79333a09d2a51af908"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/roamwheel-board.png",
+      "bytes": 47067,
+      "sha256": "c4bd2a5dfc5ce990cd46bba7b0b09545d8cb55be2b87ae9feb99abbd4a19d439"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/roamwheel-concepts.png",
+      "bytes": 56017,
+      "sha256": "4bd299fb0910cd2ed046c9dbd6a85c792e4e127e4027d1ff200c3f4268ed203f"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/solenne-board.png",
+      "bytes": 35838,
+      "sha256": "8b30ac38b52a7f3bfbdfe39821d0960224863a676269d5d497e276dc09eea53e"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/solenne-concepts.png",
+      "bytes": 59036,
+      "sha256": "ec8958a4813bb3aab2f20e4f43f64e426f2c367326f363f74d6e4af7fbf78612"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/stillbrook-board.png",
+      "bytes": 32734,
+      "sha256": "5b5c387ea9eea391f175367212c2cf71f74ed92f601a24f72ed5886c0cca0f7c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/stillbrook-concepts.png",
+      "bytes": 56576,
+      "sha256": "d15fb1e09621629399e2af3597f1b4476c6ff56213cb93ef57a9d62dcde85ad0"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tallybook-board.png",
+      "bytes": 42820,
+      "sha256": "97e959d965623c5cf152c8d512dcb706f292bfec45fa2a18d598b6036700c0bd"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tallybook-concepts.png",
+      "bytes": 56370,
+      "sha256": "b29718d4f153ab3cbc592431645d788ab98f208bfedc00477082275ee90e4a24"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/test-sheet.png",
+      "bytes": 34490,
+      "sha256": "7e910818fb596191cb933f01801f9db5e09c9bf4cbab7808a859ddaf5821ea1b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/alderpeak.png",
+      "bytes": 4054,
+      "sha256": "aecb959bbe6b9158e971310f96be52853d0fc8f25514ffc2b30a1e1196089ffd"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/bramble-vet.png",
+      "bytes": 5281,
+      "sha256": "00ceaa93320af3715be7412a94cb283a3b5046876898d454d29414a94da6e631"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/brawnhall.png",
+      "bytes": 3269,
+      "sha256": "1e24d42cb3de47d3cedeee249ddcb348a7bb68e055868a499aef88020f7aa18c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/brightdose.png",
+      "bytes": 4371,
+      "sha256": "ccd462680d7161f83546fa1189ea900158c31cd6631469b6028ac301cf9964a6"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/calmera.png",
+      "bytes": 3981,
+      "sha256": "55c22e29a070b6ef23742749e113ec577886aa51e87cddd574f835b6e5413f4b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/driftwell.png",
+      "bytes": 5314,
+      "sha256": "a42d0a3703de7a92e80a49632c5d260d10b07bf0a9a497d92bc88ee82de29c00"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/hearsay.png",
+      "bytes": 2464,
+      "sha256": "306ead65b0065e7d11145ce16f88ac334781161861d34b861f1341c6f664b2df"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/keyfort.png",
+      "bytes": 2053,
+      "sha256": "0d5884210504f73bcc23c455a7ad100899b45a8bb1510e15a672b53807b4db5c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/kiln.png",
+      "bytes": 3460,
+      "sha256": "880381869f009c441b447006109601716c9c3e9ac53a300b65f9601b71d68189"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/kitewire.png",
+      "bytes": 3029,
+      "sha256": "63f6758ef5ab0ecbcb69b34a8178d612f341585767b0c9843be3235cdf9b5434"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/loafwright.png",
+      "bytes": 3813,
+      "sha256": "9a0ad723d07da9dca49f90910f1e5b9c20fbeefb8479c9171b2f50c7d094308e"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/maison-orvelle.png",
+      "bytes": 4249,
+      "sha256": "2a164d6b7a7b0e9e1262fcd661727ee77b45ea32f3f11b3ca1611bee179be3b9"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/marlow-finch.png",
+      "bytes": 5501,
+      "sha256": "2e20c5ecf813668e9ee9d9fa8af978a6f945df3fb939a86740d59925b3e34a5a"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/mediora.png",
+      "bytes": 4968,
+      "sha256": "b330edd971e47a179cb78a4d2fbc268326f4deb2f84da0e5d47f6a5c75d42f0a"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/mothlight.png",
+      "bytes": 4385,
+      "sha256": "214e7dd30a7d1982b87cc8525d0672b40474368e99e4d67701fe06c3e1b802bd"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/norrvik.png",
+      "bytes": 4832,
+      "sha256": "4e4f6511f178733fba453ac9c4cc3bf80d0a245744b60d729dcabc2e9c123ec4"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/northvault.png",
+      "bytes": 3041,
+      "sha256": "c409d4e77c61551201f28ae33a02e2d15c87dd8a906ef11b5fe36109b734349d"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/pulsewave.png",
+      "bytes": 5627,
+      "sha256": "0fccc2fe843702348ee578cc530f927a3c32c482aeba7f919bd10378834eb869"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/ralli.png",
+      "bytes": 4835,
+      "sha256": "5e6fe31392fca4bd6e4c45183b5ff8939079ba96fe54cf743c293591a724d7af"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/relaydesk.png",
+      "bytes": 3905,
+      "sha256": "3964a193375a9da24741cf2e3043f027b9b90292fc6c2a4fb3ace985f40a2bbe"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/roamwheel.png",
+      "bytes": 6741,
+      "sha256": "88d751910bf98627bac08b3e6bc556bb60aedc65d2a0a3977c3b9365cea71da6"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/solenne.png",
+      "bytes": 3721,
+      "sha256": "9c1bdbe770f1e5dbb7ec22c1f5fc05285b9b62bb48fe99f2417f4345746c29ee"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/stillbrook.png",
+      "bytes": 4663,
+      "sha256": "548854ca8ec1cde70fc7acee37808d84f07149a908add0b565763d1de152289b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/tallybook.png",
+      "bytes": 2956,
+      "sha256": "75be942b84b17f28dd493dbb5f99a33df60bb15d57751d2829944f6a83cbfcf5"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/tinkertrail.png",
+      "bytes": 3157,
+      "sha256": "ae3b063d368feb2ceb6b024e1e677021070077252970fb21df9682f9760e4a40"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/tracelane.png",
+      "bytes": 3024,
+      "sha256": "70d2b0a1d2d041ed1c4b34e9ef6e3d1a7dbab0ea24109d7321e5fda7ba1e0da5"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/voltra.png",
+      "bytes": 3155,
+      "sha256": "83607a0bf75ac392877195559e8c912c4d71fc108f350033af5169366d245a2b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/zestly.png",
+      "bytes": 5589,
+      "sha256": "a62677c250f7bb3d9df1befb8ad48b397679fbf530ccf8d4b1a5f4d7840fac51"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tinkertrail-board.png",
+      "bytes": 34895,
+      "sha256": "3a677d94462b22c5cc624e4341b58c7e36c521a6d88e09d4385dbfe9be2769cf"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tinkertrail-concepts.png",
+      "bytes": 57662,
+      "sha256": "f32b37e76c80221f077be99d1b73f711e7dd32eb6b52ffa58e3aacf5d6b5ef87"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tracelane-board.png",
+      "bytes": 40776,
+      "sha256": "9cde3ec40191ad7798bb45c623cd1b95f1f8c8932d6c022fb2e24b57d43a2aba"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tracelane-concepts.png",
+      "bytes": 49250,
+      "sha256": "80cb3450e75b363129adaff87a1347f19383afc854d2f58a008f0b838d3c872a"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/voltra-board.png",
+      "bytes": 37795,
+      "sha256": "564d1ae04dd41becdca2bcc64e0da8c0643e9dce954fb3b2b92fe5e1cefd1176"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/voltra-concepts.png",
+      "bytes": 54986,
+      "sha256": "14a64a857f4f51896c753859eefd86aa943bda4bde2651fe55e2b121829fa2e6"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/zestly-board.png",
+      "bytes": 38574,
+      "sha256": "bfef7ac57e9f4043b3a663da86a569396b09af0fa82275d7fac57f3c5009f320"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/zestly-concepts.png",
+      "bytes": 67509,
+      "sha256": "13c63cae58cd6460262b852006018beebe683d6b4e6ba2cd8c6884060ef6fca3"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/examples.html",
+      "bytes": 16884,
+      "sha256": "cda851709d6944848a788d1e57d87947378c6b995d82d6e456d579bf5ebb7249"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/reference-corpus.json",
+      "bytes": 181401,
+      "sha256": "c88f8cc50e5a8fcca0ade5bc85247a462763e66ed4e5a5723e46ce39289c8b33"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/color.md",
+      "bytes": 8627,
+      "sha256": "d1118d401b9ada111ba2402fe55035118780c928fd8be616b0a4940dc0d65299"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/critique.md",
+      "bytes": 4014,
+      "sha256": "fcddb803542c21adcc13cfdc0c9f399de377ff931173898a2ed6c114585ced0b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/discovery-brief.md",
+      "bytes": 10178,
+      "sha256": "2a5713518116765d673fe1a753843db24c9849d6a1eb678c6209120d8bb032da"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/identity-system.md",
+      "bytes": 8993,
+      "sha256": "1b0c800f5b85cb727d284d51c42c5783934638ee6585c989740c1ead0ffefdfa"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/library-guide.md",
+      "bytes": 10665,
+      "sha256": "2d7dbba98115b695607402a4f36152d4d170eba4345030580a0829037025e9aa"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/mark-types.md",
+      "bytes": 11336,
+      "sha256": "8b3d994165bff278ba8df93a11544df731d8ee8c01b191c123c79fb996815ec3"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/presentation-delivery.md",
+      "bytes": 8391,
+      "sha256": "b004fe0833942e94249e511f3b04de6ccde7e5cb7a1245b9c3ecd2da3abe4244"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/principles.md",
+      "bytes": 14423,
+      "sha256": "6c60bb73fb977361f42e80f51f61a58c3f4bd1c69ace56f4fdbcbd743a4b74aa"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/process.md",
+      "bytes": 8075,
+      "sha256": "6687f8820eeff041411272c74507bf91084d6198a6835605e76d9c25dd2deb7f"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/redesign.md",
+      "bytes": 4404,
+      "sha256": "99ad53dd73d4754ff74e0caef178a924c877901eb6ec4aae4a1a7d3a4c219c07"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/svg-construction.md",
+      "bytes": 10766,
+      "sha256": "6ae70e4a5ea4e045a8f9be55a6052b0841d6221dc8fbebd7e39bd86425789afb"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/testing-checklist.md",
+      "bytes": 4899,
+      "sha256": "23a8a6a58f0bab759a2dd1d72700aff5c24fa3fc99fd382c3fb5d2603b504bf9"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/typography.md",
+      "bytes": 8614,
+      "sha256": "f6373a47336a5bb6a2ab88993868f7ab74ab158b21635ec422ba8fd30541f19c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/visual-techniques.md",
+      "bytes": 15013,
+      "sha256": "af420957e1750e9ca0c01c4d0ad9c8d3458ad53ef3581dac956c14a15f883197"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/build_catalog.py",
+      "bytes": 10916,
+      "sha256": "cd7964f2e69410b468d2271e3cbda988e9dcb05be1cda2e1055ae4301ff75fd3"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/concept_sheet.py",
+      "bytes": 7715,
+      "sha256": "b7fe519c276f9f161fb1d8a96e5b320724c15309f7a446fd64722ab5cefeab3b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/export_variants.py",
+      "bytes": 12853,
+      "sha256": "d56dc288acabced18be3c0aa8f3ce437f5d785def8900609582579de4eb2a17e"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/presentation_board.py",
+      "bytes": 33426,
+      "sha256": "f0939ed40ce800f85ef54c4934d5da78f01987e63a42650c482808cc35d5049c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/preview_sheet.py",
+      "bytes": 14986,
+      "sha256": "ef1b6b8dac1d41c7db2b52a43b939ba73bc006a3c27a97845eb1db215e5bcd7b"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/render_png.py",
+      "bytes": 16665,
+      "sha256": "f6083837ff3edf4c6006ce119d379b3ac0fcd7cd6db07b99b613e0060bd43c21"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/search_library.py",
+      "bytes": 10205,
+      "sha256": "da5e0b0a87678c92d055ff98721df04d327ca8d24ee03a8efbf56fdaa87c66e1"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/svg_audit.py",
+      "bytes": 13792,
+      "sha256": "b002c9dd6a26f80a5dfd4a4b48ace172edc4b13229e09e7e17fa4a4d07c0bde0"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/svglib.py",
+      "bytes": 20557,
+      "sha256": "18cfab3bfde4a94a1bcae27a96bcc7b99fa1320e344ebf8a9cb914347247261c"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/studio_logo.py",
+      "bytes": 15623,
+      "sha256": "82e90455ef79ff6dba82dc43da470db7339811660ff652a3e590d65378777468"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/templates/brand-guidelines-template.md",
+      "bytes": 1755,
+      "sha256": "277d8dc564276d1e88edf0ace8e9216191807dbc78a2b7a392d15e5dfeb55cee"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/templates/presentation-spec.example.json",
+      "bytes": 1863,
+      "sha256": "0f881428ab30c527fc03b47f54a9bca8f68ee5d10515c9abee47d97fa69483d7"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/static-render/README.md",
@@ -5679,7 +6909,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 30549,
-      "sha256": "2fa4e2797dd49894305ed7f06da251dab47c3ad1f9a773fc7d53918a02830916"
+      "sha256": "f44f853de4d31b0442fbed4638544b3656a05fa73ece04904f7e7c570835d9a4"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5693,8 +6923,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 34941,
-      "sha256": "5c1f0ac08688b45f99eb6e62cadd9e096b1804d30b8c2c790ee442f06b4ecfc3"
+      "bytes": 37980,
+      "sha256": "3ac40ce58a9b40074d5a1b31e4228b004fa6c2fde0c39dade92572eac414041f"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -5718,8 +6948,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 41930,
-      "sha256": "de7354195385bca8994c1c9e262ba204b651b8e24b630bcf8758ab5950ae9298"
+      "bytes": 55253,
+      "sha256": "035bb8a181a45aee802645b3be810c064b300a024e6de7f88df812dd80bf765c"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -5803,8 +7033,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/brand-identity-workflow.md",
-      "bytes": 10442,
-      "sha256": "fced9a944c2183b3faf1779240cdbe436ed646a925338268b4ccda929f533fa7"
+      "bytes": 10758,
+      "sha256": "4c8481cff2f6f2dbeaaf3a3e7e39bebf064526cae73ab1a006502d75587cd1f1"
     },
     {
       "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
@@ -5868,8 +7098,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/teacher-workflow.md",
-      "bytes": 7511,
-      "sha256": "0a6a793975eb738312e48e7d85b2b505334fc80d20848e8342da8cd9cf4bae26"
+      "bytes": 8058,
+      "sha256": "122a44550632be10286ee25dd9526dd784cad09a972ac4ea3759c2d3136e08e1"
     },
     {
       "path": "skills/workflow-orchestrator/references/thread-link-and-cross-host-resume.md",
@@ -5910,6 +7140,11 @@
       "path": "skills/workflow-self-improvement/templates/improvement-log.md",
       "bytes": 815,
       "sha256": "bd14ac5d6ccc259f5b031b4a2d51931e5cb0120acf1983d0cdbbc48e1327671e"
+    },
+    {
+      "path": "tests/anatomy-engine.test.mjs",
+      "bytes": 6462,
+      "sha256": "a991a73413e57b784dc876f683d03d6a0af6082709abe45639e34b4daaef17d8"
     },
     {
       "path": "tests/animate_engine_test.py",
@@ -5963,8 +7198,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 6253,
-      "sha256": "b398a4220cafb5d697af270d1d77608a79d1c90423441f107d5ed8f7867e9220"
+      "bytes": 9796,
+      "sha256": "99dc629242413a9d1492ae89c07392808a05abe216f4ec3232f554a2d22ac28b"
     },
     {
       "path": "tests/image_probe_test.py",
@@ -5975,6 +7210,11 @@
       "path": "tests/learning-mode.test.mjs",
       "bytes": 21531,
       "sha256": "ba36d0b6b0894ac6bc9524bfa7d5df980f36f2bed25af624a5b921d678a184fb"
+    },
+    {
+      "path": "tests/logo-design-engine.test.mjs",
+      "bytes": 9343,
+      "sha256": "be975f6c41c12c2fae9905c664108886dc2d597f288614b4fbd0a8b02b480478"
     },
     {
       "path": "tests/lyric_timing_test.py",

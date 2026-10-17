@@ -1,0 +1,677 @@
+{
+  "repository": "https://github.com/kaankiziltug/logo-design-skill",
+  "commit": "0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134",
+  "version": "1.4.4",
+  "reviewed": "2026-10-17",
+  "scope": "Complete reusable source: nine Python tools, fourteen chapters, two templates, four catalog files, upstream source instructions and all fictional example images. Brand SVG corpus excluded from redistribution; existing tools can read a separately supplied pinned corpus.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "f68cc121d7f856ec3f48993c5082960f267bd752acea4e2f694408ef55d6cfdd"
+    },
+    {
+      "path": "TRADEMARKS.md",
+      "sha256": "ab18040350a507ad0f6e246ffc0cae00f38b5c933a4c62a27d8d5ee898e1325d"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e513d849125861c99e28096e6f48e0487a8de8d4dea7acfd7867ea6b122fdf93"
+    },
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "ac91b08ba9415e57f1025fc4cc01fdfc0129656b7b26608e32164a33049439b0"
+    },
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "b07d86d28ab46016d71b0f81441e687469134ccca9302883f0e32f3a2c87246a"
+    },
+    {
+      "path": "skills/logo-design/SKILL.md",
+      "sha256": "65ec4bd58732e8cc11e244724e8666de78764b973f6d3b03b233904639cf47c6"
+    },
+    {
+      "path": "skills/logo-design/references/testing-checklist.md",
+      "sha256": "23a8a6a58f0bab759a2dd1d72700aff5c24fa3fc99fd382c3fb5d2603b504bf9"
+    },
+    {
+      "path": "skills/logo-design/references/visual-techniques.md",
+      "sha256": "af420957e1750e9ca0c01c4d0ad9c8d3458ad53ef3581dac956c14a15f883197"
+    },
+    {
+      "path": "skills/logo-design/scripts/svg_audit.py",
+      "sha256": "b002c9dd6a26f80a5dfd4a4b48ace172edc4b13229e09e7e17fa4a4d07c0bde0"
+    },
+    {
+      "path": "skills/logo-design/scripts/svglib.py",
+      "sha256": "18cfab3bfde4a94a1bcae27a96bcc7b99fa1320e344ebf8a9cb914347247261c"
+    },
+    {
+      "path": "tools/package_skill.py",
+      "sha256": "1651ebb7899d9c634406971694164a2dcb8a56133bafee584d8898aac64ab29c"
+    },
+    {
+      "path": "tools/smoke_test.py",
+      "sha256": "b8e8fbd1ca6975a5809acd03dbbd41290c030a104229eeebc9b707890ffcad9f"
+    }
+  ],
+  "bundled_files": [
+    {
+      "source_path": "skills/logo-design/scripts/build_catalog.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/build_catalog.py",
+      "sha256": "cd7964f2e69410b468d2271e3cbda988e9dcb05be1cda2e1055ae4301ff75fd3"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/concept_sheet.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/concept_sheet.py",
+      "sha256": "b7fe519c276f9f161fb1d8a96e5b320724c15309f7a446fd64722ab5cefeab3b"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/export_variants.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/export_variants.py",
+      "sha256": "d56dc288acabced18be3c0aa8f3ce437f5d785def8900609582579de4eb2a17e"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/presentation_board.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/presentation_board.py",
+      "sha256": "f0939ed40ce800f85ef54c4934d5da78f01987e63a42650c482808cc35d5049c"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/preview_sheet.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/preview_sheet.py",
+      "sha256": "ef1b6b8dac1d41c7db2b52a43b939ba73bc006a3c27a97845eb1db215e5bcd7b"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/render_png.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/render_png.py",
+      "sha256": "f6083837ff3edf4c6006ce119d379b3ac0fcd7cd6db07b99b613e0060bd43c21"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/search_library.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/search_library.py",
+      "sha256": "da5e0b0a87678c92d055ff98721df04d327ca8d24ee03a8efbf56fdaa87c66e1"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/svg_audit.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/svg_audit.py",
+      "sha256": "b002c9dd6a26f80a5dfd4a4b48ace172edc4b13229e09e7e17fa4a4d07c0bde0"
+    },
+    {
+      "source_path": "skills/logo-design/scripts/svglib.py",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/scripts/svglib.py",
+      "sha256": "18cfab3bfde4a94a1bcae27a96bcc7b99fa1320e344ebf8a9cb914347247261c"
+    },
+    {
+      "source_path": "skills/logo-design/references/color.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/color.md",
+      "sha256": "d1118d401b9ada111ba2402fe55035118780c928fd8be616b0a4940dc0d65299"
+    },
+    {
+      "source_path": "skills/logo-design/references/critique.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/critique.md",
+      "sha256": "fcddb803542c21adcc13cfdc0c9f399de377ff931173898a2ed6c114585ced0b"
+    },
+    {
+      "source_path": "skills/logo-design/references/discovery-brief.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/discovery-brief.md",
+      "sha256": "2a5713518116765d673fe1a753843db24c9849d6a1eb678c6209120d8bb032da"
+    },
+    {
+      "source_path": "skills/logo-design/references/identity-system.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/identity-system.md",
+      "sha256": "1b0c800f5b85cb727d284d51c42c5783934638ee6585c989740c1ead0ffefdfa"
+    },
+    {
+      "source_path": "skills/logo-design/references/library-guide.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/library-guide.md",
+      "sha256": "2d7dbba98115b695607402a4f36152d4d170eba4345030580a0829037025e9aa"
+    },
+    {
+      "source_path": "skills/logo-design/references/mark-types.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/mark-types.md",
+      "sha256": "8b3d994165bff278ba8df93a11544df731d8ee8c01b191c123c79fb996815ec3"
+    },
+    {
+      "source_path": "skills/logo-design/references/presentation-delivery.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/presentation-delivery.md",
+      "sha256": "b004fe0833942e94249e511f3b04de6ccde7e5cb7a1245b9c3ecd2da3abe4244"
+    },
+    {
+      "source_path": "skills/logo-design/references/principles.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/principles.md",
+      "sha256": "6c60bb73fb977361f42e80f51f61a58c3f4bd1c69ace56f4fdbcbd743a4b74aa"
+    },
+    {
+      "source_path": "skills/logo-design/references/process.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/process.md",
+      "sha256": "6687f8820eeff041411272c74507bf91084d6198a6835605e76d9c25dd2deb7f"
+    },
+    {
+      "source_path": "skills/logo-design/references/redesign.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/redesign.md",
+      "sha256": "99ad53dd73d4754ff74e0caef178a924c877901eb6ec4aae4a1a7d3a4c219c07"
+    },
+    {
+      "source_path": "skills/logo-design/references/svg-construction.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/svg-construction.md",
+      "sha256": "6ae70e4a5ea4e045a8f9be55a6052b0841d6221dc8fbebd7e39bd86425789afb"
+    },
+    {
+      "source_path": "skills/logo-design/references/testing-checklist.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/testing-checklist.md",
+      "sha256": "23a8a6a58f0bab759a2dd1d72700aff5c24fa3fc99fd382c3fb5d2603b504bf9"
+    },
+    {
+      "source_path": "skills/logo-design/references/typography.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/typography.md",
+      "sha256": "f6373a47336a5bb6a2ab88993868f7ab74ab158b21635ec422ba8fd30541f19c"
+    },
+    {
+      "source_path": "skills/logo-design/references/visual-techniques.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/references/visual-techniques.md",
+      "sha256": "af420957e1750e9ca0c01c4d0ad9c8d3458ad53ef3581dac956c14a15f883197"
+    },
+    {
+      "source_path": "skills/logo-design/templates/brand-guidelines-template.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/templates/brand-guidelines-template.md",
+      "sha256": "277d8dc564276d1e88edf0ace8e9216191807dbc78a2b7a392d15e5dfeb55cee"
+    },
+    {
+      "source_path": "skills/logo-design/templates/presentation-spec.example.json",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/templates/presentation-spec.example.json",
+      "sha256": "0f881428ab30c527fc03b47f54a9bca8f68ee5d10515c9abee47d97fa69483d7"
+    },
+    {
+      "source_path": "skills/logo-design/assets/library/catalog.json",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/catalog.json",
+      "sha256": "02361c9f9867cdc009893cae669079492d71330e1aaa60dfa4d3b99e65f47457"
+    },
+    {
+      "source_path": "skills/logo-design/assets/library/classifications.json",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/classifications.json",
+      "sha256": "92e948074f4c1ac0f745c5b166932edb391cb94742b1f7b35850059c34153b3e"
+    },
+    {
+      "source_path": "skills/logo-design/assets/library/gallery.html",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/gallery.html",
+      "sha256": "15c3cf6c6b975ffcb41f670524df3cc9df53abbf15fc6fe1746efb27bba2b16b"
+    },
+    {
+      "source_path": "skills/logo-design/assets/library/stats.json",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/assets/library/stats.json",
+      "sha256": "d7d606a6124230e4a7e6fe9443a291bb0e5b8d4d1d00d25656e14ab33c604dd8"
+    },
+    {
+      "source_path": "docs/images/alderpeak-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/alderpeak-board.png",
+      "sha256": "13209e64e5ef0ecbf8f57ffb1de29596b24067e81bae572d67f4a8f2759fc5eb"
+    },
+    {
+      "source_path": "docs/images/alderpeak-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/alderpeak-concepts.png",
+      "sha256": "989d5f1d39d243c49b0575201f9ad902b2d32ec904de8afbff12d4edcc07905f"
+    },
+    {
+      "source_path": "docs/images/bramble-vet-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/bramble-vet-board.png",
+      "sha256": "ab73a44187ce774141ab8abbc76649a38c749d3d004c45c2d23046b1592c6842"
+    },
+    {
+      "source_path": "docs/images/bramble-vet-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/bramble-vet-concepts.png",
+      "sha256": "ebfa014ff9fbe28cd0c17a701a2b5c36039300e8de497b757acbab0da4f9d3ba"
+    },
+    {
+      "source_path": "docs/images/brawnhall-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brawnhall-board.png",
+      "sha256": "c4dd3b94e9c98619e80bc5e3261984ca42b94486784e5223133af0b1a9ee38e0"
+    },
+    {
+      "source_path": "docs/images/brawnhall-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brawnhall-concepts.png",
+      "sha256": "93759aee67022de0f66056fdfdf230845ec149a946261d85b6d0ddf4921c2d4e"
+    },
+    {
+      "source_path": "docs/images/brightdose-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brightdose-board.png",
+      "sha256": "bf5e98dc195b365b6b24a7a2c61a7ffe8b5a57b39e2a715a999768232809f710"
+    },
+    {
+      "source_path": "docs/images/brightdose-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/brightdose-concepts.png",
+      "sha256": "ede9c6d1c839cedbbb0d6e5e7ea7eca38e03f4bbad3f71ae26779659e2bbf390"
+    },
+    {
+      "source_path": "docs/images/calmera-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/calmera-board.png",
+      "sha256": "8e7ffaea3d0feb0d2ff96b371a9a83471801b2c2d35c74c0f3e280d5ae95df1d"
+    },
+    {
+      "source_path": "docs/images/calmera-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/calmera-concepts.png",
+      "sha256": "d8c63217c1f6c4fd09e525bc910fca111cf109c8013010f688c88f2777cec133"
+    },
+    {
+      "source_path": "docs/images/covers-28.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/covers-28.png",
+      "sha256": "617273ecec48a47ea98f1b615c9f7d8badda4a44df486c05ab2902b31303e620"
+    },
+    {
+      "source_path": "docs/images/driftwell-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/driftwell-board.png",
+      "sha256": "99f6a3ba21d179c35cee75ef4d5242a7e81c3bf47b0438ec3f021843074cf976"
+    },
+    {
+      "source_path": "docs/images/driftwell-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/driftwell-concepts.png",
+      "sha256": "509b9b1c1ad892419347d37131ade1860d80a0946973c3f582611863dbf7d8c1"
+    },
+    {
+      "source_path": "docs/images/hearsay-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/hearsay-board.png",
+      "sha256": "fbc28fc9a4ba011af3f20e06736a880392bedd4bffffd9c89e27f658fe2218d3"
+    },
+    {
+      "source_path": "docs/images/hearsay-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/hearsay-concepts.png",
+      "sha256": "b019531e098b3bbafce75dbeb5e6cea73c909e35a1a50162c28d7d0b0f693030"
+    },
+    {
+      "source_path": "docs/images/hero.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/hero.png",
+      "sha256": "2dca895f48c52b751ccd8c0a62f2d6a5bfca307edced748f97839c7ba9109fc1"
+    },
+    {
+      "source_path": "docs/images/keyfort-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/keyfort-board.png",
+      "sha256": "78dad8b3433b5ccda3df05c9c3b6c4b0573524047628eb118be1f9d7e198baee"
+    },
+    {
+      "source_path": "docs/images/keyfort-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/keyfort-concepts.png",
+      "sha256": "8c9d23928aad99777f15335eb598f342328c51606e3936010a2ae6e30a8201a9"
+    },
+    {
+      "source_path": "docs/images/kiln-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kiln-board.png",
+      "sha256": "b5c5d6d3b0187be63d4dd2fd06e0f2d598b861e68146a4491a7e78e3938adc06"
+    },
+    {
+      "source_path": "docs/images/kiln-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kiln-concepts.png",
+      "sha256": "f305687fb39e19c0ad8bf56af6c195fd474168d9a3204abfb233c249c08529d8"
+    },
+    {
+      "source_path": "docs/images/kitewire-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kitewire-board.png",
+      "sha256": "faa6adf11402e93864e0eb03eb71b60a3a5c82585c2c64572bd1014416578199"
+    },
+    {
+      "source_path": "docs/images/kitewire-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/kitewire-concepts.png",
+      "sha256": "1ac3c81f33ad49a6ad146263e09293d4fc0102a1b42e68491edde4ec2ae3582f"
+    },
+    {
+      "source_path": "docs/images/loafwright-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/loafwright-board.png",
+      "sha256": "49a38fc20d62d5fd38fe84f6548260385a97345a9ee1f8c84e85bf4f5b0c2129"
+    },
+    {
+      "source_path": "docs/images/loafwright-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/loafwright-concepts.png",
+      "sha256": "adc23c82602dd8fb9d48387c9cc3b483af04c3c9862773650ad80c9a2160de06"
+    },
+    {
+      "source_path": "docs/images/maison-orvelle-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/maison-orvelle-board.png",
+      "sha256": "b659b52f490f588ec5593b5b47b4438b9f0d07e7019244f83c65be175c820225"
+    },
+    {
+      "source_path": "docs/images/maison-orvelle-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/maison-orvelle-concepts.png",
+      "sha256": "a7678e78bb8e0dd1eae38235d89832c8f465708c8716c74ec8679915d5c0e6ad"
+    },
+    {
+      "source_path": "docs/images/marlow-finch-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/marlow-finch-board.png",
+      "sha256": "db653386d922bcf82b23b895999f5f1c0c484fd62beef83e83f926a932b3523b"
+    },
+    {
+      "source_path": "docs/images/marlow-finch-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/marlow-finch-concepts.png",
+      "sha256": "96605b83a9f94b6c9d857290857eca4d9ec392ab6e1d5a07dd5420c79f9e9910"
+    },
+    {
+      "source_path": "docs/images/mediora-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mediora-board.png",
+      "sha256": "cbb27a9a25e698a2d28607a8a90ee9a547e5ec73cea013a5259d3bb2ae51eff5"
+    },
+    {
+      "source_path": "docs/images/mediora-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mediora-concepts.png",
+      "sha256": "f7a099f3c75be28f506b8a5cfd53bdfbf79a0a1a1fde4d630b988e45c9374625"
+    },
+    {
+      "source_path": "docs/images/mothlight-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mothlight-board.png",
+      "sha256": "ce630e616324b60f01a5f1d93b136cc9ad68ca2b98cf6110411ac01723dabb42"
+    },
+    {
+      "source_path": "docs/images/mothlight-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/mothlight-concepts.png",
+      "sha256": "45e4caa0e1e39512abafffd1fa535e7a302cdfb59380e9bc2067a18bd2d9792d"
+    },
+    {
+      "source_path": "docs/images/norrvik-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/norrvik-board.png",
+      "sha256": "4455290323861f935f4d6d5047478b7fcfac409374f12cc41de1239d39011cce"
+    },
+    {
+      "source_path": "docs/images/norrvik-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/norrvik-concepts.png",
+      "sha256": "118dad0576093dfe1b02e65d7374370cd3da497d4c0de2facbbd5f97c9e4ae6d"
+    },
+    {
+      "source_path": "docs/images/northvault-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/northvault-board.png",
+      "sha256": "e0b011bd200bb8a2ad5b5a55c1d4ea1baa9e64c9234f8245b4491a2ef90635ff"
+    },
+    {
+      "source_path": "docs/images/northvault-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/northvault-concepts.png",
+      "sha256": "0b192645d8b602c4fca92862fbd8acf3d18a74d2d639f8b5bc6b7b33e487c28c"
+    },
+    {
+      "source_path": "docs/images/pulsewave-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/pulsewave-board.png",
+      "sha256": "44d355dde34ce3db99a0dcaa82b2ae52b83367af0a358881be9fc34ae5bbeb6d"
+    },
+    {
+      "source_path": "docs/images/pulsewave-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/pulsewave-concepts.png",
+      "sha256": "2a4597ea0ccaf8492c1715583a4cc081dcb8d5677c2fb93196498ff2ff23413f"
+    },
+    {
+      "source_path": "docs/images/ralli-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/ralli-board.png",
+      "sha256": "bf671732995f422940d9395809c26f748901ebf39e9362f906b7a59a48ca498a"
+    },
+    {
+      "source_path": "docs/images/ralli-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/ralli-concepts.png",
+      "sha256": "fc7f90b5ebdc16cf922df671aca9c9bcb0492cfb65d517d93237755665da65b3"
+    },
+    {
+      "source_path": "docs/images/relaydesk-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/relaydesk-board.png",
+      "sha256": "87668d012564689f7aaead972a38cbdb7ec9d689c77c2a9f314bedb4d8d78a0e"
+    },
+    {
+      "source_path": "docs/images/relaydesk-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/relaydesk-concepts.png",
+      "sha256": "dd013a2e20bf9aa1b7664209728530a3ed617d17f70d7e79333a09d2a51af908"
+    },
+    {
+      "source_path": "docs/images/roamwheel-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/roamwheel-board.png",
+      "sha256": "c4bd2a5dfc5ce990cd46bba7b0b09545d8cb55be2b87ae9feb99abbd4a19d439"
+    },
+    {
+      "source_path": "docs/images/roamwheel-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/roamwheel-concepts.png",
+      "sha256": "4bd299fb0910cd2ed046c9dbd6a85c792e4e127e4027d1ff200c3f4268ed203f"
+    },
+    {
+      "source_path": "docs/images/solenne-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/solenne-board.png",
+      "sha256": "8b30ac38b52a7f3bfbdfe39821d0960224863a676269d5d497e276dc09eea53e"
+    },
+    {
+      "source_path": "docs/images/solenne-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/solenne-concepts.png",
+      "sha256": "ec8958a4813bb3aab2f20e4f43f64e426f2c367326f363f74d6e4af7fbf78612"
+    },
+    {
+      "source_path": "docs/images/stillbrook-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/stillbrook-board.png",
+      "sha256": "5b5c387ea9eea391f175367212c2cf71f74ed92f601a24f72ed5886c0cca0f7c"
+    },
+    {
+      "source_path": "docs/images/stillbrook-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/stillbrook-concepts.png",
+      "sha256": "d15fb1e09621629399e2af3597f1b4476c6ff56213cb93ef57a9d62dcde85ad0"
+    },
+    {
+      "source_path": "docs/images/tallybook-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tallybook-board.png",
+      "sha256": "97e959d965623c5cf152c8d512dcb706f292bfec45fa2a18d598b6036700c0bd"
+    },
+    {
+      "source_path": "docs/images/tallybook-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tallybook-concepts.png",
+      "sha256": "b29718d4f153ab3cbc592431645d788ab98f208bfedc00477082275ee90e4a24"
+    },
+    {
+      "source_path": "docs/images/test-sheet.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/test-sheet.png",
+      "sha256": "7e910818fb596191cb933f01801f9db5e09c9bf4cbab7808a859ddaf5821ea1b"
+    },
+    {
+      "source_path": "docs/images/tiles/alderpeak.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/alderpeak.png",
+      "sha256": "aecb959bbe6b9158e971310f96be52853d0fc8f25514ffc2b30a1e1196089ffd"
+    },
+    {
+      "source_path": "docs/images/tiles/bramble-vet.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/bramble-vet.png",
+      "sha256": "00ceaa93320af3715be7412a94cb283a3b5046876898d454d29414a94da6e631"
+    },
+    {
+      "source_path": "docs/images/tiles/brawnhall.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/brawnhall.png",
+      "sha256": "1e24d42cb3de47d3cedeee249ddcb348a7bb68e055868a499aef88020f7aa18c"
+    },
+    {
+      "source_path": "docs/images/tiles/brightdose.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/brightdose.png",
+      "sha256": "ccd462680d7161f83546fa1189ea900158c31cd6631469b6028ac301cf9964a6"
+    },
+    {
+      "source_path": "docs/images/tiles/calmera.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/calmera.png",
+      "sha256": "55c22e29a070b6ef23742749e113ec577886aa51e87cddd574f835b6e5413f4b"
+    },
+    {
+      "source_path": "docs/images/tiles/driftwell.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/driftwell.png",
+      "sha256": "a42d0a3703de7a92e80a49632c5d260d10b07bf0a9a497d92bc88ee82de29c00"
+    },
+    {
+      "source_path": "docs/images/tiles/hearsay.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/hearsay.png",
+      "sha256": "306ead65b0065e7d11145ce16f88ac334781161861d34b861f1341c6f664b2df"
+    },
+    {
+      "source_path": "docs/images/tiles/keyfort.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/keyfort.png",
+      "sha256": "0d5884210504f73bcc23c455a7ad100899b45a8bb1510e15a672b53807b4db5c"
+    },
+    {
+      "source_path": "docs/images/tiles/kiln.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/kiln.png",
+      "sha256": "880381869f009c441b447006109601716c9c3e9ac53a300b65f9601b71d68189"
+    },
+    {
+      "source_path": "docs/images/tiles/kitewire.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/kitewire.png",
+      "sha256": "63f6758ef5ab0ecbcb69b34a8178d612f341585767b0c9843be3235cdf9b5434"
+    },
+    {
+      "source_path": "docs/images/tiles/loafwright.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/loafwright.png",
+      "sha256": "9a0ad723d07da9dca49f90910f1e5b9c20fbeefb8479c9171b2f50c7d094308e"
+    },
+    {
+      "source_path": "docs/images/tiles/maison-orvelle.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/maison-orvelle.png",
+      "sha256": "2a164d6b7a7b0e9e1262fcd661727ee77b45ea32f3f11b3ca1611bee179be3b9"
+    },
+    {
+      "source_path": "docs/images/tiles/marlow-finch.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/marlow-finch.png",
+      "sha256": "2e20c5ecf813668e9ee9d9fa8af978a6f945df3fb939a86740d59925b3e34a5a"
+    },
+    {
+      "source_path": "docs/images/tiles/mediora.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/mediora.png",
+      "sha256": "b330edd971e47a179cb78a4d2fbc268326f4deb2f84da0e5d47f6a5c75d42f0a"
+    },
+    {
+      "source_path": "docs/images/tiles/mothlight.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/mothlight.png",
+      "sha256": "214e7dd30a7d1982b87cc8525d0672b40474368e99e4d67701fe06c3e1b802bd"
+    },
+    {
+      "source_path": "docs/images/tiles/norrvik.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/norrvik.png",
+      "sha256": "4e4f6511f178733fba453ac9c4cc3bf80d0a245744b60d729dcabc2e9c123ec4"
+    },
+    {
+      "source_path": "docs/images/tiles/northvault.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/northvault.png",
+      "sha256": "c409d4e77c61551201f28ae33a02e2d15c87dd8a906ef11b5fe36109b734349d"
+    },
+    {
+      "source_path": "docs/images/tiles/pulsewave.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/pulsewave.png",
+      "sha256": "0fccc2fe843702348ee578cc530f927a3c32c482aeba7f919bd10378834eb869"
+    },
+    {
+      "source_path": "docs/images/tiles/ralli.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/ralli.png",
+      "sha256": "5e6fe31392fca4bd6e4c45183b5ff8939079ba96fe54cf743c293591a724d7af"
+    },
+    {
+      "source_path": "docs/images/tiles/relaydesk.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/relaydesk.png",
+      "sha256": "3964a193375a9da24741cf2e3043f027b9b90292fc6c2a4fb3ace985f40a2bbe"
+    },
+    {
+      "source_path": "docs/images/tiles/roamwheel.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/roamwheel.png",
+      "sha256": "88d751910bf98627bac08b3e6bc556bb60aedc65d2a0a3977c3b9365cea71da6"
+    },
+    {
+      "source_path": "docs/images/tiles/solenne.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/solenne.png",
+      "sha256": "9c1bdbe770f1e5dbb7ec22c1f5fc05285b9b62bb48fe99f2417f4345746c29ee"
+    },
+    {
+      "source_path": "docs/images/tiles/stillbrook.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/stillbrook.png",
+      "sha256": "548854ca8ec1cde70fc7acee37808d84f07149a908add0b565763d1de152289b"
+    },
+    {
+      "source_path": "docs/images/tiles/tallybook.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/tallybook.png",
+      "sha256": "75be942b84b17f28dd493dbb5f99a33df60bb15d57751d2829944f6a83cbfcf5"
+    },
+    {
+      "source_path": "docs/images/tiles/tinkertrail.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/tinkertrail.png",
+      "sha256": "ae3b063d368feb2ceb6b024e1e677021070077252970fb21df9682f9760e4a40"
+    },
+    {
+      "source_path": "docs/images/tiles/tracelane.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/tracelane.png",
+      "sha256": "70d2b0a1d2d041ed1c4b34e9ef6e3d1a7dbab0ea24109d7321e5fda7ba1e0da5"
+    },
+    {
+      "source_path": "docs/images/tiles/voltra.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/voltra.png",
+      "sha256": "83607a0bf75ac392877195559e8c912c4d71fc108f350033af5169366d245a2b"
+    },
+    {
+      "source_path": "docs/images/tiles/zestly.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tiles/zestly.png",
+      "sha256": "a62677c250f7bb3d9df1befb8ad48b397679fbf530ccf8d4b1a5f4d7840fac51"
+    },
+    {
+      "source_path": "docs/images/tinkertrail-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tinkertrail-board.png",
+      "sha256": "3a677d94462b22c5cc624e4341b58c7e36c521a6d88e09d4385dbfe9be2769cf"
+    },
+    {
+      "source_path": "docs/images/tinkertrail-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tinkertrail-concepts.png",
+      "sha256": "f32b37e76c80221f077be99d1b73f711e7dd32eb6b52ffa58e3aacf5d6b5ef87"
+    },
+    {
+      "source_path": "docs/images/tracelane-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tracelane-board.png",
+      "sha256": "9cde3ec40191ad7798bb45c623cd1b95f1f8c8932d6c022fb2e24b57d43a2aba"
+    },
+    {
+      "source_path": "docs/images/tracelane-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/tracelane-concepts.png",
+      "sha256": "80cb3450e75b363129adaff87a1347f19383afc854d2f58a008f0b838d3c872a"
+    },
+    {
+      "source_path": "docs/images/voltra-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/voltra-board.png",
+      "sha256": "564d1ae04dd41becdca2bcc64e0da8c0643e9dce954fb3b2b92fe5e1cefd1176"
+    },
+    {
+      "source_path": "docs/images/voltra-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/voltra-concepts.png",
+      "sha256": "14a64a857f4f51896c753859eefd86aa943bda4bde2651fe55e2b121829fa2e6"
+    },
+    {
+      "source_path": "docs/images/zestly-board.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/zestly-board.png",
+      "sha256": "bfef7ac57e9f4043b3a663da86a569396b09af0fa82275d7fac57f3c5009f320"
+    },
+    {
+      "source_path": "docs/images/zestly-concepts.png",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/docs/images/zestly-concepts.png",
+      "sha256": "13c63cae58cd6460262b852006018beebe683d6b4e6ba2cd8c6884060ef6fca3"
+    },
+    {
+      "source_path": "LICENSE",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/LICENSE",
+      "sha256": "f68cc121d7f856ec3f48993c5082960f267bd752acea4e2f694408ef55d6cfdd"
+    },
+    {
+      "source_path": "TRADEMARKS.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/TRADEMARKS.md",
+      "sha256": "ab18040350a507ad0f6e246ffc0cae00f38b5c933a4c62a27d8d5ee898e1325d"
+    },
+    {
+      "source_path": "skills/logo-design/SKILL.md",
+      "path": "skills/static-graphic-design-creator/assets/logo-design-engine/SKILL.source.md",
+      "sha256": "65ec4bd58732e8cc11e244724e8666de78764b973f6d3b03b233904639cf47c6"
+    },
+    {
+      "source_path": "TRADEMARKS.md",
+      "path": "integrations/logo-design-skill/TRADEMARKS.md",
+      "sha256": "ab18040350a507ad0f6e246ffc0cae00f38b5c933a4c62a27d8d5ee898e1325d"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "skills/logo-design/assets/library/svg/",
+      "reason": "1432 third-party trademarks explicitly excluded from MIT; no redistribution permission established."
+    },
+    {
+      "path": ".claude-plugin/",
+      "reason": "Standalone host discovery/installation is handled by the optional extension registry."
+    },
+    {
+      "path": "tools/",
+      "reason": "Upstream repository packaging and CI smoke harness are not runtime tools; Studio has its own packaging and bundled-engine tests."
+    },
+    {
+      "path": "dist/",
+      "reason": "Generated upstream ZIPs would reintroduce trademark corpus and standalone skill discovery."
+    }
+  ]
+}

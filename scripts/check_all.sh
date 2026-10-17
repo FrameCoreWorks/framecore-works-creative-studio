@@ -18,7 +18,7 @@ python3 -m unittest discover -s tests -p 'test_hosted_readback.py' -v
 python3 -m unittest discover -s tests -p 'test_claude_plugin.py' -v
 python3 -m unittest discover -s tests -p 'test_release.py' -v
 NODE_TESTS=("$P/tests/studio.test.mjs" "$P/tests/workflow-kit.test.mjs" "$P/tests/creative-upgrade.test.mjs" \
-  "$P/tests/learning-mode.test.mjs" "$P/tests/quality-methods.test.mjs" "$P/tests/presentation.test.mjs")
+  "$P/tests/learning-mode.test.mjs" "$P/tests/quality-methods.test.mjs" "$P/tests/presentation.test.mjs" "$P/tests/anatomy-engine.test.mjs" "$P/tests/logo-design-engine.test.mjs")
 # motion-toolkit.test.mjs also runs motion-quality.test.mjs, which it imports.
 [ "$FAST" = 1 ] || NODE_TESTS+=("$P/tests/motion-toolkit.test.mjs")
 node --test --test-concurrency=1 "${NODE_TESTS[@]}"

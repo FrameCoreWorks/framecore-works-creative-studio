@@ -1,0 +1,219 @@
+{
+  "version": "1.88.0",
+  "date": "2026-10-17",
+  "baseline": "08a45bfec70ce0701cd723b7d0231e9320609cdb",
+  "change_id": "CX-20261017-02",
+  "origin": "codex",
+  "environment": "Codex desktop on macOS; TMPDIR=/private/tmp for installer tests (the macOS /var alias is a symlink).",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1459,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7773 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 237,
+        "pass": 226,
+        "fail": 0,
+        "skipped": 11
+      },
+      "python": {
+        "suite 1": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 2": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 3": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 4": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 5": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 6": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 7": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 8": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "suite 9": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 10": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 11": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 12": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "suite 13": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 14": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 15": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 16": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 17": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 18": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 19": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 20": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 21": {
+          "tests": 7,
+          "skipped": 7
+        },
+        "suite 22": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 23": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "suite 24": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 25": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 26": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 27": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 28": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 29": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 30": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 31": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 32": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 33": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 34": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 35": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 36": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 37": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 38": {
+          "tests": 21,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "STUDIO_ANATOMY_BROWSER_TEST=1 node --test tests/anatomy-engine.test.mjs",
+      "status": "PASS",
+      "tests": 5,
+      "skipped": 0
+    },
+    {
+      "command": "STUDIO_LOGO_RENDER_TEST=1 node --test tests/logo-design-engine.test.mjs (final avatar fix)",
+      "status": "PASS",
+      "tests": 11,
+      "skipped": 0
+    },
+    {
+      "command": "claude plugin validate plugin and marketplace --strict",
+      "status": "PASS"
+    }
+  ],
+  "review": "Owner-requested full reusable Logo Design resources and complete Anatomy SVG/WebGL/3D toolkit, integrated into the existing owners with project adapters, runtime checks, tests, source hashes and optional original extensions.",
+  "source": "Release 1.88.0: bundle logo and SVG/WebGL/3D toolsets",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN",
+  "review_notes": "Full check_all pass has 237 tests before the one added avatar regression. The complete final Logo suite then passed 11/11; final committed tree will also run all 238 Node tests in CI.",
+  "python_totals": {
+    "tests": 339,
+    "skipped": 10
+  },
+  "whitespace_review": {
+    "maintained_files": "PASS",
+    "unchanged_upstream_exceptions": [
+      "anatomy-engine/examples/test-rig/view.ts",
+      "anatomy-engine/references/webgl.md",
+      "anatomy-engine/scripts/turn-fidelity.mjs"
+    ],
+    "reason": "Upstream blank lines/trailing spaces preserved for byte-identical provenance; not reformatted."
+  }
+}
