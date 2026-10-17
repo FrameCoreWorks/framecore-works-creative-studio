@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 5996,
-      "sha256": "fb72726ca03fe02a29af8f7375042b3b3f6f4f7341405011c0abf2677c546999"
+      "bytes": 6331,
+      "sha256": "c111006c1a3563506e4b17f9fde07c81e830c61e1951f22dfe451ed75dca5f8a"
     },
     {
       "path": "README.md",
@@ -228,8 +228,8 @@
     },
     {
       "path": "integrations/agent-reach/README.md",
-      "bytes": 1517,
-      "sha256": "d27e814e951e8ad294a73bcd012e56e6db38b1f2b3eabf940846ad94a10619d6"
+      "bytes": 1777,
+      "sha256": "114e16f86beedbe5145057eeb898b067727490728ee4da4a60c3f5b318365a0e"
     },
     {
       "path": "integrations/anatomy/LICENSE",
@@ -5688,8 +5688,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 16784,
-      "sha256": "f746d7e31e78d47d823ea87344c24be7feeec648666a44e8feba19702598d97b"
+      "bytes": 16902,
+      "sha256": "27cddef303690f3658d5614a6fcf7e65bd2730f88d740e4568791f427fecdb9a"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -5700,6 +5700,16 @@
       "path": "skills/research-evidence/assets/research-decision-card.md",
       "bytes": 878,
       "sha256": "68224eb6052461b1087cbf1d90f1bf4fba8ece2d7a7c4353aa6b42279f562b8b"
+    },
+    {
+      "path": "skills/research-evidence/assets/web-reach/README.md",
+      "bytes": 1946,
+      "sha256": "adfb82996702dd283ee2c1986b6d73b5c1233672441c4afaf84d1b1fddd71dfd"
+    },
+    {
+      "path": "skills/research-evidence/assets/web-reach/web_reach.py",
+      "bytes": 12749,
+      "sha256": "9e2bb26a06628515c6064592f979f1505f60ff3dd71834b5cb2742fa81ae344e"
     },
     {
       "path": "skills/research-evidence/kit/method.md",
@@ -7360,6 +7370,11 @@
       "path": "tests/vo_budget_test.py",
       "bytes": 3442,
       "sha256": "b32f4db0f2d2a49da0c00893ceaa1e98fc25f5256700c541c745e09809c764e7"
+    },
+    {
+      "path": "tests/web_reach_test.py",
+      "bytes": 3552,
+      "sha256": "de0f797c20e8b29998062608149bc7477c1471a994c74303ff13437c4cf375ad"
     },
     {
       "path": "tests/workflow-kit.test.mjs",

@@ -40,6 +40,7 @@ Third-party components (added after 1.0.0; MIT unless stated; each folder keeps 
 - heygen-com/hyperframes, commit 86521b94f592bcf0ca86aba63068893cf658af16, Apache-2.0: registry block names only, listed in the technique atlas; no HyperFrames code is bundled.
 - Fonts in skills/pipeline-core/assets/fonts/ (Anton, Archivo, Bricolage Grotesque, Fraunces, Inter, Source Serif 4): SIL Open Font License 1.1; each family folder keeps its OFL.txt with the copyright notice.
 - Tejashmakwana/motionmaxxing, commit 8c8ec0f2a6f6c9a0da15cd24f7b1298ab298368c, Copyright Tejas Makwana, Apache-2.0: the page-chrome review idea only, restated in Studio's own words in skills/hyperframes-workflow/SKILL.md; no code, media or text is copied.
+- Panniantong/agent-reach 1.5.0, commit 94f06c1969dfc1834001269d79d3ad0972d9dee6, Copyright (c) 2025 Agent Eyes, MIT: the Jina Reader route, bot-challenge markers and public-URL guard adapted in skills/research-evidence/assets/web-reach/web_reach.py; licence in plugins/framecore-work-creative-studio/integrations/agent-reach/LICENSE.
 
 - kaankiziltug/logo-design-skill 1.4.4, commit 0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134, Copyright (c) 2026 kaankiziltug, MIT: reusable tools, references, templates, catalogue assets and fictional examples bundled under Static Graphic Design Creator; see integrations/logo-design-skill/LICENSE, README.md and source-manifest.json. Real-company reference trademark SVGs are not redistributed and remain outside MIT.
 
