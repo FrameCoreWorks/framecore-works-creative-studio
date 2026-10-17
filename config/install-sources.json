@@ -222,6 +222,16 @@
       "sha256": "d3488368f941cc96a9f843970a3ec9ecd1a6ccb092306e71c8fbd92871d5d9a5"
     },
     {
+      "path": "integrations/agent-reach/LICENSE",
+      "bytes": 1067,
+      "sha256": "e94c131ac1c2f78cfd8f7e69da354c0ff58e4e54071697703d56856c036de402"
+    },
+    {
+      "path": "integrations/agent-reach/README.md",
+      "bytes": 1517,
+      "sha256": "d27e814e951e8ad294a73bcd012e56e6db38b1f2b3eabf940846ad94a10619d6"
+    },
+    {
       "path": "integrations/anatomy/LICENSE",
       "bytes": 1061,
       "sha256": "87c078ab9d90a3044f359e6b563d4e6afea7aa060897cf4f21618687b3856796"
@@ -5678,8 +5688,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 16468,
-      "sha256": "d7c6f7cc10988887f909903fe37209a2672e893b3ce7033f9e54dc1be450475f"
+      "bytes": 16784,
+      "sha256": "f746d7e31e78d47d823ea87344c24be7feeec648666a44e8feba19702598d97b"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -6958,8 +6968,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 55253,
-      "sha256": "035bb8a181a45aee802645b3be810c064b300a024e6de7f88df812dd80bf765c"
+      "bytes": 59891,
+      "sha256": "7e2d33935f56032704fb77b4341b5182e5e54aacb82d884cec9a20deaa39010f"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",

@@ -717,6 +717,73 @@
       },
       "observed": "2026-10-17: pinned skills@1.7.2 remote --list found anatomy; 62 upstream geometry/browser tests PASS locally. Studio SVG/WebGL/3D fixtures ran in local Chrome. Original host install/remove and fresh-session invocation not_run.",
       "update": "Review a newer commit and update the source manifest, bundled bytes, tests and pinned commands together. Keep Studio adapters separate from upstream files."
+    },
+    {
+      "id": "agent-reach",
+      "name": "Agent Reach",
+      "repository": "https://github.com/Panniantong/agent-reach",
+      "reviewed_commit": "94f06c1969dfc1834001269d79d3ad0972d9dee6",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "cli",
+        "skill"
+      ],
+      "role": "engine",
+      "gives": "A command-line layer that installs, checks and routes to tools for reading the web: web pages through Jina Reader, YouTube metadata and transcripts, RSS, public GitHub and Exa search through an MCP setup (mcporter); its doctor names the working route per channel",
+      "studio_uses": "Optional research reach for Research Evidence in a shell host, when the host's own web tools cannot read a page, a YouTube transcript or a feed the brief depends on (a client's or competitor's site, a video's wording, a public changelog). Only the channels that need no login",
+      "not_for": "Any channel that needs cookies, tokens or a logged-in browser session (X/Twitter, Reddit, Facebook, Instagram, Xiaohongshu, Boss Zhipin): Studio never exports cookies, never uses spare accounts and never automates a platform against its terms. Not for bulk scraping, personal data or content the user may not use",
+      "requires": [
+        {
+          "tool": "python",
+          "ranges": [
+            [
+              "3.10.0",
+              null
+            ]
+          ],
+          "note": "Python 3.10+ with pipx (or a virtual environment)"
+        },
+        {
+          "tool": "node",
+          "note": "Node.js with npm only for mcporter, which the Exa search channel uses"
+        }
+      ],
+      "rights": "Read only public pages and feeds the user may access, within each site's terms and robots rules; Jina Reader and Exa are separate services with their own terms, and Exa may need its own key or plan (Unknown at review). What is read is evidence for Studio's research, cited with its source and date, never copied into deliverables as the user's own content.",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "pipx run --spec https://github.com/Panniantong/agent-reach/archive/94f06c1969dfc1834001269d79d3ad0972d9dee6.zip agent-reach install --env=auto --dry-run",
+          "install": "pipx install https://github.com/Panniantong/agent-reach/archive/94f06c1969dfc1834001269d79d3ad0972d9dee6.zip && agent-reach install --env=auto --system",
+          "writes": "the pipx environment, ~/.agent-reach/ (config, mode 600), the skill in ~/.agents/skills and, for Exa, a mcporter MCP configuration",
+          "verify": "agent-reach doctor",
+          "after": "Start a new Codex session; set up only the channels that need no login",
+          "remove": "agent-reach uninstall && pipx uninstall agent-reach"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "pipx run --spec https://github.com/Panniantong/agent-reach/archive/94f06c1969dfc1834001269d79d3ad0972d9dee6.zip agent-reach install --env=auto --dry-run",
+          "install": "pipx install https://github.com/Panniantong/agent-reach/archive/94f06c1969dfc1834001269d79d3ad0972d9dee6.zip && agent-reach install --env=auto --system",
+          "writes": "the pipx environment, ~/.agent-reach/ (config, mode 600), the skill in ~/.claude/skills and, for Exa, a mcporter MCP configuration",
+          "verify": "agent-reach doctor",
+          "after": "Start a new conversation; set up only the channels that need no login",
+          "remove": "agent-reach uninstall && pipx uninstall agent-reach"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "A command-line tool that runs on the user's computer; the Claude apps cannot install it. Use it from Claude Code"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "A command-line tool that runs on the user's computer; ChatGPT chats cannot install it. Use it from Codex"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "Its channels need outbound access to the read services, and an install in the code sandbox lasts one session; use it from Codex or Claude Code"
+        }
+      },
+      "observed": "2026-10-17: README, install guide, uninstall steps, skill install paths and licence read at the pinned commit. The plan, install and doctor were not run (owner decision 2026-10-17: no tests this round). Not installed into a real host",
+      "update": "When the owner reviews a newer release, change package.version and reviewed_commit together; users then rerun plan, install and verify"
     }
   ]
 }
