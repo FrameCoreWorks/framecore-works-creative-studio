@@ -2324,3 +2324,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `4a8ed51`; workflows Check Studio sources 39048604253, Refresh current release notes 39048601299, Publish verified Studio release 39048601336, Check Studio sources 39048601327: success; [v1.89.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.89.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1464 of 1464) ([record](../verification/github-publication-1.89.1.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261017-03
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261017-03-web-reach`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `ac55391` (main, package 1.89.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.90.0)
+- Package version: 1.89.1 -> 1.90.0
+- Scope: web_reach.py adapts Agent Reach's no-login reading (pages, feeds, public GitHub, YouTube subtitles) into Research Evidence with the standard library, a public-URL guard and cited results.
+- Shared package changed: yes; 10 changed, 3 added, 0 removed ([scope](../verification/scope-1.90.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 9 suite 37, 4 suite 38, 9 suite 39, 21 suite 40: PASS ([record](../verification/release-1.90.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

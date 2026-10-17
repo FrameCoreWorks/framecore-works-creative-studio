@@ -1,0 +1,32 @@
+{
+  "version": "1.90.0",
+  "baseline_tag": "v1.89.1",
+  "baseline": "4a8ed51098a5288d8a93eb9b12f36ea13126c2a6",
+  "change_id": "CC-20261017-03",
+  "origin": "cloud-code",
+  "files": 1467,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/agent-reach/README.md",
+    "plugin.json",
+    "skills/research-evidence/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/research-evidence/assets/web-reach/README.md",
+    "skills/research-evidence/assets/web-reach/web_reach.py",
+    "tests/web_reach_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1454,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "web_reach.py adapts Agent Reach's no-login reading (pages, feeds, public GitHub, YouTube subtitles) into Research Evidence with the standard library, a public-URL guard and cited results."
+}

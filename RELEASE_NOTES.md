@@ -1,5 +1,5 @@
-# Creative Studio 1.89.1
+# Creative Studio 1.90.0
 
-## Agent Reach as a recommended extension
+## Web reach inside Research Evidence
 
-Agent Reach is a recommended extension for research in Codex and Claude Code, limited to channels that need no login; logged-in and cookie channels are excluded.
+Studio can now read public pages, feeds, public GitHub repositories and YouTube subtitles itself, adapted from Agent Reach, without a login or an install.

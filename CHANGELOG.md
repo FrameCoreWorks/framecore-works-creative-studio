@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.90.0, 2026-10-17
+
+At the owner's request, Agent Reach's no-login reading inside Studio:
+
+- **Web reach.** [`web_reach.py`](plugins/framecore-work-creative-studio/skills/research-evidence/assets/web-reach/README.md) in Research Evidence reads public pages (Jina Reader, then a direct fetch), RSS and Atom feeds, public GitHub repositories and YouTube subtitles (with yt-dlp), using only the Python standard library. Every result names its source, retrieval date and route; bot challenges are reported, private and metadata addresses refused, responses capped at 5 MB. Channels that need cookies or a login stay out
+- Adapted from [Agent Reach](https://github.com/Panniantong/agent-reach/tree/94f06c1969dfc1834001269d79d3ad0972d9dee6) (MIT); the full CLI stays an optional extension. Works wherever Python has internet access; a chat sandbox without it falls back to the host's search
+- Repository: offline tests in `tests/web_reach_test.py`; one live read through Jina Reader in a container; NOTICE updated
+
 ## 1.89.1, 2026-10-17
 
 At the owner's request after reviewing [Agent Reach](https://github.com/Panniantong/agent-reach/tree/94f06c1969dfc1834001269d79d3ad0972d9dee6) (1.5.0, MIT):
