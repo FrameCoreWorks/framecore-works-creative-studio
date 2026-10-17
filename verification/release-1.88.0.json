@@ -200,9 +200,9 @@
   ],
   "review": "Owner-requested full reusable Logo Design resources and complete Anatomy SVG/WebGL/3D toolkit, integrated into the existing owners with project adapters, runtime checks, tests, source hashes and optional original extensions.",
   "source": "Release 1.88.0: bundle logo and SVG/WebGL/3D toolsets",
-  "github_publication": "NOT_RUN",
+  "github_publication": "PASS; verification/github-publication-1.88.0.json",
   "host_behavior": "NOT_RUN",
-  "review_notes": "Full check_all pass has 237 tests before the one added avatar regression. The complete final Logo suite then passed 11/11; final committed tree will also run all 238 Node tests in CI.",
+  "review_notes": "Local full check_all pass has 237 tests before the added avatar regression. The final Logo suite passed 11/11. The release workflow ran the final committed tree: 238 Node tests, 227 pass, 11 skipped, zero failures; 38 Python suites also passed. Separate opt-in browser/PNG tests are recorded above.",
   "python_totals": {
     "tests": 339,
     "skipped": 10
@@ -215,5 +215,26 @@
       "anatomy-engine/scripts/turn-fidelity.mjs"
     ],
     "reason": "Upstream blank lines/trailing spaces preserved for byte-identical provenance; not reformatted."
+  },
+  "ci_release_checks": {
+    "workflow_run": 39034511650,
+    "source_commit": "221cd75b5c246fce49b50dbc7686e04298ce4f0b",
+    "status": "PASS",
+    "environment": "GitHub ubuntu-latest, release workflow",
+    "node": {
+      "tests": 238,
+      "pass": 227,
+      "fail": 0,
+      "skipped": 11
+    },
+    "python_suites": 38,
+    "python_tests": 339,
+    "python_skipped": 11
+  },
+  "final_documentation_checks": {
+    "canonical_validator": "PASS; 1459 files, 37 owners",
+    "command": "TMPDIR=/private/tmp bash scripts/check_all.sh --fast",
+    "status": "PASS",
+    "scope": "Final documentation follow-up; shared package unchanged."
   }
 }

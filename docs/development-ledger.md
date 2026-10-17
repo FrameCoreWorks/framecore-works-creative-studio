@@ -2277,8 +2277,8 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending guarded update and readback; PoYo preserved
-- Codex: pending managed-cache readback; fresh-chat behavior not_run
+- GitHub: synchronized package commit `221cd75`, tag v1.88.0; source-check and release workflows PASS. Downloaded plugin ZIP, inventory and player match the build; all 1459 source files match the tag ([publication](../verification/github-publication-1.88.0.json)).
+- ChatGPT Work: synchronized, saved release `pluginrel_6ad370a5bd6c81919a6917dbab9f1853`; all 1459 source files match except the approved PoYo bindings and documented JSON layout normalization; two PoYo files preserved ([readback](../verification/hosted-sync-1.88.0.json)).
+- Codex: synchronized managed cache 1.88.0, all 1461 files byte-identical to the saved plugin; fresh-chat behavior not_run.
 
-- Additional verification: Anatomy browser 5/5, final Logo adapter 11/11 with PNG/icons; Olga confirmed the avatar-export P2 fixed. Final CI will include the added regression. New Anatomy MP4 export not_run after automatic approval review rejected the requested file write.
+- Additional verification: Anatomy browser 5/5, final Logo adapter 11/11 with PNG/icons; Olga confirmed the avatar-export P2 fixed. The release workflow passed on the final committed tree: 238 Node tests (227 pass, 11 skipped) and 38 Python suites, including the added regression. New Anatomy MP4 export not_run after automatic approval review rejected the requested file write.

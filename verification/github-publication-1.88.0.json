@@ -1,0 +1,37 @@
+{
+  "version": "1.88.0",
+  "change_id": "CX-20261017-02",
+  "origin": "codex",
+  "commit": "221cd75b5c246fce49b50dbc7686e04298ce4f0b",
+  "package_commit": "221cd75b5c246fce49b50dbc7686e04298ce4f0b",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.88.0",
+  "workflows": [
+    {
+      "id": 39034511650,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39034511677,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39034511890,
+      "name": "Check Studio sources",
+      "branch": "codex/logo-design-assimilation",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "ad9764daa621abf98d4d928f6212e53713d3a831299951fb99ccd37444add324",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1459 of 1459 files byte-identical",
+  "plugin_inventory_sha256": "9a7c20b7579fe5054465cd78294371e91059e440fe32980661c4bde439b32594",
+  "plugin_inventory_matches_local": true,
+  "motion_player_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+  "motion_player_asset_matches_local": true,
+  "hosted_plugin": "synchronized; verification/hosted-sync-1.88.0.json",
+  "host_behavior": "NOT_RUN"
+}

@@ -121,7 +121,7 @@
   },
   "host_behavior": "NOT_RUN",
   "visual_logo_evaluation": "NOT_RUN",
-  "sync": "pending release",
+  "sync": "Saved plugin and Codex cache synchronized at 1.88.0; verification/hosted-sync-1.88.0.json. GitHub release readback is tracked separately.",
   "bundled_render_review": {
     "status": "PASS_LIMITED",
     "subject": "Synthetic square and diamond, contact-sheet geometry, small-size visibility, true transparent cutout and presentation cover",
