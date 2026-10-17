@@ -27,12 +27,34 @@ def fake_program(folder, name, output):
 
 
 def run_check(*args, path='', home=None, project=None):
-    """Run the check in a clean environment: only the given PATH, a temporary HOME, no browser variables."""
+    """Run the CLI with browser discovery limited to the fixture PATH and HOME."""
     with tempfile.TemporaryDirectory() as temp:
         env = {'PATH': path, 'HOME': home or temp, 'PYTHONDONTWRITEBYTECODE': '1', 'SYSTEMROOT': os.environ.get('SYSTEMROOT', '')}
         # A fixed host keeps the result independent of the machine running the test (a /mnt/user-data folder, for example).
         host = [] if '--host' in args else ['--host', 'codex']
-        done = subprocess.run([sys.executable, str(TOOL), '--json', '--project', project or temp, *host, *args], capture_output=True, text=True, env=env, timeout=120)
+        # Clearing PATH does not hide fixed /Applications or Program Files installations. Keep the production
+        # discovery algorithm, but restrict its results to fixture directories in this subprocess only.
+        bootstrap = """
+import importlib.util, os, sys
+tool = sys.argv.pop(1)
+spec = importlib.util.spec_from_file_location('environment_fixture', tool)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+discover = module.browser_candidates
+roots = [os.path.abspath(p) for p in [os.environ['HOME'], *os.environ['PATH'].split(os.pathsep)] if p]
+def within(candidate, root):
+    try:
+        return os.path.commonpath([os.path.abspath(candidate), root]) == root
+    except ValueError:  # Windows paths on different drives cannot share a fixture root.
+        return False
+def isolated(explicit):
+    for candidate, where in discover(explicit):
+        if any(within(candidate, root) for root in roots):
+            yield candidate, where
+module.browser_candidates = isolated
+sys.exit(module.main())
+"""
+        done = subprocess.run([sys.executable, '-c', bootstrap, str(TOOL), '--json', '--project', project or temp, *host, *args], capture_output=True, text=True, env=env, timeout=120)
         return done.returncode, json.loads(done.stdout), sorted(os.listdir(temp))
 
 
@@ -143,6 +165,13 @@ class Environment(unittest.TestCase):
 
 class AuditFixes(unittest.TestCase):
     """Regressions from the technical audit of 1.80.0 (2026-10-14): INSTALL-04 to INSTALL-07."""
+
+    def test_production_still_discovers_chrome_outside_path(self):
+        chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+        with mock.patch.dict(os.environ, {}, clear=True), mock.patch.object(check.shutil, 'which', return_value=None), \
+                mock.patch.object(check.glob, 'glob', return_value=[]), \
+                mock.patch.object(check.os.path, 'isfile', side_effect=lambda path: path == chrome):
+            self.assertEqual(list(check.browser_candidates(None)), [(chrome, 'studio')])
 
     def test_a_program_that_does_not_run_is_not_available(self):
         with tempfile.TemporaryDirectory() as bin_dir:

@@ -1,0 +1,116 @@
+{
+  "version": "1.87.1",
+  "origin": "codex",
+  "change_id": "CX-20261017-01",
+  "baseline": "5902098252cdf48f735be02eca3689da133d50e4",
+  "date": "2026-10-17",
+  "scope": "Only four audit defects, their regression tests and required release metadata.",
+  "before": {
+    "score_cli": "FAIL: successful exit with empty output in a path containing spaces, # and %",
+    "stale_qa": "4 of 5 new binding regressions failed on baseline",
+    "environment": "2 of 22 existing tests failed because machine-wide Chrome escaped the fixture",
+    "animate": "Regression test reproduces fixed final.mp4 caption input on an alternate/custom output"
+  },
+  "after": {
+    "score_cli": "PASS for both identical starters; valid/invalid/markdown invocations, including symlinked temporary paths",
+    "motion_acceptance": "24 tests PASS, including contract identity/revision/hash, replaced video, copied source and legacy evidence",
+    "environment": "23 tests PASS; production fixed-location browser discovery preserved",
+    "animate": "11 tests PASS, including immutable upstream check, format/custom/nested output, disabled captions, partial render and symlink invocation"
+  },
+  "full_suite": {
+    "command": "TMPDIR=/private/tmp bash scripts/check_all.sh",
+    "exit_code": 0,
+    "node": {
+      "tests": 222,
+      "pass": 213,
+      "fail": 0,
+      "skipped": 9
+    },
+    "python": {
+      "suites": 38,
+      "tests": 336,
+      "passed": 326,
+      "skipped": 10
+    },
+    "optional_tests": "9 browser opt-ins and 10 optional-dependency Python cases skipped; not represented as executed"
+  },
+  "chrome_binding": {
+    "status": "PASS",
+    "frames": 6,
+    "text_samples": 1,
+    "contract_sha256_checked": true,
+    "stale_contract_rejected": true,
+    "encoded_video_inspected": false
+  },
+  "animate_live": {
+    "status": "PASS",
+    "outputs": [
+      {
+        "path": "renders/client files/test film-180x180-captions.mp4",
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_type": "video",
+              "width": 180,
+              "height": 180,
+              "nb_frames": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": "renders/client files/test film-180x180.mp4",
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_type": "video",
+              "width": 180,
+              "height": 180,
+              "nb_frames": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": "renders/client files/test film-captions.mp4",
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_type": "video",
+              "width": 180,
+              "height": 320,
+              "nb_frames": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": "renders/client files/test film.mp4",
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_type": "video",
+              "width": 180,
+              "height": 320,
+              "nb_frames": "3"
+            }
+          ]
+        }
+      }
+    ],
+    "driver": "Existing Playwright with an isolated test shim selecting the installed Google Chrome",
+    "encoder": "Existing imageio_ffmpeg 7.1 with libass; system FFmpeg lacks the subtitles filter",
+    "installed_dependencies": false,
+    "boundary": "Synthetic three-frame export checks output routing and caption muxing, not creative quality"
+  },
+  "review": "Named independent reviewer found no blocking issue; Windows different-drive test isolation observation addressed.",
+  "host_behavior": "not_run; saved package and cache synchronization are separate follow-up evidence"
+}

@@ -3,11 +3,14 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath, pathToFileURL} from 'node:url';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {validateMotionToolkit} from '../scripts/validate-motion-toolkit.mjs';
 import '../skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs';
 import './motion-quality.test.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
+const importFile = file => import(pathToFileURL(file).href);
 const canvas = 'skills/hyperframes-workflow/assets/motion-toolkit';
 function withCopy(action) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-motion-'));
@@ -32,17 +35,41 @@ test('bundled runtime installation fails', () => withCopy(tmp => {
 }));
 
 const kinetic = 'skills/remotion-video-production/assets/kinetic-type-starter';
+test('score CLI validates and writes a storyboard in paths containing spaces, # and %', () => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'score # 100% '));
+  try {
+    for (const starter of [kinetic, 'skills/hyperframes-workflow/assets/gsap-motion-starter']) {
+      const cli = path.join(temp, 'check-score.mjs');
+      fs.copyFileSync(path.join(root, starter, 'check-score.mjs'), cli);
+      const input = path.join(root, starter, 'motion-score.json');
+      const valid = spawnSync(process.execPath, [cli, input], {encoding: 'utf8'});
+      assert.equal(valid.status, 0, valid.stderr);
+      assert.match(valid.stdout, /PASS/);
+      const bad = path.join(temp, 'invalid score.json');
+      const score = JSON.parse(fs.readFileSync(input, 'utf8'));
+      score.fps = {num: 0, den: 1};
+      fs.writeFileSync(bad, JSON.stringify(score));
+      const invalid = spawnSync(process.execPath, [cli, bad], {encoding: 'utf8'});
+      assert.equal(invalid.status, 1, invalid.stdout + invalid.stderr);
+      assert.match(invalid.stderr, /FAIL/);
+      const board = spawnSync(process.execPath, ['./check-score.mjs', input, '--markdown'], {cwd: temp, encoding: 'utf8'});
+      assert.equal(board.status, 0, board.stderr);
+      assert.match(board.stdout, /# /);
+      assert.ok(board.stdout.length > 100);
+    }
+  } finally { fs.rmSync(temp, {recursive: true, force: true}); }
+});
 const gsapStarter = 'skills/hyperframes-workflow/assets/gsap-motion-starter';
 test('runtime starters share one valid motion score with readable holds', async () => {
   const {validateScore} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   assert.doesNotThrow(() => validateScore(score));
   assert.deepEqual(checkScore(score), {errors: [], warnings: []});
   assert.equal(fs.readFileSync(path.join(root, gsapStarter, 'motion-score.json'), 'utf8'), fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
 });
 test('starter checker rejects gaps, missing copy and short holds', async () => {
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   const gap = structuredClone(score); gap.scenes[1].start = gap.scenes[0].end + 5;
   assert.ok(checkScore(gap).errors.some(error => error.includes('not covered')));
@@ -70,7 +97,7 @@ test('single-file preview stays offline and embeds the shared contract', () => {
   });
 });
 test('starter contract is a complete storyboard and renders for approval', async () => {
-  const {checkScore, toMarkdown} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {checkScore, toMarkdown} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   assert.deepEqual(checkScore(score, {storyboard: true}), {errors: [], warnings: []});
   const markdown = toMarkdown(score);
@@ -79,7 +106,7 @@ test('starter contract is a complete storyboard and renders for approval', async
   assert.match(markdown, /## Acceptance criteria/);
 });
 test('storyboard check rejects incomplete scenes and unsupported approval', async () => {
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   const missing = structuredClone(score); delete missing.scenes[1].focalPoint; missing.acceptance = ['one'];
   const found = checkScore(missing, {storyboard: true}).errors.join('\n');
@@ -94,7 +121,7 @@ test('storyboard check rejects incomplete scenes and unsupported approval', asyn
 
 const scenesDir = 'skills/hyperframes-workflow/assets/motion-scenes';
 test('scene engine renders every kind deterministically and never scales a logo', async () => {
-  const {buildScene, sceneFrame, sceneKinds} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {buildScene, sceneFrame, sceneKinds} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
   const appFilm = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
   const dataNames = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/data-and-names.motion-score.json'), 'utf8'));
@@ -113,8 +140,8 @@ test('scene engine renders every kind deterministically and never scales a logo'
   assert.throws(() => buildScene({...logo, kind: 'spin'}, score), /Unknown scene kind/);
 });
 test('checker kinds match the engine and the all-kinds example is a complete storyboard', async () => {
-  const {sceneKinds} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore, knownSceneKinds} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {sceneKinds} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore, knownSceneKinds} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const {validateScore} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
   assert.deepEqual(knownSceneKinds, Object.keys(sceneKinds));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/all-kinds.motion-score.json'), 'utf8'));
@@ -126,8 +153,8 @@ test('checker kinds match the engine and the all-kinds example is a complete sto
   assert.match(errors, /logo asset missing/); assert.match(errors, /unknown scene kind spin/); assert.match(errors, /missing copy id nope/);
 });
 test('ad templates are complete storyboards in every format with placeholder copy to replace', async () => {
-  const {resolveFormat} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {resolveFormat} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const names = fs.readdirSync(path.join(root, scenesDir, 'templates')).sort();
   assert.deepEqual(names, ['ad-offer.motion-score.json', 'ad-product.motion-score.json', 'ad-testimonial.motion-score.json']);
   for (const name of names) {
@@ -137,8 +164,8 @@ test('ad templates are complete storyboards in every format with placeholder cop
   }
 });
 test('formats resolve from one contract and keep the 16:9 layout unchanged', async () => {
-  const {buildScene, sceneFrame, resolveFormat, nodesByKey: nodesOf} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {buildScene, sceneFrame, resolveFormat, nodesByKey: nodesOf} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   assert.equal(resolveFormat(score), score); assert.equal(resolveFormat(score, 'base'), score);
   assert.throws(() => resolveFormat(score, '4x5'), /Unknown format/);
@@ -183,12 +210,23 @@ const reviewTool = 'skills/hyperframes-workflow/assets/motion-review/review-fram
 const syncTool = 'skills/hyperframes-workflow/assets/motion-sync/sync.mjs';
 const exportDir = 'skills/hyperframes-workflow/assets/motion-export';
 test('frame review selects contract frames and embeds the score in the preview', async () => {
-  const {selectFrames, previewFor, contactSheet, formatsFor} = await import(path.join(root, reviewTool));
+  const {selectFrames, previewFor, contactSheet, formatsFor} = await importFile(path.join(root, reviewTool));
   const {reviewFrames} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
   const scorePath = path.join(root, kinetic, 'motion-score.json'), score = JSON.parse(fs.readFileSync(scorePath, 'utf8'));
   assert.deepEqual(selectFrames(score), reviewFrames(score));
-  const {html, score: embedded} = previewFor(scorePath);
+  const {html, score: embedded, evidenceBinding} = previewFor(scorePath);
   assert.deepEqual(embedded, score);
+  assert.deepEqual(evidenceBinding, {kind: 'preview', contract: {id: score.id, revision: score.revision,
+    sha256: createHash('sha256').update(fs.readFileSync(scorePath)).digest('hex')}});
+  const {plan} = await import('../skills/hyperframes-workflow/assets/motion-review/text-audit.mjs');
+  assert.deepEqual(plan(scorePath).evidenceBinding, evidenceBinding);
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'unbound-preview-'));
+  try {
+    const saved = path.join(temp, 'preview.html');
+    fs.writeFileSync(saved, html);
+    assert.equal(previewFor(saved).evidenceBinding.contract, null);
+    assert.equal(plan(saved, {times: [1]}).evidenceBinding, undefined);
+  } finally { fs.rmSync(temp, {recursive: true, force: true}); }
   assert.match(html, /window\.reviewFrame = reviewFrame/);
   assert.match(html, /report.id = 'review-report'/);
   const sheet = contactSheet({id: 'x<y', revision: 1, frames: [{frame: 3, image: 'frames/a.png', scenes: ['s'], checked: true, issues: [{severity: 'error', check: 'contrast', scene: 's', element: 'e', detail: '<b>'}]}], summary: {errors: 1, warnings: 0, checkedFrames: 1}});
@@ -199,13 +237,16 @@ test('frame review selects contract frames and embeds the score in the preview',
 });
 // Opt-in: runs a real headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('frame review finds no issues in the starter and errors in a broken contract', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
-  const {runReview} = await import(path.join(root, reviewTool));
+  const {runReview} = await importFile(path.join(root, reviewTool));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-review-test-'));
   try {
     const good = runReview(path.join(root, kinetic, 'motion-score.json'), {out: path.join(tmp, 'good'), browser: process.env.MOTION_REVIEW_BROWSER});
     assert.equal(good.summary.errors, 0); assert.ok(good.summary.checkedFrames > 0);
+    assert.equal(good.evidence_binding.kind, 'preview');
+    assert.equal(good.evidence_binding.contract.sha256, createHash('sha256').update(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'))).digest('hex'));
+    assert.equal(good.evidence_binding.video_sha256, undefined, 'preview checks do not inspect a video');
     assert.deepEqual(good.formats, ['base', '9x16', '1x1']); assert.ok(good.frames.some(frame => frame.format === '9x16' && frame.image.startsWith('frames/9x16/')));
-    const {importCaptions, parseSubtitles} = await import(path.join(root, syncTool));
+    const {importCaptions, parseSubtitles} = await importFile(path.join(root, syncTool));
     const captioned = importCaptions(JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8')), parseSubtitles(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt'), 'utf8'))).score;
     fs.writeFileSync(path.join(tmp, 'captioned.json'), JSON.stringify(captioned));
     const withCaptions = runReview(path.join(tmp, 'captioned.json'), {out: path.join(tmp, 'captions'), browser: process.env.MOTION_REVIEW_BROWSER, format: '9x16'});
@@ -220,7 +261,7 @@ test('frame review finds no issues in the starter and errors in a broken contrac
 
 // Opt-in: the Python renderer draws the same pixels as the browser scene engine (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('the Python renderer matches the browser engine frame by frame', {skip: !(process.env.MOTION_REVIEW_BROWSER && spawnPython('python3', ['-c', 'import PIL'], {encoding: 'utf8'}).status === 0) && 'set MOTION_REVIEW_BROWSER and install Pillow'}, async () => {
-  const {runReview} = await import(path.join(root, reviewTool));
+  const {runReview} = await importFile(path.join(root, reviewTool));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-parity-'));
   try {
     for (const example of ['color-block', 'app-film', 'data-and-names', 'social-captions', 'photo-and-trend']) {
@@ -249,7 +290,7 @@ print(json.dumps(out))`, JSON.stringify(pairs)], {encoding: 'utf8'});
 });
 
 test('subtitles parse from SRT and WebVTT into exact caption copy and frames', async () => {
-  const {parseSubtitles, importCaptions} = await import(path.join(root, syncTool));
+  const {parseSubtitles, importCaptions} = await importFile(path.join(root, syncTool));
   const vtt = '\uFEFFWEBVTT\r\n\r\nNOTE draft\r\n\r\nintro\r\n00:01.500 --> 00:03.000 line:90%\r\n<v Host>Zażółć <i>gęślą</i>\r\njaźń\r\n\r\n00:00:02.000 --> 00:00:05.250\r\n{\\an8}Second';
   assert.deepEqual(parseSubtitles(vtt), [{startMs: 1500, endMs: 3000, text: 'Zażółć gęślą\njaźń'}, {startMs: 2000, endMs: 5250, text: 'Second'}]);
   const srt = fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt'), 'utf8');
@@ -267,10 +308,10 @@ test('subtitles parse from SRT and WebVTT into exact caption copy and frames', a
   assert.throws(() => importCaptions(score, [{startMs: 0, endMs: 2000, text: 'x'}], {prefix: 'title'}), /title-1 is already used/);
 });
 test('beat grid, caption layer and checks follow the contract', async () => {
-  const {beatFrames, buildCaptions, captionsFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {beatReport, importCaptions, parseSubtitles} = await import(path.join(root, syncTool));
-  const {checkScore, toMarkdown} = await import(path.join(root, kinetic, 'check-score.mjs'));
-  const {selectFrames} = await import(path.join(root, reviewTool));
+  const {beatFrames, buildCaptions, captionsFrame} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {beatReport, importCaptions, parseSubtitles} = await importFile(path.join(root, syncTool));
+  const {checkScore, toMarkdown} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
+  const {selectFrames} = await importFile(path.join(root, reviewTool));
   const {reviewFrames} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
   const base = JSON.parse(fs.readFileSync(path.join(root, kinetic, 'motion-score.json'), 'utf8'));
   assert.deepEqual(beatFrames(base), []); assert.equal(buildCaptions(base), null);
@@ -324,7 +365,7 @@ const boxes = (bytes, start = 0, end = bytes.length, out = []) => {
 };
 const fakeChunks = (count, keyEvery = 60) => Array.from({length: count}, (_, i) => ({timestamp: Math.round(i * 1e6 * 1001 / 30000), key: i % keyEvery === 0, data: new Uint8Array([0, 0, 0, 2, i % 256, 7])}));
 test('WebM muxer writes one block per frame and a cluster per keyframe', async () => {
-  const {muxWebM} = await import(path.join(root, exportDir, 'video-export.mjs'));
+  const {muxWebM} = await importFile(path.join(root, exportDir, 'video-export.mjs'));
   const bytes = muxWebM({width: 1080, height: 1920, fps: {num: 30000, den: 1001}, codec: 'vp09.00.40.08', chunks: fakeChunks(150)});
   const elements = ebml(bytes);
   assert.equal(elements[0].id, '1A45DFA3');
@@ -336,7 +377,7 @@ test('WebM muxer writes one block per frame and a cluster per keyframe', async (
   assert.deepEqual([bytes[blocks[0].body + 3], bytes[blocks[1].body + 3], bytes[blocks[60].body + 3]], [0x80, 0, 0x80]);
 });
 test('MP4 muxer writes H.264 sample tables that point into mdat', async () => {
-  const {muxMP4, videoCandidates, chooseVideoEncoding} = await import(path.join(root, exportDir, 'video-export.mjs'));
+  const {muxMP4, videoCandidates, chooseVideoEncoding} = await importFile(path.join(root, exportDir, 'video-export.mjs'));
   assert.equal(videoCandidates[0].container, 'mp4'); assert.equal(await chooseVideoEncoding(1920, 1080, {num: 30, den: 1}), null);
   const chunks = fakeChunks(90, 30), description = new Uint8Array([1, 100, 0, 40, 255, 225, 0, 0, 1, 0, 0]);
   const bytes = muxMP4({width: 1920, height: 1080, fps: {num: 30000, den: 1001}, codec: 'avc1.640028', description, chunks});
@@ -385,7 +426,7 @@ test('planned motion and sound cases stay planned, complete and owned by real sk
 });
 // Opt-in: exports a real file through a headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('browser export writes a playable file for a chosen format', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
-  const {exportFile} = await import(path.join(root, exportDir, 'export-video.mjs'));
+  const {exportFile} = await importFile(path.join(root, exportDir, 'export-video.mjs'));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-export-test-'));
   try {
     const result = await exportFile(path.join(root, kinetic, 'motion-score.json'), {out: path.join(tmp, 'film'), format: '1x1', browser: process.env.MOTION_REVIEW_BROWSER});
@@ -397,7 +438,7 @@ test('browser export writes a playable file for a chosen format', {skip: !proces
 });
 
 test('HTML capture counts frames from rational rates and refuses bad ones', async () => {
-  const {parseFps, frameCount} = await import(path.join(root, exportDir, 'capture-html.mjs'));
+  const {parseFps, frameCount} = await importFile(path.join(root, exportDir, 'capture-html.mjs'));
   assert.equal(frameCount(6, parseFps('30')), 180);
   assert.equal(frameCount(6, parseFps('30000/1001')), 180);
   assert.equal(frameCount(10, parseFps('30000/1001')), 300);
@@ -408,7 +449,7 @@ test('HTML capture counts frames from rational rates and refuses bad ones', asyn
 test('HTML capture keeps every frame when the audio is shorter than the picture (audit MEDIA-04)', async t => {
   const {spawnSync} = await import('node:child_process');
   if (spawnSync('ffmpeg', ['-version']).error || spawnSync('ffprobe', ['-version']).error) return t.skip('ffmpeg and ffprobe are needed');
-  const {encoderArgs, encodedFrames, parseFps} = await import(path.join(root, exportDir, 'capture-html.mjs'));
+  const {encoderArgs, encodedFrames, parseFps} = await importFile(path.join(root, exportDir, 'capture-html.mjs'));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'capture-audio-'));
   try {
     const wav = path.join(tmp, 'short.wav'), out = path.join(tmp, 'film.mp4');
@@ -424,7 +465,7 @@ test('HTML capture keeps every frame when the audio is shorter than the picture 
 
 // Opt-in: captures a hand-written page twice through a headless browser and FFmpeg (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('HTML capture renders a page frame by frame, identically on two runs', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
-  const {captureFile} = await import(path.join(root, exportDir, 'capture-html.mjs'));
+  const {captureFile} = await importFile(path.join(root, exportDir, 'capture-html.mjs'));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'capture-html-test-'));
   try {
     const page = path.join(tmp, 'page.html');
@@ -446,8 +487,8 @@ test('HTML capture renders a page frame by frame, identically on two runs', {ski
 });
 
 test('sweep exit hands over with a crossing line and leaves other exits unchanged', async () => {
-  const {buildScene, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {buildScene, sceneFrame} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const {validateScore} = await import('../skills/hyperframes-workflow/assets/motion-quality/score.mjs');
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
   assert.doesNotThrow(() => validateScore(score));
@@ -472,8 +513,8 @@ test('sweep exit hands over with a crossing line and leaves other exits unchange
   assert.doesNotMatch(errors, /storyboard field audio is missing/);
 });
 test('check-preview accepts the template with a new contract and rejects rewrites', async () => {
-  const {checkPreview} = await import(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs'));
-  const {previewFor} = await import(path.join(root, reviewTool));
+  const {checkPreview} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs'));
+  const {previewFor} = await importFile(path.join(root, reviewTool));
   const {html} = previewFor(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'));
   const good = checkPreview(html);
   assert.deepEqual([good.errors, good.unchanged, good.regions], [[], true, {'scene engine': 'identical', 'video export': 'identical'}]);
@@ -487,8 +528,8 @@ test('check-preview accepts the template with a new contract and rejects rewrite
 });
 
 test('copy containing </script> is embedded safely and an unsafe embedding is rejected', async () => {
-  const {checkPreview} = await import(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs'));
-  const {previewFor} = await import(path.join(root, reviewTool));
+  const {checkPreview} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs'));
+  const {previewFor} = await importFile(path.join(root, reviewTool));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-embed-'));
   try {
     const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
@@ -509,7 +550,7 @@ test('copy containing </script> is embedded safely and an unsafe embedding is re
 const playerFile = 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html';
 const fragmentFor = score => '#contract=' + Buffer.from(JSON.stringify(score)).toString('base64url');
 test('player links carry the contract in the fragment and round-trip exactly', async () => {
-  const {playerLink, contractFromLink, playerUrl} = await import(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs'));
+  const {playerLink, contractFromLink, playerUrl} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
   const link = playerLink(score);
   assert.equal(playerUrl, 'https://framecoreworks.github.io/framecore-works-creative-studio/');
@@ -548,8 +589,8 @@ test('the motion player draws a contract from the address fragment', {skip: !pro
 });
 
 test('contract revisions diff values and extend a scene while moving everything after it', async () => {
-  const {diffContracts, diffMarkdown, extendScene, nextRevision, timingMentions} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-revise/revise.mjs'));
-  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {diffContracts, diffMarkdown, extendScene, nextRevision, timingMentions} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/motion-revise/revise.mjs'));
+  const {checkScore} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8'));
   const [first, second] = score.scenes;
   assert.ok(second.start < first.end, 'example scenes overlap');
@@ -597,8 +638,8 @@ test('contract revisions diff values and extend a scene while moving everything 
 });
 
 test('a delivered render script is named in the contract and follows each revision', async () => {
-  const {nextRevision, scriptName} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-revise/revise.mjs'));
-  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {nextRevision, scriptName} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/motion-revise/revise.mjs'));
+  const {checkScore} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8'));
   const withScript = name => ({...score, runtime: {status: 'selected', value: 'Python frame renderer', script: name}});
   assert.deepEqual(checkScore(withScript('two-statements.render.py')).errors, []);
@@ -615,7 +656,7 @@ import {spawnSync as spawnPython} from 'node:child_process';
 const python = spawnPython('python3', ['-c', 'import PIL'], {encoding: 'utf8'}).status === 0;
 test('Python renderer matches the engine kinds and easings and renders deterministic stills', {skip: !python && 'python3 with Pillow not installed'}, async () => {
   const spawnSync = spawnPython;
-  const {easings, sceneKinds} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
+  const {easings, sceneKinds} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
   const script = path.join(root, renderDir, 'render.py');
   const probe = spawnSync('python3', ['-B', '-c', `import importlib.util, json, sys
 spec = importlib.util.spec_from_file_location('render', sys.argv[1]); r = importlib.util.module_from_spec(spec); spec.loader.exec_module(r)
@@ -645,8 +686,8 @@ print(json.dumps({'kinds': list(r.KINDS), 'easings': {k: [f(x / 20) for x in ran
 });
 
 test('motion styles apply to a contract, keep text contrast and use known easings', async () => {
-  const {easings} = await import(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {easings} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
   const {styles, choosing} = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-styles/styles.json'), 'utf8'));
   const base = JSON.parse(fs.readFileSync(path.join(root, 'skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json'), 'utf8'));
   const ids = styles.map(style => style.id);
@@ -695,7 +736,7 @@ test('beats.py finds tempo, bar 1 and the drop of a click track and music_edit.p
 });
 
 test('check-score and the craft critique use one reading-time rule', async () => {
-  const {readingSeconds} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {readingSeconds} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
   const samples = ['Gotowe do eksportu', 'Jeden', 'Smak, który zostaje na dłużej niż jedno popołudnie', 'www.example.com/start - 50%', 'A b c d e f g h i j k l'];
   // Motion craft: the longer of 13 characters per second + 0.5 s and 0.5 s + a third of a second per word, at least 1 s.
   assert.ok(Math.abs(readingSeconds('Gotowe do eksportu') - (18 / 13 + 0.5)) < 1e-9);
@@ -725,8 +766,8 @@ test('Python renderer motion blur keeps holds sharp and phone-size stills scale 
 });
 
 test('device scenes place screenshots in a phone or browser window, push screens and focus the camera', async () => {
-  const {buildScene, deviceFrame, deviceLayout, nodesByKey, resolveFormat, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {buildScene, deviceFrame, deviceLayout, nodesByKey, resolveFormat, sceneFrame} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const score = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
   assert.deepEqual(checkScore(score, {storyboard: true}).errors, []);
   for (const format of ['base', '9x16']) {
@@ -776,8 +817,8 @@ test('Python renderer draws device scenes deterministically', {skip: !python && 
 });
 
 test('device taps press before the screen change, the browser frame shows its address, scene backgrounds wipe in', async () => {
-  const {backgroundWipe, buildScene, deviceFrame, deviceLayout, nodesByKey, sceneFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {backgroundWipe, buildScene, deviceFrame, deviceLayout, nodesByKey, sceneFrame} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const film = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/app-film.motion-score.json'), 'utf8'));
   const phone = film.scenes.find(scene => scene.id === 'phone'), tap = phone.params.taps[0], at = phone.start + tap.at;
   assert.ok(phone.params.screens[1].at - tap.at >= 3 && phone.params.screens[1].at - tap.at <= 5, 'the tap causes the screen change');
@@ -979,7 +1020,7 @@ test('a timing claim says what it covers: masked cues are not judged, never coun
 });
 
 test('sound cues follow the picture: taps, pushes, wipes, landings, a composed bed and checked contracts', {skip: !(python && numpy) && 'python3 with Pillow and numpy not installed'}, async () => {
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-sound-'));
   try {
     const plan = (name, density, out, extra = []) => spawnPython('python3', ['-B', path.join(root, soundDir, 'sound.py'), 'plan', path.join(root, scenesDir, `examples/${name}.motion-score.json`), '--out', out, '--density', density, ...extra], {encoding: 'utf8'});
@@ -1259,8 +1300,8 @@ test('the frame review blocks a contract whose word is cut while the encoded pix
 });
 
 test('contract fonts and content scale are checked, and both engines scale sizes the same way', async () => {
-  const {checkScore} = await import(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
-  const {deviceLayout} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs'));
+  const {deviceLayout} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
   const base = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/two-statements.motion-score.json'), 'utf8'));
   const fonts = [{family: 'Inter', weight: 400, file: 'inter/Inter-Regular.ttf'}, {family: 'Inter', weight: 700, file: 'inter/Inter-Bold.ttf'}];
   const tokens = {...base.tokens, fontFamily: 'Inter, Arial, sans-serif'};
@@ -1310,8 +1351,8 @@ test('the motion player loads embedded contract fonts before reviewing', {skip: 
 });
 
 test('lower thirds and bar charts lay out and count identically in the JS engine and the Python renderer', async () => {
-  const {lowerThirdLayout, barChartLayout, sceneFrame, buildScene, resolveFormat} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {lowerThirdLayout, barChartLayout, sceneFrame, buildScene, resolveFormat} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const {spawnSync} = await import('node:child_process');
   const contract = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/data-and-names.motion-score.json'), 'utf8'));
   assert.deepEqual(checkScore(contract, {storyboard: true}), {errors: [], warnings: []});
@@ -1351,8 +1392,8 @@ test('lower thirds and bar charts lay out and count identically in the JS engine
 });
 
 test('line charts, word entries and persistent elements lay out identically in the JS engine and the Python renderer', async () => {
-  const {lineChartLayout, lineChartReach, lineWords, sceneFrame, buildScene, resolveFormat, buildCaptions, captionsFrame} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {lineChartLayout, lineChartReach, lineWords, sceneFrame, buildScene, resolveFormat, buildCaptions, captionsFrame} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const {spawnSync} = await import('node:child_process');
   const contract = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/photo-and-trend.motion-score.json'), 'utf8'));
   const cases = [undefined, '16x9'].map(id => {
@@ -1398,8 +1439,8 @@ test('line charts, word entries and persistent elements lay out identically in t
 });
 
 test('active-word captions keep Polish word groups, light the spoken word and match the Python renderer', async () => {
-  const {captionItems, captionsFrame, buildCaptions} = await import(path.join(root, scenesDir, 'motion-scenes.mjs'));
-  const {checkScore} = await import(path.join(root, kinetic, 'check-score.mjs'));
+  const {captionItems, captionsFrame, buildCaptions} = await importFile(path.join(root, scenesDir, 'motion-scenes.mjs'));
+  const {checkScore} = await importFile(path.join(root, kinetic, 'check-score.mjs'));
   const {spawnSync} = await import('node:child_process');
   const contract = JSON.parse(fs.readFileSync(path.join(root, scenesDir, 'examples/social-captions.motion-score.json'), 'utf8'));
   assert.deepEqual(checkScore(contract, {storyboard: true}), {errors: [], warnings: []});
@@ -1427,7 +1468,7 @@ test('active-word captions keep Polish word groups, light the spoken word and ma
 });
 
 test('web motion probe takes a URL or an existing local page and nothing else', async () => {
-  const {pageUrl} = await import(path.join(root, 'skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs'));
+  const {pageUrl} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs'));
   assert.equal(pageUrl('https://example.com/a'), 'https://example.com/a');
   assert.match(pageUrl(path.join(root, 'README.md')), /^file:\/\//);
   assert.throws(() => pageUrl('no-such-page.html'), /no such file/);
@@ -1435,7 +1476,7 @@ test('web motion probe takes a URL or an existing local page and nothing else', 
 
 // Opt-in: opens a page in a headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('web motion probe reads CSS animations, transitions and GSAP tweens from a page', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
-  const {probePage} = await import(path.join(root, 'skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs'));
+  const {probePage} = await importFile(path.join(root, 'skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs'));
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'web-motion-probe-test-'));
   try {
     const page = path.join(tmp, 'page.html');

@@ -22,11 +22,14 @@ Codex and Claude Code, or any local project with a shell: Node.js 18 or newer, F
 
 ```sh
 ENGINE="$HOME/.framecore-studio/workspace/animate-engine"   # after the environment check's install step
+STUDIO_EXPORT="/path/to/plugin/skills/hyperframes-workflow/assets/animate-export/export.mjs"   # resolve from the installed Studio package
 node "$ENGINE/tools/build.mjs" pieces/<name>
 node "$ENGINE/tools/still.mjs" pieces/<name> 2.25,9.75 look.png --scale 0.5
-node "$ENGINE/tools/export.mjs" pieces/<name> --share
+node "$STUDIO_EXPORT" pieces/<name> --engine "$ENGINE" --share
 node "$ENGINE/tools/review.mjs" pieces/<name>
 ```
+
+Use Studio's [export adapter](../assets/animate-export/export.mjs) for exports, including when the engine's own instructions name `tools/export.mjs`. It keeps the pinned upstream files unchanged and runs a temporary copy with corrected caption paths: the caption preview reads the actual exported video and writes its sibling `<name>-captions.mp4`. With `--formats` and a custom `--out`, non-primary formats receive the same dimension suffix as the engine's default names. Names with spaces and nested output folders are supported; `--no-captions`, absent narration, partial exports and `--no-mux` keep their existing behavior. The adapter refuses an exporter that differs from the reviewed pin.
 
 Pieces live in the user's project under `pieces/<name>/`; styles the user makes live in the project's `styles/<name>/`. The workspace copy is replaced on a plugin update: never edit it for one piece, and propose changes to its `craft.md` or a style as notes in the piece's `LOG.md` instead. Voice-over word timing needs Python with `faster-whisper`; without it the engine estimates word times and says so. The engine's voice tool recognises English only; for a Polish or other-language voice-over, run [animate-voice](../assets/animate-voice/README.md) on the piece after it (supplied timings, a multilingual model or a syllable estimate), then rebuild.
 

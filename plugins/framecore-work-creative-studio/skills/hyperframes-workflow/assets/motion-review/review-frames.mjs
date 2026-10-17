@@ -8,6 +8,7 @@
 //   node review-frames.mjs motion-score.json --out review-out [--browser /path/to/chrome] [--samples 12] [--format all|base|9x16]
 //   node review-frames.mjs motion-preview.html --out review-out
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
@@ -46,16 +47,17 @@ export function withFontData(score, base) {
 }
 
 export function previewFor(input) {
-  const text = fs.readFileSync(input, 'utf8');
+  const source = fs.readFileSync(input), text = source.toString('utf8');
   if (input.endsWith('.html')) {
     const match = text.match(scoreBlock);
     if (!match) throw new Error('No embedded motion-score block found in the preview');
-    return {html: text, score: JSON.parse(match[2])};
+    return {html: text, score: JSON.parse(match[2]), evidenceBinding: {kind: 'preview', contract: null}};
   }
   const score = withFontData(JSON.parse(text), path.dirname(path.resolve(input)));
   const template = fs.readFileSync(templatePath, 'utf8');
   // Every '<' is written as \u003c, so copy such as '</script>' can never end the script element; JSON.parse restores it.
-  return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2).replace(/</g, '\\u003c') + close), score};
+  return {html: template.replace(scoreBlock, (_, open, __, close) => open + JSON.stringify(score, null, 2).replace(/</g, '\\u003c') + close), score,
+    evidenceBinding: {kind: 'preview', contract: {id: score.id, revision: score.revision, sha256: createHash('sha256').update(source).digest('hex')}}};
 }
 
 /** Add the visible-text audit to a review page: every visible word in the stage, not only contract copy, must be
@@ -137,7 +139,7 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
   if (fs.existsSync(out)) throw new Error(`Output directory already exists: ${out}`);
   const chrome = findBrowser(browser);
   if (!chrome) throw new Error('No Chrome or Chromium found; pass --browser or set CHROME_PATH');
-  const {html, score} = previewFor(input);
+  const {html, score, evidenceBinding} = previewFor(input);
   const formats = formatsFor(score, format), nested = Boolean(score.formats?.length);
   fs.mkdirSync(path.join(out, 'frames'), {recursive: true});
   const previewPath = path.join(out, 'preview.html');
@@ -174,7 +176,7 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
     fs.rmSync(profile, {recursive: true, force: true});
   }
   const issues = frames.flatMap(f => f.issues);
-  const review = {id: score.id, revision: score.revision, browser: path.basename(chrome), formats, frames,
+  const review = {id: score.id, revision: score.revision, evidence_binding: evidenceBinding, browser: path.basename(chrome), formats, frames,
     summary: {errors: issues.filter(i => i.severity === 'error').length, warnings: issues.filter(i => i.severity === 'warning').length, checkedFrames: frames.filter(f => f.checked).length,
       textAudited: frames.filter(f => f.textAudit).length},
     boundary: 'Automated layout checks on review frames in readable holds, including every visible text in the stage. Not a review of motion, rhythm, audio or the encoded export.'};

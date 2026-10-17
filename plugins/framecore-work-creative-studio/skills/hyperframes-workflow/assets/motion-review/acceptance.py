@@ -22,6 +22,7 @@ not verified, listed) or blocked (a verdict failed). Exit code 0 accepted, 1 blo
 Python 3.8+, standard library; ffprobe for --video.
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -33,6 +34,36 @@ import sys
 def load(path):
     with open(path, encoding='utf-8') as handle:
         return json.load(handle)
+
+
+def file_hash(path):
+    digest = hashlib.sha256()
+    with open(path, 'rb') as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def bound_report(path, score, contract_hash, video_hash):
+    """Only use evidence for these exact source bytes and, for video critiques, this encoded file."""
+    if not path:
+        return None, None
+    report = load(path)
+    binding = report.get('evidence_binding') or {}
+    contract = binding.get('contract') or {}
+    if not contract_hash or not contract.get('sha256') or not binding.get('kind'):
+        return None, ('not_verified', 'report has no verifiable contract binding; rerun it for the current contract')
+    expected = {'id': score.get('id'), 'revision': score.get('revision'), 'sha256': contract_hash}
+    if contract != expected:
+        return None, ('fail', 'report contract identity, revision or SHA-256 mismatch; rerun it')
+    if binding['kind'] == 'encoded_video':
+        if not video_hash:
+            return None, ('not_verified', 'report inspected a video but no current video is available for comparison')
+        if binding.get('video_sha256') != video_hash:
+            return None, ('fail', 'report video SHA-256 mismatch; rerun it on the current encoded file')
+    elif binding['kind'] not in ('preview', 'contract_only'):
+        return None, ('not_verified', 'report evidence kind is unknown; rerun it')
+    return report, None
 
 
 def verdict(status, evidence=None, findings=None):
@@ -213,9 +244,12 @@ def temporal(critique, playback, temporal_review, note, sound=False, listening='
 
 
 def decide(score, args):
-    critique = load(args.critique) if args.critique else None
-    review = load(args.review) if args.review else None
-    audit = load(args.text_audit) if args.text_audit else None
+    contract_path = getattr(args, 'contract', None)
+    contract_hash = file_hash(contract_path) if contract_path else None
+    video_hash = file_hash(args.video) if args.video and os.path.isfile(args.video) else None
+    critique, critique_gap = bound_report(args.critique, score, contract_hash, video_hash)
+    review, review_gap = bound_report(args.review, score, contract_hash, video_hash)
+    audit, audit_gap = bound_report(args.text_audit, score, contract_hash, video_hash)
     technical_verdict = technical(score, args.video)
     sound = bool(score.get('music') or score.get('voiceover') or score.get('sfx') or technical_verdict.pop('audio', False))
     verdicts = {
@@ -225,6 +259,17 @@ def decide(score, args):
         'D_temporal': temporal(critique, args.playback, args.temporal_review, args.note, sound,
                                getattr(args, 'listening', 'not_heard'), getattr(args, 'sound_review', None)),
     }
+    for label, gap, affected in (
+            ('critique', critique_gap, ('C_composition', 'D_temporal')),
+            ('review', review_gap, ('C_composition',)),
+            ('text audit', audit_gap, ('B_fidelity', 'C_composition'))):
+        if gap:
+            status, reason = gap
+            for key in affected:
+                result = verdicts[key]
+                if result['status'] != 'fail':
+                    result['status'] = status
+                result['findings'].append(f'{label}: {reason}')
     states = [v['status'] for v in verdicts.values()]
     overall = 'blocked' if 'fail' in states else 'accepted' if all(s == 'pass' for s in states) else 'deliverable_with_limits'
     return {'contract': score.get('id'), 'revision': score.get('revision'), 'video': os.path.basename(args.video) if args.video else None,

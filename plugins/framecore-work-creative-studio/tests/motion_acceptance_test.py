@@ -3,6 +3,7 @@ mistaken for pacing, repeated wipes and photo rectangles. Media tests build smal
 ffmpeg and skip without them; nothing here needs a browser (the text audit's browser tests are in
 motion-toolkit.test.mjs)."""
 import copy
+import hashlib
 import importlib.util
 import io
 import json
@@ -14,10 +15,77 @@ import sys
 import tempfile
 import unittest
 from contextlib import redirect_stdout
+from unittest import mock
 
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 REVIEW = PLUGIN / 'skills/hyperframes-workflow/assets/motion-review'
 PROOF = REVIEW / 'fixtures/search-to-cta.motion.json'
+
+
+def bound_report(report, contract=PROOF, video=None):
+    score = json.loads(pathlib.Path(contract).read_bytes())
+    report['evidence_binding'] = {
+        'kind': 'encoded_video' if video else 'preview',
+        'contract': {'id': score['id'], 'revision': score['revision'],
+                     'sha256': hashlib.sha256(pathlib.Path(contract).read_bytes()).hexdigest()},
+    }
+    if video:
+        report['evidence_binding']['video_sha256'] = hashlib.sha256(pathlib.Path(video).read_bytes()).hexdigest()
+    return report
+
+
+class ReportBinding(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.contract = pathlib.Path(self.temp.name, 'current.json')
+        self.contract.write_bytes(PROOF.read_bytes())
+        self.audit = pathlib.Path(self.temp.name, 'audit.json')
+        self.report = bound_report({'verdict': 'pass', 'samples': [{'issues': [], 'texts': [
+            {'text': v, 'visible': 'complete'} for v in json.loads(PROOF.read_bytes())['copy'].values()]}]}, self.contract)
+        self.audit.write_text(json.dumps(self.report))
+
+    def decide(self, *args):
+        return run(acceptance.main, [str(self.contract), '--text-audit', str(self.audit),
+                                    '--source-review', 'pass', '--composition-review', 'pass', *args])[1]
+
+    def test_matching_bytes_under_a_different_path_are_accepted_for_fidelity(self):
+        renamed = self.contract.with_name('copy # 100%.json')
+        renamed.write_bytes(self.contract.read_bytes())
+        self.contract = renamed
+        self.assertEqual(self.decide()['verdicts']['B_fidelity']['status'], 'pass')
+
+    def test_revision_mismatch_blocks_the_report(self):
+        score = json.loads(self.contract.read_bytes())
+        score['revision'] += 1
+        self.contract.write_text(json.dumps(score))
+        result = self.decide()
+        self.assertEqual(result['overall'], 'blocked')
+        self.assertIn('mismatch', ' '.join(result['verdicts']['B_fidelity']['findings']))
+
+    def test_changed_contract_without_revision_bump_blocks_the_report(self):
+        self.contract.write_bytes(self.contract.read_bytes() + b'\n')
+        self.assertEqual(self.decide()['overall'], 'blocked')
+
+    def test_legacy_report_cannot_pass_and_human_failure_is_preserved(self):
+        self.report.pop('evidence_binding')
+        self.audit.write_text(json.dumps(self.report))
+        self.assertEqual(self.decide()['verdicts']['B_fidelity']['status'], 'not_verified')
+        self.assertEqual(self.decide('--composition-review', 'fail')['verdicts']['C_composition']['status'], 'fail')
+
+    def test_replaced_video_at_the_same_path_is_rejected(self):
+        video = pathlib.Path(self.temp.name, 'current.mp4')
+        video.write_bytes(b'first synthetic file')
+        report = pathlib.Path(self.temp.name, 'critique.json')
+        report.write_text(json.dumps(bound_report({'status': 'checked', 'findings': [], 'frames': 'video',
+            'pacing': [{'scene': 's1', 'longest_still_s': 0, 'allowed_s': 1}]}, self.contract, video)))
+        with mock.patch.object(acceptance, 'technical', return_value=acceptance.verdict('pass')):
+            matched = self.decide('--critique', str(report), '--video', str(video), '--playback', 'watched', '--temporal-review', 'pass')
+            self.assertEqual(matched['verdicts']['D_temporal']['status'], 'pass')
+            video.write_bytes(b'replaced synthetic file')
+            stale = self.decide('--critique', str(report), '--video', str(video), '--playback', 'watched', '--temporal-review', 'pass')
+        self.assertEqual(stale['overall'], 'blocked')
+        self.assertIn('video', ' '.join(stale['verdicts']['D_temporal']['findings']))
 
 
 def module(name, path):
@@ -92,7 +160,7 @@ class ContractOnlyScores(unittest.TestCase):
             self.assertEqual(result['score'], 100, 'the contract rules alone pass')
             self.assertEqual(result['verdicts']['layout'], 'not_verified')
             self.assertTrue(result['verdicts']['text_completeness'].startswith('not_checked'))
-            args = acceptance.argparse.Namespace(critique=os.path.join(temp, 'c', 'critique.json'), review=None, text_audit=None, video=None,
+            args = acceptance.argparse.Namespace(contract=str(PROOF), critique=os.path.join(temp, 'c', 'critique.json'), review=None, text_audit=None, video=None,
                                                   playback='not_watched', source_review=None, temporal_review=None, composition_review=None, note=None)
             decided = acceptance.decide(json.loads(PROOF.read_text()), args)
         self.assertEqual(decided['verdicts']['C_composition']['status'], 'not_verified')
@@ -104,8 +172,8 @@ class ContractOnlyScores(unittest.TestCase):
                  'texts': [{'text': v, 'visible': 'complete'} for v in json.loads(PROOF.read_text())['copy'].values()]}]}
         with tempfile.TemporaryDirectory() as temp:
             path = os.path.join(temp, 'audit.json')
-            pathlib.Path(path).write_text(json.dumps(audit))
-            base = dict(critique=None, review=None, text_audit=path, video=None, playback='watched', source_review='pass', temporal_review='pass', note='owner')
+            pathlib.Path(path).write_text(json.dumps(bound_report(audit)))
+            base = dict(contract=str(PROOF), critique=None, review=None, text_audit=path, video=None, playback='watched', source_review='pass', temporal_review='pass', note='owner')
             unjudged = acceptance.decide(json.loads(PROOF.read_text()), acceptance.argparse.Namespace(**base, composition_review=None))
             weak = acceptance.decide(json.loads(PROOF.read_text()), acceptance.argparse.Namespace(**base, composition_review='fail'))
         self.assertEqual(unjudged['verdicts']['C_composition']['status'], 'not_verified')
@@ -118,8 +186,8 @@ class ContractOnlyScores(unittest.TestCase):
                  'texts': [{'text': 'TWÓJ WYBÓR', 'visible': 'partial'}]}]}
         with tempfile.TemporaryDirectory() as temp:
             path = os.path.join(temp, 'audit.json')
-            pathlib.Path(path).write_text(json.dumps(audit))
-            args = acceptance.argparse.Namespace(critique=None, review=None, text_audit=path, video=None, playback='watched',
+            pathlib.Path(path).write_text(json.dumps(bound_report(audit)))
+            args = acceptance.argparse.Namespace(contract=str(PROOF), critique=None, review=None, text_audit=path, video=None, playback='watched',
                                                   source_review='pass', temporal_review='pass', composition_review='pass', note='owner, phone')
             decided = acceptance.decide(json.loads(PROOF.read_text()), args)
         self.assertEqual(decided['verdicts']['C_composition']['status'], 'fail')
@@ -144,7 +212,7 @@ class SoundListening(unittest.TestCase):
     def test_contract_sound_is_in_scope_even_without_a_video(self):
         score = json.loads(PROOF.read_text())
         score['music'] = {'src': 'bed.wav'}
-        args = acceptance.argparse.Namespace(critique=None, review=None, text_audit=None, video=None, playback='watched',
+        args = acceptance.argparse.Namespace(contract=str(PROOF), critique=None, review=None, text_audit=None, video=None, playback='watched',
                                               source_review='pass', temporal_review='pass', composition_review='pass', note='owner')
         decided = acceptance.decide(score, args)
         self.assertIn('nobody listened', ' '.join(decided['verdicts']['D_temporal']['findings']))
@@ -159,8 +227,8 @@ class QualityGates(unittest.TestCase):
             {'severity': 'error', 'area': 'readability', 'where': 'desktop', 'message': '5 words held 2.00 s', 'fix': 'hold longer'}]}
         with tempfile.TemporaryDirectory() as temp:
             path = os.path.join(temp, 'critique.json')
-            pathlib.Path(path).write_text(json.dumps(found))
-            args = acceptance.argparse.Namespace(critique=path, review=None, text_audit=None, video=None, playback='watched',
+            pathlib.Path(path).write_text(json.dumps(bound_report(found)))
+            args = acceptance.argparse.Namespace(contract=str(PROOF), critique=path, review=None, text_audit=None, video=None, playback='watched',
                                                   source_review='pass', temporal_review='pass', composition_review='pass', note='owner')
             decided = acceptance.decide(json.loads(PROOF.read_text()), args)
         self.assertEqual((decided['verdicts']['C_composition']['status'], decided['overall']), ('fail', 'blocked'))

@@ -7,6 +7,7 @@
 //   node check-score.mjs motion-score.json --storyboard  also require a complete storyboard
 //   node check-score.mjs motion-score.json --markdown    print the storyboard for approval
 import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
 
 const approvalStates = ['proposed', 'approved', 'blocked', 'example-not-client-approved'];
 const runtimeStates = ['selected', 'proposed', 'unknown'];
@@ -354,7 +355,7 @@ export function toMarkdown(score) {
   return lines.join('\n') + '\n';
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && fs.existsSync(process.argv[1]) && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   const file = args.find(arg => !arg.startsWith('--')) ?? 'motion-score.json';
   const score = JSON.parse(fs.readFileSync(file, 'utf8'));

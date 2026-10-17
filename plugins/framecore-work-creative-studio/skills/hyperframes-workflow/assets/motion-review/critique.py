@@ -16,6 +16,7 @@ Exit code: 0 no errors, 1 errors found, 2 setup problem. Errors must be fixed be
 unless the brief asks for the effect on purpose (say which and why).
 """
 import argparse
+import hashlib
 import importlib.util
 import json
 import math
@@ -504,8 +505,9 @@ def main(argv=None):
     parser.add_argument('--video', help='judge the frames of this delivered video instead of rendering them (for a custom renderer)')
     args = parser.parse_args(argv)
     try:
-        with open(args.contract, encoding='utf-8') as handle:
-            score = json.load(handle)
+        with open(args.contract, 'rb') as handle:
+            source = handle.read()
+        score = json.loads(source)
         if args.out:
             if os.path.exists(args.out):
                 raise ValueError(f'Output folder already exists: {args.out}')
@@ -540,6 +542,17 @@ def main(argv=None):
         # The score is a number of rule penalties, never a visual verdict. Composition is judged only from frames, and
         # normal-speed playback is never observed by this tool, so its temporal verdict stays not_verified.
         pictured = result['status'] in ('checked', 'issues')
+        result['evidence_binding'] = {
+            'kind': 'encoded_video' if pictured and args.video else 'preview' if pictured else 'contract_only',
+            'contract': {'id': score.get('id'), 'revision': score.get('revision'),
+                         'sha256': hashlib.sha256(source).hexdigest()},
+        }
+        if pictured and args.video:
+            digest = hashlib.sha256()
+            with open(args.video, 'rb') as handle:
+                for block in iter(lambda: handle.read(1024 * 1024), b''):
+                    digest.update(block)
+            result['evidence_binding']['video_sha256'] = digest.hexdigest()
         visual = [f for f in critique.findings if f['area'] in ('layout', 'composition', 'contrast', 'integration')]
         result['score_scope'] = 'contract rules and inspected frames' if pictured else 'contract rules only; no picture inspected'
         # Pixels cannot show a word cut by a mask: the clip hides the overflow, so the frame looks tidy. Text

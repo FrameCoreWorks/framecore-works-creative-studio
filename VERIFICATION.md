@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.87.0
+## Current source: 1.87.1
+
+The [1.87.1 source checks](verification/release-1.87.1.json) pass canonical validation and `scripts/check_all.sh`: 222 Node tests (213 passing, 9 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 9 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21 (7 skipped without optional dependencies), 6 suite 22, 14 suite 23, 11 suite 24, 6 suite 25, 4 suite 26, 4 suite 27, 4 suite 28, 2 suite 29, 2 suite 30, 3 suite 31, 5 suite 32, 5 suite 33, 4 suite 34, 9 suite 35, 4 suite 36, 9 suite 37, 21 suite 38. Targeted real-Chrome QA binding checks and a real two-format Animate caption export also pass. Optional full browser cases and unavailable optional Python dependencies remain skipped; no fresh host conversation was run. [Scope](verification/scope-1.87.1.json) records 20 changed and 1 added shared files out of 1211.
+
+## Previous source: 1.87.0
 
 The [1.87.0 source checks](verification/release-1.87.0.json) pass canonical validation and `scripts/check_all.sh`: 221 Node tests (212 passing, 9 opt-in browser tests skipped there and run separately: 84 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 22 suite 11, 19 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 9 suite 17, 4 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 6 suite 22, 14 suite 23, 11 suite 24, 6 suite 25, 4 suite 26, 4 suite 27, 4 suite 28, 2 suite 29, 2 suite 30, 3 suite 31, 5 suite 32 (5 skipped without optional dependencies), 5 suite 33, 4 suite 34, 9 suite 35, 4 suite 36, 9 suite 37, 21 suite 38; `claude plugin validate --strict` passes. Host case G11 (Claude Code): PASS, VoxCPM2 recommended for a paid Polish ad on a 12 GB GPU with the others described, consent named and nothing installed. pip --dry-run resolved omnivoice 0.2.1 and voxcpm 2.0.3; no engine or model was installed or run, and OmniVoice weights licence could not be verified (Hugging Face unreachable). [Scope](verification/scope-1.87.0.json) records 11 changed and 7 added shared files out of 1210.
 

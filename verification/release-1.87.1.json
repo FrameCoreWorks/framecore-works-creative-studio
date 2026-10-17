@@ -1,0 +1,194 @@
+{
+  "version": "1.87.1",
+  "date": "2026-10-17",
+  "baseline": "5902098252cdf48f735be02eca3689da133d50e4",
+  "change_id": "CX-20261017-01",
+  "origin": "codex",
+  "environment": "Codex desktop on macOS; local test execution",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1211,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7773 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 222,
+        "pass": 213,
+        "fail": 0,
+        "skipped": 9
+      },
+      "python": {
+        "suite 1": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 2": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 3": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 4": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 5": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 6": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 7": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 8": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "suite 9": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 10": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 11": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 12": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "suite 13": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 14": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 15": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 16": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 17": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 18": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 19": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 20": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 21": {
+          "tests": 7,
+          "skipped": 7
+        },
+        "suite 22": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 23": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "suite 24": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 25": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 26": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 27": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 28": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 29": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 30": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 31": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 32": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 33": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 34": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 35": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 36": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 37": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 38": {
+          "tests": 21,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "targeted Chrome report-binding check and real Animate two-format caption export",
+      "status": "PASS",
+      "record": "four-audit-fixes-1.87.1.json"
+    }
+  ],
+  "review": "Fix the four reproduced audit defects: motion-score CLI entry paths, stale motion QA reports, Animate caption output paths and machine-dependent browser tests.",
+  "source": "Fix four audit defects and release 1.87.1",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

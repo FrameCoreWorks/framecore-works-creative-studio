@@ -73,11 +73,11 @@ export function parseRanges(text) {
 /** The composition page to audit and its sampling plan: a Studio contract becomes its preview, frames and holds. */
 export function plan(input, {times, holds, fps, width, height, root, seek} = {}) {
   if (input.endsWith('.json')) {
-    const {html, score} = previewFor(input);
+    const {html, score, evidenceBinding} = previewFor(input);
     const rate = score.fps.num / score.fps.den;
     const frames = times ? times.map(t => Math.round(t * rate)) : selectFrames(score);
     const known = score.scenes.flatMap(s => (s.holds ?? []).map(([a, b]) => [a / rate, b / rate]));
-    return {html, base: null, fps: rate, width: score.width, height: score.height, root: root ?? '#stage', seek,
+    return {html, evidenceBinding, base: null, fps: rate, width: score.width, height: score.height, root: root ?? '#stage', seek,
       samples: frames.map(f => ({t: f / rate, f})), holds: known, holdsFrom: 'contract'};
   }
   const html = fs.readFileSync(input, 'utf8');
@@ -174,7 +174,8 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
   }
   const all = samples.flatMap(s => s.issues);
   const seekModes = [...new Set(samples.map(s => s.seek).filter(Boolean))];
-  const result = {input: path.basename(input), browser: path.basename(chrome), width: p.width, height: p.height, holdsFrom: p.holdsFrom, seek: seekModes,
+  const result = {input: path.basename(input), evidence_binding: p.evidenceBinding ?? {kind: 'preview', contract: null},
+    browser: path.basename(chrome), width: p.width, height: p.height, holdsFrom: p.holdsFrom, seek: seekModes,
     summary: {errors: all.filter(i => i.severity === 'error').length, warnings: all.filter(i => i.severity === 'warning').length,
       transitional: all.filter(i => i.severity === 'transitional').length, exceptions: samples.reduce((n, s) => n + s.exceptions.length, 0),
       samples: samples.length, heldSamples: samples.filter(s => s.hold).length,

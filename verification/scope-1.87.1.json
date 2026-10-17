@@ -1,0 +1,40 @@
+{
+  "version": "1.87.1",
+  "baseline_tag": "v1.87.0",
+  "baseline": "23c895f591de53ac56c204e57187b13c6fc58ce2",
+  "change_id": "CX-20261017-01",
+  "origin": "codex",
+  "files": 1211,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+    "skills/hyperframes-workflow/assets/motion-review/critique.py",
+    "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+    "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
+    "skills/hyperframes-workflow/references/animate-engine.md",
+    "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/animate_engine_test.py",
+    "tests/environment_check_test.py",
+    "tests/motion-quality.test.mjs",
+    "tests/motion-toolkit.test.mjs",
+    "tests/motion_acceptance_test.py"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/animate-export/export.mjs"
+  ],
+  "removed": [],
+  "unchanged_count": 1190,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Fix the four reproduced audit defects: motion-score CLI entry paths, stale motion QA reports, Animate caption output paths and machine-dependent browser tests."
+}

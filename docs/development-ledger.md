@@ -2238,3 +2238,24 @@ Cross-host state:
 - GitHub: pushed to `main` and the working branch
 - ChatGPT Work: not_tracked (no package change)
 - Codex: not_run
+
+## CX-20261017-01
+
+- Origin: codex
+- Branch: `codex/four-audit-fixes`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `5902098` (main, package 1.87.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.87.1)
+- Package version: 1.87.0 -> 1.87.1
+- Scope: Fix the four reproduced audit defects: motion-score CLI entry paths, stale motion QA reports, Animate caption output paths and machine-dependent browser tests.
+- Shared package changed: yes; 20 changed, 1 added, 0 removed ([scope](../verification/scope-1.87.1.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: 222 Node tests (213 passing, 9 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 9 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21 (7 skipped without optional dependencies), 6 suite 22, 14 suite 23, 11 suite 24, 6 suite 25, 4 suite 26, 4 suite 27, 4 suite 28, 2 suite 29, 2 suite 30, 3 suite 31, 5 suite 32, 5 suite 33, 4 suite 34, 9 suite 35, 4 suite 36, 9 suite 37, 21 suite 38: PASS ([record](../verification/release-1.87.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending; the owner explicitly requested an update with PoYo preserved and full saved-source readback
+- Codex: pending managed-package refresh and readback; fresh-chat behavior not_run

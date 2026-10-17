@@ -64,6 +64,13 @@ python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/
 
 Overall `accepted` needs all four to pass; `deliverable_with_limits` lists what was not verified; `blocked` names the failure (exit codes 0, 3, 1). It never infers a viewing or a comparison that was not recorded.
 
+Reports carry an `evidence_binding`: contract ID, revision and SHA-256 of the original JSON bytes. A critique that
+inspected `--video` also records that file's SHA-256. Acceptance rejects a mismatched contract or video; reports without
+a binding leave the affected verdicts `not_verified` and must be rerun. Copying identical files to another path is fine.
+Browser reports remain preview evidence, with no video hash. Standalone HTML audits remain usable for their own
+findings but cannot certify a separate contract through acceptance. Human failure verdicts are preserved even when
+automated evidence is missing.
+
 ## Craft critique and the improvement round
 
 [`critique.py`](critique.py) scores a contract and its rendered frames against Studio's craft rubric, so the judgement a motion designer makes by eye becomes numbers any model can act on. It needs Python 3.8+ and Pillow, uses the bundled [Python renderer](../motion-render/README.md), and runs in ChatGPT's code execution as well as in Codex; no browser.
