@@ -1,5 +1,5 @@
-# Creative Studio 1.89.0
+# Creative Studio 1.89.1
 
-## Local-service reel starter, contents lists, description headroom
+## Agent Reach as a recommended extension
 
-A local-service reel starter for HyperFrames, rendered and measured at 9:16 and 4:5, contents lists for six large references and headroom in the skill description budget.
+Agent Reach is a recommended extension for research in Codex and Claude Code, limited to channels that need no login; logged-in and cookie channels are excluded.

@@ -1,0 +1,30 @@
+{
+  "version": "1.89.1",
+  "baseline_tag": "v1.89.0",
+  "baseline": "14d1d74d311083156045cea2724724acfbb50c7d",
+  "change_id": "CC-20261017-02",
+  "origin": "cloud-code",
+  "files": 1464,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/research-evidence/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [
+    "integrations/agent-reach/LICENSE",
+    "integrations/agent-reach/README.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1453,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Agent Reach added to the recommended-extension registry for its no-login channels only, with a decision map and a one-line offer in Research Evidence; not installed or run by owner decision. Records that 1.89.0 was published and its notes workflow failure was fixed in 688ea23."
+}

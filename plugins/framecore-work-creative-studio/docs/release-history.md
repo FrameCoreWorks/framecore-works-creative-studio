@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.89.1, 2026-10-17
+
+At the owner's request after reviewing [Agent Reach](https://github.com/Panniantong/agent-reach/tree/94f06c1969dfc1834001269d79d3ad0972d9dee6) (1.5.0, MIT):
+
+- **Agent Reach as a recommended extension**, no-login channels only: public web pages (Jina Reader), YouTube metadata and transcripts, RSS, public GitHub and Exa search, installed on request in Codex or Claude Code. Channels that need cookies or a logged-in session (X/Twitter, Reddit, Facebook, Instagram, Xiaohongshu, Boss Zhipin) are rejected: Studio never exports cookies, uses spare accounts or automates a platform against its terms. Research Evidence offers it once when the host's own web tools cannot read a source the decision depends on
+- Repository: decision map and licence in `integrations/agent-reach`; not installed or run (owner decision 2026-10-17: no tests this round). The 1.89.0 release was published with all assets; its notes workflow failed on the tag commit because the notes lacked the version heading, fixed in `688ea23`
+
 ## 1.89.0, 2026-10-17
 
 At the owner's direction (2026-10-17: motion quality and a slimmer package, no host tests this round):

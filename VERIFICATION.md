@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.89.0
+## Current source: 1.89.1
+
+The [1.89.1 source checks](verification/release-1.89.1.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 14 suite 24, 11 suite 25, 6 suite 26, 4 suite 27, 4 suite 28, 4 suite 29, 2 suite 30, 2 suite 31, 3 suite 32, 5 suite 33, 5 suite 34, 4 suite 35, 9 suite 36, 4 suite 37, 9 suite 38, 21 suite 39; `claude plugin validate --strict` passes. No extension install or host run; registry tests and validator only. [Scope](verification/scope-1.89.1.json) records 9 changed and 2 added shared files out of 1464.
+
+## Previous source: 1.89.0
 
 The [1.89.0 source checks](verification/release-1.89.0.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 14 suite 24, 11 suite 25, 6 suite 26, 4 suite 27, 4 suite 28, 4 suite 29, 2 suite 30, 2 suite 31, 3 suite 32, 5 suite 33, 5 suite 34, 4 suite 35, 9 suite 36, 4 suite 37, 9 suite 38, 21 suite 39; `claude plugin validate --strict` passes. Starter renders were made in a Linux container with placeholder copy and photos; no client material, music or host run. [Scope](verification/scope-1.89.0.json) records 18 changed and 3 added shared files out of 1462.
 
