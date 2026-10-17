@@ -1,0 +1,40 @@
+{
+  "version": "1.89.0",
+  "baseline_tag": "v1.88.0",
+  "baseline": "221cd75b5c246fce49b50dbc7686e04298ce4f0b",
+  "change_id": "CC-20261017-01",
+  "origin": "cloud-code",
+  "files": 1462,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/references/production-task-packet.md",
+    "skills/hipson-adapter/SKILL.md",
+    "skills/hyperframes-workflow/references/claude-code-reels.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/image-prompt-architect/references/visual-subject-craft.md",
+    "skills/pipeline-core/references/presentation-and-interaction.md",
+    "skills/producer-ai-task-builder/SKILL.md",
+    "skills/research-evidence/references/image-generator-snapshot.md",
+    "skills/video-prompt-architect/references/video-craft.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/learning-mode.md",
+    "skills/workflow-self-improvement/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/reel-starters/README.md",
+    "skills/hyperframes-workflow/assets/reel-starters/local-service/index.html",
+    "tests/reel_starters_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1441,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "A local-service reel starter for HyperFrames (rendered at 9:16 and 4:5, motion activity PASS after a reproduced FAIL), contents lists for six large references, and description headroom (7,699 of 7,800). No host tests this round by owner decision."
+}

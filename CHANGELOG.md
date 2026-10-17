@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.89.0, 2026-10-17
+
+At the owner's direction (2026-10-17: motion quality and a slimmer package, no host tests this round):
+
+- **Local-service reel starter.** [`reel-starters/local-service`](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/reel-starters/README.md): a 24 s HyperFrames board structure (hook, three work photos with labels, proof, person, booking end card) with a persistent frame, continuous motion, a second accent per board and slots for exact copy and photos. Rendered at 9:16 and 4:5 in a container; the first version failed motion activity (83 % still) and the fixed one passed (15 % and 2 %)
+- **Read less, find more.** Six large references (video craft, image generator snapshot, visual subject craft, learning mode, the production task packet, presentation and interaction) gain a Contents list so a model reads one section
+- **Description headroom.** Three explicit-only or legacy skill descriptions are shorter (7,699 of 7,800 characters, from 7,789); routing boundaries unchanged
+- Repository: structural test for the starters; roadmap updated
+
 ## 1.88.0, 2026-10-17
 
 At the owner's explicit request, bundle the reusable toolsets from [Logo Design Skill](https://github.com/kaankiziltug/logo-design-skill/tree/0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134) 1.4.4 and [Anatomy](https://github.com/wheresryan22/anatomy/tree/e9488296a44211c42701ff71705b7901470ec78f):

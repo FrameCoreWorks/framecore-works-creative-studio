@@ -2282,3 +2282,24 @@ Cross-host state:
 - Codex: synchronized managed cache 1.88.0, all 1461 files byte-identical to the saved plugin; fresh-chat behavior not_run.
 
 - Additional verification: Anatomy browser 5/5, final Logo adapter 11/11 with PNG/icons; Olga confirmed the avatar-export P2 fixed. The release workflow passed on the final committed tree: 238 Node tests (227 pass, 11 skipped) and 38 Python suites, including the added regression. New Anatomy MP4 export not_run after automatic approval review rejected the requested file write.
+
+## CC-20261017-01
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261017-01-slim-and-motion`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `40552d8` (main, package 1.88.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.89.0)
+- Package version: 1.88.0 -> 1.89.0
+- Scope: A local-service reel starter for HyperFrames (rendered at 9:16 and 4:5, motion activity PASS after a reproduced FAIL), contents lists for six large references, and description headroom (7,699 of 7,800). No host tests this round by owner decision.
+- Shared package changed: yes; 18 changed, 3 added, 0 removed ([scope](../verification/scope-1.89.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 14 suite 24, 11 suite 25, 6 suite 26, 4 suite 27, 4 suite 28, 4 suite 29, 2 suite 30, 2 suite 31, 3 suite 32, 5 suite 33, 5 suite 34, 4 suite 35, 9 suite 36, 4 suite 37, 9 suite 38, 21 suite 39: PASS ([record](../verification/release-1.89.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run
