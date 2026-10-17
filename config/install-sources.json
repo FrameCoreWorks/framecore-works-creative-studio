@@ -4787,6 +4787,16 @@
       "sha256": "6bc3a888415e7499be998874928c189571ebfbb8bc29349bf2d69102ef1cc3b4"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/reel-starters/README.md",
+      "bytes": 2241,
+      "sha256": "8c257f661f2263548e6c87651113397744dee461350ed1695e29cbec4d7e6578"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/reel-starters/local-service/index.html",
+      "bytes": 10618,
+      "sha256": "d8d05440c1a80e0078308afc8b0d1b7b52532e49caab326dbc02f7c36411b1a7"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
       "bytes": 10323,
       "sha256": "e314b598f9c4996af71b73a6ba49b236fbe9b4ffe9d3f786d93f97ef550659be"
@@ -4838,8 +4848,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
-      "bytes": 6345,
-      "sha256": "b831bd1874228596101440e99e23f276e22ac79f4129a6a90fde3244a7874721"
+      "bytes": 6577,
+      "sha256": "dee43ebf12e8374a0e666f1d12dda3f161248b98d9a6efad6ac3fa3ec54ed4e6"
     },
     {
       "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
@@ -4933,8 +4943,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 9240,
-      "sha256": "1e62551b8e8dc0639676c834581f497c5aae2b40eeb7570cdb7da31b671e3704"
+      "bytes": 9364,
+      "sha256": "9c10e01b115226899a19dd418a034a08f217343423f0fd686fe2f72a85564ac8"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -7295,6 +7305,11 @@
       "path": "tests/quote_calc_test.py",
       "bytes": 5980,
       "sha256": "a1bb54d86ee7af16cb42d72e2e6a293e54b5dbb44b818d897ac36ff51a72b59a"
+    },
+    {
+      "path": "tests/reel_starters_test.py",
+      "bytes": 1795,
+      "sha256": "c5a54321066942c3c494edd1624f120a6607542a74de6d953f14227529c8ad62"
     },
     {
       "path": "tests/sheet_export_test.py",

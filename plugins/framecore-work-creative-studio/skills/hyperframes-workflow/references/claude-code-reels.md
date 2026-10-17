@@ -53,4 +53,6 @@ Report the HyperFrames version and the skills used. A render warning (for exampl
 
 ## Evidence
 
+On 2026-10-17 the [local-service starter](../assets/reel-starters/README.md#evidence) rendered at 9:16 and 4:5 and passed motion activity after a second accent was added to each board; a slow drift of a flat field alone failed it.
+
 On 2026-10-12 in a Linux container with Node.js 22, FFmpeg 6.1 and Chromium, `hyperframes` 0.8.149 initialised the `kinetic-type` example, passed `lint` with two warnings and rendered it: 1920 x 1080, 30 fps, 450 frames, 15 s; one warning, `media_load_failed`, for a video the example loads from the network. Motion activity on that render: PASS, 35 % still, longest still 2 s. The owner reports client reels built in Claude Code with HyperFrames. No Studio-planned client reel has yet been rendered through this route in a recorded test.

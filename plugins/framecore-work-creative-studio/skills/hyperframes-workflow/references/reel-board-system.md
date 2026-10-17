@@ -20,7 +20,7 @@ Measured on five commercial reels the owner supplied as references (30 to 47 s),
 
 ## 3. Ad structures
 
-Lengths are starting points; the brief and the placement decide. Each row names the boards in order and the blocks that usually build them.
+Lengths are starting points; the brief and the placement decide. Each row names the boards in order and the blocks that usually build them. The local-service row has a tested [starter composition](../assets/reel-starters/README.md) with slots for copy and photos.
 
 | Job | Boards | Length | Blocks to search first |
 | --- | --- | --- | --- |

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Local service reel starter</title>
+    <!-- Starter structure, not an idea: copy, photos, palette and type come from the brief. -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Display"; src: url("fonts/display.ttf"); font-display: block; }
+      :root {
+        --bg: #101012;      /* brief: background */
+        --ink: #f4f1ea;     /* brief: text */
+        --accent: #ff5a1f;  /* brief: the one accent colour */
+        --display: "Display", "Anton", "Impact", sans-serif;
+        --text: "Inter", "Helvetica Neue", Arial, sans-serif;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--text); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      .board { position: absolute; inset: 0; opacity: 0; }
+      .field { position: absolute; inset: -12%; background: repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 46px), radial-gradient(circle at 30% 30%, #2e2e36, var(--bg) 60%); }
+      .safe { position: absolute; left: 10%; right: 10%; top: 10%; bottom: 10%; display: flex; flex-direction: column; justify-content: center; }
+      .statement { font-family: var(--display); font-size: 11.5vw; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
+      .statement .hit { color: var(--accent); }
+      .label { font-family: var(--display); font-size: 9vw; text-transform: uppercase; position: absolute; left: 10%; bottom: 14%; }
+      .photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+      .photo.placeholder { background: repeating-linear-gradient(45deg, rgba(255,255,255,0.07) 0 3px, transparent 3px 60px), linear-gradient(160deg, #3b3b44, #17171b); }
+      .photo.placeholder::after { content: attr(data-slot); position: absolute; top: 45%; width: 100%; text-align: center; font-size: 3vw; opacity: 0.35; letter-spacing: 0.2em; }
+      .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0) 45%); }
+      .proof-number { font-family: var(--display); font-size: 30vw; line-height: 1; color: var(--accent); }
+      .proof-line { font-size: 4.6vw; margin-top: 2vw; max-width: 80%; }
+      .person-name { font-family: var(--display); font-size: 8vw; text-transform: uppercase; }
+      .person-role { font-size: 4vw; opacity: 0.8; margin-top: 1vw; }
+      .cta { font-family: var(--display); font-size: 10vw; line-height: 1; text-transform: uppercase; }
+      .contact { font-size: 5vw; margin-top: 4vw; line-height: 1.35; }
+      .contact b { color: var(--accent); font-weight: 700; }
+      .rule { display: block; height: 0.8vw; width: 60%; background: var(--accent); margin-top: 3vw; transform-origin: left center; }
+      /* persistent frame: the boards change, the frame does not */
+      .frame { position: absolute; inset: 5%; pointer-events: none; z-index: 10; }
+      .corner { position: absolute; width: 7vw; height: 7vw; border-color: var(--ink); border-style: solid; opacity: 0.8; }
+      .tl { left: 0; top: 0; border-width: 0.5vw 0 0 0.5vw; } .tr { right: 0; top: 0; border-width: 0.5vw 0.5vw 0 0; }
+      .bl { left: 0; bottom: 0; border-width: 0 0 0.5vw 0.5vw; } .br { right: 0; bottom: 0; border-width: 0 0.5vw 0.5vw 0; }
+      .brand { position: absolute; right: 3vw; top: 2.6vw; font-size: 3vw; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.9; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <!-- B1 hook claim (0 to 3.2 s) -->
+      <section class="board" id="b1"><div class="field"></div>
+        <div class="safe"><p class="statement" data-copy="hook"></p><i class="rule"></i></div></section>
+      <!-- B2 to B4 work photos with one-word labels (3.2 to 12.2 s) -->
+      <section class="board" id="b2"><div class="photo" data-photo="photo1"></div><div class="shade"></div><p class="label" data-copy="label1"></p></section>
+      <section class="board" id="b3"><div class="photo" data-photo="photo2"></div><div class="shade"></div><p class="label" data-copy="label2"></p></section>
+      <section class="board" id="b4"><div class="photo" data-photo="photo3"></div><div class="shade"></div><p class="label" data-copy="label3"></p></section>
+      <!-- B5 proof (12.2 to 15.6 s) -->
+      <section class="board" id="b5"><div class="field"></div>
+        <div class="safe"><p class="proof-number" data-copy="proofNumber"></p><p class="proof-line" data-copy="proofLine"></p></div></section>
+      <!-- B6 the person behind it (15.6 to 19 s) -->
+      <section class="board" id="b6"><div class="photo" data-photo="person"></div><div class="shade"></div>
+        <div class="safe" style="justify-content:flex-end"><p class="person-name" data-copy="personName"></p><p class="person-role" data-copy="personRole"></p></div></section>
+      <!-- B7 booking end card (19 to 24 s): the action in words and how -->
+      <section class="board" id="b7"><div class="field"></div>
+        <div class="safe"><p class="cta" data-copy="cta"></p><p class="contact"><b data-copy="phone"></b><br /><span data-copy="address"></span></p><i class="rule"></i></div></section>
+      <div class="frame" id="frame"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><span class="brand" data-copy="brand"></span></div>
+    </div>
+    <script>
+      // Exact copy and assets from the brief. Placeholders below are neutral and must be replaced.
+      const COPY = {
+        hook: 'Your claim<br><span class="hit">in three words</span>',
+        label1: 'Word one', label2: 'Word two', label3: 'Word three',
+        proofNumber: '000', proofLine: 'What the number proves, from a real source',
+        personName: 'Name Surname', personRole: 'Role and years',
+        cta: 'Book<br>your visit', phone: '+00 000 000 000', address: 'Street 1, City',
+        brand: 'Brand',
+      };
+      const PHOTOS = { photo1: '', photo2: '', photo3: '', person: '' }; // relative paths inside this project
+      for (const el of document.querySelectorAll('[data-copy]')) el.innerHTML = COPY[el.dataset.copy] ?? '';
+      for (const el of document.querySelectorAll('[data-photo]')) {
+        const src = PHOTOS[el.dataset.photo];
+        if (src) el.style.backgroundImage = `url("${src}")`; else { el.classList.add('placeholder'); el.dataset.slot = el.dataset.photo.toUpperCase(); }
+      }
+
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const BOARDS = [['#b1', 0, 3.2], ['#b2', 3.2, 6.2], ['#b3', 6.2, 9.2], ['#b4', 9.2, 12.2], ['#b5', 12.2, 15.6], ['#b6', 15.6, 19], ['#b7', 19, 24]];
+      for (const [id, start, end] of BOARDS) {
+        tl.set(id, { opacity: 1 }, start);
+        if (end < 24) tl.set(id, { opacity: 0 }, end);
+        const field = document.querySelector(id + ' .field'), photo = document.querySelector(id + ' .photo');
+        // the picture never stands still: a slow drift or push-in for the whole board
+        if (field) tl.fromTo(field, { x: -90, y: -60, scale: 1 }, { x: 90, y: 60, scale: 1.12, duration: end - start, ease: 'none' }, start);
+        if (photo) tl.fromTo(photo, { scale: 1.22, x: -50 }, { scale: 1.0, x: 50, duration: end - start, ease: 'none' }, start);
+      }
+      // B1: the claim slams in line by line; the accent lands last
+      tl.from('#b1 .statement', { yPercent: 40, opacity: 0, duration: 0.45, ease: 'power3.out' }, 0.15);
+      tl.from('#b1 .hit', { scale: 1.4, opacity: 0, duration: 0.35, ease: 'back.out(2)', transformOrigin: 'left center' }, 0.65);
+      tl.to('#b1 .statement', { scale: 1.06, duration: 2.2, ease: 'none', transformOrigin: 'left center' }, 0.8);
+      tl.from('#b1 .rule', { scaleX: 0, duration: 0.5, ease: 'power3.out' }, 1.6);
+      // B2 to B4: the label lands on the board's first beat, then keeps a small move
+      for (const id of ['#b2', '#b3', '#b4']) {
+        const start = BOARDS.find(b => b[0] === id)[1];
+        tl.from(id + ' .label', { xPercent: -30, opacity: 0, duration: 0.4, ease: 'power3.out' }, start + 0.1);
+        tl.to(id + ' .label', { x: 40, duration: 2.4, ease: 'none' }, start + 0.5);
+        tl.to(id + ' .label', { color: 'var(--accent)', duration: 0.2, yoyo: true, repeat: 1 }, start + 1.6);
+      }
+      // B5: the number counts up and reaches its value with the line
+      const counter = { v: 0 }, numberEl = document.querySelector('#b5 .proof-number');
+      const target = parseInt(COPY.proofNumber, 10);
+      if (Number.isFinite(target) && target > 0) {
+        tl.fromTo(counter, { v: 0 }, { v: target, duration: 1.2, ease: 'power2.out', onUpdate: () => { numberEl.textContent = Math.round(counter.v); } }, 12.3);
+      }
+      tl.from('#b5 .proof-number', { scale: 0.85, opacity: 0, duration: 0.4, ease: 'power3.out', transformOrigin: 'left bottom' }, 12.3);
+      tl.from('#b5 .proof-line', { y: 30, opacity: 0, duration: 0.4, ease: 'power2.out' }, 13.4);
+      tl.to('#b5 .proof-number', { scale: 1.06, duration: 2, ease: 'none', transformOrigin: 'left bottom' }, 13.6);
+      // B6: name and role arrive over the moving photo
+      tl.from('#b6 .person-name', { y: 40, opacity: 0, duration: 0.45, ease: 'power3.out' }, 15.8);
+      tl.from('#b6 .person-role', { y: 20, opacity: 0, duration: 0.4, ease: 'power2.out' }, 16.15);
+      tl.to('#b6 .person-name', { x: 24, duration: 2.6, ease: 'none' }, 16.3);
+      // B7: the action, then how; held long enough to read twice, still breathing
+      tl.from('#b7 .cta', { yPercent: 30, opacity: 0, duration: 0.5, ease: 'power3.out' }, 19.15);
+      tl.from('#b7 .contact', { y: 30, opacity: 0, duration: 0.45, ease: 'power2.out' }, 19.7);
+      tl.from('#b7 .rule', { scaleX: 0, duration: 0.6, ease: 'power3.out' }, 20.6);
+      tl.to('#b7 .cta', { scale: 1.06, duration: 3.8, ease: 'none', transformOrigin: 'left center' }, 20.2);
+      tl.to('#b7 .contact b', { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: 'left center' }, 22.2);
+      // the frame is the constant: it enters once and stays
+      tl.from('#frame', { opacity: 0, scale: 1.04, duration: 0.5, ease: 'power2.out' }, 0);
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>
