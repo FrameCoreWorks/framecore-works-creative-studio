@@ -1,0 +1,43 @@
+{
+  "version": "1.87.1",
+  "change_id": "CX-20261017-01",
+  "origin": "codex",
+  "commit": "90ec9910a76f9c3bcedc40336a37b598c9875bc3",
+  "package_commit": "90ec9910a76f9c3bcedc40336a37b598c9875bc3",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.87.1",
+  "workflows": [
+    {
+      "id": 39030717121,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39030717066,
+      "name": "Check Studio sources",
+      "branch": "codex/four-audit-fixes",
+      "conclusion": "success"
+    },
+    {
+      "id": 39030717115,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "2ec4d90d4038dbeac5636facea3129c180ad339fce9901b276a2eb62bc3061f6",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1211 of 1211 files byte-identical",
+  "plugin_inventory_sha256": "c62dc2215fcf5750ff0d0b14f9a54d26eef82f0e0efcbb6c4f9f26fb2f8d2e05",
+  "plugin_inventory_matches_local": true,
+  "motion_player_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+  "motion_player_asset_matches_local": true,
+  "notes_refresh": {
+    "initial_run": 39030717107,
+    "initial_result": "failure",
+    "cause": "Release notes heading did not use the exact required Creative Studio prefix.",
+    "repair": "One repository-only heading line corrected; the follow-up push refreshes the release description."
+  },
+  "hosted_plugin": "synchronized; verification/hosted-sync-1.87.1.json",
+  "host_behavior": "NOT_RUN"
+}

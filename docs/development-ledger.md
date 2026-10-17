@@ -2256,6 +2256,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending; the owner explicitly requested an update with PoYo preserved and full saved-source readback
-- Codex: pending managed-package refresh and readback; fresh-chat behavior not_run
+- GitHub: synchronized package commit `90ec991`, tag v1.87.1; source-check and release workflows PASS. Downloaded plugin ZIP, inventory and player match the build; all 1211 source files match the tag ([publication](../verification/github-publication-1.87.1.json)). The release-notes refresh rejected the heading prefix; the repository-only follow-up corrects that one line.
+- ChatGPT Work: synchronized, saved release `pluginrel_6ad3630b000c8191ab2725003b5b7302`; all 1211 source files match except the approved PoYo bindings and documented JSON layout normalization; two PoYo files preserved ([readback](../verification/hosted-sync-1.87.1.json)).
+- Codex: synchronized managed cache 1.87.1, all 1213 files byte-identical to the saved plugin; fresh-chat behavior not_run.

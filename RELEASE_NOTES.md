@@ -1,4 +1,4 @@
-# FrameCore Works Creative Studio 1.87.1
+# Creative Studio 1.87.1
 
 Four bounded fixes for defects reproduced in the owner's audit:
 

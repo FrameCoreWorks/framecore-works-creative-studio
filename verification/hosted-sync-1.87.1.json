@@ -1,0 +1,39 @@
+{
+  "version": "1.87.1",
+  "date": "2026-10-17",
+  "origin": "codex",
+  "change_id": "CX-20261017-01",
+  "source_commit": "90ec9910a76f9c3bcedc40336a37b598c9875bc3",
+  "plugin_zip_sha256": "2ec4d90d4038dbeac5636facea3129c180ad339fce9901b276a2eb62bc3061f6",
+  "hosted_release_id": "pluginrel_6ad3630b000c8191ab2725003b5b7302",
+  "hosted_scope_preserved": true,
+  "hosted_visibility_preserved": true,
+  "saved_package": {
+    "version": "1.87.1",
+    "source_files": 1211,
+    "saved_plugin_files": 1213,
+    "saved_vs_candidate_byte_identical": 1212,
+    "backend_json_normalization": [
+      ".codex-plugin/plugin.json"
+    ],
+    "repo_parity_except_approved_poyo": true,
+    "poyo_files_and_bindings_preserved": true
+  },
+  "codex_cache": {
+    "version": "1.87.1",
+    "cache_files": 1213,
+    "saved_plugin_files": 1213,
+    "byte_identical": true,
+    "active_conversation_behavior": "not_run"
+  },
+  "approved_overlay": [
+    ".app.json",
+    "docs/poyo-connection.md",
+    "plugin.json extensions.com.openai.apps",
+    ".codex-plugin/plugin.json apps"
+  ],
+  "host_behavior": "not_run; package readback and cache bytes are verified, not fresh-chat behavior",
+  "authorization": "Owner explicitly requested both updates, PoYo preservation and comparison in this task.",
+  "github_release_artifacts_read_back": true,
+  "github_release_artifacts_match_local": true
+}
