@@ -2,6 +2,18 @@
 
 Snapshot date: 2026-09-24. Owner: `research-evidence`. Purpose: a dated reference for choosing and prompting current image-generation families, not a live market census or directory, performance ranking, exhaustive census of every endpoint, or guarantee that a model is exposed in this Studio's host.
 
+## Contents
+
+Read only the section the task needs:
+
+- [How to use this snapshot](#how-to-use-this-snapshot)
+- [Coverage snapshot](#coverage-snapshot)
+- [Prompting principles that transfer across families](#prompting-principles-that-transfer-across-families)
+- [Family cards](#family-cards)
+- [Watchlist and evidence gaps](#watchlist-and-evidence-gaps)
+- [Dated practitioner evidence register](#dated-practitioner-evidence-register)
+- [Fresh-update checklist](#fresh-update-checklist)
+
 ## How to use this snapshot
 
 When a user names a generator, first identify the exact product/model/version and the surface they actually mean. If the surface is not named, treat the named consumer product as the target; do not interrogate the user about API or wrappers. Ask a narrow clarification only if two plausible versions materially change the prompt. If the user explicitly names an API, third-party service, local UI, or wrapper, map that surface separately. The capability of a model family does not prove that the user's account, a reseller, or this plugin exposes it.

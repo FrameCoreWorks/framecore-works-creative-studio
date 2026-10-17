@@ -2,6 +2,21 @@
 
 This reference expands the task-builder's decision rules. It is a text-deliverable and evidence-bounded audio-triage contract, not a generation adapter. Read-only research and inspection depend on real host capabilities and task authorization; follow [audio evidence and audiovisual handoff](audio-evidence-and-av-handoff.md) for media evidence, cue sheets, VO, music, SFX and captions. Use only the sections relevant to the user's current request. A packet does not imply that a target model will obey it exactly.
 
+## Contents
+
+Read only the section the task needs:
+
+- [1. Intent and deliverable routing](#1-intent-and-deliverable-routing)
+- [2. Intake and evidence ledger](#2-intake-and-evidence-ledger)
+- [3. Song-direction specification](#3-song-direction-specification)
+- [4. Task-specific packet patterns](#4-task-specific-packet-patterns)
+- [5. Google Flow Music / Lyria evidence-sensitive notes](#5-google-flow-music-lyria-evidence-sensitive-notes)
+- [6. Evidence and citation discipline](#6-evidence-and-citation-discipline)
+- [7. Packet schema and presentation](#7-packet-schema-and-presentation)
+- [8. Bounded iteration and release gate](#8-bounded-iteration-and-release-gate)
+- [9. Failure patterns to prevent](#9-failure-patterns-to-prevent)
+- [10. Small examples](#10-small-examples)
+
 ## 1. Intent and deliverable routing
 
 | User's immediate job | Task-builder response |

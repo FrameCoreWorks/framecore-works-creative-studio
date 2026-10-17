@@ -1,6 +1,6 @@
 ---
 name: workflow-self-improvement
-description: "Explicit-only retrospectives and workflow audits: improvement notes and approval-gated change proposals from finished work. Never edits workflow files on its own."
+description: "Explicit-only retrospectives and workflow audits with approval-gated change proposals from finished work; never edits workflow files itself."
 ---
 
 # Workflow Self-Improvement

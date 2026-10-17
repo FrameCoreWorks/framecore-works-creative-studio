@@ -2,6 +2,22 @@
 
 Status: stable craft reference synthesized for the Creative Studio runtime. This module is generator-neutral. It is not a current model catalog, a camera-metadata guarantee, a legal review, a video-prompt adapter, or permission to execute a provider.
 
+## Contents
+
+Read only the section the task needs:
+
+- [1. Scope and retrieval](#1-scope-and-retrieval)
+- [2. Authority before adjectives](#2-authority-before-adjectives)
+- [3. Bind references by property](#3-bind-references-by-property)
+- [4. Human plausibility: structure, action, and scale](#4-human-plausibility-structure-action-and-scale)
+- [5. Wardrobe and worn-product truth](#5-wardrobe-and-worn-product-truth)
+- [6. Commercial product truth and claim control](#6-commercial-product-truth-and-claim-control)
+- [7. Camera, composition, light, color, and material coherence](#7-camera-composition-light-color-and-material-coherence)
+- [8. Photo-session systems and still-to-video boundary](#8-photo-session-systems-and-still-to-video-boundary)
+- [9. Observable anti-artifact and acceptance checks](#9-observable-anti-artifact-and-acceptance-checks)
+- [10. Cause-led correction loop](#10-cause-led-correction-loop)
+- [11. Final prompt compilation boundary](#11-final-prompt-compilation-boundary)
+
 ## 1. Scope and retrieval
 
 Read this reference when a prompt materially depends on one or more of the following:

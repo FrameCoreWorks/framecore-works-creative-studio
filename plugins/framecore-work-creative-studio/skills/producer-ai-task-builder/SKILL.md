@@ -1,6 +1,6 @@
 ---
 name: producer-ai-task-builder
-description: Legacy compatibility route for existing references to the former audio task builder; use Audio Production Director for new audio work.
+description: Legacy alias of the former audio task builder; new audio work goes to Audio Production Director.
 ---
 
 # Legacy audio skill alias

@@ -4,6 +4,17 @@ Owner: Pipeline Core, under [Studio integration authority](studio-integration-po
 
 Contents: [host basis](#host-basis), [choosing the form](#choosing-the-form), [offering an interactive version](#offering-an-interactive-version), [text equivalence](#equivalent-text-path), [state and actions](#interaction-state-and-actions), [domain adaptations](#domain-adaptations), [module coverage](#module-coverage).
 
+## Contents
+
+Read only the section the task needs:
+
+- [Host basis](#host-basis)
+- [Choosing the form](#choosing-the-form)
+- [Equivalent text path](#equivalent-text-path)
+- [Interaction state and actions](#interaction-state-and-actions)
+- [Domain adaptations](#domain-adaptations)
+- [Module coverage](#module-coverage)
+
 ## Host basis
 
 Checked 2026-10-08 against OpenAI's announcement, Help Center article, release notes and developer documentation. Some official pages could be read only through search-indexed excerpts; recheck before relying on a detail that changes behavior.

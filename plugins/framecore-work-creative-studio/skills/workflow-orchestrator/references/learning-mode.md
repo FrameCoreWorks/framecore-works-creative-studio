@@ -4,6 +4,25 @@ This mentoring layer belongs to Workflow Orchestrator and the existing Project S
 
 Contents: [intent](#intent-and-handoff), [onboarding](#onboarding), [plan](#personal-plan), [lesson](#lesson-cycle), [diagnostic practice](#diagnostic-first-attempt), [assistance](#graduated-assistance), [independence](#evidence-of-independence), [retrieval](#retrieval-and-transfer), [causal feedback](#feedback-and-causal-diagnosis), [project](#one-evolving-learning-project), [switching](#switching-and-project-work), [recovery](#progress-and-recovery), [limits](#research-costs-and-limits), [evidence](#method-evidence).
 
+## Contents
+
+Read only the section the task needs:
+
+- [Intent and handoff](#intent-and-handoff)
+- [Onboarding](#onboarding)
+- [Personal plan](#personal-plan)
+- [Lesson cycle](#lesson-cycle)
+- [Diagnostic first attempt](#diagnostic-first-attempt)
+- [Graduated assistance](#graduated-assistance)
+- [Evidence of independence](#evidence-of-independence)
+- [Retrieval and transfer](#retrieval-and-transfer)
+- [Feedback and causal diagnosis](#feedback-and-causal-diagnosis)
+- [One evolving learning project](#one-evolving-learning-project)
+- [Switching and project work](#switching-and-project-work)
+- [Progress and recovery](#progress-and-recovery)
+- [Research, costs and limits](#research-costs-and-limits)
+- [Method evidence](#method-evidence)
+
 ## Intent and handoff
 
 Use `interaction_mode: learning | creation | undecided` separately from Quick/Deep pace. A greeting or unclear intent gets the complete welcome, exactly as [startup and creative menus](startup-and-creative-menus.md) gives it with all its numbered options, and waits for a choice; returning from learning to the start shows that same welcome. An explicit request to learn motion graphics enters learning. Tryb tworzenia remains an alias for creation. A mode-only creative choice continues to pace and area selection, while explicit production with a concrete task goes directly to the established production owner. Explicit learning goes to onboarding. Do not classify by topic alone: “teach me posters” and “make a poster” have different outcomes. “Teach me on my project” stays in learning. Do not assume video or character references.

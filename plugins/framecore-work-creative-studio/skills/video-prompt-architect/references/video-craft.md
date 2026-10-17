@@ -4,6 +4,36 @@ Integrated runtime knowledge synthesized from the full audits of four approved F
 
 Current model names, versions, UI/API surfaces, controls, limits, and community-reported behavior must be checked separately through the research workflow before a generator-specific prompt is presented as current. A request to write a prompt alone does not authorize a paid provider, upload, or media generation. Carry separately granted operation authorization through handoffs without requiring the user to repeat it.
 
+## Contents
+
+Read only the section the task needs:
+
+- [1. Responsibility and use](#1-responsibility-and-use)
+- [2. Separate the creative contract from the execution contract](#2-separate-the-creative-contract-from-the-execution-contract)
+- [3. Minimum useful intake](#3-minimum-useful-intake)
+- [4. Truth, control and freedom](#4-truth-control-and-freedom)
+- [5. The temporal spine](#5-the-temporal-spine)
+- [6. Duration, load and feasibility](#6-duration-load-and-feasibility)
+- [7. Camera is a decision, not decoration](#7-camera-is-a-decision-not-decoration)
+- [8. Perspective, framing and focus](#8-perspective-framing-and-focus)
+- [9. Blocking, axis and contact](#9-blocking-axis-and-contact)
+- [10. Four motion layers and physical response](#10-four-motion-layers-and-physical-response)
+- [11. References and continuity: property-level authority](#11-references-and-continuity-property-level-authority)
+- [12. Choose a continuity strategy deliberately](#12-choose-a-continuity-strategy-deliberately)
+- [13. Human dialogue before model syntax](#13-human-dialogue-before-model-syntax)
+- [14. Direct speech as visible performance](#14-direct-speech-as-visible-performance)
+- [15. Sound design is causal and spatial](#15-sound-design-is-causal-and-spatial)
+- [16. Human realism and wardrobe in motion](#16-human-realism-and-wardrobe-in-motion)
+- [17. Product films, ecommerce and claims](#17-product-films-ecommerce-and-claims)
+- [18. UGC, short form and original hooks](#18-ugc-short-form-and-original-hooks)
+- [19. Sequences and terminal frames](#19-sequences-and-terminal-frames)
+- [20. I2V, first-last, extension and edit](#20-i2v-first-last-extension-and-edit)
+- [21. Observable QA and bounded repair](#21-observable-qa-and-bounded-repair)
+- [22. Anti-slop quality gates for video](#22-anti-slop-quality-gates-for-video)
+- [23. Worked examples: six complete prompts and one shot-card handoff exercise](#23-worked-examples-six-complete-prompts-and-one-shot-card-handoff-exercise)
+- [24. Revision hygiene and handoff format](#24-revision-hygiene-and-handoff-format)
+- [25. Integration boundary and provenance](#25-integration-boundary-and-provenance)
+
 ## 1. Responsibility and use
 
 The video specialist converts an approved direction, script, shot card or sufficiently clear single-shot brief into a feasible video prompt. It should not silently change an approved premise, screenplay, shot order, identity, product, wardrobe, visible copy or spoken line.

@@ -1,6 +1,6 @@
 ---
 name: hipson-adapter
-description: 'Explicit-only adapter for lightweight Hipson-format research maps and review or execution packets. General delegation packets go to Instruction Packet Factory.'
+description: 'Explicit-only adapter for Hipson-format research maps and review or execution packets. Other delegation packets go to Instruction Packet Factory.'
 ---
 
 # Hipson Adapter
