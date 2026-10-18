@@ -4698,8 +4698,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 12809,
-      "sha256": "a74341075d41f2146c76694e24d88696a388072a6c690bce62bb04a8bfad08e5"
+      "bytes": 13376,
+      "sha256": "200be7cef71623756cb5d7c9fba9a261e32a9e1fd90fa7b04c7faa6edcd82a81"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
@@ -4713,8 +4713,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
-      "bytes": 12804,
-      "sha256": "f6091a4fd8ba34a574e07b3acd99e404ba640e53a683cdd0d7da605d4cbd4eb0"
+      "bytes": 13675,
+      "sha256": "02338d83062719f0b232f9be50741def69869aa4665b2a8d12ca055471cfe0db"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
@@ -7248,8 +7248,8 @@
     },
     {
       "path": "tests/lyric_timing_test.py",
-      "bytes": 8867,
-      "sha256": "9f434f274cf0a2c244232168dbc605db920254b81298aa76a68b32f12943c0b6"
+      "bytes": 10041,
+      "sha256": "f6b49552f0e7ab11f14bc06e2e45fbb1e7ffa70d659975e4ef8a4099e63d841c"
     },
     {
       "path": "tests/motion-quality.test.mjs",

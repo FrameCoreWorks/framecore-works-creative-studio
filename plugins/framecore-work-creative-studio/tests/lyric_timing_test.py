@@ -68,6 +68,30 @@ class LyricTimingTest(unittest.TestCase):
         self.assertTrue(lines[1]['needs_check'])
         self.assertFalse(lines[2]['needs_check'])
 
+    def test_a_weak_first_recognition_is_retried_with_the_other_conditioning(self):
+        import sys, types
+        from unittest import mock
+        calls = []
+
+        class Word:
+            def __init__(self, text, start): self.word, self.start, self.end = ' ' + text, start, start + 0.3
+
+        class Model:
+            def __init__(self, *a, **k): pass
+
+            def transcribe(self, samples, condition_on_previous_text=True, **kwargs):
+                calls.append(condition_on_previous_text)
+                text = ['one'] if condition_on_previous_text else ['one', 'two', 'three', 'four']
+                return [types.SimpleNamespace(words=[Word(w, i) for i, w in enumerate(text)])], None
+
+        fake = types.SimpleNamespace(WhisperModel=Model)
+        with mock.patch.dict(sys.modules, {'stable_whisper': None, 'whisperx': None, 'faster_whisper': fake}), \
+             mock.patch.object(lt, 'pcm16k', return_value=[]):
+            heard, engine = lt.recognise('song.mp3', 'one two three four', 'small')
+        self.assertEqual(calls, [True, False])
+        self.assertEqual(len(heard), 4)
+        self.assertIn('no previous-text conditioning', engine)
+
     def test_exports(self):
         lines = lt.read_lyrics(LYRICS)
         lt.place(lines, heard())

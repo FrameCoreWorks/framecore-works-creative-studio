@@ -171,8 +171,21 @@ def recognise(audio, lyrics_text, model):
     try:
         from faster_whisper import WhisperModel
         # decoded by FFmpeg, not PyAV: faster-whisper 1.2.1 fails with PyAV 19 (seen 2026-10-18)
-        segments, _ = WhisperModel(model, compute_type='int8').transcribe(pcm16k(audio), word_timestamps=True, initial_prompt=lyrics_text[:800])
-        return [{'text': w.word.strip(), 'start': w.start, 'end': w.end} for s in segments for w in s.words], 'faster-whisper'
+        samples, recogniser = pcm16k(audio), WhisperModel(model, compute_type='int8')
+        lyric_words = [norm(w) for w in lyrics_text.split()]
+        best = None
+        # Conditioning on the previous text helped one model and made another skip whole verses on the same
+        # song (2026-10-18), so a weak first pass is retried with the other setting and the better one kept.
+        for condition in (True, False):
+            segments, _ = recogniser.transcribe(samples, word_timestamps=True, initial_prompt=lyrics_text[:800],
+                                                condition_on_previous_text=condition)
+            heard = [{'text': w.word.strip(), 'start': w.start, 'end': w.end} for s in segments for w in s.words]
+            share = len(align(lyric_words, [norm(h['text']) for h in heard])) / max(len(lyric_words), 1)
+            if best is None or share > best[0]:
+                best = (share, heard, condition)
+            if share >= 0.9:
+                break
+        return best[1], f'faster-whisper {model}' + ('' if best[2] else ' (no previous-text conditioning)')
     except ImportError:
         pass
     raise SystemExit('No recogniser installed. Install one (pip install stable-ts, recommended for songs), or pass --words '
@@ -204,7 +217,7 @@ def main(argv=None):
     p.add_argument('audio')
     p.add_argument('lyrics', help='plain text, one sung line per line; [Section] labels are ignored')
     p.add_argument('--words', help='JSON word times from another recogniser instead of running one')
-    p.add_argument('--model', default='large-v3', help='recogniser model name')
+    p.add_argument('--model', default='small', help='recogniser model name (small matched best on a real song, 2026-10-18)')
     p.add_argument('--bpm', type=float, help='known tempo instead of detecting it')
     p.add_argument('--offset', type=float, default=0.0, help='first beat in seconds, with --bpm')
     p.add_argument('--fps', type=Fraction, default=Fraction(30), help='frame rate, e.g. 25, 30 or 30000/1001')
