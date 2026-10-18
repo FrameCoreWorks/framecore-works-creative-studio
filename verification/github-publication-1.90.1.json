@@ -1,0 +1,44 @@
+{
+  "version": "1.90.1",
+  "change_id": "CC-20261018-01",
+  "origin": "cloud-code",
+  "commit": "2bba3ac8fe3927efd98d2c5e7af46ae8b0f3e354",
+  "package_commit": "2bba3ac8fe3927efd98d2c5e7af46ae8b0f3e354",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.90.1",
+  "workflows": [
+    {
+      "id": 39104946785,
+      "name": "Check Studio sources",
+      "branch": "cloud-code/CC-20261018-01-lyric-timing-real-song",
+      "conclusion": "success"
+    },
+    {
+      "id": 39104944819,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39104944796,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39104944759,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "28643a0c75d66b12e5536951a07db86432bb200db777ff7057f6834e29e7488e",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1467 of 1467 files byte-identical to v1.90.1:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_sha256": "294d9ae7094a7899a9663e4bbb6aeada36976949e3dc79cce978792f23ff84e7",
+  "plugin_inventory_matches_local": true,
+  "motion_player_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+  "motion_player_asset_matches_local": true,
+  "published_skill_yaml": "37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "hosted_plugin": "not_tracked (owner decision 2026-10-10: the owner updates and tests it)",
+  "host_behavior": "NOT_RUN"
+}
