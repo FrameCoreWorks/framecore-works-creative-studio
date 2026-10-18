@@ -27,6 +27,8 @@ The [environment check](../../workflow-orchestrator/assets/environment-check/REA
 | Watch and export in the motion player | `motion_player` | yes | yes | yes | the user's browser |
 | Contract check and storyboard view | `motion_contract_check` | no | no | yes | Node |
 | Beat grid and caption sync | `motion_sync` | no | no | yes | Node |
+| Band envelope and hits from a track (audio-reactive motion, Iso Glow) | `audio_envelope` | no | yes | yes | Python, ffmpeg |
+| Reference animation breakdown (cuts, grid, transitions, motion heatmaps) | `reference_breakdown` | no | yes | yes | Python, numpy, Pillow, ffmpeg |
 | Contract revision with a change list | `motion_revise` | no | no | yes | Node |
 | Automated frame review | `motion_frame_review` | no | no | yes | Node, browser |
 | Web motion probe (a website's motion libraries, tweens and CSS animations) | `web_motion_probe` | no | no | yes | Node, browser |

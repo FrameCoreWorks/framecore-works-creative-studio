@@ -5008,8 +5008,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 6837,
-      "sha256": "20eef7742519f7f105285553932ff415fe538d22348f19d15a2c9459fc56bbd3"
+      "bytes": 7114,
+      "sha256": "991491c8dc9f17fa4d017405dd2d6f5d47a5cfadc8b0ff6ecc5f40e87ab0966c"
     },
     {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
