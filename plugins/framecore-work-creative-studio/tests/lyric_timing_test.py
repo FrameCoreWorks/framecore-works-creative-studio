@@ -55,6 +55,19 @@ class LyricTimingTest(unittest.TestCase):
             self.assertLessEqual(line['cut'], line['start'])
             self.assertEqual(line['cut_frame'], round(line['cut'] * 30))
 
+    def test_unheard_words_after_an_instrumental_gap_stay_beside_the_next_heard_word(self):
+        lines = lt.read_lyrics('total breakdown\nkilling me killing me\nthat i might')
+        heard = [{'text': 'total', 'start': 94.2, 'end': 94.5}, {'text': 'breakdown', 'start': 94.5, 'end': 95.4},
+                 {'text': 'me', 'start': 115.1, 'end': 115.8}, {'text': 'me', 'start': 116.8, 'end': 117.4},
+                 {'text': 'that', 'start': 117.4, 'end': 118.0}, {'text': 'i', 'start': 118.0, 'end': 118.5},
+                 {'text': 'might', 'start': 118.5, 'end': 118.6}]
+        lt.place(lines, heard)
+        killing = lines[1]['words'][0]
+        self.assertGreater(killing['start'], 113.5)          # not stretched across the 20 s gap from 95.4 s
+        self.assertLess(killing['end'] - killing['start'], 2.5)
+        self.assertTrue(lines[1]['needs_check'])
+        self.assertFalse(lines[2]['needs_check'])
+
     def test_exports(self):
         lines = lt.read_lyrics(LYRICS)
         lt.place(lines, heard())

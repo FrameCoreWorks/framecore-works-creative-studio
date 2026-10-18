@@ -101,6 +101,11 @@ def place(lines, heard_words, threshold=0.6):
         lo, hi = (before if before is not None else -1) + 1, (after if after is not None else len(flat))
         span = flat[lo:hi]
         total = sum(max(len(x['text']), 1) for x in span)
+        sung = sum(0.3 + 0.05 * len(x['text']) for x in span)   # a plausible sung length for these words
+        if b - a > 2 * sung + 0.5:                     # an instrumental gap: keep the words beside the next heard word
+            a, b = (b - sung, b) if after is not None else (a, a + sung)
+            for x in span:
+                x['stretched'] = True
         t = a
         for x in span:
             d = (b - a) * max(len(x['text']), 1) / total
@@ -109,7 +114,8 @@ def place(lines, heard_words, threshold=0.6):
     for line in lines:
         line['start'], line['end'] = line['words'][0]['start'], line['words'][-1]['end']
         line['matched_share'] = round(sum(w['matched'] for w in line['words']) / len(line['words']), 2)
-        line['needs_check'] = line['matched_share'] < 0.5 or any(w.pop('squeezed', False) for w in line['words'])
+        flags = [w.pop('squeezed', False) | w.pop('stretched', False) for w in line['words']]
+        line['needs_check'] = line['matched_share'] <= 0.5 or any(flags)
     return sum(w['matched'] for w in flat) / len(flat)
 
 
@@ -134,6 +140,17 @@ def snap(lines, bpm, beat0, snap_ms=80, lead_frames=1, fps=30):
         line['cut_frame'] = int(round(line['cut'] * fps))
 
 
+def pcm16k(audio):
+    """The track as 16 kHz mono float samples, decoded by FFmpeg (what the recognisers expect)."""
+    import subprocess
+    import numpy as np
+    done = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', str(audio), '-f', 's16le', '-ac', '1', '-ar', '16000', '-'],
+                          capture_output=True, check=False)
+    if done.returncode or not done.stdout:
+        raise SystemExit(f'{audio}: FFmpeg could not decode it: {done.stderr.decode(errors="replace").strip()[-200:]}')
+    return np.frombuffer(done.stdout, np.int16).astype(np.float32) / 32768.0
+
+
 def recognise(audio, lyrics_text, model):
     """Times from the first installed recogniser; returns a flat list of {text, start, end}."""
     try:
@@ -153,7 +170,8 @@ def recognise(audio, lyrics_text, model):
         pass
     try:
         from faster_whisper import WhisperModel
-        segments, _ = WhisperModel(model, compute_type='int8').transcribe(audio, word_timestamps=True, initial_prompt=lyrics_text[:800])
+        # decoded by FFmpeg, not PyAV: faster-whisper 1.2.1 fails with PyAV 19 (seen 2026-10-18)
+        segments, _ = WhisperModel(model, compute_type='int8').transcribe(pcm16k(audio), word_timestamps=True, initial_prompt=lyrics_text[:800])
         return [{'text': w.word.strip(), 'start': w.start, 'end': w.end} for s in segments for w in s.words], 'faster-whisper'
     except ImportError:
         pass
