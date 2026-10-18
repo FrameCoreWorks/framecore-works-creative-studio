@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.90.1, 2026-10-18
+
+From the first end-to-end lyric timing run on a real song (owner request 2026-10-18): Brad Sucks, "Total Breakdown" (CC BY-SA 3.0), faster-whisper `small` on CPU, 98 % of the lyric words matched in 23 s:
+
+- **FFmpeg decoding.** faster-whisper 1.2.1 could not open the track with PyAV 19; `lyric_timing.py` now decodes the audio with FFmpeg and passes the samples
+- **No stretch across a gap.** A line sung differently from the published lyrics, after a 20 s instrumental break, had its unheard words stretched across the break and was not flagged. Unheard words now stay beside the next heard word (within 0.2 s of the recogniser here) and the line is flagged for a check by ear; a matched share of half or less is flagged too
+- Repository: regression test; no audio or lyrics committed; the tempo was not verified by ear
+
 ## 1.90.0, 2026-10-17
 
 At the owner's request, Agent Reach's no-login reading inside Studio:

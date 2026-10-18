@@ -1,5 +1,5 @@
-# Creative Studio 1.90.0
+# Creative Studio 1.90.1
 
-## Web reach inside Research Evidence
+## Lyric timing on a real song
 
-Studio can now read public pages, feeds, public GitHub repositories and YouTube subtitles itself, adapted from Agent Reach, without a login or an install.
+Lyric timing ran end to end on a real song for the first time; two defects it found are fixed.

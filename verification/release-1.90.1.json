@@ -1,0 +1,206 @@
+{
+  "version": "1.90.1",
+  "date": "2026-10-18",
+  "baseline": "bd00d0c0b48c3a2b8ee7bf2ac2fa96e4cfa3824a",
+  "change_id": "CC-20261018-01",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container used only as a development tool",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1467,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7699 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 238,
+        "pass": 227,
+        "fail": 0,
+        "skipped": 11
+      },
+      "python": {
+        "suite 1": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 2": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 3": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 4": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 5": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 6": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 7": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 8": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "suite 9": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 10": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 11": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 12": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "suite 13": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 14": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 15": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 16": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 17": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 18": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 19": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 20": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 21": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 22": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 23": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 24": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 25": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "suite 26": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 27": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 28": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 29": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 30": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 31": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 32": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 33": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 34": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 35": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 36": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 37": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 38": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 39": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 40": {
+          "tests": 21,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "MOTION_REVIEW_BROWSER=<local chromium> node --test motion-toolkit.test.mjs",
+      "status": "PASS",
+      "tests": 85
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.302)",
+      "status": "PASS"
+    }
+  ],
+  "review": "First end-to-end lyric timing run on a real CC BY-SA song (98 % of words matched); FFmpeg decoding replaces PyAV for faster-whisper, and unheard words no longer stretch across instrumental gaps.",
+  "source": "Lyric timing on a real song",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}
