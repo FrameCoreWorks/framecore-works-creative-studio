@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.91.0, 2026-10-18
+
+At the owner's request, two outside sources implemented in Studio and listed as recommended repositories, and a fourth welcome option:
+
+- **Welcome option 4.** Under the skill-search line, the welcome (English and the approved Polish translation, both byte-checked) now asks whether the user wants to see the GitHub repositories recommended by FrameCore Works. Choosing it shows the [recommended repositories list](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#recommended-repositories-list): every registry entry with what it does, what Studio already bundles from it, its licence and how it is installed in the agent the user is in; it installs nothing. `extensions.py catalog --host <host>` prints it. A `4` from a three-option welcome shown before 1.91.0 asks for clarification; a `4` in the work-area menu is still area 4
+- **Iso Glow for video.** [Iso Glow kit](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/iso-glow/README.md) in Motion Graphics Workflow: isometric hairline drawing where only what is live glows, adapted from iso-glow (April Zhu, on iso-figure by Tolga Cohce, MIT) for seekable video, with a HyperFrames loudspeaker example driven by the bass. [`audio_envelope.py`](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sync/audio_envelope.py) measures one band of a supplied track per frame and its hits and writes them into a composition (Python and FFmpeg only)
+- **Art-style and explainer direction.** [Art-style and explainer motion direction](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md), restated in English from huashu-art-motion (alchaincyf, MIT): camera moves as punctuation with timings, choosing the look and palette, seven explainer grammars, twelve cross-grammar rules, six ways a film goes wrong and shot-list rules; [reference breakdown](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/reference-breakdown/README.md) adapts its breakdown script (cuts at their first frame, the cut grid with BPM candidates, transition sheets, motion heatmaps, keyframes)
+- **Registry.** `huashu-art-motion` (commit 8a0d7d7, skills CLI install in Codex and Claude Code) and `iso-glow` (no repository: the archive is pinned by SHA-256, a new `archive` pin the validator checks in every command) added; the capability card lists the two new tools
+- Repository: `tests/iso_glow_test.py`, `tests/reference_breakdown_test.py` and catalog/archive cases in `tests/extensions_test.py`; NOTICE, README, the smoke set and the Claude install guide updated
+
 ## 1.90.3, 2026-10-18
 
 From the owner-supplied Polish test track (2026-10-18):

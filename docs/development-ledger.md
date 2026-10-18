@@ -2408,3 +2408,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `f255ae5`; workflows Check Studio sources 39150821873, Refresh current release notes 39150819693, Publish verified Studio release 39150819648, Check Studio sources 39150819662: success; [v1.90.3](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.90.3) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1467 of 1467) ([record](../verification/github-publication-1.90.3.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261018-04
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261018-01-recommended-repos`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `6ffb604` (main, package 1.90.3); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.91.0)
+- Package version: 1.90.3 -> 1.91.0
+- Scope: Welcome option 4 lists the GitHub repositories FrameCore Works recommends with descriptions and per-agent installation; Iso Glow kit with audio_envelope.py (from iso-glow) and art-style and explainer direction with a reference breakdown (from huashu-art-motion) in Motion Graphics Workflow; both repositories added to the extension registry.
+- Shared package changed: yes; 22 changed, 12 added, 0 removed ([scope](../verification/scope-1.91.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 14 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 11 suite 37, 6 suite 38, 3 suite 39, 4 suite 40, 9 suite 41, 21 suite 42: PASS ([record](../verification/release-1.91.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run

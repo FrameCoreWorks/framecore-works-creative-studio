@@ -1,5 +1,5 @@
-# Creative Studio 1.90.3
+# Creative Studio 1.91.0
 
-## Lyric timing tested in Polish
+## Recommended repositories in the welcome, Iso Glow and art-style direction
 
-Lyric timing ran on a Polish rap track; the result is recorded in the motion-sync notes.
+The welcome has a fourth option: the GitHub repositories FrameCore Works recommends, each with what it does and how it installs in your agent. Motion graphics gains isometric line art that glows with the music's bass, and direction rules for art-style and explainer animation, adapted from iso-glow and huashu-art-motion (both MIT).
