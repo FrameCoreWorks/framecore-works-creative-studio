@@ -1,0 +1,26 @@
+{
+  "version": "1.90.3",
+  "baseline_tag": "v1.90.2",
+  "baseline": "1b665f59cd9d41e9f95fe31b84358575b16da92d",
+  "change_id": "CC-20261018-03",
+  "origin": "cloud-code",
+  "files": 1467,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1459,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Lyric timing result on an owner-supplied Polish rap track recorded (89 % of words matched with the default and the retry); documentation only."
+}

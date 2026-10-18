@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.90.3, 2026-10-18
+
+From the owner-supplied Polish test track (2026-10-18):
+
+- **Lyric timing in Polish, recorded.** A fast Polish rap track with two voices matched 89 % of the lyric words with the default `small` and the automatic retry; lines in order, choruses placed where a separate transcription heard them, one line flagged. The weakest lines were wordplay. Recorded in the motion-sync README; no audio or lyrics stored
+
 ## 1.90.2, 2026-10-18
 
 From a model comparison on the same real song (owner choice 2026-10-18), faster-whisper on CPU, share of lyric words matched:

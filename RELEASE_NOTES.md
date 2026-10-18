@@ -1,5 +1,5 @@
-# Creative Studio 1.90.2
+# Creative Studio 1.90.3
 
-## Better default for lyric timing
+## Lyric timing tested in Polish
 
-Lyric timing now defaults to the model that matched best on a real song and retries a weak recognition automatically.
+Lyric timing ran on a Polish rap track; the result is recorded in the motion-sync notes.
