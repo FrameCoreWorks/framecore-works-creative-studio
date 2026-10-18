@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 6331,
-      "sha256": "c111006c1a3563506e4b17f9fde07c81e830c61e1951f22dfe451ed75dca5f8a"
+      "bytes": 7230,
+      "sha256": "3516eb0648841358585c8d96e51012a2d6a89266c769ca6ce67be6fd2549987e"
     },
     {
       "path": "README.md",
@@ -163,8 +163,8 @@
     },
     {
       "path": "evals/effective-overrides.json",
-      "bytes": 30375,
-      "sha256": "c7d2247356602d58be07b08928fe7e88abdcbba79df8c50a7788f13c0a53a358"
+      "bytes": 30458,
+      "sha256": "dbfaa48756e090402d1cb274e799fb2a00b9f9f2e0581e694f34f0ef096bde67"
     },
     {
       "path": "evals/knowledge-practice-cases.json",
@@ -173,8 +173,8 @@
     },
     {
       "path": "evals/learning-mode-cases.json",
-      "bytes": 55808,
-      "sha256": "2c2685ef1c7a3eaee57729be91b6f44540a003735e2206e0140fc4c4886f0a66"
+      "bytes": 55891,
+      "sha256": "8a695a4da522e1904a149b8877170b0491e72e3124e19e6a2a8d261dbfd8b63e"
     },
     {
       "path": "evals/motion-sound-cases.json",
@@ -2413,8 +2413,8 @@
     },
     {
       "path": "scripts/validate-learning-mode.mjs",
-      "bytes": 19820,
-      "sha256": "e3eef16b03c4556d6c0077b7d0fd023f6b40355102cfad31841ce31ac83115fc"
+      "bytes": 20795,
+      "sha256": "f2adf9760db5d3c035aa807e75ad2b2861bc5a7cfdf4bf6049132a6723ebff44"
     },
     {
       "path": "scripts/validate-motion-quality.mjs",
@@ -3103,8 +3103,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 21890,
-      "sha256": "5d54a38fb3f9aa87d8dee6bb116d773b0c2e303b9e40085afdb0d2f8708d11c6"
+      "bytes": 22909,
+      "sha256": "dcd4ab8476392078b7c7a81e8e6c779ad99be6ba001b629a53e1a41fccd1b514"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4307,6 +4307,31 @@
       "sha256": "6fd41bdd1d49e9b458c3c90f87d7d8c3c80343f31b8bfe26a5105b9beb628feb"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/iso-glow/LICENSE.upstream",
+      "bytes": 1194,
+      "sha256": "1a1281a84e233c0501448f641943d1a3e6c07aa7dfcfd07ea59f212f0608426a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/iso-glow/README.md",
+      "bytes": 5866,
+      "sha256": "65a5e8c0220bc3126a96f0cfb741e1cf6c9742dd0eb0a931b3fcf9ab1a4b9b11"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html",
+      "bytes": 4916,
+      "sha256": "9097b4b3c57497a30b2091018972dc4bcafcddee9397c4fc7dbe2a76e5213157"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/iso-kit.js",
+      "bytes": 5523,
+      "sha256": "29b52c653faae34d569b5c63e438b4f88e979f6cd9e01a8bf2350521f74f1e90"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/iso-glow/iso-kit.js",
+      "bytes": 5523,
+      "sha256": "29b52c653faae34d569b5c63e438b4f88e979f6cd9e01a8bf2350521f74f1e90"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/manim-motion-example.py",
       "bytes": 1024,
       "sha256": "9cbb4b4f5040d2d508bd340ee780937376a79d9422e5c82a1a9fd731ba8dda77"
@@ -4698,8 +4723,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 13775,
-      "sha256": "30bda9d4e240d90419522a00e133c14fee9516ca4ef566528739400efc7edb90"
+      "bytes": 15069,
+      "sha256": "8e7bf2629c5cc6cd95dc389a71acbdecb428faa3d8d9a89725fb4fb25cf15559"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-sync/audio_envelope.py",
+      "bytes": 6978,
+      "sha256": "6f27349f92e9a6a6bfe278371f94a7fcf5c9f496c96b7adecbe29104b259b59f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
@@ -4807,6 +4837,21 @@
       "sha256": "d8d05440c1a80e0078308afc8b0d1b7b52532e49caab326dbc02f7c36411b1a7"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/reference-breakdown/LICENSE.upstream",
+      "bytes": 1086,
+      "sha256": "6d6a2a9caf2e6d2b76974050427053b2892d8aa4c33fd168ce63a537fcee9d96"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/reference-breakdown/README.md",
+      "bytes": 2525,
+      "sha256": "64ac7d1e86bf2f9ce74e5d9976883b697f1bf92d38c8a12353a52dddf785c67d"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/reference-breakdown/breakdown.py",
+      "bytes": 8403,
+      "sha256": "09e125a318ffc39877dcdca23e3aaa4e7cfd3850eff94af17ec97a6af70357a9"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
       "bytes": 10323,
       "sha256": "e314b598f9c4996af71b73a6ba49b236fbe9b4ffe9d3f786d93f97ef550659be"
@@ -4855,6 +4900,11 @@
       "path": "skills/hyperframes-workflow/references/animate-engine.md",
       "bytes": 8434,
       "sha256": "d43d0d9241fa5e8d0f23bdf57895fddf6645af595cc2212d645c06d575da5c77"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
+      "bytes": 15382,
+      "sha256": "3341e40060498f18d6de2d171519e77941e91b354197ba3a293d6829c1f3dcfa"
     },
     {
       "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
@@ -6938,8 +6988,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 30549,
-      "sha256": "6605b254bf997248cc0cf49ea85c11249a4f3e1395c8db247670f2e537319a13"
+      "bytes": 31213,
+      "sha256": "eec565e8633c7ac07a592ed57334bf84bd177ed0fc8e4c7972c22cc6bcf5ac36"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -6953,8 +7003,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 37980,
-      "sha256": "3ac40ce58a9b40074d5a1b31e4228b004fa6c2fde0c39dade92572eac414041f"
+      "bytes": 39757,
+      "sha256": "7374d25193d1b65362a1839c76b3f268a0605dfdc04f817bd8e2cce931cb9329"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -6978,13 +7028,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 59891,
-      "sha256": "7e2d33935f56032704fb77b4341b5182e5e54aacb82d884cec9a20deaa39010f"
+      "bytes": 73206,
+      "sha256": "bb3b87794865152cd180aef5e3d6cc4be1213e4938909e4958475e4e0542573d"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
-      "bytes": 9053,
-      "sha256": "e3251b18c3e66d264e283cb783a2780f4cf91ef732c80e7e80477db5c0e28309"
+      "bytes": 11625,
+      "sha256": "a9ab0288b66e020bb272735d5bead9cdab5fb5d733d2193a79e1cee4143d4914"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -7013,13 +7063,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
-      "bytes": 1753,
-      "sha256": "84959428384a1728b0c198809eb55b42dc8f1ec04a821ae21b26fda80256dbf8"
+      "bytes": 1930,
+      "sha256": "5d40657066c3730fc15d58ce4dc6f83d0f3247da942ddeb3632df665e5a66022"
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
-      "bytes": 1899,
-      "sha256": "4c8084c28c9823bc5195989f4d33cce20ebfe93e20d660568b4df07b610bfb36"
+      "bytes": 2094,
+      "sha256": "42bf1f7f20814392b1b81f0df98d0570cd2ad5ea973c5d461ac8cbb6292960e9"
     },
     {
       "path": "skills/workflow-orchestrator/assets/teacher-studio/activity-bank.md",
@@ -7078,8 +7128,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 4160,
-      "sha256": "6f1dd797ebaf25a20db6c725430f28f2d9640f1a6ef41d4d30520b2d99831fcd"
+      "bytes": 5914,
+      "sha256": "21177f0c7e7b13725137196449169ac004558b7ec0040d54e8fca731b70a05ac"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7108,8 +7158,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
-      "bytes": 18365,
-      "sha256": "a4d66d33599e3535c2e93853668af0b49f00ca7e7834635ba9072cb9f6e52000"
+      "bytes": 19254,
+      "sha256": "cdd02d7bdde24e603368d19eff6be7fb3d54959450d50e088bc68123ccf7b263"
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
@@ -7228,13 +7278,18 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 9796,
-      "sha256": "99dc629242413a9d1492ae89c07392808a05abe216f4ec3232f554a2d22ac28b"
+      "bytes": 11706,
+      "sha256": "8e8a14e1c2fbca5e0eb1796cdb4215307af1b48b288fb7c5b1d7a943355ab087"
     },
     {
       "path": "tests/image_probe_test.py",
       "bytes": 9535,
       "sha256": "d1d36728584e1337a9ce6f0c86d7b6db03901589bfd2acf274ac1b79b0b430b4"
+    },
+    {
+      "path": "tests/iso_glow_test.py",
+      "bytes": 5279,
+      "sha256": "937785c7fbef411f9ea28a473d6ad96c73c29bcbcd66e93c0850c64e7c5e0dbf"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -7330,6 +7385,11 @@
       "path": "tests/reel_starters_test.py",
       "bytes": 1795,
       "sha256": "c5a54321066942c3c494edd1624f120a6607542a74de6d953f14227529c8ad62"
+    },
+    {
+      "path": "tests/reference_breakdown_test.py",
+      "bytes": 3067,
+      "sha256": "f362af847dc705928d42a78a58a2aba2480a53a320cff952cbe416145f7d8ffd"
     },
     {
       "path": "tests/sheet_export_test.py",

@@ -346,6 +346,53 @@
       "observed": "Container checks only"
     },
     {
+      "id": "audio_envelope",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Measures one frequency band of a supplied track per video frame (bass by default) and its hits, and writes them into a composition for audio-reactive motion",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-sync/audio_envelope.py",
+        "skills/hyperframes-workflow/assets/iso-glow/iso-kit.js"
+      ],
+      "requires": [
+        "python",
+        "ffmpeg"
+      ],
+      "optional": [
+        "browser"
+      ],
+      "hosts": [
+        "shell",
+        "code_execution"
+      ],
+      "delivers": "An envelope JSON (one value per frame, hits in seconds) or a composition with it embedded, such as the Iso Glow loudspeaker",
+      "when_missing": "Drive the motion from the beat grid or the kit's demo envelope at the stated tempo",
+      "observed": "Container checks; a supplied song's envelope matched an approved video's"
+    },
+    {
+      "id": "reference_breakdown",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Breaks a reference animation into cuts with their beat grid, transition contact sheets, per-segment motion heatmaps and keyframes",
+      "tools": [
+        "skills/hyperframes-workflow/assets/reference-breakdown/breakdown.py"
+      ],
+      "requires": [
+        "python",
+        "numpy",
+        "pillow",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell",
+        "code_execution"
+      ],
+      "delivers": "cuts.json and contact sheets to rebuild a mechanism from",
+      "when_missing": "Describe the mechanism from frames the user supplies, marked as unmeasured",
+      "observed": "Container checks on a synthetic edit only"
+    },
+    {
       "id": "motion_revise",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

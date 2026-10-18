@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-17",
+  "checked": "2026-10-18",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -784,6 +784,140 @@
       },
       "observed": "2026-10-17: README, install guide, uninstall steps, skill install paths and licence read at the pinned commit. The plan, install and doctor were not run (owner decision 2026-10-17: no tests this round). Not installed into a real host",
       "update": "When the owner reviews a newer release, change package.version and reviewed_commit together; users then rerun plan, install and verify"
+    },
+    {
+      "id": "huashu-art-motion",
+      "name": "Huashu Art Motion (alchaincyf)",
+      "repository": "https://github.com/alchaincyf/huashu-art-motion",
+      "reviewed_commit": "8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "skill",
+        "knowledge",
+        "tools"
+      ],
+      "category": "motion-graphics",
+      "role": "engine",
+      "gives": "Art-style animation that stays alive (36 implemented style scenes from cave painting to Monet, Van Gogh, Bauhaus, 8-bit and Ghibli, plus 17 research cards), 9 explainer grammars (Kurzgesagt, Vox, whiteboard, 3Blue1Brown, storytime, kinetic type, keynote UI, finance charts, presenter) with parameterized clips, a reference-breakdown script, a shot-list lint and a delivery gate against slide-deck films. Upstream version 1.2.0; docs mostly in Chinese.",
+      "studio_uses": "Studio bundles its direction method in English (camera, look, explainer grammars, six failure modes, shot-list rules) and an adapted reference-breakdown tool in Motion Graphics Workflow. This optional entry installs the original skill with its style scenes, clip renderer and gates.",
+      "not_for": "Copying its showcase films, characters or likenesses (they include generated images of real people), replacing Studio's intake, review and delivery, or presenting a research style card as a finished, verified style.",
+      "requires": [
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "22.20.0",
+              null
+            ]
+          ],
+          "note": "Node.js 22.20+ for the pinned skills CLI 1.7.2 install route."
+        },
+        {
+          "tool": "uv",
+          "note": "uv runs its Python scripts; FFmpeg renders and analyses; the first render needs `uv run --with playwright playwright install chromium`, a browser download that is asked for separately."
+        },
+        {
+          "tool": "ffmpeg",
+          "note": "Rendering, concatenation and reference breakdown."
+        }
+      ],
+      "rights": "MIT, Copyright (c) 2026 alchaincyf. Keep LICENSE. Museum paintings in its demos are CC0 open-access originals; its showcase characters, likenesses and films are demonstrations, not assets to reuse. Its skill checks for a newer version with `git ls-remote` at most monthly and writes `.last-update-check` in its folder (write `off` there to stop it); it never updates itself.",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c --skill huashu-art-motion -a codex -g --copy",
+          "writes": "Copies the huashu-art-motion skill (SKILL.md, references, scripts, engine and showcase assets, about 74 MB) into the agent's global skills. Inspect an existing copy before updating. Its scripts are not run on install; the first render needs uv and a Playwright Chromium download, which is asked for separately.",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart the agent and confirm huashu-art-motion is listed in a new session; run one scoped task (for example one frame of a style) before claiming it works. Its instructions are mostly in Chinese.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove huashu-art-motion -g -a codex"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c --skill huashu-art-motion -a claude-code -g --copy",
+          "writes": "Copies the huashu-art-motion skill (SKILL.md, references, scripts, engine and showcase assets, about 74 MB) into the agent's global skills. Inspect an existing copy before updating. Its scripts are not run on install; the first render needs uv and a Playwright Chromium download, which is asked for separately.",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart the agent and confirm huashu-art-motion is listed in a new session; run one scoped task (for example one frame of a style) before claiming it works. Its instructions are mostly in Chinese.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove huashu-art-motion -g -a claude-code"
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c. Where Claude accepts custom skills, package SKILL.md, references/ and scripts/ (leave out assets/, about 49 MB of showcase media) and upload it in Claude's skill settings; its renders need uv, FFmpeg and Playwright Chromium, which a chat sandbox may not have. Studio already carries the English direction method and the breakdown tool. Remove it in the same settings. Not host-tested."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c. For knowledge only, attach SKILL.md and the references you need (for example references/镜头语言.md for camera moves and references/09-视频动画语法.md for explainer grammars) as project files where supported. Its scripts do not run here. Studio already contains the adapted English method. Remove the files to remove it."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/alchaincyf/huashu-art-motion/tree/8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c. Attach SKILL.md and selected references as project files, as for ChatGPT. Where code execution with FFmpeg exists, Studio's bundled reference breakdown covers the analysis script; the style engine needs a browser and is not claimed here. Remove the project files to remove it."
+        }
+      },
+      "observed": "2026-10-18 Linux container: skills@1.7.2 pinned remote --list found huashu-art-motion; licence MIT read from the pinned checkout; breakdown.py adapted and tested in Studio. Host install, invocation and removal not_run.",
+      "update": "Review a newer commit (CHANGELOG, licence, scripts that run on use) and update reviewed_commit, every pinned command and Studio's adapted reference together."
+    },
+    {
+      "id": "iso-glow",
+      "name": "ISO-GLOW (April Zhu)",
+      "repository": "https://isoglow.dev/",
+      "archive": {
+        "url": "https://isoglow.dev/iso-glow.zip",
+        "sha256": "6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1"
+      },
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "skill",
+        "knowledge"
+      ],
+      "category": "motion-graphics",
+      "role": "knowledge",
+      "gives": "Interactive isometric hairline figures where whatever is switched on glows in one accent colour, as single HTML pages: devices, buildings, city scenes, exploded diagrams, a 3D mode with three.js (including cleaning up a .glb model) and a solid \"Lumen\" product-illustration style.",
+      "studio_uses": "Studio bundles the look adapted for video in Motion Graphics Workflow: an isometric kit, a bass-driven loudspeaker example and audio_envelope.py, which drives glow from a track. This optional entry installs the original skill for clickable pages.",
+      "not_for": "Seekable video renders (its pages animate from clicks and wall-clock time; use Studio's kit), real logos or trademarks on objects, or removing its footer credit without the user's choice.",
+      "requires": [
+        {
+          "tool": "browser",
+          "note": "Any browser opens the result. Python 3 is optional (the page-assembly step has a manual fallback); curl, shasum and unzip for the pinned install."
+        }
+      ],
+      "rights": "MIT, Copyright (c) 2026 April Zhu, built on iso-figure, Copyright (c) 2026 Tolga Cohce (MIT). Keep LICENSE with the skill. Pages end with a small \"Made with ISO-GLOW\" link that the user may remove; finished figures belong to the user.",
+      "hosts": {
+        "claude_code": {
+          "status": "native",
+          "plan": "mkdir -p ~/.framecore-studio/extensions/iso-glow && cd ~/.framecore-studio/extensions/iso-glow && curl -fsSL -o iso-glow.zip https://isoglow.dev/iso-glow.zip && echo \"6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1  iso-glow.zip\" | shasum -a 256 -c - && unzip -l iso-glow.zip",
+          "install": "cd ~/.framecore-studio/extensions/iso-glow && echo \"6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1  iso-glow.zip\" | shasum -a 256 -c - && test ! -e ~/.claude/skills/iso-glow && mkdir -p ~/.claude/skills && unzip -q iso-glow.zip -d ~/.claude/skills",
+          "writes": "The reviewed archive in ~/.framecore-studio/extensions/iso-glow and the skill folder ~/.claude/skills/iso-glow (SKILL.md, LICENSE, two references, a 2D and a 3D page template and examples, about 450 KB of plain text). Nothing runs on install. If the checksum fails, upstream has changed: stop and review the new archive first.",
+          "verify": "ls ~/.claude/skills/iso-glow",
+          "after": "Restart Claude Code and ask for a figure (\"use the iso-glow skill to draw a lighthouse\"); it writes an .html file to open in a browser. 3D pages load three.js from a public CDN.",
+          "remove": "rm -r ~/.claude/skills/iso-glow"
+        },
+        "codex": {
+          "status": "native",
+          "plan": "mkdir -p ~/.framecore-studio/extensions/iso-glow && cd ~/.framecore-studio/extensions/iso-glow && curl -fsSL -o iso-glow.zip https://isoglow.dev/iso-glow.zip && echo \"6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1  iso-glow.zip\" | shasum -a 256 -c - && unzip -l iso-glow.zip",
+          "install": "cd ~/.framecore-studio/extensions/iso-glow && echo \"6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1  iso-glow.zip\" | shasum -a 256 -c - && test ! -e ~/.agents/skills/iso-glow && mkdir -p ~/.agents/skills && unzip -q iso-glow.zip -d ~/.agents/skills",
+          "writes": "The reviewed archive in ~/.framecore-studio/extensions/iso-glow and the skill folder ~/.agents/skills/iso-glow (SKILL.md, LICENSE, two references, a 2D and a 3D page template and examples, about 450 KB of plain text). Nothing runs on install. If the checksum fails, upstream has changed: stop and review the new archive first.",
+          "verify": "ls ~/.agents/skills/iso-glow",
+          "after": "Restart Codex and ask for a figure (\"use the iso-glow skill to draw a lighthouse\"); it writes an .html file to open in a browser. 3D pages load three.js from a public CDN.",
+          "remove": "rm -r ~/.agents/skills/iso-glow"
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Download https://isoglow.dev/iso-glow.skill (the same bytes as the pinned archive, SHA-256 6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1; check it before uploading), upload it in Claude's skill settings and switch it on (skills need a plan that includes them), then start a new chat and ask for a figure. Remove it in the same settings. Not host-tested."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "No skill install here. For knowledge only, attach SKILL.md and assets/gallery.html from https://isoglow.dev/iso-glow.zip (SHA-256 6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1) as project files and ask for a figure as an HTML file to download. Studio's adapted kit covers the video use. Remove the files to remove it."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "As for ChatGPT: attach SKILL.md and assets/gallery.html from https://isoglow.dev/iso-glow.zip (SHA-256 6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1) as project files; where code execution exists, the page can be assembled with the documented Python step. Remove the files to remove it."
+        }
+      },
+      "observed": "2026-10-18 Linux container: iso-glow.zip, iso-glow.skill and iso-glow.tar.gz downloaded; the zip and the .skill file are byte-identical and the tar holds the same 14 files; licence MIT read. The claude_code plan, install (checksum OK), verify and remove commands ran end to end with a temporary HOME. Studio's adapted kit rendered through HyperFrames. Install in a real host, invocation and the manual routes not_run.",
+      "update": "Upstream publishes an unversioned archive at a fixed URL: download it, review the changes and licence, then update the SHA-256 in archive, every command and the bundled kit's notes together."
     }
   ]
 }

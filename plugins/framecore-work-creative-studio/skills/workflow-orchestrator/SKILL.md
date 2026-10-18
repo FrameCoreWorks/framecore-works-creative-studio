@@ -58,8 +58,9 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.
 2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
 3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
+4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
 
-Enter **1**, **2** or **3**.
+Enter **1**, **2**, **3** or **4**.
 <!-- END ENGLISH STARTUP RESPONSE -->
 
 ### Approved Polish welcome
@@ -85,8 +86,9 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.
 2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
 3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.
+4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.
 
-Wpisz **1**, **2** albo **3**.
+Wpisz **1**, **2**, **3** albo **4**.
 <!-- END CANONICAL STARTUP RESPONSE -->
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
@@ -99,6 +101,7 @@ Resolve entry before loading craft, researching or asking for a project. This se
 - **Invocation with content:** text, a screenshot, an image, a file or pasted material in the same message, or the user's unanswered message right before the invocation, is the request. Read it first, including the text inside a screenshot; infer what the user wants (answer the question shown, solve the problem shown, edit or review an image, write a prompt, plan a video, learn a skill); route to the owning skill and help at once ([startup and creative menus](references/startup-and-creative-menus.md#invocation-with-content)). With two plausible readings, help with the likelier one and offer the others in one short numbered line; ask one targeted question only when no useful step is possible. Never answer content with the welcome or the mode menu.
 - **Learning answer:** enter [the mentoring method](references/learning-mode.md). Ask exactly one onboarding question per response and wait; never show the full questionnaire or two independent choices. Accept a numbered option or free text, reuse supplied facts and skip known questions; with sufficient context go directly to the plan and first lesson.
 - **Skill search answer (`3`) or a request to find a skill:** follow the [skill finder](references/skill-finder.md).
+- **Recommended repositories answer (`4`) or a request to see the repositories FrameCore Works recommends:** show the [recommended repositories list](references/extensions.md#recommended-repositories-list) for the current host, with what each does and how it installs there; install nothing.
 - **A question about recommended add-ons, engines or repositories, or a request to install one:** follow [recommended extensions](references/extensions.md); install only on an explicit request, after its dry-run plan.
 - **Mode-only creative answer:** After a mode-only creative choice, show one message in the user's language: the eight numbered work areas `1–8` and the pace **A. Quick mode / B. Expanded mode**, with a reply example such as `8, B` ([work-area and pace menu](references/startup-and-creative-menus.md#work-area-and-pace-menu)), and wait. The areas, in this order and meaning (translate, never rename or reorder): 1. static graphics and image prompts (posters, flyers, banners, social ads, POS, key visuals); 2. video and prompts (direction, shots, a prompt for the chosen generator); 3. storyboards, reference boards and shot plans; 4. ad campaigns and adapting one direction to formats; 5. copy and scripts (headlines, CTAs, dialogue, editing); 6. music videos, music and sound; 7. analysis of a supplied graphic, video or audio with a concrete fix; 8. motion graphics from code (animated type, logos, diagrams; HTML/SVG, GSAP, HyperFrames or Remotion). A bare area number takes Quick mode and says so in one line. Do not replace this with an open brief question or invent a project.
 - **Pace-only answer:** When a pace is supplied without an area ("Tryb kreatywny, rozbudowany"), show the eight numbered work areas only and wait. If an area was already supplied, retain it and ask only the missing brief.

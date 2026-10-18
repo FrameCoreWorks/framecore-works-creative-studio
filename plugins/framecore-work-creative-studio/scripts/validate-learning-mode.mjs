@@ -5,8 +5,8 @@ import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
 export const learningCaseIds = Array.from({length: 27}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
-export const canonicalWelcomeSha256 = '4c8084c28c9823bc5195989f4d33cce20ebfe93e20d660568b4df07b610bfb36';
-export const englishWelcomeSha256 = '84959428384a1728b0c198809eb55b42dc8f1ec04a821ae21b26fda80256dbf8';
+export const canonicalWelcomeSha256 = '42bf1f7f20814392b1b81f0df98d0570cd2ad5ea973c5d461ac8cbb6292960e9';
+export const englishWelcomeSha256 = '5d40657066c3730fc15d58ce4dc6f83d0f3247da942ddeb3632df665e5a66022';
 
 // Checks caller-supplied response text only. This does not invoke or observe a host.
 // A single file-terminal LF is optional in a conversation response; nothing else
@@ -36,12 +36,12 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/workflow-orchestrator/SKILL.md', [/Tryb nauki/, /Tryb tworzenia/, /references\/learning-mode\.md/, /creation immediately/, /never deliver the menu by itself/, /Quick\/Deep are a separate pace/]);
     need('skills/workflow-orchestrator/SKILL.md', [/references\/startup-and-creative-menus\.md/, /complete welcome/, /After a mode-only creative choice/, /eight numbered work areas `1–8` and the pace/, /A bare area number takes Quick mode/, /bare number only against a currently pending displayed choice group/]);
     need('skills/workflow-orchestrator/SKILL.md', [/assets\/startup-welcome\.en\.md/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/]);
-    need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /3\. \*\*Szukasz konkretnego skilla \(umiejętności\)\?\*\*/, /Wpisz \*\*1\*\*, \*\*2\*\* albo \*\*3\*\*\.\s*$/]);
+    need('skills/workflow-orchestrator/assets/startup-welcome.pl.md', [/^Jestem FrameCore Works Creative Studio\./, /Mogę pomóc Ci w:/, /możesz dodać je teraz albo później/, /1\. \*\*Tryb kreatywny\*\*/, /2\. \*\*Tryb nauki\*\*/, /3\. \*\*Szukasz konkretnego skilla \(umiejętności\)\?\*\*/, /4\. \*\*Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works\?\*\*/, /Wpisz \*\*1\*\*, \*\*2\*\*, \*\*3\*\* albo \*\*4\*\*\.\s*$/]);
     const welcome = read('skills/workflow-orchestrator/assets/startup-welcome.pl.md');
     if (createHash('sha256').update(welcome).digest('hex') !== canonicalWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected Polish welcome has changed');
     const english = read('skills/workflow-orchestrator/assets/startup-welcome.en.md');
     if (createHash('sha256').update(english).digest('hex') !== englishWelcomeSha256) fail('STARTUP_WELCOME_INTEGRITY', 'The protected English welcome has changed');
-    need('skills/workflow-orchestrator/assets/startup-welcome.en.md', [/^I am FrameCore Works Creative Studio\./, /I can help you with:/, /you can add them now or later/, /1\. \*\*Creative mode\*\*/, /2\. \*\*Learning mode\*\*/, /3\. \*\*Looking for a specific skill\?\*\*/, /Enter \*\*1\*\*, \*\*2\*\* or \*\*3\*\*\.\s*$/]);
+    need('skills/workflow-orchestrator/assets/startup-welcome.en.md', [/^I am FrameCore Works Creative Studio\./, /I can help you with:/, /you can add them now or later/, /1\. \*\*Creative mode\*\*/, /2\. \*\*Learning mode\*\*/, /3\. \*\*Looking for a specific skill\?\*\*/, /4\. \*\*Want to see the GitHub repositories recommended by FrameCore Works\?\*\*/, /Enter \*\*1\*\*, \*\*2\*\*, \*\*3\*\* or \*\*4\*\*\.\s*$/]);
     const entry = read('skills/workflow-orchestrator/SKILL.md');
     const begin = '<!-- BEGIN CANONICAL STARTUP RESPONSE -->\n';
     const end = '<!-- END CANONICAL STARTUP RESPONSE -->';
@@ -73,12 +73,16 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Invocation with content/, /The welcome is for an invocation with nothing to act on/, /Never show the welcome, the mode menu or the area menu in reply to content/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Complete welcome/, /assets\/startup-welcome\.pl\.md/, /copy verbatim the entire file/, /Repeat the identical complete welcome on every sent Studio-only invocation/, /## Work-area and pace menu/, /A\. \*\*Tryb szybki\*\*/, /B\. \*\*Tryb rozbudowany\*\*/, /Odpowiedz np\. „8, B”/, /1\. Grafika statyczna/, /2\. Wideo i prompty/, /7\. Analiza dostarczonej/, /bare number only against a currently pending displayed choice group/, /older 1\.2\.0 order/, /concrete project request bypasses menus/, /neither a concrete task nor an area is supplied/, /A separate pace menu displayed before 1\.74\.0/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Motion graphics in creative work/, /choose Creative Mode, then area `8`/, /After area `8`, ask only the missing motion brief/, /Preserve a runtime explicitly supplied/, /explicit request to learn motion graphics follows Learning Mode/, /8\. Motion graphics z kodu/, /Area `3` still selects storyboards/, /A `3` from the startup menu selects skill search, never storyboards or motion/, /Selecting the area authorizes no installation/]);
-    // The welcome has three options since 1.53.0; no runtime file or evaluation may describe the old two-option menu.
+    // The welcome has had three options since 1.53.0 and four since 1.91.0; no runtime file or evaluation may describe the old two-option menu.
     for (const relative of packageFiles.filter(file => (file.startsWith('skills/') || file.startsWith('evals/')) && /\.(md|json)$/.test(file) && !file.includes('/upstream/'))) {
       if (/1\. (?:Creative mode|Tryb kreatywny) \/ 2\. (?:Learning mode|Tryb nauki)(?! \/ 3)|offers only choices 1 and 2|two-option startup menu asks/.test(read(relative))) fail('STARTUP_MENU_DRIFT', relative + ': describes a two-option welcome');
     }
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Skill search/, /`3` means skill search/, /skill-finder\.md/]);
     need('skills/workflow-orchestrator/SKILL.md', [/\*\*Skill search answer \(`3`\)/, /references\/skill-finder\.md/]);
+    // Option 4 since 1.91.0: the list of repositories FrameCore Works recommends, with descriptions and per-host installation.
+    need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Recommended repositories/, /`4` means the recommended repositories list/, /extensions\.md#recommended-repositories-list/, /A `4` from a startup menu displayed before 1\.91\.0/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/\*\*Recommended repositories answer \(`4`\)/, /references\/extensions\.md#recommended-repositories-list/]);
+    need('skills/workflow-orchestrator/references/extensions.md', [/## Recommended repositories list/, /extensions\.py catalog --host/, /installs nothing/, /How it is installed in the agent/]);
     need('skills/workflow-orchestrator/references/skill-finder.md', [/Studio's own skills first/, /only in Codex and Claude Code|natively in Codex and Claude Code/, /DO_NOT_TRACK=1/, /never uses `-y`/, /only when the user explicitly asks to install/, /untrusted data/, /`blocked`/, /Do not run the script in a chat sandbox/]);
     const finder = read('skills/workflow-orchestrator/assets/skill-finder/find_skills.py');
     if (!/DO_NOT_TRACK=1 npx skills add/.test(finder) || /npx skills add[^\n]*(?:\s-y\b|--yes)/.test(finder)) fail('SKILL_FINDER_INSTALL', 'install commands set DO_NOT_TRACK=1 and never auto-confirm');

@@ -80,3 +80,14 @@ Models compared on the same song (faster-whisper on CPU, share of lyric words ma
 
 Measured on a reference lyric reel (39 s, 84 BPM): its 27 board changes followed the sung words, a median 0.95 s apart; 22 % sat within two frames of a beat and 56 % within two frames of a half-beat. Text arrives with the voice; the beat drives accents (pulses, scale hits, background changes) rather than every cut.
 
+## Band envelope for audio-reactive motion
+
+[`audio_envelope.py`](audio_envelope.py) reads one frequency band of a supplied track and gives one value from 0 to 1 per video frame (fast attack, slower release, so it reads as a push rather than flicker) plus the hits where the band jumps: what a speaker cone, a glowing ring or a pulsing light follows. Python 3 and FFmpeg only.
+
+```sh
+python3 audio_envelope.py song.mp3 --start 40 --duration 23.4 --out bass.json      # bass below 120 Hz, 30 fps
+python3 audio_envelope.py song.mp3 --band 2000:8000 --out hats.json                # hi-hats and snares
+python3 audio_envelope.py song.mp3 --start 40 --duration 23.4 --inject index.html  # into a composition's ENVELOPE block
+```
+
+`--inject` writes `const ENVELOPE = {...};` between `/* BEGIN ENVELOPE */` and `/* END ENVELOPE */`, so the render reads no file or network; the [Iso Glow kit](../iso-glow/README.md) samples it with `envAt` and its bass-speaker example is ready for it. Hits are candidates for one-shot effects; confirm the tempo with `beats.py`. On 2026-10-18 the envelope of a supplied 23.4 s song excerpt matched the one used for an approved video (correlation 0.998) and its hits fell on the 108 BPM beat; `tests/iso_glow_test.py` checks one hit per beat on a synthetic kick track.

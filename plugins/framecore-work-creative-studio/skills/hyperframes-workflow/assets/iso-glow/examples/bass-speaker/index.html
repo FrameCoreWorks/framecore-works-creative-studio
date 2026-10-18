@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Iso Glow bass speaker</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="iso-kit.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b0c0e; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden;
+              --panel: #0b0c0e; --body: #111216; --side: #0c0d10; --deck: #15161b; --line: #3d3f46; --accent: #ffb347; }
+      #art { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      .iso-line, .iso-detail { fill: none; stroke: var(--line); stroke-width: 2; stroke-linejoin: round; }
+      .iso-detail { stroke-width: 1.2; opacity: 0.5; }
+      .iso-lit { fill: none; stroke: var(--accent); stroke-width: 2.6; }
+      .iso-front { fill: var(--body); } .iso-side { fill: var(--side); } .iso-top { fill: var(--deck); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+      <svg id="art" viewBox="0 0 1080 1920" role="img" aria-label="Isometric loudspeaker whose woofer pumps and glows with the bass"></svg>
+    </div>
+    <script>
+      // Replace the demo envelope with the track's own: python3 audio_envelope.py track.mp3 --inject index.html
+      /* BEGIN ENVELOPE */
+      const ENVELOPE = IsoKit.demoEnvelope(8, 30, 108, 0.14);
+      /* END ENVELOPE */
+      const D = Math.min(8, ENVELOPE.duration);
+      const { el, frame, defs, box, lit, slits, envAt, drive } = IsoKit;
+      const svg = document.getElementById('art');
+      defs(svg);
+      const W = 640, DP = 360, H = 1240, WX = W / 2, WY = 830;
+      const K = frame(419, 1330);
+
+      // floor grid on the ground plane, drawn first because it is furthest back
+      const floor = el('g', { transform: K.TOP(-900, -900, 0) }, svg);
+      slits(floor, 0, 2400, 120, 0, 2400, true, 'iso-detail');
+      slits(floor, 0, 2400, 120, 0, 2400, false, 'iso-detail');
+
+      const cabinet = el('g', {}, svg);
+      const cab = box(K, cabinet, 0, 0, 0, W, DP, H);
+      slits(cab.side, H / 6, H * 5 / 6, H / 6, 0, DP, false, 'iso-detail');
+      const face = cab.front;
+      el('rect', { class: 'iso-line', x: 34, y: 34, width: W - 68, height: H - 68, rx: 18, opacity: 0.6 }, face);
+      [[60, 60], [W - 60, 60], [60, H - 60], [W - 60, H - 60]].forEach(([x, y]) => el('circle', { class: 'iso-line', cx: x, cy: y, r: 9 }, face));
+      const rings = (cx, cy, radii) => (g, cls) => radii.forEach(r => el('circle', { class: cls, cx, cy, r }, g));
+      const rim = lit(face, (g, cls) => el('rect', { class: cls, x: 0, y: 0, width: W, height: H }, g));
+      const tweeter = lit(face, rings(WX, 330, [118, 96, 62, 30]));
+      const port = lit(face, (g, cls) => el('rect', { class: cls, x: WX - 150, y: 1100, width: 300, height: 56, rx: 28 }, g));
+      const basket = lit(face, rings(WX, WY, [282, 262]));                      // the frame stays put
+      const coneGroup = el('g', {}, face), capGroup = el('g', {}, face);
+      const cone = lit(coneGroup, (g, cls) => {
+        rings(WX, WY, [236, 214, 190, 166, 142, 118])(g, cls);
+        if (cls === 'iso-line') for (let k = 0; k < 16; k++) {
+          const a = k / 16 * Math.PI * 2;
+          el('line', { class: 'iso-detail', x1: WX + Math.cos(a) * 88, y1: WY + Math.sin(a) * 88, x2: WX + Math.cos(a) * 232, y2: WY + Math.sin(a) * 232 }, g);
+        }
+      });
+      const cap = lit(capGroup, rings(WX, WY, [84, 52, 22]));
+      const waves = el('g', { filter: 'url(#iso-glow)' }, face);
+
+      const tl = gsap.timeline({ paused: true });
+      drive(tl, D, t => {
+        const e = envAt(ENVELOPE, t);
+        gsap.set(coneGroup, { scale: 1 + e * 0.07, svgOrigin: `${WX} ${WY}` });   // the cone moves less than the dust cap
+        gsap.set(capGroup, { scale: 1 + e * 0.16, svgOrigin: `${WX} ${WY}` });
+        cone.set(0.12 + e * 0.88); cap.set(0.2 + e * 1.1); basket.set(e * 0.55);
+        tweeter.set(0.08 + e * 0.3); port.set(e * 0.7); rim.set(e * 0.28);
+        gsap.set(cabinet, { y: e * 6, x: Math.sin(t * 61) * e * 2.5 });            // a heavy box shakes a little
+      });
+      // each hit pushes a ring of air out of the woofer
+      ENVELOPE.kicks.filter(k => k < D).forEach(k => {
+        const ring = el('circle', { class: 'iso-lit', cx: WX, cy: WY, r: 240, opacity: 0 }, waves);
+        tl.fromTo(ring, { scale: 1, opacity: 0.9, svgOrigin: `${WX} ${WY}` },
+                  { scale: 2.1, opacity: 0, duration: 0.7, ease: 'power2.out', svgOrigin: `${WX} ${WY}` }, k);
+      });
+      tl.set({}, {}, D);
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

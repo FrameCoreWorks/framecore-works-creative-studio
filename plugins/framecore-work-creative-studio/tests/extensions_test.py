@@ -45,6 +45,39 @@ class Registry(unittest.TestCase):
         self.assertIn('chatgpt_work reason missing', problems)
         self.assertIn('rights missing', problems)
 
+    def test_an_archive_pin_needs_a_checksum_in_every_command_and_a_listing_plan(self):
+        iso = next(e for e in DATA['extensions'] if e['id'] == 'iso-glow')
+        sha = iso['archive']['sha256']
+        for host in ('codex', 'claude_code'):
+            steps = iso['hosts'][host]
+            self.assertIn(sha, steps['plan'])
+            self.assertIn(sha, steps['install'])
+            self.assertIn('unzip -l', steps['plan'])
+        bad = copy.deepcopy(DATA)
+        broken = next(e for e in bad['extensions'] if e['id'] == 'iso-glow')
+        broken['hosts']['codex']['install'] = 'curl -fsSL https://isoglow.dev/iso-glow.zip | tar -xz -C ~/.agents/skills'
+        broken['archive']['sha256'] = 'latest'
+        problems = ' '.join(ext.validate(bad))
+        self.assertIn('iso-glow: archive needs an https url and a SHA-256', problems)
+        self.assertIn('codex install must use the pinned', problems)
+
+    def test_the_catalog_gives_every_entry_with_its_description_and_the_steps_for_this_host(self):
+        code, out, _ = run('catalog', '--host', 'claude_code', '--json')
+        self.assertEqual(code, 0)
+        rows = {r['id']: r for r in json.loads(out)['extensions']}
+        self.assertEqual(set(rows), {e['id'] for e in DATA['extensions']})
+        self.assertTrue({'huashu-art-motion', 'iso-glow'} <= set(rows))
+        huashu = rows['huashu-art-motion']
+        self.assertEqual(huashu['status'], 'native')
+        self.assertEqual(list(huashu['how']), ['plan', 'install', 'verify', 'after', 'remove'])
+        self.assertIn('--list', huashu['how']['plan'])
+        self.assertTrue(huashu['gives'] and huashu['studio_uses'] and huashu['license'])
+        code, out, _ = run('catalog', '--host', 'chatgpt')
+        self.assertEqual(code, 0)
+        self.assertIn('manual_steps:', out)
+        self.assertIn('https://isoglow.dev/', out)
+        self.assertEqual(run('catalog')[0], 1)
+
     def test_list_and_show_print_the_status_and_the_pinned_steps(self):
         code, out, _ = run('list', '--host', 'chatgpt_work')
         self.assertEqual(code, 0)
