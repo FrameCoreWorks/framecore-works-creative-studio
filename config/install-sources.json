@@ -4698,8 +4698,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 13376,
-      "sha256": "200be7cef71623756cb5d7c9fba9a261e32a9e1fd90fa7b04c7faa6edcd82a81"
+      "bytes": 13775,
+      "sha256": "30bda9d4e240d90419522a00e133c14fee9516ca4ef566528739400efc7edb90"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
