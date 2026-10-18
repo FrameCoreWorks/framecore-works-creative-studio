@@ -1,5 +1,5 @@
-# Creative Studio 1.90.1
+# Creative Studio 1.90.2
 
-## Lyric timing on a real song
+## Better default for lyric timing
 
-Lyric timing ran end to end on a real song for the first time; two defects it found are fixed.
+Lyric timing now defaults to the model that matched best on a real song and retries a weak recognition automatically.

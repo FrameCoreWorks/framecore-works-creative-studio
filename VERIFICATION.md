@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.90.1
+## Current source: 1.90.2
+
+The [1.90.2 source checks](verification/release-1.90.2.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 11 suite 37, 4 suite 38, 9 suite 39, 21 suite 40; `claude plugin validate --strict` passes. Model comparison on one CC BY-SA song in a Linux container; not checked by ear. [Scope](verification/scope-1.90.2.json) records 10 changed and 0 added shared files out of 1467.
+
+## Previous source: 1.90.1
 
 The [1.90.1 source checks](verification/release-1.90.1.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 12 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 10 suite 37, 4 suite 38, 9 suite 39, 21 suite 40; `claude plugin validate --strict` passes. Run in a Linux container with faster-whisper small on CPU; timing cross-checked with a second recognition pass, not by ear. [Scope](verification/scope-1.90.1.json) records 10 changed and 0 added shared files out of 1467.
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.90.2, 2026-10-18
+
+From a model comparison on the same real song (owner choice 2026-10-18), faster-whisper on CPU, share of lyric words matched:
+
+- **`small` is the default recogniser** (98 % in about a minute); the former default `large-v3` matched 72 % in 226 s and `large-v3-turbo` 71 %
+- **A weak pass is retried.** The large models skipped whole verses while conditioning on the previous text; a first pass below 90 % is now retried with the other setting and the better pass kept (`large-v3-turbo` then reached 94 %). The report names the model and the setting
+- One song is weak evidence; the motion-sync README records the comparison and suggests comparing models on the user's own track when many lines need a check
+
 ## 1.90.1, 2026-10-18
 
 From the first end-to-end lyric timing run on a real song (owner request 2026-10-18): Brad Sucks, "Total Breakdown" (CC BY-SA 3.0), faster-whisper `small` on CPU, 98 % of the lyric words matched in 23 s:

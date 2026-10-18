@@ -1,0 +1,28 @@
+{
+  "version": "1.90.2",
+  "baseline_tag": "v1.90.1",
+  "baseline": "2bba3ac8fe3927efd98d2c5e7af46ae8b0f3e354",
+  "change_id": "CC-20261018-02",
+  "origin": "cloud-code",
+  "files": 1467,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/lyric_timing_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1457,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Lyric timing defaults to faster-whisper small (98 % on a real song versus 72 % for the former large-v3) and retries a pass below 90 % with the other conditioning setting."
+}
