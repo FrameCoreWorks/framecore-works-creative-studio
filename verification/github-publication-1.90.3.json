@@ -1,0 +1,44 @@
+{
+  "version": "1.90.3",
+  "change_id": "CC-20261018-03",
+  "origin": "cloud-code",
+  "commit": "f255ae5c64dab568beea555252ad2c5f6abb4913",
+  "package_commit": "f255ae5c64dab568beea555252ad2c5f6abb4913",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.90.3",
+  "workflows": [
+    {
+      "id": 39150821873,
+      "name": "Check Studio sources",
+      "branch": "cloud-code/CC-20261018-03-polish-song",
+      "conclusion": "success"
+    },
+    {
+      "id": 39150819693,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39150819648,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 39150819662,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "602871624dba81cb4ef12fd7806e2a3a9860f63d7d3c744a36f48b79aefb77c0",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1467 of 1467 files byte-identical to v1.90.3:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_sha256": "c36e1f4b917564d8ee057c239bf19e911b931b4fe3ea12a5a0b8fb1ec0603e53",
+  "plugin_inventory_matches_local": true,
+  "motion_player_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+  "motion_player_asset_matches_local": true,
+  "published_skill_yaml": "37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "hosted_plugin": "not_tracked (owner decision 2026-10-10: the owner updates and tests it)",
+  "host_behavior": "NOT_RUN"
+}
