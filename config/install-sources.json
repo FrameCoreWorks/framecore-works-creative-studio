@@ -2803,8 +2803,8 @@
     },
     {
       "path": "skills/commercial-visual-campaign-director/references/format-adaptation.md",
-      "bytes": 7599,
-      "sha256": "207f93393971271e734a0093681dd91f98ac8dec90f4b16d08b6185cd2f7f70c"
+      "bytes": 7699,
+      "sha256": "2481d371a7449a5ecdbc66049a0d3ac27a350a54008b847af90ae3b56d3ce87d"
     },
     {
       "path": "skills/commercial-visual-campaign-director/references/type-and-format-workbench.md",
@@ -2988,8 +2988,8 @@
     },
     {
       "path": "skills/delivery-documentation/references/print-ready-pdf.md",
-      "bytes": 17417,
-      "sha256": "56970e6c993087c5b85b7c625e36dabbc92c6c546486fd6cc974d0a39080eb35"
+      "bytes": 17567,
+      "sha256": "7d06870ffe3b5c5f6e80999ed6c733febd898e165a679c2ae7862eb0d735e378"
     },
     {
       "path": "skills/delivery-documentation/references/production-and-delivery.md",
@@ -5933,8 +5933,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 19320,
-      "sha256": "bbf93338c1b36ab3efc3ce266a2eb8a7d3bea0ea60159292e65c47c0e3dee52f"
+      "bytes": 19502,
+      "sha256": "a26fa90eea4d55f092fa3ee75f6184779538d3c6d3b8061d2dd71261fa757eab"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -6583,8 +6583,13 @@
     },
     {
       "path": "skills/static-graphic-design-creator/references/format-and-print-presets.md",
-      "bytes": 2538,
-      "sha256": "882e644e8a8f15351ff228b9bd9078c31386807cb5a459fbc8499e116ceec513"
+      "bytes": 2626,
+      "sha256": "9b30db41f838a962d8a43bb7565ab911cdb838a08e830a1abb657a528c1d8d4a"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/references/upscaling.md",
+      "bytes": 2844,
+      "sha256": "508345bfb7389f0f9f3f7c68f14fb8c2af7c00f6701009b449b4ead621ee12fc"
     },
     {
       "path": "skills/static-graphic-design-creator/scripts/svg_wordmark.py",
@@ -7093,8 +7098,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 87063,
-      "sha256": "e0037038bcc58c2a870e92320be7daf3f2747fd66c1231d626252e0d69e82f12"
+      "bytes": 94701,
+      "sha256": "254a21125271d41f9d5c9cdf8c0ee9a4ad1f096613db3d835bcbfabc7927d12d"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7213,8 +7218,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/routing-boundaries.md",
-      "bytes": 9655,
-      "sha256": "1da4cd0ab2279ec127d8d3e3dfd0d0f52549ff06ed5ba85bfa443bc7b590f74a"
+      "bytes": 9976,
+      "sha256": "95da0a3d9f9ebee89ccce1d0f121a4948141f76fc836dabe3ffa04cb508a97ae"
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
@@ -7373,8 +7378,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 4275,
-      "sha256": "2592be8e06fa5a2eb8f49a8142a4cec2926ae842626ee07310876f299a2d848c"
+      "bytes": 4650,
+      "sha256": "d02d464b4c4e75c72c3a025ae2b20cfbe6f327c25e0665ff6fe128c7d12df3d9"
     },
     {
       "path": "tests/learning-mode.test.mjs",

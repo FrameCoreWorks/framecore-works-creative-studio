@@ -64,7 +64,7 @@ Do not shrink mandatory terms into unreadable texture, substitute pseudo-text, r
 
 For a prompt, semantic ratio and protected territories are design intent. For a delivered raster, inspect dimensions and the actual visual. For print, the operator must resolve effective resolution, trim/bleed, profile, font handling and finishing with the actual supplier.
 
-Effective PPI is pixels divided by the physical length in inches for each axis. Metadata saying “300 DPI” does not create detail. Upscaling is an operation, not proof of new source information.
+Effective PPI is pixels divided by the physical length in inches for each axis. Metadata saying “300 DPI” does not create detail. Upscaling is an operation, not proof of new source information; when it is needed, follow [upscaling](../../static-graphic-design-creator/references/upscaling.md).
 
 ## Adaptation handoff
 

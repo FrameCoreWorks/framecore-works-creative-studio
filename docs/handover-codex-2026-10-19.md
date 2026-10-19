@@ -19,6 +19,7 @@ For a Codex session that continues or checks the work after the full audit. Read
 | Art-style and explainer motion direction (huashu-art-motion) | `skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md`, `assets/reference-breakdown/` | Motion Graphics; routing boundaries for reference animations |
 | Iso Glow (MIT) | `skills/hyperframes-workflow/assets/iso-glow/`, `assets/motion-sync/audio_envelope.py` | Motion Graphics |
 | Lyric timing | `skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py` | Motion Graphics, Caption Studio, Creative Music Video Director |
+| Upscaling route; Upscayl (AGPL-3.0, desktop app, 1.95.0) | `skills/static-graphic-design-creator/references/upscaling.md`, registry entry `upscayl` | static owner, print delivery, format adaptation, routing boundaries |
 | Recommended repositories (welcome option 4) | `skills/workflow-orchestrator/assets/extensions/` and `references/extensions.md` | orchestrator |
 
 `tests/knowledge_wiring_test.py` holds this map as data; a missing link fails the suite.

@@ -1046,6 +1046,57 @@
       },
       "observed": "2026-10-19 Linux container: repository read at 439a2ef (six skills, contrast-check.py, the CLI installer that writes CLAUDE.md or AGENTS.md pointers, the Claude plugin manifest with a contrast MCP server); skills@1.7.2 pinned remote --list found the six skills. Host install, invocation and removal not_run.",
       "update": "Review a newer commit (rules, installer behaviour, licence), then update reviewed_commit, every pinned command and Studio's adapted references, checker and lint rules together."
+    },
+    {
+      "id": "upscayl",
+      "name": "Upscayl",
+      "repository": "https://github.com/upscayl/upscayl",
+      "reviewed_commit": "4f39acfc6f88260d105920a64deff8431d5e1544",
+      "package": null,
+      "license": "AGPL-3.0",
+      "kind": [
+        "app"
+      ],
+      "category": "image",
+      "role": "engine",
+      "gives": "A free desktop app that enlarges images two to four times with Real-ESRGAN models on the graphics card (NCNN Vulkan), one image or a folder at a time, for Windows, macOS and Linux. Release 2.15.0.",
+      "studio_uses": "Studio's upscaling rules (static-graphic-design-creator references/upscaling.md) say when to enlarge, which bundled model is safe for paid work and how to measure the result with image_probe.py. The user runs this app locally and sends the enlarged image back for review.",
+      "not_for": "Sharp text, logos or faces that must stay exact (set text after enlarging, regenerate faces), restoring detail as evidence, paid work with its non-commercial models, or computers without a Vulkan graphics card. Upscayl Cloud is a separate paid service and is never needed.",
+      "requires": [
+        {
+          "tool": "desktop_app",
+          "note": "Upscayl 2.15.0 for Windows, macOS 12 or later, or Linux (AppImage, deb, rpm, Flatpak)."
+        },
+        {
+          "tool": "gpu",
+          "note": "A Vulkan-capable graphics card; most integrated graphics and CPUs do not work."
+        }
+      ],
+      "rights": "AGPL-3.0 for the app and its upscayl-ncnn backend; Real-ESRGAN code BSD-3-Clause. Models carry their own licences: High Fidelity (HFA2k) CC BY 4.0; UltraSharp, Ultramix Balanced and Remacri CC BY-NC-SA 4.0 (non-commercial); Upscayl Standard, Lite and Digital Art not stated (Unknown). Enlarged images belong to the user within the licence of the model used.",
+      "hosts": {
+        "codex": {
+          "status": "manual",
+          "manual_steps": "Download the Upscayl 2.15.0 installer for your computer from https://github.com/upscayl/upscayl/releases/tag/v2.15.0 and check its SHA-256 before opening it (upscayl-2.15.0-win.exe 5dd7f58abafae2907fede489324a074cb6959a93c5714f3d0609650ab942ff3c; upscayl-2.15.0-mac.dmg 0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a; upscayl-2.15.0-linux.AppImage 6459457e589bcb99e779ea442dce608bacda33916b7019a8862b7c6252aa8229; upscayl-2.15.0-linux.deb ff221fe5b109ebe6b5116ba04c3c69b37a1121cda26b22995ea9346970207ded; on macOS and Linux `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`), then install it yourself. It needs a Vulkan-capable graphics card. Open an image, choose High Fidelity for paid work (UltraSharp, Ultramix Balanced and Remacri are non-commercial), the smallest factor that reaches the target, and save the result. Remove it like any other app. Then give Studio the file path to measure it with image_probe.py."
+        },
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "Download the Upscayl 2.15.0 installer for your computer from https://github.com/upscayl/upscayl/releases/tag/v2.15.0 and check its SHA-256 before opening it (upscayl-2.15.0-win.exe 5dd7f58abafae2907fede489324a074cb6959a93c5714f3d0609650ab942ff3c; upscayl-2.15.0-mac.dmg 0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a; upscayl-2.15.0-linux.AppImage 6459457e589bcb99e779ea442dce608bacda33916b7019a8862b7c6252aa8229; upscayl-2.15.0-linux.deb ff221fe5b109ebe6b5116ba04c3c69b37a1121cda26b22995ea9346970207ded; on macOS and Linux `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`), then install it yourself. It needs a Vulkan-capable graphics card. Open an image, choose High Fidelity for paid work (UltraSharp, Ultramix Balanced and Remacri are non-commercial), the smallest factor that reaches the target, and save the result. Remove it like any other app. Then give Studio the file path to measure it with image_probe.py."
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Download the Upscayl 2.15.0 installer for your computer from https://github.com/upscayl/upscayl/releases/tag/v2.15.0 and check its SHA-256 before opening it (upscayl-2.15.0-win.exe 5dd7f58abafae2907fede489324a074cb6959a93c5714f3d0609650ab942ff3c; upscayl-2.15.0-mac.dmg 0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a; upscayl-2.15.0-linux.AppImage 6459457e589bcb99e779ea442dce608bacda33916b7019a8862b7c6252aa8229; upscayl-2.15.0-linux.deb ff221fe5b109ebe6b5116ba04c3c69b37a1121cda26b22995ea9346970207ded; on macOS and Linux `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`), then install it yourself. It needs a Vulkan-capable graphics card. Open an image, choose High Fidelity for paid work (UltraSharp, Ultramix Balanced and Remacri are non-commercial), the smallest factor that reaches the target, and save the result. Remove it like any other app. Then send the enlarged file back to the chat for measurement and review."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Download the Upscayl 2.15.0 installer for your computer from https://github.com/upscayl/upscayl/releases/tag/v2.15.0 and check its SHA-256 before opening it (upscayl-2.15.0-win.exe 5dd7f58abafae2907fede489324a074cb6959a93c5714f3d0609650ab942ff3c; upscayl-2.15.0-mac.dmg 0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a; upscayl-2.15.0-linux.AppImage 6459457e589bcb99e779ea442dce608bacda33916b7019a8862b7c6252aa8229; upscayl-2.15.0-linux.deb ff221fe5b109ebe6b5116ba04c3c69b37a1121cda26b22995ea9346970207ded; on macOS and Linux `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`), then install it yourself. It needs a Vulkan-capable graphics card. Open an image, choose High Fidelity for paid work (UltraSharp, Ultramix Balanced and Remacri are non-commercial), the smallest factor that reaches the target, and save the result. Remove it like any other app. Then send the enlarged file back to the chat for measurement and review."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Download the Upscayl 2.15.0 installer for your computer from https://github.com/upscayl/upscayl/releases/tag/v2.15.0 and check its SHA-256 before opening it (upscayl-2.15.0-win.exe 5dd7f58abafae2907fede489324a074cb6959a93c5714f3d0609650ab942ff3c; upscayl-2.15.0-mac.dmg 0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a; upscayl-2.15.0-linux.AppImage 6459457e589bcb99e779ea442dce608bacda33916b7019a8862b7c6252aa8229; upscayl-2.15.0-linux.deb ff221fe5b109ebe6b5116ba04c3c69b37a1121cda26b22995ea9346970207ded; on macOS and Linux `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`), then install it yourself. It needs a Vulkan-capable graphics card. Open an image, choose High Fidelity for paid work (UltraSharp, Ultramix Balanced and Remacri are non-commercial), the smallest factor that reaches the target, and save the result. Remove it like any other app. Then send the enlarged file back to the chat for measurement and review."
+        }
+      },
+      "observed": "2026-10-19 Linux container without a graphics card: repository reviewed at 4f39acf (tag v2.15.0, latest release) and HEAD a00d55f; licences read from LICENSE and OpenModelDB; the four installers above downloaded and hashed. The app was not run (no Vulkan GPU here); host installs not_run.",
+      "update": "Check the latest release, read its notes and model list, download each installer and recompute the SHA-256 values, and recheck model licences on OpenModelDB before changing the pinned version."
     }
   ]
 }

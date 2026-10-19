@@ -57,7 +57,7 @@ The complete reusable [Logo Design engine](assets/logo-design-engine/README.md) 
 
 ## Direct production
 
-When the user asks for the finished graphic itself and the brief already settles purpose, placement or size, the exact copy and enough about the look to choose (or names a direction), skip the direction menu: state the chosen direction in one line, produce it (generate, or compose on the exact-copy route), review the actual output and deliver, in one turn. Offer one alternative direction afterwards in a single line. This overrides the upstream activation sequence and Quick's direction-first step only for such a request; a request for concepts, copy or a prompt still stops there. Sizes and print defaults are in the [format and print presets](references/format-and-print-presets.md).
+When the user asks for the finished graphic itself and the brief already settles purpose, placement or size, the exact copy and enough about the look to choose (or names a direction), skip the direction menu: state the chosen direction in one line, produce it (generate, or compose on the exact-copy route), review the actual output and deliver, in one turn. Offer one alternative direction afterwards in a single line. This overrides the upstream activation sequence and Quick's direction-first step only for such a request; a request for concepts, copy or a prompt still stops there. Sizes and print defaults are in the [format and print presets](references/format-and-print-presets.md); an image too small for its placement follows [upscaling](references/upscaling.md) (measure, prefer a better source, enlarge before compositing text, a model licensed for paid work).
 
 ## Accessible format intake
 

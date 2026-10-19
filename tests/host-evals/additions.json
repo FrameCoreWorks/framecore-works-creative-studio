@@ -1,6 +1,6 @@
 {
  "name": "studio-additions-pl",
- "description": "Integration of the knowledge added in 1.91 to 1.93 (recommended repositories, AI writing patterns, craft rules and lint, contrast, DESIGN.md, prompt examples, lyric timing, Iso Glow, art-style direction, reference breakdown) and the owners added by the 2026-10-19 audit (page mockups, decks, contrast). reads_any and skills_any check that the host reached the right file or owner; the rubric feeds the advisory judge. Status: not_run (owner decision 2026-10-19: no host tests for now).",
+ "description": "Integration of the knowledge added in 1.91 to 1.93 (recommended repositories, AI writing patterns, craft rules and lint, contrast, DESIGN.md, prompt examples, lyric timing, Iso Glow, art-style direction, reference breakdown), upscaling (1.95.0) and the owners added by the 2026-10-19 audit (page mockups, decks, contrast). reads_any and skills_any check that the host reached the right file or owner; the rubric feeds the advisory judge. Status: not_run (owner decision 2026-10-19: no host tests for now).",
  "cases": [
   {
    "id": "AD01",
@@ -340,6 +340,41 @@
    "rubric": [
     "May use reviewed prompt examples for structure; the direction is its own",
     "Gives one standalone prompt"
+   ]
+  },
+  {
+   "id": "AD12",
+   "title": "An image too small for print is measured and upscaled with a commercial-safe model",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Mam wygenerowaną grafikę 1024×1536 i chcę ją wydrukować jako plakat A3 dla klienta. Jak ją powiększyć?",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "reads_any": [
+        "upscaling.md"
+       ]
+      },
+      {
+       "contains_any": [
+        "High Fidelity",
+        "komercyj",
+        "licencj"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Measures the effective resolution at A3 and states the gap",
+    "Prefers a better source before upscaling",
+    "Names a model licensed for paid work and warns about non-commercial models",
+    "Sets text after enlarging, not before"
    ]
   }
  ]

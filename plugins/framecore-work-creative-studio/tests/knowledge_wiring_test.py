@@ -34,6 +34,10 @@ WIRING = {
                                                                        'creative-music-video-director/SKILL.md',
                                                                        'workflow-orchestrator/references/routing-boundaries.md'],
     'hyperframes-workflow/assets/reel-starters/README.md': ['hyperframes-workflow/SKILL.md', 'hyperframes-workflow/references/claude-code-reels.md'],
+    # upscayl: enlarging images
+    'static-graphic-design-creator/references/upscaling.md': ['static-graphic-design-creator/SKILL.md',
+                                                              'workflow-orchestrator/references/routing-boundaries.md',
+                                                              'delivery-documentation/references/print-ready-pdf.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],
 }

@@ -37,7 +37,7 @@ Record the answers in the delivery notes. A missing answer stays Unknown and is 
 | Large black areas | rich black to the printer's recipe (for example C60 M40 Y40 K100) | never 400 % (C100 M100 Y100 K100) |
 | White | never set to overprint | white overprint disappears in print |
 | Light tints, thin lines | tints below about 5 % of one ink and lines under about 0.25 pt (0.1 mm) may not print | a 0 pt line is a device hairline; check on a proof |
-| Resolution | 300 ppi effective at final size for small formats; large posters seen from distance often 100 to 150 ppi, as a stated decision | effective ppi is pixels divided by placed size, not the resolution tag; bitmap line art 600 to 1200 ppi |
+| Resolution | 300 ppi effective at final size for small formats; large posters seen from distance often 100 to 150 ppi, as a stated decision | effective ppi is pixels divided by placed size, not the resolution tag; bitmap line art 600 to 1200 ppi; an enlarged image follows [upscaling](../../static-graphic-design-creator/references/upscaling.md) and the delivery names the tool, model and factor |
 | Transparency | none unless needed; PDF/X-1a requires it flattened, PDF/X-4 keeps it | soft masks, blend modes and alpha can flatten or rasterise badly at the printer |
 | Fonts | embedded (subsets are fine) or converted to outlines; the licence must allow embedding | outlines print safely but block late text edits, so keep the editable source |
 | Type size | at least about 6 pt; more for white or reversed text on colour | |
