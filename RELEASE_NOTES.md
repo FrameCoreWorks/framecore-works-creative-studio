@@ -1,5 +1,5 @@
-# Creative Studio 1.92.0
+# Creative Studio 1.93.0
 
-## Craft rules, DESIGN.md and prompt examples from Open Design
+## AI writing patterns, liveliness and anti-slop checks
 
-Studio now applies shared craft rules for type, colour and hierarchy and lints coded designs for machine-made tells, converts a brand kit to and from DESIGN.md, and offers 87 licensed prompt examples for gpt-image-2, Seedance 2.0 and HyperFrames. Open Design joins the recommended repositories.
+Studio now finds the patterns that make copy read as machine-made, in English and Polish, and judges when they cluster. Designs get a purpose test, three liveliness dials, honest placeholders and more lint rules, plus a WCAG contrast checker, adapted from anti-slop (MIT), which joins the recommended repositories.

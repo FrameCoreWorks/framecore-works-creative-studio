@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.93.0, 2026-10-19
+
+At the owner's request, a full adaptation of anti-slop (miqdadbadjuber, MIT) and its listing among the recommended repositories:
+
+- **AI writing patterns.** [AI writing patterns](../skills/copy-voice/references/ai-writing-patterns.md) in Copy Voice: the shapes of machine-made copy (empty vocabulary, inflated significance, unproven social proof, weasel attribution, chatbot closers, negative parallelism, forced threes, staccato runs, false ranges, generic CTAs, filler, hedging, emoji and bold habits) with fixes, Polish forms, what not to flag, signs of a human writer and a draft-audit-final loop. Dashes are not banned: Polish typography uses them and the brand decides
+- **Writing check.** [`ai_writing_check.py`](../skills/copy-voice/scripts/ai_writing_check.py) finds those patterns in English and Polish and judges clusters (clean, check, cluster), never single tells; Copy Voice, Humanizer and output review use it. Standard library only
+- **Craft rules.** New sections: purpose before technique (one-line reasons, five craftsmanship questions), more interface patterns (dose caps for glass and glow, decoration, layout templates, app and dashboard screens, generic CTAs and buzzwords, no cloned products), liveliness with three dials (energy, rhythm, motion) and a one-line Design Read, honest content and click-through verification, and responsive layout. Caps at display size may be set tight
+- **Lint and contrast.** `craft_lint.py` gains focus-outline-removed, dead-link and low-contrast (P0) and glass, glow, pill, arrow, generic-CTA, buzzword, fake-person, background-grid, viewport, 100vh and fixed-width rules (P1), skipping page-layout rules in video compositions; [`contrast_check.py`](../skills/pipeline-core/assets/craft-lint/contrast_check.py) computes WCAG contrast with a self-test. Across the package's own HTML the linter reports nothing
+- **Registry.** `anti-slop` added, pinned to 439a2ef and installed with the pinned skills CLI (all six skills, nothing written to CLAUDE.md or AGENTS.md); manual elsewhere. A decision map is in `integrations/anti-slop/`. The capability card lists the two new tools
+- Repository: `tests/ai_writing_check_test.py` and new cases in `tests/craft_lint_test.py`; NOTICE and README updated
+
 ## 1.92.0, 2026-10-19
 
 At the owner's request, a full adaptation of Open Design (nexu-io, Apache-2.0) and its listing among the recommended repositories:

@@ -1,0 +1,43 @@
+{
+  "version": "1.93.0",
+  "baseline_tag": "v1.92.0",
+  "baseline": "92f7836977ab09c1f1d434fb7af2c2346cc1c31e",
+  "change_id": "CC-20261019-02",
+  "origin": "cloud-code",
+  "files": 1495,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/copy-voice/SKILL.md",
+    "skills/copy-voice/references/copy-development-and-human-voice.md",
+    "skills/humanizer/SKILL.md",
+    "skills/pipeline-core/assets/craft-lint/README.md",
+    "skills/pipeline-core/assets/craft-lint/craft_lint.py",
+    "skills/pipeline-core/references/craft-rules.md",
+    "skills/pipeline-core/references/loop-protocol.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/craft_lint_test.py"
+  ],
+  "added": [
+    "integrations/anti-slop/LICENSE",
+    "integrations/anti-slop/README.md",
+    "skills/copy-voice/references/ai-writing-patterns.md",
+    "skills/copy-voice/scripts/ai_writing_check.py",
+    "skills/pipeline-core/assets/craft-lint/contrast_check.py",
+    "tests/ai_writing_check_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1471,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Full adaptation of anti-slop: AI writing patterns in English and Polish with ai_writing_check.py, the purpose test, liveliness dials, interface patterns, honest content and responsive layout in the craft rules, new craft_lint.py rules, contrast_check.py, and anti-slop in the recommended repositories."
+}
