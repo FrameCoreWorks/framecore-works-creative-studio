@@ -2513,3 +2513,23 @@ Cross-host state:
 - GitHub: synchronized once this commit is on `main`
 - ChatGPT Work: not_tracked (no package change)
 - Codex: not_run
+
+## CC-20261019-05
+
+- Origin: cloud-code
+- Branch: local working branch, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `fdd81a9` (main, package 1.94.0)
+- Result: the commit carrying this entry (package unchanged, 1.94.0)
+- Package version: none
+- Scope: branch hygiene rule for every surface (Claude Code local and cloud, Codex, ChatGPT Work) in AGENTS.md; a root CLAUDE.md that imports AGENTS.md so Claude Code loads the same rules; pointer in the Codex handover
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh --fast`: PASS
+
+Cross-host state:
+
+- GitHub: synchronized once this commit is on `main`
+- ChatGPT Work: not_tracked (no package change)
+- Codex: not_run

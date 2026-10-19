@@ -47,7 +47,7 @@ The notes file starts with `# Creative Studio X.Y.Z`. `release.py` writes the re
 ## Open decisions and suggested next work
 
 - Owner decision: an optional tier in the environment check for faster-whisper, yt-dlp and pikepdf (now not listed because every listed tool is required).
-- Done 2026-10-19: the owner deleted the 80 merged or superseded remote branches by hand; the remote keeps `main`, `gh-pages` and the active session branch, and the repository deletes head branches after a merged pull request. `release.py --push` now pushes `main` and only the branches named in `STUDIO_RELEASE_BRANCHES`, never the local working branch, so releases no longer leave remote branches. Develop on a local working branch; push it only for a pull request.
+- Done 2026-10-19: the owner deleted the 80 merged or superseded remote branches by hand; the remote keeps `main`, `gh-pages` and the active session branch, and the repository deletes head branches after a merged pull request. `release.py --push` now pushes `main` and only the branches named in `STUDIO_RELEASE_BRANCHES`, never the local working branch, so releases no longer leave remote branches. Develop on a local working branch; push it only for a pull request. The full rule for Codex, Claude Code and ChatGPT Work is [Branch hygiene in AGENTS.md](../AGENTS.md#branch-hygiene-owner-decision-2026-10-19).
 - Run `python3 scripts/host_eval.py --suite additions` when the owner allows paid runs (budget under USD 1 for a gate subset), and record cost.
 - Split the Motion Graphics "Deliver the video" section into host route, a look-by-brief table and review.
 - Small items listed at the end of the audit.
