@@ -3123,8 +3123,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 24533,
-      "sha256": "1df8a294e6b10b23da813ce0795817f96ecfb4ed5e1ba981947f5dcc09bb62d9"
+      "bytes": 25080,
+      "sha256": "435033aba1498287549ec14800728b856e652ff692ba7f902677bc5eb72e6765"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4947,6 +4947,11 @@
       "sha256": "f7894f7c4d3cd9484596103548e1727809b27bb3119bbba999431b0538074d8b"
     },
     {
+      "path": "skills/hyperframes-workflow/references/dense-kinetic-reels.md",
+      "bytes": 9744,
+      "sha256": "06bd84e7c20c02470895ea8493219e12b8a7d970f3e8f4dd8e68e3aef4883f97"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/generated-motion-assets.md",
       "bytes": 7117,
       "sha256": "e5cd8918cfb316aa3913e1aaf5ea23f590264392eba462e3967e08e30a886757"
@@ -4983,8 +4988,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-development-review.md",
-      "bytes": 3007,
-      "sha256": "8f479a847a8407b852af4a555e1ad188f1b979d9bcb826676bfc50f1bb9722b9"
+      "bytes": 3632,
+      "sha256": "337e48aaa8231db3d5c2b3692e4a566294ea8a2377824131d28f1b2dcaa17a43"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-quality-direction.md",
@@ -5023,8 +5028,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 9364,
-      "sha256": "9c10e01b115226899a19dd418a034a08f217343423f0fd686fe2f72a85564ac8"
+      "bytes": 10115,
+      "sha256": "cf7d3e7216b1098585d71e3cdc4abebb7aa10a8415646d221840daac5cbb4ddb"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -5043,8 +5048,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
-      "bytes": 3779,
-      "sha256": "c9ff1cc609b44a0c37d122e182effcd9ad3b3781776d15ca515f460771e34084"
+      "bytes": 3895,
+      "sha256": "f67f764658893afd1207dcb74a774a3bedcb578ef270ec8363dcfaa7fe52b00d"
     },
     {
       "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
@@ -6838,8 +6843,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 8258,
-      "sha256": "5d74395e9ab8a3a0d42a7130d9938e4c37d785eb2c2e451bc828023cd646030e"
+      "bytes": 8572,
+      "sha256": "84900199e9fe50ae86a3604b4ebf86581274496f7f290e21e7c710c4a8026166"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -7058,8 +7063,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31668,
-      "sha256": "8e93e37a00d1d1b91e41b1d707c0b16d38819ec17102b2f6792a7b17090bed81"
+      "bytes": 31678,
+      "sha256": "d582632bf45328cc5f247d00e0993b5f95a0e3c63750ffd3d372368a3c9111a9"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7378,8 +7383,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 4650,
-      "sha256": "d02d464b4c4e75c72c3a025ae2b20cfbe6f327c25e0665ff6fe128c7d12df3d9"
+      "bytes": 5188,
+      "sha256": "af0c155375f8c5ba3d7c2903d9188ac15dcfdb209841466f1225bbe7f936fe42"
     },
     {
       "path": "tests/learning-mode.test.mjs",

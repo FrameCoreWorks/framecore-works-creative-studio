@@ -142,7 +142,7 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | Messy notes into a brief; client intake, quote or offer | brief, wycena, ile wziąć | [brief-architect](../brief-architect/SKILL.md) |
 | Commercial video idea, motion thesis or film family for a product, brand or service | pomysł na reklamę, spot | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) |
 | Video project spanning several stages, or cutdowns | cały film, wersje 15 i 30 s | [creative-video-producer](../creative-video-producer/SKILL.md) |
-| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, animacja do muzyki, lyric video | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
+| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, showreel, animacja do muzyki, lyric video | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
 | User-selected React/TypeScript video | Remotion | [remotion-video-production](../remotion-video-production/SKILL.md) |
 | Video-generator prompt, shot-card compilation, source-clip edit, or a supplied clip to review | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
 | Edit plan from supplied footage or an OpenCut timeline | montaż z nagrań | [opencut-video-studio](../opencut-video-studio/SKILL.md) |

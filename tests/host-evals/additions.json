@@ -376,6 +376,40 @@
     "Names a model licensed for paid work and warns about non-commercial models",
     "Sets text after enlarging, not before"
    ]
+  },
+  {
+   "id": "AD13",
+   "title": "A dense brand showreel takes colours from the brand and checks scene logic",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Zrób mi 15-sekundową dynamiczną rolkę showreel dla mojej stolarni, w stylu tych szybkich reelsów agencyjnych z czatem na początku. Logo w załączniku.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "hyperframes-workflow"
+       ]
+      },
+      {
+       "reads_any": [
+        "dense-kinetic-reels.md",
+        "reel-board-system.md"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Takes the palette and objects from the brand logo, not from a reference look",
+    "Plans a carrier from the logo and one action per board",
+    "Each tool works on its material from a readable side and transitions come out of the actions",
+    "Gives chat messages reading time"
+   ]
   }
  ]
 }

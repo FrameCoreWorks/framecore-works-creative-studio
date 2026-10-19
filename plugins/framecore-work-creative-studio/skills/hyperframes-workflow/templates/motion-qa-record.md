@@ -53,6 +53,7 @@ From the [development review](../references/motion-development-review.md); each 
 | Rhythm has contrast | | |
 | Each state is caused by the previous one | | |
 | Signature moment | | |
+| Each object does its real job, seen from the side that shows it, and the next board grows out of the result | | |
 | Ending lands and stays readable | | |
 
 Main weakness, its interval and the one repair of the failed dimension:

@@ -34,6 +34,9 @@ WIRING = {
                                                                        'creative-music-video-director/SKILL.md',
                                                                        'workflow-orchestrator/references/routing-boundaries.md'],
     'hyperframes-workflow/assets/reel-starters/README.md': ['hyperframes-workflow/SKILL.md', 'hyperframes-workflow/references/claude-code-reels.md'],
+    # dense kinetic reels and the scene logic check (owner review 2026-10-19)
+    'hyperframes-workflow/references/dense-kinetic-reels.md': ['hyperframes-workflow/SKILL.md', 'hyperframes-workflow/references/reel-board-system.md', 'storyboard-sequence-architect/SKILL.md',
+                                                               'hyperframes-workflow/references/motion-development-review.md'],
     # upscayl: enlarging images
     'static-graphic-design-creator/references/upscaling.md': ['static-graphic-design-creator/SKILL.md',
                                                               'workflow-orchestrator/references/routing-boundaries.md',
@@ -52,8 +55,9 @@ class KnowledgeWiring(unittest.TestCase):
                 text = (PLUGIN / S / entry).read_text(encoding='utf-8')
                 own, _, anchor = target.partition('#')
                 rel = os.path.relpath(own, pathlib.Path(entry).parent).replace(os.sep, '/')
-                needles = [rel + ('#' + anchor if anchor else '')]
-                if not any('(' + n + ')' in text for n in needles):
+                # a link to the file, or to a heading in it, counts; a named anchor must be linked as named
+                needles = ['(' + rel + '#' + anchor + ')'] if anchor else ['(' + rel + ')', '(' + rel + '#']
+                if not any(n in text for n in needles):
                     missing.append(f'{entry} does not link {target}')
         self.assertEqual(missing, [], '\n'.join(missing))
 

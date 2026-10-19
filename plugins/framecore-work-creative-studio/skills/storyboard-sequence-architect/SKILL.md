@@ -59,6 +59,10 @@ include:
 - **Shot cards:** stable IDs; framing/scale and viewpoint; subject and
   observable action; camera behavior; start and end state; duration estimate;
   dialogue/sound only if supplied or requested; continuity dependencies.
+  Check each card's action against the
+  [scene logic check](../hyperframes-workflow/references/dense-kinetic-reels.md#scene-logic-check-run-it-on-the-storyboard-and-again-on-the-frames):
+  the object does its real job on its material, the viewpoint shows the
+  result, and the next shot grows out of that result.
 - **Timing:** planning estimate, measured value, or unknown. Never blur these
   states. Ranges must fit the declared target without false frame precision.
 - **Camera logic:** why the angle, distance, movement, side, and ending frame

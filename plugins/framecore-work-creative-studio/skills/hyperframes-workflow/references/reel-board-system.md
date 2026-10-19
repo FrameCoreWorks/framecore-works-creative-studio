@@ -34,6 +34,7 @@ Lengths are starting points; the brief and the placement decide. Each row names 
 | Recruitment | the role, three reasons to join, how to apply | 15 to 25 s | `headline-slam`, `stagger-cascade`, `cta-close` |
 | Service launch (B2B) | input goes in, result comes out, how it works, where it runs, demo end card | 25 to 40 s | `typed-prompt`, `screen-flow-carousel`, `mk-progress-stat`, `cta-lockup` |
 | Voice-over explainer | screen recording or recreated UI under word-by-word captions, real footage at the payoff | 30 to 60 s | `caption-pill-karaoke`, `caption-highlight`, skill `embedded-captions` |
+| Brand showreel, dense kinetic (agency, classes, services) | chat or notification hook, the brand's carrier launched by an action, three to five verb or offer boards in kinetic type with the object doing the job, a summary in the brand's lettering, payoff in the same chat, logo assembled from its parts | 15 to 18 s | `chat-message`, `ai-chat-reveal`, `halftone-field`, `cta-lockup`; method in [dense kinetic reels](dense-kinetic-reels.md) |
 | Lyric video | one line per board, cut on the beat, see section 5 | the song or a cut of it | skill `music-to-video`, `caption-kinetic-slam`, `beat-accent` |
 | Hybrid AI footage | generated plates under exact type, see section 6 | 15 to 30 s | `push-in`, `grain-overlay`, `lt-*` lower thirds |
 
@@ -62,7 +63,7 @@ Lengths are starting points; the brief and the placement decide. Each row names 
 
 ## 7. Transitions
 
-Pick one or two families per reel and use them for a reason: a match or shape cut (`match-cut`, `text-match-cut`, `type-match-cut`) joins two boards that share a form; a whip or push (`whip-pan-cut`, `transitions-push`) adds energy between beats; a wipe or iris (`directional-wipe`, `iris-reveal`, `curtain-reveal`) reveals something new; a zoom-through (`zoom-through-transition`) moves deeper into the same idea. `hyperframes-animation` holds the transition blueprints. A cut on the beat is often the strongest transition.
+Pick one or two families per reel and use them for a reason: a match or shape cut (`match-cut`, `text-match-cut`, `type-match-cut`) joins two boards that share a form; a whip or push (`whip-pan-cut`, `transitions-push`) adds energy between beats; a wipe or iris (`directional-wipe`, `iris-reveal`, `curtain-reveal`) reveals something new; a zoom-through (`zoom-through-transition`) moves deeper into the same idea. `hyperframes-animation` holds the transition blueprints. A cut on the beat is often the strongest transition. The best transition comes out of the action that just happened: the bored hole the camera flies through, the hammer hit that floods the frame, the cut-through whose off-cut falls into the wipe ([scene logic check](dense-kinetic-reels.md#scene-logic-check-run-it-on-the-storyboard-and-again-on-the-frames)).
 
 ## 8. Still frames
 
