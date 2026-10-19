@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.92.0, 2026-10-19
+
+At the owner's request, a full adaptation of Open Design (nexu-io, Apache-2.0) and its listing among the recommended repositories:
+
+- **Craft rules.** [Craft rules](../skills/pipeline-core/references/craft-rules.md) in Pipeline Core, restated in English from Open Design's craft references (themselves from refero_skill, MIT): machine-made tells, typography (caps tracking, display tracking, CJK leading), hierarchy and editorial hierarchy, colour and accent discipline, interface motion, the five interface states, the accessibility floor, laws of UX, forms, right-to-left text, and where print, video and slides change the numbers. Output review of static graphics, Static Graphic Design Creator and Motion Graphics Workflow apply them
+- **Craft lint.** [`craft_lint.py`](../skills/pipeline-core/assets/craft-lint/README.md) flags those tells in HTML, CSS and SVG (default indigo, purple and trust gradients, emoji icons, system-sans display, left-accent cards, invented metrics and filler copy in English and Polish, untracked caps, raw hex, accent overuse, placeholder images); brand tokens are never flagged and `--allow` records a deliberate exception. Standard library only
+- **DESIGN.md.** [`design_md.py`](../skills/pipeline-core/assets/design-md/README.md) exports a brand kit to DESIGN.md, tokens.css and an Open Design manifest, and imports colours, fonts and don'ts from a DESIGN.md package, leaving everything else as placeholders for the user
+- **Prompt examples.** 87 worked prompts for gpt-image-2, Seedance 2.0 and HyperFrames ([prompt examples](../skills/pipeline-core/assets/prompt-examples/README.md)), verbatim with their licences (CC BY 4.0, Apache-2.0) and credit lines; 19 source templates were left out (no open licence, real people or clubs, third-party franchises or studio styles, imitated company or platform styles, fake phone photos). Image and Video Prompt Architect consult them for structure only
+- **Registry.** `open-design` added, pinned to release 0.25.0 (commit de6d2c0): manual install in Claude Code, Codex and the Claude desktop app with the installers' SHA-256, `od mcp install <agent> --print` first, local use free and cloud credits never needed; not supported in ChatGPT and ChatGPT Work. The capability card lists the three new tools
+- Repository: `tests/craft_lint_test.py` and `tests/design_md_test.py`; NOTICE and README updated
+
 ## 1.91.0, 2026-10-18
 
 At the owner's request, two outside sources implemented in Studio and listed as recommended repositories, and a fourth welcome option:

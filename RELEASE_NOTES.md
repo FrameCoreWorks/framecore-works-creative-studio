@@ -1,5 +1,5 @@
-# Creative Studio 1.91.0
+# Creative Studio 1.92.0
 
-## Recommended repositories in the welcome, Iso Glow and art-style direction
+## Craft rules, DESIGN.md and prompt examples from Open Design
 
-The welcome has a fourth option: the GitHub repositories FrameCore Works recommends, each with what it does and how it installs in your agent. Motion graphics gains isometric line art that glows with the music's bass, and direction rules for art-style and explainer animation, adapted from iso-glow and huashu-art-motion (both MIT).
+Studio now applies shared craft rules for type, colour and hierarchy and lints coded designs for machine-made tells, converts a brand kit to and from DESIGN.md, and offers 87 licensed prompt examples for gpt-image-2, Seedance 2.0 and HyperFrames. Open Design joins the recommended repositories.

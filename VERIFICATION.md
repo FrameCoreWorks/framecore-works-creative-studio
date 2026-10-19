@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.91.0
+## Current source: 1.92.0
+
+The [1.92.0 source checks](verification/release-1.92.0.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 14 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 11 suite 37, 6 suite 38, 3 suite 39, 9 suite 40, 3 suite 41, 4 suite 42, 9 suite 43, 21 suite 44; `claude plugin validate --strict` passes. craft_lint.py flagged every tell on a seeded page and none on a clean one; a brand kit round-tripped through DESIGN.md and the imported kit ran through brand_guide.py --draft; every prompt example carries an open licence, author and source. [Scope](verification/scope-1.92.0.json) records 16 changed and 10 added shared files out of 1489.
+
+## Previous source: 1.91.0
 
 The [1.91.0 source checks](verification/release-1.91.0.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 14 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 11 suite 37, 6 suite 38, 3 suite 39, 4 suite 40, 9 suite 41, 21 suite 42; `claude plugin validate --strict` passes. The Iso Glow example rendered through HyperFrames 0.8.149 (8 s, motion activity PASS); the iso-glow Claude Code plan, install, verify and remove commands ran with a temporary HOME; huashu-art-motion was listed by the pinned skills CLI. [Scope](verification/scope-1.91.0.json) records 22 changed and 12 added shared files out of 1479.
 
