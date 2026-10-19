@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 7230,
-      "sha256": "3516eb0648841358585c8d96e51012a2d6a89266c769ca6ce67be6fd2549987e"
+      "bytes": 8048,
+      "sha256": "51200ff4f2ab0414bbd03e101476f50867df5ee4d9141e29d2af3b78d6839ca9"
     },
     {
       "path": "README.md",
@@ -3103,8 +3103,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 22909,
-      "sha256": "dcd4ab8476392078b7c7a81e8e6c779ad99be6ba001b629a53e1a41fccd1b514"
+      "bytes": 23268,
+      "sha256": "c49388cba189cf12815005ed8447816027e88722b807dc87bddf22a24cacf904"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5038,8 +5038,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 9582,
-      "sha256": "8337ba1e398a7b8aaf7d89e1425c8d9e837a63e3fa5a328a039381664e860a48"
+      "bytes": 9950,
+      "sha256": "fc05c5b6313592dccae05088ae253ab6299d0ed00aa4cc743ac048138ce8d5a3"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5257,6 +5257,26 @@
       "sha256": "232537f7074f03560b5bfbfcbc1f3b814fe379f7b87ebb654e5d2dd8da5d5b1a"
     },
     {
+      "path": "skills/pipeline-core/assets/craft-lint/README.md",
+      "bytes": 2877,
+      "sha256": "ff92ef4f423171a8f109d8c64e63ae50f92f0304bccc012f699e942ce8280615"
+    },
+    {
+      "path": "skills/pipeline-core/assets/craft-lint/craft_lint.py",
+      "bytes": 9972,
+      "sha256": "ece5b79a927d7cb7d2c9888ece71bde8b666066f468c29734836dc7d27e1c500"
+    },
+    {
+      "path": "skills/pipeline-core/assets/design-md/README.md",
+      "bytes": 2323,
+      "sha256": "e18aa6898ac0a45d18a2499cc07e3a20dc6c0727ce1ccbbecfcbe18d1b366b1d"
+    },
+    {
+      "path": "skills/pipeline-core/assets/design-md/design_md.py",
+      "bytes": 10949,
+      "sha256": "d34a2d520013883848b7b7d4bbd794e1e4a4d5ffd364282b85c75d5245b196ef"
+    },
+    {
       "path": "skills/pipeline-core/assets/fonts/README.md",
       "bytes": 3133,
       "sha256": "b28d54526028e435871c905c1826abd168d8bdff00c8fe7c5ad6bb1a7877bcae"
@@ -5397,6 +5417,21 @@
       "sha256": "8573fa2b3490b4e148f4a99aaf8c3cec24b35c7fa880ec0f4da893173d3fd7ab"
     },
     {
+      "path": "skills/pipeline-core/assets/prompt-examples/README.md",
+      "bytes": 3381,
+      "sha256": "b4b80791545f52810233ed109150cd0412a8b7253c34f30da91a2588e8e5fee8"
+    },
+    {
+      "path": "skills/pipeline-core/assets/prompt-examples/examples.json",
+      "bytes": 260537,
+      "sha256": "3a1d78fbbca346716eb5530dd75e84fd022d1e11f8f9be491fba6e2284af467e"
+    },
+    {
+      "path": "skills/pipeline-core/assets/prompt-examples/prompt_examples.py",
+      "bytes": 4530,
+      "sha256": "b1a8cf333d08db1303fd4ef892c60b313d89fae314ba4591ada04b29ec497254"
+    },
+    {
       "path": "skills/pipeline-core/assets/recovery-prompt.md",
       "bytes": 1041,
       "sha256": "568a67ee27d13c620978b88f79da53c6174466c1acb07335de8cc0e1665b1bb7"
@@ -5408,13 +5443,18 @@
     },
     {
       "path": "skills/pipeline-core/references/brand-kit.md",
-      "bytes": 2206,
-      "sha256": "9363145b8d87164781f6e01c81b8fe415291fd0f9a24931de62c208caaf749cf"
+      "bytes": 2652,
+      "sha256": "ad6a94bed82e313ff069f860b8cafc0bd523dae27ae60b3623ce9955ed2e5a2c"
     },
     {
       "path": "skills/pipeline-core/references/client-projects.md",
       "bytes": 3315,
       "sha256": "ed7f00c5e19f57bd740e73b66821b6f48c1673df60643ece8c27ca8026d309b4"
+    },
+    {
+      "path": "skills/pipeline-core/references/craft-rules.md",
+      "bytes": 15374,
+      "sha256": "a403994d89d34b3ae68bfcb618ff3b29fb7243e385fdc48e5a36675891e6b8f9"
     },
     {
       "path": "skills/pipeline-core/references/creative-prompting-standard.md",
@@ -5458,8 +5498,8 @@
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
-      "bytes": 13101,
-      "sha256": "49533decc4e5be90be4f18dada3c614f9c002f568f39b071a15e4f6bcc77f41c"
+      "bytes": 13243,
+      "sha256": "1eaf99fb033ebd0c16f66f6d81900d9c898b69dd5ebd2cc43ebc473f24127627"
     },
     {
       "path": "skills/pipeline-core/references/method-catalog.md",
@@ -5868,8 +5908,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 18179,
-      "sha256": "66a8c4044768f5a32e9a70f5e906b4358faf670e3a51f4d00c17959601f30a3d"
+      "bytes": 18574,
+      "sha256": "1f658ea368d16d0b6c16d71355bc417cb379f60eb4f9189f0285ae841d12a51a"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -6943,8 +6983,8 @@
     },
     {
       "path": "skills/video-prompt-architect/SKILL.md",
-      "bytes": 19425,
-      "sha256": "fdbdef1d1008a73eead206eda97c1ddcf4e4297689f5b6ee31b5ece4551009be"
+      "bytes": 19816,
+      "sha256": "dbce259c5fa41e82e591c0ba740d91eff06cea5cadf797ced2c564e609ca551a"
     },
     {
       "path": "skills/video-prompt-architect/agents/openai.yaml",
@@ -7003,8 +7043,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 39757,
-      "sha256": "7374d25193d1b65362a1839c76b3f268a0605dfdc04f817bd8e2cce931cb9329"
+      "bytes": 41958,
+      "sha256": "243a48a8b5ca2b55645741bc37b0edd53df0e3328b1ce7f89869d28cc7c8aa27"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7028,8 +7068,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 73206,
-      "sha256": "bb3b87794865152cd180aef5e3d6cc4be1213e4938909e4958475e4e0542573d"
+      "bytes": 80656,
+      "sha256": "ea67b19b4efb2d48f954498c944a1765db22ac10a4be07c8b57be0439615db8c"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7262,9 +7302,19 @@
       "sha256": "a12b2b0a6c99644316587e904241fc8f39aa1f820f8b2f8b1c4b1579df40fdbe"
     },
     {
+      "path": "tests/craft_lint_test.py",
+      "bytes": 6010,
+      "sha256": "3096d8d77aeb36dce66698c467e49e511380d057b85421979be2526adbcf35dd"
+    },
+    {
       "path": "tests/creative-upgrade.test.mjs",
       "bytes": 7750,
       "sha256": "ad54600b840c8db84a90aa2cd0c973d212fc7795c1d7ec45ca182c8f7f800bcf"
+    },
+    {
+      "path": "tests/design_md_test.py",
+      "bytes": 4432,
+      "sha256": "accbdf1c226a545c7ddf2c00179155c10df3716857708eec00ea7e49cabf2226"
     },
     {
       "path": "tests/edit_export_test.py",

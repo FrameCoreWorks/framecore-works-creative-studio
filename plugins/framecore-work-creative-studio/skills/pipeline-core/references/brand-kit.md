@@ -21,6 +21,10 @@ One small file per client or brand that every Studio owner reads before making a
 - Copy: the voice, spelling, approved and banned claims; the checker's form-of-address finding is resolved by the kit's choice.
 - Campaigns and video: the same locks across every asset; a change to the kit is a change for all later assets, not a silent edit of one.
 
+## DESIGN.md for design agents
+
+To take a kit into Open Design or another agent design tool, or to start a kit from a `DESIGN.md` someone supplies, use [`design_md.py`](../assets/design-md/README.md): export writes `DESIGN.md`, `tokens.css` and a manifest from the kit's own values; import fills colours, fonts and don'ts and leaves everything else as placeholders for the user. The shared [craft rules](craft-rules.md) apply on top of any kit.
+
 ## Keeping it between conversations
 
 Studio does not store client data. In ChatGPT keep the kit in a Project (as a file or in its instructions); in Claude, in a Project or in a project folder's CLAUDE.md; in Codex or Claude Code, as `brand-kit.json` in the project folder, which AGENTS.md or CLAUDE.md can point to. When no kit exists, ask for the logo, colours and the form of address once and offer to save them as a kit.

@@ -955,6 +955,66 @@
       "delivers": "Editable logo source, SVG/HTML review assets, scoped advisory audit and export manifest; PNG/icons only with an available renderer. Reference trademark files are not bundled.",
       "when_missing": "Deliver design direction and exact missing runtime requirements; do not claim an audit or render ran.",
       "observed": "2026-10-17: local Python/CairoSVG build and export tests; fresh ChatGPT/Work invocation not_run"
+    },
+    {
+      "id": "craft_lint",
+      "executed_by": "studio",
+      "owner": "pipeline-core",
+      "does": "Flags machine-made design tells in HTML, CSS and SVG: default indigo, purple or trust gradients, emoji icons, system-sans display, left-accent cards, invented metrics, filler copy, untracked caps, raw hex, accent overuse, placeholder images",
+      "tools": [
+        "skills/pipeline-core/assets/craft-lint/craft_lint.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "P0 and P1 findings with evidence; exit 1 while a P0 remains",
+      "when_missing": "Review the source or the rendered page by eye against craft-rules.md",
+      "observed": "Container checks"
+    },
+    {
+      "id": "design_md",
+      "executed_by": "studio",
+      "owner": "pipeline-core",
+      "does": "Exports a brand kit to DESIGN.md, tokens.css and an Open Design manifest, and imports colours, fonts and don'ts from a DESIGN.md package",
+      "tools": [
+        "skills/pipeline-core/assets/design-md/design_md.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A DESIGN.md package, or a brand kit with placeholders for what the file does not state",
+      "when_missing": "Write the DESIGN.md sections by hand from the kit, or copy the colours and fonts into the kit template",
+      "observed": "Container checks"
+    },
+    {
+      "id": "prompt_examples",
+      "executed_by": "studio",
+      "owner": "pipeline-core",
+      "does": "Searches 87 licensed worked prompts for gpt-image-2, Seedance 2.0 and HyperFrames and prints each with its credit line",
+      "tools": [
+        "skills/pipeline-core/assets/prompt-examples/prompt_examples.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Prompt text verbatim with author, source and licence",
+      "when_missing": "Read examples.json and filter by model",
+      "observed": "Container checks"
     }
   ]
 }
