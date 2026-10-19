@@ -32,7 +32,7 @@ h1 { font-family: Inter, sans-serif; }
 </style></head><body><h1>✨ Szybciej</h1><p>Działa 10× szybciej. Lorem ipsum dolor sit amet.</p>
 <img src="https://picsum.photos/200"><li>🚀 start</li></body></html>'''
 
-GOOD = '''<!doctype html><html lang="pl"><head><style>
+GOOD = '''<!doctype html><html lang="pl"><head><meta name="viewport" content="width=device-width"><style>
 :root { --accent: #6366f1; --bg: #f7f3ec; --font-display: "Fraunces", serif; }
 h1 { font-family: var(--font-display); letter-spacing: -0.02em; font-size: 56px }
 .eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px }
@@ -51,7 +51,7 @@ class CraftLint(unittest.TestCase):
     def test_every_tell_fires_once(self):
         ids = [f['id'] for f in lint.lint(BAD)]
         expected = ['ai-default-indigo', 'purple-gradient', 'trust-gradient', 'emoji-icon', 'sans-display', 'left-accent-card',
-                    'invented-metric', 'filler-copy', 'all-caps-no-tracking', 'placeholder-image']
+                    'invented-metric', 'filler-copy', 'all-caps-no-tracking', 'placeholder-image', 'viewport-missing']
         self.assertEqual(sorted(ids), sorted(expected))
         self.assertEqual([f['severity'] for f in lint.lint(BAD)][:8], ['P0'] * 8)
 
@@ -66,7 +66,7 @@ class CraftLint(unittest.TestCase):
     def test_raw_hex_and_accent_overuse(self):
         css = '<style>' + ''.join(f'.c{i} {{ color: #{i:02x}{i:02x}{i:02x} }}' for i in range(13)) + '</style>'
         body = '<p style="color: var(--accent)">a</p>' * 6
-        ids = {f['id'] for f in lint.lint(f'<html><head>{css}</head><body>{body}</body></html>')}
+        ids = {f['id'] for f in lint.lint(f'<html><head><meta name="viewport" content="width=device-width">{css}</head><body>{body}</body></html>')}
         self.assertEqual(ids, {'raw-hex', 'accent-overuse'})
 
     def test_allow_and_exit_codes(self):
@@ -85,6 +85,41 @@ class CraftLint(unittest.TestCase):
     def test_a_plain_css_file_is_linted(self):
         ids = {f['id'] for f in lint.lint('.x { background: linear-gradient(blue, cyan) } .y { text-transform: uppercase }')}
         self.assertEqual(ids, {'trust-gradient', 'all-caps-no-tracking'})
+
+    def test_anti_slop_rules_for_interface_honesty_and_layout(self):
+        page = """<!doctype html><html><head><meta name="viewport" content="width=device-width"><style>
+        a { outline: none } .muted { color: #999999; background: #ffffff }
+        .n { backdrop-filter: blur(8px) } .c { backdrop-filter: blur(8px) } .m { backdrop-filter: blur(8px) }
+        .g1 { box-shadow: 0 0 40px #7dd3fc } .g2 { box-shadow: 0 0 24px rgba(56,189,248,.6) } .g3 { text-shadow: 0 0 20px #f0abfc }
+        .p1 { border-radius: 9999px } .p2 { border-radius: 9999px } .p3 { border-radius: 999px } .p4 { border-radius: 9999px }
+        .hero { height: 100vh } .wrap { width: 1280px }
+        .bg { background: linear-gradient(90deg, #eee 1px, transparent 1px), linear-gradient(#eee 1px, transparent 1px); background-size: 24px 24px }
+        </style></head><body><a href="#">Pricing</a><a href="https://x.pl">Start →</a><button>Plan →</button><button>Demo →</button>
+        <button>Learn more</button><p>AI-powered and seamless. Contact John Doe.</p></body></html>"""
+        ids = {f['id'] for f in lint.lint(page)}
+        for rule in ('focus-outline-removed', 'low-contrast', 'glass-overuse', 'glow-overuse', 'pill-everything', 'full-height-section',
+                     'fixed-width', 'background-grid', 'dead-link', 'button-arrows', 'generic-cta', 'buzzword', 'fake-person'):
+            self.assertIn(rule, ids)
+        calm = """<!doctype html><html><head><meta name="viewport" content="width=device-width"><style>
+        a:focus-visible { outline: 2px solid #1d1d1b } a { outline: none } .t { color: #1d1d1b; background: #f7f3ec }
+        .wrap { width: 1280px; max-width: 100% } .hero { min-height: 60dvh }
+        </style></head><body><a href="/cennik">Zobacz cennik</a><button>Zarezerwuj stolik</button><p>Jan pali kawę.</p></body></html>"""
+        self.assertEqual(lint.lint(calm), [])
+
+    def test_contrast_check_matches_the_reference_pairs(self):
+        contrast = module('contrast_check', ASSETS / 'craft-lint/contrast_check.py')
+        self.assertEqual(run(contrast, '--selftest')[0], 0)
+        self.assertEqual(run(contrast, '#777777', '#070707')[0], 1)        # 4.498 prints 4.5 and still fails
+        code, out = run(contrast, '1d1d1b', 'f7f3ec', '--json')
+        self.assertEqual(code, 0)
+        self.assertGreater(json.loads(out)['ratio'], 15)
+        self.assertEqual(run(contrast, 'zzz', '#fff')[0], 2)
+
+    def test_studio_video_compositions_raise_nothing(self):
+        for rel in ('skills/hyperframes-workflow/assets/reel-starters/local-service/index.html',
+                    'skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html'):
+            self.assertEqual(lint.lint((PLUGIN / rel).read_text(encoding='utf-8')), [], rel)
+        self.assertTrue(lint.caps_tracking_ok('letter-spacing: 0.06em'))
 
 
 class PromptExamples(unittest.TestCase):

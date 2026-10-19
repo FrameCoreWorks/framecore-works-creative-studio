@@ -46,6 +46,8 @@ Before recommending a route, check:
 
 These are editorial judgments, not a prohibited-word detector or a guarantee of conversion. Do not imitate a living writer's signature voice, insert mistakes to seem human, or optimize for evading AI detectors. Natural voice means accurate intent, credible distance, clear verbs and a rhythm suited to the medium.
 
+The [AI writing patterns](ai-writing-patterns.md) catalogue (English and Polish) lists the concrete shapes of generic copy, with [`ai_writing_check.py`](../scripts/ai_writing_check.py) to find them in a draft.
+
 ## Polish and multilingual copy
 
 Write naturally in the requested language; do not translate English slogan structures mechanically. Preserve Polish diacritics, case, inflection, decimal separators, units and user-locked punctuation. For multilingual work, record language per text item and keep translations separate until approved. A shorter translation is a new candidate if it changes meaning. Preserve names and product terms unless localization is explicitly authorized. Expressive lettering never justifies losing functional information.

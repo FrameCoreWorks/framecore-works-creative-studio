@@ -1015,6 +1015,46 @@
       "delivers": "Prompt text verbatim with author, source and licence",
       "when_missing": "Read examples.json and filter by model",
       "observed": "Container checks"
+    },
+    {
+      "id": "ai_writing_check",
+      "executed_by": "studio",
+      "owner": "copy-voice",
+      "does": "Finds machine-made writing patterns in English or Polish copy (empty vocabulary, inflated significance, unproven social proof, negative parallelism, forced threes, chatbot closers, generic CTAs, filler) and judges whether they cluster",
+      "tools": [
+        "skills/copy-voice/scripts/ai_writing_check.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Pattern findings with examples and a clean, check or cluster verdict",
+      "when_missing": "Read the draft against ai-writing-patterns.md and its checklist",
+      "observed": "Container checks"
+    },
+    {
+      "id": "contrast_check",
+      "executed_by": "studio",
+      "owner": "pipeline-core",
+      "does": "Computes WCAG contrast between two colours with verdicts for body text, large text and interface parts",
+      "tools": [
+        "skills/pipeline-core/assets/craft-lint/contrast_check.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "The ratio and three pass or fail verdicts; a self-test of the reference pairs",
+      "when_missing": "Apply the WCAG formula by hand as written in the craft rules",
+      "observed": "Container checks"
     }
   ]
 }

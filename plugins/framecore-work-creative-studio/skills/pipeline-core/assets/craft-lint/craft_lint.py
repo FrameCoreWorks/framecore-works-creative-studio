@@ -6,11 +6,16 @@
   python3 craft_lint.py page.html --allow ai-default-indigo   # the brand kit really uses indigo
 
 P0: ai-default-indigo, purple-gradient, trust-gradient, emoji-icon, sans-display, left-accent-card, invented-metric,
-filler-copy. P1: all-caps-no-tracking, raw-hex, accent-overuse, placeholder-image. Colours defined as custom properties
+filler-copy, focus-outline-removed, dead-link, low-contrast. P1: all-caps-no-tracking, raw-hex, accent-overuse,
+placeholder-image, glass-overuse, glow-overuse, pill-everything, button-arrows, generic-cta, buzzword, fake-person,
+background-grid, viewport-missing, full-height-section, fixed-width. A video composition (HyperFrames data attributes or
+a seekable timeline) is a fixed canvas, so the page-layout rules are skipped there. Caps at display size (48 px or 4vw and
+up, usually a condensed face) may be set tight; the tracking rule applies to caps at text and label sizes. Colours defined as custom properties
 (`--accent: #6366f1`) are the brand's tokens and are not flagged; hard-coded uses are. Copy checks read visible text in
 English and Polish. A finding is a prompt to look, not a verdict: `--allow ID` records a deliberate exception.
 
-Adapted from Open Design's lint-artifact (Apache-2.0), whose rules adapt refero_skill (MIT). Python standard library only.
+Adapted from Open Design's lint-artifact (Apache-2.0), whose rules adapt refero_skill (MIT), and from anti-slop's UI,
+human and mobile rules (MIT). Python standard library only.
 Exit codes: 0 no P0 finding, 1 at least one P0 finding, 2 unreadable input.
 """
 import argparse
@@ -33,6 +38,25 @@ FILLER = [r'\blorem\s+ipsum\b', r'\bdolor\s+sit\s+amet\b', r'\bfeature\s+(?:one|
           r'\bsample\s+content\b', r'\btekst\s+zastępczy\b', r'\bprzykładowa\s+treść\b', r'\bfunkcja\s+(?:pierwsza|druga|trzecia|[123])\b']
 PLACEHOLDER_HOSTS = ['placehold.co', 'placeholder.com', 'picsum.photos', 'placekitten.com', 'source.unsplash.com', 'dummyimage.com']
 ICON_TAGS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'button', 'li'}
+GENERIC_CTA = re.compile(r'^(?:learn more|get started|discover|explore|try (?:it )?now|find out more|dowiedz się więcej|odkryj|'
+                         r'zacznij(?: teraz)?|sprawdź(?: teraz)?|wypróbuj teraz)$', re.I)
+BUZZWORDS = re.compile(r'(?<![\w-])(?:ai[- ]powered|next[- ]generation|revolutionary|seamless|cutting[- ]edge|game[- ]changer|'
+                       r'innowacyjn\w*|rewolucyjn\w*|przełomow\w*|nowej generacji|oparte na ai|napędzane (?:przez )?ai)(?![\w-])', re.I)
+FAKE_PEOPLE = re.compile(r'\b(?:john|jane) doe\b|\b(?:john|jane)\.?doe@|\bjan(?:ina)? kowalsk[ai]\b|\bjan\.kowalski@', re.I)
+ARROWS = ('→', '↗', '⟶', '➜', '➔')
+
+
+def contrast(fg, bg):
+    def lum(h):
+        h = h.lstrip('#')
+        h = ''.join(c * 2 for c in h) if len(h) == 3 else h
+        out = []
+        for i in (0, 2, 4):
+            c = int(h[i:i + 2], 16) / 255
+            out.append(c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4)
+        return 0.2126 * out[0] + 0.7152 * out[1] + 0.0722 * out[2]
+    a, b = sorted((lum(fg), lum(bg)), reverse=True)
+    return (a + 0.05) / (b + 0.05)
 
 
 class Page(HTMLParser):
@@ -41,6 +65,7 @@ class Page(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.text, self.css, self.icon_text, self.stack, self.skip = [], [], [], [], 0
+        self.hrefs, self.controls, self.viewport, self.open_controls = [], [], False, []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -50,11 +75,19 @@ class Page(HTMLParser):
             return
         if attrs.get('style'):
             self.css.append(f'inline {{{attrs["style"]}}}')
+        if tag == 'meta' and (attrs.get('name') or '').lower() == 'viewport':
+            self.viewport = True
+        if tag == 'a' and 'href' in attrs:
+            self.hrefs.append(attrs.get('href') or '')
+        if tag in ('a', 'button'):
+            self.open_controls.append([tag, ''])
         iconish = tag in ICON_TAGS or 'icon' in (attrs.get('class') or '').lower()
         if tag not in ('br', 'img', 'input', 'meta', 'link', 'hr', 'source'):
             self.stack.append((tag, iconish))
 
     def handle_endtag(self, tag):
+        if tag in ('a', 'button') and self.open_controls and self.open_controls[-1][0] == tag:
+            self.controls.append(self.open_controls.pop()[1].strip())
         while self.stack:
             name, _ = self.stack.pop()
             if name in ('script', 'style'):
@@ -68,6 +101,8 @@ class Page(HTMLParser):
                 self.css.append(data)
             return
         self.text.append(data)
+        for control in self.open_controls:
+            control[1] += data
         if any(iconish for _, iconish in self.stack):
             self.icon_text.append(data)
 
@@ -101,6 +136,7 @@ def caps_tracking_ok(body):
 
 
 def lint(source, name='input', allow=()):
+    video = bool(re.search(r'data-composition-id|data-width=|window\.__timelines', source))   # a fixed video canvas, not a page
     is_html = bool(re.search(r'<(?:html|body|div|section|svg|style|p|h[1-6])\b', source, re.I))
     page = Page()
     if is_html:
@@ -135,13 +171,66 @@ def lint(source, name='input', allow=()):
                 add('P0', 'sans-display', 'Display heading hard-coded to a system sans while a display face is defined', f'{selector} {{ font-family: {fam.group(1).strip()} }}')
         if re.search(r'border-left\s*:\s*[2-9]\d*px\s+solid', body) and re.search(r'border-radius\s*:\s*[1-9]', body):
             add('P0', 'left-accent-card', 'Rounded card with a coloured left border: the generated dashboard tile', selector)
-        if re.search(r'text-transform\s*:\s*uppercase', body) and not caps_tracking_ok(body):
+        display_caps = (size_px(body) or 0) >= 48 or float((re.search(r'font-size\s*:\s*([\d.]+)vw', body) or [0, 0])[1]) >= 4
+        if re.search(r'text-transform\s*:\s*uppercase', body) and not display_caps and not caps_tracking_ok(body):
             add('P1', 'all-caps-no-tracking', 'ALL CAPS needs letter-spacing of at least 0.06em', selector or 'inline style')
     for rule, patterns, message in (('invented-metric', METRICS, 'Unsourced performance claim; use a sourced number or a labelled placeholder'),
                                     ('filler-copy', FILLER, 'Filler copy; solve the empty section with composition or real copy')):
         hits = [m.group(0) for m in (re.search(p, text, re.I) for p in patterns) if m]
         if hits:
             add('P0', rule, message, '; '.join(hits))
+    all_rules = rules(css)
+    focus_visible = re.search(r':focus(?:-visible|-within)?\b', css)
+    glass = glow = pills = 0
+    for selector, body in all_rules:
+        if re.search(r'outline\s*:\s*(?:none|0)\b', body) and not focus_visible:
+            add('P0', 'focus-outline-removed', 'Focus outline removed with no :focus-visible replacement; keyboard users get lost', selector)
+        fg = re.search(r'(?<![-\w])color\s*:\s*(#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?)\b', body)
+        bg = re.search(r'background(?:-color)?\s*:\s*(#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?)\s*(?:;|$)', body)
+        if fg and bg:
+            r = contrast(fg.group(1), bg.group(1))
+            size = size_px(body) or 16
+            bold = re.search(r'font-weight\s*:\s*(?:[6-9]00|bold)', body)
+            need = 3.0 if size >= 24 or (bold and size >= 18.5) else 4.5
+            if r < need:
+                add('P0', 'low-contrast', f'Text contrast {r:.2f}:1 is under {need}:1 (contrast_check.py has the formula)', f'{selector}: {fg.group(1)} on {bg.group(1)}')
+        if 'backdrop-filter' in body:
+            glass += 1
+        if re.search(r'(?:box|text)-shadow\s*:[^;]*\b\d{2,}px[^;]*(?:#(?![0]{3,6}\b)[0-9a-f]{3,6}|rgba?\((?!\s*0\s*,\s*0\s*,\s*0)[^)]*\))', body, re.I):
+            glow += 1
+        if re.search(r'border-radius\s*:\s*(?:9{3,}|[5-9]\d{2,})px|border-radius\s*:\s*50vh', body):
+            pills += 1
+        if not video and re.search(r'(?:^|[;\s])(?:min-)?height\s*:\s*100vh', body):
+            add('P1', 'full-height-section', '100vh sections overflow under mobile browser chrome; size to content or use dvh', selector)
+        w = re.search(r'(?<![-\w])width\s*:\s*(\d{4,})px', body)
+        if w and not video and int(w.group(1)) >= 1000 and 'max-width' not in body:
+            add('P1', 'fixed-width', f'Fixed {w.group(1)} px width with no max-width overflows a phone screen', selector)
+        if len(re.findall(r'linear-gradient', body)) >= 2 and re.search(r'background-size\s*:\s*\d{1,2}px', body):
+            add('P1', 'background-grid', 'Grid or graph-paper background as decoration; use it only when it carries the identity', selector)
+    if glass >= 3:
+        add('P1', 'glass-overuse', f'backdrop-filter on {glass} rules; glass is an accent on one or two elements', f'{glass} rules')
+    if glow >= 3:
+        add('P1', 'glow-overuse', f'Coloured glow shadows on {glow} rules; keep glow to one or two focal elements', f'{glow} rules')
+    if pills >= 4:
+        add('P1', 'pill-everything', f'Pill radius on {pills} rules; vary radius by role', f'{pills} rules')
+    if is_html:
+        dead = [h for h in page.hrefs if h.strip() in ('', '#') or h.strip().lower().startswith('javascript:')]
+        if dead:
+            add('P0', 'dead-link', f'{len(dead)} link(s) go nowhere (href="#", empty or javascript:); give each a real target or remove it', ', '.join(repr(d) for d in dead[:5]))
+        arrows = [c for c in page.controls if any(a in c for a in ARROWS)]
+        if len(arrows) >= 3:
+            add('P1', 'button-arrows', f'{len(arrows)} buttons or links carry an arrow; not every action needs one', ' | '.join(arrows[:3]))
+        generic = [c for c in page.controls if GENERIC_CTA.match(re.sub(r'[\s→↗›»>]+$', '', c).strip())]
+        if generic:
+            add('P1', 'generic-cta', 'Generic call to action; name the action', ' | '.join(generic[:3]))
+        if re.search(r'<html\b', source, re.I) and not page.viewport and not video:
+            add('P1', 'viewport-missing', 'No viewport meta: the page will not lay out for phones', '<meta name="viewport">')
+    m = BUZZWORDS.search(text)
+    if m:
+        add('P1', 'buzzword', 'Buzzword instead of a specific benefit', m.group(0))
+    m = FAKE_PEOPLE.search(text)
+    if m:
+        add('P1', 'fake-person', 'Placeholder person dressed as real; use an honest placeholder ("Your name", [REAL DATA])', m.group(0))
     outside_root = strip_tokens(re.sub(r':root\s*\{[^}]*\}', '', css))
     hexes = re.findall(r'#[0-9a-fA-F]{3,8}\b', outside_root)
     if len(hexes) > 12:

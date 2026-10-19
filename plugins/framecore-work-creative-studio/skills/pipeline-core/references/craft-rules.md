@@ -1,12 +1,16 @@
 # Craft rules: type, colour, hierarchy, motion and interface
 
-Brand-agnostic rules a competent designer applies on top of any brand kit: the kit decides *which* colours and fonts, these rules decide *how* they behave. Adapted in English from the `craft/` references of [Open Design](https://github.com/nexu-io/open-design/tree/78d5637cb49da07e81314d1544b5fc6d37c95084/craft) (Apache-2.0), which adapt [refero_skill](https://github.com/referodesign/refero_skill) (MIT, © Refero) and cite their primary sources; Studio's own rules win where they differ. The checkable part runs as [`craft_lint.py`](../assets/craft-lint/README.md) on HTML, CSS and SVG.
+Brand-agnostic rules a competent designer applies on top of any brand kit: the kit decides *which* colours and fonts, these rules decide *how* they behave. Adapted in English from the `craft/` references of [Open Design](https://github.com/nexu-io/open-design/tree/78d5637cb49da07e81314d1544b5fc6d37c95084/craft) (Apache-2.0), which adapt [refero_skill](https://github.com/referodesign/refero_skill) (MIT, © Refero) and cite their primary sources, and from [anti-slop](https://github.com/miqdadbadjuber/anti-slop) by Miqdad Badjuber (MIT, commit `439a2ef`) for the purpose gate, the liveliness dials, interface patterns, honest placeholders and responsive layout; Studio's own rules win where they differ. Copy has its own catalogue: [AI writing patterns](../../copy-voice/references/ai-writing-patterns.md). The checkable part runs as [`craft_lint.py`](../assets/craft-lint/README.md) on HTML, CSS and SVG.
 
 Numbers are defaults for screen work. Print, video frames and posters seen at a distance scale them (see [Where the numbers change](#where-the-numbers-change)); a brand kit or an explicit brief may override any default, and the override is recorded, not silently applied.
 
 ## Contents
 
+- [Purpose before technique](#purpose-before-technique)
 - [Machine-made tells](#machine-made-tells)
+- [More interface patterns](#more-interface-patterns)
+- [Liveliness: three dials](#liveliness-three-dials)
+- [Honest content and verification](#honest-content-and-verification)
 - [Typography](#typography)
 - [Hierarchy](#hierarchy)
 - [Editorial hierarchy](#editorial-hierarchy)
@@ -16,9 +20,24 @@ Numbers are defaults for screen work. Print, video frames and posters seen at a 
 - [Accessibility floor](#accessibility-floor)
 - [Laws of UX worth naming](#laws-of-ux-worth-naming)
 - [Forms](#forms)
+- [Responsive layout](#responsive-layout)
 - [Right-to-left and mixed scripts](#right-to-left-and-mixed-scripts)
 - [Where the numbers change](#where-the-numbers-change)
 - [How Studio applies this](#how-studio-applies-this)
+
+## Purpose before technique
+
+These rules are a filter, not a style: they prescribe no colours, fonts or layouts, and they ban no technique. Gradients, glass, badges, card grids and glow are tools; what fails is **technique without purpose**. Before using one, answer "what does this serve?" in one line (a hierarchy, the identity, readability). If the only answer is "it looks modern" or "it looks safe", rework it. Write the one-line reason for every major decision (colour, layout, type, spacing, cards, illustration); a decision whose reason does not fit in one line is revisited.
+
+A piece is done when three things hold: every technique passes this test, it has its own identity (swap the logo and name, and it should still feel like this brand, not like any brand), and it works. Five questions check the last part:
+
+1. **Intentional:** can every visual and copy decision be explained?
+2. **Complete:** does every interactive element work, or is it absent?
+3. **Content-driven:** does every section exist because the content needs it, not because such pages usually have one?
+4. **Resilient:** does it hold in every state, theme, breakpoint and with the keyboard alone?
+5. **Evidenced:** is everything presented as fact real and verifiable, or not shown?
+
+Brand direction (the kit, a `DESIGN.md`, references) supplies identity; this filter applies on top of it. When the direction itself asks for a named tell (an indigo gradient, emoji headings), name the element and the rule it meets and ask once whether to keep it; a bold palette or an unusual typeface is identity, not a tell.
 
 ## Machine-made tells
 
@@ -39,10 +58,44 @@ These read instantly as default generated output. `craft_lint.py` flags the star
 - ★ ALL CAPS without letter-spacing of at least 0.06em.
 - ★ More than about 12 raw hex values outside the token block: the tokens were not used.
 - ★ The accent used more than twice on one screen.
+- Text over a photo or gradient checked only at its best spot: check the worst spot, or add a scrim.
 - ★ Placeholder image services (`unsplash.com` hot links, `placehold.co`, `picsum.photos`, `placekitten.com`).
 - The fixed sequence hero → features → pricing → FAQ → CTA with no variation; decorative blobs and waves; perfectly symmetric layouts with no tension.
 
+## More interface patterns
+
+Each is allowed with a written purpose and fails as a default (`craft_lint.py` flags the starred ones):
+
+- **Dose caps:** ★ glass (backdrop blur) on one or two elements, never navbar, cards, modals and sidebar together; ★ glow on one or two focal elements, never cards, buttons, badges, icons, background and borders together; shadows mark elevation, they do not float everything; ★ radius varies by role, not pills everywhere.
+- **Decoration:** generic AI icons (sparkle, magic wand, robot, lightning, orb) and an icon set chosen for its recognisable library look instead of the content; ★ an arrow on every button; capsule badges ("AI Powered", "Beta", "New") with no real status behind them; a pill above the headline that repeats the headline; decorative status dots and endless pulses; ★ grid, dot or graph-paper backgrounds; stock or blob illustrations unrelated to the product (use real screenshots or none); a fake terminal window as the hero.
+- **Layout templates:** hero plus three or six identical cards; "How it works" always in three numbered steps; a bento mosaic as the default section; a "Trusted by" logo bar under the hero; pricing always in three columns with a "Most popular" card; the four-column Product / Company / Resources / Legal footer; every section the same centred title, subtitle and card grid. Order sections by the product's story.
+- **Copy in the interface:** ★ generic CTAs (Get started, Learn more, Discover, Dowiedz się więcej, Odkryj) and ★ buzzwords (AI-powered, next-generation, seamless, innowacyjny, nowej generacji); name the action and the specific benefit.
+- **App screens:** the default shell (sidebar, top bar, four stat cards, a chart, a table) chosen before asking what the screen is for; build around the one decision the user makes there. Stat cards with invented numbers and "+12 % this week" deltas without a named period; activity feeds of invented people; charts without a question (put the question in the title: "Failed jobs per hour, last 24 h"); table columns taken from the component (Name, Status, Date, Actions) instead of the field that decides the next move; ★ filler people (John Doe, Jan Kowalski, johndoe@example.com) dressed as data.
+- **Theme:** dark by default "because it looks tech". Choose by brand and audience; if both themes ship, both must work.
+- **Identity:** never clone a popular product's look (Linear, Vercel, Stripe, Apple) unless the user asks; references inspire, they are not templates.
+
 **Soul:** about 80 % proven patterns and 20 % distinctive choice: one bold visual move (a typeface, a single colour decision, an unexpected proportion), voice in the microcopy ("Start tracking" beats "Get started"), one memorable micro-interaction, one detail only someone who used the product would put there. If someone outside the project can tell from a screenshot whose work it is, it has soul; otherwise it is a template.
+
+## Liveliness: three dials
+
+Removing tells leaves a void, and a model fills a void with its most generic output. Liveliness is added on purpose. Set three dials from the brief or the brand direction and hold them from the first section to the last:
+
+| Dial | 1, calm | 2, balanced | 3, bold | Answers |
+| --- | --- | --- | --- | --- |
+| **Energy** | public-service calm | product-marketing clarity | agency-portfolio confidence | how hard the design says hello |
+| **Rhythm** | uniform, predictable | consistent with a few breaks | asymmetric, mixed compositions | how much sections differ |
+| **Motion** | hover states only | reveals and transitions | pinned, choreographed, parallax | how much moves, and why |
+
+Before making, write one line: *"Reading this as: <kind of piece> for <audience>, in a <visual language>, dials E2 / R3 / M1."* With clear direction, infer the dials; when it is ambiguous, ask one decisive question ("closer to calm editorial or experimental agency?"); with no direction and no chance to ask, mark the result a **draft without direction** and use E1 / R1 / M1 rather than a sterile default presented as final. A brand kit or `DESIGN.md` may carry its dials (`Dial: E2 / R3 / M1`).
+
+Levers that turn dials into decisions: **one focal point per screen**; **contrast on purpose** (size, weight, colour); **whitespace as structure**; **one deliberate accent** (none is sterile, everywhere is noise); **one identity motif** (a gesture, pattern or typographic voice repeated so the piece belongs to the brand). For motion in a video, the same dial is set in the [motion workflow](../../hyperframes-workflow/references/motion-craft.md): a "cinematic" piece must actually move, a "static" one must not.
+
+## Honest content and verification
+
+- **Real or labelled.** Every claim, number, testimonial, name, nav item or visual is real, or an explicit placeholder: `[REAL DATA]`, `[LOGO]`, "Your name", "Coming soon", an initial avatar. Never a realistic fake (invented stats, testimonials, team members, ghost links). An empty section beats a fabricated one; no FAQ of template questions.
+- **Ask before inventing assets:** logo, people's photos, statistics, testimonial identities and the page structure are confirmed or left as clear placeholders.
+- **No dead controls:** ★ every link and button has a real destination or behaviour (a section that exists, a modal that opens and closes with Escape, a toggle, a real URL, a form with feedback), or it is removed or labelled "Coming soon".
+- **Verify before delivering:** where the page can run, open it, check the console, and click through every interactive element in every shipped theme and at a phone width; report the evidence element by element ("Book → opens /book, no console errors"; "empty form → validation shown"). Without a way to run it, say so and verify by reading the code; never claim a click that did not happen. Build features in the source, never by patch scripts rewriting files.
 
 ## Typography
 
@@ -57,7 +110,7 @@ These read instantly as default generated output. `craft_lint.py` flags the star
 | Body 14–18 px | 0 |
 | Small 11–13 px | +0.01 to +0.02em |
 | Labels and button text | +0.02em |
-| **ALL CAPS** | **+0.06 to +0.1em, always** |
+| **ALL CAPS at text and label sizes** | **+0.06 to +0.1em, always**; caps at display size in a condensed face (48 px or 4vw and up) may be set tight on purpose |
 | Headings 32 px and up | −0.01 to −0.02em |
 | Display 48 px and up | −0.02 to −0.03em |
 
@@ -105,7 +158,7 @@ Display to standfirst is a jump of at least 1.5× or 24 px. Space carries hierar
 | Effect | under 1 % | gradients, glows: rarely justified |
 
 - **Accent discipline:** at most two visible accent uses per screen (for example one eyebrow and one CTA). Links and focus rings count.
-- **Contrast gates:** body text 4.5:1; large text (18 pt ≈ 24 px, or 14 pt bold ≈ 18.5 px) 3:1; UI components against neighbours 3:1. When a brand colour fails on text, use a darker shade for text and keep the bright one for fills.
+- **Contrast gates** (★ checked by `craft_lint.py` when a rule sets both colours; compute any other pair with [`contrast_check.py`](../assets/craft-lint/contrast_check.py), never by eye: #555555 on black is 2.82:1 and fails): body text 4.5:1; large text (18 pt ≈ 24 px, or 14 pt bold ≈ 18.5 px) 3:1; UI components against neighbours 3:1. When a brand colour fails on text, use a darker shade for text and keep the bright one for fills.
 - **Dark themes:** no pure black or white: about `#0f0f0f` on dark and `#fafafa` on light, text `#f0f0f0` / `#111111`; on dark, hairline borders as `rgba(255,255,255,0.08)`.
 - **Name tokens by purpose** (`--accent`, `--success`), never by hue (`--blue-500`).
 - Gradients separate hierarchy (header from body, primary from secondary CTA); they do not decorate empty space. For video and art direction, the blue-purple machine palette is covered in [art-style and explainer direction](../../hyperframes-workflow/references/art-and-explainer-motion-direction.md#choosing-the-look).
@@ -139,7 +192,7 @@ Loading by expected wait: none under 300 ms; subtle 0.3–2 s; skeleton or label
 
 - Legal floors differ: EU accessibility law (EN 301 549 v3.2.1) and US public-sector rules point to **WCAG 2.1 AA**; WCAG 2.2 adds nine criteria. State the target for the market.
 - Touch targets: **24×24 CSS px** is the AA floor (2.5.8); 44×44 is AAA, iOS suggests 44 pt, Material 48 dp.
-- Never remove focus outlines without a visible replacement (`:focus-visible`); a focus ring is at least 2 px with 3:1 contrast for AAA.
+- ★ Never remove focus outlines without a visible replacement (`:focus-visible`); a focus ring is at least 2 px with 3:1 contrast for AAA.
 - Real labels, not placeholders; native elements first (`<button>`, `<a href>`); `<html lang>`; landmarks; alt text (empty for decorative images); no positive `tabindex`. Adding ARIA does not add accessibility: pages with ARIA average more errors.
 
 ## Laws of UX worth naming
@@ -155,6 +208,18 @@ Use them to decide composition, and cite them correctly:
 
 Validate on the first blur after an edit, then live once a field is invalid so the error clears as soon as it is fixed; never on the first keystroke or with red borders at page load (`:user-invalid`, not `:invalid`). On submit, move focus to an error summary. Specific messages ("Date must be DD.MM.YYYY; you entered 5-3-26"), never "Invalid input". Never wipe a field because another one failed. No "retype your email" fields; allow paste. Consequential submissions (legal, financial, data) are reversible, checked or confirmed.
 
+## Responsive layout
+
+For pages and app mockups (a video canvas or a print page is fixed and skips this):
+
+- **States where the content breaks,** not at device widths: usually three (one column, two columns, wide), so tablets and small laptops never get a stretched stack or a crammed grid. Design the narrow state; do not bolt it on as a trailing override.
+- **Mobile scale:** a smaller type step or fluid `clamp()` type, section padding about half of desktop, smaller gaps; sections sized to content or `dvh`, ★ not `100vh` (which runs under mobile browser chrome).
+- **Grids reflow:** `minmax()`, `auto-fit`, `min-width: 0` on children; no forced 12-column grid on a phone; ★ no fixed widths of 1000 px and more without `max-width`.
+- **No horizontal scroll and no clipping:** tables reflow or scroll inside their container, code wraps, images `max-width: 100%`; `overflow: hidden` crops thumbnails, never content.
+- **Touch:** targets of about 44×44 px with space between them (24 px is the legal floor, 44 the craft target); every hover-only interaction has a tap equivalent with visible feedback.
+- **Navigation:** collapse the desktop row into a bottom bar for a few primary destinations or a labelled menu ("Menu", not a bare hamburger); a fixed bar reserves its height and the safe area so it never hides the last item; sticky headers stay compact.
+- **People:** text resizes to 200 % without clipping; the on-screen keyboard never covers the focused field; ★ a viewport meta tag is present.
+
 ## Right-to-left and mixed scripts
 
 `dir` with `lang` together; logical CSS properties (`inline-start`, `margin-inline-end`) instead of left and right; isolate mixed runs with `<bdi>` or `dir`, and force `dir="ltr"` on emails, URLs, phone numbers and IBANs. No letter-spacing or italics on Arabic or Hebrew; no lorem ipsum for RTL prototypes. Mirror directional icons, not clocks, media controls or chart x-axes.
@@ -168,6 +233,7 @@ Validate on the first blur after an edit, then live once a field is invalid so t
 ## How Studio applies this
 
 1. Owners producing styled output (Static Graphic Design Creator, presentations, landing or app mockups, HTML motion) read the sections their artifact needs: typography, hierarchy and colour almost always; editorial for long reads; motion, states, accessibility and forms for interactive work; right-to-left only when such text appears.
-2. Where code runs and the artifact is HTML, CSS or SVG, run [`craft_lint.py`](../assets/craft-lint/README.md) inside the [automatic output review](loop-protocol.md#automatic-output-review) and fix P0 findings before delivery; report P1 findings that remain, with the reason.
-3. A raster image cannot be linted: look for the same tells in the pixels during review.
-4. Nothing here overrides an explicit brand kit, a user's stated choice or exact-copy locks; record the deviation instead.
+2. Before making, write the one-line Design Read with the three dials; before delivering, the one-line reasons for the major decisions.
+3. Where code runs and the artifact is HTML, CSS or SVG, run [`craft_lint.py`](../assets/craft-lint/README.md) inside the [automatic output review](loop-protocol.md#automatic-output-review) and fix P0 findings before delivery; report P1 findings that remain, with the reason.
+4. A raster image cannot be linted: look for the same tells in the pixels during review.
+5. Nothing here overrides an explicit brand kit, a user's stated choice or exact-copy locks; record the deviation instead.
