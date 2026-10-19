@@ -33,6 +33,7 @@
         "cli"
       ],
       "role": "engine",
+      "category": "research",
       "gives": "Reverse engineering of software the user may analyse: native binaries (with Hopper, Ghidra or IDA), JavaScript and Electron apps, .NET assemblies, Android packages, websites through the browser's DevTools, network captures; every finding comes with its evidence and unknowns",
       "studio_uses": "Optional depth when the user wants to know how a feature or an effect of an app or a website is built and Studio's own web motion probe is not enough: an Electron or desktop app, a bundled script, a source map. For a web animation, the web motion probe answers first",
       "not_for": "Image or prompt reverse engineering (that is Image Prompt Architect's reference reconstruction), copying another product's code or assets, bypassing protection, licences or logins",
@@ -117,6 +118,7 @@
         "skill"
       ],
       "role": "engine",
+      "category": "motion-graphics",
       "gives": "Short procedural animations as single-file canvas videos with a synthesized score, in seven built-in illustrated styles or a look matched from references, through story, look and storyboard check-ins, rendered to MP4",
       "studio_uses": "The original skill next to Studio's own Animate engine, which adapts it (integrations/animate); install it when the user wants the upstream skill itself or its newest styles",
       "not_for": "Replacing Studio's brief, copy locks, approvals and review; Studio's adapted engine is already part of the plugin",
@@ -180,6 +182,7 @@
         "skill"
       ],
       "role": "engine",
+      "category": "motion-graphics",
       "gives": "App launch films and short videos from code: the real UI in an iPhone or laptop window or a story in panels, cut to music on the beat, styled, voiced, checked frame by frame and rendered",
       "studio_uses": "The original plugin next to Studio's partial adaptation (integrations/kaventro-motion-designer), for a user who wants its own launch-film pipeline",
       "not_for": "Replacing Studio's brief, idea, copy locks and four-verdict review",
@@ -238,6 +241,7 @@
         "knowledge"
       ],
       "role": "knowledge",
+      "category": "design",
       "gives": "Rules and examples for social ads, posters and flyers made with image models: research, questions, art direction, strong prompts and post-generation analysis",
       "studio_uses": "The original skill next to Studio's adaptation in Static Graphic Design Creator (integrations/meta-ads-designer), for a user who wants the full upstream rules",
       "not_for": "Overriding Studio's exact-copy, claim and review rules; Studio's own routes stay in charge",
@@ -730,6 +734,7 @@
         "skill"
       ],
       "role": "engine",
+      "category": "research",
       "gives": "A command-line layer that installs, checks and routes to tools for reading the web: web pages through Jina Reader, YouTube metadata and transcripts, RSS, public GitHub and Exa search through an MCP setup (mcporter); its doctor names the working route per channel",
       "studio_uses": "Optional research reach for Research Evidence in a shell host, when the host's own web tools cannot read a page, a YouTube transcript or a feed the brief depends on (a client's or competitor's site, a video's wording, a public changelog). Only the channels that need no login",
       "not_for": "Any channel that needs cookies, tokens or a logged-in browser session (X/Twitter, Reddit, Facebook, Instagram, Xiaohongshu, Boss Zhipin): Studio never exports cookies, never uses spare accounts and never automates a platform against its terms. Not for bulk scraping, personal data or content the user may not use",

@@ -11,9 +11,9 @@ highlights. Output: JSON, LRC (line, or enhanced with word times) and SRT.
     python3 lyric_timing.py song.mp3 lyrics.txt --words asr.json   # times from any recogniser
 
 Recognisers, first one found is used unless --words is given (none ships with Studio):
-  stable-ts (pip install stable-ts)        aligns the lyrics to the audio directly; best for songs
-  whisperx (pip install whisperx)          transcription with phoneme-level word alignment
-  faster-whisper (pip install faster-whisper)  word timestamps, then the alignment below
+  faster-whisper (pip install faster-whisper)  word timestamps, then the alignment below; verified on two songs
+  stable-ts (pip install stable-ts)        aligns the lyrics to the audio directly (archived 2026-05-30, not verified here)
+  whisperx (pip install whisperx)          transcription with phoneme-level word alignment (not verified here)
 A vocal stem helps on dense mixes; Demucs pretrained weights are for research use only, so use a stem
 the user supplies or a separator whose model licence allows the job. Beats come from beats.py next to
 this file (needs ffmpeg).
@@ -152,22 +152,8 @@ def pcm16k(audio):
 
 
 def recognise(audio, lyrics_text, model):
-    """Times from the first installed recogniser; returns a flat list of {text, start, end}."""
-    try:
-        import stable_whisper
-        result = stable_whisper.load_model(model).align(audio, lyrics_text, language=None)
-        return [{'text': w.word.strip(), 'start': w.start, 'end': w.end} for s in result.segments for w in s.words], 'stable-ts'
-    except ImportError:
-        pass
-    try:
-        import whisperx
-        audio_data = whisperx.load_audio(audio)
-        result = whisperx.load_model(model, 'cpu', compute_type='int8').transcribe(audio_data)
-        align_model, meta = whisperx.load_align_model(language_code=result['language'], device='cpu')
-        result = whisperx.align(result['segments'], align_model, meta, audio_data, 'cpu')
-        return [{'text': w['word'], 'start': w['start'], 'end': w['end']} for w in result['word_segments'] if 'start' in w], 'whisperx'
-    except ImportError:
-        pass
+    """Times from the first installed recogniser (faster-whisper, the one verified on real songs, then stable-ts, then
+    whisperx); returns a flat list of {text, start, end}."""
     try:
         from faster_whisper import WhisperModel
         # decoded by FFmpeg, not PyAV: faster-whisper 1.2.1 fails with PyAV 19 (seen 2026-10-18)
@@ -188,7 +174,22 @@ def recognise(audio, lyrics_text, model):
         return best[1], f'faster-whisper {model}' + ('' if best[2] else ' (no previous-text conditioning)')
     except ImportError:
         pass
-    raise SystemExit('No recogniser installed. Install one (pip install stable-ts, recommended for songs), or pass --words '
+    try:
+        import stable_whisper
+        result = stable_whisper.load_model(model).align(audio, lyrics_text, language=None)
+        return [{'text': w.word.strip(), 'start': w.start, 'end': w.end} for s in result.segments for w in s.words], 'stable-ts'
+    except ImportError:
+        pass
+    try:
+        import whisperx
+        audio_data = whisperx.load_audio(audio)
+        result = whisperx.load_model(model, 'cpu', compute_type='int8').transcribe(audio_data)
+        align_model, meta = whisperx.load_align_model(language_code=result['language'], device='cpu')
+        result = whisperx.align(result['segments'], align_model, meta, audio_data, 'cpu')
+        return [{'text': w['word'], 'start': w['start'], 'end': w['end']} for w in result['word_segments'] if 'start' in w], 'whisperx'
+    except ImportError:
+        pass
+    raise SystemExit('No recogniser installed. Install one (pip install faster-whisper, verified on songs), or pass --words '
                      'with word times from another tool (JSON list of {"text", "start", "end"} in seconds).')
 
 

@@ -8,6 +8,7 @@ How Studio sets Polish copy for ads, posts, graphics, video text, emails and pag
 | --- | --- | --- |
 | Quotes open low, close high; nested quotes use « » | „Miód lipowy” | "Miód lipowy", “Miód lipowy” |
 | A dash between words is the en dash with spaces | Sobota – niedziela | Sobota - niedziela |
+| The em dash (pauza) with spaces is also correct; use one dash style per text, the brand's if it has one | Sobota — niedziela | mixing – and — in one text |
 | Ranges use the en dash without spaces | 10–18, s. 5–7 | 10-18 |
 | One ellipsis character | Czekaj… | Czekaj... |
 | No space before , . ; : ! ? and one after | Taniej, szybciej! | Taniej , szybciej ! |

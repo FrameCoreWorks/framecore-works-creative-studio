@@ -1,6 +1,6 @@
 # Release status
 
-Source version: **1.93.0**. Date: 2026-10-19. Change ID: `CC-20261019-02` (origin: codex).
+Source version: **1.93.0**. Date: 2026-10-19. Change ID: `CC-20261019-02` (origin: cloud-code).
 
 | Field | Value |
 |---|---|

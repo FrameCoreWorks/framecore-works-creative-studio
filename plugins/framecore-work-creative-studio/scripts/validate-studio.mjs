@@ -27,7 +27,7 @@ function anchors(text) {
     if (fence) continue;
     const heading = line.match(/^\s{0,3}#{1,6}\s+(.+?)\s*#*\s*$/)?.[1];
     if (!heading) continue;
-    const slug = heading.replace(/<[^>]*>/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-');
+    const slug = heading.replace(/<[^>]*>/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').trim().replace(/\s/g, '-'); // GitHub's slug: each space a hyphen, runs kept
     const count = occurrences.get(slug) ?? 0; occurrences.set(slug, count + 1); out.add(count ? slug + '-' + count : slug);
   }
   return out;

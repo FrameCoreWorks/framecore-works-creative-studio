@@ -6,7 +6,7 @@
 python3 breakdown.py --video reference.mp4 --out breakdown/
 ```
 
-It needs FFmpeg, NumPy and Pillow (Studio's environment check installs them in its virtual environment) and writes:
+It needs FFmpeg, NumPy and Pillow (Studio's environment check reports whether they are present and how to install them) and writes:
 
 | Output | Read it for |
 | --- | --- |

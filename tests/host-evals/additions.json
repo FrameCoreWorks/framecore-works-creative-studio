@@ -1,0 +1,346 @@
+{
+ "name": "studio-additions-pl",
+ "description": "Integration of the knowledge added in 1.91 to 1.93 (recommended repositories, AI writing patterns, craft rules and lint, contrast, DESIGN.md, prompt examples, lyric timing, Iso Glow, art-style direction, reference breakdown) and the owners added by the 2026-10-19 audit (page mockups, decks, contrast). reads_any and skills_any check that the host reached the right file or owner; the rubric feeds the advisory judge. Status: not_run (owner decision 2026-10-19: no host tests for now).",
+ "cases": [
+  {
+   "id": "AD01",
+   "title": "Welcome option 4 lists the recommended repositories with how they install",
+   "turns": [
+    {
+     "prompt": "/framecore-work-creative-studio:workflow-orchestrator 4",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "reads_any": [
+        "extensions.json",
+        "extensions.md"
+       ]
+      },
+      {
+       "contains_any": [
+        "anti-slop",
+        "open-design",
+        "iso-glow",
+        "huashu"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Lists the recommended repositories with a one-line description each",
+    "Says how each installs on this host or that it is manual or not supported",
+    "Installs nothing without an explicit request"
+   ]
+  },
+  {
+   "id": "AD02",
+   "title": "Copy that reads as AI goes through the AI writing patterns",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Ten tekst brzmi jak z AI, popraw go: „W dzisiejszym dynamicznym świecie nasza innowacyjna platforma to nie tylko narzędzie, to rewolucja. Dowiedz się więcej!”",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "humanizer",
+        "copy-voice"
+       ]
+      },
+      {
+       "reads_any": [
+        "ai-writing-patterns.md",
+        "ai_writing_check.py"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Names the patterns found (empty vocabulary, negative parallelism, generic CTA)",
+    "Keeps the facts and does not invent new claims",
+    "Does not remove dashes only because they are dashes"
+   ]
+  },
+  {
+   "id": "AD03",
+   "title": "A landing page mockup goes to the static owner with the craft rules",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Zrób mi makietę landingu w HTML dla pracowni ceramiki „Glina”: hero, oferta warsztatów, kontakt.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "static-graphic-design-creator"
+       ]
+      },
+      {
+       "reads_any": [
+        "craft-rules.md"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Uses the craft rules (no default indigo, no emoji icons, real hierarchy, honest placeholders)",
+    "Runs or offers craft_lint on the HTML where code runs",
+    "Does not invent testimonials or metrics"
+   ]
+  },
+  {
+   "id": "AD04",
+   "title": "A contrast question is measured, not guessed",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Czy biały tekst na kolorze #F2A541 będzie czytelny na plakacie?",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "reads_any": [
+        "contrast_check.py",
+        "craft-lint/README.md",
+        "craft-rules.md"
+       ]
+      },
+      {
+       "contains_any": [
+        "4.5",
+        "4,5",
+        "3:1",
+        "kontrast"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Gives the contrast ratio and the WCAG threshold it is judged against",
+    "Suggests a fix when it fails"
+   ]
+  },
+  {
+   "id": "AD05",
+   "title": "A pitch deck design has an owner",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Zaprojektuj wygląd 10-slajdowego pitch decku dla startupu z dostawą warzyw.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "static-graphic-design-creator",
+        "copy-voice"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Treats the deck design as static design and the words as Copy Voice",
+    "Applies the craft rules to the slides"
+   ]
+  },
+  {
+   "id": "AD06",
+   "title": "A brand kit for a coding agent becomes DESIGN.md",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Mam kolory i fonty marki, programista robi stronę w Claude Code. Przygotuj mu plik DESIGN.md.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "reads_any": [
+        "design-md/README.md",
+        "design_md.py",
+        "brand-kit.md"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Exports the supplied kit, no invented values",
+    "Says which values are missing"
+   ]
+  },
+  {
+   "id": "AD07",
+   "title": "A beat-synced lyric video goes to Motion Graphics with lyric timing",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Mam piosenkę i tekst, chcę lyric video z animowaną typografią w rytm muzyki.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "hyperframes-workflow"
+       ]
+      },
+      {
+       "reads_any": [
+        "motion-sync/README.md",
+        "lyric_timing.py"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Takes the lyrics as the truth and times them from the audio",
+    "Asks for the track and rights confirmation; commits no audio"
+   ]
+  },
+  {
+   "id": "AD08",
+   "title": "A speaker that pumps with the bass uses Iso Glow",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Zrób izometryczną animację głośnika, który świeci i pulsuje w rytm basu mojego utworu.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "hyperframes-workflow"
+       ]
+      },
+      {
+       "reads_any": [
+        "iso-glow/README.md",
+        "audio_envelope.py"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Uses the Iso Glow kit and drives it with audio_envelope",
+    "Only live parts glow; one accent colour"
+   ]
+  },
+  {
+   "id": "AD09",
+   "title": "A painter-style explainer uses the art-style direction",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Chcę 30-sekundową animację o historii kawy w stylu żywego obrazu impresjonistów.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "hyperframes-workflow"
+       ]
+      },
+      {
+       "reads_any": [
+        "art-and-explainer-motion-direction.md"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Follows the art-style direction rules for camera and look",
+    "Does not imitate a living artist by name"
+   ]
+  },
+  {
+   "id": "AD10",
+   "title": "A reference animation is measured before rebuilding",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Wysyłam link do animacji, którą lubię. Rozbierz ją na części i zrób coś w podobnej technice dla mojej marki.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "reads_any": [
+        "reference-breakdown/README.md",
+        "breakdown.py",
+        "web-motion-probe/README.md"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Measures cuts, timing and motion before writing code",
+    "Rebuilds the mechanism on new material, never copies frames"
+   ]
+  },
+  {
+   "id": "AD11",
+   "title": "Prompt examples are used before a web search for prompt technique",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Napisz prompt do zdjęcia produktowego butelki oliwy na marmurze, w świetle porannym.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "image-prompt-architect",
+        "static-graphic-design-creator"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "May use reviewed prompt examples for structure; the direction is its own",
+    "Gives one standalone prompt"
+   ]
+  }
+ ]
+}

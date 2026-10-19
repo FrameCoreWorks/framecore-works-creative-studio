@@ -10,7 +10,7 @@ Read only the section the task needs:
 - [2. Intake and evidence ledger](#2-intake-and-evidence-ledger)
 - [3. Song-direction specification](#3-song-direction-specification)
 - [4. Task-specific packet patterns](#4-task-specific-packet-patterns)
-- [5. Google Flow Music / Lyria evidence-sensitive notes](#5-google-flow-music-lyria-evidence-sensitive-notes)
+- [5. Google Flow Music and Lyria evidence-sensitive notes](#5-google-flow-music-and-lyria-evidence-sensitive-notes)
 - [6. Evidence and citation discipline](#6-evidence-and-citation-discipline)
 - [7. Packet schema and presentation](#7-packet-schema-and-presentation)
 - [8. Bounded iteration and release gate](#8-bounded-iteration-and-release-gate)
@@ -126,7 +126,7 @@ Only the first two are safely framed as best-effort creative direction absent st
 
 Record: the artifact actually available; the user's target; the observed failure; elements to preserve; likely primary cause; smallest revision; and observable retest. If media is absent, use `user_report_only` and avoid “I can hear/see.” If media exists but cannot be inspected, use `asset_present_not_analyzed`. If an analysis was actually made, identify its narrow scope without claiming a full technical audit. Deliver a complete replacement packet, not only a sentence patch.
 
-## 5. Google Flow Music / Lyria evidence-sensitive notes
+## 5. Google Flow Music and Lyria evidence-sensitive notes
 
 This is a historical evidence snapshot, not the live source of truth. Its exact original check date is `Unknown` in the portable package; the external development log is not runtime evidence. Current claims trigger research: re-run it and record the current access date and scope before current claims. Search leads include the [Lyria prompt guide](https://deepmind.google/models/lyria/prompt-guide/), the [Lyria 3.5 model card](https://deepmind.google/models/model-cards/lyria-3-5/), the [Flow Music song workflow](https://support.google.com/flow/answer/17084348?hl=en), and the [Flow Music music-video help page](https://support.google.com/flow/answer/17084421?hl=en).
 

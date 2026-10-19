@@ -11,7 +11,7 @@ Outside repositories that the Studio owner reviewed and judged useful as an **en
 
 ## 1. Show what fits this host
 
-With a shell or code execution, run:
+With a shell or code execution, run (`<plugin>` is the folder of the installed Studio plugin, the one holding `skills/`):
 
 ```sh
 python3 <plugin>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host <codex|claude_code|claude_apps|chatgpt|chatgpt_work>

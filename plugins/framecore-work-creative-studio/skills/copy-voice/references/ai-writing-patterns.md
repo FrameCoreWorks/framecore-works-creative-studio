@@ -95,6 +95,7 @@ Polish-specific: the dash is correct punctuation in Polish (see Hygiene); Ty or 
 - A precise formal word; only the listed vocabulary counts.
 - A single transition word, a single dash, a single short sentence, curly quotes.
 - Quoted text, titles, proper names, or a phrase being discussed rather than used.
+- Protected or approved fixed text (Studio's startup welcome, a client's locked slogan, legal lines): report findings to the owner, never rewrite it silently. A structured menu with bold labels and lists of three by design is not a cluster.
 - Unsourced claims are common everywhere; flag only the shapes above, and route truth to the claims rules.
 
 ## Signs of a human writer

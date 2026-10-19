@@ -20,6 +20,8 @@
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+      <!-- With the user's track (never committed): copy it next to this file and uncomment the clip; audio_envelope.py --inject sets both durations.
+      <audio id="music" class="clip" src="track.m4a" data-start="0" data-duration="8" data-track-index="0" data-timeline-role="music"></audio> -->
       <svg id="art" viewBox="0 0 1080 1920" role="img" aria-label="Isometric loudspeaker whose woofer pumps and glows with the bass"></svg>
     </div>
     <script>
@@ -27,7 +29,7 @@
       /* BEGIN ENVELOPE */
       const ENVELOPE = IsoKit.demoEnvelope(8, 30, 108, 0.14);
       /* END ENVELOPE */
-      const D = Math.min(8, ENVELOPE.duration);
+      const D = ENVELOPE.duration;
       const { el, frame, defs, box, lit, slits, envAt, drive } = IsoKit;
       const svg = document.getElementById('art');
       defs(svg);

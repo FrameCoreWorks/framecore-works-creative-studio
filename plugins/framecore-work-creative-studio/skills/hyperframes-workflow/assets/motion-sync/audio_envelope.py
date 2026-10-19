@@ -11,7 +11,8 @@ jumps (kicks in the bass band, snares or hats higher up), for one-shot effects s
 
 Output JSON: {"fps", "start", "duration", "band", "attack", "release", "env": [...], "kicks": [seconds...]}.
 `--inject FILE` writes the same object between the lines `/* BEGIN ENVELOPE */` and `/* END ENVELOPE */` of a
-composition, as `const ENVELOPE = {...};`, so the render needs no network or file reads. Needs Python 3 and FFmpeg
+composition, as `const ENVELOPE = {...};`, so the render needs no network or file reads, and sets `data-duration` on
+the composition root and on a music clip (`data-timeline-role="music"`) to the envelope's length. Needs Python 3 and FFmpeg
 only, so it also runs in a code-execution sandbox. The user supplies the track and confirms the right to use it.
 Exit codes: 0 written, 1 bad input, 2 FFmpeg failed.
 """
@@ -91,7 +92,14 @@ def inject(path, data):
     if a < 0 or b < a:
         raise ValueError(f'{path}: needs the lines {BEGIN} and {END}')
     line = f"{BEGIN}\n      const ENVELOPE = {json.dumps(data, separators=(',', ':'))};\n      "
-    Path(path).write_text(text[:a] + line + text[b:], encoding='utf-8')
+    text = text[:a] + line + text[b:]
+
+    def set_duration(tag):
+        tag = tag.group(0)
+        if 'data-composition-id=' in tag or 'data-timeline-role="music"' in tag:
+            tag = re.sub(r'data-duration="[^"]*"', f'data-duration="{data["duration"]:g}"', tag)
+        return tag
+    Path(path).write_text(re.sub(r'<(?:div|audio)\b[^>]*>', set_duration, text), encoding='utf-8')
 
 
 def main(argv=None):

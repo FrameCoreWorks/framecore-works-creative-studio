@@ -164,7 +164,11 @@ def main(argv=None):
         if args.json:
             print(json.dumps({'checked': data['checked'], 'host': args.host, 'policy': data['policy'], 'extensions': rows}, indent=2, ensure_ascii=False))
             return 0
-        for row in rows:
+        heading = None
+        for row in sorted(rows, key=lambda r: r['category'] or ''):
+            if row['category'] != heading:
+                heading = row['category']
+                print(f"\n[{heading}]")
             print(f"{row['name']} - {row['repository']} ({row['license']}, {row['role']}; {args.host}: {row['status']})")
             print(f"  gives: {row['gives']}\n  in Studio: {row['studio_uses']}")
             for key, value in row['how'].items():

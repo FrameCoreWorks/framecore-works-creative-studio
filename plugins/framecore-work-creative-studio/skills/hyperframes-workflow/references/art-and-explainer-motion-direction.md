@@ -74,8 +74,8 @@ With real screenshots, use keynote UI (clean, tutorial) or the investigation des
 2. **Zoom logarithmically:** every frame scales by the same factor; linear interpolation starts slow and ends violently. To fly through a round opening of radius r, the zoom must reach the distance from its centre to the farthest screen corner divided by r.
 3. **Land the reveal on the beat or the word.** The frame where the new picture appears falls on the bar line; a counter lands when the voice says the number (start = word time − count duration); whiteboard writing starts about 0.5 s after its phrase.
 4. **Structure, then data, then annotation;** one annotation per shot.
-5. **One focus per moment:** one thing enters, the rest holds; main word to secondary text at least 3:1; the background one step lower in saturation, contrast and line weight.
-6. **Enter slowly, leave fast, then hold:** entries 0.3–0.4 s, exits about 0.18 s; a landed number holds at least 0.5 s, a punchline at least 0.9 s.
+5. **One focus per moment:** one thing enters, the rest holds; main word clearly dominant over secondary text (about three times the size, or a clear weight step); the background one step lower in saturation, contrast and line weight.
+6. **Entries take longer than exits, then hold:** entries 0.3–0.4 s with an ease-out (fast start, slow settle, as in [motion craft](motion-craft.md)), exits about 0.18 s with an ease-in; a landed number holds at least 0.5 s, a punchline at least 0.9 s.
 7. **Move on events,** as in the camera section. Numbers and big words land on objects in the film's world (a screen, a price tag, a blackboard), not on a separate solid-colour title card: blind viewers read such cards as "a slide was inserted".
 8. **Two frame rates:** the camera smooth, elements stepped (paper, highlighter and typing on twos at 12 fps; characters at 24 fps). Everything smooth looks corporate; everything stepped wobbles.
 9. **Colour is a concept:** one colour per idea, no more than three or four semantic colours.

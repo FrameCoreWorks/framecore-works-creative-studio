@@ -97,6 +97,14 @@ Read only what is needed:
   Human Voice controls, format-sensitive copy decisions, and the bounded Copy
   Delivery Loop.
 - [references/hyperframes-workflow.md](references/hyperframes-workflow.md) for coded-video workflow.
+- [references/craft-rules.md](references/craft-rules.md) for type, colour, layout, interface and liveliness rules shared by static, page and motion work.
+
+Shared design tools (Python standard library, run where code runs; each README says what it proves and what it does not):
+
+- [`craft_lint.py`](assets/craft-lint/README.md) flags machine-made design tells in HTML, CSS and SVG; [`contrast_check.py`](assets/craft-lint/contrast_check.py) computes WCAG contrast for any colour pair.
+- [`design_md.py`](assets/design-md/README.md) exports a brand kit as DESIGN.md for coding agents and imports one into a kit.
+- [`prompt_examples.py`](assets/prompt-examples/README.md) searches reviewed image and video prompt examples by medium and subject. Use it after the idea is chosen and before a web search for prompt technique; an example supplies structure, never the direction.
+- [`ai_writing_check.py`](../copy-voice/scripts/ai_writing_check.py) finds clusters of machine-made writing patterns in English and Polish copy ([patterns](../copy-voice/references/ai-writing-patterns.md)).
 
 ## Decision Rules
 
@@ -144,7 +152,7 @@ Read only what is needed:
 - Use role IDs and surface-appropriate display names from onboarding.
 - Do not skip upstream gates.
 - Generated static raster graphics should use the native image tool actually exposed by the host by default when available.
-- Static raster graphics with visible text must use the native image tool actually exposed by the host in one pass with text included.
+- Static raster graphics with visible text must use the native image tool actually exposed by the host in one pass with text included, unless Static Graphic Design Creator selects its [exact-copy compositing](../static-graphic-design-creator/references/exact-copy-compositing.md) route for a client final.
 - Resolve generator prompt fields and negative handling before producing generator-specific prompts. Do not attach a universal negative-prompt block.
 - Treat separately generated images and shots as independent units. Claim strict continuity only when each request has a concrete continuity carrier.
 - For image, edit, or video prompting, use a revisioned Creative Prompt Contract when the work has strict locks, multiple requests, target adaptation, or execution readiness needs. Keep the prompt revision, reference roles, attachment plan, continuity carrier, QA observables, and adapter status together.

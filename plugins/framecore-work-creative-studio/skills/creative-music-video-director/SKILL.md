@@ -13,6 +13,8 @@ Own the music-video creative direction between intake and shot/prompt execution.
 
 For a selected direction needing a precise rhythm relationship, recurring image, sustained performance or concept repair, read the relevant section of the [rhythm, motifs and performance workbook](references/rhythm-motifs-and-performance-workbook.md). It supplies original complete treatments, a reusable motif contract and handoff tests; it is not a shot list or audio inspection.
 
+When the selected direction is a coded lyric video, beat-synced typography or an animation that reacts to the track (no camera footage), hand the approved treatment to the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md): it times the lyrics with [lyric timing](../hyperframes-workflow/assets/motion-sync/README.md#lyric-timing), cuts on the beat grid and drives audio-reactive parts with `audio_envelope.py`.
+
 ## Treatment
 
 Write the client-facing treatment on the [music-video treatment](assets/music-video-treatment.template.md): the idea, a song-to-picture table by section, performance and casting with consent, look, locations, a production outline without prices and one box of assumptions.

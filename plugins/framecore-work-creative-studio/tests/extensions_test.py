@@ -113,6 +113,13 @@ class Registry(unittest.TestCase):
         designer = next(e for e in DATA['extensions'] if e['id'] == 'motion-designer')
         self.assertIn('YAML', designer['hosts']['codex']['reason'])
 
+    def test_every_entry_has_a_category_and_the_catalog_groups_by_it(self):
+        self.assertTrue(all(e.get('category') for e in DATA['extensions']))
+        code, out, _ = run('catalog', '--host', 'claude_code')
+        self.assertEqual(code, 0)
+        headings = [line for line in out.splitlines() if line.startswith('[')]
+        self.assertEqual(headings, sorted({f"[{e['category']}]" for e in DATA['extensions']}))
+
     def test_the_voice_engines_form_one_choice_described_in_the_audio_guide(self):
         tts = [e for e in DATA['extensions'] if e.get('category') == 'tts']
         self.assertEqual(sorted(e['id'] for e in tts), ['moss-tts', 'moss-ttsd', 'omnivoice', 'voicebox', 'voxcpm'])

@@ -27,6 +27,8 @@ Honor the host's storage contract for requested files. External upload or public
 
 Where Python with Pillow runs, lay out the approved brand kit as a guide with `scripts/brand_guide.py brand-kit.json --logo-dir logo/ --language pl --out-dir guide/`: cover, logo versions with clear space and proposed minimum size, colours with HEX, RGB and WCAG contrast (CMYK only from the printer's conversion), type samples in the named fonts, voice and claims, and the kit's own rules, as PNG pages and one PDF. Unfilled fields stop it unless the guide is marked as a draft; missing logos and fonts are printed as missing.
 
+For a client whose website or app is built by a coding agent, add the brand kit as DESIGN.md with [`design_md.py`](../pipeline-core/assets/design-md/README.md) (export; `import` reads a client's DESIGN.md into a kit).
+
 ## Client handoff
 
 For work delivered to a client, follow [client handoff](references/client-handoff.md): files grouped by use with sortable names, a contents list, fonts and licences, the [handoff letter](assets/handoff-letter.pl.md) with the agreed rights and a plain AI-assistance line when generative tools made part of the work, and written acceptance or the [acceptance protocol](assets/acceptance-protocol.pl.md). Afterwards, a [case study](assets/case-study.template.md) only with the client's consent and the client's own figures.

@@ -57,7 +57,10 @@ class Envelope(unittest.TestCase):
             tmp = pathlib.Path(tmp)
             kick_track(tmp / 'kick.wav')
             html = tmp / 'index.html'
-            html.write_text('<script>\n      /* BEGIN ENVELOPE */\n      const ENVELOPE = null;\n      /* END ENVELOPE */\n</script>\n')
+            html.write_text('<div id="root" data-composition-id="main" data-duration="8">\n'
+                            '<audio id="music" data-duration="8" data-timeline-role="music"></audio>\n'
+                            '<div class="scene" data-duration="2"></div>\n'
+                            '<script>\n      /* BEGIN ENVELOPE */\n      const ENVELOPE = null;\n      /* END ENVELOPE */\n</script>\n')
             code = envtool.main([str(tmp / 'kick.wav'), '--out', str(tmp / 'bass.json'), '--inject', str(html)])
             self.assertEqual(code, 0)
             data = json.loads((tmp / 'bass.json').read_text())
@@ -69,6 +72,8 @@ class Envelope(unittest.TestCase):
             self.assertIn('const ENVELOPE = {"fps":30', body)
             self.assertNotIn('const ENVELOPE = null', body)
             self.assertEqual(body.count('/* END ENVELOPE */'), 1)
+            self.assertEqual(body.count('data-duration="4"'), 2)
+            self.assertIn('class="scene" data-duration="2"', body)
             self.assertEqual(envtool.main([str(tmp / 'missing.wav')]), 1)
 
 

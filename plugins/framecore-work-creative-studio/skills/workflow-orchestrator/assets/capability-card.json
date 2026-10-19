@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-17",
+  "checked": "2026-10-19",
   "path_base": "plugin_root",
   "scope": "What Studio executes itself with bundled tools, what each tool needs from the host, what it delivers and what to deliver instead when a requirement is missing. Host tools and external providers are listed only to mark the boundary. A requirement is checked in the current host before a file is promised; a listed observation is past evidence, not a guarantee for another host or day.",
   "host_profiles": {
@@ -695,8 +695,11 @@
       "id": "hyperframes_engine",
       "executed_by": "external",
       "owner": "hyperframes-workflow",
-      "does": "HeyGen's open HyperFrames framework, installed on request in a shell host or, for the session, in the ChatGPT Work sandbox, builds and renders HTML compositions: launch films from a website, longer narrated videos, word-level captions, music-driven edits",
-      "tools": [],
+      "does": "HeyGen's open HyperFrames framework, installed on request in a shell host or, for the session, in the ChatGPT Work sandbox, builds and renders HTML compositions: launch films from a website, longer narrated videos, word-level captions, music-driven edits; Studio ships a reel starter and the Iso Glow example as starting compositions",
+      "tools": [
+        "skills/hyperframes-workflow/assets/reel-starters/local-service/index.html",
+        "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html"
+      ],
       "requires": [
         "node",
         "ffmpeg",
@@ -773,14 +776,16 @@
         "host_tool",
         "network"
       ],
-      "optional": [],
+      "optional": [
+        "python"
+      ],
       "hosts": [
         "code_execution",
         "shell",
         "none"
       ],
       "delivers": "An evidence note with sources and access dates",
-      "when_missing": "Say once that current sources could not be checked and mark mutable claims unverified",
+      "when_missing": "Where code runs, read public sources with web_reach; otherwise say once that current sources could not be checked and mark mutable claims unverified",
       "observed": "Depends on the host's search or browsing tool"
     },
     {
@@ -1055,6 +1060,160 @@
       "delivers": "The ratio and three pass or fail verdicts; a self-test of the reference pairs",
       "when_missing": "Apply the WCAG formula by hand as written in the craft rules",
       "observed": "Container checks"
+    },
+    {
+      "id": "lyric_timing",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Times every word and line of a supplied song against the user's lyrics with a speech recogniser the user installs (faster-whisper first), finds the beat grid and places board cuts on it; exports JSON, LRC and SRT and lists lines to check by ear",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
+        "skills/hyperframes-workflow/assets/motion-sync/beats.py"
+      ],
+      "requires": [
+        "python",
+        "numpy",
+        "ffmpeg"
+      ],
+      "optional": [
+        "network"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A timing JSON with words, lines, cuts in seconds and frames, tempo and needs_check lines, plus LRC and SRT files",
+      "when_missing": "Pass word times from another tool with --words, or time the lines by ear from the user's cue sheet and mark the timing unverified",
+      "observed": "2026-10-18: two real songs end to end in a Linux container with faster-whisper small (98 % and 89 % of lyric words matched); not checked by ear"
+    },
+    {
+      "id": "motion_activity",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Measures how much of a rendered MP4 is still, finds undeclared still stretches and gives PASS or REVISE; intended holds are declared with --hold",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py"
+      ],
+      "requires": [
+        "python",
+        "numpy",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A PASS or REVISE verdict with the still share and the longest still stretches by time",
+      "when_missing": "Watch the full video at normal speed and list every stretch where nothing changes for more than about 1.5 s",
+      "observed": "2026-10-17 and 2026-10-18: run on the reel starter and Iso Glow renders in a Linux container"
+    },
+    {
+      "id": "html_capture",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Renders one hand-written HTML composition with a seekable timeline to MP4 frame by frame when the npm registry is unreachable",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-export/capture-html.mjs"
+      ],
+      "requires": [
+        "node",
+        "browser",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "shell"
+      ],
+      "delivers": "An MP4 at the composition size and frame rate",
+      "when_missing": "Render from a contract with the Python renderer, or give the contract and the motion player",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "motion_prompt_library",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Searches the motion prompt library and the technique atlas for a named technique once the idea is chosen; supplies technique, never the direction",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+        "skills/hyperframes-workflow/assets/technique-atlas/atlas.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [
+        "node"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "At most three matching records or one technique card with its source and licence",
+      "when_missing": "Read the library README and brief index, or the atlas card list, directly",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "asset_manifest",
+      "executed_by": "studio",
+      "owner": "delivery-documentation",
+      "does": "Builds a manifest of project files with revisions and finds which outputs depend on a changed source",
+      "tools": [
+        "skills/delivery-documentation/scripts/asset_manifest.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A manifest JSON and the list of outputs affected by a change",
+      "when_missing": "Keep the inventory as a table in the project state and trace dependencies by hand",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "environment_check",
+      "executed_by": "studio",
+      "owner": "workflow-orchestrator",
+      "does": "Checks which tools behind the capability card are installed in this host and prints install steps for the missing ones",
+      "tools": [
+        "skills/workflow-orchestrator/assets/environment-check/check_environment.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [
+        "network"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A per-tool report: found, version, missing, and the install step for this system",
+      "when_missing": "Probe by hand (node -v, ffmpeg -version, python3 -c \"import PIL\") and say what was not checked",
+      "observed": "Container checks only"
+    },
+    {
+      "id": "web_reach",
+      "executed_by": "studio",
+      "owner": "research-evidence",
+      "does": "Reads a public page, feed, GitHub repository or video subtitles without a login when the host has no browsing tool; refuses private addresses and prints source and date",
+      "tools": [
+        "skills/research-evidence/assets/web-reach/web_reach.py"
+      ],
+      "requires": [
+        "python",
+        "network"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Readable text or entries with the source URL and retrieval date for the evidence note",
+      "when_missing": "Use the host's search or browsing tool, or say once that current sources could not be checked",
+      "observed": "Container checks only"
     }
   ]
 }

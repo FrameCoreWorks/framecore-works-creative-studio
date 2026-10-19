@@ -206,7 +206,8 @@ def update_records(old, new, change_id, args, canonical, checks, browser, claude
                     + f'[Scope](verification/scope-{new}.json) records {scope_line}.')
     replace_once('VERIFICATION.md', f'## Current source: {old}', f'## Current source: {new}\n\n{verification}\n\n## Previous source: {old}')
     status = read('RELEASE_STATUS.md')
-    status = re.sub(r'^Source version: \*\*[^*]+\*\*\. Date: [0-9-]+\. Change ID: `[^`]+`', f'Source version: **{new}**. Date: {today()}. Change ID: `{change_id}`', status, count=1, flags=re.M)
+    status = re.sub(r'^Source version: \*\*[^*]+\*\*\. Date: [0-9-]+\. Change ID: `[^`]+`(?: \(origin: [^)]+\))?',
+                    f'Source version: **{new}**. Date: {today()}. Change ID: `{change_id}` (origin: cloud-code)', status, count=1, flags=re.M)
 
     def row(name, value):
         nonlocal status

@@ -237,7 +237,7 @@ def lint(source, name='input', allow=()):
         add('P1', 'raw-hex', f'{len(hexes)} raw hex colours outside the token block; use tokens', ' '.join(sorted(set(hexes))[:8]))
     body_only = re.sub(r'<style\b.*?</style>', '', source, flags=re.S | re.I) if is_html else ''
     uses = len(re.findall(r'var\(--accent\)', body_only))
-    if uses >= 6:
+    if uses >= 6 and not video:   # a video spreads the accent over many shots; review it per shot by eye
         add('P1', 'accent-overuse', f'The accent is used {uses} times in the markup; keep it to about two per screen', f'{uses} uses')
     host = next((h for h in PLACEHOLDER_HOSTS if h in source.lower()), None)
     if host:

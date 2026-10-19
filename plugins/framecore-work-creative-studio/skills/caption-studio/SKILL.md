@@ -72,6 +72,7 @@ Use [templates/caption-task-pack.md](templates/caption-task-pack.md) for nontriv
 ## Decision Rules
 
 - Prefer word-level timing for karaoke, active-word highlight, bounce, or rapid short-form captions. In a motion contract, the captions tool keeps each cue's word timings when it builds cues from timed words and imports them as `words`; set `tokens.captions.preset` to `active-word` for word boxes with the spoken word highlighted, rendered identically by the player and the Python renderer ([example](../hyperframes-workflow/assets/motion-scenes/examples/social-captions.motion-score.json)).
+- For a song, take word and line times from [lyric timing](../hyperframes-workflow/assets/motion-sync/README.md#lyric-timing) with the user's lyrics as the truth; it writes SRT and LRC and lists lines to check by ear.
 - Prefer segment-level subtitles for calm editorial work and deterministic sidecar delivery.
 - Prefer a coded-video route when exact repeatable motion and layout are required. For a motion video Studio builds from a contract, import the SRT or WebVTT with the [motion sync tool](../hyperframes-workflow/assets/motion-sync/README.md); `check-score.mjs` then checks order, overlaps and reading time.
 - Prefer a timeline editor when captions are one layer inside a larger human-reviewed edit.

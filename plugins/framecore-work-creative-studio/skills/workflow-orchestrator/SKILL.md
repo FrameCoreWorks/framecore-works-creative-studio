@@ -126,13 +126,15 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | Need | Polish cues | Owner |
 |---|---|---|
 | Poster, flyer, ad, social graphic, cover, packaging or logo craft, with its prompt or a scoped edit | plakat, ulotka, grafika, baner, okładka | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
+| Landing page, app screen mockup, HTML page or slide/pitch deck design | makieta, landing, pitch deck | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
 | Prompt for a still image that is not a designed layout (photo, illustration, scene), or for an approved direction | prompt do zdjęcia, ilustracja | [image-prompt-architect](../image-prompt-architect/SKILL.md) |
 | Image supplied as a reference for a new asset | w tym stylu, referencja | [reference-pack-curator](../reference-pack-curator/SKILL.md) with the direction or prompt owner |
-| Approved base image supplied for an edit | popraw to zdjęcie, zmień tło | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only edit |
-| Existing image explicitly supplied for review | oceń grafikę | [output-critic-iteration](../output-critic-iteration/SKILL.md) |
+| Approved base image supplied for an edit | popraw to zdjęcie, zmień tło | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only photo edit |
+| Existing image explicitly supplied for review | oceń grafikę, kontrast | [output-critic-iteration](../output-critic-iteration/SKILL.md) |
+| Measure a reference animation to rebuild its technique | rozbiór referencji | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
 | Conflicting references, source authority or an input attachment map | które zdjęcie jest wzorem | [reference-pack-curator](../reference-pack-curator/SKILL.md) |
 | Shared visual system and format adaptations for a multi-asset campaign | key visual, adaptacje | [commercial-visual-campaign-director](../commercial-visual-campaign-director/SKILL.md) |
-| Brand strategy, logo system, księga znaku or identyfikacji | identyfikacja wizualna | [brand identity profile](references/brand-identity-workflow.md): Marketing, Static Graphic Design Creator and Delivery Documentation, one Project State |
+| Brand strategy, logo system, księga znaku or identyfikacji | identyfikacja wizualna, DESIGN.md | [brand identity profile](references/brand-identity-workflow.md): Marketing, Static Graphic Design Creator and Delivery Documentation, one Project State |
 | New copy: headlines, ads, posts, product text, voice-over, supers | hasło, tekst reklamy, opis | [copy-voice](../copy-voice/SKILL.md) |
 | Natural voice for existing text, facts and locks kept | brzmi jak AI, wygładź | [humanizer](../humanizer/SKILL.md) |
 | Positioning, audiences, voice, or a campaign or channel plan without a priced offer (service businesses included) | strategia marki, plan komunikacji | [marketing](../marketing/SKILL.md) |
@@ -140,7 +142,7 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | Messy notes into a brief; client intake, quote or offer | brief, wycena, ile wziąć | [brief-architect](../brief-architect/SKILL.md) |
 | Commercial video idea, motion thesis or film family for a product, brand or service | pomysł na reklamę, spot | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) |
 | Video project spanning several stages, or cutdowns | cały film, wersje 15 i 30 s | [creative-video-producer](../creative-video-producer/SKILL.md) |
-| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, animowane logo | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
+| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, animacja do muzyki, lyric video | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
 | User-selected React/TypeScript video | Remotion | [remotion-video-production](../remotion-video-production/SKILL.md) |
 | Video-generator prompt, shot-card compilation, source-clip edit, or a supplied clip to review | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
 | Edit plan from supplied footage or an OpenCut timeline | montaż z nagrań | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
@@ -177,7 +179,7 @@ Carry the exact copy, concept, reference roles and permitted changes through eve
 
 Do not execute a prompt-only request. Generation uses a real available native tool only when requested and allowed. Protected external providers require the current host/user activation conditions; ordinary approval of a brief does not satisfy them. No automatic uploads, publication, paid fallback or repeated rendering.
 
-For text-bearing raster generation, use one integrated image including exact copy. Do not substitute an overlay, coded poster or mockup. Explicit requests for vectors, layers or code create a different deliverable. Respect host-specific model selection; never claim to have forced a model the tool cannot select.
+For text-bearing raster generation, use one integrated image including exact copy. Do not substitute an overlay, coded poster or mockup, unless the static owner selects its exact-copy compositing route for a client final. Explicit requests for vectors, layers or code create a different deliverable. Respect host-specific model selection; never claim to have forced a model the tool cannot select.
 
 ## Close at the requested artifact
 
