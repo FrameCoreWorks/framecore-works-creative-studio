@@ -1,0 +1,33 @@
+{
+  "version": "1.96.0",
+  "baseline_tag": "v1.95.0",
+  "baseline": "8bebc64a3745a3f41f764f4f87c84beef80f59ae",
+  "change_id": "CC-20261019-07",
+  "origin": "cloud-code",
+  "files": 1498,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/motion-development-review.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/hyperframes-workflow/templates/motion-qa-record.md",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/dense-kinetic-reels.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1484,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Dense kinetic brand reels: structure, carrier from the logo, scene logic check, chat reading time and brand-first colours, learned from the owner-approved Knock Knock reel."
+}

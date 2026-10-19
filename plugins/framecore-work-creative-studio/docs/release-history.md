@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.96.0, 2026-10-19
+
+At the owner's request, after a 16.7-second Knock Knock reel (children's woodworking classes) was built in Claude Code from two reference reels and approved in four review rounds, Studio records how to make dense kinetic reels and how to keep every scene logical:
+
+- **Dense kinetic reels.** [Dense kinetic reels](../skills/hyperframes-workflow/references/dense-kinetic-reels.md): the structure of a brand showreel (chat or notification hook, the brand's carrier launched by an action, three to five offer boards in kinetic type, a summary in the brand's lettering, payoff in the same chat, logo assembled from its parts), measured cut rates and still shares, and build and sound notes. A blueprint row joins the reel board system
+- **Brand first.** Colours, type, characters and objects come from the brand's logo and kit, never from a reference; a reference teaches a mechanism. Tempo follows the audience
+- **The carrier.** One element of the logo travels through the boards; when it replaces a letter it is drawn as a vector glyph at the type's weight, larger than the letters and centred with even spacing, never a raster cut-out
+- **Scene logic check.** Each object does its real job on its material, seen from the side that shows the result (a drill into a board's face, a saw in its kerf, a hammer on a nail head), with a visible result, and the next board grows out of that result (the camera flies through the bored hole). It is the development review's new question 6, a QA record row, a step before building in Motion Graphics and a check on shot cards in Storyboard Sequence Architect
+- **Reading time.** About 0.75 s between short chat messages and at least 0.8 s on the last one before a scene change
+- Repository: knowledge-wiring rows (a heading link now counts) and host-eval case AD13 (not run)
+
 ## 1.95.0, 2026-10-19
 
 At the owner's request, Upscayl (upscayl/upscayl, AGPL-3.0) joins the recommended repositories with an upscaling route in Studio:

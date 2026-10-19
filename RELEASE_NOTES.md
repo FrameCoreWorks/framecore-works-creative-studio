@@ -1,5 +1,5 @@
-# Creative Studio 1.95.0
+# Creative Studio 1.96.0
 
-## Upscaling, and Upscayl in the recommended repositories
+## Dense kinetic reels and the scene logic check
 
-When an image is too small for print or its placement, Studio measures it, prefers a better source, enlarges it before setting text and names a model licensed for paid work. Upscayl, a free desktop upscaler, joins the recommended repositories with pinned installers.
+Studio now knows how to build a dense brand showreel: a chat hook, a carrier taken from the logo, kinetic offer boards and a logo assembly, always in the brand's own colours. Every scene passes a logic check: the tool works on its material from the side that shows it, and the next scene grows out of what it did.
