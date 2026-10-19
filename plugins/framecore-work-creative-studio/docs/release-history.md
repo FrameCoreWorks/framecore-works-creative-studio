@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.95.0, 2026-10-19
+
+At the owner's request, Upscayl (upscayl/upscayl, AGPL-3.0) joins the recommended repositories with an upscaling route in Studio:
+
+- **Upscaling route.** [Upscaling](../skills/static-graphic-design-creator/references/upscaling.md) in Static Graphic Design Creator: measure the effective resolution with `image_probe.py`, prefer a better source, enlarge the clean image before text and logos are composited, inspect faces, hands and product edges at 100 %, and report the tool, model and factor. Linked from the static owner, the print presets, print-ready PDF delivery, format adaptation and the routing boundaries
+- **Model licences.** For paid work, High Fidelity (HFA2k, CC BY 4.0); UltraSharp, Ultramix Balanced and Remacri are non-commercial (CC BY-NC-SA 4.0); Upscayl Standard, Lite and Digital Art have no stated licence and are not used for paid work until confirmed
+- **Registry.** `upscayl` added (category image), pinned to release 2.15.0 (commit 4f39acf) with the SHA-256 of the Windows, macOS, AppImage and deb installers; manual on every host, since it is a desktop app that needs a Vulkan graphics card and runs on the user's computer
+- Repository: a knowledge-wiring row and host-eval case AD12 (not run)
+
 ## 1.94.0, 2026-10-19
 
 At the owner's request, a full audit of the repository and plugin after 1.91.0 to 1.93.0, with every gap it found in how the added knowledge is reached fixed ([audit](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/full-audit-2026-10-19.md), [handover for Codex](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-codex-2026-10-19.md)):

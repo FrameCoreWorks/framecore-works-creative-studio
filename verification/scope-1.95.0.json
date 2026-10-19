@@ -1,0 +1,34 @@
+{
+  "version": "1.95.0",
+  "baseline_tag": "v1.94.0",
+  "baseline": "c8f9ab8ad4fa41040eae1e4e71f60b5bf888e8fb",
+  "change_id": "CC-20261019-06",
+  "origin": "cloud-code",
+  "files": 1497,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/commercial-visual-campaign-director/references/format-adaptation.md",
+    "skills/delivery-documentation/references/print-ready-pdf.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/static-graphic-design-creator/references/format-and-print-presets.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/references/routing-boundaries.md",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "skills/static-graphic-design-creator/references/upscaling.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1482,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Upscaling route in Static Graphic Design Creator with model licences for paid work, and Upscayl 2.15.0 in the recommended repositories with pinned installers."
+}
