@@ -47,7 +47,7 @@ The notes file starts with `# Creative Studio X.Y.Z`. `release.py` writes the re
 ## Open decisions and suggested next work
 
 - Owner decision: an optional tier in the environment check for faster-whisper, yt-dlp and pikepdf (now not listed because every listed tool is required).
-- Owner decision: delete the two superseded branches `claude/plugin-cloud-update-vzrtk5` and `cloud-code/CC-20261007-03-second-test-report`, and the 81 merged working branches.
+- Done 2026-10-19: the owner deleted the 80 merged or superseded remote branches by hand; the remote keeps `main`, `gh-pages` and the active session branch, and the repository deletes head branches after a merged pull request. `release.py --push` now pushes `main` and only the branches named in `STUDIO_RELEASE_BRANCHES`, never the local working branch, so releases no longer leave remote branches. Develop on a local working branch; push it only for a pull request.
 - Run `python3 scripts/host_eval.py --suite additions` when the owner allows paid runs (budget under USD 1 for a gate subset), and record cost.
 - Split the Motion Graphics "Deliver the video" section into host route, a look-by-brief table and review.
 - Small items listed at the end of the audit.

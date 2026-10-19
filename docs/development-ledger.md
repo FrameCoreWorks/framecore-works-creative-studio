@@ -2492,3 +2492,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `c8f9ab8`; workflows Check Studio sources 39236647785, Check Studio sources 39236643547, Refresh current release notes 39236640871, Publish verified Studio release 39236640868, Check Studio sources 39236640908: success; [v1.94.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.94.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1496 of 1496) ([record](../verification/github-publication-1.94.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261019-04
+
+- Origin: cloud-code
+- Branch: local working branch, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `7606617` (main, package 1.94.0)
+- Result: the commit carrying this entry (package unchanged, 1.94.0)
+- Package version: none
+- Scope: remote branch cleanup and its cause. The owner deleted 80 merged or superseded remote branches by hand (78 merged into `main`; `claude/plugin-cloud-update-vzrtk5` and `cloud-code/CC-20261007-03-second-test-report` superseded, heads `2e5cc5a` and `a82f1ee`) and enabled automatic deletion of merged pull request branches. `scripts/release.py` no longer pushes the local working branch, only `main` and `STUDIO_RELEASE_BRANCHES`. Audit and Codex handover updated.
+- Shared package changed: no
+
+Verification:
+
+- `git ls-remote --heads origin`: `main`, `gh-pages`, `ccr-b6d36a1c-4hszow`; 126 version tags; GitHub Pages answers 200
+- `tests/test_release.py`: PASS; canonical validator: PASS
+
+Cross-host state:
+
+- GitHub: synchronized once this commit is on `main`
+- ChatGPT Work: not_tracked (no package change)
+- Codex: not_run

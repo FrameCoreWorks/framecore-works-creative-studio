@@ -48,7 +48,7 @@ Method: three parallel read-only reviews (reachability of new knowledge from the
 ## Repository structure
 
 - `main` is linear with tags up to `v1.93.0` (125 tags). GitHub Pages (`gh-pages`) was last built from `0341238` (2026-10-14); the player and fonts have not changed since, so it is current.
-- 83 remote branches. All are merged into `main` except two from 2026-10-07: `claude/plugin-cloud-update-vzrtk5` (a `package_claude_plugin.py` script and a ledger line; Claude packaging is now done by `release.py` and `claude plugin validate --strict`) and `cloud-code/CC-20261007-03-second-test-report` (a host-report file identical to the one on `main`). Inference: both are superseded. Nothing was deleted; branch cleanup is an owner decision.
+- 83 remote branches. All are merged into `main` except two from 2026-10-07: `claude/plugin-cloud-update-vzrtk5` (a `package_claude_plugin.py` script and a ledger line; Claude packaging is now done by `release.py` and `claude plugin validate --strict`) and `cloud-code/CC-20261007-03-second-test-report` (a host-report file identical to the one on `main`). Inference: both are superseded. After the audit the owner deleted all 80 by hand (this session's Git access may not delete branches) and enabled automatic deletion of merged pull request branches. The remote now holds `main`, `gh-pages` and the active session branch. The branches had accumulated because `release.py --push` also pushed the local working branch; it now pushes only `main` and the branches in `STUDIO_RELEASE_BRANCHES`.
 - Every plugin test file and every root `tests/test_*.py` is run by `scripts/check_all.sh`.
 
 ## Open items (not changed, with reasons)

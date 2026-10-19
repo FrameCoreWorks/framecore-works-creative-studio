@@ -11,7 +11,7 @@ STUDIO_COMMIT_TRAILERS (trailer lines appended to the release commit, \\n betwee
 prepare: checks the branch can fast-forward main, bumps every version marker, writes the changelog entries and release
 notes, regenerates config/install-sources.json, runs every check and parses the results, writes the scope and release
 records, VERIFICATION, RELEASE_STATUS and the ledger entry, packages the release and commits with the trailers; with
---push it fast-forwards main (never a force push) and pushes the working branches. publish: waits for the GitHub
+--push it fast-forwards main (never a force push) and pushes only the branches named in STUDIO_RELEASE_BRANCHES. publish: waits for the GitHub
 workflows of the release commit, downloads the release assets, checks them against the local build and the tag tree,
 writes the publication record, updates RELEASE_STATUS and the ledger and commits (and pushes with --push). Both print
 what they did; neither edits anything inside the shared package except the version markers prepare owns.
@@ -293,8 +293,9 @@ def push(baseline):
     if git('rev-parse', 'origin/main') != baseline:
         raise ReleaseError('origin/main moved since the baseline; merge it and run again (no force push)')
     git('push', '-q', 'origin', 'HEAD:main')
-    branch = git('rev-parse', '--abbrev-ref', 'HEAD')
-    for target in [branch] + SESSION_BRANCHES:
+    # Only main and the branches a session must keep in step (STUDIO_RELEASE_BRANCHES); the local working branch
+    # stays local, so releases do not leave a remote branch behind (owner cleanup 2026-10-19).
+    for target in SESSION_BRANCHES:
         if target not in ('HEAD', 'main'):
             run('git', 'push', '-q', 'origin', f'HEAD:{target}', check=False)
 
