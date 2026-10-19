@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.94.0, 2026-10-19
+
+At the owner's request, a full audit of the repository and plugin after 1.91.0 to 1.93.0, with every gap it found in how the added knowledge is reached fixed ([audit](docs/reviews/full-audit-2026-10-19.md), [handover for Codex](docs/handover-codex-2026-10-19.md)):
+
+- **New owners.** Landing pages, app screen mockups, HTML pages and slide or pitch deck design go to Static Graphic Design Creator with the craft rules; contrast and accessibility checks to Output Critic with `contrast_check.py` (HTML with `craft_lint.py`); measuring a reference animation to Motion Graphics with reference breakdown; coded lyric and beat-synced videos to Motion Graphics with lyric timing. Routing rows, Polish cues and collision rules added
+- **Knowledge wired to its users.** DESIGN.md export is linked from the brand identity profile, Delivery Documentation and the static owner; Pipeline Core lists the shared design tools; prompt examples come after the idea and before a web search; Caption Studio and Creative Music Video Director reach lyric timing; Output Critic judges against the craft rules; the motion review row includes motion activity; the reel starter is offered at build time
+- **Conflicts resolved.** The one-pass text rule names the exact-copy compositing exception; motion entry and exit timing agree with motion craft; the Polish dash standard accepts the spaced em dash, one style per text; protected text is reported by the AI writing check, never rewritten; one precedence line chooses among Anatomy, Iso Glow, art-style direction and the Animate engine
+- **Fixes.** The Iso Glow example follows the track's length and `audio_envelope.py --inject` sets the composition and music clip duration; lyric timing tries faster-whisper first (the recogniser verified on songs); `accent-overuse` is skipped in video compositions; web reach is told to use the direct route for client URLs; the release status records the right origin
+- **Capability card.** Lyric timing, motion activity, HTML capture, the prompt library and technique atlas, the asset manifest, the environment check and web reach added, with runtime-map rows; checked 2026-10-19
+- **Registry.** Every recommended repository has a category; `extensions.py catalog` groups by it
+- Repository: `tests/knowledge_wiring_test.py` (each integrated reference is linked from its owners), a category test, an extended Iso Glow test, GitHub-exact anchors in the validator, and the host-eval set `additions` (11 cases, not run)
+
 ## 1.93.0, 2026-10-19
 
 At the owner's request, a full adaptation of anti-slop (miqdadbadjuber, MIT) and its listing among the recommended repositories:

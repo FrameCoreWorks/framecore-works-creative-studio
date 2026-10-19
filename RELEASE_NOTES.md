@@ -1,5 +1,5 @@
-# Creative Studio 1.93.0
+# Creative Studio 1.94.0
 
-## AI writing patterns, liveliness and anti-slop checks
+## Audit: the added knowledge is now reachable from the skills that need it
 
-Studio now finds the patterns that make copy read as machine-made, in English and Polish, and judges when they cluster. Designs get a purpose test, three liveliness dials, honest placeholders and more lint rules, plus a WCAG contrast checker, adapted from anti-slop (MIT), which joins the recommended repositories.
+A full audit after 1.91.0 to 1.93.0. Landing pages, app mockups, pitch decks, contrast checks, reference animations and lyric videos now have owners; DESIGN.md, prompt examples, lyric timing and the craft rules are linked from every skill that must use them; four conflicting rules agree; the Iso Glow example follows the song's length. A new test fails if one of those links disappears.
