@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-20T09:15:35.086539+00:00",
+  "change_id": "CW-20261020-01",
+  "package_version": "1.98.0",
+  "source": {
+    "commit": "881dcb55b7f09b0f0866d1ffa8a46a71025443b5",
+    "package_uncommitted_changes": false
+  },
+  "suite": "studio-additions-pl",
+  "record_type": "preflight_failure",
+  "verdict": "NOT_RUN",
+  "execution_surface": "ChatGPT Work shell (Codex)",
+  "requested_host": "Claude Code headless with --plugin-dir; this suite does not test GPT Astra or the ChatGPT Work client",
+  "host_version": null,
+  "requested_model": "claude-sonnet-5-5 (runner default)",
+  "actual_model": null,
+  "reasoning_setting": "not_run; host did not start",
+  "command": "python3 -B scripts/host_eval.py --suite additions --write",
+  "exit_code": 2,
+  "stderr": "host_eval: Claude Code (claude) is not installed",
+  "summary": {
+    "cases_requested": 14,
+    "cases_executed": 0,
+    "PASS": 0,
+    "FAIL": 0,
+    "NOT_RUN": 14,
+    "model_calls": 0,
+    "tokens": 0,
+    "cost_usd": 0
+  },
+  "cost_basis": "The runner exited at the missing-executable check before starting a model process.",
+  "credential_check": {
+    "ANTHROPIC_API_KEY_present": false,
+    "ANTHROPIC_AUTH_TOKEN_present": false
+  },
+  "cases": [
+    {
+      "id": "AD01",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD02",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD03",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD04",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD05",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD06",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD07",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD08",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD09",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD10",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD11",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD12",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD13",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    },
+    {
+      "id": "AD14",
+      "verdict": "NOT_RUN",
+      "reason": "Claude Code executable unavailable; no response or tool trace to grade."
+    }
+  ],
+  "routing_findings": "Unknown: reads_any and skills_any were not evaluated; no shared-package fixes justified by this attempt.",
+  "next_action": "Run the same command on a host with authenticated Claude Code and available usage or an owner-authorized API key and budget. Record actual client version, reasoning setting, tokens, elapsed time and cost.",
+  "scope": "A preflight failure only. This record is not evidence of plugin behavior in any host."
+}

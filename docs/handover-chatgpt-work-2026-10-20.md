@@ -10,9 +10,9 @@ Cloud Code's weekly limit is spent until Saturday. The owner continues on ChatGP
 
 ## Task 1: fix the `publish` default
 
-`scripts/release.py publish` waits for `--min-runs` workflow runs on the release commit, default 4. Since releases push only `main` (branch hygiene rule), a release has 3 runs (Refresh current release notes, Publish verified Studio release, Check Studio sources), so `publish` waited its full `--wait` and failed until `--min-runs 3` was passed.
+`scripts/release.py publish` waits for `--min-runs` workflow runs on the release commit, default 3. Since releases push only `main` (branch hygiene rule), a release has 3 runs (Refresh current release notes, Publish verified Studio release, Check Studio sources). The previous default exceeded that count, so `publish` waited its full `--wait` and failed unless `--min-runs 3` was passed. Task 1 aligns the default with the three-run release route; an explicit override remains available.
 
-1. Change the default to 3 at `q.add_argument('--min-runs', ...)` and update any text that says 4.
+1. Keep the default at 3 at `q.add_argument('--min-runs', ...)` and keep the operational description in sync.
 2. Run the canonical validator and `bash scripts/check_all.sh`; this is a non-package change (`Shared-Package-Changed: no`), so no release steps.
 3. Commit with the required trailers, add a ledger entry, fast-forward push to `main`.
 

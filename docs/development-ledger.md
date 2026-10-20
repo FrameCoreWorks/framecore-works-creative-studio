@@ -2626,3 +2626,30 @@ Cross-host state:
 - GitHub: pending until pushed
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CW-20261020-01: publish workflow count and additions preflight
+
+- Origin: chatgpt-work (Codex shell)
+- Branch: `codex/CW-20261020-01-publish-default`, local only
+- Baseline: `881dcb55b7f09b0f0866d1ffa8a46a71025443b5` (main, package 1.98.0)
+- Result: the commit carrying this entry; package unchanged (1.98.0)
+- Trigger: the owner requested tasks 1 and 2 of `docs/handover-chatgpt-work-2026-10-20.md`; the main-only release creates three workflow runs while `publish` waited for four.
+- Scope: change the `publish --min-runs` default to 3, synchronize the handover's description, attempt the additions host-eval suite and record its actual prerequisite failure.
+- Shared package changed: no; no release or hosted update is required.
+
+Verification:
+
+- CLI argument check with publication stubbed (no GitHub mutation): baseline default 4; candidate default 3; explicit `--min-runs 5` remains 5. Three finished runs now satisfy the default count. This is a local argument check, not a new release publication.
+- Canonical validator: PASS.
+- `bash scripts/check_all.sh`: PASS, exit 0. Node: 238 total, 225 passed, 13 skipped, 0 failed. Python: 47 suites, 392 total, 381 passed, 11 skipped, 0 failed. Conditional skips include the unavailable Claude CLI, browser checks, optional GEPA dependency and optional print tooling; they are not behavior passes.
+- Shared-package diff: empty; plugin version remains 1.98.0.
+- Additions host eval: `python3 -B scripts/host_eval.py --suite additions --write` exited 2 with `host_eval: Claude Code (claude) is not installed`. AD01 to AD14: NOT_RUN, zero model calls, zero tokens, USD 0. No response or tool trace exists to evaluate `reads_any` or `skills_any`; routing defects remain Unknown. No package repair is justified by this attempt.
+- Requested host: headless Claude Code; requested model: runner default `claude-sonnet-5-5`. Actual host version, model and reasoning setting: not_run. Running this script from Work would still test Claude Code, not GPT Astra. [Preflight record](../verification/host-evals/2026-10-20-1.98.0-additions-preflight.json).
+
+Cross-host state and next step:
+
+- GitHub publication target: `main`, fast-forward only; baseline rechecked before commit. The remote readback is reported separately after pushing this commit.
+- ChatGPT Work: not_tracked; shared package unchanged.
+- Codex: not_run (installed-plugin behavior); repository source checks above ran in the Work shell.
+- Run additions on a host with authenticated Claude Code and available usage or an owner-authorized API key within the handover's budget. Record client, reasoning setting, tokens, time and cost; review actual failures before changing routing.
+- Remote branch inventory before publication: `main`, `gh-pages`, and the existing `ccr-b6d36a1c-4hszow` session branch. That session branch is already an ancestor of the baseline `main`; preserved for its owning session.

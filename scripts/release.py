@@ -483,7 +483,7 @@ def main(argv=None):
     q.add_argument('version')
     q.add_argument('--change-id', required=True)
     q.add_argument('--wait', type=int, default=1800)
-    q.add_argument('--min-runs', type=int, default=4)
+    q.add_argument('--min-runs', type=int, default=3)
     q.add_argument('--push', action='store_true')
     args = parser.parse_args(argv)
     try:
