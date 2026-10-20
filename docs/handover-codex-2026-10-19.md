@@ -20,6 +20,7 @@ For a Codex session that continues or checks the work after the full audit. Read
 | Iso Glow (MIT) | `skills/hyperframes-workflow/assets/iso-glow/`, `assets/motion-sync/audio_envelope.py` | Motion Graphics |
 | Lyric timing | `skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py` | Motion Graphics, Caption Studio, Creative Music Video Director |
 | Dense kinetic reels, the carrier and the scene logic check (owner review of the Knock Knock reel, 1.96.0) | `skills/hyperframes-workflow/references/dense-kinetic-reels.md`, development review question 6, reel board blueprint, QA record row | Motion Graphics, Storyboard Sequence Architect |
+| OpenCreator (Apache-2.0 desktop app, 1.97.0): listed only, nothing bundled; its 108 templates are not reusable (no licence, outside authors) | registry entry `opencreator` | orchestrator option 4 |
 | Upscaling route; Upscayl (AGPL-3.0, desktop app, 1.95.0) | `skills/static-graphic-design-creator/references/upscaling.md`, registry entry `upscayl` | static owner, print delivery, format adaptation, routing boundaries |
 | Recommended repositories (welcome option 4) | `skills/workflow-orchestrator/assets/extensions/` and `references/extensions.md` | orchestrator |
 
