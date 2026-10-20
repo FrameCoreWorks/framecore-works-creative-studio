@@ -2653,3 +2653,4 @@ Cross-host state and next step:
 - Codex: not_run (installed-plugin behavior); repository source checks above ran in the Work shell.
 - Run additions on a host with authenticated Claude Code and available usage or an owner-authorized API key within the handover's budget. Record client, reasoning setting, tokens, time and cost; review actual failures before changing routing.
 - Remote branch inventory before publication: `main`, `gh-pages`, and the existing `ccr-b6d36a1c-4hszow` session branch. That session branch is already an ancestor of the baseline `main`; preserved for its owning session.
+- Correction (same entry): task 2 no longer asks ChatGPT Work to run `host_eval.py` (it needs the Claude Code CLI); it tests in its own sandbox, develops further, reviews orchestration and marks its commits `Origin-Agent: chatgpt-work`.

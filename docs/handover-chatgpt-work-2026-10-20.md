@@ -16,9 +16,17 @@ Cloud Code's weekly limit is spent until Saturday. The owner continues on ChatGP
 2. Run the canonical validator and `bash scripts/check_all.sh`; this is a non-package change (`Shared-Package-Changed: no`), so no release steps.
 3. Commit with the required trailers, add a ledger entry, fast-forward push to `main`.
 
-## Task 2: run the additions host-eval suite
+## Task 2: test in your own sandbox (corrected)
 
-`python3 scripts/host_eval.py --suite additions` (14 Polish requests AD01 to AD14; AD14 is the sound check of a finished reel). The owner approved paid runs within about USD 1 per release-gate subset and USD 2 to 4 per full pass; record the cost with the run. Report which cases fail and why (`reads_any` and `skills_any` show whether the host reached the right file or owner). Fix routing or wiring defects with the smallest change; a fix to the shared package needs the release procedure in the Codex handover. Record the tested client and reasoning setting; `PASS_REPORTED` only for owner-reported success.
+`scripts/host_eval.py` drives the Claude Code CLI (`claude -p`), which ChatGPT Work does not have, so do not run it. Instead test in the ChatGPT Work sandbox: run `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` and `bash scripts/check_all.sh`, run the new tools on synthetic or owner-supplied media (`sound_listen_test.py`, `listen.py`, `place_sfx.py`), and try the 14 requests in `tests/host-evals/additions.json` (AD01 to AD14) by hand as ordinary ChatGPT Work prompts, checking against each case's rubric. Report results as facts (what ran, what passed or failed, the client and reasoning setting); owner-reported success is `PASS_REPORTED`; nothing you did not run is a pass.
+
+## Task 2b: develop further and check orchestration
+
+Look for defects and inconsistencies in orchestration: routing rows against `routing-boundaries.md`, skill descriptions and the 7,800-character budget, links between owners, capability card against runtime map, registry entries against their hosts, duplicated or conflicting rules. Fix the smallest cause first; list larger design questions for the owner as numbered options.
+
+## Attribution (owner instruction)
+
+Mark your work so the division of labour is visible: commit trailers `Origin-Agent: chatgpt-work`, a ledger entry with origin `chatgpt-work`, and `Co-authored-by` or contributor attribution for the GPT Astra session where the host provides it. Do not reuse `cloud-code` as origin. Change IDs: `CW-YYYYMMDD-NN`. Keep the other trailers from AGENTS.md.
 
 ## Optional task 3 (only if the owner asks)
 
