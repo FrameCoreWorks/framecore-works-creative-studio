@@ -1,0 +1,25 @@
+{
+  "version": "1.112.0",
+  "source_commit": "e4bae6cfbab2a91715af9817e717d23753cdf4af",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "previous_hosted_version": "1.111.2",
+  "previous_release_id": "pluginrel_6ad78af3ebdc8191a2d88eccfa184ae0",
+  "release_id": "pluginrel_6ad7c92acb7081919bd776b566bba6b6",
+  "scope": "Complete saved hosted archive compared with the merged candidate; public and private packages intentionally differ",
+  "files": 1559,
+  "byte_identical": 1559,
+  "json_normalized": [],
+  "missing": [],
+  "unexpected": [],
+  "different": [],
+  "status": "PASS",
+  "private_overlay": "preserved; not published in the public repository",
+  "fresh_client_behavior": "NOT_RUN",
+  "other_host_installations": "NOT_RUN",
+  "saved_runtime_check": {
+    "command": "check_environment.py --update --host chatgpt_work --json",
+    "verdict": "pass",
+    "components": 59,
+    "record": "tool-inventory-2026-10-20/saved-work-update.json"
+  }
+}

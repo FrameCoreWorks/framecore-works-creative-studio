@@ -1,0 +1,8 @@
+{
+  "commit": "e4bae6cfbab2a91715af9817e717d23753cdf4af",
+  "scope": "Changed source file blobs from GitHub compare API",
+  "files_checked": 44,
+  "mismatched": [],
+  "status": "PASS",
+  "mode_followup": "Restore scripts/check_all.sh executable bit in publication record commit; file content already matches."
+}

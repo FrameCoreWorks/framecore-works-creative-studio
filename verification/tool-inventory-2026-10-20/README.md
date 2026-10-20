@@ -10,3 +10,5 @@ Trigger: the owner requested every tool in the supplied Work configuration be ch
 - Independent review found and verified fixes for incomplete npm entry points, import-only Auto-Editor, ambiguous host traces, isolated Python discovery, failed-probe uncertainty and alternate bundled FFmpeg selection. The private checklist link and private release history were retained by three-way merges.
 
 Model hashes establish installed asset identity; imports and version commands establish bounded installation evidence. Full rendering, model inference, Codex/Claude installation and fresh-client startup remain NOT_RUN. Current reported Work versions do not prove another host or mandate a downgrade.
+
+Saved hosted release: `pluginrel_6ad7c92acb7081919bd776b566bba6b6`. All 1559 archive files match the merged candidate. `saved-work-update.json` repeats the full update inventory from the saved archive: 59/59 passed, no installation. `github-source-readback.json` confirms all 44 changed source blobs at the release commit.

@@ -224,6 +224,7 @@
   ],
   "review": "Owner-requested 59-component first-install and every-update inventory; pre-install disclosure, isolated runtime/model evidence and independent host verification.",
   "source": "Release 1.112.0: verify the complete installation and update tool inventory",
-  "github_publication": "NOT_RUN",
-  "host_behavior": "NOT_RUN"
+  "github_publication": "Published v1.112.0; exact asset digest and tag-tree verification in github-publication-1.112.0.json",
+  "host_behavior": "NOT_RUN",
+  "hosted_plugin": "Saved 1.112.0; full merged archive readback and 59/59 Work installation probes in hosted-sync-1.112.0.json"
 }

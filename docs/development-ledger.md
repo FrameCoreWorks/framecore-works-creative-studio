@@ -2733,6 +2733,8 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: synchronized. Release source `e4bae6cfbab2a91715af9817e717d23753cdf4af`, published v1.112.0. Publication workflow passed; plugin, inventory and player asset digests match the local build, and all 1508 plugin files match the tag tree. Separate source workflow: still running at this readback (extra browser/GEPA coverage) ([record](../verification/github-publication-1.112.0.json)).
+- ChatGPT Work: synchronized, saved version 1.112.0 / `pluginrel_6ad7c92acb7081919bd776b566bba6b6`; all 1559 files match the merged candidate, preserving private 1.111.2 integrations. Saved-package update probes pass 59/59. Fresh-client behavior not_run ([record](../verification/hosted-sync-1.112.0.json)).
 - Codex: not_run
+
+Publication follow-up preserves the executable bit of `scripts/check_all.sh` (unchanged file content). Remote branch `ccr-b6d36a1c-4hszow` is already merged into main and remains untouched under the owner-controlled deletion policy.

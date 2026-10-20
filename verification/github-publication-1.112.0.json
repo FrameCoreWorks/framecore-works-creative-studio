@@ -1,0 +1,77 @@
+{
+  "version": "1.112.0",
+  "change_id": "CW-20261020-TOOL-INVENTORY",
+  "origin": "chatgpt-work",
+  "commit": "e4bae6cfbab2a91715af9817e717d23753cdf4af",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.112.0",
+  "release_id": 418822888,
+  "draft": false,
+  "assets": [
+    {
+      "name": "framecore-motion-player-1.112.0.html",
+      "sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "bytes": 92452
+    },
+    {
+      "name": "framecore-work-creative-studio-1.112.0.zip",
+      "sha256": "22dd5e26069fd7d4fff38f06a39ba65da723d7f57ad258f15a4e04d9b0d3ab33",
+      "bytes": 18935165
+    },
+    {
+      "name": "framecore-work-creative-studio-1.112.0.zip.inventory.json",
+      "sha256": "997868e41ac693a3586670168d3d786d959a0bd314ebeeab8433c7ca79db9750",
+      "bytes": 306827
+    },
+    {
+      "name": "framecore-works-creative-studio-1.112.0-repository.zip",
+      "sha256": "9602e1f2c3e98733146bf005c52e63a3a28348e230a84cd64dbb17aef28fecbd",
+      "bytes": 22445988
+    },
+    {
+      "name": "framecore-works-creative-studio-1.112.0-repository.zip.inventory.json",
+      "sha256": "89d7dfb15b911ad3287749fdb3636463f03780ec963157513261f15209561b55",
+      "bytes": 473073
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "9cb2c9914590e94a1a39efedfa33535c046ffd2d09c833d7c4febc398828c69b",
+      "bytes": 593
+    }
+  ],
+  "workflows": [
+    {
+      "id": 39488759167,
+      "name": "Refresh current release notes",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39488759115,
+      "name": "Check Studio sources",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 39488759157,
+      "name": "Publish verified Studio release",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "hosted_release_id": "pluginrel_6ad7c92acb7081919bd776b566bba6b6",
+  "hosted_plugin": "synchronized; full 1559-file saved archive comparison passed",
+  "host_behavior": "NOT_RUN",
+  "asset_verification": {
+    "method": "Compare local build SHA-256 and size with GitHub release asset digests from authenticated GitHub readback; no asset download claimed",
+    "matches": {
+      "framecore-work-creative-studio-1.112.0.zip": true,
+      "framecore-work-creative-studio-1.112.0.zip.inventory.json": true,
+      "framecore-motion-player-1.112.0.html": true
+    }
+  },
+  "plugin_zip_tag_tree": {
+    "files": 1508,
+    "matched_files": 1508,
+    "method": "Every archive entry Git blob SHA-1 compared with the release commit tree; archive SHA-256 matches the published asset"
+  }
+}
