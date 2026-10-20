@@ -1,0 +1,14 @@
+✔ read-only status does not create an absent cache (164.099628ms)
+✔ setup refuses to overwrite existing project dependencies (88.197328ms)
+✔ Remotion runs the project-local CLI and preserves its version (133.269225ms)
+✔ incoming unrelated improvements retain motion integration and private binding (78.597185ms)
+✔ incoming update cannot remove runtime or its orchestration route (64.62232ms)
+✔ incoming update cannot replace a hosted private connection (73.382088ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 695.567862

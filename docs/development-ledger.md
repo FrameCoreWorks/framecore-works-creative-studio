@@ -2683,8 +2683,8 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: synchronized at released source `addf23e7`, tag `v1.111.1`. Release/source workflows passed; description correction `97c2eff1` passed and was read back without changing the assets. [Publication record](../verification/github-publication-1.111.1.json).
+- ChatGPT Work saved plugin: synchronized, release `pluginrel_6ad76a03ef2081919bf42aed344dc562`; full 1543-file readback passes with one JSON formatting normalization and the private overlay preserved. [Record](../verification/hosted-sync-1.111.1.json). Fresh-client behavior: not_run.
 - Codex: not_run
 
 ## CW-20261020-CLOSURE-PUBLICATION
@@ -2693,4 +2693,13 @@ Cross-host state:
 - Trigger: the release and source workflows passed, but the description refresh rejected the root release-notes heading. Align that heading with its existing exact contract and add the verified source/tag record required by the description refresh. No tag or package replacement.
 - Verification: downloaded plugin ZIP and inventory match the build; all 1505 ZIP files match the tag tree; GitHub asset digests match the player and canonical repository build. [Publication record](../verification/github-publication-1.111.1.json) preserves the original failed description run and the exact comparison method.
 - Hosted plugin: already saved as 1.111.1 with a full archive readback; detailed synchronization record follows in the closure metadata commit. Fresh-client behavior and Codex installation: not_run.
-- Description workflow: awaiting the run triggered by this correction; no failed run is relabelled as a pass.
+- Description workflow: corrective run `39431106485` passed. API readback equals the corrected notes, with all asset IDs/digests and release identity unchanged. The original failed run remains recorded.
+
+## CW-20261020-CLOSURE-RECORDS
+
+- Origin: chatgpt-work; baseline `97c2eff13a4b8fefabad4b0ed9a49c0b7403989a`; shared package unchanged (1.111.1).
+- Result: close publication and saved-plugin records, retain hosted affected-suite logs, correct the local skip explanation (one Claude CLI validation and three GEPA tests), and update the historical handover. Source-only prompt exercises are separately labelled and do not turn canonical host cases into passes.
+- Verification: canonical validator PASS; all publication/readback comparisons above; repository-only metadata changed after the tested release. No paid provider calls or installed-client behavior claim.
+- GitHub: this metadata commit follows the published release as a fast-forward on main. Hosted plugin is already synchronized; no redundant saved-plugin release for these root-only records. Codex installation: not_run.
+- Branch inventory: main, gh-pages and the existing ccr-b6d36a1c-4hszow; ccr head daab5828 is an ancestor of the release. No new remote branches.
+- Next work: Reel Editing Assistant remains the explicit next feature task, including careful hosted-only tool import review. Optional client reel mixing requires the owner's request and files.

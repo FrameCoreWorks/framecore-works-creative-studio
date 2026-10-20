@@ -2,18 +2,11 @@
   "version": "1.111.1",
   "change_id": "CW-20261020-CLOSURE",
   "origin": "chatgpt-work",
-  "status": "release and assets verified; description correction awaiting workflow readback",
+  "status": "PASS",
   "commit": "addf23e73400c0e17c3321a7020e98395e8932fc",
   "package_commit": "addf23e73400c0e17c3321a7020e98395e8932fc",
   "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.111.1",
   "workflows": [
-    {
-      "id": 39429100734,
-      "name": "Refresh current release notes",
-      "branch": "main",
-      "conclusion": "failure",
-      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39429100734"
-    },
     {
       "id": 39429100397,
       "name": "Publish verified Studio release",
@@ -27,6 +20,13 @@
       "branch": "main",
       "conclusion": "success",
       "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39429100498"
+    },
+    {
+      "id": 39431106485,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "success",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39431106485"
     }
   ],
   "plugin_zip_sha256": "ecc05ebdfc0914a21c34c0e0c77ae1ddc907f2c3a4a0fcc564dca6ebb6a3aeae",
@@ -87,8 +87,28 @@
     "original_conclusion": "failure",
     "cause": "Root notes header did not match the exact workflow prefix",
     "action": "Correct the root-only heading and refresh the release body without retagging or changing assets",
-    "status": "pending"
+    "status": "PASS",
+    "correction_commit": "97c2eff13a4b8fefabad4b0ed9a49c0b7403989a",
+    "successful_run": 39431106485,
+    "release_body_matches_source": true,
+    "release_identity_and_asset_ids_digests_preserved": true
   },
   "hosted_plugin": "synchronized; see hosted-sync-1.111.1.json",
-  "host_behavior": "NOT_RUN"
+  "host_behavior": "NOT_RUN",
+  "original_failed_workflows": [
+    {
+      "id": 39429100734,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "failure",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39429100734"
+    }
+  ],
+  "verification_procedure": "Manual equivalent of publication verification, with the original description failure retained and its successful corrective run recorded. Tag/source fixed at addf23e7. Plugin ZIP and inventory compared directly; player/repository assets checked using GitHub SHA-256. release.py publish was not represented as successful.",
+  "tag_object": {
+    "type": "commit",
+    "sha": "addf23e73400c0e17c3321a7020e98395e8932fc"
+  },
+  "release_id": 418425470,
+  "release_tree": "7b56fa48c83f0e2b46a319dbd24e1fc8b166f138"
 }

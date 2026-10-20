@@ -1,0 +1,46 @@
+{
+  "initial_run": [
+    {
+      "suite": "motion_acceptance_test.py",
+      "exit": 0,
+      "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 7.359s\n\nOK\n"
+    },
+    {
+      "suite": "sound_listen_test.py",
+      "exit": 0,
+      "tail": ".............\n----------------------------------------------------------------------\nRan 13 tests in 7.381s\n\nOK\n"
+    },
+    {
+      "suite": "print_pdf_test.py",
+      "exit": 0,
+      "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.853s\n\nOK\n"
+    },
+    {
+      "suite": "environment_check_test.py",
+      "exit": 0,
+      "tail": "........................\n----------------------------------------------------------------------\nRan 24 tests in 18.498s\n\nOK\n"
+    },
+    {
+      "suite": "web_reach_test.py",
+      "exit": 0,
+      "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.012s\n\nOK\n"
+    },
+    {
+      "suite": "media_runtime_test.py",
+      "exit": 0,
+      "tail": "ts_images_and_source_preservation) ... ok\ntest_runtime_refuses_plugin_as_cache (__main__.MediaRuntimeTests.test_runtime_refuses_plugin_as_cache) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 3.024s\n\nOK\n"
+    },
+    {
+      "suite": "motion-runtime.test.mjs",
+      "exit": 1,
+      "tail": "postRun (node:internal/test_runner/test:1522:19)\n      at Test.run (node:internal/test_runner/test:1447:12) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 1,\n    expected: 0,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n"
+    }
+  ],
+  "final_motion_runtime": {
+    "exit": 0,
+    "passed": 6,
+    "log": "motion-runtime.test.mjs.after.txt"
+  },
+  "final_status": "all seven suites PASS; 88 tests",
+  "initial_failure_explained": "The prior private baseline already failed its update-guard fixture because it omitted existing MCP configuration files while copying the manifest. The fixture now copies those existing files; six motion runtime tests pass. No connection configuration was changed."
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glina — makieta strony pracowni ceramiki</title>
+  <style>
+    :root { --bg:#f7f3eb; --surface:#ebe4d8; --text:#292d29; --muted:#5b615b; --accent:#833f2b; --border:#b9b8ac; --font-display:Georgia,'Times New Roman',serif; --font-body:'Trebuchet MS',Verdana,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font:1rem/1.65 var(--font-body); }
+    a { color:inherit; text-underline-offset:.25em; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .wrap { width:min(1180px,calc(100% - 3rem)); margin-inline:auto; }
+    .draft { padding:.6rem 1.5rem; text-align:center; font-size:.8rem; background:var(--surface); }
+    header { display:flex; justify-content:space-between; align-items:center; gap:2rem; padding-block:1.4rem; border-bottom:1px solid var(--border); }
+    .name { font-family:var(--font-display); font-size:2.3rem; line-height:1; text-decoration:none; }
+    nav { display:flex; gap:1.5rem; }
+    nav a { display:inline-flex; align-items:center; min-height:44px; }
+    .hero { display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:5%; padding-block:5.5rem 6.5rem; }
+    .eyebrow { margin:0 0 1.1rem; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:var(--font-display); font-weight:400; }
+    h1 { margin:0 0 1.5rem; font-size:clamp(3rem,6.4vw,5.8rem); line-height:1.08; letter-spacing:-.035em; }
+    h2 { margin:0; font-size:clamp(2.1rem,4vw,3.7rem); line-height:1.16; letter-spacing:-.02em; }
+    h3 { font-size:1.7rem; line-height:1.2; margin:0 0 .65rem; }
+    p { max-width:62ch; }
+    .lead { max-width:38ch; font-size:1.1rem; color:var(--muted); }
+    .button { display:inline-flex; align-items:center; min-height:48px; margin-top:1.4rem; padding:.75rem 1.4rem; background:var(--accent); color:var(--bg); text-decoration:none; }
+    .study { position:relative; margin:0; min-height:440px; display:grid; place-items:center; background:var(--surface); border-radius:46% 46% 3% 3%; }
+    .study svg { display:block; width:95%; height:auto; }
+    .study figcaption { position:absolute; inset-inline:1rem; bottom:1.2rem; text-align:center; color:var(--muted); font-size:.75rem; }
+    .section { padding-block:5rem; border-top:1px solid var(--border); scroll-margin-top:1.5rem; }
+    .section-intro { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-bottom:3.2rem; }
+    .section-intro p { margin:0; color:var(--muted); }
+    .workshop { display:grid; grid-template-columns:1fr 1fr; gap:3rem; padding:2.2rem 0; border-top:1px solid var(--border); }
+    .workshop p { margin:0; color:var(--muted); }
+    .tag { display:inline-block; margin-top:1rem; font-size:.8rem; color:var(--muted); }
+    .contact { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+    dl { margin:0; }
+    dt { margin-top:1.1rem; font-size:.8rem; letter-spacing:.02em; }
+    dt:first-child { margin-top:0; }
+    dd { margin:0 0 .8rem; font-family:var(--font-display); font-size:1.5rem; }
+    footer { padding-block:2rem; border-top:1px solid var(--border); font-size:.8rem; color:var(--muted); }
+    @media(max-width:760px) {
+      .wrap { width:calc(100% - 2rem); }
+      header { gap:1rem; padding-block:1rem; }
+      nav { gap:1rem; font-size:.9rem; }
+      .hero { grid-template-columns:1fr; gap:2.5rem; padding-block:3rem; }
+      .study { min-height:300px; }
+      .study svg { max-width:410px; }
+      .section { padding-block:3rem; }
+      .section-intro,.workshop,.contact { grid-template-columns:1fr; gap:1.4rem; }
+      .section-intro { margin-bottom:2rem; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <div class="draft">Makieta koncepcyjna · oferta i dane kontaktowe wymagają uzupełnienia</div>
+  <div class="wrap">
+    <header>
+      <a class="name" href="#start" aria-label="Glina — początek strony">Glina</a>
+      <nav aria-label="Główna nawigacja"><a href="#warsztaty">Warsztaty</a><a href="#kontakt">Kontakt</a></nav>
+    </header>
+    <main>
+      <section class="hero" id="start" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Pracownia ceramiki</p>
+          <h1 id="hero-title">Nadaj glinie<br>własną formę.</h1>
+          <p class="lead">Poznaj warsztaty w pracowni Glina i wybierz, co chcesz stworzyć.</p>
+          <a class="button" href="#warsztaty">Zobacz warsztaty</a>
+        </div>
+        <figure class="study">
+          <svg viewBox="0 0 500 460" role="img" aria-labelledby="study-title">
+            <title id="study-title">Schematyczne studium form ceramicznych, ilustracja do makiety</title>
+            <g fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M118 325 C119 363 173 383 236 383 C299 383 352 363 354 325"/>
+              <ellipse cx="236" cy="325" rx="118" ry="30"/>
+              <ellipse cx="236" cy="325" rx="103" ry="21"/>
+              <path d="M264 186 C248 213 271 235 262 266 C256 290 269 307 307 307 C345 307 358 290 352 266 C343 235 366 213 350 186"/>
+              <ellipse cx="307" cy="186" rx="43" ry="13"/>
+              <ellipse cx="307" cy="186" rx="33" ry="7"/>
+              <path d="M134 215 L138 282 C140 302 200 302 202 282 L206 215"/>
+              <ellipse cx="170" cy="215" rx="36" ry="12"/>
+              <path d="M205 229 C242 212 246 264 204 270"/>
+              <path d="M82 396 H409" stroke-dasharray="2 7"/>
+            </g>
+          </svg>
+          <figcaption>Ilustracja koncepcyjna · miejsce na zdjęcie pracowni</figcaption>
+        </figure>
+      </section>
+      <section class="section" id="warsztaty" aria-labelledby="workshops-title">
+        <div class="section-intro"><h2 id="workshops-title">Miejsce na<br>Twoje pomysły.</h2><p>Poniższe rodzaje zajęć są propozycją układu oferty. Przed publikacją wpisz rzeczywiste warsztaty, ich zakres, cenę i terminy.</p></div>
+        <article class="workshop"><div><h3>Pierwsza forma</h3><span class="tag">Propozycja do zatwierdzenia</span></div><p>Warsztat wprowadzający w pracę z gliną. W tym miejscu znajdzie się potwierdzony opis zajęć i informacja, co uczestnik wykonuje.</p></article>
+        <article class="workshop"><div><h3>Własny projekt</h3><span class="tag">Propozycja do zatwierdzenia</span></div><p>Miejsce na drugi format warsztatów. Zakres pomocy, technikę pracy i sposób odbioru ceramiki uzupełni pracownia.</p></article>
+        <a href="#kontakt">Zapytaj o dostępne zajęcia</a>
+      </section>
+      <section class="section contact" id="kontakt" aria-labelledby="contact-title">
+        <div><h2 id="contact-title">Spotkajmy się<br>przy stole.</h2><p>Po dodaniu rzeczywistych danych będzie można napisać do pracowni lub zadzwonić.</p></div>
+        <dl><dt>E-mail pracowni</dt><dd>[Adres do uzupełnienia]</dd><dt>Telefon</dt><dd>[Numer do uzupełnienia]</dd><dt>Pracownia</dt><dd>[Adres pracowni do uzupełnienia]</dd></dl>
+      </section>
+    </main>
+    <footer>Glina · makieta strony, materiały do zatwierdzenia przed publikacją</footer>
+  </div>
+</body>
+</html>

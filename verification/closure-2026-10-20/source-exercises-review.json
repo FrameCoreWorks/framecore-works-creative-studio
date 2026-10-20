@@ -1,0 +1,89 @@
+{
+  "type": "parent review of non-blind source exercises, not host evaluation",
+  "cases_reviewed": 14,
+  "blanket_pass_claim": false,
+  "host_evaluations_added": 0,
+  "source_changes_from_exercises": 0,
+  "cases": [
+    {
+      "id": "AD01",
+      "status": "SOURCE_RESPONSE_REVIEWED",
+      "finding": "Catalog and host installation status reproduced from the dated registry; no installation."
+    },
+    {
+      "id": "AD02",
+      "status": "PARTIAL_RUBRIC",
+      "finding": "Copy rewritten without new product claims; checker actually run. The response did not explicitly name all three requested writing-pattern categories. Its short-text language heuristic reported en for Polish; all language-independent pattern checks still ran, and this sample contains no dashes affected by the language-dependent hint."
+    },
+    {
+      "id": "AD03",
+      "status": "SOURCE_ARTIFACT_ONLY",
+      "finding": "HTML retained with actual lint/contrast/anchor checks. No browser or visual review; do not mark a complete rendered page test."
+    },
+    {
+      "id": "AD04",
+      "status": "MEASUREMENT_REVIEWED",
+      "finding": "Measured both color pairs and included WCAG thresholds with the print limitation."
+    },
+    {
+      "id": "AD05",
+      "status": "PARTIAL_RUBRIC",
+      "finding": "Static design direction and honest content placeholders supplied. Copy Voice was not explicitly delegated/read, so the full ownership rubric is not a pass. No slides were rendered."
+    },
+    {
+      "id": "AD06",
+      "status": "INPUT_BLOCKED",
+      "finding": "Brand colors and fonts absent; no fabricated DESIGN.md values."
+    },
+    {
+      "id": "AD07",
+      "status": "PARTIAL_RUBRIC_INPUT_BLOCKED",
+      "finding": "Correct motion/lyric route and missing audio/text identified. The rubric-specific rights-confirmation question was omitted; no audio was processed or committed."
+    },
+    {
+      "id": "AD08",
+      "status": "INPUT_BLOCKED",
+      "finding": "Iso Glow/audio-envelope method described; track absent, no animation executed."
+    },
+    {
+      "id": "AD09",
+      "status": "DIRECTION_ONLY",
+      "finding": "Painterly motion directions and historical source offered; no chosen direction or render."
+    },
+    {
+      "id": "AD10",
+      "status": "INPUT_BLOCKED",
+      "finding": "Reference URL/MP4 absent; no measurement or reconstruction claimed."
+    },
+    {
+      "id": "AD11",
+      "status": "PROMPT_WRITTEN",
+      "finding": "One standalone prompt with explicit neutral-product assumptions; no image generated."
+    },
+    {
+      "id": "AD12",
+      "status": "PARTIAL_RUBRIC",
+      "finding": "A3 dimensions, source preference, enlargement and final text treatment addressed. No primary model-license confirmation, so the commercial-model criterion is unresolved and not a pass."
+    },
+    {
+      "id": "AD13",
+      "status": "INPUT_BLOCKED",
+      "finding": "Logo absent; generic provisional sequence only, no invented brand extraction or rendered reel."
+    },
+    {
+      "id": "AD14",
+      "status": "INPUT_BLOCKED",
+      "finding": "MP4 absent; requested actual input and described measurable versus taste-based judgments, no false listening or measurement claim."
+    }
+  ],
+  "corrections_to_exercise_environment_claim": [
+    "AD03 checked only the missing default Playwright executable. Another Chrome binary was already available and used by the parent for the release media checks. No visual review of this optional HTML was performed; absence of all browsers was not established."
+  ],
+  "scope_decision": "The exercise verifies bounded routing/source use and reveals response-level omissions and an informational short-text heuristic limitation. It is not a clean 14/14 behavioral result, and it does not establish a new production-code regression. No extra package changes were made to fit a single non-blind response.",
+  "follow_up_requirements": [
+    "Run a fresh-client behavior test to evaluate actual installed routing and instruction adherence.",
+    "Supply actual media/brand files for the input-blocked prompts.",
+    "Confirm the selected upscaling model license from its author before a client deliverable."
+  ],
+  "artifact_sha256": "2ff831c0e756cf452e7844fa69a528c332ccdd692537998e53673e221c7bb38a"
+}

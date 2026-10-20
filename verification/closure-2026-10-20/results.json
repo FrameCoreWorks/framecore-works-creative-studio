@@ -59,5 +59,13 @@
     "motion_acceptance_test.before.txt": "b6ef7ed5cdf3f830b6ced862cb18b2657cd5a68d3c1a3f3cc2e5c09abb66fb02",
     "test_release.before.txt": "d4044a70b9a643de451cfc9d0445fc1c61aff53d012b7be21fa70cd577e8b4af",
     "web_reach_test.before.txt": "36e078967952a2f6d8a7ff1c6d6f8f89a705c9c09e828449a92b5340f5fd2f2a"
+  },
+  "handover_prompt_exercises": {
+    "cases_reviewed": 14,
+    "blind": false,
+    "host_evaluations_added": 0,
+    "status": "REVIEWED, mixed bounded outcomes; not a 14/14 behavioral pass",
+    "responses": "source-exercises.json",
+    "assessment": "source-exercises-review.json"
   }
 }

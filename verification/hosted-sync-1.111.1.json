@@ -1,0 +1,228 @@
+{
+  "status": "PASS",
+  "version": "1.111.1",
+  "source_commit": "addf23e73400c0e17c3321a7020e98395e8932fc",
+  "source_tree": "7b56fa48c83f0e2b46a319dbd24e1fc8b166f138",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "previous_release_id": "pluginrel_6ad75ceecdac8191a38c95033c107caf",
+  "saved_release_id": "pluginrel_6ad76a03ef2081919bf42aed344dc562",
+  "expected_files": 1543,
+  "readback_files": 1543,
+  "byte_identical": 1542,
+  "json_normalization_only": [
+    ".codex-plugin/plugin.json"
+  ],
+  "mismatches": [],
+  "uploaded_files": 26,
+  "omitted_files_preserved_byte_for_byte": 1517,
+  "unexpected_preservation_changes": [],
+  "source_files": 1505,
+  "hosted_only_files": 38,
+  "shared_paths_with_preserved_overlay": [
+    "README.md",
+    "docs/installation.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/audio-production-director/SKILL.md",
+    "skills/caption-studio/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "skills/hyperframes-workflow/references/hyperframes-engine.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/output-critic-iteration/scripts/image_probe.py",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/tool-routing-cost/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+    "skills/workflow-orchestrator/assets/environment-check/tools.json"
+  ],
+  "archive_sha256": "177b4bf29d822682817a276ba7a2dad02850327256b78e3a5e43afe695c592d2",
+  "delta_sha256": "8168ff0e54bed758361bbda3e577ba74f34317c112f1e889ece3a553985a1ae1",
+  "private_bindings_preserved": true,
+  "visibility": "PRIVATE",
+  "scope": "USER",
+  "host_behavior": "NOT_RUN",
+  "tests": {
+    "shared_affected_suites": "PASS: motion acceptance, sound listen, print PDF, environment check, web reach",
+    "media_runtime": "3 passed",
+    "motion_runtime": "6 passed after fixing an existing incomplete fixture; baseline 1.111.0 had the same failure",
+    "motion_and_media_update_continuity": "PASS",
+    "canonical": "PASS"
+  },
+  "changed_files": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "method": "version only; private manifest fields preserved",
+      "source_sha256": "d0fe46736c41d525d5b7ce6f619fb6e95559229499f464e705c4fb1b3d411254",
+      "candidate_sha256": "d0fe46736c41d525d5b7ce6f619fb6e95559229499f464e705c4fb1b3d411254"
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "method": "version only; private manifest fields preserved",
+      "source_sha256": "c4f0fe197944c0b8b06a8ef9cabbdde639dad8b24a7dd8f8048e6106016124c4",
+      "candidate_sha256": "2a0a55f99ebedd6699d6e3d2790022821df559a04583903acd7dcce7059d25fa"
+    },
+    {
+      "path": "README.md",
+      "method": "version marker only",
+      "source_sha256": "02d34d7a7a7914c06835975078b18e7ad16b9b441e83365a5b811dc4f967d9b2",
+      "candidate_sha256": "956a20178adc07fd671d44673b63ffc91f29906b23a586e4b7f2e2075865ed83"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "method": "version marker only",
+      "source_sha256": "10211d4bc76efda6bd69468c156f249385ad6eb459b8a2f4451c0802e10eadf5",
+      "candidate_sha256": "10211d4bc76efda6bd69468c156f249385ad6eb459b8a2f4451c0802e10eadf5"
+    },
+    {
+      "path": "docs/release-history.md",
+      "method": "prepend shared release; retain hosted history",
+      "source_sha256": "f1e62eff62f04677400dcf61170098547a46c1dfe76168c896db5e11084e016e",
+      "candidate_sha256": "602c09a2c51e7bd387fe983fa9b3689a61bfa7cd561245c6ab9446b8338b0304"
+    },
+    {
+      "path": "plugin.json",
+      "method": "version only; private manifest fields preserved",
+      "source_sha256": "ec9d0d1badffec3fcf22b34780fd631d6aa0abb7409df8c098a955ad2d2f9200",
+      "candidate_sha256": "3ad301d4e5002c9ac32c72cdd090b749a4fb71680a08d229866edfb533279aa7"
+    },
+    {
+      "path": "scripts/workflow-kit-routes.json",
+      "method": "shared-file replacement",
+      "source_sha256": "0cf0921cf557322e955707d6acea98f40d37d812f532dd60b4f41df3d565ce23",
+      "candidate_sha256": "0cf0921cf557322e955707d6acea98f40d37d812f532dd60b4f41df3d565ce23"
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "method": "three-way merge preserving hosted changes",
+      "source_sha256": "19014359f4207f598046f1834911a65a131b90daa03cdf656f2aa1540dba5c2c",
+      "candidate_sha256": "c73706e2ab37509057931b82622645ffbd1d539870f488cc5569f2ed9ce23963"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+      "method": "shared-file replacement",
+      "source_sha256": "390c0edf4872503e4cecaf2f679fb8c572136bbbf207c2c80322d76bf98fd1b5",
+      "candidate_sha256": "390c0edf4872503e4cecaf2f679fb8c572136bbbf207c2c80322d76bf98fd1b5"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+      "method": "shared-file replacement",
+      "source_sha256": "c22b9b95fccc5e4dd8af37c27858f15cad1cc1c3755ec584e11528efe1ab5f2b",
+      "candidate_sha256": "c22b9b95fccc5e4dd8af37c27858f15cad1cc1c3755ec584e11528efe1ab5f2b"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/sound-listen/README.md",
+      "method": "shared-file replacement",
+      "source_sha256": "1228398e936e4fe73f63f83058415daccd5d14922199f4624fae9697d000b1ab",
+      "candidate_sha256": "1228398e936e4fe73f63f83058415daccd5d14922199f4624fae9697d000b1ab"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/sound-listen/listen.py",
+      "method": "shared-file replacement",
+      "source_sha256": "0ac575d646eb3130a40ba240573cdefe497303eafc5f4233d19cdd7550c6410e",
+      "candidate_sha256": "0ac575d646eb3130a40ba240573cdefe497303eafc5f4233d19cdd7550c6410e"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py",
+      "method": "shared-file replacement",
+      "source_sha256": "d14b9901c6e39ab1cf261b7832aa64b5e3e0cfd30d31445e26df5d1e433c7f1e",
+      "candidate_sha256": "d14b9901c6e39ab1cf261b7832aa64b5e3e0cfd30d31445e26df5d1e433c7f1e"
+    },
+    {
+      "path": "skills/pipeline-core/references/role-skill-map.md",
+      "method": "shared-file replacement",
+      "source_sha256": "f7ff2d3f0f66bc64dc242f2b0a29306bf2da9de936da0913aaa0ebc8df7f0370",
+      "candidate_sha256": "f7ff2d3f0f66bc64dc242f2b0a29306bf2da9de936da0913aaa0ebc8df7f0370"
+    },
+    {
+      "path": "skills/pipeline-core/references/studio-integration-policy.md",
+      "method": "shared-file replacement",
+      "source_sha256": "0877682116bb8df566154090aff54146316c1885be85f9dc5db42c8f7c8c4f60",
+      "candidate_sha256": "0877682116bb8df566154090aff54146316c1885be85f9dc5db42c8f7c8c4f60"
+    },
+    {
+      "path": "skills/research-evidence/assets/web-reach/web_reach.py",
+      "method": "shared-file replacement",
+      "source_sha256": "97a328bbcef10921f3532a577a8bdaf85e263e6427932b2eea74aeb07bac3fd1",
+      "candidate_sha256": "97a328bbcef10921f3532a577a8bdaf85e263e6427932b2eea74aeb07bac3fd1"
+    },
+    {
+      "path": "skills/static-graphic-design-creator/assets/static-render/print_pdf.py",
+      "method": "shared-file replacement",
+      "source_sha256": "c5f6dc7eae925172171a3d04283377aaa8b0dc853815fefd7f449519c2f483ef",
+      "candidate_sha256": "c5f6dc7eae925172171a3d04283377aaa8b0dc853815fefd7f449519c2f483ef"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "method": "package identity version only; hosted startup additions preserved",
+      "source_sha256": "33af2b8c0173d7a81b85ddc33d5f94f18b6331a914909e2da2e1116a3f54c319",
+      "candidate_sha256": "54d115aad355af85f0d3dc4300da13e6201f44eb51612cbb36b1b851c5e91b1e"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+      "method": "three-way merge preserving hosted changes",
+      "source_sha256": "ab47a44ee46cbd6d0e46dbcfbe687f80291dddd8bb2fe93e627591ecfa3b87ba",
+      "candidate_sha256": "745b429cf68cf8a8eb889215f3cfacae0920071f38190a9bfe457fdc39d4e2a6"
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/routing-boundaries.md",
+      "method": "shared-file replacement",
+      "source_sha256": "b3d421335c2c9ee4bc62abfc94c3f4f4edc8010deff87270dfa39ed44b1ff9f6",
+      "candidate_sha256": "b3d421335c2c9ee4bc62abfc94c3f4f4edc8010deff87270dfa39ed44b1ff9f6"
+    },
+    {
+      "path": "tests/environment_check_test.py",
+      "method": "shared-file replacement",
+      "source_sha256": "84d264aa64470661b2365be2ed835913ef35b398e41e4815449f8aac1f443c22",
+      "candidate_sha256": "84d264aa64470661b2365be2ed835913ef35b398e41e4815449f8aac1f443c22"
+    },
+    {
+      "path": "tests/motion_acceptance_test.py",
+      "method": "shared-file replacement",
+      "source_sha256": "57da50345bf0977cf407d2c94c39e6ce5cb49b3ff9c999f6f437b5304083c563",
+      "candidate_sha256": "57da50345bf0977cf407d2c94c39e6ce5cb49b3ff9c999f6f437b5304083c563"
+    },
+    {
+      "path": "tests/print_pdf_test.py",
+      "method": "shared-file replacement",
+      "source_sha256": "0189320afa183e70a0cc923563a0ba3e47364245c5a9ca47a1629ef7bce811d5",
+      "candidate_sha256": "0189320afa183e70a0cc923563a0ba3e47364245c5a9ca47a1629ef7bce811d5"
+    },
+    {
+      "path": "tests/sound_listen_test.py",
+      "method": "shared-file replacement",
+      "source_sha256": "d6baa78ace52bc20b524282d1a399ff89af0d74b5b1cb732dd8f93f350efa14d",
+      "candidate_sha256": "d6baa78ace52bc20b524282d1a399ff89af0d74b5b1cb732dd8f93f350efa14d"
+    },
+    {
+      "path": "tests/web_reach_test.py",
+      "method": "shared-file replacement",
+      "source_sha256": "2f772a8d6aceb70848271e7bb05e6ace14bf8ec8f2b46f0c668f6e8228608abb",
+      "candidate_sha256": "2f772a8d6aceb70848271e7bb05e6ace14bf8ec8f2b46f0c668f6e8228608abb"
+    },
+    {
+      "path": "tests/motion-runtime.test.mjs",
+      "method": "fix pre-existing private-overlay test fixture: copy existing MCP bindings; no connection changes",
+      "source_sha256": null,
+      "candidate_sha256": "0d29cd745796f5dbe3b64ee8782fb998b1d2fb7c4903ef46b2f20586abf5ad34"
+    }
+  ],
+  "verification_log_directory": "closure-2026-10-20/hosted-tests",
+  "affected_suites": {
+    "motion_acceptance": 26,
+    "sound_listen": 13,
+    "print_pdf": 8,
+    "environment_check": 24,
+    "web_reach": 8,
+    "media_runtime": 3,
+    "motion_runtime": 6
+  },
+  "affected_suites_status": "PASS",
+  "test_fixture_correction": "The prior private baseline already failed its update-guard fixture because it omitted existing MCP configuration files while copying the manifest. The fixture now copies those existing files; six motion runtime tests pass. No connection configuration was changed."
+}

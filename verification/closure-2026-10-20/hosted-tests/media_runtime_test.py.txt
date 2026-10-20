@@ -1,0 +1,8 @@
+test_absent_status_is_read_only (__main__.MediaRuntimeTests.test_absent_status_is_read_only) ... ok
+test_actual_cuts_images_and_source_preservation (__main__.MediaRuntimeTests.test_actual_cuts_images_and_source_preservation) ... ok
+test_runtime_refuses_plugin_as_cache (__main__.MediaRuntimeTests.test_runtime_refuses_plugin_as_cache) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.024s
+
+OK

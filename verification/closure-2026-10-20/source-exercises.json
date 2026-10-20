@@ -1,0 +1,528 @@
+{
+  "schema": "framecore-source-exercises/v1",
+  "evaluation_type": "SOURCE EXERCISES — jawnie nieślepe; nie test zainstalowanego klienta",
+  "source_repo": "/workspace/scratch/68c6756cdc8e/framecore-published",
+  "source_commit_at_report": "97c2eff13a4b8fefabad4b0ed9a49c0b7403989a",
+  "source_entry_version": "1.111.1",
+  "prompt_file": "/workspace/scratch/68c6756cdc8e/framecore-published/tests/host-evals/additions.json",
+  "prompt_ids_note": "Źródło używa AD01–AD14; zlecenie zapisywało AD-01–AD-14.",
+  "independence_disclosure": {
+    "blind": false,
+    "rubric_read": false,
+    "checks_accidentally_exposed": true,
+    "description": "Przy rozpoznaniu schematu wypisano omyłkowo całe turns zamiast samych turns[].prompt. Widoczne były checks, lecz nie rubric. Rodzic otrzymał powiadomienie i polecił kontynuować jawnie nieślepe ćwiczenie, bez uruchamiania nowego agenta. Nie należy używać wyniku do deklaracji niezależnej skuteczności."
+  },
+  "common_sources": [
+    "/workspace/scratch/68c6756cdc8e/framecore-published/AGENTS.md",
+    "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/workflow-orchestrator/SKILL.md",
+    "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/references/studio-integration-policy.md",
+    "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/references/loop-protocol.md"
+  ],
+  "common_tool_activity": [
+    "exec_command: próba odczytu pierwotnie wskazanej ścieżki zakończona FileNotFoundError; rg odnalazł tests/host-evals/additions.json.",
+    "exec_command: selekcja pól prompt/id; podczas jednego odczytu omyłkowo ujawnione checks.",
+    "exec_command: odczyty cat/sed/rg instrukcji źródłowych; niektóre szerokie odczyty były ucięte, istotne sekcje doczytano selektywnie.",
+    "exec_command: git rev-parse HEAD (odczyt).",
+    "apply_patch: wyłącznie lokalny HTML poza repo.",
+    "mcp__codex_apps__search_service_web_run: dwa zbiorcze wywołania opisane przy AD04, AD09 i AD12.",
+    "exec_command: zapis tego raportu i budującego go skryptu poza repo."
+  ],
+  "global_limits": [
+    "Nie przeprowadzono instalacji, restartu hosta, sprawdzenia rejestracji skills ani testu nowej rozmowy klienta.",
+    "Nie wywołano płatnego providera, generowania obrazu/audio/wideo, instalatora rozszerzenia ani publikacji.",
+    "Nie zmieniono plików repozytorium, main ani hosted.",
+    "Każdy przypadek traktowano oddzielnie; nie przenoszono nieistniejących załączników, marki ani historii z innych przypadków.",
+    "Brak pełnych renderów end-to-end. HTML ma tylko kontrolę kodu i pomiary kolorów, bez przeglądu w przeglądarce.",
+    "Nie wszystkie licencje katalogu i nie licencja modelu HFA2k zostały potwierdzone w aktualnych źródłach autorów; odpowiedzi to wskazują.",
+    "Nie podano wyniku PASS/FAIL rubryki; ocenę przeprowadza rodzic."
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/scratch/68c6756cdc8e/closure-source-assets/glina-landing.html",
+      "case": "AD03",
+      "status": "authored; source lint checked; not browser viewed"
+    }
+  ],
+  "cases": [
+    {
+      "id": "AD01",
+      "prompts": [
+        "/framecore-work-creative-studio:workflow-orchestrator 4"
+      ],
+      "response_pl": "Poniżej cały katalog repozytoriów polecanych przez FrameCore Works dla **ChatGPT Work**, zgodnie z rejestrem Studio z 20 października 2026. To opis przypiętych wpisów, nie potwierdzenie ich instalacji ani bieżących licencji. Licencje poniżej są zapisami rejestru; nie zweryfikowałem ich wszystkich u autorów w tym ćwiczeniu.\n\n**Dźwięk**\n\n[earshot](https://github.com/Leonxlnx/earshot) — silnik. Pin: `925ebe56a1b755e5d354ab642bb8f344440cfa9c`. Zapis licencji w rejestrze: MIT.\n\nPomiary ścieżki dźwiękowej i, z osobnymi modelami, opis oraz dopasowywanie dźwięków. Studio ma własne pomiary, synchronizację i układanie sampli. Rozszerzenie dodaje modele, bank efektów i narzędzia projektowania.\n\n**Work: nieobsługiwane**. Rejestr kieruje oryginalny CLI do Codex lub Claude Code. W Work pozostają narzędzia sound-listen, jeśli potrzebne zależności faktycznie są dostępne.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n**Tożsamość marki**\n\n[Logo Design Skill (kaankiziltug)](https://github.com/kaankiziltug/logo-design-skill) — wiedza. Pin: `0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134`. Zapis licencji w rejestrze: MIT for code/docs; reference SVG trademarks excluded.\n\nProjektowanie logo, porównywanie koncepcji, praca z SVG i kontrola małych rozmiarów. Narzędzia, materiały i katalog metody są już w Static Graphic Design Creator; referencyjne znaki towarowe mają osobne prawa.\n\n**Work: ręcznie**. Ręcznie dodaj wybrane pliki wiedzy z przypiętego repo oraz LICENSE i TRADEMARKS.md do projektu. Skrypty wymagają sprawdzenia lokalnego Pythona i renderera. Usunięcie tych plików wycofuje dodatek.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: ręcznie; chatgpt: ręcznie.\n\n**Projektowanie**\n\n[Meta Ads Designer (AI Evolution Labs)](https://github.com/aievolutionpl/meta-ads-designer) — wiedza. Pin: `656ce907380448389559958f055c8b43d71ab26e`. Zapis licencji w rejestrze: MIT.\n\nZasady kompozycji i promptów dla reklam, plakatów i ulotek. Adaptacja jest już w Static Graphic Design Creator.\n\n**Work: ręcznie**. Ręcznie dodaj core.md, references/layout-system.md i references/headline-system.md z przypiętego repo do plików projektu; usuń te pliki, aby wycofać dodatek.\n\nInne hosty: claude_code: instalacja natywna; codex: instalacja natywna; claude_apps: ręcznie; chatgpt: ręcznie.\n\n[Open Design (nexu-io)](https://github.com/nexu-io/open-design) — silnik. Pin: `de6d2c072a18dfef80ecad4a455b31f0d5aca090`. Zapis licencji w rejestrze: Apache-2.0.\n\nLokalne środowisko prototypów, prezentacji i materiałów kierowanych przez agenta. Studio ma reguły craft, linter, eksport/import DESIGN.md i wybrane przykłady promptów.\n\n**Work: nieobsługiwane**. Pełna aplikacja działa lokalnie i nie jest podłączona do tej sesji Work. Rejestr przewiduje ręczne połączenie z lokalnym Codex, Claude Code lub Claude Desktop.\n\nInne hosty: claude_code: ręcznie; codex: ręcznie; claude_apps: ręcznie; chatgpt: nieobsługiwane.\n\n[anti-slop (miqdadbadjuber)](https://github.com/miqdadbadjuber/anti-slop) — wiedza. Pin: `439a2ef5b9dd0ebe74e8113ff43f5928d0fe2a6a`. Zapis licencji w rejestrze: MIT.\n\nReguły wykrywające ogólnikowe teksty i powtarzalne wzorce interfejsów. Studio ma adaptację reguł pisania, hierarchii, responsywności oraz lokalne checkery.\n\n**Work: ręcznie**. Dodaj wybrane SKILL.md z przypiętego repo jako pliki projektu, zachowując licencję. Skrypty Studio działają tam, gdzie jest wykonanie kodu. Usuń opcjonalne pliki, aby wycofać dodatek.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: ręcznie; chatgpt: ręcznie.\n\n**Obraz**\n\n[Upscayl](https://github.com/upscayl/upscayl) — silnik. Pin: `4f39acfc6f88260d105920a64deff8431d5e1544`. Zapis licencji w rejestrze: AGPL-3.0.\n\nPowiększanie obrazów na komputerze użytkownika. Studio ma instrukcje doboru ścieżki i pomiaru gotowego pliku; aplikacja nie jest wbudowana.\n\n**Work: ręcznie**. Pobierz wydanie 2.15.0 dla swojego systemu, sprawdź sumę instalatora, zainstaluj lokalnie i sprawdź obsługę Vulkan. Po potwierdzeniu licencji wybranego modelu powiększ obraz i prześlij wynik do oceny. Odinstalowuje się jak zwykłą aplikację.\n\nInne hosty: codex: ręcznie; claude_code: ręcznie; claude_apps: ręcznie; chatgpt: ręcznie.\n\n**Animacja**\n\n[Animate (cth9191)](https://github.com/cth9191/animate) — silnik. Pin: `7e5eb56feb2dd573f890e1b7b34748af43d58263`. Zapis licencji w rejestrze: MIT.\n\nKrótkie ilustracyjne animacje proceduralne z planem historii i obrazu. Metoda i silnik Animate są już w pakiecie. Osobne rozszerzenie dodaje oryginalny workflow.\n\n**Work: nieobsługiwane**. Rejestr nie przewiduje tu instalacji oryginalnego rozszerzenia. Dostępne dla Codex i Claude Code; zdolność uruchomienia narzędzi w bieżącej sesji trzeba sprawdzić oddzielnie.\n\nInne hosty: claude_code: instalacja natywna; codex: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n[Motion Designer (kaventro)](https://github.com/kaventro/motion-designer) — silnik. Pin: `7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8`. Zapis licencji w rejestrze: MIT.\n\nFilmy produktowe i premiery aplikacji z kodu, z rytmem i kontrolą klatek. Studio adaptuje część metody, nie cały oryginalny pipeline.\n\n**Work: nieobsługiwane**. Oryginalny plugin instaluje się w Claude Code. Rejestr nie przewiduje go dla Work; wpis Codex wskazuje błąd front matter w przypiętej wersji.\n\nInne hosty: claude_code: instalacja natywna; codex: nieobsługiwane; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n[Anatomy (wheresryan22)](https://github.com/wheresryan22/anatomy) — silnik. Pin: `e9488296a44211c42701ff71705b7901470ec78f`. Zapis licencji w rejestrze: MIT.\n\nRysunki techniczne SVG, warstwy WebGL i obiekty 3D do objaśniania mechanizmów. Komplet narzędzi graficznych jest już w Motion Graphics Workflow.\n\n**Work: ręcznie**. Na wyraźne życzenie można dodać wybrane źródła i LICENSE jako pliki projektu; tam, gdzie host obsługuje własne skills, pakiet trzeba sprawdzić przed wgraniem. Usuń opcjonalne pliki, aby wycofać dodatek. Nie uruchamia się publikatorów ani zbierania logów.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: ręcznie; chatgpt: ręcznie.\n\n[Huashu Art Motion (alchaincyf)](https://github.com/alchaincyf/huashu-art-motion) — silnik. Pin: `8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c`. Zapis licencji w rejestrze: MIT.\n\nReżyseria animacji w językach malarskich i różnych formach explainera. Studio ma adaptację zasad ruchu, planu ujęć i analizy referencji.\n\n**Work: ręcznie**. Ręcznie dodaj SKILL.md i wybrane materiały z przypiętej wersji jako pliki projektu. Oryginalny silnik stylów wymaga osobnego sprawdzenia przeglądarki; usuń pliki, aby wycofać dodatek.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: ręcznie; chatgpt: ręcznie.\n\n[ISO-GLOW (April Zhu)](https://isoglow.dev/) — wiedza. Pin: `6c88dba1424bada2ee651a1b273095f9a13b82dd9362f9bc873600b5bff6b0a1`. Zapis licencji w rejestrze: MIT.\n\nIzometryczne rysunki, w których aktywne części świecą jednym akcentem. Studio ma zestaw do filmu, przykład głośnika i analizę obwiedni audio. Oryginał służy też interaktywnym stronom.\n\n**Work: ręcznie**. Sprawdź SHA-256 przypiętego archiwum i ręcznie dodaj SKILL.md oraz assets/gallery.html do plików projektu. Usuń dodane pliki, aby wycofać rozszerzenie.\n\nInne hosty: claude_code: instalacja natywna; codex: instalacja natywna; claude_apps: ręcznie; chatgpt: ręcznie.\n\n**Badania**\n\n[REA: Reverse Engineer Anything](https://github.com/morluto/rea) — silnik. Pin: `5e30969cc5f1255d44ec7a1f1ca8dbac0af5e7c4`; pakiet 6.5.0. Zapis licencji w rejestrze: MIT.\n\nAnaliza mechanizmów programów, aplikacji i witryn z dowodami. Opcjonalne pogłębienie analizy; Studio zaczyna od własnego web motion probe.\n\n**Work: nieobsługiwane**. Brak obsługiwanej instalacji lokalnego MCP w tym hoście. Uruchamia się na komputerze z Codex lub Claude Code.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: tylko aplikacja desktopowa; chatgpt: nieobsługiwane.\n\n[Agent Reach](https://github.com/Panniantong/agent-reach) — silnik. Pin: `94f06c1969dfc1834001269d79d3ad0972d9dee6`. Zapis licencji w rejestrze: MIT.\n\nWarstwa narzędzi do odczytu publicznych stron, transkrypcji, RSS i repozytoriów. Opcjonalny zasięg badawczy, gdy własne narzędzia Studio nie docierają do źródła.\n\n**Work: nieobsługiwane**. Rejestr kieruje instalację do Codex lub Claude Code, bez kanałów wymagających logowania. Brak trwałej instalacji Work w tej ścieżce.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n**Głos**\n\n[Voicebox](https://github.com/jamiepine/voicebox) — silnik. Pin: `2bcb98d1a8b6fe05e15fbc1559e3085669e4035d`; pakiet 0.5.0. Zapis licencji w rejestrze: MIT (app); each bundled engine's model has its own licence.\n\nLokalne studio syntezy głosu i wielogłosowych scen. Studio przygotowuje tekst i kierunek lektorski; aplikacja pozostaje osobnym narzędziem.\n\n**Work: nieobsługiwane**. Aplikację uruchamia użytkownik na własnym komputerze. Work nie ma tu potwierdzonego połączenia z jej lokalnym serwerem; wynik wraca jako plik.\n\nInne hosty: codex: ręcznie; claude_code: ręcznie; claude_apps: ręcznie; chatgpt: nieobsługiwane.\n\n[OmniVoice (k2-fsa)](https://github.com/k2-fsa/OmniVoice) — silnik. Pin: `08be0b4ccbac3e13e374e86fbfead4b4cac343e2`; pakiet 0.2.1. Zapis licencji w rejestrze: Apache-2.0 (code); model weights k2-fsa/OmniVoice reported as non-commercial (CC BY-NC), not verified here.\n\nWielojęzyczna synteza głosu, klonowanie i sterowanie cechami głosu. Opcjonalny silnik do głosu; nie jest modelem dołączonym do Studio.\n\n**Work: nieobsługiwane**. Brak instalacji w Work według rejestru. Silnik uruchamia się w lokalnym Codex lub Claude Code; przed pracą klientowską wymaga wyjaśnienia praw do wag.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n[VoxCPM2 (OpenBMB)](https://github.com/OpenBMB/VoxCPM) — silnik. Pin: `cce58a5b59303c9bd63d12f23afe6a49a4a80c59`; pakiet 2.0.3. Zapis licencji w rejestrze: Apache-2.0 (code and weights; commercial use allowed).\n\nSynteza i projektowanie głosu, klonowanie oraz generowanie strumieniowe. Opcjonalny silnik lektorski; Studio przygotowuje tekst i reżyserię.\n\n**Work: nieobsługiwane**. Brak instalacji w Work według rejestru. Silnik uruchamia się na odpowiednim komputerze z Codex lub Claude Code.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n[MOSS-TTS (OpenMOSS)](https://github.com/OpenMOSS/MOSS-TTS) — silnik. Pin: `934d6826b084c46a0d033402174d5f8ac4ed2519`. Zapis licencji w rejestrze: Apache-2.0 (code and models).\n\nRodzina modeli do długiej narracji i kontroli sposobu mówienia. Opcjonalny zewnętrzny silnik narracji, nie model dostarczony z pakietem.\n\n**Work: nieobsługiwane**. Brak instalacji w Work według rejestru; lokalny Codex lub Claude Code z wymaganym środowiskiem i GPU.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n[MOSS-TTSD (OpenMOSS)](https://github.com/OpenMOSS/MOSS-TTSD) — silnik. Pin: `46973e425da227bfa3b315dcd7a4aba8b6be5574`. Zapis licencji w rejestrze: Apache-2.0 (code and models).\n\nWielogłosowe dialogi z naturalną zmianą rozmówców. Opcjonalny silnik dialogowy; Studio zachowuje scenariusz i kierunek wykonania.\n\n**Work: nieobsługiwane**. Brak instalacji w Work według rejestru; lokalny Codex lub Claude Code z wymaganym środowiskiem i GPU.\n\nInne hosty: codex: instalacja natywna; claude_code: instalacja natywna; claude_apps: nieobsługiwane; chatgpt: nieobsługiwane.\n\n**Wideo**\n\n[OpenCreator (krillinai)](https://github.com/krillinai/OpenCreator) — silnik. Pin: `f4dbed139ac80a8d12952b64c9b6def59e42dbcc`. Zapis licencji w rejestrze: Apache-2.0.\n\nLokalna aplikacja do tłumaczenia, napisów, dubbingu i innych prac kreatywnych. Nie jest dołączona. Studio zachowuje własne ścieżki napisów, dźwięku i motion.\n\n**Work: nieobsługiwane**. Aplikacja na macOS lub Windows; Work nie ma tej ścieżki instalacji. Własne usługi generowania i ich koszty są osobnym wyborem użytkownika.\n\nInne hosty: codex: ręcznie; claude_code: ręcznie; claude_apps: ręcznie; chatgpt: nieobsługiwane.\n\nMożesz wskazać repozytorium do instalacji; wtedy najpierw przygotuję konkretny plan dla obsługiwanego hosta. Teraz niczego nie instaluję.",
+      "routing": "workflow-orchestrator → recommended extensions",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 workflow-orchestrator/assets/extensions/extensions.py catalog --host chatgpt_work",
+          "exit_code": 0,
+          "result": "Odczyt pełnego katalogu; brak instalacji."
+        }
+      ],
+      "research_status": "Dated registry reproduction; no present-day licence verification for whole registry.",
+      "limitations": [],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD02",
+      "prompts": [
+        "@FrameCore Works Creative Studio Ten tekst brzmi jak z AI, popraw go: „W dzisiejszym dynamicznym świecie nasza innowacyjna platforma to nie tylko narzędzie, to rewolucja. Dowiedz się więcej!”"
+      ],
+      "response_pl": "„Zobacz, jak działa nasza platforma.”\n\nUsunąłem ogólniki i obietnicę rewolucji. W oryginale nie ma informacji o funkcji platformy, więc nie dopisuję korzyści. To krótka poprawka w trybie kreatywnym; na życzenie możemy omówić ją w trybie nauki.",
+      "routing": "humanizer",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/humanizer/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/humanizer/references/copy-and-voice.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/copy-voice/references/ai-writing-patterns.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 copy-voice/scripts/ai_writing_check.py --help",
+          "exit_code": 0
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 copy-voice/scripts/ai_writing_check.py --text <oryginalny tekst z promptu> --json",
+          "exit_code": 1,
+          "result": {
+            "verdict": "cluster",
+            "kinds": 3
+          }
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 copy-voice/scripts/ai_writing_check.py --text \"Zobacz, jak działa nasza platforma.\" --json",
+          "exit_code": 0,
+          "result": {
+            "verdict": "clean",
+            "kinds": 0,
+            "language": "en"
+          },
+          "limitation": "Heurystyka języka błędnie oznaczyła krótki polski tekst jako en; czystość wzorców nie dowodzi jakości ani autorstwa."
+        }
+      ],
+      "research_status": "Not triggered: conservative copy repair without new factual claim.",
+      "limitations": [
+        "Funkcja i korzyść platformy nie zostały podane."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD03",
+      "prompts": [
+        "@FrameCore Works Creative Studio Zrób mi makietę landingu w HTML dla pracowni ceramiki „Glina”: hero, oferta warsztatów, kontakt."
+      ],
+      "response_pl": "Przygotowałem [makietę Glina w HTML](sandbox:/workspace/scratch/68c6756cdc8e/closure-source-assets/glina-landing.html): hero, oferta warsztatów i kontakt. Kierunek: spokojna strona pracowni, duża szeryfowa typografia, papierowe tło i jeden gliniany akcent. Ilustracja jest schematem, a oferta i kontakt są wyraźnie oznaczone jako dane do uzupełnienia.\n\nKod ma układ dla wąskiego ekranu, widoczny fokus i odnośniki do istniejących sekcji. Linter nie wykazał P0 ani P1; sprawdzone pary tekst–tło mają kontrast co najmniej 5,03:1. Nie uruchomiłem strony w przeglądarce: dostępny pakiet Playwright nie ma zainstalowanego pliku Chromium. Widok i kliknięcia pozostają niesprawdzone.\n\nPracujemy w trybie kreatywnym; na życzenie możemy przejść do nauki.",
+      "routing": "static-graphic-design-creator",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/upstream/SKILL.source.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/references/craft-rules.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/craft-lint/README.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        },
+        {
+          "tool": "apply_patch",
+          "action": "Utworzenie lokalnego HTML poza repo",
+          "path": "/workspace/scratch/68c6756cdc8e/closure-source-assets/glina-landing.html"
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 pipeline-core/assets/craft-lint/craft_lint.py /workspace/scratch/68c6756cdc8e/closure-source-assets/glina-landing.html --json",
+          "exit_code": 0,
+          "result": {
+            "p0": 0,
+            "p1": 0
+          }
+        },
+        {
+          "tool": "exec_command",
+          "command": "contrast_check.py #292d29 #f7f3eb; oddzielne wywołania dla #5b615b #ebe4d8 oraz #f7f3eb #833f2b",
+          "result": [
+            "12.64:1",
+            "5.03:1",
+            "7.0:1"
+          ]
+        },
+        {
+          "tool": "exec_command",
+          "command": "Python HTMLParser: sprawdzenie unikalności id i celów odnośników lokalnych",
+          "result": {
+            "unique_ids": true,
+            "missing_targets": []
+          }
+        },
+        {
+          "tool": "exec_command",
+          "command": "Python shutil.which / importlib.util.find_spec; Node require.resolve(playwright); chromium.executablePath + existsSync",
+          "result": "Node i FFmpeg obecne; Playwright obecny; Chromium wskazane przez Playwright nie istnieje. Nie uruchomiono przeglądarki."
+        }
+      ],
+      "research_status": "Not triggered: draft HTML on supplied fictional/unspecified facts.",
+      "limitations": [
+        "Rzeczywiste zdjęcia, ostateczna oferta i kontakt.",
+        "Brak działającego lokalnego Chromium do przeglądu widoku."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD04",
+      "prompts": [
+        "@FrameCore Works Creative Studio Czy biały tekst na kolorze #F2A541 będzie czytelny na plakacie?"
+      ],
+      "response_pl": "Biały tekst na **#F2A541 ma kontrast 2,05:1** według wykonanego pomiaru. To słabe zestawienie: jest poniżej punktu odniesienia WCAG 4,5:1 dla zwykłego tekstu i 3:1 dla dużego. Te progi dotyczą treści cyfrowych; przy plakacie pomagają ocenić projekt, ale nie zastępują próbnego wydruku i oceny z planowanej odległości. genui{\"citation\":{\"ref\":\"turn1view0\"}}\n\nZastosuj na tym tle **#222222**: zmierzony kontrast wynosi **7,75:1**. Jeśli litery muszą być białe, daj pod nimi ciemne, jednolite pole. Nie widziałem całego plakatu, więc oceniam tylko tę parę kolorów.",
+      "routing": "output-critic-iteration / contrast advice",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/output-critic-iteration/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/references/craft-rules.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/craft-lint/README.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 pipeline-core/assets/craft-lint/contrast_check.py \"#FFFFFF\" \"#F2A541\"",
+          "exit_code": 1,
+          "result": "2.05:1; body and large text FAIL"
+        },
+        {
+          "tool": "exec_command",
+          "command": "python3 pipeline-core/assets/craft-lint/contrast_check.py \"#222222\" \"#F2A541\"",
+          "exit_code": 0,
+          "result": "7.75:1; body and large text PASS"
+        },
+        {
+          "tool": "mcp__codex_apps__search_service_web_run",
+          "action": "Wyszukiwanie W3C i otwarcie oficjalnego Understanding SC 1.4.3 WCAG 2.2",
+          "reference": "turn1view0"
+        }
+      ],
+      "research_status": "Performed: official W3C source plus local numeric measurement.",
+      "limitations": [
+        "Brak pełnego plakatu i próbnego wydruku."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD05",
+      "prompts": [
+        "@FrameCore Works Creative Studio Zaprojektuj wygląd 10-slajdowego pitch decku dla startupu z dostawą warzyw."
+      ],
+      "response_pl": "Proponuję wygląd **„Od skrzynki do stołu”**: jeden motyw skrzynki, która porządkuje opowieść o dostawie warzyw. Odkładam typowy zielony gradient, liście w narożnikach i rząd identycznych kart. Przyjmuję format 16:9 jako roboczy.\n\nTło: ciepła biel #F6F2E8; tekst: #26332B; akcent: #9D431F. Duże nagłówki szeryfowe, prosty krój tekstowy, dużo przestrzeni. Jedna główna myśl na slajd. Zdjęcia warzyw i marki dodamy z rzeczywistych materiałów.\n\n| Slajd | Układ i rola |\n|---|---|\n| 1. Otwarcie | Nazwa i jednozdaniowa propozycja wartości obok dużego zdjęcia realnej dostawy. |\n| 2. Problem | Jedna sytuacja klienta i jej potwierdzone źródło; bez fikcyjnych statystyk. |\n| 3. Rozwiązanie | Skrzynka jako centrum, wokół tylko faktyczne elementy usługi. |\n| 4. Zamówienie i dostawa | Krótka sekwencja rzeczywistego procesu; liczba kroków wynika z produktu. |\n| 5. Oferta | Porównanie dostępnych wariantów z potwierdzonym składem i cenami. |\n| 6. Klient i zasięg | Jeden segment klientów; mapa wyłącznie faktycznego obszaru działania. |\n| 7. Model biznesowy | Prosty schemat kosztów i przychodu, z danymi do uzupełnienia. |\n| 8. Dowody | Prawdziwe wyniki z okresem i źródłem; gdy ich brak, jawny plan walidacji. |\n| 9. Zespół | Rzeczywiste osoby i role; żadnych zdjęć udających członków zespołu. |\n| 10. Prośba inwestycyjna | Kwota, jej przeznaczenie i kontakt po ich dostarczeniu. |\n\nTo propozycja systemu wizualnego, jeszcze nie wyrenderowana prezentacja. Brakuje nazwy marki, treści i danych biznesowych. **Przyjmujemy ten kierunek?** Pracujemy w trybie kreatywnym; możemy też przejść do nauki.",
+      "routing": "static-graphic-design-creator",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/upstream/SKILL.source.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/references/craft-rules.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Not triggered: visual proposal with no fabricated business data.",
+      "limitations": [
+        "Nazwa i materiały marki, zawartość decku, dane biznesowe i wybór kierunku."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD06",
+      "prompts": [
+        "@FrameCore Works Creative Studio Mam kolory i fonty marki, programista robi stronę w Claude Code. Przygotuj mu plik DESIGN.md."
+      ],
+      "response_pl": "Podeślij proszę **kody kolorów i nazwy fontów marki**, najlepiej z informacją, który kolor służy do tła, tekstu i akcentu oraz który font do nagłówków i treści. Możesz zamiast tego załączyć istniejący brand kit.\n\nNa tej podstawie przygotuję DESIGN.md dla programisty w Claude Code i spójne tokens.css. Nie widzę jeszcze tych wartości w rozmowie; pozostałe nieustalone reguły oznaczę jako nieokreślone, bez dopisywania zasad marki lub praw do fontów. Pracujemy w trybie kreatywnym; na życzenie możemy przejść do nauki.",
+      "routing": "static-graphic-design-creator → DESIGN.md export",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/design-md/README.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Blocked intake; no external brand assumptions.",
+      "limitations": [
+        "Brak rzeczywistych wartości kolorów i nazw fontów."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD07",
+      "prompts": [
+        "@FrameCore Works Creative Studio Mam piosenkę i tekst, chcę lyric video z animowaną typografią w rytm muzyki."
+      ],
+      "response_pl": "Podeślij **plik piosenki i dokładny tekst**. Jeśli masz już LRC lub SRT, dołącz je również. W tej wiadomości nie ma jeszcze tych materiałów.\n\nPoprowadzę lyric video w Motion Graphics Workflow: słowa będą pojawiać się zgodnie ze śpiewem, a puls i akcenty typografii z rytmem utworu. Po analizie pokażę krótki fragment planu animacji; niepewne czasy oznaczę do sprawdzenia. Zachowam dostarczony tekst dokładnie i nie podam wymyślonego BPM. Pracujemy w trybie kreatywnym; możemy też przejść do nauki.",
+      "routing": "hyperframes-workflow → lyric timing",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sync/README.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/reel-board-system.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Blocked by missing inputs; no tempo/licence claims.",
+      "limitations": [
+        "Brak pliku audio, tekstu i czasów słów."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD08",
+      "prompts": [
+        "@FrameCore Works Creative Studio Zrób izometryczną animację głośnika, który świeci i pulsuje w rytm basu mojego utworu."
+      ],
+      "response_pl": "Podeślij **utwór albo wybrany fragment audio** — nie mam go jeszcze w tej rozmowie.\n\nUżyję zestawu Iso Glow w Motion Graphics Workflow: nieruchoma izometryczna bryła głośnika, membrana reagująca na energię basu i jeden świecący akcent na aktywnych częściach. Ruch wyprowadzę z rzeczywistej obwiedni niskich częstotliwości, z łagodnym wygaszaniem między uderzeniami. Bez pliku nie mogę jeszcze zmierzyć basu ani pokazać zsynchronizowanej animacji. Pracujemy w trybie kreatywnym; na życzenie możemy przejść do nauki.",
+      "routing": "hyperframes-workflow → Iso Glow + audio envelope",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/iso-glow/README.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sync/README.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Blocked by missing track; local bundled method only.",
+      "limitations": [
+        "Brak utworu lub wskazanego fragmentu."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD09",
+      "prompts": [
+        "@FrameCore Works Creative Studio Chcę 30-sekundową animację o historii kawy w stylu żywego obrazu impresjonistów."
+      ],
+      "response_pl": "Zaproponuję 30-sekundowy film, w którym obraz pozostaje żywy: główna akcja w każdym ujęciu, poruszające się światło, para albo rośliny. Odkładam serię nieruchomych obrazków z takim samym najazdem kamery.\n\nPodstawa historii: etiopskie pochodzenie kawowca, rozpowszechnienie kawy w Jemenie w XV wieku i rozwój jej popularności w Europie od XVII wieku. Opowieść o pasterzu i kozach potraktowałbym jako legendę, nie udokumentowane zdarzenie. genui{\"citation\":{\"ref\":\"turn1view1\"}}\n\nWszystkie trzy kierunki zachowują impresjonistyczne plamy barw i światło, ale inaczej prowadzą historię:\n\n1. **Jedno ziarno w podróży** — owoc na gałęzi staje się ziarnem, ziarno przechodzi przez jemeński port, a finałem jest napar w kawiarni. Rekomenduję tę ciągłość jednego obiektu.\n2. **Stół przez wieki** — kamera wraca do tego samego miejsca przy stole; zmieniają się naczynia, otoczenie i sposób podania.\n3. **Krajobraz w filiżance** — odbicia na powierzchni naparu rozwijają się w kolejne miejsca związane z historią kawy.\n\nProponuję poziomy format 16:9; wybór narzędzia i próba jednej klatki nastąpią przed animacją. **Który kierunek wybierasz: 1, 2 czy 3?** Pracujemy w trybie kreatywnym; możemy też przejść do nauki.",
+      "routing": "hyperframes-workflow → art-style direction; research-evidence for history",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/animate-engine.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        },
+        {
+          "tool": "mcp__codex_apps__search_service_web_run",
+          "action": "Wyszukanie historii kawy i otwarcie artykułu UNESCO Ethiopia, the home of coffee",
+          "reference": "turn1view1"
+        }
+      ],
+      "research_status": "Performed: historical claims checked with UNESCO.",
+      "limitations": [
+        "Brak wyboru kompozycji i zatwierdzonej klatki; runtime nie został wybrany ani uruchomiony."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD10",
+      "prompts": [
+        "@FrameCore Works Creative Studio Wysyłam link do animacji, którą lubię. Rozbierz ją na części i zrób coś w podobnej technice dla mojej marki."
+      ],
+      "response_pl": "Nie widzę jeszcze linku ani załączonej animacji. **Podeślij link lub plik MP4**; możesz też dołączyć logo i materiały swojej marki.\n\nW Motion Graphics Workflow rozpiszę długości ujęć, ruch wewnątrz kadru, przejścia, tempo i pracę typografii. W przypadku animacji na stronie sprawdzę dostępne przebiegi i czasy animacji; przy filmie przeanalizuję kolejne klatki. Wynikiem będzie opis techniki i propozycja jej zastosowania do Twoich materiałów. Nie kopiuję cudzych kadrów, kodu ani identyfikacji. Na razie nie ma podstaw do stwierdzenia, jak działa referencja. Pracujemy w trybie kreatywnym; możemy też przejść do nauki.",
+      "routing": "hyperframes-workflow → reference breakdown / web motion probe",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/reference-breakdown/README.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/web-motion-probe/README.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Cannot inspect or research an absent URL.",
+      "limitations": [
+        "Brak URL/MP4 oraz danych marki."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD11",
+      "prompts": [
+        "@FrameCore Works Creative Studio Napisz prompt do zdjęcia produktowego butelki oliwy na marmurze, w świetle porannym."
+      ],
+      "response_pl": "Przyjmuję pionowy kadr 4:5 i neutralną butelkę bez marki; nie podałeś konkretnego produktu ani generatora.\n\n```text\nCreate a single product photograph of an unbranded glass olive-oil bottle standing on a pale marble countertop. Use a vertical 4:5 composition. Show the entire bottle, placed slightly left of centre, with enough space around its neck and base. View it from a restrained three-quarter angle at bottle mid-height, with natural proportions and straight verticals.\n\nWarm morning light enters through a window outside the frame on the left. It passes through the oil and glass, creating a restrained golden patch on the marble and a soft cast shadow to the right. Use gentle neutral fill to preserve the bottle’s shape without flattening its volume. Keep the bottle and its contact with the countertop sharply resolved; let the background fall softly out of focus.\n\nThe marble has subtle veins and a satin finish. Glass reflections follow the bottle’s curvature; the base rests firmly on the surface with a coherent contact shadow. Keep the setting quiet so the bottle is the clear focal point. Do not add a brand, label text, certification, slogan or unrelated props.\n```\n\nJeśli to ma być zdjęcie konkretnej oliwy, potrzebne będzie zdjęcie butelki, aby oprzeć kształt i etykietę na rzeczywistym produkcie. To gotowy prompt, nie wygenerowany obraz. Pracujemy w trybie kreatywnym; na życzenie możemy przejść do nauki.",
+      "routing": "image-prompt-architect",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/image-prompt-architect/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/image-prompt-architect/references/static-prompt-compiler.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/image-prompt-architect/references/visual-subject-craft.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/image-prompt-architect/references/capture-and-material-recipes.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Not triggered: generic neutral still-image prompt, no named generator or real SKU.",
+      "limitations": [
+        "Brak zdjęcia konkretnego SKU; prompt jawnie dotyczy neutralnej butelki."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD12",
+      "prompts": [
+        "@FrameCore Works Creative Studio Mam wygenerowaną grafikę 1024×1536 i chcę ją wydrukować jako plakat A3 dla klienta. Jak ją powiększyć?"
+      ],
+      "response_pl": "Na A3 plik **1024×1536 px daje około 88–93 ppi**, zależnie od kadrowania. Dla 300 ppi A3 bez spadów potrzebuje około **3508×4961 px**. Proporcje też się różnią: zdjęcie 2:3 będzie wymagało kadrowania albo marginesów.\n\n1. Najpierw poszukaj większego oryginału. Sama zmiana wpisu DPI w metadanych nie doda szczegółów.\n2. Jeśli większego pliku nie ma, powiększenie **4× do 4096×6144 px** daje zapas wymiarów; potem dopasuj kadr do A3. Spady i docelowe parametry ustal z drukarnią.\n3. W powiększonym pliku sprawdź krawędzie, twarze, tekstury i znaki. Upscaler tworzy prawdopodobne szczegóły, więc może zmienić produkt albo wyostrzyć szum. Napisy i logo najlepiej złożyć ponownie z właściwych źródeł na końcu.\n\nJedną z opcji lokalnych jest Upscayl; jego dokumentacja potwierdza wymaganie zgodnej karty Vulkan i nazwę modelu **High Fidelity (HFA2k)**. genui{\"citation\":{\"ref\":\"turn1view2\"}} Nie potwierdziłem jednak licencji tego modelu bezpośrednio u autora, więc nie uznaję go tu za zatwierdzony do pracy komercyjnej. Licencja aplikacji nie zastępuje licencji modelu.\n\nNie mam samej grafiki, więc powyższe liczby wynikają z podanych wymiarów, a nie z analizy pliku. Podeślij ją, aby ocenić, czy powiększanie ma sens.",
+      "routing": "static-graphic-design-creator → upscaling",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/references/upscaling.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        },
+        {
+          "tool": "mcp__codex_apps__search_service_web_run",
+          "action": "system2: Upscayl/HFA2k; system1: autor i licencja HFA2k; open: oficjalne repo Upscayl",
+          "reference": "turn1view2",
+          "result": "Potwierdzono nazwę High Fidelity/HFA2k i wymaganie Vulkan. Wynik OpenModelDB dot. licencji jest wtórny; nie uznano go za potwierdzenie u autora."
+        }
+      ],
+      "research_status": "Performed partially: official app documentation; primary model licence unresolved.",
+      "limitations": [
+        "Brak grafiki do inspekcji.",
+        "Brak potwierdzenia licencji HFA2k bezpośrednio u autora.",
+        "Brak specyfikacji drukarni."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD13",
+      "prompts": [
+        "@FrameCore Works Creative Studio Zrób mi 15-sekundową dynamiczną rolkę showreel dla mojej stolarni, w stylu tych szybkich reelsów agencyjnych z czatem na początku. Logo w załączniku."
+      ],
+      "response_pl": "Nie widzę załączonego logo. **Podeślij je proszę ponownie** — od niego zależą kolory, typografia i element, który połączy sceny.\n\nPrzygotuję rolkę w Motion Graphics Workflow. Roboczy rytm 15 sekund: 0–3 s czytelny, inscenizowany czat; 3–11 s szybkie sceny pokazujące faktyczne prace stolarni; 11–13 s odpowiedź na sytuację z czatu; 13–15 s logo i jedno uzgodnione wezwanie do działania. Rozmowy nie przedstawię jako prawdziwej opinii klienta.\n\nPrzejścia powinny wynikać z pracy w drewnie, a narzędzia robić coś widocznego z materiałem. Dobór konkretnych scen oprę na Twojej ofercie i materiałach, bez zapożyczania wyglądu cudzej marki. Na razie to plan — logo nie zostało obejrzane, film nie został wyrenderowany. Pracujemy w trybie kreatywnym; możemy też przejść do nauki.",
+      "routing": "hyperframes-workflow → dense kinetic reels",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/dense-kinetic-reels.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/reel-board-system.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Blocked by missing brand inputs; no claimed logo inspection.",
+      "limitations": [
+        "Brak rzeczywistego logo, oferty stolarni i realizacji."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    },
+    {
+      "id": "AD14",
+      "prompts": [
+        "@FrameCore Works Creative Studio Mam gotową rolkę MP4 z dźwiękiem. Sprawdź, czy efekty wchodzą równo na cięcia i czy głośność jest dobra."
+      ],
+      "response_pl": "Podeślij **gotowy plik MP4 z dźwiękiem** — nie ma go jeszcze w tej wiadomości.\n\nSprawdzę w Motion Graphics Workflow położenie efektów względem cięć, odchylenia czasowe, głośność LUFS, true peak i ewentualne przesterowania. Wyniki podam z czasami konkretnych miejsc. Jeśli masz osobny stem efektów, możesz go dołączyć: przy pełnym miksie detektor może pomylić uderzenie muzyki z efektem.\n\nNie każde cięcie musi mieć akcent dźwiękowy. Ocena pomiarowa będzie oddzielona od tego, czy brzmienie pasuje do filmu. Bez pliku nie mogę jeszcze ocenić synchronizacji ani głośności.",
+      "routing": "hyperframes-workflow → sound-listen",
+      "decision": "Wykonano odpowiedź lub dostępny etap; brakujące wejścia blokują wyłącznie zależne wykonanie.",
+      "source_paths": [
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/sound-listen/README.md",
+        "/workspace/scratch/68c6756cdc8e/framecore-published/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md"
+      ],
+      "actual_tools_called": [
+        {
+          "tool": "exec_command",
+          "action": "Read source instruction files listed in source_paths"
+        }
+      ],
+      "research_status": "Blocked by missing file; no audio measurement performed.",
+      "limitations": [
+        "Brak MP4 i ewentualnego stemu efektów."
+      ],
+      "media_execution": "not_run",
+      "host_client_test": "not_run",
+      "review_scope": "Jedna autorska kontrola odpowiedzi względem promptu i przeczytanych instrukcji; nie niezależny pomiar skuteczności modelu."
+    }
+  ],
+  "durable_source_urls": {
+    "turn1view0": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    "turn1view1": "https://www.unesco.org/en/articles/ethiopia-home-coffee?hub=66775",
+    "turn1view2": "https://github.com/upscayl/upscayl"
+  },
+  "retained_artifact": "source-assets/glina-landing.html",
+  "parent_review_record": "source-exercises-review.json"
+}

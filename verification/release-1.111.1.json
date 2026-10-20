@@ -220,6 +220,7 @@
   ],
   "review": "Recovered text, audio, PDF, renderer and offline-probe fixes; redirect safety; consistent routing and release provenance; retained regression evidence.",
   "source": "Release 1.111.1: close interrupted repository audit",
-  "github_publication": "NOT_RUN",
-  "host_behavior": "NOT_RUN"
+  "github_publication": "PASS; see github-publication-1.111.1.json for methods and description correction",
+  "host_behavior": "NOT_RUN",
+  "hosted_plugin": "PASS saved-package readback; see hosted-sync-1.111.1.json"
 }

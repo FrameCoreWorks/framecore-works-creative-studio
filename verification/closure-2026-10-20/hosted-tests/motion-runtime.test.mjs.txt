@@ -1,0 +1,47 @@
+✔ read-only status does not create an absent cache (187.386667ms)
+✔ setup refuses to overwrite existing project dependencies (70.656367ms)
+✔ Remotion runs the project-local CLI and preserves its version (225.8526ms)
+✖ incoming unrelated improvements retain motion integration and private binding (138.84794ms)
+✔ incoming update cannot remove runtime or its orchestration route (98.733916ms)
+✔ incoming update cannot replace a hosted private connection (81.21266ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 918.669626
+
+✖ failing tests:
+
+test at ../hosted-closure-candidate/tests/motion-runtime.test.mjs:79:1
+✖ incoming unrelated improvements retain motion integration and private binding (138.84794ms)
+  AssertionError [ERR_ASSERTION]: {
+    "ok": false,
+    "errors": [
+      "Preserve installed file: .mcp.json"
+    ],
+    "scope": "Ordinary update continuity; not render or host execution proof"
+  }
+  
+  
+  1 !== 0
+  
+      at file:///workspace/scratch/68c6756cdc8e/hosted-closure-candidate/tests/motion-runtime.test.mjs:82:10
+      at file:///workspace/scratch/68c6756cdc8e/hosted-closure-candidate/tests/motion-runtime.test.mjs:75:12
+      at fixture (file:///workspace/scratch/68c6756cdc8e/hosted-closure-candidate/tests/motion-runtime.test.mjs:12:15)
+      at updateFixture (file:///workspace/scratch/68c6756cdc8e/hosted-closure-candidate/tests/motion-runtime.test.mjs:56:10)
+      at TestContext.<anonymous> (file:///workspace/scratch/68c6756cdc8e/hosted-closure-candidate/tests/motion-runtime.test.mjs:79:93)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
