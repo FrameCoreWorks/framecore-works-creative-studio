@@ -1,0 +1,185 @@
+[
+  {
+    "id": "01_polish_bare",
+    "user": "FrameCore Works Creative Studio",
+    "context": {
+      "previous_meaningful_user_language": "pl",
+      "host_language": null,
+      "pending_menu": null
+    },
+    "loaded_owners": [
+      "workflow-orchestrator"
+    ],
+    "result": "pass",
+    "language": "pl",
+    "owner": "workflow-orchestrator",
+    "next_action": "User selects one of the five intent choices.",
+    "notes": [
+      "Response is the exact embedded approved Polish welcome, no preamble."
+    ],
+    "response_file": "responses/01_polish_bare.response.md",
+    "proposed_response": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  },
+  {
+    "id": "02_welcome_five",
+    "user": "5",
+    "context": {
+      "previous_meaningful_user_language": "pl",
+      "pending_menu": "current five-option welcome"
+    },
+    "loaded_owners": [
+      "workflow-orchestrator",
+      "opencut-video-studio"
+    ],
+    "result": "pass",
+    "language": "pl",
+    "owner": "opencut-video-studio",
+    "next_action": "One question about the desired result; optional materials invitation.",
+    "notes": [
+      "Startup group closes; no extra area or pace menu."
+    ],
+    "response_file": "responses/02_welcome_five.response.md",
+    "proposed_response": "FrameCut. Jaki efekt chcesz uzyskać z nagrań? Możesz od razu dodać materiały albo przesłać je później.",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  },
+  {
+    "id": "03_three_reels",
+    "user": "Mam dwuminutowe nagranie do kamery. Zrób trzy krótkie samodzielne rolki, z polskimi napisami kinetycznymi i prostymi animacjami. Możesz sam wybrać fragmenty. Nagranie dołączę za chwilę.",
+    "context": {
+      "attachments": [],
+      "menu_required": false,
+      "execution_tools": "local capabilities probe observed, no media supplied",
+      "selection_delegation": "fragments only"
+    },
+    "loaded_owners": [
+      "workflow-orchestrator",
+      "opencut-video-studio",
+      "caption-studio",
+      "research-evidence"
+    ],
+    "result": "pass_with_execution_blocked",
+    "language": "pl",
+    "owner": "opencut-video-studio",
+    "next_action": "Wait for the promised source file, then inspect it; no redundant content-choice question.",
+    "notes": [
+      "No actual fragment choice, analysis, transcript or render claimed.",
+      "Separate sequences are required for the three independent reels.",
+      "Word timing is a real dependency; segment ASR is not word alignment.",
+      "Motion Graphics Workflow is the planned animation delegate, not claimed loaded or executed.",
+      "Caption style selection can be deferred until the source arrives; delegation of fragment selection does not automatically delegate all visual style."
+    ],
+    "response_file": "responses/03_three_reels.response.md",
+    "proposed_response": "Przygotujemy trzy samodzielne rolki z polskimi napisami kinetycznymi i prostymi animacjami. Sam wybiorę fragmenty tak, żeby każda rolka zawierała pełną myśl i była zrozumiała bez pozostałych.\n\nDodaj nagranie, gdy będzie gotowe. Po jego sprawdzeniu dobiorę długości i cięcia; napisy zsynchronizuję ze sprawdzonymi czasami słów. Jeśli dokładne czasy nie będą dostępne, wskażę tę przeszkodę przed wykonaniem napisów.\n\nPrzyjmuję format pionowy 9:16. Styl napisów dopasujemy do materiału. Jeśli zechcesz, możemy też przejść do Trybu nauki.",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  },
+  {
+    "id": "04_resume_captions",
+    "user": "Zwiększ napisy, zachowaj cięcia i muzykę",
+    "context": {
+      "resume_owner": "FrameCut",
+      "known_locks": [
+        "cuts",
+        "music"
+      ],
+      "project_files": null,
+      "limitation": "Task supplied no real checkpoint or media. This tests honest missing-file resume, not a completed revision."
+    },
+    "loaded_owners": [
+      "workflow-orchestrator",
+      "opencut-video-studio",
+      "caption-studio"
+    ],
+    "result": "pass_with_execution_blocked",
+    "language": "pl",
+    "owner": "opencut-video-studio",
+    "next_action": "Obtain the current project package only because this supplied scenario has no actual files.",
+    "notes": [
+      "Does not reset intake or transfer the whole project to Caption Studio.",
+      "If the current project package were already accessible, the owner must use it rather than request another upload.",
+      "No edit completion or preserved rendered result claimed."
+    ],
+    "response_file": "responses/04_resume_captions.response.md",
+    "proposed_response": "Powiększę napisy w tym samym projekcie FrameCut, zachowując cięcia i muzykę. Zachowam też treść, synchronizację i dotychczasowy styl napisów; sprawdzę, czy większy tekst mieści się w kadrze i nie zasłania ważnych elementów.\n\nW tej rozmowie nie mam jeszcze plików tego projektu. Prześlij jego aktualny pakiet z projektem i mediami, żebym mógł wprowadzić zmianę.",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  },
+  {
+    "id": "05_area_five",
+    "user": "5",
+    "context": {
+      "previous_meaningful_user_language": "pl",
+      "pending_menu": "eight-area creative menu plus A/B pace",
+      "pace_answer": null
+    },
+    "loaded_owners": [
+      "workflow-orchestrator"
+    ],
+    "result": "pass",
+    "language": "pl",
+    "owner": "workflow-orchestrator",
+    "next_action": "Ask the first missing copy/script brief question; default pace is Quick.",
+    "notes": [
+      "5 means copy/scripts, not FrameCut.",
+      "Copy Voice versus Screenplay Story Architect is resolved when the actual output is known. Copy Voice was read in this evaluation but was not selected as owner before the brief exists."
+    ],
+    "response_file": "responses/05_area_five.response.md",
+    "proposed_response": "Obszar 5: teksty i scenariusze. Działamy w trybie szybkim; na życzenie możemy przejść do rozbudowanego.\n\nJaki tekst chcesz przygotować?",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  },
+  {
+    "id": "06_no_execution",
+    "user": "FrameCut, zmontuj załączony film i daj gotowy MP4",
+    "context": {
+      "execution_tools": false,
+      "attachment_fixture": "a video is described as attached, but no real media content was provided to the evaluator",
+      "inspection_evidence": null
+    },
+    "loaded_owners": [
+      "workflow-orchestrator",
+      "opencut-video-studio",
+      "research-evidence"
+    ],
+    "result": "pass_with_capability_limit",
+    "language": "pl",
+    "owner": "opencut-video-studio",
+    "next_action": "Provide labelled preliminary handoff and ask one missing outcome question; executable host is required for requested MP4.",
+    "notes": [
+      "Does not infer tools from host name or use the real sandbox capabilities in this no-tools scenario.",
+      "Does not claim rendered media, watched footage, timestamps or actual sound review.",
+      "This fallback is necessarily generic until outcome and inspectable media are supplied; it does not satisfy the MP4 request."
+    ],
+    "response_file": "responses/06_no_execution.response.md",
+    "proposed_response": "W tej rozmowie nie mam narzędzi do montażu i eksportu, więc nie mogę przygotować gotowego MP4. Sam załącznik nie daje mi możliwości wykonania renderu.\n\n**Wstępny plan montażu do przekazania:** obejrzeć materiał, ułożyć sceny w czytelną całość, wskazać konkretne cięcia z zachowaniem sensu wypowiedzi, sprawdzić obraz i dźwięk, a następnie wyeksportować i obejrzeć MP4. Nie podaję punktów cięć ani oceny nagrania bez jego rzeczywistej analizy.\n\nJaki efekt ma mieć końcowy film?",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  },
+  {
+    "id": "07_german_bare",
+    "user": "FrameCore Works Creative Studio",
+    "context": {
+      "previous_meaningful_user_language": "de",
+      "previous_user_text_fixture": "Bitte antworte mir auf Deutsch.",
+      "host_language": null
+    },
+    "loaded_owners": [
+      "workflow-orchestrator"
+    ],
+    "result": "pass",
+    "language": "de",
+    "owner": "workflow-orchestrator",
+    "next_action": "User selects one of five translated intent choices.",
+    "notes": [
+      "A German language signal is explicit in the synthetic context; language is not inferred from nationality.",
+      "All six capability bullets, availability condition, material invitation, five options and reply tokens retained."
+    ],
+    "response_file": "responses/07_german_bare.response.md",
+    "proposed_response": "Ich bin FrameCore Works Creative Studio. Ich helfe dabei, Ideen zu entwickeln, kreative Materialien zu erstellen und Projekte zu verbessern — vom ersten Konzept über die Produktionsplanung bis zu weiteren Überarbeitungen.\n\nIch kann dir helfen mit:\n\n- **Grafik und Werbematerialien** — Plakaten, Flyern, Bannern, Social-Media-Beiträgen und Ideen für die Gestaltung einer Kampagne.\n- **Video, Motion Design und Storytelling** — Reels, Werbespots, animierten Grafiken und Typografie, Drehbüchern, Musikvideos, Storyboards, Aufnahmeplänen und der Inszenierung von Figuren.\n- **Texten** — Überschriften, Beschreibungen, Slogans, Dialogen und der Anpassung der Sprache an deine Zielgruppe.\n- **Prompts und Referenzen** — Anweisungen zum Erstellen von Bildern und Videos sowie dem Ordnen von Beispielen, die dem Projekt eine Richtung geben.\n- **Musik, Stimme und Ton** — musikalischen Konzepten, Liedtexten und Anweisungen für Audiowerkzeuge sowie der Planung des Sounddesigns.\n- **Bearbeitung und Verfeinerung von Materialien** — Szenenfolge, Untertiteln, Rhythmus, Animationsplänen und konkreten Verbesserungen an bereitgestellten Arbeiten.\n\nIch helfe sowohl bei einzelnen Materialien als auch bei größeren Kampagnen. Wir können diese Fähigkeiten auch Schritt für Schritt erlernen. Die Vorbereitung und Analyse von Dateien erfolgt mit den Werkzeugen, die im aktuellen Gespräch verfügbar sind.\n\nWenn du ein Logo, Fotos, Grafiken, ein Video, Text, Beispiele oder Dokumente hast, kannst du sie jetzt oder später hinzufügen.\n\n**Wähle, womit wir beginnen:**\n\n1. **Kreativmodus** — wir arbeiten an deinem Projekt; anschließend wählst du zwischen dem schnellen und dem ausführlichen Modus.\n2. **Lernmodus** — wir erkunden dein gewähltes Thema anhand eines einfachen Plans, kurzer Lektionen, Übungen und Rückmeldungen zu deiner Arbeit.\n3. **Suchst du eine bestimmte Fähigkeit?** — beschreibe, was sie leisten soll, und ich prüfe, ob ich etwas Passendes habe; in Codex und Claude Code durchsuche ich außerdem den offenen Katalog skills.sh.\n4. **Möchtest du die von FrameCore Works empfohlenen GitHub-Repositories sehen?** — ich liste sie auf und erkläre, wozu jedes dient und wie du es in dem Agenten installierst, den du verwendest.\n5. **FrameCut** — dein Video analysieren, schneiden und fertigstellen: mit Aufnahmen, Untertiteln, Animation und Ton.\n\nGib **1**, **2**, **3**, **4** oder **5** ein.",
+    "fresh_client_proof": false,
+    "actual_media_rendered": false
+  }
+]

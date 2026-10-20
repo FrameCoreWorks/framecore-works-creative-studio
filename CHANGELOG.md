@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.113.0, 2026-10-20
+
+FrameCut is now the executable editing mode in the full welcome (option 5), using the existing opencut-video-studio ID. It takes an adaptive brief through source analysis, editable timeline, captions, motion/audio finishing, revisions and verified delivery. The standard-library/FFmpeg runtime provides exact source clocks, immutable revisions, source-bound transcripts, kinetic captions, motion placements, independent audio, cache recovery and explicit interchange losses. Existing caption, motion, audio and project owners share one timeline.
+
+Sandbox agents exposed and verified fixes for stale anchored audio, undo dropping locks and invalid lock state; formal coverage also guards transition handles. Three media workflows, rational/VFR/offset clocks and optional OTIO round-trip have actual evidence. The existing 59-component install/update inventory is retained. Full playback/listening, Polish alignment accuracy, native editor import and fresh installed-client behavior are not certified by these tests. See [FrameCut build status](docs/framecut/build-status.md).
+
 ## 1.112.0, 2026-10-20
 
 The owner requested a complete first-install and every-update check for the supplied Work tool configuration.

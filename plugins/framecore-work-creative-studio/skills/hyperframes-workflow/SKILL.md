@@ -95,3 +95,7 @@ Review gate: `structure_fit`. The workflow role `hyperframes-producer` maps to t
 - No page chrome (corner labels, counters, timecodes, progress bars, kickers, repeated slide layouts) unless the idea needs it.
 - Assets, fonts and exclusions are explicit; locks are preserved.
 - Preview, temporal review, audio and encoded export are reported separately, with NOT VERIFIED where evidence is missing.
+
+## FrameCut handoff
+
+For a FrameCut handoff, author only the requested local composition at origin 0 with its exact frame count/FPS, dimensions and alpha convention. Return rendered media and the hashed motion-score contract; FrameCut owns global placement, audio/caption mapping and final composition. Do not restart intake or create a second global timeline.

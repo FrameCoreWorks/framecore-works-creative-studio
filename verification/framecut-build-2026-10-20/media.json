@@ -1,0 +1,263 @@
+{
+  "speech_full": {
+    "project_revision": 2,
+    "deliverable": {
+      "height": 360,
+      "id": "full",
+      "sequence": "full",
+      "width": 640
+    },
+    "frames": 330,
+    "loudness": {
+      "input_i": "-15.93",
+      "input_lra": "4.20",
+      "input_thresh": "-27.12",
+      "input_tp": "-5.13",
+      "normalization_type": "dynamic",
+      "output_i": "-24.84",
+      "output_lra": "4.00",
+      "output_thresh": "-36.14",
+      "output_tp": "-14.25",
+      "target_offset": "0.84"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "592945b5de296f0c8cb9b1cdfe7d227f853e0096155a0b5d5b7a4ea04da1c80d",
+    "warnings": [
+      {
+        "asset": "speaker",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  },
+  "speech_highlight": {
+    "project_revision": 2,
+    "deliverable": {
+      "fit": "contain",
+      "height": 640,
+      "id": "highlight",
+      "sequence": "highlight",
+      "width": 360
+    },
+    "frames": 217,
+    "loudness": {
+      "input_i": "-17.13",
+      "input_lra": "2.70",
+      "input_thresh": "-28.00",
+      "input_tp": "-5.80",
+      "normalization_type": "dynamic",
+      "output_i": "-24.65",
+      "output_lra": "2.70",
+      "output_thresh": "-35.47",
+      "output_tp": "-13.85",
+      "target_offset": "0.65"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "88a75acc48c40bc1204f71cb3c6419c3f0ac9b04ba22c927fdd93e008b51dcf9",
+    "warnings": [
+      {
+        "asset": "speaker",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  },
+  "screen": {
+    "project_revision": 2,
+    "deliverable": {
+      "height": 540,
+      "id": "tutorial",
+      "sequence": "tutorial",
+      "width": 960
+    },
+    "frames": 210,
+    "loudness": {
+      "input_i": "-inf",
+      "input_lra": "0.00",
+      "input_thresh": "-70.00",
+      "input_tp": "-inf",
+      "normalization_type": "dynamic",
+      "output_i": "-inf",
+      "output_lra": "0.00",
+      "output_thresh": "-70.00",
+      "output_tp": "-inf",
+      "target_offset": "inf"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "814b8d9b43c0b9ee9e3c1e94394c824685b58f2a434aafe7c11ea1bf5d956771",
+    "warnings": [
+      {
+        "asset": "screen",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      },
+      {
+        "asset": "screen",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      },
+      {
+        "asset": "screen",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  },
+  "product_landscape": {
+    "project_revision": 13,
+    "deliverable": {
+      "fit": "contain",
+      "height": 540,
+      "id": "landscape",
+      "lufs": -18,
+      "safe_bottom": 0.02,
+      "sequence": "main",
+      "width": 960
+    },
+    "frames": 270,
+    "loudness": {
+      "input_i": "-18.14",
+      "input_lra": "0.40",
+      "input_thresh": "-28.14",
+      "input_tp": "-4.90",
+      "normalization_type": "dynamic",
+      "output_i": "-23.99",
+      "output_lra": "0.30",
+      "output_thresh": "-33.99",
+      "output_tp": "-10.68",
+      "target_offset": "-0.01"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "d679fa6e51e855eb6624f53695bc85f27a1dfa5bb9c14a13c513b9511ad0230c",
+    "warnings": [
+      {
+        "asset": "hero",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      },
+      {
+        "asset": "lineup",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      },
+      {
+        "asset": "callout",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  },
+  "product_vertical": {
+    "project_revision": 13,
+    "deliverable": {
+      "fit": "contain",
+      "height": 960,
+      "id": "vertical",
+      "lufs": -18,
+      "safe_bottom": 0.02,
+      "sequence": "main",
+      "width": 540
+    },
+    "frames": 270,
+    "loudness": {
+      "input_i": "-18.14",
+      "input_lra": "0.40",
+      "input_thresh": "-28.14",
+      "input_tp": "-4.90",
+      "normalization_type": "dynamic",
+      "output_i": "-23.99",
+      "output_lra": "0.30",
+      "output_thresh": "-33.99",
+      "output_tp": "-10.68",
+      "target_offset": "-0.01"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "caf991beeaaac5df6a0d14e270b67c4af23d099dc4cc9b11f8deda2812db7144",
+    "warnings": [
+      {
+        "asset": "hero",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      },
+      {
+        "asset": "lineup",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      },
+      {
+        "asset": "callout",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  },
+  "vfr": {
+    "project_revision": 1,
+    "deliverable": {
+      "height": 180,
+      "id": "vfr",
+      "sequence": "vfr",
+      "width": 320
+    },
+    "frames": 60,
+    "loudness": {
+      "input_i": "-inf",
+      "input_lra": "0.00",
+      "input_thresh": "-70.00",
+      "input_tp": "-inf",
+      "normalization_type": "linear",
+      "output_i": "-inf",
+      "output_lra": "0.00",
+      "output_thresh": "-70.00",
+      "output_tp": "-inf",
+      "target_offset": "inf"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "6feb572e519b24b9c192db59d4da4ae476eea2ddba38c01c4ee9f965a0c69bcd",
+    "warnings": [
+      {
+        "asset": "vfr",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  },
+  "nonzero_pts": {
+    "project_revision": 1,
+    "deliverable": {
+      "height": 180,
+      "id": "offset",
+      "sequence": "offset",
+      "width": 320
+    },
+    "frames": 60,
+    "loudness": {
+      "input_i": "-inf",
+      "input_lra": "0.00",
+      "input_thresh": "-70.00",
+      "input_tp": "-inf",
+      "normalization_type": "linear",
+      "output_i": "-inf",
+      "output_lra": "0.00",
+      "output_thresh": "-70.00",
+      "output_tp": "-inf",
+      "target_offset": "inf"
+    },
+    "technical_status": "PASS",
+    "video_sha256": "0cc16bd5caaca4b93c236393a2dcad7f27446737972f65cdc95f356c3b19e881",
+    "warnings": [
+      {
+        "asset": "offset",
+        "code": "unlabelled_color",
+        "handling": "treated as SDR; inspect the output"
+      }
+    ],
+    "inspection": "Sampled frames; audio measured/decoded. Full subjective playback/listening NOT_RUN."
+  }
+}

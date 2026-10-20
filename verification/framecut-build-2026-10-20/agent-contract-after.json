@@ -1,0 +1,984 @@
+{
+  "runtime": "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+  "tests": [
+    {
+      "name": "rational_fps_source_caption_projection",
+      "pass": true,
+      "details": {
+        "expected": [
+          [
+            19,
+            23
+          ],
+          [
+            29,
+            33
+          ],
+          [
+            45,
+            51
+          ]
+        ],
+        "actual": [
+          [
+            19,
+            23
+          ],
+          [
+            29,
+            33
+          ],
+          [
+            45,
+            51
+          ]
+        ],
+        "audio_samples": 192192,
+        "source_map": [
+          {
+            "asset": "camera",
+            "clip": "take",
+            "source_hash": "4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31",
+            "source_in_pts": 30000,
+            "source_seconds": [
+              "1",
+              "4003/1000"
+            ],
+            "speed": {
+              "den": 2,
+              "num": 3
+            },
+            "time_base": "1/30000",
+            "timeline_frames": [
+              15,
+              75
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "actual_special_character_path_final_render",
+      "pass": true,
+      "details": {
+        "decoded_frames": 120,
+        "fps": "30000/1001",
+        "audio": {
+          "avg_frame_rate": "0/0",
+          "bit_rate": "191312",
+          "bits_per_sample": 0,
+          "channel_layout": "stereo",
+          "channels": 2,
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "codec_name": "aac",
+          "codec_tag": "0x6134706d",
+          "codec_tag_string": "mp4a",
+          "codec_type": "audio",
+          "disposition": {
+            "attached_pic": 0,
+            "captions": 0,
+            "clean_effects": 0,
+            "comment": 0,
+            "default": 1,
+            "dependent": 0,
+            "descriptions": 0,
+            "dub": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "karaoke": 0,
+            "lyrics": 0,
+            "metadata": 0,
+            "non_diegetic": 0,
+            "original": 0,
+            "still_image": 0,
+            "timed_thumbnails": 0,
+            "visual_impaired": 0
+          },
+          "duration": "4.004000",
+          "duration_ts": 192192,
+          "extradata_size": 5,
+          "id": "0x2",
+          "index": 1,
+          "initial_padding": 0,
+          "nb_frames": "189",
+          "profile": "LC",
+          "r_frame_rate": "0/0",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "tags": {
+            "handler_name": "SoundHandler",
+            "language": "und",
+            "vendor_id": "[0][0][0][0]"
+          },
+          "time_base": "1/48000"
+        }
+      }
+    },
+    {
+      "name": "overlapping_independent_audio_and_duck_schedule",
+      "pass": true,
+      "details": {
+        "amplitudes": {
+          "0.2": {
+            "440": 9.24624747656449e-07,
+            "880": 0.06263558428935506
+          },
+          "0.8": {
+            "440": 5.177913133863642e-07,
+            "880": 0.06258528762959302
+          },
+          "1.2": {
+            "440": 0.12525928351976706,
+            "880": 0.01574098922177256
+          },
+          "1.7": {
+            "440": 0.12401710068542028,
+            "880": 0.015705523896334887
+          },
+          "2.2": {
+            "440": 3.7441173562988316e-07,
+            "880": 0.06250312741651505
+          },
+          "3.2": {
+            "440": 7.094452179235417e-07,
+            "880": 0.06251406486801976
+          }
+        },
+        "duck_ratio_expected": 0.251188643150958,
+        "duck_ratio_actual": 0.2513106471403628,
+        "decoded_samples": 192512
+      }
+    },
+    {
+      "name": "stale_revision_leaves_project_unchanged",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "retime_clip_keeps_source_caption_mapping",
+      "pass": true,
+      "details": [
+        [
+          34,
+          38
+        ],
+        [
+          44,
+          48
+        ],
+        [
+          60,
+          66
+        ]
+      ]
+    },
+    {
+      "name": "revision_change_invalidates_previous_bundle",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "audio_anchor_follows_clip_in_actual_render",
+      "pass": true,
+      "details": {
+        "1.2": {
+          "440": 6.331339127910447e-07,
+          "880": 0.06256160997000533
+        },
+        "1.7": {
+          "440": 0.1253521256744764,
+          "880": 0.015680764371712234
+        },
+        "2.2": {
+          "440": 0.12416071523131787,
+          "880": 0.015680430620194287
+        },
+        "2.7": {
+          "440": 1.480167312222996e-07,
+          "880": 0.06261785760280994
+        }
+      }
+    },
+    {
+      "name": "retimed_clip_reuses_normalization_cache",
+      "pass": true,
+      "details": {
+        "cache_hits": [
+          "visual",
+          "gap"
+        ],
+        "cache_built": [
+          "gap",
+          "assembly",
+          "mix"
+        ]
+      }
+    },
+    {
+      "name": "invalid_insufficient-handles",
+      "pass": true,
+      "details": {
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"insufficient_handles\", \"message\": \"Insufficient source media\"}}\n"
+      }
+    },
+    {
+      "name": "invalid_unknown-operation",
+      "pass": true,
+      "details": {
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"unsupported_operation\", \"message\": \"Unsupported edit operation: run_filtergraph\"}}\n"
+      }
+    },
+    {
+      "name": "invalid_orphaned-anchor",
+      "pass": true,
+      "details": {
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"missing_anchor\", \"message\": \"Orphaned anchor: orphan\"}}\n"
+      }
+    },
+    {
+      "name": "invalid_undeclared-overlap",
+      "pass": true,
+      "details": {
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Undeclared base-track overlap\"}}\n"
+      }
+    },
+    {
+      "name": "invalid_bad-fps",
+      "pass": true,
+      "details": {
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"numerator: expected integer 1..9007199254740991\"}}\n"
+      }
+    },
+    {
+      "name": "invalid_unsupported-schema-field",
+      "pass": true,
+      "details": {
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Unknown fields: ['filtergraph']\"}}\n"
+      }
+    },
+    {
+      "name": "corrupt_completed_cache_recovers",
+      "pass": true,
+      "details": {
+        "cache_hits": [
+          "gap",
+          "gap",
+          "assembly",
+          "mix"
+        ],
+        "cache_built": [
+          "visual"
+        ]
+      }
+    },
+    {
+      "name": "changed_source_detected",
+      "pass": true,
+      "details": "{\"status\": \"error\", \"error\": {\"code\": \"stale_source\", \"message\": \"Source changed: camera\"}}\n"
+    },
+    {
+      "name": "accepted_output_overwrite_rejected",
+      "pass": true,
+      "details": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Output directory already exists; use a new revision path\"}}\n"
+    },
+    {
+      "name": "identical_revision_warm_and_cold_audio_agree",
+      "pass": true,
+      "details": {
+        "1.2": {
+          "warm_440": 6.331339127910447e-07,
+          "cold_440": 6.331339127910447e-07
+        },
+        "1.7": {
+          "warm_440": 0.1253521256744764,
+          "cold_440": 0.1253521256744764
+        },
+        "2.2": {
+          "warm_440": 0.12416071523131787,
+          "cold_440": 0.12416071523131787
+        },
+        "2.7": {
+          "warm_440": 1.480167312222996e-07,
+          "cold_440": 1.480167312222996e-07
+        }
+      }
+    },
+    {
+      "name": "undo_preserves_current_locks",
+      "pass": true,
+      "details": {
+        "restored_revision": 6,
+        "locks_after_undo": [
+          "take"
+        ]
+      }
+    },
+    {
+      "name": "interrupt_removes_lock_and_unpublished_bundle",
+      "pass": true,
+      "details": {
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+          "render",
+          "$SANDBOX/framecut-agent-contract/node_modules/postfix-recovery/project.json",
+          "--deliverable",
+          "wide",
+          "--out",
+          "renders/interrupted"
+        ],
+        "signaled": true,
+        "returncode": 2,
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"cancelled\", \"message\": \"Child cancelled; no final was published\"}}\n",
+        "lock_exists": false
+      }
+    },
+    {
+      "name": "interrupted_render_can_retry_same_output",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "invalid_lock_type_rejected_atomically",
+      "pass": true,
+      "details": {
+        "returncode": 2,
+        "revision_before": 2,
+        "revision_after": 2,
+        "stdout": "",
+        "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Locks must be a list of unique clip IDs\"}}\n"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "ffmpeg",
+        "-y",
+        "-v",
+        "error",
+        "-f",
+        "lavfi",
+        "-i",
+        "testsrc2=size=320x180:rate=30000/1001:duration=7",
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=440:sample_rate=48000:duration=7",
+        "-map",
+        "0:v",
+        "-map",
+        "1:a",
+        "-c:v",
+        "libx264",
+        "-threads",
+        "2",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-shortest",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/media/-footage ' Łódź #,:[].mp4"
+      ],
+      "returncode": 0,
+      "seconds": 0.379,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ffmpeg",
+        "-y",
+        "-v",
+        "error",
+        "-f",
+        "lavfi",
+        "-i",
+        "sine=frequency=880:sample_rate=48000:duration=7",
+        "-c:a",
+        "pcm_s24le",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/media/music.wav"
+      ],
+      "returncode": 0,
+      "seconds": 0.058,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "init",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--id",
+        "contract"
+      ],
+      "returncode": 0,
+      "seconds": 0.047,
+      "stdout": "{\"schema_version\": 1, \"id\": \"contract\", \"revision\": 1, \"brief\": {}, \"authorization\": null, \"assets\": {}, \"analyses\": {}, \"sequences\": [], \"deliverables\": [], \"locks\": [], \"status\": \"draft\", \"history\": null}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "ingest",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--asset",
+        "camera",
+        "--media",
+        "media/-footage ' Łódź #,:[].mp4",
+        "--base-revision",
+        "1"
+      ],
+      "returncode": 0,
+      "seconds": 0.118,
+      "stdout": "{\"analyses\": {}, \"assets\": {\"camera\": {\"path\": \"media/-footage ' Łódź #,:[].mp4\", \"sha256\": \"4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31\", \"kind\": \"video\", \"probe\": {\"kind\": \"video\", \"duration\": 6.973633, \"time_base\": \"1/30000\", \"clock\": {\"num\": 1, \"den\": 30000}, \"start_pts\": 0, \"has_audio\": true, \"audio_index\": 1, \"video_index\": 0, \"streams\": [{\"index\": 0, \"codec_name\": \"h264\", \"codec_long_name\": \"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\", \"profile\": \"High\", \"codec_type\": \"video\", \"codec_tag_string\": \"avc1\", \"codec_tag\": \"0x31637661\", \"width\": 320, \"height\": 180, \"coded_width\": 320, \"coded_height\": 180, \"closed_captions\": 0, \"film_grain\": 0, \"has_b_frames\": 2, \"sample_aspect_ratio\": \"1:1\", \"display_aspect_ratio\": \"16:9\", \"pix_fmt\": \"yuv420p\", \"level\": 13, \"chroma_location\": \"left\", \"field_order\": \"progressive\", \"refs\": 1, \"is_avc\": \"true\", \"nal_length_size\": \"4\", \"id\": \"0x1\", \"r_frame_rate\": \"30000/1001\", \"avg_frame_rate\": \"30000/1001\", \"time_base\": \"1/30000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"duration_ts\": 209209, \"duration\": \"6.973633\", \"bit_rate\": \"246018\", \"bits_per_raw_sample\": \"8\", \"nb_frames\": \"209\", \"extradata_size\": 45, \"disposition\": {\"default\": 1, \"dub\": 0, \"original\": 0, \"comment\": 0, \"lyrics\": 0, \"karaoke\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"visual_impaired\": 0, \"clean_effects\": 0, \"attached_pic\": 0, \"timed_thumbnails\": 0, \"non_diegetic\": 0, \"captions\": 0, \"descriptions\": 0, \"metadata\": 0, \"dependent\": 0, \"still_image\": 0}, \"tags\": {\"language\": \"und\", \"handler_name\": \"VideoHandler\", \"vendor_id\": \"[0][0][0][0]\", \"encoder\": \"Lavc60.31.102 libx264\"}}, {\"index\": 1, \"codec_name\": \"aac\", \"codec_long_name\": \"AAC (Advanced Audio Coding)\", \"profile\": \"LC\", \"codec_type\": \"audio\", \"codec_tag_string\": \"mp4a\", \"codec_tag\": \"0x6134706d\", \"sample_fmt\": \"fltp\", \"sample_rate\": \"48000\", \"channels\": 1, \"channel_layout\": \"mono\", \"bits_per_sample\": 0, \"initial_padding\": 0, \"id\": \"0x2\", \"r_frame_rate\": \"0/0\", \"avg_frame_rate\": \"0/0\", \"time_base\": \"1/48000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"duration_ts\": 336000, \"duration\": \"7.000000\", \"bit_rate\": \"69389\", \"nb_frames\": \"330\", \"extradata_size\": 5, \"disposition\": {\"default\": 1, \"dub\": 0, \"original\": 0, \"comment\": 0, \"lyrics\": 0, \"karaoke\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"visual_impaired\": 0, \"clean_effects\": 0, \"attached_pic\": 0, \"timed_thumbnails\": 0, \"non_diegetic\": 0, \"captions\": 0, \"descriptions\": 0, \"metadata\": 0, \"dependent\": 0, \"still_image\": 0}, \"tags\": {\"language\": \"und\", \"handler_name\": \"SoundHandler\", \"vendor_id\": \"[0][0][0][0]\"}}], \"format_start\": \"0.000000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"width\": 320, \"height\": 180, \"fps\": \"30000/1001\", \"nominal_fps\": \"30000/1001\", \"sar\": \"1:1\", \"rotation\": 0, \"has_alpha\": false, \"color_transfer\": \"unknown\", \"color_space\": \"unknown\", \"color_primaries\": \"unknown\", \"pix_fmt\": \"yuv420p\"}, \"rights\": \"unknown\", \"provenance\": \"user-supplied\"}}, \"authorization\": null, \"brief\": {}, \"deliverables\": [], \"history\": {\"parent_revision\": 1, \"parent_hash\": \"f9d3b16073eaa3633b8e0eba8c698ef6f6d59cab89624da57dc12036ed736aa8\", \"reason\": \"ingest source\"}, \"id\": \"contract\", \"locks\": [], \"revision\": 2, \"schema_version\": 1, \"sequences\": [], \"status\": \"draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "ingest",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--asset",
+        "music",
+        "--media",
+        "media/music.wav",
+        "--base-revision",
+        "2"
+      ],
+      "returncode": 0,
+      "seconds": 0.123,
+      "stdout": "{\"analyses\": {}, \"assets\": {\"camera\": {\"kind\": \"video\", \"path\": \"media/-footage ' Łódź #,:[].mp4\", \"probe\": {\"audio_index\": 1, \"clock\": {\"den\": 30000, \"num\": 1}, \"color_primaries\": \"unknown\", \"color_space\": \"unknown\", \"color_transfer\": \"unknown\", \"duration\": 6.973633, \"format_start\": \"0.000000\", \"fps\": \"30000/1001\", \"has_alpha\": false, \"has_audio\": true, \"height\": 180, \"kind\": \"video\", \"nominal_fps\": \"30000/1001\", \"pix_fmt\": \"yuv420p\", \"rotation\": 0, \"sar\": \"1:1\", \"start_pts\": 0, \"streams\": [{\"avg_frame_rate\": \"30000/1001\", \"bit_rate\": \"246018\", \"bits_per_raw_sample\": \"8\", \"chroma_location\": \"left\", \"closed_captions\": 0, \"codec_long_name\": \"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\", \"codec_name\": \"h264\", \"codec_tag\": \"0x31637661\", \"codec_tag_string\": \"avc1\", \"codec_type\": \"video\", \"coded_height\": 180, \"coded_width\": 320, \"display_aspect_ratio\": \"16:9\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 1, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"6.973633\", \"duration_ts\": 209209, \"extradata_size\": 45, \"field_order\": \"progressive\", \"film_grain\": 0, \"has_b_frames\": 2, \"height\": 180, \"id\": \"0x1\", \"index\": 0, \"is_avc\": \"true\", \"level\": 13, \"nal_length_size\": \"4\", \"nb_frames\": \"209\", \"pix_fmt\": \"yuv420p\", \"profile\": \"High\", \"r_frame_rate\": \"30000/1001\", \"refs\": 1, \"sample_aspect_ratio\": \"1:1\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"tags\": {\"encoder\": \"Lavc60.31.102 libx264\", \"handler_name\": \"VideoHandler\", \"language\": \"und\", \"vendor_id\": \"[0][0][0][0]\"}, \"time_base\": \"1/30000\", \"width\": 320}, {\"avg_frame_rate\": \"0/0\", \"bit_rate\": \"69389\", \"bits_per_sample\": 0, \"channel_layout\": \"mono\", \"channels\": 1, \"codec_long_name\": \"AAC (Advanced Audio Coding)\", \"codec_name\": \"aac\", \"codec_tag\": \"0x6134706d\", \"codec_tag_string\": \"mp4a\", \"codec_type\": \"audio\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 1, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"7.000000\", \"duration_ts\": 336000, \"extradata_size\": 5, \"id\": \"0x2\", \"index\": 1, \"initial_padding\": 0, \"nb_frames\": \"330\", \"profile\": \"LC\", \"r_frame_rate\": \"0/0\", \"sample_fmt\": \"fltp\", \"sample_rate\": \"48000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"tags\": {\"handler_name\": \"SoundHandler\", \"language\": \"und\", \"vendor_id\": \"[0][0][0][0]\"}, \"time_base\": \"1/48000\"}], \"time_base\": \"1/30000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"video_index\": 0, \"width\": 320}, \"provenance\": \"user-supplied\", \"rights\": \"unknown\", \"sha256\": \"4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31\"}, \"music\": {\"path\": \"media/music.wav\", \"sha256\": \"061b96da33c057d6fe79242183939555afa5bcb37d12a158f32c198b1f7ea014\", \"kind\": \"audio\", \"probe\": {\"kind\": \"audio\", \"duration\": 7.0, \"time_base\": \"1/48000\", \"clock\": {\"num\": 1, \"den\": 48000}, \"start_pts\": 0, \"has_audio\": true, \"audio_index\": 0, \"video_index\": null, \"streams\": [{\"index\": 0, \"codec_name\": \"pcm_s24le\", \"codec_long_name\": \"PCM signed 24-bit little-endian\", \"codec_type\": \"audio\", \"codec_tag_string\": \"[1][0][0][0]\", \"codec_tag\": \"0x0001\", \"sample_fmt\": \"s32\", \"sample_rate\": \"48000\", \"channels\": 1, \"channel_layout\": \"mono\", \"bits_per_sample\": 24, \"initial_padding\": 0, \"r_frame_rate\": \"0/0\", \"avg_frame_rate\": \"0/0\", \"time_base\": \"1/48000\", \"duration_ts\": 336000, \"duration\": \"7.000000\", \"bit_rate\": \"1152000\", \"bits_per_raw_sample\": \"24\", \"disposition\": {\"default\": 0, \"dub\": 0, \"original\": 0, \"comment\": 0, \"lyrics\": 0, \"karaoke\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"visual_impaired\": 0, \"clean_effects\": 0, \"attached_pic\": 0, \"timed_thumbnails\": 0, \"non_diegetic\": 0, \"captions\": 0, \"descriptions\": 0, \"metadata\": 0, \"dependent\": 0, \"still_image\": 0}}], \"format_start\": \"0\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\"}, \"rights\": \"unknown\", \"provenance\": \"user-supplied\"}}, \"authorization\": null, \"brief\": {}, \"deliverables\": [], \"history\": {\"parent_revision\": 2, \"parent_hash\": \"c1e299a278bcbf4fec332f411c34dd8e592af49ffc7ee8d1577f56c4bb100650\", \"reason\": \"ingest source\"}, \"id\": \"contract\", \"locks\": [], \"revision\": 3, \"schema_version\": 1, \"sequences\": [], \"status\": \"draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "import-transcript",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--asset",
+        "camera",
+        "--transcript",
+        "$SANDBOX/framecut-agent-contract/transcript.json",
+        "--base-revision",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 0.062,
+      "stdout": "{\"analyses\": {\"camera\": {\"source_hash\": \"4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31\", \"engine\": \"synthetic checked markers\", \"timing\": \"manual\", \"language\": \"en\", \"model_hash\": null, \"words\": [{\"id\": \"w1\", \"text\": \"Alpha\", \"start\": 1.2, \"end\": 1.4, \"speaker\": null, \"confidence\": null, \"verbatim\": \"Alpha\"}, {\"id\": \"w2\", \"text\": \"Bravo\", \"start\": 1.7, \"end\": 1.9, \"speaker\": null, \"confidence\": null, \"verbatim\": \"Bravo\"}, {\"id\": \"w3\", \"text\": \"Charlie\", \"start\": 2.5, \"end\": 2.8, \"speaker\": null, \"confidence\": null, \"verbatim\": \"Charlie\"}], \"segments\": [], \"limitations\": [], \"fingerprint\": \"f32adbe9983ecb86df7e4fd8e39db80bf810120a08b8414cb5e33c31fbe9fe13\"}}, \"assets\": {\"camera\": {\"kind\": \"video\", \"path\": \"media/-footage ' Łódź #,:[].mp4\", \"probe\": {\"audio_index\": 1, \"clock\": {\"den\": 30000, \"num\": 1}, \"color_primaries\": \"unknown\", \"color_space\": \"unknown\", \"color_transfer\": \"unknown\", \"duration\": 6.973633, \"format_start\": \"0.000000\", \"fps\": \"30000/1001\", \"has_alpha\": false, \"has_audio\": true, \"height\": 180, \"kind\": \"video\", \"nominal_fps\": \"30000/1001\", \"pix_fmt\": \"yuv420p\", \"rotation\": 0, \"sar\": \"1:1\", \"start_pts\": 0, \"streams\": [{\"avg_frame_rate\": \"30000/1001\", \"bit_rate\": \"246018\", \"bits_per_raw_sample\": \"8\", \"chroma_location\": \"left\", \"closed_captions\": 0, \"codec_long_name\": \"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\", \"codec_name\": \"h264\", \"codec_tag\": \"0x31637661\", \"codec_tag_string\": \"avc1\", \"codec_type\": \"video\", \"coded_height\": 180, \"coded_width\": 320, \"display_aspect_ratio\": \"16:9\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 1, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"6.973633\", \"duration_ts\": 209209, \"extradata_size\": 45, \"field_order\": \"progressive\", \"film_grain\": 0, \"has_b_frames\": 2, \"height\": 180, \"id\": \"0x1\", \"index\": 0, \"is_avc\": \"true\", \"level\": 13, \"nal_length_size\": \"4\", \"nb_frames\": \"209\", \"pix_fmt\": \"yuv420p\", \"profile\": \"High\", \"r_frame_rate\": \"30000/1001\", \"refs\": 1, \"sample_aspect_ratio\": \"1:1\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"tags\": {\"encoder\": \"Lavc60.31.102 libx264\", \"handler_name\": \"VideoHandler\", \"language\": \"und\", \"vendor_id\": \"[0][0][0][0]\"}, \"time_base\": \"1/30000\", \"width\": 320}, {\"avg_frame_rate\": \"0/0\", \"bit_rate\": \"69389\", \"bits_per_sample\": 0, \"channel_layout\": \"mono\", \"channels\": 1, \"codec_long_name\": \"AAC (Advanced Audio Coding)\", \"codec_name\": \"aac\", \"codec_tag\": \"0x6134706d\", \"codec_tag_string\": \"mp4a\", \"codec_type\": \"audio\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 1, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"7.000000\", \"duration_ts\": 336000, \"extradata_size\": 5, \"id\": \"0x2\", \"index\": 1, \"initial_padding\": 0, \"nb_frames\": \"330\", \"profile\": \"LC\", \"r_frame_rate\": \"0/0\", \"sample_fmt\": \"fltp\", \"sample_rate\": \"48000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"tags\": {\"handler_name\": \"SoundHandler\", \"language\": \"und\", \"vendor_id\": \"[0][0][0][0]\"}, \"time_base\": \"1/48000\"}], \"time_base\": \"1/30000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"video_index\": 0, \"width\": 320}, \"provenance\": \"user-supplied\", \"rights\": \"unknown\", \"sha256\": \"4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31\"}, \"music\": {\"kind\": \"audio\", \"path\": \"media/music.wav\", \"probe\": {\"audio_index\": 0, \"clock\": {\"den\": 48000, \"num\": 1}, \"duration\": 7.0, \"format_start\": \"0\", \"has_audio\": true, \"kind\": \"audio\", \"start_pts\": 0, \"streams\": [{\"avg_frame_rate\": \"0/0\", \"bit_rate\": \"1152000\", \"bits_per_raw_sample\": \"24\", \"bits_per_sample\": 24, \"channel_layout\": \"mono\", \"channels\": 1, \"codec_long_name\": \"PCM signed 24-bit little-endian\", \"codec_name\": \"pcm_s24le\", \"codec_tag\": \"0x0001\", \"codec_tag_string\": \"[1][0][0][0]\", \"codec_type\": \"audio\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 0, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"7.000000\", \"duration_ts\": 336000, \"index\": 0, \"initial_padding\": 0, \"r_frame_rate\": \"0/0\", \"sample_fmt\": \"s32\", \"sample_rate\": \"48000\", \"time_base\": \"1/48000\"}], \"time_base\": \"1/48000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"video_index\": null}, \"provenance\": \"user-supplied\", \"rights\": \"unknown\", \"sha256\": \"061b96da33c057d6fe79242183939555afa5bcb37d12a158f32c198b1f7ea014\"}}, \"authorization\": null, \"brief\": {}, \"deliverables\": [], \"history\": {\"parent_revision\": 3, \"parent_hash\": \"94b9f7d8320237810d48cca71a0b9cacf7c6e9ff2ae0d337582167e0c4ff83c4\", \"reason\": \"import-transcript\"}, \"id\": \"contract\", \"locks\": [], \"revision\": 4, \"schema_version\": 1, \"sequences\": [], \"status\": \"draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/initial-edit.json",
+        "--base-revision",
+        "4",
+        "--reason",
+        "initial-edit"
+      ],
+      "returncode": 0,
+      "seconds": 0.057,
+      "stdout": "{\"status\": \"revised\", \"revision\": 5, \"invalidated\": [\"caption_timing\", \"delivery\", \"interchange\", \"mix\", \"picture\", \"projection\", \"render\"], \"analysis_preserved\": true}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "compile",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "plans/baseline.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.056,
+      "stdout": "{\"status\": \"compiled\", \"path\": \"plans/baseline.json\", \"warnings\": [{\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}, {\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "render",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "renders/baseline",
+        "--mode",
+        "final"
+      ],
+      "returncode": 0,
+      "seconds": 2.435,
+      "stdout": "{\"status\": \"render_complete\", \"output\": \"renders/baseline\", \"receipt\": \"renders/baseline/receipt.json\", \"cache_hits\": [], \"cache_built\": [\"gap\", \"visual\", \"gap\", \"assembly\", \"mix\"], \"review_status\": \"NOT_RUN\", \"warnings\": [{\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}, {\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "verify",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--bundle",
+        "renders/baseline"
+      ],
+      "returncode": 0,
+      "seconds": 0.521,
+      "stdout": "{\"status\": \"PASS\", \"project_revision\": 5, \"technical\": {\"status\": \"PASS\", \"decoded_frames\": 120, \"probe\": {\"kind\": \"video\", \"duration\": 4.004, \"time_base\": \"1/30000\", \"clock\": {\"num\": 1, \"den\": 30000}, \"start_pts\": 0, \"has_audio\": true, \"audio_index\": 1, \"video_index\": 0, \"streams\": [{\"index\": 0, \"codec_name\": \"h264\", \"codec_long_name\": \"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\", \"profile\": \"High\", \"codec_type\": \"video\", \"codec_tag_string\": \"avc1\", \"codec_tag\": \"0x31637661\", \"width\": 320, \"height\": 180, \"coded_width\": 320, \"coded_height\": 180, \"closed_captions\": 0, \"film_grain\": 0, \"has_b_frames\": 2, \"sample_aspect_ratio\": \"1:1\", \"display_aspect_ratio\": \"16:9\", \"pix_fmt\": \"yuv420p\", \"level\": 13, \"color_range\": \"tv\", \"color_space\": \"bt709\", \"color_transfer\": \"bt709\", \"color_primaries\": \"bt709\", \"chroma_location\": \"left\", \"field_order\": \"progressive\", \"refs\": 1, \"is_avc\": \"true\", \"nal_length_size\": \"4\", \"id\": \"0x1\", \"r_frame_rate\": \"30000/1001\", \"avg_frame_rate\": \"30000/1001\", \"time_base\": \"1/30000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"duration_ts\": 120120, \"duration\": \"4.004000\", \"bit_rate\": \"201240\", \"bits_per_raw_sample\": \"8\", \"nb_frames\": \"120\", \"extradata_size\": 48, \"disposition\": {\"default\": 1, \"dub\": 0, \"original\": 0, \"comment\": 0, \"lyrics\": 0, \"karaoke\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"visual_impaired\": 0, \"clean_effects\": 0, \"attached_pic\": 0, \"timed_thumbnails\": 0, \"non_diegetic\": 0, \"captions\": 0, \"descriptions\": 0, \"metadata\": 0, \"dependent\": 0, \"still_image\": 0}, \"tags\": {\"language\": \"und\", \"handler_name\": \"VideoHandler\", \"vendor_id\": \"[0][0][0][0]\", \"encoder\": \"Lavc60.31.102 libx264\"}}, {\"index\": 1, \"codec_name\": \"aac\", \"codec_long_name\": \"AAC (Advanced Audio Coding)\", \"profile\": \"LC\", \"codec_type\": \"audio\", \"codec_tag_string\": \"mp4a\", \"codec_tag\": \"0x6134706d\", \"sample_fmt\": \"fltp\", \"sample_rate\": \"48000\", \"channels\": 2, \"channel_layout\": \"stereo\", \"bits_per_sample\": 0, \"initial_padding\": 0, \"id\": \"0x2\", \"r_frame_rate\": \"0/0\", \"avg_frame_rate\": \"0/0\", \"time_base\": \"1/48000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"duration_ts\": 192192, \"duration\": \"4.004000\", \"bit_rate\": \"191312\", \"nb_frames\": \"189\", \"extradata_size\": 5, \"disposition\": {\"default\": 1, \"dub\": 0, \"original\": 0, \"comment\": 0, \"lyrics\": 0, \"karaoke\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"visual_impaired\": 0, \"clean_effects\": 0, \"attached_pic\": 0, \"timed_thumbnails\": 0, \"non_diegetic\": 0, \"captions\": 0, \"descriptions\": 0, \"metadata\": 0, \"dependent\": 0, \"still_image\": 0}, \"tags\": {\"language\": \"und\", \"handler_name\": \"SoundHandler\", \"vendor_id\": \"[0][0][0][0]\"}}], \"format_start\": \"0.000000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"width\": 320, \"height\": 180, \"fps\": \"30000/1001\", \"nominal_fps\": \"30000/1001\", \"sar\": \"1:1\", \"rotation\": 0, \"has_alpha\": false, \"color_transfer\": \"bt709\", \"color_space\": \"bt709\", \"color_primaries\": \"bt709\", \"pix_fmt\": \"yuv420p\"}, \"loudness\": {\"input_i\": \"-24.91\", \"input_tp\": \"-16.81\", \"input_lra\": \"0.30\", \"input_thresh\": \"-34.91\", \"output_i\": \"-24.41\", \"output_tp\": \"-16.22\", \"output_lra\": \"0.00\", \"output_thresh\": \"-34.41\", \"normalization_type\": \"dynamic\", \"target_offset\": \"0.41\"}, \"review\": \"Technical verification only; actual picture, joins, speech meaning and sound need scoped review.\"}, \"visual_audio_review\": {\"note\": \"Inspect actual media and record scope; encoder success is not acceptance.\", \"status\": \"NOT_RUN\"}, \"acceptance\": \"not implied by technical verification\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/stale-edit.json",
+        "--base-revision",
+        "4",
+        "--reason",
+        "stale-edit"
+      ],
+      "returncode": 2,
+      "seconds": 0.049,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"stale_revision\", \"message\": \"Project revision changed; reload before applying edits\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/shift-take.json",
+        "--base-revision",
+        "5",
+        "--reason",
+        "shift-take"
+      ],
+      "returncode": 0,
+      "seconds": 0.103,
+      "stdout": "{\"status\": \"revised\", \"revision\": 6, \"invalidated\": [\"caption_timing\", \"delivery\", \"interchange\", \"mix\", \"picture\", \"projection\", \"render\"], \"analysis_preserved\": true}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "compile",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "plans/shifted.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.056,
+      "stdout": "{\"status\": \"compiled\", \"path\": \"plans/shifted.json\", \"warnings\": [{\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}, {\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "verify",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--bundle",
+        "renders/baseline"
+      ],
+      "returncode": 2,
+      "seconds": 0.052,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"stale_revision\", \"message\": \"Delivery belongs to a different project revision\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "render",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "renders/shifted",
+        "--mode",
+        "final"
+      ],
+      "returncode": 0,
+      "seconds": 2.187,
+      "stdout": "{\"status\": \"render_complete\", \"output\": \"renders/shifted\", \"receipt\": \"renders/shifted/receipt.json\", \"cache_hits\": [\"visual\", \"gap\"], \"cache_built\": [\"gap\", \"assembly\", \"mix\"], \"review_status\": \"NOT_RUN\", \"warnings\": [{\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}, {\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/insufficient-handles.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "insufficient-handles"
+      ],
+      "returncode": 2,
+      "seconds": 0.054,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"insufficient_handles\", \"message\": \"Insufficient source media\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/unknown-operation.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "unknown-operation"
+      ],
+      "returncode": 2,
+      "seconds": 0.048,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"unsupported_operation\", \"message\": \"Unsupported edit operation: run_filtergraph\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/orphaned-anchor.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "orphaned-anchor"
+      ],
+      "returncode": 2,
+      "seconds": 0.046,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"missing_anchor\", \"message\": \"Orphaned anchor: orphan\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/undeclared-overlap.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "undeclared-overlap"
+      ],
+      "returncode": 2,
+      "seconds": 0.084,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Undeclared base-track overlap\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/bad-fps.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "bad-fps"
+      ],
+      "returncode": 2,
+      "seconds": 0.053,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"numerator: expected integer 1..9007199254740991\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/unsupported-schema-field.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "unsupported-schema-field"
+      ],
+      "returncode": 2,
+      "seconds": 0.048,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Unknown fields: ['filtergraph']\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "render",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "renders/cache-recovery",
+        "--mode",
+        "preview"
+      ],
+      "returncode": 0,
+      "seconds": 1.568,
+      "stdout": "{\"status\": \"render_complete\", \"output\": \"renders/cache-recovery\", \"receipt\": \"renders/cache-recovery/receipt.json\", \"cache_hits\": [\"gap\", \"gap\", \"assembly\", \"mix\"], \"cache_built\": [\"visual\"], \"review_status\": \"NOT_RUN\", \"warnings\": [{\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}, {\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "validate",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json"
+      ],
+      "returncode": 2,
+      "seconds": 0.048,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"stale_source\", \"message\": \"Source changed: camera\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "validate",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.054,
+      "stdout": "{\"status\": \"PASS\", \"revision\": 6, \"project_hash\": \"f8dc25a1dcb6e6fa9be35936d19aca7ca1908cebbb8d0991634335621c51044b\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "render",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "renders/shifted",
+        "--mode",
+        "preview"
+      ],
+      "returncode": 2,
+      "seconds": 0.057,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Output directory already exists; use a new revision path\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "render",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "renders/shifted-cold",
+        "--mode",
+        "final"
+      ],
+      "returncode": 0,
+      "seconds": 1.706,
+      "stdout": "{\"status\": \"render_complete\", \"output\": \"renders/shifted-cold\", \"receipt\": \"renders/shifted-cold/receipt.json\", \"cache_hits\": [\"gap\", \"visual\", \"gap\", \"assembly\"], \"cache_built\": [\"mix\"], \"review_status\": \"NOT_RUN\", \"warnings\": [{\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}, {\"code\": \"unlabelled_color\", \"asset\": \"camera\", \"handling\": \"treated as SDR; inspect the output\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/protect-take.json",
+        "--base-revision",
+        "6",
+        "--reason",
+        "protect-take"
+      ],
+      "returncode": 0,
+      "seconds": 0.052,
+      "stdout": "{\"status\": \"revised\", \"revision\": 7, \"invalidated\": [\"delivery\", \"projection\", \"render\"], \"analysis_preserved\": true}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/brief-after-lock.json",
+        "--base-revision",
+        "7",
+        "--reason",
+        "brief-after-lock"
+      ],
+      "returncode": 0,
+      "seconds": 0.05,
+      "stdout": "{\"status\": \"revised\", \"revision\": 8, \"invalidated\": [\"delivery\", \"projection\", \"render\"], \"analysis_preserved\": true}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "undo",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix/project.json",
+        "--revision",
+        "6",
+        "--base-revision",
+        "8"
+      ],
+      "returncode": 0,
+      "seconds": 0.053,
+      "stdout": "{\"analyses\": {\"camera\": {\"engine\": \"synthetic checked markers\", \"fingerprint\": \"f32adbe9983ecb86df7e4fd8e39db80bf810120a08b8414cb5e33c31fbe9fe13\", \"language\": \"en\", \"limitations\": [], \"model_hash\": null, \"segments\": [], \"source_hash\": \"4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31\", \"timing\": \"manual\", \"words\": [{\"confidence\": null, \"end\": 1.4, \"id\": \"w1\", \"speaker\": null, \"start\": 1.2, \"text\": \"Alpha\", \"verbatim\": \"Alpha\"}, {\"confidence\": null, \"end\": 1.9, \"id\": \"w2\", \"speaker\": null, \"start\": 1.7, \"text\": \"Bravo\", \"verbatim\": \"Bravo\"}, {\"confidence\": null, \"end\": 2.8, \"id\": \"w3\", \"speaker\": null, \"start\": 2.5, \"text\": \"Charlie\", \"verbatim\": \"Charlie\"}]}}, \"assets\": {\"camera\": {\"kind\": \"video\", \"path\": \"media/-footage ' Łódź #,:[].mp4\", \"probe\": {\"audio_index\": 1, \"clock\": {\"den\": 30000, \"num\": 1}, \"color_primaries\": \"unknown\", \"color_space\": \"unknown\", \"color_transfer\": \"unknown\", \"duration\": 6.973633, \"format_start\": \"0.000000\", \"fps\": \"30000/1001\", \"has_alpha\": false, \"has_audio\": true, \"height\": 180, \"kind\": \"video\", \"nominal_fps\": \"30000/1001\", \"pix_fmt\": \"yuv420p\", \"rotation\": 0, \"sar\": \"1:1\", \"start_pts\": 0, \"streams\": [{\"avg_frame_rate\": \"30000/1001\", \"bit_rate\": \"246018\", \"bits_per_raw_sample\": \"8\", \"chroma_location\": \"left\", \"closed_captions\": 0, \"codec_long_name\": \"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\", \"codec_name\": \"h264\", \"codec_tag\": \"0x31637661\", \"codec_tag_string\": \"avc1\", \"codec_type\": \"video\", \"coded_height\": 180, \"coded_width\": 320, \"display_aspect_ratio\": \"16:9\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 1, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"6.973633\", \"duration_ts\": 209209, \"extradata_size\": 45, \"field_order\": \"progressive\", \"film_grain\": 0, \"has_b_frames\": 2, \"height\": 180, \"id\": \"0x1\", \"index\": 0, \"is_avc\": \"true\", \"level\": 13, \"nal_length_size\": \"4\", \"nb_frames\": \"209\", \"pix_fmt\": \"yuv420p\", \"profile\": \"High\", \"r_frame_rate\": \"30000/1001\", \"refs\": 1, \"sample_aspect_ratio\": \"1:1\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"tags\": {\"encoder\": \"Lavc60.31.102 libx264\", \"handler_name\": \"VideoHandler\", \"language\": \"und\", \"vendor_id\": \"[0][0][0][0]\"}, \"time_base\": \"1/30000\", \"width\": 320}, {\"avg_frame_rate\": \"0/0\", \"bit_rate\": \"69389\", \"bits_per_sample\": 0, \"channel_layout\": \"mono\", \"channels\": 1, \"codec_long_name\": \"AAC (Advanced Audio Coding)\", \"codec_name\": \"aac\", \"codec_tag\": \"0x6134706d\", \"codec_tag_string\": \"mp4a\", \"codec_type\": \"audio\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 1, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"7.000000\", \"duration_ts\": 336000, \"extradata_size\": 5, \"id\": \"0x2\", \"index\": 1, \"initial_padding\": 0, \"nb_frames\": \"330\", \"profile\": \"LC\", \"r_frame_rate\": \"0/0\", \"sample_fmt\": \"fltp\", \"sample_rate\": \"48000\", \"start_pts\": 0, \"start_time\": \"0.000000\", \"tags\": {\"handler_name\": \"SoundHandler\", \"language\": \"und\", \"vendor_id\": \"[0][0][0][0]\"}, \"time_base\": \"1/48000\"}], \"time_base\": \"1/30000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"video_index\": 0, \"width\": 320}, \"provenance\": \"user-supplied\", \"rights\": \"unknown\", \"sha256\": \"4cdfb943067c463f5f50f8d288d5687e6ade464ef16ed253d625d0a8649b9e31\"}, \"music\": {\"kind\": \"audio\", \"path\": \"media/music.wav\", \"probe\": {\"audio_index\": 0, \"clock\": {\"den\": 48000, \"num\": 1}, \"duration\": 7.0, \"format_start\": \"0\", \"has_audio\": true, \"kind\": \"audio\", \"start_pts\": 0, \"streams\": [{\"avg_frame_rate\": \"0/0\", \"bit_rate\": \"1152000\", \"bits_per_raw_sample\": \"24\", \"bits_per_sample\": 24, \"channel_layout\": \"mono\", \"channels\": 1, \"codec_long_name\": \"PCM signed 24-bit little-endian\", \"codec_name\": \"pcm_s24le\", \"codec_tag\": \"0x0001\", \"codec_tag_string\": \"[1][0][0][0]\", \"codec_type\": \"audio\", \"disposition\": {\"attached_pic\": 0, \"captions\": 0, \"clean_effects\": 0, \"comment\": 0, \"default\": 0, \"dependent\": 0, \"descriptions\": 0, \"dub\": 0, \"forced\": 0, \"hearing_impaired\": 0, \"karaoke\": 0, \"lyrics\": 0, \"metadata\": 0, \"non_diegetic\": 0, \"original\": 0, \"still_image\": 0, \"timed_thumbnails\": 0, \"visual_impaired\": 0}, \"duration\": \"7.000000\", \"duration_ts\": 336000, \"index\": 0, \"initial_padding\": 0, \"r_frame_rate\": \"0/0\", \"sample_fmt\": \"s32\", \"sample_rate\": \"48000\", \"time_base\": \"1/48000\"}], \"time_base\": \"1/48000\", \"timestamp_policy\": \"decode relative to selected stream start; preserve source PTS, never use nominal source frame index\", \"video_index\": null}, \"provenance\": \"user-supplied\", \"rights\": \"unknown\", \"sha256\": \"061b96da33c057d6fe79242183939555afa5bcb37d12a158f32c198b1f7ea014\"}}, \"authorization\": \"Local synthetic contract-test final rendering requested by test operator.\", \"brief\": {}, \"deliverables\": [{\"height\": 180, \"id\": \"wide\", \"sequence\": \"main\", \"width\": 320}], \"history\": {\"parent_revision\": 8, \"parent_hash\": \"5d3075a6e889e108f85913e302817a3e4bc8b1ef481d590b380a6491f04d0402\", \"reason\": \"restore content of revision 6; current locks still apply\"}, \"id\": \"contract\", \"locks\": [\"take\"], \"revision\": 9, \"schema_version\": 1, \"sequences\": [{\"audio\": [{\"asset\": \"music\", \"bus\": \"music\", \"duck_db\": -12, \"duration\": 120, \"gain_db\": -6, \"id\": \"bed\", \"source_in\": 0, \"start\": 0}, {\"anchor\": {\"clip\": \"take\", \"offset\": 15}, \"asset\": \"camera\", \"bus\": \"dialogue\", \"duration\": 30, \"id\": \"dialogue\", \"source_in\": 0}], \"captions\": {\"enabled\": true, \"max_words\": 3, \"mode\": \"kinetic\", \"size\": 0.075}, \"clips\": [{\"asset\": \"camera\", \"duration\": 60, \"id\": \"take\", \"mute\": true, \"source_in\": 30000, \"speed\": {\"den\": 2, \"num\": 3}, \"start\": 30}], \"duration\": 120, \"fps\": {\"den\": 1001, \"num\": 30000}, \"id\": \"main\"}], \"status\": \"draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "init",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix-recovery/project.json",
+        "--id",
+        "recovery2"
+      ],
+      "returncode": 0,
+      "seconds": 0.057,
+      "stdout": "{\"schema_version\": 1, \"id\": \"recovery2\", \"revision\": 1, \"brief\": {}, \"authorization\": null, \"assets\": {}, \"analyses\": {}, \"sequences\": [], \"deliverables\": [], \"locks\": [], \"status\": \"draft\", \"history\": null}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix-recovery/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/recovery2-setup.json",
+        "--base-revision",
+        "1",
+        "--reason",
+        "recovery2-setup"
+      ],
+      "returncode": 0,
+      "seconds": 0.054,
+      "stdout": "{\"status\": \"revised\", \"revision\": 2, \"invalidated\": [\"caption_timing\", \"delivery\", \"interchange\", \"mix\", \"picture\", \"projection\", \"render\"], \"analysis_preserved\": true}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "render",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix-recovery/project.json",
+        "--deliverable",
+        "wide",
+        "--out",
+        "renders/interrupted",
+        "--mode",
+        "preview"
+      ],
+      "returncode": 0,
+      "seconds": 4.512,
+      "stdout": "{\"status\": \"render_complete\", \"output\": \"renders/interrupted\", \"receipt\": \"renders/interrupted/receipt.json\", \"cache_hits\": [], \"cache_built\": [\"gap\", \"mix\"], \"review_status\": \"NOT_RUN\", \"warnings\": []}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix-recovery/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/invalid-locks-null.json",
+        "--base-revision",
+        "2",
+        "--reason",
+        "invalid-locks-null"
+      ],
+      "returncode": 2,
+      "seconds": 0.048,
+      "stdout": "",
+      "stderr": "{\"status\": \"error\", \"error\": {\"code\": \"invalid_input\", \"message\": \"Locks must be a list of unique clip IDs\"}}\n"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "$SANDBOX/repo/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+        "apply",
+        "$SANDBOX/framecut-agent-contract/node_modules/postfix-recovery/project.json",
+        "--ops",
+        "$SANDBOX/framecut-agent-contract/recover-after-invalid-lock.json",
+        "--base-revision",
+        "2",
+        "--reason",
+        "recover-after-invalid-lock"
+      ],
+      "returncode": 0,
+      "seconds": 0.048,
+      "stdout": "{\"status\": \"revised\", \"revision\": 3, \"invalidated\": [\"delivery\", \"projection\", \"render\"], \"analysis_preserved\": true}\n",
+      "stderr": ""
+    }
+  ],
+  "defects": [],
+  "summary": {
+    "passed": 22,
+    "failed": 0,
+    "inconclusive": 0,
+    "resolved_defects": [
+      "FC-ANCHOR-MIX-CACHE",
+      "FC-UNDO-DROPS-LOCKS",
+      "FC-INVALID-LOCKS"
+    ]
+  },
+  "runtime_hashes": {
+    "fc_captions.py": "b393bf68be8c95a7f284cfee726476f9174ebff1c9f2bd8a0bbff6ca60de76d2",
+    "fc_media.py": "2bfcad9eee8b2316900aa46fff26b8a683da93f6871263315fb12fb21d9d5f9a",
+    "framecut.py": "e56c28a9cfb80744eeeb44eac3aad1ef185291cb58bdab99ca99233c9c1ae268",
+    "fc_core.py": "50c737e0202f01b2f5c47fa3d94051f61ba2f4c8c7110275834986521dbb5c28",
+    "fc_render.py": "3516b1522d472cbe94bd471d7f6d4a85d641406c0ebe47987f392113e05e947a"
+  },
+  "test_script_hashes": {
+    "test_recovery.py": "540a5a14d2d96ffdef153716ea029dc0e9034eb4be6459fbcb7664b27e12ed57",
+    "test_contract.py": "5fe8243f48876cda59f9a09b15fe0c2ca633e5116373cad05c5f7c1a00cffab7",
+    "test_recovery_remaining.py": "ca740825db6ebcf220d8343c329936e1d766dbc9577f65c03fb8de82e51af7a5"
+  },
+  "reproduce": [
+    "FRAMECUT_TRIAL_NAME=fresh-trial FRAMECUT_REPORT_NAME=fresh-report.json python3 test_contract.py",
+    "FRAMECUT_TRIAL_NAME=fresh-trial FRAMECUT_REPORT_NAME=fresh-report.json python3 test_recovery.py",
+    "FRAMECUT_TRIAL_NAME=fresh-trial FRAMECUT_REPORT_NAME=fresh-report.json python3 test_recovery_remaining.py"
+  ],
+  "review_scope": {
+    "picture": "A representative pre-fix shifted output frame 60 was visually inspected; exact frame counts and delivery metadata checked on each rendered bundle.",
+    "audio": "Decoded PCM tone-frequency amplitudes checked timing/ducking and identical cold/warm results. No subjective listening claimed."
+  }
+}

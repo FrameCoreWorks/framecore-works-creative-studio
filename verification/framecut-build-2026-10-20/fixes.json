@@ -1,0 +1,36 @@
+{
+  "runtime_defects": [
+    {
+      "id": "FC-B01",
+      "before": "Moving a muted visual clip left anchored dialogue/ducking at the old position in warm cache.",
+      "fix": "Cache keys include resolved audio-event start and source probes.",
+      "after": "Agent warm/cold decoded amplitudes identical; formal regression decodes actual audio."
+    },
+    {
+      "id": "FC-B02",
+      "before": "Undo could drop current clip locks.",
+      "fix": "Carry current locks into restored content before validation/commit.",
+      "after": "Agent and CLI regression retain locks."
+    },
+    {
+      "id": "FC-B03",
+      "before": "locks:null committed and blocked future edits.",
+      "fix": "Validate a unique list of existing clip IDs before committing.",
+      "after": "Invalid edit rejected without advancing revision; next valid edit works."
+    },
+    {
+      "id": "FC-B04",
+      "before": "Crossfade length compared against cumulative prior end, allowing an overrun of a short preceding clip.",
+      "fix": "Check prior clip length and preceding overlap.",
+      "after": "Regression rejects invalid handles."
+    }
+  ],
+  "integration_fixes": [
+    "Preserve caption owner start_ms/end_ms interface.",
+    "Update shared startup authority to five options and generic video QA/handoff tables to FrameCut editing ownership.",
+    "Record/read scoped review evidence separately from technical verification.",
+    "Permit only half-source-tick quantization residual when checking word cuts."
+  ],
+  "environment_observation": "Scratch synchronization replayed transient file states in ordinary scratch test folders. Tests rerun under node_modules stopped the anomaly; preserved sources and locks were verified there. Not represented as a product bug.",
+  "scope": "No continuous playback or subjective audio listening claimed by test agents; frame inspections and decoded audio/timing/loudness checks are explicit."
+}

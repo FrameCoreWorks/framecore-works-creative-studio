@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-Version: 1.112.0.
+Version: 1.113.0.
 
 The first stable release of Studio's documented scope is described in [Release 1.0](docs/release-1.0.md). FrameCore Works code, instructions and documentation are licensed under [Apache-2.0](LICENSE); upstream licenses and attribution are preserved.
 
@@ -8,11 +8,15 @@ Creative Studio takes a brief and source materials through direction, storyboard
 
 ## Welcome, creative mode and learning mode
 
-The full welcome explains what Studio does and its capabilities, then offers **1. Creative mode / 2. Learning mode** in the user's automatically selected language. A creative-only selection leads to **1. Quick mode / 2. Expanded mode**, followed by the established work-area menu and task clarification. The existing localized creation alias remains supported. Motion graphics remains in work area 8, reached through Creative Mode and Expanded Mode, with its HTML/SVG, GSAP, HyperFrames and Remotion descriptions and preview/export availability limits. A clear request bypasses redundant choices; numeric replies apply to the last displayed menu. See [startup and next steps](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
+The full welcome explains what Studio does and its capabilities, then offers **1. Creative mode / 2. Learning mode / 3. Find a skill / 4. Recommended repositories / 5. FrameCut** in the user's automatically selected language. A creative-only selection leads to **1. Quick mode / 2. Expanded mode**, followed by the established work-area menu and task clarification. The existing localized creation alias remains supported. Motion graphics remains in work area 8, reached through Creative Mode and Expanded Mode, with its HTML/SVG, GSAP, HyperFrames and Remotion descriptions and preview/export availability limits. A clear request bypasses redundant choices; numeric replies apply to the last displayed menu. See [startup and next steps](skills/workflow-orchestrator/references/startup-and-creative-menus.md).
 
 **Learning mode** retains short onboarding, a personalized plan, exercises and feedback on the learner's work across 14 existing skill domains. Quick/Deep controls pace independently of intent. When persistent saving is unavailable, a progress card can carry context into another conversation. See [modes, coverage and limitations](docs/learning-mode.md).
 
 Repository documentation and operational guidance are English. The full welcome and later menus automatically follow the user's language without a translation request. Explicit preferences, meaningful user text, available host language context and conversation language determine the response; country and repository language do not. The approved Polish welcome, exact-copy examples and multilingual fixtures remain localized data.
+
+## FrameCut
+
+Option 5 selects [FrameCut](skills/opencut-video-studio/SKILL.md), the existing editing owner. It connects adaptive intake, source analysis, highlights/full edits, captions, motion, sound, revision history and final delivery through one project. The [local runtime](skills/opencut-video-studio/assets/framecut/README.md) executes with Python and FFmpeg; without execution it provides an explicitly labeled plan. See the [build coverage](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/framecut/build-status.md).
 
 ## Animate engine for illustrated motion
 
@@ -91,7 +95,8 @@ All 37 display names follow one standard: words separated by spaces, an uppercas
 | Storyboard, character sheet and reference board | [Storyboard Board Architect](skills/storyboard-board-architect/SKILL.md) |
 | Realistic character, image references and generator prompt | [Image Prompt Architect](skills/image-prompt-architect/SKILL.md) |
 | Copy, editorial text, headline and CTA | [Copy Voice](skills/copy-voice/SKILL.md), with Humanizer support |
-| Video prompt/edit and inspection of an available clip | [Video Prompt Architect](skills/video-prompt-architect/SKILL.md) |
+| Video-generator prompts and generated-shot repair prompts | [Video Prompt Architect](skills/video-prompt-architect/SKILL.md) |
+| Video analysis, editing, highlights, motion composition and edit revisions | [FrameCut](skills/opencut-video-studio/SKILL.md) |
 | Review of an actual still image | [Output Critic Iteration](skills/output-critic-iteration/SKILL.md) |
 | Image, print, audio and video delivery specifications | [Delivery Documentation](skills/delivery-documentation/SKILL.md) |
 | Public sources, current models and evidence boundaries | [Research Evidence](skills/research-evidence/SKILL.md) |

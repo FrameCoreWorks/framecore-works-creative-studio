@@ -1,0 +1,26 @@
+{
+  "source_version": "1.113.0",
+  "baseline": "ea6b8b593dc42a9b255e5177ec3d35796f9dea24",
+  "source_checks": "PASS",
+  "node": {
+    "tests": 238,
+    "pass": 225,
+    "fail": 0,
+    "skipped": 13
+  },
+  "python_suites": 49,
+  "python_tests": 462,
+  "python_skipped": 4,
+  "framecut_tests": 36,
+  "agent_contract_checks": 22,
+  "agent_routing_cases": 7,
+  "media_workflows": [
+    "speech",
+    "product",
+    "screen",
+    "motion-only formal case"
+  ],
+  "client_tests": "NOT_RUN",
+  "continuous_playback_listening": "NOT_RUN",
+  "packaging": "Clean explicit source staging excludes unrelated untracked recovery fixtures; no files removed from working checkout"
+}

@@ -1,0 +1,20 @@
+{
+  "public_version": "1.113.0",
+  "hosted_candidate_version": "1.113.0",
+  "previous_hosted_release": "pluginrel_6ad7c92acb7081919bd776b566bba6b6",
+  "public_files": 1516,
+  "hosted_files": 1567,
+  "changed_files": 34,
+  "new_files": 8,
+  "unchanged_private_only_files": 51,
+  "manifests": "Only versions changed; identity/presentation/bindings preserved",
+  "connection_configs": "byte-identical",
+  "removed": [],
+  "candidate_validation": "PASS",
+  "framecut_tests": {
+    "tests": 36,
+    "status": "PASS"
+  },
+  "archive_sha256": "8c12c748dda42bd9fd6956d05b1b5300320d632f353cf6cc517247d2675d8d94",
+  "fresh_client_behavior": "NOT_RUN"
+}

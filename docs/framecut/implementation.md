@@ -1,6 +1,6 @@
 # FrameCut implementation and acceptance plan
 
-Status: planned, 2026-10-20. No step below is marked complete by the research. The owner has selected the product scope/name; technical choices follow [the foundation](README.md). This is an implementation packet for either coding host, without requiring another architecture interview.
+Original plan: 2026-10-20. Implementation now ships in 1.113.0; [build status](build-status.md) records actual completion, supported scope and unexecuted acceptance coverage. The matrix below remains the original target, not a blanket passing result. The owner has selected the product scope/name; technical choices follow [the foundation](README.md). This is an implementation packet for either coding host, without requiring another architecture interview.
 
 ## Correct the older work order before coding
 
@@ -60,7 +60,7 @@ A motion-only job uses the same brief, sequence/delivery and revision system wit
 
 ## Acceptance matrix
 
-All FrameCut-specific rows are NOT_RUN at this research stage. The thresholds below are proposed engineering criteria, not measurements. Fixture lengths and tolerances should be locked before implementation is judged.
+At the research stage all rows were NOT_RUN; current row-by-row evidence is in [build status](build-status.md). The thresholds below are proposed engineering criteria, not measurements. Fixture lengths and tolerances should be locked before implementation is judged.
 
 | ID | Case | Required result |
 | --- | --- | --- |

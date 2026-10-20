@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "evaluation_kind": "independent sandbox instruction-following simulation",
+  "package_path": "$SANDBOX/repo/plugins/framecore-work-creative-studio",
+  "entry_version": "1.112.0",
+  "fresh_installed_client_proof": false,
+  "published": false,
+  "installed": false,
+  "source_files_modified": false,
+  "scenario_count": 7,
+  "results": {
+    "01_polish_bare": "pass",
+    "02_welcome_five": "pass",
+    "03_three_reels": "pass_with_execution_blocked",
+    "04_resume_captions": "pass_with_execution_blocked",
+    "05_area_five": "pass",
+    "06_no_execution": "pass_with_capability_limit",
+    "07_german_bare": "pass"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "medium",
+      "kind": "contradictory_instruction",
+      "summary": "Integration authority still requests a complete four-option menu while the current entry and its own FrameCut section define five.",
+      "evidence": [
+        {
+          "path": "skills/pipeline-core/references/studio-integration-policy.md",
+          "line": 26,
+          "quote": "complete four-option menu"
+        },
+        {
+          "path": "skills/pipeline-core/references/studio-integration-policy.md",
+          "line": 60,
+          "quote": "Menu option 5 is additional; options 1–4 retain their meanings."
+        }
+      ],
+      "impact": "An agent reading shared authority may omit FrameCut or hesitate after loading this reference.",
+      "resolution_used": "The entry owns the welcome and embeds the exact five-option assets; the current specific FrameCut section confirms option 5."
+    },
+    {
+      "id": "F2",
+      "severity": "medium",
+      "kind": "stale_ownership",
+      "summary": "Shared handoff and QA tables still route generic actual video to Video Prompt Architect, without a FrameCut editing/delivery distinction.",
+      "evidence": [
+        {
+          "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+          "line": 14,
+          "quote": "| Actual video clip | Video Prompt Architect |"
+        },
+        {
+          "path": "skills/pipeline-core/references/loop-protocol.md",
+          "line": 61,
+          "quote": "| Actual video, audio or captions | Video Prompt Architect, Audio Production Director or Caption Studio respectively"
+        }
+      ],
+      "impact": "A mixed edit or resumed project can be misrouted during inspection/review despite the specific FrameCut entry rule.",
+      "resolution_used": "Specific editing/resume route stays with FrameCut; Caption Studio remains bounded caption craft/QA. No transfer to a generator-prompt owner."
+    }
+  ],
+  "unusable_blocking_instruction_found": false,
+  "scope_limits": [
+    "One evaluator in one sandbox with isolated simulated conversation states; not fresh ChatGPT, Claude Code or Codex installation evidence.",
+    "No real user video, transcript, project checkpoint, export or audio listening was provided or performed.",
+    "The real read-only capabilities probe proves only this sandbox has required FFmpeg/FFprobe capabilities; it is not ASR, kinetic-caption or end-to-end delivery validation.",
+    "Case 4 lacks project files, so it tests honest recovery rather than a successful caption-only render.",
+    "Case 6 deliberately masks execution tools regardless of real sandbox availability."
+  ],
+  "raw_conversations": "conversations.json",
+  "source_manifest": "loaded-sources.json",
+  "observed_capabilities": "observed-capabilities.json",
+  "artifact_review": {
+    "scope": "proposed conversational responses and preliminary text handoff only",
+    "passes": 1,
+    "result": "All responses preserve task language, menu context, ownership and honest media/tool status; no response claims actual media delivery.",
+    "media_review_performed": false
+  }
+}

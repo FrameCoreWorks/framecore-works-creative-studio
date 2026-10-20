@@ -2747,5 +2747,26 @@ Publication follow-up preserves the executable bit of `scripts/check_all.sh` (un
 - After: [foundation](framecut/README.md), research on 31 repositories with observed commits/license metadata, exact-time and revision contracts, integration map, three vertical workflows and 23 planned acceptance cases. Recommend extending the existing editing owner, preserving other craft owners, and testing a narrow Kinocut adapter before adoption. Proposed welcome token 5 preserves existing options 1–4. The module and menu are not implemented by this change.
 - Shared package changed: no; version remains 1.112.0. No new runtime dependency, private-overlay publication, skill mutation or hosted release.
 - Verification: canonical validator PASS; full `bash scripts/check_all.sh` exit 0, Node 225 passed / 13 skipped, Python 422 passed / 4 skipped, zero failures. Document links, 31 unique 40-character source pins, 23 planned cases and worked timing arithmetic checked. [Evidence](../verification/framecut-foundation-2026-10-20/checks.json) and full logs distinguish source checks from unexecuted FrameCut tests.
-- GitHub: publication pending. Local foundation commit `307efc08c2c1080239285af1bc81728e201efb58` is complete; automatic approval review rejected the push because it did not recognize the current request as explicit authorization to publish to main. Read-only remote verification still shows baseline `45cab60d12f98663ce17fdc08cc753d5bfeef1cd`. No alternate publication route was attempted; owner confirmation is required to resume publication. ChatGPT Work saved package: unchanged, no synchronization required for these repository-only documents. FrameCut media/client behavior in Work, ordinary ChatGPT, Codex and Claude: NOT_RUN.
+- GitHub: published as `ea6b8b593dc42a9b255e5177ec3d35796f9dea24` after the owner explicitly authorized publication and implementation. The earlier rejected attempt remains in the historical foundation evidence. Git had no write credentials; the authenticated GitHub connector published the identical tree `ad518ce5ba4897848daee32736dfccbde58a7e5e` with a guarded fast-forward. Local unpublished duplicates were reconciled by rebase, without changing their content. ChatGPT Work saved package: unchanged, no synchronization required for these repository-only documents. FrameCut media/client behavior in Work, ordinary ChatGPT, Codex and Claude: NOT_RUN.
 - Branch inventory before publication: main, gh-pages and ccr-b6d36a1c-4hszow. The latter's daab5828 head is already an ancestor of main; preserved, with no new branches.
+
+## CW-20261020-03
+
+- Origin: chatgpt-work
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `ea6b8b5` (main, package 1.112.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.113.0)
+- Package version: 1.112.0 -> 1.113.0
+- Scope: Owner-requested FrameCut editing mode: adaptive intake, source analysis, exact editable timeline, captions/motion/audio, immutable revisions and verified delivery; welcome option 5 and single-owner orchestration.
+- Shared package changed: yes; 26 changed, 8 added, 0 removed ([scope](../verification/scope-1.113.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: 238 Node tests (225 passing, 13 opt-in browser tests skipped there), 13 test_codex_install, 4 test_package_identity, 5 test_motion_benchmark, 6 test_host_smoke, 6 test_hosted_readback, 8 test_claude_plugin (1 skipped; see the suite log for reasons), 7 test_release, 8 test_gepa_studio_pilot (3 skipped; see the suite log for reasons), 23 asset_manifest, 17 captions, 24 environment_check, 21 runtime_inventory, 26 motion_acceptance, 6 motion_fonts, 10 motion_kinds, 10 motion_variants, 7 skill_finder, 15 extensions, 11 animate_engine, 5 animate_voice, 15 static_render, 8 print_pdf, 2 reel_starters, 8 web_reach, 6 pl_copy_check, 14 image_probe, 11 quote_calc, 6 vo_budget, 4 edit_export, 36 framecut, 4 board_compose, 4 sheet_export, 2 shot_plan_check, 2 prompt_pack, 3 clip_review, 5 svg_wordmark, 5 brand_guide, 4 motion_activity, 11 lyric_timing, 6 iso_glow, 13 sound_listen, 3 reference_breakdown, 12 craft_lint, 3 design_md, 6 ai_writing_check, 4 technique_atlas, 9 motion_assets, 2 knowledge_wiring, 22 test_host_eval: PASS ([record](../verification/release-1.113.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

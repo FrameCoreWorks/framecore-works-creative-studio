@@ -12,7 +12,7 @@ Handle a plugin version or installation-status question in Codex, ChatGPT Work a
 On installation (`--final`), every update (`--update`) or an environment request, run the [complete tool check](assets/environment-check/README.md) in the actual host before welcome. Follow its procedure: verify tools, isolated runtimes and models; announce missing-tool installation before authorized execution; preserve working versions and recheck. Work's reported versions do not prove another host. Without execution report Unknown. A check alone installs nothing.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.112.0"}
+{"name":"framecore-work-creative-studio","version":"1.113.0"}
 <!-- END PACKAGE IDENTITY -->
 
 This generated block identifies the read package version of this entry, not the model or newest release. Reread this entry through the active host's skill catalog or installed path on each version question; if the host supplies it without a read tool, call it the host-supplied skill revision. If current sources for the same bundle conflict, show both and leave the version unresolved. Keep the read package, saved hosted release and latest GitHub release separate. Never report a version from memory, history or old reports; if no current evidence is accessible, say the current version cannot be confirmed. Answer briefly with version, source and scope, then stop without the welcome. Full steps: [version reporting](references/version-reporting.md).
@@ -59,8 +59,9 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
 3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
 4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
+5. **FrameCut** — analyze, edit and finish your video, combining footage, captions, animation and sound.
 
-Enter **1**, **2**, **3** or **4**.
+Enter **1**, **2**, **3**, **4** or **5**.
 <!-- END ENGLISH STARTUP RESPONSE -->
 
 ### Approved Polish welcome
@@ -87,8 +88,9 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
 3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.
 4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.
+5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.
 
-Wpisz **1**, **2**, **3** albo **4**.
+Wpisz **1**, **2**, **3**, **4** albo **5**.
 <!-- END CANONICAL STARTUP RESPONSE -->
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
@@ -103,6 +105,7 @@ Resolve entry before loading craft, researching or asking for a project. This se
 - **Skill search answer (`3`) or a request to find a skill:** follow the [skill finder](references/skill-finder.md).
 - **Recommended repositories answer (`4`) or a request to see the repositories FrameCore Works recommends:** show the [recommended repositories list](references/extensions.md#recommended-repositories-list) for the current host, with what each does and how it installs there; install nothing.
 - **A question about recommended add-ons, engines or repositories, or a request to install one:** follow [recommended extensions](references/extensions.md); install only on an explicit request, after its dry-run plan.
+- **FrameCut answer (`5` in the pending new welcome), the name FrameCut, or an editing job/resume:** load [FrameCut](../opencut-video-studio/SKILL.md). Reuse known decisions; ask only the missing outcome/materials. It owns the edit timeline and delegates motion, captions and audio; no extra area menu. An older menu keeps its displayed mapping.
 - **Mode-only creative answer:** After a mode-only creative choice, show one message in the user's language: the eight numbered work areas `1–8` and the pace **A. Quick mode / B. Expanded mode**, with a reply example such as `8, B` ([work-area and pace menu](references/startup-and-creative-menus.md#work-area-and-pace-menu)), and wait. The areas, in this order and meaning (translate, never rename or reorder): 1. static graphics and image prompts (posters, flyers, banners, social ads, POS, key visuals); 2. video and prompts (direction, shots, a prompt for the chosen generator); 3. storyboards, reference boards and shot plans; 4. ad campaigns and adapting one direction to formats; 5. copy and scripts (headlines, CTAs, dialogue, editing); 6. music videos, music and sound; 7. analysis of a supplied graphic, video or audio with a concrete fix; 8. motion graphics from code (animated type, logos, diagrams; HTML/SVG, GSAP, HyperFrames or Remotion). A bare area number takes Quick mode and says so in one line. Do not replace this with an open brief question or invent a project.
 - **Pace-only answer:** When a pace is supplied without an area ("Tryb kreatywny, rozbudowany"), show the eight numbered work areas only and wait. If an area was already supplied, retain it and ask only the missing brief.
 - **Area answer:** retain mode, pace and area, close that choice group, then ask only the first missing brief item, one question. Do not promise a render, a mix or a file before the owner has checked what the host can run. Area `8` follows [motion graphics in creative work](references/startup-and-creative-menus.md#motion-graphics-in-creative-work). A later bare number cannot reopen a resolved menu.
@@ -144,8 +147,8 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | Video project spanning several stages, or cutdowns | cały film, wersje 15 i 30 s | [creative-video-producer](../creative-video-producer/SKILL.md) |
 | Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, showreel, animacja do muzyki, lyric video | [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) |
 | User-selected React/TypeScript video | Remotion | [remotion-video-production](../remotion-video-production/SKILL.md) |
-| Video-generator prompt, shot-card compilation, source-clip edit, or a supplied clip to review | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
-| Edit plan from supplied footage or an OpenCut timeline | montaż z nagrań | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
+| Video-generator prompt, shot-card compilation or generated-clip repair prompt | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
+| FrameCut: analysis, highlights, full edits, mixed footage/motion and edit revisions | montaż z nagrań, FrameCut | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
 | Subtitles, word timing, caption layout or caption QA | napisy, SRT | [caption-studio](../caption-studio/SKILL.md) |
 | Music video from a song, artist or lyrics | teledysk | [creative-music-video-director](../creative-music-video-director/SKILL.md) |
 | Song, lyrics, jingle, music prompt, sound or voice-over direction, supplied audio | piosenka, dżingiel, lektor | [audio-production-director](../audio-production-director/SKILL.md) (text only; no provider runs) |
@@ -167,11 +170,11 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | Explicit Hipson-format research or review packet | Hipson | [hipson-adapter](../hipson-adapter/SKILL.md) |
 | Explicit retrospective or workflow improvement | retrospektywa | [workflow-self-improvement](../workflow-self-improvement/SKILL.md) |
 
-A video request that names neither a generator nor coded motion gets one short choice when both fit ([generated video or motion from code](references/routing-boundaries.md#generated-video-or-motion-from-code)). Owners are responsibilities, not evidence another agent ran; a small task inside the current owner's domain may be done directly; a task in another owner's domain loads that owner. When a request sits between owners, mixes modalities, supplies a conversation link, asks for a Codex↔ChatGPT Work transfer, or concerns an unsupported module or reasoning setting, read [routing boundaries](references/routing-boundaries.md). For a product-photo-to-reel project, follow the [end-to-end route](references/product-film-end-to-end-route.md); for multiple owners, resumable projects, tool uncertainty or linked revisions, use [capabilities and handoffs](references/capabilities-and-handoffs.md). What Studio executes itself, what each tool needs and what to deliver when one is missing is in the [capability card](assets/capability-card.json). Keep a short task short.
+A new video-generation request that names neither a generator nor coded motion gets one short choice when both fit ([generated video or motion from code](references/routing-boundaries.md#generated-video-or-motion-from-code)). Owners define responsibility, not proof of agent runs. Handle small tasks directly; load another owner when crossing domains. When a request sits between owners, mixes modalities, supplies a conversation link, asks for a Codex↔ChatGPT Work transfer, or concerns an unsupported module or reasoning setting, read [routing boundaries](references/routing-boundaries.md). For a product-photo-to-reel project, follow the [end-to-end route](references/product-film-end-to-end-route.md); for multiple owners, resumable projects, tool uncertainty or linked revisions, use [capabilities and handoffs](references/capabilities-and-handoffs.md). The [capability card](assets/capability-card.json) defines execution requirements and missing-tool fallbacks.
 
-Use [the integrated workflow-kit method](kit/method.md) for artifact fields, bounded review and handoffs, and [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for precedence and the single active route. Pipeline Core is the canonical operating contract; Creative Video Producer coordinates a complete video route within the same Project State. Source role IDs resolve through the active role map; they are not names of missing skills or proof of agent execution.
+Use [the integrated workflow-kit method](kit/method.md) for artifact fields, bounded review and handoffs, and [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for precedence and the single active route. Pipeline Core governs Project State; Creative Video Producer coordinates preproduction and FrameCut owns editing/delivery jobs within it. Source role IDs resolve through the active role map; they are not names of missing skills or proof of agent execution.
 
-For a business or store URL with a campaign request, follow the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md): actual public evidence or an honest access limit, one material question at a time and optional campaign_context in the same Project State; Ecommerce Campaign Strategy Director owns the commerce strategy and Marketing supplies missing foundations. Do not force startup menus or generate media from a planning-only request.
+For a business/store URL campaign, follow the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md): actual public evidence or an honest access limit, one missing question and optional campaign_context in Project State. Ecommerce owns commerce strategy; Marketing supplies foundations. Planning does not authorize media generation or require startup menus.
 
 ## Shared boundaries
 
@@ -183,12 +186,12 @@ For text-bearing raster generation, use one integrated image including exact cop
 
 ## Close at the requested artifact
 
-Check truth, copy, hierarchy, distinctiveness, feasible format and actual execution status. Repair a defect before releasing a prompt. Do not label a render reviewed before inspecting it. Use a compact resume sheet for a long project, not a promise of memory across chats. A further stage is optional unless already requested. When shared references, selected copy or masters change, use [asset change routing](references/asset-change-routing.md), retain exact input revisions and route only affected work; Delivery provides the manifest and dependency helper for a larger project.
+Check truth, copy, hierarchy, distinctiveness, feasible format and actual execution status. Repair a defect before releasing a prompt. Do not label a render reviewed before inspecting it. Use a resume sheet for long projects; never promise cross-chat memory. A further stage is optional unless already requested. When shared references, selected copy or masters change, use [asset change routing](references/asset-change-routing.md), retain exact input revisions and route only affected work; Delivery provides the manifest and dependency helper for a larger project.
 
 ## Compact routes and creative feedback
 
-Use [conditional method selection](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods) inside one review and repair budget across handoffs: clear goals and acceptance criteria, not mandatory hidden-CoT narration; roles are not proof that separate agents ran. Load only the current owner and useful resources ([compact routing and optional project review](references/compact-routing-and-pilot.md)); route weak concepts to the creative decision library, temporal defects to Sequence or Video and taste feedback to Studio Workstyle Profile. Continue authorized plugin development without making a pilot or client project a prerequisite; a refusal of pilots also excludes disguised fresh-use exercises. Report the scope of integrity checks honestly.
+Use [conditional method selection](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods) in one review budget; never require hidden-CoT narration or imply agents ran. Load the current owner and useful resources ([compact routing and optional project review](references/compact-routing-and-pilot.md)). Route concept, temporal and taste defects to their owners. Continue authorized plugin development without a pilot prerequisite; a refusal of pilots also excludes disguised fresh-use exercises. Report check scope.
 
 ## Additional tools and installation onboarding
 
-For provider discovery, setup, billing or what works in ChatGPT Chat, Work or a Codex client, route to [Tool Routing Cost](../tool-routing-cost/SKILL.md) and its [provider setup guide](../tool-routing-cost/references/provider-setup.md). After a successful fresh installation, offer one optional tool-selection question unless already answered or declined; never block installation or a creative task on it, never repeat it on every greeting, keep it separate from paid generation and preserve existing choices on updates. A dated catalog documents candidates, not connected accounts.
+For provider discovery, setup, billing or host support use [Tool Routing Cost](../tool-routing-cost/SKILL.md) and its [provider setup guide](../tool-routing-cost/references/provider-setup.md). After fresh installation, offer one optional tool-selection question unless answered/declined. It never blocks work, repeats on greetings or authorizes paid generation; preserve choices on update. Catalog entries are not connected accounts.

@@ -58,3 +58,7 @@ A "yes" means the bundled tool can run in that profile once its needs are met; i
 ## 4. Pick by brief inside the column
 
 The [brief index](../assets/motion-prompt-library/brief-index.json) tags each brief type with `scene_kinds` that every renderer runs and a `contract` (an example or ad template) that renders as it is. A brief with no scene kinds (looping idents, 3D, generative backgrounds, music-cut edits) needs custom code. Use a shell, or a code-execution host that actually provides the selected engine's Node/browser requirements; otherwise offer the nearest declared scenes or deliver the source, contract and prompts.
+
+## FrameCut composition bridge
+
+[FrameCut](../../opencut-video-studio/assets/framecut/README.md) executes cuts, timed layers, captions and audio with Python/FFmpeg. Motion stays authored here: consume its local-time request, render the composition and return media plus motion-score hash. The bridge probes FFmpeg, validates source hashes and renders one final timeline. No browser means existing rendered motion can still be composited; newly coded browser motion requires the actual runtime. Optional engines remain optional, and no private hosted adapter is required.

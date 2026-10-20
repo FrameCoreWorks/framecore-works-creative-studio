@@ -1,0 +1,117 @@
+{
+  "runtime_unchanged": true,
+  "runtime_before": {
+    "fc_captions.py": "b393bf68be8c95a7f284cfee726476f9174ebff1c9f2bd8a0bbff6ca60de76d2",
+    "fc_media.py": "2bfcad9eee8b2316900aa46fff26b8a683da93f6871263315fb12fb21d9d5f9a",
+    "framecut.py": "e56c28a9cfb80744eeeb44eac3aad1ef185291cb58bdab99ca99233c9c1ae268",
+    "fc_core.py": "50c737e0202f01b2f5c47fa3d94051f61ba2f4c8c7110275834986521dbb5c28",
+    "fc_render.py": "3516b1522d472cbe94bd471d7f6d4a85d641406c0ebe47987f392113e05e947a"
+  },
+  "runtime_after": {
+    "fc_captions.py": "b393bf68be8c95a7f284cfee726476f9174ebff1c9f2bd8a0bbff6ca60de76d2",
+    "fc_media.py": "2bfcad9eee8b2316900aa46fff26b8a683da93f6871263315fb12fb21d9d5f9a",
+    "framecut.py": "e56c28a9cfb80744eeeb44eac3aad1ef185291cb58bdab99ca99233c9c1ae268",
+    "fc_core.py": "50c737e0202f01b2f5c47fa3d94051f61ba2f4c8c7110275834986521dbb5c28",
+    "fc_render.py": "3516b1522d472cbe94bd471d7f6d4a85d641406c0ebe47987f392113e05e947a"
+  },
+  "comparisons": {
+    "landscape": {
+      "unchanged_sequence_fields": [
+        "audio",
+        "background",
+        "captions",
+        "clips",
+        "duration",
+        "editorial",
+        "fps",
+        "id",
+        "overlays"
+      ],
+      "changed_sequence_fields": [
+        "texts"
+      ],
+      "source_map_identical": true,
+      "audio_pcm_identical": true,
+      "audio_baseline": {
+        "sha256": "e541125d64d1c91e4e1c5ce184010bb42748c2001a0f1eab0b0b702a9e6893d0",
+        "decoded_bytes": 3457024
+      },
+      "audio_enlarged": {
+        "sha256": "e541125d64d1c91e4e1c5ce184010bb42748c2001a0f1eab0b0b702a9e6893d0",
+        "decoded_bytes": 3457024
+      },
+      "revision_before": 12,
+      "revision_after": 13,
+      "baseline_cache_hits": [],
+      "final_cache_hits": [
+        "visual",
+        "visual",
+        "visual",
+        "assembly",
+        "mix",
+        "visual"
+      ],
+      "final_cache_built": [],
+      "runtime_hashes_match": true,
+      "decoded_frames": 270,
+      "seconds": 9.0,
+      "fps": "30/1",
+      "size": [
+        960,
+        540
+      ],
+      "lufs_measured": "-18.14",
+      "true_peak_db": "-4.90"
+    },
+    "vertical": {
+      "unchanged_sequence_fields": [
+        "audio",
+        "background",
+        "captions",
+        "clips",
+        "duration",
+        "editorial",
+        "fps",
+        "id",
+        "overlays"
+      ],
+      "changed_sequence_fields": [
+        "texts"
+      ],
+      "source_map_identical": true,
+      "audio_pcm_identical": true,
+      "audio_baseline": {
+        "sha256": "e541125d64d1c91e4e1c5ce184010bb42748c2001a0f1eab0b0b702a9e6893d0",
+        "decoded_bytes": 3457024
+      },
+      "audio_enlarged": {
+        "sha256": "e541125d64d1c91e4e1c5ce184010bb42748c2001a0f1eab0b0b702a9e6893d0",
+        "decoded_bytes": 3457024
+      },
+      "revision_before": 12,
+      "revision_after": 13,
+      "baseline_cache_hits": [
+        "mix"
+      ],
+      "final_cache_hits": [
+        "visual",
+        "visual",
+        "visual",
+        "assembly",
+        "mix",
+        "visual"
+      ],
+      "final_cache_built": [],
+      "runtime_hashes_match": true,
+      "decoded_frames": 270,
+      "seconds": 9.0,
+      "fps": "30/1",
+      "size": [
+        540,
+        960
+      ],
+      "lufs_measured": "-18.14",
+      "true_peak_db": "-4.90"
+    }
+  }
+}

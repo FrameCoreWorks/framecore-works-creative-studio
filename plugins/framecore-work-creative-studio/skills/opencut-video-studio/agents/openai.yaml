@@ -1,7 +1,7 @@
 interface:
-  display_name: "OpenCut Video Studio"
-  short_description: "Prepare and QA local OpenCut editing packs"
-  default_prompt: "Use $opencut-video-studio to turn these assets and edit goals into an OpenCut asset bin, timeline plan, edit decisions, variants, exports, and QA checklist."
+  display_name: "FrameCut"
+  short_description: "Analyze, edit and finish footage with motion"
+  default_prompt: "Use $opencut-video-studio as FrameCut to establish the scope, analyze my materials, edit and finish the video with captions, motion and sound, review the result and deliver the files."
 
 policy:
   allow_implicit_invocation: true

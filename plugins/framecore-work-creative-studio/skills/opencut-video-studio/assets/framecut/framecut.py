@@ -1,0 +1,211 @@
+#!/usr/bin/env python3
+"""FrameCut: local, revisioned editing CLI. Run --help; commands return structured JSON."""
+from __future__ import annotations
+
+import argparse
+import copy
+import csv
+import importlib.util
+import json
+import sys
+from fractions import Fraction
+from pathlib import Path
+
+from fc_core import (FrameCutError, apply_operations, atomic_json, commit_revision, confined, file_hash,
+                     fingerprint, identifier, ratio, read_json, require, round_boundary, span_seconds, validate)
+from fc_media import capabilities, ingest, inspect_media, probe, transcribe, transcript_import
+from fc_render import compile_project, motion_request, render, verify_delivery
+
+
+def project_init(path, name, brief=None):
+    path = Path(path).absolute()
+    require(not path.is_symlink() and path.parent.resolve() == path.parent, "Project path contains a symlink")
+    project = {"schema_version": 1, "id": identifier(name), "revision": 1, "brief": brief or {}, "authorization": None,
+               "assets": {}, "analyses": {}, "sequences": [], "deliverables": [], "locks": [], "status": "draft", "history": None}
+    validate(project)
+    atomic_json(path, project)
+    return project
+
+
+def propose(project, asset_id):
+    require(asset_id in project["assets"], "Unknown asset")
+    analysis = project["analyses"].get(asset_id, {})
+    segments = analysis.get("segments", [])
+    if not segments:
+        return {"status": "needs_editorial_analysis", "asset": asset_id, "candidates": [],
+                "next": "Inspect visual/scene evidence and the brief, or import a checked source transcript. No speech is invented."}
+    return {"status": "candidates_need_editorial_review", "asset": asset_id, "source_hash": project["assets"][asset_id]["sha256"],
+            "candidates": [{"id": "candidate-" + s["id"], "start": s["start"], "end": s["end"], "text": s["text"],
+                            "context_before": segments[i-1]["text"] if i else "",
+                            "context_after": segments[i+1]["text"] if i+1 < len(segments) else "",
+                            "completeness": "unreviewed", "rationale": "Transcript interval only; the host must assess meaning, context, visual support and relevance to the brief."}
+                           for i, s in enumerate(segments) if s["start"] is not None],
+            "warnings": ["No automatic last-take-wins, filler removal or virality score. Review negations, numbers, qualifiers and joins."]}
+
+
+def export_edit(project, root, sequence_id, relative, use_otio=False):
+    validate(project, root, True)
+    seq = next((s for s in project["sequences"] if s["id"] == sequence_id), None)
+    require(seq is not None, "Unknown sequence")
+    output = confined(root, relative)
+    require(not output.exists(), "Export directory already exists")
+    otio = None
+    if use_otio:
+        try:
+            import opentimelineio as otio
+        except ImportError as e:
+            raise FrameCutError("missing_capability", "Official OpenTimelineIO Python library is absent; use native/CSV/EDL export or disclose its isolated installation plan") from e
+    output.mkdir(parents=True)
+    fps = ratio(seq["fps"])
+    losses = []
+    if seq.get("audio"):
+        losses.append("Independent audio events and gain/ducking remain in the FrameCut project; basic editorial export covers picture cuts only.")
+    if seq.get("overlays") or seq.get("texts") or seq.get("captions", {}).get("enabled"):
+        losses.append("Motion, titles and caption styling are retained in the FrameCut project/authoring contracts; editor interchange does not recreate them.")
+    events = []
+    complex_edit = False
+    for c in seq["clips"]:
+        a = project["assets"][c["asset"]]
+        start, length = span_seconds(a, c, fps)
+        complex_edit |= bool(c.get("transition") or ratio(c.get("speed", {"num": 1, "den": 1})) != 1)
+        events.append({"source": a["path"], "in": float(start), "out": float(start+length), "record_in": float(Fraction(c["start"])/fps),
+                       "name": c["id"], "note": c.get("note", ""), "source_hash": a["sha256"], "record_frames": [c["start"], c["start"]+c["duration"]]})
+    if complex_edit:
+        losses.append("Transitions or speed changes require the native FrameCut project; basic EDL/OTIO is withheld rather than flattened misleadingly.")
+    atomic_json(output / "framecut-project.json", project)
+    atomic_json(output / "relink.json", {"base": "original project root", "assets": {k: {"path": a["path"], "sha256": a["sha256"]} for k, a in project["assets"].items()},
+                                          "note": "Media is not copied; relink to the original project root. This snapshot is not a standalone media bundle."})
+    with (output / "shots.csv").open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=("source", "in", "out", "record_in", "name", "note", "source_hash", "record_frames"))
+        writer.writeheader(); writer.writerows(events)
+    if not complex_edit and events:
+        legacy_path = Path(__file__).resolve().parents[2] / "scripts/edit_export.py"
+        spec = importlib.util.spec_from_file_location("framecut_legacy_export", legacy_path)
+        legacy = importlib.util.module_from_spec(spec); spec.loader.exec_module(legacy)
+        timeline = legacy.build({"title": seq["id"], "fps": float(fps), "clips": events})
+        (output / "picture.edl").write_text(legacy.edl(timeline), encoding="utf-8")
+        losses.append("CMX EDL is picture-only non-drop-frame at a nominal timebase; source PTS/VFR precision remains in source-map/native project. Named editor import is unverified.")
+        if otio:
+            track = otio.schema.Track(name="V1", kind=otio.schema.TrackKind.Video)
+            previous = 0
+            for c, e in zip(seq["clips"], events):
+                if c["start"] > previous:
+                    track.append(otio.schema.Gap(source_range=otio.opentime.TimeRange(otio.opentime.RationalTime(0, float(fps)), otio.opentime.RationalTime(c["start"]-previous, float(fps)))))
+                clip = otio.schema.Clip(name=c["id"], media_reference=otio.schema.ExternalReference(target_url=e["source"]),
+                                        source_range=otio.opentime.TimeRange(otio.opentime.RationalTime(e["in"]*float(fps), float(fps)), otio.opentime.RationalTime(c["duration"], float(fps))))
+                clip.metadata["framecut"] = {"asset_hash": e["source_hash"], "project_revision": project["revision"], "source_in_pts": c.get("source_in", project["assets"][c["asset"]]["probe"]["start_pts"])}
+                track.append(clip); previous = c["start"]+c["duration"]
+            timeline = otio.schema.Timeline(name=seq["id"]); timeline.tracks.append(track)
+            otio.adapters.write_to_file(timeline, str(output / "picture.otio"))
+            reread = otio.adapters.read_from_file(str(output / "picture.otio"))
+            require(round_boundary(Fraction(str(reread.duration().to_seconds())) * fps) == previous, "OTIO round-trip duration differs", "qa_failed")
+    atomic_json(output / "loss-report.json", {"losses": losses, "editor_import": "NOT_RUN", "official_otio": bool(otio), "project_revision": project["revision"]})
+    return {"status": "exported", "output": relative, "losses": losses, "editor_import": "NOT_RUN"}
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description=__doc__)
+    sub = p.add_subparsers(dest="command", required=True)
+    sub.add_parser("capabilities", help="Offline capability probe; never installs")
+    q = sub.add_parser("init", help="Create a project; its parent is the explicit allowed media/output root")
+    q.add_argument("project"); q.add_argument("--id", required=True); q.add_argument("--brief")
+    for name in ("ingest", "validate", "analyze", "import-transcript", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review"):
+        q = sub.add_parser(name); q.add_argument("project")
+        if name in ("ingest", "analyze", "import-transcript", "transcribe", "propose", "attach-motion"):
+            q.add_argument("--asset", required=True)
+        if name == "ingest":
+            q.add_argument("--media", required=True, help="Path relative to the project root")
+            q.add_argument("--rights", default="unknown"); q.add_argument("--provenance", default="user-supplied")
+        if name in ("ingest", "import-transcript", "transcribe", "attach-motion", "apply", "undo"):
+            q.add_argument("--base-revision", type=int, required=True)
+        if name in ("analyze", "compile", "render", "export", "motion-request"):
+            q.add_argument("--out", required=True, help="New project-relative output path")
+        if name == "analyze":
+            q.add_argument("--max-seconds", type=int, default=1800); q.add_argument("--thumbnails", type=int, default=8)
+        if name == "import-transcript": q.add_argument("--transcript", required=True)
+        if name == "transcribe":
+            q.add_argument("--python", required=True); q.add_argument("--model", required=True); q.add_argument("--language", default="auto")
+            q.add_argument("--word-times", action="store_true", help="Request approximate ASR token word times; review them before kinetic delivery")
+        if name == "apply": q.add_argument("--ops", required=True); q.add_argument("--reason", required=True)
+        if name == "undo": q.add_argument("--revision", type=int, required=True)
+        if name in ("compile", "render", "motion-request"): q.add_argument("--deliverable", required=True)
+        if name == "render":
+            q.add_argument("--mode", choices=("preview", "final"), default="preview")
+            q.add_argument("--timeout", type=int, default=600); q.add_argument("--max-disk-mb", type=int, default=2048)
+        if name in ("verify", "review"): q.add_argument("--bundle", required=True)
+        if name == "export": q.add_argument("--sequence", required=True); q.add_argument("--otio", action="store_true")
+        if name == "motion-request": q.add_argument("--event", required=True, help="JSON event with local duration and global start/anchor")
+        if name == "attach-motion": q.add_argument("--contract", required=True); q.add_argument("--fps", required=True, help="Rational num/den")
+        if name == "review": q.add_argument("--evidence", required=True, help="Authored review JSON, with reviewer, scope, observations and outcome")
+    args = p.parse_args(argv)
+    try:
+        if args.command == "capabilities":
+            result = capabilities()
+        elif args.command == "init":
+            result = project_init(args.project, args.id, read_json(args.brief) if args.brief else {})
+        else:
+            path = Path(args.project).absolute()
+            require(not path.is_symlink() and path.parent.resolve() == path.parent, "Project path contains a symlink")
+            root, project = path.parent, read_json(path)
+            validate(project, root, True)
+            cmd = args.command
+            if cmd == "validate": result = {"status": "PASS", "revision": project["revision"], "project_hash": fingerprint(project)}
+            elif cmd == "ingest":
+                require(args.asset not in project["assets"], "Asset ID already exists; preserve immutable source identities")
+                project["assets"][args.asset] = ingest(root, args.media, args.asset, args.rights, args.provenance)
+                result = commit_revision(path, project, args.base_revision, "ingest source")
+            elif cmd == "analyze":
+                require(1 <= args.max_seconds <= 21600 and 1 <= args.thumbnails <= 64, "Analysis bounds invalid")
+                result = inspect_media(root, project["assets"][args.asset], confined(root, args.out), args.max_seconds, args.thumbnails)
+            elif cmd in ("import-transcript", "transcribe"):
+                asset = project["assets"][args.asset]
+                analysis = (transcript_import(asset, read_json(args.transcript)) if cmd == "import-transcript" else transcribe(root, asset, args.python, args.model, args.language, word_times=args.word_times))
+                project["analyses"][args.asset] = analysis
+                result = commit_revision(path, project, args.base_revision, cmd)
+            elif cmd == "propose": result = propose(project, args.asset)
+            elif cmd == "apply":
+                candidate, invalidated = apply_operations(project, read_json(args.ops))
+                saved = commit_revision(path, candidate, args.base_revision, args.reason)
+                result = {"status": "revised", "revision": saved["revision"], "invalidated": invalidated, "analysis_preserved": True}
+            elif cmd == "undo":
+                previous = read_json(confined(root, f".framecut/{project['id']}/history/r{args.revision}.json", True))
+                previous["locks"] = copy.deepcopy(project.get("locks", []))
+                result = commit_revision(path, previous, args.base_revision, f"restore content of revision {args.revision}; current locks still apply")
+            elif cmd == "compile":
+                plan = compile_project(project, root, args.deliverable)
+                atomic_json(confined(root, args.out), plan)
+                result = {"status": "compiled", "path": args.out, "warnings": plan["warnings"]}
+            elif cmd == "render":
+                require(1 <= args.timeout <= 7200 and 64 <= args.max_disk_mb <= 102400, "Render resource limits invalid")
+                result = render(project, root, args.deliverable, args.out, args.mode, args.timeout, args.max_disk_mb)
+            elif cmd == "verify": result = verify_delivery(project, root, args.bundle)
+            elif cmd == "export": result = export_edit(project, root, args.sequence, args.out, args.otio)
+            elif cmd == "motion-request":
+                d = next(x for x in project["deliverables"] if x["id"] == args.deliverable)
+                seq = next(x for x in project["sequences"] if x["id"] == d["sequence"])
+                result = motion_request(project, seq, read_json(args.event), d)
+                atomic_json(confined(root, args.out), result)
+            elif cmd == "attach-motion":
+                contract = confined(root, args.contract, True)
+                fps = Fraction(args.fps)
+                project["assets"][args.asset]["motion_contract"] = {"path": args.contract, "sha256": file_hash(contract), "fps": {"num": fps.numerator, "den": fps.denominator}}
+                result = commit_revision(path, project, args.base_revision, "bind local motion contract")
+            elif cmd == "review":
+                verified = verify_delivery(project, root, args.bundle)
+                evidence = read_json(args.evidence)
+                require(all(evidence.get(k) for k in ("reviewer", "scope", "observations", "outcome")), "Review needs reviewer, actual scope, observations and outcome")
+                require(evidence["outcome"] in ("pass", "needs_revision", "blocked"), "Invalid review outcome")
+                require(type(evidence.get("audio_heard")) is bool and type(evidence.get("picture_watched")) is bool, "Declare what was actually heard/watched")
+                result = {"project_hash": fingerprint(project), "project_revision": project["revision"], "technical": verified["status"], "evidence": evidence,
+                          "video_hash": file_hash(confined(root, args.bundle + "/video.mp4", True))}
+                atomic_json(confined(root, args.bundle + "/review-evidence.json"), result)
+            else: raise FrameCutError("unsupported_operation", cmd)
+        print(json.dumps(result, ensure_ascii=False, allow_nan=False))
+        return 0
+    except (FrameCutError, OSError, ValueError, KeyError, TypeError, StopIteration) as error:
+        print(json.dumps({"status": "error", "error": {"code": getattr(error, "code", "invalid_input"), "message": str(error)}}), file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -144,7 +144,7 @@ Shared design tools (Python standard library, run where code runs; each README s
 - Route screenplay, treatment, scene, dialogue, pitch, coverage, or narrative-rewrite work through `screenplay-story-architect` before storyboard production.
 - Route video work spanning several production stages, or cutdowns, through `creative-video-producer`; a commercial video idea goes to `commercial-video-campaign-director`, coded motion and explainers to `hyperframes-workflow`, and a creator-style ad to `ugc`, as in the orchestrator's route table.
 - Route detailed caption timing, styling, safe zones, render handoffs, or caption repair through `caption-studio`.
-- Route footage-first or timeline-first OpenCut planning through `opencut-video-studio` when OpenCut is available or the user wants an OpenCut Edit Pack.
+- Route editing jobs through FrameCut (`opencut-video-studio`): one revisioned project/timeline from adaptive intake through analysis, footage/motion assembly, captions, sound and verified delivery. Keep its project path/revision in the existing Project State; specialists return bounded artifacts at that revision. Preserve OpenCut/editor handoff without requiring OpenCut to execute local edits.
 - Route text-only music, song, visible-singing, lip-sync triage, or named music-provider planning packets through `audio-production-director` without implying provider execution; the visual direction of a music video goes to `creative-music-video-director`.
 
 ## Guardrails

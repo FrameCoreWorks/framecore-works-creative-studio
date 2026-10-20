@@ -144,3 +144,7 @@ Coordinate the [decision library](../commercial-video-campaign-director/referenc
 ## Reference and audio packets
 
 Coordinate [production sheets](../storyboard-board-architect/references/production-reference-sheets.md), [identity evidence](../character-design/references/human-identity-workbook.md) and [audio edit decisions](../audio-production-director/references/audio-edit-and-prompt-workbench.md) when those artifacts are requested. Carry one selected revision through each handoff without reopening accepted creative decisions.
+
+## FrameCut handoff
+
+For an edit/delivery job, delegate the revisioned timeline to FrameCut (`opencut-video-studio`) and retain upstream brief/story/production responsibilities. Reuse known decisions and authorization; caption, motion and audio owners work inside the same project, without a second intake.

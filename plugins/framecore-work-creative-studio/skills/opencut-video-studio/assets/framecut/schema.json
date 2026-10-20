@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://framecoreworks.github.io/framecore-works-creative-studio/framecut/project-v1",
+  "title": "FrameCut project v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "assets",
+    "analyses",
+    "sequences",
+    "deliverables"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "brief": {
+      "type": "object"
+    },
+    "authorization": {},
+    "assets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256",
+          "kind",
+          "probe"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "kind": {
+            "enum": [
+              "video",
+              "image",
+              "audio"
+            ]
+          },
+          "probe": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "analyses": {
+      "type": "object"
+    },
+    "sequences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "fps",
+          "duration",
+          "clips"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fps": {
+            "$ref": "#/$defs/rational"
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "clips": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/event"
+            }
+          },
+          "audio": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/event"
+            }
+          },
+          "overlays": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/event"
+            }
+          },
+          "texts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/event"
+            }
+          },
+          "captions": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "sequence",
+          "width",
+          "height"
+        ]
+      }
+    },
+    "locks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "history": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "rational": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "num",
+        "den"
+      ],
+      "properties": {
+        "num": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "den": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "id",
+        "duration"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source_in": {
+          "type": "integer"
+        },
+        "speed": {
+          "$ref": "#/$defs/rational"
+        },
+        "anchor": {
+          "type": "object",
+          "required": [
+            "clip",
+            "offset"
+          ]
+        }
+      }
+    }
+  },
+  "description": "Interchange shape. fc_core.validate enforces the closed fields, clocks, asset hashes, overlaps, source spans, anchors, bounds and revision semantics before any execution."
+}

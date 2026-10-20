@@ -19,5 +19,6 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
 3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
 4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
+5. **FrameCut** — analyze, edit and finish your video, combining footage, captions, animation and sound.
 
-Enter **1**, **2**, **3** or **4**.
+Enter **1**, **2**, **3**, **4** or **5**.

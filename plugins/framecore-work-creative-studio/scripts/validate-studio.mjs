@@ -257,7 +257,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.
   const nameSpellings = new Map([['ai', 'AI'], ['ugc', 'UGC'], ['hyperframes', 'HyperFrames'], ['opencut', 'OpenCut']]);
-  const displayOverrides = new Map([['hyperframes-workflow', 'Motion Graphics Workflow']]);
+  const displayOverrides = new Map([['hyperframes-workflow', 'Motion Graphics Workflow'], ['opencut-video-studio', 'FrameCut']]);
   const displayNames = new Set();
   for (const id of actualOwners) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) fail('SKILL_ID_FORMAT', id);

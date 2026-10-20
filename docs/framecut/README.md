@@ -1,8 +1,8 @@
-# FrameCut foundation
+# FrameCut
 
-Status: implementation proposal, 2026-10-20. Product scope is owner-directed; architecture choices below are recommendations. This documentation does not register a new mode, install dependencies or claim a working FrameCut render pipeline.
+Status: implemented in Studio 1.113.0 after the owner approved publication and construction on 2026-10-20. FrameCut is welcome option 5 and the display name of the existing opencut-video-studio owner. See [implementation status and measured coverage](build-status.md) and the [runtime contract](../../plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md). Research decisions below retain their original rationale; candidate repositories are not installed merely because they were researched.
 
-Baseline: Studio 1.112.0, source commit 45cab60d12f98663ce17fdc08cc753d5bfeef1cd. The existing saved Work package has supplemental integrations that are not public source. Preserve that overlay when implementation eventually changes the shared package.
+Baseline: Studio 1.112.0, source commit 45cab60d12f98663ce17fdc08cc753d5bfeef1cd. The existing saved Work package has supplemental integrations that are not public source. The paired implementation release preserves that overlay separately from public source.
 
 ## Read in this order
 
@@ -15,7 +15,7 @@ Baseline: Studio 1.112.0, source commit 45cab60d12f98663ce17fdc08cc753d5bfeef1cd
 
 FrameCut is a selectable Studio mode for taking a video job from an adaptive interview through material analysis, editorial planning, editing, motion, sound, review and delivery. It covers supplied footage, generated assets, mixed productions and motion-only work. A talking-head recording converted into highlights is an acceptance example, not the definition of the product.
 
-The owner requested the name FrameCut and a separate option in the full welcome. The proposed menu label is simply **FrameCut**, with a localized description such as “Analyze, edit and finish your video.” In Polish: “Analiza, montaż i gotowe wideo.” The complete welcome, existing options and language selection remain governed by workflow-orchestrator. Add the option only with its working route and tests; do not advertise unsupported execution.
+The owner requested the name FrameCut and a separate option in the full welcome. The menu label is simply **FrameCut**, with a localized description such as “Analyze, edit and finish your video.” In Polish: “Analiza, montaż i gotowe wideo.” The complete welcome, existing options and language selection remain governed by workflow-orchestrator. The option ships with its route and source tests; do not advertise unsupported execution.
 
 The interview fills only consequential gaps: desired outcome, intended viewer and viewing context, supplied materials and rights, required output variants, style/references, protected content, deadline/resources and delegated decision scope. Reuse information already supplied. First inspect basic media metadata when files are available, so the user is not asked to provide durations and dimensions the tools can read. For an open brief, recommend a scoped approach and identify assumptions. For a complete request, proceed within that authorization. Neither a fixed questionnaire nor approval of every individual cut is required.
 
@@ -28,7 +28,7 @@ The same mode supports full edits, cleanup, highlights, compilations, explanatio
 | FC-01 | Extend the existing technical owner opencut-video-studio; expose FrameCut as the product name and welcome route | Avoid a second edit owner and extra discovery budget. Keep the existing skill ID, paths and OpenCut handoff. Reconsider only if measured routing tests cannot distinguish ownership. |
 | FC-02 | Introduce one versioned FrameCut project with exact timeline placement and source mappings | Captions, music, overlays and variants must survive cuts and revisions together. An editor-specific export cannot preserve all authoring intent. |
 | FC-03 | Reuse FFmpeg/FFprobe for media execution and HyperFrames through Motion Graphics Workflow for coded motion | These already fit Studio. Rendering adapters receive validated data; the model does not supply arbitrary executable filtergraphs. |
-| FC-04 | Run a bounded Kinocut adapter comparison before implementing a large execution layer | Its typed timeline and workflow code are promising. Adopt a narrow adapter only if it passes the same timing, revision, host and resource tests as the native route. Avoid importing its entire product or tool surface. |
+| FC-04 | Select the native adapter after the bounded Kinocut comparison (see build status) | Its typed timeline and workflow code are promising. Adopt a narrow adapter only if it passes the same timing, revision, host and resource tests as the native route. Avoid importing its entire product or tool surface. |
 | FC-05 | Keep ASR, alignment, diarization and visual analysis replaceable | Existing PyWhisperCpp is the first reuse candidate. Benchmark faster-whisper and WhisperX where they add measured quality. A tiny model being installed does not establish transcript quality. |
 | FC-06 | Keep semantic editorial decisions in Studio, grounded in inspectable media evidence | VAD, scene detection, topic segmentation and punctuation are candidate signals. None proves that a cut preserves meaning or makes a strong standalone clip. |
 | FC-07 | Use OTIO as an interchange adapter, with explicit conversion losses | Do not make a new hand-written OTIO parser the foundation. Preserve the legacy simple exporter and add official-library validation for richer interchange. |

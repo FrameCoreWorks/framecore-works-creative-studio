@@ -119,3 +119,7 @@ Hand off with:
 - Output status distinguishes a plan, edit pack, sidecar file, and verified render.
 - Any ready-to-use wording revision has an approved Copy Pack and bounded
   editorial-loop evidence.
+
+## FrameCut handoff
+
+Use FrameCut’s source-derived caption projection for an edit; retain source word IDs and corrected copy separately. Return caption/QA artifacts at the same project revision. Do not re-time source words twice or claim segment ASR is precise word alignment.

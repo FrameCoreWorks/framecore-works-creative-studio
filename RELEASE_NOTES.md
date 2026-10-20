@@ -1,9 +1,9 @@
-# Creative Studio 1.112.0
+# Studio 1.113.0 — FrameCut
 
-First installation and every plugin update now check the owner's complete 59-component tool inventory. Results include detected versions, paths and evidence, with separate missing, broken and Unknown states.
+FrameCut is option 5 in the complete Studio welcome. It coordinates analysis, editing, highlights, kinetic captions, motion, sound, revisions and final delivery through one editable project. Direct tasks and resumes keep their context; the technical skill ID stays opencut-video-studio.
 
-Before authorized installation, Studio explains which tools it plans to install or repair. Working versions are preserved; the supplied Work versions are reference evidence, not forced upgrades or downgrades. The checker itself installs nothing and performs no network downloads, renders or model inference.
+The local Python/FFmpeg runtime adds exact source/timeline maps, immutable revision history, locks, independently anchored audio, motion handoff contracts, hash-verified caches, cancellation, caption sidecars, technical delivery verification and editable exports. It works without the private hosted overlay. Optional ASR and OpenTimelineIO reuse explicit installed environments; the 59-tool inventory still runs on first install and every update.
 
-The inventory covers render engines, media analysis, audio, OCR, motion libraries, Manim dependencies, isolated Python runtimes, Node tooling and browsers. Existing project diagnostics remain available through `--capabilities-only`.
+36 formal FrameCut tests, 22 agent contract/recovery tests and three media workflows passed. Tests found and fixed stale audio caches after clip moves, lock loss on undo, invalid lock state and overlong transition handles. Actual ASR, vertical/landscape edits, motion overlays, screen edits, rational/VFR/nonzero-PTS sources and OTIO readback are recorded separately from client behavior.
 
-Current Work installation probes: 59/59 passed. Codex, Claude Code and Claude apps require their own runtime checks; no fresh-client behavior is claimed. Private hosted integrations are retained during the paired update.
+Coverage limits: sampled image inspection and measured audio do not certify continuous playback/listening. Polish word alignment, native editor import and fresh ChatGPT/Codex/Claude startup remain untested. Advanced tracking, multicam, speed ramps, diarization and HDR mastering are explicitly unsupported. See docs/framecut/build-status.md and verification/framecut-build-2026-10-20/.

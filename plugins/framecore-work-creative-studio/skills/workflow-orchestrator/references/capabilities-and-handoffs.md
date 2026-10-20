@@ -11,7 +11,7 @@ Keep the requested stage separate from the medium. A direction, prompt, generate
 | Image supplied as a reference for a new asset | Reference Pack Curator plus the requested direction or prompt owner | The image controls only its assigned reference properties; it is not automatically under review |
 | Approved base image supplied for an edit | Static Graphic Design Creator, or Image Prompt Architect for a prompt-only edit instruction | Preserve the approved base and named locks; review only when separately requested |
 | Existing image explicitly supplied for review | Output Critic | Only visible/accessible pixels and actually measured file properties |
-| Actual video clip | Video Prompt Architect | Temporal review requires accessible frames/time ranges; sound requires a real audio route |
+| Actual video clip | FrameCut for editing; Video Prompt Architect for a generated-clip repair prompt; Motion Graphics Workflow for its coded render | Temporal review requires accessible frames/time ranges; sound requires a real audio route. FrameCut keeps its project revision across specialist work |
 | Motion video Studio rendered from a contract | Motion Graphics Workflow | The craft critique on its frames, the timing summary of its sound and the contract revision it came from |
 | Actual audio, song or visible-singing diagnostic | Audio Production Director | Separate metadata, user report, transcript, and actual audio/video inspection; record range and method |
 | Narrative scene or dialogue | Screenplay Story Architect | Story intent, continuity, action and exact selected dialogue |

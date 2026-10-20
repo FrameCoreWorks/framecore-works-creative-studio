@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.112.0",
+  "version": "1.113.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "4cd164cf6ca13007fb6956fca9396d2bf738d7a0062ecf06f5c845ee542c559f"
+      "sha256": "f04218e5ac3848bdc58b5f7852922ba4a833bc10cea1eb4784bf7dba4b18816d"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2285,
-      "sha256": "9c029fd165875089a2764c0ae0114d8542a7a9c3c8d222f4750ed1ff9917cf53"
+      "sha256": "3c72df5bb0e8b44c8215b3f8ee0aa8914bd197ecfcd0875fbc9898f79dfbd716"
     },
     {
       "path": "LICENSE",
@@ -68,8 +68,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 22074,
-      "sha256": "137ddb4cfb3d6f9e4e0803d88c203ef41c9de8b78f6fc0124e202891cd6e1392"
+      "bytes": 22829,
+      "sha256": "766561a0c743c194c4d801ca1fe55c3765fc244316c07a269d5fc934b5a2e968"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "7c8a367e645f09819b68924fb96546970c4d6e6684b486622e245405e7b23639"
+      "sha256": "7dc973188a4d36a341d16ff7ecb27de842eee9dd1f9a8f551a695ada36930a20"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 189021,
-      "sha256": "35489fdba840d72b9af53a64703e67cee124e315959027476ab5359fae210b26"
+      "bytes": 190197,
+      "sha256": "6c7394306c7695919d96676e78d9b22f473e61b294cd98a391ef789d72455d8f"
     },
     {
       "path": "docs/research-ledger.json",
@@ -138,8 +138,8 @@
     },
     {
       "path": "docs/skill-naming.md",
-      "bytes": 4446,
-      "sha256": "feec0112137a09112afdaecad97e139e4b6b9f78c5467923b13d994215df2cb3"
+      "bytes": 4588,
+      "sha256": "7e77084b3cf62cb045fbf5cea5a8b6d59c7c815c74e71a6e4ada863dec0b0fba"
     },
     {
       "path": "docs/workflow-kit-integration.md",
@@ -2399,7 +2399,7 @@
     {
       "path": "plugin.json",
       "bytes": 2408,
-      "sha256": "b2280317c614ef48869bd93adac686179c240e996110568b6e64e71124228a17"
+      "sha256": "af812c5396d6456f1e7d4d7aa616651094e00c41b4afccd9675781d0957f07d1"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2433,8 +2433,8 @@
     },
     {
       "path": "scripts/validate-learning-mode.mjs",
-      "bytes": 20795,
-      "sha256": "f2adf9760db5d3c035aa807e75ad2b2861bc5a7cfdf4bf6049132a6723ebff44"
+      "bytes": 21102,
+      "sha256": "d0388d3d84558ff8a19746e34badc4e16a8c287bd1c8872c95256d3dc797aa9d"
     },
     {
       "path": "scripts/validate-motion-quality.mjs",
@@ -2463,8 +2463,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 43346,
-      "sha256": "71546d58232344879c1e493be9957ce0987319301de894e95efffe39639e346a"
+      "bytes": 43384,
+      "sha256": "f03ba33b036441ea6fc0426ef3d91392e5a22ad7e483977a69a459915624d257"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -2498,8 +2498,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 9619,
-      "sha256": "0fcb058cdaa4225460e12d6ed369e58ed44cadaccf62161867bceaae87885805"
+      "bytes": 9944,
+      "sha256": "9bc216a1cee1c0d4baa7059881dd05e898b2446ad853445a6a4c1916e99b725b"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2598,8 +2598,8 @@
     },
     {
       "path": "skills/caption-studio/SKILL.md",
-      "bytes": 8260,
-      "sha256": "c2e7181b3b9ff17e83a919d69323ffc3316761481246e6a23021835ac0000525"
+      "bytes": 8540,
+      "sha256": "ecdb31a8650fde8852df15ad2fde9140fb4b0487b411566ecec63b29250de7cb"
     },
     {
       "path": "skills/caption-studio/agents/openai.yaml",
@@ -2933,8 +2933,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 10433,
-      "sha256": "65e12117620c513152a71607edc12e0d7f5f6ed973812cf5b2ee44e24ffd9755"
+      "bytes": 10741,
+      "sha256": "edf0890957092eeb6150e3ce18b2c4cf9354ca12c84b5461ff8560a26f752ba1"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -3133,8 +3133,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 25910,
-      "sha256": "19014359f4207f598046f1834911a65a131b90daa03cdf656f2aa1540dba5c2c"
+      "bytes": 26272,
+      "sha256": "9494dfcf4618e960f04177e7d0d2520529182503a4609cc67233d6ed9aaa9078"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5058,8 +5058,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 7851,
-      "sha256": "a171707c28e1098dba7330e22dc1d689359b847609bdf7910a3a71f4e6b842bb"
+      "bytes": 8423,
+      "sha256": "26aeb638ecdc67e244b97ba5faf82d06ac25054abbd1f212281d65bb969d4f25"
     },
     {
       "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
@@ -5213,13 +5213,48 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 6444,
-      "sha256": "ce9f9220f049f8f8c97fc506d16fc971e01ca237bf9b038ac0f65a7bdf2043ae"
+      "bytes": 8045,
+      "sha256": "ba40e4a5828ba0e8dd84d05f0e20889ba98c2f615ce7341c9e80754106d4263d"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
-      "bytes": 336,
-      "sha256": "09e4f989a75ba1287b12b08ca31bd77e9b2e04eab3c197b9e98efb846b6d4427"
+      "bytes": 353,
+      "sha256": "0f9f0c5dc87ed4b2cb54483064361888516cf64a2524cc9a9b6f0c7650c98fda"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/README.md",
+      "bytes": 12074,
+      "sha256": "3213baf4f29a11bcb632090124505babdf7e46653aa07a80c772541c1a05c6b0"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_captions.py",
+      "bytes": 9105,
+      "sha256": "bac2810a9895e37bdf72257f803aea592077f020605a0f6ac18c99fa3f153f59"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "bytes": 20023,
+      "sha256": "ee130a04c04ccc1c41fdde5297054e09fa6b76e8094a7137c374fcde805d7166"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_media.py",
+      "bytes": 13722,
+      "sha256": "10fec5b555004b5da1d45b08db75828282c91bff381deb19bb1406028a0ff17a"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "bytes": 26335,
+      "sha256": "3516b1522d472cbe94bd471d7f6d4a85d641406c0ebe47987f392113e05e947a"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/framecut.py",
+      "bytes": 16050,
+      "sha256": "19bfa5db185e86a85105fe2a995796a2f93bf61f88f333c0faa4c1c89be14009"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/schema.json",
+      "bytes": 4093,
+      "sha256": "cb256e8ef1afc3fdafc5e49134f181ca5f4a82d88f9432bc338054d7b45fc773"
     },
     {
       "path": "skills/opencut-video-studio/references/editor-handoff.md",
@@ -5293,8 +5328,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 22317,
-      "sha256": "cb50b39108207a708ec39789d57649640f9439610f6fcc72932dc42c3f03e3a6"
+      "bytes": 22561,
+      "sha256": "05b6846d6f477eb52f1b2d301b2aa175d2e0db94fd6ea451113b60be17898472"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -5558,8 +5593,8 @@
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
-      "bytes": 13427,
-      "sha256": "8b61c015e200820edfde6786377533c1fb717c0104cf15891cead134cd010424"
+      "bytes": 13492,
+      "sha256": "88059c0d172522870afe7c667d51b291084af329fcf619d9b826951f8c29e2e3"
     },
     {
       "path": "skills/pipeline-core/references/method-catalog.md",
@@ -5603,8 +5638,8 @@
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 12895,
-      "sha256": "0877682116bb8df566154090aff54146316c1885be85f9dc5db42c8f7c8c4f60"
+      "bytes": 13661,
+      "sha256": "6e83165c3bdbc4da7b5dc54621aea4edc72df66e90a41870a2933947089bc466"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -7093,8 +7128,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31882,
-      "sha256": "5ed9eb1e11352ef7a51477da1146e013d99a9f6330d326fd0c46f94d5cb495e4"
+      "bytes": 31876,
+      "sha256": "a44c1fdc21a9733cdffdb0f6f7d555748064641670270e71c2d5338b26d6dda9"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7108,8 +7143,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 51996,
-      "sha256": "7ea4b02f00fe8799a51ce6c4646de771fa8962456e3f9106112a53b44d95e102"
+      "bytes": 52954,
+      "sha256": "c9b829c872de28d47a3029851d6acaee745855124fafa25a04093362a9fa393f"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7178,13 +7213,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
-      "bytes": 1930,
-      "sha256": "5d40657066c3730fc15d58ce4dc6f83d0f3247da942ddeb3632df665e5a66022"
+      "bytes": 2044,
+      "sha256": "3be03cb91e165eb95fd6db33903dcb7effaecdd6fa86f9c37be24e1465a3085e"
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.pl.md",
-      "bytes": 2094,
-      "sha256": "42bf1f7f20814392b1b81f0df98d0570cd2ad5ea973c5d461ac8cbb6292960e9"
+      "bytes": 2193,
+      "sha256": "4180e4e5d32543a9ca9f6d042dd69dd0b42ab17ba180726dadf71089381acffa"
     },
     {
       "path": "skills/workflow-orchestrator/assets/teacher-studio/activity-bank.md",
@@ -7233,8 +7268,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
-      "bytes": 9267,
-      "sha256": "c4f77f08e18c9086496b99cc8d41270aae6cae8b1d36d1fcf45145d124a2a71c"
+      "bytes": 9431,
+      "sha256": "c779e299c120675fd4f55bcbc5ea6560d3fceac4730d90c76ce6534ed190cbba"
     },
     {
       "path": "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
@@ -7263,8 +7298,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/routing-boundaries.md",
-      "bytes": 10173,
-      "sha256": "b3d421335c2c9ee4bc62abfc94c3f4f4edc8010deff87270dfa39ed44b1ff9f6"
+      "bytes": 10880,
+      "sha256": "40a4904b9f4d86c4878a7a412fc8c05023fae8e3ffdf75d80c6a2e94deccc434"
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
@@ -7273,8 +7308,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
-      "bytes": 19254,
-      "sha256": "cdd02d7bdde24e603368d19eff6be7fb3d54959450d50e088bc68123ccf7b263"
+      "bytes": 20152,
+      "sha256": "f9613820806e4b3f0f17a4d595e1505ea5fe84c1299404d99bf458ce7ee15626"
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
@@ -7410,6 +7445,11 @@
       "path": "tests/extensions_test.py",
       "bytes": 12130,
       "sha256": "055bcf60491dcafcca98e839ac4a16844838f843ae436e7ccbd0b92e7ee3ac72"
+    },
+    {
+      "path": "tests/framecut_test.py",
+      "bytes": 18436,
+      "sha256": "2b8626676c4a3e584fd52fda2ac47e54da1abe7f2b14805e6c7e216205693715"
     },
     {
       "path": "tests/image_probe_test.py",

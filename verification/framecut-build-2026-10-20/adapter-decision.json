@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-10-20T21:47:10.854560+00:00",
+  "decision": "Narrow native FFmpeg adapter; no Kinocut dependency installed into Studio",
+  "kinocut": {
+    "pin": "b01b82eaf60c675451c74945f78239ccf01adfcd",
+    "observations": [
+      "Actual engine_edit.trim produced 2.000s 640x360 MP4 from identical local fixture, 0.315s wall time, process max RSS 29880 KiB (not total child memory).",
+      "Rational Timeline IR successfully compiled a 30-frame trim at 30/1 to its DAG.",
+      "IR clip speed parameter rejected as unsupported; source PTS/revision/caption ownership and native FrameCut lock semantics need glue outside this IR.",
+      "Full product adds MCP/web dependencies; only existing Python/Pydantic imported for this bounded pilot. No permanent MCP registration or downloads of models."
+    ],
+    "scope": "Trim/IR pilot only; not a comprehensive Kinocut benchmark or quality ranking"
+  },
+  "native": {
+    "decision_reason": "Already uses installed FFmpeg/FFprobe, no new core package dependencies; implements the single Studio project, source map, independent audio, revision/cache and specialist ownership contracts directly. Reusing Kinocut trim alone would add an adapter boundary without removing the required project layer.",
+    "verification": "36 contract/media regressions, 22 independent agent cases, product/screen/speech verticals; see adjacent records."
+  },
+  "asr": {
+    "route": "Existing PyWhisperCpp/tiny multilingual; segment mode and optional actual token word timestamps",
+    "pilot": "Actual public whisper.cpp JFK speech fixture; draft matched the known sentence. No measured Polish WER or word-boundary accuracy claim.",
+    "faster_whisper_whisperx": "NOT_RUN; no accepted dependency/performance need demonstrated; retained replaceable import contract."
+  },
+  "otio": {
+    "library": "OpenTimelineIO 0.18.1 in isolated test environment",
+    "status": "Official-library export/readback PASS for simple picture cuts; named editor import NOT_RUN"
+  },
+  "dependencies_added_to_mandatory_inventory": []
+}

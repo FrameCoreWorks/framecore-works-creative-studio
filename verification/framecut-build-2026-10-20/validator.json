@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "canonical": {
+    "status": "PASS",
+    "scope": "Structural and planned-contract checks only; not host behavior, media QA, or legacy test equivalence.",
+    "errors": [],
+    "warnings": [
+      "Skill descriptions total 7700 characters; the limit is 7800."
+    ],
+    "files": 1528,
+    "owners": 37,
+    "evaluations": {
+      "legacy": 114,
+      "overrides": [
+        "S18",
+        "S32",
+        "S35",
+        "S45",
+        "S50",
+        "S51",
+        "S01"
+      ],
+      "added_variants": 4,
+      "host_scenarios": 25,
+      "knowledge_scenarios": 12,
+      "integration_scenarios": 14,
+      "learning_scenarios": 27,
+      "campaign_scenarios": 8,
+      "total_planned": 204,
+      "executed": 0
+    }
+  },
+  "legacy": {
+    "status": "RETIRED",
+    "scope": "Historical validator retired on 2026-10-10 (owner decision); canonical checks only"
+  }
+}

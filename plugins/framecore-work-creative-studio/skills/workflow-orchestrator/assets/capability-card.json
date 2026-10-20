@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-19",
+  "checked": "2026-10-20",
   "path_base": "plugin_root",
   "scope": "What Studio executes itself with bundled tools, what each tool needs from the host, what it delivers and what to deliver instead when a requirement is missing. Host tools and external providers are listed only to mark the boundary. A requirement is checked in the current host before a file is promised; a listed observation is past evidence, not a guarantee for another host or day.",
   "host_profiles": {
@@ -1260,6 +1260,27 @@
       "delivers": "MP4 with the placed sounds, an optional effects stem, the cue table with measured times, LUFS and true peak",
       "when_missing": "Use sound.py's designed sound, or deliver the cue list with frames and sample names for the user's editor",
       "observed": "2026-10-20: container tests on synthetic audio and a 16.7 s film; LUFS, LRA and true peak agreed with the earshot extension to a few tenths; no host run recorded"
+    },
+    {
+      "id": "framecut",
+      "executed_by": "studio",
+      "owner": "opencut-video-studio",
+      "does": "Analyzes source media, maintains a revisioned edit, renders footage/stills/motion layers, captions and mixed audio, verifies and delivers video",
+      "tools": [
+        "skills/opencut-video-studio/assets/framecut/framecut.py"
+      ],
+      "requires": [
+        "python",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "Playable MP4, subtitle sidecars, source map, project/history, technical receipt and explicitly scoped review; optional editor handoff",
+      "when_missing": "Provide an explicitly labelled plan/handoff and a concrete capability/install plan; never claim a render",
+      "observed": "2026-10-20: candidate sandbox implementation; release verification records hold actual coverage. Other clients require independent checks."
     }
   ]
 }
