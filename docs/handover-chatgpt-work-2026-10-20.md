@@ -28,6 +28,10 @@ Look for defects and inconsistencies in orchestration: routing rows against `rou
 
 Mark your work so the division of labour is visible: commit trailers `Origin-Agent: chatgpt-work`, a ledger entry with origin `chatgpt-work`, and `Co-authored-by` or contributor attribution for the GPT Astra session where the host provides it. Do not reuse `cloud-code` as origin. Change IDs: `CW-YYYYMMDD-NN`. Keep the other trailers from AGENTS.md.
 
+## Task 4 (owner request, after the above): Reel Editing Assistant
+
+See [task-reel-editing-assistant-2026-10-20.md](task-reel-editing-assistant-2026-10-20.md): an analysis of two paid AI reel-editing offers against Studio and a work order for a native assistant (rough cut of raw footage, captions, overlays, style profile).
+
 ## Optional task 3 (only if the owner asks)
 
 Lay the earshot bank samples on the Knock Knock reel cuts with `place_sfx.py` and compare with the sound designed by `sound.py` using `listen.py critique` and `ab`. The client's files are not in the repository; the owner must supply them.

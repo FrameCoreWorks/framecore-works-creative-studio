@@ -2654,3 +2654,10 @@ Cross-host state and next step:
 - Run additions on a host with authenticated Claude Code and available usage or an owner-authorized API key within the handover's budget. Record client, reasoning setting, tokens, time and cost; review actual failures before changing routing.
 - Remote branch inventory before publication: `main`, `gh-pages`, and the existing `ccr-b6d36a1c-4hszow` session branch. That session branch is already an ancestor of the baseline `main`; preserved for its owning session.
 - Correction (same entry): task 2 no longer asks ChatGPT Work to run `host_eval.py` (it needs the Claude Code CLI); it tests in its own sandbox, develops further, reviews orchestration and marks its commits `Origin-Agent: chatgpt-work`.
+
+## CC-20261020-05: work order for a native Reel Editing Assistant
+
+- Origin: cloud-code; package unchanged (1.98.0)
+- Scope: `docs/task-reel-editing-assistant-2026-10-20.md` (analysis of two paid offers against Studio, work order for ChatGPT Work), pointer in the ChatGPT Work handover
+- Verification: canonical validator
+- GitHub: pending until pushed; ChatGPT Work: not_tracked; Codex: not_run
