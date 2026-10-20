@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-19",
+  "checked": "2026-10-20",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -1097,6 +1097,58 @@
       },
       "observed": "2026-10-19 Linux container without a graphics card: repository reviewed at 4f39acf (tag v2.15.0, latest release) and HEAD a00d55f; licences read from LICENSE and OpenModelDB; the four installers above downloaded and hashed. The app was not run (no Vulkan GPU here); host installs not_run.",
       "update": "Check the latest release, read its notes and model list, download each installer and recompute the SHA-256 values, and recheck model licences on OpenModelDB before changing the pinned version."
+    },
+    {
+      "id": "opencreator",
+      "name": "OpenCreator (krillinai)",
+      "repository": "https://github.com/krillinai/OpenCreator",
+      "reviewed_commit": "f4dbed139ac80a8d12952b64c9b6def59e42dbcc",
+      "package": null,
+      "license": "Apache-2.0",
+      "kind": [
+        "app",
+        "skills"
+      ],
+      "category": "video",
+      "role": "engine",
+      "gives": "A local desktop workspace around Codex CLI for creators: translate videos with subtitles and dubbing (123 source languages), download public videos, generate thumbnails, images, video and voice-overs, write articles and scripts, and make stick-figure animations with a bundled cast. Includes seven skills for its own krillinai command line tool and a library of 108 prompt templates. Release 3.2.8 (formerly KrillinAI).",
+      "studio_uses": "Nothing is bundled. Studio already makes captions, sound and motion itself; this entry is for a user who needs a video translated and dubbed into other languages, or a stick-figure animation, outside Studio.",
+      "not_for": "Downloading other people's videos to reuse them (platform terms and copyright apply), copying its 108 templates (each belongs to a named outside author and the repository states no licence for them), running in chat apps or cloud sandboxes (it is a desktop app), or replacing Studio's intake, claims and review.",
+      "requires": [
+        {
+          "tool": "desktop_app",
+          "note": "OpenCreator 3.2.8 for macOS (Apple Silicon or Intel) or Windows x64; no Linux installer. From source: Node.js 22, pnpm 9.15.0 and Codex CLI."
+        },
+        {
+          "tool": "agent",
+          "note": "A Codex sign-in or API key, or another model provider; media services need their own keys and cost money."
+        }
+      ],
+      "rights": "Apache-2.0 for the code. The 108 prompt templates carry author credits and links (Douyin, X and others) but no licence, so they are not reusable here. Generated and translated media belong to the user within the terms of the model providers used. The stick-figure cast was made with artist Harbor Hsia; check its terms before commercial reuse. Video downloading depends on each platform's terms.",
+      "hosts": {
+        "codex": {
+          "status": "manual",
+          "manual_steps": "Download the OpenCreator 3.2.8 installer for your computer from https://github.com/krillinai/OpenCreator/releases/tag/v3.2.8 and check its SHA-256 before opening it (OpenCreator-3.2.8-mac-arm64.dmg 819849ba9389318ee3f4b2cde0464f1ff9f075618c32182f23233f48d91142ac; OpenCreator-3.2.8-mac-x64.dmg a03817236e89cfe7213f452b25ea8fa96d87e0e1ea5ff858e4064f2735d7205e; OpenCreator-3.2.8-win-x64.exe d03acd7d34501b1ee19c68feb5b29d2ad6c6bcd420ed586e81fc2193e6a2e88d; on macOS `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`; the files are 537, 569 and 578 MB), then install it yourself. The Windows installer is unsigned, so Windows SmartScreen will warn. On first launch it offers to reuse an existing Codex sign-in or API key; choose that or a provider you trust, and add your own keys for image, video, voice and transcription services under Settings, AI Services (these cost money at the provider and are never needed to read the repository). Remove it like any other app. Then give Studio the finished file or the subtitle file for review."
+        },
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "Download the OpenCreator 3.2.8 installer for your computer from https://github.com/krillinai/OpenCreator/releases/tag/v3.2.8 and check its SHA-256 before opening it (OpenCreator-3.2.8-mac-arm64.dmg 819849ba9389318ee3f4b2cde0464f1ff9f075618c32182f23233f48d91142ac; OpenCreator-3.2.8-mac-x64.dmg a03817236e89cfe7213f452b25ea8fa96d87e0e1ea5ff858e4064f2735d7205e; OpenCreator-3.2.8-win-x64.exe d03acd7d34501b1ee19c68feb5b29d2ad6c6bcd420ed586e81fc2193e6a2e88d; on macOS `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`; the files are 537, 569 and 578 MB), then install it yourself. The Windows installer is unsigned, so Windows SmartScreen will warn. On first launch it offers to reuse an existing Codex sign-in or API key; choose that or a provider you trust, and add your own keys for image, video, voice and transcription services under Settings, AI Services (these cost money at the provider and are never needed to read the repository). Remove it like any other app. Then give Studio the finished file or the subtitle file for review."
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Download the OpenCreator 3.2.8 installer for your computer from https://github.com/krillinai/OpenCreator/releases/tag/v3.2.8 and check its SHA-256 before opening it (OpenCreator-3.2.8-mac-arm64.dmg 819849ba9389318ee3f4b2cde0464f1ff9f075618c32182f23233f48d91142ac; OpenCreator-3.2.8-mac-x64.dmg a03817236e89cfe7213f452b25ea8fa96d87e0e1ea5ff858e4064f2735d7205e; OpenCreator-3.2.8-win-x64.exe d03acd7d34501b1ee19c68feb5b29d2ad6c6bcd420ed586e81fc2193e6a2e88d; on macOS `shasum -a 256 FILE`, on Windows `certutil -hashfile FILE SHA256`; the files are 537, 569 and 578 MB), then install it yourself. The Windows installer is unsigned, so Windows SmartScreen will warn. On first launch it offers to reuse an existing Codex sign-in or API key; choose that or a provider you trust, and add your own keys for image, video, voice and transcription services under Settings, AI Services (these cost money at the provider and are never needed to read the repository). Remove it like any other app. Then send the finished file or the subtitle file back to the chat for review."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "OpenCreator is a desktop app for macOS and Windows with no chat or cloud mode; use it on the user's own computer and bring the result back as a file."
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "OpenCreator is a desktop app for macOS and Windows with no chat or cloud mode; use it on the user's own computer and bring the result back as a file."
+        }
+      },
+      "observed": "2026-10-20 Linux container: repository reviewed at tag v3.2.8 (f4dbed1) and HEAD a595282; licence read; the three installers downloaded in full and hashed (a first Windows download was cut short and its hash discarded; three further complete downloads agreed). The app was not installed or run (desktop app, no display here); host installs not_run.",
+      "update": "Check the latest release and its notes, download each installer in full (compare the size with the server's Content-Length), recompute the SHA-256 values, and recheck the licence of anything Studio would reuse before changing the pinned version."
     }
   ]
 }
