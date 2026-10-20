@@ -1,0 +1,58 @@
+{
+  "change_id": "CW-20261020-02",
+  "date": "2026-10-20",
+  "baseline_sha": "45cab60d12f98663ce17fdc08cc753d5bfeef1cd",
+  "scope": "Repository-only FrameCut research and implementation foundation",
+  "shared_package_changed": false,
+  "package_version": "1.112.0",
+  "canonical_validator": "PASS",
+  "check_all": {
+    "exit_code": 0,
+    "node": {
+      "total": 238,
+      "passed": 225,
+      "skipped": 13,
+      "failed": 0
+    },
+    "python": {
+      "total": 426,
+      "passed": 422,
+      "skipped": 4,
+      "failed": 0
+    }
+  },
+  "documentation_checks": {
+    "relative_links": "PASS",
+    "unique_repository_pins": 31,
+    "commit_sha_format": "PASS",
+    "planned_acceptance_cases": 23,
+    "worked_timing_arithmetic": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "framecut_runtime_tests": "NOT_RUN",
+  "new_dependency_installations": 0,
+  "hosted_plugin_changed": false,
+  "active_client_tests": "NOT_RUN",
+  "source_documents": {
+    "docs/framecut/README.md": "da9bd403852627852abb58c522ac50dfed1833d286ef7e9fe3898337ab3d1956",
+    "docs/framecut/contracts.md": "c324c2f35a805223f784be3ba5a5e4b96b7f607953a172976295a5d9c41fbc8a",
+    "docs/framecut/implementation.md": "33207bfa24c258dbee6440064dfb1aac0a5d064c6128a893f0df09e148a977ca",
+    "docs/framecut/research-sources-2026-10-20.json": "89338b88d58dd1f4761aa9af91ea00769919ab7fcbe4cbe490e29f91776e602d",
+    "docs/framecut/research.md": "1b3b5bf49e6abb2a2000c7fbf93e47f30da9eec99475ad4a7b0d10051a8a881f"
+  },
+  "logs": {
+    "validator.json": "9775e6bdd13774d277b0e6e0a3ae519fa0cbd95a66cce57fd9ed89b6bec813f3",
+    "check-all.txt": "fb0c2d8414acae05b73e716b2082ba1695c9d22f045547a4fbb3a11d764983b3"
+  },
+  "remote_branches": {
+    "main": "baseline before publication",
+    "gh-pages": "preserved",
+    "ccr-b6d36a1c-4hszow": "daab5828bdd4025280ebe2af5f5d5cccacae4a5c is an ancestor of baseline main; preserved"
+  },
+  "github_publication": {
+    "status": "blocked_by_approval_review",
+    "local_foundation_commit": "307efc08c2c1080239285af1bc81728e201efb58",
+    "remote_main_readback": "45cab60d12f98663ce17fdc08cc753d5bfeef1cd",
+    "next_step": "Explicit owner authorization to publish prepared documentation to main"
+  }
+}

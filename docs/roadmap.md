@@ -1,5 +1,11 @@
 # Roadmap for the development surfaces
 
+## FrameCut foundation, owner request 2026-10-20
+
+The owner opened a development direction for **FrameCut**, a separate selectable welcome mode covering adaptive intake, footage/content analysis, traditional editing, motion, sound and final delivery. Highlights from a talking-head video are one example, not its full scope. The [research and implementation foundation](framecut/README.md) records 31 GitHub candidates, source pins, component decisions, timing/revision contracts and acceptance gates. Research is complete; the module, menu integration and cross-host renders are not implemented by this documentation change.
+
+Recommended ownership: extend the existing `opencut-video-studio` technical skill, keeping its ID/paths and existing caption/motion/audio owners. First compare a narrow Kinocut adapter with the existing FFmpeg route, then build the common timeline and three complete workflows before adding FrameCut as option 5. Preserve current welcome options 1–4, the full localized welcome and the private hosted overlay. New research candidates are not automatically added to the installer. Current AGENTS.md supersedes the older Reel Editing Assistant work order's whole-overlay import and `not_tracked` rules.
+
 ## Owner-directed maintenance, 2026-10-20
 
 ChatGPT Work continues repository development and actual sandbox testing while Claude Code is unavailable. Work directly on `main`, with no working branches, and publish verified changes together with a guarded update of the existing hosted plugin. The separate integrations thread owns permanent tool connections. Preserve its current private overlay, report public and hosted versions separately, and keep private integrations out of the public repository. Record measured failures, fixes and remaining coverage gaps; source validation is not proof of fresh-host behavior.

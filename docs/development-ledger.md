@@ -2738,3 +2738,14 @@ Cross-host state:
 - Codex: not_run
 
 Publication follow-up preserves the executable bit of `scripts/check_all.sh` (unchanged file content). Remote branch `ccr-b6d36a1c-4hszow` is already merged into main and remains untouched under the owner-controlled deletion policy.
+
+## CW-20261020-02: FrameCut research and implementation foundation
+
+- Origin: chatgpt-work; baseline `45cab60d12f98663ce17fdc08cc753d5bfeef1cd`; main-only, fast-forward publication under current AGENTS.md.
+- Trigger: the owner requested deep Internet/GitHub research and a proper foundation for FrameCut, a broad editing-and-motion mode with adaptive intake and finished-media delivery.
+- Before: a historical Reel Editing Assistant work order against 1.98.0, separate editing/motion capabilities and no current FrameCut architecture or component-selection record.
+- After: [foundation](framecut/README.md), research on 31 repositories with observed commits/license metadata, exact-time and revision contracts, integration map, three vertical workflows and 23 planned acceptance cases. Recommend extending the existing editing owner, preserving other craft owners, and testing a narrow Kinocut adapter before adoption. Proposed welcome token 5 preserves existing options 1–4. The module and menu are not implemented by this change.
+- Shared package changed: no; version remains 1.112.0. No new runtime dependency, private-overlay publication, skill mutation or hosted release.
+- Verification: canonical validator PASS; full `bash scripts/check_all.sh` exit 0, Node 225 passed / 13 skipped, Python 422 passed / 4 skipped, zero failures. Document links, 31 unique 40-character source pins, 23 planned cases and worked timing arithmetic checked. [Evidence](../verification/framecut-foundation-2026-10-20/checks.json) and full logs distinguish source checks from unexecuted FrameCut tests.
+- GitHub: publication pending. Local foundation commit `307efc08c2c1080239285af1bc81728e201efb58` is complete; automatic approval review rejected the push because it did not recognize the current request as explicit authorization to publish to main. Read-only remote verification still shows baseline `45cab60d12f98663ce17fdc08cc753d5bfeef1cd`. No alternate publication route was attempted; owner confirmation is required to resume publication. ChatGPT Work saved package: unchanged, no synchronization required for these repository-only documents. FrameCut media/client behavior in Work, ordinary ChatGPT, Codex and Claude: NOT_RUN.
+- Branch inventory before publication: main, gh-pages and ccr-b6d36a1c-4hszow. The latter's daab5828 head is already an ancestor of main; preserved, with no new branches.
