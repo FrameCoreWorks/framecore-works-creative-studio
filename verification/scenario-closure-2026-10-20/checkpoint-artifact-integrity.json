@@ -1,0 +1,824 @@
+[
+  {
+    "case": "R01",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R02",
+    "path": "brief-contract.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R02",
+    "path": "brief.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R02",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R03",
+    "path": "project-profile.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R03",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R03",
+    "path": "resume.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R04",
+    "path": "asset-manifest.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R04",
+    "path": "file-inspection.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R04",
+    "path": "manifest.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R04",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/inputs/asset-register.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/inputs/brand.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/inputs/logo.svg",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/inputs/product.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/inputs/reference.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/instructions.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "packet/manifest.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "petla-contractor-packet.zip",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R05",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R06",
+    "path": "production-plan.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R06",
+    "path": "production-tasks.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R06",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R11",
+    "path": "R11/response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R12",
+    "path": "R12/layouts.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R12",
+    "path": "R12/response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "copy-1.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "copy-2.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "copy-3.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "copy-checks.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-1-polish.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-1-polish.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-1-voice.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-1-voice.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-2-polish.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-2-polish.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-2-voice.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-2-voice.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-3-polish.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-3-polish.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-3-voice.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "raw/copy-3-voice.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R25",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "after.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "before.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "comparison.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "raw/after-polish.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "raw/after-polish.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "raw/after-voice.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "raw/after-voice.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "raw/before-voice.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "raw/before-voice.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R26",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "captioned.mp4",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "captions.srt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "captions.vtt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "checks.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "frame-0.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "frame-1.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "frame-2.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "frame-3.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "frame-4.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "frame-5.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/burn.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/burn.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/check-srt.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/check-srt.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/check-vtt.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/check-vtt.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/convert-vtt.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/convert-vtt.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/decode-all.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/decode-all.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/decoded-frame-measurement.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/decoded-frame-measurement.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-0.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-0.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-1.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-1.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-2.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-2.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-3.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-3.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-4.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-4.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-5.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/frame-5.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/normalize-srt.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/normalize-srt.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/output-audio-hash.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/output-audio-hash.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/output-probe.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/output-probe.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/source-audio-hash.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/source-audio-hash.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/source-probe.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "raw/source-probe.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R27",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "logo-preview-exact.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "logo-preview.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "logo-render-source.svg",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "logo.svg",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "measurements.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "product.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "raw/image-probe.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "raw/image-probe.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "raw/render-logo.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "raw/render-logo.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "reference-manifest.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "reference-pack.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "reference-pack.zip",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "reference.png",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R28",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R29",
+    "path": "analysis.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R29",
+    "path": "measurements.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R29",
+    "path": "prompt.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R29",
+    "path": "raw/reference-image-probe.stderr",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R29",
+    "path": "raw/reference-image-probe.stdout",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R29",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R30",
+    "path": "prompt.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R30",
+    "path": "response.md",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/clipped-measure.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/001.command.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/001.stderr.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/001.stdout.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/002.command.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/002.stderr.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/002.stdout.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/003.command.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/003.stderr.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/logs/003.stdout.txt",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/native-pcm.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/outcomes.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/pcm_check.py",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/pulse-measure.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/quiet-measure.json",
+    "exists": true,
+    "sha256_matches": true
+  },
+  {
+    "case": "R37",
+    "path": "R37/response.md",
+    "exists": true,
+    "sha256_matches": true
+  }
+]

@@ -1,0 +1,598 @@
+{
+  "schema": 1,
+  "created_at": "2026-10-20T13:58:19.766805+00:00",
+  "baseline_commit": "77b316a0cb2907111e9ea54b050fcf314be22f2a",
+  "package_version": "1.111.1",
+  "scope": "Reconstructed replacement suite from recovered historical scope. Exact original 43 prompts/artifacts unavailable. These R IDs are new, not recovered original IDs. Fresh source-guided agent sandbox executions, not ordinary installed-client evaluations.",
+  "historical_source": "Owner-identified pinned repository-report conversation, inspected through browser UI. Private URL retained only in private checkpoint.",
+  "cases": [
+    {
+      "id": "R01",
+      "group": "A",
+      "prompt": "FrameCore Works Creative Studio. Odpowiadaj po polsku.",
+      "owners": [
+        "workflow-orchestrator"
+      ],
+      "acceptance": [
+        "Complete canonical Polish welcome",
+        "No extra introductory menu"
+      ]
+    },
+    {
+      "id": "R02",
+      "group": "A",
+      "prompt": "Przygotuj krótki brief kampanii PĘTLA z dostarczonej marki. Chcę szybko przejść do reklamy, ale nie wiem, czy zacząć od filmu czy grafiki. Budżet 900 €, termin 7 dni, celem jest zapis do listy oczekujących.",
+      "owners": [
+        "brief-architect"
+      ],
+      "acceptance": [
+        "Preserve goal budget deadline",
+        "Offer meaningful recommendation with user choice",
+        "No invented product claims"
+      ]
+    },
+    {
+      "id": "R03",
+      "group": "A",
+      "prompt": "W tym projekcie wolę krótkie odpowiedzi po polsku i najpierw wersję roboczą. Zapisz profil projektu, który można wznowić w innym wątku. To preferencje tylko tego projektu.",
+      "owners": [
+        "studio-workstyle-profile"
+      ],
+      "acceptance": [
+        "Project-scoped profile artifact",
+        "No global personalization",
+        "Resume state usable"
+      ]
+    },
+    {
+      "id": "R04",
+      "group": "A",
+      "prompt": "Zbuduj rzeczywisty manifest dostarczonych plików z asset-register.json. Sprawdź ich istnienie i duplikaty oraz czy nadają się do pracy.",
+      "owners": [
+        "asset-manifest"
+      ],
+      "acceptance": [
+        "Actual filesystem checks and hashes",
+        "Duplicate recognized",
+        "Missing portrait and rights recorded honestly"
+      ]
+    },
+    {
+      "id": "R05",
+      "group": "A",
+      "prompt": "Przygotuj samodzielny pakiet instrukcji dla wykonawcy reklamy PĘTLA. Wybrany pomysł: kartka czyści się i pozostaje miejsce na następną myśl. 6 sekund, 9:16, teksty z brand.json bez zmian. Nie wolno zmienić logo ani ceny.",
+      "owners": [
+        "instruction-packet-factory"
+      ],
+      "acceptance": [
+        "Standalone handoff artifact",
+        "Exact copy locks and source roles",
+        "Explicit acceptance and allowed edits"
+      ]
+    },
+    {
+      "id": "R06",
+      "group": "A",
+      "prompt": "Użyj Producer AI Task Builder. Rozpisz produkcję trzech wariantów reklamy PĘTLA na zadania z wejściami, zależnościami i kryteriami odbioru. Wykorzystaj pliki lokalne, bez płatnej generacji.",
+      "owners": [
+        "producer-ai-task-builder"
+      ],
+      "acceptance": [
+        "Named owner used",
+        "Dependencies and artifact outputs",
+        "No invented execution"
+      ]
+    },
+    {
+      "id": "R07",
+      "group": "A",
+      "prompt": "Przygotuj paczkę przekazania dostępnych materiałów PĘTLA klientowi: wykaz plików, wersje, źródła, zakres praw i instrukcję, co można edytować. Nie nazywaj surowego pliku testowego gotową reklamą.",
+      "owners": [
+        "delivery-documentation"
+      ],
+      "acceptance": [
+        "Actual paths and hashes",
+        "Synthetic status explicit",
+        "No missing or invented final deliverable"
+      ]
+    },
+    {
+      "id": "R08",
+      "group": "A",
+      "prompt": "Oceń roboczą reklamę: ma tytuł PĘTLA, cenę 49 $, hasło „Zapisz. Zetrzyj. Zacznij.” i adres hello@example.test. Brief i brand.json są obowiązujące. Zapisz ocenę i minimalny zakres poprawki, bez nowego konceptu.",
+      "owners": [
+        "output-critic-iteration"
+      ],
+      "acceptance": [
+        "Currency drift detected",
+        "Bounded repair preserves concept",
+        "No visual inspection claim without image"
+      ]
+    },
+    {
+      "id": "R09",
+      "group": "A",
+      "prompt": "Przeanalizuj powtarzający się błąd projektu: w dwóch eksportach symbol € zmieniono na $. Zaproponuj retrospektywę i punkt kontrolny dla kolejnej realizacji. Nie zmieniaj kodu ani instrukcji produktu.",
+      "owners": [
+        "workflow-self-improvement"
+      ],
+      "acceptance": [
+        "Evidence and hypothesis separated",
+        "Specific prevention tied to error",
+        "No source mutation"
+      ]
+    },
+    {
+      "id": "R10",
+      "group": "A",
+      "prompt": "Wznów projekt: koncepcja i copy zatwierdzone, wykonano już pierwszą ocenę oraz dwie poprawki. Cena dalej ma $ zamiast €. Co przekazujesz teraz klientowi i jaki jest następny stan projektu? Zapisz checkpoint.",
+      "owners": [
+        "pipeline-core"
+      ],
+      "acceptance": [
+        "QA budget not reset",
+        "Unresolved blocker retained",
+        "No false approval"
+      ]
+    },
+    {
+      "id": "R11",
+      "group": "B",
+      "prompt": "Opracuj kampanię e-commerce PĘTLA na podstawie brand.json: segmenty, argument, lejek, macierz kreacji i plan pomiaru. Bez dodawania niepotwierdzonych obietnic.",
+      "owners": [
+        "ecommerce-campaign-strategy-director"
+      ],
+      "acceptance": [
+        "Useful strategy with funnel and measurement",
+        "Unverified savings excluded",
+        "Facts preserved"
+      ]
+    },
+    {
+      "id": "R12",
+      "group": "B",
+      "prompt": "Zrób rodzinę reklam statycznych PĘTLA: 1:1, 4:5 i 9:16. Na razie kompletny plan produkcyjny i specyfikacja układu, z identyczną ceną, hasłem i logo we wszystkich formatach.",
+      "owners": [
+        "commercial-visual-campaign-director"
+      ],
+      "acceptance": [
+        "Three coherent format specs",
+        "Exact locks across variants",
+        "Concrete production handoff"
+      ]
+    },
+    {
+      "id": "R13",
+      "group": "B",
+      "prompt": "Przygotuj reżyserski plan 15-sekundowej reklamy PĘTLA z trzema kadrami i pakietem dla wykonawcy. Reklama ma pokazać zapisanie, wytarcie i ponowne użycie jednej strony.",
+      "owners": [
+        "commercial-video-campaign-director"
+      ],
+      "acceptance": [
+        "Coherent timed 15s plan",
+        "Observable product proof",
+        "No unsupported claim"
+      ]
+    },
+    {
+      "id": "R14",
+      "group": "B",
+      "prompt": "Przygotuj tygodniowy plan komunikacji o PĘTLA: jeden cel, kanały, cztery gotowe posty, mierzalny plan testu i CTA do listy oczekujących. To fikcyjna marka testowa.",
+      "owners": [
+        "marketing"
+      ],
+      "acceptance": [
+        "Four usable posts and CTA",
+        "Measurement plan",
+        "No fictitious performance presented as fact"
+      ]
+    },
+    {
+      "id": "R15",
+      "group": "B",
+      "prompt": "Napisz skrypt UGC PĘTLA 20 sekund. Nie mamy żadnego klienta ani opinii, ale chciałbym mocny dowód, że to działa. Użyj dostarczonych materiałów produktu.",
+      "owners": [
+        "ugc"
+      ],
+      "acceptance": [
+        "No fabricated testimonial",
+        "Usable demonstrative script",
+        "Timing and disclosures appropriate"
+      ]
+    },
+    {
+      "id": "R16",
+      "group": "B",
+      "prompt": "Porównaj ścieżkę lokalną i płatną według dostarczonych rates.json. Potrzeba 30 prób, potem montaż 6 godzin. Oblicz koszt, założenia i rekomendację. Nie uruchamiaj żadnych zakupów ani generacji.",
+      "owners": [
+        "tool-routing-cost"
+      ],
+      "acceptance": [
+        "Arithmetic reproducible",
+        "Synthetic prices not current claims",
+        "No paid execution"
+      ]
+    },
+    {
+      "id": "R17",
+      "group": "B",
+      "prompt": "Hipson: przygotuj ograniczony pakiet przeglądu kampanii PĘTLA. Ustal cel, źródła, wyłączenia, kryteria, schemat wyniku i sposób przekazania. Jeśli pełne narzędzie nie jest dostępne, przygotuj użyteczny lokalny pakiet.",
+      "owners": [
+        "hipson-adapter"
+      ],
+      "acceptance": [
+        "Bounded packet with required sections",
+        "Actual capability distinguished",
+        "No fabricated external execution"
+      ]
+    },
+    {
+      "id": "R18",
+      "group": "C",
+      "prompt": "Zaprojektuj spójną postać do fikcyjnego filmu PĘTLA: dorosła projektantka Ada, kręcone ciemne włosy, zielony sweter, notatnik w lewej dłoni. Zapisz kartę postaci i zasady ciągłości trzech ujęć.",
+      "owners": [
+        "character-design"
+      ],
+      "acceptance": [
+        "Stable identity and hand props",
+        "Three-shot continuity",
+        "No generated-image claim"
+      ]
+    },
+    {
+      "id": "R19",
+      "group": "C",
+      "prompt": "Napisz kompletną 30-sekundową mikrohistorię: projektantka ma chaos na kartce, usuwa jedną ideę, odzyskuje przestrzeń i kończy użytecznym szkicem. Produkt PĘTLA jest narzędziem działania. Potrzebuję scenariusza i sensu dramaturgicznego.",
+      "owners": [
+        "screenplay-story-architect",
+        "storytelling"
+      ],
+      "acceptance": [
+        "Causal story and payoff",
+        "Timed 30s script",
+        "Character action rather than slogan list"
+      ]
+    },
+    {
+      "id": "R20",
+      "group": "C",
+      "prompt": "Rozpisz kamerę, światło i kompozycję trzech ujęć demonstracji PĘTLA: zapis, wytarcie, czysta strona. Ma być czytelnie, spokojnie, w jednym pokoju i bez niemożliwych przejść.",
+      "owners": [
+        "cinematography"
+      ],
+      "acceptance": [
+        "Motivated camera and light",
+        "Feasible physical continuity",
+        "Concrete lens/framing plan"
+      ]
+    },
+    {
+      "id": "R21",
+      "group": "C",
+      "prompt": "Sprawdź i napraw plan: ujęcie A trwa 0–3 s, B 2–5 s, C 5–6 s; w A notatnik jest w lewej ręce, w B nagle w prawej; zamknięty notatnik sam pokazuje wnętrze bez otwarcia. Zapisz oryginał, poprawiony plan i zmianę każdego błędu.",
+      "owners": [
+        "storyboard-sequence-architect"
+      ],
+      "acceptance": [
+        "Overlap caught and corrected",
+        "Hand continuity",
+        "Impossible action repaired without concept drift"
+      ]
+    },
+    {
+      "id": "R22",
+      "group": "C",
+      "prompt": "Wykonaj rzeczywisty storyboard demonstracji PĘTLA: trzy plansze ze szkicami, numerem ujęcia, akcją, czasem i kamerą. Użyj syntetycznych plików. Dostarcz podgląd PNG, PDF i arkusz XLSX/CSV. To plansze robocze, nie finalny film.",
+      "owners": [
+        "storyboard-board-architect"
+      ],
+      "acceptance": [
+        "Actual PNG PDF XLSX CSV",
+        "Three readable panels visually inspected",
+        "Honest placeholder labels"
+      ]
+    },
+    {
+      "id": "R23",
+      "group": "C",
+      "prompt": "Przygotuj treatment krótkiego teledysku do dostarczonego pulse.wav. Zmierz plik i jego uderzenia. Powiąż pięć widocznych zmian z rytmem, nie udawaj odsłuchu. Dostarcz treatment i tabelę synchronizacji.",
+      "owners": [
+        "creative-music-video-director"
+      ],
+      "acceptance": [
+        "Measured actual file",
+        "Five events mapped to time",
+        "No invented listening or lyrics"
+      ]
+    },
+    {
+      "id": "R24",
+      "group": "C",
+      "prompt": "Przygotuj produkcyjne przekazanie filmu PĘTLA i wycenę na podstawie rates.json: zadania, odpowiedzialności, harmonogram, pliki wejściowe, kontrola odbioru i koszt. Nie zgaduj podatku.",
+      "owners": [
+        "creative-video-producer"
+      ],
+      "acceptance": [
+        "Usable production handoff",
+        "Correct arithmetic and contingency",
+        "Tax unknown"
+      ]
+    },
+    {
+      "id": "R25",
+      "group": "D",
+      "prompt": "Napisz trzy krótkie warianty copy dla PĘTLA, zachowując dokładnie wszystkie copy_locks z brand.json. Nie dopisuj oszczędności papieru ani rekomendacji klientów. Sprawdź gotowy tekst narzędziem kontroli copy.",
+      "owners": [
+        "copy-voice"
+      ],
+      "acceptance": [
+        "Three useful variants",
+        "Exact currency case punctuation contacts",
+        "Actual checker transcript"
+      ]
+    },
+    {
+      "id": "R26",
+      "group": "D",
+      "prompt": "Uprość tekst: „Odkryj rewolucyjny ekosystem notowania, który redefiniuje codzienność. PĘTLA ma 40 stron wielokrotnego użytku. Cena: 49 €. hello@example.test”. Nie zmieniaj faktów, ceny i kontaktu. Zapisz przed/po oraz powód poprawek.",
+      "owners": [
+        "humanizer"
+      ],
+      "acceptance": [
+        "Facts and locks retained",
+        "Natural concise rewrite",
+        "Before/after retained"
+      ]
+    },
+    {
+      "id": "R27",
+      "group": "D",
+      "prompt": "Z captions.srt przygotuj poprawne napisy SRT i VTT oraz wpalony podgląd na source.mp4. Sprawdź kolejność, zakres czasowy, polskie znaki i euro. Dostarcz rzeczywiste pliki.",
+      "owners": [
+        "caption-studio"
+      ],
+      "acceptance": [
+        "Valid SRT VTT and real MP4",
+        "No overlap or out-of-duration cues",
+        "Polish glyphs euro visibly checked"
+      ]
+    },
+    {
+      "id": "R28",
+      "group": "D",
+      "prompt": "Przejrzyj product.png, reference.png i logo.svg. Przygotuj paczkę referencji: produkt i logo określają tożsamość, reference.png wyłącznie kompozycję i paletę. Opisz co rzeczywiście widać i czego nie wolno przenosić.",
+      "owners": [
+        "reference-pack-curator"
+      ],
+      "acceptance": [
+        "Actual images inspected",
+        "Role authority maintained",
+        "No invented rights or content"
+      ]
+    },
+    {
+      "id": "R29",
+      "group": "D",
+      "prompt": "Na podstawie reference.png przygotuj samodzielny prompt do odtworzenia kompozycji i kolorów, ale z notatnikiem PĘTLA z product.png. Zmierz kolory i opisz relacje przestrzenne. Nie generuj obrazu.",
+      "owners": [
+        "image-prompt-architect"
+      ],
+      "acceptance": [
+        "Actual image/color analysis",
+        "Spatial relationships",
+        "Product identity versus style reference"
+      ]
+    },
+    {
+      "id": "R30",
+      "group": "D",
+      "prompt": "Przygotuj samodzielny prompt wideo do 6-sekundowej demonstracji PĘTLA z product.png: ręka zapisuje krótki znak, ściera go, pokazuje czystą stronę. Wyraźnie opisz kolejność, kamerę i rzeczy do zachowania. Bez uruchamiania generatora.",
+      "owners": [
+        "video-prompt-architect"
+      ],
+      "acceptance": [
+        "Feasible ordered actions in 6s",
+        "Reference identity and constraints",
+        "No fictional provider execution"
+      ]
+    },
+    {
+      "id": "R31",
+      "group": "D",
+      "prompt": "Wykonaj rzeczywistą reklamę statyczną PĘTLA: SVG 1080×1350, PNG i A4 PDF do oceny druku. Użyj dostarczonych logo i produktu oraz dokładnego copy. Zrób kontrolę plików i obejrzyj rezultat.",
+      "owners": [
+        "static-graphic-design-creator"
+      ],
+      "acceptance": [
+        "Actual SVG PNG PDF",
+        "Exact copy and Polish text",
+        "Visual check and honest print limits"
+      ]
+    },
+    {
+      "id": "R32",
+      "group": "D",
+      "prompt": "Zrób drugą wersję reklamy z poprzedniego zadania, zmieniając tylko pomarańczowy akcent #D65C35 na niebieski #3668A2. Nie przesuwaj tekstu, produktu ani logo. Zachowaj obie wersje i porównaj wynik.",
+      "owners": [
+        "static-graphic-design-creator"
+      ],
+      "acceptance": [
+        "Scoped color-only edit",
+        "Geometry and copy unchanged",
+        "Actual pixel or geometry comparison"
+      ]
+    },
+    {
+      "id": "R33",
+      "group": "D",
+      "prompt": "Rozstrzygnij rozbieżne informacje o PĘTLA w claims.json. Zbuduj tabelę faktów ze źródłami, datą i statusem pewności. Pracujemy wyłącznie na dostarczonej fikcyjnej dokumentacji, nie szukaj marki w internecie.",
+      "owners": [
+        "research-evidence"
+      ],
+      "acceptance": [
+        "Source authority and dates",
+        "Conflicts resolved transparently",
+        "Unsupported savings unknown"
+      ]
+    },
+    {
+      "id": "R34",
+      "group": "E",
+      "prompt": "Wykonaj 6-sekundową reklamę motion PĘTLA w HyperFrames, 360×640, 30 fps, z dostarczonych plików. Pomysł zatwierdzony: znak zostaje zapisany, znika, zostawia czystą kartkę. Hasło, cena i kontakt dokładnie z brand.json. Dostarcz projekt i rzeczywisty MP4 z pulse.wav. Bez płatnych narzędzi.",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "acceptance": [
+        "Actual HyperFrames render/project",
+        "Duration fps dimensions exact",
+        "Copy locks and audio present"
+      ]
+    },
+    {
+      "id": "R35",
+      "group": "E",
+      "prompt": "Sprawdź przewijanie projektu z poprzedniego zadania: bezpośrednio do 2 s, potem 4 s i wstecz do 2 s. Zachowaj obrazy i porównaj wynik. Sprawdź również widoczną zmianę obrazu między trzema momentami. Następnie wydłuż zatwierdzony film o 2 sekundy stabilnego ostatniego kadru bez przesuwania wcześniejszych zdarzeń. Zachowaj wersję przed i po oraz porównanie klatek przy 2, 4, 5 i 5,9667 s.",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "acceptance": [
+        "Actual browser captured frames",
+        "Same timestamp deterministic",
+        "Motion nonstatic",
+        "Two-second stable extension preserves original event times and outro frames"
+      ]
+    },
+    {
+      "id": "R36",
+      "group": "E",
+      "prompt": "Do source.mp4 zaprojektuj i dodaj lokalny dźwięk pięciu zdarzeń z beats.json. Zachowaj film, zrób rzeczywisty miks i zmierz zgodność audio/wideo. Dostarcz nowy film i źródła audio.",
+      "owners": [
+        "hyperframes-workflow",
+        "audio-production-director"
+      ],
+      "acceptance": [
+        "Actual mux with original video preserved",
+        "Five timed sound events",
+        "Measured media and clipping"
+      ]
+    },
+    {
+      "id": "R37",
+      "group": "E",
+      "prompt": "Zmierz pulse.wav, clipped.wav i quiet.wav. Porównaj tempo, szczyty i clipping. Zapisz surowe wyniki oraz krótką interpretację. Nie oceniaj estetyki brzmienia bez odsłuchu.",
+      "owners": [
+        "audio-production-director"
+      ],
+      "acceptance": [
+        "Real analyzer commands",
+        "Clipping found in clipped fixture",
+        "Finite bounded tempo and mono amplitudes"
+      ]
+    },
+    {
+      "id": "R38",
+      "group": "E",
+      "prompt": "Utwórz wersję pulse.wav opóźnioną o 120 ms względem zdarzeń beats.json. Porównaj poprawną i opóźnioną ścieżkę narzędziem synchronizacji. Zachowaj obie i raport, a następnie skoryguj opóźnienie.",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "acceptance": [
+        "Negative fails timing threshold",
+        "Positive passes stated threshold",
+        "Repair measured on actual audio"
+      ]
+    },
+    {
+      "id": "R39",
+      "group": "E",
+      "prompt": "Wykonaj drugą, prostą wersję tego samego filmu PĘTLA w Remotion: 6 sekund, 360×640, 30 fps. Użyj dostępnego lokalnego środowiska. Dostarcz projekt, wyrenderuj MP4 i sprawdź go.",
+      "owners": [
+        "remotion-video-production"
+      ],
+      "acceptance": [
+        "Actual Remotion project/render or concrete blocker",
+        "Dimensions duration and frame count",
+        "No fake alternative engine pass"
+      ]
+    },
+    {
+      "id": "R40",
+      "group": "E",
+      "prompt": "Przygotuj montaż source.mp4 w OpenCut: trzy odcinki po 2 sekundy, napisy z captions.srt i pulse.wav. Zapisz przenośny projekt/EDL, odczytaj go ponownie i porównaj cięcia. Jeśli brak aplikacji, wyraźnie oddziel eksport od uruchomienia w niej.",
+      "owners": [
+        "opencut-video-studio"
+      ],
+      "acceptance": [
+        "Actual project/export artifact",
+        "Roundtrip preserves cuts and assets",
+        "Native UI status honest"
+      ]
+    },
+    {
+      "id": "R41",
+      "group": "E",
+      "prompt": "Przygotuj poziomą wersję 640×360 filmu HyperFrames z R34, zachowując koncept i wszystkie teksty. Wyrenderuj, porównaj proporcje i obejrzyj klatki obu formatów pod kątem ucięcia treści.",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "acceptance": [
+        "Real second format render",
+        "Exact locks",
+        "Visual frame inspection"
+      ]
+    },
+    {
+      "id": "R42",
+      "group": "E",
+      "prompt": "Dla quiet.wav utwórz własny profil odniesienia i porównaj go z pulse.wav. Chcemy spokojny materiał, nie standard filmu premierowego. Zapisz profil, wyniki i adekwatne zalecenia.",
+      "owners": [
+        "audio-production-director"
+      ],
+      "acceptance": [
+        "Actual custom profile used",
+        "No unrelated default launch advice",
+        "Safety ceiling retained"
+      ]
+    },
+    {
+      "id": "R43",
+      "group": "E",
+      "prompt": "Wykonaj niezależny wariant kontrolny: 4-sekundowy klip lokalny z tekstem „Cena: 79 zł”, „15% mniej”, „kontakt@example.test”, w 24 fps i 480×480. Sprawdź dokładną treść, czas, liczbę klatek i obecność audio. Zachowaj błędną kopię specyfikacji z inną ceną i wykaż, czy kontrola ją odrzuca.",
+      "owners": [
+        "hyperframes-workflow",
+        "output-critic-iteration"
+      ],
+      "acceptance": [
+        "New parameters and Polish locks",
+        "Actual video and media measurement",
+        "Wrong price negative detected"
+      ]
+    },
+    {
+      "id": "R44",
+      "group": "C",
+      "owners": [
+        "storytelling"
+      ],
+      "prompt": "Storytelling: oceń logikę mikrohistorii PĘTLA z R19 i zapisz premise, związki przyczynowe, payoff oraz zależności ciągłości. Nie pisz od nowa scenariusza.",
+      "acceptance": [
+        "Explicit supporting Storytelling use",
+        "Causal logic and continuity notes",
+        "No screenplay rewrite"
+      ]
+    }
+  ],
+  "planned_cases": 43,
+  "planned_owners": 37,
+  "paid_calls_allowed": false,
+  "canonical_host_cases_affected": false,
+  "initial_status": "NOT_RUN",
+  "budget": "No paid APIs, external upload, publication or installation for these executions. Local cached runtime use is authorized. Effective reasoning/tokens unknown unless supplied by host.",
+  "preexecution_amendment": {
+    "case": "R35",
+    "reason": "Recovered historical M01 revealed extension-fixture regression scope",
+    "at": "2026-10-20T14:00:35.408815+00:00"
+  },
+  "supplemental_case": "R44",
+  "supplemental_note": "New explicit replacement for the lost supplemental trial; exact original prompt Unknown."
+}

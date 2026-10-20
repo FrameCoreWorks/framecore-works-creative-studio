@@ -1,0 +1,723 @@
+{
+  "schema": 1,
+  "reviewed_at_utc": "2026-10-20T17:18:48.732586+00:00",
+  "baseline_commit": "77b316a0cb2907111e9ea54b050fcf314be22f2a",
+  "package_version": "1.111.1",
+  "scope": "Recovered and completed source-guided artifact exercises; not blind evaluation or fresh installed-client behavior. Historical independent-review labels are preserved records, not new delegation.",
+  "summary": {
+    "total": 44,
+    "pass_scoped": 41,
+    "pass_after_repair_scoped": 3,
+    "fresh_host_cases_run": 0,
+    "paid_provider_calls": 0
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "owners": [
+        "workflow-orchestrator"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Complete canonical Polish welcome",
+        "No extra introductory menu"
+      ],
+      "finding": "Byte-identical Polish canonical welcome; no added bytes.",
+      "evidence_directory": "A/R01",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R02",
+      "owners": [
+        "brief-architect"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Preserve goal budget deadline",
+        "Offer meaningful recommendation with user choice",
+        "No invented product claims"
+      ],
+      "finding": "Brief retains waitlist, EUR 900 and seven days; recommendation and user choice remain explicit.",
+      "evidence_directory": "A/R02",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R03",
+      "owners": [
+        "studio-workstyle-profile"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Project-scoped profile artifact",
+        "No global personalization",
+        "Resume state usable"
+      ],
+      "finding": "Project-only preferences and resumable state; no global settings mutation.",
+      "evidence_directory": "A/R03",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R04",
+      "owners": [
+        "asset-manifest"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual filesystem checks and hashes",
+        "Duplicate recognized",
+        "Missing portrait and rights recorded honestly"
+      ],
+      "finding": "Real hashes, duplicate fixture and absent portrait identified; rights remain unverified.",
+      "evidence_directory": "A/R04",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R05",
+      "owners": [
+        "instruction-packet-factory"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Standalone handoff artifact",
+        "Exact copy locks and source roles",
+        "Explicit acceptance and allowed edits"
+      ],
+      "finding": "Standalone handoff includes sources, exact copy, protected logo/price and acceptance rules.",
+      "evidence_directory": "A/R05",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R06",
+      "owners": [
+        "producer-ai-task-builder"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Named owner used",
+        "Dependencies and artifact outputs",
+        "No invented execution"
+      ],
+      "finding": "Named Producer alias was read; its audio scope is disclosed and production planning is handed to Instruction Packet Factory.",
+      "evidence_directory": "A/R06",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R07",
+      "owners": [
+        "delivery-documentation"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual paths and hashes",
+        "Synthetic status explicit",
+        "No missing or invented final deliverable"
+      ],
+      "finding": "Available input files inventoried with hashes; synthetic/raw status and editable fields explicit; no invented final ad.",
+      "evidence_directory": "A/R07",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R08",
+      "owners": [
+        "output-critic-iteration"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Currency drift detected",
+        "Bounded repair preserves concept",
+        "No visual inspection claim without image"
+      ],
+      "finding": "49 $ conflicts with locked 49 €; minimal currency repair, text-only review disclosed.",
+      "evidence_directory": "A/R08",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R09",
+      "owners": [
+        "workflow-self-improvement"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Evidence and hypothesis separated",
+        "Specific prevention tied to error",
+        "No source mutation"
+      ],
+      "finding": "Two recorded currency errors distinguished from root-cause hypotheses; targeted pre-export check, no package edit.",
+      "evidence_directory": "A/R09",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R10",
+      "owners": [
+        "pipeline-core"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "QA budget not reset",
+        "Unresolved blocker retained",
+        "No false approval"
+      ],
+      "finding": "Exhausted two-repair budget retained; unresolved currency blocker is not falsely approved.",
+      "evidence_directory": "A/R10",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R11",
+      "owners": [
+        "ecommerce-campaign-strategy-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Useful strategy with funnel and measurement",
+        "Unverified savings excluded",
+        "Facts preserved"
+      ],
+      "finding": "Segments, funnel, creative matrix and measurement plan; unsupported savings excluded.",
+      "evidence_directory": "B/R11",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R12",
+      "owners": [
+        "commercial-visual-campaign-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Three coherent format specs",
+        "Exact locks across variants",
+        "Concrete production handoff"
+      ],
+      "finding": "Three concrete format plans preserve price, slogan and logo; deliverable is a specification.",
+      "evidence_directory": "B/R12",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R13",
+      "owners": [
+        "commercial-video-campaign-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Coherent timed 15s plan",
+        "Observable product proof",
+        "No unsupported claim"
+      ],
+      "finding": "Three contiguous five-second shots plan write, wipe and reuse; product proof is planned, not a claim of filming.",
+      "evidence_directory": "B/R13",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R14",
+      "owners": [
+        "marketing"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Four usable posts and CTA",
+        "Measurement plan",
+        "No fictitious performance presented as fact"
+      ],
+      "finding": "Four complete posts, one waitlist goal, channel schedule and measurable test; no invented performance.",
+      "evidence_directory": "B/R14",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R15",
+      "owners": [
+        "ugc"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "No fabricated testimonial",
+        "Usable demonstrative script",
+        "Timing and disclosures appropriate"
+      ],
+      "finding": "Timed 20-second presenter demonstration; no fabricated customer testimonial.",
+      "evidence_directory": "B/R15",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R16",
+      "owners": [
+        "tool-routing-cost"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Arithmetic reproducible",
+        "Synthetic prices not current claims",
+        "No paid execution"
+      ],
+      "finding": "30 × EUR 0.20 plus six editing hours: EUR 306, versus EUR 300 local; assumptions and reserve separated.",
+      "evidence_directory": "B/R16",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R17",
+      "owners": [
+        "hipson-adapter"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Bounded packet with required sections",
+        "Actual capability distinguished",
+        "No fabricated external execution"
+      ],
+      "finding": "Bounded local Hipson packet with sources, exclusions, criteria and handoff; no external execution claimed.",
+      "evidence_directory": "B/R17",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R18",
+      "owners": [
+        "character-design"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Stable identity and hand props",
+        "Three-shot continuity",
+        "No generated-image claim"
+      ],
+      "finding": "Ada identity, green sweater and anatomical left-hand prop preserved across three shot plans.",
+      "evidence_directory": "C/R18",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R19",
+      "owners": [
+        "screenplay-story-architect",
+        "storytelling"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Causal story and payoff",
+        "Timed 30s script",
+        "Character action rather than slogan list"
+      ],
+      "finding": "Six timed intervals total 30 seconds; character choice causes the payoff, with product as a tool.",
+      "evidence_directory": "C/R19",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R20",
+      "owners": [
+        "cinematography"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Motivated camera and light",
+        "Feasible physical continuity",
+        "Concrete lens/framing plan"
+      ],
+      "finding": "Concrete lens, composition, light and physical continuity plan for three feasible shots.",
+      "evidence_directory": "C/R20",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R21",
+      "owners": [
+        "storyboard-sequence-architect"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Overlap caught and corrected",
+        "Hand continuity",
+        "Impossible action repaired without concept drift"
+      ],
+      "finding": "Overlapping time, switching hands and impossible notebook reveal identified and minimally repaired.",
+      "evidence_directory": "C/R21",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R22",
+      "owners": [
+        "storyboard-board-architect"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual PNG PDF XLSX CSV",
+        "Three readable panels visually inspected",
+        "Honest placeholder labels"
+      ],
+      "finding": "Actual two-page PNG/PDF storyboard contains three legible panels; XLSX/CSV have three shot rows. Raster PDF requires visual review.",
+      "evidence_directory": "C/R22",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R23",
+      "owners": [
+        "creative-music-video-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Measured actual file",
+        "Five events mapped to time",
+        "No invented listening or lyrics"
+      ],
+      "finding": "PCM measurement identifies five pulses and maps five changes; no invented listening or lyrics.",
+      "evidence_directory": "C/R23",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R24",
+      "owners": [
+        "creative-video-producer"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Usable production handoff",
+        "Correct arithmetic and contingency",
+        "Tax unknown"
+      ],
+      "finding": "14 hours × EUR 50 = EUR 700, plus EUR 70 reserve; optional generation increases total to EUR 776.60. Tax unknown.",
+      "evidence_directory": "C/R24",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R25",
+      "owners": [
+        "copy-voice"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Three useful variants",
+        "Exact currency case punctuation contacts",
+        "Actual checker transcript"
+      ],
+      "finding": "Three copy variants and actual checker transcript retain case, currency, punctuation and contact.",
+      "evidence_directory": "D/R25",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R26",
+      "owners": [
+        "humanizer"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Facts and locks retained",
+        "Natural concise rewrite",
+        "Before/after retained"
+      ],
+      "finding": "Concise rewrite preserves locked facts; before/after comparison retained.",
+      "evidence_directory": "D/R26",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R27",
+      "owners": [
+        "caption-studio"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Valid SRT VTT and real MP4",
+        "No overlap or out-of-duration cues",
+        "Polish glyphs euro visibly checked"
+      ],
+      "finding": "Actual SRT/VTT and six-second MP4; cue timing bounded and earlier visual review of Polish glyphs retained.",
+      "evidence_directory": "D/R27",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R28",
+      "owners": [
+        "reference-pack-curator"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual images inspected",
+        "Role authority maintained",
+        "No invented rights or content"
+      ],
+      "finding": "Actual images and colors inspected; product authority separated from style reference and unknown rights.",
+      "evidence_directory": "D/R28",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R29",
+      "owners": [
+        "image-prompt-architect"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual image/color analysis",
+        "Spatial relationships",
+        "Product identity versus style reference"
+      ],
+      "finding": "Measured color and spatial relationships inform standalone image prompt; product identity is protected.",
+      "evidence_directory": "D/R29",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R30",
+      "owners": [
+        "video-prompt-architect"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Feasible ordered actions in 6s",
+        "Reference identity and constraints",
+        "No fictional provider execution"
+      ],
+      "finding": "Feasible ordered six-second video prompt; constraints and reference identity retained, no provider call claimed.",
+      "evidence_directory": "D/R30",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R31",
+      "owners": [
+        "static-graphic-design-creator"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual SVG PNG PDF",
+        "Exact copy and Polish text",
+        "Visual check and honest print limits"
+      ],
+      "finding": "Actual SVG, 1080 × 1350 PNG and approximately A4 PDF; exact Polish copy visually reviewed. No PDF/X or press-ready certification.",
+      "evidence_directory": "D/R31",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R32",
+      "owners": [
+        "static-graphic-design-creator"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Scoped color-only edit",
+        "Geometry and copy unchanged",
+        "Actual pixel or geometry comparison"
+      ],
+      "finding": "Only 2400 accent pixels change within [390,1040,690,1048]; geometry, embedded product/logo and copy remain identical.",
+      "evidence_directory": "D/R32",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R33",
+      "owners": [
+        "research-evidence"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Source authority and dates",
+        "Conflicts resolved transparently",
+        "Unsupported savings unknown"
+      ],
+      "finding": "Dated authoritative 40-page/220-g source prevails over older 48-page/210-g source; savings claim remains unknown.",
+      "evidence_directory": "D/R33",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R34",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual HyperFrames render/project",
+        "Duration fps dimensions exact",
+        "Copy locks and audio present"
+      ],
+      "finding": "Native HyperFrames render: 360 × 640, 6 s, 30 fps, 180 frames, audio and reviewed copy.",
+      "evidence_directory": "E/R34",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R35",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "status": "PASS_AFTER_REPAIR_SCOPED",
+      "criteria": [
+        "Actual browser captured frames",
+        "Same timestamp deterministic",
+        "Motion nonstatic",
+        "Two-second stable extension preserves original event times and outro frames"
+      ],
+      "finding": "Seek 2 → 4 → 2 deterministic. Final FFmpeg-derived extension preserves all 180 decoded frames and adds 60 exact last frames; native re-encode retained.",
+      "evidence_directory": "E/R35",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R36",
+      "owners": [
+        "hyperframes-workflow",
+        "audio-production-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual mux with original video preserved",
+        "Five timed sound events",
+        "Measured media and clipping"
+      ],
+      "finding": "Original video packets preserved, five measured sound events, zero clipped PCM samples; delivered AAC measurements retained, no listening claim.",
+      "evidence_directory": "E/R36",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R37",
+      "owners": [
+        "audio-production-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Real analyzer commands",
+        "Clipping found in clipped fixture",
+        "Finite bounded tempo and mono amplitudes"
+      ],
+      "finding": "Actual analyzer commands and bounded finite tempo; clipped fixture has 191928 clipped samples, controls have zero.",
+      "evidence_directory": "E/R37",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R38",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Negative fails timing threshold",
+        "Positive passes stated threshold",
+        "Repair measured on actual audio"
+      ],
+      "finding": "Intentional 120-ms PCM delay exceeds detector threshold; repaired PCM equals control and five detected offsets return to zero.",
+      "evidence_directory": "E/R38",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R39",
+      "owners": [
+        "remotion-video-production"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual Remotion project/render or concrete blocker",
+        "Dimensions duration and frame count",
+        "No fake alternative engine pass"
+      ],
+      "finding": "Actual native Remotion project and render, 360 × 640, 6 s, 30 fps and 180 frames with audio.",
+      "evidence_directory": "E/R39",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R40",
+      "owners": [
+        "opencut-video-studio"
+      ],
+      "status": "PASS_AFTER_REPAIR_SCOPED",
+      "criteria": [
+        "Actual project/export artifact",
+        "Roundtrip preserves cuts and assets",
+        "Native UI status honest"
+      ],
+      "finding": "EDL/OTIO/CSV export roundtrip retains three 60-frame cuts and hashed assets after fixing relative paths. Native OpenCut UI not run.",
+      "evidence_directory": "E/R40",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R41",
+      "owners": [
+        "hyperframes-workflow"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Real second format render",
+        "Exact locks",
+        "Visual frame inspection"
+      ],
+      "finding": "Actual 640 × 360 HyperFrames render; four sampled encoded frames retain complete copy.",
+      "evidence_directory": "E/R41",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R42",
+      "owners": [
+        "audio-production-director"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Actual custom profile used",
+        "No unrelated default launch advice",
+        "Safety ceiling retained"
+      ],
+      "finding": "Custom reference profile actually applied; energy advice follows it while true-peak safety remains. Subjective/earshot portion unverified.",
+      "evidence_directory": "E/R42",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R43",
+      "owners": [
+        "hyperframes-workflow",
+        "output-critic-iteration"
+      ],
+      "status": "PASS_AFTER_REPAIR_SCOPED",
+      "criteria": [
+        "New parameters and Polish locks",
+        "Actual video and media measurement",
+        "Wrong price negative detected"
+      ],
+      "finding": "New 480 × 480 / 4 s / 24 fps render; exact Polish locks viewed. 89 zł negative rejected; full fidelity checker remains not_verified.",
+      "evidence_directory": "E/R43",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    },
+    {
+      "id": "R44",
+      "owners": [
+        "storytelling"
+      ],
+      "status": "PASS_SCOPED",
+      "criteria": [
+        "Explicit supporting Storytelling use",
+        "Causal logic and continuity notes",
+        "No screenplay rewrite"
+      ],
+      "finding": "Explicit supporting Storytelling pass adds causal logic, payoff and continuity notes to R19 without rewriting the screenplay.",
+      "evidence_directory": "C/R44",
+      "reviewer": "same resuming assistant; non-blind source-guided review",
+      "host_behavior": "NOT_RUN"
+    }
+  ]
+}

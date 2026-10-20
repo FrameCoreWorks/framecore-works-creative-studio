@@ -1,0 +1,1096 @@
+{
+  "source": {
+    "package_hashes": true
+  },
+  "R01": {
+    "byte_exact_welcome": true
+  },
+  "R04": {
+    "duplicate": true,
+    "missing_portrait_honest": true
+  },
+  "R27": {
+    "media": {
+      "width": 360,
+      "height": 640,
+      "fps": 30,
+      "frames": 180,
+      "duration_s": 6.0,
+      "audio": true,
+      "all_frame_decode": true
+    }
+  },
+  "R34": {
+    "media": {
+      "width": 360,
+      "height": 640,
+      "fps": 30,
+      "frames": 180,
+      "duration_s": 6.0,
+      "audio": true,
+      "all_frame_decode": true
+    }
+  },
+  "R35": {
+    "media": {
+      "width": 360,
+      "height": 640,
+      "fps": 30,
+      "frames": 240,
+      "duration_s": 8.0,
+      "audio": true,
+      "all_frame_decode": true
+    },
+    "seek": {
+      "direct-2__back-2": {
+        "exact_equal": true,
+        "mean_absolute_channel_difference": 0.0,
+        "changed_pixels": 0
+      },
+      "direct-2__then-4": {
+        "exact_equal": false,
+        "mean_absolute_channel_difference": 0.7315972222222222,
+        "changed_pixels": 1556
+      },
+      "zero__direct-2": {
+        "exact_equal": false,
+        "mean_absolute_channel_difference": 0.7315972222222222,
+        "changed_pixels": 1556
+      },
+      "zero__then-4": {
+        "exact_equal": true,
+        "mean_absolute_channel_difference": 0.0,
+        "changed_pixels": 0
+      }
+    },
+    "encoded_frame_comparison": [
+      {
+        "frame": 60,
+        "exact_equal": true,
+        "mean_abs_channel_error": 0.0
+      },
+      {
+        "frame": 120,
+        "exact_equal": true,
+        "mean_abs_channel_error": 0.0
+      },
+      {
+        "frame": 150,
+        "exact_equal": true,
+        "mean_abs_channel_error": 0.0
+      },
+      {
+        "frame": 179,
+        "exact_equal": false,
+        "mean_abs_channel_error": 0.0004166666666666667
+      }
+    ],
+    "only_tail_timing_change": true,
+    "final_preserved_extension": {
+      "original_frame_count": 180,
+      "extended_frame_count": 240,
+      "all_original_decoded_frames_exact": true,
+      "all_tail_frames_exact_last": true,
+      "method": "FFmpeg lossless encoding of decoded HyperFrames frames; native extended.mp4 preserved separately"
+    },
+    "final_artifact": "E/R35/extended-preserved.mp4"
+  },
+  "R36": {
+    "media": {
+      "width": 360,
+      "height": 640,
+      "fps": 30,
+      "frames": 180,
+      "duration_s": 6.0,
+      "audio": true,
+      "all_frame_decode": true
+    },
+    "video_packets_preserved": true,
+    "mix_pcm": {
+      "peak": 0.8413928747177124,
+      "clipping_samples": 0,
+      "finite": true
+    },
+    "retained_mix_log": {
+      "cues": 5,
+      "timing": {
+        "cues": 5,
+        "judged": 5,
+        "not_judged": 0,
+        "by_construction": 0,
+        "missing": 0,
+        "max_offset_ms": 0.0,
+        "all_ok": true,
+        "status": "checked"
+      },
+      "loudness": {
+        "lufs": -14.04,
+        "true_peak_db": -1.5,
+        "method": "loudnorm analysis, bus glue and true-peak limiter",
+        "tone": "balanced",
+        "phone_check": {
+          "phone_drop_db": 3.1,
+          "below_150hz_share": 0.056,
+          "midrange_share": 0.493,
+          "verdict": "ok"
+        }
+      },
+      "out": "verification/scenario-recovery-2026-10-20/E/R36/source-designed.mp4",
+      "delivered": {
+        "lufs": -14.06,
+        "true_peak_db": -1.31,
+        "trimmed_db": 0.0,
+        "measured_on": "the delivered AAC"
+      },
+      "wav": "verification/scenario-recovery-2026-10-20/E/R36/mix.wav"
+    }
+  },
+  "R39": {
+    "media": {
+      "width": 360,
+      "height": 640,
+      "fps": 30,
+      "frames": 180,
+      "duration_s": 6.0,
+      "audio": true,
+      "all_frame_decode": true
+    }
+  },
+  "R41": {
+    "media": {
+      "width": 640,
+      "height": 360,
+      "fps": 30,
+      "frames": 180,
+      "duration_s": 6.0,
+      "audio": true,
+      "all_frame_decode": true
+    }
+  },
+  "R43": {
+    "media": {
+      "width": 480,
+      "height": 480,
+      "fps": 24,
+      "frames": 96,
+      "duration_s": 4.0,
+      "audio": true,
+      "all_frame_decode": true
+    },
+    "exact_copy_negative": {
+      "basis": "HTML source extraction; encoded frame separately viewed by assistant",
+      "positive": {
+        "status": "not_verified",
+        "evidence": [
+          "all 3 copy entries found word for word, in order, within one audited frame each"
+        ],
+        "findings": [
+          "nobody compared product and source with the frames"
+        ]
+      },
+      "negative": {
+        "status": "fail",
+        "evidence": [],
+        "findings": [
+          "copy not found whole and in order in any audited frame: 0",
+          "nobody compared product and source with the frames"
+        ]
+      }
+    }
+  },
+  "R22": {
+    "pdf_pages": 2,
+    "three_shots_in_pdf": false,
+    "xlsx": {
+      "sheetnames": [
+        "Sheet1"
+      ],
+      "rows": null,
+      "actual_rows_including_header": 4
+    },
+    "pdf_kind": "Raster storyboard; empty text extraction is expected, not missing panels.",
+    "embedded_images_per_page": [
+      1,
+      1
+    ],
+    "visual_review": "Assistant viewed both board PNG pages; S01, S02 and S03 legible, with action, timing and camera labels."
+  },
+  "R31": {
+    "png_dimensions": [
+      1080,
+      1350
+    ],
+    "pdf_page_mm": [
+      209.89,
+      297.01
+    ],
+    "pdf_copy": true
+  },
+  "R32": {
+    "png_dimensions": [
+      1080,
+      1350
+    ],
+    "pdf_page_mm": [
+      209.89,
+      297.01
+    ],
+    "pdf_copy": true,
+    "pixel_revision": {
+      "changed_pixels": 2400,
+      "bbox_xyxy": [
+        390,
+        1040,
+        690,
+        1048
+      ],
+      "same_outside_accent": true,
+      "source_identity": true,
+      "protected_embedded_images": "unchanged; decorative accent only"
+    }
+  },
+  "R37": {
+    "pulse": {
+      "peak_pcm": 14051,
+      "clipping_samples": 0
+    },
+    "clipped": {
+      "peak_pcm": 32767,
+      "clipping_samples": 191928
+    },
+    "quiet": {
+      "peak_pcm": 2621,
+      "clipping_samples": 0
+    }
+  },
+  "R38": {
+    "correct": [
+      {
+        "t": 0.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 1.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 2.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 3.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 4.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      }
+    ],
+    "delayed": [
+      {
+        "t": 0.5,
+        "offset_ms": 170,
+        "verdict": "swell"
+      },
+      {
+        "t": 1.5,
+        "offset_ms": 170,
+        "verdict": "swell"
+      },
+      {
+        "t": 2.5,
+        "offset_ms": 170,
+        "verdict": "swell"
+      },
+      {
+        "t": 3.5,
+        "offset_ms": 170,
+        "verdict": "swell"
+      },
+      {
+        "t": 4.5,
+        "offset_ms": 170,
+        "verdict": "swell"
+      }
+    ],
+    "corrected": [
+      {
+        "t": 0.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 1.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 2.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 3.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      },
+      {
+        "t": 4.5,
+        "offset_ms": 0,
+        "verdict": "OK"
+      }
+    ],
+    "pcm_repair": {
+      "delay_samples": 5760,
+      "delay_ms": 120,
+      "shifted_pcm_exact": true,
+      "prefix_silent": true,
+      "corrected_pcm_exact": true,
+      "max_corrected_sample_difference": 0
+    }
+  },
+  "R40": {
+    "roundtrip": [
+      {
+        "start_frame": 0,
+        "duration_frames": 60,
+        "source_hash": "771f39fb978ef169f71c204e37e4e55fd579be3965a4ac3c4d6a057ae8452b62",
+        "asset_exists": true
+      },
+      {
+        "start_frame": 60,
+        "duration_frames": 60,
+        "source_hash": "771f39fb978ef169f71c204e37e4e55fd579be3965a4ac3c4d6a057ae8452b62",
+        "asset_exists": true
+      },
+      {
+        "start_frame": 120,
+        "duration_frames": 60,
+        "source_hash": "771f39fb978ef169f71c204e37e4e55fd579be3965a4ac3c4d6a057ae8452b62",
+        "asset_exists": true
+      }
+    ]
+  },
+  "R42": {
+    "custom_profile_files": {
+      "calm-profile.json": {
+        "version": 1,
+        "n": 1,
+        "metrics": {
+          "lufs_i": {
+            "n": 1,
+            "min": -25.9,
+            "p10": -25.9,
+            "median": -25.9,
+            "p90": -25.9,
+            "max": -25.9
+          },
+          "true_peak": {
+            "n": 1,
+            "min": -21.9,
+            "p10": -21.9,
+            "median": -21.9,
+            "p90": -21.9,
+            "max": -21.9
+          },
+          "lra": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "crest_lu": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "first_sound_s": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "end_silence_s": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "max_gap_s": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "final_lu": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "onsets_per_s": {
+            "n": 1,
+            "min": 1.83,
+            "p10": 1.83,
+            "median": 1.83,
+            "p90": 1.83,
+            "max": 1.83
+          },
+          "hits_per_s": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "intro_lu": {
+            "n": 1,
+            "min": -0.0,
+            "p10": -0.0,
+            "median": 0.0,
+            "p90": -0.0,
+            "max": -0.0
+          },
+          "end_lu": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "fade_s": {
+            "n": 1,
+            "min": 0.0,
+            "p10": 0.0,
+            "median": 0.0,
+            "p90": 0.0,
+            "max": 0.0
+          },
+          "band_sub": {
+            "n": 1,
+            "min": -79.2,
+            "p10": -79.2,
+            "median": -79.2,
+            "p90": -79.2,
+            "max": -79.2
+          },
+          "band_low": {
+            "n": 1,
+            "min": -0.0,
+            "p10": -0.0,
+            "median": 0.0,
+            "p90": -0.0,
+            "max": -0.0
+          },
+          "band_lowmid": {
+            "n": 1,
+            "min": -44.1,
+            "p10": -44.1,
+            "median": -44.1,
+            "p90": -44.1,
+            "max": -44.1
+          },
+          "band_mid": {
+            "n": 1,
+            "min": -80.7,
+            "p10": -80.7,
+            "median": -80.7,
+            "p90": -80.7,
+            "max": -80.7
+          },
+          "band_presence": {
+            "n": 1,
+            "min": -83.8,
+            "p10": -83.8,
+            "median": -83.8,
+            "p90": -83.8,
+            "max": -83.8
+          },
+          "band_air": {
+            "n": 1,
+            "min": -81.3,
+            "p10": -81.3,
+            "median": -81.3,
+            "p90": -81.3,
+            "max": -81.3
+          },
+          "side_to_mid_db": {
+            "n": 1,
+            "min": -40.0,
+            "p10": -40.0,
+            "median": -40.0,
+            "p90": -40.0,
+            "max": -40.0
+          }
+        }
+      },
+      "quiet-critique.json": {
+        "measure": {
+          "duration_s": 6.0,
+          "lufs_i": -25.9,
+          "lra": 0.0,
+          "peak_dbfs": -21.9,
+          "rms_dbfs": -25.0,
+          "clipped_samples": 0,
+          "dc": 0.0,
+          "audio_stream_index": 0,
+          "audio_stream_count": 1,
+          "source_channels": 1,
+          "true_peak": -21.9,
+          "noise_floor_dbfs": -25.0,
+          "side_to_mid_db": null,
+          "mono": true,
+          "correlation": 1.0,
+          "bands_db": {
+            "sub": -79.2,
+            "low": -0.0,
+            "lowmid": -44.1,
+            "mid": -80.7,
+            "presence": -83.8,
+            "air": -81.3,
+            "top": -80.4
+          },
+          "brightness_hz": 256,
+          "onsets_per_s": 1.83,
+          "hits_per_s": 0.0,
+          "tempo_bpm": null,
+          "key": "A minor",
+          "crest_lu": 0.0,
+          "first_sound_s": 0.0,
+          "end_silence_s": 0.0,
+          "fade_s": 0.0,
+          "max_gap_s": 0.0,
+          "final_lu": 0.0,
+          "intro_lu": -0.0,
+          "end_lu": 0.0,
+          "peak_pos": 0.27,
+          "stopdowns_per_min": 0.0
+        },
+        "sync": null,
+        "critique": {
+          "verdict": "within profile",
+          "score": 100,
+          "critical": false,
+          "rows": [
+            {
+              "key": "lufs_i",
+              "value": -25.9,
+              "low": -26.9,
+              "high": -24.9,
+              "median": -25.9,
+              "weight": "critical",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "true_peak",
+              "value": -21.9,
+              "low": null,
+              "high": -1.0,
+              "median": -21.9,
+              "weight": "major",
+              "status": "ok",
+              "why": "a master above -1 dBTP clips once encoded to AAC or MP3 (decoded lossy audio above 0 dBTP already clips)"
+            },
+            {
+              "key": "cuts_with_sound",
+              "value": null,
+              "low": null,
+              "high": null,
+              "median": null,
+              "weight": "major",
+              "status": "n.a.",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "lra",
+              "value": 0.0,
+              "low": -1.0,
+              "high": 1.0,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "crest_lu",
+              "value": 0.0,
+              "low": -0.5,
+              "high": 0.5,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "first_sound_s",
+              "value": 0.0,
+              "low": null,
+              "high": 0.1,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "end_silence_s",
+              "value": 0.0,
+              "low": null,
+              "high": 0.25,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "max_gap_s",
+              "value": 0.0,
+              "low": null,
+              "high": 0.25,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "final_lu",
+              "value": 0.0,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "onsets_per_s",
+              "value": 1.83,
+              "low": 1.53,
+              "high": 2.13,
+              "median": 1.83,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "hits_per_s",
+              "value": 0.0,
+              "low": null,
+              "high": 0.2,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "intro_lu",
+              "value": -0.0,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "end_lu",
+              "value": 0.0,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "fade_s",
+              "value": 0.0,
+              "low": null,
+              "high": 0.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_sub",
+              "value": -79.2,
+              "low": -80.7,
+              "high": -77.7,
+              "median": -79.2,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_low",
+              "value": -0.0,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_lowmid",
+              "value": -44.1,
+              "low": -45.6,
+              "high": -42.6,
+              "median": -44.1,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_mid",
+              "value": -80.7,
+              "low": -82.2,
+              "high": -79.2,
+              "median": -80.7,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_presence",
+              "value": -83.8,
+              "low": -85.3,
+              "high": -82.3,
+              "median": -83.8,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_air",
+              "value": -81.3,
+              "low": -82.8,
+              "high": -79.8,
+              "median": -81.3,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "side_to_mid_db",
+              "value": -40.0,
+              "low": -41.0,
+              "high": -39.0,
+              "median": -40.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            }
+          ],
+          "actions": [],
+          "tips": [],
+          "partial": "realness and music presence need the earshot extension; this verdict is partial"
+        }
+      },
+      "pulse-critique.json": {
+        "measure": {
+          "duration_s": 6.0,
+          "lufs_i": -25.6,
+          "lra": 1.8,
+          "peak_dbfs": -7.4,
+          "rms_dbfs": -29.2,
+          "clipped_samples": 0,
+          "dc": 0.000332,
+          "audio_stream_index": 0,
+          "audio_stream_count": 1,
+          "source_channels": 1,
+          "true_peak": -7.4,
+          "noise_floor_dbfs": -180.0,
+          "side_to_mid_db": null,
+          "mono": true,
+          "correlation": 1.0,
+          "bands_db": {
+            "sub": -19.5,
+            "low": -0.1,
+            "lowmid": -19.7,
+            "mid": -41.2,
+            "presence": -59.6,
+            "air": -67.5,
+            "top": -73.6
+          },
+          "brightness_hz": 350,
+          "onsets_per_s": 3.33,
+          "hits_per_s": 0.83,
+          "tempo_bpm": null,
+          "key": null,
+          "crest_lu": -4.0,
+          "first_sound_s": 0.5,
+          "end_silence_s": 1.378,
+          "fade_s": 0.0,
+          "max_gap_s": 0.8,
+          "final_lu": 0.0,
+          "intro_lu": -2.2,
+          "end_lu": -175.1,
+          "peak_pos": 0.53,
+          "stopdowns_per_min": 0.0
+        },
+        "sync": null,
+        "critique": {
+          "verdict": "outside profile",
+          "score": 32,
+          "critical": false,
+          "rows": [
+            {
+              "key": "lufs_i",
+              "value": -25.6,
+              "low": -26.9,
+              "high": -24.9,
+              "median": -25.9,
+              "weight": "critical",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "true_peak",
+              "value": -7.4,
+              "low": null,
+              "high": -1.0,
+              "median": -21.9,
+              "weight": "major",
+              "status": "ok",
+              "why": "a master above -1 dBTP clips once encoded to AAC or MP3 (decoded lossy audio above 0 dBTP already clips)"
+            },
+            {
+              "key": "cuts_with_sound",
+              "value": null,
+              "low": null,
+              "high": null,
+              "median": null,
+              "weight": "major",
+              "status": "n.a.",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "lra",
+              "value": 1.8,
+              "low": -1.0,
+              "high": 1.0,
+              "median": 0.0,
+              "weight": "major",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "crest_lu",
+              "value": -4.0,
+              "low": -0.5,
+              "high": 0.5,
+              "median": 0.0,
+              "weight": "major",
+              "status": "low",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "first_sound_s",
+              "value": 0.5,
+              "low": null,
+              "high": 0.1,
+              "median": 0.0,
+              "weight": "major",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "end_silence_s",
+              "value": 1.378,
+              "low": null,
+              "high": 0.25,
+              "median": 0.0,
+              "weight": "major",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "max_gap_s",
+              "value": 0.8,
+              "low": null,
+              "high": 0.25,
+              "median": 0.0,
+              "weight": "major",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "final_lu",
+              "value": 0.0,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "major",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "onsets_per_s",
+              "value": 3.33,
+              "low": 1.53,
+              "high": 2.13,
+              "median": 1.83,
+              "weight": "major",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "hits_per_s",
+              "value": 0.83,
+              "low": null,
+              "high": 0.2,
+              "median": 0.0,
+              "weight": "major",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "intro_lu",
+              "value": -2.2,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "low",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "end_lu",
+              "value": -175.1,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "low",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "fade_s",
+              "value": 0.0,
+              "low": null,
+              "high": 0.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_sub",
+              "value": -19.5,
+              "low": -80.7,
+              "high": -77.7,
+              "median": -79.2,
+              "weight": "minor",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_low",
+              "value": -0.1,
+              "low": -1.5,
+              "high": 1.5,
+              "median": 0.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_lowmid",
+              "value": -19.7,
+              "low": -45.6,
+              "high": -42.6,
+              "median": -44.1,
+              "weight": "minor",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_mid",
+              "value": -41.2,
+              "low": -82.2,
+              "high": -79.2,
+              "median": -80.7,
+              "weight": "minor",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_presence",
+              "value": -59.6,
+              "low": -85.3,
+              "high": -82.3,
+              "median": -83.8,
+              "weight": "minor",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "band_air",
+              "value": -67.5,
+              "low": -82.8,
+              "high": -79.8,
+              "median": -81.3,
+              "weight": "minor",
+              "status": "high",
+              "why": "comparison with the supplied reference range"
+            },
+            {
+              "key": "side_to_mid_db",
+              "value": -40.0,
+              "low": -41.0,
+              "high": -39.0,
+              "median": -40.0,
+              "weight": "minor",
+              "status": "ok",
+              "why": "comparison with the supplied reference range"
+            }
+          ],
+          "actions": [
+            "[major] lra is 1.8 LU (high; reference window -1.0 to 1.0, median 0.0): compare with the supplied references before adjusting",
+            "[major] crest_lu is -4.0 LU (low; reference window -0.5 to 0.5, median 0.0): compare with the supplied references before adjusting",
+            "[major] first_sound_s is 0.5 s (high; reference window None to 0.1, median 0.0): compare with the supplied references before adjusting",
+            "[major] end_silence_s is 1.378 s (high; reference window None to 0.25, median 0.0): compare with the supplied references before adjusting",
+            "[major] max_gap_s is 0.8 s (high; reference window None to 0.25, median 0.0): compare with the supplied references before adjusting",
+            "[major] onsets_per_s is 3.33 /s (high; reference window 1.53 to 2.13, median 1.83): compare with the supplied references before adjusting",
+            "[major] hits_per_s is 0.83 /s (high; reference window None to 0.2, median 0.0): compare with the supplied references before adjusting",
+            "[minor] intro_lu is -2.2 LU (low; reference window -1.5 to 1.5, median 0.0): compare with the supplied references before adjusting",
+            "[minor] end_lu is -175.1 LU (low; reference window -1.5 to 1.5, median 0.0): compare with the supplied references before adjusting",
+            "[minor] band_sub is -19.5 dB (high; reference window -80.7 to -77.7, median -79.2): compare with the supplied references before adjusting",
+            "[minor] band_lowmid is -19.7 dB (high; reference window -45.6 to -42.6, median -44.1): compare with the supplied references before adjusting",
+            "[minor] band_mid is -41.2 dB (high; reference window -82.2 to -79.2, median -80.7): compare with the supplied references before adjusting",
+            "[minor] band_presence is -59.6 dB (high; reference window -85.3 to -82.3, median -83.8): compare with the supplied references before adjusting",
+            "[minor] band_air is -67.5 dB (high; reference window -82.8 to -79.8, median -81.3): compare with the supplied references before adjusting"
+          ],
+          "tips": [],
+          "partial": "realness and music presence need the earshot extension; this verdict is partial"
+        }
+      }
+    }
+  },
+  "optional_extra_dom_capture": {
+    "status": "NOT_COMPLETED",
+    "reason": "Additional Puppeteer capture stalled and was stopped. Existing deterministic seek captures and decoded-video frames supply the scoped visual evidence."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "filename": "FrameCore_Scenarios_44_Evidence.zip",
+  "bytes": 12487411,
+  "sha256": "24616bb684f2ab9530a73edda0efaf9d8117c3e454eb13a1ddbfcf7c65d60171",
+  "included_files": 816,
+  "manifest_entries": 815,
+  "zip_crc_check": "PASS",
+  "all_manifest_hashes": "PASS",
+  "scope": "Full local artifact evidence; excludes dependencies and transient render/browser work directories. This archive is delivered privately; the repository stores reports and measurements only."
+}

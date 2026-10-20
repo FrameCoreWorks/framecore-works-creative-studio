@@ -1,0 +1,29 @@
+{
+  "at_utc": "2026-10-20T17:18:48.732586+00:00",
+  "total": 44,
+  "pass_scoped": 41,
+  "pass_after_repair_scoped": 3,
+  "fresh_host_cases_run": 0,
+  "paid_provider_calls": 0,
+  "source_checks": {
+    "canonical": "PASS",
+    "full_suite_exit_code": 0,
+    "node_total": 238,
+    "node_pass": 225,
+    "node_skipped": 13,
+    "python_total": 405,
+    "python_pass": 401,
+    "python_skipped": 4
+  },
+  "candidate_hashed_files_match": 1505,
+  "checkpoint_artifacts_checked": 137,
+  "checkpoint_artifact_integrity_exceptions": [],
+  "unverified": [
+    "fresh installed ChatGPT/Work/Codex behavior",
+    "native OpenCut UI",
+    "paid providers",
+    "subjective audio quality",
+    "full R43 fidelity checker approval"
+  ],
+  "recovery": "Only early checkpoint recovered; previous narrative 42+2 result is not used as evidence."
+}

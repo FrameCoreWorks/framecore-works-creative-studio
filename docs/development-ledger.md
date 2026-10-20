@@ -2703,3 +2703,15 @@ Cross-host state:
 - GitHub: this metadata commit follows the published release as a fast-forward on main. Hosted plugin is already synchronized; no redundant saved-plugin release for these root-only records. Codex installation: not_run.
 - Branch inventory: main, gh-pages and the existing ccr-b6d36a1c-4hszow; ccr head daab5828 is an ancestor of the release. No new remote branches.
 - Next work: Reel Editing Assistant remains the explicit next feature task, including careful hosted-only tool import review. Optional client reel mixing requires the owner's request and files.
+
+## CW-20261020-SCENARIO-RECOVERY
+
+- Origin: chatgpt-work; baseline `77b316a0cb2907111e9ea54b050fcf314be22f2a`; main-only, fast-forward publication.
+- Trigger: the owner requested completion of the interrupted broad scenario review and a durable report/evidence archive. Only the early checkpoint survived; the claimed later 42+2 result was not recovered and is not evidence.
+- Result: the commit carrying this entry. Shared package unchanged, version 1.111.1; no hosted update or private-overlay mutation.
+- Scope: complete the replacement R01–R43 artifact exercises and explicit supporting Storytelling R44. Same-assistant, non-blind source-guided review: 41 PASS_SCOPED, 3 PASS_AFTER_REPAIR_SCOPED (R35 exact-frame extension, R40 relative export paths, R43 audio ID). These repair exercise outputs, not proven Studio instruction defects. [Report](../verification/scenario-closure-2026-10-20/REPORT.md) and [case findings](../verification/scenario-closure-2026-10-20/final-review.json).
+- Evidence: full 816-file archive saved separately and verified by ZIP CRC plus every manifest hash; [archive record](../verification/scenario-closure-2026-10-20/archive-record.json). Public repository contains the report, frozen criteria, summary, measurements and source-check logs, not the complete media archive. All 137 recorded checkpoint-artifact hashes match. All 1505 candidate-package hashes match the baseline.
+- Verification: canonical validator PASS; `bash scripts/check_all.sh` exit 0: Node 225 passed / 13 skipped, Python 401 passed / 4 skipped, zero failures. Real HyperFrames and Remotion renders, portable OTIO roundtrip, PCM/media measurements and selected frame inspection are recorded separately from source checks.
+- Limits: fresh ChatGPT/Work/Codex behavior NOT_RUN; native OpenCut UI, paid providers and subjective audio listening NOT_RUN. R43 full fidelity checker remains not_verified while its wrong-price negative is detected. Optional extra DOM capture did not complete and is not evidence. Existing canonical host-evaluation statuses are unchanged.
+- GitHub: publication target is main, guarded against the baseline; final publication readback is reported after the commit. ChatGPT Work saved package: prior synchronized 1.111.1 state is unchanged; no new hosted-state comparison. Codex installed behavior: not_run.
+- Branch inventory: main, gh-pages and existing ccr-b6d36a1c-4hszow at daab5828, already merged into baseline main; no new branches and no branch deletion.
