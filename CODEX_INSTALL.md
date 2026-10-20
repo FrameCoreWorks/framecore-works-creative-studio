@@ -45,13 +45,13 @@ This installs the same Studio knowledge through a local native entry. It does no
 
 ## 5. Final check of the required tools
 
-The installation ends with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). Studio uses one required set of tools (Python with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim; FFmpeg with FFprobe; Node.js with npx; Chrome or Chromium; the five starters installed with `npm ci` in the Studio workspace; HyperFrames); the check decides which of them this host can run.
+The installation ends with the [complete runtime check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). It checks all 59 components in `runtime-tools.json`, including isolated interpreters, models, CLI tools and motion libraries. Work's reported versions are references, not proof of another host or mandatory downgrades.
 
-1. Run `python3 <persistent-bundle-dir>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host codex` and show the user the result in their language.
-2. `fail`: the installation is not complete. Show the printed commands for the user's system (system packages, the Python packages in one virtual environment, the starters copied into `~/.framecore-studio/workspace` with `npm ci`, HyperFrames' own plugin). The user runs them, or asks the assistant to run them in this host; the check itself installs nothing. Then run the final check again.
-3. `pass`: the installation is complete. Report the verdict, the host and the workspace path with the installation result.
+1. Run `python3 <plugin>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host codex --json` from the saved bundle in the actual target environment. Supply additional `--python-env` or `--node-root` paths for installations outside discovery.
+2. Show confirmed tools and the concrete missing/broken/Unknown list in the user's language. Before installation, state which tools will be installed, their purpose, target environments and download/admin requirements. Reuse authorization that already covers that plan; otherwise ask once for that concrete scope. A check alone authorizes no installation.
+3. Preserve working versions and locks. Install only the disclosed missing components with compatible OS/architecture/Python environments where authorized and supported, then rerun the full check. `pass` confirms installation evidence. `fail`, `limited` or `unknown_host` leaves an explicit incomplete setup; `limited` does not mean Work/Claude is incapable of installation. Without execution, report Unknown rather than simulated success.
 
-Installing these tools does not connect providers, generate media, spend credits or publish anything.
+Plugin saving, tool installation and end-to-end creative behavior are separate results. No providers, generation, client-asset upload or publication is included in tool setup.
 
 ## 6. Offer optional providers after installation
 

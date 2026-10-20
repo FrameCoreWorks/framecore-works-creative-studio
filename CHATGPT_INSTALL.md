@@ -33,13 +33,13 @@ Source repository: <https://github.com/FrameCoreWorks/framecore-works-creative-s
 
 ## 5. Final check of the required tools
 
-The installation ends with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). Studio uses one required set of tools (Python with Pillow, NumPy, CairoSVG, imageio-ffmpeg, matplotlib and Manim; FFmpeg with FFprobe; Node.js with npx; Chrome or Chromium; the five starters installed with `npm ci` in the Studio workspace; HyperFrames); the check decides which of them this host can run.
+The installation ends with the [complete runtime check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation). It checks all 59 components in `runtime-tools.json`, including isolated interpreters, models, CLI tools and motion libraries. Work's reported versions are references, not proof of another host or mandatory downgrades.
 
-1. Run `python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host chatgpt_work` from the saved plugin in the conversation's code execution (`--host chatgpt` in ordinary ChatGPT) and show the user the result in their language.
-2. `pass`: the installation is complete. `limited`: the plugin is installed, but this chat sandbox lacks tools the user cannot add there; name them and say that Studio uses the capability card's alternatives (for example the bundled renderer instead of Remotion or HyperFrames). Tools a chat sandbox cannot run at all are listed as not on this host and do not count.
-3. For the full required set, install Studio also where code runs on the user's machine (Codex or Claude Code) and run the final check there.
+1. Run `python3 <plugin>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host chatgpt_work --json` from the saved bundle in the actual target environment. Supply additional `--python-env` or `--node-root` paths for installations outside discovery.
+2. Show confirmed tools and the concrete missing/broken/Unknown list in the user's language. Before installation, state which tools will be installed, their purpose, target environments and download/admin requirements. Reuse authorization that already covers that plan; otherwise ask once for that concrete scope. A check alone authorizes no installation.
+3. Preserve working versions and locks. Install only the disclosed missing components with compatible OS/architecture/Python environments where authorized and supported, then rerun the full check. `pass` confirms installation evidence. `fail`, `limited` or `unknown_host` leaves an explicit incomplete setup; `limited` does not mean Work/Claude is incapable of installation. Without execution, report Unknown rather than simulated success.
 
-Installing these tools does not connect providers, generate media, spend credits or publish anything.
+Plugin saving, tool installation and end-to-end creative behavior are separate results. No providers, generation, client-asset upload or publication is included in tool setup.
 
 ## 6. Offer optional providers after installation
 

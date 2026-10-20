@@ -2715,3 +2715,24 @@ Cross-host state:
 - Limits: fresh ChatGPT/Work/Codex behavior NOT_RUN; native OpenCut UI, paid providers and subjective audio listening NOT_RUN. R43 full fidelity checker remains not_verified while its wrong-price negative is detected. Optional extra DOM capture did not complete and is not evidence. Existing canonical host-evaluation statuses are unchanged.
 - GitHub: publication target is main, guarded against the baseline; final publication readback is reported after the commit. ChatGPT Work saved package: prior synchronized 1.111.1 state is unchanged; no new hosted-state comparison. Codex installed behavior: not_run.
 - Branch inventory: main, gh-pages and existing ccr-b6d36a1c-4hszow at daab5828, already merged into baseline main; no new branches and no branch deletion.
+
+## CW-20261020-TOOL-INVENTORY
+
+- Origin: chatgpt-work
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `d76de7f` (main, package 1.111.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.112.0)
+- Package version: 1.111.1 -> 1.112.0
+- Scope: Owner-requested 59-component first-install and every-update inventory; pre-install disclosure, isolated runtime/model evidence and independent host verification.
+- Shared package changed: yes; 12 changed, 3 added, 0 removed ([scope](../verification/scope-1.112.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: 238 Node tests (225 passing, 13 opt-in browser tests skipped there), 13 test_codex_install, 4 test_package_identity, 5 test_motion_benchmark, 6 test_host_smoke, 6 test_hosted_readback, 8 test_claude_plugin (1 skipped; see the suite log for reasons), 7 test_release, 8 test_gepa_studio_pilot (3 skipped; see the suite log for reasons), 23 asset_manifest, 17 captions, 24 environment_check, 21 runtime_inventory, 26 motion_acceptance, 6 motion_fonts, 10 motion_kinds, 10 motion_variants, 7 skill_finder, 15 extensions, 11 animate_engine, 5 animate_voice, 15 static_render, 8 print_pdf, 2 reel_starters, 8 web_reach, 6 pl_copy_check, 14 image_probe, 11 quote_calc, 6 vo_budget, 4 edit_export, 4 board_compose, 4 sheet_export, 2 shot_plan_check, 2 prompt_pack, 3 clip_review, 5 svg_wordmark, 5 brand_guide, 4 motion_activity, 11 lyric_timing, 6 iso_glow, 13 sound_listen, 3 reference_breakdown, 12 craft_lint, 3 design_md, 6 ai_writing_check, 4 technique_atlas, 9 motion_assets, 2 knowledge_wiring, 22 test_host_eval: PASS ([record](../verification/release-1.112.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

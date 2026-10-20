@@ -1,0 +1,229 @@
+{
+  "version": "1.112.0",
+  "date": "2026-10-20",
+  "baseline": "d76de7fd735f35218af0c9e36ff151034c3a7d12",
+  "change_id": "CW-20261020-TOOL-INVENTORY",
+  "origin": "chatgpt-work",
+  "environment": "ChatGPT Work sandbox; runtime inventory measured here, other clients not run",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1508,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7699 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 238,
+        "pass": 225,
+        "fail": 0,
+        "skipped": 13
+      },
+      "python": {
+        "test_codex_install": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "test_package_identity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "test_motion_benchmark": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "test_host_smoke": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "test_hosted_readback": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "test_claude_plugin": {
+          "tests": 8,
+          "skipped": 1
+        },
+        "test_release": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "test_gepa_studio_pilot": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "asset_manifest": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "captions": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "environment_check": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "runtime_inventory": {
+          "tests": 21,
+          "skipped": 0
+        },
+        "motion_acceptance": {
+          "tests": 26,
+          "skipped": 0
+        },
+        "motion_fonts": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "motion_kinds": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "motion_variants": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "skill_finder": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "extensions": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "animate_engine": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "animate_voice": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "static_render": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "print_pdf": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "reel_starters": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "web_reach": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "pl_copy_check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "image_probe": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "quote_calc": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "vo_budget": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "edit_export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "board_compose": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "sheet_export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "shot_plan_check": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "prompt_pack": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "clip_review": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "svg_wordmark": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "brand_guide": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "motion_activity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "lyric_timing": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "iso_glow": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "sound_listen": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "reference_breakdown": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "craft_lint": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "design_md": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "ai_writing_check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "technique_atlas": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "motion_assets": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "knowledge_wiring": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "test_host_eval": {
+          "tests": 22,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "review": "Owner-requested 59-component first-install and every-update inventory; pre-install disclosure, isolated runtime/model evidence and independent host verification.",
+  "source": "Release 1.112.0: verify the complete installation and update tool inventory",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

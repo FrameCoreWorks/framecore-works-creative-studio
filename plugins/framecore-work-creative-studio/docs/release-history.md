@@ -1,5 +1,17 @@
 # Historical development notes
 
+## 1.112.0, 2026-10-20
+
+The owner requested a complete first-install and every-update check for the supplied Work tool configuration.
+
+- Add a 59-component inventory with reported reference versions, executable/import/package evidence, isolated Python discovery, and separate Whisper/OCR model hashes.
+- Make the complete offline inventory the default, `--final` and `--update` path. Retain the former project capability check behind `--capabilities-only`.
+- Disclose missing-tool installation and repair plans before execution, reuse applicable authorization, preserve working versions, and recheck afterward.
+- Verify each actual host independently. Shared Work runtime variables no longer identify a client as Codex.
+- Add regression coverage for incomplete npm packages, failed probes, isolated environments, model identity and installation-plan behavior.
+
+All 59 components passed installation probes in the current Work environment. Cross-host installs, fresh-client startup, renders and model inference were not run.
+
 ## 1.111.1, 2026-10-20
 
 Close the interrupted 2026-10-20 repository audit before the next feature task.

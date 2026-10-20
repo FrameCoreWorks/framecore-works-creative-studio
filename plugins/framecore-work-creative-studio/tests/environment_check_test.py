@@ -52,7 +52,7 @@ def isolated(explicit):
         if any(within(candidate, root) for root in roots):
             yield candidate, where
 module.browser_candidates = isolated
-sys.exit(module.main())
+sys.exit(module.main(['--capabilities-only', *sys.argv[1:]]))
 """
         done = subprocess.run([sys.executable, '-c', bootstrap, str(TOOL), '--json', '--project', project or temp, *host, *args], capture_output=True, text=True, env=env, timeout=120)
         return done.returncode, json.loads(done.stdout), sorted(os.listdir(temp))
@@ -242,7 +242,7 @@ class FinalCheck(unittest.TestCase):
 
     def test_update_exit_codes(self):
         with mock.patch.object(check, 'report', return_value={'final': {'verdict': 'pass_with_updates'}, 'tools': []}), mock.patch.object(check, 'text', return_value=''), mock.patch('builtins.print'):
-            self.assertEqual(check.main(['--update', '--host', 'codex']), 4)
+            self.assertEqual(check.main(['--capabilities-only', '--update', '--host', 'codex']), 4)
 
 
 class Hosts(unittest.TestCase):
@@ -310,8 +310,10 @@ class Hosts(unittest.TestCase):
     def test_host_is_detected_from_documented_traces(self):
         with mock.patch.dict(check.os.environ, {'CLAUDECODE': '1'}, clear=True):
             self.assertEqual(check.detect_host(SPEC)[0], 'claude_code')
-        with mock.patch.dict(check.os.environ, {'CODEX_HOME': '/x'}, clear=True):
+        with mock.patch.dict(check.os.environ, {'CODEX_THREAD_ID': 'fixture'}, clear=True):
             self.assertEqual(check.detect_host(SPEC)[0], 'codex')
+        with mock.patch.dict(check.os.environ, {'CODEX_PRIMARY_RUNTIME_PYTHON': '/work/python'}, clear=True), mock.patch.object(check.os.path, 'isdir', return_value=False):
+            self.assertIsNone(check.detect_host(SPEC)[0])
 
 
 class Network(unittest.TestCase):

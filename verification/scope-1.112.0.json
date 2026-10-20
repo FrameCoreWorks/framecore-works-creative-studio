@@ -1,0 +1,34 @@
+{
+  "version": "1.112.0",
+  "baseline_tag": "v1.111.1",
+  "baseline": "addf23e73400c0e17c3321a7020e98395e8932fc",
+  "change_id": "CW-20261020-TOOL-INVENTORY",
+  "origin": "chatgpt-work",
+  "files": 1508,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/installation.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+    "skills/workflow-orchestrator/assets/environment-check/tools.json",
+    "tests/environment_check_test.py"
+  ],
+  "added": [
+    "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
+    "skills/workflow-orchestrator/assets/environment-check/runtime-tools.json",
+    "tests/runtime_inventory_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1493,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner-requested 59-component first-install and every-update inventory; pre-install disclosure, isolated runtime/model evidence and independent host verification."
+}

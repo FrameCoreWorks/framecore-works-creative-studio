@@ -1,0 +1,806 @@
+{
+  "schema_version": 1,
+  "inventory": "installation_and_update",
+  "mode": "final",
+  "host": "chatgpt_work",
+  "host_detected_by": "given",
+  "reference_basis": "Owner-reported working installation in ChatGPT Work, not newest-version claims or cross-host proof.",
+  "reported_at": "2026-10-20",
+  "tools": [
+    {
+      "status": "ok",
+      "version": "0.8.181",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/hyperframes",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "hyperframes",
+      "label": "HyperFrames CLI",
+      "reported_version": "0.8.181",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.0.537",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/remotion",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "remotion",
+      "label": "Remotion",
+      "reported_version": "4.0.537",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.4.0",
+      "path": "/root/.framecore-studio/workspace/animate-engine",
+      "evidence": "installed engine files match pinned upstream source",
+      "runtime_test": "NOT_RUN; driver and browser checked separately",
+      "id": "animate_engine",
+      "label": "Animate Engine",
+      "reported_version": "0.4.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.22.0",
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/lib/python3.12/site-packages/manim/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/python",
+      "environment": "/root/.framecore-studio/runtimes/manim-0.22.0",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "manim",
+      "label": "Manim Community",
+      "reported_version": "0.22.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "5.2.2",
+      "path": "/root/.cache/framecore-studio/media/blender-4e0e7ad16170df7b/lib/python3.13/site-packages/bpy/5.2/scripts/modules/bpy/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/blender-4e0e7ad16170df7b/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/blender-4e0e7ad16170df7b",
+      "runtime_version": "5.2.2 LTS",
+      "ffmpeg_path": null,
+      "id": "blender",
+      "label": "Blender bpy",
+      "reported_version": "5.2.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "6.1.1-3",
+      "path": "/usr/bin/ffmpeg",
+      "evidence": "local executable version command",
+      "version_output": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers\nbuilt with gcc 13 (Ubuntu 13.2.0-23ubuntu3)\nconfiguration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enab",
+      "id": "ffmpeg",
+      "label": "FFmpeg",
+      "reported_version": "6.1.1",
+      "version_comparison": "different; no automatic replacement"
+    },
+    {
+      "status": "ok",
+      "version": "6.1.1-3",
+      "path": "/usr/bin/ffprobe",
+      "evidence": "local executable version command",
+      "version_output": "ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the FFmpeg developers\nbuilt with gcc 13 (Ubuntu 13.2.0-23ubuntu3)\nconfiguration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --ena",
+      "id": "ffprobe",
+      "label": "FFprobe",
+      "reported_version": "6.1.1",
+      "version_comparison": "different; no automatic replacement"
+    },
+    {
+      "status": "ok",
+      "version": "0.6.0",
+      "path": "/root/.cache/framecore-studio/media/imageio_ffmpeg-b6cd0f2c3fcb1994/lib/python3.12/site-packages/imageio_ffmpeg/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/imageio_ffmpeg-b6cd0f2c3fcb1994/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/imageio_ffmpeg-b6cd0f2c3fcb1994",
+      "runtime_version": null,
+      "ffmpeg_path": "/root/.cache/framecore-studio/media/imageio_ffmpeg-b6cd0f2c3fcb1994/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+      "id": "imageio_ffmpeg",
+      "label": "imageio-ffmpeg",
+      "reported_version": "0.6.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "7.0.2",
+      "path": "/root/.cache/framecore-studio/media/imageio_ffmpeg-b6cd0f2c3fcb1994/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+      "evidence": "local executable version command",
+      "version_output": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers\nbuilt with gcc 8 (Debian 8.3.0-6)\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-liba",
+      "id": "ffmpeg_fallback",
+      "label": "imageio-ffmpeg bundled FFmpeg",
+      "reported_version": "7.0.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.7.2",
+      "path": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac/lib/python3.12/site-packages/scenedetect/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "scenedetect",
+      "label": "PySceneDetect",
+      "reported_version": "0.7.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.12.0.88",
+      "path": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac/lib/python3.12/site-packages/cv2/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "opencv",
+      "label": "OpenCV",
+      "reported_version": "4.12.0.88",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "29.3.1",
+      "path": "/root/.cache/framecore-studio/media/autoeditor-3eb4c02838f2c48e/bin/auto-editor",
+      "evidence": "local executable version command",
+      "version_output": "29.3.1\nDownloading auto-editor binary for your platform...\nURL: https://github.com/WyattBlue/auto-editor/releases/download/29.3.1/auto-editor-linux-x86_64\nDownload completed successfully!",
+      "id": "autoeditor",
+      "label": "Auto-Editor",
+      "reported_version": "29.3.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "1.0.0",
+      "path": "/root/.cache/framecore-studio/media/librosa-65192c42d19e073c/lib/python3.12/site-packages/librosa/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/librosa-65192c42d19e073c/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/librosa-65192c42d19e073c",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "librosa",
+      "label": "librosa",
+      "reported_version": "1.0.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "1.5.1",
+      "path": "/root/.cache/framecore-studio/media/whisper-212a9c8c22c1c0f6/lib/python3.12/site-packages/pywhispercpp/model.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/whisper-212a9c8c22c1c0f6/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/whisper-212a9c8c22c1c0f6",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "whisper",
+      "label": "PyWhisperCpp (whisper.cpp)",
+      "reported_version": "1.5.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": null,
+      "path": "/root/.cache/framecore-studio/media/whisper-212a9c8c22c1c0f6/share/whisper/ggml-tiny.bin",
+      "evidence": "model SHA-256 matches pinned public asset",
+      "sha256": "be07e048e1e599ad46341c8d2a135645097a538221678b7acdd1b1919c6e1b21",
+      "id": "whisper_tiny",
+      "label": "Whisper tiny multilingual",
+      "reported_version": null,
+      "version_comparison": "not_specified"
+    },
+    {
+      "status": "ok",
+      "version": "0.5.6",
+      "path": "/root/.cache/framecore-studio/media/deepfilter-dd6972d7cd774f12/share/deepfilter/deep-filter",
+      "evidence": "local executable version command",
+      "version_output": "deep_filter 0.5.6",
+      "id": "deepfilter",
+      "label": "DeepFilterNet",
+      "reported_version": "0.5.6",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "6.9.12-98",
+      "path": "/usr/bin/convert",
+      "evidence": "local executable version command",
+      "version_output": "Version: ImageMagick 6.9.12-98 Q16 x86_64 18038 https://legacy.imagemagick.org\nCopyright: (C) 1999 ImageMagick Studio LLC\nLicense: https://imagemagick.org/script/license.php\nFeatures: Cipher DPC Modules OpenMP(4.5) \nDelegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png raw tiff webp wmf x xml zlib",
+      "id": "imagemagick",
+      "label": "ImageMagick",
+      "reported_version": "6.9.12-98",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "1.2.2",
+      "path": "/usr/bin/inkscape",
+      "evidence": "local executable version command",
+      "version_output": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)",
+      "id": "inkscape",
+      "label": "Inkscape",
+      "reported_version": "1.2.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "2.9.1",
+      "path": "/root/.cache/framecore-studio/media/cairosvg-5d9322bde73e2616/lib/python3.12/site-packages/cairosvg/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/cairosvg-5d9322bde73e2616/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/cairosvg-5d9322bde73e2616",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "cairosvg",
+      "label": "CairoSVG",
+      "reported_version": "2.9.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "12.3.0",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/PIL/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "environment": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "pillow",
+      "label": "Pillow",
+      "reported_version": "12.3.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "2.3.5",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "environment": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "numpy",
+      "label": "NumPy",
+      "reported_version": "2.3.5",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "3.10.8",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/matplotlib/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "environment": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "matplotlib",
+      "label": "Matplotlib",
+      "reported_version": "3.10.8",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.61.1",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/fontTools/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "environment": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "fonttools",
+      "label": "FontTools",
+      "reported_version": "4.61.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "5.3.4",
+      "path": "/usr/bin/tesseract",
+      "evidence": "local executable version command",
+      "version_output": "tesseract 5.3.4\n leptonica-1.82.0\n  libgif 5.2.1 : libjpeg 8d (libjpeg-turbo 2.1.5) : libpng 1.6.43 : libtiff 4.5.1 : zlib 1.3 : libwebp 1.3.2 : libopenjp2 2.5.0\n Found AVX512BW\n Found AVX512F\n Found AVX512VNNI\n Found AVX2\n Found AVX\n Found FMA\n Found SSE4.1\n Found OpenMP 201511\n Found libarchive 3.7.2 zlib/1.3 liblzma/5.4.5 bz2lib/1.0.8 liblz4/1.9.4 libzstd/1.5.5\n Found libcurl/8.5.0 OpenSSL/3.0.",
+      "id": "tesseract",
+      "label": "Tesseract OCR",
+      "reported_version": "5.3.4",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.3.13",
+      "path": "/root/.cache/framecore-studio/media/ocr-f645d5b5db6ef283/lib/python3.12/site-packages/pytesseract/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.cache/framecore-studio/media/ocr-f645d5b5db6ef283/bin/python",
+      "environment": "/root/.cache/framecore-studio/media/ocr-f645d5b5db6ef283",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "pytesseract",
+      "label": "pytesseract",
+      "reported_version": "0.3.13",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.1.0",
+      "path": "/root/.cache/framecore-studio/media/ocr-f645d5b5db6ef283/share/tessdata/pol.traineddata",
+      "evidence": "model SHA-256 matches pinned public asset",
+      "sha256": "c4476cdbc0e33d898d32345122b7be1cbf85ace15f920f06c7714756e1ef79b2",
+      "id": "ocr_pol",
+      "label": "Polish OCR tessdata_fast",
+      "reported_version": "4.1.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "19.2.0",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/react",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "react",
+      "label": "React",
+      "reported_version": "19.2.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "19.2.0",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/react-dom",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "react_dom",
+      "label": "React DOM",
+      "reported_version": "19.2.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "3.14.2",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/gsap",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "gsap",
+      "label": "GSAP",
+      "reported_version": "3.14.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.186.0",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/three",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "three",
+      "label": "Three.js",
+      "reported_version": "0.186.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "9.8.1",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/@react-three/fiber",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "react_three_fiber",
+      "label": "React Three Fiber",
+      "reported_version": "9.8.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "8.22.0",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/pixi.js",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "pixi",
+      "label": "PixiJS",
+      "reported_version": "8.22.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.0.2",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/d3-scale",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "d3_scale",
+      "label": "D3 Scale",
+      "reported_version": "4.0.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "5.13.0",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/lottie-web",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "lottie",
+      "label": "Lottie Web",
+      "reported_version": "5.13.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "1.61.1",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/mediabunny",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "mediabunny",
+      "label": "Mediabunny",
+      "reported_version": "1.61.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.0.537",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/@remotion/cli",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "remotion_cli",
+      "label": "@remotion/cli",
+      "reported_version": "4.0.537",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.0.537",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/@remotion/renderer",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "remotion_renderer",
+      "label": "@remotion/renderer",
+      "reported_version": "4.0.537",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "4.0.537",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/@remotion/three",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "remotion_three",
+      "label": "@remotion/three",
+      "reported_version": "4.0.537",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "1.18.0",
+      "path": "libcairo.so.2",
+      "evidence": "shared library loaded and version function called",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "id": "cairo",
+      "label": "Cairo",
+      "reported_version": null,
+      "version_comparison": "not_specified"
+    },
+    {
+      "status": "ok",
+      "version": "1.52.1",
+      "path": "libpango-1.0.so.0",
+      "evidence": "shared library loaded and version function called",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "id": "pango",
+      "label": "Pango",
+      "reported_version": null,
+      "version_comparison": "not_specified"
+    },
+    {
+      "status": "ok",
+      "version": "0.7.0",
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/lib/python3.12/site-packages/manimpango/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/python",
+      "environment": "/root/.framecore-studio/runtimes/manim-0.22.0",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "manimpango",
+      "label": "ManimPango",
+      "reported_version": "0.7.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "1.29.2",
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/lib/python3.12/site-packages/cairo/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/python",
+      "environment": "/root/.framecore-studio/runtimes/manim-0.22.0",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "pycairo",
+      "label": "Pycairo",
+      "reported_version": "1.29.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "3.141592653-2",
+      "path": "/usr/bin/latex",
+      "evidence": "local executable version command",
+      "version_output": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)\nkpathsea version 6.3.5\nCopyright 2023 Han The Thanh (pdfTeX) et al.\nThere is NO warranty.  Redistribution of this software is\ncovered by the terms of both the pdfTeX copyright and\nthe Lesser GNU General Public License.\nFor more information about these matters, see the file\nnamed COPYING and the pdfTeX source.\nPrimary author of pdfTeX: Han The T",
+      "id": "latex",
+      "label": "LaTeX",
+      "reported_version": null,
+      "version_comparison": "not_specified"
+    },
+    {
+      "status": "ok",
+      "version": "3.2.1",
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/dvisvgm",
+      "evidence": "local executable version command",
+      "version_output": "dvisvgm 3.2.1",
+      "id": "dvisvgm",
+      "label": "dvisvgm",
+      "reported_version": "3.2.1",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.15.0",
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/lib/python3.12/site-packages/typst/__init__.py",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/python",
+      "environment": "/root/.framecore-studio/runtimes/manim-0.22.0",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "typst",
+      "label": "Typst",
+      "reported_version": "0.15.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "6.1.1",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/lxml/etree.cpython-312-x86_64-linux-gnu.so",
+      "evidence": "distribution metadata and real import",
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "environment": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python",
+      "runtime_version": null,
+      "ffmpeg_path": null,
+      "id": "lxml",
+      "label": "lxml",
+      "reported_version": "6.1.3",
+      "version_comparison": "different; no automatic replacement"
+    },
+    {
+      "status": "ok",
+      "version": "3.12.14",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "evidence": "active interpreter executed",
+      "id": "python",
+      "label": "Python",
+      "reported_version": "3.12.14",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "3.12.15",
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/python",
+      "evidence": "interpreter executed; role tied to the imported engine",
+      "id": "python_manim",
+      "label": "Python for Manim",
+      "reported_version": "3.12.15",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "3.13.16",
+      "path": "/root/.cache/framecore-studio/media/blender-4e0e7ad16170df7b/bin/python",
+      "evidence": "interpreter executed; role tied to the imported engine",
+      "id": "python_blender",
+      "label": "Python for Blender bpy",
+      "reported_version": "3.13.16",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "24.19.0",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "evidence": "local executable version command",
+      "version_output": "v24.19.0",
+      "id": "node",
+      "label": "Node.js",
+      "reported_version": "24.19.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "11.9.0",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/npm",
+      "evidence": "local executable version command",
+      "version_output": "11.9.0\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.",
+      "id": "npm",
+      "label": "npm",
+      "reported_version": "11.9.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "11.9.0",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/npx",
+      "evidence": "local executable version command",
+      "version_output": "11.9.0\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.",
+      "id": "npx",
+      "label": "npx",
+      "reported_version": "11.9.0",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "5.9.3",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/typescript",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "typescript",
+      "label": "TypeScript",
+      "reported_version": "5.9.3",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.28.2",
+      "path": "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules/esbuild",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "esbuild",
+      "label": "esbuild",
+      "reported_version": "0.28.2",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "0.12.23",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/uv",
+      "evidence": "local executable version command",
+      "version_output": "uv 0.12.23 (x86_64-unknown-linux-gnu)",
+      "id": "uv",
+      "label": "uv",
+      "reported_version": "0.12.23",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "missing",
+      "version": null,
+      "path": null,
+      "note": "Executable not found.",
+      "attempts": [],
+      "id": "micromamba",
+      "label": "Micromamba",
+      "reported_version": "2.9.0",
+      "version_comparison": "unknown"
+    },
+    {
+      "status": "ok",
+      "version": "1.62.1",
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright",
+      "evidence": "package identity, version and executable/library payload",
+      "runtime_test": "NOT_RUN; installation check, not a render or browser import",
+      "id": "playwright",
+      "label": "Playwright",
+      "reported_version": "1.56.1",
+      "version_comparison": "different; no automatic replacement"
+    },
+    {
+      "status": "ok",
+      "version": "141.0.7390.37",
+      "path": "/root/.cache/ms-playwright/chromium_headless_shell-1194/chrome-linux/headless_shell",
+      "evidence": "local executable version command",
+      "version_output": "Chromium 141.0.7390.37",
+      "id": "browser_animate",
+      "label": "Chromium / Headless Shell for Animate",
+      "reported_version": "141.0.7390.37",
+      "version_comparison": "matches_reported"
+    },
+    {
+      "status": "ok",
+      "version": "152.0.7977.30",
+      "path": "/root/.cache/hyperframes/chrome/chrome-headless-shell/linux-152.0.7977.30/chrome-headless-shell-linux64/chrome-headless-shell",
+      "evidence": "local executable version command",
+      "version_output": "Google Chrome for Testing 152.0.7977.30",
+      "id": "browser",
+      "label": "Chrome Headless for other renders",
+      "reported_version": "152.0.7977.30",
+      "version_comparison": "matches_reported"
+    }
+  ],
+  "compatibility": [],
+  "final": {
+    "verdict": "limited",
+    "failing": [
+      {
+        "id": "micromamba",
+        "status": "missing"
+      }
+    ]
+  },
+  "installation_plan": [
+    {
+      "id": "micromamba",
+      "label": "Micromamba",
+      "action": "install",
+      "reported_version": "2.9.0",
+      "reason": "Executable not found.",
+      "recipe": {
+        "kind": "binary",
+        "target": "Micromamba",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      },
+      "state": "planned; not executed"
+    }
+  ],
+  "inspected_python_environments": [
+    {
+      "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.framecore-studio/runtimes/manim-0.22.0/bin/python",
+      "version": "3.12.15",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/autoeditor-3eb4c02838f2c48e/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/blender-4e0e7ad16170df7b/bin/python",
+      "version": "3.13.16",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/cairosvg-5d9322bde73e2616/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/deepfilter-dd6972d7cd774f12/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/imageio_ffmpeg-b6cd0f2c3fcb1994/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/librosa-65192c42d19e073c/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/ocr-f645d5b5db6ef283/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/scenedetect-27fedb1f925361ac/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/scenedetect-2ca147b9c3f0bd07/bin/python",
+      "version": "3.12.14",
+      "error": null
+    },
+    {
+      "path": "/root/.cache/framecore-studio/media/whisper-212a9c8c22c1c0f6/bin/python",
+      "version": "3.12.14",
+      "error": null
+    }
+  ],
+  "inspected_node_roots": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules",
+    "/root/.framecore-studio/workspace/animate-engine/node_modules",
+    "/root/.cache/framecore-studio/motion/6d280fd19f42ae04/node_modules",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/lib/node_modules"
+  ],
+  "installs_nothing": true,
+  "network_used": false,
+  "model_inference": "NOT_RUN",
+  "render_tests": "NOT_RUN"
+}

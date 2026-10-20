@@ -1,23 +1,14 @@
 #!/usr/bin/env python3
-"""Check that the one required set of programs and libraries Studio uses is present here, and how to install the rest.
+"""Check the full runtime inventory at installation, on update and on request.
 
-  python3 check_environment.py [--online] [--json] [--host ID] [--workspace DIR] [--project DIR] [--browser PATH]
-  python3 check_environment.py --final --host codex     # the final check of an installation
-  python3 check_environment.py --update --host codex    # the check after a plugin update (also reads newest versions)
-  python3 check_environment.py --matrix [--markdown]    # every tool on every host
+--final / --update: read-only verification of all runtime-tools.json components.
+--python-env PATH / --node-root DIR: inspect additional isolated installations.
+--capabilities-only: retained legacy starter/capability diagnostic from tools.json.
+--matrix: retained legacy host matrix; runtime evidence is always measured per session.
 
-Reads tools.json (what to look for, minimum and newest known versions, install commands per platform, status per
-host) and the capability card (which Studio capability needs what), then reports each tool as ok, behind (older than
-the newest version), below_minimum, missing, wrong_version (a workspace package other than the lockfile's),
-not_on_this_host (the host cannot run it) or unknown, and which capabilities are ready. Every tool is required:
---final passes only when every tool the host can run is usable.
---online reads the newest versions from PyPI, npm, nodejs.org, endoflife.date and Chromium's release feed instead of
-the dated snapshot in tools.json. Nothing is ever installed or changed. Standard library only, so it runs wherever
-Python does (Codex, a local shell, ChatGPT's code execution). Exit codes: 0; with --strict or --final 1 when a
-required tool is missing, too old or of the wrong version; --final gives 3 (limited) on a chat sandbox host, where the
-user cannot install what is missing, and 2 when the host is not known. --update is --final after a plugin update: it
-reads the newest versions online (the dated snapshot when offline), fails when a workspace starter no longer matches
-the updated plugin's lockfile, and exits 4 (pass_with_updates) when everything works but newer versions exist.
+Normal and lifecycle checks are offline and install nothing. Dated reference versions
+are not latest-release claims or mandatory replacements. Exit codes with --final or
+--strict: 0 pass, 1 incomplete shell host, 2 unknown host, 3 incomplete sandbox.
 """
 import argparse
 import glob
@@ -343,7 +334,7 @@ def detect_host(spec):
     """The host this check runs in, from documented traces; None when nothing identifies it."""
     if os.environ.get('CLAUDECODE') == '1':
         return 'claude_code', 'CLAUDECODE=1'
-    codex = sorted(key for key in os.environ if key.startswith('CODEX_'))
+    codex = sorted(key for key in ('CODEX_THREAD_ID', 'CODEX_CI', 'CODEX_SANDBOX') if os.environ.get(key))
     if codex:
         return 'codex', codex[0]
     if os.path.isdir('/mnt/user-data'):
@@ -478,7 +469,10 @@ def main(argv=None):
     parser.add_argument('--project', default='.', help='project folder whose own skills folders are searched for HyperFrames (default: current folder)')
     parser.add_argument('--workspace', default=DEFAULT_WORKSPACE, help='Studio workspace with the starters installed by npm ci (default: ~/.framecore-studio/workspace or FRAMECORE_STUDIO_WORKSPACE)')
     parser.add_argument('--final', action='store_true', help='the final check of an installation: exit 0 pass, 1 fail, 3 limited (chat sandbox), 2 unknown host')
-    parser.add_argument('--update', action='store_true', help='the check after a plugin update: --final with newest versions read online; exit 4 when newer versions exist')
+    parser.add_argument('--update', action='store_true', help='repeat the full read-only tool inventory after a plugin update')
+    parser.add_argument('--capabilities-only', action='store_true', help='legacy project-starter/capability diagnostic; not the complete installation inventory')
+    parser.add_argument('--python-env', action='append', default=[], help='additional Python executable to inspect; repeat for isolated environments')
+    parser.add_argument('--node-root', action='append', default=[], help='additional node_modules directory to inspect; repeat as needed')
     parser.add_argument('--browser', help='path to Chrome or Chromium to check')
     parser.add_argument('--strict', action='store_true', help='exit 1 when a required tool is missing or below its minimum')
     parser.add_argument('--host', default='auto', choices=['auto'] + [h['id'] for h in load(HERE / 'tools.json')['hosts']],
@@ -487,10 +481,22 @@ def main(argv=None):
     parser.add_argument('--markdown', action='store_true', help='with --matrix, print a Markdown table')
     args = parser.parse_args(argv)
     if args.update:
-        args.final = args.online = True
+        args.final = True
     if args.matrix:
         spec = load(HERE / 'tools.json')
         print(json.dumps({h['id']: {t['id']: t['hosts'][h['id']] for t in spec['tools']} for h in spec['hosts']}, indent=2, ensure_ascii=False) if args.json else matrix(spec, args.markdown))
+        return 0
+    if not args.capabilities_only:
+        if args.online:
+            parser.error('--online is the legacy registry diagnostic; use --capabilities-only --online. Installation/update inventory stays offline.')
+        module_spec = importlib.util.spec_from_file_location('studio_runtime_audit', HERE / 'audit_tools.py')
+        audit = importlib.util.module_from_spec(module_spec)
+        module_spec.loader.exec_module(audit)
+        host, detected = (args.host, 'given') if args.host != 'auto' else detect_host(load(HERE / 'tools.json'))
+        data = audit.report(args, host, detected)
+        print(json.dumps(data, indent=2, ensure_ascii=False) if args.json else audit.text(data))
+        if args.final or args.strict:
+            return {'pass': 0, 'fail': 1, 'limited': 3, 'unknown_host': 2}[data['final']['verdict']]
         return 0
     data = report(args)
     print(json.dumps(data, indent=2, ensure_ascii=False) if args.json else text(data))

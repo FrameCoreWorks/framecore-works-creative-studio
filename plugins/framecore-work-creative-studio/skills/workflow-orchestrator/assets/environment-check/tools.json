@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "checked": "2026-10-09",
-  "scope": "The one required set of programs and libraries Studio's tools and engines use, how the environment check finds each, the minimum it needs, the newest version known on the check date, how to install it, and for each host (ordinary ChatGPT, ChatGPT Work, Codex, Claude Code, the Claude apps) whether it was observed there, must be checked, is installed by the user, is installed into the Studio workspace with npm ci, or cannot run there. Every tool is required; the final check at installation, and the update check after each plugin update, pass only when every tool the host can run is present, with the workspace matching the plugin's lockfiles; the update check also lists newer versions. The check never installs anything; known_latest is a dated snapshot and --online reads the current versions.",
+  "scope": "Retained project-starter and capability diagnostic for --capabilities-only. The authoritative installation/update inventory is runtime-tools.json; it measures every component in the current host.",
   "hosts": [
     {
       "id": "chatgpt",
@@ -506,8 +506,8 @@
           "note": "no npm workspace in the chat sandbox"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Owner confirmed these engines and libraries in Work on 2026-10-20. Check the current session and isolated runtime; an absent legacy starter is not proof the engine cannot run."
         },
         "codex": {
           "status": "per_project"
@@ -516,8 +516,8 @@
           "status": "per_project"
         },
         "claude_apps": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Probe only if this Claude environment exposes execution; availability is Unknown until measured."
         }
       },
       "workspace_name": "kinetic-type-starter"
@@ -542,8 +542,8 @@
           "note": "no npm workspace in the chat sandbox"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Owner confirmed these engines and libraries in Work on 2026-10-20. Check the current session and isolated runtime; an absent legacy starter is not proof the engine cannot run."
         },
         "codex": {
           "status": "per_project"
@@ -552,8 +552,8 @@
           "status": "per_project"
         },
         "claude_apps": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Probe only if this Claude environment exposes execution; availability is Unknown until measured."
         }
       },
       "workspace_name": "gsap-motion-starter"
@@ -577,8 +577,8 @@
           "note": "no npm workspace in the chat sandbox"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Owner confirmed these engines and libraries in Work on 2026-10-20. Check the current session and isolated runtime; an absent legacy starter is not proof the engine cannot run."
         },
         "codex": {
           "status": "per_project"
@@ -587,8 +587,8 @@
           "status": "per_project"
         },
         "claude_apps": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Probe only if this Claude environment exposes execution; availability is Unknown until measured."
         }
       }
     },
@@ -611,8 +611,8 @@
           "note": "no npm workspace in the chat sandbox"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Owner confirmed these engines and libraries in Work on 2026-10-20. Check the current session and isolated runtime; an absent legacy starter is not proof the engine cannot run."
         },
         "codex": {
           "status": "per_project"
@@ -621,8 +621,8 @@
           "status": "per_project"
         },
         "claude_apps": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Probe only if this Claude environment exposes execution; availability is Unknown until measured."
         }
       }
     },
@@ -644,8 +644,8 @@
           "note": "no npm workspace in the chat sandbox"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Owner confirmed these engines and libraries in Work on 2026-10-20. Check the current session and isolated runtime; an absent legacy starter is not proof the engine cannot run."
         },
         "codex": {
           "status": "per_project"
@@ -654,8 +654,8 @@
           "status": "per_project"
         },
         "claude_apps": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Probe only if this Claude environment exposes execution; availability is Unknown until measured."
         }
       }
     },
@@ -677,8 +677,8 @@
           "note": "no npm workspace in the chat sandbox"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Owner confirmed these engines and libraries in Work on 2026-10-20. Check the current session and isolated runtime; an absent legacy starter is not proof the engine cannot run."
         },
         "codex": {
           "status": "per_project"
@@ -687,8 +687,8 @@
           "status": "per_project"
         },
         "claude_apps": {
-          "status": "not_supported",
-          "note": "no npm workspace in the chat sandbox"
+          "status": "check",
+          "note": "Probe only if this Claude environment exposes execution; availability is Unknown until measured."
         }
       }
     },

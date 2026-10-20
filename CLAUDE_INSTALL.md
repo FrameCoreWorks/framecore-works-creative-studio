@@ -33,7 +33,7 @@ Asking Claude to "install this repository" with the link works the same way: the
 
 ## 2. Pin the source
 
-Use the latest release tag: `tag_name` from `https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio/releases/latest`, or, when that API is unreachable, the version in the README's "Source version" line (for example `v1.111.1`; [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases)). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
+Use the latest release tag: `tag_name` from `https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio/releases/latest`, or, when that API is unreachable, the version in the README's "Source version" line (for example `v1.112.0`; [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases)). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
 
 ## 3. Take inventory before installing
 
@@ -57,7 +57,7 @@ Then ask once, showing the current copies with their versions and the target ver
 **Claude Code, from the shell (the route the assistant runs):**
 
 ```sh
-claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.111.1
+claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.112.0
 claude plugin install framecore-work-creative-studio@framecore-works --scope user
 ```
 
@@ -68,7 +68,7 @@ claude plugin install framecore-work-creative-studio@framecore-works --scope use
 **Slash commands, only in the terminal CLI's interactive session:**
 
 ```text
-/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.111.1
+/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.112.0
 /plugin install framecore-work-creative-studio@framecore-works
 ```
 
@@ -82,7 +82,7 @@ Open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCore
 
 1. `claude plugin list` shows `framecore-work-creative-studio@framecore-works`, enabled, with the expected version, and no other Studio copy that loads (a synced copy, if any, is reported as not loaded or disabled). `claude plugin details framecore-work-creative-studio@framecore-works` lists 37 skills. In the Claude apps, the plugin appears under Customize > Plugins with the expected version.
 2. A running session keeps the plugins it loaded: start a new conversation (in the terminal CLI, `/reload-plugins` also works) before testing. Send the Studio name alone, for example `@FrameCore Works Creative Studio`, or `/framecore-work-creative-studio:workflow-orchestrator` in Claude Code. The complete welcome must appear in the user's language with its four numbered options; a greeting in Polish gives the Polish welcome. Then send the name together with a question or pasted content: Studio must answer it, not show the welcome.
-3. Finish with the [final check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation) of Studio's one required set of tools: `python3 <plugin folder>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host claude_code` (`claude plugin details` shows the plugin folder). `fail` lists what is missing (system packages, the Python packages in one virtual environment, the five starters copied into `~/.framecore-studio/workspace` with `npm ci`, HyperFrames' own Claude Code plugin) with the commands for the user's system; the user runs them, or asks the assistant to run them, and the check runs again until it says `pass`. In a Claude app's code sandbox use `--host claude_apps`: there `limited` means the plugin is installed and Studio names the tools that sandbox lacks. The check itself installs nothing.
+3. Finish with the [complete runtime check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#final-check-at-installation): `python3 <plugin>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --final --host claude_code --json`; use `--host claude_apps` in an actual Claude app execution sandbox. Check all 59 components, including isolated interpreters and models. Show the missing/broken/Unknown list and name the tools, target environments and download/admin requirements before installation. Reuse authorization that covers the disclosed plan; otherwise ask once. Install only where permitted, preserve working versions and locks, then recheck. Lack of shell/network is a specific blocker, not proof that another Claude environment can or cannot install the tools.
 4. Report what was installed or updated (copy and version), what remains (for example a synced copy still to remove in claude.ai), and what the environment lacks. Report saved files, discovery and actual startup separately: a successful install command is not proof that a conversation starts Studio correctly.
 
 ## 6. Update and remove
@@ -91,7 +91,7 @@ Open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCore
 - Claude apps: update or remove the plugin under Customize > Plugins. For a plugin added from the marketplace, sync the marketplace there and use its check for updates; the plugin then shows the new version (observed by the owner on 2026-10-13). A synced copy is removed or replaced there, not in Claude Code.
 - Claude Code sessions in the cloud and the Claude apps download the plugin when a session starts: a session already running keeps the version it loaded, so test an update in a new session or conversation (`claude plugin list` there shows the version).
 - Personal edits inside an installed plugin copy are replaced by an update; keep personal preferences in Studio's portable profile instead.
-- Finish every update with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update): `python3 <plugin folder>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host claude_code` (`--host claude_apps` in a Claude app's sandbox). It checks the required tools again, finds Studio workspace starters installed from the previous version, and lists newer versions; the update is complete at `pass` or `pass_with_updates`. It installs nothing.
+- Finish every update with the [complete runtime check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update), using `--update --host claude_code` or `--host claude_apps` as appropriate. Recheck all 59 components offline in the current session, disclose the missing-tools plan, preserve existing working environments and recheck after authorized installation. `pass` is installation evidence, not proof of fresh-client behavior; otherwise report the incomplete setup.
 
 ## Recommended extensions (optional)
 

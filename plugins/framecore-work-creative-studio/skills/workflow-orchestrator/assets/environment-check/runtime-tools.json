@@ -1,0 +1,1382 @@
+{
+  "schema_version": 1,
+  "reported_at": "2026-10-20",
+  "reference_basis": "Owner-reported working installation in ChatGPT Work, not newest-version claims or cross-host proof.",
+  "policy": "Probe every component on installation and update. Preserve working versions; report differences. Probe never installs, downloads models or invokes a package installer.",
+  "tools": [
+    {
+      "id": "hyperframes",
+      "label": "HyperFrames CLI",
+      "reported_version": "0.8.181",
+      "kind": "npm",
+      "package": "hyperframes",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "hyperframes",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "remotion",
+      "label": "Remotion",
+      "reported_version": "4.0.537",
+      "kind": "npm",
+      "package": "remotion",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "remotion",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "animate_engine",
+      "label": "Animate Engine",
+      "reported_version": "0.4.0",
+      "kind": "animate",
+      "role": "animate",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "animate",
+        "target": "Animate Engine",
+        "destination_role": "animate",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "manim",
+      "label": "Manim Community",
+      "reported_version": "0.22.0",
+      "kind": "python_module",
+      "module": "manim",
+      "packages": [
+        "manim"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "manim",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "blender",
+      "label": "Blender bpy",
+      "reported_version": "5.2.2",
+      "kind": "python_module",
+      "module": "bpy",
+      "packages": [
+        "bpy"
+      ],
+      "role": "blender",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "bpy",
+        "destination_role": "blender",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "ffmpeg",
+      "label": "FFmpeg",
+      "reported_version": "6.1.1",
+      "kind": "binary",
+      "commands": [
+        "ffmpeg"
+      ],
+      "version_args": [
+        "-version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "FFmpeg",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "ffprobe",
+      "label": "FFprobe",
+      "reported_version": "6.1.1",
+      "kind": "binary",
+      "commands": [
+        "ffprobe"
+      ],
+      "version_args": [
+        "-version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "FFprobe",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "imageio_ffmpeg",
+      "label": "imageio-ffmpeg",
+      "reported_version": "0.6.0",
+      "kind": "python_module",
+      "module": "imageio_ffmpeg",
+      "packages": [
+        "imageio-ffmpeg"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "imageio-ffmpeg",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "ffmpeg_fallback",
+      "label": "imageio-ffmpeg bundled FFmpeg",
+      "reported_version": "7.0.2",
+      "kind": "ffmpeg_fallback",
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "ffmpeg_fallback",
+        "target": "imageio-ffmpeg bundled FFmpeg",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "scenedetect",
+      "label": "PySceneDetect",
+      "reported_version": "0.7.2",
+      "kind": "python_module",
+      "module": "scenedetect",
+      "packages": [
+        "scenedetect",
+        "scenedetect-headless"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "scenedetect",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "opencv",
+      "label": "OpenCV",
+      "reported_version": "4.12.0.88",
+      "kind": "python_module",
+      "module": "cv2",
+      "packages": [
+        "opencv-python",
+        "opencv-python-headless"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "opencv-python",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "autoeditor",
+      "label": "Auto-Editor",
+      "reported_version": "29.3.1",
+      "kind": "binary",
+      "commands": [
+        "auto-editor",
+        "auto_editor"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "autoeditor",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "Auto-Editor",
+        "destination_role": "autoeditor",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "librosa",
+      "label": "librosa",
+      "reported_version": "1.0.0",
+      "kind": "python_module",
+      "module": "librosa",
+      "packages": [
+        "librosa"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "librosa",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "whisper",
+      "label": "PyWhisperCpp (whisper.cpp)",
+      "reported_version": "1.5.1",
+      "kind": "python_module",
+      "module": "pywhispercpp.model",
+      "packages": [
+        "pywhispercpp"
+      ],
+      "role": "whisper",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "pywhispercpp",
+        "destination_role": "whisper",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "whisper_tiny",
+      "label": "Whisper tiny multilingual",
+      "reported_version": null,
+      "kind": "model",
+      "role": "whisper",
+      "filename": "ggml-tiny.bin",
+      "env": "FRAMECORE_WHISPER_MODEL",
+      "sha256": "be07e048e1e599ad46341c8d2a135645097a538221678b7acdd1b1919c6e1b21",
+      "source": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny.bin",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "model",
+        "target": "Whisper tiny multilingual",
+        "destination_role": "whisper",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment.",
+        "sha256": "be07e048e1e599ad46341c8d2a135645097a538221678b7acdd1b1919c6e1b21",
+        "source": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny.bin"
+      }
+    },
+    {
+      "id": "deepfilter",
+      "label": "DeepFilterNet",
+      "reported_version": "0.5.6",
+      "kind": "binary",
+      "commands": [
+        "deep-filter",
+        "deepFilter"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "deepfilter",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "DeepFilterNet",
+        "destination_role": "deepfilter",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "imagemagick",
+      "label": "ImageMagick",
+      "reported_version": "6.9.12-98",
+      "kind": "binary",
+      "commands": [
+        "magick",
+        "convert"
+      ],
+      "version_args": [
+        "-version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "ImageMagick",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "inkscape",
+      "label": "Inkscape",
+      "reported_version": "1.2.2",
+      "kind": "binary",
+      "commands": [
+        "inkscape"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "Inkscape",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "cairosvg",
+      "label": "CairoSVG",
+      "reported_version": "2.9.1",
+      "kind": "python_module",
+      "module": "cairosvg",
+      "packages": [
+        "CairoSVG"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "CairoSVG",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "pillow",
+      "label": "Pillow",
+      "reported_version": "12.3.0",
+      "kind": "python_module",
+      "module": "PIL",
+      "packages": [
+        "Pillow"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "Pillow",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "numpy",
+      "label": "NumPy",
+      "reported_version": "2.3.5",
+      "kind": "python_module",
+      "module": "numpy",
+      "packages": [
+        "numpy"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "numpy",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "matplotlib",
+      "label": "Matplotlib",
+      "reported_version": "3.10.8",
+      "kind": "python_module",
+      "module": "matplotlib",
+      "packages": [
+        "matplotlib"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "matplotlib",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "fonttools",
+      "label": "FontTools",
+      "reported_version": "4.61.1",
+      "kind": "python_module",
+      "module": "fontTools",
+      "packages": [
+        "fonttools"
+      ],
+      "role": "media",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "fonttools",
+        "destination_role": "media",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "tesseract",
+      "label": "Tesseract OCR",
+      "reported_version": "5.3.4",
+      "kind": "binary",
+      "commands": [
+        "tesseract"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "Tesseract OCR",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "pytesseract",
+      "label": "pytesseract",
+      "reported_version": "0.3.13",
+      "kind": "python_module",
+      "module": "pytesseract",
+      "packages": [
+        "pytesseract"
+      ],
+      "role": "ocr",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "pytesseract",
+        "destination_role": "ocr",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "ocr_pol",
+      "label": "Polish OCR tessdata_fast",
+      "reported_version": "4.1.0",
+      "kind": "model",
+      "role": "ocr",
+      "filename": "pol.traineddata",
+      "env": "FRAMECORE_TESSDATA_POL",
+      "sha256": "c4476cdbc0e33d898d32345122b7be1cbf85ace15f920f06c7714756e1ef79b2",
+      "source": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/4.1.0/pol.traineddata",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "model",
+        "target": "Polish OCR tessdata_fast",
+        "destination_role": "ocr",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment.",
+        "sha256": "c4476cdbc0e33d898d32345122b7be1cbf85ace15f920f06c7714756e1ef79b2",
+        "source": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/4.1.0/pol.traineddata"
+      }
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "reported_version": "19.2.0",
+      "kind": "npm",
+      "package": "react",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "react",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "react_dom",
+      "label": "React DOM",
+      "reported_version": "19.2.0",
+      "kind": "npm",
+      "package": "react-dom",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "react-dom",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "gsap",
+      "label": "GSAP",
+      "reported_version": "3.14.2",
+      "kind": "npm",
+      "package": "gsap",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "gsap",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "three",
+      "label": "Three.js",
+      "reported_version": "0.186.0",
+      "kind": "npm",
+      "package": "three",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "three",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "react_three_fiber",
+      "label": "React Three Fiber",
+      "reported_version": "9.8.1",
+      "kind": "npm",
+      "package": "@react-three/fiber",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "@react-three/fiber",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "pixi",
+      "label": "PixiJS",
+      "reported_version": "8.22.0",
+      "kind": "npm",
+      "package": "pixi.js",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "pixi.js",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "d3_scale",
+      "label": "D3 Scale",
+      "reported_version": "4.0.2",
+      "kind": "npm",
+      "package": "d3-scale",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "d3-scale",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "lottie",
+      "label": "Lottie Web",
+      "reported_version": "5.13.0",
+      "kind": "npm",
+      "package": "lottie-web",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "lottie-web",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "mediabunny",
+      "label": "Mediabunny",
+      "reported_version": "1.61.1",
+      "kind": "npm",
+      "package": "mediabunny",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "mediabunny",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "remotion_cli",
+      "label": "@remotion/cli",
+      "reported_version": "4.0.537",
+      "kind": "npm",
+      "package": "@remotion/cli",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "@remotion/cli",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "remotion_renderer",
+      "label": "@remotion/renderer",
+      "reported_version": "4.0.537",
+      "kind": "npm",
+      "package": "@remotion/renderer",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "@remotion/renderer",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "remotion_three",
+      "label": "@remotion/three",
+      "reported_version": "4.0.537",
+      "kind": "npm",
+      "package": "@remotion/three",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "@remotion/three",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "cairo",
+      "label": "Cairo",
+      "reported_version": null,
+      "kind": "library",
+      "library": "cairo",
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "library",
+        "target": "Cairo",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "pango",
+      "label": "Pango",
+      "reported_version": null,
+      "kind": "library",
+      "library": "pango-1.0",
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "library",
+        "target": "Pango",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "manimpango",
+      "label": "ManimPango",
+      "reported_version": "0.7.0",
+      "kind": "python_module",
+      "module": "manimpango",
+      "packages": [
+        "ManimPango"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "ManimPango",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "pycairo",
+      "label": "Pycairo",
+      "reported_version": "1.29.2",
+      "kind": "python_module",
+      "module": "cairo",
+      "packages": [
+        "pycairo"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "pycairo",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "latex",
+      "label": "LaTeX",
+      "reported_version": null,
+      "kind": "binary",
+      "commands": [
+        "latex"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "LaTeX",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "dvisvgm",
+      "label": "dvisvgm",
+      "reported_version": "3.2.1",
+      "kind": "binary",
+      "commands": [
+        "dvisvgm"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "dvisvgm",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "typst",
+      "label": "Typst",
+      "reported_version": "0.15.0",
+      "kind": "binary",
+      "commands": [
+        "typst"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "Typst",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      },
+      "python_alternative": {
+        "module": "typst",
+        "package": "typst"
+      }
+    },
+    {
+      "id": "lxml",
+      "label": "lxml",
+      "reported_version": "6.1.3",
+      "kind": "python_module",
+      "module": "lxml.etree",
+      "packages": [
+        "lxml"
+      ],
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python_module",
+        "target": "lxml",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "reported_version": "3.12.14",
+      "kind": "python",
+      "role": "active",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python",
+        "target": "Python",
+        "destination_role": "active",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "python_manim",
+      "label": "Python for Manim",
+      "reported_version": "3.12.15",
+      "kind": "python",
+      "role": "manim",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python",
+        "target": "Python for Manim",
+        "destination_role": "manim",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "python_blender",
+      "label": "Python for Blender bpy",
+      "reported_version": "3.13.16",
+      "kind": "python",
+      "role": "blender",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "python",
+        "target": "Python for Blender bpy",
+        "destination_role": "blender",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "node",
+      "label": "Node.js",
+      "reported_version": "24.19.0",
+      "kind": "binary",
+      "commands": [
+        "node"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "Node.js",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "npm",
+      "label": "npm",
+      "reported_version": "11.9.0",
+      "kind": "binary",
+      "commands": [
+        "npm"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "npm",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "npx",
+      "label": "npx",
+      "reported_version": "11.9.0",
+      "kind": "binary",
+      "commands": [
+        "npx"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "npx",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "reported_version": "5.9.3",
+      "kind": "npm",
+      "package": "typescript",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "typescript",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "esbuild",
+      "label": "esbuild",
+      "reported_version": "0.28.2",
+      "kind": "npm",
+      "package": "esbuild",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "esbuild",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "uv",
+      "label": "uv",
+      "reported_version": "0.12.23",
+      "kind": "binary",
+      "commands": [
+        "uv"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "uv",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "micromamba",
+      "label": "Micromamba",
+      "reported_version": "2.9.0",
+      "kind": "binary",
+      "commands": [
+        "micromamba"
+      ],
+      "version_args": [
+        "--version"
+      ],
+      "role": "system",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "binary",
+        "target": "Micromamba",
+        "destination_role": "system",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "playwright",
+      "label": "Playwright",
+      "reported_version": "1.56.1",
+      "kind": "npm",
+      "package": "playwright",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "npm",
+        "target": "playwright",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "browser_animate",
+      "label": "Chromium / Headless Shell for Animate",
+      "reported_version": "141.0.7390.37",
+      "kind": "browser",
+      "role": "animate",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "browser",
+        "target": "Chromium / Headless Shell for Animate",
+        "destination_role": "animate",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    },
+    {
+      "id": "browser",
+      "label": "Chrome Headless for other renders",
+      "reported_version": "152.0.7977.30",
+      "kind": "browser",
+      "role": "motion",
+      "host_evidence": {
+        "chatgpt_work": "owner_reported; must probe this session",
+        "codex": "Unknown until probed",
+        "claude_code": "Unknown until probed",
+        "claude_apps": "Unknown; requires an exposed executable environment",
+        "chatgpt": "Unknown; requires an exposed executable environment"
+      },
+      "install": {
+        "kind": "browser",
+        "target": "Chrome Headless for other renders",
+        "destination_role": "motion",
+        "rule": "Plan missing or broken components only. Check OS, architecture, Python ABI and existing authorization; install in a managed environment, then re-probe. Do not overwrite a working environment."
+      }
+    }
+  ]
+}

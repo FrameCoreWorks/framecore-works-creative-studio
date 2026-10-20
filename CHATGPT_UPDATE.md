@@ -40,7 +40,7 @@ if source or access changed.
 After success read back affected files and metadata. Report save success separately from incomplete
 verification. Repository publication and hosted updating remain separate operations.
 
-Finish with the [update check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update) of the required tools (`--update --host chatgpt_work`, or `--host chatgpt` in ordinary ChatGPT). In the chat sandbox it reports `pass`, `pass_with_updates` or `limited` (tools that sandbox lacks, which the user cannot install there); for the full required set, run the same check where Studio is installed on the user's machine.
+Finish every update with the [complete runtime check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#update-check-after-a-plugin-update), using `--update` and the actual host. It repeats all 59 components offline, including models and isolated Python/Node environments. Show missing/broken/Unknown findings and the concrete installation plan before executing it under existing scope authorization. Preserve working versions and private runtimes; a different reference version is not an automatic upgrade. Recheck afterward. `pass` confirms installation evidence; all other verdicts remain explicitly incomplete. Without execution, report Unknown. Saving the plugin alone is not proof its tools are installed.
 
 ## Readback record (optional)
 

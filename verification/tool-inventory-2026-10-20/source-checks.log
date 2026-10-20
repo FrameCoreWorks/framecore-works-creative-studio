@@ -1,0 +1,649 @@
+test_ambiguous_frontmatter_requires_review_before_writes (test_codex_install.InstallationChecks.test_ambiguous_frontmatter_requires_review_before_writes) ... ok
+test_body_name_does_not_create_a_false_collision (test_codex_install.InstallationChecks.test_body_name_does_not_create_a_false_collision) ... ok
+test_existing_skill_identity_blocks_before_writes (test_codex_install.InstallationChecks.test_existing_skill_identity_blocks_before_writes) ... ok
+test_extra_saved_file_fails_verification (test_codex_install.InstallationChecks.test_extra_saved_file_fails_verification) ... ok
+test_install_verify_and_repeat_preserve_every_byte (test_codex_install.InstallationChecks.test_install_verify_and_repeat_preserve_every_byte) ... ok
+test_local_edit_is_preserved_and_blocks_reinstall (test_codex_install.InstallationChecks.test_local_edit_is_preserved_and_blocks_reinstall) ... ok
+test_native_entry_carries_automatic_language_and_both_complete_sources (test_codex_install.InstallationChecks.test_native_entry_carries_automatic_language_and_both_complete_sources) ... ok
+test_native_entry_never_miscounts_the_work_area_menu (test_codex_install.InstallationChecks.test_native_entry_never_miscounts_the_work_area_menu) ... ok
+test_native_version_question_rereads_the_same_bundle_entry (test_codex_install.InstallationChecks.test_native_version_question_rereads_the_same_bundle_entry) ... ok
+test_partial_installation_is_not_overwritten (test_codex_install.InstallationChecks.test_partial_installation_is_not_overwritten) ... ok
+test_plan_is_read_only (test_codex_install.InstallationChecks.test_plan_is_read_only) ... ok
+test_symlink_and_nested_discovery_are_rejected (test_codex_install.InstallationChecks.test_symlink_and_nested_discovery_are_rejected) ... ok
+test_yaml_identity_variants_block_plan_and_install_without_writes (test_codex_install.InstallationChecks.test_yaml_identity_variants_block_plan_and_install_without_writes) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 10.599s
+
+OK
+test_conflicting_manifests_do_not_repair_silently (test_package_identity.PackageIdentityChecks.test_conflicting_manifests_do_not_repair_silently) ... ok
+test_inventory_verification_does_not_rewrite_stale_entry (test_package_identity.PackageIdentityChecks.test_inventory_verification_does_not_rewrite_stale_entry) ... ok
+test_missing_duplicate_and_reversed_markers_fail_before_write (test_package_identity.PackageIdentityChecks.test_missing_duplicate_and_reversed_markers_fail_before_write) ... ok
+test_updates_only_projection_and_is_idempotent (test_package_identity.PackageIdentityChecks.test_updates_only_projection_and_is_idempotent) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK
+test_blind_then_summarize (test_motion_benchmark.MotionBenchmarkTest.test_blind_then_summarize) ... /workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:36: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp__f8dory/blind/key.json' mode='r' encoding='UTF-8'>
+  key = json.load(open(os.path.join(blind, 'key.json')))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:41: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp__f8dory/blind/scores.csv' mode='r' encoding='UTF-8'>
+  rows = list(csv.DictReader(open(os.path.join(blind, 'scores.csv'))))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:53: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp__f8dory/blind/summary.json' mode='r' encoding='UTF-8'>
+  table = json.load(open(os.path.join(blind, 'summary.json')))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:57: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp__f8dory/blind/summary.md' mode='r' encoding='UTF-8'>
+  self.assertIn('| run-a |', open(os.path.join(blind, 'summary.md')).read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_briefs_are_complete (test_motion_benchmark.MotionBenchmarkTest.test_briefs_are_complete) ... /workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:66: ResourceWarning: unclosed file <_io.TextIOWrapper name='/workspace/scratch/68c6756cdc8e/repo/docs/motion-benchmark/briefs.json' mode='r' encoding='UTF-8'>
+  briefs = json.load(open(os.path.join(ROOT, 'docs/motion-benchmark/briefs.json')))['briefs']
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_contract_is_found_next_to_meta_json (test_motion_benchmark.MotionBenchmarkTest.test_contract_is_found_next_to_meta_json) ... /workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:81: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpq9r7wre8/blind/key.json' mode='r' encoding='UTF-8'>
+  key = json.load(open(os.path.join(blind, 'key.json')))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_meta_json_alone_is_not_a_contract (test_motion_benchmark.MotionBenchmarkTest.test_meta_json_alone_is_not_a_contract) ... /workspace/scratch/68c6756cdc8e/repo/tests/test_motion_benchmark.py:96: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmpyk120tx8/blind/key.json' mode='r' encoding='UTF-8'>
+  entry = next(e for e in json.load(open(os.path.join(blind, 'key.json'))).values() if e['run'] == 'run-b')
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_refuses_existing_output_and_empty_results (test_motion_benchmark.MotionBenchmarkTest.test_refuses_existing_output_and_empty_results) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 22.651s
+
+OK
+test_a_run_case_needs_observation_and_evidence (test_host_smoke.HostSmokeChecks.test_a_run_case_needs_observation_and_evidence) ... ok
+test_complete_record_passes (test_host_smoke.HostSmokeChecks.test_complete_record_passes) ... ok
+test_missing_client_or_reasoning_fails (test_host_smoke.HostSmokeChecks.test_missing_client_or_reasoning_fails) ... ok
+test_not_run_needs_a_reason (test_host_smoke.HostSmokeChecks.test_not_run_needs_a_reason) ... ok
+test_repository_records_pass (test_host_smoke.HostSmokeChecks.test_repository_records_pass) ... ok
+test_unknown_result_and_missing_case_fail (test_host_smoke.HostSmokeChecks.test_unknown_result_and_missing_case_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK
+test_complete_readback_with_hashes_is_full_byte_parity (test_hosted_readback.HostedReadback.test_complete_readback_with_hashes_is_full_byte_parity) ... ok
+test_extra_saved_files_are_listed_not_failed (test_hosted_readback.HostedReadback.test_extra_saved_files_are_listed_not_failed) ... ok
+test_missing_path_size_hash_or_version_is_a_mismatch (test_hosted_readback.HostedReadback.test_missing_path_size_hash_or_version_is_a_mismatch) ... ok
+test_readback_without_inventory_is_rejected (test_hosted_readback.HostedReadback.test_readback_without_inventory_is_rejected) ... ok
+test_record_is_written_once (test_hosted_readback.HostedReadback.test_record_is_written_once) ... ok
+test_sizes_without_every_hash_is_partial_parity (test_hosted_readback.HostedReadback.test_sizes_without_every_hash_is_partial_parity) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.067s
+
+OK
+test_claude_plugin_validate_passes_for_plugin_and_marketplace (test_claude_plugin.ClaudeValidator.test_claude_plugin_validate_passes_for_plugin_and_marketplace) ... skipped 'the claude command is not installed'
+test_installation_ends_with_the_final_check_and_updates_with_the_update_check (test_claude_plugin.Guides.test_installation_ends_with_the_final_check_and_updates_with_the_update_check) ... ok
+test_claude_manifest_matches_the_package_identity (test_claude_plugin.Manifests.test_claude_manifest_matches_the_package_identity) ... ok
+test_documented_limits_of_the_claude_apps (test_claude_plugin.Manifests.test_documented_limits_of_the_claude_apps) ... ok
+test_documented_naming_rules (test_claude_plugin.Manifests.test_documented_naming_rules) ... ok
+test_install_guide_names_the_marketplace_and_plugin (test_claude_plugin.Manifests.test_install_guide_names_the_marketplace_and_plugin) ... ok
+test_install_guide_runs_from_the_shell_and_handles_a_synced_copy (test_claude_plugin.Manifests.test_install_guide_runs_from_the_shell_and_handles_a_synced_copy) ... ok
+test_marketplace_lists_the_package_by_relative_source (test_claude_plugin.Manifests.test_marketplace_lists_the_package_by_relative_source) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.023s
+
+OK (skipped=1)
+test_a_dirty_tree_stops_before_anything_is_written (test_release.Release.test_a_dirty_tree_stops_before_anything_is_written) ... ok
+test_a_failed_asset_comparison_stops_the_record (test_release.Release.test_a_failed_asset_comparison_stops_the_record) ... ok
+test_commit_uses_the_current_development_surface (test_release.Release.test_commit_uses_the_current_development_surface) ... ok
+test_manifest_and_zip_skip_the_same_generated_files (test_release.Release.test_manifest_and_zip_skip_the_same_generated_files) ... ok
+test_node_counts_from_tap_and_spec_reporters (test_release.Release.test_node_counts_from_tap_and_spec_reporters) ... ok
+test_publish_refuses_a_dirty_tree (test_release.Release.test_publish_refuses_a_dirty_tree) ... ok
+test_the_publication_commit_holds_only_its_records (test_release.Release.test_the_publication_commit_holds_only_its_records) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.059s
+
+OK
+/tmp/studio-anatomy-FxMXVL/project
+/tmp/studio-anatomy-FxMXVL/page.html
+✔ complete pinned Anatomy graphics files retain upstream bytes and licence (5.764403ms)
+✔ frame bridge uses half-open frames and deterministic direct/backward/repeated seeks (1.39108ms)
+✔ SVG, WebGL and 3D fixtures build actual respective runtimes with one frame bridge (18.402899ms)
+✔ invalid runtimes/options fail and project/output creation never overwrites (14.857119ms)
+﹣ local browser renders all routes, repeats identical frames and exposes a mobile SVG fallback (0.217508ms) # SKIP
+✔ proposed example preserves strict locks and blocks unresolved references (1.571572ms)
+✔ timeline gaps and falsely measured timing are rejected (0.407266ms)
+✔ dissolve overlap is accounted for once and cannot consume a shot (0.909741ms)
+✔ unknown physical state, duplicate bridges and invalid clip duration fail (0.399793ms)
+✔ complex motion asks for human review rather than inventing a render verdict (0.283969ms)
+✔ malformed plans fail without throwing (0.142477ms)
+✔ scoped synthetic taste is valid without persisting it or inventing a reason (0.337604ms)
+✔ one implicit choice cannot become confirmed reusable taste (0.233874ms)
+✔ scope and evidence must survive the taste handoff (0.2214ms)
+✔ CLI is read-only and reports malformed JSON separately from invalid plans (164.552337ms)
+✔ exact archive preserves every original source path and file byte (65.344558ms)
+✔ reintroducing source skill frontmatter is detected by recursive discovery (508.1021ms)
+✔ archive corruption is detected independently of the expanded source mirror (436.37615ms)
+✔ orphaning a registered upgrade resource is caught even when every file still exists (437.522926ms)
+✔ grouped-menu example remains outside single-question learning onboarding (436.280559ms)
+✔ a standalone progress card retains the unfinished onboarding state (2846.701171ms)
+✔ learning is integrated with the same 37 skills and unexecuted evidence scope (156.614957ms)
+✔ historical greeting is preserved with a guarded effective mode-menu override (4.22139ms)
+✔ both intent labels and immediate production entry remain discoverable (1200.129533ms)
+✔ startup cannot lose its welcome, combined area and pace menu or displayed-menu number binding (7724.822243ms)
+✔ orchestrator and shared intake cannot bypass the creative pace transition (1176.589177ms)
+✔ the complete startup excerpt is available before general review instructions (0.291774ms)
+✔ truncating the startup excerpt fails even when the canonical asset remains intact (384.04502ms)
+✔ a protected-word change fails even when the excerpt and asset are changed together (393.804988ms)
+✔ moving the full welcome below general instructions fails startup placement (393.413235ms)
+✔ supplied mode-only, shortened, paraphrased and prefixed startup replies fail (0.784259ms)
+✔ supplied full repeated replies pass; unavailable actual reply remains Unknown (0.207231ms)
+✔ both full localized sources are early byte-matched excerpts (0.462818ms)
+✔ English truncation and synchronized English rewriting fail source guards (772.029412ms)
+✔ language policy cannot drift between entry and reference or follow the excerpts (824.164698ms)
+✔ automatic language signals and full translation remain mandatory in both owners (3188.493695ms)
+✔ reintroducing a fixed Polish default fails even beside the automatic language rule (435.492546ms)
+✔ supplied replies must match the complete selected-language source (0.343539ms)
+✔ lesson contract retains bounded onboarding, full plan, learner attempt and adaptive feedback (5256.04533ms)
+✔ learning permission boundary cannot silently lose the no-execution rule (413.005527ms)
+✔ domain coverage includes broad creative competence and no-render exercises (0.872949ms)
+✔ lost domain, exercise or owner is rejected (1146.229439ms)
+✔ domain sources cannot point outside the package or to a missing file (763.392895ms)
+✔ progress and mode switching preserve one Project State without claimed automatic completion (422.367538ms)
+✔ durable checkpoints and portable handoffs retain the same pending learning state (2054.396481ms)
+✔ scenario inventory covers learning, creation, resume, plan-only and provider boundaries (3.047406ms)
+✔ missing cases and fabricated executed outcomes fail closed (953.12098ms)
+✔ learning fixtures cannot imply generation or omit required research (1377.312616ms)
+✔ each teaching method retains its material safety and evidence boundary (3520.736053ms)
+✔ practice evidence survives every existing state and handoff projection (1790.07136ms)
+✔ new teaching scenarios preserve no-execution and unexecuted-outcome contracts (393.509071ms)
+✔ all pinned reusable source files remain byte-identical, with both rights notices (13.003624ms)
+✔ capability probe does not claim render execution or host registration (74.134924ms)
+✔ catalog search returns pinned external references without pretending their SVGs are bundled (72.443688ms)
+✔ new project creates a blank brief and refuses to overwrite an existing directory (130.344908ms)
+✔ full SVG/HTML build emits sheets, presentation, audits, variants and content-bound manifest (148.648916ms)
+✔ separate avatar geometry drives favicon and app-icon while the master stays unchanged (90.267519ms)
+✔ build rejects active SVG and package-local output before creating deliverables (121.976124ms)
+✔ corpus verification rejects incomplete or modified original references (62.262154ms)
+✔ greyscale contact sheet uses a filter-capable browser instead of silent Cairo colour output (67.223832ms)
+✔ renderer failure records incomplete output and cannot satisfy a required raster build (77.094922ms)
+﹣ raster build verifies PNG and favicon files instead of treating upstream exit zero as completion (0.133826ms) # SKIP
+✔ one 180-frame timeline contains exact opening and closing data with a final hold (2.993906ms)
+✔ backward/direct/replayed state does not depend on history (1.941049ms)
+✔ all frames are finite and reject invalid and endpoint indices (2.686487ms)
+✔ asset rates are mapped separately, with an exclusive end and no implicit loop (0.399474ms)
+✔ rational frame time and half-open end are respected (0.207476ms)
+✔ score rejects gaps, invalid holds and out-of-range sound tails (0.553897ms)
+✔ review includes both sides of boundaries, holds and final frame (0.320778ms)
+✔ Paper receives milliseconds after playback is stopped, including backward seeks (0.241055ms)
+✔ Tone schedules seconds and includes release in declared cue duration (0.571127ms)
+✔ audio rejects aliasing frequencies at selected sample rate (0.589478ms)
+✔ library validates unique substantive records and exposes provenance (9.672614ms)
+✔ search respects related opt-in and Polish aliases (11.478295ms)
+✔ creator-only records cannot silently gain redistributed text or tested status (2.20814ms)
+✔ brief index points to existing original records and matches Polish briefs (7.161966ms)
+✔ brief index rejects unknown, imported or excessive records (4.808145ms)
+✔ brief tags name scene kinds that the linked contract shows (3.342408ms)
+﹣ twenty runnable snippets build complete storyboards that the renderer draws without cropping (0.078695ms) # no Arial or metric-compatible font (Liberation Sans, Arimo): these examples are laid out for Arial
+✔ original blueprints have record-specific objectives (2.496298ms)
+✔ motion toolkit source inventory and pinned dependency graphs agree (10.174824ms)
+✔ missing example source fails (79.562254ms)
+✔ unpinned dependency and altered graph fail (72.271667ms)
+✔ bundled runtime installation fails (72.110833ms)
+✔ score CLI validates and writes a storyboard in paths containing spaces, # and % (378.45477ms)
+✔ runtime starters share one valid motion score with readable holds (5.428068ms)
+✔ starter checker rejects gaps, missing copy and short holds (0.897844ms)
+✔ diverging starter contracts fail the toolkit check (76.198982ms)
+✔ single-file preview stays offline and embeds the shared contract (161.477568ms)
+✔ starter contract is a complete storyboard and renders for approval (0.853739ms)
+✔ storyboard check rejects incomplete scenes and unsupported approval (0.55286ms)
+✔ scene engine renders every kind deterministically and never scales a logo (13.992539ms)
+✔ checker kinds match the engine and the all-kinds example is a complete storyboard (1.575762ms)
+✔ ad templates are complete storyboards in every format with placeholder copy to replace (1.786738ms)
+✔ formats resolve from one contract and keep the 16:9 layout unchanged (1.570401ms)
+✔ diverging scene engine copies fail the toolkit check (140.439507ms)
+✔ frame review selects contract frames and embeds the score in the preview (6.590598ms)
+﹣ frame review finds no issues in the starter and errors in a broken contract (0.105531ms) # SKIP
+﹣ the Python renderer matches the browser engine frame by frame (0.031294ms) # set MOTION_REVIEW_BROWSER and install Pillow
+✔ subtitles parse from SRT and WebVTT into exact caption copy and frames (2.529862ms)
+✔ beat grid, caption layer and checks follow the contract (3.826613ms)
+✔ WebM muxer writes one block per frame and a cluster per keyframe (3.312222ms)
+✔ MP4 muxer writes H.264 sample tables that point into mdat (3.796168ms)
+✔ diverging video export copy fails the toolkit check (73.123705ms)
+✔ planned motion and sound cases stay planned, complete and owned by real skills (256.784962ms)
+﹣ browser export writes a playable file for a chosen format (0.05334ms) # SKIP
+✔ HTML capture counts frames from rational rates and refuses bad ones (1.696393ms)
+✔ HTML capture keeps every frame when the audio is shorter than the picture (audit MEDIA-04) (389.06055ms)
+﹣ HTML capture renders a page frame by frame, identically on two runs (0.086447ms) # SKIP
+✔ sweep exit hands over with a crossing line and leaves other exits unchanged (1.328995ms)
+✔ check-preview accepts the template with a new contract and rejects rewrites (11.71114ms)
+✔ copy containing </script> is embedded safely and an unsafe embedding is rejected (3.083139ms)
+✔ player links carry the contract in the fragment and round-trip exactly (1.769595ms)
+✔ the motion player can open a contract and keeps shortcuts out of text fields (0.572947ms)
+﹣ the motion player draws a contract from the address fragment (0.04196ms) # SKIP
+✔ contract revisions diff values and extend a scene while moving everything after it (3.355669ms)
+✔ a delivered render script is named in the contract and follows each revision (0.82579ms)
+✔ Python renderer matches the engine kinds and easings and renders deterministic stills (1354.899883ms)
+✔ motion styles apply to a contract, keep text contrast and use known easings (2.082221ms)
+✔ retained kaventro/motion-designer scripts match the recorded hashes (0.780347ms)
+✔ beats.py finds tempo, bar 1 and the drop of a click track and music_edit.py cuts whole bars (959.143606ms)
+✔ check-score and the craft critique use one reading-time rule (35.139462ms)
+✔ Python renderer motion blur keeps holds sharp and phone-size stills scale down (1238.728526ms)
+✔ device scenes place screenshots in a phone or browser window, push screens and focus the camera (3.276397ms)
+✔ Python renderer draws device scenes deterministically (1682.020512ms)
+✔ device taps press before the screen change, the browser frame shows its address, scene backgrounds wipe in (3.658449ms)
+✔ Python renderer draws taps, the browser frame and wiping backgrounds deterministically (2822.270362ms)
+﹣ the craft critique scores a contract, renders its review frames and gives concrete fixes (0.0749ms) # no Arial or metric-compatible font (Liberation Sans, Arimo): color-block is laid out for Arial
+✔ sound designs render deterministically, finite and aligned, and match the checker list (34508.690728ms)
+✔ after a reveal well before the end the music plays on and resolves in the last bar (3687.35717ms)
+✔ a cue with no sound in its window is reported missing, never measured on time (181.195884ms)
+✔ a timing claim says what it covers: masked cues are not judged, never counted as checked (152.910398ms)
+✔ sound cues follow the picture: taps, pushes, wipes, landings, a composed bed and checked contracts (1779.812139ms)
+✔ every video gets newly designed sounds and music, with reasons, variations, overrides and a quality gate (16305.12873ms)
+✔ a mastered sound mix puts every hit on its frame (17368.132499ms)
+✔ the balanced tone lifts presence and air, trims low-mid, and the phone check flags a bass-only mix (149.086186ms)
+✔ supplied footage gets designed sound from its measured cuts, marked moments and reveal (6413.825136ms)
+✔ the contract checks the commercial argument and keeps unverified claims out of the copy (1.547853ms)
+﹣ the visible-text audit catches every clipped word and passes complete text and transition masks (0.062123ms) # SKIP
+﹣ the frame review blocks a contract whose word is cut while the encoded pixels look tidy (0.078977ms) # SKIP
+✔ contract fonts and content scale are checked, and both engines scale sizes the same way (72.681738ms)
+﹣ the motion player loads embedded contract fonts before reviewing (0.068381ms) # SKIP
+✔ lower thirds and bar charts lay out and count identically in the JS engine and the Python renderer (77.015856ms)
+✔ line charts, word entries and persistent elements lay out identically in the JS engine and the Python renderer (78.13265ms)
+✔ active-word captions keep Polish word groups, light the spoken word and match the Python renderer (76.076554ms)
+✔ web motion probe takes a URL or an existing local page and nothing else (1.279552ms)
+﹣ web motion probe reads CSS animations, transitions and GSAP tweens from a page (0.108774ms) # SKIP
+✔ the shared presentation policy and its planned cases pass canonical validation (212.967677ms)
+✔ every installed skill has exactly one coverage row (0.650071ms)
+✔ a module without coverage, or with an empty text path, fails (472.354635ms)
+✔ a domain source that loses its route to its adaptation fails (416.352231ms)
+✔ a skill that stops reading the integration authority loses the policy and fails (418.003513ms)
+✔ a planned case cannot claim a host result or drop its text path (396.515564ms)
+✔ a host without native elements must expect the text path (402.957936ms)
+✔ dropping a required scenario family fails (429.045557ms)
+✔ the host basis accepts only dated official sources with an Unknown list (427.451985ms)
+✔ dropping the interactive offer rule or its route fails (393.605222ms)
+✔ the startup welcome stays byte-checked after the presentation change (389.428459ms)
+✔ retrieval filters domain, stage and hard locks before ranking, with a three-case ceiling (3.398368ms)
+✔ malformed or duplicate anchors cannot enter retrieval (0.473459ms)
+✔ exact copy rejects substring, spacing, punctuation and glyph drift (1.13742ms)
+✔ plan PASS does not certify media, and authored text cannot certify a raster (0.295216ms)
+✔ missing, stale and duplicate evidence do not pass (0.361285ms)
+✔ dimension, number/unit, count and duration defects remain separate hard failures (1.090224ms)
+✔ invalid contracts and unrequested copy cannot become a vacuous PASS (0.364318ms)
+✔ reversed pairwise verdicts map to candidates and never imply human calibration (0.420859ms)
+✔ hard failure defeats beauty while Unknown and stale gates block acceptance (0.208521ms)
+✔ a tested Reflexion proposal needs separate explicit scoped adoption (0.470383ms)
+✔ untested, unscoped or falsely confident lessons are rejected (0.264531ms)
+✔ canonical checks catch removal of a quality guard and stale F03 owners (591.514558ms)
+✔ skill descriptions stay valid YAML: an unquoted colon or a broken quote fails (2916.342262ms)
+✔ every reference and template is linked from a skill; a "(moved)" pointer is exempt (1375.941843ms)
+✔ the capability card names real tools and owners and is linked where capabilities are decided (2035.701135ms)
+✔ dated generator snapshots and the research owner agree on each snapshot date (914.784412ms)
+✔ the environment check covers every requirement of the capability card and is linked from the entry (2405.31025ms)
+✔ an invocation sent with a screenshot, file or text is routed as a task, never answered with the welcome (378.479333ms)
+✔ HyperFrames is an optional engine under Studio routing, never selected by area 8 alone (0.742765ms)
+✔ general motion keeps its stable ID, neutral display name and requirement-led runtime policy (401.766435ms)
+✔ canonical validation passes with explicit structural scope and no legacy execution (151.414159ms)
+✔ entry package identity rejects stale, wrong, malformed, absent and duplicate evidence (1965.576297ms)
+✔ version identity must precede startup and preserve truthful source reporting (2361.776683ms)
+✔ missing short descriptions fail for the entry owner and existing specialists (1169.761591ms)
+✔ blank, non-string, malformed and duplicate interface descriptions fail closed (3900.656183ms)
+✔ short descriptions must belong to interface and retain the authoring length range (2472.014386ms)
+✔ automatic output review cannot disappear from a directly invoked owner (1871.005865ms)
+✔ automatic output review retains its budget and uninspected-media boundary (1191.856168ms)
+✔ brand strategy, visual craft and guide delivery retain their shared profile (1142.773616ms)
+✔ brand profile cannot drop vector evidence or revision-aware delivery (797.981ms)
+✔ installed version directory and authoring slug accept both equivalent skills paths (1557.275416ms)
+✔ compact entry keeps its budget and the moved rare-path rules (1172.261779ms)
+✔ overlapping owners name their neighbors and explicit-only owners stay explicit (1183.34575ms)
+✔ every routed specialist appears in at least one orchestrator table route (14638.06473ms)
+✔ image reference, edit base and review target routes have distinct owners (1197.967834ms)
+✔ complete pinned Static Graphic Design Creator bundle is byte-verified (1.326157ms)
+✔ duplicate route and dropped registry owner cannot look valid (536.559395ms)
+✔ deleting privacy and untrusted-source paragraph fails the canonical gate (387.08674ms)
+✔ research link retained while the conditional gate is removed or reverted still fails (787.966884ms)
+✔ research triggers, untriggered restraint and offline handling are protected (401.785438ms)
+✔ planned research expectations require a named trigger or an untriggered reason (1598.764051ms)
+✔ README and migration release drift is rejected independently (789.731499ms)
+✔ manifest identity, keywords and strict semver mutations fail (2082.463107ms)
+✔ escaping discovery paths, absolute paths and symlinks are blocked (1439.13176ms)
+✔ portable or fallback integrations cannot be silently added (1561.847577ms)
+✔ missing references, escaped Markdown links and missing fragments fail (1168.24272ms)
+✔ effective loader preserves historical files and applies seven source-guarded overrides (3.276551ms)
+✔ campaign entry and static production keep the same reachable workflow (1162.540732ms)
+✔ campaign source guards reject lost claim, access and synthetic-person boundaries (1141.990507ms)
+✔ campaign recovery and evaluation evidence fail closed on drift (761.858678ms)
+✔ override source mismatch fails closed instead of silently changing historical meaning (418.612154ms)
+✔ missing reviewed override and malformed registry fail closed (837.252324ms)
+✔ PA05 preserves scoped user authorization while unavailable capabilities block execution (3.688808ms)
+✔ research failure and evidence scenarios stay planned rather than claiming execution (422.980026ms)
+✔ the retired legacy diagnostics never run and never turn a canonical failure into a pass (150.455049ms)
+✔ knowledge coverage cannot silently lose cases or claim executed outcomes (808.300987ms)
+✔ exact copy cannot match inside a longer word or price (18.459266ms)
+✔ blueprint QA gates and mapped audio owner cannot disappear (2882.028424ms)
+✔ matching graph and prose cannot remove outgoing music handoffs (402.29707ms)
+✔ each required image operation contract must occur exactly once (4180.233884ms)
+✔ workflow-kit candidate passes canonical validation (295.807098ms)
+✔ CQoT cannot use a conflicting quality-gate expansion (687.988272ms)
+✔ method handoffs cannot lose the shared review budget or evidence boundary (988.366932ms)
+✔ direct reviewer and research owners must retain the conditional method route (845.184291ms)
+✔ static-only blueprints cannot restore separate copy or prompt intake (484.028334ms)
+✔ a passing Copy Pack cannot acquire a compulsory rewrite cycle (420.046273ms)
+✔ corrupted or extra snapshot files fail byte inventory (892.054577ms)
+✔ source skill omissions and active resource omissions are rejected (848.503673ms)
+✔ active method must be reachable from the real skill root (428.795995ms)
+✔ a stale role map cannot hide behind valid skill names (772.668567ms)
+✔ a missing handoff field or gate owner fails contract parity (1447.124948ms)
+✔ all mapped roles are reachable through the formal handoff graph (447.304646ms)
+✔ a required research route cannot disappear from a planned case (419.305111ms)
+✔ supplied images route by reference, edit-base, and review operation (436.538391ms)
+✔ research policy keeps explicit triggers, untriggered and unavailable rules (1276.046751ms)
+✔ research preflight has a reachable request, return handoff, and shared blueprint gate (433.189259ms)
+✔ video QA cannot be redirected to still-only review (418.068465ms)
+✔ silent continuity downgrade is a regression even with the authority page present (411.54496ms)
+✔ integration specifications cannot disappear or claim model execution (849.820435ms)
+✔ relocated helpers support stdin import and share the authoritative static catalog (76.028943ms)
+ℹ tests 238
+ℹ suites 0
+ℹ pass 225
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 13
+ℹ todo 0
+ℹ duration_ms 221552.51252
+test_call_and_cost_budgets_stop_before_unauthorized_call (test_gepa_studio_pilot.PilotBoundaries.test_call_and_cost_budgets_stop_before_unauthorized_call) ... ok
+test_external_callbacks_require_approval_and_caps_before_any_call (test_gepa_studio_pilot.PilotBoundaries.test_external_callbacks_require_approval_and_caps_before_any_call) ... ok
+test_hard_gate_failure_or_unknown_has_zero_score_and_no_raw_output (test_gepa_studio_pilot.PilotBoundaries.test_hard_gate_failure_or_unknown_has_zero_score_and_no_raw_output) ... skipped 'Install the pinned optional GEPA development dependency'
+test_holdout_and_ids_remain_separate (test_gepa_studio_pilot.PilotBoundaries.test_holdout_and_ids_remain_separate) ... ok
+test_invalid_numeric_budgets_fail_closed (test_gepa_studio_pilot.PilotBoundaries.test_invalid_numeric_budgets_fail_closed) ... ok
+test_missing_gate_cannot_score_as_success (test_gepa_studio_pilot.PilotBoundaries.test_missing_gate_cannot_score_as_success) ... skipped 'Install the pinned optional GEPA development dependency'
+test_official_engine_pilot_is_zero_cost_proposal_only_and_source_unchanged (test_gepa_studio_pilot.PilotBoundaries.test_official_engine_pilot_is_zero_cost_proposal_only_and_source_unchanged) ... skipped 'Install the pinned optional GEPA development dependency'
+test_target_and_protected_text_cannot_be_widened (test_gepa_studio_pilot.PilotBoundaries.test_target_and_protected_text_cannot_be_widened) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK (skipped=3)
+.......................
+----------------------------------------------------------------------
+Ran 23 tests in 0.068s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 1.600s
+
+OK
+........................
+----------------------------------------------------------------------
+Ran 24 tests in 2.773s
+
+OK
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 0.078s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 6.661s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.659s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 4.456s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.423s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.004s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.089s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.325s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.128s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 2.920s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.752s
+
+OK
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.011s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.075s
+
+OK
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 2.479s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.066s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.091s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.248s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.086s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.414s
+
+OK
+..
+----------------------------------------------------------------------
+Ran 2 tests in 1.475s
+
+OK
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.164s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 2.830s
+
+OK
+../workspace/scratch/68c6756cdc8e/repo/plugins/framecore-work-creative-studio/tests/svg_wordmark_test.py:79: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  a = [v > 127 for v in ours.getdata()]
+/workspace/scratch/68c6756cdc8e/repo/plugins/framecore-work-creative-studio/tests/svg_wordmark_test.py:80: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  b = [v > 127 for v in reference.getdata()]
+./workspace/scratch/68c6756cdc8e/repo/plugins/framecore-work-creative-studio/tests/svg_wordmark_test.py:51: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  self.assertGreater(sum(1 for a in image.getchannel('A').getdata() if a > 128), 1000)
+..
+----------------------------------------------------------------------
+Ran 5 tests in 1.387s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 1.784s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.481s
+
+OK
+PASS: still 0%, longest still 0.0 s, mean change 4.13
+{
+  "seconds": 4.0,
+  "still_share": 1.0,
+  "longest_still_seconds": 3.83,
+  "longest_still_ends_at": 3.83,
+  "mean_change": 0.0,
+  "declared_holds": [],
+  "verdict": "REVISE",
+  "problems": [
+    "100% of the undeclared time stands still (limit 40%)",
+    "a 3.83 s still ends at 3.83 s (limit 2.5 s)"
+  ]
+}
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.140s
+
+OK
+supplied: 3 lines, 82% of lyric words matched, 120.0 BPM, 1 cuts on a half-beat; check lines [2] by ear
+supplied: 3 lines, 82% of lyric words matched, 120.0 BPM, 2 cuts on a half-beat; check lines [2] by ear
+test_a_kick_track_gives_one_hit_per_beat_and_injects_into_a_composition (__main__.Envelope.test_a_kick_track_gives_one_hit_per_beat_and_injects_into_a_composition) ... audio_envelope: 120 frames at 30 fps, 8 hits, band :120 Hz, above half level 46% of the time
+audio_envelope: /tmp/tmp6gzzk062/missing.wav: no such file
+ok
+test_band_parsing (__main__.Envelope.test_band_parsing) ... ok
+test_hits_need_a_jump_and_a_gap (__main__.Envelope.test_hits_need_a_jump_and_a_gap) ... ok
+test_smoothing_rises_fast_and_falls_slowly (__main__.Envelope.test_smoothing_rises_fast_and_falls_slowly) ... ok
+test_the_example_carries_an_identical_kit_and_the_envelope_markers (__main__.Kit.test_the_example_carries_an_identical_kit_and_the_envelope_markers) ... ok
+test_the_kernel_projects_isometrically_and_the_demo_envelope_is_deterministic (__main__.Kit.test_the_kernel_projects_isometrically_and_the_demo_envelope_is_deterministic) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.166s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 6.400s
+
+OK
+test_a_regular_edit_fits_one_grid_and_reports_the_outlier (__main__.Grid.test_a_regular_edit_fits_one_grid_and_reports_the_outlier) ... ok
+test_cut_starts_are_the_first_frame_of_the_new_shot_and_debounced (__main__.Grid.test_cut_starts_are_the_first_frame_of_the_new_shot_and_debounced) ... ok
+test_a_synthetic_edit_is_broken_down (__main__.Video.test_a_synthetic_edit_is_broken_down) ... breakdown: /tmp/tmpbcphvtb9/none.mp4: no such file
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.507s
+
+OK
+breakdown: 7 cuts at [0.667, 1.333, 2.0, 2.667, 3.333, 4.0, 4.667]
+breakdown: grid {'t0_frame': 19.97, 'step_frames': 20.01, 'max_residual_frames': 0.03, 'units_per_cut': [0, 1, 2, 3, 4, 5, 6], 'outlier_cut_index': [], 'bpm_if_step_is_eighth': 44.98, 'bpm_if_step_is_quarter': 89.96}
+breakdown: wrote /tmp/tmpbcphvtb9/out
+test_a_plain_css_file_is_linted (__main__.CraftLint.test_a_plain_css_file_is_linted) ... ok
+test_allow_and_exit_codes (__main__.CraftLint.test_allow_and_exit_codes) ... ok
+test_anti_slop_rules_for_interface_honesty_and_layout (__main__.CraftLint.test_anti_slop_rules_for_interface_honesty_and_layout) ... ok
+test_caps_tracking_converts_px_with_the_rule_font_size (__main__.CraftLint.test_caps_tracking_converts_px_with_the_rule_font_size) ... ok
+test_contrast_check_matches_the_reference_pairs (__main__.CraftLint.test_contrast_check_matches_the_reference_pairs) ... ok
+test_every_tell_fires_once (__main__.CraftLint.test_every_tell_fires_once) ... ok
+test_raw_hex_and_accent_overuse (__main__.CraftLint.test_raw_hex_and_accent_overuse) ... ok
+test_studio_video_compositions_raise_nothing (__main__.CraftLint.test_studio_video_compositions_raise_nothing) ... ok
+test_tokens_running_text_emoji_and_tracked_caps_pass (__main__.CraftLint.test_tokens_running_text_emoji_and_tracked_caps_pass) ... ok
+test_every_record_is_openly_licensed_attributed_and_unique (__main__.PromptExamples.test_every_record_is_openly_licensed_attributed_and_unique) ... ok
+test_excluded_records_stay_out (__main__.PromptExamples.test_excluded_records_stay_out) ... ok
+test_show_prints_the_credit_and_search_filters (__main__.PromptExamples.test_show_prints_the_credit_and_search_filters) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.032s
+
+OK
+test_an_open_design_package_imports_its_tokens_and_antipatterns (__main__.DesignMd.test_an_open_design_package_imports_its_tokens_and_antipatterns) ... ok
+test_export_writes_tokens_by_role_and_marks_what_is_missing (__main__.DesignMd.test_export_writes_tokens_by_role_and_marks_what_is_missing) ... ok
+test_round_trip_keeps_colours_roles_and_donts (__main__.DesignMd.test_round_trip_keeps_colours_roles_and_donts) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.533s
+
+OK
+test_caps_threes_headers_and_emoji (__main__.AiWritingCheck.test_caps_threes_headers_and_emoji) ... ok
+test_cli_exit_codes_and_json (__main__.AiWritingCheck.test_cli_exit_codes_and_json) ... ok
+test_dashes_are_not_flagged_in_polish (__main__.AiWritingCheck.test_dashes_are_not_flagged_in_polish) ... ok
+test_english_slop_is_a_cluster (__main__.AiWritingCheck.test_english_slop_is_a_cluster) ... ok
+test_plain_copy_is_clean_and_single_tells_are_not_a_verdict (__main__.AiWritingCheck.test_plain_copy_is_clean_and_single_tells_are_not_a_verdict) ... ok
+test_polish_slop_is_a_cluster (__main__.AiWritingCheck.test_polish_slop_is_a_cluster) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.247s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.320s
+
+OK
+test_every_integrated_reference_is_linked_from_its_owners (__main__.KnowledgeWiring.test_every_integrated_reference_is_linked_from_its_owners) ... ok
+test_the_capability_card_names_every_wired_tool (__main__.KnowledgeWiring.test_the_capability_card_names_every_wired_tool) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
+test_snapshot_detects_dirty_edits_and_keeps_the_exact_candidate (test_host_eval.CandidateSnapshot.test_snapshot_detects_dirty_edits_and_keeps_the_exact_candidate) ... ok
+test_a_changed_offer_fails_and_the_count_of_directions_is_exact (test_host_eval.Checks.test_a_changed_offer_fails_and_the_count_of_directions_is_exact) ... ok
+test_a_failed_later_turn_keeps_the_finished_turns_and_their_usage (test_host_eval.Checks.test_a_failed_later_turn_keeps_the_finished_turns_and_their_usage) ... ok
+test_a_failed_tool_call_is_not_a_loaded_skill (test_host_eval.Checks.test_a_failed_tool_call_is_not_a_loaded_skill) ... ok
+test_a_negated_motif_is_not_counted_as_used (test_host_eval.Checks.test_a_negated_motif_is_not_counted_as_used) ... ok
+test_a_question_mark_inside_requested_copy_is_not_a_question_to_the_user (test_host_eval.Checks.test_a_question_mark_inside_requested_copy_is_not_a_question_to_the_user) ... ok
+test_an_api_key_stops_the_runs_unless_the_owner_allows_it (test_host_eval.Checks.test_an_api_key_stops_the_runs_unless_the_owner_allows_it) ... host_eval: ANTHROPIC_API_KEY is set, so these runs would be billed to an API account, not the Claude plan; unset it, or pass --allow-api-billing on the owner's request
+ok
+test_change_request_template_uses_the_harness_vocabulary (test_host_eval.Checks.test_change_request_template_uses_the_harness_vocabulary) ... ok
+test_directions_are_found_in_headings_bold_labels_or_numbers (test_host_eval.Checks.test_directions_are_found_in_headings_bold_labels_or_numbers) ... ok
+test_language_and_version_placeholder (test_host_eval.Checks.test_language_and_version_placeholder) ... ok
+test_not_only_is_not_a_negation_and_variant_labels_are_directions (test_host_eval.Checks.test_not_only_is_not_a_negation_and_variant_labels_are_directions) ... ok
+test_one_template_answer_does_not_pass_every_brief (test_host_eval.Checks.test_one_template_answer_does_not_pass_every_brief) ... ok
+test_questions_in_a_list_count_when_they_ask_the_user (test_host_eval.Checks.test_questions_in_a_list_count_when_they_ask_the_user) ... ok
+test_reads_any_accepts_a_reference_or_a_loaded_skill (test_host_eval.Checks.test_reads_any_accepts_a_reference_or_a_loaded_skill) ... ok
+test_skills_and_commands_come_from_the_tool_calls (test_host_eval.Checks.test_skills_and_commands_come_from_the_tool_calls) ... ok
+test_welcome_must_be_byte_identical (test_host_eval.Checks.test_welcome_must_be_byte_identical) ... ok
+test_cases_resolve_and_every_check_is_known (test_host_eval.Suite.test_cases_resolve_and_every_check_is_known) ... ok
+test_every_suite_and_the_gate_fit_the_owner_case_limits (test_host_eval.Suite.test_every_suite_and_the_gate_fit_the_owner_case_limits) ... ok
+test_routing_set_is_polish_and_checks_the_owner (test_host_eval.Suite.test_routing_set_is_polish_and_checks_the_owner) ... ok
+test_sourced_cases_take_the_request_from_the_package_evals (test_host_eval.Suite.test_sourced_cases_take_the_request_from_the_package_evals) ... ok
+test_no_dollar_total_is_computed_or_recorded (test_host_eval.Usage.test_no_dollar_total_is_computed_or_recorded) ... ok
+test_tokens_sum_every_model_or_fall_back_to_usage (test_host_eval.Usage.test_tokens_sum_every_model_or_fall_back_to_usage) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.030s
+
+OK
