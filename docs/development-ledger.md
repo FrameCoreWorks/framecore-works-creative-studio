@@ -2767,6 +2767,8 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: published source `50f7357e550c877869b70a2551da7790f2610ecc`, v1.113.0 and six digest-verified assets; 1516/1516 plugin ZIP files match the tag tree. Authenticated connector fast-forwarded main with an expected-head guard; local duplicate reconciled by rebase. [Publication](../verification/github-publication-1.113.0.json).
+- ChatGPT Work: synchronized saved release `pluginrel_6ad7e42f10f0819194506d3275c23ae0`, all 1567 files equal the merged candidate. Private integrations retained. Saved validator, 36 FrameCut tests and 59/59 installation probes pass. [Readback](../verification/hosted-sync-1.113.0.json). Fresh clients NOT_RUN.
 - Codex: not_run
+
+- Publication follow-up: corrected the repository-only release-notes heading after the refresh job exposed its exact format requirement. This does not change the shared package or require another hosted release. The original source/full gates remain the evidence for unchanged executable code.

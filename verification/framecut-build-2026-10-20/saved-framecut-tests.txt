@@ -1,0 +1,41 @@
+test_bool_and_nonfinite_not_numbers (__main__.Contract.test_bool_and_nonfinite_not_numbers) ... ok
+test_caption_projection_and_owner_sidecars (__main__.Contract.test_caption_projection_and_owner_sidecars) ... ok
+test_caption_revision_keeps_analysis (__main__.Contract.test_caption_revision_keeps_analysis) ... ok
+test_child_timeout_is_bounded (__main__.Contract.test_child_timeout_is_bounded) ... ok
+test_cut_word_and_segment_are_flagged (__main__.Contract.test_cut_word_and_segment_are_flagged) ... ok
+test_duplicate_json_key_rejected (__main__.Contract.test_duplicate_json_key_rejected) ... ok
+test_exact_rational_clock_and_sample_boundary (__main__.Contract.test_exact_rational_clock_and_sample_boundary) ... ok
+test_half_source_tick_quantization_is_not_a_clipped_word (__main__.Contract.test_half_source_tick_quantization_is_not_a_clipped_word) ... ok
+test_independent_narration_caption_source_and_anchor (__main__.Contract.test_independent_narration_caption_source_and_anchor) ... ok
+test_invalid_locks_cannot_corrupt_project (__main__.Contract.test_invalid_locks_cannot_corrupt_project) ... ok
+test_missing_capability_is_specific (__main__.Contract.test_missing_capability_is_specific) ... ok
+test_no_speech_does_not_invent_transcript (__main__.Contract.test_no_speech_does_not_invent_transcript) ... ok
+test_orphan_anchor_rejected (__main__.Contract.test_orphan_anchor_rejected) ... ok
+test_outputs_are_not_overwritten (__main__.Contract.test_outputs_are_not_overwritten) ... ok
+test_stale_revision_and_immutable_history (__main__.Contract.test_stale_revision_and_immutable_history) ... ok
+test_traversal_absolute_and_symlink (__main__.Contract.test_traversal_absolute_and_symlink) ... ok
+test_unicode_and_spaces (__main__.Contract.test_unicode_and_spaces) ... ok
+test_unknown_operation_does_not_mutate (__main__.Contract.test_unknown_operation_does_not_mutate) ... ok
+test_unknown_schema_and_fields (__main__.Contract.test_unknown_schema_and_fields) ... ok
+test_unknown_word_time_never_becomes_zero (__main__.Contract.test_unknown_word_time_never_becomes_zero) ... ok
+test_changed_source_rejected_before_render (__main__.Media.test_changed_source_rejected_before_render) ... ok
+test_clipped_word_blocker_and_transcript_integrity (__main__.Media.test_clipped_word_blocker_and_transcript_integrity) ... ok
+test_corrupted_delivery_is_rejected (__main__.Media.test_corrupted_delivery_is_rejected) ... ok
+test_disk_budget_and_timeout_do_not_publish (__main__.Media.test_disk_budget_and_timeout_do_not_publish) ... ok
+test_explicit_crossfade_preserves_declared_length (__main__.Media.test_explicit_crossfade_preserves_declared_length) ... ok
+test_export_is_honest_and_legacy_preserved (__main__.Media.test_export_is_honest_and_legacy_preserved) ... ok
+test_final_frame_count_sources_and_audio_unchanged_by_title_revision (__main__.Media.test_final_frame_count_sources_and_audio_unchanged_by_title_revision) ... ok
+test_hdr_is_not_silently_washed_out (__main__.Media.test_hdr_is_not_silently_washed_out) ... ok
+test_immutable_locks_and_undo_content (__main__.Media.test_immutable_locks_and_undo_content) ... ok
+test_insufficient_handles_and_overlap (__main__.Media.test_insufficient_handles_and_overlap) ... ok
+test_kinetic_requires_actual_words_and_blocks_partial_speech (__main__.Media.test_kinetic_requires_actual_words_and_blocks_partial_speech) ... ok
+test_motion_only_and_safe_text (__main__.Media.test_motion_only_and_safe_text) ... ok
+test_moving_anchor_invalidates_mix_and_moves_actual_audio (__main__.Media.test_moving_anchor_invalidates_mix_and_moves_actual_audio) ... ok
+test_rational_master_and_independent_audio (__main__.Media.test_rational_master_and_independent_audio) ... ok
+test_transition_cannot_overrun_short_previous_clip (__main__.Media.test_transition_cannot_overrun_short_previous_clip) ... ok
+test_undo_retains_current_locks (__main__.Media.test_undo_retains_current_locks) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 13.556s
+
+OK

@@ -228,6 +228,12 @@
   ],
   "review": "Owner-requested FrameCut editing mode: adaptive intake, source analysis, exact editable timeline, captions/motion/audio, immutable revisions and verified delivery; welcome option 5 and single-owner orchestration.",
   "source": "Release 1.113.0: build and integrate FrameCut",
-  "github_publication": "NOT_RUN",
-  "host_behavior": "NOT_RUN"
+  "github_publication": "PASS",
+  "host_behavior": "NOT_RUN",
+  "publication": {
+    "source_commit": "50f7357e550c877869b70a2551da7790f2610ecc",
+    "record": "github-publication-1.113.0.json"
+  },
+  "hosted_release_id": "pluginrel_6ad7e42f10f0819194506d3275c23ae0",
+  "saved_hosted_package": "PASS"
 }

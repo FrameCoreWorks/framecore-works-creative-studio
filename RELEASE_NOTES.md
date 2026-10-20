@@ -1,4 +1,6 @@
-# Studio 1.113.0 — FrameCut
+# Creative Studio 1.113.0
+
+FrameCut
 
 FrameCut is option 5 in the complete Studio welcome. It coordinates analysis, editing, highlights, kinetic captions, motion, sound, revisions and final delivery through one editable project. Direct tasks and resumes keep their context; the technical skill ID stays opencut-video-studio.
 

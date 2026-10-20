@@ -1,0 +1,35 @@
+{
+  "version": "1.113.0",
+  "source_commit": "50f7357e550c877869b70a2551da7790f2610ecc",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "previous_hosted_version": "1.112.0",
+  "previous_release_id": "pluginrel_6ad7c92acb7081919bd776b566bba6b6",
+  "release_id": "pluginrel_6ad7e42f10f0819194506d3275c23ae0",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "scope": "Full saved archive compared with merged candidate; public and private packages intentionally differ",
+  "files": 1567,
+  "byte_identical": 1567,
+  "missing": [],
+  "unexpected": [],
+  "different": [],
+  "json_normalized": [],
+  "private_overlay": "51 private-only files and connection configuration preserved; shared private instruction additions merged; no private source published",
+  "fresh_client_behavior": "NOT_RUN",
+  "other_host_installations": "NOT_RUN",
+  "status": "PASS",
+  "saved_runtime_check": {
+    "command": "check_environment.py --update --host chatgpt_work --json",
+    "final": {
+      "verdict": "pass",
+      "failing": []
+    },
+    "components": 59,
+    "record": "framecut-build-2026-10-20/saved-work-update.json"
+  },
+  "saved_framecut_check": {
+    "tests": 36,
+    "status": "PASS",
+    "record": "framecut-build-2026-10-20/saved-framecut-tests.txt"
+  },
+  "saved_canonical_validation": "PASS"
+}

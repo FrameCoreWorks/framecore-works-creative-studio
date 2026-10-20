@@ -1,0 +1,81 @@
+{
+  "version": "1.113.0",
+  "change_id": "CW-20261020-03",
+  "origin": "chatgpt-work",
+  "commit": "50f7357e550c877869b70a2551da7790f2610ecc",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.113.0",
+  "release_id": 418926096,
+  "draft": false,
+  "assets": [
+    {
+      "name": "framecore-motion-player-1.113.0.html",
+      "sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "bytes": 92452
+    },
+    {
+      "name": "framecore-work-creative-studio-1.113.0.zip",
+      "sha256": "8c345f6e4a3c07b726ca0118b78c4e2552ad87c9c37209ece7cec160b68d1048",
+      "bytes": 18979397
+    },
+    {
+      "name": "framecore-work-creative-studio-1.113.0.zip.inventory.json",
+      "sha256": "e8c11f19f3681fdc1e54f7841d6a784aa504d6c65dea21e431dabd5209504ce8",
+      "bytes": 308321
+    },
+    {
+      "name": "framecore-works-creative-studio-1.113.0-repository.zip",
+      "sha256": "d56a1da293d364d37f8fb1f98556cf9d87ebfb4f02b50a20637e867a429de5e1",
+      "bytes": 22611492
+    },
+    {
+      "name": "framecore-works-creative-studio-1.113.0-repository.zip.inventory.json",
+      "sha256": "29d44b976776adfc765f485c694c76f9eb9c9ac45028dc2b25657c1f21f26648",
+      "bytes": 480988
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "12cd407ad743c85ebc946b483f439c742e609ef22c9bb27e379db1da6cfc1e5f",
+      "bytes": 593
+    }
+  ],
+  "workflows": [
+    {
+      "id": 39504661592,
+      "name": "Check Studio sources",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 39504661591,
+      "name": "Publish verified Studio release",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39504661473,
+      "name": "Refresh current release notes",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "hosted_release_id": "pluginrel_6ad7e42f10f0819194506d3275c23ae0",
+  "hosted_plugin": "synchronized; all 1567 saved files match the merged candidate, private overlay preserved",
+  "host_behavior": "NOT_RUN",
+  "asset_verification": {
+    "method": "Local deterministic package SHA-256/size compared with authenticated GitHub asset digests; no asset download claimed",
+    "matches": {
+      "framecore-motion-player-1.113.0.html": true,
+      "framecore-work-creative-studio-1.113.0.zip": true,
+      "framecore-work-creative-studio-1.113.0.zip.inventory.json": true,
+      "framecore-works-creative-studio-1.113.0-repository.zip": true,
+      "framecore-works-creative-studio-1.113.0-repository.zip.inventory.json": true,
+      "SHA256SUMS.txt": true
+    }
+  },
+  "plugin_zip_tag_tree": {
+    "files": 1516,
+    "matched_files": 1516,
+    "method": "Every ZIP entry Git blob SHA-1 compared with the published source commit; tag source read back through GitHub"
+  },
+  "release_notes_correction": "Initial refresh job rejected the noncanonical heading. Repository-only publication record corrects it to the existing workflow contract; tag/assets preserved. Current refresh result recorded separately."
+}
