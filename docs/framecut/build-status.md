@@ -61,3 +61,5 @@ Advanced tracking, multicam synchronization, speed ramps, reverse/freeze operati
 ## Publication and host status
 
 Use [release status](../../RELEASE_STATUS.md), the versioned source/scope records and the hosted-sync record for exact source commit, package guard and saved-file evidence. Public source and the private hosted overlay are compared with their own scopes. Fresh ordinary ChatGPT, Work, Codex and Claude client behavior is NOT_RUN for this version; saved archive equality and sandbox agents do not establish those results.
+
+Final release-source CI passed: 236 Node tests passed / 2 optional cases skipped; 454 Python tests passed / 8 optional cases skipped, zero failures. All 36 FrameCut tests ran. Strict Claude plugin/marketplace manifest validation passed separately from client behavior. The [final CI and branch record](../../verification/framecut-build-2026-10-20/ci-final.json) includes the corrected release-notes refresh and the preserved existing ccr branch, already merged into main.

@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "source_commit": "50f7357e550c877869b70a2551da7790f2610ecc",
+    "workflow": 39504661592,
+    "job": 118910469890,
+    "status": "PASS",
+    "node": {
+      "tests": 238,
+      "pass": 236,
+      "fail": 0,
+      "skipped": 2
+    },
+    "python_suites": 49,
+    "python_tests": 462,
+    "python_skipped": 8,
+    "claude_manifest_validation": "PASS; Claude Code 2.1.296 CLI, no account-based host task",
+    "fresh_client_behavior": "NOT_RUN"
+  },
+  "skips": [
+    "ok 5 - local browser renders all routes, repeats identical frames and exposes a mobile SVG fallback # SKIP",
+    "ok 62 - raster build verifies PNG and favicon files instead of treating upstream exit zero as completion # SKIP",
+    "OK (skipped=8)"
+  ],
+  "workflows": [
+    {
+      "id": 39504661591,
+      "name": "Publish verified Studio release",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39504661592,
+      "name": "Check Studio sources",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39504661473,
+      "name": "Refresh current release notes",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "notes_refresh": {
+    "workflow": 39505586976,
+    "source": "ad775450a4d00cceea1345e064cafe616b80af85",
+    "status": "PASS",
+    "description_readback": "Exact corrected heading; all six release assets unchanged"
+  },
+  "scope": "Release-source CI, including configured browser coverage. Subsequent documentation-only commits have identical shared-package bytes.",
+  "branches": {
+    "main": "ad775450a4d00cceea1345e064cafe616b80af85 before this report commit",
+    "gh-pages": "preserved",
+    "ccr-b6d36a1c-4hszow": {
+      "sha": "daab5828bdd4025280ebe2af5f5d5cccacae4a5c",
+      "ancestor_of_main": true,
+      "action": "Existing other-session branch preserved; no new branch created"
+    }
+  }
+}

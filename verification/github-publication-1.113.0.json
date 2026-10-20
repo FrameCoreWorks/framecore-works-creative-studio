@@ -40,14 +40,14 @@
   ],
   "workflows": [
     {
-      "id": 39504661592,
-      "name": "Check Studio sources",
-      "status": "in_progress",
-      "conclusion": null
-    },
-    {
       "id": 39504661591,
       "name": "Publish verified Studio release",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39504661592,
+      "name": "Check Studio sources",
       "status": "completed",
       "conclusion": "success"
     },
@@ -77,5 +77,28 @@
     "matched_files": 1516,
     "method": "Every ZIP entry Git blob SHA-1 compared with the published source commit; tag source read back through GitHub"
   },
-  "release_notes_correction": "Initial refresh job rejected the noncanonical heading. Repository-only publication record corrects it to the existing workflow contract; tag/assets preserved. Current refresh result recorded separately."
+  "release_notes_correction": "Initial refresh rejected the noncanonical heading; corrected in ad77545. Workflow 39505586976 passed; corrected description read back and all six assets preserved.",
+  "notes_refresh_resolution": {
+    "workflow": 39505586976,
+    "source": "ad775450a4d00cceea1345e064cafe616b80af85",
+    "status": "PASS",
+    "description_readback": "Exact corrected heading; all six release assets unchanged"
+  },
+  "additional_source_ci": {
+    "source_commit": "50f7357e550c877869b70a2551da7790f2610ecc",
+    "workflow": 39504661592,
+    "job": 118910469890,
+    "status": "PASS",
+    "node": {
+      "tests": 238,
+      "pass": 236,
+      "fail": 0,
+      "skipped": 2
+    },
+    "python_suites": 49,
+    "python_tests": 462,
+    "python_skipped": 8,
+    "claude_manifest_validation": "PASS; Claude Code 2.1.296 CLI, no account-based host task",
+    "fresh_client_behavior": "NOT_RUN"
+  }
 }
