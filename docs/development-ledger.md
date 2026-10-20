@@ -2661,3 +2661,5 @@ Cross-host state and next step:
 - Scope: `docs/task-reel-editing-assistant-2026-10-20.md` (analysis of two paid offers against Studio, work order for ChatGPT Work), pointer in the ChatGPT Work handover
 - Verification: canonical validator
 - GitHub: pending until pushed; ChatGPT Work: not_tracked; Codex: not_run
+
+- Addendum CC-20261020-05: the work order now starts with an inventory of all editing tools, including those the owner attached to the plugin in another thread (not visible in `origin/main` at `4a11e2d`), and binds them into one pipeline.
