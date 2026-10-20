@@ -2663,3 +2663,5 @@ Cross-host state and next step:
 - GitHub: pending until pushed; ChatGPT Work: not_tracked; Codex: not_run
 
 - Addendum CC-20261020-05: the work order now starts with an inventory of all editing tools, including those the owner attached to the plugin in another thread (not visible in `origin/main` at `4a11e2d`), and binds them into one pipeline.
+
+- Addendum CC-20261020-05 (owner clarification): the other thread's tools exist only in the hosted ChatGPT plugin; the work order tells ChatGPT Work to compare the saved plugin with the repository, import hosted-only files with provenance and not to run a repository update over them before that.
