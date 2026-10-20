@@ -28,6 +28,8 @@ The [environment check](../../workflow-orchestrator/assets/environment-check/REA
 | Contract check and storyboard view | `motion_contract_check` | no | no | yes | Node |
 | Beat grid and caption sync | `motion_sync` | no | no | yes | Node |
 | Band envelope and hits from a track (audio-reactive motion, Iso Glow) | `audio_envelope` | no | yes | yes | Python, ffmpeg |
+| Measure, time-align, audit and score a film's sound | `sound_listen` | no | yes | yes | Python, numpy, ffmpeg |
+| Lay recorded or bank sounds on frames and mix them | `sound_place` | no | yes | yes | Python, numpy, ffmpeg |
 | Reference animation breakdown (cuts, grid, transitions, motion heatmaps) | `reference_breakdown` | no | yes | yes | Python, numpy, Pillow, ffmpeg |
 | Word and line timing of a supplied song, cuts on the beat | `lyric_timing` | no | yes | yes | Python, numpy, ffmpeg, a recogniser the user installs |
 | Still stretches in a rendered MP4 (PASS or REVISE) | `motion_activity` | no | yes | yes | Python, numpy, ffmpeg |

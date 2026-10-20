@@ -410,6 +410,42 @@
     "Each tool works on its material from a readable side and transitions come out of the actions",
     "Gives chat messages reading time"
    ]
+  },
+  {
+   "id": "AD14",
+   "title": "A finished reel gets its sound checked against the cuts with numbers",
+   "turns": [
+    {
+     "prompt": "@FrameCore Works Creative Studio Mam gotową rolkę MP4 z dźwiękiem. Sprawdź, czy efekty wchodzą równo na cięcia i czy głośność jest dobra.",
+     "checks": [
+      {
+       "language": "pl"
+      },
+      {
+       "not_welcome": true
+      },
+      {
+       "skills_any": [
+        "hyperframes-workflow",
+        "audio-production-director"
+       ]
+      },
+      {
+       "reads_any": [
+        "sound-listen/README.md",
+        "sound-listening-and-motion-sfx.md",
+        "listen.py"
+       ]
+      }
+     ]
+    }
+   ],
+   "rubric": [
+    "Measures loudness, true peak and the hits against the cuts with the listening tools instead of guessing",
+    "Reports which cuts have no sound and the offset of late hits in milliseconds",
+    "Names what the numbers cannot judge (taste, genre fit)",
+    "Does not claim to have heard the sound and does not upload the audio anywhere"
+   ]
   }
  ]
 }

@@ -78,6 +78,10 @@ python sound.py mix clip-r1.sound.json --video clip.mp4 --out clip-sound.mp4
 
 Nothing is guessed: cuts are measured or supplied, and a moment the user did not mark gets no hit. The mix reports the same timing status and loudness as for a motion video. Listen before delivery: the tools check timing and level, not whether the sound suits this footage.
 
+## Listening to the result
+
+After `sound.py mix`, measure the delivered file with [`listen.py`](../sound-listen/README.md) (`critique`, `sync`, `sheet`) and lay recorded samples on frames with [`place_sfx.py`](../sound-listen/README.md#place-samples-on-the-frames). What good effects are made of and where they sit against the cut: [sound listening and motion SFX](../../references/sound-listening-and-motion-sfx.md).
+
 ## Verification boundary
 
 During package preparation, in a Linux development container with numpy 2.5 and ffmpeg 6.1, the `app-film`, `color-block` and all-kinds examples were planned and mixed with designed sounds and music: every hit, judged in a solo render (since 1.39.0; before, cues close to another were not measured), landed within 2 ms of its frame (at most 0.15 ms on all four examples), the reveal on the music's downbeat within 0.01 ms, loudness was −14.0 to −14.4 LUFS with true peak at most −1.5 dBTP before encoding, a video's effects were designed in about 0.25 seconds and mixes took 9 to 23 seconds for 9 to 23 seconds of video. Over 200 designs for one profile the composer wrote 71 distinct major and 38 distinct minor progressions. Earlier, on 2026-10-07, the owner listened to renders of the built-in designs: music and clicks approved, whooshes lowered by 6 to 7 dB, the knock and the snare rejected as flat and empty; the owner then asked that every video get newly designed sound instead of a fixed set. The 1.33.0 audit had measured and corrected the 1.32.0 mixes (the reveal off the bar grid by up to 0.7 s, an abrupt end, a heavy low end, one example 1.7 dB under the loudness target). How the sound plays in ChatGPT or ChatGPT Work is not verified.

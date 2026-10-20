@@ -277,6 +277,16 @@
       "sha256": "9da4997e1b57b0fd9ec5522050f09c944bc83086433f40c5b7a6c83d611c2f53"
     },
     {
+      "path": "integrations/earshot/LICENSE",
+      "bytes": 1065,
+      "sha256": "d9177365c7471d18ecd623ce7b8849e26ab8d7e7fea13e1fcbda62397ecb9db8"
+    },
+    {
+      "path": "integrations/earshot/README.md",
+      "bytes": 3528,
+      "sha256": "a5fcf422a4591486253eb31b15a0c7c1595246bff81a33f481dca1ebef18410a"
+    },
+    {
       "path": "integrations/kaventro-motion-designer/LICENSE",
       "bytes": 1065,
       "sha256": "d2aa14a6cf9bd8d71c451a6bffd46a3bc0a66c89ef6076d175d9a561c40371fe"
@@ -2488,8 +2498,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 9012,
-      "sha256": "3f02abeedc890380ef67855f26524c8a1a01119d85a00030e99b58045fd62c76"
+      "bytes": 9619,
+      "sha256": "0fcb058cdaa4225460e12d6ed369e58ed44cadaccf62161867bceaae87885805"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -3123,8 +3133,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 25080,
-      "sha256": "435033aba1498287549ec14800728b856e652ff692ba7f902677bc5eb72e6765"
+      "bytes": 25801,
+      "sha256": "9b6ae771357fcc66341f39d700cb851bb65e85aa7bc2beab75ea6cbe2441dd16"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4683,8 +4693,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/README.md",
-      "bytes": 14942,
-      "sha256": "cb159432fc395c48b3eb65f0956d9e1d42354017a2caecdaa8d543f5bb27bebd"
+      "bytes": 15361,
+      "sha256": "bd2d7ee2c5f4b0a608ecd149ff389128728249a154f30d5ef64ea61a825d38fb"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/compose.py",
@@ -4892,6 +4902,21 @@
       "sha256": "332923a70d4cf9d747e6fe76f7f038a15d9b8fca92770e305ef056cddf2adf49"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/sound-listen/README.md",
+      "bytes": 4958,
+      "sha256": "116e63f7bbfc56d08dcdd85dfe53458dfea113da06a3931e925d22a027ad3252"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/sound-listen/listen.py",
+      "bytes": 52503,
+      "sha256": "1eda949597b18f1d7e3f4708b99a32cd51a14eb225199eb04d626dee612b09b2"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py",
+      "bytes": 13511,
+      "sha256": "c9fb8fa089203bf9dc4555a45a2c86af70eb4e1169b7fa13876c3a27681bbe0b"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/technique-atlas/README.md",
       "bytes": 3401,
       "sha256": "8a155e49263b1b1a9f39df4cc2ff8670f89cb9423c5a118244b5e87165aea44d"
@@ -5033,8 +5058,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 7625,
-      "sha256": "8516b10e7c4372862049a384da1fdc66bcc632480f0091b96b99e9ca1265072c"
+      "bytes": 7851,
+      "sha256": "a171707c28e1098dba7330e22dc1d689359b847609bdf7910a3a71f4e6b842bb"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
+      "bytes": 6330,
+      "sha256": "074976316f777978b67ec34f794daf0ce4ae3f6a16d82e1b8c561d14eca4222b"
     },
     {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
@@ -7078,8 +7108,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 49739,
-      "sha256": "544af3031f77c08f3e01ba15a75b8373a340da30528335db3a9be3289869bcbc"
+      "bytes": 51996,
+      "sha256": "7ea4b02f00fe8799a51ce6c4646de771fa8962456e3f9106112a53b44d95e102"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7103,8 +7133,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 101499,
-      "sha256": "f8dde2f1c36fa0c5764eebdf1860a9d921d90094a686388966f20669debcf95b"
+      "bytes": 109874,
+      "sha256": "8ae3b83c7c9ce071f59893945ae5a55435be8320103dca9e22052df6d643a3a7"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7383,8 +7413,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 5188,
-      "sha256": "af0c155375f8c5ba3d7c2903d9188ac15dcfdb209841466f1225bbe7f936fe42"
+      "bytes": 5747,
+      "sha256": "ba759f37bb8b48d4147931a51911c2122c16c592b555e8cda524b6a5623e06d2"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -7500,6 +7530,11 @@
       "path": "tests/skill_finder_test.py",
       "bytes": 6706,
       "sha256": "eaea21164ebc4dddded615f7d6921822c6e4186a6ebf09d1edb545716bebc402"
+    },
+    {
+      "path": "tests/sound_listen_test.py",
+      "bytes": 6829,
+      "sha256": "3a36e5c5e4b59a3e79799862e9e2ee587748395d46d11b82e7f9d6f4f5f5e293"
     },
     {
       "path": "tests/static_render_test.py",

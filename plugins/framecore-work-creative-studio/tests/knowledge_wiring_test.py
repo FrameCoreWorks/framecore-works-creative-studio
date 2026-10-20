@@ -41,6 +41,11 @@ WIRING = {
     'static-graphic-design-creator/references/upscaling.md': ['static-graphic-design-creator/SKILL.md',
                                                               'workflow-orchestrator/references/routing-boundaries.md',
                                                               'delivery-documentation/references/print-ready-pdf.md'],
+    # earshot: hearing and placing sound
+    'hyperframes-workflow/assets/sound-listen/README.md': ['hyperframes-workflow/SKILL.md', 'audio-production-director/SKILL.md',
+                                                           'hyperframes-workflow/assets/motion-sound/README.md'],
+    'hyperframes-workflow/references/sound-listening-and-motion-sfx.md': ['hyperframes-workflow/SKILL.md', 'audio-production-director/SKILL.md',
+                                                                          'hyperframes-workflow/assets/motion-sound/README.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],
 }
