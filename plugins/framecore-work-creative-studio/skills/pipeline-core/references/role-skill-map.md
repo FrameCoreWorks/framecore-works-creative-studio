@@ -50,7 +50,7 @@ then stop or hand off.
 | `tool-routing-cost` | `.codex/agents/tool-routing-cost.toml` | temporary responsibility | `tool-routing-cost`, `pipeline-core` |
 | `execution-manifest` | `.codex/agents/execution-manifest.toml` | temporary responsibility | `pipeline-core`, `tool-routing-cost`, `asset-manifest`, `remotion-video-production`, `opencut-video-studio` |
 | `asset-manifest` | `.codex/agents/asset-manifest.toml` | temporary responsibility | `asset-manifest`, `pipeline-core` |
-| `qa-iteration` | `.codex/agents/qa-iteration.toml` | temporary responsibility | `output-critic-iteration`, `video-prompt-architect`, `audio-production-director`, `caption-studio`, `pipeline-core` |
+| `qa-iteration` | `.codex/agents/qa-iteration.toml` | temporary responsibility | `output-critic-iteration`, `video-prompt-architect`, `hyperframes-workflow`, `audio-production-director`, `caption-studio`, `pipeline-core` |
 | `delivery-documentation` | `.codex/agents/delivery-documentation.toml` | temporary responsibility | `delivery-documentation`, `humanizer` |
 | `hyperframes-producer` | `.codex/agents/hyperframes-producer.toml` | temporary responsibility | `hyperframes-workflow` |
 

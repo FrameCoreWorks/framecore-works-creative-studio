@@ -394,6 +394,22 @@ class ExactCopy(unittest.TestCase):
         self.assertEqual(status('Do not buy', ['Do buy not']), 'fail')
         self.assertEqual(status('Do not buy', ['Do not'], ['buy']), 'fail')             # words from different frames
 
+    def test_copy_preserves_currency_case_punctuation_and_complete_numbers(self):
+        for locked, changed in (
+            ('Price €49', 'Price $49'), ('PLN', 'pln'),
+            ('hello@example.com', 'hello example com'), ('Buy now!', 'Buy now'),
+            ('+10%', '10%'), ('€49', '€49.99'), ('49', '49€'),
+            ('99,99', '99,990'), ('10%', '10'), ('-', ''),
+        ):
+            with self.subTest(locked=locked, changed=changed):
+                result = acceptance.fidelity({'copy': {'line': locked}}, self.audit([changed]), 'pass')
+                self.assertEqual(result['status'], 'fail', result)
+
+    def test_copy_accepts_line_wraps_and_canonically_equivalent_unicode(self):
+        result = acceptance.fidelity({'copy': {'line': 'Cena €49\nŻółć'}},
+                                     self.audit(['Cena\t€49', 'Z\u0307o\u0301łc\u0301']), 'pass')
+        self.assertEqual(result['status'], 'pass', result)
+
 
 if __name__ == '__main__':
     unittest.main()

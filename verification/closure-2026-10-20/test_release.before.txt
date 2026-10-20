@@ -1,0 +1,20 @@
+test_a_dirty_tree_stops_before_anything_is_written (test_release.Release.test_a_dirty_tree_stops_before_anything_is_written) ... ok
+test_a_failed_asset_comparison_stops_the_record (test_release.Release.test_a_failed_asset_comparison_stops_the_record) ... ok
+test_commit_uses_the_current_development_surface (test_release.Release.test_commit_uses_the_current_development_surface) ... FAIL
+test_manifest_and_zip_skip_the_same_generated_files (test_release.Release.test_manifest_and_zip_skip_the_same_generated_files) ... ok
+test_node_counts_from_tap_and_spec_reporters (test_release.Release.test_node_counts_from_tap_and_spec_reporters) ... ok
+test_publish_refuses_a_dirty_tree (test_release.Release.test_publish_refuses_a_dirty_tree) ... ok
+test_the_publication_commit_holds_only_its_records (test_release.Release.test_the_publication_commit_holds_only_its_records) ... ok
+
+======================================================================
+FAIL: test_commit_uses_the_current_development_surface (test_release.Release.test_commit_uses_the_current_development_surface)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/tests/test_release.py", line 75, in test_commit_uses_the_current_development_surface
+    self.assertIn('Origin-Agent: chatgpt-work', body)
+AssertionError: 'Origin-Agent: chatgpt-work' not found in 'docs: evidence\n\nMeasured sandbox recovery\n\nOrigin-Agent: cloud-code\nChange-ID: CW-TEST\nBaseline-SHA: abc\nShared-Package-Changed: no\nChatGPT-Work-Sync: not_tracked\nCodex-Sync: not_run'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.082s
+
+FAILED (failures=1)

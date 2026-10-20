@@ -1,5 +1,11 @@
 # Repository maintenance
 
+## Current owner instruction (2026-10-20)
+
+Work directly on `main`; do not create local or remote working branches. After the required checks pass, commit and fast-forward push the completed changes to `main`. This supersedes the older working-branch guidance below. Preserve concurrent work and never force-push.
+
+This development thread owns repository fixes and sandbox testing. A separate owner-directed thread owns permanent supplemental tool integrations in the private hosted plugin. For each shared-package release, update the existing hosted plugin with Plugin Creator when available, using its current release guard and preserving those integrations. Read back the affected files. The hosted version can be newer than the public source version because of its private overlay; record both versions and the actual comparison scope. Do not publish private overlay files or settings to this repository. These instructions supersede the historical `not_tracked` and whole-package equality rules below. Source checks, saved files and fresh-client behavior remain separate evidence.
+
 This repository publishes FrameCore Works Creative Studio. The editable plugin is in `plugins/framecore-work-creative-studio/`; preserve vendored `upstream/` snapshots and their provenance.
 
 ## Skill names

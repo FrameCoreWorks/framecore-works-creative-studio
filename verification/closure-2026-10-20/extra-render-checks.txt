@@ -1,0 +1,10 @@
+✔ local browser renders all routes, repeats identical frames and exposes a mobile SVG fallback (6412.89716ms)
+✔ raster build verifies PNG and favicon files instead of treating upstream exit zero as completion (2612.477556ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9221.280593

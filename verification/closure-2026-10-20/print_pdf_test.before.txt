@@ -1,0 +1,73 @@
+.....F.FFFFFFF
+======================================================================
+FAIL: test_finish_sets_centred_boxes_and_check_passes (__main__.PrintPdfTest.test_finish_sets_centred_boxes_and_check_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 59, in test_finish_sets_centred_boxes_and_check_passes
+    self.assertEqual(report['declared']['Trapped'], '/False')
+AssertionError: '/False_' != '/False'
+- /False_
+?       -
++ /False
+
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='pikepdf.Name("/Unknown")')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 81, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in x1a['problems']),
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': '66b325f9afb6415f4da4f75be8a29325741afb7c525ede005b325bf21ae6dbf9', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Trapped': '/Unknown', 'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'REVISE', 'problems': ["no output intent; embed the printer's profile with finish --icc"], 'notes': []}
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='pikepdf.Name("/False_")')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 79, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in report['problems']), invalid, report)
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': 'c834238591ca4c86bc88375d45b0cf74a9106f13d1da2774c4e3f569a7e5744f', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Trapped': '/False_', 'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'PASS', 'problems': [], 'notes': []}
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='pikepdf.String("/False")')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 79, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in report['problems']), invalid, report)
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': '8532aa15a04f6f69e2a42909e534c5e9dc5be04bad4a42df73b3b2322e13d523', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Trapped': '/False', 'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'PASS', 'problems': [], 'notes': []}
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='pikepdf.String("False")')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 79, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in report['problems']), invalid, report)
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': '3de89b5ffb72a4703fd9506e14bbee89e34a74bbda281c899949eb4db2b02c92', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Trapped': 'False', 'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'PASS', 'problems': [], 'notes': []}
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='False')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 79, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in report['problems']), invalid, report)
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': '9eb7e01963ee99d719dd648d684c53c86fdb05cee12a1e6c3e7dbaaa7a3abe10', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Trapped': 'False', 'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'PASS', 'problems': [], 'notes': []}
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 79, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in report['problems']), invalid, report)
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': '24b218cadaf1c63e9c249b62e98b9e2b85caf69523bb0ecb9e5281cbb781cf2a', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Trapped': '0', 'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'PASS', 'problems': [], 'notes': []}
+
+======================================================================
+FAIL: test_trapped_is_a_pdf_name_with_a_valid_value (__main__.PrintPdfTest.test_trapped_is_a_pdf_name_with_a_valid_value) (value='None')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/print_pdf_test.py", line 81, in test_trapped_is_a_pdf_name_with_a_valid_value
+    self.assertEqual(any('Trapped' in p for p in x1a['problems']),
+AssertionError: False != True : {'pdf': '/tmp/tmp2tfzljtx/variant.pdf', 'sha256': 'c1ed6d7f74c2039b1e7a2f58009ad100bb6301bbe6b81ee07558f05d2e22f38e', 'pdf_version': '1.4', 'output_intent': None, 'declared': {'Title': 'source'}, 'embedded_files': [], 'pages': [{'page': 1, 'media_mm': [154.18, 216.15], 'trim_mm': [148.0, 210.0], 'bleed_mm_left_bottom_right_top': [3.0, 3.0, 3.0, 3.0], 'bleed_mm': 3.0, 'images': [{'image': '/image', 'pixels': [607, 851], 'effective_ppi': 100, 'colour': 'CMYK', 'tac_max_and_p99_9': [23.5, 23.5]}], 'vector_colour_spaces': {}, 'vector_tac_max': None, 'thinnest_line_pt': None, 'transparency': [], 'fonts': []}], 'verdict': 'REVISE', 'problems': ["no output intent; embed the printer's profile with finish --icc"], 'notes': ['Trapped is not set (PDF/X requires True or False; finish sets False)']}
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.682s
+
+FAILED (failures=8)

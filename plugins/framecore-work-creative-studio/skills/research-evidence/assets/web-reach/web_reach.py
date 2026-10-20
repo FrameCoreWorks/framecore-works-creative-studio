@@ -20,6 +20,7 @@ and continue with the host's own search.
 import argparse
 import datetime
 import html.parser
+import http.client
 import ipaddress
 import json
 import re
@@ -49,6 +50,8 @@ def public_url(url):
     parts = urllib.parse.urlsplit(url.strip())
     if parts.scheme not in ('http', 'https') or not parts.hostname:
         raise ReachError(f'not a public http(s) URL: {url}')
+    if parts.username is not None or parts.password is not None:
+        raise ReachError('credentials in source URLs are not supported')
     host = parts.hostname.rstrip('.').lower()
     if host in BLOCKED_HOSTS or host.endswith(BLOCKED_SUFFIXES):
         raise ReachError(f'refused a local or internal host: {host}')
@@ -65,10 +68,67 @@ def public_url(url):
     return urllib.parse.urlunsplit(parts)
 
 
+def public_connection(address, timeout=30, source_address=None):
+    """Validate one DNS answer set and connect to its numeric addresses, without a second lookup."""
+    host, port = address
+    public_url(f'http://[{host}]/' if ':' in host else f'http://{host}/')
+    answers = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+    if not answers:
+        raise ReachError(f'no addresses for {host}')
+    for _, _, _, _, target in answers:
+        if not ipaddress.ip_address(target[0].split('%')[0]).is_global:
+            raise ReachError(f'refused a private or reserved connection address: {host}')
+    error = None
+    for family, kind, protocol, _, target in answers:
+        sock = socket.socket(family, kind, protocol)
+        try:
+            sock.settimeout(timeout)
+            if source_address:
+                sock.bind(source_address)
+            sock.connect(target)
+            return sock
+        except OSError as failure:
+            error = failure
+            sock.close()
+    raise error
+
+
+class PublicHTTPConnection(http.client.HTTPConnection):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._create_connection = public_connection
+
+
+class PublicHTTPSConnection(http.client.HTTPSConnection):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._create_connection = public_connection
+
+
+class PublicHTTPHandler(urllib.request.HTTPHandler):
+    def http_open(self, request):
+        return self.do_open(PublicHTTPConnection, request)
+
+
+class PublicHTTPSHandler(urllib.request.HTTPSHandler):
+    def https_open(self, request):
+        return self.do_open(PublicHTTPSConnection, request, context=self._context)
+
+
+class PublicRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, response, code, message, headers, new_url):
+        public_url(new_url)
+        return super().redirect_request(request, response, code, message, headers, new_url)
+
+
 def fetch(url, accept='*/*'):
+    url = public_url(url)
     request = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': accept})
+    # Do not let environment proxies resolve a different target behind the address guard.
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), PublicHTTPHandler(),
+                                        PublicHTTPSHandler(), PublicRedirectHandler())
     try:
-        with urllib.request.urlopen(request, timeout=30) as response:
+        with opener.open(request, timeout=30) as response:
             body = response.read(MAX_BYTES + 1)
             charset = response.headers.get_content_charset() or 'utf-8'
     except OSError as error:

@@ -63,7 +63,7 @@ def run(cmd, **kw):
 def probe(path):
     if not os.path.isfile(path):
         raise InputError(f'{path}: no such file')
-    p = run(['ffprobe', '-v', 'error', '-show_entries', 'stream=codec_type,codec_name,r_frame_rate,duration:format=duration',
+    p = run(['ffprobe', '-v', 'error', '-show_entries', 'stream=index,codec_type,codec_name,channels,r_frame_rate,duration:format=duration',
              '-of', 'json', path])
     if p.returncode != 0:
         raise InputError(f'{path}: FFmpeg cannot read it ({p.stderr.decode(errors="replace").strip()[-160:]})')
@@ -76,20 +76,29 @@ def probe(path):
         a, b = video['r_frame_rate'].split('/')
         fps = float(a) / float(b) if float(b) else None
     return {'has_audio': audio is not None, 'has_video': video is not None, 'fps': fps,
+            'audio_stream_index': (audio or {}).get('index'),
+            'audio_stream_count': sum(s.get('codec_type') == 'audio' for s in streams),
+            'source_channels': (audio or {}).get('channels'),
             'codec': (audio or {}).get('codec_name'), 'lossy': (audio or {}).get('codec_name') in ('aac', 'mp3', 'opus', 'vorbis'),
             'duration': float(info.get('format', {}).get('duration') or 0)}
 
 
 def decode(path, weighted=False, start=None, end=None):
-    """float32 array (n, 2) at 48 kHz; mono sources are duplicated, K-weighted for loudness work on request"""
+    """First audio stream as (n, 2) at 48 kHz; preserve raw mono amplitude and weighted mono energy."""
+    info = probe(path)
     cmd = ['ffmpeg', '-v', 'error', '-nostdin']
     if start:
         cmd += ['-ss', str(start)]
     if end:
         cmd += ['-to', str(end)]
-    cmd += ['-i', path, '-vn', '-ac', '2', '-ar', str(SR)]
-    if weighted:
-        cmd += ['-af', KWEIGHT]
+    cmd += ['-i', path, '-map', '0:a:0', '-vn', '-ac', '2', '-ar', str(SR)]
+    filters = [KWEIGHT] if weighted else []
+    if info['source_channels'] == 1 and not weighted:
+        # FFmpeg's ordinary mono-to-stereo remix attenuates each channel by 3 dB.
+        # Raw checks need the source amplitude; the weighted remix preserves total energy.
+        filters.append('pan=stereo|c0=c0|c1=c0')
+    if filters:
+        cmd += ['-af', ','.join(filters)]
     cmd += ['-f', 'f32le', '-']
     p = run(cmd)
     if p.returncode != 0 or not p.stdout:
@@ -100,7 +109,7 @@ def decode(path, weighted=False, start=None, end=None):
 
 def true_peak_dbtp(path):
     """peak of the 4x oversampled signal (FFmpeg resamples to 192 kHz), read in chunks"""
-    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-nostdin', '-i', path, '-vn', '-ac', '2', '-af', 'aresample=192000',
+    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-nostdin', '-i', path, '-map', '0:a:0', '-vn', '-af', 'aresample=192000',
                           '-f', 'f32le', '-'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     peak = 0.0
     while True:
@@ -110,7 +119,9 @@ def true_peak_dbtp(path):
         a = np.frombuffer(chunk[: len(chunk) // 4 * 4], np.float32)
         if len(a):
             peak = max(peak, float(np.abs(a).max()))
-    p.wait()
+    p.stdout.close()
+    if p.wait() != 0:
+        raise InputError(f'{path}: no audio could be decoded for true peak')
     return db(peak)
 
 
@@ -330,7 +341,11 @@ def tempo_of(flux, lo=70, hi=180):
     if clarity < 0.08:
         return None, []
     period = fps * 60 / bpm
-    scores = [flux[np.round(np.arange(phase, len(flux), period)).astype(int)].sum() for phase in np.arange(0, period, 0.5)]
+    scores = []
+    for phase in np.arange(0, period, 0.5):
+        indices = np.round(np.arange(phase, len(flux), period)).astype(int)
+        # A final half-step can round to len(flux), outside the measured envelope.
+        scores.append(flux[indices[indices < len(flux)]].sum())
     phase = float(np.argmax(scores)) * 0.5
     beats = (np.arange(phase, len(flux), period) * HOP / SR).tolist()
     return round(float(bpm), 1), beats
@@ -451,6 +466,7 @@ def measure_of(a, full=True):
     m = {'duration_s': round(dur, 3), 'lufs_i': round(lufs, 1), 'lra': round(a['lra'], 1),
          'peak_dbfs': round(db(np.abs(x).max()), 1), 'rms_dbfs': round(db(np.sqrt((x ** 2).mean())), 1),
          'clipped_samples': int((np.abs(x) >= 0.999).sum()), 'dc': round(float(mono.mean()), 6)}
+    m.update({key: a['info'].get(key) for key in ('audio_stream_index', 'audio_stream_count', 'source_channels')})
     m['true_peak'] = round(true_peak_dbtp(a['path']), 1) if full else None
     e20 = 20 * np.log10(np.sqrt(windows(mono, int(0.02 * SR))[::int(0.02 * SR)].__pow__(2).mean(axis=1)) + 1e-9) if len(mono) > int(0.02 * SR) else np.array([-120.0])
     m['noise_floor_dbfs'] = round(float(np.percentile(e20, 10)), 1)
@@ -624,11 +640,11 @@ def metric_values(m, sy):
     return v
 
 
-def window_of(key, ref, lossy):
+def window_of(key, ref, lossy, custom=False):
     weight, tol, sides, practice, _ = SPEC[key]
     if key == 'true_peak' and lossy:
         return None, 0.0
-    if practice:
+    if practice and (not custom or key == 'true_peak'):
         return practice
     lo, med, hi = ref[key]
     lo, hi = round(lo - tol, 2), round(hi + tol, 2)
@@ -638,14 +654,18 @@ def window_of(key, ref, lossy):
 
 
 def critique_of(a, m, sy, ref=None):
-    ref = ref or LAUNCH
+    custom = ref is not None
+    if custom and not ref:
+        raise InputError('reference profile has no metrics')
+    ref = LAUNCH if ref is None else ref
     lossy = bool(a['info']['lossy'])
     vals = metric_values(m, sy)
     rows, issues = [], []
     for key, (weight, tol, sides, practice, why) in SPEC.items():
         v = vals.get(key)
-        lo, hi = window_of(key, ref, lossy) if key in ref or practice else (None, None)
-        if v is None:
+        available = key in ref or (practice is not None and (not custom or key == 'true_peak'))
+        lo, hi = window_of(key, ref, lossy, custom) if available else (None, None)
+        if v is None or not available:
             status = 'n.a.'
         elif lo is not None and v < lo:
             status = 'low'
@@ -654,7 +674,8 @@ def critique_of(a, m, sy, ref=None):
         else:
             status = 'ok'
         rows.append({'key': key, 'value': v, 'low': lo, 'high': hi, 'median': ref.get(key, (None, None, None))[1] if key in ref else None,
-                     'weight': {3: 'critical', 2: 'major', 1: 'minor'}[weight], 'status': status, 'why': why})
+                     'weight': {3: 'critical', 2: 'major', 1: 'minor'}[weight], 'status': status,
+                     'why': 'comparison with the supplied reference range' if custom and key != 'true_peak' else why})
         if status in ('low', 'high'):
             issues.append((key, status, v, lo, hi, weight))
     scored = [r for r in rows if r['status'] != 'n.a.']
@@ -664,10 +685,16 @@ def critique_of(a, m, sy, ref=None):
     critical = any(w == 3 for *_, w in issues)
     verdict = ('launch-grade' if share >= 0.9 and not critical else 'close' if share >= 0.75 and not critical
                else 'needs work' if share >= 0.5 else 'not launch-grade')
+    if custom:
+        verdict = ('within profile' if share >= 0.9 and not critical else 'close to profile' if share >= 0.75 and not critical
+                   else 'needs work' if share >= 0.5 else 'outside profile')
     actions = []
     for key, status, v, lo, hi, w in sorted(issues, key=lambda i: -i[5]):
         weight = {3: 'critical', 2: 'major', 1: 'minor'}[w]
-        if key == 'cuts_with_sound':
+        if custom and key != 'true_peak':
+            actions.append((weight, f'{key} is {v} {UNITS.get(key, "dB" if key.startswith("band_") else "")} '
+                            f'({status}; reference window {lo} to {hi}, median {ref[key][1]}): compare with the supplied references before adjusting'))
+        elif key == 'cuts_with_sound':
             quiet, soft = sy['no_sound'], [t for t in sy['no_new_attack'] if t not in sy['no_sound']]
             text = (f'{round(100 * v)} % of the {len(sy["rows"])} {a["target_kind"]}s have an onset within +-100 ms (refs 50 % to 100 %)')
             if quiet:
@@ -695,7 +722,7 @@ def critique_of(a, m, sy, ref=None):
             actions.append((weight, f'{key} is {v} {UNITS.get(key, "")} (references {lo} to {hi}): {SPEC[key][4]}'))
     return {'verdict': verdict, 'score': round(100 * share), 'critical': critical, 'rows': rows,
             'actions': [f'[{w}] {t}' for w, t in actions],
-            'tips': ([f'no stop-downs: 4 of 7 references drop the sound out for 0.2 to 1 s right before a big hit'] if not a['stopdowns'] and a['duration'] >= 6 else []),
+            'tips': ([f'no stop-downs: 4 of 7 references drop the sound out for 0.2 to 1 s right before a big hit'] if not custom and not a['stopdowns'] and a['duration'] >= 6 else []),
             'partial': 'realness and music presence need the earshot extension; this verdict is partial'}
 
 
@@ -775,6 +802,8 @@ def ab_of(pa, pb):
 
 
 def profile_of(paths):
+    if not paths:
+        raise InputError('a reference profile needs at least one audio file')
     films = []
     for p in paths:
         a = analyse(p)
@@ -791,7 +820,19 @@ def profile_of(paths):
 
 
 def ref_from_profile(profile):
-    return {k: (v['min'], v['median'], v['max']) for k, v in profile['metrics'].items()}
+    if not isinstance(profile, dict) or not isinstance(profile.get('metrics'), dict) or not profile['metrics']:
+        raise InputError('reference profile must contain a nonempty metrics object')
+    ref = {}
+    for key, row in profile['metrics'].items():
+        if key not in SPEC or not isinstance(row, dict):
+            raise InputError(f'invalid reference metric: {key}')
+        values = tuple(row.get(field) for field in ('min', 'median', 'max'))
+        if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in values):
+            raise InputError(f'{key}: min, median and max must be finite numbers')
+        if not values[0] <= values[1] <= values[2]:
+            raise InputError(f'{key}: expected min <= median <= max')
+        ref[key] = values
+    return ref
 
 
 def timeline_text(a, m, sy):

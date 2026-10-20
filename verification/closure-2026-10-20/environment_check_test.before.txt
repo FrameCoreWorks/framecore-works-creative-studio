@@ -1,0 +1,20 @@
+...................F....
+======================================================================
+FAIL: test_hyperframes_cache_probe_is_offline_even_when_npx_is_available (__main__.Network.test_hyperframes_cache_probe_is_offline_even_when_npx_is_available)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/environment_check_test.py", line 327, in test_hyperframes_cache_probe_is_offline_even_when_npx_is_available
+    invoked.assert_called_once_with(['/fixture/npx', '--offline', '--no-install', 'hyperframes', '--version'], timeout=60)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 961, in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 949, in assert_called_with
+    raise AssertionError(_error_message()) from cause
+AssertionError: expected call not found.
+Expected: run(['/fixture/npx', '--offline', '--no-install', 'hyperframes', '--version'], timeout=60)
+  Actual: run(['/fixture/npx', '--no-install', 'hyperframes', '--version'], timeout=60)
+
+----------------------------------------------------------------------
+Ran 24 tests in 16.394s
+
+FAILED (failures=1)

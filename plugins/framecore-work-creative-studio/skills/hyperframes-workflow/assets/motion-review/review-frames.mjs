@@ -145,7 +145,8 @@ export function runReview(input, {out, browser, samples = 12, format = 'all'} = 
   const previewPath = path.join(out, 'preview.html');
   fs.writeFileSync(previewPath, withTextAudit(html));
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-review-'));
-  const flags = ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check', `--user-data-dir=${profile}`, '--virtual-time-budget=3000'];
+  // Keep fractional glyph advances aligned with the Python renderer instead of grid-fitting caption widths.
+  const flags = ['--headless=new', '--disable-gpu', '--font-render-hinting=none', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check', `--user-data-dir=${profile}`, '--virtual-time-budget=3000'];
   if (process.platform === 'linux' && process.getuid?.() === 0) flags.push('--no-sandbox');
   const frames = [];
   try {

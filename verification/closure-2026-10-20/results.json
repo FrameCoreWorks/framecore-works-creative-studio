@@ -1,0 +1,63 @@
+{
+  "origin": "chatgpt-work",
+  "baseline": "9a028b78bea27d6aac146865dc6c12d29a7329cf",
+  "date": "2026-10-20",
+  "historical_43_scenario_report": "not recovered; not reused as current evidence",
+  "source_checks": {
+    "command": "bash scripts/check_all.sh",
+    "exit_code": 0,
+    "node": {
+      "tests": 238,
+      "pass": 225,
+      "fail": 0,
+      "skipped": 13
+    },
+    "python_suites": 47,
+    "python_tests": 405,
+    "python_skips": 4,
+    "passed": 626,
+    "skipped": 17
+  },
+  "browser_checks": {
+    "status": "PASS",
+    "passed": 15,
+    "failed": 0,
+    "log": "browser-checks.txt",
+    "browser": "Chrome for Testing 152.0.7977.30",
+    "prior_attempt": "interrupted without final status; not counted"
+  },
+  "host_behavior": "NOT_RUN; source and sandbox media tests do not certify a fresh ChatGPT client",
+  "extra_render_checks": {
+    "status": "PASS",
+    "passed": 2,
+    "failed": 0,
+    "log": "extra-render-checks.txt"
+  },
+  "independent_source_exercise": {
+    "cases": 2,
+    "status": "PASS",
+    "scope": "read-only source exercise by a fresh agent; not an installed-client test",
+    "observations": [
+      "Complete Polish welcome with four options",
+      "Supplied-film sound routed to Motion Graphics with picture preservation"
+    ],
+    "welcome_utf8_sha256": "53b02489fa3d19d188f4613a52c7b15852aec341b298d84d731a42acc279ab05"
+  },
+  "source_candidate": {
+    "sha256": "3158517de927f3fbe6fc388cb6c1363ca28cc680a5f11be3c875d8e169a61665",
+    "files": 1505,
+    "version_marker": "1.98.0 before release bump",
+    "manifest_sha256": "57288a1a1afc13473fb386ea6b8acaf5864b1dc8c239b2901a038d81b549e2ab"
+  },
+  "log_hashes": {
+    "sound_listen_test.before.txt": "2160492db086fc86ac5dc662bacbf9844700f7290eaf0107e7482613e5bb694b",
+    "environment_check_test.before.txt": "860617fbe5232c31f484283181bf86fc0bd1dc5bbedfa6df46d7b11d7e61886a",
+    "print_pdf_test.before.txt": "c01ab441532af18bd9cc88bb7cc17e55f488e1d40dbf59a990f0364dca2d1ecd",
+    "extra-render-checks.txt": "a07c364db6a303d39c85405a6a79dba1ef3f307dc4a2e172776270f69adb33e4",
+    "browser-checks.txt": "43760b577fddd8948d76c040c1b645426ce431e7c20c698c318d0bd98e7cb6d3",
+    "source-checks.txt": "0ef97306a9c010e85bd5179570f1547dc5b724b3bf6b14ec2ee124d97ce64eb3",
+    "motion_acceptance_test.before.txt": "b6ef7ed5cdf3f830b6ced862cb18b2657cd5a68d3c1a3f3cc2e5c09abb66fb02",
+    "test_release.before.txt": "d4044a70b9a643de451cfc9d0445fc1c61aff53d012b7be21fa70cd577e8b4af",
+    "web_reach_test.before.txt": "36e078967952a2f6d8a7ff1c6d6f8f89a705c9c09e828449a92b5340f5fd2f2a"
+  }
+}

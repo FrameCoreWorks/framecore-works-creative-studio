@@ -17,7 +17,7 @@ Any WAV, FLAC, MP3 or similar that the user has the right to use works: samples 
 designed sounds. The bed is the video's own sound (--keep-audio), a file (--bed), or silence. The mix is
 normalised to --target-lufs (default off), trimmed so its true peak stays under --ceiling, and muxed over the
 untouched picture. Each cue is checked: rendered alone and measured again, its onset or peak must sit within
-5 ms of t (sounds closer than 40 ms to a neighbour are flagged: they mask each other). Exit codes: 0 done, 1 a cue could not be placed on time, 3 bad input.
+5 ms of t (10 ms for peak alignment; sounds closer than 40 ms to a neighbour are flagged: they mask each other). Exit codes: 0 done, 1 a cue could not be placed on time, 3 bad input.
 """
 import argparse
 import json
@@ -228,7 +228,7 @@ def main(argv=None):
         else:
             late = [r for r in rows if not r.get('on_time', r.get('placed'))]
             print(f'{args.out}: {len(rows)} sounds placed, {result["lufs_i"]} LUFS, true peak {result["true_peak_dbtp"]} dBTP; '
-                  + ('every sound measured within 5 ms of its cue when played alone' if ok else f'{len(late)} off time: ' + ', '.join(r['label'] for r in late)))
+                  + ('every sound measured within its alignment tolerance (5 ms, or 10 ms for peak) when played alone' if ok else f'{len(late)} off time: ' + ', '.join(r['label'] for r in late)))
         return 0 if ok else 1
     except listen.InputError as e:
         print(f'place_sfx: error: {e}', file=sys.stderr)

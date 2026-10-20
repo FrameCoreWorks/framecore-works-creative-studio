@@ -225,7 +225,8 @@ def check_hyperframes(tool, project):
     if path:
         version = version_of(run([path, '--version'], timeout=30))
     elif shutil.which('npx'):
-        output = run([shutil.which('npx'), '--no-install', 'hyperframes', '--version'], timeout=60)
+        # --no-install alone can still contact npm; capability discovery must stay local.
+        output = run([shutil.which('npx'), '--offline', '--no-install', 'hyperframes', '--version'], timeout=60)
         version, path = version_of(output), ('npx cache' if output else None)
     return version, path, found
 

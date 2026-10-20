@@ -27,6 +27,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -415,6 +416,22 @@ def run_case(case, args):
     return outcome
 
 
+def candidate_snapshot(root=PLUGIN, destination=None):
+    """Bind a run to its source bytes, including uncommitted files, not just HEAD."""
+    files = {str(p.relative_to(root)): p.read_bytes() for p in sorted(root.rglob('*'))
+             if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc', '.log') and p.name != '.DS_Store'}
+    inventory = {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}
+    digest = hashlib.sha256(json.dumps(inventory, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    if destination is not None:
+        destination.mkdir(parents=True, exist_ok=True)
+        archive = destination / (digest + '.zip')
+        if not archive.exists():
+            with zipfile.ZipFile(archive, 'x', compression=zipfile.ZIP_DEFLATED) as bundle:
+                for name, data in files.items():
+                    bundle.writestr(name, data)
+    return {'sha256': digest, 'files': len(files), 'archive': f'candidates/{digest}.zip' if destination is not None else None}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Run Studio's host evaluations in headless Claude Code (uses the Claude plan's usage).")
     parser.add_argument('--list', action='store_true', help='list the cases and exit; runs nothing')
@@ -457,6 +474,7 @@ def main(argv=None):
     claude_version = subprocess.run(['claude', '--version'], capture_output=True, text=True).stdout.split()[0]
     limit = args.max_cases or CASE_LIMITS['gate' if args.gate else 'full']
     cases, skipped = within_limit(cases, limit)
+    candidate = candidate_snapshot(destination=RECORDS / 'candidates' if args.write else None)
     results, used, seconds = [], add_tokens(), 0.0
     for case in cases:
         try:
@@ -473,9 +491,14 @@ def main(argv=None):
     dirty = subprocess.run(['git', 'status', '--porcelain', '--', str(PLUGIN)], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     record = {
         'date': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d'), 'package_version': version(),
-        'source': {'commit': head, 'package_uncommitted_changes': bool(dirty)},
+        'source': {'commit': head, 'package_uncommitted_changes': bool(dirty), 'candidate': candidate,
+                   'unchanged_during_run': candidate_snapshot()['sha256'] == candidate['sha256']},
         'suite': suite['name'] + (' (gate)' if args.gate else ''), 'host': f'Claude Code {claude_version}, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir',
         'model': args.model, 'judge': args.judge_model if args.judge else None, 'allowed_tools_default': DEFAULT_TOOLS,
+        'configuration': {'max_turns': args.max_turns, 'timeout': args.timeout, 'keep_chars': args.keep_chars,
+                          'reasoning_effort': 'host default; not explicitly selected or observed',
+                          'suite_sha256': hashlib.sha256(json.dumps(suite, sort_keys=True).encode()).hexdigest(),
+                          'tool_trace': 'tool names and status only; full inputs and outputs are not retained'},
         'billing': f'API account allowed by the owner ({", ".join(billing)})' if billing else 'no API key or cloud provider variable set (plan or host-managed sign-in)',
         'scope': 'Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.',
         'summary': {**counts, 'cases': len(results), 'case_limit': limit, 'skipped_over_limit': skipped, 'tokens': used, 'seconds': round(seconds, 1)},

@@ -44,7 +44,9 @@ Finish with the [update check](plugins/framecore-work-creative-studio/skills/wor
 
 ## Readback record (optional)
 
-Owner decision 2026-10-10: hosted readbacks are no longer requested and ChatGPT Work is recorded as `not_tracked`; the
+Owner decision 2026-10-20 supersedes the historical procedure below: use the current hosted release as the guarded baseline, preserve the private integrations maintained by the separate integrations thread, apply the verified public-source changes, and read back the affected files. Record the public source version and hosted version separately when the private overlay has a newer version. Never replace newer integrations with an older public snapshot or publish private configuration to GitHub.
+
+Historical owner decision 2026-10-10: hosted readbacks were no longer requested and ChatGPT Work was recorded as `not_tracked`; the
 owner tests the plugin himself. The procedure below stays available when someone wants a byte-level comparison.
 
 After the update, ask Plugin Creator in the same chat to read the saved plugin back and write one JSON file with:

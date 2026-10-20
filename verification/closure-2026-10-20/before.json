@@ -1,0 +1,35 @@
+{
+  "baseline": "9a028b78bea27d6aac146865dc6c12d29a7329cf",
+  "results": [
+    {
+      "suite": "plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py",
+      "exit": 1,
+      "summary": " compared product and source with the frames'], 'findings': []}\n\n----------------------------------------------------------------------\nRan 26 tests in 6.263s\n\nFAILED (failures=8)\n"
+    },
+    {
+      "suite": "plugins/framecore-work-creative-studio/tests/sound_listen_test.py",
+      "exit": 1,
+      "summary": "within 0.0001 delta (0.14646819233894348 difference)\n\n----------------------------------------------------------------------\nRan 13 tests in 4.785s\n\nFAILED (failures=10, errors=4)\n"
+    },
+    {
+      "suite": "plugins/framecore-work-creative-studio/tests/print_pdf_test.py",
+      "exit": 1,
+      "summary": " is not set (PDF/X requires True or False; finish sets False)']}\n\n----------------------------------------------------------------------\nRan 8 tests in 0.682s\n\nFAILED (failures=8)\n"
+    },
+    {
+      "suite": "plugins/framecore-work-creative-studio/tests/environment_check_test.py",
+      "exit": 1,
+      "summary": "npx', '--no-install', 'hyperframes', '--version'], timeout=60)\n\n----------------------------------------------------------------------\nRan 24 tests in 16.394s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "suite": "plugins/framecore-work-creative-studio/tests/web_reach_test.py",
+      "exit": 1,
+      "summary": "ertionError: ReachError not raised : http://127.0.0.1/\n\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nFAILED (failures=1, errors=1)\n"
+    },
+    {
+      "suite": "tests/test_release.py",
+      "exit": 1,
+      "summary": "hanged: no\\nChatGPT-Work-Sync: not_tracked\\nCodex-Sync: not_run'\n\n----------------------------------------------------------------------\nRan 7 tests in 0.082s\n\nFAILED (failures=1)\n"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 import contextlib
 import importlib.util
 import io
+import email.message
 import pathlib
 import unittest
 from unittest import mock
@@ -13,6 +14,60 @@ spec.loader.exec_module(wr)
 
 
 class WebReachTest(unittest.TestCase):
+    def test_redirects_are_checked_before_the_next_request(self):
+        import urllib.response
+        class Transport(wr.urllib.request.HTTPHandler):
+            def __init__(self, target):
+                super().__init__()
+                self.target, self.visited = target, []
+            def http_open(self, request):
+                self.visited.append(request.full_url)
+                headers = email.message.Message()
+                code = 200
+                if len(self.visited) == 1:
+                    code = 302
+                    headers['Location'] = self.target
+                reply = urllib.response.addinfourl(io.BytesIO(b'ok'), headers, request.full_url, code)
+                reply.msg = 'test'
+                return reply
+        start = 'http://93.184.215.14/start'
+        for target in ['http://127.0.0.1/', 'http://10.0.0.5/', 'http://[::1]/',
+                       'http://169.254.169.254/latest/meta-data', 'file:///etc/passwd', '/public']:
+            transport = Transport(target)
+            original = wr.urllib.request.build_opener
+            def opener(*handlers):
+                return original(*(h for h in handlers if not isinstance(h, wr.urllib.request.HTTPHandler)), transport)
+            with mock.patch.object(wr.urllib.request, 'build_opener', side_effect=opener), \
+                 mock.patch.object(wr.socket, 'socket', side_effect=AssertionError('network forbidden')):
+                if target == '/public':
+                    self.assertEqual(wr.fetch(start), 'ok')
+                    self.assertEqual(transport.visited, [start, 'http://93.184.215.14/public'])
+                else:
+                    with self.assertRaises(wr.ReachError, msg=target):
+                        wr.fetch(start)
+                    self.assertEqual(transport.visited, [start])
+
+    def test_connection_rechecks_dns_and_connects_only_to_validated_numeric_address(self):
+        def answer(ip):
+            return [(wr.socket.AF_INET, wr.socket.SOCK_STREAM, 6, '', (ip, 443))]
+        # DNS changes between URL validation and connection. No socket may be opened.
+        with mock.patch.object(wr.socket, 'getaddrinfo', side_effect=[answer('93.184.215.14'), answer('127.0.0.1')]), \
+             mock.patch.object(wr.socket, 'socket') as create:
+            with self.assertRaises(wr.ReachError):
+                wr.public_connection(('example.test', 443))
+            create.assert_not_called()
+        with mock.patch.object(wr.socket, 'getaddrinfo', return_value=answer('93.184.215.14')), \
+             mock.patch.object(wr.socket, 'socket') as create:
+            connection = wr.public_connection(('example.test', 443))
+            connection.connect.assert_called_once_with(('93.184.215.14', 443))
+        # HTTPS keeps the original hostname for SNI and certificate verification.
+        connection = wr.PublicHTTPSConnection('example.test')
+        with mock.patch.object(wr, 'public_connection', return_value=mock.Mock()):
+            with mock.patch.object(connection._context, 'wrap_socket') as wrap:
+                connection._create_connection = wr.public_connection
+                connection.connect()
+                self.assertEqual(wrap.call_args.kwargs['server_hostname'], 'example.test')
+
     def test_private_local_and_non_http_addresses_are_refused(self):
         for url in ('http://localhost/x', 'http://127.0.0.1/', 'http://169.254.169.254/latest/meta-data', 'http://10.0.0.5/',
                     'http://[::1]/', 'file:///etc/passwd', 'http://printer.local/', 'http://metadata.google.internal/'):

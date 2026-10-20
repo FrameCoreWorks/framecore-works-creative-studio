@@ -1,5 +1,13 @@
-# Creative Studio 1.98.0
+# FrameCore Works Creative Studio 1.111.1
 
-## Sound listening and placing, earshot in the recommended repositories
+Close the interrupted 2026-10-20 repository audit before the next feature task.
 
-Studio can now measure a film's sound, check it against the cuts, score it and lay samples on frames, and lists earshot for model-based listening and its code-made sound bank.
+- Exact-copy review preserves currency, punctuation, case and contact details while allowing Unicode NFC and line wrapping.
+- Audio analysis keeps mono amplitude, consistently selects the first audio stream, bounds tempo sampling and respects supplied reference profiles.
+- Print preflight validates the PDF Trapped name; frame review uses fractional glyph widths; cached HyperFrames probing stays offline.
+- Web reach checks redirects and validates the numeric addresses used for each connection, with HTTPS hostname verification preserved.
+- Startup, supplied-film audio routing, renderer delivery and QA ownership agree across active instructions.
+- Release provenance follows the actual development surface; suite summaries retain their names. Future host evaluations bind results to a content hash and retained candidate archive.
+- Version 1.111.1 aligns the public source with the existing private hosted installation after its separate 1.99–1.111 integration updates. Private connections and supplemental runtimes remain preserved, outside the public repository.
+
+Fresh source and sandbox media checks are recorded in verification/closure-2026-10-20. The old 43-scenario report was not recovered and is not treated as fresh evidence. No paid provider generation or fresh-client startup evaluation was performed.

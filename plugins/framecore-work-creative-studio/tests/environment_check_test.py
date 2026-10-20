@@ -318,6 +318,14 @@ class Network(unittest.TestCase):
     def args(self, online):
         return check.argparse.Namespace(online=online, project='.', browser=None, host='auto', workspace=tempfile.gettempdir())
 
+    def test_hyperframes_cache_probe_is_offline_even_when_npx_is_available(self):
+        with tempfile.TemporaryDirectory() as temp, \
+                mock.patch.dict(check.os.environ, {'HOME': temp, 'CODEX_HOME': temp}, clear=True), \
+                mock.patch.object(check.shutil, 'which', side_effect=lambda name: '/fixture/npx' if name == 'npx' else None), \
+                mock.patch.object(check, 'run', return_value='') as invoked:
+            self.assertEqual(check.check_hyperframes({}, temp), (None, None, []))
+        invoked.assert_called_once_with(['/fixture/npx', '--offline', '--no-install', 'hyperframes', '--version'], timeout=60)
+
     def test_offline_never_opens_a_connection(self):
         with mock.patch.object(check.urllib.request, 'urlopen', side_effect=AssertionError('network used')):
             data = check.report(self.args(False))

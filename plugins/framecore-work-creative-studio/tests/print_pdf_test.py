@@ -56,6 +56,30 @@ class PrintPdfTest(unittest.TestCase):
         self.assertAlmostEqual(page['trim_mm'][0], 148, delta=0.1)
         self.assertAlmostEqual(page['bleed_mm'], 3, delta=0.1)
         self.assertEqual(page['images'][0]['colour'], 'CMYK')
+        self.assertEqual(report['declared']['Trapped'], '/False')
+
+    def test_trapped_is_a_pdf_name_with_a_valid_value(self):
+        src, finished = self.root / 'source.pdf', self.root / 'finished.pdf'
+        page_pdf(src, 'CMYK', (10, 20, 30, 0))
+        run('finish', str(src), '--trim-mm', '148x210', '--out', str(finished))
+        cases = ((pikepdf.Name('/True'), False), (pikepdf.Name('/False'), False),
+                 (pikepdf.Name('/Unknown'), False), (pikepdf.Name('/False_'), True),
+                 (pikepdf.String('/False'), True), (pikepdf.String('False'), True),
+                 (False, True), (0, True), (None, False))
+        for value, invalid in cases:
+            with self.subTest(value=repr(value)):
+                path = self.root / 'variant.pdf'
+                with pikepdf.open(finished) as pdf:
+                    if value is None:
+                        del pdf.docinfo['/Trapped']
+                    else:
+                        pdf.docinfo['/Trapped'] = value
+                    pdf.save(path)
+                report = json.loads(run('check', str(path), '--min-ppi', '1', '--json')[1])
+                self.assertEqual(any('Trapped' in p for p in report['problems']), invalid, report)
+                x1a = json.loads(run('check', str(path), '--require', 'x1a', '--min-ppi', '1', '--json')[1])
+                self.assertEqual(any('Trapped' in p for p in x1a['problems']),
+                                 invalid or value is None or str(value) == '/Unknown', x1a)
 
     def test_check_finds_missing_boxes_low_resolution_rgb_and_heavy_ink(self):
         rgb, heavy = self.root / 'rgb.pdf', self.root / 'heavy.pdf'

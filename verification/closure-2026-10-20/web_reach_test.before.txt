@@ -1,0 +1,23 @@
+.E...F..
+======================================================================
+ERROR: test_connection_rechecks_dns_and_connects_only_to_validated_numeric_address (__main__.WebReachTest.test_connection_rechecks_dns_and_connects_only_to_validated_numeric_address)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/web_reach_test.py", line 57, in test_connection_rechecks_dns_and_connects_only_to_validated_numeric_address
+    wr.public_connection(('example.test', 443))
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'web_reach' has no attribute 'public_connection'
+
+======================================================================
+FAIL: test_redirects_are_checked_before_the_next_request (__main__.WebReachTest.test_redirects_are_checked_before_the_next_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/web_reach_test.py", line 46, in test_redirects_are_checked_before_the_next_request
+    with self.assertRaises(wr.ReachError, msg=target):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ReachError not raised : http://127.0.0.1/
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.008s
+
+FAILED (failures=1, errors=1)

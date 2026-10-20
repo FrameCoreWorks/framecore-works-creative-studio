@@ -5,6 +5,7 @@ import subprocess
 import tempfile
 import types
 import unittest
+from unittest import mock
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location('release', ROOT / 'scripts/release.py')
@@ -61,6 +62,22 @@ class Release(unittest.TestCase):
                     release.commit('docs: record', 'body', 'X', 'abc', False, paths=['record.json'])
             finally:
                 release.ROOT = original
+
+    def test_commit_uses_the_current_development_surface(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = pathlib.Path(tmp)
+            for command in (['init', '-q'], ['config', 'user.email', 't@t'], ['config', 'user.name', 't']):
+                subprocess.run(['git', *command], cwd=repo, check=True)
+            (repo / 'record.json').write_text('{}')
+            with mock.patch.object(release, 'ROOT', repo), mock.patch.dict(release.os.environ, {'STUDIO_ORIGIN_AGENT': 'chatgpt-work'}):
+                release.commit('docs: evidence', 'Measured sandbox recovery', 'CW-TEST', 'abc', False, paths=['record.json'])
+                body = release.git('log', '-1', '--format=%B')
+            self.assertIn('Origin-Agent: chatgpt-work', body)
+            self.assertNotIn('Origin-Agent: cloud-code', body)
+            self.assertIn('ChatGPT-Work-Sync: pending', body)
+        with mock.patch.dict(release.os.environ, {'STUDIO_ORIGIN_AGENT': 'unknown'}):
+            with self.assertRaises(release.ReleaseError):
+                release.origin_agent()
 
     def test_manifest_and_zip_skip_the_same_generated_files(self):
         # Audit INSTALL-03: one rule for both; a stray log or cache is declared nowhere.

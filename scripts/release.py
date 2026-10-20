@@ -2,6 +2,7 @@
 """
 One command for a Studio release, and one for its publication record.
 Session-specific settings come from the environment: STUDIO_RELEASE_BRANCHES (extra branches to push, comma-separated) and
+STUDIO_ORIGIN_AGENT (cloud-code, chatgpt-work, codex or owner), STUDIO_RELEASE_ENVIRONMENT, and
 STUDIO_COMMIT_TRAILERS (trailer lines appended to the release commit, \\n between lines).
 
   python3 scripts/release.py prepare 1.55.0 --change-id CC-20261010-13 --title "Release 1.55.0: …" \
@@ -37,13 +38,18 @@ REPO = 'FrameCoreWorks/framecore-works-creative-studio'
 # Extra branches to push and commit trailer lines come from the releasing session, never from this file.
 SESSION_BRANCHES = [b for b in os.environ.get('STUDIO_RELEASE_BRANCHES', '').split(',') if b.strip()]
 TRAILER_TAIL = os.environ.get('STUDIO_COMMIT_TRAILERS', '').replace('\\n', '\n').strip()
-PYTHON_SUITES = ['Codex installer', 'package identity', 'benchmark script', 'host smoke', 'hosted readback', 'Claude plugin and guides', 'release helper',
-                 'GEPA pilot', 'asset', 'caption', 'environment check', 'motion acceptance', 'motion fonts', 'motion kinds', 'motion variants', 'skill finder', 'Animate engine', 'Animate voice',
-                 'static render', 'print PDF', 'Polish copy check', 'image probe', 'quote calculator', 'voice-over budget', 'edit export', 'storyboard compositor', 'sheet export', 'shot plan check', 'prompt pack', 'clip review', 'SVG wordmark', 'brand guide', 'motion activity', 'lyric timing', 'technique atlas', 'motion assets', 'host-eval harness']
+PYTHON_SUITES = ['test_codex_install', 'test_package_identity', 'test_motion_benchmark', 'test_host_smoke', 'test_hosted_readback', 'test_claude_plugin', 'test_release', 'test_gepa_studio_pilot', 'asset_manifest', 'captions', 'environment_check', 'motion_acceptance', 'motion_fonts', 'motion_kinds', 'motion_variants', 'skill_finder', 'extensions', 'animate_engine', 'animate_voice', 'static_render', 'print_pdf', 'reel_starters', 'web_reach', 'pl_copy_check', 'image_probe', 'quote_calc', 'vo_budget', 'edit_export', 'board_compose', 'sheet_export', 'shot_plan_check', 'prompt_pack', 'clip_review', 'svg_wordmark', 'brand_guide', 'motion_activity', 'lyric_timing', 'iso_glow', 'sound_listen', 'reference_breakdown', 'craft_lint', 'design_md', 'ai_writing_check', 'technique_atlas', 'motion_assets', 'knowledge_wiring', 'test_host_eval']
 
 
 class ReleaseError(Exception):
     pass
+
+
+def origin_agent():
+    origin = os.environ.get('STUDIO_ORIGIN_AGENT', 'cloud-code')
+    if origin not in {'cloud-code', 'chatgpt-work', 'codex', 'owner'}:
+        raise ReleaseError('invalid STUDIO_ORIGIN_AGENT')
+    return origin
 
 
 def run(*args, check=True, cwd=None, env=None, timeout=None):
@@ -132,7 +138,7 @@ def summary_text(checks, browser):
     node = checks['node']
     skipped = node.get('skipped', 0)
     parts = [f"{node.get('tests')} Node tests ({node.get('pass')} passing" + (f", {skipped} opt-in browser tests skipped there" + (f" and run separately: {browser} passing in the browser run" if browser else '') if skipped else '') + ')']
-    parts += [f"{c['tests']} {name}" + (f" ({c['skipped']} skipped without optional dependencies)" if c['skipped'] else '') for name, c in checks['python'].items()]
+    parts += [f"{c['tests']} {name}" + (f" ({c['skipped']} skipped; see the suite log for reasons)" if c['skipped'] else '') for name, c in checks['python'].items()]
     return ', '.join(parts)
 
 
@@ -147,7 +153,7 @@ def run_checks():
     browser = None
     if os.environ.get('MOTION_REVIEW_BROWSER'):
         done = run('node', '--test', '--test-concurrency=1', f'{PACKAGE}/tests/motion-toolkit.test.mjs', timeout=3600)
-        stats = {k: int(v) for k, v in re.findall(r'^# (tests|pass|fail) (\d+)$', done.stdout, re.M)}
+        stats = parse_checks(done.stdout)['node']
         if stats.get('fail'):
             raise ReleaseError(f'browser run: {stats}')
         browser = stats.get('pass')
@@ -174,7 +180,7 @@ def scope_record(old, new, change_id, note):
     files = sum(1 for p in PLUGIN.rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc')
     touched = changed + added
     record = {
-        'version': new, 'baseline_tag': base, 'baseline': git('rev-parse', base), 'change_id': change_id, 'origin': 'cloud-code',
+        'version': new, 'baseline_tag': base, 'baseline': git('rev-parse', base), 'change_id': change_id, 'origin': origin_agent(),
         'files': files, 'skills': len(list((PLUGIN / 'skills').glob('*/SKILL.md'))),
         'changed': sorted(changed), 'added': sorted(added), 'removed': [], 'unchanged_count': files - len(touched),
         'welcome': 'changed' if any('startup-welcome' in p for p in touched) else 'byte_identical',
@@ -189,8 +195,8 @@ def scope_record(old, new, change_id, note):
 def update_records(old, new, change_id, args, canonical, checks, browser, claude, scope, baseline):
     summary = summary_text(checks, browser)
     release = {
-        'version': new, 'date': today(), 'baseline': baseline, 'change_id': change_id, 'origin': 'cloud-code',
-        'environment': 'Claude Code cloud container used only as a development tool',
+        'version': new, 'date': today(), 'baseline': baseline, 'change_id': change_id, 'origin': origin_agent(),
+        'environment': os.environ.get('STUDIO_RELEASE_ENVIRONMENT', 'Development environment not reported'),
         'checks': [
             {'command': f'node {PACKAGE}/scripts/validate-studio.mjs', 'status': 'PASS', 'files': canonical['files'], 'owners': canonical['owners'],
              'planned_cases': canonical['evaluations']['total_planned'], 'executed': canonical['evaluations']['executed'], 'warnings': canonical.get('warnings')},
@@ -207,7 +213,7 @@ def update_records(old, new, change_id, args, canonical, checks, browser, claude
     replace_once('VERIFICATION.md', f'## Current source: {old}', f'## Current source: {new}\n\n{verification}\n\n## Previous source: {old}')
     status = read('RELEASE_STATUS.md')
     status = re.sub(r'^Source version: \*\*[^*]+\*\*\. Date: [0-9-]+\. Change ID: `[^`]+`(?: \(origin: [^)]+\))?',
-                    f'Source version: **{new}**. Date: {today()}. Change ID: `{change_id}` (origin: cloud-code)', status, count=1, flags=re.M)
+                    f'Source version: **{new}**. Date: {today()}. Change ID: `{change_id}` (origin: {origin_agent()})', status, count=1, flags=re.M)
 
     def row(name, value):
         nonlocal status
@@ -228,7 +234,7 @@ def update_records(old, new, change_id, args, canonical, checks, browser, claude
 
 ## {change_id}
 
-- Origin: cloud-code
+- Origin: {origin_agent()}
 - Branch: `{git('rev-parse', '--abbrev-ref', 'HEAD')}`, fast-forwarded into `main` under the owner's standing rule
 - Baseline: `{baseline[:7]}` (main, package {old}); full SHA in the commit trailer
 - Result: the release commit carrying this entry (package {new})
@@ -244,7 +250,7 @@ Verification:
 Cross-host state:
 
 - GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
 """
     write('docs/development-ledger.md', read('docs/development-ledger.md').rstrip('\n') + ledger)
@@ -263,11 +269,11 @@ def commit(title, body, change_id, baseline, shared, paths=None):
 
 {body.strip()}
 
-Origin-Agent: cloud-code
+Origin-Agent: {origin_agent()}
 Change-ID: {change_id}
 Baseline-SHA: {baseline}
 Shared-Package-Changed: {'yes' if shared else 'no'}
-ChatGPT-Work-Sync: not_tracked
+ChatGPT-Work-Sync: pending
 Codex-Sync: not_run
 {TRAILER_TAIL}
 """
@@ -433,7 +439,7 @@ def publish(args):
         raise ReleaseError(f'release ZIP differs from the tag tree: {len(members)} vs {len(tree)} files, {len(mismatched)} mismatched')
     by_name = {r['name'].split()[0]: r for r in runs}
     record = {
-        'version': version, 'change_id': args.change_id, 'origin': 'cloud-code', 'commit': sha, 'package_commit': sha,
+        'version': version, 'change_id': args.change_id, 'origin': origin_agent(), 'commit': sha, 'package_commit': sha,
         'release_url': f'https://github.com/{REPO}/releases/tag/v{version}',
         'workflows': [{'id': r['id'], 'name': r['name'], 'branch': r['head_branch'], 'conclusion': r['conclusion']} for r in runs],
         'plugin_zip_sha256': hashes[names[0]], 'plugin_zip_matches_local': matches[names[0]],
@@ -441,7 +447,7 @@ def publish(args):
         'plugin_inventory_sha256': hashes[names[1]], 'plugin_inventory_matches_local': matches[names[1]],
         'motion_player_sha256': hashes[names[2]], 'motion_player_asset_matches_local': matches[names[2]],
         'published_skill_yaml': f'{frontmatters} SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML' if frontmatters is not None else 'PyYAML unavailable; not parsed',
-        'hosted_plugin': 'not_tracked (owner decision 2026-10-10: the owner updates and tests it)', 'host_behavior': 'NOT_RUN',
+        'hosted_plugin': 'pending (separate guarded update and readback required)', 'host_behavior': 'NOT_RUN',
     }
     write(f'verification/github-publication-{version}.json', json.dumps(record, indent=2, ensure_ascii=False) + '\n')
     status = read('RELEASE_STATUS.md')

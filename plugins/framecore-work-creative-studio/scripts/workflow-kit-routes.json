@@ -96,6 +96,7 @@
     "qa-iteration": [
       "output-critic-iteration",
       "video-prompt-architect",
+      "hyperframes-workflow",
       "audio-production-director",
       "caption-studio",
       "pipeline-core"

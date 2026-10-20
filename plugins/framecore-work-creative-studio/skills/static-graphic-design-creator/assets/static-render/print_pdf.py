@@ -104,7 +104,7 @@ def finish(args):
                                     OutputConditionIdentifier=args.condition, Info=args.condition,
                                     RegistryName='http://www.color.org', DestOutputProfile=profile)
         pdf.Root.OutputIntents = pikepdf.Array([intent])
-    pdf.docinfo['/Trapped'] = pikepdf.Name.False_
+    pdf.docinfo['/Trapped'] = pikepdf.Name('/False')
     pdf.save(args.out)
     print(f'{args.out}: TrimBox {args.trim_mm} mm, bleed {args.bleed_mm} mm'
           + (f', output intent {args.condition}' if args.icc else '') + '; colours unchanged')
@@ -322,8 +322,14 @@ def check(args):
     declared = {k.lstrip('/'): str(pdf.docinfo.get(k)) for k in
                 ('/GTS_PDFXVersion', '/GTS_PDFXConformance', '/Trapped', '/Producer', '/Creator', '/Title')
                 if pdf.docinfo.get(k) is not None}
-    if 'Trapped' not in declared:
-        notes.append('Trapped is not set (PDF/X requires True or False; finish sets False)')
+    trapped = pdf.docinfo.get('/Trapped')
+    if trapped is None:
+        (problems if args.require == 'x1a' else notes).append(
+            'Trapped is not set (PDF/X requires True or False; finish sets False)')
+    elif not isinstance(trapped, pikepdf.Name) or str(trapped) not in ('/True', '/False', '/Unknown'):
+        problems.append('Trapped must be a PDF name: /True, /False or /Unknown')
+    elif args.require == 'x1a' and str(trapped) == '/Unknown':
+        problems.append('Trapped is /Unknown; PDF/X requires /True or /False')
     if declared.get('GTS_PDFXVersion'):
         notes.append(f'the file declares {declared["GTS_PDFXVersion"]}'
                      + (f' / {declared["GTS_PDFXConformance"]}' if declared.get('GTS_PDFXConformance') else '')

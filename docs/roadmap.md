@@ -1,5 +1,9 @@
 # Roadmap for the development surfaces
 
+## Owner-directed maintenance, 2026-10-20
+
+ChatGPT Work continues repository development and actual sandbox testing while Claude Code is unavailable. Work directly on `main`, with no working branches, and publish verified changes together with a guarded update of the existing hosted plugin. The separate integrations thread owns permanent tool connections. Preserve its current private overlay, report public and hosted versions separately, and keep private integrations out of the public repository. Record measured failures, fixes and remaining coverage gaps; source validation is not proof of fresh-host behavior.
+
 Written 2026-10-16 by Cloud Code (change CC-20261016-04) at the owner's request, for Codex and ChatGPT Work: which way to develop Studio, what Cloud Code did from 1.70.0 to 1.87.0, and why. Read it after `AGENTS.md` and before the ledger. `AGENTS.md` and the owner's newest decision win over anything here; when one changes, update this file in the same change.
 
 ## Owner-directed update, 2026-10-17 (1.88.0)

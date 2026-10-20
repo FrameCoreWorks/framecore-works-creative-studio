@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: frame review selects contract frames and embeds the score in the preview
+ok 1 - frame review selects contract frames and embeds the score in the preview
+  ---
+  duration_ms: 12.574248
+  type: 'test'
+  ...
+# Subtest: frame review finds no issues in the starter and errors in a broken contract
+ok 2 - frame review finds no issues in the starter and errors in a broken contract
+  ---
+  duration_ms: 87134.59283
+  type: 'test'
+  ...
+# Subtest: the Python renderer matches the browser engine frame by frame
+ok 3 - the Python renderer matches the browser engine frame by frame
+  ---
+  duration_ms: 73174.369271
+  type: 'test'
+  ...
+# Subtest: browser export writes a playable file for a chosen format
+ok 4 - browser export writes a playable file for a chosen format
+  ---
+  duration_ms: 3486.372397
+  type: 'test'
+  ...
+# Subtest: HTML capture counts frames from rational rates and refuses bad ones
+ok 5 - HTML capture counts frames from rational rates and refuses bad ones
+  ---
+  duration_ms: 1.812146
+  type: 'test'
+  ...
+# Subtest: HTML capture keeps every frame when the audio is shorter than the picture (audit MEDIA-04)
+ok 6 - HTML capture keeps every frame when the audio is shorter than the picture (audit MEDIA-04)
+  ---
+  duration_ms: 408.824193
+  type: 'test'
+  ...
+# Subtest: HTML capture renders a page frame by frame, identically on two runs
+ok 7 - HTML capture renders a page frame by frame, identically on two runs
+  ---
+  duration_ms: 3548.119788
+  type: 'test'
+  ...
+# Subtest: the motion player can open a contract and keeps shortcuts out of text fields
+ok 8 - the motion player can open a contract and keeps shortcuts out of text fields
+  ---
+  duration_ms: 1.199135
+  type: 'test'
+  ...
+# Subtest: the motion player draws a contract from the address fragment
+ok 9 - the motion player draws a contract from the address fragment
+  ---
+  duration_ms: 474.895877
+  type: 'test'
+  ...
+# Subtest: device scenes place screenshots in a phone or browser window, push screens and focus the camera
+ok 10 - device scenes place screenshots in a phone or browser window, push screens and focus the camera
+  ---
+  duration_ms: 11.287365
+  type: 'test'
+  ...
+# Subtest: device taps press before the screen change, the browser frame shows its address, scene backgrounds wipe in
+ok 11 - device taps press before the screen change, the browser frame shows its address, scene backgrounds wipe in
+  ---
+  duration_ms: 2.907513
+  type: 'test'
+  ...
+# Subtest: Python renderer draws taps, the browser frame and wiping backgrounds deterministically
+ok 12 - Python renderer draws taps, the browser frame and wiping backgrounds deterministically
+  ---
+  duration_ms: 2795.426791
+  type: 'test'
+  ...
+# Subtest: the visible-text audit catches every clipped word and passes complete text and transition masks
+ok 13 - the visible-text audit catches every clipped word and passes complete text and transition masks
+  ---
+  duration_ms: 1875.257457
+  type: 'test'
+  ...
+# Subtest: the frame review blocks a contract whose word is cut while the encoded pixels look tidy
+ok 14 - the frame review blocks a contract whose word is cut while the encoded pixels look tidy
+  ---
+  duration_ms: 12199.937272
+  type: 'test'
+  ...
+# Subtest: the motion player loads embedded contract fonts before reviewing
+ok 15 - the motion player loads embedded contract fonts before reviewing
+  ---
+  duration_ms: 211.492491
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 186177.052433

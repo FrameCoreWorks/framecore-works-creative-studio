@@ -1,0 +1,143 @@
+.../workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/sound-listen/listen.py:454: ResourceWarning: unclosed file <_io.BufferedReader name=3>
+  m['true_peak'] = round(true_peak_dbtp(a['path']), 1) if full else None
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FFEEFFFFFEFF.F..E..
+======================================================================
+ERROR: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 185, in test_invalid_profiles_are_input_errors
+    self.listen.ref_from_profile(profile)
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/sound-listen/listen.py", line 794, in ref_from_profile
+    return {k: (v['min'], v['median'], v['max']) for k, v in profile['metrics'].items()}
+                                                             ~~~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+======================================================================
+ERROR: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 185, in test_invalid_profiles_are_input_errors
+    self.listen.ref_from_profile(profile)
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/sound-listen/listen.py", line 794, in ref_from_profile
+    return {k: (v['min'], v['median'], v['max']) for k, v in profile['metrics'].items()}
+                                                             ~~~~~~~^^^^^^^^^^^
+KeyError: 'metrics'
+
+======================================================================
+ERROR: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {'lufs_i': {'min': -20, 'max': 0}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 185, in test_invalid_profiles_are_input_errors
+    self.listen.ref_from_profile(profile)
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/sound-listen/listen.py", line 794, in ref_from_profile
+    return {k: (v['min'], v['median'], v['max']) for k, v in profile['metrics'].items()}
+                          ~^^^^^^^^^^
+KeyError: 'median'
+
+======================================================================
+ERROR: test_tempo_grid_rounding_stays_inside_flux (__main__.ListenTests.test_tempo_grid_rounding_stays_inside_flux)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 151, in test_tempo_grid_rounding_stays_inside_flux
+    bpm, beats = self.listen.tempo_of(flux)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/sound-listen/listen.py", line 333, in tempo_of
+    scores = [flux[np.round(np.arange(phase, len(flux), period)).astype(int)].sum() for phase in np.arange(0, period, 0.5)]
+              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: index 1206 is out of bounds for axis 0 with size 1206
+
+======================================================================
+FAIL: test_custom_profile_does_not_use_launch_loudness_or_labels (__main__.ListenTests.test_custom_profile_does_not_use_launch_loudness_or_labels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 164, in test_custom_profile_does_not_use_launch_loudness_or_labels
+    self.assertEqual(rows['lufs_i']['status'], 'ok')
+AssertionError: 'low' != 'ok'
+- low
++ ok
+
+
+======================================================================
+FAIL: test_first_audio_stream_is_used_even_when_second_is_default (__main__.ListenTests.test_first_audio_stream_is_used_even_when_second_is_default)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 140, in test_first_audio_stream_is_used_even_when_second_is_default
+    self.assertAlmostEqual(float(abs(self.listen.decode(str(p))).max()), 0.1, delta=0.0001)
+AssertionError: 0.5656552314758301 != 0.1 within 0.0001 delta (0.4656552314758301 difference)
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 184, in test_invalid_profiles_are_input_errors
+    with self.subTest(profile=profile), self.assertRaises(self.listen.InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {'unknown': {'min': 0, 'median': 1, 'max': 2}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 184, in test_invalid_profiles_are_input_errors
+    with self.subTest(profile=profile), self.assertRaises(self.listen.InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {'lufs_i': {'min': -10, 'median': -20, 'max': 0}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 184, in test_invalid_profiles_are_input_errors
+    with self.subTest(profile=profile), self.assertRaises(self.listen.InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {'lufs_i': {'min': -20, 'median': nan, 'max': 0}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 184, in test_invalid_profiles_are_input_errors
+    with self.subTest(profile=profile), self.assertRaises(self.listen.InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {'lufs_i': {'min': -20, 'median': -10, 'max': inf}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 184, in test_invalid_profiles_are_input_errors
+    with self.subTest(profile=profile), self.assertRaises(self.listen.InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors) (profile={'metrics': {'lufs_i': {'min': False, 'median': 1, 'max': 2}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 184, in test_invalid_profiles_are_input_errors
+    with self.subTest(profile=profile), self.assertRaises(self.listen.InputError):
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_invalid_profiles_are_input_errors (__main__.ListenTests.test_invalid_profiles_are_input_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 186, in test_invalid_profiles_are_input_errors
+    with self.assertRaises(self.listen.InputError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: InputError not raised
+
+======================================================================
+FAIL: test_mono_amplitude_peak_and_loudness_are_not_attenuated (__main__.ListenTests.test_mono_amplitude_peak_and_loudness_are_not_attenuated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/sound_listen_test.py", line 124, in test_mono_amplitude_peak_and_loudness_are_not_attenuated
+    self.assertAlmostEqual(float(abs(x).max()), 0.5, delta=0.0001)
+AssertionError: 0.3535318076610565 != 0.5 within 0.0001 delta (0.14646819233894348 difference)
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.785s
+
+FAILED (failures=10, errors=4)

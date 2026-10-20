@@ -1,0 +1,93 @@
+......F.FFFFFFF.................
+======================================================================
+FAIL: test_copy_accepts_line_wraps_and_canonically_equivalent_unicode (__main__.ExactCopy.test_copy_accepts_line_wraps_and_canonically_equivalent_unicode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 411, in test_copy_accepts_line_wraps_and_canonically_equivalent_unicode
+    self.assertEqual(result['status'], 'pass', result)
+AssertionError: 'fail' != 'pass'
+- fail
++ pass
+ : {'status': 'fail', 'evidence': ['a person compared product and source with the frames'], 'findings': ['copy not found whole and in order in any audited frame: line']}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='Price €49', changed='Price $49')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='PLN', changed='pln')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='hello@example.com', changed='hello example com')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='Buy now!', changed='Buy now')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='+10%', changed='10%')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='49', changed='49€')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+======================================================================
+FAIL: test_copy_preserves_currency_case_punctuation_and_complete_numbers (__main__.ExactCopy.test_copy_preserves_currency_case_punctuation_and_complete_numbers) (locked='-', changed='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/68c6756cdc8e/closure-before/plugins/framecore-work-creative-studio/tests/motion_acceptance_test.py", line 406, in test_copy_preserves_currency_case_punctuation_and_complete_numbers
+    self.assertEqual(result['status'], 'fail', result)
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+ : {'status': 'pass', 'evidence': ['all 1 copy entries found word for word, in order, within one audited frame each', 'a person compared product and source with the frames'], 'findings': []}
+
+----------------------------------------------------------------------
+Ran 26 tests in 6.263s
+
+FAILED (failures=8)

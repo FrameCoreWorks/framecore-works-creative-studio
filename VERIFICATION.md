@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.98.0
+## Current source: 1.111.1
+
+The [1.111.1 source checks](verification/release-1.111.1.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (225 passing, 13 opt-in browser tests skipped there), 13 test_codex_install, 4 test_package_identity, 5 test_motion_benchmark, 6 test_host_smoke, 6 test_hosted_readback, 8 test_claude_plugin (1 skipped; see the suite log for reasons), 7 test_release, 8 test_gepa_studio_pilot (3 skipped; see the suite log for reasons), 23 asset_manifest, 17 captions, 24 environment_check, 26 motion_acceptance, 6 motion_fonts, 10 motion_kinds, 10 motion_variants, 7 skill_finder, 15 extensions, 11 animate_engine, 5 animate_voice, 15 static_render, 8 print_pdf, 2 reel_starters, 8 web_reach, 6 pl_copy_check, 14 image_probe, 11 quote_calc, 6 vo_budget, 4 edit_export, 4 board_compose, 4 sheet_export, 2 shot_plan_check, 2 prompt_pack, 3 clip_review, 5 svg_wordmark, 5 brand_guide, 4 motion_activity, 11 lyric_timing, 6 iso_glow, 13 sound_listen, 3 reference_breakdown, 12 craft_lint, 3 design_md, 6 ai_writing_check, 4 technique_atlas, 9 motion_assets, 2 knowledge_wiring, 22 test_host_eval. Separate Chrome run: 15 passed; SVG/WebGL/3D and logo raster run: 2 passed. Details in verification/closure-2026-10-20/results.json. No fresh-client behavior claim. [Scope](verification/scope-1.111.1.json) records 25 changed and 0 added shared files out of 1505.
+
+## Previous source: 1.98.0
 
 The [1.98.0 source checks](verification/release-1.98.0.json) pass canonical validation and `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 15 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 11 suite 37, 6 suite 38, 8 suite 39, 3 suite 40, 12 suite 41, 3 suite 42, 6 suite 43, 4 suite 44, 9 suite 45, 2 suite 46, 21 suite 47; `claude plugin validate --strict` passes. [Scope](verification/scope-1.98.0.json) records 14 changed and 7 added shared files out of 1505.
 

@@ -29,6 +29,7 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 
 
 def load(path):
@@ -118,8 +119,8 @@ def norm(text):
 
 
 def tokens(text):
-    """Whole words and numbers in reading order (10 is not 100, 99,99 stays one token); punctuation and case aside."""
-    return re.findall(r'[-−]?\d+(?:[.,]\d+)*%?|[^\W\d_]+', str(text).lower())
+    """Preserve locked copy, allowing line wraps and equivalent Unicode composition only."""
+    return unicodedata.normalize('NFC', str(text)).split()
 
 
 def shown_in_order(want, sample_tokens):
