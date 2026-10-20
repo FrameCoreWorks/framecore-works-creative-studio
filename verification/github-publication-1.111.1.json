@@ -1,0 +1,94 @@
+{
+  "version": "1.111.1",
+  "change_id": "CW-20261020-CLOSURE",
+  "origin": "chatgpt-work",
+  "status": "release and assets verified; description correction awaiting workflow readback",
+  "commit": "addf23e73400c0e17c3321a7020e98395e8932fc",
+  "package_commit": "addf23e73400c0e17c3321a7020e98395e8932fc",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.111.1",
+  "workflows": [
+    {
+      "id": 39429100734,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "failure",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39429100734"
+    },
+    {
+      "id": 39429100397,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39429100397"
+    },
+    {
+      "id": 39429100498,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/39429100498"
+    }
+  ],
+  "plugin_zip_sha256": "ecc05ebdfc0914a21c34c0e0c77ae1ddc907f2c3a4a0fcc564dca6ebb6a3aeae",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1505 of 1505 files byte-identical to v1.111.1:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_sha256": "4420fdf328707387f9492e2887f76a34556fef834da374c398f6339361120340",
+  "plugin_inventory_matches_local": true,
+  "motion_player_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+  "motion_player_asset_matches_local": true,
+  "motion_player_verification_method": "GitHub API asset SHA-256 equals local bytes; direct download not completed",
+  "published_skill_yaml": "37 SKILL.md frontmatters in the downloaded ZIP parse with PyYAML",
+  "asset_comparisons": {
+    "framecore-motion-player-1.111.1.html": {
+      "downloaded": false,
+      "local_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "github_digest": "sha256:06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "digest_matches_local": true
+    },
+    "framecore-work-creative-studio-1.111.1.zip": {
+      "downloaded": true,
+      "local_sha256": "ecc05ebdfc0914a21c34c0e0c77ae1ddc907f2c3a4a0fcc564dca6ebb6a3aeae",
+      "github_digest": "sha256:ecc05ebdfc0914a21c34c0e0c77ae1ddc907f2c3a4a0fcc564dca6ebb6a3aeae",
+      "digest_matches_local": true,
+      "download_matches_local": true
+    },
+    "framecore-work-creative-studio-1.111.1.zip.inventory.json": {
+      "downloaded": true,
+      "local_sha256": "4420fdf328707387f9492e2887f76a34556fef834da374c398f6339361120340",
+      "github_digest": "sha256:4420fdf328707387f9492e2887f76a34556fef834da374c398f6339361120340",
+      "digest_matches_local": true,
+      "download_matches_local": true
+    },
+    "framecore-works-creative-studio-1.111.1-repository.zip": {
+      "downloaded": false,
+      "local_sha256": "2c403a5b4d5872f5097dc4053f2582e18fc434c91ab098a82c2c155e2c854478",
+      "github_digest": "sha256:2c403a5b4d5872f5097dc4053f2582e18fc434c91ab098a82c2c155e2c854478",
+      "digest_matches_local": true
+    },
+    "framecore-works-creative-studio-1.111.1-repository.zip.inventory.json": {
+      "downloaded": false,
+      "local_sha256": "937bd118682c028adb868b058bb387bf694b85b12436851ad1a05e49443d4a6c",
+      "github_digest": "sha256:937bd118682c028adb868b058bb387bf694b85b12436851ad1a05e49443d4a6c",
+      "digest_matches_local": true
+    },
+    "_plugin_tag_tree": {
+      "files": 1505,
+      "matches": true,
+      "skill_frontmatters_parse": 37
+    },
+    "_method_notes": [
+      "Plugin ZIP and inventory downloaded and compared byte-for-byte. Player and repository artifacts checked through GitHub-reported SHA-256 against the local build.",
+      "Further direct asset download was interrupted with network approval cancelled; not counted as downloaded.",
+      "Repository ZIP uses the canonical checkout basename as its prefix; the temporary clone basename changes ZIP bytes without changing its file inventory. Canonical prefix matches the remote digest."
+    ]
+  },
+  "notes_correction": {
+    "original_run": 39429100734,
+    "original_conclusion": "failure",
+    "cause": "Root notes header did not match the exact workflow prefix",
+    "action": "Correct the root-only heading and refresh the release body without retagging or changing assets",
+    "status": "pending"
+  },
+  "hosted_plugin": "synchronized; see hosted-sync-1.111.1.json",
+  "host_behavior": "NOT_RUN"
+}

@@ -1,4 +1,4 @@
-# FrameCore Works Creative Studio 1.111.1
+# Creative Studio 1.111.1
 
 Close the interrupted 2026-10-20 repository audit before the next feature task.
 

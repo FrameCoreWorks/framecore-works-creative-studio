@@ -2686,3 +2686,11 @@ Cross-host state:
 - GitHub: pending (release commit, tag workflow and readback follow)
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CW-20261020-CLOSURE-PUBLICATION
+
+- Origin: chatgpt-work; baseline `addf23e73400c0e17c3321a7020e98395e8932fc`; shared package unchanged (1.111.1).
+- Trigger: the release and source workflows passed, but the description refresh rejected the root release-notes heading. Align that heading with its existing exact contract and add the verified source/tag record required by the description refresh. No tag or package replacement.
+- Verification: downloaded plugin ZIP and inventory match the build; all 1505 ZIP files match the tag tree; GitHub asset digests match the player and canonical repository build. [Publication record](../verification/github-publication-1.111.1.json) preserves the original failed description run and the exact comparison method.
+- Hosted plugin: already saved as 1.111.1 with a full archive readback; detailed synchronization record follows in the closure metadata commit. Fresh-client behavior and Codex installation: not_run.
+- Description workflow: awaiting the run triggered by this correction; no failed run is relabelled as a pass.
