@@ -1,0 +1,26 @@
+{
+  "version": "1.97.0",
+  "baseline_tag": "v1.96.0",
+  "baseline": "20ba378781b2ccfb678d40e72615d12dcfb4095d",
+  "change_id": "CC-20261020-01",
+  "origin": "cloud-code",
+  "files": 1498,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1490,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "OpenCreator 3.2.8 added to the recommended repositories with pinned installers and recorded licence limits."
+}

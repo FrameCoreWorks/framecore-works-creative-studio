@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.97.0, 2026-10-20
+
+At the owner's request, OpenCreator (krillinai, formerly KrillinAI, Apache-2.0) joins the recommended repositories; nothing from it is bundled:
+
+- **Registry.** `opencreator` added (category video), pinned to release 3.2.8 (commit f4dbed1) with the SHA-256 of the macOS (Apple Silicon and Intel) and Windows installers. It is a desktop app around Codex CLI that translates and dubs videos, generates thumbnails, images, video and voice, and makes stick-figure animations. Manual on Codex, Claude Code and Claude apps (the user installs it on their own computer); not supported in ChatGPT and ChatGPT Work
+- **Limits recorded.** Its 108 prompt templates belong to named outside authors and carry no licence, so Studio does not reuse them; downloading other people's videos is outside Studio's scope; media services need the user's own keys and cost money
+
 ## 1.96.0, 2026-10-19
 
 At the owner's request, after a 16.7-second Knock Knock reel (children's woodworking classes) was built in Claude Code from two reference reels and approved in four review rounds, Studio records how to make dense kinetic reels and how to keep every scene logical:
