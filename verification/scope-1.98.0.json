@@ -1,0 +1,40 @@
+{
+  "version": "1.98.0",
+  "baseline_tag": "v1.97.0",
+  "baseline": "8cf6527fbab4bb9c5a0f85dc3bfbcfa5e29fabe9",
+  "change_id": "CC-20261020-02",
+  "origin": "cloud-code",
+  "files": 1505,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-sound/README.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "integrations/earshot/LICENSE",
+    "integrations/earshot/README.md",
+    "skills/hyperframes-workflow/assets/sound-listen/README.md",
+    "skills/hyperframes-workflow/assets/sound-listen/listen.py",
+    "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py",
+    "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
+    "tests/sound_listen_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1484,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Native listening tools (measure, sync, critique, check, sheet, profile, place samples), earshot registry entry with light and full tier, sound craft reference, wiring"
+}

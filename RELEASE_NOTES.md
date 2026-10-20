@@ -1,5 +1,5 @@
-# Creative Studio 1.97.0
+# Creative Studio 1.98.0
 
-## OpenCreator in the recommended repositories
+## Sound listening and placing, earshot in the recommended repositories
 
-A local desktop workspace for translating and dubbing videos, generating media and making stick-figure animations, listed with a pinned release, installer checksums and its licence limits.
+Studio can now measure a film's sound, check it against the cuts, score it and lay samples on frames, and lists earshot for model-based listening and its code-made sound bank.

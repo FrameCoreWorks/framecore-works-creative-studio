@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.98.0, 2026-10-20
+
+At the owner's request, earshot (Leon Lin, MIT) joins the recommended repositories and its capabilities are added next to Studio's sound skills. The model-free half is rewritten as Studio tools; the model half and the sound bank stay in the pinned extension:
+
+- **Hear the film.** `sound-listen/listen.py` (NumPy and FFmpeg only) measures loudness, true peak, spectrum, stereo, onsets, tempo and key; lists what sounds when next to the cuts; scores every cut or cue for a sound within 100 ms; audits one sound for clicks, a cut tail, clipping, DC offset and pitch glide; compares two sounds; scores a soundtrack against launch-film ranges with timed fixes (or against the user's own `profile`); draws an annotated sheet. Model commands pass through to the extension when it is installed
+- **Place sounds on frames.** `place_sfx.py` aligns the measured attack, peak or end of any sample the user may use to a cue time or frame, mixes with the video's sound or a bed, holds the true peak under a ceiling (also after the AAC encode) and re-renders each sound alone to confirm it sits within 5 ms of its cue
+- **Craft in Studio's own words.** `references/sound-listening-and-motion-sfx.md`: the listening loop, where hits sit against a cut, what whooshes, risers, impacts, stings, pops, pop-ins, clicks, typing and zips are made of, and the honest limits
+- **Registry.** `earshot` (category audio) pinned to 925ebe5 with a light tier (measurements, `sfx`, `kit`; no models) and a full tier (CPU PyTorch, about 1.1 GB models) for `describe`, `match`, `rank`, `find`, `compare`, `realness`; manual consent for the audio-LLM critique. Native on Codex and Claude Code; not supported in chat sandboxes
+- **Wiring.** Motion Graphics runs `listen.py critique` and `sync` after mixing; Audio Production Director reviews supplied audio with numbers first; capability card entries `sound_listen` and `sound_place`, runtime-map rows, wiring test, a new test (`sound_listen_test.py`) and host-eval case AD14 (not run)
+- **Limits recorded.** Native band levels, onset density and tempo are approximations of earshot's (earshot is the reference); the scorecard ranges come from SaaS launch films; a passing scorecard is not a good film
+
 ## 1.97.0, 2026-10-20
 
 At the owner's request, OpenCreator (krillinai, formerly KrillinAI, Apache-2.0) joins the recommended repositories; nothing from it is bundled:

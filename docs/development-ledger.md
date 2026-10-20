@@ -2596,3 +2596,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `8cf6527`; workflows Check Studio sources 39375214807, Refresh current release notes 39375212542, Publish verified Studio release 39375212578, Check Studio sources 39375212539: success; [v1.97.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.97.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1498 of 1498) ([record](../verification/github-publication-1.97.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
+
+## CC-20261020-02
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261018-01-recommended-repos`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `daab582` (main, package 1.97.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.98.0)
+- Package version: 1.97.0 -> 1.98.0
+- Scope: Native listening tools (measure, sync, critique, check, sheet, profile, place samples), earshot registry entry with light and full tier, sound craft reference, wiring
+- Shared package changed: yes; 14 changed, 7 added, 0 removed ([scope](../verification/scope-1.98.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 6 suite 7, 8 suite 8 (3 skipped without optional dependencies), 23 suite 9, 17 suite 10, 23 suite 11, 24 suite 12, 6 suite 13, 10 suite 14, 10 suite 15, 7 suite 16, 15 suite 17, 11 suite 18, 5 suite 19, 15 suite 20, 7 suite 21, 2 suite 22, 6 suite 23, 6 suite 24, 14 suite 25, 11 suite 26, 6 suite 27, 4 suite 28, 4 suite 29, 4 suite 30, 2 suite 31, 2 suite 32, 3 suite 33, 5 suite 34, 5 suite 35, 4 suite 36, 11 suite 37, 6 suite 38, 8 suite 39, 3 suite 40, 12 suite 41, 3 suite 42, 6 suite 43, 4 suite 44, 9 suite 45, 2 suite 46, 21 suite 47: PASS ([record](../verification/release-1.98.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: not_tracked (owner decision 2026-10-10)
+- Codex: not_run
