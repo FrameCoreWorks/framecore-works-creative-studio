@@ -2893,3 +2893,24 @@ Cross-host state:
 Supplemental knowledge verification: [two fresh-context source-guided tasks](../verification/creative-knowledge-2026-10-21.json) passed within their textual scope, with raw artifacts retained and independent arithmetic/event mapping checks. This is not fresh installed-client behavior or visual-media QA.
 
 Branch inventory at publication: only `main`, `gh-pages` and pre-existing `ccr-b6d36a1c-4hszow` (`daab5828bdd4025280ebe2af5f5d5cccacae4a5c`, already merged into source `868bc6a`). No branch created or deleted.
+
+## CW-20261021-07
+
+- Origin: chatgpt-work
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `7459f77` (main, package 1.117.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.118.0)
+- Package version: 1.117.0 -> 1.118.0
+- Scope: Owner-requested Adobe-derived skill knowledge without Adobe accounts or services: format variants, batches, local fonts/templates, website and document evidence, supplied-data reasoning and editorial selection connected to existing owners.
+- Shared package changed: yes; 19 changed, 3 added, 0 removed ([scope](../verification/scope-1.118.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: 238 Node tests (225 passing, 13 opt-in browser tests skipped there), 13 test_codex_install, 4 test_package_identity, 5 test_motion_benchmark, 6 test_host_smoke, 6 test_hosted_readback, 8 test_claude_plugin (1 skipped; see the suite log for reasons), 7 test_release, 8 test_gepa_studio_pilot (3 skipped; see the suite log for reasons), 23 asset_manifest, 17 captions, 24 environment_check, 21 runtime_inventory, 26 motion_acceptance, 6 motion_fonts, 10 motion_kinds, 10 motion_variants, 7 skill_finder, 15 extensions, 11 animate_engine, 5 animate_voice, 15 static_render, 8 print_pdf (8 skipped; see the suite log for reasons), 2 reel_starters, 8 web_reach, 6 pl_copy_check, 14 image_probe, 11 quote_calc, 6 vo_budget, 4 edit_export, 43 framecut, 20 framecut_development, 4 board_compose, 4 sheet_export, 2 shot_plan_check, 2 prompt_pack, 3 clip_review, 5 svg_wordmark, 5 brand_guide, 4 motion_activity, 11 lyric_timing, 6 iso_glow, 13 sound_listen, 3 reference_breakdown, 12 craft_lint, 3 design_md, 6 ai_writing_check, 4 technique_atlas, 9 motion_assets, 2 knowledge_wiring, 22 test_host_eval: PASS ([record](../verification/release-1.118.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

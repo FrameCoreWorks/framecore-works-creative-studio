@@ -5,6 +5,8 @@ description: Review a supplied still image, poster, banner or board against its 
 
 # Evidence-led review
 
+For account-free batch/format, typography, website or document work, apply [the bounded inspection methods](../pipeline-core/references/account-free-creative-production.md). Report exactly which outputs/pages were viewed, check requested formats and exact copy, and distinguish technical coverage, visual samples, actual annotations and user acceptance. Preserve the complete FrameCut board gate.
+
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
 First identify the supplied artifact. This owner reviews actual static images. A motion video Studio built from a contract goes to the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) for its craft critique and frame review; another MP4 or video result goes to [video-prompt-architect](../video-prompt-architect/SKILL.md) for review of time, motion, continuity and audio within available evidence. Audio/song results go to [audio-production-director](../audio-production-director/SKILL.md) for evidence-aware triage and a listening/repair plan. A still frame can receive a bounded static review here, but cannot establish temporal quality or audio quality. Do not treat the upload's file extension or a transcript as proof of viewing or listening.

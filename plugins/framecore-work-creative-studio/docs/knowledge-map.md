@@ -40,6 +40,10 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 
 ## Reusable materials
 
+### Account-free Adobe-derived methods (2026-10-21)
+
+[Account-free creative production](../skills/pipeline-core/references/account-free-creative-production.md) connects format adaptation, batch finishing, local typography/templates, website brand/content evidence, document review, supplied-data reasoning and editorial selection to existing owners. [Pinned decisions and license](../integrations/adobe-skills/README.md) explain the adapted methods and excluded services. No Adobe account, connector or upstream installation is needed; tool execution still depends on the actual host.
+
 ### Supplemental motion, data and creative judgment (2026-10-21)
 
 The owner-supplied Motion/Dashboards and Taste articles feed original applied guidance, with primary-source limits in the linked references. Workflow Orchestrator's compact route and the Pipeline Core, Research Evidence, Motion Graphics and FrameCut entries load [data-led motion and revision-bound feedback](../skills/pipeline-core/references/data-motion-and-feedback.md) when relevant. Existing [ideation](../skills/pipeline-core/references/ideation-method.md), [scoped taste learning](../skills/studio-workstyle-profile/references/taste-learning.md) and [creative judgment](../skills/pipeline-core/references/quality-improvement-methods.md#creative-judgment-with-external-evidence) connect diverse concepts, actual user choices and evidence-aware review. The critic and profile owner expose the rules at their entry points. This is supplemental knowledge, not a new skill, dashboard service, timeline-comments interface or native Claude integration. No article text or prompt collection is redistributed.

@@ -1,0 +1,54 @@
+{
+  "change_id": "CW-20261021-07",
+  "baseline": "7459f77852b3ac228c5291218940cd51b390dfcd",
+  "source_pin": "cf077272e02f29873afeb9049740789d7888c388",
+  "surface": "Two independent fresh-context source-guided tasks using local skill entrypoints and linked methods; no installed-client registration test.",
+  "task_authorization": "Skill Creator forward-testing guidance for substantial instruction revisions. No Adobe services or external client assets used.",
+  "cases": [
+    {
+      "id": "variants",
+      "input": "30 portraits: 20 daylight, 10 tungsten, one clipped forehead; 1080x1080 and 1080x1920; flattened 2400x1200 product with logo on right edge; exact Polish headline; legal BrandOne lacks Ł; six-scene 24s reel; local-only planning, no files or render for client. No source pixels/font supplied.",
+      "raw": "adobe-account-free-2026-10-21/variants.md",
+      "result": "PASS_WITHIN_TEXT_SCOPE",
+      "reviewer_observations": [
+        "Separates lighting groups, representative previews, approval and full-resolution original processing; treats clipped portrait as an exception.",
+        "Protects flattened logo with fit rather than fabricated layer editing. Geometry independently checked: 936x468 at x72/y306 or y726; central portrait crop width675.",
+        "Preserves Polish characters, surfaces missing glyph, proposes an approved licensed alternative and actual later specimen.",
+        "Six four-second scenes total24s; explicitly calls this a provisional plan, requires complete actual board for both formats including key states and corrected acceptance, optional sample.",
+        "Clearly states image/font inspection, storyboard and render NOT_RUN; no account setup or service use."
+      ],
+      "limits": [
+        "Text-only task, no visual quality/retouch/render/font proof.",
+        "User must resolve the provisional scope and style when actual production starts."
+      ],
+      "raw_sha256": "8eac98b591dbce094b3a97f856cf05589b20cb03f384716556fa3d3e06d2242c"
+    },
+    {
+      "id": "evidence",
+      "input": "Single desktop page excerpt: product title/H1 Lampa Aura, H3 Jak działa, generic link, alt filename, unknown colors/fonts, no mobile. August counts: 8000 product views/1000 cart sessions/250 orders; September 10000/1200/300; no identity or event order. Only page2 PDF text states expiry31Oct2026 and249PLNgross. Request date/price highlighting, page fixes and campaign findings; no accounts/browsing.",
+      "raw": "adobe-account-free-2026-10-21/evidence.md",
+      "result": "PASS_WITHIN_TEXT_SCOPE",
+      "reviewer_observations": [
+        "Anchors exact price/date to page2 and calls it emphasis in the answer, not PDF annotations.",
+        "Uses conditional heading/link/alt fixes; does not invent colors, fonts, mobile evidence or an audit of the whole site.",
+        "Growth arithmetic independently checked:25%,20%,20%; distinguishes product views/cart sessions/orders and rejects sequential-funnel or causality conclusions.",
+        "Provides a bounded creative hypothesis and comparable-measurement next step without Adobe setup."
+      ],
+      "limits": [
+        "No PDF binary, page pixels, DOM, website measurements or causal data supplied.",
+        "Not a live accessibility, conversion or installed-client test."
+      ],
+      "raw_sha256": "98273340ada48d3c7c73c2158030078d56eecc1671d5f1a8335653ad2b8cd4ca"
+    }
+  ],
+  "checks": {
+    "canonical_validator": "PASS",
+    "extension_registry_tests": "15 PASS",
+    "new_reference_relative_links": "PASS",
+    "independent_geometry_timing_and_growth_arithmetic": "PASS"
+  },
+  "full_release_suite": "Recorded by release-1.118.0.json after preparation",
+  "fresh_installed_client": "NOT_RUN",
+  "visual_media_quality": "NOT_RUN",
+  "adobe_service_tests": "OUT_OF_SCOPE_BY_USER_REQUEST"
+}

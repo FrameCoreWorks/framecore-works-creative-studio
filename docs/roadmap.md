@@ -1,5 +1,9 @@
 # Roadmap for the development surfaces
 
+## Account-free creative knowledge (2026-10-21)
+
+The owner explicitly authorizes integrating useful Adobe-derived methods as skills/knowledge without Adobe accounts or services. Follow [the bounded scope](adobe-account-free-2026-10-21.md), preserve existing owners and the full FrameCut storyboard gate, and release repository first, then the same hosted plugin with its private overlay. The full upstream suite is excluded from installation under this profile; this restriction supersedes the generic extension-install convention for this source. No unrelated development is reopened.
+
 ## Supplemental creative knowledge, 2026-10-21
 
 The owner requests applying the two reviewed articles as [supplemental knowledge](creative-knowledge-2026-10-21.md). Connect source-bound data storytelling, revision-bound feedback and calibrated creative judgment to the existing owners. Extend current ideation and scoped preference rules rather than adding a parallel workflow. This bounded knowledge release preserves FrameCut onboarding, complete visual boards, correction/acceptance, optional requested samples and final delivery. Native dashboard services and collaborative comment interfaces are not implied by the knowledge.

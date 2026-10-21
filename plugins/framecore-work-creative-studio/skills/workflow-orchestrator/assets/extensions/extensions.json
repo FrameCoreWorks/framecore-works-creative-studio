@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-20",
+  "checked": "2026-10-21",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -1222,6 +1222,53 @@
       },
       "observed": "2026-10-20 Linux container (Python 3.13, CPU): installed at the pinned commit in a virtual environment; light tier gave measure, critique --fast, sfx and kit with no models; the full tier (CPU PyTorch, transformers, about 1.1 GB models) ran describe, match, find, realness, timeline and sheet on a 16.7 s film. Its LUFS, LRA and true peak agreed with Studio's native listen.py to a few tenths; band levels and onset counts differed by a few dB or percent. Findings recorded in integrations/earshot. Host installs through this registry not_run",
       "update": "Read the changelog and the sound-bank and model pins in earshot/config.py, rerun the light and full tier at the new commit, compare listen.py against it on one film, then change reviewed_commit and every command together"
+    },
+    {
+      "id": "adobe-skills",
+      "name": "Adobe skill methods (account-free Studio adaptation)",
+      "repository": "https://github.com/adobe/skills",
+      "reviewed_commit": "cf077272e02f29873afeb9049740789d7888c388",
+      "package": null,
+      "license": "Apache-2.0",
+      "kind": [
+        "skill"
+      ],
+      "category": "creative-production",
+      "role": "supplemental knowledge",
+      "gives": "Reusable production, design-evidence, document-review and supplied-data methods; proprietary Adobe operations are excluded.",
+      "studio_uses": "Methods already bundled in existing owners via pipeline-core/references/account-free-creative-production.md; no extra installation or Adobe account. See integrations/adobe-skills/README.md.",
+      "not_for": "Installing the entire upstream suite, Adobe authentication, Creative Cloud/Firefly/Quick Cut/Acrobat services, font activation, AEM/App Builder/Commerce/Workfront runtimes or claiming all host compute is free.",
+      "requires": [
+        {
+          "tool": "existing host capabilities",
+          "note": "Knowledge needs no extra installation. Actual media, document or website execution uses only available authorized host tools; otherwise execution is NOT_RUN."
+        }
+      ],
+      "rights": "Root Apache-2.0 license retained; adaptation attributed to reviewed pin. No entitlement to Adobe services, trademarks, premium fonts/templates or project assets.",
+      "hosts": {
+        "codex": {
+          "status": "not_supported",
+          "reason": "Full upstream-suite installation is excluded by the owner’s no-Adobe-account profile. Adapted account-free methods are already bundled in Studio and need no separate installation; execution depends on actual host capabilities."
+        },
+        "claude_code": {
+          "status": "not_supported",
+          "reason": "Full upstream-suite installation is excluded by the owner’s no-Adobe-account profile. Adapted account-free methods are already bundled in Studio and need no separate installation; execution depends on actual host capabilities."
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "Full upstream-suite installation is excluded by the owner’s no-Adobe-account profile. Adapted account-free methods are already bundled in Studio and need no separate installation; execution depends on actual host capabilities."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "Full upstream-suite installation is excluded by the owner’s no-Adobe-account profile. Adapted account-free methods are already bundled in Studio and need no separate installation; execution depends on actual host capabilities."
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "Full upstream-suite installation is excluded by the owner’s no-Adobe-account profile. Adapted account-free methods are already bundled in Studio and need no separate installation; execution depends on actual host capabilities."
+        }
+      },
+      "observed": "Reviewed source and dependency boundary at the pinned commit; no upstream installer or Adobe service executed. Studio source/task tests and paired-release evidence are recorded separately.",
+      "update": "Review source and license at a new pin before changing methods. Do not auto-install the upstream suite or introduce accounts/services. Preserve host boundaries and full FrameCut board gate."
     }
   ]
 }

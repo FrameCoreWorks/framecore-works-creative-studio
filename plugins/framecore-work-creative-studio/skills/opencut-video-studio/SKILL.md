@@ -5,6 +5,8 @@ description: "FrameCut: interview, analyze, edit and deliver video, from highlig
 
 # FrameCut
 
+For account-free multi-format adaptations and highlight selection, use [the shared applied methods](../pipeline-core/references/account-free-creative-production.md). Existing FrameCut tools and inspected source-bound transcripts drive execution, with no Adobe Quick Cut or account setup. Representative ratio previews never replace the complete film storyboard, correction and acceptance gate; samples remain optional on request.
+
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
 FrameCut takes a video job from the user's intended outcome to a playable, reviewed delivery. Keep this technical skill ID and existing OpenCut handoff. It is the editing owner, not a provider or a replacement for the user's judgment. It supports supplied footage, visual montages, screen recordings, generated/mixed assets and motion-only sequences. Highlights are one use, not a compulsory format.

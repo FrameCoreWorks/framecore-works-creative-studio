@@ -5,6 +5,8 @@ description: "Package accepted work for handoff: final files, prompt specs, capt
 
 # Useful handoff
 
+For account-free variants, batches and document review, apply [the shared handoff method](../pipeline-core/references/account-free-creative-production.md). Record source/output revisions, sample versus full-batch coverage, accepted recipes, exceptions and real exports; separate author instructions from technical handoff when needed. A written recipe or annotation table is not a modified media/document file.
+
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
 Read [production and delivery](references/production-and-delivery.md). Return the actual requested artifact plus the minimum information the next operator needs.

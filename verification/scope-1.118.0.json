@@ -1,0 +1,41 @@
+{
+  "version": "1.118.0",
+  "baseline_tag": "v1.117.0",
+  "baseline": "868bc6ac3dec179141e292c0097c6e0fb52d01cf",
+  "change_id": "CW-20261021-07",
+  "origin": "chatgpt-work",
+  "files": 1537,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/asset-manifest/SKILL.md",
+    "skills/delivery-documentation/SKILL.md",
+    "skills/ecommerce-campaign-strategy-director/SKILL.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/pipeline-core/SKILL.md",
+    "skills/research-evidence/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/tool-routing-cost/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/references/compact-routing-and-pilot.md"
+  ],
+  "added": [
+    "integrations/adobe-skills/LICENSE",
+    "integrations/adobe-skills/README.md",
+    "skills/pipeline-core/references/account-free-creative-production.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1515,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner-requested Adobe-derived skill knowledge without Adobe accounts or services: format variants, batches, local fonts/templates, website and document evidence, supplied-data reasoning and editorial selection connected to existing owners."
+}

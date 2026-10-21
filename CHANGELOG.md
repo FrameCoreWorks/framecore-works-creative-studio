@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.118.0, 2026-10-21
+
+Owner-requested adaptation of Adobe skill methods without Adobe accounts or services. Connect multi-format variants, batch finishing, local typography/templates, website brand/content evidence, document review, supplied-data reasoning and editorial selection to existing Studio owners. Preserve the full FrameCut board gate, existing skill IDs/startup and private hosted integrations. No Adobe connector, upstream suite installation, proprietary renderer or premium entitlement is added. See [bounded scope](docs/adobe-account-free-2026-10-21.md).
+
 ## 1.117.0, 2026-10-21
 
 The owner requested supplemental knowledge from the reviewed Motion/Dashboards and Taste articles. Connect source-bound data storytelling and revision-bound panel/frame feedback to existing owners; refine creative judgment, optional diversity exploration and scoped taste applicability. Preserve full visual-board acceptance, exact locks, optional requested samples, startup and private integrations. Primary-source limits distinguish model estimates from measured novelty and Claude product features from Studio capabilities. No new runtime, dashboard service, comment UI or provider integration. See [scope](docs/creative-knowledge-2026-10-21.md).

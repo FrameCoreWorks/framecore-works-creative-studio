@@ -62,6 +62,7 @@ or any task where cost, privacy, or capability uncertainty matters.
 
 ## Decision Rules
 
+- For the [account-free creative route](../pipeline-core/references/account-free-creative-production.md), use available local/host capabilities and require no Adobe setup, login, connector, font activation or API calls, even if Adobe tools are exposed. Do not apply upstream mandatory-Adobe routing. Missing execution stays NOT_RUN with a useful plan; do not silently substitute a paid provider or describe other provider use as free.
 - If no execution is requested, produce a plan only.
 - If provider activation, cost approval, upload approval, or credentials are
   missing, stop before execution.

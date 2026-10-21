@@ -1,5 +1,9 @@
 # Repository maintenance
 
+## Owner-directed account-free Adobe knowledge (2026-10-21)
+
+The owner explicitly authorizes integrating useful Adobe-derived methods as skills/knowledge without Adobe accounts or services. Follow [the bounded scope](docs/adobe-account-free-2026-10-21.md), preserve existing owners and the full FrameCut storyboard gate, and release repository first, then the same hosted plugin with its private overlay. The full upstream suite is excluded from installation under this profile; this restriction supersedes the generic extension-install convention for this source. No unrelated development is reopened.
+
 ## Owner-directed supplemental knowledge (2026-10-21)
 
 The owner explicitly requests integrating the conclusions of the supplied Motion/Dashboards and Taste articles as supplementary Studio knowledge. Follow [the bounded packet](docs/creative-knowledge-2026-10-21.md), existing owners and conditional references. This authorizes the knowledge update and its repository-first paired release, not a dashboard backend, new review UI, native Claude connection or unrelated feature round. Preserve the complete FrameCut board gate and private hosted overlay.

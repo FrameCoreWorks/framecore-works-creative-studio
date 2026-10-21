@@ -5,6 +5,8 @@ description: 'Bounded web research only when a creative decision depends on curr
 
 # Conditional research gate
 
+For source-anchored document review, website evidence and supplied campaign data, read the relevant [account-free methods](../pipeline-core/references/account-free-creative-production.md). Distinguish accessible text/pages/DOM from unseen content, conversion from authoring, comparable denominators from incompatible totals and observed findings from proposed changes. Do not invoke Adobe services for this route.
+
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
 
 This is the Studio's shared research decision, not a separate visible ceremony. Before committing to a substantive creative recommendation, campaign direction, script, copy, storyboard, prompt, render diagnosis or production specification, decide whether a research trigger applies. Search only when one does. A direct specialist invocation follows the same rule. Quick or deep mode changes the depth of triggered research; it never creates or removes a trigger.
