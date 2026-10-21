@@ -2899,7 +2899,7 @@ Branch inventory at publication: only `main`, `gh-pages` and pre-existing `ccr-b
 - Origin: chatgpt-work
 - Branch: `main`, fast-forwarded into `main` under the owner's standing rule
 - Baseline: `7459f77` (main, package 1.117.0); full SHA in the commit trailer
-- Result: the release commit carrying this entry (package 1.118.0)
+- Result: `a25d8ea202853f5bdbc9121336c136569d98bf04` (package 1.118.0); this documentation-only follow-up records publication and saved-plugin verification
 - Package version: 1.117.0 -> 1.118.0
 - Scope: Owner-requested Adobe-derived skill knowledge without Adobe accounts or services: format variants, batches, local fonts/templates, website and document evidence, supplied-data reasoning and editorial selection connected to existing owners.
 - Shared package changed: yes; 19 changed, 3 added, 0 removed ([scope](../verification/scope-1.118.0.json))
@@ -2911,6 +2911,12 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: synchronized. Source `a25d8ea202853f5bdbc9121336c136569d98bf04`, tag `v1.118.0`; source and publication workflows succeeded. Six downloaded assets verified against digests/checksums; 1537 plugin files and 2234 repository files match source. [Publication](../verification/github-publication-1.118.0.json).
+- ChatGPT Work: synchronized at saved-package level. Hosted 1.118.0 / `pluginrel_6ad8e429a09881918b92de48cd768fc7`; 21 updated files byte-identical; the Codex manifest has service-normalized formatting and identical parsed JSON. 9 existing private overlays preserved. Complete 1586-path inventory as expected, App binding unchanged and omitted-file sizes unchanged. [Readback](../verification/hosted-sync-1.118.0.json). Fresh installed-client behavior remains NOT_RUN.
 - Codex: not_run
+
+Account-free knowledge verification: [two fresh-context source-guided tasks](../verification/adobe-account-free-2026-10-21.json) passed within their textual scope. Raw replies and independent geometry, timing and growth checks are retained. No Adobe services were invoked; installed-client retrieval and new media quality remain NOT_RUN.
+
+The description-refresh workflow exposed an incorrect release-notes heading in the source commit (run `39632355483`). This documentation-only follow-up corrects it to the workflow’s required `# Creative Studio 1.118.0`; the package and hosted release stay unchanged.
+
+Branch inventory at publication: only `main`, `gh-pages` and pre-existing `ccr-b6d36a1c-4hszow` (`daab5828bdd4025280ebe2af5f5d5cccacae4a5c`, already merged into source `a25d8ea`). No branch created or deleted.

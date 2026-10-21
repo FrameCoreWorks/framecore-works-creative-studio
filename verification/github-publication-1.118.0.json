@@ -1,0 +1,69 @@
+{
+  "version": "1.118.0",
+  "change_id": "CW-20261021-07",
+  "origin": "chatgpt-work",
+  "commit": "a25d8ea202853f5bdbc9121336c136569d98bf04",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.118.0",
+  "tag_matches_source": true,
+  "workflows": [
+    {
+      "id": 39632355479,
+      "name": "Publish verified Studio release",
+      "conclusion": "success"
+    },
+    {
+      "id": 39632355588,
+      "name": "Check Studio sources",
+      "conclusion": "success"
+    }
+  ],
+  "assets": [
+    {
+      "name": "framecore-motion-player-1.118.0.html",
+      "sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "framecore-work-creative-studio-1.118.0.zip",
+      "sha256": "9a528ac376ac4b03b4bcbb83b1336861e8a002c91547bb0c966cf836f6c6c0ee",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "framecore-work-creative-studio-1.118.0.zip.inventory.json",
+      "sha256": "10ba88dd44c8c1ccad986d79a011c360336fe0c1691814c645e5760a593325f3",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "framecore-works-creative-studio-1.118.0-repository.zip",
+      "sha256": "13bbaa8aa0b56e97eece081854c9d6ed565fa0179b30ce9e03fe20b054b4da08",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": false
+    },
+    {
+      "name": "framecore-works-creative-studio-1.118.0-repository.zip.inventory.json",
+      "sha256": "83e84f841097cfcb4a634c2f9792df6d4a84d1f1e2d653375bec9c1daf87ae64",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": false
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "167bb24828c277810e1026702e0906e72b876d9bc84bbe60cc6d0fab752750c1",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": false
+    }
+  ],
+  "plugin_files_matching_source_tree": 1537,
+  "repository_files_matching_source_tree": 2234,
+  "repository_archive_prefix": "framecore-works-creative-studio/",
+  "local_archive_difference": "Repository ZIP uses the checkout directory as its archive prefix (local studio-adobe/ versus CI framecore-works-creative-studio/); normalized files verified against the source tree, checksum file verified against downloaded assets",
+  "host_behavior": "NOT_RUN",
+  "notes_heading_correction": {
+    "observed_run": 39632355483,
+    "observed_error": "Notes version does not match the package",
+    "fix": "Documentation-only follow-up changes the RELEASE_NOTES.md heading to # Creative Studio 1.118.0; exact header/version assertion passed. Release and source workflows passed independently.",
+    "shared_package_changed": false
+  }
+}
