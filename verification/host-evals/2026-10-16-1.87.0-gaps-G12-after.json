@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-16",
+  "package_version": "1.87.0",
+  "source": {
+    "commit": "5902098252cdf48f735be02eca3689da133d50e4",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.302, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4218,
+      "output": 4658,
+      "cache_read": 15134,
+      "cache_write": 24272
+    },
+    "seconds": 27.2
+  },
+  "cases": [
+    {
+      "id": "G12",
+      "title": "A service reel without pictures: Studio flags the type-only fallback, asks for or plans pictures, and names the first-second moment (owner's verdict on the 2026-10-16 test reel)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4218,
+        "output": 4658,
+        "cache_read": 15134,
+        "cache_write": 24272
+      },
+      "seconds": 27.2,
+      "wall_seconds": 41.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób rolkę reklamową 20 s, 9:16, dla zakładu szewskiego Fleczek w Poznaniu: wymiana fleków w 20 minut, nowa podeszwa w 3 dni, telefon 600 000 000. Nie mam żadnych zdjęć. Najpierw pokaż mi plan, jeszcze nic nie buduj.",
+          "reply": "# Plan: rolka 20 s, 9:16, Zakład szewski Fleczek (Poznań)\n\nNic jeszcze nie budowałem. To jest sam plan.\n\n## Droga produkcji\nBez zdjęć najlepiej zrobić **animowaną grafikę z kodu**: płaskie ilustracje wektorowe (but, obcas, podeszwa, zegar, kalendarz), duża typografia i zaprojektowany dźwięk. Render do MP4 1080×1920 robi się lokalnie, bez płatnych generatorów i bez uploadu czegokolwiek. Numer telefonu i liczby wyjdą ostre i bez literówek. Generatory wideo często psują napisy.\n\n## Pomysł\nDwie liczby są bohaterami: **20 minut** i **3 dni**. Całość to szybki, czytelny „licznik czasu” szewca. Paleta: ciepły brąz skóry, krem, jeden mocny akcent (np. musztardowy żółty). Stały motyw to tykanie zegara i stuknięcie młotka.\n\n## Mapa scen (20 s)\n| Czas | Scena | Obraz | Napis na ekranie |\n|---|---|---|---|\n| 0–3 s | Hook | Zdarty obcas wjeżdża w kadr, krótkie „stuk” | **Obcas starty?** |\n| 3–9 s | Flek | Zegar odlicza 20:00→0, stary flek spada, nowy wskakuje | **Wymiana fleków – 20 minut** |\n| 9–15 s | Podeszwa | Kartki kalendarza 1→2→3, podeszwa się odkleja i wskakuje nowa | **Nowa podeszwa – 3 dni** |\n| 15–20 s | CTA | Gotowy but, pod nim logotyp tekstowy; ostatnie 3 s bez ruchu, żeby dało się zapisać numer | **Zakład szewski Fleczek, Poznań – 600 000 000** |\n\n## Dźwięk i napisy\n- **Muzyka:** lekki, pogodny podkład instrumentalny. Stworzę własny w kodzie, więc nie ma kwestii licencji.\n- **SFX:** tykanie, stuknięcie młotka, „flip” kalendarza, końcowy akcent.\n- **Lektor:** domyślnie bez lektora. Napisy na ekranie niosą całą treść, więc rolka działa bez dźwięku.\n- **Safe zone:** teksty trzymam z dala od górnych ok. 250 px i dolnych ok. 450 px, żeby nie zasłaniał ich interfejs Reels/TikToka.\n\n## Co jest zablokowane\nUżywam tylko Twoich faktów: 20 minut, 3 dni, Poznań, numer telefonu. Nie dodaję cen, adresu, godzin, „najtańszy/najlepszy” ani innych obietnic.\n\n## Do ustalenia, zanim zacznę\n1. **Numer 600 000 000**: czy to numer docelowy, czy przykładowy? Wstawię go dokładnie tak, jak podasz.\n2. **Logo**: czy zakład ma logo? Jeśli nie, zrobię prosty znak tekstowy „Fleczek”.\n3. **Adres lub dzielnica**: czy dodać (np. ulicę)? Domyślnie sam „Poznań”.\n4. **Lektor**: zostajemy bez, czy dodać krótki głos po polsku?\n5. **Ton**: domyślnie ciepły i konkretny, z lekkim humorem w hooku. Mam zmienić?\n\nJeśli plan Ci odpowiada, napisz „działaj”. Na punkty bez odpowiedzi przyjmę domyślne ustawienia i zbuduję rolkę. Potem sprawdzę render pod kątem czasu 20 s, formatu, poprawności napisów i numeru.",
+          "reply_chars": 2508,
+          "reply_sha256": "8433eaf4cea5cfd91e7647bd8d7ada063dd80106751c463d61778f4bb1c4c291",
+          "skills": [
+            "creative-video-producer"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1309,
+            "output": 2699,
+            "cache_read": 15134,
+            "cache_write": 19165
+          },
+          "seconds": 27.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn"
+              },
+              "passed": true,
+              "detail": "/(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk"
+              },
+              "passed": false,
+              "detail": "/(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst"
+              },
+              "passed": true,
+              "detail": "/(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2909,
+          "output": 1959,
+          "cache_read": 0,
+          "cache_write": 5107
+        },
+        "items": [
+          {
+            "item": "Studio says before building that a reel with no pictures is a weaker type-only fallback and asks for photos or proposes generated stills or clips",
+            "verdict": "not_met",
+            "reason": "It proposes code-drawn vector animation as the route without photos, which is a generated-visuals option. It never says a type-only reel would be weaker, and it does not ask for photos."
+          },
+          {
+            "item": "The plan names what fills the screen in the first second and the one big moment",
+            "verdict": "unclear",
+            "reason": "The 0–3 s hook names the worn heel entering the frame with the text 'Obcas starty?', which covers the first second. No single 'big moment' is designated, though the two numbers are called the heroes."
+          },
+          {
+            "item": "The plan gives a reason to choose this business, not only a list of services",
+            "verdict": "met",
+            "reason": "The pitch is built on turnaround speed (20 minutes, 3 days), which is a concrete reason to choose the shop. It is thin, since no craft, trust, or local angle is planned."
+          },
+          {
+            "item": "Nothing is built before approval",
+            "verdict": "met",
+            "reason": "The response says explicitly that nothing was built and presents only the plan. It ends by waiting for the user's go-ahead."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ]
+}

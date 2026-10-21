@@ -411,5 +411,64 @@ class ExactCopy(unittest.TestCase):
         self.assertEqual(result['status'], 'pass', result)
 
 
+
+class OutsideTheContract(unittest.TestCase):
+    """A HyperFrames reel (owner's test reel, 2026-10-16) has no copy in its contract and its pacing comes from
+    motion_activity.py. Evidence counts only when bound to the exact composition bytes and the exact encoded file."""
+
+    def setUp(self):
+        if not have_media():
+            self.skipTest('Pillow, ffmpeg and ffprobe are needed')
+        from PIL import Image
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = pathlib.Path(self.tmp.name)
+        self.video = self.dir / 'reel.mp4'
+        write_video(self.video, [Image.new('RGB', (270, 480), (20, 30, 40)) for _ in range(30)])
+        (self.dir / 'reel.json').write_text(json.dumps({'id': 'reel', 'revision': 1, 'fps': {'num': 30, 'den': 1}, 'totalFrames': 30,
+                                                        'width': 270, 'height': 480}), encoding='utf-8')
+        self.composition = self.dir / 'index.html'
+        self.composition.write_text('<html><body>Fleki w 20 minut</body></html>', encoding='utf-8')
+        digest = lambda p: __import__('hashlib').sha256(p.read_bytes()).hexdigest()
+        audit = {'evidence_binding': {'kind': 'composition', 'contract': None, 'composition': {'name': 'index.html', 'sha256': digest(self.composition)}},
+                 'samples': [{'texts': [{'text': 'Fleki w 20 minut'}]}, {'texts': [{'text': 'Zostaw buty.'}, {'text': 'Weź kwit.'}]}]}
+        (self.dir / 'audit.json').write_text(json.dumps(audit), encoding='utf-8')
+        activity = {'verdict': 'PASS', 'still_share': 0.1, 'longest_still_seconds': 1.17, 'problems': [], 'video_sha256': digest(self.video)}
+        (self.dir / 'activity.json').write_text(json.dumps(activity), encoding='utf-8')
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def argv(self, *lines, composition=True):
+        (self.dir / 'copy.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+        argv = [str(self.dir / 'reel.json'), '--video', str(self.video), '--text-audit', str(self.dir / 'audit.json'), '--source-review', 'pass',
+                '--copy', str(self.dir / 'copy.txt'), '--motion-activity', str(self.dir / 'activity.json')]
+        return argv + (['--composition', str(self.composition)] if composition else [])
+
+    def test_locked_copy_is_checked_in_an_audit_bound_to_the_composition(self):
+        _, ok = run(acceptance.main, self.argv('Fleki w 20 minut', 'Zostaw buty. Weź kwit.'))
+        self.assertEqual(ok['verdicts']['B_fidelity']['status'], 'pass', ok['verdicts']['B_fidelity'])
+        self.assertIn('all 2 copy entries', ok['verdicts']['B_fidelity']['evidence'][0])
+        _, wrong = run(acceptance.main, self.argv('Fleki w 30 minut'))
+        self.assertEqual(wrong['verdicts']['B_fidelity']['status'], 'fail')
+
+    def test_an_audit_of_other_bytes_or_without_a_composition_does_not_count(self):
+        _, unbound = run(acceptance.main, self.argv('Fleki w 20 minut', composition=False))
+        self.assertEqual(unbound['verdicts']['B_fidelity']['status'], 'not_verified')
+        self.composition.write_text('<html><body>Fleki w 25 minut</body></html>', encoding='utf-8')
+        _, changed = run(acceptance.main, self.argv('Fleki w 20 minut'))
+        self.assertEqual(changed['verdicts']['B_fidelity']['status'], 'fail')
+
+    def test_motion_activity_of_this_file_is_pacing_evidence_but_not_a_viewing(self):
+        _, result = run(acceptance.main, self.argv('Fleki w 20 minut'))
+        temporal = result['verdicts']['D_temporal']
+        self.assertTrue(any('motion activity on the encoded file: PASS' in e for e in temporal['evidence']), temporal)
+        self.assertNotIn('no pacing samples from frames', temporal['findings'])
+        self.assertEqual(temporal['status'], 'not_verified')
+        activity = json.loads((self.dir / 'activity.json').read_text(encoding='utf-8'))
+        activity['video_sha256'] = '0' * 64
+        (self.dir / 'activity.json').write_text(json.dumps(activity), encoding='utf-8')
+        _, other = run(acceptance.main, self.argv('Fleki w 20 minut'))
+        self.assertFalse(any('motion activity on the encoded file' in e for e in other['verdicts']['D_temporal']['evidence']))
+
 if __name__ == '__main__':
     unittest.main()

@@ -225,7 +225,8 @@ test('frame review selects contract frames and embeds the score in the preview',
     const saved = path.join(temp, 'preview.html');
     fs.writeFileSync(saved, html);
     assert.equal(previewFor(saved).evidenceBinding.contract, null);
-    assert.equal(plan(saved, {times: [1]}).evidenceBinding, undefined);
+    assert.deepEqual(plan(saved, {times: [1]}).evidenceBinding, {kind: 'composition', contract: null,
+      composition: {name: 'preview.html', sha256: createHash('sha256').update(fs.readFileSync(saved)).digest('hex')}});
   } finally { fs.rmSync(temp, {recursive: true, force: true}); }
   assert.match(html, /window\.reviewFrame = reviewFrame/);
   assert.match(html, /report.id = 'review-report'/);

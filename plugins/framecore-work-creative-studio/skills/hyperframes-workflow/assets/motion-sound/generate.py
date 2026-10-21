@@ -28,8 +28,9 @@ LEVELS = {'transition': ('peak', 0.8), 'landing': ('rms', 0.44), 'press': ('rms'
 
 
 class Designer:
-    def __init__(self, profile, seed, key, forced=None):
+    def __init__(self, profile, seed, key, forced=None, audible=()):
         self.forced = dict(forced or {})
+        self.audible = set(audible)   # roles a marked moment needs to hear: their design may not be silent
         self.moods = profile.get('moods') or {}
         self.pace = profile.get('pace', 'medium')
         self.r = rng(seed)
@@ -99,10 +100,13 @@ class Designer:
                 'pitch_bands': False, 'norm': self.level('transition'), 'layers': layers}
 
     def landing(self):
-        kind = self.pick({'struck': {'organic': 0.8, 'editorial': 0.5, 'calm': 0.3, 'technical': 0.3},
-                          'blip': {'playful': 0.9, 'technical': 0.5}, 'swish': {'bold': 0.7, 'technical': 0.4},
-                          'pluck': {'organic': 0.6, 'calm': 0.6, 'playful': 0.2}, 'felt': {'calm': 0.8, 'editorial': 0.5},
-                          'none': {'editorial': 0.35, 'calm': 0.15}}, 'landing')
+        options = {'struck': {'organic': 0.8, 'editorial': 0.5, 'calm': 0.3, 'technical': 0.3},
+                   'blip': {'playful': 0.9, 'technical': 0.5}, 'swish': {'bold': 0.7, 'technical': 0.4},
+                   'pluck': {'organic': 0.6, 'calm': 0.6, 'playful': 0.2}, 'felt': {'calm': 0.8, 'editorial': 0.5},
+                   'none': {'editorial': 0.35, 'calm': 0.15}}
+        if 'landing' in self.audible:
+            options.pop('none')
+        kind = self.pick(options, 'landing')
         if kind == 'none':
             return {'role': 'landing', 'kind': 'none', 'align': 'onset', 'length': 0.1, 'norm': self.level('landing'), 'layers': []}
         if self.pace == 'fast' and kind == 'pluck':
@@ -254,17 +258,18 @@ def checked(make, role, seed):
     return best[0], round(float(best[1]), 3)
 
 
-def design_effects(profile, seed, key, character=None, forced=None):
+def design_effects(profile, seed, key, character=None, forced=None, audible=()):
     """New recipes for every role for this video, with a short log of what was designed and why. `forced`
     ({role: kind}) fixes the kind of sound for a role; the design itself is still new. Every design passes a
-    quality gate against near-pure tones before it is kept."""
+    quality gate against near-pure tones before it is kept. `audible` names roles a moment the user marked plays, so
+    their design is never the silent option."""
     softness = (character or {}).get('clickSoftness', 0.0)
     log, recipes, quality = {}, {}, {}
     shared = {}
 
     def role_maker(role):
         def make(attempt):
-            d = Designer(profile, seed + 7919 * attempt + hash_role(role), key, forced)
+            d = Designer(profile, seed + 7919 * attempt + hash_role(role), key, forced, audible)
             if role == 'release':
                 d.press_design = shared.get('press')
             design = {'transition': d.transition, 'landing': d.landing, 'press': lambda: d.press(softness), 'release': d.release, 'tick': d.tick,

@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-16",
+  "package_version": "1.87.0",
+  "source": {
+    "commit": "5902098252cdf48f735be02eca3689da133d50e4",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.302, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4205,
+      "output": 4136,
+      "cache_read": 22390,
+      "cache_write": 17033
+    },
+    "seconds": 25.8
+  },
+  "cases": [
+    {
+      "id": "G12",
+      "title": "A service reel without pictures: Studio flags the type-only fallback, asks for or plans pictures, and names the first-second moment (owner's verdict on the 2026-10-16 test reel)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4205,
+        "output": 4136,
+        "cache_read": 22390,
+        "cache_write": 17033
+      },
+      "seconds": 25.8,
+      "wall_seconds": 39.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób rolkę reklamową 20 s, 9:16, dla zakładu szewskiego Fleczek w Poznaniu: wymiana fleków w 20 minut, nowa podeszwa w 3 dni, telefon 600 000 000. Nie mam żadnych zdjęć. Najpierw pokaż mi plan, jeszcze nic nie buduj.",
+          "reply": "# Plan: rolka Fleczek, 20 s, 9:16 (jeszcze nic nie zbudowałem)\n\n## Trasa produkcji\nNie masz zdjęć, więc proponuję **animację typograficzną i ilustracyjną robioną kodem**. Będzie w niej płaski, wektorowy but, obcas, podeszwa, licznik czasu i kalendarz. Całość renderuje się do gotowego MP4 z dźwiękiem. Nie będzie zdjęć ani wygenerowanych „fałszywych” ujęć warsztatu, więc nie ma ryzyka, że pokażemy coś, czego zakład nie robi.\n\n## Pomysł\n**„Szybko jak wejście na kawę.”** Dwie konkretne obietnice, 20 minut i 3 dni, wizualnie pokazane jako licznik i kalendarz. Zero lania wody.\n\n## Rozpiska czasu (20 s)\n| Czas | Scena | Obraz | Napis na ekranie | Dźwięk |\n|---|---|---|---|---|\n| 0–3 s | Hak | Wektorowy but, starty obcas, zoom na zniszczony flek | „Starte fleki?” | stuknięcie obcasa, szum |\n| 3–8 s | Obietnica 1 | Okrągły licznik 20:00 odlicza, nowy flek wskakuje na miejsce | „Wymiana fleków w 20 minut” | tykanie, „klik” przy zatrzaśnięciu |\n| 8–14 s | Obietnica 2 | Kalendarz z 3 odhaczonymi dniami, stara podeszwa zamienia się w nową | „Nowa podeszwa w 3 dni” | trzy akcenty rytmiczne, „swish” |\n| 14–17 s | Marka | Odnowiony but, wordmark | „Fleczek · zakład szewski · Poznań” | lekki akord |\n| 17–20 s | CTA | Numer na pełnej szerokości, trzymany 3 s | „Zadzwoń: 600 000 000” | wyciszenie, końcowy akcent |\n\n## Napisy i dźwięk\n- **Napisy wypalone w obrazie**, w bezpiecznej strefie dla Reels/TikToka (z dala od dolnych ~20% i górnych ~12% kadru).\n- **Muzyka:** krótki, lekki, rytmiczny podkład, generowany lub z biblioteki. Licencji nie zakładam, trzeba ją wybrać.\n- **Lektor:** domyślnie bez lektora. Rolka ma być czytelna przy wyciszonym dźwięku, a głos dodamy tylko, jeśli chcesz.\n\n## Kolory i styl (domyślnie)\nCiepły brąz skóry, kremowe tło i jeden mocny akcent (np. pomarańcz) na liczbach „20 minut” i „3 dni”. Gruba, czytelna czcionka bezszeryfowa. Jeśli masz logo albo kolory marki, podmienię je.\n\n## Co potrzebuję od Ciebie przed budową\n1. **Telefon:** czy 600 000 000 jest docelowym numerem, czy to numer zastępczy? Wstawię dokładnie to, co podasz.\n2. **Logo i kolory:** masz je? Jeśli nie, zrobię prosty napisowy znak „Fleczek”.\n3. **Adres lub dzielnica w Poznaniu** albo godziny otwarcia: dodać do końcówki czy zostać przy samym „Poznań”?\n4. **Lektor:** tak czy nie (domyślnie nie).\n\nDomyślnie nie dodaję cen, rabatów, „najlepszy w mieście” ani niczego, czego nie podałeś/podałaś.\n\nZaakceptuj plan albo wskaż zmiany, a przejdę do budowy.",
+          "reply_chars": 2458,
+          "reply_sha256": "87d7b8782d5b5926c3af804a5111850fb84ed101445266205d2133f431d0091d",
+          "skills": [
+            "creative-video-producer"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1309,
+            "output": 2401,
+            "cache_read": 20336,
+            "cache_write": 13991
+          },
+          "seconds": 25.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn"
+              },
+              "passed": true,
+              "detail": "/(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk"
+              },
+              "passed": false,
+              "detail": "/(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst"
+              },
+              "passed": false,
+              "detail": "/(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2896,
+          "output": 1735,
+          "cache_read": 2054,
+          "cache_write": 3042
+        },
+        "items": [
+          {
+            "item": "Studio says before building that a reel with no pictures is a weaker type-only fallback and asks for photos or proposes generated stills or clips",
+            "verdict": "not_met",
+            "reason": "The plan proposes a code-generated vector and typographic animation because there are no photos, which partly resembles a generated-visuals option. It never says that a type-only reel is a weaker fallback, and it does not ask for photos."
+          },
+          {
+            "item": "The plan names what fills the screen in the first second and the one big moment",
+            "verdict": "unclear",
+            "reason": "The 0–3 s row names the opening visual (worn heel, zoom onto the worn flek), so the first second is roughly covered. No single peak moment is designated as the big moment, and the one-second frame is not specified."
+          },
+          {
+            "item": "The plan gives a reason to choose this business, not only a list of services",
+            "verdict": "not_met",
+            "reason": "The concept 'Szybko jak wejście na kawę' and the 20-minute and 3-day promises are speed claims about the services. Nothing explains why a customer should pick Fleczek over other cobblers."
+          },
+          {
+            "item": "Nothing is built before approval",
+            "verdict": "met",
+            "reason": "The assistant states it has not built anything, lists the open questions, and ends by asking for approval or changes before building."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ]
+}

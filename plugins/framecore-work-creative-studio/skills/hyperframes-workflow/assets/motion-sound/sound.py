@@ -733,7 +733,10 @@ def design_video(score, args):
     if lead:
         chosen['choices']['lead'] = {'option': lead, 'why': 'set by the user'}
     seed = (content_seed(score) + 104729 * getattr(args, 'variation', 0)) % 100000
-    designed, log = generate.design_effects(chosen['profile'], seed, chosen['key'], chosen['character'], kinds)
+    # A landing the user marked on supplied footage must sound, whatever the design would otherwise choose.
+    marked = {hit['sound'] for hit in ((score.get('source') or {}).get('hits') or [])}
+    audible = {'landing'} & marked if 'landing' not in kinds else set()
+    designed, log = generate.design_effects(chosen['profile'], seed, chosen['key'], chosen['character'], kinds, audible)
     return chosen, seed, designed, log, lead
 
 

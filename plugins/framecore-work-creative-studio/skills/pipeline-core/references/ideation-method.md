@@ -59,6 +59,7 @@ When several rounds converge on the same argument despite different styling, opt
 - **Brand test.** Tell apart what fits the category, what uses a true trait of this product and what only this brand could own. When the brief gives no fact that sets the brand apart, ask for one, or say plainly that this part stays open; never invent a history, a patent or an advantage to pass the swap test.
 - **Removal test.** For every effect, and above all one added when the user asks for "stronger": what does the viewer stop understanding if it is removed? If nothing, find a better event or relation instead of adding particles, moves or transitions.
 - **Retell test.** Could someone describe it in one sentence after seeing it once?
+- **Stopping test (ads and reels).** What does the viewer see full-screen in the first second, and what is the one big moment? An idea that stays small (a document, a card, a list in one frame) is clever but quiet; give it a striking event, scale or picture, or choose a direction that has one.
 - **Fit test.** Does it serve the goal and the audience, keep the offer and the name readable, and can it be made with the real assets and tools (code motion, a generator, the user's photos)?
 - Clarity beats strangeness: a fresh direction that hides the name or the offer fails.
 

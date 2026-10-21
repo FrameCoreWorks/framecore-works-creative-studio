@@ -2943,8 +2943,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 10741,
-      "sha256": "edf0890957092eeb6150e3ce18b2c4cf9354ca12c84b5461ff8560a26f752ba1"
+      "bytes": 11427,
+      "sha256": "00ed5f4bb6fa98d4bdb080b13ac76418a2feb5db69203b3d00929bfdd9c1e811"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -3143,8 +3143,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 28049,
-      "sha256": "da434495e68130534af0cdecb2e53bd9f002af2a14778934f8aa1aea80db96af"
+      "bytes": 29165,
+      "sha256": "383ba1538be9ad05987b2fc8840e538c7362e513bc3babe3b1b9488aad60076e"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4523,8 +4523,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/README.md",
-      "bytes": 3694,
-      "sha256": "6b2acf6a0b35cc8dc34dbadaeb4942886b93d7e2be98fa3c71ca89c3974f3c74"
+      "bytes": 3798,
+      "sha256": "271ea36ff72ef45a1b2da8f90e459d7adba49f319f64a9a90d0de92648d210f6"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/example-score.json",
@@ -4538,8 +4538,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py",
-      "bytes": 4886,
-      "sha256": "eeffc612c396e40813312e864c393e3cfd62558d1f7e6206b28a90237b94d3e1"
+      "bytes": 5082,
+      "sha256": "c40b60a2368ea8ea368e52dfc6a40cd79b6859f6f0ab27733f092049335faedf"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/score.mjs",
@@ -4563,13 +4563,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
-      "bytes": 14644,
-      "sha256": "4619c5bd59b93b0627f62674a33db24caf77c7ddcd92079957d5288958d1d5c5"
+      "bytes": 15277,
+      "sha256": "879a5995d1297177a605e5194a4fe721ceb5d0fab76d69e10561d8628f3e4b5c"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
-      "bytes": 18935,
-      "sha256": "390c0edf4872503e4cecaf2f679fb8c572136bbbf207c2c80322d76bf98fd1b5"
+      "bytes": 21944,
+      "sha256": "6b9fad419969b1c508564ea069eb0f2f4045d141b142013a1becf8edb25e48e8"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/critique.py",
@@ -4628,8 +4628,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
-      "bytes": 15252,
-      "sha256": "835c77b9cacfab715dac11eb8b3b5cd34f3227b6b6f8e4d10de45def691ce126"
+      "bytes": 15613,
+      "sha256": "3deaf7f0c05f8ff95d8d6ae8905359821add29b502823d42a65e6bc91365d959"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-revise/README.md",
@@ -4723,8 +4723,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/generate.py",
-      "bytes": 22129,
-      "sha256": "6d46cbbdb89876a765251ae69ad1fe2b16a99aa2eee5e1b7ebada06fb0fe6cd5"
+      "bytes": 22447,
+      "sha256": "fd2d4fa4d9decef2543c01f492259545bd77b59a745261458d1357fe1eb51835"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/music.py",
@@ -4743,8 +4743,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/sound.py",
-      "bytes": 52176,
-      "sha256": "110ffd9fa008c5d67ab48273db03b21851d323d73ff4177368db1c34d2d2707c"
+      "bytes": 52452,
+      "sha256": "137f2c9c1f1124ade3a50c8571ef59d81c4c9564b29ac715996d1a307b3068b9"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sound/synth.py",
@@ -5063,8 +5063,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 10115,
-      "sha256": "cf7d3e7216b1098585d71e3cdc4abebb7aa10a8415646d221840daac5cbb4ddb"
+      "bytes": 10681,
+      "sha256": "aa6aeb87edc24be4a9247927bc37cc27f714eefbfae786e251817866bd735055"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -5683,8 +5683,8 @@
     },
     {
       "path": "skills/pipeline-core/references/ideation-method.md",
-      "bytes": 9936,
-      "sha256": "8c6b1676e137ec620e161130e0aa324c8bfdac85254697c36a31812f961cf2fd"
+      "bytes": 10231,
+      "sha256": "e8cda70424f2f7868f6773b5ff6ebaa7e69a488c686e5e31ce79e839aba16aa1"
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
@@ -7593,13 +7593,13 @@
     },
     {
       "path": "tests/motion-toolkit.test.mjs",
-      "bytes": 124383,
-      "sha256": "8be43446235bd2658e529017aa755605c476304cccd0dccb319bb03f21ffd2c1"
+      "bytes": 124533,
+      "sha256": "b17c54913bb58b92b0c056a52da92535e2583658c5f56f1d134f738e62882e60"
     },
     {
       "path": "tests/motion_acceptance_test.py",
-      "bytes": 24835,
-      "sha256": "57da50345bf0977cf407d2c94c39e6ce5cb49b3ff9c999f6f437b5304083c563"
+      "bytes": 29018,
+      "sha256": "2cd76df4b2d960c352cc58c20735439e179488def17b531eab903060b5a8ed4d"
     },
     {
       "path": "tests/motion_activity_test.py",
@@ -7620,6 +7620,11 @@
       "path": "tests/motion_kinds_test.py",
       "bytes": 6803,
       "sha256": "b04cc1933d304a9cf4fe473527b2274ec0d5d9e3b44d71e41bd06e9c0a51c358"
+    },
+    {
+      "path": "tests/motion_sound_marked_test.py",
+      "bytes": 1155,
+      "sha256": "c1b8a5133719113c119778287324a4503e1205f032b6e074bec5eda49e2fb5bd"
     },
     {
       "path": "tests/motion_variants_test.py",

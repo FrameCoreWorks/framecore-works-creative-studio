@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-16",
+  "package_version": "1.87.0",
+  "source": {
+    "commit": "5902098252cdf48f735be02eca3689da133d50e4",
+    "package_uncommitted_changes": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.302, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4311,
+      "output": 5092,
+      "cache_read": 22382,
+      "cache_write": 23967
+    },
+    "seconds": 30.5
+  },
+  "cases": [
+    {
+      "id": "G12",
+      "title": "A service reel without pictures: Studio flags the type-only fallback, asks for or plans pictures, and names the first-second moment (owner's verdict on the 2026-10-16 test reel)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4311,
+        "output": 5092,
+        "cache_read": 22382,
+        "cache_write": 23967
+      },
+      "seconds": 30.5,
+      "wall_seconds": 44.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób rolkę reklamową 20 s, 9:16, dla zakładu szewskiego Fleczek w Poznaniu: wymiana fleków w 20 minut, nowa podeszwa w 3 dni, telefon 600 000 000. Nie mam żadnych zdjęć. Najpierw pokaż mi plan, jeszcze nic nie buduj.",
+          "reply": "Nic nie buduję. Poniżej jest plan do zatwierdzenia.\n\n## Stałe dane\n- Rolka: 20 s, 9:16.\n- Fleczek, zakład szewski, Poznań.\n- „Wymiana fleków w 20 minut”.\n- „Nowa podeszwa w 3 dni”.\n- Tel. 600 000 000.\n- Nie dodaję cen, adresu, godzin otwarcia ani opinii klientów, bo ich nie podałeś.\n\n## Sposób wykonania (bez zdjęć)\nProponuję **animację z kodu**: ilustracje wektorowe i typografia, na końcu MP4 z dźwiękiem.\n- Liczby „20 minut” i „3 dni” oraz telefon będą ostre i bez literówek. Generatory wideo często psują cyfry.\n- Nie potrzeba zdjęć ani płatnego narzędzia.\n- Alternatywa to film z generatora wideo. Jest mniej przewidywalny i wymaga zewnętrznego narzędzia z kosztem. Polecam go tylko wtedy, gdy zależy Ci na „realistycznych” ujęciach.\n- Nie sprawdzałem jeszcze, czy to środowisko wyrenderuje MP4 z dźwiękiem. Zrobię to przed startem produkcji.\n\n## Trzy kierunki\nOdłożyłem na bok drewniany warsztat w brązach i zbliżenie młotka na podeszwie. Każdy z kierunków zakłada, że całość jest w jednym stylu.\n\n1. **„Stoper”** – Licznik 20:00 odlicza do zera, a w tym czasie stary flek zmienia się w nowy. Potem trzy dni wskakują jak kartki kalendarza. To kierunek **klasyczny**, najprostszy i najczytelniejszy. Moja rekomendacja.\n2. **„Pieczątka”** – Hasła uderzają w kadr jak pieczątki na metce. Tło jest w stylu papieru i kartonu, a dźwięk jest fizyczny: stempel, szycie, stuknięcie.\n3. **„Przed i po”** – Rozdzielony kadr ze zdartym butem po jednej stronie i odnowionym po drugiej. Przesuwa się jak suwak. Dwie obietnice (20 minut i 3 dni) to dwa kolejne przesunięcia.\n\n## Rozpiska dla kierunku 1 („Stoper”)\n| Czas | Treść na ekranie | Ruch / dźwięk |\n|---|---|---|\n| 0–3 s | „Zdarte fleki?” | Duży napis, rysunek zniszczonego obcasa, krótki „stuk” |\n| 3–9 s | „Wymiana fleków w 20 minut” | Stoper 20:00 → 00:00, flek się wymienia, tykanie, na końcu „ding” |\n| 9–15 s | „Nowa podeszwa w 3 dni” | Kalendarz 1–2–3, stara podeszwa zmienia się w nową |\n| 15–20 s | „Fleczek, Poznań” i **600 000 000** | Logotyp tekstowy, numer bardzo duży, trzymany do końca (min. 3 s) |\n\n- Cały tekst mieści się w bezpiecznych strefach dla Reels, TikToka i Shorts, czyli z dala od dolnej belki i prawej kolumny ikon.\n- Dźwięk to krótki podkład i efekty, **bez lektora**. Lektor jest opcjonalny.\n- Kolory i krój liter dobiorę do wybranego kierunku. Logo Fleczka nie istnieje, więc zrobię prosty napisowy znak, o ile nie masz własnego.\n\n## Do ustalenia\n1. **Który kierunek: 1, 2 czy 3?** To jedyna decyzja potrzebna do ruszenia.\n2. Czy 600 000 000 to docelowy numer, czy przykładowy? Wstawię go dokładnie tak, jak podasz.\n3. Opcjonalnie: ulica w Poznaniu lub dzielnica, hasło firmowe, lektor tak/nie.",
+          "reply_chars": 2676,
+          "reply_sha256": "b21ce4e182f58a70daf9285f2fd553cde1d911a44a2c35577ce11c75f3b3db10",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1309,
+            "output": 3079,
+            "cache_read": 20328,
+            "cache_write": 20821
+          },
+          "seconds": 30.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn"
+              },
+              "passed": true,
+              "detail": "/(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk"
+              },
+              "passed": false,
+              "detail": "/(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst"
+              },
+              "passed": true,
+              "detail": "/(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3002,
+          "output": 2013,
+          "cache_read": 2054,
+          "cache_write": 3146
+        },
+        "items": [
+          {
+            "item": "Studio says before building that a reel with no pictures is a weaker type-only fallback and asks for photos or proposes generated stills or clips",
+            "verdict": "not_met",
+            "reason": "The plan never says a type-only reel is weaker and does not ask for photos. It does offer a generated-video clip as an alternative, but only as a way to get 'realistic' shots, not as a fix for the missing-pictures problem."
+          },
+          {
+            "item": "The plan names what fills the screen in the first second and the one big moment",
+            "verdict": "unclear",
+            "reason": "The 0–3 s row describes the opening (large text 'Zdarte fleki?' and a worn-heel drawing), but it is not isolated to the first second. No single 'big moment' is named. The closest candidates are the 20:00 countdown and the held phone number, and the plan does not designate either as the peak."
+          },
+          {
+            "item": "The plan gives a reason to choose this business, not only a list of services",
+            "verdict": "not_met",
+            "reason": "The plan lists the two services, the speed claims and the phone number. It gives no differentiator for choosing Fleczek, such as experience, quality, local roots or a guarantee. The 'hasło firmowe' is only an optional question for the user."
+          },
+          {
+            "item": "Nothing is built before approval",
+            "verdict": "met",
+            "reason": "The assistant states 'Nic nie buduję', presents the plan for approval, and lists the one decision needed before production starts. No build steps appear in the conversation."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ]
+}

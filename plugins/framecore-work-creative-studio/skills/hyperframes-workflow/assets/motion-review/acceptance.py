@@ -4,8 +4,12 @@
   python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/critique.json
          [--review review-out/review.json] [--text-audit audit-out/text-audit.json]
          [--playback watched|not_watched] [--source-review pass|fail] [--composition-review pass|fail] [--temporal-review pass|fail]
-         [--listening heard|not_heard] [--sound-review pass|fail]
-         [--note "who watched what, where"] [--out acceptance.json]
+         [--listening heard|not_heard] [--sound-review pass|fail] [--motion-activity activity.json]
+         [--copy locked-copy.txt] [--note "who watched what, where"] [--out acceptance.json]
+
+A composition outside the contract route (HyperFrames, GSAP, hand-written HTML) has no copy in its contract: give the
+composition with --composition (its text audit must be bound to those bytes), the locked copy with --copy (one entry
+per line) and motion_activity.py --json on the encoded file with --motion-activity (bound to that file's SHA-256).
 
 A. technical    the encoded file matches the contract: size, frame rate, frame count, duration, audio presence
 B. fidelity     exact copy reaches the picture, unverified claims are not used, every asset has an authority, and
@@ -64,6 +68,27 @@ def bound_report(path, score, contract_hash, video_hash):
             return None, ('fail', 'report video SHA-256 mismatch; rerun it on the current encoded file')
     elif binding['kind'] not in ('preview', 'contract_only'):
         return None, ('not_verified', 'report evidence kind is unknown; rerun it')
+    return report, None
+
+
+def bound_composition(path, composition_hash):
+    """A text audit of a composition outside the contract route counts only for these exact composition bytes."""
+    report = load(path)
+    binding = report.get('evidence_binding') or {}
+    if binding.get('kind') != 'composition' or not (binding.get('composition') or {}).get('sha256'):
+        return None, ('not_verified', 'text audit has no composition binding; rerun text-audit.mjs on the composition')
+    if binding['composition']['sha256'] != composition_hash:
+        return None, ('fail', 'text audit composition SHA-256 mismatch; rerun it on the current composition')
+    return report, None
+
+
+def bound_activity(path, video_hash):
+    """Motion activity counts as pacing evidence only for the encoded file it measured."""
+    if not path:
+        return None, None
+    report = load(path)
+    if not video_hash or report.get('video_sha256') != video_hash:
+        return None, ('not_verified', 'motion activity is not bound to the given encoded file; rerun motion_activity.py --json on it')
     return report, None
 
 
@@ -208,14 +233,19 @@ def composition(critique, review, audit, composition_review=None):
     return verdict(status, evidence, findings + gaps + judge)
 
 
-def temporal(critique, playback, temporal_review, note, sound=False, listening='not_heard', sound_review=None):
+def temporal(critique, playback, temporal_review, note, sound=False, listening='not_heard', sound_review=None, activity=None):
     findings, evidence, gaps = [], [], []
+    if activity:
+        # motion_activity.py measured the encoded file: still share and the longest undeclared still
+        evidence.append(f'motion activity on the encoded file: {activity.get("verdict")}, still {round(100 * activity.get("still_share", 0))} %, '
+                        f'longest still {activity.get("longest_still_seconds")} s')
+        findings.extend(f'motion activity: {problem}' for problem in activity.get('problems') or [])
     if critique and critique.get('pacing'):
         evidence.append('pacing sampled four times a second: ' + ', '.join(f'{p["scene"]} still {p["longest_still_s"]} s of {p["allowed_s"]} s' for p in critique['pacing']))
         for f in critique.get('findings', []):
             if f['area'] in TEMPORAL_AREAS and f['severity'] in ('warning', 'error'):
                 findings.append(f'critique {f["area"]} {f["where"]}: {f["message"]}')
-    else:
+    elif not activity:
         gaps.append('no pacing samples from frames')
     if playback != 'watched':
         gaps.append('nobody watched the encoded file at normal speed')
@@ -251,6 +281,14 @@ def decide(score, args):
     critique, critique_gap = bound_report(args.critique, score, contract_hash, video_hash)
     review, review_gap = bound_report(args.review, score, contract_hash, video_hash)
     audit, audit_gap = bound_report(args.text_audit, score, contract_hash, video_hash)
+    composition_hash = file_hash(args.composition) if getattr(args, 'composition', None) else None
+    if composition_hash and args.text_audit:
+        audit, audit_gap = bound_composition(args.text_audit, composition_hash)
+    activity, activity_gap = bound_activity(getattr(args, 'motion_activity', None), video_hash)
+    if getattr(args, 'copy', None):
+        with open(args.copy, encoding='utf-8') as handle:
+            lines = [line.strip() for line in handle if line.strip()]
+        score = dict(score, copy={**(score.get('copy') or {}), **{f'locked-{i + 1}': line for i, line in enumerate(lines)}})
     technical_verdict = technical(score, args.video)
     sound = bool(score.get('music') or score.get('voiceover') or score.get('sfx') or technical_verdict.pop('audio', False))
     verdicts = {
@@ -258,12 +296,13 @@ def decide(score, args):
         'B_fidelity': fidelity(score, audit, args.source_review),
         'C_composition': composition(critique, review, audit, getattr(args, 'composition_review', None)),
         'D_temporal': temporal(critique, args.playback, args.temporal_review, args.note, sound,
-                               getattr(args, 'listening', 'not_heard'), getattr(args, 'sound_review', None)),
+                               getattr(args, 'listening', 'not_heard'), getattr(args, 'sound_review', None), activity),
     }
     for label, gap, affected in (
             ('critique', critique_gap, ('C_composition', 'D_temporal')),
             ('review', review_gap, ('C_composition',)),
-            ('text audit', audit_gap, ('B_fidelity', 'C_composition'))):
+            ('text audit', audit_gap, ('B_fidelity', 'C_composition')),
+            ('motion activity', activity_gap, ('D_temporal',))):
         if gap:
             status, reason = gap
             for key in affected:
@@ -293,6 +332,9 @@ def main(argv=None):
     parser.add_argument('--listening', choices=['heard', 'not_heard'], default='not_heard', help='someone listened to the sound at normal speed')
     parser.add_argument('--sound-review', choices=['pass', 'fail'], help="that listener's judgement of sync, balance and levels")
     parser.add_argument('--note', help='who watched what, where (recorded with the viewing)')
+    parser.add_argument('--motion-activity', help='the JSON from motion_activity.py --json on the encoded file')
+    parser.add_argument('--copy', help='locked copy, one entry per line, for a composition whose contract holds none')
+    parser.add_argument('--composition', help='the HTML composition a text audit was run on (HyperFrames, GSAP, hand-written)')
     parser.add_argument('--out', help='write the result here (never overwrites)')
     args = parser.parse_args(argv)
     try:

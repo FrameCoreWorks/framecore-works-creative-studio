@@ -44,3 +44,21 @@ A video request can go two ways: prompts for a video generator that the user run
 ## FrameCut ownership
 
 FrameCut owns a requested edit and its single revisioned timeline through delivery. Motion Graphics Workflow, Caption Studio and Audio Production Director contribute scoped artifacts at the same revision, without restarting intake. Creative Video Producer retains campaign/preproduction coordination; a pure coded-motion task can stay with its existing motion owner. A generated-clip repair prompt remains with Video Prompt Architect. A direct FrameCut task or resume bypasses welcome; option 5 is interpreted only in the pending five-option welcome. A specialist handoff does not register a second master project.
+
+## Coordination detail
+
+Moved from the entry skill (1.119.0) to keep its routing table within budget; it applies unchanged.
+
+A new video-generation request that names neither a generator nor coded motion gets one short choice when both fit ([generated video or motion from code](routing-boundaries.md#generated-video-or-motion-from-code)). Owners define responsibility, not proof of agent runs. Handle small tasks directly; load another owner when crossing domains. When a request sits between owners, mixes modalities, supplies a conversation link, asks for a Codex↔ChatGPT Work transfer, or concerns an unsupported module or reasoning setting, read [routing boundaries](routing-boundaries.md). For a product-photo-to-reel project, follow the [end-to-end route](product-film-end-to-end-route.md); for multiple owners, resumable projects, tool uncertainty or linked revisions, use [capabilities and handoffs](capabilities-and-handoffs.md). The [capability card](../assets/capability-card.json) defines execution requirements and missing-tool fallbacks.
+
+Use [the integrated workflow-kit method](../kit/method.md) for artifact fields, bounded review and handoffs, and [Studio integration authority](../../pipeline-core/references/studio-integration-policy.md) for precedence and the single active route. Pipeline Core governs Project State; Creative Video Producer coordinates preproduction and FrameCut owns editing/delivery jobs within it. Source role IDs resolve through the active role map; they are not names of missing skills or proof of agent execution.
+
+For a business/store URL campaign, follow the [website-to-campaign profile](../../ecommerce-campaign-strategy-director/references/website-to-campaign.md): actual public evidence or an honest access limit, one missing question and optional campaign_context in Project State. Ecommerce owns commerce strategy; Marketing supplies foundations. Planning does not authorize media generation or require startup menus.
+
+### Compact routes and creative feedback
+
+Use [conditional method selection](../../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods) in one review budget; never require hidden-CoT narration or imply agents ran. Load the current owner and useful resources ([compact routing and optional project review](compact-routing-and-pilot.md)). Route concept, temporal and taste defects to their owners. Continue authorized plugin development without a pilot prerequisite; a refusal of pilots also excludes disguised fresh-use exercises. Report check scope.
+
+### Additional tools and installation onboarding
+
+For provider discovery, setup, billing or host support use [Tool Routing Cost](../../tool-routing-cost/SKILL.md) and its [provider setup guide](../../tool-routing-cost/references/provider-setup.md). After fresh installation, offer one optional tool-selection question unless answered/declined. It never blocks work, repeats on greetings or authorizes paid generation; preserve choices on update. Catalog entries are not connected accounts.

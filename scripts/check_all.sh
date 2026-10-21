@@ -64,4 +64,5 @@ python3 "$P/tests/ai_writing_check_test.py"
 python3 "$P/tests/technique_atlas_test.py"
 python3 "$P/tests/motion_assets_test.py"
 python3 "$P/tests/knowledge_wiring_test.py"
+python3 "$P/tests/motion_sound_marked_test.py"
 python3 -m unittest discover -s tests -p 'test_host_eval.py' -v

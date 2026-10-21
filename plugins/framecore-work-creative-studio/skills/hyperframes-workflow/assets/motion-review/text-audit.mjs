@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {findBrowser, previewFor, selectFrames} from './review-frames.mjs';
 
@@ -81,10 +82,13 @@ export function plan(input, {times, holds, fps, width, height, root, seek} = {})
       samples: frames.map(f => ({t: f / rate, f})), holds: known, holdsFrom: 'contract'};
   }
   const html = fs.readFileSync(input, 'utf8');
+  // A composition outside the contract route is bound to its own bytes, so acceptance can match it (--composition).
+  const evidenceBinding = {kind: 'composition', contract: null,
+    composition: {name: path.basename(input), sha256: createHash('sha256').update(fs.readFileSync(input)).digest('hex')}};
   const rootSize = html.match(/data-width="(\d+)"[^>]*data-height="(\d+)"/);
   const rate = fps ?? 30;
   if (!times?.length) throw new Error('Give --times for an HTML composition (seconds, comma separated)');
-  return {html, base: path.dirname(path.resolve(input)), fps: rate, width: width ?? (rootSize ? Number(rootSize[1]) : undefined),
+  return {html, evidenceBinding, base: path.dirname(path.resolve(input)), fps: rate, width: width ?? (rootSize ? Number(rootSize[1]) : undefined),
     height: height ?? (rootSize ? Number(rootSize[2]) : undefined), root, seek, samples: times.map(t => ({t, f: Math.round(t * rate)})),
     holds: holds ?? null, holdsFrom: holds ? 'given' : 'inferred'};
 }

@@ -71,6 +71,13 @@ Browser reports remain preview evidence, with no video hash. Standalone HTML aud
 findings but cannot certify a separate contract through acceptance. Human failure verdicts are preserved even when
 automated evidence is missing.
 
+For a HyperFrames or hand-written composition outside the contract route, the text audit binds to the composition's own
+bytes (`evidence_binding.kind` `composition` with its SHA-256). Pass that file with `--composition composition.html`,
+the locked copy with `--copy "LINE"` (repeatable) and the encoded-file measurement with
+`--motion-activity activity.json` (from `motion_activity.py --json`, bound by its `video_sha256`). Acceptance then
+checks the copy and the composition on that exact composition and counts the activity in D temporal; a changed
+composition or a measurement of another file leaves the verdict `not_verified`.
+
 ## Craft critique and the improvement round
 
 [`critique.py`](critique.py) scores a contract and its rendered frames against Studio's craft rubric, so the judgement a motion designer makes by eye becomes numbers any model can act on. It needs Python 3.8+ and Pillow, uses the bundled [Python renderer](../motion-render/README.md), and runs in ChatGPT's code execution as well as in Codex; no browser.

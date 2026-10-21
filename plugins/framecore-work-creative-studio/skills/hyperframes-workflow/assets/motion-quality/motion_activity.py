@@ -12,6 +12,7 @@ Needs Python 3.8+, numpy and ffmpeg. It measures pixels, not meaning: a slow dri
 motion, and a still that the idea needs is declared with --hold. Exit code 1 when a limit fails.
 """
 import argparse
+import hashlib
 import json
 import subprocess
 import sys
@@ -90,6 +91,8 @@ def main(argv=None):
               if isinstance(error, subprocess.CalledProcessError) else str(error), file=sys.stderr)
         return 2
     report = measure(frames, holds=args.hold)
+    with open(args.video, 'rb') as handle:   # binds the result to this exact encoded file for acceptance
+        report['video_sha256'] = hashlib.sha256(handle.read()).hexdigest()
     problems = verdict(report, args.max_share, args.max_still)
     report['verdict'] = 'REVISE' if problems else 'PASS'
     report['problems'] = problems

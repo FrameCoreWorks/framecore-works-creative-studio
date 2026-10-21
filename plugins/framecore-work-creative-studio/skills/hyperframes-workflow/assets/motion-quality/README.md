@@ -15,7 +15,7 @@ Example score is synthetic and not approved client content. Overlap layer/blend 
 
 ## Motion activity
 
-[`motion_activity.py`](motion_activity.py) samples a rendered video at 6 frames per second and reports the share of still time and the longest still stretch outside declared holds. It fails (REVISE, exit code 1) above 40 % undeclared still time or with an undeclared still longer than 2.5 s; `--hold START-END` declares an intended still such as the end card, `--json` prints the report. It measures pixels, not meaning: a slow drift counts as motion. Needs Python 3.8+, numpy and ffmpeg.
+[`motion_activity.py`](motion_activity.py) samples a rendered video at 6 frames per second and reports the share of still time and the longest still stretch outside declared holds. It fails (REVISE, exit code 1) above 40 % undeclared still time or with an undeclared still longer than 2.5 s; `--hold START-END` declares an intended still such as the end card, `--json` prints the report, with the video's `video_sha256` so `acceptance.py --motion-activity` can bind it to the delivered file. It measures pixels, not meaning: a slow drift counts as motion. Needs Python 3.8+, numpy and ffmpeg.
 
 ```sh
 python3 motion_activity.py film.mp4 --hold 27-30
