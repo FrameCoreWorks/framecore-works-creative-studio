@@ -1,0 +1,46 @@
+{
+  "version": "1.116.0",
+  "date": "2026-10-21",
+  "origin": "chatgpt-work",
+  "baseline": "c700ad256dcf83ec9134c994d1a12f3c4b278f49",
+  "implementation": "Original native FrameCut code; functional inspiration from jub0t/concat, no imported or translated source",
+  "reference_commit": "816a8f0e02829a718a2475c3dd4673bea3e5a154",
+  "tested_environment": {
+    "os": "Linux",
+    "python": "3.12",
+    "pillow": "12.3.0",
+    "ffmpeg": "6.1.1"
+  },
+  "regression_suites": [
+    "tests/framecut_test.py",
+    "tests/framecut_development_test.py"
+  ],
+  "media_assertions": [
+    "Decoded still/video luma and chroma agreement under H.264 4:2:0 loss, including crossfade/alpha overlay/animated text",
+    "Exact source/time/animation mapping after ramp split and trim",
+    "Held decoded freeze frames and variant framing",
+    "Decoded non-silent variable-speed audio, gain envelope and highpass mix",
+    "Word projection through the variable-speed source map",
+    "Actual PNG/PDF boards with all events, ending and authored moments",
+    "Subprocess cancel/resume/completion and interrupted-worker state"
+  ],
+  "failures_corrected": [
+    "Split ramp initially decoded the wrong source boundary; retain decoder pre-roll and use the absolute source origin",
+    "Pixel parity exposed color conversion and repeated 4:2:0 intermediate loss; intermediates now retain 4:4:4 BT.709, final delivery remains 4:2:0",
+    "Worker launch/state race removed with a launch handshake",
+    "Full-cell board presentation for matching aspect ratios",
+    "Orchestrator entry shortened to its existing byte budget"
+  ],
+  "measurement_limits": [
+    "Luma MAE < 5/255 and half-resolution RGB MAE < 6/255 on deterministic synthetic samples; not lossless byte equality",
+    "Audio regression metrics and timeline timing do not establish human listening quality",
+    "Structural panel coverage requires authored semantic beats and page review"
+  ],
+  "not_run": [
+    "Fresh installed ChatGPT/mobile/Codex/Claude user workflow",
+    "Windows/macOS worker lifecycle",
+    "Real client creative acceptance",
+    "Long production-scale throughput benchmark",
+    "Pitch-preserving variable-speed audio (not implemented)"
+  ]
+}

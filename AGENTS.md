@@ -1,5 +1,9 @@
 # Repository maintenance
 
+## Owner-directed FrameCut development (2026-10-21)
+
+The owner's explicit follow-up reopens development for the six recommended Concat-inspired FrameCut capabilities and their orchestration. Follow [the bounded scope](docs/framecut/concat-development-scope.md): implement original native editing, composited storyboards, jobs, keyframes/framing, freeze/speed and versioned effects. Preserve onboarding, full-board feedback/acceptance before final and optional requested samples. Publish verified source first, then update the existing hosted plugin with its current private overlay preserved. This supersedes the pause only for this task; unrelated development remains paused.
+
 ## Owner testing pause (2026-10-21)
 
 The owner paused development after 1.115.0 to test FrameCut, Motion Graphics and other Studio modules in actual use. The current task is the [handover to Claude Code](docs/handover-chatgpt-work-2026-10-21.md), covering ChatGPT Work's 2026-10-20 to 2026-10-21 work. Do not resume older work orders, expand features or run a new development round merely because they appear below or in historical handovers. Wait for the owner's findings or a new explicit task, then address the concrete trigger. This documentation-only handover leaves the shared package and saved plugin unchanged.

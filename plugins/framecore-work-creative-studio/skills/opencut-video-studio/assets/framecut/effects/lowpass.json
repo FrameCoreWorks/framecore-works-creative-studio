@@ -1,0 +1,27 @@
+{
+  "id": "lowpass",
+  "version": 1,
+  "domain": "audio",
+  "parameters": {
+    "amount": {
+      "min": 1000,
+      "max": 20000,
+      "default": 12000
+    }
+  },
+  "steps": [
+    {
+      "op": "lowpass",
+      "value": {
+        "param": "amount"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "expected": [
+        "lowpass=f=12000"
+      ]
+    }
+  ]
+}

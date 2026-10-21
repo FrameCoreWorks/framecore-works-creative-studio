@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.115.0",
+  "version": "1.116.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "3161bfe91c904c97526a62a03f16fc9931ce0a033570e301ab396b9ee2610daa"
+      "sha256": "a5b921217bb08c04ea17b83fb753a9f7134e2888075a99e067c7ecdf7cf656aa"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2285,
-      "sha256": "96f84b6e8a28c3dcfc31501ef3ab49f4cdae2320e28b404d93b2bf1597c60cd0"
+      "sha256": "722b3974420e9c67b25da9f470052ebf1af9f46193b531b05de9b2cecf2d48bd"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22829,
-      "sha256": "c431c5450e2922f5a21771573a979d305c88c02459263fe4fc782be9d3c9f74e"
+      "sha256": "e9a1d4de2f92cd22b855794b477e11b486f6348e49881af5d2c1a626f29d558d"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "4fc38c9d83d0870dae3953e335adb46b8d3de8179dac6c558f8f390607b5a8b4"
+      "sha256": "2957d027f21fbc1166e41689a177bdde97f779fecfb896606c86e290cd08c054"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 191777,
-      "sha256": "4ec99f75eddd964bdb266a728e1764566413ab4231bcc8605385a04f695b1c93"
+      "bytes": 193232,
+      "sha256": "973e6d814bea261306111aebb8aaa9a2dab37b7b10d89d5d72fcb5f42b95f554"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2399,7 +2399,7 @@
     {
       "path": "plugin.json",
       "bytes": 2408,
-      "sha256": "7deb8606147186b5da4142ea0df600242ade18dddbc1b0e29b1405c84bfd7af7"
+      "sha256": "8d479eb040d2f86ce3f48ac0efc7dafde1f6511e8ee1866db36df9f1869f0954"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -3133,8 +3133,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 27108,
-      "sha256": "ad627c134fc0736c1a12370bc2417e2b09be31983740d36982a667bde928ab00"
+      "bytes": 27545,
+      "sha256": "190c8b077ea5f4060f94e0dc7ed7f31460e5da83ef4b114f17a584e448a0632b"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5213,8 +5213,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 19127,
-      "sha256": "5a1d820678453311d2977935f59203c57293f585fb6e03becca096ef57bf6c51"
+      "bytes": 22383,
+      "sha256": "c02e811e4201b3f0ed40d2fa933024e37c33bb42fa4b41f437ea504823d44b19"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5223,38 +5223,118 @@
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/README.md",
-      "bytes": 15433,
-      "sha256": "c4e3f443dcd77ab016ae3c6f5836cd8bbaaae832a6bcb332f8b29a647950bf18"
+      "bytes": 25180,
+      "sha256": "3207d85332dd9a8342a1be423759473d310373937e9c5d7f24e5c8c44689f3fe"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/blur.json",
+      "bytes": 441,
+      "sha256": "4cb10bcd3cabd95021cfbd4870dc016e1f15907a05be7e3bdbbf83f8ef0f3d92"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/brightness.json",
+      "bytes": 452,
+      "sha256": "3ac12960b3472a1863f4ae552f0a76414c4124b2aac7ec8887c344eac5a1c5e5"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/contrast.json",
+      "bytes": 448,
+      "sha256": "b92b062c24894040bc73a3ad35183df182a7230f8900c92e76a42f1aa58befac"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/denoise.json",
+      "bytes": 348,
+      "sha256": "ac86cdeef28ec283618ec7a3e7e5f3259d7f6f3e3df152289bb77d5616874d76"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/grayscale.json",
+      "bytes": 454,
+      "sha256": "dab872fb0420711074408247d927e8d76c894500037550edcd66186b07ab47a9"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/highpass.json",
+      "bytes": 351,
+      "sha256": "6976ddaffb3adffb4c768f89dcaa141e843107b349d23edf55ae7bde27a0ad33"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/lowpass.json",
+      "bytes": 357,
+      "sha256": "d84424e6520b09e489e6134529e9538ac2f85a49bb2c33c05753a0aad272cd9e"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/saturation.json",
+      "bytes": 452,
+      "sha256": "924c73ad77cac0f1b1bf1b7974eb5f64abbfe19a1a887d3b87abb02ee61bf273"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/vignette.json",
+      "bytes": 448,
+      "sha256": "119eaef31ae727d83b128b044700e88557d154d49ec0b7ad5b5954d778261a49"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_audio.py",
+      "bytes": 4589,
+      "sha256": "3101097cb7277d8537108481440819b30dbccee0ae56f6c3e43c4537b26eb8ca"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_board.py",
+      "bytes": 9457,
+      "sha256": "927bd29590715f3c5423b17fbe85412078f1f21e866d621073476ddc504bfa81"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_captions.py",
-      "bytes": 9105,
-      "sha256": "bac2810a9895e37bdf72257f803aea592077f020605a0f6ac18c99fa3f153f59"
+      "bytes": 9742,
+      "sha256": "6b41e8e3a38b3bb0085a84f5a95e87d02e974d55827a5e4ea10f5453d14bcf4c"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_core.py",
-      "bytes": 20023,
-      "sha256": "ee130a04c04ccc1c41fdde5297054e09fa6b76e8094a7137c374fcde805d7166"
+      "bytes": 22901,
+      "sha256": "882893bfd8576b671b6a50030e5e0317a23d2c508b8475aa9e0b5d26825e49e4"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_edit.py",
+      "bytes": 10384,
+      "sha256": "164e377711a258e6305ec2497312d4e73ea4437982e6eb8c5165df1cea10af67"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_effects.py",
+      "bytes": 6395,
+      "sha256": "bed50917c583d999f4e8b39b27bfed5782dd94f011cb77318fd6736797e6f527"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_jobs.py",
+      "bytes": 8251,
+      "sha256": "5708f80a84f8d5f9eab06c2309e66646eef057a365f50687f9716dbf854417ac"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_media.py",
-      "bytes": 13722,
-      "sha256": "10fec5b555004b5da1d45b08db75828282c91bff381deb19bb1406028a0ff17a"
+      "bytes": 14689,
+      "sha256": "e0acb36cdb3dda9d703be8c794ce7256db607063496a5d8426051103ed8f4a4a"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_picture.py",
+      "bytes": 10571,
+      "sha256": "86a86af844dbcdec48daa1189492ec02b55c624020e233ef06e9c5895ed3fe37"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_render.py",
-      "bytes": 32812,
-      "sha256": "ce65839e1e8a9c04886250b9a579d482d43cafefdbb7b2a5fc4f72495ba66bb3"
+      "bytes": 33088,
+      "sha256": "a39708a3f972f191df9c4133f62cd4c1fccfaf6aca350ca7a6247ef5b1b78d7a"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "bytes": 7121,
+      "sha256": "af5d42a340b5fa64626aa5cd5debd83ea590066ad6835a1b59a8b4170156d1d4"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/framecut.py",
-      "bytes": 15989,
-      "sha256": "ff73bdf9199e6514f4c92f4fe046bc4af4ec5652b944429d021eff4346cb4fd8"
+      "bytes": 18876,
+      "sha256": "7095f739c80fe781aaae30d8925cf5de5b7486109c24b75f71b1844e301920e0"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/schema.json",
-      "bytes": 4093,
-      "sha256": "cb256e8ef1afc3fdafc5e49134f181ca5f4a82d88f9432bc338054d7b45fc773"
+      "bytes": 7625,
+      "sha256": "7b97209bb6d1fbf02c48eea82b24baffa1dbc303a82249a8b5282bf04cdba908"
     },
     {
       "path": "skills/opencut-video-studio/references/editor-handoff.md",
@@ -5508,8 +5588,8 @@
     },
     {
       "path": "skills/pipeline-core/assets/project-state.md",
-      "bytes": 4410,
-      "sha256": "e881d7adc168664e0e4fcdb657124a254eaea682e13892d97736bbbd775133c7"
+      "bytes": 4525,
+      "sha256": "b56f17989ddc4659f93e8e29c3f3950a4f3f379d5fc3c5fb18453ef34f805dc7"
     },
     {
       "path": "skills/pipeline-core/assets/prompt-examples/README.md",
@@ -5673,8 +5753,8 @@
     },
     {
       "path": "skills/pipeline-core/templates/project-state.md",
-      "bytes": 3639,
-      "sha256": "58dabda562606f0230149d8c5b0d7e568f994412caf6e05a64211db82cb1692c"
+      "bytes": 3754,
+      "sha256": "a9b04c4ef258aafa561d6d533582ec39517a33df472c4f0f80fb6386f08ff646"
     },
     {
       "path": "skills/pipeline-core/templates/revision-tracker.md",
@@ -6848,8 +6928,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/SKILL.md",
-      "bytes": 8398,
-      "sha256": "cad5de3be54fc42e12e7a0fd61d890762935aa566d03346e895b0734669e929f"
+      "bytes": 8906,
+      "sha256": "cb307d77c3b339e0efc6d60e3ed351ddf344cb889c75dfbec7207013a62e88c7"
     },
     {
       "path": "skills/storyboard-board-architect/agents/openai.yaml",
@@ -7128,8 +7208,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31904,
-      "sha256": "da285e4cca55aeaff2f717de627e346a2a86196254709c0b363940230383b528"
+      "bytes": 31984,
+      "sha256": "4e5314fa45b568db845896ac15c0f7ba60019fe1f3e75f7649066316077bbb51"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7445,6 +7525,11 @@
       "path": "tests/extensions_test.py",
       "bytes": 12130,
       "sha256": "055bcf60491dcafcca98e839ac4a16844838f843ae436e7ccbd0b92e7ee3ac72"
+    },
+    {
+      "path": "tests/framecut_development_test.py",
+      "bytes": 18133,
+      "sha256": "895e6ed4aebd8b68618c4561493dd89e8afd9158a1b1123c7f529bfe16690650"
     },
     {
       "path": "tests/framecut_test.py",

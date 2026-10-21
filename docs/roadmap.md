@@ -1,5 +1,9 @@
 # Roadmap for the development surfaces
 
+## Concat-inspired FrameCut development, 2026-10-21
+
+The owner explicitly reopened development to implement all six recommended functional areas from the Concat review inside the existing FrameCut workflow. The [bounded implementation scope](framecut/concat-development-scope.md) preserves original code, current owners and the complete storyboard-review gate. Native composition stills and multi-page boards, precise transactional edits, durable jobs, keyframes and format-specific framing, freeze/variable speed and versioned effects extend the current runtime. No Concat AGPL source is incorporated. The desktop editor, Rust/GPU rewrite and optional model-backed effects remain outside this request. Source-guided exercises and decoded-media checks precede repository publication and the guarded existing-plugin update; fresh-client behavior requires separate evidence.
+
 ## Owner testing pause and Claude Code handover, 2026-10-21
 
 Development is paused at 1.115.0 while the owner tests FrameCut, Motion Graphics and other modules. The [2026-10-21 handover](handover-chatgpt-work-2026-10-21.md) consolidates ChatGPT Work's work since 2026-10-20, the current source and saved-plugin state, executed checks and remaining real-client coverage. It supersedes older instructions to continue the audit or build the Reel Editing Assistant: those authorized tasks have been completed within their recorded scope. Do not start another feature round from this historical roadmap. The next implementation should respond to the owner's actual findings or a new explicit request. This handover changes repository documentation only; no plugin update or release is needed.

@@ -1,6 +1,6 @@
 # FrameCut runtime
 
-One project, source clocks, edit decisions, captions, motion placements, mix and delivery. Python 3.10+ standard library plus FFmpeg/FFprobe (libx264, AAC, libass, overlay, xfade, loudnorm). No network, MCP daemon, GPU or private package required. PyWhisperCpp/model and official OpenTimelineIO are optional explicit runtimes. Run `python3 framecut.py --help` for the complete command surface. All commands return JSON; failures exit 2 with a typed error.
+One project, source clocks, edit decisions, captions, motion placements, mix and delivery. Python 3.10+, Pillow, plus FFmpeg/FFprobe (libx264, AAC, libass, overlay, xfade, loudnorm). No network, MCP daemon, GPU or private package required. PyWhisperCpp/model and official OpenTimelineIO are optional explicit runtimes. Run `python3 framecut.py --help` for the complete command surface. All commands return JSON; failures exit 2 with a typed error.
 
 ## Workflow
 
@@ -47,7 +47,7 @@ Overlays additionally require normalized `rect: [x,y,width,height]` and alpha (`
 
 Text events contain text, size (fraction of height), color (#RRGGBB), position (`top|center|bottom`) and animation (`none|fade|pop`). These are finishing primitives; richer motion belongs to the motion owner. Captions may select `sources: ["clip-or-audio-event-id"]` for independent narration; omitted sources means base clips. Set this explicitly when replacing source dialogue or combining tracks. Source-boundary comparisons allow only half a source PTS tick for quantization, never an output-frame-sized speech trim. Captions contain enabled, mode (`sentence|kinetic`), size, bottom, color, highlight, max_words, font, corrections. Kinetic color follows checked word intervals while the complete group stays visible. Partial words, partial sentence ASR, layout overflow and text/caption collisions block final rendering. Preview reports warnings for diagnosis. Framing of faces/products/UI requires actual image review; no automatic tracking is implied.
 
-Deliverables contain id, sequence, width, height, fit, captions, optional lufs/safe_top/safe_bottom. Same sequence with two deliverables means the same edit in two aspect ratios. Different highlights are different sequences. Explicit clip crops currently apply to all variants; use distinct derived framing assets or a reviewed sequence copy when framing must differ per shot across variants. A per-deliverable crop animation is not implemented.
+Deliverables contain id, sequence, width, height, fit, captions, optional lufs/safe_top/safe_bottom. Same sequence with two deliverables means the same edit in two aspect ratios. Different highlights are different sequences. Clip crops are defaults shared by variants; `deliverable.framing[event_id]` overrides crop/fit and selected animation tracks for that variant. Use per-deliverable `framing` for distinct static crops and animated zoom/pan/position/scale; the common edit and source clocks remain unchanged.
 
 ## Revision operations
 
@@ -65,8 +65,77 @@ This is data-shape guidance, not a creative template; replace duration/source_in
 
 ## Supported scope and honest delivery
 
-Cuts/gaps, explicit crossfades, constant speed, independent audio, crop/fit, still/video overlays, local animated text, timed captions and requested loudness targets are executable. Advanced tracking, multicam, speed ramps, HDR mastering, NLE-native project editing and diarization are unsupported here. Optional specialists may prepare tested derived assets without changing the master timeline.
+Cuts/gaps, explicit crossfades, constant and variable speed, freeze frames, independent audio, variant framing, keyed transforms, still/video overlays, animated text, versioned effects, timed captions and requested loudness targets are executable. Advanced tracking, multicam, HDR mastering, NLE-native project editing and diarization remain unsupported here. Optional specialists may prepare tested derived assets without changing the master timeline.
 
 Render stages have child timeouts, bounded inputs, a disk budget check and atomic final directory publication. Interrupting the CLI kills its active child; completed stages resume after hash checks. A machine/process kill may leave `render.lock`; inspect the owning process before removing an abandoned lock. No final is published until full decode, frame count, dimensions/rate/audio length and requested loudness checks pass. Receipt/project hashes prevent stale delivery. The default 2 GiB budget is a cache ceiling, not an OS memory quota; each stage can temporarily consume disk before the next checkpoint. Use host quotas for hard disk/RAM ceilings.
 
 Bundles include video, SRT/VTT, Caption Studio QA, exact source map, project snapshot, projection, technical receipt and review frames. The snapshot retains original relative source paths; relink to the original project root when moved. `export` gives native JSON, relink map and CSV; picture EDL only for supported cuts. `--otio` uses the official library and verifies a read/write round trip. A loss report identifies omitted layered audio/motion/style, unsupported overlaps/retimes and untested editor imports. Do not claim a complete native NLE round trip.
+
+## Native development commands
+
+These are original FrameCut implementations. Concat was a functional research reference; no Concat code, binary, AGPL dependency or model is included. The native renderer uses Pillow for bounded RGBA transforms and FFmpeg for source decoding, composition, captions, audio and encoding. `capabilities` reports the Pillow requirement; install nothing implicitly. No GPU/MCP daemon or external service is needed.
+
+```bash
+python3 framecut.py timeline-read job/project.json --sequence main
+python3 framecut.py apply job/project.json --ops edits.json --base-revision 4 --reason "Requested correction" --dry-run
+python3 framecut.py apply job/project.json --ops edits.json --base-revision 4 --reason "Requested correction"
+python3 framecut.py preview-frame job/project.json --deliverable vertical --frame 45 --out boards/r5-detail.png
+python3 framecut.py storyboard job/project.json --deliverable vertical --panels authored-panels.json --out boards/r5
+python3 framecut.py effects
+python3 framecut.py effects --check
+```
+
+All timeline positions below are integer master frames. Operations are an atomic array; a bad member rejects the whole transaction. `--dry-run` checks locks, IDs, source bounds and dependent geometry and reports impact without a revision. Re-read before saving if another edit changed the base revision.
+
+| Operation | `value` | Semantics |
+| --- | --- | --- |
+| `split_clip` | `{"frame":45,"right_id":"shot-b"}` | Absolute split frame inside the named clip; source and animation windows survive; later anchors and explicit caption sources follow the new right ID. |
+| `trim_clip` | `{"in":5,"out":50,"ripple":true}` | Half-open offsets within the old clip. Ripple preserves its start and moves downstream absolute lanes by the removed duration; without ripple the new start advances by `in`. |
+| `move_clip` | `{"start":90}` | Move the named clip and its anchored dependents; overlap without a valid transition fails. |
+| `remove_clip` | `{"ripple":true,"dependents":"remove"}` | Explicit dependent policy `reject` (default), `detach` or `remove`; caption references and variant framing are reconciled. |
+| `freeze_frame` | `{"frame":45,"duration":15,"hold_id":"hold","right_id":"tail"}` | Split inside a clip, insert a silent held source frame, and ripple subsequent events. |
+| `set_keyframes` | parameter-to-points object | Replace the named event's animation and reset its local animation offset. |
+| `set_speed_curve` | ordered speed-point array | Replace constant speed with a continuous piecewise-linear speed curve. |
+| `set_effects` | applied-effect array | Replace the event's versioned picture or audio effects. |
+| `set_framing` | `{"deliverable":"vertical","framing":{"shot-a":{"crop":[0.2,0,0.5,1]}}}` | Replace that deliverable's visual-event overrides; do not duplicate the master edit. |
+
+Every structural operation includes `sequence`, and all except `set_framing` include the stable event `id`. Transitions and absolute events spanning a ripple boundary can require an explicit preliminary edit; the runtime fails with `edit_conflict` instead of guessing. Locks remain enforced across the whole transaction and at save time.
+
+### Animation and framing
+
+An event's `keyframes` maps parameters to 1..128 ordered points, each `{ "frame": 0, "value": 1, "easing": "smooth" }`. Easing is `linear`, `smooth` (smoothstep) or `hold`; it belongs to the outgoing segment. Values hold outside the first/last point. The shared evaluator is used by stills and encoded frames. `keyframe_offset` preserves the original animation window after a trim/split; callers normally leave it to edit operations.
+
+Picture parameters: `x`/`y` are offsets in output-width/height units from the centered fit; `scale` is a factor, `rotation` is degrees clockwise, `opacity` is 0..1. `zoom` is 1..8 inside the crop, with normalized `pan_x`/`pan_y` selecting its position. `gain_db` is an additional audio envelope. Text supports position/scale/rotation/opacity; audio events support gain only. Explicit keyed text replaces its simple fade/pop animation. No automatic subject tracking is implied.
+
+`deliverable.framing[event_id]` can override `crop`, `fit` and picture keyframe tracks. Crop is a normalized source rectangle; the variant's tracks override only matching event tracks. Source clocks, edit order, sound and captions remain shared. Native source decode is bounded to a 4096-pixel long side before these transforms; this is not a 16K-detail mastering path. POSIX uses cancellable bounded pipes; other hosts use a bounded file-backed fallback. Cross-platform runtime parity still requires host tests.
+
+### Variable speed and freeze
+
+`speed_curve` contains 2..64 points such as `[{"frame":0,"speed":{"num":1,"den":2}},{"frame":60,"speed":{"num":2,"den":1}}]`, covering frame 0 through `duration`. Speeds are rational 1/4..4, interpolated linearly. Source consumption is the integral of this curve; captions use its inverse. Split/trim preserve the actual source interval and slice the curve. A sub-PTS `source_remainder` preserves exact mapping rather than rounding repeatedly. Constant `speed` and `speed_curve` are mutually exclusive.
+
+Variable-speed source audio is resampled continuously at 48 kHz stereo PCM: tempo **and pitch** follow speed. Use an independent voice/music event to keep it unchanged; this path is not pitch-preserving time stretch or optical-flow interpolation. Freeze holds picture and emits no source dialogue/captions for its inserted interval. Retimed/frozen native edits are retained in JSON; basic EDL/OTIO is withheld with a loss report where it cannot represent them.
+
+### Full storyboard and actual stills
+
+`preview-frame` returns one composited PNG with its frame, project revision/hash, deliverable and digest. `storyboard` generates structural moments across the whole sequence, including all clips/layers, boundaries, transitions, keyframes, captions and ending. The optional `--panels` JSON array adds authored action/reveal/camera/audio moments, e.g. `[{"id":"reveal","frame":37,"action":"Product becomes fully visible","audio":"Music accent"}]`; it does not remove structural coverage. The host must add meaningful content beats and inspect them. Structural completeness does not establish semantic coverage, motion quality or heard audio.
+
+Outputs: `frames/*.png`, `board.json`, numbered `sheets/board-p*.png`, `sheets/board.pdf`, and `receipt.json` with project hash, panel hashes, event coverage, warnings and `awaiting_user_review`. No full video is rendered first. Available assets are required; the host supplies clearly labelled planned stills for missing imagery through the existing storyboard owner. The 512-moment safety bound fails explicitly; split large work into reviewed sequences rather than silently dropping panels. Raster still/video comparisons account for H.264 4:2:0 compression, but must preserve the same source frame, transform and exact copy.
+
+### Durable jobs and retry
+
+```bash
+python3 framecut.py job-start job/project.json --request render-job.json
+python3 framecut.py job-status job/project.json --job job-ID
+python3 framecut.py job-cancel job/project.json --job job-ID
+python3 framecut.py job-resume job/project.json --job job-ID
+```
+
+The request is `{ "kind":"render", "deliverable":"vertical", "out":"renders/r5", "mode":"final", "timeout":600, "max_disk_mb":2048 }`; `kind:"storyboard"` accepts an optional inline `panels` array. Preserve the real storyboard acceptance before starting a final. Each job stores an immutable project snapshot, request, worker log and atomic state under `.framecut/<project>/jobs/<job-id>/`. State survives CLI/session restarts. `queued`, `running`, `completed`, `failed`, `cancelled` and `interrupted` are distinct; progress names its stage and, where measured, processed frames/samples/panels. Never interpret one stage's counter as overall percent.
+
+Cancellation is cooperative and targets only this worker's work. Wait for a terminal state before resuming. Resume creates a linked attempt only when the project hash and source hashes still match; finished cache stages are verified and reused. A proven dead job may recover only its own render lock. A changed project needs a new job/output. Hosts may terminate background processes; the API does not promise a persistent server. There is no automatic retry of invalid input, a changed source, failed QA or an unknown effect, and no paid calls. A completed technical render still needs the existing picture/audio review and delivery gate.
+
+### Effect packages and verification
+
+Applied effects use `{ "id":"brightness", "version":1, "params":{"amount":1.1}, "enabled":true }`. Initial picture effects: brightness, contrast, saturation, blur, grayscale and vignette. Independent audio effects: highpass, lowpass and denoise. `effects` exposes exact ranges/defaults and the catalogue hash. Disabled effects still validate IDs/parameters. Unknown IDs/versions fail; catalogue content is part of the cache environment.
+
+Add a new versioned manifest under `effects/` using bounded supported primitives, numeric parameters and executable fixtures. Manifests cannot inject Python, shell commands or raw FFmpeg expressions. Picture fixtures check actual pixels/alpha; audio manifest fixtures check the compiled filter contract, supplemented by decoded-audio regressions. `effects --check` runs the catalogue fixtures. Run `tests/framecut_test.py` and `tests/framecut_development_test.py` from the plugin root's parent path as appropriate, plus the repository release gates. This catalogue does not add preselected creative directions.

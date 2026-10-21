@@ -1,0 +1,36 @@
+{
+  "id": "brightness",
+  "version": 1,
+  "domain": "picture",
+  "parameters": {
+    "amount": {
+      "min": 0,
+      "max": 3,
+      "default": 1
+    }
+  },
+  "steps": [
+    {
+      "op": "brightness",
+      "value": {
+        "param": "amount"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "expected": [
+        40,
+        80,
+        120,
+        255
+      ],
+      "input": [
+        40,
+        80,
+        120,
+        255
+      ]
+    }
+  ]
+}

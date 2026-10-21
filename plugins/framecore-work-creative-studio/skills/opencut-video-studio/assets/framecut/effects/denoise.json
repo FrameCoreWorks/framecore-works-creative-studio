@@ -1,0 +1,27 @@
+{
+  "id": "denoise",
+  "version": 1,
+  "domain": "audio",
+  "parameters": {
+    "amount": {
+      "min": 0.01,
+      "max": 97,
+      "default": 12
+    }
+  },
+  "steps": [
+    {
+      "op": "denoise",
+      "value": {
+        "param": "amount"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "expected": [
+        "afftdn=nr=12"
+      ]
+    }
+  ]
+}

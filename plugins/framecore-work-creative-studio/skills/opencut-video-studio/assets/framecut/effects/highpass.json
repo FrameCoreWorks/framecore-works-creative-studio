@@ -1,0 +1,27 @@
+{
+  "id": "highpass",
+  "version": 1,
+  "domain": "audio",
+  "parameters": {
+    "amount": {
+      "min": 20,
+      "max": 1000,
+      "default": 80
+    }
+  },
+  "steps": [
+    {
+      "op": "highpass",
+      "value": {
+        "param": "amount"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "expected": [
+        "highpass=f=80"
+      ]
+    }
+  ]
+}

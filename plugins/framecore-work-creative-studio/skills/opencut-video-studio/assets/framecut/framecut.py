@@ -62,12 +62,14 @@ def export_edit(project, root, sequence_id, relative, use_otio=False):
         losses.append("Independent audio events and gain/ducking remain in the FrameCut project; basic editorial export covers picture cuts only.")
     if seq.get("overlays") or seq.get("texts") or seq.get("captions", {}).get("enabled"):
         losses.append("Motion, titles and caption styling are retained in the FrameCut project/authoring contracts; editor interchange does not recreate them.")
+    if any(c.get("keyframes") or c.get("effects") for c in seq["clips"]) or any(d.get("framing") for d in project["deliverables"] if d['sequence']==seq['id']):
+        losses.append("Keyframes, effects and deliverable framing remain in the native project; picture interchange does not recreate them.")
     events = []
     complex_edit = False
     for c in seq["clips"]:
         a = project["assets"][c["asset"]]
         start, length = span_seconds(a, c, fps)
-        complex_edit |= bool(c.get("transition") or ratio(c.get("speed", {"num": 1, "den": 1})) != 1)
+        complex_edit |= bool(c.get("transition") or c.get("speed_curve") or c.get("freeze") or ratio(c.get("speed", {"num": 1, "den": 1})) != 1)
         events.append({"source": a["path"], "in": float(start), "out": float(start+length), "record_in": float(Fraction(c["start"])/fps),
                        "name": c["id"], "note": c.get("note", ""), "source_hash": a["sha256"], "record_frames": [c["start"], c["start"]+c["duration"]]})
     if complex_edit:
@@ -107,9 +109,11 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("capabilities", help="Offline capability probe; never installs")
+    q = sub.add_parser("effects", help="List versioned effects or run their fixtures")
+    q.add_argument("--check", action="store_true")
     q = sub.add_parser("init", help="Create a project; its parent is the explicit allowed media/output root")
     q.add_argument("project"); q.add_argument("--id", required=True); q.add_argument("--brief")
-    for name in ("ingest", "validate", "analyze", "import-transcript", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review"):
+    for name in ("ingest", "validate", "analyze", "import-transcript", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review", "timeline-read", "preview-frame", "storyboard", "job-start", "job-status", "job-cancel", "job-resume", "job-worker"):
         q = sub.add_parser(name); q.add_argument("project")
         if name in ("ingest", "analyze", "import-transcript", "transcribe", "propose", "attach-motion"):
             q.add_argument("--asset", required=True)
@@ -118,7 +122,7 @@ def main(argv=None):
             q.add_argument("--rights", default="unknown"); q.add_argument("--provenance", default="user-supplied")
         if name in ("ingest", "import-transcript", "transcribe", "attach-motion", "apply", "undo"):
             q.add_argument("--base-revision", type=int, required=True)
-        if name in ("analyze", "compile", "render", "export", "motion-request"):
+        if name in ("analyze", "compile", "render", "export", "motion-request", "preview-frame", "storyboard"):
             q.add_argument("--out", required=True, help="New project-relative output path")
         if name == "analyze":
             q.add_argument("--max-seconds", type=int, default=1800); q.add_argument("--thumbnails", type=int, default=8)
@@ -126,9 +130,11 @@ def main(argv=None):
         if name == "transcribe":
             q.add_argument("--python", required=True); q.add_argument("--model", required=True); q.add_argument("--language", default="auto")
             q.add_argument("--word-times", action="store_true", help="Request approximate ASR token word times; review them before kinetic delivery")
-        if name == "apply": q.add_argument("--ops", required=True); q.add_argument("--reason", required=True)
+        if name == "apply":
+            q.add_argument("--ops", required=True); q.add_argument("--reason", required=True)
+            q.add_argument("--dry-run", action="store_true", help="Validate the transaction and report impact without saving")
         if name == "undo": q.add_argument("--revision", type=int, required=True)
-        if name in ("compile", "render", "motion-request"): q.add_argument("--deliverable", required=True)
+        if name in ("compile", "render", "motion-request", "preview-frame", "storyboard"): q.add_argument("--deliverable", required=True)
         if name == "render":
             q.add_argument("--mode", choices=("preview", "final"), default="preview")
             q.add_argument("--timeout", type=int, default=600); q.add_argument("--max-disk-mb", type=int, default=2048)
@@ -138,19 +144,27 @@ def main(argv=None):
         if name == "attach-motion":
             q.add_argument("--contract", required=True); q.add_argument("--fps", required=True, help="Rational num/den")
             q.add_argument("--request", required=True, help="Original motion-request JSON")
+        if name == "timeline-read": q.add_argument("--sequence")
+        if name == "preview-frame": q.add_argument("--frame", type=int, required=True)
+        if name == "storyboard": q.add_argument("--panels", help="Optional authored moments JSON; structural coverage is always retained")
+        if name == "job-start": q.add_argument("--request", required=True)
+        if name in ("job-status", "job-cancel", "job-resume", "job-worker"): q.add_argument("--job", required=True)
         if name == "review": q.add_argument("--evidence", required=True, help="Authored review JSON, with reviewer, scope, observations and outcome")
     args = p.parse_args(argv)
     try:
         if args.command == "capabilities":
             result = capabilities()
+        elif args.command == "effects":
+            from fc_effects import catalogue_info, check_fixtures
+            result = check_fixtures() if args.check else catalogue_info()
         elif args.command == "init":
             result = project_init(args.project, args.id, read_json(args.brief) if args.brief else {})
         else:
             path = Path(args.project).absolute()
             require(not path.is_symlink() and path.parent.resolve() == path.parent, "Project path contains a symlink")
             root, project = path.parent, read_json(path)
-            validate(project, root, True)
             cmd = args.command
+            validate(project, root if not cmd.startswith("job-") else None, not cmd.startswith("job-"))
             if cmd == "validate": result = {"status": "PASS", "revision": project["revision"], "project_hash": fingerprint(project)}
             elif cmd == "ingest":
                 require(args.asset not in project["assets"], "Asset ID already exists; preserve immutable source identities")
@@ -166,9 +180,12 @@ def main(argv=None):
                 result = commit_revision(path, project, args.base_revision, cmd)
             elif cmd == "propose": result = propose(project, args.asset)
             elif cmd == "apply":
+                require(project["revision"] == args.base_revision, "Project revision changed", "stale_revision")
                 candidate, invalidated = apply_operations(project, read_json(args.ops))
-                saved = commit_revision(path, candidate, args.base_revision, args.reason)
-                result = {"status": "revised", "revision": saved["revision"], "invalidated": invalidated, "analysis_preserved": True}
+                from fc_edit import change_impact
+                impact = change_impact(project, candidate)
+                saved = candidate if args.dry_run else commit_revision(path, candidate, args.base_revision, args.reason)
+                result = {"status": "dry_run" if args.dry_run else "revised", "revision": saved["revision"], "invalidated": invalidated, "analysis_preserved": True, "impact": impact}
             elif cmd == "undo":
                 previous = read_json(confined(root, f".framecut/{project['id']}/history/r{args.revision}.json", True))
                 previous["locks"] = copy.deepcopy(project.get("locks", []))
@@ -180,6 +197,22 @@ def main(argv=None):
             elif cmd == "render":
                 require(1 <= args.timeout <= 7200 and 64 <= args.max_disk_mb <= 102400, "Render resource limits invalid")
                 result = render(project, root, args.deliverable, args.out, args.mode, args.timeout, args.max_disk_mb)
+            elif cmd == "timeline-read":
+                from fc_edit import timeline_read
+                result = timeline_read(project, args.sequence)
+            elif cmd == "preview-frame":
+                from fc_board import preview_frame
+                result = preview_frame(project, root, args.deliverable, args.frame, args.out)
+            elif cmd == "storyboard":
+                from fc_board import storyboard
+                result = storyboard(project, root, args.deliverable, args.out, read_json(args.panels) if args.panels else None)
+            elif cmd.startswith("job-"):
+                from fc_jobs import start, status, cancel, resume, worker
+                if cmd == "job-start": result = start(path, read_json(args.request))
+                elif cmd == "job-status": result = status(root, project["id"], args.job)
+                elif cmd == "job-cancel": result = cancel(root, project["id"], args.job)
+                elif cmd == "job-resume": result = resume(path, args.job)
+                else: result = worker(path, args.job)
             elif cmd == "verify": result = verify_delivery(project, root, args.bundle)
             elif cmd == "export": result = export_edit(project, root, args.sequence, args.out, args.otio)
             elif cmd == "motion-request":

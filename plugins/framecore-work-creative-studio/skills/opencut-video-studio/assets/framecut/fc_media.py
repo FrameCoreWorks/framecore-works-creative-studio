@@ -9,6 +9,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+import time
 from fractions import Fraction
 from pathlib import Path
 
@@ -25,13 +26,24 @@ def run(argv, timeout=300, cwd=None):
         proc = subprocess.Popen([str(executable), *argv[1:]], stdin=subprocess.DEVNULL, stdout=stdout, stderr=stderr,
                                 cwd=cwd, start_new_session=(os.name == "posix"))
         try:
-            proc.wait(timeout=timeout)
-        except (subprocess.TimeoutExpired, KeyboardInterrupt):
+            from fc_jobs import checkpoint
+            deadline = time.monotonic() + timeout
+            while proc.poll() is None:
+                checkpoint()
+                if time.monotonic() >= deadline:
+                    raise subprocess.TimeoutExpired(argv, timeout)
+                try:
+                    proc.wait(timeout=.2)
+                except subprocess.TimeoutExpired:
+                    pass
+        except (subprocess.TimeoutExpired, KeyboardInterrupt, FrameCutError):
             if os.name == "posix":
                 os.killpg(proc.pid, signal.SIGKILL)
             else:
                 proc.kill()
             proc.wait()
+            if isinstance(sys.exc_info()[1], FrameCutError):
+                raise
             raise FrameCutError("resource_limit" if not sys.exc_info()[0] is KeyboardInterrupt else "cancelled",
                                 "Child cancelled; no final was published")
         require(stdout.tell() <= 64 * 1024 * 1024 and stderr.tell() <= 64 * 1024 * 1024,
@@ -105,6 +117,12 @@ def capabilities():
                              ("ass", "overlay", "xfade", "loudnorm", "silencedetect", "select", "amix", "atempo")}
         result["h264_aac"] = all(re.search(r"\s" + k + r"\s", encoders) for k in ("libx264", "aac"))
         result["h264_aac"] = bool(result["h264_aac"])
+    try:
+        import PIL
+        result["pillow"] = {"status": "installed", "version": PIL.__version__}
+    except ImportError:
+        result["pillow"] = {"status": "missing", "plan": "Install Pillow in the selected local Python environment before native transforms/storyboards."}
+    result["features"] = ["timeline-read", "transactional-edits", "preview-frame", "storyboard", "durable-jobs", "keyframes", "variant-framing", "freeze-frame", "speed-curve", "effect-catalogue"]
     result["installation_policy"] = "Use the existing complete inventory and disclose its missing-tool plan; this probe installs nothing."
     return result
 

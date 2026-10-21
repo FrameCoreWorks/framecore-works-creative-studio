@@ -98,6 +98,8 @@ Review gate: `structure_fit`. The workflow role `hyperframes-producer` maps to t
 
 ## FrameCut handoff
 
+FrameCut can execute simple keyed transforms, per-format framing, freeze frames, variable speed and bounded effects itself. Reuse those native capabilities when sufficient; take ownership of the requested designed motion rather than rebuilding its global edit. Native composition stills and authored specialist stills feed the same complete board. A FrameCut speed change does not authorize stretching a previously bound motion return.
+
 Honor FrameCut's stage: before storyboard acceptance, return the requested designed still states and motion/sound plan for its full-sequence contact sheets. Execute a video sample only when the user requested it or accepted the offer. Final composition rendering follows acceptance of the current complete FrameCut board; a broad build request or local sample acceptance does not replace that evidence. Keep still rendering separate from a mandatory video preview. Return a proposed creative change to FrameCut's board revision loop; technical implementation repairs that preserve the accepted design keep its acceptance.
 
 For a FrameCut handoff, reuse its working agreement and request; author only the requested local composition at origin 0 with exact frame count/FPS, dimensions and alpha convention. Return rendered media, the hashed authoring contract, original request and actual review/limitations. FrameCut binds them with `attach-motion --request`, checks stale context and owns global placement, audio/caption mapping and final composition. A changed request requires reconciliation, not silent stretching. Do not restart intake or create a second global timeline.

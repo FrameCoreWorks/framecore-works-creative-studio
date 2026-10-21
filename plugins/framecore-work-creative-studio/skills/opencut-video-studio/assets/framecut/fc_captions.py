@@ -6,6 +6,7 @@ import textwrap
 from fractions import Fraction
 from pathlib import Path
 
+from fc_time import timeline_offset, parameters
 from fc_core import event_start, fingerprint, ratio, require, round_boundary, span_seconds
 
 
@@ -17,6 +18,8 @@ def project_captions(project, seq):
     if "sources" in style:
         events = [e for e in [*seq["clips"], *seq.get("audio", [])] if e["id"] in style["sources"]]
     for clip in events:
+        if clip.get("freeze"):
+            continue
         analysis = project["analyses"].get(clip["asset"], {})
         units = analysis.get("words", []) or analysis.get("segments", [])
         kind = "word" if analysis.get("words") else "segment"
@@ -38,8 +41,8 @@ def project_captions(project, seq):
                 # A sentence cannot be attributed to a smaller source interval; request an aligned correction.
                 if kind == "segment":
                     continue
-            start = timeline_start + round_boundary((max(a, source_in) - source_in) / speed * fps)
-            finish = timeline_start + round_boundary((min(b, end) - source_in) / speed * fps)
+            start = timeline_start + round_boundary(timeline_offset(clip, max(a, source_in) - source_in, fps))
+            finish = timeline_start + round_boundary(timeline_offset(clip, min(b, end) - source_in, fps))
             if finish <= start:
                 warnings.append({"code": "subframe_word", "word": word["id"], "clip": clip["id"]})
                 continue
@@ -153,7 +156,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         px = round(h * event.get("size", .06))
         animation = {"none": "", "fade": "\\fad(120,120)", "pop": "\\fscx88\\fscy88\\t(0,140,\\fscx100\\fscy100)"}[event.get("animation", "fade")]
         tag = "{" + f"\\an5\\pos({w//2},{round(y)})\\fs{px}\\c{ass_color(event.get('color','#FFFFFF'))}&" + animation + "}"
-        emit(start, start + event["duration"], "Text", tag + ass_text(event["text"]), 1)
+        if event.get("keyframes"):
+            for frame in range(event["duration"]):
+                v = parameters(event, frame)
+                animated = "{" + f"\\an5\\pos({round(w*(.5+v['x']))},{round(y+h*v['y'])})\\fs{px}\\fscx{100*v['scale']:.3f}\\fscy{100*v['scale']:.3f}\\frz{-v['rotation']:.3f}\\alpha&H{round(255*(1-v['opacity'])):02X}&\\c{ass_color(event.get('color','#FFFFFF'))}&" + "}"
+                emit(start+frame, start+frame+1, "Text", animated+ass_text(event["text"]), 1)
+        else:
+            emit(start, start + event["duration"], "Text", tag + ass_text(event["text"]), 1)
         if position == "bottom" and cap.get("enabled"):
             layout.append({"code": "caption_text_collision", "event": event["id"], "start": start})
     return header + "\n".join(lines) + "\n", layout

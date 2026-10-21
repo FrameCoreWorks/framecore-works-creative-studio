@@ -12,7 +12,7 @@ from contextlib import contextmanager
 from fractions import Fraction
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 MAX_INTEGER = 2**53 - 1
 
 
@@ -138,8 +138,8 @@ def source_clock(asset):
 
 def span_seconds(asset, event, fps):
     tb, origin = source_clock(asset)
-    speed = ratio(event.get("speed", {"num": 1, "den": 1}))
-    return Fraction(event.get("source_in", asset["probe"]["start_pts"])) * tb - origin, Fraction(event["duration"]) / fps * speed
+    from fc_time import remainder, source_offset
+    return Fraction(event.get("source_in", asset["probe"]["start_pts"])) * tb - origin + remainder(event), source_offset(event, event["duration"], fps)
 
 
 def event_start(event, seq):
@@ -216,7 +216,7 @@ def validate(project, root=None, verify_sources=False):
             require(isinstance(events, list) and len(events) <= 2000, "Too many events", "resource_limit")
             for event in events:
                 keys(event, ("id", "asset", "start", "duration", "source_in", "speed", "gain_db", "mute", "fit", "crop", "transition",
-                             "anchor", "rect", "alpha", "text", "size", "color", "animation", "position", "fade", "bus", "duck_db", "note"),
+                             "anchor", "rect", "alpha", "text", "size", "color", "animation", "position", "fade", "bus", "duck_db", "note", "keyframes", "keyframe_offset", "speed_curve", "freeze", "source_remainder", "effects"),
                      ("id", "duration"))
                 identifier(event["id"])
                 require(event["id"] not in ids, "Duplicate event ID")
@@ -227,7 +227,14 @@ def validate(project, root=None, verify_sources=False):
                 start = integer(event_start(event, seq), "event start")
                 length = integer(event["duration"], "event duration", 1)
                 require(start + length <= seq["duration"], "Event exceeds sequence duration")
+                from fc_time import validate_animation, validate_time
+                from fc_effects import validate_effects
+                validate_animation(event.get("keyframes", {}))
+                integer(event.get("keyframe_offset", 0), "keyframe offset", 0, 2592000)
                 if kind == "texts":
+                    require(not (set(event) & {"speed_curve", "freeze", "source_remainder"}), "Text has no source time map")
+                    require(not event.get("effects"), "Text effects require a motion composition")
+                    require(not (set(event.get("keyframes", {})) - {"x", "y", "scale", "rotation", "opacity"}), "Unsupported text keyframe")
                     require(isinstance(event.get("text"), str) and 0 < len(event["text"]) <= 2000, "Invalid text event")
                     require(event.get("animation", "fade") in ("none", "fade", "pop"), "Unknown text animation")
                     number(event.get("size", 0.06), "text size", 0.01, 0.3)
@@ -239,10 +246,17 @@ def validate(project, root=None, verify_sources=False):
                 require(kind == "audio" or asset["kind"] != "audio", "Audio cannot be a visual clip")
                 require(kind != "audio" or asset["probe"].get("has_audio"), "Audio event has no audio stream")
                 integer(event.get("source_in", asset["probe"]["start_pts"]), "source in PTS", -MAX_INTEGER)
+                validate_time(event, fps, Fraction(asset["probe"]["time_base"]))
+                validate_effects(event.get("effects", []), "audio" if kind == "audio" else "picture")
+                if kind == "audio":
+                    require(set(event.get("keyframes", {})) <= {"gain_db"}, "Audio supports gain keyframes only")
+                    require(not event.get("freeze"), "Use a gap for silent audio; freeze is a picture operation")
                 speed = ratio(event.get("speed", {"num": 1, "den": 1}))
                 require(Fraction(1, 4) <= speed <= 4, "Speed outside 1/4..4")
                 source_in, source_length = span_seconds(asset, event, fps)
                 require(source_in >= 0, "Source interval begins before asset")
+                if event.get("freeze"):
+                    require(source_in < Fraction(str(asset["probe"]["duration"])), "Freeze point must be inside source")
                 if asset["kind"] != "image":
                     require(source_in + source_length <= Fraction(str(asset["probe"]["duration"])) + Fraction(1, 1000), "Insufficient source media", "insufficient_handles")
                 require(event.get("fit", "contain") in ("contain", "cover"), "Invalid fit")
@@ -287,7 +301,7 @@ def validate(project, root=None, verify_sources=False):
     clip_ids = {c["id"] for s in project["sequences"] for c in s["clips"]}
     require(set(locks) <= clip_ids, "Lock references missing clip")
     for d in project["deliverables"]:
-        keys(d, ("id", "sequence", "width", "height", "fit", "captions", "lufs", "safe_top", "safe_bottom"), ("id", "sequence", "width", "height"))
+        keys(d, ("id", "sequence", "width", "height", "fit", "captions", "lufs", "safe_top", "safe_bottom", "framing"), ("id", "sequence", "width", "height"))
         identifier(d["id"])
         require(d["id"] not in ids, "Duplicate deliverable ID")
         ids.add(d["id"])
@@ -298,6 +312,21 @@ def validate(project, root=None, verify_sources=False):
         require(type(d.get("captions", True)) is bool, "Captions must be boolean")
         if d.get("lufs") is not None:
             number(d["lufs"], "LUFS", -30, -9)
+        frames = d.get("framing", {})
+        require(isinstance(frames, dict), "Framing must map event IDs")
+        sequence = next(s for s in project["sequences"] if s["id"] == d["sequence"])
+        visual_ids = {e["id"] for lane in ("clips", "overlays") for e in sequence.get(lane, [])}
+        require(set(frames) <= visual_ids, "Framing references missing visual event")
+        for frame in frames.values():
+            keys(frame, ("crop", "fit", "keyframes"))
+            require(frame.get("fit", "contain") in ("contain", "cover"), "Invalid framing fit")
+            if "crop" in frame:
+                require(isinstance(frame["crop"], list) and len(frame["crop"]) == 4, "Invalid framing crop")
+                x,y,w,h = [number(v, "crop", 0, 1) for v in frame["crop"]]
+                require(w > 0 and h > 0 and x+w <= 1 and y+h <= 1, "Framing crop outside source")
+            from fc_time import validate_animation
+            validate_animation(frame.get("keyframes", {}))
+            require(set(frame.get("keyframes", {})) <= {"zoom", "pan_x", "pan_y", "x", "y", "scale", "rotation", "opacity"}, "Framing cannot change audio")
         number(d.get("safe_top", 0.08), "safe top", 0, 0.4)
         number(d.get("safe_bottom", 0.15), "safe bottom", 0, 0.4)
     canonical(project)
@@ -351,7 +380,10 @@ def apply_operations(project, operations):
     for op in operations:
         keys(op, ("op", "sequence", "id", "value"), ("op", "value"))
         kind = op["op"]
-        if kind in ("set_brief", "set_authorization", "set_locks", "set_deliverables"):
+        from fc_edit import EDIT_OPERATIONS, apply_edit
+        if kind in EDIT_OPERATIONS:
+            apply_edit(result, op)
+        elif kind in ("set_brief", "set_authorization", "set_locks", "set_deliverables"):
             result[kind[4:]] = op["value"]
         elif kind == "add_sequence":
             result["sequences"].append(op["value"])
@@ -372,5 +404,8 @@ def apply_operations(project, operations):
         invalidated.update(("projection", "render", "delivery"))
         if kind not in ("set_captions", "set_texts", "set_overlays", "set_brief", "set_authorization", "set_locks"):
             invalidated.update(("picture", "mix", "caption_timing", "interchange"))
+    for lock in project.get("locks", []):
+        matches = lambda p: [c for s in p["sequences"] for c in s["clips"] if c["id"] == lock]
+        require(matches(result) == matches(project), f"Protected clip changed: {lock}", "locked_content")
     validate(result)
     return result, sorted(invalidated)

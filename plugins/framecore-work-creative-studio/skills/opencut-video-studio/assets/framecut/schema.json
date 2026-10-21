@@ -123,7 +123,37 @@
           "sequence",
           "width",
           "height"
-        ]
+        ],
+        "properties": {
+          "framing": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "crop": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "fit": {
+                  "enum": [
+                    "contain",
+                    "cover"
+                  ]
+                },
+                "keyframes": {
+                  "$ref": "#/$defs/animation"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "locks": {
@@ -194,6 +224,127 @@
             "clip",
             "offset"
           ]
+        },
+        "keyframes": {
+          "$ref": "#/$defs/animation"
+        },
+        "keyframe_offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source_remainder": {
+          "type": "object",
+          "required": [
+            "num",
+            "den"
+          ],
+          "properties": {
+            "num": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "den": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "freeze": {
+          "type": "boolean"
+        },
+        "speed_curve": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 64,
+          "items": {
+            "type": "object",
+            "required": [
+              "frame",
+              "speed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "frame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "speed": {
+                "$ref": "#/$defs/rational"
+              }
+            }
+          }
+        },
+        "effects": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "version"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "params": {
+                "type": "object"
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "x",
+          "y",
+          "scale",
+          "rotation",
+          "opacity",
+          "gain_db",
+          "zoom",
+          "pan_x",
+          "pan_y"
+        ]
+      },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 128,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "frame",
+            "value"
+          ],
+          "properties": {
+            "frame": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "value": {
+              "type": "number"
+            },
+            "easing": {
+              "enum": [
+                "linear",
+                "smooth",
+                "hold"
+              ]
+            }
+          }
         }
       }
     }

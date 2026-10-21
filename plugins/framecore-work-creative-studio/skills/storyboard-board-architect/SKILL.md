@@ -42,6 +42,8 @@ Where Python with Pillow runs, compose the approved board with `scripts/board_co
 
 ## Board brief
 
+For an executable FrameCut project with available assets, use its `storyboard` command and hashed coverage receipt to obtain actual composition panels and invoke this skill's page compositor. Use `preview-frame` for individual corrections. Add authored moments for content changes that structural event/keyframe coverage cannot infer; inspect full chronology and every requested deliverable. Reuse the existing project and return panel IDs, receipt and sheets to FrameCut. A receipt is not user acceptance.
+
 For a FrameCut storyboard, the contact sheets visualize the entire timed sequence, from opening to ending. Use Sequence Architect's complete scene-to-panel coverage map; do not reduce it to a few attractive stills or a fixed panel count. Show the designed composition, framing and exact copy in the film's aspect ratio, using source images/planned still states and extra panels for meaningful within-shot changes. Put stable scene/panel IDs, time/interval, action/motion, transition and audio notes outside the image. Group readable pages chronologically; display the actual pages in chat and provide files where supported. A table, prompt or sheet of placeholders is a labelled draft, not the completed visual storyboard. Inspect legibility, image/label pairing and complete coverage, then return the board revision and sheet paths to FrameCut for user feedback. Regenerate affected panels and dependent transitions after corrections, and show the updated full board before acceptance and final rendering. Composing a still board does not require a video sample; a requested sample stays optional.
 
 Capture only what changes the design:

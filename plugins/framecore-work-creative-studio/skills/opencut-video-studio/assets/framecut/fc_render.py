@@ -49,7 +49,7 @@ def compile_project(project, root, deliverable_id):
                         request["width"] == d["width"] and request["height"] == d["height"] and
                         request["alpha"] == event.get("alpha", "opaque") and
                         event.get("source_in", asset["probe"]["start_pts"]) == asset["probe"]["start_pts"] and
-                        ratio(event.get("speed", {"num": 1, "den": 1})) == 1,
+                        ratio(event.get("speed", {"num": 1, "den": 1})) == 1 and not event.get("speed_curve") and not event.get("freeze"),
                         "Motion placement/format changed; request and bind a revised composition", "stale_revision")
     projection = project_captions(project, seq)
     warnings += projection["warnings"]
@@ -63,7 +63,7 @@ def compile_project(project, root, deliverable_id):
         start, length = span_seconds(a, c, fps)
         mapping.append({"clip": c["id"], "asset": c["asset"], "source_hash": a["sha256"], "source_in_pts": c.get("source_in", a["probe"]["start_pts"]),
                         "time_base": a["probe"]["time_base"], "source_seconds": [str(start), str(start + length)],
-                        "timeline_frames": [c["start"], c["start"] + c["duration"]], "speed": c.get("speed", {"num": 1, "den": 1})})
+                        "timeline_frames": [c["start"], c["start"] + c["duration"]], "speed": c.get("speed", {"num": 1, "den": 1}), "speed_curve": c.get("speed_curve"), "freeze": c.get("freeze", False), "source_remainder": c.get("source_remainder", {"num":0,"den":1})})
     return {"engine": VERSION, "project_id": project["id"], "project_revision": project["revision"], "project_hash": fingerprint(project),
             "sequence": copy.deepcopy(seq), "deliverable": copy.deepcopy(d), "duration_seconds": str(Fraction(seq["duration"]) / fps),
             "audio_samples": round_boundary(Fraction(seq["duration"]) / fps * 48000), "rounding": "nearest, ties away from zero",
@@ -133,6 +133,8 @@ class Cache:
         self.hits, self.built = [], []
 
     def stage(self, label, settings, suffix, build):
+        from fc_jobs import checkpoint
+        checkpoint("cache:"+label)
         key = fingerprint({"engine": VERSION, "stage": label, "settings": settings, "environment": self.environment})
         path = self.root / (key + suffix)
         receipt = self.root / (key + ".json")
@@ -159,34 +161,10 @@ def video_clip(root, asset, event, d, fps, cache, alpha=False):
     w, h = d["width"], d["height"]
     settings = {"source": asset["sha256"], "probe": asset["probe"], "event": {k: v for k, v in event.items() if k not in ("start", "anchor", "note", "gain_db", "mute", "transition", "bus")},
                 "width": w, "height": h, "fps": str(fps), "fit": event.get("fit", d.get("fit", "contain")), "alpha": alpha}
-    def build(out):
-        source = confined(root, asset["path"], True)
-        speed = ratio(event.get("speed", {"num": 1, "den": 1}))
-        relative, length = span_seconds(asset, event, fps)
-        tb, origin = source_clock(asset)
-        args = ["-copyts"]
-        if asset["kind"] == "image":
-            args += ["-loop", "1", "-framerate", str(fps)]
-        args += ["-protocol_whitelist", "file,pipe", "-i", str(source)]
-        filters = []
-        if asset["kind"] != "image":
-            filters.append(f"trim=start={decimal(relative+origin)}:duration={decimal(length)}")
-        filters += [f"setpts=(PTS-STARTPTS)/{decimal(speed)}", "scale=trunc(iw*sar/2)*2:ih", "setsar=1"]
-        if "crop" in event:
-            x, y, cw, ch = event["crop"]
-            filters.append(f"crop=iw*{cw}:ih*{ch}:iw*{x}:ih*{y}")
-        if settings["fit"] == "cover":
-            filters += [f"scale={w}:{h}:force_original_aspect_ratio=increase", f"crop={w}:{h}"]
-        else:
-            filters += [f"scale={w}:{h}:force_original_aspect_ratio=decrease", f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2:color=black@{0 if alpha else 1}"]
-        filters += [f"fps={fps}", "setsar=1", f"tpad=stop_mode=clone:stop_duration={decimal(Fraction(2)/fps)}", f"trim=end_frame={event['duration']}", "setpts=PTS-STARTPTS"]
-        if alpha:
-            # Keep alpha before padding as well as after scaling.
-            filters.insert(0, "format=rgba")
-        args += ["-map", f"0:{asset['probe']['video_index']}", "-an", "-vf", ",".join(filters), "-frames:v", str(event["duration"])]
-        args += ["-c:v", "qtrle", "-pix_fmt", "argb"] if alpha else ["-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p"]
-        ffmpeg([*args, str(out)], cache.timeout)
-    return cache.stage("visual", settings, ".mov" if alpha else ".mp4", build)
+    from fc_picture import encode_clip
+    settings["framing"] = d.get("framing", {}).get(event["id"], {})
+    return cache.stage("visual", settings, ".mov" if alpha else ".mp4",
+                       lambda out: encode_clip(root, asset, event, d, fps, out, cache.timeout, alpha))
 
 
 def base_picture(root, project, seq, d, cache):
@@ -195,7 +173,7 @@ def base_picture(root, project, seq, d, cache):
     def blank(length):
         return cache.stage("gap", {"length": length, "fps": str(fps), "d": [d['width'], d['height']], "color": seq.get("background", "#000000")}, ".mp4",
                            lambda out: ffmpeg(["-f", "lavfi", "-i", f"color=c={seq.get('background','#000000')}:s={d['width']}x{d['height']}:r={fps}",
-                                               "-frames:v", str(length), "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(out)], cache.timeout))
+                                               "-frames:v", str(length), "-an", "-vf", "scale=in_color_matrix=bt601:out_color_matrix=bt709:out_range=tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv444p", str(out)], cache.timeout))
     for clip in seq["clips"]:
         if clip["start"] > end:
             items.append((blank(clip["start"]-end), end, clip["start"]-end, 0))
@@ -220,14 +198,14 @@ def base_picture(root, project, seq, d, cache):
                 graph.append(f"[{last}][v{i}]concat=n=2:v=1:a=0[{label}]")
             last = label
         ffmpeg([*args, "-filter_complex", ";".join(graph), "-map", f"[{last}]", "-an", "-r", str(fps), "-frames:v", str(seq["duration"]),
-                "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", str(out)], cache.timeout)
+                "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv444p", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", str(out)], cache.timeout)
     return cache.stage("assembly", settings, ".mp4", build)
 
 
 def audio_events(project, seq):
     events = []
     for i, c in enumerate(seq["clips"]):
-        if not c.get("mute") and project["assets"][c["asset"]]["probe"].get("has_audio"):
+        if not c.get("mute") and not c.get("freeze") and project["assets"][c["asset"]]["probe"].get("has_audio"):
             event = copy.deepcopy(c)
             event["_fade_in_frames"] = c.get("transition", 0)
             event["_fade_out_frames"] = seq["clips"][i+1].get("transition", 0) if i+1 < len(seq["clips"]) else 0
@@ -249,6 +227,13 @@ def soundtrack(root, project, seq, d, cache):
         dialogue = [(event_start(e, seq), event_start(e, seq) + e["duration"]) for e in events if e.get("bus", "dialogue") == "dialogue"]
         for i, e in enumerate(events, 1):
             asset = project["assets"][e["asset"]]
+            if e.get("speed_curve"):
+                from fc_audio import varispeed
+                path = varispeed(root, asset, e, fps, cache)
+                asset = {"path": str(path.relative_to(Path(root))), "probe": probe(path)}
+                e = copy.deepcopy(e)
+                e.pop("speed_curve", None); e.pop("source_remainder", None)
+                e["source_in"] = asset["probe"]["start_pts"]
             args += ["-copyts", "-protocol_whitelist", "file,pipe", "-i", str(confined(root, asset["path"], True))]
             relative, length = span_seconds(asset, e, fps)
             _, origin = source_clock(asset)
@@ -269,6 +254,14 @@ def soundtrack(root, project, seq, d, cache):
             if offset:
                 filters.append(f"adelay={round_boundary(offset*48000)}S:all=1")
             filters += [f"apad=whole_len={n}", f"atrim=end_sample={n}", f"volume={e.get('gain_db',0)}dB"]
+            from fc_audio import gain_expression
+            from fc_effects import audio_filters
+            gain = gain_expression(e, fps)
+            if gain:
+                filters.append(gain)
+            # Picture effects stay on picture; independent audio owns audio effects.
+            if e in seq.get("audio", []) or e.get("id") in {a["id"] for a in seq.get("audio", [])}:
+                filters.extend(audio_filters(e.get("effects", [])))
             for direction, frames in (("in", e.get("_fade_in_frames", 0)), ("out", e.get("_fade_out_frames", 0))):
                 fade = max(float(Fraction(frames) / fps), e.get("fade", 0))
                 if fade:
@@ -339,6 +332,8 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
     require(output != Path(root).resolve(), "Cannot overwrite project root")
     require(max_disk_mb >= 64 and shutil.disk_usage(Path(root)).free >= max_disk_mb * 1024**2, "Insufficient free disk for requested budget", "resource_limit")
     env = capabilities()
+    from fc_effects import catalogue_info
+    env["effect_catalogue_hash"] = catalogue_info()["catalogue_hash"]
     env["adapter_hash"] = fingerprint({p.name: file_hash(p) for p in Path(__file__).parent.glob('*.py')})
     if shutil.which("fc-match"):
         font_file = run(["fc-match", "-f", "%{file}", seq.get("captions", {}).get("font", "DejaVu Sans")], 10)[0].strip()
@@ -352,7 +347,8 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
     lock = cache.root.parent / "render.lock"
     try:
         fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-        os.write(fd, json.dumps({"pid": os.getpid(), "project_hash": fingerprint(project)}).encode()); os.close(fd)
+        from fc_jobs import job_identity
+        os.write(fd, json.dumps({"pid": os.getpid(), "project_hash": fingerprint(project), "job": job_identity()}).encode()); os.close(fd)
     except FileExistsError as e:
         raise FrameCutError("busy", "A render is active; verify an abandoned lock before removing it") from e
     started = time.monotonic()
@@ -372,7 +368,7 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
             work = Path(tmp)
             (work / "captions.ass").write_text(plan["ass"], encoding="utf-8")
             args = ["-i", str(picture), "-i", str(audio)]
-            graph = ["[0:v]setpts=PTS-STARTPTS[v0]"]
+            graph = ["[0:v]setpts=PTS-STARTPTS,format=rgba[v0]"]
             last = "v0"
             fps = ratio(seq["fps"])
             for i, (event, layer) in enumerate(layers, 2):
@@ -380,12 +376,14 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
                 start, duration = Fraction(event_start(event, seq)) / fps, Fraction(event["duration"]) / fps
                 graph.append(f"[{i}:v]setpts=PTS-STARTPTS+{decimal(start)}/TB[o{i}]")
                 x, y = round(d["width"]*event["rect"][0]), round(d["height"]*event["rect"][1])
-                graph.append(f"[{last}][o{i}]overlay=x={x}:y={y}:eof_action=pass:repeatlast=0:enable='gte(t,{decimal(start)})*lt(t,{decimal(start+duration)})'[v{i}]")
+                graph.append(f"[{last}][o{i}]overlay=x={x}:y={y}:format=rgb:eof_action=pass:repeatlast=0:enable='gte(t,{decimal(start)})*lt(t,{decimal(start+duration)})'[v{i}]")
                 last = f"v{i}"
-            graph.append(f"[{last}]ass=filename=captions.ass,format=yuv420p[final]")
+            graph.append(f"[{last}]ass=filename=captions.ass,scale=out_color_matrix=bt709:out_range=tv,format=yuv420p[final]")
             ffmpeg([*args, "-filter_complex", ";".join(graph), "-map", "[final]", "-map", "1:a:0", "-frames:v", str(seq["duration"]),
                     "-r", str(fps), "-c:v", "libx264", "-preset", "veryfast" if mode == "preview" else "medium", "-crf", "20" if mode == "preview" else "18",
                     "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "video.mp4"], timeout, work)
+            from fc_jobs import checkpoint
+            checkpoint("verification")
             checks = verify_video(work / "video.mp4", seq, d, timeout)
             subtitles = sidecars(plan["captions"], project.get("brief", {}).get("language", "en"))
             for ext in ("srt", "vtt"):
@@ -410,6 +408,9 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
                        "environment": env, "files": {p.relative_to(work).as_posix(): file_hash(p) for p in work.rglob('*') if p.is_file()}}
             atomic_json(work / "receipt.json", receipt)
             require(not output.exists(), "Output created concurrently")
+            from fc_jobs import checkpoint
+            checkpoint("publishing")
+            validate(project, root, True)
             os.rename(work, output)
         return {"status": "render_complete", "output": out_relative, "receipt": f"{out_relative}/receipt.json", "cache_hits": cache.hits,
                 "cache_built": cache.built, "review_status": "NOT_RUN", "warnings": plan["warnings"]}

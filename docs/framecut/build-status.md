@@ -1,4 +1,14 @@
-# FrameCut 1.113.0 implementation status
+# FrameCut implementation status
+
+## 1.116.0 native development, 2026-10-21
+
+The owner's Concat follow-up extends the current runtime with original implementations of all six recommended areas. The shared frame transform and exact source-time map drive video and actual composition stills; full structural storyboards accept authored semantic moments and produce contact sheets/PDF/coverage receipts. Atomic stable-ID split, trim, move, removal, freeze and parameter updates expose a dry-run impact report. Persisted jobs support status, cooperative cancellation and linked resumption from the same immutable project/source identity. Native transform/gain keys, format-specific crop/zoom/pan, piecewise-linear speed curves and nine versioned declarative picture/audio effects are wired into FrameCut, board, motion and Project State owners.
+
+Native boards retain awaiting-user-review status. The agent must add meaningful action beats and inspect all pages; structural coverage alone does not establish a good creative storyboard. The existing onboarding, consequential questions, user corrections, current-board acceptance and optional sample policy remains authoritative. No desktop editor or Concat code is embedded.
+
+Verification includes synthetic decoded-video, still, audio and lifecycle tests plus a fresh-context source-guided task that splits one clip, preserves all 45 source/animation positions, applies zoom only to the vertical variant, produces nine panels per variant including the requested action moment, and stops for feedback without rendering video. This is sandbox evidence, not a fresh installed ChatGPT/mobile/Codex/Claude client test. Limits: variable-speed audio changes pitch; automatic dead-worker detection requires Linux process identity; cancelled work resumes as a linked job using valid stage caches, not inside an unfinished encoder; native transforms use bounded CPU/Pillow frames. User creative acceptance and real client tests remain separate. Versioned release and hosted-sync records carry actual gate/publication outcomes.
+
+## Historical 1.113.0 foundation
 
 ## 1.114.0 orchestration and onboarding follow-up, 2026-10-21
 

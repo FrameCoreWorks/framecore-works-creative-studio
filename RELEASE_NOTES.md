@@ -1,14 +1,5 @@
-# Creative Studio 1.115.0
+# Creative Studio 1.116.0
 
-FrameCut gives the user a visual plan of the entire film before final rendering:
+The owner requested all six recommended Concat-inspired FrameCut features inside the existing workflow. Original native implementations add composited frame previews and complete structural storyboards with authored action beats, transactional stable-ID editing with dry-run impact, durable cancellable/resumable jobs, transform/gain keys and per-format framing, freeze frames and variable speed, and nine versioned declarative effects. Shared source/time maps, revision/source hashes, bounded resources and explicit export losses preserve existing editing contracts. FrameCut, Storyboard Board Architect, Motion Graphics Workflow and Project State instructions are connected to the native commands. Full-board feedback/acceptance still precedes final rendering; samples remain optional on request.
 
-1. Gather the brief and ask consequential follow-up questions.
-2. Produce full visual storyboard/contact sheets, with enough key moments to understand every scene from opening to ending.
-3. Show the actual readable pages, collect feedback and revise the board.
-4. Obtain acceptance of the current complete board, then render and review the final film.
-
-A video sample is optional on request, including an explicitly requested early sample that returns to full-board review. A fixed four-frame sampler, table or moodboard cannot stand in for the storyboard. Changed creative decisions reopen board review; a verified unchanged accepted board resumes without repeating onboarding or acceptance.
-
-The owning FrameCut instructions, routing, storyboard/motion handoffs, project state and runtime guide share this sequence. Acceptance is host-managed orchestration; the media CLI's technical checks and authorization field are not a machine-enforced storyboard gate. Core media execution/schema and protected welcome/menu assets are unchanged.
-
-Five fresh-context dialogue exercises cover intake, a complete brief, corrections, requested samples and resume. Canonical validation and the complete repository suite run for the release. These checks do not establish fresh mobile/ordinary ChatGPT behavior or the creative quality of a new render. Repository publication precedes the guarded update of the existing hosted plugin, preserving private integrations.
+No Concat code or model dependencies are bundled. Variable-speed audio changes pitch; process-death detection is Linux-specific. Sandbox contracts, decoded media and a fresh-context workflow exercise are tested separately from fresh installed-client behavior, which remains NOT_RUN. Private hosted configuration is preserved by a guarded repository-first update. See [scope](docs/framecut/concat-development-scope.md) and [implementation status](docs/framecut/build-status.md).

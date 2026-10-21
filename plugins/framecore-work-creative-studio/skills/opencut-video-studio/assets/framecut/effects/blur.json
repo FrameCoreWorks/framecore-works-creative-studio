@@ -1,0 +1,36 @@
+{
+  "id": "blur",
+  "version": 1,
+  "domain": "picture",
+  "parameters": {
+    "amount": {
+      "min": 0,
+      "max": 30,
+      "default": 0
+    }
+  },
+  "steps": [
+    {
+      "op": "blur",
+      "value": {
+        "param": "amount"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "expected": [
+        40,
+        80,
+        120,
+        255
+      ],
+      "input": [
+        40,
+        80,
+        120,
+        255
+      ]
+    }
+  ]
+}
