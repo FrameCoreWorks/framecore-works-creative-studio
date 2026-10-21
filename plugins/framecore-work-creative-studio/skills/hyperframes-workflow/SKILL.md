@@ -24,6 +24,8 @@ Start at the requested stage and reuse supplied decisions, approvals and the exi
 
 ## Technical explainers and interactive figures
 
+For report/chart animation, real-product walkthroughs, format changes or timestamped corrections, use [data-led motion and revision-bound feedback](../pipeline-core/references/data-motion-and-feedback.md). Bind displayed quantities to checked sources and scenes, distinguish reconstructed UI from captured interaction, inspect format-specific layouts and retain revision-bound feedback. Reuse existing contracts and working notes; do not invent runtime fields, live data refresh or a Claude Motion API.
+
 For a requested coded explanation of a mechanism, process or system, use the [bundled Anatomy toolkit and method](../../integrations/anatomy/README.md) within the selected runtime. An interactive HTML/SVG deliverable stays interactive; it does not require an unsolicited MP4. Static technical graphics stay with Static Graphic Design Creator. This profile does not select an engine, require isometric styling or authorize installation.
 
 - **Map the explanation before the parts.** Identify the real inputs, outputs, units, thresholds and relationships, separating verified facts from assumptions. When a physical analogy helps, state which part/action represents each relationship and where the analogy stops. Use the detail needed for the audience; do not force a machine, a minimum part count or ornamental density onto a simple explanation. Retain useful labels and the user's visual direction.

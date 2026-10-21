@@ -53,6 +53,8 @@ An idea becomes a direction when it has a mechanism: something changes, and the 
 
 ## 6. Test before showing
 
+When several rounds converge on the same argument despite different styling, optionally explore a wider spread of mechanisms within the existing candidate/QA budget. Ask for distinct source material, premises or transformations, then compare brief fit. Verbalized Sampling is an optional research-informed prompting technique, not a default quality gate: any model-stated probabilities are exploratory estimates, never a measured chance another model would produce the idea or proof of originality. Do not expose invented percentage rankings. Prefer fewer defensible directions to a forced quota. See [creative judgment and sources](quality-improvement-methods.md#creative-judgment-with-external-evidence).
+
 - **Swap test.** Put a competitor's name on it. If the direction still works unchanged, it is generic: rework or drop it.
 - **Brand test.** Tell apart what fits the category, what uses a true trait of this product and what only this brand could own. When the brief gives no fact that sets the brand apart, ask for one, or say plainly that this part stays open; never invent a history, a patent or an advantage to pass the swap test.
 - **Removal test.** For every effect, and above all one added when the user asks for "stronger": what does the viewer stop understanding if it is removed? If nothing, find a better event or relation instead of adding particles, moves or transitions.

@@ -1,0 +1,38 @@
+{
+  "version": "1.117.0",
+  "baseline_tag": "v1.116.0",
+  "baseline": "047d65ce6feae54bb97592e80e40efe1b899c1db",
+  "change_id": "CW-20261021-06",
+  "origin": "chatgpt-work",
+  "files": 1534,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/knowledge-map.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/output-critic-iteration/SKILL.md",
+    "skills/pipeline-core/SKILL.md",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/pipeline-core/references/quality-improvement-methods.md",
+    "skills/research-evidence/SKILL.md",
+    "skills/studio-workstyle-profile/SKILL.md",
+    "skills/studio-workstyle-profile/references/taste-learning.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/compact-routing-and-pilot.md"
+  ],
+  "added": [
+    "skills/pipeline-core/references/data-motion-and-feedback.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1515,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner-requested supplemental motion/data/taste knowledge: source-bound visual arguments, revision-bound feedback, evidence-led creative judgment and scoped preferences connected to existing owners, preserving FrameCut full-board acceptance and private integrations."
+}

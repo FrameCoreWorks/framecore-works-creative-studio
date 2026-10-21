@@ -30,6 +30,8 @@ Do not infer demographics, personality, identity, mental state or private histor
 
 ## Persistence
 
+Review applicability when a new brief, medium, brand rule or explicit correction conflicts with a prior preference. Keep its source date/revision and last confirmed context in the authorized notes; date alone does not expire taste. Retire or revise a reusable rule only with the user's scoped direction or clearly resolved context. Ask about the specific conflict, not a recurring taste questionnaire. Include what the user valued in an accepted example as well as what failed in a rejected one; avoid a global blacklist that suppresses intentional style. Campaign performance is a separate observation with its measurement conditions, not proof that a preference is universally correct.
+
 Apply session-local corrections without forcing a save flow. Persist only through an actually available, authorised private profile/project mechanism. A user request to remember a preference authorises that scoped save; it does not create a storage capability. Confirm success only after a real write result. Without persistence, identify the session-local scope and include the relevant records in a requested handoff.
 
 Shared plugin assets contain empty templates and synthetic examples only. Never write a user's or a client's actual choices into a distributable default. Keep client records in the authorised client/project store. Do not include raw conversations, images, private links or secrets in a taste record. Export only the relevant scope when asked; do not assume cross-host synchronization.

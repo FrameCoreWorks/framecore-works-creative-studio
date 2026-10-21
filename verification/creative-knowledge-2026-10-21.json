@@ -1,0 +1,286 @@
+{
+  "change_id": "CW-20261021-06",
+  "version": "1.117.0",
+  "baseline": "342759e1e42374286fc8de92d472d5b3080012ee",
+  "scope": "Supplemental knowledge and existing-owner wiring; no runtime engine or external integration changes",
+  "source_guided_exercises": {
+    "count": 2,
+    "status": "PASS",
+    "surface": "Fresh-context subagents using local skill entries and raw synthetic artifacts; not ordinary installed ChatGPT or Claude client tests",
+    "motion": {
+      "claim_arithmetic": "PASS: orders +12.5%; conversion 4.0% to 3.6%, -0.4 percentage points; no causal inference",
+      "stale_feedback": "PASS: old 5 s maps to current intro, correction follows orders ID at 7-11 s in 9:16 only",
+      "preservation": "PASS: 20 s, 25 FPS, 500 frames, four contiguous scenes, brand and exact CTA",
+      "board_gate": "PASS: full text plan for both formats explicitly distinguished from visual boards; no inherited new approval or final render"
+    },
+    "taste": {
+      "concept_diversity": "PASS: space, repairability and color customization are separate arguments",
+      "preference_scopes": "PASS: client A monochrome and old-project camera lock do not override client B maximalism",
+      "repair_scope": "PASS: accepted concept preserved despite reported hand execution defect",
+      "unsupported_probabilities": "PASS: no invented cross-model originality percentage",
+      "judgment": "PASS: evidence-based limitations instead of forced disproof; likes/follower confounding explicit",
+      "media_qa": "PASS: unavailable render remains unreviewed; user report not presented as inspected pixels"
+    },
+    "assessor": "Parent agent inspected both raw responses; deterministic calculations and source mapping independently checked with Python",
+    "tokens": "Unknown: subagent token usage unavailable",
+    "wall_time": "Unknown: task timer not recorded"
+  },
+  "artifacts": [
+    {
+      "path": "creative-knowledge-2026-10-21/motion-task/project.json",
+      "sha256": "d05f320d18139e2dfda85c22679e617a47abc99501f8816418c8a657a4d8a088"
+    },
+    {
+      "path": "creative-knowledge-2026-10-21/motion-task/metrics.csv",
+      "sha256": "b68d4608390790674b29794b21f42394824f017d7576a673d46dd8ae18046ba8"
+    },
+    {
+      "path": "creative-knowledge-2026-10-21/taste-task/context.json",
+      "sha256": "e8a341c70c1e363ec46f30b056569dc6907a39dbfd8d57c2577c59a0ef117611"
+    },
+    {
+      "path": "creative-knowledge-2026-10-21/motion-result.md",
+      "sha256": "6a3081d168f678a078954d92ca6e745e3cf3aab84dd7f1831b18d64dcfadde84"
+    },
+    {
+      "path": "creative-knowledge-2026-10-21/taste-result.md",
+      "sha256": "2cf3e468b2b2163fe735832133810f5ed9b98f41d1bff23c36ed3e5af2e70fe3"
+    }
+  ],
+  "limits": [
+    "No visual boards or video rendered in these text tasks",
+    "No fresh installed-client startup/interaction test",
+    "No live data source or collaborative comments tested",
+    "No independent human taste calibration or audience effectiveness measurement"
+  ],
+  "local_links": {
+    "status": "PASS",
+    "checked": 757
+  },
+  "release_checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1534,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7700 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 238,
+        "pass": 225,
+        "fail": 0,
+        "skipped": 13
+      },
+      "python": {
+        "test_codex_install": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "test_package_identity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "test_motion_benchmark": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "test_host_smoke": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "test_hosted_readback": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "test_claude_plugin": {
+          "tests": 8,
+          "skipped": 1
+        },
+        "test_release": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "test_gepa_studio_pilot": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "asset_manifest": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "captions": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "environment_check": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "runtime_inventory": {
+          "tests": 21,
+          "skipped": 0
+        },
+        "motion_acceptance": {
+          "tests": 26,
+          "skipped": 0
+        },
+        "motion_fonts": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "motion_kinds": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "motion_variants": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "skill_finder": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "extensions": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "animate_engine": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "animate_voice": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "static_render": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "print_pdf": {
+          "tests": 8,
+          "skipped": 8
+        },
+        "reel_starters": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "web_reach": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "pl_copy_check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "image_probe": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "quote_calc": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "vo_budget": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "edit_export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "framecut": {
+          "tests": 43,
+          "skipped": 0
+        },
+        "framecut_development": {
+          "tests": 20,
+          "skipped": 0
+        },
+        "board_compose": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "sheet_export": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "shot_plan_check": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "prompt_pack": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "clip_review": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "svg_wordmark": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "brand_guide": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "motion_activity": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "lyric_timing": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "iso_glow": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "sound_listen": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "reference_breakdown": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "craft_lint": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "design_md": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "ai_writing_check": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "technique_atlas": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "motion_assets": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "knowledge_wiring": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "test_host_eval": {
+          "tests": 22,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "release_checks_record": "release-1.117.0.json"
+}

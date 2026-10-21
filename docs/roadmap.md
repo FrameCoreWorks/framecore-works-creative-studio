@@ -1,5 +1,9 @@
 # Roadmap for the development surfaces
 
+## Supplemental creative knowledge, 2026-10-21
+
+The owner requests applying the two reviewed articles as [supplemental knowledge](creative-knowledge-2026-10-21.md). Connect source-bound data storytelling, revision-bound feedback and calibrated creative judgment to the existing owners. Extend current ideation and scoped preference rules rather than adding a parallel workflow. This bounded knowledge release preserves FrameCut onboarding, complete visual boards, correction/acceptance, optional requested samples and final delivery. Native dashboard services and collaborative comment interfaces are not implied by the knowledge.
+
 ## Concat-inspired FrameCut development, 2026-10-21
 
 The owner explicitly reopened development to implement all six recommended functional areas from the Concat review inside the existing FrameCut workflow. The [bounded implementation scope](framecut/concat-development-scope.md) preserves original code, current owners and the complete storyboard-review gate. Native composition stills and multi-page boards, precise transactional edits, durable jobs, keyframes and format-specific framing, freeze/variable speed and versioned effects extend the current runtime. No Concat AGPL source is incorporated. The desktop editor, Rust/GPU rewrite and optional model-backed effects remain outside this request. Source-guided exercises and decoded-media checks precede repository publication and the guarded existing-plugin update; fresh-client behavior requires separate evidence.

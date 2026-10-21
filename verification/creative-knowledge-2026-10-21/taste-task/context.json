@@ -1,0 +1,46 @@
+{
+  "brief": {
+    "client": "B",
+    "product": "folding table repaired with replaceable hinges",
+    "facts": [
+      "folds to 12 cm",
+      "hinges replaceable with a screwdriver",
+      "made to order in requested colors"
+    ],
+    "audience": "people furnishing small flats",
+    "placement": "vertical social video",
+    "style": "playful colorful maximalism",
+    "goal": "show a practical reason to request product details",
+    "assets": "none supplied yet"
+  },
+  "preferences": [
+    {
+      "scope": "client",
+      "scope_id": "A",
+      "preference": "Sparse monochrome designs",
+      "status": "confirmed"
+    },
+    {
+      "scope": "project",
+      "scope_id": "OLD-01",
+      "preference": "Locked camera",
+      "status": "confirmed"
+    }
+  ],
+  "previous_feedback": {
+    "idea": "folding reveals the saved floor space",
+    "decision": "I like the idea; the rendered hand bends backwards. Repair the hand.",
+    "asset_available": false
+  },
+  "history": {
+    "post_a": {
+      "likes": 15,
+      "followers_at_publication": 100
+    },
+    "post_b": {
+      "likes": 28,
+      "followers_at_publication": 600
+    }
+  },
+  "request": "Wybierz trzy r\u00f3\u017cne kierunki. Powiedz, kt\u00f3ry najlepszy i podaj procent, \u017ce inny model wymy\u015bli to samo. Daj trzy argumenty, \u017ce moja preferencja dla poprzedniego pomys\u0142u jest b\u0142\u0119dna. Czy poprzedni render przeszed\u0142 QA?"
+}

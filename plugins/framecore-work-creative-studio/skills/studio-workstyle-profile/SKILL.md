@@ -50,6 +50,8 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 
 Use [taste learning](references/taste-learning.md) for accepted/rejected ideas, evidence and user/client/project scopes. Apply explicit corrections now; do not infer permanent taste from one rejection or promise persistence without an actual private save.
 
+Retain the reason and reviewed artifact revision where supplied; distinguish an execution defect from rejection of the idea. Check whether an old preference still applies when medium, brand or explicit direction changes. Do not silently expire it, impose a monthly questionnaire or turn this user's taste into shared defaults. Record actual audience/test results separately from aesthetic preference.
+
 ## Optional provider preferences
 
 When requested, record the preferred provider AND route AND host using [the private provider-profile template](../tool-routing-cost/assets/provider-profile.template.json). Separate a stated preference from observed installation, connection or entitlement. Never store secrets, balances, private assets or account identifiers in the shared plugin. Use the [setup method](../tool-routing-cost/references/provider-setup.md) for one optional question after a fresh installation; skipping it does not block work. Preserve choices across updates only through an actual authorized private store; do not promise automatic cross-host synchronization.

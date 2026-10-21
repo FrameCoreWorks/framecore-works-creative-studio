@@ -40,6 +40,10 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 
 ## Reusable materials
 
+### Supplemental motion, data and creative judgment (2026-10-21)
+
+The owner-supplied Motion/Dashboards and Taste articles feed original applied guidance, with primary-source limits in the linked references. Workflow Orchestrator's compact route and the Pipeline Core, Research Evidence, Motion Graphics and FrameCut entries load [data-led motion and revision-bound feedback](../skills/pipeline-core/references/data-motion-and-feedback.md) when relevant. Existing [ideation](../skills/pipeline-core/references/ideation-method.md), [scoped taste learning](../skills/studio-workstyle-profile/references/taste-learning.md) and [creative judgment](../skills/pipeline-core/references/quality-improvement-methods.md#creative-judgment-with-external-evidence) connect diverse concepts, actual user choices and evidence-aware review. The critic and profile owner expose the rules at their entry points. This is supplemental knowledge, not a new skill, dashboard service, timeline-comments interface or native Claude integration. No article text or prompt collection is redistributed.
+
 Each chapter links its own complete examples or templates. Image work includes reference-role and still-shot cards; design has exact-copy/format cards; story, voice, campaign, sequence and boards share the original fictional Ślad project; AV workbooks include complete prompts, performance briefs, cue/evidence and continuity templates. Delivery provides two manifest JSON assets and the optional Python helper. Critic and Research provide concise working records.
 
 ## Evidence and maintenance

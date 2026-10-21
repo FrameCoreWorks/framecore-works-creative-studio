@@ -78,6 +78,18 @@ Compact record: `candidate_ids`, `revisions`, `hard_gates`, `criteria`,
 independent review. Avoid sharing private outputs with an external judge without
 authorization. A plan comparison does not establish rendered quality.
 
+## Creative judgment with external evidence
+
+Use within the existing comparison/review when a creative choice is unresolved. Ask what success means for this audience and artifact; reuse a supplied answer. Compare observed specificity, clarity, factual fidelity and craft with actual references. Report a preference as a preference and a predicted audience effect as a hypothesis. Inspect support and counterevidence symmetrically; a request to challenge an opinion never requires invented objections or a predetermined winner. Missing support stays Unknown.
+
+Self-review can identify defects but is not an independent verdict. A second role name, repeated same-model scoring or order reversal does not establish independent expertise. Where useful, name the actual outside check: a measured property, source reconciliation, user's comparison of real variants, or an authorized audience experiment. A proposed experiment is not an executed test; record population, variants, metric, allocation/period and confounders before interpreting real results. Do not publish, recruit participants, spend money or contact another judge merely to complete review. Do not claim creative superiority from tests that only validate structure.
+
+For a vague request to improve work, identify the missing raw evidence or specific failed criterion before adding more effects, text or stages. Keep accepted strengths and repair one causal problem. Do not require a new assessment ceremony for an exact correction or a completed accepted artifact.
+
+Source notes, reviewed 2026-10-21: Ruben Hassid's [Taste / 777](https://ruben.substack.com/p/taste), 2026-10-16, is an editorial lead about creative judgment and evolving preferences, not evidence of universal model behavior. Felix Rieseberg's [ambition essay](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/), 2026-10-13, motivates richer source material and outside validation. These Studio procedures preserve existing review and privacy boundaries; neither author's prompts are bundled.
+
+Zhang et al., [Verbalized Sampling, v4](https://arxiv.org/html/2510.01171v4), 2026-07-15, report 1.6–2.1 times greater diversity in their creative-writing experiments. The method elicits multiple responses and verbalized probabilities. This is not calibrated cross-model prevalence, universal taste, or evidence of improved visual-film quality. Use optional exploration in [ideation](ideation-method.md#6-test-before-showing), then evaluate the resulting artifact with the existing criteria. No method here trains a personal model, adds persistent memory or authorizes extra agents/providers.
+
 ## Controlled Reflexion lessons
 
 The existing [Workflow Self-Improvement](../../workflow-self-improvement/SKILL.md)

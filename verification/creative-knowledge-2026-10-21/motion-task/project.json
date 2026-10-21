@@ -1,0 +1,102 @@
+{
+  "id": "SYNTHETIC-REPORT",
+  "revision": 3,
+  "fps": 25,
+  "duration_seconds": 20,
+  "formats": [
+    "9:16",
+    "16:9"
+  ],
+  "brand": {
+    "colors": [
+      "navy",
+      "cream"
+    ],
+    "font": "Inter"
+  },
+  "copy_locks": {
+    "cta": "Zobacz wyniki"
+  },
+  "board": {
+    "revision": 2,
+    "accepted": true,
+    "scenes": [
+      {
+        "id": "intro",
+        "range_seconds": [
+          0,
+          4
+        ],
+        "copy": "Wyniki sklepu"
+      },
+      {
+        "id": "orders",
+        "range_seconds": [
+          4,
+          10
+        ],
+        "copy": "Zam\u00f3wienia +12,5%"
+      },
+      {
+        "id": "conversion",
+        "range_seconds": [
+          10,
+          16
+        ],
+        "copy": "Konwersja wzros\u0142a o 0,4%"
+      },
+      {
+        "id": "cta",
+        "range_seconds": [
+          16,
+          20
+        ],
+        "copy": "Zobacz wyniki"
+      }
+    ]
+  },
+  "current_sequence": [
+    {
+      "id": "intro",
+      "range_seconds": [
+        0,
+        7
+      ]
+    },
+    {
+      "id": "orders",
+      "range_seconds": [
+        7,
+        11
+      ]
+    },
+    {
+      "id": "conversion",
+      "range_seconds": [
+        11,
+        16
+      ]
+    },
+    {
+      "id": "cta",
+      "range_seconds": [
+        16,
+        20
+      ]
+    }
+  ],
+  "feedback": [
+    {
+      "id": "F01",
+      "viewed_board_revision": 2,
+      "event_id": "orders",
+      "time_seconds": 5,
+      "format": "9:16",
+      "request": "Powi\u0119ksz liczb\u0119 w tej scenie, bez zmiany koloru."
+    }
+  ],
+  "assets": {
+    "csv": "metrics.csv"
+  },
+  "rendered_media": null
+}

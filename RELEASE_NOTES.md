@@ -1,5 +1,11 @@
-# Creative Studio 1.116.0
+# Creative Studio 1.117.0
 
-The owner requested all six recommended Concat-inspired FrameCut features inside the existing workflow. Original native implementations add composited frame previews and complete structural storyboards with authored action beats, transactional stable-ID editing with dry-run impact, durable cancellable/resumable jobs, transform/gain keys and per-format framing, freeze frames and variable speed, and nine versioned declarative effects. Shared source/time maps, revision/source hashes, bounded resources and explicit export losses preserve existing editing contracts. FrameCut, Storyboard Board Architect, Motion Graphics Workflow and Project State instructions are connected to the native commands. Full-board feedback/acceptance still precedes final rendering; samples remain optional on request.
+Supplemental knowledge requested by the owner is integrated into existing Studio workflows.
 
-No Concat code or model dependencies are bundled. Variable-speed audio changes pitch; process-death detection is Linux-specific. Sandbox contracts, decoded media and a fresh-context workflow exercise are tested separately from fresh installed-client behavior, which remains NOT_RUN. Private hosted configuration is preserved by a guarded repository-first update. See [scope](docs/framecut/concat-development-scope.md) and [implementation status](docs/framecut/build-status.md).
+- Bind data-driven copy and animated charts to inspectable sources, periods, units, calculations and affected scenes.
+- Track feedback against the viewed board/video revision, scene or panel and format; reconcile stale timecodes before a scoped correction.
+- Carry verified findings into complete storyboards, inspect format-specific layouts and distinguish reconstructed product UI from actual captures.
+- Refine diverse concept exploration, evidence-based creative comparisons and user/client/project taste records without invented originality percentages or forced objections.
+- Preserve FrameCut onboarding, complete visual contact sheets, feedback and current-board acceptance before final rendering; samples remain optional on request.
+
+This release adds knowledge and routing, not a dashboard backend, collaborative comment interface or native Claude connection. Source checks and source-guided exercises are separate from fresh installed-client behavior. Private hosted integrations are preserved during the guarded repository-first update.

@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.117.0, 2026-10-21
+
+The owner requested supplemental knowledge from the reviewed Motion/Dashboards and Taste articles. Connect source-bound data storytelling and revision-bound panel/frame feedback to existing owners; refine creative judgment, optional diversity exploration and scoped taste applicability. Preserve full visual-board acceptance, exact locks, optional requested samples, startup and private integrations. Primary-source limits distinguish model estimates from measured novelty and Claude product features from Studio capabilities. No new runtime, dashboard service, comment UI or provider integration. See [scope](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/creative-knowledge-2026-10-21.md).
+
 ## 1.116.0, 2026-10-21
 
 The owner requested all six recommended Concat-inspired FrameCut features inside the existing workflow. Original native implementations add composited frame previews and complete structural storyboards with authored action beats, transactional stable-ID editing with dry-run impact, durable cancellable/resumable jobs, transform/gain keys and per-format framing, freeze frames and variable speed, and nine versioned declarative effects. Shared source/time maps, revision/source hashes, bounded resources and explicit export losses preserve existing editing contracts. FrameCut, Storyboard Board Architect, Motion Graphics Workflow and Project State instructions are connected to the native commands. Full-board feedback/acceptance still precedes final rendering; samples remain optional on request.

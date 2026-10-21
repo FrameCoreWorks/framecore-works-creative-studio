@@ -10,6 +10,8 @@ Use the [working contract](studio-contract.md) and [integration authority](../..
 | Selected concept to shots | Sequence owner, selected concept, relevant product/character sources and adjacency checks | Reopening the concept or writing every provider's syntax |
 | One prompt | Prompt owner, requested target evidence, exact locks, actual attachments | New campaign ideation or unnecessary onboarding |
 | Existing defect | Appropriate media/copy reviewer, actual accessible artifact, reported failure and preservation set | Whole-library loading or unrelated repairs |
+| Report/metrics to a film | Research Evidence for source reconciliation, Motion Graphics for the visual argument; [data-led motion](../../pipeline-core/references/data-motion-and-feedback.md) | Dashboard services, native Claude calls or unrequested connectors |
+| Feedback on a board/frame | Existing media owner and [revision-bound feedback](../../pipeline-core/references/data-motion-and-feedback.md#feedback-attached-to-an-artifact), viewed artifact and current timeline | Applying stale timestamps, losing locks or treating a correction as final acceptance |
 | Execute an approved plan | Exposed tool route, active scoped authorisation, bound inputs, verification/retry limits | Unrequested providers, uploads or paid fallbacks |
 
 Carry a compact handoff: task/stage, selected mechanism, exact locks, available input aliases, source evidence relevant to the next decision, changed fact and next action. Link to existing project resources rather than copying every chapter. Reuse already-read evidence for an unchanged question. Do not drop required source truth merely to shorten context. A small requested correction should remain small.

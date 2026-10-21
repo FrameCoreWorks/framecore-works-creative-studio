@@ -1,5 +1,9 @@
 # Repository maintenance
 
+## Owner-directed supplemental knowledge (2026-10-21)
+
+The owner explicitly requests integrating the conclusions of the supplied Motion/Dashboards and Taste articles as supplementary Studio knowledge. Follow [the bounded packet](docs/creative-knowledge-2026-10-21.md), existing owners and conditional references. This authorizes the knowledge update and its repository-first paired release, not a dashboard backend, new review UI, native Claude connection or unrelated feature round. Preserve the complete FrameCut board gate and private hosted overlay.
+
 ## Owner-directed FrameCut development (2026-10-21)
 
 The owner's explicit follow-up reopens development for the six recommended Concat-inspired FrameCut capabilities and their orchestration. Follow [the bounded scope](docs/framecut/concat-development-scope.md): implement original native editing, composited storyboards, jobs, keyframes/framing, freeze/speed and versioned effects. Preserve onboarding, full-board feedback/acceptance before final and optional requested samples. Publish verified source first, then update the existing hosted plugin with its current private overlay preserved. This supersedes the pause only for this task; unrelated development remains paused.

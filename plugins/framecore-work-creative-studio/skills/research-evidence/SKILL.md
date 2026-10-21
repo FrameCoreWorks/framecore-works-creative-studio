@@ -49,6 +49,8 @@ Once a trigger applies, choose only the lanes relevant to it:
 
 ## Evidence handling
 
+For quantities that become copy, charts or film, use the source/derivation/dependency record in [data-led motion](../pipeline-core/references/data-motion-and-feedback.md#decision-and-source-before-design). Check period, population, units, denominators and reproducible calculations; keep missing support Unknown. A changed source invalidates its dependent claims and creative decisions, not the whole project. Treat prompting-study results as bounded findings; model-assigned novelty probabilities are not measured prevalence or business effectiveness.
+
 For material factual or technical claims, use [CoVe within the shared review](../pipeline-core/references/inference-reasoning-methods.md#one-review-conditional-methods):
 state the verification question, check attributable sources or observed tests,
 and retain the result or Unknown. Reuse this preflight for the unchanged claim;
