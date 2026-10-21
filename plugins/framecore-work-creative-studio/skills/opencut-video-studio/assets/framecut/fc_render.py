@@ -12,7 +12,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from fc_core import (FrameCutError, VERSION, atomic_json, confined, event_start, file_hash, fingerprint,
-                     ratio, read_json, require, round_boundary, source_clock, span_seconds, validate)
+                     identifier, integer, ratio, read_json, require, round_boundary, source_clock, span_seconds, validate)
 from fc_media import capabilities, ffmpeg, probe, run
 from fc_captions import ass_document, project_captions, sidecars
 
@@ -39,6 +39,18 @@ def compile_project(project, root, deliverable_id):
             contract_path = confined(root, ref["path"], True)
             require(file_hash(contract_path) == ref["sha256"], "Motion contract changed", "stale_source")
             require(ref.get("fps") == seq["fps"], "Motion composition FPS differs from sequence", "invalid_input")
+            if "request" not in ref:
+                warnings.append({"code": "unbound_motion", "asset": event["asset"], "message": "Rebind legacy motion with a checked request before final"})
+            else:
+                request = ref["request"]
+                require(request["project_id"] == project["id"] and request["sequence_id"] == seq["id"] and
+                        request["event_id"] == event["id"] and request["global_start_frame"] == event_start(event, seq) and
+                        request["duration_frames"] == event["duration"] and request["fps"] == seq["fps"] and
+                        request["width"] == d["width"] and request["height"] == d["height"] and
+                        request["alpha"] == event.get("alpha", "opaque") and
+                        event.get("source_in", asset["probe"]["start_pts"]) == asset["probe"]["start_pts"] and
+                        ratio(event.get("speed", {"num": 1, "den": 1})) == 1,
+                        "Motion placement/format changed; request and bind a revised composition", "stale_revision")
     projection = project_captions(project, seq)
     warnings += projection["warnings"]
     ass, layout = ass_document(project, seq, d, projection)
@@ -61,12 +73,55 @@ def compile_project(project, root, deliverable_id):
 
 def motion_request(project, seq, event, delivery):
     """Projection for Motion Graphics Workflow, not a second editable global timeline."""
+    identifier(event["id"])
+    start = integer(event_start(event, seq), "motion start")
+    duration = integer(event["duration"], "motion duration", 1)
+    require(start + duration <= seq["duration"], "Motion request exceeds sequence")
+    require(event.get("alpha", "opaque") in ("opaque", "straight"), "Unsupported alpha convention")
     return {"schema_version": 1, "owner": "hyperframes-workflow", "project_id": project["id"], "project_revision": project["revision"],
             "sequence_id": seq["id"], "event_id": event["id"], "global_start_frame": event_start(event, seq),
             "local_start_frame": 0, "duration_frames": event["duration"], "fps": seq["fps"],
             "width": delivery["width"], "height": delivery["height"], "alpha": event.get("alpha", "opaque"),
             "color": "SDR bt709", "deliver": "Rendered local composition plus motion-score JSON and SHA-256; ingest both, then attach at the existing event.",
-            "project_hash": fingerprint(project), "brief": event.get("note", project.get("brief", {}))}
+            "project_hash": fingerprint(project), "sequence_hash": fingerprint(seq), "deliverable_id": delivery["id"],
+            "deliverable_hash": fingerprint(delivery), "brief_hash": fingerprint(project.get("brief", {})),
+            "brief": event.get("note", project.get("brief", {}))}
+
+
+def bind_motion(project, root, asset_id, contract_relative, fps, request):
+    """Validate a returned composition against its immutable originating request before mutation."""
+    require(request.get("project_id") == project["id"], "Motion request belongs to another project", "stale_revision")
+    revision = integer(request["project_revision"], "request revision", 1)
+    require(revision <= project["revision"], "Motion request is from a future revision", "stale_revision")
+    baseline = project if revision == project["revision"] else read_json(confined(root, f".framecut/{project['id']}/history/r{revision}.json", True))
+    require(request["project_hash"] == fingerprint(baseline), "Motion request baseline differs", "stale_revision")
+    seq = next(s for s in project["sequences"] if s["id"] == request["sequence_id"])
+    d = next(d for d in project["deliverables"] if d["id"] == request["deliverable_id"])
+    baseline_seq = next(s for s in baseline["sequences"] if s["id"] == seq["id"])
+    baseline_d = next(d for d in baseline["deliverables"] if d["id"] == request["deliverable_id"])
+    require(request["sequence_hash"] == fingerprint(baseline_seq) == fingerprint(seq) and
+            request["deliverable_hash"] == fingerprint(baseline_d) == fingerprint(d) and
+            request["brief_hash"] == fingerprint(baseline.get("brief", {})) == fingerprint(project.get("brief", {})),
+            "Motion context changed; issue a fresh request", "stale_revision")
+    require(request.get("local_start_frame") == 0 and request["fps"] == seq["fps"] and
+            (request["width"], request["height"]) == (d["width"], d["height"]), "Invalid motion request geometry")
+    start = integer(request["global_start_frame"], "motion start")
+    frames = integer(request["duration_frames"], "motion duration", 1)
+    require(start + frames <= seq["duration"], "Motion request exceeds sequence")
+    require(request["alpha"] in ("opaque", "straight"), "Unsupported alpha convention")
+    asset = project["assets"][asset_id]
+    media = confined(root, asset["path"], True)
+    require(file_hash(media) == asset["sha256"], "Motion media changed", "stale_source")
+    p = probe(media)
+    require(p["kind"] == "video" and Fraction(p["fps"]) == fps == ratio(request["fps"]) and
+            (p["width"], p["height"]) == (request["width"], request["height"]), "Motion media FPS/dimensions differ from request", "qa_failed")
+    require(request["alpha"] != "straight" or p.get("has_alpha"), "Motion media has no requested alpha", "qa_failed")
+    counted, _ = run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0", "-show_entries", "stream=nb_read_frames", "-of", "json", str(media)], 300)
+    require(int(json.loads(counted)["streams"][0]["nb_read_frames"]) == frames and
+            abs(Fraction(str(p["duration"])) * fps - frames) < Fraction(1, 2), "Motion media duration differs from request", "qa_failed")
+    contract = confined(root, contract_relative, True)
+    require(isinstance(read_json(contract), dict), "Motion authoring contract must be a JSON object")
+    return {"path": contract_relative, "sha256": file_hash(contract), "fps": request["fps"], "request": copy.deepcopy(request)}
 
 
 class Cache:
@@ -274,7 +329,7 @@ def verify_video(path, seq, d, timeout=300):
 def render(project, root, deliverable_id, out_relative, mode="preview", timeout=600, max_disk_mb=2048):
     plan = compile_project(project, root, deliverable_id)
     seq, d = plan["sequence"], plan["deliverable"]
-    fatal = {"clipped_word", "partial_segment", "subframe_word", "kinetic_requires_word_timing", "captions_without_timing", "caption_layout_overflow", "caption_text_collision"}
+    fatal = {"clipped_word", "partial_segment", "subframe_word", "kinetic_requires_word_timing", "captions_without_timing", "caption_layout_overflow", "caption_text_collision", "unbound_motion"}
     blockers = [w for w in plan["warnings"] if w["code"] in fatal]
     if mode == "final":
         require(project.get("authorization"), "Record the user's existing instruction covering this final", "authorization_missing")
@@ -362,6 +417,29 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
         lock.unlink(missing_ok=True)
 
 
+def validate_review(evidence):
+    require(isinstance(evidence, dict), "Review must be an object")
+    require(all(isinstance(evidence.get(k), str) and evidence[k].strip() for k in ("reviewer", "scope", "observations")),
+            "Review needs reviewer, actual scope and observations")
+    require(evidence.get("outcome") in ("pass", "needs_revision", "blocked"), "Invalid review outcome")
+    require(type(evidence.get("audio_heard")) is bool and type(evidence.get("picture_watched")) is bool,
+            "Declare what was actually heard/watched")
+    require(evidence.get("coverage", "sampled") in ("sampled", "full"), "Review coverage must be sampled or full")
+    if evidence.get("audio_intentionally_silent") is not None:
+        require(type(evidence["audio_intentionally_silent"]) is bool, "Silent-delivery declaration must be boolean")
+    return evidence
+
+
+def delivery_readiness(review):
+    if review.get("status") == "NOT_RUN":
+        return {"status": "REVIEW_REQUIRED", "reason": "Actual picture/audio review has not been recorded"}
+    validate_review(review)
+    if review["outcome"] != "pass":
+        return {"status": "BLOCKED", "reason": review["outcome"]}
+    complete = review.get("coverage") == "full" and review["picture_watched"] and (review["audio_heard"] or review.get("audio_intentionally_silent") is True)
+    return {"status": "READY" if complete else "REVIEW_REQUIRED", "reason": "Recorded full review passed" if complete else "Passing sampled/incomplete review does not cover the full film"}
+
+
 def verify_delivery(project, root, relative):
     folder = confined(root, relative)
     receipt = read_json(folder / "receipt.json")
@@ -377,4 +455,5 @@ def verify_delivery(project, root, relative):
         require(evidence.get("project_hash") == fingerprint(project) and evidence.get("video_hash") == file_hash(folder / "video.mp4"), "Review belongs to stale media", "stale_revision")
         review = evidence["evidence"]
     return {"status": "PASS", "project_revision": project["revision"], "technical": checks,
-            "visual_audio_review": review, "acceptance": "not implied by technical verification"}
+            "visual_audio_review": review, "delivery_readiness": delivery_readiness(review),
+            "acceptance": "Readiness reflects recorded review, not independent proof or user acceptance"}

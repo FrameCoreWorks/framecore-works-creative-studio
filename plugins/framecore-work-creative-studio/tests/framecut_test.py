@@ -16,7 +16,7 @@ from fc_core import (FrameCutError, apply_operations, atomic_json, commit_revisi
                      ratio, read_json, round_boundary, validate)
 from fc_media import ffmpeg, ingest, probe, run, transcript_import
 from fc_captions import project_captions, sidecars
-from fc_render import compile_project, render, verify_delivery
+from fc_render import bind_motion, compile_project, delivery_readiness, motion_request, render, validate_review, verify_delivery
 from framecut import project_init, export_edit, propose
 
 
@@ -38,6 +38,22 @@ class Contract(unittest.TestCase):
         self.p['deliverables'] = [{'id': 'wide', 'sequence': 'main', 'width': 320, 'height': 180}]
 
     def tearDown(self): self.tmp.cleanup()
+
+    def test_motion_request_bounds(self):
+        for event in ({'id':'m','start':50,'duration':11}, {'id':'m','start':-1,'duration':1}, {'id':'m','start':0,'duration':True}):
+            with self.assertRaises(FrameCutError): motion_request(self.p,self.p['sequences'][0],event,self.p['deliverables'][0])
+
+    def test_review_readiness_never_promotes_partial_or_failed_review(self):
+        e={'reviewer':'fixture','scope':'all frames','observations':'synthetic test','outcome':'pass','picture_watched':True,'audio_heard':True}
+        self.assertEqual(delivery_readiness({'status':'NOT_RUN'})['status'],'REVIEW_REQUIRED')
+        self.assertEqual(delivery_readiness(e)['status'],'REVIEW_REQUIRED')
+        e['coverage']='full';self.assertEqual(delivery_readiness(e)['status'],'READY')
+        e['audio_heard']=False;self.assertEqual(delivery_readiness(e)['status'],'REVIEW_REQUIRED')
+        e['audio_intentionally_silent']=True;self.assertEqual(delivery_readiness(e)['status'],'READY')
+        e['outcome']='needs_revision';self.assertEqual(delivery_readiness(e)['status'],'BLOCKED')
+        for k,v in [('reviewer',True),('scope',[]),('audio_heard','yes'),('coverage','almost')]:
+            bad=copy.deepcopy(e);bad[k]=v
+            with self.assertRaises(FrameCutError):validate_review(bad)
 
     def test_exact_rational_clock_and_sample_boundary(self):
         fps = ratio({'num': 30000, 'den': 1001})
@@ -188,6 +204,66 @@ class Media(unittest.TestCase):
         self.p['authorization']='Authorized synthetic test render'
 
     def tearDown(self): self.tmp.cleanup()
+
+    def motion_fixture(self):
+        seq=self.p['sequences'][0];seq['duration']=90;seq['clips'][0]['duration']=90
+        self.p=commit_revision(self.root/'project.json',self.p,1,'request fixture')
+        atomic_json(self.root/'motion.json',{'renderer':'synthetic FFmpeg fixture'})
+        return motion_request(self.p,self.p['sequences'][0],self.p['sequences'][0]['clips'][0],self.p['deliverables'][0])
+
+    def test_motion_return_survives_ingest_revision_and_rejects_moved_placement(self):
+        request=self.motion_fixture()
+        self.p['assets']['new']=ingest(self.root,'source.mp4','new')
+        self.p=commit_revision(self.root/'project.json',self.p,2,'ingest return')
+        self.p['assets']['a']['motion_contract']=bind_motion(self.p,self.root,'a','motion.json',Fraction(30),request)
+        self.p=commit_revision(self.root/'project.json',self.p,3,'bind return')
+        compile_project(self.p,self.root,'wide')
+        self.p['sequences'][0]['duration']=120;self.p['sequences'][0]['clips'][0]['start']=30
+        with self.assertRaises(FrameCutError) as e:compile_project(self.p,self.root,'wide')
+        self.assertEqual(e.exception.code,'stale_revision')
+
+    def test_motion_rejects_changed_context_and_wrong_project(self):
+        request=self.motion_fixture()
+        for change in ('brief','sequence','delivery','project'):
+            p=copy.deepcopy(self.p);r=copy.deepcopy(request)
+            if change=='brief':p['brief']['style']='changed'
+            elif change=='sequence':p['sequences'][0]['duration']=91
+            elif change=='delivery':p['deliverables'][0]['width']=640
+            else:r['project_id']='other'
+            if change!='project':p=commit_revision(self.root/'project.json',p,p['revision'],'changed context');self.p=p
+            with self.assertRaises(FrameCutError) as e:bind_motion(p,self.root,'a','motion.json',Fraction(30),r)
+            self.assertEqual(e.exception.code,'stale_revision')
+
+    def test_motion_media_duration_fps_dimensions_and_alpha_are_checked(self):
+        request=self.motion_fixture()
+        for field,value in [('duration_frames',60),('alpha','straight')]:
+            r=copy.deepcopy(request);r[field]=value
+            with self.assertRaises(FrameCutError) as e:bind_motion(self.p,self.root,'a','motion.json',Fraction(30),r)
+            self.assertEqual(e.exception.code,'qa_failed')
+        with self.assertRaises(FrameCutError):bind_motion(self.p,self.root,'a','motion.json',Fraction(24),request)
+        ffmpeg(['-f','lavfi','-i','color=blue:s=160x90:r=30:d=3','-c:v','libx264',str(self.root/'small.mp4')])
+        self.p['assets']['small']=ingest(self.root,'small.mp4','small')
+        self.p=commit_revision(self.root/'project.json',self.p,2,'ingest wrong size')
+        with self.assertRaises(FrameCutError) as e:bind_motion(self.p,self.root,'small','motion.json',Fraction(30),request)
+        self.assertEqual(e.exception.code,'qa_failed')
+
+    def test_legacy_motion_binding_is_preview_only(self):
+        atomic_json(self.root/'motion.json',{'renderer':'legacy'})
+        self.p['assets']['a']['motion_contract']={'path':'motion.json','sha256':file_hash(self.root/'motion.json'),'fps':{'num':30,'den':1}}
+        self.assertIn('unbound_motion',[w['code'] for w in compile_project(self.p,self.root,'wide')['warnings']])
+        with self.assertRaises(FrameCutError) as e:render(self.p,self.root,'wide','blocked',mode='final',max_disk_mb=128)
+        self.assertEqual(e.exception.code,'qa_failed');self.assertFalse((self.root/'blocked').exists())
+
+    def test_review_cli_records_partial_then_full_without_losing_previous_evidence(self):
+        self.p=commit_revision(self.root/'project.json',self.p,1,'assemble')
+        render(self.p,self.root,'wide','reviewed',max_disk_mb=128)
+        self.assertEqual(verify_delivery(self.p,self.root,'reviewed')['delivery_readiness']['status'],'REVIEW_REQUIRED')
+        e={'reviewer':'synthetic test only','scope':'fixture','observations':'tests recording, not a real media review','outcome':'pass','picture_watched':True,'audio_heard':True,'coverage':'sampled'}
+        for coverage,expected in [('sampled','REVIEW_REQUIRED'),('full','READY')]:
+            e['coverage']=coverage;(self.root/'evidence.json').write_text(json.dumps(e))
+            run([sys.executable,str(RUNTIME/'framecut.py'),'review',str(self.root/'project.json'),'--bundle','reviewed','--evidence',str(self.root/'evidence.json')])
+            self.assertEqual(verify_delivery(self.p,self.root,'reviewed')['delivery_readiness']['status'],expected)
+        self.assertEqual(len(list((self.root/'reviewed/review/history').glob('*.json'))),1)
 
     def test_changed_source_rejected_before_render(self):
         with (self.root/'source.mp4').open('ab') as f: f.write(b'changed')

@@ -1,5 +1,14 @@
 # FrameCut 1.113.0 implementation status
 
+## 1.114.0 orchestration and onboarding follow-up, 2026-10-21
+
+The owner requested another audit focused on uncertain users, light teaching and polished delivery. FrameCut now derives a small choice from the user's material, explains the relevant effect and engine in ordinary language, accepts delegated choices and carries a working agreement across specialists. A representative style proof precedes full finishing when the direction is uncertain; locked styles and small corrections skip it. The full Studio welcome and all 37 skill IDs remain unchanged.
+
+The audit resolved contradictory cutdown routing, added originating-request and actual-media validation for returned motion, separated translation from source-word correction, and exposed delivery readiness separately from technical success. Existing motion bindings without an originating request can still preview but require a checked binding for a new final. Full recorded review, sampled review and failed review have distinct states, with previous review evidence retained.
+
+Evidence: [audit and five dialogue exercises](../../verification/framecut-review-2026-10-21.json). Two baseline replies were already useful; the changes make the guidance explicit rather than claiming both cases failed. Three fresh post-change exercises covered uncertain direction, engine/translation explanation and delegated choices. These are source-guided sandbox conversations, not fresh hosted-client tests. The 43 FrameCut tests include seven new regressions and actual synthetic media/CLI execution. Readiness fixtures test bookkeeping, not subjective watching/listening. No claim of newly installed HyperFrames/Remotion runtimes or real-client film quality is made.
+
+
 Owner-authorized build on 2026-10-20, following publication of the research at `ea6b8b593dc42a9b255e5177ec3d35796f9dea24`. The executable v1 lives in [the existing editing owner](../../plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md); its [runtime README](../../plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md) is the implemented contract. The original research contract is architectural guidance where its richer fields exceed v1.
 
 ## Delivered behavior

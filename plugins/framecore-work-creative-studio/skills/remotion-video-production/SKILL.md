@@ -113,6 +113,8 @@ Hand off through existing workflow roles with:
 
 ## QA Checklist
 
+For a FrameCut job, reuse its working agreement and `motion-request`. Return the local composition at origin 0, exact frame count/FPS, dimensions and alpha convention, plus the authoring contract, original request and actual review/limitations. FrameCut verifies the return with `attach-motion --request` and owns global placement and delivery. Do not restart intake, silently stretch a changed request or create a second global timeline.
+
 - Composition ID, dimensions, FPS, duration, props, and required variants are explicit.
 - Scene boundaries and nested timing are frame-accurate and free of accidental gaps or overlaps.
 - Motion is driven by frame state and remains deterministic across preview and render.

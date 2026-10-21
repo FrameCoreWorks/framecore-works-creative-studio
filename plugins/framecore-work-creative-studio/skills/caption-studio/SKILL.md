@@ -122,4 +122,4 @@ Hand off with:
 
 ## FrameCut handoff
 
-Use FrameCut’s source-derived caption projection for an edit; retain source word IDs and corrected copy separately. Return caption/QA artifacts at the same project revision. Do not re-time source words twice or claim segment ASR is precise word alignment.
+Use FrameCut’s source-derived caption projection for an edit; retain source word IDs and corrected copy separately. Return caption/QA artifacts with the originating project revision, sequence, format and actual checks; FrameCut reconciles them before insertion. Reuse its working agreement and keep speech/caption languages distinct. Translation needs separate approved copy and phrase timing, not translated words assigned original-language word timestamps or disguised as source-word corrections. Use phrase captions or an explicitly timed specialist composition where the native path cannot represent it. Do not re-time source words twice or claim segment ASR is precise word alignment.

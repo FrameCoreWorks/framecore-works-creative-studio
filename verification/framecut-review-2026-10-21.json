@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-21",
+  "change_id": "CW-20261021-02",
+  "baseline": "1628bc0755e38d6ea78799a2ac71ed1cfd3bff83",
+  "version": "1.114.0",
+  "trigger": "Owner requested FrameCut orchestration audit, novice onboarding with light teaching, and better film finishing.",
+  "findings": [
+    {
+      "area": "routing",
+      "before": "Pipeline Core routed cutdowns to Producer while FrameCut owned editing.",
+      "after": "Editing, highlights and cutdowns explicitly go to FrameCut; broader preproduction remains Producer."
+    },
+    {
+      "area": "onboarding",
+      "before": "Adaptive questions existed but had no explicit decision-local teaching, uncertainty handling or representative style proof.",
+      "after": "Outcome/material first, at most two brief-derived directions, reasoned recommendation, relevant engine explanation, delegated choices and continuity in existing brief."
+    },
+    {
+      "area": "motion_return",
+      "before": "Actual baseline CLI accepted a 30fps 30-frame file with a 24fps 999-frame authoring contract and no originating request.",
+      "after": "Required request, originating history/context and actual decoded media checks; changed placements rejected; unbound legacy assets preview-only."
+    },
+    {
+      "area": "translation",
+      "before": "Source word corrections and specialist handoff had no explicit cross-language boundary.",
+      "after": "Separate source/caption languages, approved translation and phrase timing; no fabricated translated-word alignment. Native translation track implementation remains out of scope."
+    },
+    {
+      "area": "review",
+      "before": "Verification exposed technical PASS and raw review, without a distinct readiness state; a second review could not replace a sampled record.",
+      "after": "READY, REVIEW_REQUIRED or BLOCKED alongside technical PASS; full recorded scope required; previous review evidence archived."
+    }
+  ],
+  "dialogue_exercises": {
+    "surface": "Fresh sandbox subagents reading owning SKILL.md; not installed-client behavior, not a statistical benchmark",
+    "cases": [
+      {
+        "id": "before_a",
+        "input": "Wybrałem FrameCut. Mam kilka filmików z telefonu i nie wiem, co z nimi zrobić. Chcę, żeby wyglądało to profesjonalnie, ale nie znam się na montażu ani efektach. Od czego zacząć?",
+        "observed_excerpt": "Co chciałbyś uzyskać z tych nagrań — na przykład pamiątkę, film do mediów społecznościowych albo materiał promujący Twoją pracę?",
+        "assessment": "Sensible single question and permission not to know; no effect/tool teaching yet. This was not a failure."
+      },
+      {
+        "id": "before_b",
+        "input": "Mam dwuminutową wypowiedź po angielsku. Chcę krótkie rolki i efektowne polskie napisy. Co będzie lepsze, HyperFrames czy Remotion? Nie rozumiem różnicy. Pliku jeszcze nie wysłałem.",
+        "observed_excerpt": "W Twoim przypadku wstępnie wybrałbym Remotion do powtarzalnego stylu animowanych napisów.",
+        "assessment": "Already explained engines and correctly separated translation timing. No regression or false claim that this baseline failed."
+      },
+      {
+        "id": "after_a",
+        "input": "Mam z telefonu nagrania z pracowni: ręce przy pracy, kilka produktów i trochę mojego gadania. Chcę coś profesjonalnego na Instagram, ale kompletnie nie wiem jaki styl. Co mi proponujesz? Nie znam nazw efektów.",
+        "observed_excerpt": "Po ich otrzymaniu zacząłbym od krótkiej próbki stylu: kilku połączonych ujęć z napisem i dźwiękiem, żeby dało się ocenić tempo i nastrój przed montażem całości.",
+        "assessment": "Two material-derived directions, reasoned recommendation, one choice, honest missing-media scope and style proof. Different scenario from before_a; not a paired improvement metric."
+      },
+      {
+        "id": "after_b",
+        "input": "Same input as before_b.",
+        "observed_excerpt": "Oba mogą dać równie dopracowany efekt i animować napisy. Nie musisz sam wybierać technologii — ostateczny dobór oprę na projekcie, potrzebnych poprawkach i dostępnych narzędziach.",
+        "assessment": "Explained engines, conditional HyperFrames recommendation, visible effect/trade-off, separate phrase translation, representative proof and one content question. Engine recommendation differs from baseline; neither choice is proof of quality."
+      },
+      {
+        "id": "after_c",
+        "input": "Context: two Polish product highlights, vertical, concise Polish captions, calm motion, preserved claims/numbers. User: Nie wiem, jakie efekty wybrać. Zdaję się na ciebie, wybierz spokojny, profesjonalny kierunek i działaj, nie chcę już formularza. Plik doślę za chwilę.",
+        "observed_excerpt": "Po jego otrzymaniu sprawdzę styl na krótkim fragmencie, a potem dokończę oba filmy — wybór szczegółowych efektów biorę na siebie.",
+        "assessment": "Accepted delegation without another question/form; reused constraints and stated the actual missing file."
+      }
+    ],
+    "tokens": "Not exposed by collaboration tools; no estimate substituted",
+    "duration": "Per-agent wall-time metrics unavailable; no estimate substituted"
+  },
+  "verification": {
+    "framecut_tests": 43,
+    "new_regressions": 7,
+    "actual_media": "Synthetic FFmpeg sources and encoded bundles; actual frame/FPS/dimension checks and CLI execution.",
+    "review_fixture": "Synthetic evidence tests readiness bookkeeping only, not actual watching/listening.",
+    "fresh_host": "NOT_RUN",
+    "complete_subjective_playback": "NOT_RUN",
+    "actual_hyperframes_remotion_generation": "NOT_RUN; bounded returned-media contract tested using FFmpeg fixtures.",
+    "tool_inventory": "Existing 59-component inventory retained; this sandbox previously detected 19/59. No claim that missing engines were installed.",
+    "full_suite_exit_code": 0,
+    "node_passed": 225,
+    "node_skipped": 13,
+    "python_suites": 49,
+    "python_passed": 457,
+    "python_skipped": 12,
+    "log_recovery": "Full suite exit 0; final three suite summaries rerun due asynchronously truncated log."
+  },
+  "prior_mobile_report": {
+    "version": "1.113.1",
+    "status": "PASS_REPORTED",
+    "owner_quote": "Działa",
+    "scope": "Mobile @ invocation after Sunra MCP removal; not full FrameCut or 1.114.0 acceptance."
+  },
+  "before_motion_reproduction": {
+    "baseline": "1628bc0755e38d6ea78799a2ac71ed1cfd3bff83",
+    "scenario": "30fps, 30-frame media bound with 24fps and 999-frame contract, no originating request",
+    "exit_code": 0,
+    "accepted": true
+  }
+}

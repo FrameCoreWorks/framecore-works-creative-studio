@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.114.0, 2026-10-21
+
+FrameCut gains adaptive onboarding with brief, relevant explanations of effects and HyperFrames/Remotion, a working agreement reused by specialists, representative style proofs and staged finishing. Clarify editing/cutdown ownership and separate translation from source-word correction. Validate returned motion against its originating edit context and actual media; expose delivery readiness separately from technical PASS. Preserve the complete welcome and existing private integrations. See [FrameCut build status](docs/framecut/build-status.md) for measured scope.
+
 ## 1.113.0, 2026-10-20
 
 FrameCut is now the executable editing mode in the full welcome (option 5), using the existing opencut-video-studio ID. It takes an adaptive brief through source analysis, editable timeline, captions, motion/audio finishing, revisions and verified delivery. The standard-library/FFmpeg runtime provides exact source clocks, immutable revisions, source-bound transcripts, kinetic captions, motion placements, independent audio, cache recovery and explicit interchange losses. Existing caption, motion, audio and project owners share one timeline.

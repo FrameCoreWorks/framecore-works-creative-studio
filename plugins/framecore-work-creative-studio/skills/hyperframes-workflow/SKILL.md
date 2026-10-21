@@ -98,4 +98,4 @@ Review gate: `structure_fit`. The workflow role `hyperframes-producer` maps to t
 
 ## FrameCut handoff
 
-For a FrameCut handoff, author only the requested local composition at origin 0 with its exact frame count/FPS, dimensions and alpha convention. Return rendered media and the hashed motion-score contract; FrameCut owns global placement, audio/caption mapping and final composition. Do not restart intake or create a second global timeline.
+For a FrameCut handoff, reuse its working agreement and request; author only the requested local composition at origin 0 with exact frame count/FPS, dimensions and alpha convention. Return rendered media, the hashed authoring contract, original request and actual review/limitations. FrameCut binds them with `attach-motion --request`, checks stale context and owns global placement, audio/caption mapping and final composition. A changed request requires reconciliation, not silent stretching. Do not restart intake or create a second global timeline.

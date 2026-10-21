@@ -14,7 +14,7 @@ from pathlib import Path
 from fc_core import (FrameCutError, apply_operations, atomic_json, commit_revision, confined, file_hash,
                      fingerprint, identifier, ratio, read_json, require, round_boundary, span_seconds, validate)
 from fc_media import capabilities, ingest, inspect_media, probe, transcribe, transcript_import
-from fc_render import compile_project, motion_request, render, verify_delivery
+from fc_render import bind_motion, compile_project, motion_request, render, validate_review, verify_delivery
 
 
 def project_init(path, name, brief=None):
@@ -135,7 +135,9 @@ def main(argv=None):
         if name in ("verify", "review"): q.add_argument("--bundle", required=True)
         if name == "export": q.add_argument("--sequence", required=True); q.add_argument("--otio", action="store_true")
         if name == "motion-request": q.add_argument("--event", required=True, help="JSON event with local duration and global start/anchor")
-        if name == "attach-motion": q.add_argument("--contract", required=True); q.add_argument("--fps", required=True, help="Rational num/den")
+        if name == "attach-motion":
+            q.add_argument("--contract", required=True); q.add_argument("--fps", required=True, help="Rational num/den")
+            q.add_argument("--request", required=True, help="Original motion-request JSON")
         if name == "review": q.add_argument("--evidence", required=True, help="Authored review JSON, with reviewer, scope, observations and outcome")
     args = p.parse_args(argv)
     try:
@@ -186,23 +188,23 @@ def main(argv=None):
                 result = motion_request(project, seq, read_json(args.event), d)
                 atomic_json(confined(root, args.out), result)
             elif cmd == "attach-motion":
-                contract = confined(root, args.contract, True)
-                fps = Fraction(args.fps)
-                project["assets"][args.asset]["motion_contract"] = {"path": args.contract, "sha256": file_hash(contract), "fps": {"num": fps.numerator, "den": fps.denominator}}
+                project["assets"][args.asset]["motion_contract"] = bind_motion(project, root, args.asset, args.contract, Fraction(args.fps), read_json(args.request))
                 result = commit_revision(path, project, args.base_revision, "bind local motion contract")
             elif cmd == "review":
                 verified = verify_delivery(project, root, args.bundle)
-                evidence = read_json(args.evidence)
-                require(all(evidence.get(k) for k in ("reviewer", "scope", "observations", "outcome")), "Review needs reviewer, actual scope, observations and outcome")
-                require(evidence["outcome"] in ("pass", "needs_revision", "blocked"), "Invalid review outcome")
-                require(type(evidence.get("audio_heard")) is bool and type(evidence.get("picture_watched")) is bool, "Declare what was actually heard/watched")
+                evidence = validate_review(read_json(args.evidence))
                 result = {"project_hash": fingerprint(project), "project_revision": project["revision"], "technical": verified["status"], "evidence": evidence,
                           "video_hash": file_hash(confined(root, args.bundle + "/video.mp4", True))}
-                atomic_json(confined(root, args.bundle + "/review-evidence.json"), result)
+                latest = confined(root, args.bundle + "/review-evidence.json")
+                if latest.exists():
+                    previous = read_json(latest)
+                    archived = confined(root, args.bundle + "/review/history/" + fingerprint(previous) + ".json")
+                    if not archived.exists(): atomic_json(archived, previous)
+                atomic_json(latest, result, overwrite=True)
             else: raise FrameCutError("unsupported_operation", cmd)
         print(json.dumps(result, ensure_ascii=False, allow_nan=False))
         return 0
-    except (FrameCutError, OSError, ValueError, KeyError, TypeError, StopIteration) as error:
+    except (FrameCutError, OSError, ValueError, KeyError, TypeError, StopIteration, ZeroDivisionError) as error:
         print(json.dumps({"status": "error", "error": {"code": getattr(error, "code", "invalid_input"), "message": str(error)}}), file=sys.stderr)
         return 2
 
