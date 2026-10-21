@@ -1,0 +1,323 @@
+{
+  "change_id": "CW-20261021-03",
+  "date": "2026-10-21",
+  "origin": "chatgpt-work",
+  "baseline": "f5b9205b1ee03513d25865384e7e75333aa2d021",
+  "version": "1.115.0",
+  "trigger": "Owner explicitly requires repository-first, then hosted-plugin update: onboarding, full-film visual storyboard/contact sheets, user feedback and corrected-board acceptance, then final rendering. A video sample is optional on request.",
+  "before": {
+    "source_version": "1.114.0",
+    "observed_source": [
+      "Owning FrameCut SKILL.md proposes a representative style proof for an uncertain direction.",
+      "Execution step 6 says Render a preview; step 7 says Render the authorized final, without complete-board acceptance.",
+      "The prior source-guided after_a/after_c dialogues in framecut-review-2026-10-21.json propose a sample first."
+    ],
+    "scope": "Source and prior recorded dialogue evidence; no claim of a newly reproduced installed-client failure."
+  },
+  "after": {
+    "sequence": [
+      "intake_and_consequential_questions",
+      "complete_visual_storyboard",
+      "user_feedback",
+      "corrected_board_and_acceptance",
+      "final_render_and_review"
+    ],
+    "coverage": "Whole duration, every scene and meaningful visual/copy/action/transition change; multiple panels within a shot as needed and multiple readable pages. No fixed panel count.",
+    "state": "Existing Project State/brief retains board revision, coverage, feedback, actual acceptance evidence and optional sample request. Creative changes reopen review; unchanged accepted designs resume.",
+    "optional_sample": "On actual request or accepted offer; an early requested sample returns to full-board review. No required preview.",
+    "enforcement": "Host skill orchestration; no new CLI-enforced storyboard gate or schema. Existing authorization/technical PASS is not creative acceptance."
+  },
+  "dialogue_exercises": {
+    "surface": "Two fresh-context sandbox subagents initially reading owning SKILL.md; permitted by Skill Creator forward-test instructions. No rendering, external writes or installed-plugin invocation.",
+    "cases": [
+      {
+        "id": "A",
+        "input": "Novice describes workshop/product/speech footage, no files, uncertain style.",
+        "observed": "Two material-derived directions with a recommendation; one consequential question; no engine choice or render. Files explicitly absent in action trace.",
+        "assessment": "PASS for intake and workflow; user-facing phrase about materials is mildly ambiguous, not evidence of actual inspection."
+      },
+      {
+        "id": "B",
+        "input": "Complete 30s/9:16/five-scene brief, two-stage reveal and changing headline; user delegates details and says act. No board shown.",
+        "observed_excerpt": "Przygotuję teraz wizualny storyboard całych 30 sekund, od problemu do końcowego CTA.",
+        "observed": "Coverage map spans 0–30s, adds reveal/copy states, labels estimated timing and table as planning only. Produce and display actual visual pages, then seek board acceptance. No automatic sample or repeat intake.",
+        "assessment": "PASS"
+      },
+      {
+        "id": "C",
+        "input": "Board r2 accepted; user changes scene 3 price to 149 zł and lengthens ending 2s.",
+        "observed_excerpt": "pokażę cały poprawiony storyboard r3 do akceptacji.",
+        "observed": "approved r2 -> revising r3 -> awaiting_feedback; preserves unaffected frames, updates dependent timing/audio, stops before final.",
+        "assessment": "PASS"
+      },
+      {
+        "id": "D",
+        "input": "Complete brief, no full board; user explicitly requests early 3s animated-title sample.",
+        "observed_excerpt": "Po obejrzeniu ruchu wrócimy do pełnego storyboardu",
+        "observed": "Bounded sample requested, no redundant question; return to full board review. Sample acceptance is not full-film acceptance.",
+        "assessment": "PASS"
+      },
+      {
+        "id": "E",
+        "input": "Verified current board r4 accepted with explicit final-render request, edit matches, no pending comments or sample request; continue.",
+        "observed_excerpt": "Wznawiam od finalnego renderu zgodnego z zaakceptowanym storyboardem r4.",
+        "observed": "Proceed to final render and technical/full picture/audio review without re-onboarding, approval repetition or automatic sample.",
+        "assessment": "PASS"
+      }
+    ],
+    "tokens": "Not exposed by collaboration tools; no estimate substituted",
+    "duration": "Per-agent wall-time metrics not exposed; no estimate substituted"
+  },
+  "limitations": [
+    "Source-guided exercises are not fresh ChatGPT/mobile/Codex/Claude client behavior.",
+    "No new storyboard images or final films generated for this instruction change.",
+    "No runtime machine gate for creative approval added; acceptance remains host-managed.",
+    "Existing media and board compositor regressions are run by the release suite; their result belongs to the versioned release record."
+  ],
+  "update_inventory": {
+    "host": "chatgpt_work",
+    "mode": "update",
+    "reference_basis": "Owner-reported working installation in ChatGPT Work, not newest-version claims or cross-host proof.",
+    "verdict": "limited",
+    "tools": [
+      {
+        "id": "hyperframes",
+        "status": "ok"
+      },
+      {
+        "id": "remotion",
+        "status": "ok"
+      },
+      {
+        "id": "animate_engine",
+        "status": "missing"
+      },
+      {
+        "id": "manim",
+        "status": "missing"
+      },
+      {
+        "id": "blender",
+        "status": "missing"
+      },
+      {
+        "id": "ffmpeg",
+        "status": "ok"
+      },
+      {
+        "id": "ffprobe",
+        "status": "ok"
+      },
+      {
+        "id": "imageio_ffmpeg",
+        "status": "missing"
+      },
+      {
+        "id": "ffmpeg_fallback",
+        "status": "missing"
+      },
+      {
+        "id": "scenedetect",
+        "status": "missing"
+      },
+      {
+        "id": "opencv",
+        "status": "missing"
+      },
+      {
+        "id": "autoeditor",
+        "status": "missing"
+      },
+      {
+        "id": "librosa",
+        "status": "missing"
+      },
+      {
+        "id": "whisper",
+        "status": "ok"
+      },
+      {
+        "id": "whisper_tiny",
+        "status": "ok"
+      },
+      {
+        "id": "deepfilter",
+        "status": "missing"
+      },
+      {
+        "id": "imagemagick",
+        "status": "ok"
+      },
+      {
+        "id": "inkscape",
+        "status": "ok"
+      },
+      {
+        "id": "cairosvg",
+        "status": "missing"
+      },
+      {
+        "id": "pillow",
+        "status": "ok"
+      },
+      {
+        "id": "numpy",
+        "status": "ok"
+      },
+      {
+        "id": "matplotlib",
+        "status": "ok"
+      },
+      {
+        "id": "fonttools",
+        "status": "ok"
+      },
+      {
+        "id": "tesseract",
+        "status": "ok"
+      },
+      {
+        "id": "pytesseract",
+        "status": "missing"
+      },
+      {
+        "id": "ocr_pol",
+        "status": "missing"
+      },
+      {
+        "id": "react",
+        "status": "ok"
+      },
+      {
+        "id": "react_dom",
+        "status": "ok"
+      },
+      {
+        "id": "gsap",
+        "status": "ok"
+      },
+      {
+        "id": "three",
+        "status": "ok"
+      },
+      {
+        "id": "react_three_fiber",
+        "status": "ok"
+      },
+      {
+        "id": "pixi",
+        "status": "ok"
+      },
+      {
+        "id": "d3_scale",
+        "status": "ok"
+      },
+      {
+        "id": "lottie",
+        "status": "ok"
+      },
+      {
+        "id": "mediabunny",
+        "status": "ok"
+      },
+      {
+        "id": "remotion_cli",
+        "status": "ok"
+      },
+      {
+        "id": "remotion_renderer",
+        "status": "ok"
+      },
+      {
+        "id": "remotion_three",
+        "status": "ok"
+      },
+      {
+        "id": "cairo",
+        "status": "ok"
+      },
+      {
+        "id": "pango",
+        "status": "ok"
+      },
+      {
+        "id": "manimpango",
+        "status": "missing"
+      },
+      {
+        "id": "pycairo",
+        "status": "missing"
+      },
+      {
+        "id": "latex",
+        "status": "ok"
+      },
+      {
+        "id": "dvisvgm",
+        "status": "missing"
+      },
+      {
+        "id": "typst",
+        "status": "missing"
+      },
+      {
+        "id": "lxml",
+        "status": "ok"
+      },
+      {
+        "id": "python",
+        "status": "ok"
+      },
+      {
+        "id": "python_manim",
+        "status": "missing"
+      },
+      {
+        "id": "python_blender",
+        "status": "missing"
+      },
+      {
+        "id": "node",
+        "status": "ok"
+      },
+      {
+        "id": "npm",
+        "status": "ok"
+      },
+      {
+        "id": "npx",
+        "status": "ok"
+      },
+      {
+        "id": "typescript",
+        "status": "ok"
+      },
+      {
+        "id": "esbuild",
+        "status": "ok"
+      },
+      {
+        "id": "uv",
+        "status": "ok"
+      },
+      {
+        "id": "micromamba",
+        "status": "missing"
+      },
+      {
+        "id": "playwright",
+        "status": "ok"
+      },
+      {
+        "id": "browser_animate",
+        "status": "missing"
+      },
+      {
+        "id": "browser",
+        "status": "ok"
+      }
+    ],
+    "installs_nothing": true,
+    "scope": "Current Work sandbox only; no claim about other clients or full creative execution."
+  }
+}

@@ -113,6 +113,8 @@ Hand off through existing workflow roles with:
 
 ## QA Checklist
 
+For FrameCut, honor the requested stage: before its storyboard is accepted, produce designed still states and motion notes for the full-sequence contact sheets. A video sample runs only on user request or acceptance of an offer. Final rendering follows acceptance of the current complete board; a brief, delegated style choice or local sample acceptance cannot substitute. Return creative changes to FrameCut's board revision loop; keep technical repairs faithful to the accepted design. Still rendering does not require a video sample or a second intake.
+
 For a FrameCut job, reuse its working agreement and `motion-request`. Return the local composition at origin 0, exact frame count/FPS, dimensions and alpha convention, plus the authoring contract, original request and actual review/limitations. FrameCut verifies the return with `attach-motion --request` and owns global placement and delivery. Do not restart intake, silently stretch a changed request or create a second global timeline.
 
 - Composition ID, dimensions, FPS, duration, props, and required variants are explicit.

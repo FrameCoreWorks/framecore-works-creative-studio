@@ -93,6 +93,8 @@ not the entire internal analysis.
 
 ## Before handoff
 
+For a FrameCut storyboard, map the entire sequence from opening through ending to ordered scene intervals and stable panel IDs. Show every scene and meaningful action, composition, key-copy and transition change; use several entry/action/hold/exit panels within a shot where needed without inventing cuts. Choose coverage before panel count or layout. Preserve deliberate pauses and the closing hold; mark timing estimates honestly. Pass the full map, exact copy, visual states, motion/transition notes and sound cues to Board Architect for readable visual contact sheets. Check every interval is represented and that the story remains understandable between panels. A few representative frames or a moodboard do not complete this handoff. Return to FrameCut for user comments and approval of the current complete board before final-film execution; samples are optional on request. Revisions preserve IDs and reopen acceptance only for changed creative content.
+
 Check order and causal readability; shot purpose; duration estimate versus
 target; spatial axis, eyelines and screen direction where material; prop,
 wardrobe, identity and product state; exact dialogue/copy; reference roles;

@@ -25,6 +25,8 @@ The owner also explicitly requested paired GitHub, hosted-plugin and Codex updat
 - **Motion graphics is the main paid use.** Client reels and Meta ads, built as HyperFrames compositions in Claude Code and, since 1.79.0, in a ChatGPT Work session that has Node.js, FFmpeg, Chromium and npm. Studio keeps the brief, the idea, copy locks, the board plan and the review.
 - **A base for a person who chooses and directs.** Studio offers choices, recommends one with a reason, and never decides silently for the user (engines, extensions, directions).
 
+Owner clarification, 2026-10-21: FrameCut follows onboarding and consequential questions, a complete visual storyboard/contact sheets of the entire film, user feedback and corrected-board acceptance, then final rendering and review. Samples are optional on request. This owner-requested correction replaces the 1.114.0 sample-first guidance; shared repository publication precedes the guarded existing-plugin update.
+
 ## 2. Direction, in order of value
 
 1. **Fix what real use shows.** Owner reports and host evaluations come first. Reproduce the defect, fix it in the text the model reads (the owning `SKILL.md`, then its reference), add a regression test or host case, and record before and after.

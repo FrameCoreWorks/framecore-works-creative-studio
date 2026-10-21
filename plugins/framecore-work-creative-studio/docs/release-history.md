@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.115.0, 2026-10-21
+
+FrameCut now follows onboarding and consequential questions, complete visual storyboard/contact sheets of the entire film, user feedback and corrected-board acceptance, then final rendering and review. Panel count follows actual scene and meaningful-state coverage; readable pages show key images, exact copy, timing, motion, transitions and sound cues. A video sample is optional on request. Carry board revisions, coverage, pending feedback and actual acceptance through the existing project state and stage-scoped storyboard/motion handoffs. Resume unchanged accepted boards without repeating intake or approval. This corrects the prior sample-first workflow and preserves runtime media behavior, welcome and private integrations. See [workflow evidence](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/framecut-storyboard-2026-10-21.json).
+
 ## 1.114.0, 2026-10-21
 
 FrameCut gains adaptive onboarding with brief, relevant explanations of effects and HyperFrames/Remotion, a working agreement reused by specialists, representative style proofs and staged finishing. Clarify editing/cutdown ownership and separate translation from source-word correction. Validate returned motion against its originating edit context and actual media; expose delivery readiness separately from technical PASS. Preserve the complete welcome and existing private integrations. See [FrameCut build status](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/framecut/build-status.md) for measured scope.
