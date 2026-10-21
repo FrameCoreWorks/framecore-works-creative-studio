@@ -1,0 +1,203 @@
+{
+  "version": "1.117.0",
+  "source_commit": "868bc6ac3dec179141e292c0097c6e0fb52d01cf",
+  "change_id": "CW-20261021-06",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "baseline_release_id": "pluginrel_6ad8a7f7bbac8191b9f207b9e39a4ee9",
+  "release_id": "pluginrel_6ad8b55506248191b140981560a9921a",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "update_paths": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "6e19433df7dc895f3765505cfbe4ce8653c1f07ff6ca9f457f4020f37daa6934",
+      "bytes": 971,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "6e19433df7dc895f3765505cfbe4ce8653c1f07ff6ca9f457f4020f37daa6934",
+      "readback_bytes": 971
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "7f3966e05c63cee385de8547fff7f91f999f6724a3e8c246142ab772f265ea16",
+      "bytes": 2274,
+      "private_overlay_preserved": true,
+      "readback": "json_semantically_identical_formatting_normalized",
+      "readback_sha256": "afdf19387e874587fd9357eed20764d8315f2e6c429e996b98830ea98aa4c526",
+      "readback_bytes": 2310
+    },
+    {
+      "path": "README.md",
+      "sha256": "029aff2b7c76b216c700be465cd3f83f248c55091e530b9fd8a79c42adbbc4ee",
+      "bytes": 23042,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "029aff2b7c76b216c700be465cd3f83f248c55091e530b9fd8a79c42adbbc4ee",
+      "readback_bytes": 23042
+    },
+    {
+      "path": "docs/knowledge-map.md",
+      "sha256": "04f701d4f5834a7255ca6d59ccb8a557ed9a244f94b6afe5c2b4e82af492b0e5",
+      "bytes": 16589,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "04f701d4f5834a7255ca6d59ccb8a557ed9a244f94b6afe5c2b4e82af492b0e5",
+      "readback_bytes": 16589
+    },
+    {
+      "path": "docs/migration-status.md",
+      "sha256": "3dafe67e00286e224089ca8c57b008e153b7ef17bca6139989a825d347e6293d",
+      "bytes": 13884,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "3dafe67e00286e224089ca8c57b008e153b7ef17bca6139989a825d347e6293d",
+      "readback_bytes": 13884
+    },
+    {
+      "path": "docs/release-history.md",
+      "sha256": "fc7daaf6ab04ed5b5c1a5364ca2d6b384488020eab7dc33c33c6c0c1cc2f7786",
+      "bytes": 199628,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "fc7daaf6ab04ed5b5c1a5364ca2d6b384488020eab7dc33c33c6c0c1cc2f7786",
+      "readback_bytes": 199628
+    },
+    {
+      "path": "plugin.json",
+      "sha256": "9a9fe8a8db58e97ac133b9abf592ff92e23e2ea5dec482a7deb8cd68c1892085",
+      "bytes": 2437,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "9a9fe8a8db58e97ac133b9abf592ff92e23e2ea5dec482a7deb8cd68c1892085",
+      "readback_bytes": 2437
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "sha256": "feb04acc301e833c3a33ca33fda6a7dd57ce2d04610c5ef1192beb9ca40e2632",
+      "bytes": 30704,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "feb04acc301e833c3a33ca33fda6a7dd57ce2d04610c5ef1192beb9ca40e2632",
+      "readback_bytes": 30704
+    },
+    {
+      "path": "skills/opencut-video-studio/SKILL.md",
+      "sha256": "f6e75b2c52a29c60bf5cc448e62c4e6515dec02a328d1f12e8882f0041847e50",
+      "bytes": 23820,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "f6e75b2c52a29c60bf5cc448e62c4e6515dec02a328d1f12e8882f0041847e50",
+      "readback_bytes": 23820
+    },
+    {
+      "path": "skills/output-critic-iteration/SKILL.md",
+      "sha256": "b1eacea7b2ada50bd0126dbb9246f75f9c83e2e512b472dd0119412252c6230d",
+      "bytes": 8554,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "b1eacea7b2ada50bd0126dbb9246f75f9c83e2e512b472dd0119412252c6230d",
+      "readback_bytes": 8554
+    },
+    {
+      "path": "skills/pipeline-core/SKILL.md",
+      "sha256": "09938348a1fa222873773b034e15a4134f683c197ed54212a569791066f94f1e",
+      "bytes": 23166,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "09938348a1fa222873773b034e15a4134f683c197ed54212a569791066f94f1e",
+      "readback_bytes": 23166
+    },
+    {
+      "path": "skills/pipeline-core/references/data-motion-and-feedback.md",
+      "sha256": "a89bf7ab6ae5e293a91989e3c179391e53a4c6d3d3971715caa09a58916bba55",
+      "bytes": 7331,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "a89bf7ab6ae5e293a91989e3c179391e53a4c6d3d3971715caa09a58916bba55",
+      "readback_bytes": 7331
+    },
+    {
+      "path": "skills/pipeline-core/references/ideation-method.md",
+      "sha256": "8c6b1676e137ec620e161130e0aa324c8bfdac85254697c36a31812f961cf2fd",
+      "bytes": 9936,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "8c6b1676e137ec620e161130e0aa324c8bfdac85254697c36a31812f961cf2fd",
+      "readback_bytes": 9936
+    },
+    {
+      "path": "skills/pipeline-core/references/quality-improvement-methods.md",
+      "sha256": "17bc9a3545996d3ceff3f8fdbc30b167427ca2b2863f1f610f96af75a9fdc890",
+      "bytes": 10746,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "17bc9a3545996d3ceff3f8fdbc30b167427ca2b2863f1f610f96af75a9fdc890",
+      "readback_bytes": 10746
+    },
+    {
+      "path": "skills/research-evidence/SKILL.md",
+      "sha256": "17eff3e674a59752026570dc896041665725f8bed95587944225d769656f41d5",
+      "bytes": 17575,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "17eff3e674a59752026570dc896041665725f8bed95587944225d769656f41d5",
+      "readback_bytes": 17575
+    },
+    {
+      "path": "skills/studio-workstyle-profile/SKILL.md",
+      "sha256": "f0b09d13d6f96d48eddc4a884f6406d95cb2dddd673981c9930025b2dd7d0ab6",
+      "bytes": 7275,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "f0b09d13d6f96d48eddc4a884f6406d95cb2dddd673981c9930025b2dd7d0ab6",
+      "readback_bytes": 7275
+    },
+    {
+      "path": "skills/studio-workstyle-profile/references/taste-learning.md",
+      "sha256": "47cd06b3362e42c8eff1024968669d89e0a834cbff0221683f928dc752ba9917",
+      "bytes": 5274,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "47cd06b3362e42c8eff1024968669d89e0a834cbff0221683f928dc752ba9917",
+      "readback_bytes": 5274
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "b88d5881ddf85d1a2d8a2c282fd98af4d9fc06b6f553c15f105a4b444bed178c",
+      "bytes": 32069,
+      "private_overlay_preserved": true,
+      "readback": "byte_identical",
+      "readback_sha256": "b88d5881ddf85d1a2d8a2c282fd98af4d9fc06b6f553c15f105a4b444bed178c",
+      "readback_bytes": 32069
+    },
+    {
+      "path": "skills/workflow-orchestrator/references/compact-routing-and-pilot.md",
+      "sha256": "3863ad31a2efe8242f80747d1243c505d1cf51bea19510be209f48d9e85f0249",
+      "bytes": 4836,
+      "private_overlay_preserved": false,
+      "readback": "byte_identical",
+      "readback_sha256": "3863ad31a2efe8242f80747d1243c505d1cf51bea19510be209f48d9e85f0249",
+      "readback_bytes": 4836
+    }
+  ],
+  "inventory": {
+    "before": 1582,
+    "after": 1583,
+    "added": [
+      "skills/pipeline-core/references/data-motion-and-feedback.md"
+    ],
+    "removed": [],
+    "unexpected": [],
+    "untouched_size_changes": []
+  },
+  "app_binding": {
+    "unchanged": true,
+    "sha256": "52e2670a0b57523cc76172e9185718fe8a8cbb9fa38ed49006a33c26e3b3f087"
+  },
+  "private_overlay_paths_preserved": 8,
+  "comparison_scope": "All 19 updated UTF-8 files compared with the overlay-preserving candidate: 18 byte-identical; .codex-plugin/plugin.json has service-normalized formatting and identical parsed JSON. Retained App binding byte-identical. Complete 1583-path inventory compared with prior inventory plus the one addition. Omitted-file sizes are unchanged; omitted-file content equality was not independently reread.",
+  "fresh_installed_client_behavior": "NOT_RUN",
+  "rendered_media_quality": "NOT_RUN",
+  "registered_skill_refresh": "NOT_RUN"
+}

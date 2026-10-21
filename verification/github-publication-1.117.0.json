@@ -1,0 +1,63 @@
+{
+  "version": "1.117.0",
+  "change_id": "CW-20261021-06",
+  "origin": "chatgpt-work",
+  "commit": "868bc6ac3dec179141e292c0097c6e0fb52d01cf",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.117.0",
+  "tag_matches_source": true,
+  "workflows": [
+    {
+      "id": 39601369703,
+      "name": "Publish verified Studio release",
+      "conclusion": "success"
+    },
+    {
+      "id": 39601369901,
+      "name": "Check Studio sources",
+      "conclusion": "success"
+    }
+  ],
+  "assets": [
+    {
+      "name": "framecore-motion-player-1.117.0.html",
+      "sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "framecore-work-creative-studio-1.117.0.zip",
+      "sha256": "970d0ebe08aa738a2ac1fa2522f92af2a1fcf6209c2d75e52bb7cbf4a984d9cd",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "framecore-work-creative-studio-1.117.0.zip.inventory.json",
+      "sha256": "700544905964b36c4ecc357fc6175cf5370c3ecc57963eef344527fbb6330bd5",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "framecore-works-creative-studio-1.117.0-repository.zip",
+      "sha256": "0ed0cac4cb54c583c5ec7a48d9da79481b87e324d6276ffc989bdce6189397ea",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": false
+    },
+    {
+      "name": "framecore-works-creative-studio-1.117.0-repository.zip.inventory.json",
+      "sha256": "94925ce29c63e2dd7bff374f6ecb6fa0521790a117b447b742fba1180c0bb47b",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "9c1d214510fba9c3a63e9f8cb1f76f1f6d553da605d2ee820759345c65461a33",
+      "downloaded_bytes_match_github_digest": true,
+      "downloaded_bytes_match_local": false
+    }
+  ],
+  "plugin_files_matching_source_tree": 1534,
+  "repository_files_matching_source_tree": 2223,
+  "repository_archive_prefix": "framecore-works-creative-studio/",
+  "local_archive_difference": "Repository ZIP uses the checkout directory as its archive prefix (local repo/ versus CI framecore-works-creative-studio/); normalized files verified against the source tree, checksum file verified against downloaded assets",
+  "host_behavior": "NOT_RUN"
+}

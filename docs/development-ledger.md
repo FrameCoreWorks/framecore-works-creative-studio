@@ -2874,7 +2874,7 @@ Cross-host state:
 - Origin: chatgpt-work
 - Branch: `main`, fast-forwarded into `main` under the owner's standing rule
 - Baseline: `342759e` (main, package 1.116.0); full SHA in the commit trailer
-- Result: the release commit carrying this entry (package 1.117.0)
+- Result: `868bc6ac3dec179141e292c0097c6e0fb52d01cf` (package 1.117.0); this documentation-only follow-up records publication and saved-plugin verification
 - Package version: 1.116.0 -> 1.117.0
 - Scope: Owner-requested supplemental motion/data/taste knowledge: source-bound visual arguments, revision-bound feedback, evidence-led creative judgment and scoped preferences connected to existing owners, preserving FrameCut full-board acceptance and private integrations.
 - Shared package changed: yes; 18 changed, 1 added, 0 removed ([scope](../verification/scope-1.117.0.json))
@@ -2886,8 +2886,10 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: synchronized. Source `868bc6ac3dec179141e292c0097c6e0fb52d01cf`, tag `v1.117.0`; source and publication workflows succeeded. Six downloaded assets verified against their digests and checksums; 1534 plugin files and 2223 repository files match the source tree. [Publication](../verification/github-publication-1.117.0.json).
+- ChatGPT Work: synchronized at saved-package level. Hosted 1.117.0 / `pluginrel_6ad8b55506248191b140981560a9921a`. All 19 updated paths compared: 18 byte-identical; the Codex manifest has service-normalized formatting and identical parsed JSON. Eight existing private overlays preserved; complete 1583-path inventory as expected. App binding unchanged; omitted-file sizes unchanged. [Readback](../verification/hosted-sync-1.117.0.json). Fresh installed-client behavior remains NOT_RUN.
 - Codex: not_run
 
 Supplemental knowledge verification: [two fresh-context source-guided tasks](../verification/creative-knowledge-2026-10-21.json) passed within their textual scope, with raw artifacts retained and independent arithmetic/event mapping checks. This is not fresh installed-client behavior or visual-media QA.
+
+Branch inventory at publication: only `main`, `gh-pages` and pre-existing `ccr-b6d36a1c-4hszow` (`daab5828bdd4025280ebe2af5f5d5cccacae4a5c`, already merged into source `868bc6a`). No branch created or deleted.
