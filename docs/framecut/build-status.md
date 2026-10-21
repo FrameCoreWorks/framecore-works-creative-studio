@@ -8,6 +8,8 @@ Native boards retain awaiting-user-review status. The agent must add meaningful 
 
 Verification includes synthetic decoded-video, still, audio and lifecycle tests plus a fresh-context source-guided task that splits one clip, preserves all 45 source/animation positions, applies zoom only to the vertical variant, produces nine panels per variant including the requested action moment, and stops for feedback without rendering video. This is sandbox evidence, not a fresh installed ChatGPT/mobile/Codex/Claude client test. Limits: variable-speed audio changes pitch; automatic dead-worker detection requires Linux process identity; cancelled work resumes as a linked job using valid stage caches, not inside an unfinished encoder; native transforms use bounded CPU/Pillow frames. User creative acceptance and real client tests remain separate. Versioned release and hosted-sync records carry actual gate/publication outcomes.
 
+Saved-package readback for 1.116.0 is complete: all 36 updated files match the private-overlay-preserving candidate, all 1582 hosted paths match the expected inventory, and the retained App binding is unchanged. The current Work catalog exposes the updated FrameCut skill; its 36 updated package files match that candidate and its nine effect fixtures pass from the installed path. This does not replace fresh dialogue/mobile testing. See [hosted verification](../../verification/hosted-sync-1.116.0.json).
+
 ## Historical 1.113.0 foundation
 
 ## 1.114.0 orchestration and onboarding follow-up, 2026-10-21

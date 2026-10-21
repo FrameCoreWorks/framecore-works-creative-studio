@@ -2865,6 +2865,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: synchronized. Release source `047d65ce6feae54bb97592e80e40efe1b899c1db`, tag `v1.116.0`; workflows 39595390264, 39595390287 and 39595390330 succeeded. Six downloaded assets verified; 1533 plugin files and 2209 repository files match the source tree. Source CI: 236 Node passes / 2 skipped, 481 Python passes / 8 skipped; all 63 FrameCut tests ran. Strict Claude manifest validation passes in CI. [Publication](../verification/github-publication-1.116.0.json).
+- ChatGPT Work: synchronized at saved-package level. Source `047d65ce6feae54bb97592e80e40efe1b899c1db`; hosted 1.116.0 / `pluginrel_6ad8a7f7bbac8191b9f207b9e39a4ee9`. All 36 updated paths are byte-identical to the candidate retaining seven existing private overlays; all 1582 paths retained as expected. App binding unchanged; retired Sunra MCP paths absent. [Readback](../verification/hosted-sync-1.116.0.json). Fresh installed-client behavior remains NOT_RUN.
 - Codex: not_run

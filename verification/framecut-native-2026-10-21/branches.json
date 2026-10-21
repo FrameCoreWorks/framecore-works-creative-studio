@@ -1,0 +1,21 @@
+{
+  "source_release": "047d65ce6feae54bb97592e80e40efe1b899c1db",
+  "observed_at": "2026-10-21",
+  "branches": [
+    {
+      "name": "main",
+      "sha": "047d65ce6feae54bb97592e80e40efe1b899c1db"
+    },
+    {
+      "name": "gh-pages",
+      "sha": "4efb7b98d92ae1cfccdf3fc4eff7ab0fdc927bdf"
+    },
+    {
+      "name": "ccr-b6d36a1c-4hszow",
+      "sha": "daab5828bdd4025280ebe2af5f5d5cccacae4a5c",
+      "merged_into_main": true,
+      "action": "preserved existing branch; owner controls deletion"
+    }
+  ],
+  "note": "Publication-evidence follow-up changes only repository records; no additional package release or hosted update."
+}

@@ -1,0 +1,287 @@
+{
+  "version": "1.116.0",
+  "source_commit": "047d65ce6feae54bb97592e80e40efe1b899c1db",
+  "change_id": "CW-20261021-05",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "baseline_release_id": "pluginrel_6ad871c551e081918f643baaaeb5b3bc",
+  "release_id": "pluginrel_6ad8a7f7bbac8191b9f207b9e39a4ee9",
+  "scope": "USER",
+  "discoverability": "PRIVATE",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "update_paths": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "comparison": "shared_equal",
+      "sha256": "a5b921217bb08c04ea17b83fb753a9f7134e2888075a99e067c7ecdf7cf656aa",
+      "readback": "byte_identical",
+      "readback_sha256": "a5b921217bb08c04ea17b83fb753a9f7134e2888075a99e067c7ecdf7cf656aa"
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "comparison": "private_overlay_preserved",
+      "sha256": "b83b2f7c6346a81632a32729e441f5b4e468257e415c40a2f79af0915eeca6f6",
+      "readback": "byte_identical",
+      "readback_sha256": "b83b2f7c6346a81632a32729e441f5b4e468257e415c40a2f79af0915eeca6f6"
+    },
+    {
+      "path": "README.md",
+      "comparison": "private_overlay_preserved",
+      "sha256": "4b6c8f88d25a795f906843bf740e0912d079a671e2740e5736c4633adeb884c0",
+      "readback": "byte_identical",
+      "readback_sha256": "4b6c8f88d25a795f906843bf740e0912d079a671e2740e5736c4633adeb884c0"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "comparison": "shared_equal",
+      "sha256": "2957d027f21fbc1166e41689a177bdde97f779fecfb896606c86e290cd08c054",
+      "readback": "byte_identical",
+      "readback_sha256": "2957d027f21fbc1166e41689a177bdde97f779fecfb896606c86e290cd08c054"
+    },
+    {
+      "path": "docs/release-history.md",
+      "comparison": "private_overlay_preserved",
+      "sha256": "17375b950e10ffd3cf03a5aac0c3441ee0884ca6e0bbd82a2c45dbd0ff59d1af",
+      "readback": "byte_identical",
+      "readback_sha256": "17375b950e10ffd3cf03a5aac0c3441ee0884ca6e0bbd82a2c45dbd0ff59d1af"
+    },
+    {
+      "path": "plugin.json",
+      "comparison": "private_overlay_preserved",
+      "sha256": "00619d8c2716a437ca8aa3bb278bf95fdd008140fb753c43fb2a7c5c75e096a0",
+      "readback": "byte_identical",
+      "readback_sha256": "00619d8c2716a437ca8aa3bb278bf95fdd008140fb753c43fb2a7c5c75e096a0"
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "comparison": "private_overlay_preserved",
+      "sha256": "9e5dd9917ff4a58c1a85e00a7db9af6f654993175b5594c9c48245bbb3cd0179",
+      "readback": "byte_identical",
+      "readback_sha256": "9e5dd9917ff4a58c1a85e00a7db9af6f654993175b5594c9c48245bbb3cd0179"
+    },
+    {
+      "path": "skills/opencut-video-studio/SKILL.md",
+      "comparison": "private_overlay_preserved",
+      "sha256": "aac55a68115c3d6560c5a9724c26027e8b19f71e7755912a48e22671f3f0b5b5",
+      "readback": "byte_identical",
+      "readback_sha256": "aac55a68115c3d6560c5a9724c26027e8b19f71e7755912a48e22671f3f0b5b5"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/README.md",
+      "comparison": "shared_equal",
+      "sha256": "3207d85332dd9a8342a1be423759473d310373937e9c5d7f24e5c8c44689f3fe",
+      "readback": "byte_identical",
+      "readback_sha256": "3207d85332dd9a8342a1be423759473d310373937e9c5d7f24e5c8c44689f3fe"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/blur.json",
+      "comparison": "new_shared",
+      "sha256": "4cb10bcd3cabd95021cfbd4870dc016e1f15907a05be7e3bdbbf83f8ef0f3d92",
+      "readback": "byte_identical",
+      "readback_sha256": "4cb10bcd3cabd95021cfbd4870dc016e1f15907a05be7e3bdbbf83f8ef0f3d92"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/brightness.json",
+      "comparison": "new_shared",
+      "sha256": "3ac12960b3472a1863f4ae552f0a76414c4124b2aac7ec8887c344eac5a1c5e5",
+      "readback": "byte_identical",
+      "readback_sha256": "3ac12960b3472a1863f4ae552f0a76414c4124b2aac7ec8887c344eac5a1c5e5"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/contrast.json",
+      "comparison": "new_shared",
+      "sha256": "b92b062c24894040bc73a3ad35183df182a7230f8900c92e76a42f1aa58befac",
+      "readback": "byte_identical",
+      "readback_sha256": "b92b062c24894040bc73a3ad35183df182a7230f8900c92e76a42f1aa58befac"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/denoise.json",
+      "comparison": "new_shared",
+      "sha256": "ac86cdeef28ec283618ec7a3e7e5f3259d7f6f3e3df152289bb77d5616874d76",
+      "readback": "byte_identical",
+      "readback_sha256": "ac86cdeef28ec283618ec7a3e7e5f3259d7f6f3e3df152289bb77d5616874d76"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/grayscale.json",
+      "comparison": "new_shared",
+      "sha256": "dab872fb0420711074408247d927e8d76c894500037550edcd66186b07ab47a9",
+      "readback": "byte_identical",
+      "readback_sha256": "dab872fb0420711074408247d927e8d76c894500037550edcd66186b07ab47a9"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/highpass.json",
+      "comparison": "new_shared",
+      "sha256": "6976ddaffb3adffb4c768f89dcaa141e843107b349d23edf55ae7bde27a0ad33",
+      "readback": "byte_identical",
+      "readback_sha256": "6976ddaffb3adffb4c768f89dcaa141e843107b349d23edf55ae7bde27a0ad33"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/lowpass.json",
+      "comparison": "new_shared",
+      "sha256": "d84424e6520b09e489e6134529e9538ac2f85a49bb2c33c05753a0aad272cd9e",
+      "readback": "byte_identical",
+      "readback_sha256": "d84424e6520b09e489e6134529e9538ac2f85a49bb2c33c05753a0aad272cd9e"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/saturation.json",
+      "comparison": "new_shared",
+      "sha256": "924c73ad77cac0f1b1bf1b7974eb5f64abbfe19a1a887d3b87abb02ee61bf273",
+      "readback": "byte_identical",
+      "readback_sha256": "924c73ad77cac0f1b1bf1b7974eb5f64abbfe19a1a887d3b87abb02ee61bf273"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/effects/vignette.json",
+      "comparison": "new_shared",
+      "sha256": "119eaef31ae727d83b128b044700e88557d154d49ec0b7ad5b5954d778261a49",
+      "readback": "byte_identical",
+      "readback_sha256": "119eaef31ae727d83b128b044700e88557d154d49ec0b7ad5b5954d778261a49"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_audio.py",
+      "comparison": "new_shared",
+      "sha256": "3101097cb7277d8537108481440819b30dbccee0ae56f6c3e43c4537b26eb8ca",
+      "readback": "byte_identical",
+      "readback_sha256": "3101097cb7277d8537108481440819b30dbccee0ae56f6c3e43c4537b26eb8ca"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_board.py",
+      "comparison": "new_shared",
+      "sha256": "927bd29590715f3c5423b17fbe85412078f1f21e866d621073476ddc504bfa81",
+      "readback": "byte_identical",
+      "readback_sha256": "927bd29590715f3c5423b17fbe85412078f1f21e866d621073476ddc504bfa81"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_captions.py",
+      "comparison": "shared_equal",
+      "sha256": "6b41e8e3a38b3bb0085a84f5a95e87d02e974d55827a5e4ea10f5453d14bcf4c",
+      "readback": "byte_identical",
+      "readback_sha256": "6b41e8e3a38b3bb0085a84f5a95e87d02e974d55827a5e4ea10f5453d14bcf4c"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "comparison": "shared_equal",
+      "sha256": "882893bfd8576b671b6a50030e5e0317a23d2c508b8475aa9e0b5d26825e49e4",
+      "readback": "byte_identical",
+      "readback_sha256": "882893bfd8576b671b6a50030e5e0317a23d2c508b8475aa9e0b5d26825e49e4"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_edit.py",
+      "comparison": "new_shared",
+      "sha256": "164e377711a258e6305ec2497312d4e73ea4437982e6eb8c5165df1cea10af67",
+      "readback": "byte_identical",
+      "readback_sha256": "164e377711a258e6305ec2497312d4e73ea4437982e6eb8c5165df1cea10af67"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_effects.py",
+      "comparison": "new_shared",
+      "sha256": "bed50917c583d999f4e8b39b27bfed5782dd94f011cb77318fd6736797e6f527",
+      "readback": "byte_identical",
+      "readback_sha256": "bed50917c583d999f4e8b39b27bfed5782dd94f011cb77318fd6736797e6f527"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_jobs.py",
+      "comparison": "new_shared",
+      "sha256": "5708f80a84f8d5f9eab06c2309e66646eef057a365f50687f9716dbf854417ac",
+      "readback": "byte_identical",
+      "readback_sha256": "5708f80a84f8d5f9eab06c2309e66646eef057a365f50687f9716dbf854417ac"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_media.py",
+      "comparison": "shared_equal",
+      "sha256": "e0acb36cdb3dda9d703be8c794ce7256db607063496a5d8426051103ed8f4a4a",
+      "readback": "byte_identical",
+      "readback_sha256": "e0acb36cdb3dda9d703be8c794ce7256db607063496a5d8426051103ed8f4a4a"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_picture.py",
+      "comparison": "new_shared",
+      "sha256": "86a86af844dbcdec48daa1189492ec02b55c624020e233ef06e9c5895ed3fe37",
+      "readback": "byte_identical",
+      "readback_sha256": "86a86af844dbcdec48daa1189492ec02b55c624020e233ef06e9c5895ed3fe37"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "comparison": "shared_equal",
+      "sha256": "a39708a3f972f191df9c4133f62cd4c1fccfaf6aca350ca7a6247ef5b1b78d7a",
+      "readback": "byte_identical",
+      "readback_sha256": "a39708a3f972f191df9c4133f62cd4c1fccfaf6aca350ca7a6247ef5b1b78d7a"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "comparison": "new_shared",
+      "sha256": "af5d42a340b5fa64626aa5cd5debd83ea590066ad6835a1b59a8b4170156d1d4",
+      "readback": "byte_identical",
+      "readback_sha256": "af5d42a340b5fa64626aa5cd5debd83ea590066ad6835a1b59a8b4170156d1d4"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/framecut.py",
+      "comparison": "shared_equal",
+      "sha256": "7095f739c80fe781aaae30d8925cf5de5b7486109c24b75f71b1844e301920e0",
+      "readback": "byte_identical",
+      "readback_sha256": "7095f739c80fe781aaae30d8925cf5de5b7486109c24b75f71b1844e301920e0"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/schema.json",
+      "comparison": "shared_equal",
+      "sha256": "7b97209bb6d1fbf02c48eea82b24baffa1dbc303a82249a8b5282bf04cdba908",
+      "readback": "byte_identical",
+      "readback_sha256": "7b97209bb6d1fbf02c48eea82b24baffa1dbc303a82249a8b5282bf04cdba908"
+    },
+    {
+      "path": "skills/pipeline-core/assets/project-state.md",
+      "comparison": "shared_equal",
+      "sha256": "b56f17989ddc4659f93e8e29c3f3950a4f3f379d5fc3c5fb18453ef34f805dc7",
+      "readback": "byte_identical",
+      "readback_sha256": "b56f17989ddc4659f93e8e29c3f3950a4f3f379d5fc3c5fb18453ef34f805dc7"
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "comparison": "shared_equal",
+      "sha256": "a9b04c4ef258aafa561d6d533582ec39517a33df472c4f0f80fb6386f08ff646",
+      "readback": "byte_identical",
+      "readback_sha256": "a9b04c4ef258aafa561d6d533582ec39517a33df472c4f0f80fb6386f08ff646"
+    },
+    {
+      "path": "skills/storyboard-board-architect/SKILL.md",
+      "comparison": "shared_equal",
+      "sha256": "cb307d77c3b339e0efc6d60e3ed351ddf344cb889c75dfbec7207013a62e88c7",
+      "readback": "byte_identical",
+      "readback_sha256": "cb307d77c3b339e0efc6d60e3ed351ddf344cb889c75dfbec7207013a62e88c7"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "comparison": "private_overlay_preserved",
+      "sha256": "e1d34169494dee6461816e55015cf3ceeef5396601ef9c0626fc46afa8f97fc2",
+      "readback": "byte_identical",
+      "readback_sha256": "e1d34169494dee6461816e55015cf3ceeef5396601ef9c0626fc46afa8f97fc2"
+    },
+    {
+      "path": "tests/framecut_development_test.py",
+      "comparison": "new_shared",
+      "sha256": "895e6ed4aebd8b68618c4561493dd89e8afd9158a1b1123c7f529bfe16690650",
+      "readback": "byte_identical",
+      "readback_sha256": "895e6ed4aebd8b68618c4561493dd89e8afd9158a1b1123c7f529bfe16690650"
+    }
+  ],
+  "inventory": {
+    "before": 1565,
+    "after": 1582,
+    "added": 17,
+    "removed": 0,
+    "unexpected": 0,
+    "enumeration": "complete"
+  },
+  "app_binding": "byte_identical retained",
+  "private_overlay": "49 private paths retained; seven edited shared paths preserve their baseline private additions via conflict-free three-way merge",
+  "sunra_mcp": "both retired MCP paths remain absent",
+  "host_behavior": "NOT_RUN",
+  "comparison_scope": "All 36 uploaded paths plus retained App binding read back; complete path inventory compared. No full-package byte equality claim for untouched files.",
+  "environment_probe": "framecut-native-2026-10-21/environment.json",
+  "registered_work_package": {
+    "catalog_version": "1.116.0",
+    "skill": "opencut-video-studio",
+    "updated_paths_matching_saved_candidate": 36,
+    "effects_fixture_checks": 9,
+    "status": "PASS",
+    "scope": "Current Work catalog readable and packaged CLI executable; not a fresh dialogue/mobile test"
+  }
+}

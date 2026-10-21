@@ -232,11 +232,13 @@
   ],
   "review": "Owner-requested native FrameCut development: composited full storyboards, transactional editing, durable jobs, keyframes/framing, freeze/speed ramps and versioned effects, with existing onboarding and storyboard approval orchestration preserved.",
   "source": "Release 1.116.0: native FrameCut editing and storyboard workflow",
-  "github_publication": "NOT_RUN",
+  "github_publication": "PASS; github-publication-1.116.0.json",
   "host_behavior": "NOT_RUN",
   "framecut_evidence": [
     "framecut-native-2026-10-21/media-scope.json",
     "framecut-native-2026-10-21/workflow.json"
   ],
-  "full_gate_log_sha256": "a820c19ceeca985e1067a7eaefca8fe5c201ce729c6f58f48454dabbabfe5e5b"
+  "full_gate_log_sha256": "a820c19ceeca985e1067a7eaefca8fe5c201ce729c6f58f48454dabbabfe5e5b",
+  "source_commit": "047d65ce6feae54bb97592e80e40efe1b899c1db",
+  "hosted_saved_package": "PASS; hosted-sync-1.116.0.json"
 }

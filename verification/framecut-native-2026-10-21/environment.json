@@ -1,0 +1,253 @@
+{
+  "version": "1.116.0",
+  "host": "chatgpt_work",
+  "scope": "Current Linux sandbox read-only complete inventory; no fresh-client or remote runtime claim",
+  "command": "python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host chatgpt_work --json",
+  "verdict": "limited",
+  "total": 59,
+  "counts": {
+    "ok": 38,
+    "missing": 21
+  },
+  "tools": [
+    {
+      "id": "hyperframes",
+      "status": "ok"
+    },
+    {
+      "id": "remotion",
+      "status": "ok"
+    },
+    {
+      "id": "animate_engine",
+      "status": "missing"
+    },
+    {
+      "id": "manim",
+      "status": "missing"
+    },
+    {
+      "id": "blender",
+      "status": "missing"
+    },
+    {
+      "id": "ffmpeg",
+      "status": "ok"
+    },
+    {
+      "id": "ffprobe",
+      "status": "ok"
+    },
+    {
+      "id": "imageio_ffmpeg",
+      "status": "missing"
+    },
+    {
+      "id": "ffmpeg_fallback",
+      "status": "missing"
+    },
+    {
+      "id": "scenedetect",
+      "status": "missing"
+    },
+    {
+      "id": "opencv",
+      "status": "missing"
+    },
+    {
+      "id": "autoeditor",
+      "status": "missing"
+    },
+    {
+      "id": "librosa",
+      "status": "missing"
+    },
+    {
+      "id": "whisper",
+      "status": "ok"
+    },
+    {
+      "id": "whisper_tiny",
+      "status": "ok"
+    },
+    {
+      "id": "deepfilter",
+      "status": "missing"
+    },
+    {
+      "id": "imagemagick",
+      "status": "ok"
+    },
+    {
+      "id": "inkscape",
+      "status": "ok"
+    },
+    {
+      "id": "cairosvg",
+      "status": "missing"
+    },
+    {
+      "id": "pillow",
+      "status": "ok"
+    },
+    {
+      "id": "numpy",
+      "status": "ok"
+    },
+    {
+      "id": "matplotlib",
+      "status": "ok"
+    },
+    {
+      "id": "fonttools",
+      "status": "ok"
+    },
+    {
+      "id": "tesseract",
+      "status": "ok"
+    },
+    {
+      "id": "pytesseract",
+      "status": "missing"
+    },
+    {
+      "id": "ocr_pol",
+      "status": "missing"
+    },
+    {
+      "id": "react",
+      "status": "ok"
+    },
+    {
+      "id": "react_dom",
+      "status": "ok"
+    },
+    {
+      "id": "gsap",
+      "status": "ok"
+    },
+    {
+      "id": "three",
+      "status": "ok"
+    },
+    {
+      "id": "react_three_fiber",
+      "status": "ok"
+    },
+    {
+      "id": "pixi",
+      "status": "ok"
+    },
+    {
+      "id": "d3_scale",
+      "status": "ok"
+    },
+    {
+      "id": "lottie",
+      "status": "ok"
+    },
+    {
+      "id": "mediabunny",
+      "status": "ok"
+    },
+    {
+      "id": "remotion_cli",
+      "status": "ok"
+    },
+    {
+      "id": "remotion_renderer",
+      "status": "ok"
+    },
+    {
+      "id": "remotion_three",
+      "status": "ok"
+    },
+    {
+      "id": "cairo",
+      "status": "ok"
+    },
+    {
+      "id": "pango",
+      "status": "ok"
+    },
+    {
+      "id": "manimpango",
+      "status": "missing"
+    },
+    {
+      "id": "pycairo",
+      "status": "missing"
+    },
+    {
+      "id": "latex",
+      "status": "ok"
+    },
+    {
+      "id": "dvisvgm",
+      "status": "missing"
+    },
+    {
+      "id": "typst",
+      "status": "missing"
+    },
+    {
+      "id": "lxml",
+      "status": "ok"
+    },
+    {
+      "id": "python",
+      "status": "ok"
+    },
+    {
+      "id": "python_manim",
+      "status": "missing"
+    },
+    {
+      "id": "python_blender",
+      "status": "missing"
+    },
+    {
+      "id": "node",
+      "status": "ok"
+    },
+    {
+      "id": "npm",
+      "status": "ok"
+    },
+    {
+      "id": "npx",
+      "status": "ok"
+    },
+    {
+      "id": "typescript",
+      "status": "ok"
+    },
+    {
+      "id": "esbuild",
+      "status": "ok"
+    },
+    {
+      "id": "uv",
+      "status": "ok"
+    },
+    {
+      "id": "micromamba",
+      "status": "missing"
+    },
+    {
+      "id": "playwright",
+      "status": "ok"
+    },
+    {
+      "id": "browser_animate",
+      "status": "missing"
+    },
+    {
+      "id": "browser",
+      "status": "ok"
+    }
+  ],
+  "installs_nothing": true,
+  "network_used": false,
+  "notes": "21 unrelated optional/specialist components are absent in this sandbox. New native FrameCut paths use available Python, Pillow and FFmpeg; no model or provider installation was requested."
+}
