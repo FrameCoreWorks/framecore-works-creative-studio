@@ -2825,9 +2825,11 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized source `aea1191742f5ae2747610a8a9e8625cfd4217037`, published v1.115.0. Release workflow 39566291015 and source checks 39566290875 passed. All six downloaded assets verified; 1516 plugin files and 2184 repository files match the source tree. The repository ZIP differs from the local ZIP only in its checkout-directory prefix; normalized content is verified. Description-refresh correction `732ae4b` passed workflow 39567350696 and release-body readback. [Publication](../verification/github-publication-1.115.0.json).
 - ChatGPT Work: synchronized saved 1.115.0 / `pluginrel_6ad871c551e081918f643baaaeb5b3bc`, after repository source `aea1191742f5ae2747610a8a9e8625cfd4217037` was published and read back. All 17 affected files verified (16 byte-identical, Codex manifest JSON-equivalent); App binding and all 1565 paths preserved, including private integrations and Sunra MCP retirement. [Readback](../verification/hosted-sync-1.115.0.json). Fresh-client behavior NOT_RUN.
 - Codex: not_run
 
 
 Publication follow-up: the description-refresh workflow initially rejected the release-notes heading because it expects the exact `# Creative Studio 1.115.0` prefix. The repository-only correction changes that heading and retains the release tag/assets; the failure and corrected run are recorded separately. The shared package is unchanged and needs no second hosted update. Git write credentials were unavailable; the authenticated connector published the tested identical tree with a guarded fast-forward. Local preparatory commits were reconciled to that remote tree without changing source content.
+
+Final branch inventory: `main`, `gh-pages`, and existing `ccr-b6d36a1c-4hszow` at `daab5828bdd4025280ebe2af5f5d5cccacae4a5c`. The latter is already merged into main and remains untouched. No branches created or deleted.

@@ -228,7 +228,7 @@
   ],
   "review": "Owner-requested FrameCut workflow: adaptive onboarding, full-film visual storyboards/contact sheets, user feedback and corrected-board acceptance before final rendering; video samples optional on request.",
   "source": "Release 1.115.0: require complete FrameCut storyboards before final rendering",
-  "github_publication": "NOT_RUN",
+  "github_publication": "PUBLISHED_AND_VERIFIED",
   "host_behavior": "NOT_RUN",
   "publication": {
     "source_commit": "aea1191742f5ae2747610a8a9e8625cfd4217037",
@@ -236,7 +236,10 @@
       "id": 39566291015,
       "status": "success"
     },
-    "source_workflow": "in_progress at this checkpoint",
-    "note": "Final asset and source-workflow readback follows in github-publication-1.115.0.json."
+    "source_workflow": {
+      "id": 39566290875,
+      "status": "success"
+    },
+    "note": "All six downloaded release assets verified; 1516 plugin files and 2184 repository files match source. See github-publication-1.115.0.json, including original description-refresh failure and corrected successful run."
   }
 }
