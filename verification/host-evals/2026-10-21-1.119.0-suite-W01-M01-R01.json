@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-21",
+  "package_version": "1.119.0",
+  "source": {
+    "commit": "bc6d4eb1c7c8003db5439f9f7d51e701c6b1e28e",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "df484c946564c28cba3ee9686e141bbdf175fd19bd538486062427b1828ee5e3",
+      "files": 1538,
+      "archive": "candidates/df484c946564c28cba3ee9686e141bbdf175fd19bd538486062427b1828ee5e3.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.306, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "28875f5be2b7f1c1adc9dbbec84a6d50e63c27bf5df0c287f5c1f1277864e406",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 3,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3641,
+      "output": 5992,
+      "cache_read": 59183,
+      "cache_write": 56457
+    },
+    "seconds": 62.3
+  },
+  "cases": [
+    {
+      "id": "W01",
+      "title": "Polish greeting with the Studio name gives the complete Polish welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1186,
+        "output": 1140,
+        "cache_read": 20072,
+        "cache_write": 20835
+      },
+      "seconds": 9.5,
+      "wall_seconds": 9.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+          "reply_chars": 2087,
+          "reply_sha256": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 1140,
+            "cache_read": 20072,
+            "cache_write": 20835
+          },
+          "seconds": 9.5,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            },
+            {
+              "check": {
+                "skills": [
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M01",
+      "title": "App promo video: one short choice between a generator prompt and a coded MP4",
+      "source": "evals/motion-sound-cases.json#MS01",
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1232,
+        "output": 1414,
+        "cache_read": 19563,
+        "cache_write": 21687
+      },
+      "seconds": 14.1,
+      "wall_seconds": 14.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 15-sekundowy film promocyjny mojej aplikacji do nauki słówek. Mam trzy zrzuty ekranu.",
+          "reply": "Nie widzę żadnych zrzutów ekranu. W katalogu roboczym nie ma plików PNG, JPG ani WebP, a załączniki nie dotarły do tej sesji. Wgraj proszę te trzy pliki do katalogu `/tmp/studio-eval-1_3zsfrk/work` albo dołącz je ponownie do wiadomości.\n\nFilm złożę z tych zrzutów jako animację kodem, czyli ruch ekranów, napisy i dźwięk. Wyrenderuję go do MP4 w trybie Motion Graphics Workflow. Zanim zacznę, potrzebuję czterech informacji:\n\n1. **Nazwa aplikacji i jedno zdanie, co robi.** Na przykład „fiszki z powtórkami w odstępach\" albo „nauka słówek z gier\". Nie dopisuję funkcji, których nie podasz.\n2. **Format.** Pionowy 9:16 (Reels, TikTok, Shorts) czy poziomy 16:9? Domyślnie dam 9:16.\n3. **Wezwanie do działania na końcu.** Na przykład „Pobierz w App Store / Google Play\" albo „Wypróbuj za darmo\". Może też być sama nazwa aplikacji.\n4. **Język napisów w filmie.** Domyślnie polski.\n\nOpcjonalnie możesz dołączyć logo, kolory marki i podać, czy wolisz muzykę energiczną, czy spokojną. Jeśli nic nie podasz, dobiorę je do zrzutów.\n\nGdy tylko wrzucisz zrzuty, od razu przygotuję plan 15 sekund i wyrenderuję film.",
+          "reply_chars": 1104,
+          "reply_sha256": "8a591331933e0f978e4b439094f1c8f9e119541a90414af31c6d194bc980fe76",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1232,
+            "output": 1414,
+            "cache_read": 19563,
+            "cache_write": 21687
+          },
+          "seconds": 14.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "MP4"
+              },
+              "passed": true,
+              "detail": "/MP4/"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "1 question marks (max 2)"
+            },
+            {
+              "check": {
+                "no_command": "render"
+              },
+              "passed": true,
+              "detail": "not run"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "R01",
+      "title": "Store campaign routes to the ecommerce campaign director, not generic marketing",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1223,
+        "output": 3438,
+        "cache_read": 19548,
+        "cache_write": 13935
+      },
+      "seconds": 38.7,
+      "wall_seconds": 38.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio zaplanuj kampanię w social media dla mojego sklepu internetowego z miodem na premierę nowego smaku.",
+          "reply": "# Plan kampanii social media: premiera nowego smaku miodu\n\nTo wstępny plan. Nie znam sklepu, nowego smaku, ceny ani Twoich kanałów, więc w kilku miejscach są założenia. Oznaczyłem je jako **[do potwierdzenia]**.\n\n## 1. Fakty i założenia\n\n| Element | Status |\n|---|---|\n| Produkt: nowy smak miodu (np. z dodatkami, nowa odmiana albo nowe pochodzenie) | **[do potwierdzenia]** nazwa, skład, gramatura, cena |\n| Oferta premierowa (rabat, zestaw, darmowa dostawa, limit) | **[do potwierdzenia]**. Niczego nie zakładam, w tym ograniczonej ilości. |\n| Cel | Sprzedaż w pierwszych 2–3 tygodniach i zapisy na newsletter, żeby zbudować listę remarketingową |\n| Kanały | Zakładam Instagram (Reels, Stories, karuzele) i Facebook. TikTok dodajemy, jeśli macie czas na wideo. **[do potwierdzenia]** |\n| Dowody | Używamy tylko tego, co faktycznie macie: zdjęcia z pasieki, certyfikaty, prawdziwe opinie. Niczego nie wymyślam. |\n\n## 2. Odbiorcy\n\n- **Stali klienci.** Chcą nowości w znanym sklepie. Dostają dostęp wcześniej i powód do ponownego zakupu.\n- **Szukający prezentów** (zestawy, święta). Potrzebują ładnego opakowania i pewności, że zdążą z dostawą.\n- **Świadomi smaku** (kuchnia, herbata, śniadania). Ciekawi ich, jak używać nowego smaku.\n\nGłówna obawa: „czy to będzie smaczne i czy warto zapłacić więcej”. Odpowiadamy na nią degustacją, sposobami użycia i prawdziwymi opiniami po premierze.\n\n## 3. Teza kampanii\n\n**„Poznaj nowy smak [nazwa]”**. Kampania opiera się na doświadczeniu smaku, a nie na obietnicach zdrowotnych. Hasło i tekst napiszę z Tobą na etapie copy.\n\n## 4. Cztery kąty kreatywne\n\n1. **Smak i tekstura.** Zbliżenia, ciągnący się miód, łyżka, tost. Smak widać, więc ten kąt dobrze pasuje do wideo.\n2. **Historia powstania.** Skąd pochodzi, kto go robi, dlaczego ten smak. Pokazujemy tylko to, co jest prawdą.\n3. **Sposoby użycia.** Trzy szybkie pomysły: śniadanie, herbata, ser lub deser.\n4. **Prezent i zestaw.** Nowy smak razem z klasykiem, pakowanie, termin wysyłki.\n\n## 5. Harmonogram (około 4 tygodnie)\n\n| Etap | Czas | Cel | Treści |\n|---|---|---|---|\n| Zapowiedź | T−7 do T−1 | Zapisy na listę „wcześniejszy dostęp” | Teaser bez pokazywania pełnego produktu, ankieta na Stories („zgadnij smak”), tło produkcji |\n| Premiera | Dzień 0–3 | Pierwsza sprzedaż | Reel z odkryciem smaku, karuzela „co w środku”, Stories z linkiem, mailing do listy |\n| Rozwinięcie | Dzień 4–14 | Edukacja i przekonanie | Pomysły na użycie, pytania i odpowiedzi, materiały od klientów **tylko prawdziwe i za zgodą** |\n| Domknięcie | Dzień 15–21 | Zamknięcie sprzedaży | Remarketing do osób, które oglądały produkt, przypomnienie o końcu oferty (tylko jeśli oferta naprawdę ma termin), zestawy prezentowe |\n\n## 6. Macierz treści\n\n| Format | Rola | Kąt | Ile |\n|---|---|---|---|\n| Reel 15–25 s | Zasięg i pierwsze wrażenie | Smak | 3 |\n| Karuzela 5–7 slajdów | Edukacja, zapisy | Użycie, historia | 2 |\n| Stories (sekwencja 4–5) | Konwersja, ankiety | Wszystkie | 6–8 |\n| Post statyczny | Premiera, cena i oferta | Prezent | 2 |\n| Reklama płatna (remarketing) | Domknięcie sprzedaży | Smak, oferta | 2–3 warianty |\n\n## 7. Pierwszy test\n\n- **Hipoteza:** wideo z samym smakiem i teksturą da lepszy współczynnik kliknięć niż wideo z historią powstania.\n- **Zmieniamy tylko** kąt kreatywny. Oferta, odbiorcy, CTA i budżet zostają bez zmian.\n- **Mierzymy:** CTR do strony produktu, dodania do koszyka i koszt zakupu.\n- **Interpretacja:** jeśli różnica jest niewielka przy małej próbie, nie wyciągam wniosków. Wtedy zbieramy więcej danych.\n\n## 8. Ograniczenia w komunikacji\n\n- **Twierdzenia zdrowotne.** W UE obowiązują ścisłe zasady. Unikamy sformułowań typu „wzmacnia odporność”, „leczy”, „naturalny antybiotyk”. Stosujemy tylko dopuszczone i udokumentowane twierdzenia.\n- **Pochodzenie i skład.** „Polski”, „z własnej pasieki”, „surowy”, „bio” używamy tylko wtedy, gdy możecie to udokumentować.\n- **Opinie i UGC.** Tylko od prawdziwych klientów. Współprace z influencerami oznaczamy jako reklamę.\n- **Dane.** Nie podaję prognoz CTR ani ROAS. Pojawią się dopiero po realnych wynikach.\n\n## 9. Co jest potrzebne, żeby przejść do produkcji\n\n1. Nazwa i opis smaku, cena, gramatura, zdjęcia produktu.\n2. Oferta premierowa i jej daty.\n3. Kanały, na których jesteście, i wielkość listy mailingowej.\n4. Budżet na reklamy (przybliżony) i termin premiery.\n5. Dowody, które możecie pokazać: pasieka, certyfikaty, opinie.\n\n**Zacznę od jednego pytania: jaki to smak i kiedy premiera?** Na tej podstawie dopracuję tezę i hasło, a potem przygotuję teksty, scenariusze Reels i plan publikacji dzień po dniu.",
+          "reply_chars": 4579,
+          "reply_sha256": "a9c7b48ef632a158a70407c38d771a83c656a22a7072741aad0bf39bd4ad39eb",
+          "skills": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1223,
+            "output": 3438,
+            "cache_read": 19548,
+            "cache_write": 13935
+          },
+          "seconds": 38.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            },
+            {
+              "check": {
+                "max_questions": 2
+              },
+              "passed": true,
+              "detail": "1 question marks (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

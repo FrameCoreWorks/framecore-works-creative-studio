@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-21",
+  "package_version": "1.119.0",
+  "source": {
+    "commit": "bc6d4eb1c7c8003db5439f9f7d51e701c6b1e28e",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "0671de539dabb74d935e2b7556c13a1a17a8dcf1efef818c0557f55641beeb85",
+      "files": 1538,
+      "archive": "candidates/0671de539dabb74d935e2b7556c13a1a17a8dcf1efef818c0557f55641beeb85.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.306, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "c1d1b2c4279d6acc101c82a33b6a2e88ceda4596467d2dab842682c47db1c33e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1311,
+      "output": 3011,
+      "cache_read": 46855,
+      "cache_write": 31482
+    },
+    "seconds": 31.8
+  },
+  "cases": [
+    {
+      "id": "G12",
+      "title": "A service reel without pictures: Studio flags the type-only fallback, asks for or plans pictures, and names the first-second moment (owner's verdict on the 2026-10-16 test reel)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1311,
+        "output": 3011,
+        "cache_read": 46855,
+        "cache_write": 31482
+      },
+      "seconds": 31.8,
+      "wall_seconds": 31.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób rolkę reklamową 20 s, 9:16, dla zakładu szewskiego Fleczek w Poznaniu: wymiana fleków w 20 minut, nowa podeszwa w 3 dni, telefon 600 000 000. Nie mam żadnych zdjęć. Najpierw pokaż mi plan, jeszcze nic nie buduj.",
+          "reply": "Nic jeszcze nie buduję. Poniżej jest plan do akceptacji.\n\n## Pomysł: „Zegar na obcasie”\nOdrzucam oczywiste skojarzenia: brązową skórę, młotek, ciepłe „rzemieślnicze” zdjęcie buta. Ta reklama sprzedaje czas, bo oba Twoje fakty to liczby: 20 minut i 3 dni. Odliczanie jest więc główną ideą:\n- Pierwszy ekran to ogromny licznik **20:00**, który tyka w dół.\n- Gdy dochodzi do zera, nowy flek zatrzaskuje się na zdartym obcasie.\n- Potem „20 min” zamienia się w kalendarz „3 dni” i nową podeszwę.\n\n**Powód, żeby wybrać Fleczek:** jest szybko i z konkretnym terminem. Używam tylko podanych faktów. Nie wymyślam cen, tradycji ani „lat doświadczenia”.\n\n## Storyboard (20 s, 9:16, 30 fps, 600 klatek)\n| Czas | Co widać | Tekst na ekranie |\n|---|---|---|\n| 0–3 s | **Hook:** cały kadr wypełnia cyfra „20:00”, licznik szybko odlicza. Pod nim wyłania się zdarty obcas. | „Zdarty obcas?” |\n| 3–8 s | **Wielki moment:** licznik dochodzi do 00:00, a nowy flek wskakuje na obcas (uderzenie, drobny wstrząs kadru). | „Wymiana fleków w 20 minut” |\n| 8–14 s | Cyfra „20” zmienia się w kalendarz, który przeskakuje 1 → 2 → 3. Stara podeszwa odpada, nowa się układa. | „Nowa podeszwa w 3 dni” |\n| 14–20 s | Logo albo nazwa, miasto i numer na pełną szerokość. Przy numerze przycisk „zadzwoń”. | „Fleczek · Poznań · 600 000 000” |\n\nNie dodaję rogowych etykiet, liczników rozdziałów ani paska postępu. Znak i telefon są częścią kompozycji, a w ostatniej scenie zostają na ekranie.\n\n## Obrazy (bez zdjęć)\nReklama lokalnej usługi potrzebuje obrazu. Realistycznego obcasa, buta ani dłoni nie narysuję w kodzie. Zostają trzy drogi:\n\n- **A (polecam).** Przygotuję 3 gotowe prompty do wygenerowania wycinanych obiektów: zdarty obcas, nowy flek i podeszwa. Wygenerujesz je w wybranym generatorze obrazów albo ja zrobię to w podłączonym narzędziu, jeśli je zatwierdzisz. Do tego dochodzi liczbowa typografia kodem.\n- **B.** Sam napis i animowane cyfry, bez obiektów. To słabszy wariant zapasowy, bo mniej przekonuje.\n- **C.** Zrobisz 3 krótkie zdjęcia telefonem w zakładzie (obcas, flek, podeszwa), a ja je wkomponuję. To najbardziej wiarygodne.\n\n## Do ustalenia\n- **Logo i kolory:** jeśli ich nie masz, zaproponuję paletę dopasowaną do pomysłu.\n- **Dźwięk:** domyślnie film będzie niemy. Mogę zaprojektować efekty (tykanie, uderzenie fleka) i krótką podkładkę.\n- **Adres i godziny:** nie mam ich, więc ich nie dodaję. Daj znać, jeśli mają być w ostatniej scenie.\n- **Technika:** przed budową sprawdzę, co mogę uruchomić (Node, FFmpeg, Chrome). Jeśli się nie da, dostaniesz plik `.motion.json` i odtwarzacz do eksportu.\n\n**Jedno pytanie:** którą drogę obrazów wybierasz, **A**, **B** czy **C**? Po Twojej odpowiedzi i akceptacji storyboardu zaczynam budować.",
+          "reply_chars": 2725,
+          "reply_sha256": "a2e40d61e40f7d8e0dff061eceb5339d3bac4ec8a9dd7a0273b6ff67ef6b53a8",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1311,
+            "output": 3011,
+            "cache_read": 46855,
+            "cache_write": 31482
+          },
+          "seconds": 31.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn"
+              },
+              "passed": true,
+              "detail": "/(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk"
+              },
+              "passed": false,
+              "detail": "/(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst"
+              },
+              "passed": true,
+              "detail": "/(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

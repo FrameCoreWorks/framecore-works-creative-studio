@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-21",
+  "package_version": "1.119.0",
+  "source": {
+    "commit": "bc6d4eb1c7c8003db5439f9f7d51e701c6b1e28e",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "df484c946564c28cba3ee9686e141bbdf175fd19bd538486062427b1828ee5e3",
+      "files": 1538,
+      "archive": "candidates/df484c946564c28cba3ee9686e141bbdf175fd19bd538486062427b1828ee5e3.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.306, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "c1d1b2c4279d6acc101c82a33b6a2e88ceda4596467d2dab842682c47db1c33e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1309,
+      "output": 2773,
+      "cache_read": 19644,
+      "cache_write": 21869
+    },
+    "seconds": 28.0
+  },
+  "cases": [
+    {
+      "id": "G12",
+      "title": "A service reel without pictures: Studio flags the type-only fallback, asks for or plans pictures, and names the first-second moment (owner's verdict on the 2026-10-16 test reel)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1309,
+        "output": 2773,
+        "cache_read": 19644,
+        "cache_write": 21869
+      },
+      "seconds": 28.0,
+      "wall_seconds": 28.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób rolkę reklamową 20 s, 9:16, dla zakładu szewskiego Fleczek w Poznaniu: wymiana fleków w 20 minut, nowa podeszwa w 3 dni, telefon 600 000 000. Nie mam żadnych zdjęć. Najpierw pokaż mi plan, jeszcze nic nie buduj.",
+          "reply": "# Plan: rolka „Fleczek\", 20 s, 9:16\n\nNic nie buduję. Poniżej jest sam plan.\n\n## Podejście\nNie masz zdjęć, więc proponuję **animację z kodu**: typografia, płaska grafika wektorowa (but, obcas, stoper, kalendarz) i zaprojektowany dźwięk. Wyjdzie z tego gotowy MP4 1080×1920, 30 fps. Nie zobaczysz w nim obcych zdjęć ani wideo z generatora, które potrafią zniekształcać buty i napisy. Całość opiera się na jednym pomyśle: **dwie liczby, 20 minut i 3 dni, jako bohaterowie kadru**.\n\n## Dane, których nie ruszam\n- Fleczek, zakład szewski, Poznań\n- Wymiana fleków: 20 minut\n- Nowa podeszwa: 3 dni\n- Telefon: 600 000 000\n\nNiczego nie dopisuję: ani cen, ani adresu, ani godzin otwarcia, ani „najlepszy w mieście\".\n\n## Rozpiska czasowa\n\n| Czas | Obraz | Napis na ekranie | Dźwięk |\n|---|---|---|---|\n| 0–3 s | Duży, startý obcas na ciemnym tle. Pęknięcie i odpadający kawałek. | „Flek się starł?\" | Stuknięcie, jedna nuta napięcia |\n| 3–9 s | Stoper biegnie 00:00 → 20:00. W tym czasie stary flek znika, a nowy wskakuje na miejsce. | „Wymiana fleków: **20 minut**\" | Tykanie, młotek, „klik\" przy 20:00 |\n| 9–15 s | Podeszwa się zmienia. Na kalendarzu zaznaczają się 3 dni. | „Nowa podeszwa: **3 dni**\" | Trzy rytmiczne stuknięcia, lekki podkład muzyczny |\n| 15–20 s | Logo/wordmark Fleczek, dopisek „Poznań\", numer telefonu na pół ekranu. | „**600 000 000** · Zadzwoń\" | Akcent końcowy, wyciszenie |\n\nNapisy trzymam w bezpiecznej strefie rolki, czyli z dala od dolnego paska i prawego marginesu interfejsu. Ostatni kadr zostaje na tyle długo, żeby dało się przepisać numer.\n\n## Styl\n- Ciepła paleta rzemieślnicza: skóra, miedź, krem, ciemny brąz. Do tego jeden mocny akcent (np. czerwień albo musztarda) dla liczb.\n- Gruba, czytelna typografia.\n- Ruch dynamiczny, dopasowany do rytmu dźwięku.\n- Logo nie istnieje, więc zrobię prosty wordmark „Fleczek\". Jeśli masz własne logo, podmieniam je w każdej chwili.\n\n## Co dostaniesz\n1. MP4 20 s, 9:16, z dźwiękiem.\n2. Wersję z napisami wypalonymi w obrazie (domyślnie napisy są w animacji, więc osobny plik SRT nie jest potrzebny).\n3. Krótkie podsumowanie: co jest w pliku i co sprawdziłem po renderze.\n\n## Cztery pytania przed startem\n1. **Wykonanie.** Czy zostajemy przy animacji z kodu (polecam)? Alternatywa to wideo z generatora AI, które jest mniej przewidywalne przy tekście i butach.\n2. **Głos.** Wolisz sam dźwięk i napisy (domyślnie) czy lektora po polsku?\n3. **Numer.** „600 000 000\" wygląda na przykładowy. Czy to numer docelowy?\n4. **Dodatki.** Dopisać adres (ulicę w Poznaniu) albo godziny otwarcia? Jeśli podasz, wejdą na ostatni kadr. Jeśli nie, zostaje sama nazwa, miasto i telefon.\n\nOdpisz np. „1 tak, 2 bez głosu, 3 tak, 4 nie\". Wtedy zaczynam budowę.",
+          "reply_chars": 2704,
+          "reply_sha256": "be8504c13758cfba74b600a74ba922dcd58a51fc301eace015a012e2ff2cacc6",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1309,
+            "output": 2773,
+            "cache_read": 19644,
+            "cache_write": 21869
+          },
+          "seconds": 28.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn"
+              },
+              "passed": true,
+              "detail": "/(?i)zdjęci|zdjęć|fotografi|ujęci|wygenerowa|materiał\\w* wizualn/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk"
+              },
+              "passed": false,
+              "detail": "/(?i)pierwsz\\w* sekund|0[,.]0\\s*[–-]\\s*1|w 1\\. sekund|pierwsz\\w* klatk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst"
+              },
+              "passed": false,
+              "detail": "/(?i)słabsz|awaryjn|bez zdjęć|tylko typograf|sam\\w* tekst/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

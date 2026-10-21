@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-21",
+  "package_version": "1.119.0",
+  "source": {
+    "commit": "bc6d4eb1c7c8003db5439f9f7d51e701c6b1e28e",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "df484c946564c28cba3ee9686e141bbdf175fd19bd538486062427b1828ee5e3",
+      "files": 1538,
+      "archive": "candidates/df484c946564c28cba3ee9686e141bbdf175fd19bd538486062427b1828ee5e3.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-additions-pl",
+  "host": "Claude Code 2.1.306, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "d4dfe8b2059f603bdda061a07f86bbd1971ad446c89a87f8e09ee442fcfc56e6",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 14,
+      "output": 12181,
+      "cache_read": 209358,
+      "cache_write": 73510
+    },
+    "seconds": 84.4
+  },
+  "cases": [
+    {
+      "id": "AD01",
+      "title": "Welcome option 4 lists the recommended repositories with how they install",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 14,
+        "output": 12181,
+        "cache_read": 209358,
+        "cache_write": 73510
+      },
+      "seconds": 84.4,
+      "wall_seconds": 84.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:workflow-orchestrator 4",
+          "reply": "You chose option 4, so here are the repositories FrameCore Works recommends. I'm assuming **Claude Code** as the agent, since this session runs there. Registry checked 2026-10-21. I read the registry file directly and installed nothing. The commands below are printed for reference only and none have been run.\n\nFor every `native` entry the steps are plan (dry run), install, verify, remove. Restart Claude Code after installing. Each one is pinned to the reviewed version, and a newer release is not installed.\n\n## Research\n\n**1. REA: Reverse Engineer Anything** — [morluto/rea](https://github.com/morluto/rea), npm `rea-agents@6.5.0`, MIT, engine\n- **Does:** reverse-engineers software you may analyse (native binaries, Electron/JS apps, .NET, Android, sites via DevTools, network captures). Every finding comes with its evidence and unknowns.\n- **Studio already bundles:** a web motion probe, which answers first for web animation. REA is optional depth for desktop apps, bundles and source maps.\n- **Claude Code (native):** needs Node 22.19+, 24.11+ or 26+, and a Chrome-family browser for sites.\n```sh\nnpx -y rea-agents@6.5.0 setup --client claude_code --dry-run --json   # plan\nnpx -y rea-agents@6.5.0 setup --client claude_code --yes              # install\nnpx -y rea-agents@6.5.0 doctor --client claude_code --json            # verify\nnpx -y rea-agents@6.5.0 uninstall                                     # remove\n```\n- **Other agents:** Codex native. Claude desktop app only. ChatGPT and ChatGPT Work: not supported.\n\n**2. Agent Reach** — [Panniantong/agent-reach](https://github.com/Panniantong/agent-reach), commit `94f06c1`, MIT, engine\n- **Does:** installs and routes to tools that read the public web (Jina Reader pages, YouTube transcripts, RSS, public GitHub, Exa search). Use only channels that need no login.\n- **Studio already bundles:** nothing. It adds reach for Research Evidence when the host's own web tools can't read a page.\n- **Claude Code (native):** needs Python 3.10+ with pipx, and Node for the Exa channel.\n```sh\npipx run --spec https://github.com/Panniantong/agent-reach/archive/94f06c1969dfc1834001269d79d3ad0972d9dee6.zip agent-reach install --env=auto --dry-run\npipx install https://github.com/Panniantong/agent-reach/archive/94f06c1969dfc1834001269d79d3ad0972d9dee6.zip && agent-reach install --env=auto --system\nagent-reach doctor\nagent-reach uninstall && pipx uninstall agent-reach\n```\n- **Other agents:** Codex native. Claude apps, ChatGPT and ChatGPT Work: not supported.\n\n## Motion graphics\n\n**3. Animate (cth9191)** — [cth9191/animate](https://github.com/cth9191/animate), commit `7e5eb56`, MIT, engine\n- **Does:** short procedural canvas animations with a synthesized score, in seven illustrated styles, rendered to MP4.\n- **Studio already bundles:** an adapted Animate engine. Install this for the upstream skill or its newest styles.\n- **Claude Code (native):** needs Node 18+, Playwright with Chromium, and FFmpeg.\n```sh\ngit clone https://github.com/cth9191/animate ~/.framecore-studio/extensions/animate && git -C ~/.framecore-studio/extensions/animate checkout 7e5eb56feb2dd573f890e1b7b34748af43d58263 && cat ~/.framecore-studio/extensions/animate/.claude-plugin/marketplace.json\ntest \"$(git -C ~/.framecore-studio/extensions/animate rev-parse HEAD)\" = 7e5eb56feb2dd573f890e1b7b34748af43d58263 && claude plugin marketplace add ~/.framecore-studio/extensions/animate && claude plugin install animate@animate\nclaude plugin list\nclaude plugin uninstall animate@animate && claude plugin marketplace remove animate && rm -rf ~/.framecore-studio/extensions/animate\n```\n- **Other agents:** Codex native. Claude apps, ChatGPT and ChatGPT Work: not supported.\n\n**4. Motion Designer (kaventro)** — [kaventro/motion-designer](https://github.com/kaventro/motion-designer), commit `7d0b8bb`, MIT, engine\n- **Does:** app launch films from code. It shows the real UI in a phone or laptop frame, cuts to music on the beat, checks frame by frame and renders.\n- **Studio already bundles:** a partial adaptation. This is the original launch-film pipeline.\n- **Claude Code (native):** needs Node 22+, Chrome, FFmpeg, Python 3 and uv.\n```sh\ngit clone https://github.com/kaventro/motion-designer ~/.framecore-studio/extensions/motion-designer && git -C ~/.framecore-studio/extensions/motion-designer checkout 7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8 && cat ~/.framecore-studio/extensions/motion-designer/.claude-plugin/marketplace.json\ntest \"$(git -C ~/.framecore-studio/extensions/motion-designer rev-parse HEAD)\" = 7d0b8bb78ddd2c91c57db9d1e83fcf711304bdb8 && claude plugin marketplace add ~/.framecore-studio/extensions/motion-designer && claude plugin install motion-designer@motion-designer\nclaude plugin list\nclaude plugin uninstall motion-designer@motion-designer && claude plugin marketplace remove motion-designer && rm -rf ~/.framecore-studio/extensions/motion-designer\n```\n- **Other agents:** Codex: not supported, because the skill's front matter is invalid YAML at this commit. Claude apps, ChatGPT and ChatGPT Work: not supported.\n\n**5. Anatomy (wheresryan22)** — [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy), commit `e948829`, MIT, engine\n- **Does:** SVG projection, WebGL shader layers, moving 3D groups, React adapters and geometry/browser audits for technical explanations.\n- **Studio already bundles:** the full graphics toolset, inside Motion Graphics Workflow. This adds the separate original skill.\n- **Claude Code (native):** needs Node 22.20+ and Chrome/Chromium for capture.\n```sh\nDISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/wheresryan22/anatomy/tree/e9488296a44211c42701ff71705b7901470ec78f --list\nDISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/wheresryan22/anatomy/tree/e9488296a44211c42701ff71705b7901470ec78f --skill anatomy -a claude-code -g --copy\nDISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g\nDISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills",
+          "reply_chars": 22687,
+          "reply_sha256": "c00bf8baa9e1e3a5139f927c7de7462e812d30ba59be78a9d71127694af6e85b",
+          "skills": [],
+          "tools": [
+            "Grep",
+            "Read",
+            "Glob",
+            "Read",
+            "Read",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [
+            {
+              "name": "Read",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 14,
+            "output": 12181,
+            "cache_read": 209358,
+            "cache_write": 73510
+          },
+          "seconds": 84.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": false,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "extensions.json",
+                  "extensions.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['extensions.json', 'extensions.md']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "anti-slop",
+                  "open-design",
+                  "iso-glow",
+                  "huashu"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['anti-slop', 'open-design', 'iso-glow', 'huashu']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

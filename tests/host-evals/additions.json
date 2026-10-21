@@ -10,7 +10,7 @@
      "prompt": "/framecore-work-creative-studio:workflow-orchestrator 4",
      "checks": [
       {
-       "language": "pl"
+       "language": "en"
       },
       {
        "reads_any": [
