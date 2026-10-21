@@ -2833,3 +2833,17 @@ Cross-host state:
 Publication follow-up: the description-refresh workflow initially rejected the release-notes heading because it expects the exact `# Creative Studio 1.115.0` prefix. The repository-only correction changes that heading and retains the release tag/assets; the failure and corrected run are recorded separately. The shared package is unchanged and needs no second hosted update. Git write credentials were unavailable; the authenticated connector published the tested identical tree with a guarded fast-forward. Local preparatory commits were reconciled to that remote tree without changing source content.
 
 Final branch inventory: `main`, `gh-pages`, and existing `ccr-b6d36a1c-4hszow` at `daab5828bdd4025280ebe2af5f5d5cccacae4a5c`. The latter is already merged into main and remains untouched. No branches created or deleted.
+
+## CW-20261021-04: Claude Code handover and owner testing pause
+
+- Origin: chatgpt-work.
+- Baseline: `06edb3c92d55f5395cf0a63988a7dd11ad80063a`, `main`; result: the documentation commit carrying this entry.
+- Trigger: the owner paused development to test FrameCut, Motion Graphics and other modules, and requested a repository handover to Claude covering work since yesterday.
+- Scope: [2026-10-20 to 2026-10-21 handover](handover-chatgpt-work-2026-10-21.md), current pause instruction in AGENTS.md and roadmap discoverability. Consolidates audit/scenario recovery, tool inventory, FrameCut releases, private MCP retirement, source and saved-plugin verification, outstanding client limits and continuation rules.
+- Shared package changed: no. Public and last verified saved versions remain 1.115.0; no release, integration installation or hosted update is part of this documentation task.
+- Verification: canonical validator PASS; full `bash scripts/check_all.sh` PASS, 225 Node tests passed / 13 skipped and 457 Python tests passed / 12 skipped across 49 Python suites. All 43 FrameCut tests passed. No test code added. Reviewed 27 handover relative links and nine explicit code-map paths; all resolve. `git diff --check` PASS; no shared-package diff.
+- GitHub: publish this documentation commit directly to main with an expected-head guard, then read back the identical tree. The final commit SHA is reported after publication.
+- ChatGPT Work: existing saved 1.115.0 / `pluginrel_6ad871c551e081918f643baaaeb5b3bc` remains unchanged; its affected-file readback is in the prior release record. No new installed-client test.
+- Codex and Claude: no installation or fresh-client test in this handover task; NOT_RUN remains NOT_RUN.
+- Owner testing is the next step. Do not automatically resume old work orders or implement partial research acceptance rows.
+- Branch inventory: main and gh-pages plus existing `ccr-b6d36a1c-4hszow` at `daab5828bdd4025280ebe2af5f5d5cccacae4a5c`, already merged into main; preserve it. No new branch or deletion.

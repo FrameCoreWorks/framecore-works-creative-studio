@@ -1,5 +1,9 @@
 # Repository maintenance
 
+## Owner testing pause (2026-10-21)
+
+The owner paused development after 1.115.0 to test FrameCut, Motion Graphics and other Studio modules in actual use. The current task is the [handover to Claude Code](docs/handover-chatgpt-work-2026-10-21.md), covering ChatGPT Work's 2026-10-20 to 2026-10-21 work. Do not resume older work orders, expand features or run a new development round merely because they appear below or in historical handovers. Wait for the owner's findings or a new explicit task, then address the concrete trigger. This documentation-only handover leaves the shared package and saved plugin unchanged.
+
 ## Current owner instruction (2026-10-20)
 
 Work directly on `main`; do not create local or remote working branches. After the required checks pass, commit and fast-forward push the completed changes to `main`. This supersedes the older working-branch guidance below. Preserve concurrent work and never force-push.

@@ -1,5 +1,9 @@
 # Roadmap for the development surfaces
 
+## Owner testing pause and Claude Code handover, 2026-10-21
+
+Development is paused at 1.115.0 while the owner tests FrameCut, Motion Graphics and other modules. The [2026-10-21 handover](handover-chatgpt-work-2026-10-21.md) consolidates ChatGPT Work's work since 2026-10-20, the current source and saved-plugin state, executed checks and remaining real-client coverage. It supersedes older instructions to continue the audit or build the Reel Editing Assistant: those authorized tasks have been completed within their recorded scope. Do not start another feature round from this historical roadmap. The next implementation should respond to the owner's actual findings or a new explicit request. This handover changes repository documentation only; no plugin update or release is needed.
+
 ## FrameCut foundation, owner request 2026-10-20
 
 The owner opened a development direction for **FrameCut**, a separate selectable welcome mode covering adaptive intake, footage/content analysis, traditional editing, motion, sound and final delivery. Highlights from a talking-head video are one example, not its full scope. The [research and implementation foundation](framecut/README.md) records 31 GitHub candidates, source pins, component decisions, timing/revision contracts and acceptance gates. Research and the executable v1 module now ship in **1.113.0**. The [build report](framecut/build-status.md) distinguishes working sandbox media paths, agent tests, remaining advanced capabilities and fresh-client checks.
