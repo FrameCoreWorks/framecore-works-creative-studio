@@ -2920,3 +2920,23 @@ Account-free knowledge verification: [two fresh-context source-guided tasks](../
 The description-refresh workflow exposed an incorrect release-notes heading in the source commit (run `39632355483`). This documentation-only follow-up corrects it to the workflow’s required `# Creative Studio 1.118.0`; the package and hosted release stay unchanged.
 
 Branch inventory at publication: only `main`, `gh-pages` and pre-existing `ccr-b6d36a1c-4hszow` (`daab5828bdd4025280ebe2af5f5d5cccacae4a5c`, already merged into source `a25d8ea`). No branch created or deleted.
+
+## CC-20261021-01
+
+- Origin: cloud-code
+- Branch: `main` (session branch `ccr-06247e92-aihwc6` kept equal to it)
+- Baseline: `5a3645a` (main, package 1.118.0); full SHA in the commit trailer
+- Result: the commit carrying this entry; no release (repository documentation only)
+- Package version: 1.118.0 (unchanged)
+- Scope: owner request 2026-10-21 after the repository analysis: AGENTS.md opens with one consolidated "Current rules" section (development state, branches, releases and the hosted plugin with its private overlay, evidence, budgets); the superseded dated sections moved word for word to `docs/agents-history.md`; CLAUDE.md points to the current rules; the roadmap opens with the current direction and keeps the earlier text as history
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; no test reads AGENTS.md or the roadmap
+
+Cross-host state:
+
+- GitHub: pushed to `main`
+- ChatGPT Work: no package change
+- Codex: not_run
