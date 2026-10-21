@@ -64,6 +64,13 @@
     "observed_run": 39632355483,
     "observed_error": "Notes version does not match the package",
     "fix": "Documentation-only follow-up changes the RELEASE_NOTES.md heading to # Creative Studio 1.118.0; exact header/version assertion passed. Release and source workflows passed independently.",
-    "shared_package_changed": false
+    "shared_package_changed": false,
+    "remote_verification": {
+      "run_id": 39634820358,
+      "conclusion": "success",
+      "description_equals_corrected_source": true,
+      "assets_unchanged": true,
+      "source_commit": "099277e060636d06ddc20cdcd90e014a64a7bf18"
+    }
   }
 }
