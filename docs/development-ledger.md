@@ -2772,3 +2772,15 @@ Cross-host state:
 - Codex: not_run
 
 - Publication follow-up: corrected the repository-only release-notes heading after the refresh job exposed its exact format requirement. This does not change the shared package or require another hosted release. The original source/full gates remain the evidence for unchanged executable code.
+
+## CW-20261021-01: owner-requested Sunra MCP removal
+
+- Origin: chatgpt-work; baseline `96f8e97a160c22dcd1d359cf708aedaa7c58013b`; main only.
+- Trigger: the owner could not select Studio with @ on a phone and explicitly requested removal of Sunra MCP from the repository and saved plugin. The relationship between MCP configuration and the mobile symptom is not proven.
+- Before: public source 1.113.0 has no tracked Sunra configuration. The private installation contains portable and compatibility MCP configuration plus instructions requiring its preservation.
+- After: saved plugin 1.113.1, release `pluginrel_6ad843091764819193d01632b1c263ee`; both MCP files and their manifest binding removed. Routing, setup instructions and the continuity check respect the retirement. PoYo, the separate Sunra API route, App identity and all local runtime recipes remain preserved. No credentials or private configuration were published.
+- Public package changed: no; source version remains 1.113.0. Repository-only update guidance and records distinguish the newer private overlay. No redundant public release.
+- Verification: all 12 changed files and the retained App binding match readback; full inventory confirms exactly two removals, 1565 retained files, no additions. Source and candidate canonical validation pass. Connection retirement and unrelated App-loss checks pass; motion/media/engine preservation checks pass within the authorized removal scope. Full repository suite passed: 225 Node tests passed, 13 skipped; 450 Python tests passed, 12 skipped.
+- Runtime inventory: 19 of 59 components detected, 40 missing in this current sandbox; earlier supplemental runtime/cache paths are absent. This change preserves their plugin configuration and restoration recipes. No runtime reinstall or paid provider call was performed.
+- GitHub: this records-only commit is published with an expected-head guard; the final commit is reported after readback. Mobile @ invocation and other fresh clients: NOT_RUN; service search still returns no FrameCore match.
+- Evidence: [removal and preservation checks](../verification/sunra-mcp-removal-2026-10-21.json).

@@ -1,0 +1,367 @@
+{
+  "date": "2026-10-21",
+  "change_id": "CW-20261021-01",
+  "trigger": "Owner reported missing mobile @ invocation, then explicitly requested removal of Sunra MCP from repository and hosted plugin. MCP causation and mobile recovery remain unconfirmed.",
+  "source_baseline": "96f8e97a160c22dcd1d359cf708aedaa7c58013b",
+  "public_source_version": "1.113.0",
+  "public_package_changed": false,
+  "public_configuration_before": "No tracked Sunra configuration or MCP manifest binding found.",
+  "hosted_version": "1.113.1",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "previous_release_id": "pluginrel_6ad7e42f10f0819194506d3275c23ae0",
+  "release_id": "pluginrel_6ad843091764819193d01632b1c263ee",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "scope": {
+    "changed": [
+      ".claude-plugin/plugin.json",
+      ".codex-plugin/plugin.json",
+      "README.md",
+      "docs/installation.md",
+      "docs/installed-tools-checklist.md",
+      "docs/migration-status.md",
+      "docs/sunra-api-connection.md",
+      "docs/sunra-connection.md",
+      "plugin.json",
+      "scripts/check-installed-connections.py",
+      "skills/tool-routing-cost/SKILL.md",
+      "skills/workflow-orchestrator/SKILL.md"
+    ],
+    "deleted": [
+      ".mcp.json",
+      "mcp.json"
+    ]
+  },
+  "readback": {
+    "status": "PASS",
+    "complete_inventory_before": 1567,
+    "complete_inventory_after": 1565,
+    "exact_removed_paths": [
+      ".mcp.json",
+      "mcp.json"
+    ],
+    "unexpected_added_paths": [],
+    "changed_files_byte_equal": 12,
+    "retained_app_binding_byte_equal": true,
+    "other_retained_path_sizes_equal": 1553,
+    "full_retained_file_byte_comparison": "NOT_RUN; omitted files retained by overlay semantics, complete inventory and sizes checked",
+    "changed_file_sha256": {
+      ".claude-plugin/plugin.json": "39c22914be582400a383e4e79fdeb34d01c2fbebbc4a609b043da7d2f9252407",
+      ".codex-plugin/plugin.json": "e204d45ae4aace26dbc5867c0ddc20aeb86db9ff44a1dd3b0810dc1fa4d9fd22",
+      "README.md": "2aca0635fae87d686520a066af76a25f27b76666a33d900008d0d7dce1ef265b",
+      "docs/installation.md": "e0e028225268f4ed714abd57299fb5ce645fefd48dd8f14c1ae46fa7ccb3c3f2",
+      "docs/installed-tools-checklist.md": "87077dae0f646896d93fc2e1f16396a14c697d31462d44b2ebd36e9ff75357c9",
+      "docs/migration-status.md": "0b56b929a8dc84824b8d9770e30143d482eadd1853747671199b49a18c9f3a68",
+      "docs/sunra-api-connection.md": "06667e6c164782129abfec96e6be1b56646ac8be445b1a9a305617239758c836",
+      "docs/sunra-connection.md": "bf89908fa7e6f9b878277b862d590c67a74d8b97248c961b8dbe7854c3fcf7af",
+      "plugin.json": "3369d380fc1f43f6be71161a8d25aa3b489c7e5c3077479ef3fb698947fd98b5",
+      "scripts/check-installed-connections.py": "96edb8d2c37e442acf49b04cc631e347ef6d7643bacde6f5a8346072e75c8e4a",
+      "skills/tool-routing-cost/SKILL.md": "f616ab63f0623b188a3184b023b8eb6b241feb6ddb7e4244e4995633bac69972",
+      "skills/workflow-orchestrator/SKILL.md": "e0a0cd37ac77285ddf0dd9bd42eb6feb20754896d8ffb61b10151d1c5fc472fe"
+    }
+  },
+  "preservation": {
+    "identity_audience_prompts_icons": "Unchanged",
+    "app_bindings": "Unchanged",
+    "poyo_and_separate_sunra_api": "Preserved; no provider calls or credential changes",
+    "motion_media_engine_continuity": "PASS; pre-removal motion guard reports only explicitly authorized MCP removal differences",
+    "welcome_and_skill_ids": "Preserved; version identity marker updated"
+  },
+  "targeted_checks": {
+    "retired_baseline_accepts_ordinary_update": true,
+    "reject_restored_mcp.json": true,
+    "reject_app_loss_mcp.json": true,
+    "reject_restored_.mcp.json": true,
+    "reject_app_loss_.mcp.json": true,
+    "engine_continuity": {
+      "returncode": 0,
+      "output": "{\n  \"ok\": true,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    "media_continuity": {
+      "returncode": 0,
+      "output": "{\n  \"ok\": true,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    "pre_removal_motion_guard": {
+      "ok": false,
+      "errors": [
+        "Preserve installed file: .mcp.json",
+        "Preserve mcpServers binding: .codex-plugin/plugin.json",
+        "Preserve installed file: .mcp.json"
+      ],
+      "scope": "Ordinary update continuity; not render or host execution proof"
+    },
+    "only_authorized_removal_conflicts": true,
+    "post_removal_motion_continuity": true,
+    "media_guard_initial_invocation": "Corrected unsupported --current argument; rerun below uses the actual --candidate interface."
+  },
+  "canonical_source": "PASS",
+  "canonical_candidate": "PASS",
+  "source_full_suite": {
+    "status": "PASS",
+    "exit_code": 0,
+    "command": "bash scripts/check_all.sh",
+    "node": {
+      "tests": 238,
+      "pass": 225,
+      "fail": 0,
+      "skipped": 13
+    },
+    "python": {
+      "test_codex_install": {
+        "tests": 13,
+        "skipped": 0
+      },
+      "test_package_identity": {
+        "tests": 4,
+        "skipped": 0
+      },
+      "test_motion_benchmark": {
+        "tests": 5,
+        "skipped": 0
+      },
+      "test_host_smoke": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "test_hosted_readback": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "test_claude_plugin": {
+        "tests": 8,
+        "skipped": 1
+      },
+      "test_release": {
+        "tests": 7,
+        "skipped": 0
+      },
+      "test_gepa_studio_pilot": {
+        "tests": 8,
+        "skipped": 3
+      },
+      "asset_manifest": {
+        "tests": 23,
+        "skipped": 0
+      },
+      "captions": {
+        "tests": 17,
+        "skipped": 0
+      },
+      "environment_check": {
+        "tests": 24,
+        "skipped": 0
+      },
+      "runtime_inventory": {
+        "tests": 21,
+        "skipped": 0
+      },
+      "motion_acceptance": {
+        "tests": 26,
+        "skipped": 0
+      },
+      "motion_fonts": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "motion_kinds": {
+        "tests": 10,
+        "skipped": 0
+      },
+      "motion_variants": {
+        "tests": 10,
+        "skipped": 0
+      },
+      "skill_finder": {
+        "tests": 7,
+        "skipped": 0
+      },
+      "extensions": {
+        "tests": 15,
+        "skipped": 0
+      },
+      "animate_engine": {
+        "tests": 11,
+        "skipped": 0
+      },
+      "animate_voice": {
+        "tests": 5,
+        "skipped": 0
+      },
+      "static_render": {
+        "tests": 15,
+        "skipped": 0
+      },
+      "print_pdf": {
+        "tests": 8,
+        "skipped": 8
+      },
+      "reel_starters": {
+        "tests": 2,
+        "skipped": 0
+      },
+      "web_reach": {
+        "tests": 8,
+        "skipped": 0
+      },
+      "pl_copy_check": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "image_probe": {
+        "tests": 14,
+        "skipped": 0
+      },
+      "quote_calc": {
+        "tests": 11,
+        "skipped": 0
+      },
+      "vo_budget": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "edit_export": {
+        "tests": 4,
+        "skipped": 0
+      },
+      "framecut": {
+        "tests": 36,
+        "skipped": 0
+      },
+      "board_compose": {
+        "tests": 4,
+        "skipped": 0
+      },
+      "sheet_export": {
+        "tests": 4,
+        "skipped": 0
+      },
+      "shot_plan_check": {
+        "tests": 2,
+        "skipped": 0
+      },
+      "prompt_pack": {
+        "tests": 2,
+        "skipped": 0
+      },
+      "clip_review": {
+        "tests": 3,
+        "skipped": 0
+      },
+      "svg_wordmark": {
+        "tests": 5,
+        "skipped": 0
+      },
+      "brand_guide": {
+        "tests": 5,
+        "skipped": 0
+      },
+      "motion_activity": {
+        "tests": 4,
+        "skipped": 0
+      },
+      "lyric_timing": {
+        "tests": 11,
+        "skipped": 0
+      },
+      "iso_glow": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "sound_listen": {
+        "tests": 13,
+        "skipped": 0
+      },
+      "reference_breakdown": {
+        "tests": 3,
+        "skipped": 0
+      },
+      "craft_lint": {
+        "tests": 12,
+        "skipped": 0
+      },
+      "design_md": {
+        "tests": 3,
+        "skipped": 0
+      },
+      "ai_writing_check": {
+        "tests": 6,
+        "skipped": 0
+      },
+      "technique_atlas": {
+        "tests": 4,
+        "skipped": 0
+      },
+      "motion_assets": {
+        "tests": 9,
+        "skipped": 0
+      },
+      "knowledge_wiring": {
+        "tests": 2,
+        "skipped": 0
+      },
+      "test_host_eval": {
+        "tests": 22,
+        "skipped": 0
+      }
+    }
+  },
+  "runtime_inventory": {
+    "status": "limited",
+    "tools": 59,
+    "counts": {
+      "missing": 40,
+      "ok": 19
+    },
+    "missing_ids": [
+      "hyperframes",
+      "remotion",
+      "animate_engine",
+      "manim",
+      "blender",
+      "imageio_ffmpeg",
+      "ffmpeg_fallback",
+      "scenedetect",
+      "opencv",
+      "autoeditor",
+      "librosa",
+      "whisper",
+      "whisper_tiny",
+      "deepfilter",
+      "cairosvg",
+      "pytesseract",
+      "ocr_pol",
+      "react",
+      "react_dom",
+      "gsap",
+      "three",
+      "react_three_fiber",
+      "pixi",
+      "d3_scale",
+      "lottie",
+      "mediabunny",
+      "remotion_cli",
+      "remotion_renderer",
+      "remotion_three",
+      "manimpango",
+      "pycairo",
+      "dvisvgm",
+      "typst",
+      "python_manim",
+      "python_blender",
+      "typescript",
+      "esbuild",
+      "micromamba",
+      "browser_animate",
+      "browser"
+    ],
+    "note": "Current sandbox lacks the prior supplemental runtime/cache paths. Runtime files, locks and restoration recipes in the plugin are unchanged. No runtime installation was part of the MCP removal."
+  },
+  "discovery_after_save": {
+    "query": "FrameCore",
+    "results": 0,
+    "meaning": "The service search did not return the plugin; this is not a direct observation of the phone menu."
+  },
+  "mobile_at_invocation": "NOT_RUN",
+  "github_publication": "Recorded by the containing main commit; exact remote commit and tree checked after publication."
+}

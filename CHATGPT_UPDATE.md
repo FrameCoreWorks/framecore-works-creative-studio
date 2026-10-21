@@ -33,6 +33,17 @@ alone do not establish provenance. Preserve personal additions and resolve overl
 Overlay updates may preserve omitted files and may not support deletion. Absence upstream is
 not proof of hosted deletion. Report that limitation rather than creating a replacement plugin.
 
+For an explicit owner-requested connection removal, inspect the current installed declarations,
+remove their owning references, and use exact `delete_paths` when the active update tool supports
+them. Verify deletion against the complete saved inventory. Such a removal supersedes the old
+connection-preservation instructions for that connection only; retain unrelated App bindings,
+runtimes and credentials. Do not restore a retired connection from an older overlay or archive.
+
+Owner decision 2026-10-21: remove the private Sunra MCP configuration. The public source at
+`96f8e97a160c22dcd1d359cf708aedaa7c58013b` contains no Sunra MCP configuration. Preserve that
+absence during future source merges. The separate API route and other private integrations
+are outside this removal. See the dated record in `docs/development-ledger.md`.
+
 Preserve canonical identity, interface, prompt values/order and existing components. Use a permitted
 greater version for a real update and recheck release drift before submission. Refresh the comparison
 if source or access changed.
