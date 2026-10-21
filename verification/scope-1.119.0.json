@@ -1,0 +1,41 @@
+{
+  "version": "1.119.0",
+  "baseline_tag": "v1.118.0",
+  "baseline": "a25d8ea202853f5bdbc9121336c136569d98bf04",
+  "change_id": "CC-20261021-02",
+  "origin": "cloud-code",
+  "files": 1538,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-quality/README.md",
+    "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+    "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
+    "skills/hyperframes-workflow/assets/motion-sound/generate.py",
+    "skills/hyperframes-workflow/assets/motion-sound/sound.py",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/routing-boundaries.md",
+    "tests/motion-toolkit.test.mjs",
+    "tests/motion_acceptance_test.py"
+  ],
+  "added": [
+    "tests/motion_sound_marked_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1516,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner's verdict on the 2026-10-16 shoemaker test reel. Reel plans apply a stopping test and a picture rule where reel requests route; acceptance binds HyperFrames/hand-written compositions (--composition, --copy, --motion-activity bound to the encoded file); a marked landing is never silent; the orchestrator's coordination detail moved verbatim to routing-boundaries.md (about 930 bytes freed, startup unchanged). Before/after: motion_acceptance_test (3 errors on 1.118.0, OK), motion_sound_marked_test (fails on 1.118.0, OK)."
+}

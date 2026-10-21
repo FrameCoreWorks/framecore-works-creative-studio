@@ -1,5 +1,10 @@
-# Creative Studio 1.118.0
+# Creative Studio 1.119.0
 
-Owner-requested adaptation of Adobe skill methods without Adobe accounts or services. Connect multi-format variants, batch finishing, local typography/templates, website brand/content evidence, document review, supplied-data reasoning and editorial selection to existing Studio owners. Preserve the full FrameCut board gate, existing skill IDs/startup and private hosted integrations. No Adobe connector, upstream suite installation, proprietary renderer or premium entitlement is added. See [bounded scope](docs/adobe-account-free-2026-10-21.md).
+Lessons from the owner's 2026-10-16 test reel, applied as one small maintenance release.
 
-The methods are bundled and require no extra installation. Actual image, document and web execution uses available authorized host tools. Source-guided task checks and the canonical/full source suite are separate from fresh installed-client behavior and media-quality acceptance.
+- Reel plans test stopping power (first second, one big moment, a reason to choose the business) and require pictures for service, product and before-and-after reels; a type-only reel is offered only as a named, weaker fallback.
+- Acceptance for HyperFrames and hand-written compositions: `--composition` (text audit bound to the composition's SHA-256), `--copy` (locked copy), `--motion-activity` (measurement bound to the encoded file).
+- Sound design keeps a landing the motion score marks audible.
+- The workflow orchestrator's coordination paragraphs moved verbatim to `references/routing-boundaries.md#coordination-detail`; startup and routing table unchanged. ChatGPT startup should be rechecked by the owner.
+
+Before and after: `tests/motion_acceptance_test.py` (3 errors on 1.118.0, OK now), `tests/motion_sound_marked_test.py` (fails on 1.118.0, OK now); host-eval G12 records from 2026-10-16 show the reel request routing to Creative Video Producer and the orchestrator, where the rules now live.
