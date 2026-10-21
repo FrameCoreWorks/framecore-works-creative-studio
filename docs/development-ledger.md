@@ -2961,3 +2961,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `bc6d4eb`; workflows Check Studio sources 39674902113, Refresh current release notes 39674898850, Publish verified Studio release 39674899003, Check Studio sources 39674898901: success; [v1.119.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.119.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1538 of 1538) ([record](../verification/github-publication-1.119.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261021-03
+
+- Origin: cloud-code
+- Branch: `ccr-06247e92-aihwc6`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `37267d2` (main, package 1.119.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.119.1)
+- Package version: 1.119.0 -> 1.119.1
+- Scope: Trigger: host evaluation G12 on 1.119.0 reproduced the owner's 2026-10-16 reel defect at the orchestrator. The orchestrator now loads Motion Graphics Workflow for service/product/before-and-after reels with the picture rule and first-second test; G12 meets its checks after the fix. AD01 expects English for a bare option number. Host-eval pass: 7 case runs, about 632k tokens, 241 s.
+- Shared package changed: yes; 7 changed, 0 added, 0 removed ([scope](../verification/scope-1.119.1.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there and run separately: 85 passing in the browser run), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 8 suite 6, 7 suite 7, 8 suite 8 (3 skipped; see the suite log for reasons), 23 suite 9, 17 suite 10, 24 suite 11, 21 suite 12, 29 suite 13, 6 suite 14, 10 suite 15, 10 suite 16, 7 suite 17, 15 suite 18, 11 suite 19, 5 suite 20, 15 suite 21, 8 suite 22, 2 suite 23, 8 suite 24, 6 suite 25, 14 suite 26, 11 suite 27, 6 suite 28, 4 suite 29, 43 suite 30, 20 suite 31, 4 suite 32, 4 suite 33, 2 suite 34, 2 suite 35, 3 suite 36, 5 suite 37 (5 skipped; see the suite log for reasons), 5 suite 38, 4 suite 39, 11 suite 40, 6 suite 41, 13 suite 42, 3 suite 43, 12 suite 44, 3 suite 45, 6 suite 46, 4 suite 47, 9 suite 48, 2 suite 49, 2 suite 50, 22 suite 51: PASS ([record](../verification/release-1.119.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

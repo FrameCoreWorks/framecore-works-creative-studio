@@ -1,0 +1,25 @@
+{
+  "version": "1.119.1",
+  "baseline_tag": "v1.119.0",
+  "baseline": "bc6d4eb1c7c8003db5439f9f7d51e701c6b1e28e",
+  "change_id": "CC-20261021-03",
+  "origin": "cloud-code",
+  "files": 1538,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1531,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: host evaluation G12 on 1.119.0 reproduced the owner's 2026-10-16 reel defect at the orchestrator. The orchestrator now loads Motion Graphics Workflow for service/product/before-and-after reels with the picture rule and first-second test; G12 meets its checks after the fix. AD01 expects English for a bare option number. Host-eval pass: 7 case runs, about 632k tokens, 241 s."
+}
