@@ -2802,8 +2802,8 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: source `120a865f3c079fc700ecb9ea06eb661de03ec4a8`, tag v1.114.0 and six digest-verified release assets published. 1516 plugin ZIP files match the source tree. [Publication](../verification/github-publication-1.114.0.json).
+- ChatGPT Work: synchronized saved 1.114.0, release `pluginrel_6ad8572ec58081919c4301f651d0b0c8`. All changed files verified; generated Codex manifest has equivalent Unicode escaping. Complete inventory remains 1565 paths; App/runtime integrations and Sunra MCP retirement preserved. [Readback](../verification/hosted-sync-1.114.0.json). Fresh-client behavior NOT_RUN.
 - Codex: not_run
 
 - Audit details: [five dialogue exercises and runtime before/after evidence](../verification/framecut-review-2026-10-21.json). The two baseline conversations were already helpful; no fabricated failure or statistical improvement claim. Seven executable regressions cover returned motion and review state. The owner subsequently reported mobile @ working on 1.113.1 (PASS_REPORTED), separately from this release.

@@ -1,0 +1,111 @@
+{
+  "version": "1.114.0",
+  "release_id": "pluginrel_6ad8572ec58081919c4301f651d0b0c8",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "source_commit": "120a865f3c079fc700ecb9ea06eb661de03ec4a8",
+  "scope": "16 exact file matches including retained App binding; one generated Codex manifest is JSON-equivalent with Unicode escape normalization. All 16 changed files covered. Not a full archive hash comparison.",
+  "files": [
+    {
+      "path": ".app.json",
+      "sha256": "52e2670a0b57523cc76172e9185718fe8a8cbb9fa38ed49006a33c26e3b3f087",
+      "comparison": "exact"
+    },
+    {
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "a9edab05bd4158783f860f3427b628826368320491bf577cc7fb2bcb0fd8c8b5",
+      "comparison": "exact"
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "sha256": "fda9c239843e80a03f0e996d1f8bd2dd01acc9d3c8dc118d74ca58c524a81eb5",
+      "comparison": "JSON-equivalent; service escaped Unicode in starter prompts"
+    },
+    {
+      "path": "plugin.json",
+      "sha256": "bfad141b7b66538f4443d5fc459408be5d2a4424b2f83dd48dff6e8d02e1ea83",
+      "comparison": "exact"
+    },
+    {
+      "path": "README.md",
+      "sha256": "fe4b21ab304bd2873c2aec020b274eb9a4f09417b15f676395bd74ec7f8411c6",
+      "comparison": "exact"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "sha256": "a6a22224c3aef51224089e224250d1e48d0b142fce3ef695bdfc377fd4a82b5f",
+      "comparison": "exact"
+    },
+    {
+      "path": "docs/release-history.md",
+      "sha256": "2b86c88e5ed0d60f528b7cee6658a7900548d107c32bb702cb44b6966a83dd24",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "979dd4c8927ba40286ccf17b3e6f771397831a2dfa679bfeb9fba263931e6932",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/opencut-video-studio/SKILL.md",
+      "sha256": "713db337e4c1195bf71e570fa93d48078323ada1b91e9396e6a29fef3197fe33",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "sha256": "ce65839e1e8a9c04886250b9a579d482d43cafefdbb7b2a5fc4f72495ba66bb3",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/framecut.py",
+      "sha256": "ff73bdf9199e6514f4c92f4fe046bc4af4ec5652b944429d021eff4346cb4fd8",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/README.md",
+      "sha256": "da71bdd1bb989515b9c31d8c11851d73fb197866f871d9e127ae0c8d8d97b7fb",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/caption-studio/SKILL.md",
+      "sha256": "278b9b4ef387251b429eee8bf1544d815258edc2469bfd3b3e21a7126b1a1130",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/pipeline-core/SKILL.md",
+      "sha256": "03c8092d0423628c7b1ff773e141785eddeae090b124abbc1c0bb25caf9ad855",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "sha256": "db73418f2e3be3eaebaca2244c3641be551d224c4b44441532f724ec142f34f5",
+      "comparison": "exact"
+    },
+    {
+      "path": "skills/remotion-video-production/SKILL.md",
+      "sha256": "99725493f29a9125d1fb6bedb5b80599a6a5e3ca3b86eabf3dd53e8d83797b16",
+      "comparison": "exact"
+    },
+    {
+      "path": "tests/framecut_test.py",
+      "sha256": "00a641a9a51652182ec3ee9d0955de6c097f6b3a618e34c41e083ef6352679e8",
+      "comparison": "exact"
+    }
+  ],
+  "inventory": {
+    "files": 1565,
+    "added": [],
+    "removed": [],
+    "mcp_files_absent": true
+  },
+  "candidate_checks": {
+    "canonical": "PASS",
+    "framecut_suite_exit_code": 0,
+    "connection_continuity": "PASS",
+    "engine_continuity": "PASS",
+    "media_continuity": "PASS",
+    "identity_audience_prompts_app": "unchanged",
+    "sunra_mcp": "retirement preserved"
+  },
+  "fresh_client_behavior": "NOT_RUN",
+  "dialogue_evidence": "verification/framecut-review-2026-10-21.json"
+}

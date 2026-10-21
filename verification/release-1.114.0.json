@@ -228,6 +228,7 @@
   ],
   "review": "Owner-requested FrameCut audit: novice onboarding with light teaching, reusable working agreement, staged finishing, clear cutdown ownership, checked motion returns and separate delivery readiness.",
   "source": "Release 1.114.0: strengthen FrameCut guidance and orchestration",
-  "github_publication": "NOT_RUN",
-  "host_behavior": "NOT_RUN"
+  "github_publication": "PASS; see github-publication-1.114.0.json",
+  "host_behavior": "NOT_RUN",
+  "hosted_plugin": "synchronized saved source; see hosted-sync-1.114.0.json"
 }

@@ -1,0 +1,78 @@
+{
+  "version": "1.114.0",
+  "change_id": "CW-20261021-02",
+  "origin": "chatgpt-work",
+  "commit": "120a865f3c079fc700ecb9ea06eb661de03ec4a8",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.114.0",
+  "release_id": 419218021,
+  "draft": false,
+  "assets": [
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "e8d4f31d0eed13d732d584dcc7d58f84fce615e3ff81655284d5603707aae04c",
+      "bytes": 593
+    },
+    {
+      "name": "framecore-motion-player-1.114.0.html",
+      "sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
+      "bytes": 92452
+    },
+    {
+      "name": "framecore-work-creative-studio-1.114.0.zip",
+      "sha256": "41283ed4d34fd6b684252d01f9efd2568b825a9f323debc3a4a90b948999d11c",
+      "bytes": 18985057
+    },
+    {
+      "name": "framecore-work-creative-studio-1.114.0.zip.inventory.json",
+      "sha256": "5d34d5dbc736de9cc354b1a071890d8d3721b1b2cfa088091427f8cb9ce7a100",
+      "bytes": 308322
+    },
+    {
+      "name": "framecore-works-creative-studio-1.114.0-repository.zip",
+      "sha256": "acb47bdc49d56948cacd05524cb6f2d011c92623e482100505719e5a965374c1",
+      "bytes": 22639357
+    },
+    {
+      "name": "framecore-works-creative-studio-1.114.0-repository.zip.inventory.json",
+      "sha256": "cd090ce15c3c112c7c323ca6645e6b83d707ae25bddbf3493f30d82976bc39d9",
+      "bytes": 482810
+    }
+  ],
+  "workflows": [
+    {
+      "id": 39553711799,
+      "name": "Check Studio sources",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 39553711652,
+      "name": "Refresh current release notes",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39553711651,
+      "name": "Publish verified Studio release",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "asset_verification": {
+    "method": "Local deterministic package SHA-256/size compared with authenticated GitHub asset digests; no binary download claimed",
+    "all_six_match": true
+  },
+  "plugin_zip_source_tree": {
+    "files": 1516,
+    "matched": 1516,
+    "source": "120a865f3c079fc700ecb9ea06eb661de03ec4a8"
+  },
+  "hosted_release_id": "pluginrel_6ad8572ec58081919c4301f651d0b0c8",
+  "hosted_readback": "All changed files verified; Codex manifest JSON-equivalent after Unicode escaping; full unchanged path inventory of 1565 files. See hosted-sync-1.114.0.json.",
+  "fresh_host_behavior": "NOT_RUN",
+  "branches": {
+    "main": "release commit, followed by this records-only commit",
+    "gh-pages": "preserved",
+    "ccr-b6d36a1c-4hszow": "other-session branch already merged into main; preserved"
+  }
+}
