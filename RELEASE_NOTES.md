@@ -1,4 +1,4 @@
-# FrameCore Works Creative Studio 1.115.0
+# Creative Studio 1.115.0
 
 FrameCut gives the user a visual plan of the entire film before final rendering:
 

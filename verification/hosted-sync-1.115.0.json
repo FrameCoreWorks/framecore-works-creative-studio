@@ -1,0 +1,102 @@
+{
+  "version": "1.115.0",
+  "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+  "release_id": "pluginrel_6ad871c551e081918f643baaaeb5b3bc",
+  "source_commit": "aea1191742f5ae2747610a8a9e8625cfd4217037",
+  "baseline_release_id": "pluginrel_6ad8572ec58081919c4301f651d0b0c8",
+  "scope": "17 changed files, preserved App binding and complete path inventory; not full-package byte equality",
+  "comparisons": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "result": "byte-identical",
+      "sha256": "3161bfe91c904c97526a62a03f16fc9931ce0a033570e301ab396b9ee2610daa"
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "result": "json-equivalent",
+      "sha256": "549c2aeb922ec327db886944da65adf65974e2b382130b93afe68de173dc18c7"
+    },
+    {
+      "path": "README.md",
+      "result": "byte-identical",
+      "sha256": "56168fffaf8d031dbdf8bfd5f29e7a7888f803421670fdd4f599ec893065cd93"
+    },
+    {
+      "path": "docs/migration-status.md",
+      "result": "byte-identical",
+      "sha256": "4fc38c9d83d0870dae3953e335adb46b8d3de8179dac6c558f8f390607b5a8b4"
+    },
+    {
+      "path": "docs/release-history.md",
+      "result": "byte-identical",
+      "sha256": "46b8f6c4b1cd833d074445e81b4fc3ae528fa101464a3633dfcb886fc5517fe4"
+    },
+    {
+      "path": "plugin.json",
+      "result": "byte-identical",
+      "sha256": "737abb7ce37e75ca80a3a4409f3202c8ed8f8afcdefb0c73cdb70f41d7b0118a"
+    },
+    {
+      "path": "skills/hyperframes-workflow/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "d4af44eb490b974a0570246593948542ff9f85ad4b39e6df6e0288e2a5081c91"
+    },
+    {
+      "path": "skills/opencut-video-studio/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "9bd3b475fc72ebc48bab9f52bfd6f655a99a0bf2652abf37a6e36c2baa32a7a3"
+    },
+    {
+      "path": "skills/opencut-video-studio/assets/framecut/README.md",
+      "result": "byte-identical",
+      "sha256": "c4e3f443dcd77ab016ae3c6f5836cd8bbaaae832a6bcb332f8b29a647950bf18"
+    },
+    {
+      "path": "skills/opencut-video-studio/templates/opencut-edit-pack.md",
+      "result": "byte-identical",
+      "sha256": "2165b25687012af6ca8b26d0de8fd2cd678eaf07605ac1ed8d286be4a39961fe"
+    },
+    {
+      "path": "skills/pipeline-core/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "387ba84467e47c13afac62646963fe25329a5b579b6fbd46faecc0285a48e863"
+    },
+    {
+      "path": "skills/pipeline-core/assets/project-state.md",
+      "result": "byte-identical",
+      "sha256": "e881d7adc168664e0e4fcdb657124a254eaea682e13892d97736bbbd775133c7"
+    },
+    {
+      "path": "skills/pipeline-core/templates/project-state.md",
+      "result": "byte-identical",
+      "sha256": "58dabda562606f0230149d8c5b0d7e568f994412caf6e05a64211db82cb1692c"
+    },
+    {
+      "path": "skills/remotion-video-production/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "71c77b5682bd262431cba237517454eb64c1196b652fd7dee134df01725bbb25"
+    },
+    {
+      "path": "skills/storyboard-board-architect/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "cad5de3be54fc42e12e7a0fd61d890762935aa566d03346e895b0734669e929f"
+    },
+    {
+      "path": "skills/storyboard-sequence-architect/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "0caead8a4a04fb7b5c9d8009ff1a57eae7d70088a8a390302fcc9a0433556634"
+    },
+    {
+      "path": "skills/workflow-orchestrator/SKILL.md",
+      "result": "byte-identical",
+      "sha256": "83c25d777f21d8411f00dda2fb67c27b6b3870b341396fde7ec6c1170d7875d8"
+    }
+  ],
+  "inventory_count": 1565,
+  "inventory_paths_unchanged": true,
+  "app_binding_unchanged": true,
+  "private_integrations": "Preserved by guarded three-way overlay; omitted files untouched",
+  "mcp_retirement_preserved": true,
+  "host_behavior": "NOT_RUN",
+  "publication_order": "Repository main published and tree read back before existing-plugin update"
+}

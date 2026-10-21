@@ -2826,5 +2826,8 @@ Verification:
 Cross-host state:
 
 - GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- ChatGPT Work: synchronized saved 1.115.0 / `pluginrel_6ad871c551e081918f643baaaeb5b3bc`, after repository source `aea1191742f5ae2747610a8a9e8625cfd4217037` was published and read back. All 17 affected files verified (16 byte-identical, Codex manifest JSON-equivalent); App binding and all 1565 paths preserved, including private integrations and Sunra MCP retirement. [Readback](../verification/hosted-sync-1.115.0.json). Fresh-client behavior NOT_RUN.
 - Codex: not_run
+
+
+Publication follow-up: the description-refresh workflow initially rejected the release-notes heading because it expects the exact `# Creative Studio 1.115.0` prefix. The repository-only correction changes that heading and retains the release tag/assets; the failure and corrected run are recorded separately. The shared package is unchanged and needs no second hosted update. Git write credentials were unavailable; the authenticated connector published the tested identical tree with a guarded fast-forward. Local preparatory commits were reconciled to that remote tree without changing source content.
