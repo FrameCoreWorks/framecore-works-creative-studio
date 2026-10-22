@@ -14,7 +14,7 @@ from pathlib import Path
 from fc_core import (FrameCutError, VERSION, atomic_json, confined, confined_output, event_start, file_hash, fingerprint,
                      identifier, integer, ratio, read_json, require, round_boundary, source_clock, span_seconds, validate)
 from fc_media import capabilities, ffmpeg, probe, run
-from fc_captions import ass_document, project_captions, sidecars
+from fc_captions import ass_document, caption_font_warnings, project_captions, sidecars
 
 
 def decimal(value):
@@ -65,6 +65,7 @@ def compile_project(project, root, deliverable_id):
                         "Motion placement/format changed; request and bind a revised composition", "stale_revision")
     projection = project_captions(project, seq)
     warnings += projection["warnings"]
+    warnings += caption_font_warnings(project, seq, projection)
     ass, layout = ass_document(project, seq, d, projection)
     warnings += layout
     if seq.get("captions", {}).get("enabled") and not projection["groups"]:
@@ -427,7 +428,7 @@ def take_lock(lock, root, project):
 
 
 FATAL_WARNINGS = {"clipped_word", "partial_segment", "subframe_word", "kinetic_requires_word_timing", "captions_without_timing",
-                  "caption_layout_overflow", "caption_text_collision", "unbound_motion"}
+                  "caption_layout_overflow", "caption_text_collision", "unbound_motion", "font_missing_glyphs"}
 
 
 def final_blockers(warnings, seq):

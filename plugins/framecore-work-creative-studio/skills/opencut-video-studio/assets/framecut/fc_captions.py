@@ -1,8 +1,12 @@
 """Project source speech once onto the edit, then delegate subtitle QA to Caption Studio."""
 from __future__ import annotations
 
+import functools
 import importlib.util
+import shutil
+import subprocess
 import textwrap
+import unicodedata
 from fractions import Fraction
 from pathlib import Path
 
@@ -55,12 +59,20 @@ def project_captions(project, seq):
     if style.get("mode") == "kinetic" and any(w["kind"] != "word" for w in result):
         warnings.append({"code": "kinetic_requires_word_timing", "message": "Keep sentence mode or supply checked word timing; no fabricated word alignment."})
     groups, current = [], []
+    owner = caption_owner()
+    language = str((project.get("brief") or {}).get("language", "en")).lower().replace("_", "-").split("-")[0]
+    seconds = float(fps)
+    heard = lambda x: {"word": x["text"], "start": x["start"] / seconds, "end": x["end"] / seconds}
+    too_long = lambda group, incoming: (len(group) >= style.get("max_words", 6) or len(" ".join(x["text"] for x in group) + " " + incoming["text"]) > 70)
     for w in result:
-        split = current and (w["clip"] != current[-1]["clip"] or w["kind"] == "segment" or current[-1]["kind"] == "segment"
-                             or len(current) >= style.get("max_words", 6) or w["start"] - current[-1]["end"] > fps / 2
-                             or len(" ".join(x["text"] for x in current) + " " + w["text"]) > 70)
-        if split:
+        # A new clip, a segment, a pause or a finished sentence always starts a new cue.
+        if current and (w["clip"] != current[-1]["clip"] or w["kind"] == "segment" or current[-1]["kind"] == "segment"
+                        or w["start"] - current[-1]["end"] > fps / 2 or (len(current) >= 2 and current[-1]["text"][-1:] in ".!?…")):
             groups.append(current); current = []
+        # Too long: end the cue at a natural break (punctuation, clause start, pause), never after a one-letter word.
+        while current and too_long(current, w):
+            keep = max(1, min(owner.cut_point([heard(x) for x in current], language, heard(w)), len(current)))
+            groups.append(current[:keep]); current = current[keep:]
         current.append(w)
     if current:
         groups.append(current)
@@ -68,6 +80,52 @@ def project_captions(project, seq):
             "groups": groups, "warnings": warnings, "source_mapping_hash": fingerprint(result)}
 
 
+def missing_glyphs(font, text):
+    """Characters of `text` that `font` (a PIL font) draws as its missing-glyph box. Spaces and control characters are ignored."""
+    def shape(char):
+        mask = font.getmask(char)
+        return mask.size, bytes(mask)
+    reference = shape("\uffff")
+    seen, missing = set(), []
+    for char in text:
+        if char in seen or char.isspace() or unicodedata.category(char).startswith("C"):
+            continue
+        seen.add(char)
+        if shape(char) == reference:
+            missing.append(char)
+    return missing
+
+
+def caption_font(name):
+    """(path, face index) of the font fontconfig picks for `name`, or None when fontconfig or the file is unavailable."""
+    if not shutil.which("fc-match"):
+        return None
+    found = subprocess.run(["fc-match", "-f", "%{file}\n%{index}", "--", name], capture_output=True, text=True, timeout=10).stdout.splitlines()
+    if len(found) == 2 and Path(found[0]).is_file():
+        return found[0], int(found[1] or 0)
+    return None
+
+
+def caption_font_warnings(project, seq, projection):
+    """A caption font that cannot draw the text's letters would burn boxes into the film: report which characters."""
+    style = seq.get("captions", {})
+    if not style.get("enabled"):
+        return []
+    text = "".join(w["text"] for w in projection["words"]) + "".join(t.get("text", "") for t in seq.get("texts", []))
+    if not text.strip():
+        return []
+    chosen = caption_font(style.get("font", "DejaVu Sans"))
+    if chosen is None:
+        return []
+    try:
+        from PIL import ImageFont
+        gone = missing_glyphs(ImageFont.truetype(chosen[0], 40, index=chosen[1]), text)
+    except (ImportError, OSError):
+        return []
+    return [{"code": "font_missing_glyphs", "font": style.get("font", "DejaVu Sans"), "chars": gone[:30]}] if gone else []
+
+
+@functools.lru_cache(maxsize=1)
 def caption_owner():
     path = Path(__file__).resolve().parents[3] / "caption-studio/assets/captions/captions.py"
     spec = importlib.util.spec_from_file_location("framecut_caption_owner", path)

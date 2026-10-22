@@ -147,20 +147,23 @@ def main(argv=None):
     q.add_argument("--check", action="store_true")
     q = sub.add_parser("init", help="Create a project; its parent is the explicit allowed media/output root")
     q.add_argument("project"); q.add_argument("--id", required=True); q.add_argument("--brief")
-    for name in ("ingest", "validate", "analyze", "import-transcript", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review", "timeline-read", "preview-frame", "storyboard", "job-start", "job-status", "job-cancel", "job-resume", "job-worker"):
+    for name in ("ingest", "validate", "analyze", "import-transcript", "align-script", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review", "timeline-read", "preview-frame", "storyboard", "job-start", "job-status", "job-cancel", "job-resume", "job-worker"):
         q = sub.add_parser(name); q.add_argument("project")
-        if name in ("ingest", "analyze", "import-transcript", "transcribe", "propose", "attach-motion"):
+        if name in ("ingest", "analyze", "import-transcript", "align-script", "transcribe", "propose", "attach-motion"):
             q.add_argument("--asset", required=True)
         if name == "ingest":
             q.add_argument("--media", required=True, help="Path relative to the project root")
             q.add_argument("--rights", default="unknown"); q.add_argument("--provenance", default="user-supplied")
-        if name in ("ingest", "import-transcript", "transcribe", "attach-motion", "apply", "undo"):
+        if name in ("ingest", "import-transcript", "align-script", "transcribe", "attach-motion", "apply", "undo"):
             q.add_argument("--base-revision", type=int, required=True)
         if name in ("analyze", "compile", "render", "export", "motion-request", "preview-frame", "storyboard"):
             q.add_argument("--out", required=True, help="New project-relative output path")
         if name == "analyze":
             q.add_argument("--max-seconds", type=int, default=1800); q.add_argument("--thumbnails", type=int, default=8)
         if name == "import-transcript": q.add_argument("--transcript", required=True)
+        if name == "align-script":
+            q.add_argument("--script", required=True, help="Text file with the known script (UTF-8)")
+            q.add_argument("--min-match", type=float, default=0.6, help="Refuse when less than this share of the script matches the speech")
         if name == "transcribe":
             q.add_argument("--python", required=True); q.add_argument("--model", required=True); q.add_argument("--language", default="auto")
             q.add_argument("--word-times", action="store_true", help="Request approximate ASR token word times; review them before kinetic delivery")
@@ -212,6 +215,22 @@ def main(argv=None):
                 analysis = (transcript_import(asset, read_json(args.transcript)) if cmd == "import-transcript" else transcribe(root, asset, args.python, args.model, args.language, word_times=args.word_times))
                 project["analyses"][args.asset] = analysis
                 result = commit_revision(path, project, args.base_revision, cmd)
+            elif cmd == "align-script":
+                from fc_align import align_script
+                analysis = project["analyses"].get(args.asset)
+                require(analysis and any(w.get("start") is not None for w in analysis.get("words", [])),
+                        "align-script needs word timing: import a transcript with word times or transcribe with --word-times first")
+                require(0 < args.min_match <= 1, "--min-match must be between 0 and 1")
+                script_path = Path(args.script)
+                require(script_path.is_file() and script_path.stat().st_size <= 1024 * 1024, "The script must be a UTF-8 text file of at most 1 MiB")
+                aligned = align_script(analysis["words"], script_path.read_text(encoding="utf-8"), args.min_match)
+                updated = {k: v for k, v in analysis.items() if k != "fingerprint"}
+                updated.update(words=aligned["words"], segments=[], timing="aligned", alignment=aligned["report"],
+                               limitations=[*analysis.get("limitations", []), "Spelling comes from the supplied script and timing from the heard words; interpolated words are estimates."])
+                updated["fingerprint"] = fingerprint(updated)
+                project["analyses"][args.asset] = updated
+                saved = commit_revision(path, project, args.base_revision, "align script to speech")
+                result = {**aligned["report"], "revision": saved["revision"]}
             elif cmd == "propose": result = propose(project, args.asset)
             elif cmd == "apply":
                 require(project["revision"] == args.base_revision, "Project revision changed", "stale_revision")
