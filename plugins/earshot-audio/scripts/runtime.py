@@ -168,7 +168,8 @@ def install(tier, root):
         root.mkdir(parents=True, exist_ok=True)
         subprocess.run([sys.executable, '-m', 'venv', str(root / 'venv')], check=True)
         python = str(venv_python(root))
-        pip = [python, '-m', 'pip', 'install', '-q', '--disable-pip-version-check']
+        # --no-warn-conflicts: the light tier leaves out torch on purpose; pip would call that an ERROR
+        pip = [python, '-m', 'pip', 'install', '-q', '--disable-pip-version-check', '--no-warn-conflicts']
         subprocess.run(pip + ['--no-deps', str(src)], check=True)
         subprocess.run(pip + LIGHT, check=True)
         if tier == 'full':
@@ -257,15 +258,21 @@ def main(argv=None):
         if not args.yes:
             print(json.dumps(plan(args.tier, root), indent=2))
             return 0
-        return install(args.tier, root)
+        try:
+            return install(args.tier, root)
+        except (subprocess.CalledProcessError, OSError) as error:
+            what = ' '.join(map(str, error.cmd[-2:])) if isinstance(error, subprocess.CalledProcessError) else str(error)
+            print(f'earshot-audio: install stopped at `{what}` (network, proxy or disk); nothing beyond it was installed; '
+                  f'see `runtime.py status`', file=sys.stderr)
+            return 1
     if args.cmd == 'fetch-models':
         python = venv_python(root)
         if not args.yes:
             print(json.dumps({'action': 'fetch-models', 'downloads': list(MODELS), 'size': 'about 1.1 GB, pinned revisions',
                               'into': str(root / 'cache'), 'confirm': 'run again with --yes after the user agrees'}, indent=2))
             return 0
-        if not python:
-            print('earshot-audio: install the full tier first', file=sys.stderr)
+        if not python or not status(root).get('full_ready'):
+            print('earshot-audio: models need the full tier: `runtime.py install --tier full --yes` first', file=sys.stderr)
             return 1
         return subprocess.run([str(python), '-m', 'earshot', 'doctor', '--fetch'], env=engine_env(root, offline=False)).returncode
     return 2

@@ -98,6 +98,54 @@ class Readiness(unittest.TestCase):
             self.assertFalse((root / 'venv').exists())
             started.assert_not_called()
 
+    def test_light_install_does_not_print_a_false_dependency_error(self):
+        # 2026-10-22 container run: pip printed "ERROR ... requires torch" on a correct light install.
+        with tempfile.TemporaryDirectory() as tmp:
+            src = pathlib.Path(tmp) / 'src'
+            src.mkdir()
+            (src / 'pyproject.toml').write_text('x')
+            manifest = {'pyproject.toml': hashlib.sha256(b'x').hexdigest()}
+            root = pathlib.Path(tmp) / 'rt'
+            with mock.patch.object(runtime, 'fetch_source', return_value=src), \
+                    mock.patch.object(runtime, 'load_manifest', return_value={'files': manifest}), \
+                    mock.patch.object(runtime, 'venv_python', return_value=pathlib.Path('/venv/bin/python')), \
+                    mock.patch.object(runtime, 'status', return_value={}), \
+                    mock.patch.object(runtime.subprocess, 'run') as started:
+                self.assertEqual(quiet(runtime.main, ['install', '--tier', 'light', '--root', str(root), '--yes'])[0], 0)
+            pip_calls = [c.args[0] for c in started.call_args_list if 'pip' in c.args[0]]
+            self.assertTrue(pip_calls)
+            for call in pip_calls:
+                self.assertIn('--no-warn-conflicts', call)
+            self.assertFalse(any('torch' in ' '.join(call) for call in pip_calls))
+
+    def test_a_failed_download_is_one_line_not_a_traceback(self):
+        # 2026-10-22 container run: the CPU PyTorch index was unreachable and install ended in a traceback.
+        with tempfile.TemporaryDirectory() as tmp:
+            src = pathlib.Path(tmp) / 'src'
+            src.mkdir()
+            (src / 'pyproject.toml').write_text('x')
+            manifest = {'pyproject.toml': hashlib.sha256(b'x').hexdigest()}
+            failing = runtime.subprocess.CalledProcessError(1, ['pip', 'install', 'torch>=2.6'])
+            with mock.patch.object(runtime, 'fetch_source', return_value=src), \
+                    mock.patch.object(runtime, 'load_manifest', return_value={'files': manifest}), \
+                    mock.patch.object(runtime, 'venv_python', return_value=pathlib.Path('/venv/bin/python')), \
+                    mock.patch.object(runtime.subprocess, 'run', side_effect=[None, None, None, failing]):
+                code, _, err = quiet(runtime.main, ['install', '--tier', 'full', '--root', str(pathlib.Path(tmp) / 'rt'), '--yes'])
+            self.assertEqual(code, 1)
+            self.assertNotIn('Traceback', err)
+            self.assertIn('torch', err)
+            self.assertEqual(len(err.strip().splitlines()), 1)
+
+    def test_fetch_models_needs_the_full_tier_first(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch.object(runtime, 'venv_python', return_value=pathlib.Path('/venv/bin/python')), \
+                    mock.patch.object(runtime, 'status', return_value={'full_ready': False}), \
+                    mock.patch.object(runtime.subprocess, 'run') as started:
+                code, _, err = quiet(runtime.main, ['fetch-models', '--root', tmp, '--yes'])
+            self.assertEqual(code, 1)
+            self.assertIn('--tier full', err)
+            started.assert_not_called()
+
     def test_venv_python_on_windows_layout(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = pathlib.Path(tmp)

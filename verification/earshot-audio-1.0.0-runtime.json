@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-22",
+  "plugin": "earshot-audio 1.0.0",
+  "engine": "Earshot v0.4.0, commit 591fa3e028032e6dce56620a20e932e35667e8d8",
+  "host": "Claude Code cloud container, Linux, Python 3.13, CPU",
+  "install_light": {
+    "command": "runtime.py install --tier light --yes",
+    "source_route": "git fetch of the exact commit, tree d6f2dbc checked",
+    "file_check": "282 of 282 upstream files matched upstream.json",
+    "seconds": 40.6,
+    "status_after": "ready_light"
+  },
+  "sfx_render": {
+    "command": "run sfx render whoosh_fast/crisp --dur 0.8 --apex 0.32",
+    "requested_apex_s": 0.32,
+    "measured_peak_s": 0.3205,
+    "err_ms": 0.5,
+    "onset_s": 0.053,
+    "end_s": 0.65,
+    "checks": "clean"
+  },
+  "kit": {
+    "preset": "launch",
+    "roles_sounded": 20,
+    "off": [
+      "suck"
+    ],
+    "render_seconds": 7.8,
+    "check": "72 of 72 takes clean; 2 notes (riser and swell sounded, as the preset intends)"
+  },
+  "measure": {
+    "input": "6 s synthetic film, 220 Hz tone",
+    "result": "-19.0 LUFS, true peak -12.9 dBTP, LRA 0.0 LU"
+  },
+  "install_full": {
+    "status": "NOT_RUN",
+    "reason": "this environment's proxy refuses download.pytorch.org (403); the launcher now stops with one line instead of a traceback"
+  },
+  "models_and_neural_commands": {
+    "status": "NOT_RUN",
+    "reason": "needs the full tier"
+  },
+  "launcher_refusals": "llm, mcp, doctor --fetch and unknown commands refused before a process starts (unit tests); fetch-models without the full tier refused with one line (run here)",
+  "upstream_tests": "pending",
+  "not_claimed": "No listening judgement, no installed-client behaviour in ChatGPT or Codex."
+}
