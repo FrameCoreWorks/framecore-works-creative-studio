@@ -34,7 +34,13 @@
         "before": "Full storyboard acceptance; optional sample skipped",
         "after": "Same full storyboard acceptance; optional sample skipped"
       }
-    ]
+    ],
+    "focused_follow_up": {
+      "cases": 1,
+      "scenario": "No shell, but Python and local render API available; accepted board and source accessible",
+      "result": "PASS: use available execution route, retain board and unverified Superpowers activation",
+      "scope": "source-guided, no execution"
+    }
   },
   "focused_tests": {
     "registry_red": "5 expected failures; log retained in working environment",
@@ -49,7 +55,8 @@
     "important": 0,
     "minor": "Extra EOF blank line; fixed",
     "model": "gpt-6-astra",
-    "reasoning": "high"
+    "reasoning": "high",
+    "published_equivalent_head": "b1e6d3ba49e8be3de1bf8ab4996b1a762f4b1e36"
   },
   "host_behavior": {
     "ordinary_chatgpt": "NOT_RUN",
@@ -61,5 +68,10 @@
     "count": 18,
     "status": "definitions, not executed installed-client tests",
     "native_original_cases": 12
+  },
+  "publication": {
+    "source_commit": "fce01e2fdb9e3faec744e2965eba687f14c3c9d7",
+    "tag": "v1.122.0",
+    "hosted_release_id": "pluginrel_6ada1691510c8191876a77b0accd8ce9"
   }
 }

@@ -4,8 +4,8 @@ Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing a
 
 ## Current direction (2026-10-22, package 1.121.0)
 
-- **State.** 1.121.0, 37 skills, 1,549 canonical package files. Development is paused for the owner's real-use tests except for explicit bounded tasks. The current [temporary takeover](handover-chatgpt-work-2026-10-22-superpowers.md) records the separate hosted state and Claude's unfinished Open Design plan.
-- **Active owner request.** Implement the approved [Superpowers companion integration](superpowers/plans/2026-10-22-studio-companion-implementation.md), verify and merge the dedicated branch into main, publish the release, then update the existing ChatGPT plugin while preserving its private overlay. Superpowers is first recommended and separately installed; Studio retains creative ownership. Open Design remains paused.
+- **State.** 1.122.0, 37 skills, 1,552 canonical package files. Development is paused for the owner's real-use tests except for explicit bounded tasks. The current [temporary takeover](handover-chatgpt-work-2026-10-22-superpowers.md) records the separate hosted state and Claude's unfinished Open Design plan.
+- **Latest bounded task completed.** The approved [Superpowers companion integration](superpowers/plans/2026-10-22-studio-companion-implementation.md) is published in 1.122.0 and the existing ChatGPT plugin is updated with its private overlay preserved. Superpowers is first recommended and separately installed; Studio retains creative ownership. Fresh installed-client behavior remains untested; Open Design stays paused.
 - **Why the pause matters.** From 1.88.0 to 1.118.0 the package grew by about 330 files, mostly knowledge adapted from outside repositories and articles, while no version since 1.36.0 has been tested in a live client and the 204 planned host cases remain not_run. The owner's verdict on the 2026-10-16 test reel showed the gap: every automatic check passed and the reel was still too quiet for a client. New knowledge is worth less than evidence from real use.
 
 Direction, in order of value:

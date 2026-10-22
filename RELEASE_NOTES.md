@@ -7,3 +7,5 @@ Studio retains creative ownership, accepted storyboard revisions, one timeline a
 The OpenAI setup action targets the existing orchestrator, including catalog/ZIP installations. Claude uses explicit first-configuration guidance through its actual plugin interface. Host availability is checked rather than assumed.
 
 Verification: required source/runtime suites and canonical validation are recorded in verification/release-1.122.0.json. Five before/after source-guided scenarios and an independent code/instruction review supplement the regression tests. They are not fresh installed-client tests; ordinary ChatGPT, fresh Work, Codex and Claude behavior remains NOT_RUN. The existing hosted plugin is updated separately after repository publication, preserving its private overlay.
+
+Publication readback: all 1,552 plugin files match the release tag. Local verification: 760 passed, 25 skipped, zero failures. Existing ChatGPT plugin update and complete saved-package readback are recorded in verification/hosted-sync-1.122.0.json; private integrations are preserved.

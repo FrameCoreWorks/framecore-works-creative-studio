@@ -1,8 +1,15 @@
 # Temporary takeover and Superpowers foundation, 2026-10-22
 
+## Latest completion: CW-20261022-02
+
+The owner subsequently approved implementation and publication. Superpowers companion support is now in public 1.122.0 (`fce01e2fdb9e3faec744e2965eba687f14c3c9d7`, tag `v1.122.0`) and the existing private ChatGPT plugin 1.122.0 (`pluginrel_6ada1691510c8191876a77b0accd8ce9`). The documented OpenAI setup action targets the existing orchestrator; explicit first configuration covers other hosts. All 37 owners reach the shared policy, with six direct technical links. Manual catalog installation remains optional; no copied Superpowers or new connector.
+
+[Implementation record](../verification/superpowers-integration-2026-10-22.json), [release checks](../verification/release-1.122.0.json), [publication](../verification/github-publication-1.122.0.json), [complete hosted readback](../verification/hosted-sync-1.122.0.json). Local checks: 760 passed, 25 skipped, zero failures. Readback preserves 52 private-only files and 27 intentional overlays on public paths; no removals. Current-container runtime inventory is LIMITED, with preserved recipes; fresh installed-client tests remain NOT_RUN. Source-guided cases do not replace the owner's real FrameCut/Motion testing. Open Design remains paused. The earlier foundation observations below are historical.
+
+
 Change: CW-20261022-01. Origin: ChatGPT Work. Owner request: take over temporarily from Claude, inspect repository and hosted plugin, and create a separate branch for the Superpowers companion foundation.
 
-## Current observed state
+## Foundation observed state
 
 | Surface | Observation | Evidence scope |
 | --- | --- | --- |

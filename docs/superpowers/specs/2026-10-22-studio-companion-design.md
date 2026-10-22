@@ -136,7 +136,7 @@ Never change the pinned workflow-kit/Animate snapshots to wire this integration.
 
 ## Acceptance scenarios for implementation
 
-These are proposed cases, all NOT_RUN against an implemented public integration.
+These are acceptance definitions. Source-guided exercises and structural checks are recorded in the implementation verification; fresh installed-client cases remain NOT_RUN.
 
 | ID | Scenario | Required outcome |
 | --- | --- | --- |
@@ -151,7 +151,7 @@ These are proposed cases, all NOT_RUN against an implemented public integration.
 | SP09 | New reel without a board | Complete visual board and feedback/acceptance before final render; optional sample only |
 | SP10 | Six-frame drift at rational FPS | Evidence-based source/local/master diagnosis and affected-boundary verification |
 | SP11 | Simple raster or copy correction | Domain route and scoped review, no repository or compulsory software plan |
-| SP12 | No shell or delegation tools | Honest plan/handoff scope; no claimed render or independent review |
+| SP12 | No execution/render route or no delegation tools | Probe actual capabilities; shell absence alone is not render unavailability. No claimed unavailable render or independent review |
 | SP13 | Direct audio/caption/tooling fault | Bounded technical support, original owner receives result |
 | SP14 | Revised output after earlier PASS | Evidence scoped to current revision; preserve unaffected accepted work |
 | SP15 | Maintenance and explicit-only specialists | No spontaneous self-improvement or external agent dispatch |
@@ -161,10 +161,6 @@ These are proposed cases, all NOT_RUN against an implemented public integration.
 
 Run host behavior cases in bounded groups of at most five per gate, recording client, reasoning setting, actual skill reads, output, tokens/time where measurable and untested scope. Source/schema checks alone cannot pass these cases. Separately verify unchanged public welcome, package budgets, all 37 owners, direct entry reachability and no new runtime dependency.
 
-## Rollout and review boundary
+## Rollout result
 
-This branch can be reviewed without changing main or the hosted plugin. After owner review of this architecture, prepare the detailed implementation plan using the installed Superpowers `writing-plans` skill. Re-read main and hosted state first; the current public version and private native integration can advance independently.
-
-Implementation must reconcile the existing hosted contract, wire the shared source, verify and publish the repository release first, then perform a guarded update of the existing hosted plugin and read back the affected files. Choose the release number from the actual then-current state; do not reserve Claude's proposed 1.122.0. Main merge/release and live-plugin changes are outside this foundation commit.
-
-The review decision is whether to adopt this one-contract, separately installed, first-recommended companion design with the ownership and fallback rules above. The remaining verification gaps are explicit, not assumptions that all hosts already work.
+The owner approved implementation and paired publication. Release 1.122.0 publishes the reconciled shared contract on main before the guarded update of the existing ChatGPT plugin. Both destinations were read back; the private overlay remains private and preserved. See the [implementation plan](../plans/2026-10-22-studio-companion-implementation.md), [publication record](../../../verification/github-publication-1.122.0.json) and [hosted readback](../../../verification/hosted-sync-1.122.0.json). The release number was selected from then-current main, not reserved for the paused Open Design proposal. Fresh installed-client behavior remains a separate unexecuted check.

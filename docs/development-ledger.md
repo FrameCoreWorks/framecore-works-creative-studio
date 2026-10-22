@@ -3151,6 +3151,9 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- GitHub: synchronized. Release source `fce01e2fdb9e3faec744e2965eba687f14c3c9d7`, tag v1.122.0; all 1,552 package files match downloaded tag assets. Notes-only CI correction `a2c09584b51a23d8d2d5db32cffbaf220216b492` leaves package bytes unchanged. Release workflow PASS; additional source checks retain their observed status in [publication](../verification/github-publication-1.122.0.json).
+- ChatGPT Work: synchronized, 1.122.0 / `pluginrel_6ada1691510c8191876a77b0accd8ce9`; complete 1,604-file readback, 52 private-only files preserved, 27 intentional public-path overlays retained; [record](../verification/hosted-sync-1.122.0.json). Current-container runtime LIMITED (24/59); fresh installed-client behavior NOT_RUN.
 - Codex: not_run
+
+- Process: Superpowers planning, execution, debugging, source-guided verification and one independent whole-branch review used. No Critical/Important review findings. First setup and routing tested at source level; no claim of automatic cross-host installation or active-client execution.
+- Branches: main and the explicitly requested task branch carry the release; the three pre-existing ccr branches are ancestors of baseline main and were preserved. gh-pages was preserved.
