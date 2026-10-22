@@ -1,0 +1,121 @@
+"""earshot-audio launcher (scripts/runtime.py): pinned, verified installation and an allowlist of local commands. No network."""
+import contextlib
+import hashlib
+import importlib.util
+import io
+import json
+import pathlib
+import tempfile
+import unittest
+from unittest import mock
+
+PLUGIN = pathlib.Path(__file__).resolve().parent.parent
+spec = importlib.util.spec_from_file_location('earshot_runtime', PLUGIN / 'scripts/runtime.py')
+runtime = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(runtime)
+
+
+def quiet(fn, *args):
+    out, err = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+        code = fn(*args)
+    return code, out.getvalue(), err.getvalue()
+
+
+class Allowlist(unittest.TestCase):
+    def test_llm_and_mcp_are_refused_also_after_threads(self):
+        for argv in (['llm', 'x.wav'], ['mcp'], ['--threads', '2', 'mcp'], ['--threads=2', 'llm']):
+            with self.assertRaises(runtime.Refused):
+                runtime.check_command(argv)
+        with mock.patch.object(runtime.subprocess, 'run') as started:
+            code, _, err = quiet(runtime.main, ['run', '--threads', '2', 'llm', 'film.mp4'])
+        self.assertEqual(code, 2)
+        self.assertIn('llm', err)
+        started.assert_not_called()
+
+    def test_unknown_command_is_refused(self):
+        with mock.patch.object(runtime.subprocess, 'run') as started:
+            self.assertEqual(quiet(runtime.main, ['run', 'serve'])[0], 2)
+            self.assertEqual(quiet(runtime.main, ['run'])[0], 2)
+        started.assert_not_called()
+
+    def test_global_options_in_both_forms_are_skipped(self):
+        self.assertEqual(runtime.real_command(['--threads=3', 'sfx', 'list']), 'sfx')
+        self.assertEqual(runtime.real_command(['--threads', '3', 'measure', 'a.wav']), 'measure')
+        self.assertIsNone(runtime.real_command(['--threads', '3']))
+
+    def test_doctor_fetch_is_refused(self):
+        with self.assertRaises(runtime.Refused):
+            runtime.check_command(['doctor', '--fetch'])
+        runtime.check_command(['doctor', '--load'])
+        for name in ('measure', 'sfx', 'kit', 'forge', 'fit', 'describe', 'timeline', 'gallery'):
+            runtime.check_command([name])
+
+
+class Readiness(unittest.TestCase):
+    def test_status_without_venv_reports_unavailable_and_writes_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp) / 'rt'
+            report = runtime.status(root)
+            self.assertEqual(report['state'], 'unavailable')
+            self.assertFalse(root.exists())
+            code, out, _ = quiet(runtime.main, ['status', '--root', str(root), '--json'])
+            self.assertEqual(code, 0)
+            self.assertEqual(json.loads(out)['state'], 'unavailable')
+            self.assertFalse(root.exists())
+
+    def test_install_without_yes_prints_plan_and_writes_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp) / 'rt'
+            with mock.patch.object(runtime.subprocess, 'run') as started:
+                code, out, _ = quiet(runtime.main, ['install', '--tier', 'light', '--root', str(root)])
+            self.assertEqual(code, 0)
+            self.assertFalse(root.exists())
+            self.assertIn(runtime.PIN['commit'], out)
+            self.assertIn('--yes', out)
+            started.assert_not_called()
+
+    def test_one_changed_file_stops_install_before_any_write(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            src = pathlib.Path(tmp) / 'src'
+            (src / 'earshot').mkdir(parents=True)
+            (src / 'pyproject.toml').write_text('[project]\nname = "earshot"\n')
+            (src / 'earshot' / '__init__.py').write_text('VERSION = "0.4.0"\n')
+            manifest = {p.relative_to(src).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                        for p in src.rglob('*') if p.is_file()}
+            self.assertEqual(runtime.verify_tree(src, manifest), [])
+            (src / 'earshot' / '__init__.py').write_text('VERSION = "0.4.0"  # changed\n')
+            self.assertEqual(runtime.verify_tree(src, manifest), ['earshot/__init__.py'])
+            (src / 'extra.py').write_text('x = 1\n')
+            self.assertIn('extra.py', runtime.verify_tree(src, manifest))
+            root = pathlib.Path(tmp) / 'rt'
+            with mock.patch.object(runtime, 'fetch_source', return_value=src), \
+                    mock.patch.object(runtime, 'load_manifest', return_value={'files': manifest}), \
+                    mock.patch.object(runtime.subprocess, 'run') as started:
+                code, _, err = quiet(runtime.main, ['install', '--tier', 'light', '--root', str(root), '--yes'])
+            self.assertEqual(code, 1)
+            self.assertIn('earshot/__init__.py', err)
+            self.assertFalse((root / 'venv').exists())
+            started.assert_not_called()
+
+    def test_venv_python_on_windows_layout(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            exe = root / 'venv' / 'Scripts' / 'python.exe'
+            exe.parent.mkdir(parents=True)
+            exe.write_bytes(b'')
+            self.assertEqual(runtime.venv_python(root), exe)
+            posix = root / 'venv' / 'bin' / 'python'
+            posix.parent.mkdir(parents=True)
+            posix.write_bytes(b'')
+            self.assertEqual(runtime.venv_python(root), posix)
+
+    def test_real_sound_scripts_stay_inside_their_folder(self):
+        with self.assertRaises(runtime.Refused):
+            runtime.real_sound_script('../../scripts/runtime.py')
+        with self.assertRaises(runtime.Refused):
+            runtime.real_sound_script('/etc/passwd')
+
+
+if __name__ == '__main__':
+    unittest.main()
