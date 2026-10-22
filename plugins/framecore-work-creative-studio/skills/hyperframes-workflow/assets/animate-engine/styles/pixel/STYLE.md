@@ -26,6 +26,8 @@ Divisors of both 1080 and 1920: 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 30, 40, 60
 - **HANDHELD** (4 greens, darkest first): `#0f2a14`, `#306a2e`, `#8aac2a`, `#c4d870`. Everything in such an era — sky, trees, hero (`HERO_HH`), text, window rims — is one of these four.
 - **Enforce it:** `lowres(res, draw, { fx: { pal: HANDHELD } })` snaps every pixel of the era's picture to the nearest palette colour after drawing. Set `ERA_POST[e].pal` too, so the morph's backdrop and blob dither with the era's own colours.
 - The paper (the blank screen a morph happens on) is ink `#14101e`; in an era with its own palette it snaps to that palette's darkest colour.
+- **A ramp beyond the fixed palettes** (a new material, a brand colour): 3 to 5 steps from deep shadow to highlight, with the hue moving a little as the value moves, shadows toward a cool anchor and highlights toward a warm one along the shorter way round the colour wheel, and saturation falling at both ends. Add the steps to the era's palette instead of blending toward black or white, which turns every shade grey and muddy. One light direction for the whole piece; darkening all the way round an edge ("pillow shading") makes things look inflated.
+- **The colour count is the era:** about 4 reads as handheld, 16 as an early console, 32 and more as 16-bit. A character that must appear in several brand colours (the variants of one ad) keeps its palette grouped by role (skin, hair, clothing, trim), each group a short ramp, so a variant swaps a group's colours instead of being redrawn.
 
 ## The font
 
@@ -41,15 +43,22 @@ Two places, both deterministic (keyed on `B`):
 - **On the low-res picture**, `lowres(..., { fx })`: `pal` (snap to palette), `posterize: n`, `noise: count` + `noiseAmt` (colour noise), `blocks: frac` + `bs` (JPEG-ish flattened blocks), `flicker: amt` (brightness jitter), `blur: px` (a soft, early-generative look; it breaks the palette, so keep it to one era).
 - **On the screen**, `ERA_POST[e] = { scan, lcd, vignette, rim, pal }` drawn by `STYLE.post` on the era's pixel grid: `scan` darkens the bottom third of each pixel row, `lcd` draws a thin gap between pixels, `vignette` dithers the corners dark (a curved tube), `rim: [light, dark]` colours the morph window's rims.
 
+Choosing the dither: the 2x2 tile mixes at 4 levels and looks coarse and plainly retro; the 4x4 tile (the kit's) mixes at 16 and suits most work; an 8x8 tile mixes at 64 and starts to read as a smooth gradient, so keep it to large flat areas. Anything that moves or scrolls uses an ordered tile pinned to screen coordinates; error diffusion (Floyd-Steinberg) makes its pattern crawl from frame to frame, so it is for a still image only. FrameCut's `ordered_dither`, `posterize` and `pixelate` effects give the same look to supplied footage.
+
 ## Motion habits
 
 - **On 2s** (`STYLE.ones = false`). TT steps at 12 fps; a one-pixel-per-step move is a steady 12 low-res px/s, sprites have two frames, and on-1s motion would only add in-between positions that pixel art doesn't draw. A piece that needs smooth scrolling can set `STYLE.ones = true` in its scenes.
 - **Whole-pixel moves only.** Positions are integers in pixel space (`Math.floor(TT * 12)` per boil, `Math.round` on eased paths). Nothing slides by a fraction of a pixel.
 - **Sprite frames flip on beats** (`Math.floor(TT / BEAT) % 2`): idle squash, ears, tufts of grass, tree tips. Walk cycles flip every pixel or two. Spins step through 4–6 widths on 8ths.
+- **Time it in render frames, not milliseconds** (a 30 ms hit is under one frame at 30 fps). Starting points to check against the picture: an impact or strike is 1 to 2 frames, anticipation and recovery are 2 to 4 and hold longer than the strike; an idle loop is 2 to 4 frames; a walk needs four key poses (contact, down, passing, up); a blink holds the open eye long and the closed eye for 2 to 3 frames.
 - **Jumps are parabolas in whole pixels** (`Math.round(Hmax * 4u(1 - u))`), with the shadow shrinking under them.
 - **Things blink rather than fade:** stars, fireflies, lit windows, cursors — on/off keyed on `B` or the beat, never an alpha ramp.
 - **No camera.** `pieceCam` returns null; move the world instead. A camera on the context is honoured (pans snap to whole pixels) but zooms would make pixels uneven; to "zoom in", cut to a finer resolution.
 - The morph: the old era shrinks into a stepped window on its own grid, the blob morphs while its grid steps from the old era's pixel size to the new one (12 → 10 → 8 → 6 px), and the new era opens from a stepped window on its finer grid.
+
+## Supplied pixel assets
+
+A user's own sprite or sheet placed in a composition is scaled by whole numbers only (2x, 3x, 4x) with nearest-neighbour sampling (`image-rendering: pixelated`, canvas smoothing off, FFmpeg `scale=flags=neighbor`), placed on whole pixels, and the whole composition is scaled at the end rather than each sprite; a default image element or scale blurs it into mush. Read frame durations from the sheet's own data, not an assumed even rate, and expect 1 to 2 pixels of padding between sheet frames. When the sheet is not 1:1 with the output grid, say so before building.
 
 ## Frame checklist (on top of grammar/FRAME.md)
 

@@ -1,0 +1,53 @@
+{
+  "id": "posterize",
+  "version": 1,
+  "domain": "picture",
+  "parameters": {
+    "levels": {
+      "min": 2,
+      "max": 256,
+      "default": 256
+    }
+  },
+  "steps": [
+    {
+      "op": "posterize",
+      "value": {
+        "param": "levels"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "input": [
+        200,
+        60,
+        130,
+        255
+      ],
+      "params": {
+        "levels": 2
+      },
+      "expected": [
+        255,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "input": [
+        40,
+        80,
+        120,
+        255
+      ],
+      "expected": [
+        40,
+        80,
+        120,
+        255
+      ]
+    }
+  ]
+}

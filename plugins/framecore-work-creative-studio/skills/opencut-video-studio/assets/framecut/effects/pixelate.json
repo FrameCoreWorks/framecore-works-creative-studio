@@ -1,0 +1,65 @@
+{
+  "id": "pixelate",
+  "version": 1,
+  "domain": "picture",
+  "parameters": {
+    "block": {
+      "min": 1,
+      "max": 64,
+      "default": 1
+    }
+  },
+  "steps": [
+    {
+      "op": "pixelate",
+      "value": {
+        "param": "block"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "input": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "paint": {
+        "0,0": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "params": {
+        "block": 4
+      },
+      "at": [
+        1,
+        1
+      ],
+      "expected": [
+        16,
+        16,
+        16,
+        255
+      ]
+    },
+    {
+      "input": [
+        40,
+        80,
+        120,
+        255
+      ],
+      "expected": [
+        40,
+        80,
+        120,
+        255
+      ]
+    }
+  ]
+}

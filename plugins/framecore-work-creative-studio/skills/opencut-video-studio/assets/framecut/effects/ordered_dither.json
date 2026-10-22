@@ -1,0 +1,78 @@
+{
+  "id": "ordered_dither",
+  "version": 1,
+  "domain": "picture",
+  "parameters": {
+    "levels": {
+      "min": 2,
+      "max": 256,
+      "default": 256
+    }
+  },
+  "steps": [
+    {
+      "op": "ordered_dither",
+      "value": {
+        "param": "levels"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "input": [
+        128,
+        128,
+        128,
+        255
+      ],
+      "params": {
+        "levels": 2
+      },
+      "at": [
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "input": [
+        128,
+        128,
+        128,
+        255
+      ],
+      "params": {
+        "levels": 2
+      },
+      "at": [
+        0,
+        3
+      ],
+      "expected": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "input": [
+        40,
+        80,
+        120,
+        255
+      ],
+      "expected": [
+        40,
+        80,
+        120,
+        255
+      ]
+    }
+  ]
+}

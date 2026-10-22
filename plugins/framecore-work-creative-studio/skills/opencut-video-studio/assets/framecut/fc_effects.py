@@ -3,7 +3,10 @@ from functools import lru_cache
 from pathlib import Path
 from fc_core import fingerprint, integer, keys, number, read_json, require
 
-PICTURE = {'brightness', 'contrast', 'saturation', 'blur', 'grayscale', 'vignette'}
+PICTURE = {'brightness', 'contrast', 'saturation', 'blur', 'grayscale', 'vignette', 'pixelate', 'posterize', 'ordered_dither'}
+
+# 4x4 Bayer thresholds; every cell of the tile is a different brightness cut, so a flat tone becomes a fixed pattern.
+BAYER4 = ((0, 8, 2, 10), (12, 4, 14, 6), (3, 11, 1, 9), (15, 7, 13, 5))
 AUDIO = {'highpass', 'lowpass', 'denoise'}
 
 
@@ -61,6 +64,20 @@ def catalogue_info():
     return {'effects': specs, 'catalogue_hash': fingerprint(specs), 'customization': 'Add a versioned JSON manifest using supported primitives and executable fixtures; no scripts or arbitrary filtergraphs.'}
 
 
+@lru_cache(maxsize=8)
+def bayer_bias(width, height, step):
+    """An 'L' image of integer offsets (128 = none) the size of the frame: the Bayer tile scaled to +-step/2, pinned to screen coordinates."""
+    from PIL import Image
+    rows = [bytes(128 + round(((BAYER4[y % 4][x % 4] + 0.5) / 16 - 0.5) * step) for x in range(4)) for y in range(4)]
+    wide = [(row * (width // 4 + 1))[:width] for row in rows]
+    return Image.frombytes('L', (width, height), b''.join(wide[y % 4] for y in range(height)))
+
+
+def level_table(levels):
+    step = 255 / (levels - 1)
+    return [round(round(v / step) * step) for v in range(256)]
+
+
 def picture(image, effects):
     from PIL import Image, ImageEnhance, ImageFilter
     for effect in effects:
@@ -83,6 +100,22 @@ def picture(image, effects):
                 mask.putdata([round(255*max(0, 1-value*((x-63.5)**2+(y-63.5)**2)/(2*63.5**2))) for y in range(128) for x in range(128)])
                 black = Image.new('RGBA', image.size, (0, 0, 0, 255))
                 image = Image.composite(image, black, mask.resize((width, height), Image.Resampling.BILINEAR))
+            elif name == 'pixelate':
+                block = round(value)
+                if block > 1:
+                    width, height = image.size
+                    small = image.resize((-(-width // block), -(-height // block)), Image.Resampling.BOX)
+                    image = small.resize((small.width * block, small.height * block), Image.Resampling.NEAREST).crop((0, 0, width, height))
+            elif name in ('posterize', 'ordered_dither'):
+                levels = round(value)
+                if levels < 256:
+                    from PIL import ImageChops
+                    table = level_table(levels)
+                    channels = list(image.convert('RGB').split())
+                    if name == 'ordered_dither':
+                        bias = bayer_bias(image.width, image.height, 255 / (levels - 1))
+                        channels = [ImageChops.add(c, bias, 1, -128) for c in channels]
+                    image = Image.merge('RGB', [c.point(table) for c in channels]).convert('RGBA')
             image.putalpha(alpha)
     return image
 
@@ -107,7 +140,9 @@ def check_fixtures():
             applied = {'id': spec['id'], 'version': spec['version'], 'params': fixture.get('params', {})}
             if spec['domain'] == 'picture':
                 source = Image.new('RGBA', (8, 8), tuple(fixture['input']))
-                actual = picture(source, [applied]).getpixel((4, 4))
+                for place, colour in fixture.get('paint', {}).items():
+                    source.putpixel(tuple(int(n) for n in place.split(',')), tuple(colour))
+                actual = picture(source, [applied]).getpixel(tuple(fixture.get('at', [4, 4])))
                 expected = fixture['expected']
                 require(max(abs(a-b) for a,b in zip(actual, expected)) <= fixture.get('tolerance', 1), f"Effect fixture failed: {spec['id']}:{i}", 'qa_failed')
             else:

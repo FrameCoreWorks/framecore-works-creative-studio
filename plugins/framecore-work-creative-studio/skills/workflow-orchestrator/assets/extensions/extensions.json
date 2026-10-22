@@ -1337,6 +1337,67 @@
       "observed": "2026-10-22: README, packaging notes, the project's agent skill, configuration template and the code that runs processes, reaches the network and chooses the listen address were read at the reviewed commit (no telemetry found; its API server listens on 0.0.0.0 by default). The PyPI wheel and sdist for mpt 1.3.9 matched their published SHA-256 and the wheel's 57 Python files are byte-identical to the repository at that commit. The plan command (pip install --dry-run --no-deps) reported `Would install mpt-1.3.9`, and pip install of the wheel into a fresh Python 3.13 virtual environment on Linux succeeded (about 1.3 GB). The program itself was not run: the container's permission check blocked executing the downloaded package, so `mpt cli --help` and the offline generation are NOT_RUN, as is every online provider",
       "update": "Review a newer release, then change package.version and reviewed_commit together",
       "category": "video"
+    },
+    {
+      "id": "pixel-plugin",
+      "name": "Pixel Plugin (willibrandon): Aseprite pixel art",
+      "repository": "https://github.com/willibrandon/pixel-plugin",
+      "reviewed_commit": "dee350645b705916655c013f208bf5580ecb9317",
+      "license": "MIT (the plugin and its pixel-mcp server). Aseprite itself is a separate commercial program with its own licence, not bundled",
+      "kind": [
+        "claude_code_plugin",
+        "mcp_server",
+        "skills"
+      ],
+      "role": "engine",
+      "gives": "Pixel art drawn through Aseprite from a conversation: canvases and layers, drawing, palette work, dithering and shading, frame animation and export to PNG, GIF and spritesheets with JSON metadata (about 40 MCP tools and four skills)",
+      "studio_uses": "Hand-made pixel sprites, characters and animations as assets for a reel, a retro-look explainer or a game trailer: export a GIF or PNG sequence and place it with FrameCut or a coded composition. Studio's own pixel look (the Animate engine's pixel style and FrameCut's pixelate, posterize and ordered_dither effects) stays the default for pixel-style motion and footage without Aseprite",
+      "not_for": "Photo, vector or video work; game-engine integration beyond export files; anything without Aseprite 1.3+ installed; trusting its bundled binaries unchecked",
+      "requires": [
+        {
+          "tool": "aseprite",
+          "note": "Aseprite 1.3.0+ installed by the user (a commercial program, not bundled); /pixel-setup stores its path"
+        },
+        {
+          "tool": "git",
+          "note": "git, to fetch the pinned checkout"
+        },
+        {
+          "tool": "claude",
+          "note": "Claude Code with the plugin command"
+        }
+      ],
+      "rights": "Aseprite needs the user's own licence. Art made with it belongs to the user: never copy another artist's sprites. The repository bundles prebuilt MCP binaries for five platforms (about 36 MB) that could not be matched to source here: treat them as third-party executables, and review or rebuild pixel-mcp v0.5.0 before work that depends on them. The project is a year without a commit and its examples are partly empty, so check its output before using it",
+      "hosts": {
+        "codex": {
+          "status": "not_supported",
+          "reason": "It is a Claude Code plugin (a marketplace entry with five prebuilt MCP binaries) that drives Aseprite on the user's own computer; other agents cannot install it from Studio. Studio writes the brief, palette and motion plan there, and the user draws and exports sprites in Claude Code"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "git clone https://github.com/willibrandon/pixel-plugin ~/.framecore-studio/extensions/pixel-plugin && git -C ~/.framecore-studio/extensions/pixel-plugin checkout dee350645b705916655c013f208bf5580ecb9317 && claude plugin validate ~/.framecore-studio/extensions/pixel-plugin",
+          "install": "git -C ~/.framecore-studio/extensions/pixel-plugin checkout dee350645b705916655c013f208bf5580ecb9317 && claude plugin marketplace add ~/.framecore-studio/extensions/pixel-plugin && claude plugin install pixel-plugin@pixel-plugin",
+          "writes": "~/.framecore-studio/extensions/pixel-plugin (a checkout of the reviewed commit, about 35 MB with its five binaries); Claude Code's plugin settings (a local marketplace named pixel-plugin and the installed plugin); after /pixel-setup the file ~/.config/pixel-mcp/config.json with the Aseprite path",
+          "verify": "claude plugin list",
+          "after": "Restart Claude Code, then run /pixel-setup to point it at Aseprite 1.3+ (installed separately). The MCP server starts Aseprite on the user's computer; ask before overwriting an existing .aseprite file, because its tools save in place without a backup. Export a GIF or PNG sequence and bring it into the film at whole-number scale with nearest-neighbour sampling",
+          "remove": "claude plugin uninstall pixel-plugin && claude plugin marketplace remove pixel-plugin && rm -rf ~/.framecore-studio/extensions/pixel-plugin (and ~/.config/pixel-mcp only if nothing else uses it)"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "It is a Claude Code plugin (a marketplace entry with five prebuilt MCP binaries) that drives Aseprite on the user's own computer; other agents cannot install it from Studio. Studio writes the brief, palette and motion plan there, and the user draws and exports sprites in Claude Code"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "It is a Claude Code plugin (a marketplace entry with five prebuilt MCP binaries) that drives Aseprite on the user's own computer; other agents cannot install it from Studio. Studio writes the brief, palette and motion plan there, and the user draws and exports sprites in Claude Code"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "It is a Claude Code plugin (a marketplace entry with five prebuilt MCP binaries) that drives Aseprite on the user's own computer; other agents cannot install it from Studio. Studio writes the brief, palette and motion plan there, and the user draws and exports sprites in Claude Code"
+        }
+      },
+      "observed": "2026-10-22: README, the four skills, the commands, configuration and the engine source (pixel-mcp v0.5.0) were read at the reviewed commit (Studio's gaps were filled from that reading, see integrations/pixel-plugin). `claude plugin validate` on the checkout passed with one warning (no icon). A static look at the Linux binary found the Go runtime and MCP libraries, no network addresses and no telemetry; nothing was executed, so the server, Aseprite and every tool are NOT_RUN",
+      "update": "Review a newer release, then change reviewed_commit",
+      "category": "image"
     }
   ]
 }
