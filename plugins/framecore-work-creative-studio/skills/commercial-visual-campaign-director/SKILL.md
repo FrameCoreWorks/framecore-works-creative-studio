@@ -5,7 +5,7 @@ description: Shared visual system and format adaptation for multi-asset campaign
 
 # Static direction
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 Read [direction and composition](references/direction-and-composition.md) for an open brief. For typographic work load [typography](references/typography.md); for historical/style/process requests load [visual languages](references/visual-languages.md). For different media or campaign systems load [format adaptation](references/format-adaptation.md). [Worked examples](references/worked-examples.md) calibrate complete artifacts, not default aesthetics.
 

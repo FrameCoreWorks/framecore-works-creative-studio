@@ -5,7 +5,7 @@ description: "Commercial video campaign direction: the idea, motion thesis and a
 
 # Commercial video campaign direction
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 Own the creative decision between a commercial brief and downstream execution. Turn the brief into a specific, defensible motion idea and, when requested, an asset family with a distinct communication job for each version. Do not turn the work into a generic “premium, cinematic, dynamic” moodboard.
 

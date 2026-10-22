@@ -6,7 +6,7 @@ description: Adapt pace, vocabulary, depth and format to a user's shown expertis
 
 # Studio workstyle profile
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 Mirror the user's working style so they can spend attention on creative decisions rather than repeat explanations. Adapt separately by domain: visual design, video/editing, audio/music, writing/story and generation tools. Expertise in one field does not establish expertise in another.
 

@@ -5,7 +5,7 @@ description: "Music-video direction from a song, artist persona, lyrics or brief
 
 # Creative Music Video Director
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 Apply the conditional [public research gate](../research-evidence/SKILL.md) for substantive music-video direction. Research cultural, visual or production context when a trigger applies, such as real-world subjects, requested references or rights questions; separate sourced context from creative interpretation. If a generator is named for a later prompt, its current model, surface and operation must be mapped by [video-prompt-architect](../video-prompt-architect/SKILL.md), not guessed here.
 

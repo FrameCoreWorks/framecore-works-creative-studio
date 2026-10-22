@@ -1,0 +1,618 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.0",
+  "source": {
+    "commit": "de072bfb5190df981184e2e7b3bdf2d421023d1f",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "d219ec6157fcbd774f188e5d5ab9060da39e3495f4b01fc5c6b12f02e111e4b2",
+      "files": 1557,
+      "archive": "candidates/d219ec6157fcbd774f188e5d5ab9060da39e3495f4b01fc5c6b12f02e111e4b2.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "91e2ba4b7922ba96ff50605093d0f38659f8849ac8eb01e9b084ce16c71c364b",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 7,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8746,
+      "output": 14594,
+      "cache_read": 425168,
+      "cache_write": 164089
+    },
+    "seconds": 134.3
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "title": "A timing defect in an accepted FrameCut edit is diagnosed with systematic-debugging; the accepted board is kept",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1251,
+        "output": 2395,
+        "cache_read": 48975,
+        "cache_write": 25483
+      },
+      "seconds": 22.6,
+      "wall_seconds": 22.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mamy zaakceptowany storyboard i gotowy montaż we FrameCut (25 fps). W całym filmie dźwięk jest około 6 klatek za obrazem. Co robimy?",
+          "reply": "Nie widzę projektu w katalogu roboczym, więc nic jeszcze nie zmierzyłem. Poniżej plan i jedno pytanie.\n\n**Co wiemy:** 6 klatek przy 25 fps to 240 ms. Stałe przesunięcie w całym filmie to jeden błąd offsetu, a nie dryf. Przy dryfie opóźnienie rosłoby z czasem. Stałe 240 ms zwykle ma jedną z trzech przyczyn:\n1. Źródło ma opóźnienie audio (kamera, rejestrator, Bluetooth, ściągnięty plik z `start_time` strumienia audio ≠ wideo).\n2. Audio zostało zaimportowane lub podłożone osobno i ułożone o 6 klatek za późno.\n3. Problem jest tylko w odtwarzaczu. Wtedy po renderze nic nie trzeba poprawiać.\n\n**Plan naprawy:**\n1. **Diagnoza (bez zmian w projekcie):** sprawdzę w FrameCut `timeline-read` i `ffprobe` (`start_time` strumieni audio i wideo) w źródłach oraz w ostatnim renderze. Szukam miejsca, w którym pojawia się 6 klatek. Potwierdzę to na wyraźnym transjencie (klaśnięcie, uderzenie, początek słowa z plozywą), a nie na oko.\n2. **Korekta:** przesunę ścieżki audio wrażliwe na synchronizację (mowa, dźwięki synchroniczne) o 6 klatek wcześniej jedną operacją `apply --base-revision`, najpierw z `--dry-run`. Ponieważ audio zaczyna się od klatki 0, nie da się go przesunąć na minus. Zamiast `move_clip` użyję `trim_clip`: obetnę 6 klatek z początku źródła audio, a ogon dopełnię lub wydłużę. Muzyki i narracji niezależnej od obrazu nie ruszam.\n3. **Zależności:** napisy zsynchronizowane z mową przeliczę razem z audio. Przy napisach z transkryptu sprawdzę, czy ich czasy opierają się na źródle, a nie na starej pozycji.\n4. **Weryfikacja:** nowy render do świeżej ścieżki, `verify`, sprawdzenie transjentów w kilku miejscach (początek, środek, koniec). Odsłuch muszę zostawić Tobie, bo sam nie słyszę dźwięku. Bez tego status będzie REVIEW_REQUIRED.\n\nZaakceptowany storyboard zostaje bez zmian, bo to naprawa techniczna, a nie zmiana kreatywna.\n\n**Potrzebuję jednego:** ścieżki do projektu FrameCut (albo katalogu z projektem i źródłami). Powiedz też, czy dźwięk to nagranie z kamery, osobny rejestrator, czy voice-over dodany w montażu. To zawęża przyczynę. Po otrzymaniu ścieżki zacznę od kroku 1.",
+          "reply_chars": 2097,
+          "reply_sha256": "828c13f4238e1fd92fa21817fbc122e97c9582edfca6e64ef165058dbd273957",
+          "skills": [
+            "opencut-video-studio",
+            "superpowers:systematic-debugging"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1251,
+            "output": 2395,
+            "cache_read": 48975,
+            "cache_write": 25483
+          },
+          "seconds": 22.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['opencut-video-studio', 'superpowers:systematic-debugging']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)zaakceptuj(esz|cie)?\\s+(ponownie\\s+)?storyboard"
+              },
+              "passed": true,
+              "detail": "not /(?i)zaakceptuj(esz|cie)?\\s+(ponownie\\s+)?storyboard/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C02",
+      "title": "A coded animation that freezes on export is diagnosed with systematic-debugging in Motion Graphics",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1264,
+        "output": 1913,
+        "cache_read": 22406,
+        "cache_write": 26247
+      },
+      "seconds": 16.9,
+      "wall_seconds": 17.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Moja kompozycja HyperFrames w podglądzie gra dobrze, ale przy renderze do MP4 animacja zatrzymuje się w 4. sekundzie, a dźwięk leci dalej. Co z tym zrobić?",
+          "reply": "Nie mam Twojej kompozycji. W katalogu roboczym nie ma żadnych plików HTML ani JSON, więc niczego nie zdiagnozowałem. Poniżej są hipotezy do sprawdzenia, nie potwierdzona przyczyna.\n\nPreview odtwarza animację w czasie rzeczywistym. Render zamiast tego przeskakuje do kolejnych klatek (seek) i robi zrzuty. Animacja, która zależy od zegara ściennego, a nie od zadanej klatki, wygląda dobrze w podglądzie, a w renderze staje w miejscu. Dźwięk jest miksowany osobno według osi czasu, dlatego leci dalej.\n\n**Najczęstsze przyczyny zatrzymania w 4. sekundzie, od najbardziej prawdopodobnych:**\n\n1. **Oś czasu GSAP kończy się na 4 s.**\n   - Sprawdź, czy główny timeline ma długość całej kompozycji.\n   - Sprawdź, czy jest zarejestrowany tak, jak wymaga tego HyperFrames (zwykle `window.__timelines`).\n   - Sprawdź, czy jest utworzony z `paused: true`.\n   - Ostatnie tweeny po 4 s mogą być w osobnym, niezarejestrowanym timeline'ie albo wywołane przez `setTimeout` i `delayedCall` poza osią.\n2. **Animacje oparte na czasie rzeczywistym.** Chodzi o `requestAnimationFrame` z `Date.now()` lub `performance.now()`, `setTimeout` i `setInterval`, a także animacje CSS (`animation`, `transition`), które nie są sterowane z osi. W podglądzie działają, w renderze nie.\n3. **Zbyt krótki czas trwania w atrybutach.** Dotyczy `data-duration` lub czasu trwania całej kompozycji i poszczególnych scen. Jeśli scena lub klip ma 4 s, element znika albo zamiera po tym czasie.\n4. **Elementy niesterowalne z klatki.** Lottie, `<video>` albo canvas z własną pętlą nie reagują na seek i zostają w ostatnim stanie.\n\n**Żebym mógł znaleźć przyczynę, a nie zgadywać, wyślij proszę:**\n- plik kompozycji (HTML albo projekt HyperFrames) i ścieżkę do niego, jeśli jest w tym katalogu,\n- komendę renderu i jej pełne wyjście, z ostrzeżeniami,\n- informację, co dokładnie stoi po 4 s: wszystko, jedna scena czy jeden element.\n\nZ kodem sprawdzę, która z tych przyczyn zachodzi. Potem naprawię tylko ją i zweryfikuję klatki z renderu około 4 s oraz na końcu filmu.",
+          "reply_chars": 2021,
+          "reply_sha256": "c1055b4b69421f045a505550ac4bc22a93180761d5e9ce3a8f04e8e8df896d43",
+          "skills": [
+            "superpowers:systematic-debugging",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1264,
+            "output": 1913,
+            "cache_read": 22406,
+            "cache_write": 26247
+          },
+          "seconds": 16.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['superpowers:systematic-debugging', 'hyperframes-workflow']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C03",
+      "title": "A revised film with its captions and the client's notes in the workspace: no 'send it' without inspecting the actual file; the answer names the evidence",
+      "source": null,
+      "gate": true,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1273,
+        "output": 2154,
+        "cache_read": 163810,
+        "cache_write": 19367
+      },
+      "seconds": 19.3,
+      "wall_seconds": 19.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest final.mp4, napisy.srt i uwagi.txt od klienta. Poprawiłem napisy według uwag i wyrenderowałem final.mp4. Mogę to już wysłać klientowi?",
+          "reply": "",
+          "reply_chars": 0,
+          "reply_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "skills": [
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Read",
+            "Glob",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Read",
+            "Read",
+            "Bash",
+            "Read"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1273,
+            "output": 2154,
+            "cache_read": 163810,
+            "cache_write": 19367
+          },
+          "seconds": 19.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": false,
+              "detail": "reads as unknown"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(tak|możesz (go |to )?(już )?wysłać|gotowe do wysłania)"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(tak|możesz (go |to )?(już )?wysłać|gotowe do wysłania)/"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "ffprobe",
+                  "6,0",
+                  "6.0",
+                  "klatk"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['ffprobe', '6,0', '6.0', 'klatk']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            },
+            {
+              "check": {
+                "host_error": false
+              },
+              "passed": false,
+              "detail": "error_max_turns"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C04",
+      "title": "An unsure user with a new reel: a Studio owner leads; no design document or second questionnaire from brainstorming",
+      "source": null,
+      "gate": true,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1279,
+        "output": 2607,
+        "cache_read": 44738,
+        "cache_write": 26804
+      },
+      "seconds": 21.5,
+      "wall_seconds": 21.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Nie widzę żadnych plików w katalogu roboczym, więc nagrań jeszcze nie oceniałem. Poniżej propozycja, jak to zrobić, i kilka pytań, które zmieniają plan.\n\n## Najlepsze podejście: Twoje nagrania plus animowany schemat\n\nCzysta animacja bez prawdziwych ujęć byłaby słabsza. Pokazuje, że magazyn istnieje i działa, dopiero film z telefonu. Schemat ma ten film prowadzić, a nie go zastępować.\n\n**Pomysł: jedna linia, która biegnie przez cały magazyn.**\n- Cała rolka to prawdziwe ujęcia, po których przesuwa się jedna cienka linia. Łączy kolejne etapy: przyjęcie, rozpakowanie, półka, kompletacja, pakowanie, wysyłka.\n- Przy każdym etapie linia zatrzymuje się na chwilę i pojawia się węzeł z krótką nazwą (2–3 słowa).\n- Na końcu kamera się oddala, a linia zostaje jako cały schemat na ekranie. Z tego powstaje twoje „jedno duże wydarzenie” w rolce.\n\n**Pierwsza sekunda:** ujęcie, na którym ktoś otwiera paczkę albo skanuje towar. Od razu rysuje się linia, bez logo i bez wstępu.\n\n**Długość:** 25–35 s, pion 9:16. Na 6 etapów wychodzi około 4 s na etap.\n\n## Jak to zrobić technicznie\n1. **Montaż nagrań.** Wybieram z materiału po jednym mocnym ujęciu na etap, przycinam do 2–4 s i układam w kolejności.\n2. **Schemat jako warstwa animowana z kodu.** Linia, węzły i podpisy są renderowane osobno i nakładane na ujęcia. Prawdziwych obiektów (paczek, rąk) nie rysuję w kodzie. Te zostają z Twojego filmu.\n3. **Napisy i dźwięk.** Napisy są na ekranie, bo wiele osób ogląda rolki bez dźwięku. Muzykę mogę zaprojektować albo dobrać pod rytm cięć.\n\n## Pytania, które zmieniają plan\n1. **Gdzie są nagrania?** Wrzuć je do katalogu roboczego (`/tmp/studio-eval-0jm3i5lx/work`). Ile ich jest, czy są pionowe i które etapy obejmują?\n2. **Jakie etapy ma Wasz magazyn?** Wypisz je własnymi słowami, z kolejnością. Jeśli czegoś nie nagrałeś, powiem, czy da się to zastąpić samym schematem.\n3. **Dlaczego klient ma wybrać Was?** Na przykład wysyłka tego samego dnia, kontrola jakości albo skanowanie każdej paczki. Podaj tylko to, co jest prawdą i co możemy powiedzieć publicznie. Bez tego rolka będzie samą listą etapów.\n4. **Dla kogo i gdzie?** Chodzi o klientów B2B, o sklepy, które szukają fulfillmentu, czy o employer branding. I czy to Instagram, TikTok czy oba.\n5. **Dźwięk:** muzyka, lektor, czy sam obraz z napisami?\n\nGdy dostanę nagrania i odpowiedzi na 2 i 3, przygotuję tablicę scen: etap, ujęcie, napis i czas. Dopiero po Twojej akceptacji zacznę budować.",
+          "reply_chars": 2443,
+          "reply_sha256": "5829d8fea03227a30a8d40a928a2dbb6443615a6e1eb0f628f45c0ce8faa6014",
+          "skills": [
+            "creative-video-producer",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1279,
+            "output": 2607,
+            "cache_read": 44738,
+            "cache_write": 26804
+          },
+          "seconds": 21.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio",
+                  "hyperframes-workflow",
+                  "creative-video-producer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['creative-video-producer', 'hyperframes-workflow']; expected one of ['opencut-video-studio', 'hyperframes-workflow', 'creative-video-producer']"
+            },
+            {
+              "check": {
+                "no_write": [
+                  "docs/superpowers/",
+                  "-design.md"
+                ]
+              },
+              "passed": true,
+              "detail": "wrote none of them"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": false,
+              "detail": "6 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C05",
+      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1198,
+        "output": 1667,
+        "cache_read": 79314,
+        "cache_write": 27588
+      },
+      "seconds": 16.6,
+      "wall_seconds": 16.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "**Konfiguracja Studio: gotowe, nic nie trzeba instalować.**\n\n- **Host:** Claude Code (sesja w chmurze).\n- **Superpowers** (pierwszy polecany dodatek): jest już dostępny. Skill `superpowers:using-superpowers` jest w katalogu tej sesji, a jego treść wczytał hook startowy. Dlatego nie proponuję instalacji. Ten wynik dotyczy tylko tego hosta, a w innych agentach trzeba to sprawdzić osobno.\n- **Podział ról:** Superpowers pomaga doprecyzować wymagania, planować prace techniczne, diagnozować błędy oraz sprawdzać kod i wyniki. Kierunek kreatywny, pełny storyboard i końcowy przegląd zostają po stronie Studio. Dodatek nie daje narzędzi do renderowania ani połączenia z kontem.\n- **Pozostałe dodatki i repozytoria:** niczego nie instalowałem ani nie uruchamiałem. Listę polecanych repozytoriów pokażę na prośbę, a instalację zrobię dopiero po Twojej wyraźnej zgodzie i po pokazaniu planu.\n\nCo dalej? Możesz opisać projekt albo wybrać tryb pracy. Mogę też pokazać polecane repozytoria dla Claude Code.",
+          "reply_chars": 997,
+          "reply_sha256": "332b6d99ecd366e7cd77532449883d3ee5ec4ad6c4002d15ae377cf32fe1621b",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 1667,
+            "cache_read": 79314,
+            "cache_write": 27588
+          },
+          "seconds": 16.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Superpowers']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "/plugin install",
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C06",
+      "title": "A creative request without the Studio name still reaches a Studio owner; brainstorming writes no design document",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1222,
+        "output": 1869,
+        "cache_read": 22794,
+        "cache_write": 18984
+      },
+      "seconds": 19.3,
+      "wall_seconds": 19.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Zaprojektuj plakat 50x70 cm na piątkowy koncert jazzowy w klubie Nora, start 20:00, wstęp wolny.",
+          "reply": "Zanim zaprojektuję plakat, proponuję trzy kierunki. Pominąłem to, co robi większość plakatów jazzowych: sylwetkę saksofonisty, granat ze złotem, klawisze i winyl. Nazwa klubu daje lepszy punkt wyjścia, bo „nora” to też legowisko, do którego się wchodzi.\n\n**1. Wejście do nory**\n- Ciemny plakat z jednym jasnym, ciepłym otworem, czyli wejściem do nory, który prowadzi wzrok w dół.\n- Zero w „20:00” staje się tym otworem.\n- Nagłówek: „Piątek. Zejdź do Nory.”\n- Typografia: duży, ciężki grotesk, jeden ciepły akcent.\n\n**2. Tempo: wolny** (moja rekomendacja)\n- „Wstęp wolny” czytamy też jako muzyczne określenie tempa. Plakat jest złożony jak karta partytury: stylizowane znaki rytmiczne, dużo ciszy i pauz.\n- Wszystko poza godziną i nazwą miejsca jest małe, a środek zostaje pusty.\n- Nagłówek: „Piątek 20:00. Wstęp wolny.”\n- Wyróżnia się na ścianie, bo jest cichszy niż sąsiednie plakaty.\n\n**3. Bilet za 0 zł** (klasyka, oznaczona jako taka)\n- Plakat to powiększony, oderwany bilet z kuponem „0 zł”, perforacją i numerem miejsca.\n- Jest bardziej żartobliwy i czytelny z daleka.\n\nDo pracy na gotowo potrzebuję jeszcze:\n1. nazwy zespołu lub składu, bo bez niej plakat nie powie, kto gra,\n2. daty piątku, adresu klubu i ewentualnie logo Nory (czy ma być adres, strona lub Instagram),\n3. wyboru kierunku, a jeśli nie masz zdania, wezmę nr 2.\n\nFormat to 50×70 cm w pionie, do druku. Przy finale tekst złożę dokładnie, z spadami i bez przycinania napisów. Wybierz kierunek i prześlij dane, a przygotuję projekt.",
+          "reply_chars": 1502,
+          "reply_sha256": "12467e928aad1134d13a5d2a1247412876dba1355c0d2df8afced9bfe0bcb7ac",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1222,
+            "output": 1869,
+            "cache_read": 22794,
+            "cache_write": 18984
+          },
+          "seconds": 19.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "static-graphic-design-creator",
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['static-graphic-design-creator']; expected one of ['static-graphic-design-creator', 'workflow-orchestrator']"
+            },
+            {
+              "check": {
+                "no_write": [
+                  "docs/superpowers/",
+                  "-design.md"
+                ]
+              },
+              "passed": true,
+              "detail": "wrote none of them"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C07",
+      "title": "A technical caption defect sent straight to the caption owner is diagnosed with systematic-debugging, not patched by guesswork",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1259,
+        "output": 1989,
+        "cache_read": 43131,
+        "cache_write": 19616
+      },
+      "seconds": 18.1,
+      "wall_seconds": 18.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Po eksporcie z napisy.srt w odtwarzaczu drugi napis pojawia się pół sekundy za wcześnie, ale tylko na telefonie, na komputerze jest dobrze. Napraw to.",
+          "reply": "Nie zmieniałem pliku, bo z samego `napisy.srt` nie da się ustalić przyczyny, a zgadywanie przesunięcia o pół sekundy tylko ukryłoby błąd.\n\n**Co sprawdziłem.** W katalogu jest tylko `napisy.srt`, bez wideo. Plik jest poprawny:\n- Napis 1 trwa od 00:00:00,500 do 00:00:03,000.\n- Napis 2 trwa od 00:00:03,000 do 00:00:05,800.\n- Kolejność jest rosnąca, nie ma nakładania ani błędnych znaczników.\n- Ten sam plik daje na komputerze dobry efekt, więc same czasy w SRT raczej nie są przyczyną.\n\n**Co to sugeruje.** Skoro błąd widać tylko na telefonie, a wczesny jest tylko drugi napis, winny jest raczej odtwarzacz albo wideo niż napisy. Nie mam na to dowodu. Najbardziej prawdopodobne są trzy rzeczy:\n1. Wideo ma zmienną liczbę klatek (nagrania z telefonu często tak mają) albo przesunięty start ścieżki, a telefon liczy czas inaczej niż komputer.\n2. Aplikacja na telefonie wymusza własne przetwarzanie napisów. Dotyczy to zwłaszcza napisów dołączonych jako osobny plik, a nie wypalonych w obrazie.\n3. Napisy styka się bez przerwy (03,000 → 03,000), a niektóre odtwarzacze mobilne zaokrąglają takie granice po swojemu.\n\n**Czego potrzebuję, żeby to naprawić.**\n- Wideo po eksporcie, albo wynik `ffprobe` dla niego. Chodzi o liczbę klatek, czy jest zmienna, i o przesunięcie startu audio względem wideo.\n- Informacja, w jakim odtwarzaczu na telefonie to widać (np. galeria, VLC, przeglądarka, Instagram).\n- Czy napisy są dołączone jako osobny plik, czy wypalone w obrazie.\n\nJeśli odpowiesz, że chcesz od razu obejście, mogę dodać przerwę 40–80 ms między napisami albo przesunąć drugi napis. Taka poprawka może jednak popsuć synchronizację na komputerze, więc wolałbym najpierw zobaczyć wideo.",
+          "reply_chars": 1682,
+          "reply_sha256": "fae10d5887ee81203fa6cb5f2a072de1d00ff736c8e4587726f0abc03c58cc51",
+          "skills": [
+            "caption-studio",
+            "superpowers:systematic-debugging"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1259,
+            "output": 1989,
+            "cache_read": 43131,
+            "cache_write": 19616
+          },
+          "seconds": 18.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['caption-studio', 'superpowers:systematic-debugging']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

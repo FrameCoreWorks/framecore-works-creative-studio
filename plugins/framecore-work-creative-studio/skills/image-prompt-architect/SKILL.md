@@ -5,7 +5,7 @@ description: Compile a still-image generation or scoped image-edit prompt from a
 
 # Prompt compilation
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 **Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. A complete poster, flyer, ad or other designed graphic with copy, price or logo goes to [Static Graphic Design Creator](../static-graphic-design-creator/SKILL.md). With essentials missing, ask one question (the subject); default the rest and label the defaults.
 

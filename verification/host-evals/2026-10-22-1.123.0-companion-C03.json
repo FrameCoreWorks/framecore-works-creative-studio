@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.0",
+  "source": {
+    "commit": "de072bfb5190df981184e2e7b3bdf2d421023d1f",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "d4a70a4d1bf72f2048dc8a197652e1d79345de747c520c9aee7545891d99ffe0",
+      "files": 1557,
+      "archive": "candidates/d4a70a4d1bf72f2048dc8a197652e1d79345de747c520c9aee7545891d99ffe0.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 3000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "b92b80ee05136d57b57101a300db4ec5acdbc0b835f82352e9f8239a8ccf18f4",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1273,
+      "output": 3387,
+      "cache_read": 166183,
+      "cache_write": 19365
+    },
+    "seconds": 27.4
+  },
+  "cases": [
+    {
+      "id": "C03",
+      "title": "A revised film with its captions and the client's notes in the workspace: before saying it can go to the client, completion is checked with verification-before-completion",
+      "source": null,
+      "gate": true,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1273,
+        "output": 3387,
+        "cache_read": 166183,
+        "cache_write": 19365
+      },
+      "seconds": 27.4,
+      "wall_seconds": 27.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest final.mp4, napisy.srt i uwagi.txt od klienta. Poprawiłem napisy według uwag i wyrenderowałem final.mp4. Mogę to już wysłać klientowi?",
+          "reply": "**Jeszcze nie wysyłaj.** `final.mp4` nie odpowiada ani plikowi `napisy.srt`, ani uwagom klienta. Tylko jedna z trzech uwag jest spełniona.\n\n| Uwaga klienta | Status | Co sprawdziłem |\n|---|---|---|\n| 1. „w 24 godziny\" w drugim napisie | ✅ w `.srt`, ❌ w filmie | W `napisy.srt` jest poprawnie: „Od przyjęcia do wysyłki w 24 godziny\". W filmie tego tekstu nie widać. |\n| 2. Napisy wyżej, nad paskiem przycisków | ❌ | Na klatkach napis jest nisko, mniej więcej 85% wysokości kadru (ok. y=410 z 480). To nie jest przesunięcie wyżej. Nie widzę też paska przycisków, więc nie wiem, gdzie dokładnie ma on być. |\n| 3. Film ma 6 sekund | ✅ | `ffprobe` pokazuje 6,000 s. |\n\nSprawdziłem klatki w czasie 0,2 s, 1,5 s, 3,5 s, 4,5 s i 5,5 s. Na każdej widać ten sam napis „Magazyn\" i nic więcej. Według `.srt` w 1,5 s powinno być „Tak działa nasz magazyn\", a w 4,5 s „Od przyjęcia do wysyłki w 24 godziny\". Napis w filmie się nie zmienia, więc wygląda to na starszy lub inny render, a nie na wersję z poprawionym `.srt`.\n\nWyrenderowany film ma też tylko 270×480 px. To bardzo mała rozdzielczość jak na plik dla klienta, jeśli nie jest to celowy podgląd.\n\nMogę najpierw potwierdzić, że to nie pomyłka w pliku. Jeśli to nie ten plik, wskaż właściwy. Jeśli ten, mogę przygotować poprawiony render. Do tego potrzebuję wiedzieć, gdzie jest pasek przycisków aplikacji. Jeśli nie wiesz, mogę zaproponować pozycję napisu, np. ok. 35% od dołu, jak przy reklamach w Reels i Stories.",
+          "reply_chars": 1458,
+          "reply_sha256": "7981177e022b7309eef85031af9c74f8b462cfc9f39603618d9f27ddace9c95e",
+          "skills": [
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Read",
+            "Read",
+            "Bash",
+            "Bash",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1273,
+            "output": 3387,
+            "cache_read": 166183,
+            "cache_write": 19365
+          },
+          "seconds": 27.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:verification-before-completion"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['caption-studio']; expected one of ['superpowers:verification-before-completion']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

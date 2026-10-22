@@ -301,5 +301,26 @@ class Registry(unittest.TestCase):
         self.assertTrue((folder / 'README.md').is_file())
 
 
+    def test_every_owner_names_the_superpowers_skills_it_must_load(self):
+        # Host evaluation 2026-10-22 (companion suite C01, C07): an owner that only links the routing reference never
+        # loads Superpowers in a single-turn run; naming the skill in the owner's own SKILL.md does.
+        skills = PLUGIN / 'skills'
+        for path in sorted(skills.glob('*/SKILL.md')):
+            text = path.read_text(encoding='utf-8')
+            if path.parent.name == 'workflow-orchestrator':   # it routes to the owners and keeps its byte budget
+                self.assertIn('superpowers-native-routing.md', text)
+                continue
+            for name in ('superpowers:systematic-debugging', 'superpowers:verification-before-completion'):
+                self.assertIn(name, text, f'{path.parent.name} does not name {name}')
+
+
+    def test_footage_films_reach_framecut_from_the_producer_too(self):
+        # Host evaluation 2026-10-22 (companion C08): without the Studio name the host picks Creative Video Producer by its
+        # description; it must send the user's own footage to FrameCut as the orchestrator does, with one question.
+        text = (PLUGIN / 'skills/creative-video-producer/SKILL.md').read_text(encoding='utf-8')
+        self.assertIn("A film from the user's own footage", text)
+        self.assertIn('(../opencut-video-studio/SKILL.md): load it before answering, and ask at most one question', text)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.0",
+  "source": {
+    "commit": "de072bfb5190df981184e2e7b3bdf2d421023d1f",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "28a766ff2b45d8961e2ec58ba52e32c9d25eec922d41167326fb7da4269e6455",
+      "files": 1557,
+      "archive": "candidates/28a766ff2b45d8961e2ec58ba52e32c9d25eec922d41167326fb7da4269e6455.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-routing-pl",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "29a0a56cd9c864bef931b304ef0c2275eb92e24477f487f49969a08854534ad2",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1221,
+      "output": 2299,
+      "cache_read": 48237,
+      "cache_write": 22183
+    },
+    "seconds": 23.1
+  },
+  "cases": [
+    {
+      "id": "RT22",
+      "title": "With the Studio name: edit from supplied footage",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1221,
+        "output": 2299,
+        "cache_read": 48237,
+        "cache_write": 22183
+      },
+      "seconds": 23.1,
+      "wall_seconds": 23.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio mam 20 minut nagrań z wesela. Zaplanuj montaż trzyminutowego filmu.",
+          "reply": "Nie widzę w katalogu roboczym żadnych plików wideo ani audio, więc plan opiera się na typowym przebiegu wesela. Po wgraniu materiału dopasuję go do tego, co faktycznie nagrano.\n\n## Plan montażu: film z wesela, ok. 3:00\n\n**Założenia (łatwo je zmienić):** format 16:9, narracja w formie teledysku z muzyką, bez lektora. Najważniejsze mowy i przysięga zostają w oryginalnym dźwięku. Budżet to 20 minut materiału na 3 minuty filmu, czyli około 6,5:1.\n\n### Struktura i czas\n\n| Akt | Czas | Zawartość | Dźwięk |\n|---|---|---|---|\n| 1. Otwarcie | 0:00–0:20 | Szczegóły: obrączki, suknia, buty, dłonie. Szybkie, krótkie ujęcia, na końcu tytuł z imionami i datą. | Muzyka cicho, narastająca |\n| 2. Przygotowania | 0:20–0:45 | 3–4 ujęcia z każdej strony: panna młoda, pan młody, rodzice. Najlepiej jedna emocja, np. łzy ojca lub pierwsze spojrzenie. | Muzyka, delikatne dźwięki z planu |\n| 3. Ceremonia | 0:45–1:25 | Wejście, przysięga (1–2 zdania w oryginale), obrączki, pocałunek, wyjście. | Oryginalny dźwięk przysięgi, muzyka ściszona o 6 dB |\n| 4. Życzenia i portrety | 1:25–1:50 | Reakcje gości, uściski, sesja pary. Wolniejszy rytm i dłuższe ujęcia. | Muzyka na pierwszym planie |\n| 5. Przyjęcie | 1:50–2:35 | Toast lub fragment mowy (5–8 s w oryginale), pierwszy taniec, tort, zabawa. Tempo rośnie z energią muzyki. | Mowa w oryginale, potem muzyka |\n| 6. Zakończenie | 2:35–3:00 | Najmocniejszy kadr dnia, np. wyjście z parą, światełka lub wspólne zdjęcie. Spokojne zwolnienie i wygaszenie do czerni. | Muzyka wybrzmiewa |\n\n### Kolejne kroki\n1. **Przegląd materiału.** Wczytuję pliki, nie zmieniając oryginałów, i analizuję sceny, ciszę i mowę. Oznaczam kandydatów na ujęcia: wzruszenia, śmiech, pierwsze razy, czytelne twarze.\n2. **Selekcja.** Zostaje około 8–10 minut ujęć, potem skracam je do 3 minut. Zachowuję pełne zdania przysięgi i toastów, a wycinam rozbiegówki i powtórki.\n3. **Szkic na osi czasu.** Układ według tabeli, cięcia na rytm muzyki, krótkie przenikania. Muzykę dobieramy razem; musi mieć prawa do użycia, bo przy weselu liczy się to przy publikacji.\n4. **Storyboard.** Pokażę go przed finalnym renderem do akceptacji.\n5. **Korekta koloru i dźwięku.** Ujednolicam kolory między ujęciami i wyrównuję głośność mowy względem muzyki.\n6. **Render i kontrola.** Sprawdzam początek, końcówkę, czytelność tytułu i balans dźwięku. Dostarczam plik MP4 i opcjonalnie wersję pionową 9:16 na social media.\n\n### Potrzebuję od Ciebie\n- **Najważniejsze pytanie:** czy mogę dostać pliki, żeby oprzeć plan na faktycznym materiale? Jeśli ich nie masz pod ręką, opisz, co jest na nagraniach: ile kamer, czy jest dźwięk z mów i przysięgi.\n- Imiona pary i data (do tytułu).\n- Czy masz już wybraną muzykę? Jeśli nie, zaproponuję 2 kierunki: ciepły akustyczny albo bardziej filmowy.\n\nJeśli wolisz, żebym przyjął założenia i ruszył dalej, napisz tylko „jedziemy z założeniami”.",
+          "reply_chars": 2871,
+          "reply_sha256": "2111778fae003436f2fe09685319ea21792961f94be376269b4286fd1f1278e7",
+          "skills": [
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1221,
+            "output": 2299,
+            "cache_read": 48237,
+            "cache_write": 22183
+          },
+          "seconds": 23.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio",
+                  "creative-video-producer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['opencut-video-studio']; expected one of ['opencut-video-studio', 'creative-video-producer']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

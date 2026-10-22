@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.0",
+  "source": {
+    "commit": "de072bfb5190df981184e2e7b3bdf2d421023d1f",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "28a766ff2b45d8961e2ec58ba52e32c9d25eec922d41167326fb7da4269e6455",
+      "files": 1557,
+      "archive": "candidates/28a766ff2b45d8961e2ec58ba52e32c9d25eec922d41167326fb7da4269e6455.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "da7e1cb52c144a1b0bf783d1e0b4eeab9552db3ecf6dd76d2276618e5b5e091a",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2558,
+      "output": 3760,
+      "cache_read": 176126,
+      "cache_write": 66869
+    },
+    "seconds": 37.7
+  },
+  "cases": [
+    {
+      "id": "G13",
+      "title": "Asking for acceptance of a storyboard speaks about the user's result and never quotes the plugin's own files or rules (owner's screenshot 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1277,
+        "output": 2321,
+        "cache_read": 88022,
+        "cache_write": 33432
+      },
+      "seconds": 22.6,
+      "wall_seconds": 22.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam nagranie magazyniera, 3 minuty, po polsku, mówi do kamery o swojej pracy. Chcę z niego rolkę 9:16 z napisami, około 25 sekund. Zaproponuj storyboard i powiedz, co dalej.",
+          "reply": "Nie widzę jeszcze Twojego nagrania. W katalogu roboczym nie ma żadnego pliku wideo, SRT ani transkrypcji. Poniżej jest więc **szkic struktury**, a nie storyboard z kadrami. Treść wypowiedzi znam tylko z Twojego opisu i nic z nagrania nie przeanalizowałem.\n\n## Szkic rolki 9:16, ok. 25 s (robocze założenia)\n\n| Czas | Rola | Obraz | Napisy |\n|---|---|---|---|\n| 0–3 s | **Hook** | Najmocniejsze, najbardziej konkretne zdanie magazyniera, wzięte z dalszej części nagrania. Twarz od pierwszej klatki, bez logo i wstępu. | Duże, 1–2 linie, kluczowe słowo wyróżnione. |\n| 3–10 s | **Kontekst** | 1–2 myśli o tym, co robi i jak wygląda jego dzień. Pauzy skrócone, ale nie wycięte tam, gdzie niosą sens. | Frazowe, 2 linie, w bezpiecznej strefie. |\n| 10–19 s | **Sedno** | Jedna historia, liczba albo szczegół pracy, który zostaje w głowie. To zdanie jest sercem rolki. | Wyróżnienie 1–2 słów. Słowo po słowie tylko wtedy, gdy czasy słów się sprawdzą. |\n| 19–25 s | **Zakończenie** | Zdanie domykające myśl i krótki oddech na twarzy. Opcjonalnie podpis (imię, stanowisko, firma). | Ostatnia fraza zostaje na ekranie, bez nowego CTA. |\n\n**Założenia, które zmienię na Twoje słowo:**\n- Kadr to pionowe przycięcie z 16:9 z lekkim śledzeniem twarzy. Zadecyduję, gdy zobaczę kadr.\n- Są 2–4 cięcia, bez efektów. Wystarczą cięcia na oddechach i ewentualnie krótkie najazdy dla rytmu.\n- Dźwięk to oryginalny głos, bez muzyki. Cichy podkład dodam tylko na Twoje życzenie.\n- Napisy po polsku, wypalone w obrazie. Dostaniesz też SRT.\n\nNie wiem jeszcze, które zdania są mocne. To wybiorę z transkrypcji, a wybór uzasadnię i pokażę.\n\n## Co dalej\n\n1. **Prześlij nagranie** (albo wskaż jego ścieżkę). Jeśli masz transkrypcję lub SRT, dołącz je. Bez nich zrobię roboczą transkrypcję lokalnie, a fragmenty, w których będę niepewny, oznaczę do sprawdzenia.\n2. **Przeanalizuję materiał** i zaproponuję 2–3 konkretne warianty fragmentów, z cytatami i czasami z nagrania. Polecę jeden.\n3. **Pokażę pełny storyboard z prawdziwymi kadrami** z Twojego filmu: arkusze z numerami paneli, czasem i tekstem napisów. Poprawisz je albo zaakceptujesz.\n4. **Zrobię montaż, napisy i render** pliku 9:16. Obejrzę go i sprawdzę napisy przed oddaniem. Dźwięk poproszę Cię o odsłuchanie, bo sam go nie usłyszę.\n\nMam jedno pytanie, które możesz pominąć. Czy rolka ma być **czysto autentyczna** (surowy głos, minimum obróbki), czy **bardziej dopracowana** (wyraźne napisy, rytm, ewentualnie muzyka)? Jeśli nie odpowiesz, przyjmę wariant pośredni.",
+          "reply_chars": 2499,
+          "reply_sha256": "7636f7f53ebf3cd5cdcc6ed04a663a9cf5844c5626585fb7c58f446e2b964d3c",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1277,
+            "output": 2321,
+            "cache_read": 88022,
+            "cache_write": 33432
+          },
+          "seconds": 22.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill"
+              },
+              "passed": true,
+              "detail": "not /(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route and shown an alternative, with an add-on offered only when it clearly helps (owner's observation 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1281,
+        "output": 1439,
+        "cache_read": 88104,
+        "cache_write": 33437
+      },
+      "seconds": 15.1,
+      "wall_seconds": 15.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Na razie nie widzę w projekcie żadnych nagrań. Folder roboczy jest pusty, więc niczego nie przeanalizowałem.\n\n**Jak to zrobię.** Połączę Twoje nagrania z telefonu z animowanym schematem. Schemat to uproszczony plan magazynu, na którym ikona towaru przechodzi przez etapy od przyjęcia do wysyłki. Każdy etap pokażę najpierw na Twoim nagraniu, a potem podświetlę na schemacie. Dzięki temu widz zobaczy prawdziwe miejsce i od razu zrozumie kolejność.\n\nNajpierw zrobię pełny storyboard całej rolki, który Ci pokażę. Dopiero po Twojej akceptacji zmontuję film.\n\n**Potrzebuję jednej rzeczy od Ciebie.** Wgraj nagrania do folderu projektu, żebym mógł je obejrzeć. Przydałaby się też krótka lista etapów, którą masz w głowie. Na przykład: przyjęcie, kontrola, składowanie, kompletacja, pakowanie, wysyłka. Jeśli jej nie masz, ułożę ją z tego, co zobaczę na nagraniach.\n\nResztę założę sam, a Ty poprawisz to na storyboardzie:\n- format pionowy 9:16, około 30–40 s,\n- napisy krótkimi frazami, bez głosu lektora,\n- muzyka w tle.\n\nJeśli któreś z tych założeń nie pasuje, napisz teraz.",
+          "reply_chars": 1071,
+          "reply_sha256": "d1d29e7d324742774dd880e416cbd015c50ac665f5607a54cd72e1d8b6a38c44",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1281,
+            "output": 1439,
+            "cache_read": 88104,
+            "cache_write": 33437
+          },
+          "seconds": 15.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)schemat|diagram"
+              },
+              "passed": true,
+              "detail": "/(?i)schemat|diagram/"
+            },
+            {
+              "check": {
+                "regex": "(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal"
+              },
+              "passed": false,
+              "detail": "/(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

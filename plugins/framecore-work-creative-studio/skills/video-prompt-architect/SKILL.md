@@ -5,7 +5,7 @@ description: Write a video-generator prompt for a clear brief, approved shot car
 
 # Video Prompt Architect
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 **Missing essentials.** With essentials missing ("zrób prompt do wideo"), ask one question, the subject; default the rest and label the defaults. Coded motion goes to [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md).
 

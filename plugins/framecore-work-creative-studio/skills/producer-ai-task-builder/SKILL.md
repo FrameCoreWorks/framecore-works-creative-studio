@@ -5,7 +5,7 @@ description: Legacy alias of the former audio task builder; new audio work goes 
 
 # Legacy audio skill alias
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
 **Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. Scripts and scenes go to [Screenplay Story Architect](../screenplay-story-architect/SKILL.md), copy to [Copy Voice](../copy-voice/SKILL.md), everything audio to [Audio Production Director](../audio-production-director/SKILL.md).
 
