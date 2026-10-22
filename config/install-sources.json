@@ -382,6 +382,16 @@
       "sha256": "d62e2e0bea5ee908fe5872d9f64e14b25b0ef350d4c18355ff1be28a68224a11"
     },
     {
+      "path": "integrations/open-design/LICENSE",
+      "bytes": 11296,
+      "sha256": "9d95806a26532623360eb84bb17d298f394b55ef73fb4c0796d99b4319b2b0da"
+    },
+    {
+      "path": "integrations/open-design/README.md",
+      "bytes": 3275,
+      "sha256": "12ac6cb84403e5a589fff1cf29bdda9936c991265fcb8347b4930eba7da499ea"
+    },
+    {
       "path": "integrations/pixel-plugin/LICENSE",
       "bytes": 1073,
       "sha256": "e03c48e06934dcf70d4130637d9f39bc4c87964aaf0268ca0da4cb991cb01f90"
@@ -2658,8 +2668,8 @@
     },
     {
       "path": "skills/caption-studio/references/readability-defaults.md",
-      "bytes": 4072,
-      "sha256": "9f3291f8fc99593fde6e0c1b46fb08b9211c252607ba05db6426eb467aed0e24"
+      "bytes": 4246,
+      "sha256": "03138f4a016b3af1cf11247683f6035c8c54d7aeaffb7fee558513145f3f5631"
     },
     {
       "path": "skills/caption-studio/templates/caption-task-pack.md",
@@ -2973,8 +2983,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 11427,
-      "sha256": "00ed5f4bb6fa98d4bdb080b13ac76418a2feb5db69203b3d00929bfdd9c1e811"
+      "bytes": 11574,
+      "sha256": "07fab8247ac09a16a79db842d3b7e5ed81c39159845f0856af4f2306734e8aa6"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -4553,8 +4563,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/README.md",
-      "bytes": 3798,
-      "sha256": "271ea36ff72ef45a1b2da8f90e459d7adba49f319f64a9a90d0de92648d210f6"
+      "bytes": 5074,
+      "sha256": "d8cd15a718387b7df4b93ba3b1bd9ebabbe765beae0600d511312b9e138bade9"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/example-score.json",
@@ -4562,9 +4572,14 @@
       "sha256": "b8889bf934707b67468e7aa40a45785869984ee363505f3e844664bdd92ad0a7"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/motion-quality/flash_check.py",
+      "bytes": 5152,
+      "sha256": "fbe590fc01cf22ac428ec10d850a1933ee7f7f5dfc89654de289ff1e1bfc1f4f"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/motion-quality/inspect-encode.py",
-      "bytes": 3468,
-      "sha256": "80c1fbcc15f9d6fa4324e4a02eb5b440f3f57ecf425f31548d2a5d9c083df2f8"
+      "bytes": 5977,
+      "sha256": "0fb778e75127c5e1d7170320777a25dc1831a520f82d672870ad1c1ea1c36f2a"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py",
@@ -4793,8 +4808,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
-      "bytes": 15133,
-      "sha256": "056f3bdebf2490920f11177d486535d0c854459041b29e10a1b7199c4ee98131"
+      "bytes": 15350,
+      "sha256": "af6648bbaaa0e37f8856ce20243b74f0b6fc778acf68a7b203a0a2603c04efcf"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-sync/audio_envelope.py",
@@ -5043,8 +5058,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-craft.md",
-      "bytes": 13916,
-      "sha256": "a88023707fe3da4472dc68be12020fa3b7dbe5730a01f46c03e8f3cb598f5b5d"
+      "bytes": 14846,
+      "sha256": "f49c44463bd457795de8817e1581fa7d6243e953985108dbb005348c8e23a881"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
@@ -5098,8 +5113,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 8423,
-      "sha256": "26aeb638ecdc67e244b97ba5faf82d06ac25054abbd1f212281d65bb969d4f25"
+      "bytes": 8566,
+      "sha256": "5f84a68c7e183edb6a1f9d977c7f98a84b30f73173840ec18037b94ff1f91f3d"
     },
     {
       "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
@@ -5253,8 +5268,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 27706,
-      "sha256": "434a96273496b611254b847c24b8516458220940ae6d54d8ccb8cacd0eb14d04"
+      "bytes": 28167,
+      "sha256": "c0f594179127e4bc9bd406abc6942bae27bb673183f4a91d377a4406f04503ed"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5368,8 +5383,8 @@
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_media.py",
-      "bytes": 16142,
-      "sha256": "7227d94db90e86fb1d8f840f53fd5fc31cf928e3d480e4ecd891b2beef0454d2"
+      "bytes": 18376,
+      "sha256": "57b0d298977858005a4e852239f0ecde25fca20b7dd76c4dd0e8eb1c39215767"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_picture.py",
@@ -6018,8 +6033,8 @@
     },
     {
       "path": "skills/remotion-video-production/references/remotion-implementation-notes.md",
-      "bytes": 4075,
-      "sha256": "e97c64cc041d1373674ddbfe30bf9299e73705c633fed5b432a0db1df0003b91"
+      "bytes": 4422,
+      "sha256": "349c4c0920ed5e322b531a53e33d8521d487e5ec62ec146e06af5ca85612c11f"
     },
     {
       "path": "skills/remotion-video-production/templates/remotion-production-brief.md",
@@ -7168,8 +7183,8 @@
     },
     {
       "path": "skills/tool-routing-cost/SKILL.md",
-      "bytes": 7377,
-      "sha256": "abfb3211bb2f1418185289f42b4b90d91fc2d8b6d9a119fc18cc2714bdc07466"
+      "bytes": 7530,
+      "sha256": "2367e8b00f33319b4cc20aa7ce1d13731cb30ee1b1cb501cf68b3b4e24a61180"
     },
     {
       "path": "skills/tool-routing-cost/agents/openai.yaml",
@@ -7268,8 +7283,8 @@
     },
     {
       "path": "skills/video-prompt-architect/references/video-craft.md",
-      "bytes": 53494,
-      "sha256": "ccef20a0ada40becb803de3a17c7e117d0df04ec9548e9d6d0c707ea87a8e3c4"
+      "bytes": 53688,
+      "sha256": "5362a7f795009ab2d7134340fe6c9e949ee98d776b93117cd5b1f716d8a8d6d3"
     },
     {
       "path": "skills/video-prompt-architect/scripts/clip_review.py",
@@ -7298,8 +7313,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 52954,
-      "sha256": "c9b829c872de28d47a3029851d6acaee745855124fafa25a04093362a9fa393f"
+      "bytes": 54018,
+      "sha256": "08f6e8a84c5fb167eaf7bb653320238928e171511e339d59302137c5f5a14675"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7333,8 +7348,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 134907,
-      "sha256": "26b065de1cf983389d40401551d1d688e2a2718734401c6c19a0c4724930f220"
+      "bytes": 136585,
+      "sha256": "b02a29fda23ec7fb136fe60604c39f004f7ea931766a57bd7c5140a77e35df63"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7433,8 +7448,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 10957,
-      "sha256": "e6d25d144c2d02c1ed7ff46e4d8ac6bd6450f494509c59d8fe4ec9603e5c931e"
+      "bytes": 11111,
+      "sha256": "6522d8019768a002e1c83c0dc1f8ea1419cc65e0e25939181f10b995e1ca8dde"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7598,8 +7613,13 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 16928,
-      "sha256": "f9256f6f708b9344d7f57e54b43b3ef378ba20face40ee6c0ba6d369c741c2b4"
+      "bytes": 18147,
+      "sha256": "5d0cd28588587f23c093d3efca96256f99e5126d8ee43709fe984e6c53dc60f4"
+    },
+    {
+      "path": "tests/flash_check_test.py",
+      "bytes": 4006,
+      "sha256": "78648e323ace9288df0dcece52b02430022b310fc834bd8b511f53d88589cb23"
     },
     {
       "path": "tests/framecut_audit_test.py",
@@ -7618,8 +7638,8 @@
     },
     {
       "path": "tests/framecut_script_test.py",
-      "bytes": 11569,
-      "sha256": "56d02eb95bb9d86b9f7d98efa6acfc3ae30c714ab865410df93cfcc0ddd45fa2"
+      "bytes": 14836,
+      "sha256": "5f07e2c5926775f48098627ac2cf39df7a92f89e06c69d89c3fc2cdac27ddd71"
     },
     {
       "path": "tests/framecut_test.py",
@@ -7630,6 +7650,11 @@
       "path": "tests/image_probe_test.py",
       "bytes": 9535,
       "sha256": "d1d36728584e1337a9ce6f0c86d7b6db03901589bfd2acf274ac1b79b0b430b4"
+    },
+    {
+      "path": "tests/inspect_encode_test.py",
+      "bytes": 4100,
+      "sha256": "081d90304858be663651f312aafc282c9a39261c38219deae6532d8decae5089"
     },
     {
       "path": "tests/iso_glow_test.py",
