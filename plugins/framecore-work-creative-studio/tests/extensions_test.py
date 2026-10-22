@@ -282,5 +282,24 @@ class Registry(unittest.TestCase):
         self.assertTrue(fits('v26.1.0'))
 
 
+    def test_open_design_entry_pins_0_26_0(self):
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'open-design')
+        self.assertEqual(entry['reviewed_commit'], 'bfee093942f8578c8b6ec7f26862e96f81026a89')
+        hashes = ('ff7a1181b83aca664b85b7da0a5df740c99cf34bdce203d5276022ee72946d76',
+                  'f2fc313eb5b62c207621b5f15e83aa135c69a04e9cbae25fce94da2d99c346ee',
+                  '4c0697a53177753072593b44133f44cca76421a102a4da1b4229d5e643569b00')
+        for host, data in entry['hosts'].items():
+            text = data.get('manual_steps') or data.get('reason', '')
+            self.assertNotIn('0.25.0', text, host)
+            if data['status'] == 'manual':
+                for needle in ('open-design-v0.26.0', '--print', '--uninstall', 'curl | sh', 'delete', *hashes):
+                    self.assertIn(needle, text, f'{host}: {needle}')
+        self.assertIn('Share', entry['not_for'])
+        self.assertNotIn('0.25.0', json.dumps(entry['requires']))
+        folder = PLUGIN / 'integrations/open-design'
+        self.assertTrue((folder / 'LICENSE').read_text(encoding='utf-8').lstrip().startswith('Apache License'))
+        self.assertTrue((folder / 'README.md').is_file())
+
+
 if __name__ == '__main__':
     unittest.main()
