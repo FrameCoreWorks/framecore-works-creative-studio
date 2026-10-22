@@ -1,0 +1,7 @@
+1
+00:00:00,500 --> 00:00:03,000
+Tak działa nasz magazyn
+
+2
+00:00:03,000 --> 00:00:05,800
+Od przyjęcia do wysyłki w 24 godziny

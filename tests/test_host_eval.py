@@ -145,6 +145,35 @@ class Checks(unittest.TestCase):
             self.assertEqual(host_eval.main(['--cases', 'W01']), 2)
             runner.assert_not_called()
 
+    def test_a_companion_plugin_is_loaded_beside_studio(self):
+        # The pair Studio + Superpowers must be testable in Claude Code: an isolated config never loads a user plugin.
+        done = types.SimpleNamespace(stdout=json.dumps({'type': 'result', 'result': 'ok', 'session_id': 's'}), stderr='', returncode=0)
+        args = types.SimpleNamespace(model='m', max_turns=1, turn_budget_usd=0.1, timeout=5, with_plugin=['/x/superpowers'])
+        with mock.patch.object(host_eval.subprocess, 'run', return_value=done) as runner:
+            host_eval.run_turn('hi', '/w', '/c', args, ['Skill'])
+        command = runner.call_args[0][0]
+        self.assertEqual(command[command.index('--plugin-dir'):command.index('--plugin-dir') + 4],
+                         ['--plugin-dir', str(host_eval.PLUGIN), '--plugin-dir', '/x/superpowers'])
+
+    def test_a_suite_that_needs_a_companion_refuses_to_run_without_it(self):
+        with mock.patch.object(host_eval.shutil, 'which', return_value='/bin/claude'), mock.patch.object(host_eval, 'run_case') as runner, \
+                mock.patch.dict(host_eval.os.environ, {}, clear=False):
+            for name in host_eval.billing_variables():
+                host_eval.os.environ.pop(name, None)
+            self.assertEqual(host_eval.main(['--suite', 'companion']), 2)
+            runner.assert_not_called()
+
+    def test_an_event_whose_message_is_text_is_skipped_not_fatal(self):
+        events = [{'type': 'system', 'message': 'hook output as plain text'},
+                  {'type': 'assistant', 'message': {'content': [{'type': 'tool_use', 'id': 't1', 'name': 'Skill', 'input': {'skill': 'x'}}]}}]
+        parsed = host_eval.parse_events(events, {'result': 'ok', 'session_id': 's'})
+        self.assertEqual([t['name'] for t in parsed['tools']], ['Skill'])
+
+    def test_files_written_by_the_host_are_checked(self):
+        tools = [{'name': 'Write', 'input': {'file_path': '/w/docs/superpowers/specs/2026-10-22-reel-design.md'}, 'ok': True}]
+        self.assertFalse(host_eval.check({'no_write': ['docs/superpowers/']}, turn('ok', tools))[0])
+        self.assertTrue(host_eval.check({'no_write': ['docs/superpowers/']}, turn('ok', []))[0])
+
     def test_a_failed_later_turn_keeps_the_finished_turns_and_their_usage(self):
         # Audit WF-04.
         first = {'reply': 'ok', 'is_error': False, 'subtype': 'success', 'session': 's', 'tokens': {'input': 101, 'output': 202, 'cache_read': 303, 'cache_write': 404},

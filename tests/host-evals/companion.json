@@ -1,0 +1,234 @@
+{
+  "name": "companion",
+  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation.",
+  "requires_plugin": "superpowers",
+  "cases": [
+    {
+      "id": "C01",
+      "gate": true,
+      "title": "A timing defect in an accepted FrameCut edit is diagnosed with systematic-debugging; the accepted board is kept",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mamy zaakceptowany storyboard i gotowy montaż we FrameCut (25 fps). W całym filmie dźwięk jest około 6 klatek za obrazem. Co robimy?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "superpowers:systematic-debugging"
+              ]
+            },
+            {
+              "max_questions": 3
+            },
+            {
+              "not_regex": "(?i)zaakceptuj(esz|cie)?\\s+(ponownie\\s+)?storyboard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "gate": true,
+      "title": "A coded animation that freezes on export is diagnosed with systematic-debugging in Motion Graphics",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Moja kompozycja HyperFrames w podglądzie gra dobrze, ale przy renderze do MP4 animacja zatrzymuje się w 4. sekundzie, a dźwięk leci dalej. Co z tym zrobić?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "superpowers:systematic-debugging"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "gate": true,
+      "title": "A revised film with its captions and the client's notes in the workspace: no 'send it' without inspecting the actual file; the answer names the evidence",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym jest final.mp4, napisy.srt i uwagi.txt od klienta. Poprawiłem napisy według uwag i wyrenderowałem final.mp4. Mogę to już wysłać klientowi?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_regex": "(?i)^\\W*(tak|możesz (go |to )?(już )?wysłać|gotowe do wysłania)"
+            },
+            {
+              "contains_any": [
+                "ffprobe",
+                "6,0",
+                "6.0",
+                "klatk"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ],
+      "files": {
+        "final.mp4": "tests/host-evals/fixtures/companion-final.mp4",
+        "napisy.srt": "tests/host-evals/fixtures/companion-napisy.srt",
+        "uwagi.txt": "tests/host-evals/fixtures/companion-uwagi.txt"
+      },
+      "extra_tools": [
+        "Bash(ffprobe:*)",
+        "Bash(ffmpeg:*)"
+      ],
+      "max_turns": 16
+    },
+    {
+      "id": "C04",
+      "gate": true,
+      "title": "An unsure user with a new reel: a Studio owner leads; no design document or second questionnaire from brainstorming",
+      "extra_tools": [
+        "Write"
+      ],
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "opencut-video-studio",
+                "hyperframes-workflow",
+                "creative-video-producer"
+              ]
+            },
+            {
+              "no_write": [
+                "docs/superpowers/",
+                "-design.md"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "gate": true,
+      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "contains_any": [
+                "Superpowers"
+              ]
+            },
+            {
+              "not_contains": [
+                "/plugin install",
+                "plugin install superpowers"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "title": "A creative request without the Studio name still reaches a Studio owner; brainstorming writes no design document",
+      "extra_tools": [
+        "Write"
+      ],
+      "turns": [
+        {
+          "prompt": "Zaprojektuj plakat 50x70 cm na piątkowy koncert jazzowy w klubie Nora, start 20:00, wstęp wolny.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "static-graphic-design-creator",
+                "workflow-orchestrator"
+              ]
+            },
+            {
+              "no_write": [
+                "docs/superpowers/",
+                "-design.md"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "title": "A technical caption defect sent straight to the caption owner is diagnosed with systematic-debugging, not patched by guesswork",
+      "files": {
+        "napisy.srt": "tests/host-evals/fixtures/companion-napisy.srt"
+      },
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Po eksporcie z napisy.srt w odtwarzaczu drugi napis pojawia się pół sekundy za wcześnie, ale tylko na telefonie, na komputerze jest dobrze. Napraw to.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "superpowers:systematic-debugging"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "title": "Without the Studio name, a reel from the user's own footage with a diagram reaches FrameCut and one question, even when Superpowers' start-up hook makes the host pick a skill by its description",
+      "turns": [
+        {
+          "prompt": "Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "opencut-video-studio"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

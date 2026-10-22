@@ -1,0 +1,4 @@
+Uwagi klienta do wersji 2:
+1. W drugim napisie ma być "w 24 godziny", nie "w 48 godzin".
+2. Napisy wyżej, nad paskiem przycisków aplikacji.
+3. Film ma mieć 6 sekund.

@@ -60,6 +60,22 @@ def version():
     return json.loads((PLUGIN / 'plugin.json').read_text(encoding='utf-8'))['version']
 
 
+def plugin_name(path):
+    for manifest in ('.claude-plugin/plugin.json', 'plugin.json'):
+        try:
+            return json.loads((Path(path) / manifest).read_text(encoding='utf-8')).get('name')
+        except (OSError, ValueError):
+            continue
+    return None
+
+
+def plugin_version(path):
+    try:
+        return json.loads((Path(path) / '.claude-plugin/plugin.json').read_text(encoding='utf-8')).get('version')
+    except (OSError, ValueError):
+        return None
+
+
 def suite_names():
     return sorted(path.stem for path in SUITES.glob('*.json'))
 
@@ -116,7 +132,9 @@ def within_limit(cases, limit):
 
 
 def run_turn(prompt, workspace, config, args, tools, session=None, max_turns=None):
-    command = ['claude', '-p', prompt, '--plugin-dir', str(PLUGIN), '--output-format', 'stream-json', '--verbose',
+    # A companion plugin (Superpowers) is passed explicitly: the isolated config never loads the user's own plugins.
+    companions = [part for path in getattr(args, 'with_plugin', None) or [] for part in ('--plugin-dir', str(path))]
+    command = ['claude', '-p', prompt, '--plugin-dir', str(PLUGIN), *companions, '--output-format', 'stream-json', '--verbose',
                '--model', args.model, '--max-turns', str(max_turns or args.max_turns), '--allowed-tools', ' '.join(tools),
                '--tools', ','.join(sorted({t.split('(')[0] for t in tools})), '--strict-mcp-config',
                '--max-budget-usd', f'{args.turn_budget_usd:.2f}', '--setting-sources', 'user']
@@ -141,7 +159,8 @@ def parse_events(events, result):
     False when the host returned an error (a skill not found, a failed read), None when no result came back."""
     tools_used, by_id = [], {}
     for event in events:
-        content = event.get('message', {}).get('content', []) or []
+        message = event.get('message')
+        content = (message.get('content', []) if isinstance(message, dict) else []) or []   # some events carry plain text
         if not isinstance(content, list):
             continue
         for block in content:
@@ -183,6 +202,10 @@ def touched(tools):
     """Files the host read and skills it loaded, as paths: a Skill call counts as reading that skill's SKILL.md."""
     paths = [str(tool['input'].get('file_path', '')) for tool in ran(tools) if tool['name'] == 'Read']
     return paths + [f'skills/{name}/SKILL.md' for name in skills_of([t for t in tools if t['name'] == 'Skill'])]
+
+
+def written_of(tools):
+    return [str(tool['input'].get('file_path', '')) for tool in ran(tools) if tool['name'] in ('Write', 'Edit', 'NotebookEdit')]
 
 
 def commands_of(tools):
@@ -339,6 +362,9 @@ def check(spec, turn):
         used = skills_of(turn['tools'])
         hit = [s for s in value if s in used]
         return not hit, f'loaded {used}' + (f'; unexpected {hit}' if hit else '')
+    if kind == 'no_write':
+        hit = [p for p in written_of(turn['tools']) if any(v in p for v in value)]
+        return not hit, 'wrote none of them' if not hit else f'wrote {hit}'
     if kind == 'no_command':
         hit = [c for c in commands_of(turn['tools']) if value in c]
         return not hit, 'not run' if not hit else f'ran {hit[0][:120]}'
@@ -447,6 +473,8 @@ def main(argv=None):
     parser.add_argument('--timeout', type=int, default=600)
     parser.add_argument('--keep-chars', type=int, default=6000, help='reply characters kept in the record')
     parser.add_argument('--write', action='store_true', help='write the record under verification/host-evals/')
+    parser.add_argument('--with-plugin', action='append', default=[], metavar='DIR',
+                        help="also load this plugin directory beside Studio (a suite's requires_plugin, e.g. the installed Superpowers)")
     parser.add_argument('--allow-api-billing', action='store_true', help='run although an API key or cloud provider is configured (only on the owner\'s request: those runs are billed)')
     args = parser.parse_args(argv)
     suite = load_suite(args.suite)
@@ -459,6 +487,10 @@ def main(argv=None):
         if unknown:
             parser.error(f'unknown case IDs: {sorted(unknown)}')
         cases = [c for c in cases if c['id'] in wanted]
+    needed = suite.get('requires_plugin')
+    if needed and not args.list and not any(needed in str(path).lower() or plugin_name(path) == needed for path in args.with_plugin):
+        print(f'host_eval: the {args.suite} suite needs the {needed} plugin; pass --with-plugin <its installed directory>', file=sys.stderr)
+        return 2
     if args.list:
         for case in cases:
             print(f"{case['id']}{' (gate)' if case.get('gate') else ''}: {case['title']} [{len(case['turns'])} turn(s)]")
@@ -494,6 +526,7 @@ def main(argv=None):
         'source': {'commit': head, 'package_uncommitted_changes': bool(dirty), 'candidate': candidate,
                    'unchanged_during_run': candidate_snapshot()['sha256'] == candidate['sha256']},
         'suite': suite['name'] + (' (gate)' if args.gate else ''), 'host': f'Claude Code {claude_version}, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir',
+        'companions': [{'name': plugin_name(p), 'version': plugin_version(p)} for p in args.with_plugin],
         'model': args.model, 'judge': args.judge_model if args.judge else None, 'allowed_tools_default': DEFAULT_TOOLS,
         'configuration': {'max_turns': args.max_turns, 'timeout': args.timeout, 'keep_chars': args.keep_chars,
                           'reasoning_effort': 'host default; not explicitly selected or observed',
