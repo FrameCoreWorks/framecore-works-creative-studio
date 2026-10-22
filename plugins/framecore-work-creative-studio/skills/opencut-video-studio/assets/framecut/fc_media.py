@@ -32,20 +32,24 @@ def run(argv, timeout=300, cwd=None):
                 checkpoint()
                 if time.monotonic() >= deadline:
                     raise subprocess.TimeoutExpired(argv, timeout)
+                if stdout.tell() > 64 * 1024 * 1024 or stderr.tell() > 64 * 1024 * 1024:
+                    raise FrameCutError("resource_limit", f"{Path(argv[0]).name} wrote more than 64 MiB of output and was stopped")
                 try:
                     proc.wait(timeout=.2)
                 except subprocess.TimeoutExpired:
                     pass
-        except (subprocess.TimeoutExpired, KeyboardInterrupt, FrameCutError):
+        except (subprocess.TimeoutExpired, KeyboardInterrupt, FrameCutError) as stopped:
             if os.name == "posix":
                 os.killpg(proc.pid, signal.SIGKILL)
             else:
                 proc.kill()
             proc.wait()
-            if isinstance(sys.exc_info()[1], FrameCutError):
+            if isinstance(stopped, FrameCutError):
                 raise
-            raise FrameCutError("resource_limit" if not sys.exc_info()[0] is KeyboardInterrupt else "cancelled",
-                                "Child cancelled; no final was published")
+            if isinstance(stopped, KeyboardInterrupt):
+                raise FrameCutError("cancelled", "Child cancelled; no final was published") from None
+            raise FrameCutError("resource_limit", f"{Path(argv[0]).name} timed out after {timeout} s; no final was published. "
+                                "Raise --timeout for long sources or split the work.") from None
         require(stdout.tell() <= 64 * 1024 * 1024 and stderr.tell() <= 64 * 1024 * 1024,
                 "Process evidence exceeds 64 MiB", "resource_limit")
         stdout.seek(0); stderr.seek(0)
@@ -83,7 +87,8 @@ def probe(path):
               "format_start": raw.get("format", {}).get("start_time", "0"),
               "timestamp_policy": "decode relative to selected stream start; preserve source PTS, never use nominal source frame index"}
     if visual:
-        require(visual.get("width", 0) <= 16384 and visual.get("height", 0) <= 16384, "Source dimensions exceed 16K", "resource_limit")
+        require(0 < visual.get("width", 0) <= 16384 and 0 < visual.get("height", 0) <= 16384,
+                "Source picture has no decodable size or exceeds 16K", "resource_limit")
         pix = visual.get("pix_fmt", "")
         result.update(width=visual["width"], height=visual["height"], fps=visual.get("avg_frame_rate", "0/0"),
                       nominal_fps=visual.get("r_frame_rate", "0/0"), sar=visual.get("sample_aspect_ratio", "1:1"),
@@ -97,8 +102,13 @@ def probe(path):
 def ingest(root, relative, asset_id, rights="unknown", provenance="user-supplied"):
     identifier(asset_id)
     path = confined(root, relative, True)
+    before = path.stat()
     p = probe(path)
-    return {"path": relative, "sha256": file_hash(path), "kind": p["kind"], "probe": p,
+    digest = file_hash(path)
+    after = path.stat()
+    # The stored probe and hash must describe the same bytes.
+    require((before.st_size, before.st_mtime_ns) == (after.st_size, after.st_mtime_ns), f"Source changed while it was ingested: {relative}", "stale_source")
+    return {"path": relative, "sha256": digest, "kind": p["kind"], "probe": p,
             "rights": rights, "provenance": provenance}
 
 
@@ -131,8 +141,21 @@ def inspect_media(root, asset, out_dir, max_seconds=1800, thumbnails=8):
     """Scene/silence evidence plus timestamped thumbnails; never a semantic/whole-film judgment."""
     source = confined(root, asset["path"], True)
     require(file_hash(source) == asset["sha256"], "Source changed", "stale_source")
-    folder = Path(out_dir)
-    folder.mkdir(parents=True, exist_ok=False)
+    final = Path(out_dir)
+    require(not final.exists(), f"Analysis directory already exists: {final.name}")
+    final.parent.mkdir(parents=True, exist_ok=True)
+    # Built beside the target and renamed at the end, so a failure leaves nothing that blocks a retry.
+    folder = Path(tempfile.mkdtemp(prefix=".framecut-analysis-", dir=final.parent))
+    try:
+        result = _inspect(source, asset, folder, max_seconds, thumbnails)
+        os.rename(folder, final)
+    except BaseException:
+        shutil.rmtree(folder, ignore_errors=True)
+        raise
+    return result
+
+
+def _inspect(source, asset, folder, max_seconds, thumbnails):
     length = min(asset["probe"]["duration"], max_seconds)
     result = {"source_hash": asset["sha256"], "engine": f"FrameCut {VERSION} / FFmpeg", "analyzed_seconds": length,
               "partial": length < asset["probe"]["duration"], "scenes": [], "silences": [], "thumbnails": [],
@@ -144,7 +167,8 @@ def inspect_media(root, asset, out_dir, max_seconds=1800, thumbnails=8):
                       "-t", str(length), "-an", "-vf", "setpts=PTS-STARTPTS,select='gt(scene,0.3)',showinfo", "-f", "null", "-"], max(60, int(length * 3)))
         result["scenes"] = [float(x) for x in re.findall(r"pts_time:([\d.]+)", log)]
         for i in range(1 if asset["kind"] == "image" else thumbnails):
-            t = 0 if asset["kind"] == "image" else max(0, (i + 0.5) * length / thumbnails)
+            # The last picture of a short clip can end before the nominal grid point, so stay inside the clip.
+            t = 0 if asset["kind"] == "image" else min(max(0, (i + 0.5) * length / thumbnails), max(0, length - 0.15))
             name = f"frame-{i:03d}.jpg"
             ffmpeg(["-ss", str(t), "-i", str(source), "-frames:v", "1", "-vf", "scale=640:-2", str(folder / name)], 45)
             result["thumbnails"].append({"file": name, "source_seconds": t, "sha256": file_hash(folder / name)})

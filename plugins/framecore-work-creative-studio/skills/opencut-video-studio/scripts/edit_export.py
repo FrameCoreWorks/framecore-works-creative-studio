@@ -98,14 +98,19 @@ def build(edit):
     return {'title': str(edit.get('title') or 'Edit'), 'fps': fps, 'base': base, 'start': start, 'events': events, 'length': position}
 
 
+def one_line(text):
+    """EDL is line-oriented: a control character or line break in a name or note could forge an event."""
+    return re.sub(r'[\x00-\x1f\x7f\u2028\u2029]+', ' ', str(text)).strip()
+
+
 def edl(t):
-    lines = [f"TITLE: {t['title'][:70]}", 'FCM: NON-DROP FRAME', '']
+    lines = [f"TITLE: {one_line(t['title'])[:70]}", 'FCM: NON-DROP FRAME', '']
     for e in t['events']:
         tc = lambda frames: timecode(frames, t['base'])
         lines.append(f"{e['n']:03d}  {e['reel']:<8} V     C        {tc(e['src_in'])} {tc(e['src_out'])} {tc(t['start'] + e['rec_in'])} {tc(t['start'] + e['rec_out'])}")
-        lines.append(f"* FROM CLIP NAME: {Path(e['source']).name}")
+        lines.append(f"* FROM CLIP NAME: {one_line(Path(e['source']).name)}")
         if e['note'] or e['name']:
-            lines.append(f"* COMMENT: {' - '.join(x for x in (e['name'], e['note']) if x)}")
+            lines.append(f"* COMMENT: {one_line(' - '.join(x for x in (e['name'], e['note']) if x))}")
         lines.append('')
     return '\n'.join(lines)
 

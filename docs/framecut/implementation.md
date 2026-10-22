@@ -56,7 +56,7 @@ For ASR, compare the existing PyWhisperCpp route with faster-whisper on the same
 | Multiple product shots, stills and generated additions; finished promo | Shot/contact sheets, product facts and protected identity, visual continuity, music/voice needs; select evidence that supports the brief | Multi-track edit plus motion blocks, product-safe framing, audio mix; generated additions through existing authorized routes, source/rights provenance retained |
 | Screen recording plus narration; concise instructional video | OCR and speech evidence, UI steps, cursor/action intervals, personal-data regions, readability at intended size | Remove actual dead time while preserving steps; anchored callouts/zooms, corrected captions and intelligible audio; inspect the final screen content and mask any agreed private data |
 
-A motion-only job uses the same brief, sequence/delivery and revision system with existing motion owners. A long-form edit need not create any short clips. Multi-camera sync, HDR mastering, complex speed ramps and automatic object tracking are declared unsupported until the corresponding adapters and tests exist, rather than implied by the broad product name.
+A motion-only job uses the same brief, sequence/delivery and revision system with existing motion owners. A long-form edit need not create any short clips. Multi-camera sync, HDR mastering and automatic object tracking are declared unsupported (speed curves and freeze frames shipped in 1.116.0) until the corresponding adapters and tests exist, rather than implied by the broad product name.
 
 ## Acceptance matrix
 

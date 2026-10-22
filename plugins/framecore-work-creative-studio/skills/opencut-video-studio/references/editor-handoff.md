@@ -8,9 +8,11 @@ An Edit Pack becomes files and steps the editor can follow without guessing: the
 python3 scripts/edit_export.py edit.json --out-dir handoff/    # edit.edl, edit.otio, edit-shots.csv
 ```
 
+For a FrameCut project use `framecut.py export project.json --sequence ID --out handoff/rN` instead: it writes the native project, relink map, CSV, an EDL when the edit is plain picture cuts and optional OTIO (`--otio`), plus a loss report.
+
 `edit.json` holds the title, the frame rate, an optional start timecode and the clips in order: `source` (file name), `in` and `out` (seconds or `HH:MM:SS:FF`), and optionally `record_in`, `name` and `note`. The tool writes:
 
-- **`.edl`**: CMX 3600, one video track, reel names of up to 8 characters with the full file name in a `FROM CLIP NAME` comment. Premiere Pro, DaVinci Resolve and most editors import it.
+- **`.edl`**: CMX 3600, one video track, reel names of up to 8 characters with the full file name in a `FROM CLIP NAME` comment. The format is standard CMX 3600; import into a named editor was not tested here, so check the first import.
 - **`.otio`**: an OpenTimelineIO timeline with the same clips and any gaps, for editors that import OTIO.
 - **`-shots.csv`**: the shot list with record and source timecodes, for an editor without EDL import and for the client's review.
 

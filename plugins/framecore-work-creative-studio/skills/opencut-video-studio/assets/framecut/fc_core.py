@@ -94,8 +94,20 @@ def confined(root, relative, must_exist=False):
     return resolved
 
 
+MAX_JSON_BYTES = 16 * 1024 * 1024
+
+
+def confined_output(root, relative):
+    """An output path that cannot overwrite or poison the runtime's own state (history, locks, caches, the project file)."""
+    path = confined(root, relative)
+    parts = Path(relative).parts
+    require(parts[0] != ".framecut" and not parts[-1].endswith(".lock") and Path(relative).name != "project.json",
+            "Output path is reserved by the FrameCut runtime; choose a new directory such as outputs/r3")
+    return path
+
+
 def read_json(path):
-    require(Path(path).stat().st_size <= 16 * 1024 * 1024, "JSON exceeds 16 MiB", "resource_limit")
+    require(Path(path).stat().st_size <= MAX_JSON_BYTES, f"JSON file {Path(path).name} exceeds 16 MiB", "resource_limit")
     def unique(pairs):
         out = {}
         for k, v in pairs:
@@ -114,6 +126,8 @@ def atomic_json(path, obj, overwrite=False):
     require(not path.is_symlink(), "Symlink output rejected")
     path.parent.mkdir(parents=True, exist_ok=True)
     raw = canonical(obj) + b"\n"
+    # A file the runtime cannot read back would brick the project, undo included.
+    require(len(raw) <= MAX_JSON_BYTES, f"{path.name} would exceed 16 MiB ({len(raw)} bytes); keep large data in a media or side file", "resource_limit")
     fd, tmp = tempfile.mkstemp(prefix=".framecut-write-", dir=path.parent)
     try:
         with os.fdopen(fd, "wb") as f:
@@ -151,6 +165,32 @@ def event_start(event, seq):
     return matches[0]["start"] + integer(event["anchor"]["offset"], "anchor offset", -MAX_INTEGER)
 
 
+def probe_fields(asset_id, p):
+    """Probe values end up in ffmpeg filter graphs and arguments, so a hand-edited project must not carry text there."""
+    def plain(name, low=0, high=MAX_INTEGER, nullable=False):
+        if name in p and not (nullable and p[name] is None):
+            require(type(p[name]) is int and low <= p[name] <= high, f"Invalid probe {name} for {asset_id}")
+    plain("audio_index", 0, 1023, True)
+    plain("video_index", 0, 1023, True)
+    plain("width", 1, 16384)
+    plain("height", 1, 16384)
+    plain("rotation", -360, 360)
+    for name in ("fps", "nominal_fps"):
+        if name in p:
+            require(isinstance(p[name], str) and re.fullmatch(r"\d{1,9}/\d{1,9}", p[name]), f"Invalid probe {name} for {asset_id}")
+    if "sar" in p:
+        require(isinstance(p["sar"], str) and re.fullmatch(r"(N/A|\d{1,9}[:/]\d{1,9})", p["sar"]), f"Invalid probe sar for {asset_id}")
+    for name in ("pix_fmt", "color_transfer", "color_space", "color_primaries"):
+        if name in p:
+            require(isinstance(p[name], str) and re.fullmatch(r"[A-Za-z0-9_.-]{0,40}", p[name]), f"Invalid probe {name} for {asset_id}")
+    for name in ("has_audio", "has_alpha"):
+        if name in p:
+            require(type(p[name]) is bool, f"Invalid probe {name} for {asset_id}")
+    if "streams" in p:
+        require(isinstance(p["streams"], list) and all(isinstance(x, dict) and type(x.get("index")) is int for x in p["streams"]),
+                f"Invalid probe streams for {asset_id}")
+
+
 def validate(project, root=None, verify_sources=False):
     keys(project, ("schema_version", "id", "revision", "brief", "authorization", "assets", "analyses", "sequences",
                    "deliverables", "locks", "history", "status"), ("schema_version", "id", "revision", "assets", "analyses", "sequences", "deliverables"))
@@ -173,12 +213,14 @@ def validate(project, root=None, verify_sources=False):
         require(isinstance(p, dict) and ratio(p["clock"]) == Fraction(p["time_base"]), "Invalid source clock")
         integer(p["start_pts"], "source start PTS", -MAX_INTEGER)
         require(Fraction(str(p["duration"])) > 0, "Invalid source duration")
+        probe_fields(aid, p)
         if root is not None:
             path = confined(root, a["path"], True)
             if verify_sources:
                 require(file_hash(path) == a["sha256"], f"Source changed: {aid}", "stale_source")
     require(isinstance(project["analyses"], dict), "Expected analyses object")
     for aid, analysis in project["analyses"].items():
+        require(isinstance(analysis, dict), f"Analysis for {aid} must be an object")
         require(aid in project["assets"] and analysis.get("source_hash") == project["assets"][aid]["sha256"], "Stale analysis", "stale_source")
         units = analysis.get("words", []) or analysis.get("segments", [])
         previous = -math.inf
@@ -219,6 +261,8 @@ def validate(project, root=None, verify_sources=False):
                              "anchor", "rect", "alpha", "text", "size", "color", "animation", "position", "fade", "bus", "duck_db", "note", "keyframes", "keyframe_offset", "speed_curve", "freeze", "source_remainder", "effects"),
                      ("id", "duration"))
                 identifier(event["id"])
+                if "note" in event:
+                    require(isinstance(event["note"], str) and len(event["note"]) <= 2000, f"Note on {event['id']} must be text of at most 2000 characters")
                 require(event["id"] not in ids, "Duplicate event ID")
                 ids.add(event["id"])
                 require(("start" in event) != ("anchor" in event), "Use start or anchor, exactly once")
@@ -295,7 +339,7 @@ def validate(project, root=None, verify_sources=False):
         integer(cap.get("max_words", 6), "caption word group", 1, 12)
         for field in ("color", "highlight"):
             require(re.fullmatch(r"#[0-9a-fA-F]{6}", cap.get(field, "#FFFFFF")), "Invalid caption color")
-        require(re.fullmatch(r"[A-Za-z0-9 _-]{1,80}", cap.get("font", "DejaVu Sans")), "Invalid font family")
+        require(re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 _-]{0,79}", cap.get("font", "DejaVu Sans")), "Invalid font family")
         require(isinstance(cap.get("corrections", {}), dict) and all(isinstance(v, str) and len(v) <= 10000 for v in cap.get("corrections", {}).values()), "Invalid caption corrections")
     ids = set()
     clip_ids = {c["id"] for s in project["sequences"] for c in s["clips"]}
@@ -391,13 +435,18 @@ def apply_operations(project, operations):
             seq = next((s for s in result["sequences"] if s["id"] == op.get("sequence")), None)
             require(seq is not None, "Unknown sequence")
             if kind == "set_sequence":
-                require(op["value"].get("id") == seq["id"], "Stable sequence ID changed")
+                require(isinstance(op["value"], dict) and op["value"].get("id") == seq["id"], "Stable sequence ID changed")
                 result["sequences"][result["sequences"].index(seq)] = op["value"]
-            elif kind in ("set_captions", "set_audio", "set_overlays", "set_texts"):
+            elif kind == "set_captions":
+                # Captions are one settings object: a partial value changes those settings and keeps the rest,
+                # so {"size": 0.08} cannot silently switch captions off by dropping "enabled".
+                require(isinstance(op["value"], dict), "Captions value must be an object")
+                seq["captions"] = {**(seq.get("captions") or {}), **op["value"]}
+            elif kind in ("set_audio", "set_overlays", "set_texts"):
                 seq[kind[4:]] = op["value"]
             elif kind == "replace_clip":
                 index = next((i for i, c in enumerate(seq["clips"]) if c["id"] == op.get("id")), None)
-                require(index is not None and op["value"].get("id") == op.get("id"), "Unknown/stale clip ID")
+                require(index is not None and isinstance(op["value"], dict) and op["value"].get("id") == op.get("id"), "Unknown/stale clip ID")
                 seq["clips"][index] = op["value"]
             else:
                 raise FrameCutError("unsupported_operation", f"Unsupported edit operation: {kind}")

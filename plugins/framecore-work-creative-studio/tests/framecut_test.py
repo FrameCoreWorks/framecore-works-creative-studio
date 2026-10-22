@@ -256,7 +256,7 @@ class Media(unittest.TestCase):
 
     def test_review_cli_records_partial_then_full_without_losing_previous_evidence(self):
         self.p=commit_revision(self.root/'project.json',self.p,1,'assemble')
-        render(self.p,self.root,'wide','reviewed',max_disk_mb=128)
+        render(self.p,self.root,'wide','reviewed',mode='final',max_disk_mb=128)
         self.assertEqual(verify_delivery(self.p,self.root,'reviewed')['delivery_readiness']['status'],'REVIEW_REQUIRED')
         e={'reviewer':'synthetic test only','scope':'fixture','observations':'tests recording, not a real media review','outcome':'pass','picture_watched':True,'audio_heard':True,'coverage':'sampled'}
         for coverage,expected in [('sampled','REVIEW_REQUIRED'),('full','READY')]:

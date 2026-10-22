@@ -7,18 +7,28 @@ import copy
 import csv
 import importlib.util
 import json
+import os
+import shutil
+import signal
 import sys
+import tempfile
+import threading
 from fractions import Fraction
 from pathlib import Path
 
-from fc_core import (FrameCutError, apply_operations, atomic_json, commit_revision, confined, file_hash,
+from fc_core import (FrameCutError, apply_operations, atomic_json, commit_revision, confined, confined_output, file_hash,
                      fingerprint, identifier, ratio, read_json, require, round_boundary, span_seconds, validate)
 from fc_media import capabilities, ingest, inspect_media, probe, transcribe, transcript_import
 from fc_render import bind_motion, compile_project, motion_request, render, validate_review, verify_delivery
 
 
+def project_file(argument):
+    """Absolute project path with ./ and ../ resolved textually; a symlinked ancestor is still rejected afterwards."""
+    return Path(os.path.abspath(argument))
+
+
 def project_init(path, name, brief=None):
-    path = Path(path).absolute()
+    path = project_file(path)
     require(not path.is_symlink() and path.parent.resolve() == path.parent, "Project path contains a symlink")
     project = {"schema_version": 1, "id": identifier(name), "revision": 1, "brief": brief or {}, "authorization": None,
                "assets": {}, "analyses": {}, "sequences": [], "deliverables": [], "locks": [], "status": "draft", "history": None}
@@ -47,7 +57,7 @@ def export_edit(project, root, sequence_id, relative, use_otio=False):
     validate(project, root, True)
     seq = next((s for s in project["sequences"] if s["id"] == sequence_id), None)
     require(seq is not None, "Unknown sequence")
-    output = confined(root, relative)
+    output = confined_output(root, relative)
     require(not output.exists(), "Export directory already exists")
     otio = None
     if use_otio:
@@ -55,7 +65,25 @@ def export_edit(project, root, sequence_id, relative, use_otio=False):
             import opentimelineio as otio
         except ImportError as e:
             raise FrameCutError("missing_capability", "Official OpenTimelineIO Python library is absent; use native/CSV/EDL export or disclose its isolated installation plan") from e
-    output.mkdir(parents=True)
+    # Built beside the target and renamed at the end: a failed export leaves no half-written directory to block a retry.
+    output.parent.mkdir(parents=True, exist_ok=True)
+    staging = Path(tempfile.mkdtemp(prefix=".framecut-export-", dir=output.parent))
+    try:
+        result = write_export(project, seq, staging, relative, otio)
+        os.rename(staging, output)
+    except BaseException:
+        shutil.rmtree(staging, ignore_errors=True)
+        raise
+    return result
+
+
+def spreadsheet_safe(value):
+    """CSV cells that start like a formula are prefixed so a spreadsheet shows them as text."""
+    text = str(value)
+    return "'" + text if text[:1] in ("=", "+", "-", "@", "\t", "\r") else text
+
+
+def write_export(project, seq, output, relative, otio):
     fps = ratio(seq["fps"])
     losses = []
     if seq.get("audio"):
@@ -79,12 +107,15 @@ def export_edit(project, root, sequence_id, relative, use_otio=False):
                                           "note": "Media is not copied; relink to the original project root. This snapshot is not a standalone media bundle."})
     with (output / "shots.csv").open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=("source", "in", "out", "record_in", "name", "note", "source_hash", "record_frames"))
-        writer.writeheader(); writer.writerows(events)
+        writer.writeheader(); writer.writerows({k: (spreadsheet_safe(v) if k in ("source", "name", "note") else v) for k, v in e.items()} for e in events)
     if not complex_edit and events:
         legacy_path = Path(__file__).resolve().parents[2] / "scripts/edit_export.py"
         spec = importlib.util.spec_from_file_location("framecut_legacy_export", legacy_path)
         legacy = importlib.util.module_from_spec(spec); spec.loader.exec_module(legacy)
-        timeline = legacy.build({"title": seq["id"], "fps": float(fps), "clips": events})
+        try:
+            timeline = legacy.build({"title": seq["id"], "fps": float(fps), "clips": events})
+        except legacy.InputError as error:
+            raise FrameCutError("unsupported_operation", f"EDL export is unavailable for this sequence: {error}. Use the native project and CSV files") from None
         (output / "picture.edl").write_text(legacy.edl(timeline), encoding="utf-8")
         losses.append("CMX EDL is picture-only non-drop-frame at a nominal timebase; source PTS/VFR precision remains in source-map/native project. Named editor import is unverified.")
         if otio:
@@ -106,6 +137,9 @@ def export_edit(project, root, sequence_id, relative, use_otio=False):
 
 
 def main(argv=None):
+    # SIGTERM cancels like Ctrl-C, so the running child is stopped and the render lock is cleaned up.
+    if threading.current_thread() is threading.main_thread():
+        signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(KeyboardInterrupt()))
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest="command", required=True)
     sub.add_parser("capabilities", help="Offline capability probe; never installs")
@@ -160,7 +194,7 @@ def main(argv=None):
         elif args.command == "init":
             result = project_init(args.project, args.id, read_json(args.brief) if args.brief else {})
         else:
-            path = Path(args.project).absolute()
+            path = project_file(args.project)
             require(not path.is_symlink() and path.parent.resolve() == path.parent, "Project path contains a symlink")
             root, project = path.parent, read_json(path)
             cmd = args.command
@@ -172,7 +206,7 @@ def main(argv=None):
                 result = commit_revision(path, project, args.base_revision, "ingest source")
             elif cmd == "analyze":
                 require(1 <= args.max_seconds <= 21600 and 1 <= args.thumbnails <= 64, "Analysis bounds invalid")
-                result = inspect_media(root, project["assets"][args.asset], confined(root, args.out), args.max_seconds, args.thumbnails)
+                result = inspect_media(root, project["assets"][args.asset], confined_output(root, args.out), args.max_seconds, args.thumbnails)
             elif cmd in ("import-transcript", "transcribe"):
                 asset = project["assets"][args.asset]
                 analysis = (transcript_import(asset, read_json(args.transcript)) if cmd == "import-transcript" else transcribe(root, asset, args.python, args.model, args.language, word_times=args.word_times))
@@ -192,7 +226,7 @@ def main(argv=None):
                 result = commit_revision(path, previous, args.base_revision, f"restore content of revision {args.revision}; current locks still apply")
             elif cmd == "compile":
                 plan = compile_project(project, root, args.deliverable)
-                atomic_json(confined(root, args.out), plan)
+                atomic_json(confined_output(root, args.out), plan)
                 result = {"status": "compiled", "path": args.out, "warnings": plan["warnings"]}
             elif cmd == "render":
                 require(1 <= args.timeout <= 7200 and 64 <= args.max_disk_mb <= 102400, "Render resource limits invalid")
@@ -219,7 +253,7 @@ def main(argv=None):
                 d = next(x for x in project["deliverables"] if x["id"] == args.deliverable)
                 seq = next(x for x in project["sequences"] if x["id"] == d["sequence"])
                 result = motion_request(project, seq, read_json(args.event), d)
-                atomic_json(confined(root, args.out), result)
+                atomic_json(confined_output(root, args.out), result)
             elif cmd == "attach-motion":
                 project["assets"][args.asset]["motion_contract"] = bind_motion(project, root, args.asset, args.contract, Fraction(args.fps), read_json(args.request))
                 result = commit_revision(path, project, args.base_revision, "bind local motion contract")
@@ -237,8 +271,15 @@ def main(argv=None):
             else: raise FrameCutError("unsupported_operation", cmd)
         print(json.dumps(result, ensure_ascii=False, allow_nan=False))
         return 0
-    except (FrameCutError, OSError, ValueError, KeyError, TypeError, StopIteration, ZeroDivisionError) as error:
-        print(json.dumps({"status": "error", "error": {"code": getattr(error, "code", "invalid_input"), "message": str(error)}}), file=sys.stderr)
+    except KeyboardInterrupt:
+        print(json.dumps({"status": "error", "error": {"code": "cancelled", "message": "Interrupted; no final was published. A render lock left by a killed process is reclaimed by the next render."}}), file=sys.stderr)
+        return 130
+    except (FrameCutError, OSError, ValueError, KeyError, TypeError, StopIteration, ZeroDivisionError, AttributeError, RecursionError, IndexError) as error:
+        # Internal failures keep the typed shape; the exception name says where to look when the message is empty.
+        known = isinstance(error, FrameCutError)
+        message = str(error) or type(error).__name__
+        print(json.dumps({"status": "error", "error": {"code": getattr(error, "code", "invalid_input" if known or isinstance(error, (OSError, ValueError, KeyError, TypeError)) else "internal_error"),
+                                                       "message": message if known else f"{type(error).__name__}: {message}"}}), file=sys.stderr)
         return 2
 
 

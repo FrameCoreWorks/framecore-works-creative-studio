@@ -1,6 +1,6 @@
 # FrameCut data, timing and revision contracts
 
-Design status: draft 0.1, not a production schema or executable API. These requirements define what the first implementation must validate. Existing motion contracts remain valid. The first implementation should provide JSON Schema plus semantic validation and migration fixtures before accepting user projects.
+Design history (2026-10-20). The shipped contract is the runtime README and `schema.json`; where this text says freezes or speed ramps are unsupported, only reverse playback still is. These requirements define what the first implementation must validate. Existing motion contracts remain valid. The first implementation should provide JSON Schema plus semantic validation and migration fixtures before accepting user projects.
 
 ## One authoritative project
 
@@ -30,7 +30,7 @@ Use bounded integer values representable exactly in both Python and JavaScript; 
 2. Source locations use stream PTS ticks and a rational time base. A source's nonzero/negative start PTS and edit-list offsets are recorded. Normalize only in an explicit decode/conform step, with a mapping back to the original.
 3. Variable-frame-rate footage uses decoded presentation timestamps. Frame number multiplied by nominal FPS is not a valid source locator. Any CFR proxy/conform has its own identity and a source-to-proxy mapping.
 4. Audio placements are derived in samples at the selected mix rate. Maintain rational intermediate calculations and perform the declared quantization once at each output boundary. Record the rounding policy and tolerated residual.
-5. Speed changes use explicit piecewise source-to-timeline mappings. For a forward constant rate r, local output seconds equal (source seconds minus source-in seconds) / r. Reverse, freezes and speed ramps need distinct operation support; reject them until implemented.
+5. Speed changes use explicit piecewise source-to-timeline mappings. For a forward constant rate r, local output seconds equal (source seconds minus source-in seconds) / r. Reverse playback needs distinct operation support and is rejected; freeze frames and speed curves shipped in 1.116.0.
 6. Boundaries of actual rendered media must be checked against the map. FFmpeg trim/atrim do not themselves reset timestamps; the compiler applies the appropriate setpts/asetpts and stream synchronization. Consult the installed version's filter support, not just current web documentation.
 7. Track overlap is intentional only when represented by a transition/composite or separate track. J/L audio cuts have independently declared audio source ranges. Preserve linked video/audio unless a deliberate edit breaks the link.
 8. Transitions need source handles and a defined overlap duration. Never append an audio crossfade that shortens the soundtrack without adjusting the common timeline. For a hard picture cut with audio smoothing, use a declared handle/envelope strategy whose duration stays fixed.

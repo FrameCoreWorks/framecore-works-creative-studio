@@ -50,7 +50,7 @@ flowchart TD
   Q --> D["Finals, captions and editable handoff"]
 ```
 
-The diagram describes the proposed architecture, not installed functionality. FrameCut owns project decisions and the common timeline. Existing specialists own their craft: Caption Studio owns typography and caption checks; Motion Graphics Workflow owns compositions and motion quality; Audio Production Director owns sound treatment; output review owns final evaluation; Asset Manifest owns media identity and rights notes. Subordinate tools return evidence and artifacts instead of inventing a competing master timeline.
+The diagram describes the architecture implemented in Studio 1.113.0 and extended in 1.116.0. FrameCut owns project decisions and the common timeline. Existing specialists own their craft: Caption Studio owns typography and caption checks; Motion Graphics Workflow owns compositions and motion quality; Audio Production Director owns sound treatment; output review owns final evaluation; Asset Manifest owns media identity and rights notes. Subordinate tools return evidence and artifacts instead of inventing a competing master timeline.
 
 | Stage | Durable result | Completion condition |
 | --- | --- | --- |

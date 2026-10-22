@@ -87,7 +87,7 @@ def sidecars(projection, language="en"):
     owner = caption_owner()
     cues = subtitle_cues(projection)
     for cue in cues:
-        cue["text"] = owner.break_lines(cue["text"], language)
+        cue["text"] = owner.break_lines(cue["text"], language) or cue["text"]
     return {"srt": owner.write(cues, "srt"), "vtt": owner.write(cues, "vtt"),
             "qa": owner.check(cues, language=language, fps=float(ratio(projection["fps"]))) if cues else {"status": "no_captions", "cues": 0}}
 

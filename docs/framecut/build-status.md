@@ -10,8 +10,6 @@ Verification includes synthetic decoded-video, still, audio and lifecycle tests 
 
 Saved-package readback for 1.116.0 is complete: all 36 updated files match the private-overlay-preserving candidate, all 1582 hosted paths match the expected inventory, and the retained App binding is unchanged. The current Work catalog exposes the updated FrameCut skill; its 36 updated package files match that candidate and its nine effect fixtures pass from the installed path. This does not replace fresh dialogue/mobile testing. See [hosted verification](../../verification/hosted-sync-1.116.0.json).
 
-## Historical 1.113.0 foundation
-
 ## 1.114.0 orchestration and onboarding follow-up, 2026-10-21
 
 The owner requested another audit focused on uncertain users, light teaching and polished delivery. FrameCut now derives a small choice from the user's material, explains the relevant effect and engine in ordinary language, accepts delegated choices and carries a working agreement across specialists. A representative style proof precedes full finishing when the direction is uncertain; locked styles and small corrections skip it. The full Studio welcome and all 37 skill IDs remain unchanged.
@@ -77,7 +75,7 @@ PASS below means the stated bounded test passed. PARTIAL deliberately does not a
 | T22 | PARTIAL | Closed typed operations, no shell filter execution, safe text and content-only instruction policy; adversarial live-host footage test NOT_RUN |
 | T23 | PASS | Actual no-footage motion-only render with the same revision and delivery contract |
 
-Advanced tracking, multicam synchronization, speed ramps, reverse/freeze operations, HDR mastering, speaker diarization and NLE-native project editing are outside v1. No claim is made that every researched capability or every original aspirational acceptance row is complete. Final creative acceptance requires the requested picture/sound review on the user's material.
+Advanced tracking, multicam synchronization, reverse playback, HDR mastering, speaker diarization and NLE-native project editing are outside v1. No claim is made that every researched capability or every original aspirational acceptance row is complete. Final creative acceptance requires the requested picture/sound review on the user's material.
 
 ## Publication and host status
 

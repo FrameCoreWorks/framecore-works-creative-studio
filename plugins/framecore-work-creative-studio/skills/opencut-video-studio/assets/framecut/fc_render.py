@@ -11,7 +11,7 @@ import time
 from fractions import Fraction
 from pathlib import Path
 
-from fc_core import (FrameCutError, VERSION, atomic_json, confined, event_start, file_hash, fingerprint,
+from fc_core import (FrameCutError, VERSION, atomic_json, confined, confined_output, event_start, file_hash, fingerprint,
                      identifier, integer, ratio, read_json, require, round_boundary, source_clock, span_seconds, validate)
 from fc_media import capabilities, ffmpeg, probe, run
 from fc_captions import ass_document, project_captions, sidecars
@@ -19,6 +19,18 @@ from fc_captions import ass_document, project_captions, sidecars
 
 def decimal(value):
     return f"{float(value):.12f}".rstrip("0").rstrip(".") or "0"
+
+
+def tempo_filters(speed):
+    """atempo stages for a constant speed. ffmpeg's atempo moves content about 20 ms early even at 1.0, so none is added at 1x."""
+    filters, remaining = [], float(speed)
+    while remaining > 2:
+        filters.append("atempo=2"); remaining /= 2
+    while remaining < .5:
+        filters.append("atempo=0.5"); remaining *= 2
+    if abs(remaining - 1) > 1e-9:
+        filters.append(f"atempo={remaining}")
+    return filters
 
 
 def compile_project(project, root, deliverable_id):
@@ -131,6 +143,19 @@ class Cache:
         self.environment = environment
         self.timeout = timeout
         self.hits, self.built = [], []
+        self.watched = {}
+
+    def watch(self, root, project):
+        """Remember each source's size and mtime so a file swapped mid-render cannot be stored as that source's stage."""
+        for asset in project["assets"].values():
+            path = confined(root, asset["path"], True)
+            info = path.stat()
+            self.watched[path] = (info.st_size, info.st_mtime_ns)
+
+    def unchanged(self):
+        for path, seen in self.watched.items():
+            info = path.stat()
+            require((info.st_size, info.st_mtime_ns) == seen, f"Source changed during the render: {path.name}", "stale_source")
 
     def stage(self, label, settings, suffix, build):
         from fc_jobs import checkpoint
@@ -148,6 +173,7 @@ class Cache:
         with tempfile.TemporaryDirectory(prefix="stage-", dir=self.root) as tmp:
             output = Path(tmp) / ("media" + suffix)
             build(output)
+            self.unchanged()
             require(output.is_file() and output.stat().st_size > 0, "Stage produced no media", "render_failed")
             info = probe(output)
             meta = {"sha256": file_hash(output), "bytes": output.stat().st_size, "probe": info, "stage": label, "key": key}
@@ -243,12 +269,7 @@ def soundtrack(root, project, seq, d, cache):
             n = round_boundary(duration * 48000)
             start_samples = round_boundary(Fraction(event_start(e, seq)) / fps * 48000)
             filters = [f"atrim=start={decimal(start_seconds)}:duration={decimal(length)}", "asetpts=PTS-STARTPTS"]
-            remaining = float(speed)
-            while remaining > 2:
-                filters.append("atempo=2"); remaining /= 2
-            while remaining < .5:
-                filters.append("atempo=0.5"); remaining *= 2
-            filters += [f"atempo={remaining}", "aresample=48000", "aformat=channel_layouts=stereo"]
+            filters += [*tempo_filters(speed), "aresample=48000", "aformat=channel_layouts=stereo"]
             audio_stream = next(s for s in asset["probe"]["streams"] if s["index"] == asset["probe"]["audio_index"])
             offset = max(Fraction(0), Fraction(audio_stream.get("start_time", "0")) - start_seconds) / speed
             if offset:
@@ -319,15 +340,61 @@ def verify_video(path, seq, d, timeout=300):
             "review": "Technical verification only; actual picture, joins, speech meaning and sound need scoped review."}
 
 
+def take_lock(lock, root, project):
+    """Create the per-project render lock. A lock whose recorded owner process is provably gone is reclaimed; any other is reported with its facts."""
+    from fc_jobs import job_identity, process_token
+    for attempt in (0, 1):
+        try:
+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except FileExistsError:
+            try:
+                owner = json.loads(lock.read_text())
+            except (OSError, ValueError):
+                owner = {}
+            pid, token = owner.get("pid"), owner.get("process_token")
+            gone = type(pid) is int and token is not None and process_token(pid) != token
+            if gone and attempt == 0:
+                lock.unlink(missing_ok=True)
+                continue
+            age = round(time.time() - lock.stat().st_mtime) if lock.exists() else 0
+            state = "its owner process is gone" if gone else "its owner is still running" if token is not None else "its owner cannot be checked on this system"
+            raise FrameCutError("busy", f"A render holds {lock.relative_to(Path(root).resolve()).as_posix()} (pid {pid}, {age} s old; {state}). "
+                                "Remove the file only after confirming no render of this project is running.") from None
+        os.write(fd, json.dumps({"pid": os.getpid(), "process_token": process_token(os.getpid()), "project_hash": fingerprint(project),
+                                 "job": job_identity()}).encode())
+        os.close(fd)
+        return
+
+
+FATAL_WARNINGS = {"clipped_word", "partial_segment", "subframe_word", "kinetic_requires_word_timing", "captions_without_timing",
+                  "caption_layout_overflow", "caption_text_collision", "unbound_motion"}
+
+
+def final_blockers(warnings, seq):
+    """Warnings that stop a final. A spoken word with no time is dropped from captions, so it blocks whenever captions are on."""
+    captions_on = bool(seq.get("captions", {}).get("enabled"))
+    return [w for w in warnings if w["code"] in FATAL_WARNINGS or (captions_on and w["code"] == "unknown_timing")]
+
+
+def blocker_detail(blockers):
+    """Codes with a few concrete locations, so the agent can name the cue or word to repair."""
+    parts = []
+    for code in sorted({w["code"] for w in blockers}):
+        examples = [w for w in blockers if w["code"] == code][:3]
+        where = "; ".join(str(w.get("text") or w.get("word") or w.get("event") or w.get("clip") or "")[:60] + (f" @frame {w['start']}" if "start" in w else "")
+                          for w in examples).strip("; ")
+        parts.append(code + (f" ({where})" if where else ""))
+    return ", ".join(parts)
+
+
 def render(project, root, deliverable_id, out_relative, mode="preview", timeout=600, max_disk_mb=2048):
     plan = compile_project(project, root, deliverable_id)
     seq, d = plan["sequence"], plan["deliverable"]
-    fatal = {"clipped_word", "partial_segment", "subframe_word", "kinetic_requires_word_timing", "captions_without_timing", "caption_layout_overflow", "caption_text_collision", "unbound_motion"}
-    blockers = [w for w in plan["warnings"] if w["code"] in fatal]
+    blockers = final_blockers(plan["warnings"], seq)
     if mode == "final":
         require(project.get("authorization"), "Record the user's existing instruction covering this final", "authorization_missing")
-        require(not blockers, "Resolve caption/meaning/layout warnings before final: " + ", ".join(sorted({w['code'] for w in blockers})), "qa_failed")
-    output = confined(root, out_relative)
+        require(not blockers, f"Resolve caption/meaning/layout warnings before final ({d['id']}): " + blocker_detail(blockers), "qa_failed")
+    output = confined_output(root, out_relative)
     require(not output.exists(), "Output directory already exists; use a new revision path")
     require(output != Path(root).resolve(), "Cannot overwrite project root")
     require(max_disk_mb >= 64 and shutil.disk_usage(Path(root)).free >= max_disk_mb * 1024**2, "Insufficient free disk for requested budget", "resource_limit")
@@ -345,12 +412,8 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
     cache = Cache(root, project["id"], env, timeout)
     # Hold a render lock per project; revisions may continue, but publishing is bound to this immutable hash.
     lock = cache.root.parent / "render.lock"
-    try:
-        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-        from fc_jobs import job_identity
-        os.write(fd, json.dumps({"pid": os.getpid(), "project_hash": fingerprint(project), "job": job_identity()}).encode()); os.close(fd)
-    except FileExistsError as e:
-        raise FrameCutError("busy", "A render is active; verify an abandoned lock before removing it") from e
+    take_lock(lock, root, project)
+    cache.watch(root, project)
     started = time.monotonic()
     try:
         picture = base_picture(root, project, seq, d, cache)
@@ -431,7 +494,13 @@ def validate_review(evidence):
     return evidence
 
 
-def delivery_readiness(review):
+def delivery_readiness(review, receipt=None):
+    if receipt is not None:
+        if receipt.get("mode") != "final":
+            return {"status": "PREVIEW_ONLY", "reason": "A preview bundle skips the final gates; render with --mode final to deliver"}
+        blocked = sorted({w["code"] for w in receipt.get("warnings", []) if w.get("code") in FATAL_WARNINGS})
+        if blocked:
+            return {"status": "BLOCKED", "reason": "Receipt carries blocking warnings: " + ", ".join(blocked)}
     if review.get("status") == "NOT_RUN":
         return {"status": "REVIEW_REQUIRED", "reason": "Actual picture/audio review has not been recorded"}
     validate_review(review)
@@ -456,5 +525,5 @@ def verify_delivery(project, root, relative):
         require(evidence.get("project_hash") == fingerprint(project) and evidence.get("video_hash") == file_hash(folder / "video.mp4"), "Review belongs to stale media", "stale_revision")
         review = evidence["evidence"]
     return {"status": "PASS", "project_revision": project["revision"], "technical": checks,
-            "visual_audio_review": review, "delivery_readiness": delivery_readiness(review),
+            "visual_audio_review": review, "delivery_readiness": delivery_readiness(review, receipt),
             "acceptance": "Readiness reflects recorded review, not independent proof or user acceptance"}
