@@ -322,5 +322,36 @@ class Registry(unittest.TestCase):
         self.assertIn('(../opencut-video-studio/SKILL.md): load it before answering, and ask at most one question', text)
 
 
+    def test_earshot_works_with_or_without_the_separate_native_plugin(self):
+        # Owner handover 2026-10-22: a separate earshot-audio plugin, local CLI/Python only, no MCP and no Gemini.
+        # Claude Code and Codex users without that plugin keep the pinned CLI route; owners name the skill they load.
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
+        commit = '925ebe56a1b755e5d354ab642bb8f344440cfa9c'
+        self.assertEqual(entry['reviewed_commit'], commit)
+        for host in ('claude_code', 'codex'):
+            steps = entry['hosts'][host]
+            self.assertEqual(steps['status'], 'native')
+            self.assertIn(f'earshot/archive/{commit}.zip', steps['install'])
+            self.assertIn('earshot-audio:earshot', steps.get('after', '') + steps.get('verify', ''))
+        text = json.dumps(entry, ensure_ascii=False)
+        self.assertIn('earshot-audio:earshot', entry['studio_uses'])
+        for allowed in ('upload audio after consent', 'explicitly authorized optional LLM upload', 'requires explicit consent'):
+            self.assertNotIn(allowed, text)
+        self.assertIn('no Gemini', entry['not_for'])
+        routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text(encoding='utf-8')
+        self.assertIn('`llm` and `mcp`', routing)
+        for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
+            body = (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8')
+            self.assertIn('earshot-audio:earshot', body, owner)
+            self.assertIn('earshot-native-routing.md', body, owner)
+        for path in ('skills/pipeline-core/references/studio-integration-policy.md', 'skills/pipeline-core/references/loop-protocol.md'):
+            self.assertIn('earshot-native-routing.md', (PLUGIN / path).read_text(encoding='utf-8'), path)
+        cases = json.loads((PLUGIN / 'evals/native-earshot-cases.json').read_text(encoding='utf-8'))
+        self.assertGreaterEqual(len(cases['cases']), 8)
+        for overlay in ('motion-runtime', 'engine-runtime', 'media-runtime', 'session-runtimes'):
+            for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
+                self.assertNotIn(overlay, (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8'), f'private overlay {overlay} in {owner}')
+
+
 if __name__ == '__main__':
     unittest.main()

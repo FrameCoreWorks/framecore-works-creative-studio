@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.1",
+  "source": {
+    "commit": "ec34dcb81a3300830b77837cb5a25f198c303453",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "5e25e6da3c7a431d110a4e3940f9069d92beb363c2ba60bcd7b4605b1a737346",
+      "files": 1559,
+      "archive": "candidates/5e25e6da3c7a431d110a4e3940f9069d92beb363c2ba60bcd7b4605b1a737346.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 3000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "0b57c28d949f728a960fe20af22f192b6aec55604ad13abfa21445efe81a0f88",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1261,
+      "output": 1878,
+      "cache_read": 22396,
+      "cache_write": 22828
+    },
+    "seconds": 16.2
+  },
+  "cases": [
+    {
+      "id": "G15",
+      "title": "Motion sound without the earshot-audio plugin: Studio's own route is used and named, Earshot is never claimed as run, and no audio leaves the machine (owner's Earshot handover 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1261,
+        "output": 1878,
+        "cache_read": 22396,
+        "cache_write": 22828
+      },
+      "seconds": 16.2,
+      "wall_seconds": 16.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
+          "reply": "Nie widzę w katalogu roboczym Twojej animacji (jest pusty), więc na razie opisuję plan. Niczego jeszcze nie zrobiłem ani nie zmierzyłem.\n\n**Plan**\n\n1. **Wejście.** Potrzebuję pliku MP4 albo projektu źródłowego (HyperFrames, Remotion, HTML albo `.motion.json`). Jeśli masz projekt, edytuję go i renderuję tym samym skryptem. Jeśli jest tylko MP4, dokładam ścieżkę audio i zostawiam obraz bez zmian.\n2. **Punkty synchronizacji przy 30 fps.**\n   - Whoosh przy wejściu napisu: 1,2 s, czyli klatka 36.\n   - Uderzenie przy lądowaniu logo: 3,0 s, czyli klatka 90.\n   - Całość to 180 klatek.\n3. **Projekt dźwięku.** Dźwięki powstają lokalnie, bez wysyłania audio do żadnej usługi. Użyję `earshot-audio:earshot`, jeśli jest dostępny. Jeśli go nie ma, użyję `motion-sound/sound.py` z Studio.\n   - **Whoosh:** szum filtrowany z przeciągnięciem w górę, z narastaniem. Jego szczyt wypada dokładnie na pojawieniu się napisu. Dźwięk zaczyna się więc trochę wcześniej niż 1,2 s, a kulminuje na 1,2 s.\n   - **Uderzenie:** niski dudniący impact z krótkim transjentem. Początek (onset) ustawiam na klatce 90, żeby zgrał się z momentem kontaktu logo.\n   - **Opcjonalnie:** krótki „riser\" przed 3,0 s i ogon pogłosu po uderzeniu. Dodam je tylko, jeśli chcesz.\n4. **Miks.** Dźwięki łączę z obrazem w MP4 (AAC, bez zmiany ścieżki wideo). Zostawiam zapas na szczytach, żeby nie było przesterowania.\n5. **Kontrola liczbami.** Uruchomię `listen.py critique` i `sync` na gotowym pliku, żeby sprawdzić głośność, szczyty i trafienie w klatki 36 i 90. Zgłoszę, co zmierzyłem. Ocena „na ucho\" należy do Ciebie, więc ją oznaczę jako niezweryfikowaną, dopóki nie odsłuchasz.\n\n**Co mi jest potrzebne**\n- Plik animacji (MP4 albo źródło).\n- Czy 1,2 s i 3,0 s mają być początkiem dźwięku, czy jego szczytem. Domyślnie przyjmę szczyt whoosha na 1,2 s i początek uderzenia na 3,0 s.\n- Czy chcesz do tego podkład muzyczny, czy tylko te dwa efekty.\n\nWgraj plik, a od razu zacznę.",
+          "reply_chars": 1938,
+          "reply_sha256": "7c28ce916f27538d27bf90bbb7284de9b60d86f39500ce599a310dc3a03952b9",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1261,
+            "output": 1878,
+            "cache_read": 22396,
+            "cache_write": 22828
+          },
+          "seconds": 16.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow",
+                  "audio-production-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow', 'audio-production-director']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(wygenerowa\\w*|wyrenderowa\\w*|zrobi\\w*) (w|przez|z) earshot"
+              },
+              "passed": true,
+              "detail": "not /(?i)(wygenerowa\\w*|wyrenderowa\\w*|zrobi\\w*) (w|przez|z) earshot/"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Gemini"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

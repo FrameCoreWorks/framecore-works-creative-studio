@@ -1,0 +1,432 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.1",
+  "source": {
+    "commit": "ec34dcb81a3300830b77837cb5a25f198c303453",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "5e25e6da3c7a431d110a4e3940f9069d92beb363c2ba60bcd7b4605b1a737346",
+      "files": 1559,
+      "archive": "candidates/5e25e6da3c7a431d110a4e3940f9069d92beb363c2ba60bcd7b4605b1a737346.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "c3932137b06522b7a055632daf9bfd2a96e62b9202fcc39dff9ca91c1212bffb",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 6324,
+      "output": 10359,
+      "cache_read": 304104,
+      "cache_write": 130962
+    },
+    "seconds": 102.4
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "title": "A timing defect in an accepted FrameCut edit is diagnosed with systematic-debugging; the accepted board is kept",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1251,
+        "output": 2313,
+        "cache_read": 49123,
+        "cache_write": 25522
+      },
+      "seconds": 21.7,
+      "wall_seconds": 21.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mamy zaakceptowany storyboard i gotowy montaż we FrameCut (25 fps). W całym filmie dźwięk jest około 6 klatek za obrazem. Co robimy?",
+          "reply": "Nie przesuwamy jeszcze dźwięku. Najpierw ustalamy, skąd bierze się te 6 klatek. Jeśli przesuniemy ślepo, możemy naprawić objaw, a przyczyna zostanie.\n\n## Co już wiemy\n- 6 klatek przy 25 fps to **240 ms**, a dźwięk jest opóźniony względem obrazu.\n- Przesunięcie jest w całym filmie. To sugeruje stały offset, a nie dryf (dryf rósłby w czasie).\n- Stały offset ma zwykle jedną z trzech przyczyn: **źródło**, **ułożenie na osi** albo **odsłuch/odtwarzacz**.\n\n## Diagnoza, po kolei\n1. **Odsłuch czy plik?** Czy opóźnienie słychać też po wyrenderowaniu i odtworzeniu w innym odtwarzaczu, najlepiej na kablu albo głośnikach? Słuchawki Bluetooth potrafią dawać 150–300 ms i wtedy plik może być w porządku.\n2. **Źródło.** Sprawdzę `ffprobe` dla każdego pliku: `start_time` strumienia wideo i audio oraz PTS. Różnica między nimi, na przykład 0,24 s, byłaby przyczyną.\n3. **Czy audio jest osobnym plikiem?** Dźwięk z rejestratora, voice-over albo muzyka mogły zostać wstawione na oś z przesunięciem. Sprawdzę to przez `timeline-read` w FrameCut.\n4. **Mapa offsetu.** Zmierzę przesunięcie w trzech miejscach: początek, środek i koniec, na wyraźnych punktach synchronizacji (klaps, klaśnięcie, plozja). Jeśli wszędzie wychodzi 6 klatek, mamy stały offset. Jeśli rośnie, mamy dryf (np. 25 vs 24,975 fps albo inna częstotliwość próbkowania).\n5. **Render.** Porównam sync w źródle, na osi i w wyrenderowanym pliku. W którym z tych miejsc pojawia się offset, tam jest przyczyna.\n\n## Co zrobimy po ustaleniu przyczyny\n- **Offset w źródle lub na osi:** przesunięcie klipów audio o 6 klatek wcześniej. To jedna operacja `move_clip` na tej samej rewizji projektu. Obraz, cięcia i zaakceptowany storyboard zostają bez zmian.\n- **Dryf:** poprawa tempa albo częstotliwości próbkowania źródła, a nie przesunięcie.\n- **Tylko odsłuch:** plik jest dobry i nic w nim nie zmieniamy.\n\nPo naprawie renderuję nowy pakiet w trybie `final`, sprawdzam sync na tych samych trzech punktach i uruchamiam `verify`. Zaakceptowany storyboard zostaje, bo montaż się nie zmienia.\n\n## Czego potrzebuję\nPodaj ścieżkę do projektu FrameCut. W katalogu roboczym nic nie widzę. Wolałbym też wiedzieć, czy dźwięk pochodzi z nagrania wideo, czy z osobnych plików. Daj też znać, czy sprawdzałeś plik na innym urządzeniu niż to, na którym robiłeś montaż.",
+          "reply_chars": 2300,
+          "reply_sha256": "33bdcb6f3c42dfce1d522cf46dc9f391eb996acbab8e762fa57cc0974f5979f2",
+          "skills": [
+            "opencut-video-studio",
+            "superpowers:systematic-debugging"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1251,
+            "output": 2313,
+            "cache_read": 49123,
+            "cache_write": 25522
+          },
+          "seconds": 21.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['opencut-video-studio', 'superpowers:systematic-debugging']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "3 question marks (max 3)"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)zaakceptuj(esz|cie)?\\s+(ponownie\\s+)?storyboard"
+              },
+              "passed": true,
+              "detail": "not /(?i)zaakceptuj(esz|cie)?\\s+(ponownie\\s+)?storyboard/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C02",
+      "title": "A coded animation that freezes on export is diagnosed with systematic-debugging in Motion Graphics",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1264,
+        "output": 2560,
+        "cache_read": 22396,
+        "cache_write": 26543
+      },
+      "seconds": 19.6,
+      "wall_seconds": 19.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Moja kompozycja HyperFrames w podglądzie gra dobrze, ale przy renderze do MP4 animacja zatrzymuje się w 4. sekundzie, a dźwięk leci dalej. Co z tym zrobić?",
+          "reply": "W katalogu roboczym nie ma plików projektu, więc nie mogę sprawdzić Twojej kompozycji. Poniżej są hipotezy do sprawdzenia, a nie potwierdzona przyczyna.\n\n**Dlaczego podgląd i render się różnią.** Podgląd gra w czasie rzeczywistym. Render przewija kompozycję klatka po klatce i robi zrzut każdej z nich. Animacja, która nie jest sterowana pozycją na osi czasu, wygląda w podglądzie dobrze, a w renderze przestaje się zmieniać. Dźwięk jest miksowany osobno, według swoich czasów startu i długości, więc leci dalej. Zatrzymanie dokładnie w 4. sekundzie wskazuje, że coś kończy się właśnie tam.\n\n**Kolejność sprawdzania, od najbardziej prawdopodobnego:**\n\n1. **Oś czasu jest krótsza niż kompozycja.** Główny timeline (np. GSAP) może mieć łącznie 4 s, a kompozycja i audio dłużej. Po 4. sekundzie nic się już nie dzieje i wygląda to jak zamrożenie. Porównaj długość timeline'u z `data-duration` korzenia i z długością ścieżki audio.\n2. **Sceny po 4. sekundzie nie są podpięte do głównej osi.** Jeśli to osobne timeline'y albo animacje odpalane w `setTimeout` czy `onComplete`, podgląd je odtworzy, a przewijanie klatka po klatce nie. Powinny być zagnieżdżone w jednym timeline'ie albo dodane z jawną pozycją.\n3. **Ruch oparty na zegarze zamiast na osi.** Dotyczy `requestAnimationFrame`, `setTimeout`/`setInterval`, `Date.now()`/`performance.now()`, animacji CSS (`@keyframes`) i `video.play()`. W renderze każda klatka jest zrzutem na żądany czas, więc to nie działa. Stan każdej klatki musi wynikać wyłącznie z czasu, o który prosi renderer.\n4. **Timeline nie jest zarejestrowany w sposób, jakiego oczekuje renderer.** Być może działa tylko autoodtwarzanie w podglądzie. Sprawdź to w dokumentacji zainstalowanej wersji HyperFrames, bo nie chcę zgadywać nazw API.\n5. **Zasób kończy się w 4. sekundzie.** Dotyczy filmu, sekwencji obrazów albo Lottie, które mają 4 s, a w podglądzie je zapętlasz.\n\n**Szybki test.** Wyrenderuj tylko zakres 3,5–5 s albo pojedyncze klatki w 3,9, 4,1 i 6 s. Jeśli klatki 4,1 i 6 są identyczne, brakuje sterowania osią po 4. sekundzie, czyli hipotezy 1–3. Jeśli różnią się tylko niektóre elementy, winne są te konkretne elementy.\n\n**Żeby wskazać dokładną przyczynę, potrzebuję:**\n- pliku kompozycji (HTML/JS) albo ścieżki do projektu,\n- komendy renderu i wersji HyperFrames (`npx hyperframes --version`),\n- ostrzeżeń lub błędów z konsoli podczas renderu.\n\nWklej to albo wrzuć projekt do katalogu roboczego. Wtedy znajdę przyczynę, naprawię ją jedną zmianą i sprawdzę na klatkach z renderu, a nie tylko w podglądzie.",
+          "reply_chars": 2538,
+          "reply_sha256": "b5cf20bd1fa006a96de6d91fe51dd280bc65e528c24c186e75abb28a9f2dc119",
+          "skills": [
+            "superpowers:systematic-debugging",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1264,
+            "output": 2560,
+            "cache_read": 22396,
+            "cache_write": 26543
+          },
+          "seconds": 19.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['superpowers:systematic-debugging', 'hyperframes-workflow']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C04",
+      "title": "An unsure user with a new reel: a Studio owner leads; no design document or second questionnaire from brainstorming",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1281,
+        "output": 1892,
+        "cache_read": 89767,
+        "cache_write": 32884
+      },
+      "seconds": 16.8,
+      "wall_seconds": 16.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Nie widzę jeszcze żadnych plików w projekcie, więc na razie opieram się na tym, co napisałeś/aś.\n\n**Co bym zrobił/a: nagrania z telefonu jako baza, a schemat nałożony na nie**\n\nSamo nagranie z telefonu pokazuje magazyn, ale nie tłumaczy go. Sam schemat jest ładny, ale wygląda jak slajd i nie ma w nim Waszego miejsca. Najlepiej działa połączenie obu. Rolka, powiedzmy 30–40 s, 9:16, wyglądałaby tak:\n\n- **Oś procesu na ekranie.** Cienka linia z kropkami, np. *Przyjęcie → Kontrola → Składowanie → Kompletacja → Pakowanie → Wysyłka*. Kropka przesuwa się po linii, gdy w kadrze zmienia się etap.\n- **Etykiety i numery etapów** pojawiają się nad Waszymi ujęciami, bez osobnych plansz.\n- **Animowany schemat tylko tam, gdzie kamera nic nie pokaże.** Dotyczy to na przykład tego, jak towar „wędruje\" przez magazyn albo jak system przypisuje miejsce na regale. Wtedy krótko przechodzimy z nagrania w stylizowany plan magazynu.\n- **Zamknięcie.** Ostatni kadr to cały proces na jednej linii, jako podsumowanie.\n\nAlternatywą jest rolka w całości w animowanym stylu (izometryczny magazyn, paczka jedzie po taśmie), z nagraniami tylko jako krótkie wstawki. Wygląda efektowniej, ale jest mniej autentyczna i wymaga dużo więcej pracy. Polecam wariant pierwszy.\n\n**Zanim zrobię plansze (storyboard całej rolki do Twojej akceptacji, jeszcze przed montażem), potrzebuję jednej rzeczy:**\n\nWrzuć nagrania z telefonu do projektu. Obejrzę, co faktycznie na nich jest, i na tej podstawie ustalę etapy oraz to, gdzie schemat jest potrzebny. Jeśli nie wszystkie etapy masz sfilmowane, to też da się obejść, ale lepiej wiedzieć o tym od razu.\n\nJeśli wolisz od razu odpowiedzieć na jedno pytanie: **dla kogo jest ta rolka?** Klienci sklepu, potencjalni partnerzy B2B czy kandydaci do pracy? Od tego zależy ton i to, ile szczegółów pokazać.",
+          "reply_chars": 1815,
+          "reply_sha256": "de71aa8fa7e31cad19d1e112e75f730c8ad6b63c6568ed0e7066a67aaab9210f",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1281,
+            "output": 1892,
+            "cache_read": 89767,
+            "cache_write": 32884
+          },
+          "seconds": 16.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio",
+                  "hyperframes-workflow",
+                  "creative-video-producer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'opencut-video-studio']; expected one of ['opencut-video-studio', 'hyperframes-workflow', 'creative-video-producer']"
+            },
+            {
+              "check": {
+                "no_write": [
+                  "docs/superpowers/",
+                  "-design.md"
+                ]
+              },
+              "passed": true,
+              "detail": "wrote none of them"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "2 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C07",
+      "title": "A technical caption defect sent straight to the caption owner is diagnosed with systematic-debugging, not patched by guesswork",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1261,
+        "output": 2049,
+        "cache_read": 67862,
+        "cache_write": 20067
+      },
+      "seconds": 18.2,
+      "wall_seconds": 18.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Po eksporcie z napisy.srt w odtwarzaczu drugi napis pojawia się pół sekundy za wcześnie, ale tylko na telefonie, na komputerze jest dobrze. Napraw to.",
+          "reply": "Nie zmieniłem pliku, bo `napisy.srt` jest poprawny i nie widzę w nim przyczyny. Poprawka na ślepo mogłaby zepsuć wersję, która dobrze działa na komputerze.\n\n**Co sprawdziłem.** W katalogu jest tylko ten plik, bez wideo i bez projektu eksportu. Zawiera dwa napisy:\n\n| # | Start | Koniec |\n|---|-------|--------|\n| 1 | 00:00:00,500 | 00:00:03,000 |\n| 2 | 00:00:03,000 | 00:00:05,800 |\n\nSkładnia i kolejność są poprawne, nie ma nakładania się napisów, a czasy są w milisekundach. Napis 2 zaczyna się dokładnie w chwili, gdy kończy się napis 1. Skoro komputer pokazuje je dobrze, to plik jest w porządku.\n\n**Dlaczego nie dopisuję +0,5 s.** Gdyby plik był błędny, napis 2 byłby za wcześnie wszędzie. Różnica między telefonem a komputerem wskazuje na wideo albo odtwarzacz. Przesunięcie czasów w SRT naprawiłoby telefon, ale zepsułoby komputer.\n\n**Najbardziej prawdopodobne przyczyny** (to hipotezy, żadnej nie potwierdziłem):\n1. Wideo ma przesunięty początek ścieżki, np. `start_time` albo edit list w MP4. Komputer i telefon czytają to inaczej.\n2. Wideo ma zmienną liczbę klatek (VFR), typową dla nagrań z telefonu. Czas w odtwarzaczu rozjeżdża się z czasem w pliku.\n3. Odtwarzacz na telefonie traktuje napisy inaczej, np. łączy lub przycina napisy stykające się w tej samej milisekundzie.\n\nZwróć uwagę, że napis 1 ma przesunięcie 0,5 s od początku. Jeśli ścieżka wideo startuje na telefonie o 0,5 s inaczej, powinien być przesunięty też napis 1. Sprawdź, czy tam też jest rozjazd.\n\n**Czego potrzebuję:**\n- plik wideo po eksporcie albo wynik `ffprobe -show_streams -show_format` na nim,\n- nazwa odtwarzacza na telefonie i system,\n- informacja, czy napis 1 też jest przesunięty.\n\nMając wideo, potwierdzę przyczynę. Potem naprawię ją u źródła, np. przez ponowny eksport ze stałą liczbą klatek albo wypalenie napisów w obrazie, które działa tak samo wszędzie. Nie ruszę przy tym czasów w SRT, które na komputerze są dobre.",
+          "reply_chars": 1915,
+          "reply_sha256": "5c316f6df4b524d1c72c9de5bd9b9d94bc8ca00e425f6cd3f7086f984c59594d",
+          "skills": [
+            "caption-studio",
+            "superpowers:systematic-debugging"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Skill",
+            "Read",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1261,
+            "output": 2049,
+            "cache_read": 67862,
+            "cache_write": 20067
+          },
+          "seconds": 18.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['caption-studio', 'superpowers:systematic-debugging']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C08",
+      "title": "Without the Studio name, a reel from the user's own footage with a diagram reaches FrameCut and one question, even when Superpowers' start-up hook makes the host pick a skill by its description",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1267,
+        "output": 1545,
+        "cache_read": 74956,
+        "cache_write": 25946
+      },
+      "seconds": 26.1,
+      "wall_seconds": 26.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Nagrań nie widzę w folderze projektu, więc nie wiem jeszcze, co dokładnie zostało nagrane. Poniżej proponuję kierunek, który zadziała niezależnie od szczegółów.\n\n**Rekomendacja: Twoje nagrania plus lekka animowana warstwa schematu**\n\nReportażowe ujęcia z telefonu niosą autentyczność, a schemat nad nimi porządkuje całość. Wygląda to tak:\n- Każdy etap magazynu to krótkie ujęcie z Twojego nagrania: przyjęcie, kontrola, składowanie, kompletacja, pakowanie, wysyłka.\n- Nad ujęciami biegnie cienka linia procesu w pionie (format 9:16). Kolejne kropki zapalają się z numerem i nazwą etapu, a aktywny etap jest podświetlony.\n- Na końcu linia składa się w jedną całość, żeby widz zobaczył całą drogę towaru.\n- Całość ma 25–35 sekund, napisy są krótkie, a dźwięk to muzyka z naturalnym odgłosem hali.\n\n**Alternatywa:** czysty animowany diagram (izometryczny magazyn), a nagrania tylko jako wstawki. Wygląda efektowniej, ale jest mniej wiarygodne i wymaga więcej pracy. Nie polecam jej, jeśli nagrania są w miarę czytelne.\n\nZgodnie z moim sposobem pracy najpierw zrobię pełny storyboard całej rolki, który zobaczysz i zaakceptujesz, a dopiero potem montaż i render.\n\n**Jedno pytanie, żeby ruszyć:** wgraj nagrania do folderu projektu (`/tmp/studio-eval-dmptsyk4/work`) i napisz, które etapy magazynu na nich są. Jeśli kolejność jest oczywista z samych plików, wystarczy, że je wgrasz.\n\nJeśli możesz, dopisz też, czy mam dodać napisy i jakim językiem mają być. Jeśli nie, przyjmę polskie napisy w jednym stylu.",
+          "reply_chars": 1502,
+          "reply_sha256": "f03d8dc715dc46d16a3de4e6b1f526069ee725f39bdd029dc607e83e01f8e505",
+          "skills": [
+            "creative-video-producer",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1267,
+            "output": 1545,
+            "cache_read": 74956,
+            "cache_write": 25946
+          },
+          "seconds": 26.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['creative-video-producer', 'opencut-video-studio']; expected one of ['opencut-video-studio']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

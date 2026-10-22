@@ -393,6 +393,37 @@
         "Uses what Studio already has and, only where an installable add-on would clearly improve the result, offers it once with a plain choice (this project or keep); installs nothing before the user agrees",
         "Does not default to the simplest solution when a stronger one fits, and asks at most one or two consequential questions"
       ]
+    },
+    {
+      "id": "G15",
+      "title": "Motion sound without the earshot-audio plugin: Studio's own route is used and named, Earshot is never claimed as run, and no audio leaves the machine (owner's Earshot handover 2026-10-22)",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "hyperframes-workflow",
+                "audio-production-director"
+              ]
+            },
+            {
+              "not_regex": "(?i)(wygenerowa\\w*|wyrenderowa\\w*|zrobi\\w*) (w|przez|z) earshot"
+            },
+            {
+              "not_contains": [
+                "Gemini"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
     }
   ]
 }

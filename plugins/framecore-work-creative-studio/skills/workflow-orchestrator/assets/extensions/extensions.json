@@ -1158,15 +1158,16 @@
       "package": null,
       "license": "MIT",
       "kind": [
+        "native_plugin",
+        "skill",
         "cli",
-        "python_library",
-        "mcp_server"
+        "python_library"
       ],
       "category": "audio",
       "role": "engine",
       "gives": "Ears for an agent: a CPU-only command line that measures a soundtrack (LUFS, true peak, spectrum, tempo), writes a time-aligned listening transcript against the picture's cuts, scores a film against seven professional launch films, and, with its two models (CLAP and AST), describes what a sound is, matches it to a description, ranks candidate files, finds the best moment in a long recording and tells recorded from code-made sound. It also ships a bank of 201 sound effects stored as code (sfx, kit) and a forge that improves made sounds by listening. v0.3.0",
-      "studio_uses": "Studio's sound-listen tools (hyperframes-workflow/assets/sound-listen) already measure, time-align, score and place sounds with NumPy and FFmpeg. Add earshot when a task needs a model's reading of a sound (is this the right whoosh, which of 30 downloads fits, where is the best second of this recording), the sound bank, or the forge. Motion Graphics and Audio Production Director call it after Studio's own checks, never instead of them",
-      "not_for": "Judging taste or deciding that a film sounds good (its scores can be satisfied while the sound is wrong), music-led or speech-led films scored against SaaS launch-film ranges without a profile, proving a sound is real (the realness model is easy to fool), or cloning a copyrighted recording. The optional audio-LLM critique uploads audio to a third party and needs the user's own key and explicit consent: never run it silently",
+      "studio_uses": "When the separate native plugin earshot-audio is installed (skill earshot-audio:earshot), it is the preferred procedural SFX/kit engine for authorized motion and FrameCut tasks and the model-backed analysis engine where its tier is verified; without it, the pinned command line below gives the same engine in Claude Code and Codex. Studio's sound-listen tools (listen.py, place_sfx.py) and sound.py/synth.py stay as complementary tools and fallback, named by the engine that actually ran. Studio keeps direction, mixing, one master clock and one QA loop. See pipeline-core/references/earshot-native-routing.md.",
+      "not_for": "Judging taste or deciding that a film sounds good (its scores can be satisfied while the sound is wrong), music-led or speech-led films scored against SaaS launch-film ranges without a profile, proving a sound is real (the realness model is easy to fool), or cloning a copyrighted recording. Local only (owner decision 2026-10-22): no Gemini or other audio-LLM upload and no MCP server; upstream's `llm` and `mcp` commands are outside Studio's integration even though the source contains them.",
       "requires": [
         {
           "tool": "python",
@@ -1187,7 +1188,7 @@
           "note": "Package downloads at install; the full tier downloads about 1.1 GB of pinned models once from Hugging Face"
         }
       ],
-      "rights": "MIT (Copyright (c) 2026 Leon Lin). Models: laion/larger_clap_general and MIT/ast-finetuned-audioset (licences on their Hugging Face pages; check before commercial use, Unknown at review). The sound bank renders sounds from code, so its output carries no sampled recordings. The reference films and recordings earshot's studies used are third-party and not shipped; the user's films and sounds stay on their computer unless the audio-LLM critique is chosen",
+      "rights": "MIT (Copyright (c) 2026 Leon Lin). Upstream identifies the CLAP model as Apache-2.0 and AST as BSD-3-Clause; keep their notices. The bank renders sounds from code, with 15 fits derived from CC0 recordings and their source credits; a new fit keeps its source's rights. Models do not prove provenance or licensing. Audio stays on the user's machine.",
       "hosts": {
         "codex": {
           "status": "native",
@@ -1195,7 +1196,7 @@
           "install": "python3 -m venv ~/.framecore-studio/extensions/earshot/venv && ~/.framecore-studio/extensions/earshot/venv/bin/pip install --no-deps https://github.com/Leonxlnx/earshot/archive/925ebe56a1b755e5d354ab642bb8f344440cfa9c.zip && ~/.framecore-studio/extensions/earshot/venv/bin/pip install numpy scipy soundfile soxr librosa pyloudnorm scikit-learn pillow matplotlib",
           "writes": "~/.framecore-studio/extensions/earshot/venv (a virtual environment with earshot at 925ebe5 and the light-tier libraries NumPy, SciPy, librosa and their dependencies, no PyTorch and no models); the full tier below adds about 1.1 GB of models in ~/.cache/huggingface",
           "verify": "~/.framecore-studio/extensions/earshot/venv/bin/earshot sfx list",
-          "after": "Light tier is ready: measure, critique --fast, timeline without models, sfx and kit. For the neural commands (describe, match, rank, find, compare, realness, full critique) ask for the full tier: ~/.framecore-studio/extensions/earshot/venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu && ~/.framecore-studio/extensions/earshot/venv/bin/pip install transformers huggingface_hub safetensors, then ~/.framecore-studio/extensions/earshot/venv/bin/earshot doctor --load (the pinned models download once, about 1.1 GB). Studio finds the tool at that path; sound-listen/listen.py passes the model commands to it",
+          "after": "If the separate earshot-audio plugin is installed in this host (earshot-audio:earshot in the skill list), prefer its bundled runtime.py status/install, which uses the same pinned commit; this command line is the route without it. Light tier is ready: measure, critique --fast, timeline without models, sfx and kit. For the neural commands (describe, match, rank, find, compare, realness, full critique) ask for the full tier: ~/.framecore-studio/extensions/earshot/venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu && ~/.framecore-studio/extensions/earshot/venv/bin/pip install transformers huggingface_hub safetensors, then ~/.framecore-studio/extensions/earshot/venv/bin/earshot doctor --load (the pinned models download once, about 1.1 GB). Studio finds the tool at that path; sound-listen/listen.py passes the model commands to it",
           "remove": "rm -rf ~/.framecore-studio/extensions/earshot (and ~/.cache/huggingface only if no other tool uses it)"
         },
         "claude_code": {
@@ -1204,7 +1205,7 @@
           "install": "python3 -m venv ~/.framecore-studio/extensions/earshot/venv && ~/.framecore-studio/extensions/earshot/venv/bin/pip install --no-deps https://github.com/Leonxlnx/earshot/archive/925ebe56a1b755e5d354ab642bb8f344440cfa9c.zip && ~/.framecore-studio/extensions/earshot/venv/bin/pip install numpy scipy soundfile soxr librosa pyloudnorm scikit-learn pillow matplotlib",
           "writes": "~/.framecore-studio/extensions/earshot/venv (a virtual environment with earshot at 925ebe5 and the light-tier libraries NumPy, SciPy, librosa and their dependencies, no PyTorch and no models); the full tier below adds about 1.1 GB of models in ~/.cache/huggingface",
           "verify": "~/.framecore-studio/extensions/earshot/venv/bin/earshot sfx list",
-          "after": "Light tier is ready: measure, critique --fast, timeline without models, sfx and kit. For the neural commands (describe, match, rank, find, compare, realness, full critique) ask for the full tier: ~/.framecore-studio/extensions/earshot/venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu && ~/.framecore-studio/extensions/earshot/venv/bin/pip install transformers huggingface_hub safetensors, then ~/.framecore-studio/extensions/earshot/venv/bin/earshot doctor --load (the pinned models download once, about 1.1 GB). Studio finds the tool at that path; sound-listen/listen.py passes the model commands to it",
+          "after": "If the separate earshot-audio plugin is installed in this host (earshot-audio:earshot in the skill list), prefer its bundled runtime.py status/install, which uses the same pinned commit; this command line is the route without it. Light tier is ready: measure, critique --fast, timeline without models, sfx and kit. For the neural commands (describe, match, rank, find, compare, realness, full critique) ask for the full tier: ~/.framecore-studio/extensions/earshot/venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu && ~/.framecore-studio/extensions/earshot/venv/bin/pip install transformers huggingface_hub safetensors, then ~/.framecore-studio/extensions/earshot/venv/bin/earshot doctor --load (the pinned models download once, about 1.1 GB). Studio finds the tool at that path; sound-listen/listen.py passes the model commands to it",
           "remove": "rm -rf ~/.framecore-studio/extensions/earshot (and ~/.cache/huggingface only if no other tool uses it)"
         },
         "claude_apps": {
@@ -1216,12 +1217,12 @@
           "reason": "A command-line tool that runs on the user's computer; chat sandboxes cannot keep it between sessions and the models are about 1.1 GB. Studio's own sound-listen/listen.py (NumPy and FFmpeg) measures, time-aligns and scores sound wherever code runs; use earshot from Codex or Claude Code"
         },
         "chatgpt_work": {
-          "status": "not_supported",
-          "reason": "A command-line tool that runs on the user's computer; chat sandboxes cannot keep it between sessions and the models are about 1.1 GB. Studio's own sound-listen/listen.py (NumPy and FFmpeg) measures, time-aligns and scores sound wherever code runs; use earshot from Codex or Claude Code"
+          "status": "manual",
+          "manual_steps": "Only with the separate earshot-audio plugin installed in this account (earshot-audio:earshot in the skill list) and code execution available: read that skill and follow its bundled runtime.py status, install --tier light|full and fetch-models under the user's authorization, pinned to 925ebe56a1b755e5d354ab642bb8f344440cfa9c. Without the plugin or without execution, Studio's own listening tools or a plan are used and Earshot is reported as not run."
         }
       },
-      "observed": "2026-10-20 Linux container (Python 3.13, CPU): installed at the pinned commit in a virtual environment; light tier gave measure, critique --fast, sfx and kit with no models; the full tier (CPU PyTorch, transformers, about 1.1 GB models) ran describe, match, find, realness, timeline and sheet on a 16.7 s film. Its LUFS, LRA and true peak agreed with Studio's native listen.py to a few tenths; band levels and onset counts differed by a few dB or percent. Findings recorded in integrations/earshot. Host installs through this registry not_run",
-      "update": "Read the changelog and the sound-bank and model pins in earshot/config.py, rerun the light and full tier at the new commit, compare listen.py against it on one film, then change reviewed_commit and every command together"
+      "observed": "2026-10-20 Linux container (Python 3.13, CPU): installed at the pinned commit in a virtual environment; light tier gave measure, critique --fast, sfx and kit with no models; the full tier (CPU PyTorch, transformers, about 1.1 GB models) ran describe, match, find, realness, timeline and sheet on a 16.7 s film. Its LUFS, LRA and true peak agreed with Studio's native listen.py to a few tenths; band levels and onset counts differed by a few dB or percent. Findings recorded in integrations/earshot. Host installs through this registry not_run 2026-10-22 (owner's ChatGPT Work, reported in the Earshot handover, not rerun here): separate earshot-audio 0.1.0 plugin with a pinned isolated runtime; procedural whoosh rendered with apex 0.3205 s for a requested 0.32 s; CLAP and AST loaded offline; two cues on a 30000/1001 film within one frame. Studio routing ported to the repository on 2026-10-22; the pair was not run in Claude Code because the earshot-audio plugin is not available here.",
+      "update": "Review a newer upstream commit (its commands, model pins, licences and any new network or upload path), then move the pin here and in the earshot-audio plugin together. Keep llm and mcp outside the integration."
     },
     {
       "id": "adobe-skills",

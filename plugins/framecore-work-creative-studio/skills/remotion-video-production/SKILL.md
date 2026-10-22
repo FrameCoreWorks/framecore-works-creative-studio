@@ -5,6 +5,8 @@ description: "Build or repair deterministic videos in Remotion (React, TypeScrip
 
 # Remotion Video Production
 
+When the composition needs authorized SFX or audio analysis, load `earshot-audio:earshot` when it is in the skill list and follow [native Earshot routing](../pipeline-core/references/earshot-native-routing.md). Keep the Remotion composition and frame clock; use measured sound anchors and return to the same Studio/FrameCut revision.
+
 Use [native Superpowers support](../pipeline-core/references/superpowers-native-routing.md) for React/TypeScript implementation planning, meaningful behavioral tests, render/timing/layout debugging and code review. Preserve the existing composition and engine choices. Verify actual frames and accessible playback before claiming visual completion.
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.

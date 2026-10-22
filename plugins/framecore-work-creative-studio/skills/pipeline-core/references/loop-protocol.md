@@ -256,3 +256,7 @@ Before marking `loop_control_fit` complete, verify:
   `blocked`;
 - protected boundaries remain locked unless the current user message explicitly
   authorizes crossing them.
+
+## Earshot audio evidence
+
+When current audio scope triggers [native Earshot routing](earshot-native-routing.md), include its actual checks and limitations in this same QA pass. Cached models, an installed plugin or a successful WAV render alone do not verify the encoded film, subjective sound quality or spoken content. Preserve valid approvals and the existing iteration budget.

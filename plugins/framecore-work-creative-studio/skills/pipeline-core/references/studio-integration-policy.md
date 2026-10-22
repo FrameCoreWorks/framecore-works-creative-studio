@@ -24,6 +24,10 @@ The user’s current request and applicable host instructions govern the task. T
 For every substantive direction, implementation, repair, review or completion decision, apply [native Superpowers support](superpowers-native-routing.md). Use the matching installed skill when available, prioritizing motion graphics, layout/composition and FrameCut. This rule applies to all Studio owners and direct specialist invocations. Studio retains domain authority, one Project State, existing approvals and one QA loop; unavailable support is reported honestly and does not block independent work. Native-only instructions preserve the native plugin path without repository changes.
 
 
+## Native Earshot routing
+
+For audio analysis, procedural sound effects/kits and motion or FrameCut soundtrack synchronization, apply [native Earshot routing](earshot-native-routing.md). When `earshot-audio:earshot` is in the skill list, read it and verify its execution tier; otherwise use the pinned command-line extension or Studio's own sound tools, named by the engine that ran. This applies to all Studio owners and direct specialist invocations. Keep the same brief, accepted locks, Project State, master timeline and QA budget. Existing Superpowers support remains the method layer.
+
 ## Operational rules
 
 ### Learning and creation

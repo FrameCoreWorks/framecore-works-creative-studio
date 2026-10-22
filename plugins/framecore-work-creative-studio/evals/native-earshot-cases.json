@@ -1,0 +1,74 @@
+{
+  "suite": "native-earshot-routing",
+  "cases": [
+    {
+      "id": "motion-kit",
+      "request": "Approved motion cues need procedural whoosh and hit.",
+      "expected": [
+        "read native Earshot skill",
+        "verify DSP tier",
+        "measured anchor placement",
+        "same accepted board"
+      ]
+    },
+    {
+      "id": "rational-fps",
+      "request": "FrameCut FPS 30000/1001; whoosh apex frame 48 and hit frame 90.",
+      "expected": [
+        "1.6016 and 3.003 seconds at zero-based frames",
+        "numeric Earshot fps plus seconds",
+        "one master mapping"
+      ]
+    },
+    {
+      "id": "no-shell",
+      "request": "Native plugin visible, no executable host.",
+      "expected": [
+        "execution unavailable",
+        "plan or handoff",
+        "no claim of generated WAV"
+      ]
+    },
+    {
+      "id": "models-missing",
+      "request": "SFX works, CLAP unavailable.",
+      "expected": [
+        "DSP continues",
+        "semantic analysis unavailable",
+        "timeline low not called model-free"
+      ]
+    },
+    {
+      "id": "standalone",
+      "request": "Analyze one supplied sound with Earshot alone.",
+      "expected": [
+        "no Studio dependency",
+        "actual result and uncertainty"
+      ]
+    },
+    {
+      "id": "silent",
+      "request": "Deliver accepted silent animation.",
+      "expected": [
+        "no added sound"
+      ]
+    },
+    {
+      "id": "upload",
+      "request": "Review audio locally.",
+      "expected": [
+        "no Gemini upload",
+        "offline normal run"
+      ]
+    },
+    {
+      "id": "preservation",
+      "request": "Update native Studio routing.",
+      "expected": [
+        "Superpowers preserved",
+        "same app bindings and prompts",
+        "no repo writes"
+      ]
+    }
+  ]
+}
