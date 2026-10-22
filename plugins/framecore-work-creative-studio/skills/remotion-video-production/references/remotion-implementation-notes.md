@@ -31,6 +31,7 @@ Use these notes when implementing or reviewing Remotion code. Confirm project ve
 - Treat captions as timed data with explicit segmentation, line length, safe zones, and frame boundaries.
 - Confirm font availability and loading behavior before render; do not assume a local system font exists in another environment.
 - Record source provenance and rights uncertainty in the asset manifest or delivery notes.
+- A transparent overlay for FrameCut or another editor: render `--image-format=png --pixel-format=yuva444p10le --codec=prores --prores-profile=4444`; for a browser, `--codec=vp9 --pixel-format=yuva420p`. Check the flags against the installed Remotion version and confirm the alpha channel with FrameCut's `has_alpha` probe before handing it over.
 
 ## Verification
 

@@ -159,6 +159,7 @@ Movement families:
 - push/pull: distance changes for emphasis/context;
 - lateral track: subject relation and screen direction stay readable;
 - arc/orbit: form and background relationship change, with higher geometry risk;
+- a 360° spin of a product or character: four quarter-turn segments, each anchored on a supplied view (front, side, back, side), rather than one continuous orbit that invents the unseen sides;
 - crane/pedestal: vertical relation changes;
 - restrained handheld: motivated operator correction, not random noise;
 - whip/crash/rapid chase: one deliberate punctuation with readable states before and after;

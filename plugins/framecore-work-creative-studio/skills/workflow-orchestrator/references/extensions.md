@@ -7,7 +7,7 @@ Outside repositories that the Studio owner reviewed and judged useful as an **en
 - The user asks which add-ons, engines or repositories Studio recommends, or asks to install one by name or link ("zainstaluj REA", "dodaj to repo jako silnik").
 - In the [skill finder](skill-finder.md), after Studio's own skills and before the open catalog: a registry entry that fits the need is named first.
 - During or after installation, as one optional question; skipping it leaves the installation complete.
-- A task an extension's `studio_uses` covers would clearly come out better with it than with Studio's own tools, or the user does not know what is possible (owner decision 2026-10-22): recommend it once, in the user's terms (what it adds to this result), check first whether it is already available, and offer it for this project only (removed at delivery with its `remove` step) or kept. Never install or suggest one for its own sake, and do not repeat a declined offer.
+- A task an extension's `studio_uses` covers would clearly come out better with it than with Studio's own tools, or the user does not know what is possible (owner decision 2026-10-22): recommend it once, in the user's terms (what it adds to this result), check first whether it is already available, and offer it for this project only (removed at delivery with its `remove` step) or kept. Never install or suggest one for its own sake, and do not repeat a declined offer. When the user declines or the extension is unavailable, continue on the next-best route and name what it costs (time, quality or a step they do by hand).
 
 ## First companion setup
 

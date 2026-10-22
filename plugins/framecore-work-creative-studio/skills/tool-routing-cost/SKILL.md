@@ -83,6 +83,7 @@ or any task where cost, privacy, or capability uncertainty matters.
 - Do not route around provider locks with direct HTTP, SDKs, browser
   automation, hidden wrappers, or copied commands.
 - Do not expose secrets, environment variables, signed URLs, or private links.
+- Tell a failure in one plain sentence about the user's result and the next step; never name the provider, a path, a code or a stack trace unless asked.
 
 ## Handoff
 

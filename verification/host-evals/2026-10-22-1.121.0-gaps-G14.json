@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.121.0",
+  "source": {
+    "commit": "93a70f98ced5e55ff69481e0f361e8938f81488f",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "38b4fe9c13767d7a080f0553a30bd054cf5d9231cbc47dd8e343c6b1c6566479",
+      "files": 1554,
+      "archive": "candidates/38b4fe9c13767d7a080f0553a30bd054cf5d9231cbc47dd8e343c6b1c6566479.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "da7e1cb52c144a1b0bf783d1e0b4eeab9552db3ecf6dd76d2276618e5b5e091a",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1281,
+      "output": 1883,
+      "cache_read": 88389,
+      "cache_write": 32516
+    },
+    "seconds": 19.0
+  },
+  "cases": [
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route and shown an alternative, with an add-on offered only when it clearly helps (owner's observation 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1281,
+        "output": 1883,
+        "cache_read": 88389,
+        "cache_write": 32516
+      },
+      "seconds": 19.0,
+      "wall_seconds": 19.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Nie widzę jeszcze żadnych nagrań w projekcie, więc nie mam co przeglądać. Poniżej propozycja, jak to zrobić.\n\n**Jak to ugryźć**\n\nDo Twojego materiału pasują dwa kierunki. Polecam pierwszy.\n\n1. **Nagrania z telefonu jako baza, schemat nałożony na ruch.** Pokazujesz prawdziwy magazyn: przyjęcie, rozładunek, półki, kompletowanie, pakowanie, wysyłka. Nad tym biegnie cienka linia procesu, na przykład 5 kroków z numerami. Aktywny krok podświetla się, gdy na ekranie jest ta czynność. Całość jest prawdziwa i wiarygodna, a schemat porządkuje widzowi to, co widzi. Rolka ma wtedy mocny początek i koniec, a środek da się zmontować nawet z kiepskich ujęć.\n2. **Animowany schemat jako szkielet, nagrania jako wstawki.** Najpierw ładna animacja drogi towaru, np. mapa magazynu z kropką-paczką przechodzącą przez strefy. W każdej strefie wskakuje 2–3 sekundy nagrania. Wygląda bardziej „designersko”. Wymaga jednak więcej pracy i dobrze działa tylko wtedy, gdy znamy układ magazynu.\n\nAnimację da się zrobić kodem (HyperFrames), a montaż i nałożenie robi FrameCut. Nie musisz wybierać narzędzi.\n\n**Jak to zrobimy krok po kroku**\n1. Ustalamy brief i oglądam Twoje nagrania.\n2. Pokazuję pełny storyboard całej rolki z numerowanymi kadrami, z naniesionym schematem.\n3. Poprawiasz albo akceptujesz.\n4. Dopiero potem robię finalny montaż i animację, a na koniec sprawdzam wynik.\n\n**Jedno pytanie, żeby ruszyć:** czy możesz wgrać nagrania do projektu (katalog `/tmp/studio-eval-83806c3z/work`) i napisać, **ile mniej więcej ich jest i co na nich widać**? Wystarczy np. „12 klipów: rozładunek, regały, pakowanie, paleta przy rampie”. Jeśli nie wiesz, jaka ma być długość i gdzie rolka ma trafić (Instagram, TikTok, oba), napisz też to. Mogę wtedy przyjąć 30–45 s w pionie 9:16 i poprawić to na storyboardzie.",
+          "reply_chars": 1792,
+          "reply_sha256": "30f00aa929925493e407d971e4689d719c29bbf620993c4a05a8b030b4048122",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1281,
+            "output": 1883,
+            "cache_read": 88389,
+            "cache_write": 32516
+          },
+          "seconds": 19.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)schemat|diagram"
+              },
+              "passed": true,
+              "detail": "/(?i)schemat|diagram/"
+            },
+            {
+              "check": {
+                "regex": "(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal"
+              },
+              "passed": true,
+              "detail": "/(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

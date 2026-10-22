@@ -76,6 +76,7 @@ Name moves by feel and keep one set per video (adapted from [kaventro/motion-des
 - Land the visual impact on the cue frame; start the motion before it so the peak arrives with the sound.
 - Leave silence or a sustained note under the final hold when the message needs attention.
 - The [sync tool](../assets/motion-sync/README.md) records the grid in the contract, reports where scenes and holds fall on it and imports voice-over subtitles as captions.
+- Flashes and strobes: at most 3 full-frame flashes in any second (a flash is a pair of opposite brightness changes). A beat-driven pulse on full-frame brightness counts as a flash; let the beat move an accent instead, and keep a pulsing word at 3–6 % scale. Screen the render with [`flash_check.py`](../assets/motion-quality/README.md) (screening, not conformance).
 
 ## Transition grammar
 
@@ -90,6 +91,8 @@ Name moves by feel and keep one set per video (adapted from [kaventro/motion-des
 | Dissolve | Time passing or a soft change of mood | Fast, informational sequences |
 
 Choose two or three transition types per project and repeat them consistently. Consistency is not one wipe everywhere: where scenes belong together, let an element carry the change (a product, a search field, a selection mark); keep a full-frame wipe or mask for a real break. Three or more identical full-frame wipes read as slides, and the critique flags them ([commercial motion](commercial-motion.md#2-prove-the-picture-on-real-frames-first)).
+
+The transition is the exit: do not fade or shrink the outgoing scene before a wipe, mask or push that covers it, or the frame goes empty before the cut.
 
 ## Video types
 
@@ -114,6 +117,7 @@ Starting shapes for common requests (adapted from kaventro/motion-designer). A s
 - **Counters:** animate integers with tabular figures so width does not jitter; hold the final value and show the unit and source.
 - **Voiceover sync:** derive word timing from the actual transcript or audio analysis, not from estimated speech rates, and mark estimates as designed timing.
 - Use real font files and wait for them to load. Test the longest string and diacritics at the smallest intended viewing size.
+- Right-to-left and complex scripts (Arabic, Hebrew, Persian, Devanagari, Thai): mirror the reveal direction but keep the film's timeline running left to right; isolate Latin names and numbers so they keep their order; add no letter spacing and no slant to Arabic, whose letters join; animate by word, never by letter, which breaks shaping. Render a test frame with the real font before promising the look.
 
 ## Layout and legibility
 

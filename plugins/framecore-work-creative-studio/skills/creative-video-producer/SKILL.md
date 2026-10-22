@@ -87,6 +87,7 @@ Use [templates/creative-video-production-pack.md](templates/creative-video-produ
 - Critical product, packaging, logo, face, character, claim, CTA, or visible-text shots require sequential QA before the route advances.
 - A continuation shot may use rewrite-forward only from an accepted actual output, never from a planned end frame.
 - A short cutdown is a re-authored variant, not merely a trim of the master.
+- Before a batch of generations, pilot the first and hardest unit at its real size and settings; fix the recipe on that result, then run the rest.
 
 ## Guardrails
 
