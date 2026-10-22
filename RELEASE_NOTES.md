@@ -1,4 +1,4 @@
-# Creative Studio 1.119.3
+# Creative Studio 1.119.4
 
-- FrameCut lowers music 6 dB under speech by default, following the timed transcript with smooth ramps; `duck_db` overrides and `0` disables.
-- The storyboard is a one-time host-managed preview; another only on request.
+- Recommended extension added: MoneyPrinterTurbo (PyPI `mpt` 1.3.9, commit 6992380), native in Codex and Claude Code, offered only on a user's explicit request.
+- Rights notes: its bundled songs must not be published; its API server must not be exposed.

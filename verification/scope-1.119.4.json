@@ -1,0 +1,29 @@
+{
+  "version": "1.119.4",
+  "baseline_tag": "v1.119.3",
+  "baseline": "30e2f731b01a6f26dfda7e80466a11aab2ec698d",
+  "change_id": "CC-20261022-03",
+  "origin": "cloud-code",
+  "files": 1541,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [
+    "integrations/moneyprinterturbo/LICENSE",
+    "integrations/moneyprinterturbo/README.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1531,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner sent MoneyPrinterTurbo for review. Registry entry pinned to 6992380 and mpt 1.3.9, native in Codex and Claude Code, with a decision map, licence and rights notes. Static review, hashes, dry-run plan and install ran; the program itself was not run."
+}
