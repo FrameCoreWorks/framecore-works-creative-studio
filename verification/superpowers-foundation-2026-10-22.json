@@ -1,0 +1,65 @@
+{
+  "change_id": "CW-20261022-01",
+  "date": "2026-10-22",
+  "origin": "chatgpt-work",
+  "baseline_sha": "b92b45b227dc667934c81080afebcdd3c0163b29",
+  "branch": "cw/superpowers-companion-foundation-2026-10-22",
+  "scope": "Repository-only architecture and takeover documentation; proposed companion integration, no shared-package implementation",
+  "source_version": "1.121.0",
+  "shared_package_changed": false,
+  "checks": {
+    "canonical": {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "exit_code": 0,
+      "status": "PASS",
+      "owners": 37,
+      "package_files": 1549,
+      "skill_description_characters": 7700,
+      "skill_description_limit": 7800,
+      "planned_existing_host_cases": 204,
+      "executed_existing_host_cases": 0
+    },
+    "full_suite": {
+      "command": "bash scripts/check_all.sh",
+      "exit_code": 0,
+      "status": "PASS_WITH_SKIPS",
+      "node": {"collected": 238, "passed": 225, "failed": 0, "skipped": 13},
+      "python": {"suites": 54, "collected": 541, "passed": 529, "failed": 0, "skipped": 12},
+      "scope_note": "Optional browser/dependency checks and missing Claude CLI validation were skipped where the suites reported them; no independent run of skipped checks. Not an installed-client behavior test.",
+      "local_log_sha256": "e081e44db7a60fb95ef227306c262ce86bfecf88d56d4e66410eecaec4505116"
+    },
+    "foundation_review": {
+      "owner_coverage": "37 of 37 exactly once, no unknown IDs",
+      "relative_links": "PASS",
+      "shared_package_diff": "empty",
+      "spec_self_review": "Checked scope, ownership, availability claims, proposed-versus-implemented status, installation exceptions, parallel hosted work and review boundary; no unresolved placeholder"
+    }
+  },
+  "hosted_observation": {
+    "version": "1.119.7",
+    "inventory_paths": 1595,
+    "inventory_pages": 16,
+    "entry_skills_read": 37,
+    "explicit_superpowers_entry_links": 6,
+    "native_reference_read": true,
+    "stored_native_cases_read": 12,
+    "guard_unchanged_at_final_metadata_recheck": true,
+    "source_orchestrator_bytes": 31918,
+    "hosted_orchestrator_bytes": 32391,
+    "orchestrator_budget": 32000,
+    "comparison_scope": "Full path inventory, all entry skill bodies and scoped routing/eval reads; not whole-package byte equality",
+    "writes_performed": false,
+    "fresh_client_behavior": "NOT_RUN"
+  },
+  "superpowers_session": {
+    "installed": true,
+    "enabled": true,
+    "visible_skills": 15,
+    "read_skills": ["using-superpowers", "brainstorming", "using-git-worktrees", "verification-before-completion"],
+    "applied_methods": ["architectural exploration and written spec", "spec self-review", "existing checkout and branch-scope inspection", "fresh verification before completion"],
+    "extra_worktree_created": false,
+    "cross_host_activation": "NOT_RUN"
+  },
+  "new_companion_acceptance_cases": {"planned": 18, "executed": 0, "status": "NOT_RUN"},
+  "implementation_status": "AWAITING_DESIGN_REVIEW"
+}

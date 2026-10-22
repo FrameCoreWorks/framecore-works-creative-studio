@@ -2,9 +2,10 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-21); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
-## Current direction (2026-10-21, package 1.118.0)
+## Current direction (2026-10-22, package 1.121.0)
 
-- **State.** 1.118.0, 37 skills, about 1,540 package files. Development is paused for the owner's real-use tests of FrameCut, Motion Graphics and other modules ([handover](handover-chatgpt-work-2026-10-21.md)). Work starts from the owner's findings or an explicit new task.
+- **State.** 1.121.0, 37 skills, 1,549 canonical package files. Development is paused for the owner's real-use tests except for explicit bounded tasks. The current [temporary takeover](handover-chatgpt-work-2026-10-22-superpowers.md) records the separate hosted state and Claude's unfinished Open Design plan.
+- **Active owner request.** Prepare the [Superpowers companion foundation](superpowers/specs/2026-10-22-studio-companion-design.md) on `cw/superpowers-companion-foundation-2026-10-22`. Superpowers is the first recommended, separately installed supporting plugin; Studio retains creative ownership. The branch currently holds the architecture for review, not activated public routing. Respect the parallel native-plugin work and do not resume Open Design implicitly.
 - **Why the pause matters.** From 1.88.0 to 1.118.0 the package grew by about 330 files, mostly knowledge adapted from outside repositories and articles, while no version since 1.36.0 has been tested in a live client and the 204 planned host cases remain not_run. The owner's verdict on the 2026-10-16 test reel showed the gap: every automatic check passed and the reel was still too quiet for a client. New knowledge is worth less than evidence from real use.
 
 Direction, in order of value:

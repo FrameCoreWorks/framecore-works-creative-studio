@@ -3108,3 +3108,28 @@ Cross-host state:
 - GitHub: synchronized. `main` at `8274d37`; workflows Check Studio sources 39771713217, Refresh current release notes 39771710670, Publish verified Studio release 39771710772, Check Studio sources 39771710650: success; [v1.121.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.121.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1549 of 1549) ([record](../verification/github-publication-1.121.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CW-20261022-01
+
+- Origin: chatgpt-work
+- Trigger: the owner's 2026-10-22 request for temporary takeover from Claude and a separate branch establishing a Superpowers companion integration.
+- Branch: `cw/superpowers-companion-foundation-2026-10-22`, explicitly requested; no merge into main.
+- Baseline: `b92b45b227dc667934c81080afebcdd3c0163b29`
+- Result: the commit carrying this entry; repository-only foundation for owner review.
+- Package version: 1.121.0 unchanged. Shared package changed: no.
+- Scope: [takeover](handover-chatgpt-work-2026-10-22-superpowers.md), [proposed architecture](superpowers/specs/2026-10-22-studio-companion-design.md), dated branch exception, roadmap and verification evidence. Superpowers remains separately installed, first recommended during Studio installation; all 37 owners have a defined support boundary. Public routing and installation changes are not implemented in this foundation.
+- Parallel work: saved native Studio 1.119.7 already contains a Superpowers reference, 12 stored cases and six direct entry links. Read without modification; private overlay stays private. Claude's Open Design plan remains unexecuted here.
+
+Verification:
+
+- Canonical validator: PASS, 37 owners and 1,549 package files; description budget warning at 7,700/7,800 characters.
+- Full `bash scripts/check_all.sh`: exit 0; Node 225 passed, 13 skipped, zero failures; Python 54 suites / 541 collected, 12 skipped, zero failures. Skips and host limits remain explicit in the [record](../verification/superpowers-foundation-2026-10-22.json).
+- Spec self-review and focused documentation checks: all 37 owners exactly once, relative links resolve, shared-package diff empty.
+- New companion behavior scenarios: 18 proposed, NOT_RUN. Fresh installed-client behavior: NOT_RUN. Source verification does not establish host behavior.
+
+Cross-host state:
+
+- GitHub: pending publication of this foundation commit to its dedicated branch; main stays at the inspected baseline. Publication is verified by subsequent remote readback, not by this pre-publication entry.
+- ChatGPT Work: not_run for a new release; the existing hosted package was inspected only, and the installed Superpowers process skills were used in this conversation.
+- Codex: not_run for installed-client integration.
+- Branch hygiene: the three existing `ccr-*` branches are already contained in baseline main; preserved for the owner. `gh-pages` preserved.
