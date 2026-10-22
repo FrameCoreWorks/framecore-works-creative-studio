@@ -1,6 +1,10 @@
-# Creative Studio 1.119.1
+# Creative Studio 1.119.2
 
-- The workflow orchestrator routes a reel or ad for a service, product or before-and-after to Motion Graphics Workflow before the plan, with the picture rule and first-second test (host evaluation G12: FAIL on 1.119.0, all checks met after the fix).
-- Host-evaluation case AD01 expects English for a bare option number with no language signal.
+FrameCut defect fixes from the owner-requested audit (see docs/framecut/audit-2026-10-22.md).
 
-Startup, the welcome and the routing table are unchanged; the owner's ChatGPT startup check is still recommended after the orchestrator edits in 1.119.0 and 1.119.1.
+- Partial `set_captions` keeps the other caption settings; words without timing block a final; `analyze` handles very short clips; no tempo stage at 1x.
+- Revisions over 16 MiB are refused on write; probe values are validated; preview bundles are never READY; EDL and CSV exports cannot be forged through names or notes; export is atomic.
+- A source swapped during a render is not cached; stale render locks are reclaimed; SIGTERM and Ctrl-C clean up; reserved output paths are refused.
+- FrameCut guidance, orchestrator routing for footage requests and stale design documents corrected.
+
+Seven product decisions wait for the owner; the ChatGPT startup should be rechecked after the orchestrator edits.

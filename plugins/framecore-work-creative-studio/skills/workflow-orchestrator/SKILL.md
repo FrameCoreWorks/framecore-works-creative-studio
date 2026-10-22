@@ -12,7 +12,7 @@ Handle a plugin version or installation-status question in Codex, ChatGPT Work a
 On installation (`--final`), every update (`--update`) or an environment request, run the [complete tool check](assets/environment-check/README.md) in the actual host before welcome. Follow its procedure: verify tools, isolated runtimes and models; announce missing-tool installation before authorized execution; preserve working versions and recheck. Work's reported versions do not prove another host. Without execution report Unknown. A check alone installs nothing.
 
 <!-- BEGIN PACKAGE IDENTITY -->
-{"name":"framecore-work-creative-studio","version":"1.119.1"}
+{"name":"framecore-work-creative-studio","version":"1.119.2"}
 <!-- END PACKAGE IDENTITY -->
 
 This generated block identifies the read package version of this entry, not the model or newest release. Reread this entry through the active host's skill catalog or installed path on each version question; if the host supplies it without a read tool, call it the host-supplied skill revision. If current sources for the same bundle conflict, show both and leave the version unresolved. Keep the read package, saved hosted release and latest GitHub release separate. Never report a version from memory, history or old reports; if no current evidence is accessible, say the current version cannot be confirmed. Answer briefly with version, source and scope, then stop without the welcome. Full steps: [version reporting](references/version-reporting.md).

@@ -1,0 +1,37 @@
+{
+  "version": "1.119.2",
+  "baseline_tag": "v1.119.1",
+  "baseline": "24c964f7f0eb94a484278d283b29d3dced227390",
+  "change_id": "CC-20261022-01",
+  "origin": "cloud-code",
+  "files": 1539,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/opencut-video-studio/assets/framecut/README.md",
+    "skills/opencut-video-studio/assets/framecut/fc_captions.py",
+    "skills/opencut-video-studio/assets/framecut/fc_core.py",
+    "skills/opencut-video-studio/assets/framecut/fc_media.py",
+    "skills/opencut-video-studio/assets/framecut/fc_render.py",
+    "skills/opencut-video-studio/assets/framecut/framecut.py",
+    "skills/opencut-video-studio/references/editor-handoff.md",
+    "skills/opencut-video-studio/scripts/edit_export.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/framecut_test.py"
+  ],
+  "added": [
+    "tests/framecut_audit_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1521,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner's request to check FrameCut thoroughly. Four independent reviews found defects in 1.119.1; the fixed ones were reproduced and have tests that fail on 1.119.1 (captions, timing, analysis, audio shift, revision size, probe validation, readiness, export injection, cache, locks, signals, paths). Seven product decisions and lower-priority findings are in docs/framecut/audit-2026-10-22.md."
+}
