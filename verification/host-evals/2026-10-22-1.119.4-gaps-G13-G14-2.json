@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.119.4",
+  "source": {
+    "commit": "45b4bf75db7ac118180f50042a36556bfbe4b084",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "4982bf9bddbc7be7c1d6f27e2e565dbff63d3e81ee8d83643a47e3dba3103b74",
+      "files": 1541,
+      "archive": "candidates/4982bf9bddbc7be7c1d6f27e2e565dbff63d3e81ee8d83643a47e3dba3103b74.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "cda2164b9c8078430c6c360262b899999cf32ba720ad38c86ec2c260ca1c52f9",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2554,
+      "output": 4875,
+      "cache_read": 93683,
+      "cache_write": 60585
+    },
+    "seconds": 51.1
+  },
+  "cases": [
+    {
+      "id": "G13",
+      "title": "Asking for acceptance of a storyboard speaks about the user's result and never quotes the plugin's own files or rules (owner's screenshot 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1275,
+        "output": 2792,
+        "cache_read": 46789,
+        "cache_write": 30290
+      },
+      "seconds": 26.8,
+      "wall_seconds": 26.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam nagranie magazyniera, 3 minuty, po polsku, mówi do kamery o swojej pracy. Chcę z niego rolkę 9:16 z napisami, około 25 sekund. Zaproponuj storyboard i powiedz, co dalej.",
+          "reply": "Nie znalazłem nagrania w katalogu roboczym (`/tmp/studio-eval-buzf8gnj/work` jest pusty), więc nie wiem, co magazynier mówi. Poniżej jest szkic struktury z założeniami do zmiany. Nie jest to jeszcze storyboard z prawdziwych klatek.\n\n## Szkic rolki 9:16, ok. 25 s (czasy orientacyjne)\n\n| # | Czas | Co widać | Napisy | Źródło |\n|---|---|---|---|---|\n| 1 | 0–3 s | Twarz w kadrze od pierwszej klatki, bez wstępu. | Duży napis z najmocniejszym zdaniem lub tezą. | Zdanie z nagrania, które działa samo (zaskakujące, konkretne albo emocjonalne). |\n| 2 | 3–10 s | Mówiący do kamery: pierwszy wątek, np. na czym polega praca. | Frazy 3–6 słów, 1–2 linijki. | Wycięty fragment, z usuniętymi dłuższymi pauzami i wtrąceniami. |\n| 3 | 10–18 s | Drugi wątek: konkret, liczba, trudność albo anegdota. Delikatny najazd, żeby nie było jednego statycznego kadru. | Jedno słowo-klucz wyróżnione kolorem. | Drugi fragment z innego miejsca nagrania. |\n| 4 | 18–23 s | Puenta lub „co mi daje ta praca\". | Napisy jak wyżej. | Zdanie zamykające myśl. |\n| 5 | 23–25 s | Krótkie wyciszenie i zamknięcie. | Opcjonalnie podpis: imię i stanowisko. | Ostatnie ujęcie bez cięcia w pół słowa. |\n\n**Założenia, które możecie zmienić:**\n- Napisy po polsku, w stylu frazowym, w bezpiecznej strefie (nie w dolnych ok. 20% kadru i nie przy prawej krawędzi, gdzie są ikony platformy).\n- Kadr 16:9 przycinam do 9:16 z twarzą pośrodku. Jeśli nagranie jest już pionowe, zostawiam je bez przycinania.\n- Napisy podświetlane słowo po słowie robię dopiero po sprawdzeniu czasów słów w transkrypcji. Do tego czasu będą napisy zdaniowe.\n- Nie dodaję muzyki ani efektów. Głos zostaje na pierwszym planie, a lekką muzykę pod spodem można dodać na życzenie.\n\n## Co dalej\n\n1. **Nagranie.** Wrzuć plik do katalogu roboczego albo podaj ścieżkę. Jeśli masz transkrypcję lub SRT, dodaj też ją.\n2. **Analiza.** Zrobię transkrypcję lokalnie (z poprawkami), znajdę 3–4 najmocniejsze fragmenty i wybiorę te, które razem dają ok. 25 s bez zmiany sensu wypowiedzi.\n3. **Storyboard z prawdziwych klatek.** Pokażę plansze z kadrami 9:16, napisami, czasami i cięciami. Poprawiasz lub akceptujesz.\n4. **Montaż, napisy i kontrola.** Po akceptacji robię finalny render i sprawdzam kadr, napisy i początek oraz koniec. Dźwięk musisz odsłuchać sam, bo ja go nie usłyszę. Dostaniesz MP4 i opcjonalnie plik SRT.\n\n**Jedno pytanie, od którego zależy dobór fragmentów:** do kogo i po co jest ta rolka? Może to być na przykład employer branding magazynu, profil osobisty bohatera albo kampania o zawodzie. Jeśli wolisz, żebym zdecydował sam, napisz „zdecyduj\". Wtedy wybiorę najbardziej ludzkie i konkretne fragmenty.",
+          "reply_chars": 2643,
+          "reply_sha256": "73fec7def95066d7ee70463d75ebae5a19e23042b14a90137f6d9248835e6c18",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1275,
+            "output": 2792,
+            "cache_read": 46789,
+            "cache_write": 30290
+          },
+          "seconds": 26.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill"
+              },
+              "passed": true,
+              "detail": "not /(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route, including installable add-ons, instead of the simplest one (owner's observation 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1279,
+        "output": 2083,
+        "cache_read": 46894,
+        "cache_write": 30295
+      },
+      "seconds": 24.3,
+      "wall_seconds": 24.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Najlepiej sprawdzi się montaż Twoich nagrań z animowanym schematem, który prowadzi widza przez kolejne etapy. Proponuję to zamiast czystej animacji bez nagrań.\n\n**Jak to będzie wyglądało (pion 9:16, ok. 30–45 s)**\n- **Otwarcie (1–2 s):** mocne ujęcie z magazynu i hasło w rodzaju „Od dostawy do wysyłki w 24 h\". Konkretną liczbę podajemy tylko wtedy, gdy jest prawdziwa u Was.\n- **Etapy:** każdy etap to 3–5 s Twojego nagrania, na przykład przyjęcie, kontrola, składowanie, kompletacja, pakowanie, wysyłka. Na górze ekranu jest cienka animowana linia procesu: kropka przesuwa się do kolejnego węzła, a aktualny etap się podświetla. Widz cały czas wie, gdzie jest.\n- **Zakończenie:** cała ścieżka pojawia się jeszcze raz jako pełny schemat, a po nim paczka wyjeżdża z magazynu.\n- **Napisy i dźwięk:** krótkie napisy przy etapach i muzyka w tle. Jeśli na nagraniach ktoś mówi, dodamy też napisy do mowy.\n\n**Dlaczego tak:** prawdziwe ujęcia budują zaufanie do magazynu, a schemat nadaje im kolejność i czyni całość zrozumiałą bez dźwięku. Alternatywą jest w pełni animowany, stylizowany schemat magazynu (na przykład izometryczny) z Twoimi ujęciami tylko jako wstawkami. Wygląda efektowniej, ale jest mniej „nasz\". Wybrałbym ten pierwszy wariant, chyba że nagrania są słabe jakościowo.\n\n**Plan pracy:** najpierw pokażę Ci storyboard całej rolki, czyli klatki z podpisami i kolejnością. Dopiero po Twojej akceptacji zrobię montaż.\n\nW katalogu roboczym nie widzę jeszcze żadnych plików, więc nagrań nie oglądałem. Jedno pytanie, od którego zależy reszta: **jakie etapy chcesz pokazać i które z nich masz nagrane?** Wystarczy lista od przyjęcia do wysyłki z zaznaczeniem, czego brakuje. Nagrania możesz dodać teraz albo później.",
+          "reply_chars": 1722,
+          "reply_sha256": "7caa0b8282a992bb7f1e5c50b3f070de7912c85bc1315967125034a7dbe2a2b0",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1279,
+            "output": 2083,
+            "cache_read": 46894,
+            "cache_write": 30295
+          },
+          "seconds": 24.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)schemat|diagram|animacj"
+              },
+              "passed": true,
+              "detail": "/(?i)schemat|diagram|animacj/"
+            },
+            {
+              "check": {
+                "regex": "(?i)Anatomy|Animate|Iso Glow|HyperFrames|silnik|zestaw|narzędzi|dodatk"
+              },
+              "passed": false,
+              "detail": "/(?i)Anatomy|Animate|Iso Glow|HyperFrames|silnik|zestaw|narzędzi|dodatk/"
+            },
+            {
+              "check": {
+                "regex": "(?i)doinstaluj|zainstaluj|dodać|dodamy|opcjonaln|rozszerzen"
+              },
+              "passed": true,
+              "detail": "/(?i)doinstaluj|zainstaluj|dodać|dodamy|opcjonaln|rozszerzen/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

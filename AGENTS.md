@@ -52,7 +52,7 @@ Owner decision 2026-10-12, later the same day: motion graphics is Studio's main 
 
 ## Recommended extensions (owner decision 2026-10-16)
 
-Every repository the owner sends for review is also added to the [extension registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) as a natively installable option, following `docs/extension-registry.md`: pinned to the reviewed commit or package version, with each host's status and its plan, install, verify and remove steps tried in a sandbox. This is the trigger for such an entry under maintenance mode. Studio installs an extension only on a user's explicit request.
+Every repository the owner sends for review is also added to the [extension registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) as a natively installable option, following `docs/extension-registry.md`: pinned to the reviewed commit or package version, with each host's status and its plan, install, verify and remove steps tried in a sandbox. This is the trigger for such an entry under maintenance mode. Owner decision 2026-10-22: Studio proposes an extension, once and in the user's terms, when it clearly improves the user's result (especially when the user does not know what is possible), and installs it only after the user accepts that proposal or asks; the proposal states what will be written, and a declined offer is not repeated.
 
 ## Development provenance
 

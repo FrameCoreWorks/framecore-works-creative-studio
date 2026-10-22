@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.119.4",
+  "source": {
+    "commit": "45b4bf75db7ac118180f50042a36556bfbe4b084",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "4982bf9bddbc7be7c1d6f27e2e565dbff63d3e81ee8d83643a47e3dba3103b74",
+      "files": 1541,
+      "archive": "candidates/4982bf9bddbc7be7c1d6f27e2e565dbff63d3e81ee8d83643a47e3dba3103b74.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "708649bc6fad24ee3aa4511534918f1e5a0b5b8786cf4a49bda021f66da8343f",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1279,
+      "output": 1873,
+      "cache_read": 46900,
+      "cache_write": 30302
+    },
+    "seconds": 29.0
+  },
+  "cases": [
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route and shown an alternative, with an add-on offered only when it clearly helps (owner's observation 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1279,
+        "output": 1873,
+        "cache_read": 46900,
+        "cache_write": 30302
+      },
+      "seconds": 29.0,
+      "wall_seconds": 29.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Najlepiej połączyć Twoje nagrania ze schematem, który „prowadzi\" widza przez magazyn. Nie rób samej animacji, bo wtedy ludzie nie zobaczą, że to prawdziwe miejsce.\n\nW katalogu roboczym nie widzę jeszcze żadnych plików, więc nagrań nie oglądałem. Poniższe propozycje to na razie założenia.\n\n**Dwa kierunki:**\n\n1. **Nagrania z cienką animowaną osią procesu** (polecam). Każdy etap to krótki fragment Twojego nagrania, na przykład przyjęcie, kontrola, składowanie, kompletacja, pakowanie, wysyłka. Na dole albo z boku jest prosty schemat, na którym zapala się kolejny krok, z krótką nazwą etapu. Schemat dodaje się po nakręceniu, więc telefonowe, trochę nierówne ujęcia nie będą przeszkadzać. Rolka wygląda profesjonalnie, a widz od razu widzi, gdzie jest.\n2. **Schemat jako bohater.** Całość to animowana mapa magazynu, a nagrania są tylko wstawkami przy kolejnych punktach. Wygląda bardziej „designersko\", ale wymaga więcej pracy i działa dobrze tylko wtedy, gdy nagrań jest mało albo są słabe.\n\nKierunek 1 jest mniej ryzykowny i lepiej pokazuje, że to Wasz magazyn.\n\n**Jedno pytanie, od którego zależy wybór:** czy masz nagrane ujęcia każdego etapu, od przyjęcia po wysyłkę, czy któreś etapy są niefilmowane? Jeśli czegoś brakuje, te miejsca zastąpimy animowanym schematem.\n\nMożesz też od razu wrzucić nagrania do katalogu roboczego. Wtedy obejrzę je, zaproponuję kolejność etapów i pokażę cały storyboard rolki do akceptacji, zanim cokolwiek wyrenderuję.",
+          "reply_chars": 1455,
+          "reply_sha256": "ee90a7bc3c715c5168c712bec9cbbc675718c3ad1f7d364a7418241186fc41be",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1279,
+            "output": 1873,
+            "cache_read": 46900,
+            "cache_write": 30302
+          },
+          "seconds": 29.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)schemat|diagram"
+              },
+              "passed": true,
+              "detail": "/(?i)schemat|diagram/"
+            },
+            {
+              "check": {
+                "regex": "(?i)alternatyw|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal"
+              },
+              "passed": false,
+              "detail": "/(?i)alternatyw|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

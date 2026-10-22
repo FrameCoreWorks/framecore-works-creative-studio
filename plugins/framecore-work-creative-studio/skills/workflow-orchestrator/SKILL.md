@@ -176,7 +176,7 @@ Artifact fields, review and handoffs follow [the integrated workflow-kit method]
 
 ## Shared boundaries
 
-Carry the exact copy, concept, reference roles and permitted changes through every handoff. An approved direction can already satisfy selection. A final assistant-written slogan still requires selection before graphic generation; a user-supplied final string does not need ritual reapproval. Conversation follows the user's language; technical prompts default to English unless requested otherwise, while exact visible copy retains its approved language.
+Speak in the user's terms: never quote or name Studio's own files, skills or rules to justify a question. For video aim for the strongest result, not the simplest: footage with a diagram or animation goes to FrameCut, which recommends the best route and any add-on. Carry the exact copy, concept, reference roles and permitted changes through every handoff. An approved direction can already satisfy selection. A final assistant-written slogan still requires selection before graphic generation; a user-supplied final string does not need ritual reapproval. Conversation follows the user's language; technical prompts default to English unless requested otherwise, while exact visible copy retains its approved language.
 
 Do not execute a prompt-only request. Generation uses a real available native tool only when requested and allowed. Protected external providers require the current host/user activation conditions; ordinary approval of a brief does not satisfy them. No automatic uploads, publication, paid fallback or repeated rendering.
 

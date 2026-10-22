@@ -343,6 +343,56 @@
         "The plan gives a reason to choose this business, not only a list of services",
         "Nothing is built before approval"
       ]
+    },
+    {
+      "id": "G13",
+      "title": "Asking for acceptance of a storyboard speaks about the user's result and never quotes the plugin's own files or rules (owner's screenshot 2026-10-22)",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam nagranie magazyniera, 3 minuty, po polsku, mówi do kamery o swojej pracy. Chcę z niego rolkę 9:16 z napisami, około 25 sekund. Zaproponuj storyboard i powiedz, co dalej.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_regex": "(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Shows or describes a storyboard of the whole reel and asks plainly whether the user accepts it or wants changes",
+        "Does not quote, name or explain internal files, skills, rules or gates to justify the question",
+        "Asks at most one or two questions"
+      ]
+    },
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route and shown an alternative, with an add-on offered only when it clearly helps (owner's observation 2026-10-22)",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "(?i)schemat|diagram"
+            },
+            {
+              "regex": "(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Recommends one concrete best route in the user's terms (what it does for this reel) and names a stronger or different alternative with its trade-off, not a bare menu of tool names",
+        "Uses what Studio already has and, only where an installable add-on would clearly improve the result, offers it once with a plain choice (this project or keep); installs nothing before the user agrees",
+        "Does not default to the simplest solution when a stronger one fits, and asks at most one or two consequential questions"
+      ]
     }
   ]
 }

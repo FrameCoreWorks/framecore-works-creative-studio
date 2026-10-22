@@ -13,7 +13,7 @@ Direction, in order of value:
 2. **Fixes from the 2026-10-16 test reel** (change CC-20261021-02): a marked sound moment must never be silent; acceptance checks locked copy and motion activity for HyperFrames reels; a service reel needs pictures, never a realistic object drawn in code, and its plan names the first-second image and the one big moment.
 3. **Room in the startup file.** The orchestrator `SKILL.md` was 16 bytes under its 32,000-byte budget at 1.118.0; move routing detail to references so a found defect can be fixed there. A change to startup text needs the owner's ChatGPT startup check.
 4. **Cheap evidence on every surface.** Claude Code runs at most 5 headless cases per gate with the owner's plan; Codex has not run 1.77.0 onwards; ChatGPT Work records sandbox runs separately from installed-client behavior.
-5. **Recommended extensions.** Every repository the owner sends is reviewed and added to the registry ([guide](extension-registry.md)).
+5. **Recommended extensions.** Every repository the owner sends is reviewed and added to the registry ([guide](extension-registry.md)). Since 2026-10-22 Studio also proposes one, once and in the user's terms, when it clearly improves a reel (FrameCut and Motion Graphics aim for the strongest result, not the simplest) and installs it only after the user agrees; replies never quote Studio's own files or rules.
 
 Not the direction: new knowledge rounds, ready-made ideas or category lists, personal defaults, deleting package paths, or growing a reference without a trigger.
 
