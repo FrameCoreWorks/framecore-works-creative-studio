@@ -1,0 +1,65 @@
+{
+  "change_id": "CW-20261022-02",
+  "scope": "Source-guided application exercises and focused source tests, not installed-client behavior",
+  "baseline": "b92b45b227dc667934c81080afebcdd3c0163b29",
+  "source_guided": {
+    "before_cases": 5,
+    "after_cases": 5,
+    "execution": "fresh-context agents, local package read only; no providers, installs or renders",
+    "tokens": "not exposed by agent tool",
+    "duration": "not measured",
+    "cases": [
+      {
+        "id": "first-configuration",
+        "before": "Recommends earshot/Motion Designer, no Superpowers registry entry",
+        "after": "Superpowers first, manual host catalog, missing listing acknowledged, Studio continues"
+      },
+      {
+        "id": "unreadable-skills",
+        "before": "Does not claim activation; continues plan",
+        "after": "Separates user installation report and readable skill evidence; continued Studio. Inference from no shell was overbroad; contract clarified before release."
+      },
+      {
+        "id": "accepted-board-repair",
+        "before": "Reads FPS then proposes fixed six-frame correction",
+        "after": "Distinguishes constant offset from accumulated drift before correction; retains board approval"
+      },
+      {
+        "id": "raster-typo",
+        "before": "Image edit route",
+        "after": "Image edit route, no development project"
+      },
+      {
+        "id": "unseen-board-no-sample",
+        "before": "Full storyboard acceptance; optional sample skipped",
+        "after": "Same full storyboard acceptance; optional sample skipped"
+      }
+    ]
+  },
+  "focused_tests": {
+    "registry_red": "5 expected failures; log retained in working environment",
+    "wiring_red": "onboarding field absent",
+    "green": "21 extension tests pass",
+    "canonical": "PASS; 37 owners, descriptions 7700/7800; welcome projection validated"
+  },
+  "independent_review": {
+    "base": "b92b45b227dc667934c81080afebcdd3c0163b29",
+    "head": "ae1f8014e71be59a65f493fda45f09a7e9fe6bd5",
+    "critical": 0,
+    "important": 0,
+    "minor": "Extra EOF blank line; fixed",
+    "model": "gpt-6-astra",
+    "reasoning": "high"
+  },
+  "host_behavior": {
+    "ordinary_chatgpt": "NOT_RUN",
+    "chatgpt_work_fresh_install": "NOT_RUN",
+    "codex": "NOT_RUN",
+    "claude": "NOT_RUN"
+  },
+  "stored_cases": {
+    "count": 18,
+    "status": "definitions, not executed installed-client tests",
+    "native_original_cases": 12
+  }
+}

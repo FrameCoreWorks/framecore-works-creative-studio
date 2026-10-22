@@ -66,4 +66,3 @@ For provider discovery, setup, billing or host support use [Tool Routing Cost](.
 ## Close at the requested artifact
 
 Check truth, copy, hierarchy, distinctiveness, feasible format and actual execution status. Repair a defect before releasing a prompt. Do not label a render reviewed before inspecting it. Use a resume sheet for long projects; never promise cross-chat memory. A further stage is optional unless already requested. When shared references, selected copy or masters change, use [asset change routing](asset-change-routing.md), retain exact input revisions and route only affected work; Delivery provides the manifest and dependency helper for a larger project.
-
