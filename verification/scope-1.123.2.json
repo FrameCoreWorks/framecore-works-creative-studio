@@ -1,0 +1,37 @@
+{
+  "version": "1.123.2",
+  "baseline_tag": "v1.123.1",
+  "baseline": "56c125e011556192c2a20d8ea4e82ecc53fcee5a",
+  "change_id": "CC-20261022-11",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/earshot/README.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/pipeline-core/references/loop-protocol.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/extensions_test.py"
+  ],
+  "added": [
+    "evals/native-earshot-cases.json",
+    "skills/pipeline-core/references/earshot-native-routing.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1541,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner's Earshot handover. The hosted 1.122.1 Earshot routing is ported to the repository with the skill named in four owners, the pinned command-line route kept for Claude Code and Codex, and no Gemini or MCP; private overlay lines are not published."
+}
