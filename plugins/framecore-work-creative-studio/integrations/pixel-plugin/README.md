@@ -7,10 +7,10 @@ Reviewed 2026-10-22 at [`dee3506`](https://github.com/willibrandon/pixel-plugin/
 | Idea | Where it went |
 | --- | --- |
 | Pixelate (box-average down, nearest-neighbour up), posterize to N levels, ordered Bayer dither | three versioned FrameCut picture effects: `pixelate`, `posterize`, `ordered_dither` (defaults change nothing; ordered dither is pinned to screen coordinates, so it does not crawl on video) |
-| Hue-shifted colour ramps, one light direction, no "pillow shading", palette tiers, palette swaps by role | the Animate engine's pixel style (`STYLE.md`, Palettes) |
-| Choosing a Bayer size (2x2, 4x4, 8x8) and when error diffusion is wrong | pixel style, Dithering |
-| Frame-based action timing (strike, anticipation, idle, walk key poses, blink) | pixel style, Motion habits, expressed in render frames instead of milliseconds |
-| Scaling a user's own sprites by whole numbers, nearest-neighbour, integer positions, sheet padding and frame data | pixel style, Supplied pixel assets |
+| Hue-shifted colour ramps, one light direction, no "pillow shading", palette tiers, palette swaps by role | the Animate engine's Animate reference, Pixel look (`references/animate-engine.md`; the engine's own `STYLE.md` stays byte-identical to its source) |
+| Choosing a Bayer size (2x2, 4x4, 8x8) and when error diffusion is wrong | Animate reference, Pixel look |
+| Frame-based action timing (strike, anticipation, idle, walk key poses, blink) | Animate reference, Pixel look, expressed in render frames instead of milliseconds |
+| Scaling a user's own sprites by whole numbers, nearest-neighbour, integer positions, sheet padding and frame data | Animate reference, Pixel look |
 
 ## What Studio did not take
 
