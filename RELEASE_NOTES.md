@@ -1,4 +1,7 @@
-# Creative Studio 1.119.4
+# Creative Studio 1.119.5
 
-- Recommended extension added: MoneyPrinterTurbo (PyPI `mpt` 1.3.9, commit 6992380), native in Codex and Claude Code, offered only on a user's explicit request.
-- Rights notes: its bundled songs must not be published; its API server must not be exposed.
+- Replies no longer quote Studio's own files or rules to justify a question; FrameCut asks for storyboard acceptance in plain words.
+- FrameCut and Motion Graphics aim for the strongest result, compare Studio's kits with installable add-ons, and offer a missing add-on once (this project or kept); installation only after the user agrees.
+- Footage with a diagram or animation is routed to FrameCut.
+
+The orchestrator changed again: the owner's ChatGPT startup check is recommended.

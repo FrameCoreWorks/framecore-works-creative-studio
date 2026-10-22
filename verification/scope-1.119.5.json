@@ -1,0 +1,28 @@
+{
+  "version": "1.119.5",
+  "baseline_tag": "v1.119.4",
+  "baseline": "e057a839a436476c022ef404e3113e57d86c75c0",
+  "change_id": "CC-20261022-04",
+  "origin": "cloud-code",
+  "files": 1541,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1531,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner observations from real use. Replies no longer quote Studio files or rules; FrameCut and Motion Graphics aim for the strongest result and offer a missing add-on once, installed only after the user agrees. G14 before/after recorded; ChatGPT behavior NOT_RUN."
+}
