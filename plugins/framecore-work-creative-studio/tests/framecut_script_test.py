@@ -199,5 +199,61 @@ class FontWarning(unittest.TestCase):
             self.assertNotIn('font_missing_glyphs', codes)
 
 
+class TranscriptSanity(unittest.TestCase):
+    """Warnings for transcripts that look like recognition failures (Open Design 0.26.0 review, 2026-10-22)."""
+    ASSET = {'sha256': 'a' * 64}
+
+    def imported(self, words=(), segments=()):
+        from fc_media import transcript_import
+        timing = 'asr_word' if words else 'segment'
+        return transcript_import(self.ASSET, {'timing': timing, 'words': list(words), 'segments': list(segments)})
+
+    def test_music_note_transcript_warns(self):
+        result = self.imported(segments=[{'text': '♪ ♪ ♪', 'start': 0, 'end': 2}, {'text': 'hello there', 'start': 2, 'end': 3}])
+        self.assertEqual(len(result['warnings']), 1)
+        self.assertIn('music', result['warnings'][0])
+
+    def test_micro_word_spans_warn(self):
+        short = [{'text': f'w{i}', 'start': i, 'end': i + (0.02 if i < 6 else 0.3)} for i in range(10)]
+        self.assertEqual(len(self.imported(words=short)['warnings']), 1)
+        normal = [{'text': f'w{i}', 'start': i, 'end': i + 0.3} for i in range(10)]
+        self.assertEqual(self.imported(words=normal)['warnings'], [])
+
+    def test_three_identical_segments_warn(self):
+        line = lambda i: {'text': 'Thank you.', 'start': i, 'end': i + 1}
+        self.assertEqual(len(self.imported(segments=[line(0), line(1), line(2)])['warnings']), 1)
+        self.assertEqual(self.imported(segments=[line(0), line(1), {'text': 'Bye', 'start': 2, 'end': 3}])['warnings'], [])
+
+    def test_empty_transcript_has_no_warnings(self):
+        self.assertEqual(self.imported()['warnings'], [])
+
+    def test_clean_transcript_has_no_warnings_and_fingerprint_is_stable(self):
+        segments = [{'text': 'Dzień dobry', 'start': 0, 'end': 1}, {'text': 'Zaczynamy', 'start': 1, 'end': 2}]
+        first, second = self.imported(segments=segments), self.imported(segments=segments)
+        self.assertEqual(first['warnings'], [])
+        self.assertEqual(first['fingerprint'], second['fingerprint'])
+
+    def test_english_only_model_with_polish_is_an_error_before_decoding(self):
+        import fc_media
+        with self.assertRaises(FrameCutError) as caught:
+            fc_media.model_language_check(Path('ggml-base.en.bin'), 'pl')
+        self.assertEqual(caught.exception.code, 'model_language_mismatch')
+        self.assertIsInstance(fc_media.model_language_check(Path('ggml-base.en.bin'), 'auto'), str)
+        self.assertIsNone(fc_media.model_language_check(Path('ggml-base.en.bin'), 'en'))
+        self.assertIsNone(fc_media.model_language_check(Path('ggml-base.bin'), 'pl'))
+        with tempfile.TemporaryDirectory() as tmp:
+            model = Path(tmp) / 'ggml-base.en.bin'
+            model.write_bytes(b'model')
+            asset = {'probe': {'has_audio': True, 'audio_index': 1}, 'path': 'clip.wav', 'sha256': 'b' * 64}
+            original = fc_media.ffmpeg
+            fc_media.ffmpeg = lambda *a, **k: self.fail('decoding started before the language check')
+            try:
+                with self.assertRaises(FrameCutError) as caught:
+                    fc_media.transcribe(tmp, asset, sys.executable, str(model), 'pl')
+            finally:
+                fc_media.ffmpeg = original
+            self.assertEqual(caught.exception.code, 'model_language_mismatch')
+
+
 if __name__ == '__main__':
     unittest.main()

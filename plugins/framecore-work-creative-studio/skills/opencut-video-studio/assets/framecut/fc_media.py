@@ -208,8 +208,39 @@ def transcript_import(asset, data):
                                   "start": item.get("start"), "end": item.get("end"), "speaker": item.get("speaker"),
                                   "confidence": item.get("confidence"), "verbatim": item.get("text", item.get("word"))})
     require(not result["words"] or timing in ("manual", "aligned", "asr_word"), "Word times require an explicit timing method")
+    result["warnings"] = transcript_warnings(result)
     result["fingerprint"] = fingerprint(result)
     return result
+
+
+GARBAGE = set("\ufffd♪♫♬♩♭♮♯")
+
+
+def transcript_warnings(result):
+    """Signs of a recognition failure, reported as checks to read, never as verdicts."""
+    warnings = []
+    tokens = [token for item in (result["words"] or result["segments"]) for token in (item["text"] or "").split()]
+    if tokens and sum(1 for token in tokens if GARBAGE & set(token)) > 0.2 * len(tokens):
+        warnings.append("More than 20 % of the transcript is music notes or unreadable characters: "
+                        "the recogniser may have heard music or noise; listen before using it")
+    timed = [w for w in result["words"] if isinstance(w["start"], (int, float)) and isinstance(w["end"], (int, float))]
+    micro = sum(1 for w in timed if w["end"] - w["start"] < 0.05)
+    if micro >= 5 and micro > 0.2 * len(timed):
+        warnings.append(f"{micro} of {len(timed)} words last under 0.05 s: word timing is unreliable; check boundaries before kinetic captions")
+    lines = [re.sub(r"[\W_]+", "", (s["text"] or "").casefold()) for s in result["segments"]]
+    if any(lines[i] and lines[i] == lines[i + 1] == lines[i + 2] for i in range(len(lines) - 2)):
+        warnings.append("Three identical segments in a row: a common recognition loop on silence or music; check that stretch")
+    return warnings
+
+
+def model_language_check(model, language):
+    """An English-only model (*.en) cannot transcribe another language; refuse before any decoding."""
+    if not re.search(r"\.en(\.|$)", Path(model).name):
+        return None
+    require(language in ("en", "auto"), f"The model {Path(model).name} is English-only and cannot transcribe '{language}'; "
+            "choose a multilingual model", "model_language_mismatch")
+    return (f"The model {Path(model).name} is English-only and the language is auto: "
+            "speech in another language will come out as English guesses") if language == "auto" else None
 
 
 def transcribe(root, asset, python, model, language="auto", timeout=600, word_times=False):
@@ -217,6 +248,7 @@ def transcribe(root, asset, python, model, language="auto", timeout=600, word_ti
     require(re.fullmatch(r"[a-z]{2,3}|auto", language), "Invalid language code")
     model = Path(model).resolve()
     require(model.is_file(), "ASR model unavailable; no model is downloaded automatically", "model_unavailable")
+    language_warning = model_language_check(model, language)
     source = confined(root, asset["path"], True)
     require(file_hash(source) == asset["sha256"], "Source changed", "stale_source")
     with tempfile.TemporaryDirectory(prefix="framecut-asr-") as tmp:
@@ -226,7 +258,11 @@ def transcribe(root, asset, python, model, language="auto", timeout=600, word_ti
         out, _ = run([str(Path(python).absolute()), str(Path(__file__).resolve()), "asr-worker", str(wav), str(model), language, "words" if word_times else "segments"], timeout)
         data = json.loads(out.strip().splitlines()[-1])
     data.update(model_hash=file_hash(model), source_hash=asset["sha256"])
-    return transcript_import(asset, data)
+    result = transcript_import(asset, data)
+    if language_warning:
+        result["warnings"].append(language_warning)
+        result["fingerprint"] = fingerprint({k: v for k, v in result.items() if k != "fingerprint"})
+    return result
 
 
 if __name__ == "__main__":
