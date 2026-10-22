@@ -342,5 +342,51 @@ class CachePoisoning(Fixture):
         self.assertEqual(list((self.root / '.framecut/audit/cache').glob('*.json')), [])
 
 
+class Ducking(Fixture):
+    def measure(self, wav, seconds, frequency):
+        import array
+        import math
+        import wave
+        with wave.open(str(wav)) as handle:
+            rate = handle.getframerate()
+            samples = array.array('h', handle.readframes(handle.getnframes()))
+        window = samples[int(seconds * rate):int(seconds * rate) + rate // 2]
+        real = sum(v * math.cos(2 * math.pi * frequency * n / rate) for n, v in enumerate(window))
+        imag = sum(v * math.sin(2 * math.pi * frequency * n / rate) for n, v in enumerate(window))
+        return math.hypot(real, imag) / len(window)
+
+    def test_music_is_lowered_lightly_under_speech_only_and_by_default(self):
+        ffmpeg(['-f', 'lavfi', '-i', 'color=gray:s=320x180:r=30:d=6', '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=48000:duration=6',
+                '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', str(self.root / 'talk.mp4')])
+        ffmpeg(['-f', 'lavfi', '-i', 'sine=frequency=880:sample_rate=48000:duration=6', '-c:a', 'pcm_s16le', str(self.root / 'bed.wav')])
+        self.p['assets']['t'] = ingest(self.root, 'talk.mp4', 't')
+        self.p['assets']['m'] = ingest(self.root, 'bed.wav', 'm')
+        words = [{'id': 'w1', 'text': 'Hello', 'start': 0.6, 'end': 1.4}, {'id': 'w2', 'text': 'again', 'start': 4.6, 'end': 5.4}]
+        self.p['analyses']['t'] = {'source_hash': self.p['assets']['t']['sha256'], 'timing': 'aligned', 'words': words}
+        self.p['sequences'] = [sequence(duration=180, clips=[{'id': 'c1', 'asset': 't', 'start': 0, 'duration': 180, 'source_in': 0}],
+                                        audio=[{'id': 'bed', 'asset': 'm', 'start': 0, 'duration': 180, 'source_in': 0, 'bus': 'music'}])]
+        self.p = commit_revision(self.root / 'project.json', self.p, 1, 'duck')
+        render(self.p, self.root, 'wide', 'ducked', mode='preview', max_disk_mb=128)
+        decoded = self.root / 'ducked.wav'
+        ffmpeg(['-i', str(self.root / 'ducked/video.mp4'), '-vn', '-ar', '48000', '-ac', '1', '-c:a', 'pcm_s16le', str(decoded)])
+        speaking = self.measure(decoded, 0.8, 880)
+        pause = self.measure(decoded, 2.8, 880)
+        self.assertGreater(pause, 0)
+        ratio = speaking / pause
+        self.assertTrue(0.40 < ratio < 0.62, f'expected about -6 dB under speech and full level in the pause, got ratio {ratio:.2f}')
+
+    def test_speech_intervals_follow_the_words_and_skip_clips_without_a_transcript(self):
+        from fc_render import speech_intervals
+        self.p['sequences'] = [sequence(duration=90, clips=[{'id': 'c1', 'asset': 'a', 'start': 0, 'duration': 90, 'source_in': 0}])]
+        self.p['analyses']['a'] = {'source_hash': self.p['assets']['a']['sha256'], 'timing': 'aligned', 'words': [
+            {'id': 'w1', 'text': 'one', 'start': 0.1, 'end': 0.3}, {'id': 'w2', 'text': 'two', 'start': 0.4, 'end': 0.6},
+            {'id': 'w3', 'text': 'three', 'start': 2.5, 'end': 2.8}]}
+        spans = speech_intervals(self.p, self.p['sequences'][0])['c1']
+        self.assertEqual(len(spans), 2, spans)
+        self.assertLess(spans[0][1], spans[1][0])
+        del self.p['analyses']['a']
+        self.assertNotIn('c1', speech_intervals(self.p, self.p['sequences'][0]))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -240,17 +240,78 @@ def audio_events(project, seq):
     return [e for e in events if not e.get("mute")]
 
 
+DEFAULT_DUCK_DB = -6
+DUCK_ATTACK, DUCK_RELEASE, DUCK_HOLD = 0.15, 0.4, 0.5
+
+
+def speech_intervals(project, seq):
+    """Where each clip's own timed transcript has speech, as (start, end) seconds on the timeline with ramp room around each phrase.
+
+    Phrases closer than DUCK_HOLD merge so music does not pump between words. A clip with a transcript but no words in range maps
+    to an empty list (no speech). A clip without a timed transcript is absent: the caller falls back to the clip's whole extent."""
+    from fc_captions import project_captions
+    fps = float(ratio(seq["fps"]))
+    spans = {}
+    for word in project_captions(project, {**seq, "captions": {}})["words"]:
+        spans.setdefault(word["clip"], []).append((word["start"] / fps, word["end"] / fps))
+    result = {}
+    for clip in seq["clips"]:
+        analysis = project["analyses"].get(clip["asset"])
+        if not (analysis and (analysis.get("words") or analysis.get("segments"))):
+            continue
+        merged = []
+        for start, end in sorted(spans.get(clip["id"], [])):
+            start, end = start - DUCK_ATTACK, end + DUCK_RELEASE
+            if merged and start - merged[-1][1] <= DUCK_HOLD:
+                merged[-1][1] = max(merged[-1][1], end)
+            else:
+                merged.append([start, end])
+        result[clip["id"]] = [(max(0.0, a), b) for a, b in merged]
+    return result
+
+
+def duck_gain(intervals, amplitude, offset):
+    """ffmpeg volume expression: smooth ramps down to `amplitude` inside each interval, 1 elsewhere. Intervals must not overlap."""
+    terms = []
+    for a, b in intervals:
+        a, b = a - offset, b - offset
+        terms.append(f"clip(min((t-({decimal(a)}))/{DUCK_ATTACK},(({decimal(b)})-t)/{DUCK_RELEASE}),0,1)")
+    return f"volume='1-(1-{amplitude})*({'+'.join(terms)})':eval=frame"
+
+
 def soundtrack(root, project, seq, d, cache):
     fps = ratio(seq["fps"])
     samples = round_boundary(Fraction(seq["duration"]) / fps * 48000)
     events = audio_events(project, seq)
     settings = {"events": [{**e, "resolved_start": event_start(e, seq)} for e in events],
                 "assets": {e["asset"]: {"sha256": project["assets"][e["asset"]]["sha256"], "probe": project["assets"][e["asset"]]["probe"]} for e in events},
-                "fps": str(fps), "samples": samples, "lufs": d.get("lufs")}
+                "fps": str(fps), "samples": samples, "lufs": d.get("lufs"), "duck_default": DEFAULT_DUCK_DB,
+                "speech": speech_intervals(project, seq)}
     def build(out):
         args = ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo"]
         graph, outputs = [f"[0:a]atrim=end_sample={samples},asetpts=PTS-STARTPTS[silence]"], ["[silence]"]
-        dialogue = [(event_start(e, seq), event_start(e, seq) + e["duration"]) for e in events if e.get("bus", "dialogue") == "dialogue"]
+        speech = settings["speech"]
+        dialogue = []
+        for e in events:
+            if e.get("bus", "dialogue") != "dialogue":
+                continue
+            if e["id"] in speech:
+                dialogue += speech[e["id"]]
+            else:
+                dialogue.append((float(Fraction(event_start(e, seq)) / fps), float(Fraction(event_start(e, seq) + e["duration"]) / fps)))
+        dialogue.sort()
+        gap = 0.0
+        while True:
+            merged = []
+            for a, b in dialogue:
+                if merged and a <= merged[-1][1] + gap:
+                    merged[-1][1] = max(merged[-1][1], b)
+                else:
+                    merged.append([a, b])
+            if len(merged) <= 400:  # keeps the filter expression bounded for very long talks
+                break
+            gap = max(1.0, gap * 2)
+        dialogue = [tuple(x) for x in merged]
         for i, e in enumerate(events, 1):
             asset = project["assets"][e["asset"]]
             if e.get("speed_curve"):
@@ -287,11 +348,10 @@ def soundtrack(root, project, seq, d, cache):
                 fade = max(float(Fraction(frames) / fps), e.get("fade", 0))
                 if fade:
                     filters.append(f"afade=t={direction}:st={0 if direction=='in' else decimal(duration-Fraction(str(fade)))}:d={fade}")
-            if e.get("bus") == "music" and e.get("duck_db", 0) < 0 and dialogue:
-                # Frame-aligned gain schedule, independent of concatenation length. No hidden audio cut.
-                terms = [f"between(t,{decimal(Fraction(a-event_start(e,seq))/fps)},{decimal(Fraction(b-event_start(e,seq))/fps)})" for a,b in dialogue]
-                amplitude = 10 ** (e["duck_db"] / 20)
-                filters.append("volume='if(gt(" + "+".join(terms) + f",0),{amplitude},1)':eval=frame")
+            duck = e.get("duck_db", DEFAULT_DUCK_DB)
+            if e.get("bus") == "music" and duck < 0 and dialogue:
+                # Smooth ramps follow the speech, not the whole clip; duck_db 0 keeps the music level.
+                filters.append(duck_gain(dialogue, round(10 ** (duck / 20), 4), float(Fraction(event_start(e, seq)) / fps)))
             filters.append(f"adelay={start_samples}S:all=1")
             graph.append(f"[{i}:{asset['probe']['audio_index']}]" + ",".join(filters) + f"[a{i}]")
             outputs.append(f"[a{i}]")

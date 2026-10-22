@@ -99,7 +99,7 @@ The pattern behind these: reproduce first, change the smallest text the model re
 - G09: for a static page Studio read the animation from the source without loading a skill. The probe's value is on script-driven sites; run it there before changing routing.
 - Image reconstruction has one real-photo case; the owner's own template (PRISM) filled by Studio has not been tested.
 - Skill descriptions are at about 7,773 of 7,800 characters; measure before editing any description.
-- FrameCut audit (2026-10-22): seven product decisions wait for the owner, among them runtime enforcement of the storyboard gate, per-deliverable caption settings and render speed. See [the audit](framecut/audit-2026-10-22.md).
+- FrameCut audit (2026-10-22): the owner decided the board stays a one-time host-managed preview and music ducks lightly under speech by default (1.119.3); per-deliverable caption settings, render speed, per-sequence delivery fingerprints and the receipt's sound blindness still wait. See [the audit](framecut/audit-2026-10-22.md).
 
 ### 5. Notes per surface
 
