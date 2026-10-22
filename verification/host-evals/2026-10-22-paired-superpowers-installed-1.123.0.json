@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-22",
+  "studio": "installed 1.123.0 copy",
+  "host": "Claude Code headless, isolated CLAUDE_CONFIG_DIR, Studio and Superpowers 6.4.2 via two --plugin-dir",
+  "cases": [
+    {
+      "id": "P1-framecut-drift",
+      "title": "Accepted FrameCut edit, audio six frames late: debug the cause, keep the accepted board",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1251,
+        "output": 2010,
+        "cache_read": 44334,
+        "cache_write": 27084
+      },
+      "seconds": 18.2,
+      "wall_seconds": 18.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mamy zaakceptowany storyboard i gotowy montaż we FrameCut (25 fps). W całym filmie dźwięk jest około 6 klatek za obrazem. Co robimy?",
+          "reply": "W katalogu roboczym nie ma projektu FrameCut ani mediów, więc nic jeszcze nie zmieniałem. Poniżej plan naprawy.\n\n**Co oznacza „6 klatek za obrazem”**\nPrzy 25 fps jedna klatka to 40 ms, więc 6 klatek to **240 ms**. Dźwięk spóźnia się względem obrazu, czyli trzeba go **przesunąć wcześniej o 6 klatek**. Jeśli przesunięcie jest stałe w całym filmie, to jest to jedna korekta, a storyboard zostaje bez zmian: kolejność, kadry, teksty i czas trwania się nie zmieniają.\n\n**Kroki**\n1. **Zmierz przesunięcie.** Sprawdź klaskę, twardą spółgłoskę (p/b/t) albo uderzenie dźwiękowe na wyraźnym ruchu. Zrób to na początku, w środku i na końcu filmu.\n   - Jeśli wszędzie wychodzi ~6 klatek, to stały offset.\n   - Jeśli przesunięcie rośnie albo maleje, to dryf, a nie offset. Wtedy przyczyna jest inna: niezgodny fps albo sample rate źródła, albo VFR. Samo przesunięcie nic nie da i trzeba to zdiagnozować osobno.\n2. **Przesuń dźwięk w FrameCut.** Przesuń ścieżki audio (`move_clip`) o −6 klatek na osi master, w jednej operacji `apply` z aktualnym `--base-revision`. Najpierw zrób `--dry-run`, żeby zobaczyć, co zmienia się na osi.\n   - Przesunięcie o −6 klatek na początku zostawia 6 klatek luki albo ucina początek dźwięku. Trzeba zdecydować, czy dopasować początek (docięcie lub wyciszenie), czy dodać 6 klatek ciszy na końcu.\n   - Muzyka na osobnej szynie i narracja, które z założenia mają zostać niezmienione, nie powinny się przesunąć. Przesuwamy tylko to, co jest zsynchronizowane z obrazem.\n   - Napisy z czasami słów musimy przesunąć razem z dźwiękiem. Jeśli pochodzą z transkrypcji, ich czasy nadal opisują dźwięk.\n3. **Skompiluj i sprawdź.** Zrób `preview-frame` w kilku punktach kontrolnych i `render --mode final` do nowego folderu. Potem uruchom `verify` oraz `review`.\n4. **Odsłuch.** Ja nie mogę ocenić synchronizacji na słuch. Ostatnie potwierdzenie, że dźwięk i obraz są zgrane, musi zrobić ktoś, kto odtworzy film. Bez tego raportuję REVIEW_REQUIRED, a nie „zgrane”.\n\n**Czego potrzebuję**\n- Ścieżki do projektu FrameCut (albo do plików), bo w katalogu roboczym jest pusto.\n- Odpowiedzi na dwa pytania:\n  - Czy opóźnienie dotyczy całego dźwięku, czy tylko nagrania z kamery (muzyka jest osobno)?\n  - Czy na początku i na końcu filmu opóźnienie jest takie samo?\n\nGdy wskażesz projekt, zmierzę offset, zrobię dry-run i pokażę Ci zmiany przed renderem.",
+          "reply_chars": 2355,
+          "reply_sha256": "6e8e3c6cc9ecb4656ea37033b9b826b0ff1f972b8116972fe0ea2c5755cc03eb",
+          "skills": [
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1251,
+            "output": 2010,
+            "cache_read": 44334,
+            "cache_write": 27084
+          },
+          "seconds": 18.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "2 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "P2-uncertain-direction",
+      "title": "Uncertain user, new reel: Studio intake leads; Superpowers must not add a spec document or a second questionnaire",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1279,
+        "output": 2392,
+        "cache_read": 44053,
+        "cache_write": 17428
+      },
+      "seconds": 20.3,
+      "wall_seconds": 20.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Nagrań nie widzę w katalogu roboczym, więc na razie planuję bez oglądania materiału. Poniżej rekomendowana droga i pytania, od których zależy plan.\n\n## Rekomendacja: nagrania z telefonu jako baza, schemat jako szkielet\n\nNie rysowałbym magazynu od zera w animacji. Realne ujęcia (towar na rampie, skanowanie, regały, pakowanie) dają wiarygodność. Animowany schemat daje czytelność i spina całość. Po angielsku to „footage-first edit with motion-graphic overlay”.\n\n**Szkielet (ok. 25–35 s, pion 9:16):**\n1. **Przyjęcie** – dostawa, rozładunek\n2. **Kontrola i wprowadzenie do systemu** – skan, sprawdzenie\n3. **Składowanie** – regał, lokalizacja\n4. **Kompletacja zamówienia** – zbieranie z półek\n5. **Pakowanie** – karton, etykieta\n6. **Wysyłka** – paczka na paletę lub do kuriera\n\n**Schemat:** pozioma lub pionowa „trasa” z 6 punktami. Linia rysuje się wraz z kolejnymi ujęciami, a aktywny punkt się podświetla. Każdy etap ma krótki podpis (1–3 słowa) i wycinek własnego nagrania.\n\n**Dwie realizacje do wyboru:**\n- **A. Montaż w edytorze (CapCut/Premiere/DaVinci) plus nakładka schematu.** To najszybsze rozwiązanie, jeśli ktoś u Was już montuje.\n- **B. Schemat i animacja z kodu, wyrenderowane do MP4, z Waszymi nagraniami w środku.** Daje czystszy, powtarzalny wygląd i łatwo zrobić warianty. Mogę to zrobić tutaj, jeśli wgracie pliki.\n\n## Co muszę wiedzieć (tylko to, co zmienia plan)\n\n1. **Nagrania:** ile ich jest, jak długie, w pionie czy poziomie? Czy są ujęcia wszystkich 6 etapów? Wgrajcie je do katalogu roboczego, to je obejrzę i dopasuję plan do tego, co faktycznie macie.\n2. **Dla kogo jest rolka:** potencjalni klienci (e-commerce, które szukają fulfillmentu), rekrutacja czy zwykły wizerunek? Od tego zależy ton i końcowe CTA.\n3. **Dlaczego Wy:** jedna rzecz, która Was wyróżnia, np. „zamówienie wychodzi tego samego dnia”, „99,x% bezbłędnych wysyłek”, „własny system WMS”. Bez niej rolka pokaże tylko, że magazyn istnieje. Podajcie tylko liczby, które możecie potwierdzić. Ja ich nie wymyślam.\n4. **Dźwięk:** muzyka z podpisami na ekranie, czy lektor? Domyślnie proponuję muzykę, krótkie podpisy i napisy, bez lektora.\n5. **Wyświetlanie osób i danych:** czy w kadrze są pracownicy, etykiety z adresami albo logo klientów? Takie ujęcia trzeba rozmyć lub pominąć.\n\n## Co zrobię po Waszych odpowiedziach\n- Ułożę beat map (które ujęcie, ile sekund, co na ekranie w pierwszej sekundzie, jeden „wow moment”).\n- Zaprojektuję schemat i styl animacji.\n- Napiszę podpisy ekranowe, a CTA przejdzie przez wersję copy.\n- Złożę rolkę (opcja B) albo dam gotowy plan montażu (opcja A).\n\nNajszybciej ruszymy, jeśli wgracie nagrania i odpowiecie na pytania 2 i 3.",
+          "reply_chars": 2659,
+          "reply_sha256": "458f4b2441fa3ea238c1e43d18f41cee827ac6c43bea97dd5a802ba6893f438b",
+          "skills": [
+            "creative-video-producer"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1279,
+            "output": 2392,
+            "cache_read": 44053,
+            "cache_write": 17428
+          },
+          "seconds": 20.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": false,
+              "detail": "5 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "P3-bare-invocation",
+      "title": "Bare invocation keeps the complete welcome with Superpowers loaded",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1182,
+        "output": 736,
+        "cache_read": 22165,
+        "cache_write": 23805
+      },
+      "seconds": 6.7,
+      "wall_seconds": 6.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "I am FrameCore Works Creative Studio. I help develop ideas, create creative materials and improve projects — from the first concept through production planning and further revisions.\n\nI can help you with:\n\n- **Graphics and advertising materials** — posters, flyers, banners, social media posts and ideas for the look of a campaign.\n- **Video, motion design and storytelling** — reels, ads, animated graphics and typography, scripts, music videos, storyboards, shot plans and character direction.\n- **Writing** — headlines, descriptions, slogans, dialogue and adapting language to your audience.\n- **Prompts and references** — instructions for creating images and video, and organizing examples that guide the project.\n- **Music, voice and sound** — musical concepts, lyrics and instructions for audio tools, and planning sound design.\n- **Editing and refining materials** — scene order, subtitles, rhythm, animation plans and specific improvements to supplied work.\n\nI help with both individual materials and larger campaigns. We can also learn these skills step by step. File preparation and analysis use the tools available in the current conversation.\n\nIf you have a logo, photos, graphics, a video, text, examples or documents, you can add them now or later.\n\n**Choose where to start:**\n\n1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.\n2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.\n3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.\n4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.\n5. **FrameCut** — analyze, edit and finish your video, combining footage, captions, animation and sound.\n\nEnter **1**, **2**, **3**, **4** or **5**.",
+          "reply_chars": 2019,
+          "reply_sha256": "fa2b197b2e82d7ff8b98f744a2df5cfd3ec33c1990e458dca85bc31393e418a5",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1182,
+            "output": 736,
+            "cache_read": 22165,
+            "cache_write": 23805
+          },
+          "seconds": 6.7,
+          "checks": []
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "seconds": 45.5,
+  "tokens": {
+    "input": 3712,
+    "output": 5138,
+    "cache_read": 110552,
+    "cache_write": 68317
+  },
+  "purpose": "Owner asked to confirm the Studio and Superpowers orchestration after updating the plugin. Run on the account's installed copies synced to the container: Studio 1.123.0 (byte-identical to the release, 0 differences) and Superpowers 6.4.2.",
+  "finding": "Both plugins load together without conflict: full welcome (P3), correct FrameCut defect plan that keeps the accepted board (P1), Superpowers' brainstorming does not take over. No Superpowers skill was invoked in any case, as in the first paired run (6 of 6 conversations): companion orchestration is not exercised in Claude Code. P2 asked five questions and routed to Creative Video Producer, where the first run of the same text asked none and routed to FrameCut: run-to-run variance, not attributable to Superpowers since none of its skills ran."
+}
