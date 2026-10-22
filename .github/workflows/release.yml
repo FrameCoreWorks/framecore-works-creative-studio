@@ -19,14 +19,14 @@ jobs:
   publish:
     if: github.repository == 'FrameCoreWorks/framecore-works-creative-studio'
     runs-on: ubuntu-latest
-    # The apt mirror can take over 20 minutes on a slow day (1.123.1, 2026-10-22); the checks need their own room.
-    timeout-minutes: 45
+    # The apt mirror took 20 to 25 minutes on 2026-10-22 (1.123.1 and 1.123.2); the checks need their own room.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           persist-credentials: false
       - name: Install ffmpeg, numpy and Pillow for the media tests
-        timeout-minutes: 15
+        timeout-minutes: 30
         run: |
           sudo apt-get update -q -o Acquire::Retries=3
           sudo apt-get install -y -q --no-install-recommends -o Acquire::Retries=3 ffmpeg
