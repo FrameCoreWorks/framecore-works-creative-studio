@@ -1,0 +1,34 @@
+{
+  "change_id": "CW-20261022-01",
+  "date": "2026-10-22",
+  "scope": "Dedicated foundation branch publication only",
+  "branch": "cw/superpowers-companion-foundation-2026-10-22",
+  "foundation_commit": "734fd72a1c5ee3b71f8699e6735f662bd4b17082",
+  "verified_tree_sha": "cb801b89c53e0a33fbbbfcb39c4eca7f19f38f8b",
+  "local_and_remote_tree_equal": true,
+  "remote_head_readback": "PASS",
+  "main_head_unchanged": "b92b45b227dc667934c81080afebcdd3c0163b29",
+  "shared_package_changed": false,
+  "hosted_plugin_written": false,
+  "publication_method": "Connected GitHub API; local Git push lacked credentials. Fetched commit and verified tree equality.",
+  "ci_workflows": "NOT_CHECKED; local canonical and full-suite evidence in foundation verification record",
+  "other_task_branches": [
+    {
+      "branch": "ccr-06247e92-aihwc6",
+      "head": "cb431a6a22d2c1d38326db71da110078b06a8eb7",
+      "contained_in_main": true
+    },
+    {
+      "branch": "ccr-9d0ac477-rf33kp",
+      "head": "b92b45b227dc667934c81080afebcdd3c0163b29",
+      "contained_in_main": true
+    },
+    {
+      "branch": "ccr-b6d36a1c-4hszow",
+      "head": "daab5828bdd4025280ebe2af5f5d5cccacae4a5c",
+      "contained_in_main": true
+    }
+  ],
+  "branches_deleted": [],
+  "fresh_client_behavior": "NOT_RUN"
+}

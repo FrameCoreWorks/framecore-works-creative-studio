@@ -3129,7 +3129,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending publication of this foundation commit to its dedicated branch; main stays at the inspected baseline. Publication is verified by subsequent remote readback, not by this pre-publication entry.
+- GitHub: synchronized on the dedicated branch. Foundation commit `734fd72a1c5ee3b71f8699e6735f662bd4b17082` was read back from the remote; its complete tree matches the verified local tree. Main remains at the inspected baseline. See the [branch publication record](../verification/superpowers-foundation-publication-2026-10-22.json).
 - ChatGPT Work: not_run for a new release; the existing hosted package was inspected only, and the installed Superpowers process skills were used in this conversation.
 - Codex: not_run for installed-client integration.
 - Branch hygiene: the three existing `ccr-*` branches are already contained in baseline main; preserved for the owner. `gh-pages` preserved.
