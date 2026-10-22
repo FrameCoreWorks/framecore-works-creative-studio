@@ -1,0 +1,11 @@
+earshot-audio packages Earshot by Leon Lin (https://github.com/Leonxlnx/earshot), MIT licence, Copyright (c) 2026
+Leon Lin; the full licence text is in LICENSE.
+
+Pinned upstream: tag v0.4.0, commit 591fa3e028032e6dce56620a20e932e35667e8d8, tree
+d6f2dbc43f7b38b2147cfd04bbd7aa9055701f1a. The files under skills/earshot/real-sound/ are copied from upstream's
+skills/real-sound/ byte for byte (hashes in upstream.json). The engine itself is not included: scripts/runtime.py
+installs it from the pinned commit after checking every file against upstream.json.
+
+skills/earshot/SKILL.md, its references listening.md and studio-handoff.md, scripts/runtime.py and the tests are
+written by FrameCore Works for this plugin. The CLAP (laion/larger_clap_general) and AST
+(MIT/ast-finetuned-audioset-10-10-0.4593) models are downloaded separately under their own licences.

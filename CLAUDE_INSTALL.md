@@ -91,6 +91,16 @@ Before providers or other add-ons, follow [first companion setup](plugins/framec
 
 Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
 
+## Sound companion: Earshot Audio
+
+The same marketplace lists a second plugin, `earshot-audio` (Earshot 0.4.0 by Leon Lin, MIT): local listening, measuring, sound effects on cue frames and soundtracks from licensed recordings. Offer it once when a project needs sound and the user agrees; Studio works without it. In an interactive Claude Code session the user runs:
+
+```text
+/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio
+```
+
+Installing the plugin writes no engine. Its `scripts/runtime.py status` reports readiness; `install --tier light|full --yes` and `fetch-models --yes` run only after the user agrees, from the pinned commit with every file checked. Nothing is uploaded, and its `llm` and `mcp` commands are refused. Remove it with `/plugin uninstall earshot-audio` and delete `~/.framecore-studio/extensions/earshot` if the user wants the engine gone.
+
 ## 6. Update and remove
 
 - Claude Code: `claude plugin marketplace update framecore-works`, then `claude plugin update framecore-work-creative-studio@framecore-works`. To move to a newer pinned release, add the marketplace again with the new tag (`claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v<new>`) and update. Auto-update for third-party marketplaces is off by default and can be turned on in the `/plugin` Marketplaces tab of the terminal CLI. Start a new conversation afterwards.

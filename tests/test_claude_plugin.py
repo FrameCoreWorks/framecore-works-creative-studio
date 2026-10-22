@@ -24,10 +24,15 @@ class Manifests(unittest.TestCase):
     def test_marketplace_lists_the_package_by_relative_source(self):
         self.assertEqual(MARKET['name'], 'framecore-works')
         self.assertTrue(MARKET['owner']['name'])
-        [entry] = MARKET['plugins']
-        self.assertEqual((entry['name'], entry['version']), (PORTABLE['name'], PORTABLE['version']))
-        self.assertTrue(entry['source'].startswith('./') and '..' not in entry['source'])
+        # Studio plus its sound companion earshot-audio (2026-10-22); every entry is a relative source in this repository.
+        entries = {e['name']: e for e in MARKET['plugins']}
+        entry = entries[PORTABLE['name']]
+        self.assertEqual(entry['version'], PORTABLE['version'])
         self.assertEqual((ROOT / entry['source']).resolve(), PLUGIN.resolve())
+        for item in MARKET['plugins']:
+            self.assertTrue(item['source'].startswith('./') and '..' not in item['source'], item['name'])
+            manifest = json.loads((ROOT / item['source'] / '.claude-plugin/plugin.json').read_text(encoding='utf-8'))
+            self.assertEqual((manifest['name'], manifest['version']), (item['name'], item['version']))
 
     def test_documented_naming_rules(self):
         self.assertRegex(MARKET['name'], r'^[A-Za-z0-9][A-Za-z0-9._-]*$')

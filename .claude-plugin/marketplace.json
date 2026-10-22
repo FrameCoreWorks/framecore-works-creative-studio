@@ -13,6 +13,14 @@
       "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
       "version": "1.123.2",
       "category": "productivity"
+    },
+    {
+      "name": "earshot-audio",
+      "displayName": "Earshot Audio",
+      "source": "./plugins/earshot-audio",
+      "description": "Ears and a sound kit for an agent: local listening, measuring and sound effects on cue frames, and soundtracks from licensed recordings (Earshot 0.4.0 by Leon Lin, MIT).",
+      "version": "1.0.0",
+      "category": "productivity"
     }
   ]
 }
