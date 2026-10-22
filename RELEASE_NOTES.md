@@ -1,7 +1,7 @@
-# Creative Studio 1.119.5
+# Creative Studio 1.120.0
 
-- Replies no longer quote Studio's own files or rules to justify a question; FrameCut asks for storyboard acceptance in plain words.
-- FrameCut and Motion Graphics aim for the strongest result, compare Studio's kits with installable add-ons, and offer a missing add-on once (this project or kept); installation only after the user agrees.
-- Footage with a diagram or animation is routed to FrameCut.
+FrameCut, from a review of MoneyPrinterTurbo (methods only, no code copied):
 
-The orchestrator changed again: the owner's ChatGPT startup check is recommended.
+- `align-script`: known script plus timed speech gives script spelling with speech timing and a coverage report.
+- Caption cues follow sentence, punctuation and clause breaks and never end on a Polish one-letter word.
+- `font_missing_glyphs` blocks a final when the caption font cannot draw the text.
