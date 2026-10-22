@@ -1,4 +1,4 @@
-# FrameCore Works Creative Studio 1.122.0
+# Creative Studio 1.122.0
 
 Superpowers is now Studio's first optional companion during setup. Users install it separately through the plugin catalog of their host; Studio then discovers and reads the relevant available skills for planning, debugging, implementation, review and verification.
 
