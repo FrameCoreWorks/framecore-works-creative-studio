@@ -35,7 +35,9 @@ def inspect(video, destination, audio=None, cover_time=None):
          "-of", "json", str(video)], capture_output=True, text=True, check=True)
     probe = json.loads(result.stdout)
     if cover_time is not None:
-        duration = float(probe.get("format", {}).get("duration") or 0)
+        video_stream = next((s for s in probe.get("streams", []) if s.get("codec_type") == "video"), {})
+        # The video's own length, not the container's: longer audio must not admit a time with no picture.
+        duration = float(video_stream.get("duration") or probe.get("format", {}).get("duration") or 0)
         if not 0 <= cover_time < duration:
             raise ValueError(f"Cover time {cover_time} s is outside the film (0 to {duration} s)")
     # Refuse replacement so earlier review evidence remains recoverable.
@@ -84,7 +86,12 @@ def inspect(video, destination, audio=None, cover_time=None):
         subprocess.run([ffmpeg, "-protocol_whitelist", "file,pipe", "-hide_banner", "-loglevel", "error", "-i", str(video),
                         "-ss", str(cover_time), "-map", "0:v:0", "-frames:v", "1", str(destination / "cover.png")],
                        check=True, capture_output=True, text=True)
-        evidence["cover"] = {"time": cover_time, "file": "cover.png"}
+        cover = destination / "cover.png"
+        # ffmpeg exits 0 when the seek lands past the last frame, so the file itself is the evidence.
+        written = cover.is_file() and cover.stat().st_size > 0
+        evidence["cover"] = {"time": cover_time, "file": "cover.png", "result": "PASS" if written else "FAIL"}
+        if not written:
+            failed.append("cover")
     # Avoid embedding the machine-specific source pathname from ffprobe.
     evidence["probe"].get("format", {}).pop("filename", None)
     (destination / "evidence.json").write_text(json.dumps(evidence, indent=2) + "\n")

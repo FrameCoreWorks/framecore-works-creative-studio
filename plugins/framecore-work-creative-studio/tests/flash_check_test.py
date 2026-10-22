@@ -93,6 +93,10 @@ class FlashCheckTest(unittest.TestCase):
         self.assertIn('not WCAG', report['screening'])
         self.assertRegex(report['video_sha256'], r'^[0-9a-f]{64}$')
 
+    def test_samples_stay_compact_for_long_films(self):
+        frames = flash.samples(self.video('compact.mp4', toggle(1, 15)))
+        self.assertEqual(frames.dtype, np.float32)
+
     def test_short_and_unreadable_inputs(self):
         short = self.video('short.mp4', toggle(1, 3)[:15])
         self.assertIn(flash.main([short]), (0, 1))

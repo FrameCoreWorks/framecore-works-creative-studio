@@ -241,6 +241,9 @@ class TranscriptSanity(unittest.TestCase):
         self.assertIsInstance(fc_media.model_language_check(Path('ggml-base.en.bin'), 'auto'), str)
         self.assertIsNone(fc_media.model_language_check(Path('ggml-base.en.bin'), 'en'))
         self.assertIsNone(fc_media.model_language_check(Path('ggml-base.bin'), 'pl'))
+        for quantized in ('ggml-base.en-q5_1.bin', 'ggml-tiny.en-q8_0.bin', 'ggml-small.en_q5.bin'):
+            with self.assertRaises(FrameCutError):
+                fc_media.model_language_check(Path(quantized), 'pl')
         with tempfile.TemporaryDirectory() as tmp:
             model = Path(tmp) / 'ggml-base.en.bin'
             model.write_bytes(b'model')

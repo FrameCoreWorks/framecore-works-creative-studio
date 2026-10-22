@@ -45,9 +45,12 @@ def samples(path, fps=SAMPLE_FPS, size=SIZE):
     frame_bytes = width * height * 3
     if len(raw) < 2 * frame_bytes:
         raise ValueError(f'{path}: fewer than two frames decoded')
-    rgb = np.frombuffer(raw[: len(raw) // frame_bytes * frame_bytes], np.uint8).reshape(-1, height, width, 3) / 255.0
-    linear = np.where(rgb <= 0.04045, rgb / 12.92, ((rgb + 0.055) / 1.055) ** 2.4)
-    return linear @ np.array([0.2126, 0.7152, 0.0722])
+    rgb = np.frombuffer(raw[: len(raw) // frame_bytes * frame_bytes], np.uint8).reshape(-1, height, width, 3)
+    # sRGB to linear through a 256-entry table on the 8-bit values, in float32, so long films stay small in memory.
+    level = np.arange(256, dtype=np.float64) / 255.0
+    table = np.where(level <= 0.04045, level / 12.92, ((level + 0.055) / 1.055) ** 2.4).astype(np.float32)
+    weights = np.array([0.2126, 0.7152, 0.0722], dtype=np.float32)
+    return table[rgb] @ weights
 
 
 def measure(frames, fps=SAMPLE_FPS):
@@ -97,8 +100,11 @@ def main(argv=None):
               if isinstance(error, subprocess.CalledProcessError) else str(error), file=sys.stderr)
         return 2
     report = measure(frames, args.fps)
+    digest = hashlib.sha256()
     with open(args.video, 'rb') as handle:   # binds the result to this exact encoded file
-        report['video_sha256'] = hashlib.sha256(handle.read()).hexdigest()
+        for block in iter(lambda: handle.read(1 << 20), b''):
+            digest.update(block)
+    report['video_sha256'] = digest.hexdigest()
     problems = verdict(report)
     report['verdict'] = 'REVISE' if problems else 'PASS'
     report['problems'] = problems

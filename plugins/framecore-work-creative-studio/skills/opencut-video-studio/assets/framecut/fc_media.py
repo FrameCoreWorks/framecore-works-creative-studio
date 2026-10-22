@@ -235,7 +235,7 @@ def transcript_warnings(result):
 
 def model_language_check(model, language):
     """An English-only model (*.en) cannot transcribe another language; refuse before any decoding."""
-    if not re.search(r"\.en(\.|$)", Path(model).name):
+    if not re.search(r"\.en([.\-_]|$)", Path(model).name):   # also quantized names such as ggml-base.en-q5_1.bin
         return None
     require(language in ("en", "auto"), f"The model {Path(model).name} is English-only and cannot transcribe '{language}'; "
             "choose a multilingual model", "model_language_mismatch")

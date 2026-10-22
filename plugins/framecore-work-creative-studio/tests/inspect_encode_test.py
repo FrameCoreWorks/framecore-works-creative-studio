@@ -61,13 +61,27 @@ class InspectEncodeTest(unittest.TestCase):
     def test_cover_time_writes_frame_and_records_it(self):
         inspect_encode.inspect(self.mute, self.out('cover'), cover_time=1.2)
         self.assertTrue((self.out('cover') / 'cover.png').is_file())
-        self.assertEqual(self.evidence(self.out('cover'))['cover'], {'time': 1.2, 'file': 'cover.png'})
+        self.assertEqual(self.evidence(self.out('cover'))['cover'], {'time': 1.2, 'file': 'cover.png', 'result': 'PASS'})
 
     def test_cover_time_outside_film_is_rejected_before_destination_exists(self):
         for name, time in (('cover-end', 2.0), ('cover-negative', -1)):
             with self.assertRaises(ValueError):
                 inspect_encode.inspect(self.mute, self.out(name), cover_time=time)
             self.assertFalse(self.out(name).exists())
+
+    def test_cover_near_the_end_is_written_or_fails_never_claimed(self):
+        result = inspect_encode.inspect(self.mute, self.out('cover-near-end'), cover_time=1.99)
+        written = (self.out('cover-near-end') / 'cover.png').is_file()
+        self.assertTrue(written or 'cover' in result['failed_checks'])
+        self.assertEqual(self.evidence(self.out('cover-near-end'))['cover']['result'], 'PASS' if written else 'FAIL')
+
+    def test_cover_time_is_checked_against_the_video_not_longer_audio(self):
+        longer = str(self.root / 'longer-audio.mp4')
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=size=160x90:rate=25:duration=2',
+                        '-f', 'lavfi', '-i', 'sine=frequency=440:duration=3', '-pix_fmt', 'yuv420p', longer], check=True)
+        with self.assertRaises(ValueError):
+            inspect_encode.inspect(longer, self.out('cover-past-video'), cover_time=2.5)
+        self.assertFalse(self.out('cover-past-video').exists())
 
     def test_cli_exit_code_is_1_when_a_check_fails(self):
         run = subprocess.run([sys.executable, str(TOOL), self.mute, str(self.out('cli')), '--audio', 'required'], capture_output=True, text=True)
