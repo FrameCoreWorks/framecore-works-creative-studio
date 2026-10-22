@@ -24,6 +24,9 @@ from where the host installed this skill; never copy a path from another machine
    pinned commit, checked file by file; the engine is never updated from upstream `main`.
 3. No shell or code execution in this host: give the plan, the exact commands and what each would prove; never
    report a reading that did not run.
+4. Ask at most one question per reply: the one that changes the route (own recordings or a search, which film or
+   file). Take sensible defaults for the rest (how the sound should feel, its room, its length), say them in one
+   line, and let the user correct them.
 
 ## 2. Running it
 

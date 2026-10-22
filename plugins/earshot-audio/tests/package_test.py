@@ -52,6 +52,7 @@ class Package(unittest.TestCase):
             self.assertIn(needle, text)
         for banned in ('mcp add', '.mcp.json', 'GEMINI_API_KEY', 'pip install -e', 'llm_critique'):
             self.assertNotIn(banned, text)
+        self.assertIn('at most one question', text)   # companion C12 2026-10-22: five scene questions at once
         description = re.search(r'(?m)^description: (.+)$', text).group(1)
         self.assertLessEqual(len(description), 1024)
 

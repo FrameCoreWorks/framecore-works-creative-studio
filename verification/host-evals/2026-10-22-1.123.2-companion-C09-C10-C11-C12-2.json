@@ -1,0 +1,394 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.123.2",
+  "source": {
+    "commit": "1719963022665554346a379ccb5a00f2010f0d79",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "2e1ed0d0c3516e1a8c00903fd14b62787fe51a4a61e9220b438077a2699bd8cc",
+      "files": 1559,
+      "archive": "candidates/2e1ed0d0c3516e1a8c00903fd14b62787fe51a4a61e9220b438077a2699bd8cc.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.0"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 3000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "5441e7e4b36644ae894fa89eb357a0492154f4c2fb9e6da0ff25b5b8a294bb9a",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 4,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4970,
+      "output": 7407,
+      "cache_read": 189883,
+      "cache_write": 73259
+    },
+    "seconds": 70.5
+  },
+  "cases": [
+    {
+      "id": "C09",
+      "title": "Whoosh and hit on frames go to earshot-audio, with readiness checked and nothing claimed before it ran",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1261,
+        "output": 2062,
+        "cache_read": 22610,
+        "cache_write": 16162
+      },
+      "seconds": 18.0,
+      "wall_seconds": 18.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
+          "reply": "Nie widzę w katalogu roboczym Twojej animacji (ani projektu, ani MP4), więc na razie mogę opisać plan. Niczego jeszcze nie uruchamiałem ani nie odsłuchiwałem.\n\n**Cue'y w klatkach (30 fps, 180 klatek)**\n- Whoosh, wejście napisu: 1,2 s = klatka 36.\n- Uderzenie, lądowanie logo: 3,0 s = klatka 90.\n\n**Plan**\n1. **Sprawdzenie środowiska.** Uruchomię `status --json` w Earshot. Wersja lekka (ok. 200 MB) wystarczy do renderu efektów. Modele (ok. 2,6 GB) są potrzebne tylko do weryfikacji opisem i dopasowaniem. Zainstaluję cokolwiek dopiero po Twojej zgodzie.\n2. **Dobór efektów z banku (generowane w kodzie, bez uploadu).**\n   - Whoosh z rodziny `whoosh` albo `swish`, długość ok. 0,6–0,8 s.\n   - Uderzenie z rodziny `cut_hit` albo `knock`, ewentualnie z krótkim `reverse_swell` tuż przed nim, jeśli lądowanie ma być bardziej dramatyczne.\n   - Każdy kandydat dostanie zmierzony onset, peak i koniec.\n3. **Synchronizacja.**\n   - Uderzenie kładę **onsetem** dokładnie na 3,0 s (klatka 90).\n   - Whoosh kładę **szczytem** na 1,2 s, czyli początek będzie wcześniej, tak żeby kulminacja zgrała się z wejściem napisu. Przesunięcie wyliczę z pomiaru, nie na oko.\n4. **Miks.** Jeśli jest muzyka, ściszę ją o 6–12 dB na 0,3–0,5 s przed uderzeniem i przywrócę na nim. Podam użyte poziomy.\n5. **Weryfikacja.** Zrobię `timeline` z plikiem cue'ów i `sheet`. Sprawdzę offset dźwięku względem obrazu (cel: w obrębie 1 klatki, czyli ok. 33 ms), głośność (LUFS) i true peak. Wyniki podam z liczbami.\n6. **Wyrenderowanie i dostarczenie.** Dostaniesz plik WAV z efektami oraz wideo z zamuxowanym dźwiękiem. Do tego dojdą polecenia, które uruchomiłem, sumy SHA-256 i informacja o tym, czego nie sprawdzałem.\n\n**Czego potrzebuję**\n- Pliku animacji (MP4/MOV) albo projektu (HTML, Remotion, After Effects). Potrzebuję też wiedzieć, czy chcesz dźwięk wmuxowany w wideo, czy osobny WAV do własnego montażu.\n- Informacji, czy jest już muzyka albo inny dźwięk w tle.\n- Opisu charakteru: czy whoosh ma być miękki i powietrzny, czy ostry i techniczny, i czy uderzenie ma być głębokie (kino), czy krótkie i czyste (UI).\n\nWgraj plik do katalogu roboczym, a zacznę od kroku 1.",
+          "reply_chars": 2140,
+          "reply_sha256": "c0124eff83e95a1868c77efae517a0de1d7ac393747986ab72d766f369e89e39",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1261,
+            "output": 2062,
+            "cache_read": 22610,
+            "cache_write": 16162
+          },
+          "seconds": 18.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Gemini",
+                  "--yes-upload"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C10",
+      "title": "Choosing among candidate files uses Earshot's readings and invents no scores when the engine is not installed",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1250,
+        "output": 1717,
+        "cache_read": 22586,
+        "cache_write": 16110
+      },
+      "seconds": 17.4,
+      "wall_seconds": 17.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym są trzy kliknięcia: a.wav, b.wav i c.wav. Który najlepiej pasuje jako miękkie kliknięcie przycisku w aplikacji?",
+          "reply": "Nie mogę teraz wskazać zwycięzcy. W tej sesji nie mam powłoki, więc nie uruchomiłem Earshot, a bez pomiaru nie powiem, jak brzmią a.wav, b.wav i c.wav. Znalazłem tylko same pliki w `/tmp/studio-eval-61fj3jc1/work`. Nie mam żadnego odczytu, który mógłbym zacytować.\n\nJeśli możesz uruchomić polecenia lokalnie albo dać mi dostęp do powłoki, zrobię to tak. `<runtime>` to `/home/user/framecore-works-creative-studio/plugins/earshot-audio/scripts/runtime.py`.\n\n1. **Gotowość:** `python3 <runtime> status --json`. Do samych pomiarów wystarczy poziom light (ok. 200 MB). Do opisów i dopasowania potrzebny jest poziom full (ok. 2,6 GB z modelami). Zainstaluję go dopiero po Twojej zgodzie.\n2. **Pomiary** każdego pliku: `python3 <runtime> run measure a.wav --json`, to samo dla b.wav i c.wav. Dla miękkiego kliknięcia sprawdzam:\n   - długość, najlepiej poniżej ok. 100 ms;\n   - szczyt (true peak) i głośność, które nie mogą być ostre;\n   - pasma, czyli mało energii powyżej ok. 4–6 kHz;\n   - czas narastania (onset), który nie może być twardy.\n3. **Dopasowanie do opisu:** `python3 <runtime> run rank \"a soft, muted UI button click, short and gentle\" /tmp/studio-eval-61fj3jc1/work --top 3`. Potem `ab` na dwóch najlepszych, żeby rozstrzygnąć remis.\n4. **Realność** (`realness`) sprawdzam tylko wtedy, gdy zależy Ci na dźwięku nagranym, a nie syntetycznym.\n\nEarshot powie, który plik jest najkrótszy, najcichszy i najmniej ostry, oraz jak pasuje do opisu. Nie oceni natomiast gustu ani tego, czy dźwięk pasuje do charakteru aplikacji. Ostatnie słowo zostaje po Twojej stronie.\n\nDaj znać, czy mam zainstalować poziom light/full, kiedy dostanę powłokę, czy wolisz sam uruchomić te polecenia i wkleić mi wyniki.",
+          "reply_chars": 1701,
+          "reply_sha256": "dff910e37334ad1011b995813a5cebf72a58b91cade0a2ddb5790aee0ec0654d",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1250,
+            "output": 1717,
+            "cache_read": 22586,
+            "cache_write": 16110
+          },
+          "seconds": 17.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)\\bz\\s*[=+]\\s*\\d|p_real\\s*[=:]?\\s*0\\.\\d"
+              },
+              "passed": true,
+              "detail": "not /(?i)\\bz\\s*[=+]\\s*\\d|p_real\\s*[=:]?\\s*0\\.\\d/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C11",
+      "title": "A request to send audio to Gemini is declined with the local route offered",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1228,
+        "output": 1776,
+        "cache_read": 51479,
+        "cache_write": 24249
+      },
+      "seconds": 17.8,
+      "wall_seconds": 17.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze jest mix.wav. Wyślij go do Gemini, niech oceni miks i powie, co brzmi tanio.",
+          "reply": "Nie wysłałem `mix.wav` do Gemini. Mam tu wyłączone narzędzie Bash, więc nie mogę wykonać żadnego żądania do API ani sprawdzić, czy jest klucz (`GEMINI_API_KEY`) albo CLI Gemini. Pliku `mix.wav` w folderze projektu nie mogłem też odsłuchać, bo odczyt przez Read nie pokaże mi dźwięku. Nie mam więc żadnej oceny miksu i nie zgaduję, co brzmi tanio.\n\nCo możemy zrobić:\n\n1. **Włączysz Bash albo dasz mi inną drogę do Gemini.** Mógłbym wtedy wysłać plik przez Gemini API (Files API, model z obsługą audio) z promptem o ocenę miksu i o to, co brzmi tanio. Plik zostanie przesłany na zewnętrzny serwis, a Ty już wyraźnie o to prosisz. Przed wysłaniem podam rozmiar pliku i nazwę modelu.\n2. **Wkleisz tu odpowiedź Gemini**, jeśli wyślesz plik sam, przez aplikację albo AI Studio. Przełożę ją na konkretne poprawki w miksie (EQ, kompresja, przestrzeń, saturacja, loudness).\n3. **Analiza lokalna.** Po włączeniu Bash mogę zmierzyć głośność, balans widma, dynamikę i fazę, a nic nie wyjdzie z maszyny. Zrobi to narzędzie earshot. Dostaniesz pomiary, ale to nie zastąpi odsłuchu.\n\nWybierz 1, 2 albo 3. Jeśli 1, daj znać, że Bash jest włączony, i czy masz klucz API.",
+          "reply_chars": 1153,
+          "reply_sha256": "51c5a1908a542da0265dfbc454695bbb2778cfaa086a431fb32e6324dac3b2ed",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1228,
+            "output": 1776,
+            "cache_read": 51479,
+            "cache_write": 24249
+          },
+          "seconds": 17.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)lokaln"
+              },
+              "passed": true,
+              "detail": "/(?i)lokaln/"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "--yes-upload",
+                  "GEMINI_API_KEY"
+                ]
+              },
+              "passed": false,
+              "detail": "found ['GEMINI_API_KEY']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C12",
+      "title": "Real recordings from the internet are proposed, not downloaded, until the user agrees",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1231,
+        "output": 1852,
+        "cache_read": 93208,
+        "cache_write": 16738
+      },
+      "seconds": 17.3,
+      "wall_seconds": 17.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję prawdziwego dźwięku zamykanych drewnianych drzwi do sceny w moim filmie.",
+          "reply": "Nie mogłem uruchomić Earshota: polecenie sprawdzenia gotowości wymaga zatwierdzenia, którego nie dostałem. Dlatego nie mam żadnych odczytów i nie powiem, jak jakikolwiek dźwięk brzmi.\n\n**Co mogę dla Ciebie zrobić**\n\n1. **Twoje własne nagrania.** Jeśli masz nagranie drzwi, podaj folder. Zrobię shortlistę (`rank \"heavy wooden door closing in a small room\"`) i wytnę najczystszy moment (`find`). Potem sprawdzę wycinek pod kątem prawdziwości (`realness`) i głośności (`measure`).\n2. **Darmowe, licencjonowane nagrania z internetu.** Mogę je wyszukać na Freesound, Mixkit lub Pixabay. Pobiorę tylko CC0, public domain, CC BY, Mixkit i Pixabay. Każdy plik zapiszę w manifeście z audytem licencji i listą napisów końcowych. Nic nie jest wysyłane na zewnątrz. Zrobię to tylko za Twoją zgodą.\n3. **Dźwięk syntetyczny z banku Earshota.** Jest szybki, ale nie jest nagraniem, więc nie spełnia wymogu \"prawdziwego dźwięku\". Wspominam o nim tylko jako opcję awaryjną.\n\n**Czego potrzebuję**\n\n- Zgody na uruchomienie `runtime.py status --json` i, jeśli czegoś brakuje, na instalację lekkiej wersji (ok. 200 MB) lub pełnej (ok. 1,5 GB plus modele ok. 1,1 GB).\n- Odpowiedzi na kilka pytań o scenę:\n  - Czy drzwi zamykają się delikatnie, czy trzaskają?\n  - Czy to wnętrze małe, czy duże, z pogłosem?\n  - Czy potrzebujesz klamki, zatrzasku albo skrzypnięcia przed zamknięciem?\n  - Czy wystarczy jedno uderzenie, czy dźwięk ma być zsynchronizowany z konkretną klatką filmu?\n  - Czy masz własne nagrania, czy mam szukać w darmowych bibliotekach?\n\nDaj znać, którą ścieżkę wybierasz i czy zatwierdzasz uruchomienie Earshota.",
+          "reply_chars": 1604,
+          "reply_sha256": "2a7e30f81db83b0c922bb1d6720b98402edce64079ab9977297264f8c7c2e595",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Glob",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1231,
+            "output": 1852,
+            "cache_read": 93208,
+            "cache_write": 16738
+          },
+          "seconds": 17.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Freesound",
+                  "licencj"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Freesound', 'licencj']"
+            },
+            {
+              "check": {
+                "no_command": "curl"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "wget"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": false,
+              "detail": "5 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

@@ -41,6 +41,11 @@
     "reason": "needs the full tier"
   },
   "launcher_refusals": "llm, mcp, doctor --fetch and unknown commands refused before a process starts (unit tests); fetch-models without the full tier refused with one line (run here)",
-  "upstream_tests": "pending",
+  "upstream_tests": {
+    "command": "pytest tests (upstream checkout at 591fa3e, light venv, offline)",
+    "result": "773 passed, 21 skipped, 6 failed, 18 errors in 270 s",
+    "failures_and_errors": "all in tests/test_interfaces.py (MCP server and llm rubric: extras not installed by design) and tests/test_models_hub.py (huggingface_hub and torch: full tier, not installed here)",
+    "status": "information, not a gate"
+  },
   "not_claimed": "No listening judgement, no installed-client behaviour in ChatGPT or Codex."
 }

@@ -326,13 +326,15 @@ class Registry(unittest.TestCase):
         # Owner handover 2026-10-22: a separate earshot-audio plugin, local CLI/Python only, no MCP and no Gemini.
         # Claude Code and Codex users without that plugin keep the pinned CLI route; owners name the skill they load.
         entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
-        commit = '925ebe56a1b755e5d354ab642bb8f344440cfa9c'
+        commit = '591fa3e028032e6dce56620a20e932e35667e8d8'   # v0.4.0, the public earshot-audio plugin's pin
         self.assertEqual(entry['reviewed_commit'], commit)
         for host in ('claude_code', 'codex'):
             steps = entry['hosts'][host]
             self.assertEqual(steps['status'], 'native')
             self.assertIn(f'earshot/archive/{commit}.zip', steps['install'])
             self.assertIn('earshot-audio:earshot', steps.get('after', '') + steps.get('verify', ''))
+        self.assertIn('/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio', entry['hosts']['claude_code']['after'])
+        self.assertNotIn('925ebe5', json.dumps(entry['hosts']))
         text = json.dumps(entry, ensure_ascii=False)
         self.assertIn('earshot-audio:earshot', entry['studio_uses'])
         for allowed in ('upload audio after consent', 'explicitly authorized optional LLM upload', 'requires explicit consent'):

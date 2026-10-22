@@ -1,6 +1,6 @@
 # Native Earshot routing
 
-Use the independent installed plugin `earshot-audio`, skill `earshot-audio:earshot`, for sound analysis, procedural SFX, sound kits and audio-to-picture verification. Resolve and actually read the skill through the current host catalog. Studio owns the brief, creative choices, acceptance and final edit. Earshot supplies the audio engine; Superpowers supplies the selected planning/debugging/verification method. None of these names proves execution or adds permissions.
+Use the public plugin `earshot-audio` from this repository's marketplace (Earshot v0.4.0 by Leon Lin, pinned to `591fa3e`), skill `earshot-audio:earshot`, for sound analysis, procedural SFX, sound kits and audio-to-picture verification. Resolve and actually read the skill through the current host catalog. Studio owns the brief, creative choices, acceptance and final edit. Earshot supplies the audio engine; Superpowers supplies the selected planning/debugging/verification method. None of these names proves execution or adds permissions.
 
 Without the `earshot-audio` plugin in the skill list (most Claude Code and Codex users), use the pinned `earshot` command-line extension from the registry when it is installed, or Studio's own `listen.py`, `sound.py` and `synth.py`, and name the engine that actually ran. Never claim an Earshot run that did not happen.
 
@@ -30,7 +30,7 @@ The established Studio bridge can use the verified `EARSHOT_BIN` or `listen.py .
 
 Include project/revision, asset paths/hashes, owner, operation, exact `fps_num/fps_den`, frame-index convention, local/global origin, source trim/speed mapping, sample rate, cue ID/frame, requested onset/peak/end anchor, palette/rights and acceptance criteria. Use the same Project State, accepted board and FrameCut master clock.
 
-Convert zero-based frame `f` as `f * fps_den / fps_num`; place the take at `round(t * sample_rate) - round(measured_anchor_s * sample_rate)`. Use measured anchors from `kit.lock.json` or SFX output. Export numeric fps and explicit seconds for Earshot 0.3.0's cue reader; retain rational metadata in Studio. `30000/1001` is not an accepted string fps in Earshot's parser. Account for offsets/retiming once; resolve negative placement rather than silently clipping the onset.
+Convert zero-based frame `f` as `f * fps_den / fps_num`; place the take at `round(t * sample_rate) - round(measured_anchor_s * sample_rate)`. Use measured anchors from `kit.lock.json` or SFX output. Export numeric fps and explicit seconds for Earshot 0.4.0's cue reader; retain rational metadata in Studio. `30000/1001` is not an accepted string fps in Earshot's parser. Account for offsets/retiming once; resolve negative placement rather than silently clipping the onset.
 
 Return runtime/model status, actual commands, audio paths/hashes, kit lock, measured onset/peak/end, cue mapping, QA evidence, limitations and next owner. Reuse accepted generated assets for later renders. Models and scores do not prove taste, licences or recorded provenance; `timeline --detail low` still requires CLAP. A failed or unavailable neural route may use clearly labelled Studio measurement fallback.
 
