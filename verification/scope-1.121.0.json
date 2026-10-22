@@ -1,0 +1,37 @@
+{
+  "version": "1.121.0",
+  "baseline_tag": "v1.120.0",
+  "baseline": "0ba0c81e07ae82c5c7970feed148e74eabb840cc",
+  "change_id": "CC-20261022-06",
+  "origin": "cloud-code",
+  "files": 1549,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/references/animate-engine.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/opencut-video-studio/assets/framecut/README.md",
+    "skills/opencut-video-studio/assets/framecut/fc_effects.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [
+    "integrations/pixel-plugin/LICENSE",
+    "integrations/pixel-plugin/README.md",
+    "skills/opencut-video-studio/assets/framecut/effects/ordered_dither.json",
+    "skills/opencut-video-studio/assets/framecut/effects/pixelate.json",
+    "skills/opencut-video-studio/assets/framecut/effects/posterize.json",
+    "tests/framecut_pixel_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1531,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner sent Pixel Plugin and asked to mine it first. Added FrameCut effects pixelate, posterize and ordered_dither, Pixel look guidance in the Animate reference and a pixel-plugin registry entry; the plugin itself was not run."
+}

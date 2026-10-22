@@ -1,7 +1,5 @@
-# Creative Studio 1.120.0
+# Creative Studio 1.121.0
 
-FrameCut, from a review of MoneyPrinterTurbo (methods only, no code copied):
-
-- `align-script`: known script plus timed speech gives script spelling with speech timing and a coverage report.
-- Caption cues follow sentence, punctuation and clause breaks and never end on a Polish one-letter word.
-- `font_missing_glyphs` blocks a final when the caption font cannot draw the text.
+- FrameCut effects `pixelate`, `posterize` and `ordered_dither` give supplied footage a pixel look; defaults change nothing.
+- Studio's Animate reference gains a Pixel look section: colour ramps, dither choice, frame timing and supplied sprites.
+- Pixel Plugin listed as a Claude Code extension (needs the user's Aseprite).
