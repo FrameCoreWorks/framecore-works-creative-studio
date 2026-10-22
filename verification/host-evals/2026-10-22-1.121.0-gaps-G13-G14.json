@@ -1,0 +1,189 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.121.0",
+  "source": {
+    "commit": "c3e305f4ead3595bce93d1a327b5bb912bd6072d",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "b4a5f31df36b978aa7d6eb9e6bf1cf7d833ad301b84271c8bbaa74e0935c025c",
+      "files": 1554,
+      "archive": "candidates/b4a5f31df36b978aa7d6eb9e6bf1cf7d833ad301b84271c8bbaa74e0935c025c.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "da7e1cb52c144a1b0bf783d1e0b4eeab9552db3ecf6dd76d2276618e5b5e091a",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2556,
+      "output": 4393,
+      "cache_read": 139551,
+      "cache_write": 65101
+    },
+    "seconds": 40.9
+  },
+  "cases": [
+    {
+      "id": "G13",
+      "title": "Asking for acceptance of a storyboard speaks about the user's result and never quotes the plugin's own files or rules (owner's screenshot 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1275,
+        "output": 2430,
+        "cache_read": 51003,
+        "cache_write": 32552
+      },
+      "seconds": 22.4,
+      "wall_seconds": 22.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam nagranie magazyniera, 3 minuty, po polsku, mówi do kamery o swojej pracy. Chcę z niego rolkę 9:16 z napisami, około 25 sekund. Zaproponuj storyboard i powiedz, co dalej.",
+          "reply": "Nie widzę w katalogu roboczym żadnego nagrania, transkryptu ani SRT, więc nie znam treści wypowiedzi. Poniżej jest szkielet storyboardu oparty na strukturze. Konkretne cytaty i klatki dobiorę dopiero po obejrzeniu materiału.\n\n## Storyboard (szkielet, ok. 25 s, 9:16, polskie napisy wypalone)\n\n| # | Czas | Co widać | Napisy | Funkcja |\n|---|------|----------|--------|---------|\n| 1 | 0–3 s | Najmocniejsze zdanie z nagrania, wzięte z dowolnego miejsca (zaskakujące, konkretne albo emocjonalne). Kadr z twarzą zbliżony do środka. | Duże, frazowe, 1–2 linie | Hak. Widz musi zostać w pierwszej sekundzie. |\n| 2 | 3–10 s | Kontekst: kim jest i co robi na co dzień. Jedno lub dwa krótkie zdania. | Frazy, kluczowe słowo wyróżnione kolorem | Kto mówi i o czym. |\n| 3 | 10–19 s | Sedno: najciekawszy fragment o pracy, np. konkretny szczegół, trudność albo coś, czego ludzie nie widzą. Jedno cięcie lub dwa z lekkim najazdem, żeby podtrzymać rytm. | Jak wyżej | Wartość rolki. |\n| 4 | 19–24 s | Puenta lub myśl zamykająca, najlepiej wypowiedziana naturalnie. | Frazy, ostatnie słowo z akcentem | Domknięcie. |\n| 5 | 24–25 s | Krótki oddech i ewentualnie plansza końcowa (imię, stanowisko, firma). | Jedna linia | Podpis. |\n\n**Przyjęte założenia (łatwo zmienić):**\n- Napisy: frazowe, w dolnej środkowej części kadru, ponad strefą interfejsu platformy. Podświetlanie słów w rytm mowy tylko wtedy, gdy dokładne czasy słów wyjdą poprawnie z transkrypcji.\n- Montaż: tnę tylko ciszę, przejęzyczenia i powtórzenia, bez zmiany sensu wypowiedzi. Tempo wypowiedzi zostaje naturalne.\n- Kadr: nagranie poziome przycinam do 9:16 z podążaniem za twarzą. Jeśli jest już pionowe, zostaje bez przycinania.\n- Dźwięk: oryginalna mowa, bez muzyki, ewentualnie bardzo cicha podkładka. Poziom głośności wyrównam.\n\n## Co dalej\n\n1. **Dodaj plik** nagrania (najlepiej oryginał). Jeśli masz transkrypt lub SRT, dodaj go też.\n2. Sprawdzę parametry pliku, zrobię transkrypcję po polsku i wskażę 2–3 kandydatów na hak oraz sekwencję 25 s z uzasadnieniem.\n3. Przygotuję pełny storyboard wizualny z prawdziwych klatek, z napisami w kadrze 9:16 i planszami z numerami kadrów.\n4. Zaakceptujesz go albo wskażesz poprawki. Dopiero potem zrobię montaż i render.\n5. Przejrzę gotową rolkę. Dostaniesz MP4, plik SRT i plik projektu.\n\n**Jedno pytanie, które zmienia wybór fragmentów:** po co ta rolka? Na przykład rekrutacja do magazynu, wizerunek firmy albo pokazanie, jak wygląda ta praca. Od tego zależy, czy hakiem będzie ciekawostka z pracy, czy osobista opinia magazyniera.",
+          "reply_chars": 2533,
+          "reply_sha256": "99e7c0776729d1d72e8f25593d1ecd5f792f25ac85b3fe27060b7f38e2db3f92",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1275,
+            "output": 2430,
+            "cache_read": 51003,
+            "cache_write": 32552
+          },
+          "seconds": 22.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill"
+              },
+              "passed": true,
+              "detail": "not /(?i)SKILL\\.md|Render the final|wymaga:|zgodnie z (zasad|regu|procedur)\\w* (plugin|skill|framecut)|FrameCut skill/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route and shown an alternative, with an add-on offered only when it clearly helps (owner's observation 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1281,
+        "output": 1963,
+        "cache_read": 88548,
+        "cache_write": 32549
+      },
+      "seconds": 18.5,
+      "wall_seconds": 18.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Super pomysł na rolkę. W katalogu projektu nie widzę jeszcze Twoich nagrań, więc na razie proponuję kierunek. Gdy je wgrasz, sprawdzę, co faktycznie na nich jest.\n\n**Co poleciłbym**\n\nZamiast osobnego filmu z animacją i osobnego z nagrań zrobiłbym jedną rolkę 9:16, która łączy oba. Nagrania z telefonu pokazują, że to prawdziwy magazyn. Na wierzchu rysuje się schemat, który prowadzi widza przez etapy:\n\n**Przyjęcie → rozładunek i kontrola → przyjęcie na stan → składowanie → kompletacja → pakowanie → wysyłka**\n\n- Pasek lub linia etapów przebiega przez cały film. Aktualny krok jest podświetlony, a poprzednie zostają widoczne jako ślad.\n- Przy każdym etapie jest jedno ujęcie z telefonu (3–5 s) i krótki napis, np. „Kontrola dostawy”.\n- Na początku pokazujemy paczkę w drodze do klienta i od razu wracamy do momentu jej przyjęcia. To zatrzymuje widza w pierwszej sekundzie.\n- Na końcu schemat zamyka się w jednej linii z hasłem, które powie klientowi, dlaczego warto z Wami pracować (np. czas wysyłki albo kontrola jakości).\n\nCałość będzie miała 25–35 s. To wystarczy na 6–7 etapów, bez pośpiechu.\n\n**Dlaczego tak:** nagrania z telefonu są nierówne, więc ujednolicą je spójna grafika, kolor i rytm cięć. Wypadnie też to, co zwykle nudzi w filmach o magazynie, czyli długie ujęcia bez żadnego prowadzenia.\n\n**Jak to zrobimy**\n\n1. Wgrywasz nagrania, a ja sprawdzam, co mam na materiale, i wybieram najlepsze fragmenty.\n2. Pokazuję pełny storyboard całej rolki w klatkach, z numerami i czasami. Poprawiasz go albo akceptujesz.\n3. Po akceptacji składam montaż z animowanym schematem, napisami i dźwiękiem, a potem sprawdzam wynik.\n\n**Potrzebuję od Ciebie**\n\n- Nagrań z telefonu, jeśli możesz je dodać do projektu. Mogą być surowe i w dowolnej kolejności.\n- Odpowiedzi na jedno pytanie: **jakie etapy ma Wasz magazyn?** Wystarczy lista w jednej linijce, np. „przyjęcie, kontrola, składowanie, kompletacja, pakowanie, wysyłka”. Jeśli etapy wyglądają inaczej niż u mnie wyżej, poprawię schemat.\n\nJeśli wolisz, żebym sam dobrał etapy z nagrań, napisz, a zrobię to po ich obejrzeniu i wyraźnie oznaczę, co jest założeniem.",
+          "reply_chars": 2115,
+          "reply_sha256": "c48cb8e447bf25296820d13d05d98c5ebd5859081ca24b2509f1e2de970ed734",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1281,
+            "output": 1963,
+            "cache_read": 88548,
+            "cache_write": 32549
+          },
+          "seconds": 18.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)schemat|diagram"
+              },
+              "passed": true,
+              "detail": "/(?i)schemat|diagram/"
+            },
+            {
+              "check": {
+                "regex": "(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal"
+              },
+              "passed": false,
+              "detail": "/(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

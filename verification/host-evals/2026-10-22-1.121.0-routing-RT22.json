@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-22",
+  "package_version": "1.121.0",
+  "source": {
+    "commit": "c3e305f4ead3595bce93d1a327b5bb912bd6072d",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "b4a5f31df36b978aa7d6eb9e6bf1cf7d833ad301b84271c8bbaa74e0935c025c",
+      "files": 1554,
+      "archive": "candidates/b4a5f31df36b978aa7d6eb9e6bf1cf7d833ad301b84271c8bbaa74e0935c025c.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-routing-pl",
+  "host": "Claude Code 2.1.308, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "29a0a56cd9c864bef931b304ef0c2275eb92e24477f487f49969a08854534ad2",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1221,
+      "output": 2241,
+      "cache_read": 48547,
+      "cache_write": 21326
+    },
+    "seconds": 20.9
+  },
+  "cases": [
+    {
+      "id": "RT22",
+      "title": "With the Studio name: edit from supplied footage",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1221,
+        "output": 2241,
+        "cache_read": 48547,
+        "cache_write": 21326
+      },
+      "seconds": 20.9,
+      "wall_seconds": 21.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio mam 20 minut nagrań z wesela. Zaplanuj montaż trzyminutowego filmu.",
+          "reply": "Nie widzę w katalogu roboczym żadnych nagrań, więc poniższy plan jest oparty na typowej strukturze wesela. Po zobaczeniu materiału dopasuję go do tego, co naprawdę nagrałeś(-aś).\n\n# Plan montażu: wesele, film 3:00\n\n**Założenia, które łatwo zmienić:** format 16:9, styl „kinowy teledysk” z muzyką jako szkieletem, krótkie fragmenty dźwięku z nagrania (przysięga, życzenia, śmiech) wplecione w muzykę. Napisy tylko tam, gdzie ktoś mówi ważne słowa.\n\n## Struktura (180 s)\n\n| Czas | Blok | Co pokazujemy | Dźwięk |\n|---|---|---|---|\n| 0:00–0:15 | **Otwarcie** | Detale: obrączki, sukienka, ręce, światło. Na końcu tytuł z imionami i datą. | Muzyka cicho wchodzi, dźwięk z miejsca (ambient) |\n| 0:15–0:40 | **Przygotowania** | Para osobno, emocje, pierwsze spojrzenia, goście w drodze | Muzyka narasta |\n| 0:40–1:25 | **Ceremonia** | Wejście, przysięga (fragment ok. 10–15 s z oryginalnym dźwiękiem), obrączki, pocałunek, wyjście | Muzyka ściszona pod przysięgą |\n| 1:25–1:50 | **Życzenia i goście** | Uściski, łzy, śmiech, grupowe zdjęcie | Muzyka |\n| 1:50–2:30 | **Przyjęcie** | Toast, pierwszy taniec (ok. 15 s), tort, zabawa na parkiecie | Rytm muzyki, cięcia na bit |\n| 2:30–2:50 | **Kulminacja** | Najlepsze, najbardziej radosne ujęcia, krótkie cięcia | Szczyt utworu |\n| 2:50–3:00 | **Zakończenie** | Spokojne ujęcie pary (np. zachód słońca lub wyjście), zanik do czerni | Wyciszenie |\n\n## Jak z 20 minut zrobić 3\n\n1. **Przegląd i znaczniki (ok. 20 min pracy):** obejrzeć wszystko raz i oznaczyć 3 rodzaje ujęć: *musi być* (przysięga, obrączki, pocałunek, pierwszy taniec), *dobre* i *wypełnienie*.\n2. **Budżet:** ok. 6–8 min materiału zostaje po selekcji, a ostatecznie wchodzi ok. 3 min. Średnia długość ujęcia to 2–4 s, a w kulminacji 1–2 s.\n3. **Dźwięk:** wyciągnąć czyste fragmenty mowy (przysięga, jedno krótkie życzenie, śmiech). Resztę zbudować na muzyce.\n4. **Cięcia na bit**, a przejścia proste (cięcie, krótkie rozmycie). Bez ozdobników.\n5. **Korekta kolorów:** jedna spójna korekta na całość, a skóra ma wyglądać naturalnie.\n6. **Napisy:** tytuł na początku i imiona w końcówce. Reszta bez napisów.\n\n## Czego potrzebuję, żeby zamienić plan w konkretny montaż\n\n1. **Pliki z nagraniami** (lub ścieżka do nich). Przejrzę je i zrobię storyboard z klatek do akceptacji, zanim zacznę montaż.\n2. **Muzyka:** masz ulubiony utwór od pary? Jeśli nie, mogę zaproponować kierunek (np. akustyczny, romantyczny albo energiczny). Pamiętaj o licencji, jeśli film ma być publiczny.\n3. **Czy w nagraniach jest dźwięk z przysięgi i życzeń?** To zmienia proporcję mowy do muzyki.\n\nJeśli nie masz zdania w sprawach 2 i 3, przyjmę założenia wyżej i zacznę od przeglądu materiału.",
+          "reply_chars": 2671,
+          "reply_sha256": "1f3a25a85754475f70954b07119baaac3741472d3a997c2f03a4394f97dbd97c",
+          "skills": [
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1221,
+            "output": 2241,
+            "cache_read": 48547,
+            "cache_write": 21326
+          },
+          "seconds": 20.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio",
+                  "creative-video-producer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['opencut-video-studio']; expected one of ['opencut-video-studio', 'creative-video-producer']"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
