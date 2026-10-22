@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.123.0",
+  "version": "1.123.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "b7fe0175de1cda07a2f318c78804348447cb8c671ec999c53ed685a763567fc0"
+      "sha256": "634690e83cbcac63597697b1fce40087cbdabc861ab7970f48ee2f20e377a18f"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "6ceb825ba859df49b136aa276d1dab82e4decae956eb42cdf957e342dcaa71d8"
+      "sha256": "f99b8655a93818b74f0e6288f5236e429d7636472df9dd62739eee40ce0f012d"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22829,
-      "sha256": "0cdf85740d822369830457efce4ade55c2818e9362f500692ce04ab6cade76f1"
+      "sha256": "48391bd667af781ac8d296d7dc19e6ea81ff53e6ebe0d06ff9ffbcbb272d6dc0"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "9ba713839387e4a713926a720659bc37a633db362f82b2b7ab8546b2ee08cc2f"
+      "sha256": "95ed1a5008db61ec0085d24f35e8063a2f034a01dbe085910e9f32ecbdea2830"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 208335,
-      "sha256": "0747b1e1fa8262bc54fb07e5e01a9985bea49ee79248f13426da1002f581ea10"
+      "bytes": 209863,
+      "sha256": "95daaf7737304bcef59a479ba7d6abebf51edc6e0ba0e943ac7d3b28c5e57124"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2449,7 +2449,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "d8d863789dfd46b7a03ff57f62682bf5212da9d9573681a2634ec02e4b959031"
+      "sha256": "076d9380517bf8ced9974266ed17dab8bbf56b15677f6d60257d2d00d3e32be4"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2528,8 +2528,8 @@
     },
     {
       "path": "skills/asset-manifest/SKILL.md",
-      "bytes": 6563,
-      "sha256": "ecc091e02085678cc90685c468ce037f50338902ce3eeadb214060ebb47ba006"
+      "bytes": 6801,
+      "sha256": "1760127f879a5dd4d2a9b5dde5e039694efc108189b55bc64c9bb8f7d227d4f0"
     },
     {
       "path": "skills/asset-manifest/agents/openai.yaml",
@@ -2548,8 +2548,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 9944,
-      "sha256": "9bc216a1cee1c0d4baa7059881dd05e898b2446ad853445a6a4c1916e99b725b"
+      "bytes": 10182,
+      "sha256": "165e6182c14f9e0b1ba246dc86211be2259d9ee0c821cfe4a427aa53e3bf38ec"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2618,8 +2618,8 @@
     },
     {
       "path": "skills/brief-architect/SKILL.md",
-      "bytes": 6258,
-      "sha256": "1f3e76f3b4fd15e2da9f5dd9a89fb7ae037dd0b67502694b693c28a4d8fc13e3"
+      "bytes": 6496,
+      "sha256": "2f894dcfb8b5429ebc5b23e414bd7049c30c72bc8eea7eb08561efe828843d1a"
     },
     {
       "path": "skills/brief-architect/agents/openai.yaml",
@@ -2648,8 +2648,8 @@
     },
     {
       "path": "skills/caption-studio/SKILL.md",
-      "bytes": 8974,
-      "sha256": "5e120305e02eba9bae2e0e679279ee7368b37ed9f5d2137a12a8d1552402d0e7"
+      "bytes": 9212,
+      "sha256": "d26aa7de9bf47b7b47423ef070682d0431a39d88e65506a7a7194eb03518e9eb"
     },
     {
       "path": "skills/caption-studio/agents/openai.yaml",
@@ -2678,8 +2678,8 @@
     },
     {
       "path": "skills/character-design/SKILL.md",
-      "bytes": 6026,
-      "sha256": "2b846b3ebd079b1c3db0c3bd363a241172d4970a1c6ce18a8943337ac4042341"
+      "bytes": 6264,
+      "sha256": "7980bd52468cbf5ea557dc3f305632e44cc386026e45d3f41777194649d9a99b"
     },
     {
       "path": "skills/character-design/agents/openai.yaml",
@@ -2713,8 +2713,8 @@
     },
     {
       "path": "skills/cinematography/SKILL.md",
-      "bytes": 6216,
-      "sha256": "5f34839d6ea4f6202565b857edadf73a2b6cd76add37459f85920cfdb4426da9"
+      "bytes": 6454,
+      "sha256": "61972505d73bed9925edd79c7b18e0ac2f43b155a6244443c56d82df9efcb253"
     },
     {
       "path": "skills/cinematography/agents/openai.yaml",
@@ -2723,8 +2723,8 @@
     },
     {
       "path": "skills/commercial-video-campaign-director/SKILL.md",
-      "bytes": 11629,
-      "sha256": "f2e2f8c2b693f88417d145b11273625995df903f56dbc3c862e3d4c1b33d8329"
+      "bytes": 11867,
+      "sha256": "92ee32ae895d8057f67bca97177b66a3868da8210dda8ab7c4d9b39b32712e6e"
     },
     {
       "path": "skills/commercial-video-campaign-director/agents/openai.yaml",
@@ -2788,8 +2788,8 @@
     },
     {
       "path": "skills/commercial-visual-campaign-director/SKILL.md",
-      "bytes": 6388,
-      "sha256": "7c5e43820bb258b5b1f03cde47d12e7962be874dca7aebc600c558729cf36f19"
+      "bytes": 6626,
+      "sha256": "3e57b726205e7c14e2197f5be10ee280d07ec5437cb135eecb47d3fa74b8b092"
     },
     {
       "path": "skills/commercial-visual-campaign-director/agents/openai.yaml",
@@ -2888,8 +2888,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 10412,
-      "sha256": "fa1278ad4a9698c37f13b50869e563a8368adee46b88bc7918796da56476adb8"
+      "bytes": 10650,
+      "sha256": "83832ad0f28dc54700de70ec55be48edda8805d0d33f3fa223870e9813f7e0a6"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -2943,8 +2943,8 @@
     },
     {
       "path": "skills/creative-music-video-director/SKILL.md",
-      "bytes": 13088,
-      "sha256": "44cfc1f7aa0e1225a079f02762888274bead76b03223b49614fd7833feb616a1"
+      "bytes": 13326,
+      "sha256": "5a583d77fa092d41ed617b796d4ee60f011f9bc6fc54020a513323a98802eaf2"
     },
     {
       "path": "skills/creative-music-video-director/agents/openai.yaml",
@@ -2983,8 +2983,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 11574,
-      "sha256": "07fab8247ac09a16a79db842d3b7e5ed81c39159845f0856af4f2306734e8aa6"
+      "bytes": 12006,
+      "sha256": "7ec76ebc6ffcebbfcef880cb2c79d006b95674d015670b09093f78107b4743e5"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -2998,8 +2998,8 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 7177,
-      "sha256": "bdef11b6fc54c9d4b23a0f69342348d4d6ba64729f2f07fe9dbe458a41dab0f2"
+      "bytes": 7415,
+      "sha256": "005fffe1e63182913d962f2122dfb217295c4673c9023c15dd5d08ac16e7ef66"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
@@ -3068,8 +3068,8 @@
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
-      "bytes": 8859,
-      "sha256": "16304f28d56c149b58bb0c0dab94e92800ddab1c22ffecf235952cc01cbf1416"
+      "bytes": 9097,
+      "sha256": "92279f1ace107636bb48b106b909f03c6fb1dda7244fc5678fe8e2939e14f885"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
@@ -3123,8 +3123,8 @@
     },
     {
       "path": "skills/hipson-adapter/SKILL.md",
-      "bytes": 1946,
-      "sha256": "2484172980b85cb767fe042ac03389f30bb7cf46e44e36b741e9733279ba260a"
+      "bytes": 2184,
+      "sha256": "94606f0f76bfe9dff49b6310cb56c727a349de33c7de704904703b6bd698fc6a"
     },
     {
       "path": "skills/hipson-adapter/agents/openai.yaml",
@@ -3148,8 +3148,8 @@
     },
     {
       "path": "skills/humanizer/SKILL.md",
-      "bytes": 4787,
-      "sha256": "74634920cba7ebe17afebc1430f891352ed520d0782cbee17469918ec60cf79b"
+      "bytes": 5025,
+      "sha256": "d870a7fddef9b2013b0d1295b246fb91b30806f18c60ef8d3c2318597f9b8528"
     },
     {
       "path": "skills/humanizer/agents/openai.yaml",
@@ -3183,8 +3183,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 29802,
-      "sha256": "6ddb190e164ee34fe84e34adfffa5cdb7359e0db3a67711343bb4f556d1d18aa"
+      "bytes": 30040,
+      "sha256": "45fc792484804305825c13a90da2de4a52a9f3183ae3560201d6519ff67eb13e"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5148,8 +5148,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 9950,
-      "sha256": "fc05c5b6313592dccae05088ae253ab6299d0ed00aa4cc743ac048138ce8d5a3"
+      "bytes": 10188,
+      "sha256": "b80a2c0a17dd93c96d2cf2cb0dff0e6e087d6f01a1c124c4d07a0ed5b6e8eac6"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5228,8 +5228,8 @@
     },
     {
       "path": "skills/instruction-packet-factory/SKILL.md",
-      "bytes": 4807,
-      "sha256": "77e0dceefede53dc5322e0f5601c09540b6f8d142ac9a2bb5a922ee684ae5b41"
+      "bytes": 5045,
+      "sha256": "3ec5b30e34816bc14c15a49f31af72f8add366e7e1dc85fa1a939ac15c9d3a27"
     },
     {
       "path": "skills/instruction-packet-factory/agents/openai.yaml",
@@ -5253,8 +5253,8 @@
     },
     {
       "path": "skills/marketing/SKILL.md",
-      "bytes": 6145,
-      "sha256": "10b2480a0722dcb22d016b67dfd0b41fb646091522bd5f730e6c7674cc08570b"
+      "bytes": 6383,
+      "sha256": "654679f6d564b02e706e5df97baab983ec5c7d317d2ed2de04b937a50c028cbf"
     },
     {
       "path": "skills/marketing/agents/openai.yaml",
@@ -5268,8 +5268,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 28167,
-      "sha256": "c0f594179127e4bc9bd406abc6942bae27bb673183f4a91d377a4406f04503ed"
+      "bytes": 28394,
+      "sha256": "80159fc039a1d73a8652dfc2eca1ec57625504a66263f06c2be02c39172b2f6e"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5428,8 +5428,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 8432,
-      "sha256": "7a246b82aa3ea5a9208d791b824d99bbecf64164e3fe3a439646c721c5216ac4"
+      "bytes": 8670,
+      "sha256": "9642c695b864ec362659de6e01ddf6d26dcd6b387c991f3e844b539bce41b756"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -5483,8 +5483,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 23885,
-      "sha256": "1b051187a2611115919d8d84b2e1fea5f4b45cfa49079889c6557edf3c5a15c0"
+      "bytes": 24123,
+      "sha256": "81a0e5e3c1044dac0b823ce0ed9b78534d6d160b26da761d8743c559210660f0"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -5853,8 +5853,8 @@
     },
     {
       "path": "skills/producer-ai-task-builder/SKILL.md",
-      "bytes": 1736,
-      "sha256": "110766da695a19b1c7b5764e5ef34d9c887aa670509b4417662ba23847e32132"
+      "bytes": 1974,
+      "sha256": "9269f5ef91a4303401604571e8fb2c4ce80a8f0a649ea8fac5a888868b4ed459"
     },
     {
       "path": "skills/producer-ai-task-builder/agents/openai.yaml",
@@ -5878,8 +5878,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 5306,
-      "sha256": "6d910471b1b7432e9bc03eaac9c85826ac8dd858a10983b3d8b429e3f63cc939"
+      "bytes": 5544,
+      "sha256": "86e0d62d54b541f0752d4108636ad301a5e0bd7d4f2100e8f0c761d359c5d757"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
@@ -5893,8 +5893,8 @@
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
-      "bytes": 11383,
-      "sha256": "048b7e65d7ab811649eb9c8e4a937d439747bc77f51082c33e71b7f0ca71d0f7"
+      "bytes": 11621,
+      "sha256": "6d1e6c1290e6d5426050f442a0d52141f079bebae0075ad288795a04a3dead2a"
     },
     {
       "path": "skills/remotion-video-production/agents/openai.yaml",
@@ -6043,8 +6043,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 17990,
-      "sha256": "3d870cb16d1640e5035407688da53e17f70619437c3b3ed3f39c6c4a95c3c6a8"
+      "bytes": 18228,
+      "sha256": "bca7db9e8d599562d8188b7200f7f5f36934632b5f6ec12c2badabba750cd9bc"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -6118,8 +6118,8 @@
     },
     {
       "path": "skills/screenplay-story-architect/SKILL.md",
-      "bytes": 6779,
-      "sha256": "16c217df538887ce3a5e8fdf0bf2fe1615ed664e3d417b159bd326a689d57253"
+      "bytes": 7017,
+      "sha256": "16adffdbbd1bc3ae5b0a88e02c41404c663420e500e3903cea693764013a5995"
     },
     {
       "path": "skills/screenplay-story-architect/agents/openai.yaml",
@@ -6173,8 +6173,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 20292,
-      "sha256": "6246bff9fc18364bb9556ae047ad4cfb6e492427986d3fa438dbf9ebdaf00824"
+      "bytes": 20530,
+      "sha256": "07ffb4cb0dd07a05d54cbff4fa3d9c92847e9545b3ad5f7c5d955cc49a54d29b"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7018,8 +7018,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/SKILL.md",
-      "bytes": 8906,
-      "sha256": "cb307d77c3b339e0efc6d60e3ed351ddf344cb889c75dfbec7207013a62e88c7"
+      "bytes": 9144,
+      "sha256": "d6f091acc03bea7c3c4469beb973b5c2c26d1e5e30112ef3b4da8bb2093ddf5a"
     },
     {
       "path": "skills/storyboard-board-architect/agents/openai.yaml",
@@ -7078,8 +7078,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 9535,
-      "sha256": "0caead8a4a04fb7b5c9d8009ff1a57eae7d70088a8a390302fcc9a0433556634"
+      "bytes": 9773,
+      "sha256": "810ad78287655dc1acd0266a12a590824cfad2a870a2269a8ca55ff8631313d0"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -7138,8 +7138,8 @@
     },
     {
       "path": "skills/storytelling/SKILL.md",
-      "bytes": 4634,
-      "sha256": "d5249cd23cfa18d793e7bdc056b5d4d1e414589cd99fc845f2bfe3729cbf6b29"
+      "bytes": 4872,
+      "sha256": "0b910acc8b982aadaf1dbb83d7378540812baf83664603e799799c70299f6d9d"
     },
     {
       "path": "skills/storytelling/agents/openai.yaml",
@@ -7153,8 +7153,8 @@
     },
     {
       "path": "skills/studio-workstyle-profile/SKILL.md",
-      "bytes": 7275,
-      "sha256": "f0b09d13d6f96d48eddc4a884f6406d95cb2dddd673981c9930025b2dd7d0ab6"
+      "bytes": 7513,
+      "sha256": "30e9ae4f670604fa4ec4391685b6a7d3537231752a8c7928e02275027f778a4e"
     },
     {
       "path": "skills/studio-workstyle-profile/agents/openai.yaml",
@@ -7183,8 +7183,8 @@
     },
     {
       "path": "skills/tool-routing-cost/SKILL.md",
-      "bytes": 7530,
-      "sha256": "2367e8b00f33319b4cc20aa7ce1d13731cb30ee1b1cb501cf68b3b4e24a61180"
+      "bytes": 7768,
+      "sha256": "c23c29167aba2e12f35d95dc4618aa53f2dc794c3c4822dde5a912fdea62525d"
     },
     {
       "path": "skills/tool-routing-cost/agents/openai.yaml",
@@ -7233,8 +7233,8 @@
     },
     {
       "path": "skills/ugc/SKILL.md",
-      "bytes": 6147,
-      "sha256": "72a60ab4835754c0759e65fcdc5ef520b46167ed024bfd672ab9220937283492"
+      "bytes": 6385,
+      "sha256": "c226acd0716c49b97d976b97e5e43cd57e3139c8df75f054a0144dd1fdef2af9"
     },
     {
       "path": "skills/ugc/agents/openai.yaml",
@@ -7253,8 +7253,8 @@
     },
     {
       "path": "skills/video-prompt-architect/SKILL.md",
-      "bytes": 19816,
-      "sha256": "dbce259c5fa41e82e591c0ba740d91eff06cea5cadf797ced2c564e609ca551a"
+      "bytes": 20054,
+      "sha256": "2f82ff35f2adeb0d7522570ade61b41aa43449fc55ff3a0705d88890bc3498d5"
     },
     {
       "path": "skills/video-prompt-architect/agents/openai.yaml",
@@ -7299,7 +7299,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31759,
-      "sha256": "8983c18399e64bd50c48904f742d2999f8e426f29ddcb4ba302dd1b35fd10541"
+      "sha256": "9e00648e3fa7a971f48fb193bf272e27ee37544446d5551f1f43c85f52257472"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7513,8 +7513,8 @@
     },
     {
       "path": "skills/workflow-self-improvement/SKILL.md",
-      "bytes": 6481,
-      "sha256": "1c7c100901ef0ed97712b2b3c3e3a74099c752ca231c40fa2c5a56a490d61425"
+      "bytes": 6719,
+      "sha256": "2e2918082930ce0f8fe58b6c35261223fea397951a9369b965fa87c6645cd3f2"
     },
     {
       "path": "skills/workflow-self-improvement/agents/openai.yaml",
@@ -7613,8 +7613,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 18147,
-      "sha256": "5d0cd28588587f23c093d3efca96256f99e5126d8ee43709fe984e6c53dc60f4"
+      "bytes": 19583,
+      "sha256": "47b7ac9444352688ef89d83f638cb4be6da3c6590a431494bb936041a3d235f7"
     },
     {
       "path": "tests/flash_check_test.py",
