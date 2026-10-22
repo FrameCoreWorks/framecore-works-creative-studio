@@ -23,6 +23,12 @@ python3 motion_activity.py film.mp4 --hold 27-30
 
 On 2026-10-12 it returned REVISE for the 6-second film reviewed on 2026-10-11 (83 % still, a 4.7 s still), PASS for a reference client reel (20 % still) and PASS for a HyperFrames example render (35 % still); `tests/motion_activity_test.py` covers moving, still and mixed videos and declared holds.
 
+[`flash_check.py`](flash_check.py) screens a rendered video for photosensitivity risk. It samples at 30 frames per second (`--fps` 24 to 30; the 6 fps of the activity check is too slow for flicker), converts each frame to relative luminance and counts flashes: pairs of opposing changes of at least 0.10 whose darker side is below 0.80, over at least a quarter of the frame. More than 3 flashes in any one-second window fails (REVISE, exit code 1) and the report names that second; `--json` adds `video_sha256`. It is screening, not WCAG, Harding or broadcast conformance: it does not judge saturated red flashes or patterns. Run it on any render with beat-driven brightness, strobes or flash cuts. `tests/flash_check_test.py` covers fast and slow flicker, a fade, a small area and bright-only flicker.
+
+```sh
+python3 flash_check.py film.mp4 --json
+```
+
 ## Optional libraries
 
 Paper Shaders 0.0.81: use the installed package's real ShaderMount setup and verified API. Versions from 0.0.77 use Apache-2.0; preserve LICENSE/NOTICE if shipping library code. The adapter vendors no library code. Set dimensions, seed and all uniforms explicitly. A feedback simulation may require fixed prerendering, not arbitrary seeking.

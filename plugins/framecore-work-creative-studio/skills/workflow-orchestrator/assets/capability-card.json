@@ -1109,6 +1109,28 @@
       "observed": "2026-10-17 and 2026-10-18: run on the reel starter and Iso Glow renders in a Linux container"
     },
     {
+      "id": "flash_check",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Screens a rendered MP4 for photosensitivity risk: counts full-frame flashes per second at 24 to 30 fps and gives PASS or REVISE above 3 flashes in any second; screening, not WCAG, Harding or broadcast conformance",
+      "tools": [
+        "skills/hyperframes-workflow/assets/motion-quality/flash_check.py"
+      ],
+      "requires": [
+        "python",
+        "numpy",
+        "ffmpeg"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A PASS or REVISE verdict with the most flashes in any second and where that second starts",
+      "when_missing": "Watch the full video and flag any full-frame brightness flicker faster than about three times a second; slow it, shrink it or lower its contrast",
+      "observed": "2026-10-22: synthetic flicker, fade, small-area and bright-only clips in a Linux container (tests/flash_check_test.py); not yet run on a client render"
+    },
+    {
       "id": "html_capture",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

@@ -33,6 +33,7 @@ The [environment check](../../workflow-orchestrator/assets/environment-check/REA
 | Reference animation breakdown (cuts, grid, transitions, motion heatmaps) | `reference_breakdown` | no | yes | yes | Python, numpy, Pillow, ffmpeg |
 | Word and line timing of a supplied song, cuts on the beat | `lyric_timing` | no | yes | yes | Python, numpy, ffmpeg, a recogniser the user installs |
 | Still stretches in a rendered MP4 (PASS or REVISE) | `motion_activity` | no | yes | yes | Python, numpy, ffmpeg |
+| Photosensitivity screening of a rendered MP4: flashes per second (PASS or REVISE) | `flash_check` | no | yes | yes | Python, numpy, ffmpeg |
 | Technique lookup in the prompt library and technique atlas | `motion_prompt_library` | no | yes | yes | Python (Node for the library search) |
 | Hand-written HTML to MP4 without npm | `html_capture` | no | no | yes | Node, browser, ffmpeg |
 | Contract revision with a change list | `motion_revise` | no | no | yes | Node |
