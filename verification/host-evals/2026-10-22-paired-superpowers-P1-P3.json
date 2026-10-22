@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-22",
+  "host": "Claude Code headless, isolated CLAUDE_CONFIG_DIR, Studio and Superpowers 6.4.2 via two --plugin-dir",
+  "cases": [
+    {
+      "id": "P1-framecut-drift",
+      "title": "Accepted FrameCut edit, audio six frames late: debug the cause, keep the accepted board",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1251,
+        "output": 2310,
+        "cache_read": 44117,
+        "cache_write": 27509
+      },
+      "seconds": 24.9,
+      "wall_seconds": 25.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mamy zaakceptowany storyboard i gotowy montaż we FrameCut (25 fps). W całym filmie dźwięk jest około 6 klatek za obrazem. Co robimy?",
+          "reply": "W katalogu roboczym nie ma projektu FrameCut ani mediów, więc na razie nic nie zmieniałem i niczego nie zmierzyłem. Poniżej plan naprawy.\n\n**Diagnoza.** 6 klatek przy 25 fps to 240 ms. Opóźnienie jest takie samo w całym filmie, więc to stałe przesunięcie, a nie dryf. Naprawa to jedna korekta, a nie przebudowa montażu.\n\n**Plan:**\n1. **Pomiar.** Sprawdzę przesunięcie w dwóch miejscach: na początku i pod koniec filmu, np. na klaps, trzask albo wyraźne otwarcie ust. Jeśli w obu miejscach wychodzi 6 klatek, to stałe przesunięcie. Jeśli różnica rośnie, to dryf, np. przez inny fps albo sample rate źródła. Wtedy trzeba naprawić źródło, a nie przesuwać.\n2. **Przesunięcie dźwięku o 6 klatek wcześniej.** Zrobię to jedną operacją na ścieżkach dźwięku synchronicznego (`move_clip` w `apply --base-revision`), po `dry-run`. Pozostałe ścieżki zostają na miejscu:\n   - mowa i dźwięki z planu przesuwam,\n   - muzykę zostawiam, bo nie ma synchronu z obrazem,\n   - lektora lub SFX przesuwam tylko wtedy, gdy też są przesunięte.\n3. **Początek ścieżki.** Dźwięk nie może zacząć się przed klatką 0, więc obetnę 6 klatek z głowy źródła (`trim_clip`). Nic nie zostanie za krótkie, a ostatnie 6 klatek dopasuję przy zakończeniu.\n4. **Napisy i J/L cuty.** Sprawdzę, czy napisy dalej trafiają w słowa i czy przejścia dźwięku nie rozjechały się o 6 klatek.\n5. **Kontrola.** Obejrzę klatki w kilku punktach (`preview-frame`) i zrobię nowy render `final` do świeżej paczki. Sprawdzę technicznie, że przesunięcie wynosi teraz 0 ±1 klatka. Końcowy odsłuch musisz zrobić Ty, bo ja nie słyszę dźwięku.\n\nStoryboard jest już zaakceptowany, a to czysta korekta techniczna. Kolejność, kadry, napisy i look zostają bez zmian, więc nie trzeba go zatwierdzać ponownie.\n\n**Czego potrzebuję:** ścieżki do projektu FrameCut (albo plików źródłowych i aktualnego montażu). Daj też znać, czy cały dźwięk, łącznie z muzyką i lektorem, jest przesunięty, czy tylko mowa z nagrania. Jeśli nie wiesz, zmierzę to sam po otrzymaniu projektu.",
+          "reply_chars": 1997,
+          "reply_sha256": "2fe4aee306ef5bb0371f4ac0617b378569a99d5eb62160157baa1fc41da59a2c",
+          "skills": [
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1251,
+            "output": 2310,
+            "cache_read": 44117,
+            "cache_write": 27509
+          },
+          "seconds": 24.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "P2-uncertain-direction",
+      "title": "Uncertain user, new reel: Studio intake leads; Superpowers must not add a spec document or a second questionnaire",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1281,
+        "output": 1532,
+        "cache_read": 88781,
+        "cache_write": 33232
+      },
+      "seconds": 14.2,
+      "wall_seconds": 14.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Najlepiej połączyć Twoje nagrania z animowanym schematem. Same nagrania z telefonu pokażą, że magazyn istnieje, a schemat pokaże, jak on działa.\n\nProponuję takie rozwiązanie: **nagrania są głównym obrazem, a po nich pojawia się schemat.** Schemat to prosta linia procesu: **Przyjęcie → Kontrola → Składowanie → Kompletacja → Pakowanie → Wysyłka**. Na ekranie podświetla się kolejny etap i na chwilę przechodzi w odpowiednie nagranie. Wygląda to jak mapa drogi paczki, więc widz od razu rozumie kolejność. Całość składam w jednym montażu: cięcia, schemat, napisy i dźwięk.\n\nAlternatywa to czysty film bez schematu, z samymi podpisami etapów. Jest szybszy w produkcji, ale mniej czytelny.\n\nNie widzę jeszcze żadnych plików w tej rozmowie, więc nie wiem, co jest na nagraniach. Zanim zaproponuję storyboard całej rolki, potrzebuję jednej rzeczy:\n\n**Wgraj nagrania z telefonu, nawet te nieuporządkowane.** Obejrzę je i sprawdzę, które etapy procesu masz już sfilmowane, a których brakuje. Na tej podstawie ułożę rolkę. Jeśli czegoś zabraknie, np. pakowania, dam Ci krótką listę ujęć do dokrętki.\n\nJeśli wolisz, napisz też, **dla kogo jest ta rolka**: dla klientów sklepów, partnerów B2B czy kandydatów do pracy. Od tego zależy ton i to, które etapy pokażemy dłużej. Jeśli nie wiesz, przyjmę, że to klienci i partnerzy, i poprawimy to później.",
+          "reply_chars": 1338,
+          "reply_sha256": "0e48725c9a3ad05b54707bb10f8d61c844f921ee60c87b1dfcb58922897c096d",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1281,
+            "output": 1532,
+            "cache_read": 88781,
+            "cache_write": 33232
+          },
+          "seconds": 14.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "P3-bare-invocation",
+      "title": "Bare invocation keeps the complete welcome with Superpowers loaded",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1182,
+        "output": 781,
+        "cache_read": 22165,
+        "cache_write": 23797
+      },
+      "seconds": 9.0,
+      "wall_seconds": 9.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "I am FrameCore Works Creative Studio. I help develop ideas, create creative materials and improve projects — from the first concept through production planning and further revisions.\n\nI can help you with:\n\n- **Graphics and advertising materials** — posters, flyers, banners, social media posts and ideas for the look of a campaign.\n- **Video, motion design and storytelling** — reels, ads, animated graphics and typography, scripts, music videos, storyboards, shot plans and character direction.\n- **Writing** — headlines, descriptions, slogans, dialogue and adapting language to your audience.\n- **Prompts and references** — instructions for creating images and video, and organizing examples that guide the project.\n- **Music, voice and sound** — musical concepts, lyrics and instructions for audio tools, and planning sound design.\n- **Editing and refining materials** — scene order, subtitles, rhythm, animation plans and specific improvements to supplied work.\n\nI help with both individual materials and larger campaigns. We can also learn these skills step by step. File preparation and analysis use the tools available in the current conversation.\n\nIf you have a logo, photos, graphics, a video, text, examples or documents, you can add them now or later.\n\n**Choose where to start:**\n\n1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.\n2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.\n3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.\n4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.\n5. **FrameCut** — analyze, edit and finish your video, combining footage, captions, animation and sound.\n\nEnter **1**, **2**, **3**, **4** or **5**.",
+          "reply_chars": 2019,
+          "reply_sha256": "fa2b197b2e82d7ff8b98f744a2df5cfd3ec33c1990e458dca85bc31393e418a5",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1182,
+            "output": 781,
+            "cache_read": 22165,
+            "cache_write": 23797
+          },
+          "seconds": 9.0,
+          "checks": []
+        }
+      ],
+      "judge_advisory": null
+    }
+  ],
+  "seconds": 48.5,
+  "tokens": {
+    "input": 3714,
+    "output": 4623,
+    "cache_read": 155063,
+    "cache_write": 84538
+  },
+  "purpose": "First paired run of Studio 1.122.0+ (with the 1.123.0 candidate edits) and Superpowers 6.4.2 in Claude Code; the repository host evaluations isolate the config, so Superpowers is never loaded there.",
+  "load_probe": {
+    "superpowers_skills_listed": 15,
+    "session_start_hook_context": "present",
+    "method": "two headless probes with the same flags, Skill tool available"
+  },
+  "finding": "All three replies passed their checks and kept Studio ownership (accepted board kept, recommendation plus alternative, full welcome). No Superpowers skill was invoked, including P1, a reproducible timing defect for which the native routing table requires superpowers:systematic-debugging; the routing reference was not read. Companion routing is therefore not exercised in this Claude Code path; installed-client behavior in ChatGPT stays NOT_RUN."
+}
