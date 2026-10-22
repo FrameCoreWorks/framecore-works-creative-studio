@@ -1,11 +1,13 @@
-# Creative Studio 1.122.0
+# Creative Studio 1.123.0
 
-Superpowers is now Studio's first optional companion during setup. Users install it separately through the plugin catalog of their host; Studio then discovers and reads the relevant available skills for planning, debugging, implementation, review and verification.
+Motion Graphics can now screen a finished video for fast flicker that may affect people with photosensitive epilepsy. It reports the worst second; it is a screening, not a compliance certificate.
 
-Studio retains creative ownership, accepted storyboard revisions, one timeline and the existing review budget. The complete localized welcome remains unchanged. Missing or declined Superpowers does not block work, and no new account connection or renderer is required.
+FrameCut warns when a transcript looks like a recognition failure (music read as text, impossibly short words, a repeated line) and refuses an English-only speech model for another language before it starts.
 
-The OpenAI setup action targets the existing orchestrator, including catalog/ZIP installations. Claude uses explicit first-configuration guidance through its actual plugin interface. Host availability is checked rather than assumed.
+The encode check can confirm that a film has audible sound, or none, and save the exact cover frame.
 
-Verification: required source/runtime suites and canonical validation are recorded in verification/release-1.122.0.json. Five before/after source-guided scenarios and an independent code/instruction review supplement the regression tests. They are not fresh installed-client tests; ordinary ChatGPT, fresh Work, Codex and Claude behavior remains NOT_RUN. The existing hosted plugin is updated separately after repository publication, preserving its private overlay.
+Open Design is listed at release 0.26.0 with verified installer checksums and plain warnings: its Share feature uploads project files to its cloud, telemetry is on until you switch it off, and connecting it gives your agent write and delete access to its projects.
 
-Publication readback: all 1,552 plugin files match the release tag. Local verification: 760 passed, 25 skipped, zero failures. Existing ChatGPT plugin update and complete saved-package readback are recorded in verification/hosted-sync-1.122.0.json; private integrations are preserved.
+Studio's guidance gains a flash limit, right-to-left and complex script rules for motion and captions, transparent overlay export for editors, and calmer conversation pacing in FrameCut.
+
+Verification: source tests and canonical validation are recorded in verification/release-1.123.0.json. Fresh installed-client behavior remains NOT_RUN. The existing hosted plugin is updated separately, preserving its private overlay.
