@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-21",
+  "checked": "2026-10-22",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -1269,6 +1269,74 @@
       },
       "observed": "Reviewed source and dependency boundary at the pinned commit; no upstream installer or Adobe service executed. Studio source/task tests and paired-release evidence are recorded separately.",
       "update": "Review source and license at a new pin before changing methods. Do not auto-install the upstream suite or introduce accounts/services. Preserve host boundaries and full FrameCut board gate."
+    },
+    {
+      "id": "moneyprinterturbo",
+      "name": "MoneyPrinterTurbo (harry0703)",
+      "repository": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "reviewed_commit": "6992380c5e82f07f3e1fc46b90927b6f1c655407",
+      "package": {
+        "registry": "pypi",
+        "name": "mpt",
+        "version": "1.3.9"
+      },
+      "license": "MIT (code). Bundled background songs are described by the author as taken from YouTube videos, with no licence given; stock footage and voices carry their providers' terms",
+      "kind": [
+        "python_package",
+        "cli",
+        "web_ui",
+        "api"
+      ],
+      "role": "engine",
+      "gives": "A topic or script becomes a finished short video automatically: a script from many LLM providers, stock footage from Pexels or Pixabay (or local files, or paid AI clip providers), voice-over from Edge TTS and other voice services or the user's own audio, speech-based subtitles, background music and 9:16 or 16:9 composition with MoviePy and FFmpeg; WebUI, REST API and CLI, with a JSON result and exit codes for agents",
+      "studio_uses": "Quick faceless stock-footage explainer or tip videos from a topic, and drafts or batches where speed matters more than a designed look; Studio keeps the brief, the script and claims, and the review",
+      "not_for": "Client work that needs original footage, exact copy, a designed look or brand-consistent motion (use FrameCut for the user's footage and Motion Graphics Workflow for designed motion); publishing without a person checking the script, claims, footage and music rights; the bundled songs",
+      "requires": [
+        {
+          "tool": "python",
+          "note": "Python 3.11+ (3.13 resolved in review)"
+        },
+        {
+          "tool": "ffmpeg",
+          "note": "System FFmpeg is preferred; the package can fall back to imageio-ffmpeg"
+        }
+      ],
+      "rights": "Stock footage, music and voices keep their providers' licences (for example Pexels or Pixabay terms): check them before client or paid use. The package bundles 29 background songs that its README says come from YouTube videos and asks users to delete if there are copyright issues: never publish with them, set the background music to none or use licensed music. Disclose synthetic voices where a platform or law asks, and review any LLM-written script for invented claims. Its README carries sponsor and referral links: Studio does not endorse them. Studio builds its own work from what it learns here",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "python3 -m pip install --dry-run --no-deps --ignore-installed mpt==1.3.9",
+          "install": "python3 -m venv ~/.framecore-studio/extensions/moneyprinterturbo-venv && ~/.framecore-studio/extensions/moneyprinterturbo-venv/bin/pip install mpt==1.3.9",
+          "writes": "~/.framecore-studio/extensions/moneyprinterturbo-venv (about 1.3 GB: mpt 1.3.9 and its pinned dependencies, among them moviepy, streamlit, faster-whisper, litellm and cloud speech SDKs); when run it creates its data folder (config.toml, storage/tasks, fonts, background songs) in ~/.local/share/MoneyPrinterTurbo, ~/Library/Application Support/MoneyPrinterTurbo, %LOCALAPPDATA%\\MoneyPrinterTurbo or the folder named by MPT_HOME; Whisper models download only when subtitles from speech need them",
+          "verify": "~/.framecore-studio/extensions/moneyprinterturbo-venv/bin/mpt cli --help",
+          "after": "Needs Python 3.11+ and FFmpeg (it falls back to the bundled imageio-ffmpeg). Offline check from its docs: MPT_HOME=<scratch folder> mpt cli --video-script \"...\" --video-source local --video-materials /absolute/clip.mp4 --custom-audio-file /absolute/narration.wav --no-subtitle-enabled --bgm-type none. Online generation needs the user's own LLM and stock-footage or voice keys in its config.toml (never print them), and its paid clip providers charge per task, so ask before enabling one. Start only `mpt cli` or `mpt webui` (127.0.0.1): its API server (main.py) listens on 0.0.0.0 by default with no sign-in. Use --bgm-type none or the user's own licensed music; do not use its bundled songs",
+          "remove": "rm -rf ~/.framecore-studio/extensions/moneyprinterturbo-venv (its data folder holds config.toml with keys and the generated videos: delete it only if the user agrees)"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "python3 -m pip install --dry-run --no-deps --ignore-installed mpt==1.3.9",
+          "install": "python3 -m venv ~/.framecore-studio/extensions/moneyprinterturbo-venv && ~/.framecore-studio/extensions/moneyprinterturbo-venv/bin/pip install mpt==1.3.9",
+          "writes": "~/.framecore-studio/extensions/moneyprinterturbo-venv (about 1.3 GB: mpt 1.3.9 and its pinned dependencies, among them moviepy, streamlit, faster-whisper, litellm and cloud speech SDKs); when run it creates its data folder (config.toml, storage/tasks, fonts, background songs) in ~/.local/share/MoneyPrinterTurbo, ~/Library/Application Support/MoneyPrinterTurbo, %LOCALAPPDATA%\\MoneyPrinterTurbo or the folder named by MPT_HOME; Whisper models download only when subtitles from speech need them",
+          "verify": "~/.framecore-studio/extensions/moneyprinterturbo-venv/bin/mpt cli --help",
+          "after": "Needs Python 3.11+ and FFmpeg (it falls back to the bundled imageio-ffmpeg). Offline check from its docs: MPT_HOME=<scratch folder> mpt cli --video-script \"...\" --video-source local --video-materials /absolute/clip.mp4 --custom-audio-file /absolute/narration.wav --no-subtitle-enabled --bgm-type none. Online generation needs the user's own LLM and stock-footage or voice keys in its config.toml (never print them), and its paid clip providers charge per task, so ask before enabling one. Start only `mpt cli` or `mpt webui` (127.0.0.1): its API server (main.py) listens on 0.0.0.0 by default with no sign-in. Use --bgm-type none or the user's own licensed music; do not use its bundled songs",
+          "remove": "rm -rf ~/.framecore-studio/extensions/moneyprinterturbo-venv (its data folder holds config.toml with keys and the generated videos: delete it only if the user agrees)"
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The package is about 1.3 GB with its dependencies and needs ffmpeg, a writable folder and outside services for scripts, footage and voices; a chat sandbox cannot keep it. Studio writes the script, shot plan and review there, and the user runs MoneyPrinterTurbo in Codex or Claude Code on their computer"
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The package is about 1.3 GB with its dependencies and needs ffmpeg, a writable folder and outside services for scripts, footage and voices; a chat sandbox cannot keep it. Studio writes the script, shot plan and review there, and the user runs MoneyPrinterTurbo in Codex or Claude Code on their computer"
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "The package is about 1.3 GB with its dependencies and needs ffmpeg, a writable folder and outside services for scripts, footage and voices; a chat sandbox cannot keep it. Studio writes the script, shot plan and review there, and the user runs MoneyPrinterTurbo in Codex or Claude Code on their computer"
+        }
+      },
+      "observed": "2026-10-22: README, packaging notes, the project's agent skill, configuration template and the code that runs processes, reaches the network and chooses the listen address were read at the reviewed commit (no telemetry found; its API server listens on 0.0.0.0 by default). The PyPI wheel and sdist for mpt 1.3.9 matched their published SHA-256 and the wheel's 57 Python files are byte-identical to the repository at that commit. The plan command (pip install --dry-run --no-deps) reported `Would install mpt-1.3.9`, and pip install of the wheel into a fresh Python 3.13 virtual environment on Linux succeeded (about 1.3 GB). The program itself was not run: the container's permission check blocked executing the downloaded package, so `mpt cli --help` and the offline generation are NOT_RUN, as is every online provider",
+      "update": "Review a newer release, then change package.version and reviewed_commit together",
+      "category": "video"
     }
   ]
 }
