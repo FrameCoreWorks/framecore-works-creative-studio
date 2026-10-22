@@ -23,7 +23,8 @@ REGISTRY = Path(__file__).resolve().parent / 'extensions.json'
 HOST_FIELDS = {'native': ('plan', 'install', 'writes', 'verify', 'after', 'remove'),
                'desktop_only': ('plan', 'install', 'writes', 'verify', 'after', 'remove'),
                'not_supported': ('reason',),
-               'manual': ('manual_steps',)}
+               'manual': ('manual_steps',),
+               'catalog_manual': ('manual_steps', 'writes', 'verify', 'after', 'remove')}
 ENTRY_FIELDS = ('id', 'name', 'repository', 'license', 'kind', 'role', 'gives', 'studio_uses',
                 'not_for', 'requires', 'rights', 'hosts', 'observed', 'update')
 STEP_ORDER = ('plan', 'install', 'verify', 'after', 'remove')
@@ -54,11 +55,16 @@ def validate(data):
         problems.append('schema_version 1 and a checked date')
     hosts = data.get('hosts') or []
     seen = set()
+    first_recommendations = 0
     for entry in data.get('extensions') or []:
         where = str(entry.get('id'))
         if not re.fullmatch(r'[a-z0-9_-]+', where) or where in seen:
             problems.append(f'{where}: id must be unique, lowercase')
         seen.add(where)
+        priority = entry.get('recommendation_priority')
+        if priority not in (None, 'first'):
+            problems.append(f'{where}: unknown recommendation_priority')
+        first_recommendations += priority == 'first'
         for field in ENTRY_FIELDS:
             if entry.get(field) in (None, '', [], {}):
                 problems.append(f'{where}: {field} missing')
@@ -81,6 +87,10 @@ def validate(data):
             for field in HOST_FIELDS[spec['status']]:
                 if not spec.get(field):
                     problems.append(f'{where}: {host} {field} missing')
+            if spec['status'] == 'catalog_manual':
+                if 'plan' in spec or 'install' in spec:
+                    problems.append(f'{where}: {host} catalog_manual cannot contain plan or install')
+                continue  # Reviewed source is provenance, not a pin on a marketplace-managed version.
             for field in ('plan', 'install') + (('verify', 'remove') if npm_pin else ()):
                 if spec.get(field) and pinned not in spec[field]:
                     problems.append(f'{where}: {host} {field} must use the pinned {pinned}')
@@ -90,6 +100,8 @@ def validate(data):
                 problems.append(f'{where}: {host} plan must be a dry run')
             if spec.get('install') and re.search(r'(^|\s)(-y|--yes)(\s|$)', spec['install'].replace('npx -y ', 'npx ')) and package is None:
                 problems.append(f'{where}: {host} install must keep the installer\'s own confirmation')
+    if first_recommendations > 1:
+        problems.append('only one first recommendation is allowed')
     return problems
 
 
@@ -116,7 +128,7 @@ def check_requirement(requirement):
 def show(entry, host, check=True):
     spec = entry['hosts'][host]
     report = {key: entry.get(key) for key in ('id', 'name', 'repository', 'reviewed_commit', 'archive', 'package', 'license', 'kind',
-                                            'role', 'gives', 'studio_uses', 'not_for', 'rights', 'observed')}
+                                            'role', 'gives', 'studio_uses', 'not_for', 'rights', 'observed', 'recommendation_priority')}
     report['pinned'] = pin_of(entry)
     report['host'] = host
     report['status'] = spec['status']
@@ -130,11 +142,13 @@ def catalog(data, host):
     rows = []
     for entry in data['extensions']:
         spec = entry['hosts'][host]
-        how = {k: spec[k] for k in STEP_ORDER if spec.get(k)} if spec['status'] in ('native', 'desktop_only') else \
+        how = {k: spec[k] for k in HOST_FIELDS['catalog_manual']} if spec['status'] == 'catalog_manual' else \
+            {k: spec[k] for k in STEP_ORDER if spec.get(k)} if spec['status'] in ('native', 'desktop_only') else \
             {'manual_steps': spec['manual_steps']} if spec['status'] == 'manual' else {'reason': spec['reason']}
         rows.append({'id': entry['id'], 'name': entry['name'], 'repository': entry['repository'], 'pinned': pin_of(entry),
                      'license': entry['license'], 'role': entry['role'], 'category': entry.get('category'), 'gives': entry['gives'],
                      'studio_uses': entry['studio_uses'], 'status': spec['status'], 'how': how,
+                     'recommendation_priority': entry.get('recommendation_priority'),
                      'other_hosts': {h: entry['hosts'][h]['status'] for h in data['hosts'] if h != host}})
     return rows
 
@@ -171,6 +185,8 @@ def main(argv=None):
                 print(f"\n[{heading}]")
             print(f"{row['name']} - {row['repository']} ({row['license']}, {row['role']}; {args.host}: {row['status']})")
             print(f"  gives: {row['gives']}\n  in Studio: {row['studio_uses']}")
+            if row.get('recommendation_priority'):
+                print(f"  recommendation: {row['recommendation_priority']}")
             for key, value in row['how'].items():
                 print(f'  {key}: {value}')
             print('  other hosts: ' + ', '.join(f'{h} {s}' for h, s in row['other_hosts'].items()))
@@ -178,6 +194,7 @@ def main(argv=None):
     entries = {e['id']: e for e in data['extensions'] if not args.category or e.get('category') == args.category or args.action == 'show'}
     if args.action == 'list':
         rows = [{'id': e['id'], 'name': e['name'], 'role': e['role'], 'gives': e['gives'],
+                 'recommendation_priority': e.get('recommendation_priority'),
                  'status': e['hosts'][args.host]['status'] if args.host else {h: e['hosts'][h]['status'] for h in data['hosts']}} for e in entries.values()]
         if args.json:
             print(json.dumps({'checked': data['checked'], 'policy': data['policy'], 'extensions': rows}, indent=2, ensure_ascii=False))
@@ -185,6 +202,8 @@ def main(argv=None):
             for row in rows:
                 status = row['status'] if isinstance(row['status'], str) else ', '.join(f'{h} {s}' for h, s in row['status'].items())
                 print(f"{row['id']}: {row['name']} ({row['role']}; {status})\n  {row['gives']}")
+                if row.get('recommendation_priority'):
+                    print(f"  recommendation: {row['recommendation_priority']}")
         return 0
     if args.extension not in entries or not args.host:
         print('extensions: show needs a known extension and --host', file=sys.stderr)
@@ -197,6 +216,8 @@ def main(argv=None):
     print(f"{report['name']} ({report['repository']} at {report['pinned'][:12]}{package}, {report['license']})")
     print(f"  gives: {report['gives']}\n  Studio uses it for: {report['studio_uses']}\n  not for: {report['not_for']}\n  rights: {report['rights']}")
     print(f"  {args.host}: {report['status']}")
+    if report.get('recommendation_priority'):
+        print(f"  recommendation: {report['recommendation_priority']}")
     for key, value in report['steps'].items():
         print(f'  {key}: {value}')
     for item in report['requirements']:

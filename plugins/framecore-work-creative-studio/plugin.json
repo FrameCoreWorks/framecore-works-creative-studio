@@ -45,7 +45,8 @@
         ],
         "composerIcon": "./assets/logo.png",
         "logo": "./assets/logo.png"
-      }
+      },
+      "onboardingSkill": "./skills/workflow-orchestrator/SKILL.md"
     }
   }
 }

@@ -24,6 +24,85 @@ def run(*args):
 
 
 class Registry(unittest.TestCase):
+    def companion_registry(self):
+        data = copy.deepcopy(DATA)
+        entry = copy.deepcopy(data['extensions'][0])
+        entry.update(id='test-companion', recommendation_priority='first')
+        entry.pop('package', None)
+        entry['hosts'] = {host: {
+            'status': 'catalog_manual', 'manual_steps': 'Search the host plugin catalog; the user installs.',
+            'writes': 'The host manages the separate plugin.', 'verify': 'Read an actual installed skill.',
+            'after': 'Refresh only through the supported host flow.', 'remove': 'Use the host plugin controls.'
+        } for host in data['hosts']}
+        data['extensions'] = [entry]
+        return data
+
+    def test_catalog_manual_needs_no_fake_shell_plan_or_pinned_catalog_version(self):
+        data = self.companion_registry()
+        self.assertEqual(ext.validate(data), [])
+        row = ext.catalog(data, 'chatgpt')[0]
+        self.assertEqual(row['recommendation_priority'], 'first')
+        self.assertEqual(set(row['how']), {'manual_steps', 'writes', 'verify', 'after', 'remove'})
+        report = ext.show(data['extensions'][0], 'chatgpt', check=False)
+        self.assertEqual(report['recommendation_priority'], 'first')
+
+    def test_setup_targets_existing_owner_and_direct_owners_reach_shared_support(self):
+        for relative in ('plugin.json', '.codex-plugin/plugin.json'):
+            manifest = json.loads((PLUGIN / relative).read_text())
+            self.assertEqual(manifest.get('extensions', {}).get('com.openai', {}).get('onboardingSkill'),
+                             './skills/workflow-orchestrator/SKILL.md')
+        policy = (PLUGIN / 'skills/pipeline-core/references/studio-integration-policy.md').read_text()
+        self.assertIn('superpowers-native-routing.md', policy)
+        for skill in (PLUGIN / 'skills').glob('*/SKILL.md'):
+            self.assertIn('studio-integration-policy.md', skill.read_text(), str(skill))
+        for owner in ('workflow-orchestrator', 'pipeline-core', 'hyperframes-workflow',
+                      'remotion-video-production', 'opencut-video-studio', 'static-graphic-design-creator'):
+            self.assertIn('superpowers-native-routing.md', (PLUGIN / 'skills' / owner / 'SKILL.md').read_text())
+
+    def test_catalog_manual_rejects_executable_installers_and_missing_verification(self):
+        data = self.companion_registry()
+        entry = data['extensions'][0]
+        entry['hosts']['codex']['install'] = 'install ' + entry['reviewed_commit']
+        del entry['hosts']['chatgpt']['verify']
+        problems = ' '.join(ext.validate(data))
+        self.assertIn('catalog_manual cannot contain plan or install', problems)
+        self.assertIn('chatgpt verify missing', problems)
+
+    def test_first_recommendation_is_unique_and_has_a_known_priority(self):
+        data = self.companion_registry()
+        other = copy.deepcopy(data['extensions'][0])
+        other['id'] = 'other-companion'
+        data['extensions'].append(other)
+        self.assertIn('only one first recommendation', ' '.join(ext.validate(data)))
+        other['recommendation_priority'] = 'urgent'
+        self.assertIn('unknown recommendation_priority', ' '.join(ext.validate(data)))
+
+    def test_superpowers_is_first_optional_catalog_companion_for_every_host(self):
+        entries = [e for e in DATA['extensions'] if e['id'] == 'superpowers']
+        self.assertEqual(len(entries), 1)
+        entry = entries[0]
+        self.assertEqual(entry['recommendation_priority'], 'first')
+        self.assertEqual(entry['repository'], 'https://github.com/obra/superpowers')
+        for host in DATA['hosts']:
+            self.assertEqual(entry['hosts'][host]['status'], 'catalog_manual')
+            for action in ('list', 'show', 'catalog'):
+                args = (action, 'superpowers') if action == 'show' else (action,)
+                code, out, err = run(*args, '--host', host, '--json')
+                self.assertEqual((code, err), (0, ''))
+                report = json.loads(out)
+                row = report if action == 'show' else next(r for r in report['extensions'] if r['id'] == 'superpowers')
+                self.assertEqual(row['recommendation_priority'], 'first')
+                self.assertNotIn('installed', row)
+
+    def test_human_catalog_and_list_make_first_recommendation_visible_without_reordering(self):
+        for action in ('list', 'catalog', 'show'):
+            args = (action, 'superpowers') if action == 'show' else (action,)
+            code, out, _ = run(*args, '--host', 'chatgpt')
+            self.assertEqual(code, 0)
+            self.assertIn('recommendation: first', out)
+        code, out, _ = run('list', '--host', 'codex', '--json')
+        self.assertEqual(json.loads(out)['extensions'][0]['id'], DATA['extensions'][0]['id'])
+
     def test_the_registry_is_valid_and_covers_the_same_hosts_as_the_environment_check(self):
         self.assertEqual(ext.validate(DATA), [])
         tools = json.loads((PLUGIN / 'skills/workflow-orchestrator/assets/environment-check/tools.json').read_text(encoding='utf-8'))

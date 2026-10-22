@@ -61,4 +61,9 @@ Use [conditional method selection](../../pipeline-core/references/inference-reas
 
 ### Additional tools and installation onboarding
 
-For provider discovery, setup, billing or host support use [Tool Routing Cost](../../tool-routing-cost/SKILL.md) and its [provider setup guide](../../tool-routing-cost/references/provider-setup.md). After fresh installation, offer one optional tool-selection question unless answered/declined. It never blocks work, repeats on greetings or authorizes paid generation; preserve choices on update. Catalog entries are not connected accounts.
+For provider discovery, setup, billing or host support use [Tool Routing Cost](../../tool-routing-cost/SKILL.md) and its [provider setup guide](../../tool-routing-cost/references/provider-setup.md). During explicit installation/first configuration, complete [first companion setup](extensions.md#first-companion-setup) before provider or other add-on offers; then offer one optional tool-selection question unless answered/declined. It never blocks work, repeats on greetings or authorizes paid generation; preserve choices on update. Catalog entries are not connected accounts.
+
+## Close at the requested artifact
+
+Check truth, copy, hierarchy, distinctiveness, feasible format and actual execution status. Repair a defect before releasing a prompt. Do not label a render reviewed before inspecting it. Use a resume sheet for long projects; never promise cross-chat memory. A further stage is optional unless already requested. When shared references, selected copy or masters change, use [asset change routing](asset-change-routing.md), retain exact input revisions and route only affected work; Delivery provides the manifest and dependency helper for a larger project.
+

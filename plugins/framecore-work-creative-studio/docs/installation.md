@@ -18,6 +18,10 @@ Follow the active host's real save mechanism and existing authorization. Report 
 
 The author's private plugin link is not a public installation link. Public GitHub source permits creating an independent personal copy; it does not synchronize accounts, private history, provider credentials or later changes. Installation does not activate providers or authorize media generation, private asset uploads or public publication.
 
+## First configuration and companion support
+
+Run the host's plugin setup action after installing from a catalog or ZIP, or ask Studio to configure itself. Both OpenAI manifests point setup to the existing orchestrator; Claude uses the explicit setup request and its actual plugin interface. Follow [first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) before providers or other add-ons. Recommend separately installed Superpowers first when missing and not declined/deferred, explain its technical support, then let the user install it through their host catalog. Already readable skills skip the offer. Missing support does not block Studio; actual activation needs a skill read. The complete bare-name welcome remains unchanged.
+
 ## Optional provider setup after saving
 
 After a fresh installation is saved and verified, offer one optional tool-selection question using [the setup method](../skills/tool-routing-cost/references/provider-setup.md). The user may choose existing accounts, request a setup guide, or skip. Read [the user guide](provider-setup-guide.md) for ChatGPT Chat/Work, supported Codex plugins, custom MCP, CLI and API distinctions. Provider setup does not authorize connecting services, importing client files or spending credits. Tool installation follows the separately disclosed plan and its authorization below. On updates preserve private preferences and do not repeat onboarding unless requested or materially needed.

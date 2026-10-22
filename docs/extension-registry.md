@@ -15,3 +15,9 @@ Owner decision 2026-10-16: every repository the owner sends for review is added 
 7. **Check.** `python3 plugins/framecore-work-creative-studio/tests/extensions_test.py`, the canonical validator and `bash scripts/check_all.sh`; then the release steps.
 
 To update an entry, review the new release and change `package.version` and `reviewed_commit` together. To retire one, keep the entry's file paths (never delete a package path) and mark every host `not_supported` with the reason.
+
+## Separately installed process companion (owner exception, 2026-10-22)
+
+Superpowers is deliberately not mined, copied or bundled. Its original Studio routing contract is linked from all existing owners through shared authority, with six direct technical links. `catalog_manual` is a separate status from manual file import: require manual_steps, writes, verify, after and remove, and reject plan/install fields. One optional `recommendation_priority: first` marks the first setup recommendation without changing general catalog ordering. The source commit is provenance; marketplace-managed versions must be discovered at use time. No fake pinned installer/dry run is required for a user-controlled catalog action. Record actual host availability and untested hosts. A license link and decision record suffice because no upstream source is distributed.
+
+The documented OpenAI `extensions.com.openai.onboardingSkill` field in both manifests targets the existing orchestrator: https://developers.openai.com/plugins/build/plugins (checked 2026-10-22). Its setup context takes precedence over startup menus; a plain Studio invocation still gets the complete welcome. No Claude onboarding manifest field is assumed.

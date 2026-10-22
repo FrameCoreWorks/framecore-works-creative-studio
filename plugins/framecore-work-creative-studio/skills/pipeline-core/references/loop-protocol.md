@@ -95,6 +95,11 @@ teacher's supplied material without doing the learner's exercise for them.
 Use existing `loop_state`, artifact revisions and acceptance fields for a
 resumable task; do not claim persistent storage unless actually available.
 
+## Native verification support
+
+Before a substantive completion claim, apply `superpowers:verification-before-completion` through [native Superpowers routing](superpowers-native-routing.md) when available. Evidence must match the current artifact revision and claimed scope. Integrate this into the existing domain review and shared iteration budget; do not start a second QA loop. A successful build, metadata check or skill read does not certify unseen image details, unplayed motion or unheard audio.
+
+
 ## Required Sequence
 
 1. **Brief:** confirm the goal, exclusions, final artifact, constraints, and

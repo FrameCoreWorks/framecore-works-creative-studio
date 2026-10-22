@@ -19,6 +19,11 @@ The user’s current request and applicable host instructions govern the task. T
 | Asset inventory and revisions | Asset Manifest | Owns inventory and source dependencies; Delivery retains packaging and its existing JSON dependency helper |
 | Conditional research | Studio Research Evidence | The trigger decision applies to every substantive creative task, including directly invoked imported skills; search only when a trigger applies; reuse evidence for unchanged questions |
 
+## Native Superpowers routing
+
+For every substantive direction, implementation, repair, review or completion decision, apply [native Superpowers support](superpowers-native-routing.md). Use the matching installed skill when available, prioritizing motion graphics, layout/composition and FrameCut. This rule applies to all Studio owners and direct specialist invocations. Studio retains domain authority, one Project State, existing approvals and one QA loop; unavailable support is reported honestly and does not block independent work. Native-only instructions preserve the native plugin path without repository changes.
+
+
 ## Operational rules
 
 ### Learning and creation

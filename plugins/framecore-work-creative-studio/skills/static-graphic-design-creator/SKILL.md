@@ -5,6 +5,8 @@ description: "Complete static graphic design: concepts and copy, logos and ident
 
 # Static Graphic Design Creator for Creative Studio
 
+Use [native Superpowers support](../pipeline-core/references/superpowers-native-routing.md) for consequential layout/composition decisions, multi-step coded implementation, reproducible typography/overflow faults and completion evidence. This owner retains visual hierarchy, exact copy and image-edit routing; ordinary raster work does not become a development project.
+
 For multi-format variants, photo batches, retouching recipes, local font specimens, templates or mockups, use [account-free production](../pipeline-core/references/account-free-creative-production.md). Inspect source properties, protect exact copy and brand regions, review representative previews before propagating a new look, and export from originals. This route never requires an Adobe account or Adobe services.
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.

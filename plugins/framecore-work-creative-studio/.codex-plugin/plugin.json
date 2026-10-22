@@ -7,9 +7,9 @@
     "category": "Productivity",
     "capabilities": [],
     "defaultPrompt": [
-      "Poka\u017c menu startowe Creative Studio.",
-      "Tryb szybki: daj kr\u00f3tkie pomys\u0142y na grafik\u0119, rolk\u0119, tekst lub d\u017awi\u0119k.",
-      "Tryb rozbudowany: opracuj ze mn\u0105 krok po kroku obraz, wideo, audio i monta\u017c."
+      "Pokaż menu startowe Creative Studio.",
+      "Tryb szybki: daj krótkie pomysły na grafikę, rolkę, tekst lub dźwięk.",
+      "Tryb rozbudowany: opracuj ze mną krok po kroku obraz, wideo, audio i montaż."
     ],
     "composerIcon": "./assets/logo.png",
     "logo": "./assets/logo.png"
@@ -43,5 +43,10 @@
     "project-recovery",
     "video-editing"
   ],
-  "skills": "./skills"
+  "skills": "./skills",
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/workflow-orchestrator/SKILL.md"
+    }
+  }
 }

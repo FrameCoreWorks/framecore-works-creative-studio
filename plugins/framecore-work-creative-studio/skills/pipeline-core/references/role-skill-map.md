@@ -116,3 +116,7 @@ changes, keep these files synchronized:
 ## Media-specific review
 
 Resolve qa-iteration by the actual artifact: stills to Output Critic, a rendered motion video with its contract to the Motion Graphics Workflow (craft critique and frame review), other video motion to Video Prompt Architect, sound to Audio Production Director and caption timing to Caption Studio. Pipeline Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.
+
+## Optional process support
+
+Every existing owner applies [native Superpowers routing](superpowers-native-routing.md) when its trigger matches. Superpowers is a separately installed supporting plugin, not a Studio role or another master workflow. Resolve actual skills, carry the revision-bound support receipt in the same Project State, then return to the originating owner and checkpoint. Preserve unchanged approvals and one QA budget. Missing support does not block independent Studio work.

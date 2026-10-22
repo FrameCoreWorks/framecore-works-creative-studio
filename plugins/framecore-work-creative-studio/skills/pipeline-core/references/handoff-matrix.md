@@ -76,3 +76,7 @@ Invalid handoffs:
 ## Studio modality and request scope
 
 Resolve qa-iteration through the modality map before review. A direct request for a finished artifact is sufficient delivery intent within its scope. Prompt-only work ends at the prompt artifact; it cannot be forced into generation. A complete source-independent plan may finish with explicit execution blockers and conditional inputs. All fields remain in the shared Project State without a second intake.
+
+## Optional process support
+
+Every existing owner applies [native Superpowers routing](superpowers-native-routing.md) when its trigger matches. Superpowers is a separately installed supporting plugin, not a Studio role or another master workflow. Resolve actual skills, carry the revision-bound support receipt in the same Project State, then return to the originating owner and checkpoint. Preserve unchanged approvals and one QA budget. Missing support does not block independent Studio work.

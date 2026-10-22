@@ -5,6 +5,8 @@ description: "FrameCut: interview, analyze, edit and deliver video, from highlig
 
 # FrameCut
 
+Use [native Superpowers support](../pipeline-core/references/superpowers-native-routing.md) for technical edit planning, timing/composition defects, code-based components and final verification. FrameCut retains one master timeline, project revision and full-storyboard acceptance. Reuse unchanged approvals; technical repair does not restart onboarding or add a second review loop.
+
 For account-free multi-format adaptations and highlight selection, use [the shared applied methods](../pipeline-core/references/account-free-creative-production.md). Existing FrameCut tools and inspected source-bound transcripts drive execution, with no Adobe Quick Cut or account setup. Representative ratio previews never replace the complete film storyboard, correction and acceptance gate; samples remain optional on request.
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.

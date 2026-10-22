@@ -1,6 +1,6 @@
 # Superpowers as Studio's first recommended companion
 
-Status: proposed architecture, ready for owner review. This branch contains the foundation only; it does not activate routing, change installation behavior or release a plugin.
+Status: approved by the owner for implementation and repository-first publication, followed by the existing ChatGPT plugin update. See the [implementation plan](../plans/2026-10-22-studio-companion-implementation.md).
 
 Owner request: 2026-10-22. Change: CW-20261022-01. Baseline: `b92b45b227dc667934c81080afebcdd3c0163b29`, Studio 1.121.0. Working branch: `cw/superpowers-companion-foundation-2026-10-22`.
 
@@ -10,7 +10,7 @@ Recommend the separately maintained **Superpowers** plugin first when installing
 
 This is a companion integration, not extraction, rewriting or bundling of Superpowers skills. The owner's current request is an explicit exception to the older repository convention of mining every reviewed repository. It also authorizes this separate working branch, superseding main-only for this task. Other repository rules remain in force.
 
-In scope now: takeover evidence, architecture, installation behavior, ownership coverage, handoff contract, verification scenarios and rollout boundaries. The live hosted integration is being developed in another conversation; compare it before implementation rather than overwrite it. Product implementation follows review of this design. Open Design adoption remains a separate paused work item.
+In scope: the approved architecture, installation/first-configuration behavior, ownership coverage, handoff contract, verification and paired publication. The existing native integration has been inspected and is the compatibility baseline. Open Design remains a separate paused work item.
 
 ## Evidence informing the design
 
@@ -104,7 +104,7 @@ Every row inherits the shared decision policy. Direct technical entry points als
 | --- | --- |
 | `workflow-orchestrator`, `pipeline-core` | Central dispatch, availability, state and return. Resolve direct specialist calls as well as top-level workflow requests. |
 | `hyperframes-workflow`, `remotion-video-production`, `opencut-video-studio`, `static-graphic-design-creator` | Direct links: motion/code, React compositions, FrameCut timing and coded layout. Retain domain craft and approved assets. Raster edits keep their existing image-edit route. |
-| `audio-production-director`, `caption-studio`, `asset-manifest`, `tool-routing-cost` | Timing/render/data faults and tooling plans when technical; audio quality, captions, provenance and spending boundaries remain Studio-owned. Add compact direct links where these can start technical tasks independently. |
+| `audio-production-director`, `caption-studio`, `asset-manifest`, `tool-routing-cost` | Timing/render/data faults and tooling plans when technical; audio quality, captions, provenance and spending boundaries remain Studio-owned. Their existing shared-policy links cover independently invoked technical work; avoid redundant boilerplate. |
 | `brief-architect`, `reference-pack-curator`, `research-evidence`, `instruction-packet-factory`, `studio-workstyle-profile` | Supply the existing brief, evidence, bounded packet and preferences. Use support only for unresolved consequential requirements or technical workflow design, without restarting intake. |
 | `commercial-video-campaign-director`, `commercial-visual-campaign-director`, `ecommerce-campaign-strategy-director`, `creative-video-producer`, `creative-music-video-director`, `marketing` | Strategy and creative direction stay here. Pass bounded technical implementation to the actual production owner, with the same brief and revision. |
 | `character-design`, `cinematography`, `screenplay-story-architect`, `storytelling`, `storyboard-sequence-architect`, `storyboard-board-architect` | Characters, story, shots, whole-film boards and creative acceptance remain Studio-owned. Technical board/composition faults may use support through their execution owner. |
@@ -123,10 +123,12 @@ Paths below are relative to repository root; `P` means `plugins/framecore-work-c
 | Installation | `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md`, `CLAUDE_INSTALL.md`: first companion recommendation; README continues linking to complete guides |
 | Maintainer contract | `AGENTS.md`, `docs/extension-registry.md`: companion exception and current branch scope; retain other release rules |
 | Public companion reference | `P/skills/pipeline-core/references/superpowers-native-routing.md`: reconcile the current hosted contract, including native-maintenance wording that must become cross-host aware |
+| Shared authority and QA | `P/skills/pipeline-core/references/studio-integration-policy.md` and `loop-protocol.md`: all 37 owners inherit the same support contract and review budget |
+| First configuration | Both OpenAI manifests use documented `extensions.com.openai.onboardingSkill` targeting the existing orchestrator; explicit setup routes to companion guidance, including marketplace/ZIP installs. Claude uses explicit setup guidance without an invented manifest field. Bare-name welcome stays unchanged. |
 | Central dispatch | `P/skills/workflow-orchestrator/SKILL.md`, its `references/routing-boundaries.md` and `references/extensions.md`, and `P/skills/pipeline-core/SKILL.md`: concise links, no budget overflow |
 | Owners and handoffs | `P/skills/pipeline-core/references/role-skill-map.md`, `handoff-matrix.md`, `P/scripts/workflow-kit-routes.json`: same owners, support edges only |
 | State and cross-host resume | `P/skills/pipeline-core/templates/project-state.md`, `P/skills/workflow-orchestrator/assets/cross-host-handoff.template.md`: revision-bound support receipt and installation choice without invented persistence |
-| Direct technical specialists | Existing six hosted entry points plus audio, captions, asset tooling and tool routing where independently invoked; details remain in the common reference |
+| Direct technical specialists | Existing six hosted entry points; all other owners inherit the common reference through their existing shared-policy links |
 | Registry | `P/skills/workflow-orchestrator/assets/extensions/extensions.json`, `extensions.py`, owning tests: compatible catalog-manual representation and first recommendation |
 | Evaluation and release | Existing native cases plus installation/direct-entry cases; canonical validator, required suites, host evals, package inventories and guarded readback |
 

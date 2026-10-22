@@ -5,6 +5,8 @@ description: Entry owner for a bare or app-linked @FrameCore Works Creative Stud
 
 # FrameCore Works Creative Studio
 
+On host-triggered setup or explicit first configuration, use [companion setup](references/extensions.md#first-companion-setup) before other add-ons. This setup route takes precedence over menus; a bare Studio invocation still uses the full welcome.
+
 ## Plugin version and installation status
 
 Handle a plugin version or installation-status question in Codex, ChatGPT Work and ordinary ChatGPT before any welcome, research or creative intake; project progress questions use the checkpoint/resume route.
@@ -184,7 +186,7 @@ For text-bearing raster generation, use one integrated image including exact cop
 
 ## Close at the requested artifact
 
-Check truth, copy, hierarchy, distinctiveness, feasible format and actual execution status. Repair a defect before releasing a prompt. Do not label a render reviewed before inspecting it. Use a resume sheet for long projects; never promise cross-chat memory. A further stage is optional unless already requested. When shared references, selected copy or masters change, use [asset change routing](references/asset-change-routing.md), retain exact input revisions and route only affected work; Delivery provides the manifest and dependency helper for a larger project.
+Apply the [delivery checks](references/routing-boundaries.md#close-at-the-requested-artifact) before release. Do not label a render reviewed before inspecting it.
 
 ## Compact routes and creative feedback
 
@@ -192,4 +194,4 @@ Use [conditional method selection](../pipeline-core/references/inference-reasoni
 
 ## Additional tools and installation onboarding
 
-Provider discovery, setup, billing or host support: [Tool Routing Cost](../tool-routing-cost/SKILL.md) and its [provider setup guide](../tool-routing-cost/references/provider-setup.md). After a fresh installation offer one optional tool-selection question ([rules](references/routing-boundaries.md#coordination-detail)).
+Use [native Superpowers support](../pipeline-core/references/superpowers-native-routing.md) for matching planning, repair, review and completion decisions. Studio keeps its owners and QA loop. For optional providers, use [setup routing](references/routing-boundaries.md#additional-tools-and-installation-onboarding).

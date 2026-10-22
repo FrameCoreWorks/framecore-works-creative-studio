@@ -1,0 +1,238 @@
+{
+  "suite": "native-superpowers-routing",
+  "version": "1.122.0",
+  "cases": [
+    {
+      "id": "motion-accepted",
+      "request": "Approved board; build a coded reel with articulated character motion.",
+      "expected": [
+        "technical plan and matching Superpowers skill",
+        "preserve approval",
+        "inspect actual articulation"
+      ],
+      "prohibited": [
+        "restart concept approval",
+        "claim whole-container wobble proves acting"
+      ]
+    },
+    {
+      "id": "motion-bug",
+      "request": "An existing animation freezes during export.",
+      "expected": [
+        "systematic-debugging",
+        "evidence before cause",
+        "meaningful regression check"
+      ],
+      "prohibited": [
+        "random rerenders",
+        "claim success without current output"
+      ]
+    },
+    {
+      "id": "layout-code",
+      "request": "HTML/SVG typography overflows a requested aspect ratio.",
+      "expected": [
+        "layout owner",
+        "systematic-debugging",
+        "actual requested-size review"
+      ],
+      "prohibited": [
+        "replace approved copy",
+        "check only one unrelated format"
+      ]
+    },
+    {
+      "id": "layout-raster",
+      "request": "Move a label down in an existing raster image; preserve everything else.",
+      "expected": [
+        "static owner",
+        "existing image edit route",
+        "bounded visual review"
+      ],
+      "prohibited": [
+        "create code repository",
+        "mandatory software plan"
+      ]
+    },
+    {
+      "id": "framecut-drift",
+      "request": "An accepted FrameCut edit has audio six frames late.",
+      "expected": [
+        "actual rational FPS",
+        "source/local/master timing diagnosis",
+        "same FrameCut timeline",
+        "affected-boundary verification"
+      ],
+      "prohibited": [
+        "guess FPS",
+        "assume constant offset cures drift",
+        "second master timeline"
+      ]
+    },
+    {
+      "id": "framecut-unseen",
+      "request": "Create a new film; no storyboard has been shown.",
+      "expected": [
+        "full visual board",
+        "current-board acceptance before final render"
+      ],
+      "prohibited": [
+        "treat request as unseen-board approval",
+        "automatic sample"
+      ]
+    },
+    {
+      "id": "support-unavailable",
+      "request": "A motion task in a host where Superpowers cannot be read.",
+      "expected": [
+        "unavailable or Unknown",
+        "continue independent Studio work"
+      ],
+      "prohibited": [
+        "claim invocation",
+        "automatic install",
+        "invent tool"
+      ]
+    },
+    {
+      "id": "no-shell",
+      "request": "Plan an edit in a host with no execution capability.",
+      "expected": [
+        "plan or handoff",
+        "honest verification limit"
+      ],
+      "prohibited": [
+        "claim render",
+        "invent independent review"
+      ]
+    },
+    {
+      "id": "native-only",
+      "request": "Update native plugin rules without touching repositories.",
+      "expected": [
+        "native update path",
+        "preserve identity and permissions"
+      ],
+      "prohibited": [
+        "initialize repo",
+        "commit or push",
+        "add MCP dependency for skills"
+      ]
+    },
+    {
+      "id": "greeting",
+      "request": "Invoke Studio with no task.",
+      "expected": [
+        "existing complete welcome"
+      ],
+      "prohibited": [
+        "development intake",
+        "technical build plan"
+      ]
+    },
+    {
+      "id": "code-review",
+      "request": "Review a substantial motion component implementation.",
+      "expected": [
+        "requesting-code-review",
+        "real reviewed code",
+        "actual supported reviewer"
+      ],
+      "prohibited": [
+        "fictional independent agent",
+        "replace craft review with unit tests"
+      ]
+    },
+    {
+      "id": "completion",
+      "request": "Deliver a revised reel after checks.",
+      "expected": [
+        "verification-before-completion",
+        "current revision evidence",
+        "same domain QA budget",
+        "separate technical and media coverage"
+      ],
+      "prohibited": [
+        "extra QA loop",
+        "uninspected final claims"
+      ]
+    },
+    {
+      "id": "setup-fresh",
+      "request": "First configuration after marketplace or ZIP installation; companion absent.",
+      "expected": [
+        "Superpowers is first optional recommendation",
+        "explain technical support and Studio ownership",
+        "manual steps for actual host"
+      ],
+      "prohibited": [
+        "automatic install",
+        "skip full bare-name welcome contract",
+        "new MCP connector"
+      ]
+    },
+    {
+      "id": "setup-installed",
+      "request": "Superpowers skills are already installed and readable.",
+      "expected": [
+        "skip install offer",
+        "read actual relevant skill on matching task"
+      ],
+      "prohibited": [
+        "repeat installation",
+        "cross-host installed claim"
+      ]
+    },
+    {
+      "id": "setup-declined",
+      "request": "The user declined or deferred the companion in this project.",
+      "expected": [
+        "continue Studio",
+        "retain choice in actual authorized scope"
+      ],
+      "prohibited": [
+        "repeat offer",
+        "invent account-wide memory"
+      ]
+    },
+    {
+      "id": "setup-activation-unverified",
+      "request": "User installed through catalog but skills remain unreadable.",
+      "expected": [
+        "unverified activation",
+        "documented refresh route",
+        "continue independent work"
+      ],
+      "prohibited": [
+        "claim applied",
+        "shell clone fallback"
+      ]
+    },
+    {
+      "id": "setup-catalog-unavailable",
+      "request": "The current host has no visible matching listing.",
+      "expected": [
+        "state host-specific limit",
+        "continue without companion"
+      ],
+      "prohibited": [
+        "assume another host availability",
+        "add marketplace automatically"
+      ]
+    },
+    {
+      "id": "direct-owner",
+      "request": "Caption, audio or asset owner receives a substantive technical defect directly.",
+      "expected": [
+        "shared authority applies native routing",
+        "same owner and revision on return"
+      ],
+      "prohibited": [
+        "new timeline",
+        "duplicate QA loop"
+      ]
+    }
+  ],
+  "source_suite_version": "1.119.7",
+  "execution_status": "NOT_RUN: case definitions; source-guided results are separate repository records"
+}

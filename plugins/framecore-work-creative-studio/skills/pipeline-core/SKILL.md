@@ -5,6 +5,8 @@ description: 'Shared Studio contracts used by other owners: project state, roles
 
 # Pipeline Core
 
+Apply [native Superpowers routing](references/superpowers-native-routing.md) at substantive planning, implementation, diagnosis, review and completion decisions. Keep support in the existing Project State, with real skill availability and evidence; all domain owners retain their responsibilities and the same bounded QA loop.
+
 For account-free creative production, load the relevant section of [creative production without an Adobe account](references/account-free-creative-production.md): multi-format assets, batch finishing, local fonts/templates, website evidence, document review and supplied campaign data. Existing owners execute only available authorized tools; no Adobe setup or service routing is required.
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.

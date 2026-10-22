@@ -53,6 +53,12 @@ The installation ends with the [complete runtime check](plugins/framecore-work-c
 
 Plugin saving, tool installation and end-to-end creative behavior are separate results. No providers, generation, client-asset upload or publication is included in tool setup.
 
+## First recommended companion: Superpowers
+
+Before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). Check whether Superpowers is already readable. Otherwise recommend it once: it supports requirements, technical plans, debugging, code review and verification while Studio keeps creative direction, boards and production ownership. The user installs it separately through the actual host Plugins/Marketplace interface; use the registry's host-specific manual steps. The upstream identity is obra/superpowers, Jesse Vincent / Prime Radiant. An official catalog listing does not mean the platform authored it.
+
+Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
+
 ## 6. Offer optional providers after installation
 
 Then read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.

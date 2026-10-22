@@ -1398,6 +1398,71 @@
       "observed": "2026-10-22: README, the four skills, the commands, configuration and the engine source (pixel-mcp v0.5.0) were read at the reviewed commit (Studio's gaps were filled from that reading, see integrations/pixel-plugin). `claude plugin validate` on the checkout passed with one warning (no icon). A static look at the Linux binary found the Go runtime and MCP libraries, no network addresses and no telemetry; nothing was executed, so the server, Aseprite and every tool are NOT_RUN",
       "update": "Review a newer release, then change reviewed_commit",
       "category": "image"
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "repository": "https://github.com/obra/superpowers",
+      "reviewed_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "license": "MIT",
+      "kind": "native plugin",
+      "role": "optional process companion",
+      "category": "workflow",
+      "recommendation_priority": "first",
+      "gives": "Requirements clarification, technical planning, implementation, systematic debugging, code review and evidence-based completion through separately maintained skills.",
+      "studio_uses": "First optional companion during Studio installation/setup. Studio retains creative ownership, approved boards, one master timeline and one QA loop. Discover and read actual installed skills through the shared native routing contract.",
+      "not_for": "A renderer, provider entitlement, replacement creative owner, copied skill bundle, automatic installation, account connection or cross-host synchronization.",
+      "requires": [
+        {
+          "tool": "host plugin catalog",
+          "note": "The user installs separately in each supported host. Listing availability and readable skills must be checked; missing access leaves Studio usable."
+        }
+      ],
+      "rights": "Upstream is MIT. Studio distributes its own routing contract, not Superpowers source or skills. Catalog installation follows the actual listing and user choice.",
+      "hosts": {
+        "chatgpt": {
+          "status": "catalog_manual",
+          "manual_steps": "Open Plugins, search Superpowers and inspect the listing linked to obra/superpowers (Jesse Vincent / Prime Radiant). If available on this account, the user adds/enables it through the listing. No clone, skill-file import or shell fallback when the listing is absent.",
+          "writes": "Only the host-managed separate plugin chosen by the user; Studio writes no companion config or MCP connection.",
+          "verify": "Resolve the current host installed skill catalog and read using-superpowers plus the task-relevant skill. A user-reported install or listed name alone is not confirmed activation.",
+          "after": "If skills are not readable, record activation unverified; use the host documented refresh/new-conversation route. Continue independent Studio work.",
+          "remove": "The user disables/removes Superpowers through that host plugin manager; Studio remains usable."
+        },
+        "chatgpt_work": {
+          "status": "catalog_manual",
+          "manual_steps": "Open Plugins, search Superpowers and inspect the listing linked to obra/superpowers (Jesse Vincent / Prime Radiant). If available on this account, the user adds/enables it through the listing. No clone, skill-file import or shell fallback when the listing is absent.",
+          "writes": "Only the host-managed separate plugin chosen by the user; Studio writes no companion config or MCP connection.",
+          "verify": "Resolve the current host installed skill catalog and read using-superpowers plus the task-relevant skill. A user-reported install or listed name alone is not confirmed activation.",
+          "after": "If skills are not readable, record activation unverified; use the host documented refresh/new-conversation route. Continue independent Studio work.",
+          "remove": "The user disables/removes Superpowers through that host plugin manager; Studio remains usable."
+        },
+        "codex": {
+          "status": "catalog_manual",
+          "manual_steps": "In the Codex app, open Plugins in the sidebar, find Superpowers under Coding and use +. In the terminal CLI the user opens /plugins, searches Superpowers and selects Install Plugin. Follow the actual host catalog; do not substitute one interface for another. No clone, skill-file import or shell fallback when the listing is absent.",
+          "writes": "Only the host-managed separate plugin chosen by the user; Studio writes no companion config or MCP connection.",
+          "verify": "Resolve the current host installed skill catalog and read using-superpowers plus the task-relevant skill. A user-reported install or listed name alone is not confirmed activation.",
+          "after": "If skills are not readable, record activation unverified; use the host documented refresh/new-conversation route. Continue independent Studio work.",
+          "remove": "The user disables/removes Superpowers through that host plugin manager; Studio remains usable."
+        },
+        "claude_code": {
+          "status": "catalog_manual",
+          "manual_steps": "Find Superpowers in the official plugin marketplace and install it using that surface. In the terminal CLI interactive session, the upstream documented user command is /plugin install superpowers@claude-plugins-official; do not paste this into desktop chat or the Code tab as a shell command. No clone, skill-file import or shell fallback when the listing is absent.",
+          "writes": "Only the host-managed separate plugin chosen by the user; Studio writes no companion config or MCP connection.",
+          "verify": "Resolve the current host installed skill catalog and read using-superpowers plus the task-relevant skill. A user-reported install or listed name alone is not confirmed activation.",
+          "after": "If skills are not readable, record activation unverified; use the host documented refresh/new-conversation route. Continue independent Studio work.",
+          "remove": "The user disables/removes Superpowers through that host plugin manager; Studio remains usable."
+        },
+        "claude_apps": {
+          "status": "catalog_manual",
+          "manual_steps": "Search the actual Plugins/Marketplace interface for Superpowers and verify its publisher/repository before the user adds it. Availability in Claude apps/Cowork is unverified; Claude Code availability does not establish it. If absent, continue Studio without it. No clone, skill-file import or shell fallback when the listing is absent.",
+          "writes": "Only the host-managed separate plugin chosen by the user; Studio writes no companion config or MCP connection.",
+          "verify": "Resolve the current host installed skill catalog and read using-superpowers plus the task-relevant skill. A user-reported install or listed name alone is not confirmed activation.",
+          "after": "If skills are not readable, record activation unverified; use the host documented refresh/new-conversation route. Continue independent Studio work.",
+          "remove": "The user disables/removes Superpowers through that host plugin manager; Studio remains usable."
+        }
+      },
+      "observed": "2026-10-22: upstream README and license reviewed at the recorded commit. ChatGPT Work installed skills readable in this account; fresh-install and other host behavior not_run. Codex and Claude Code marketplace routes are upstream-documented; Claude apps availability unverified. No installer executed.",
+      "update": "Review upstream and current host listing when needed. reviewed_commit is source provenance, not the marketplace version. Resolve actual installed skills/version at use time; preserve user choice."
     }
   ]
 }
