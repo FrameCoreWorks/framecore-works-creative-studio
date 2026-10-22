@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.119.2",
+  "version": "1.119.3",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "cd253378c710083023448139c0de6c3ad540c48605bc689bea0406b7bd47b43a"
+      "sha256": "3b5725a18b2d67f71c30e46ebdd858f380dc179c1794e1245ee161678775d6cf"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2285,
-      "sha256": "a1bc30d7737a3a29c974f87d205e9a27dfef74181114724b894472584ae2bad6"
+      "sha256": "8587433e0e5c647b85cebd94ed74026018dde84d6e7dbeb0f22c704dabbea58a"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22829,
-      "sha256": "d4a35b34db1cba949dc63d27aee7ef88bfc0dae76978e27156fb6e4d2bfe7181"
+      "sha256": "11195cbdac95f027cbe7c62c741fb910fb5e52f3b9657298332de910b60ff83d"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "5b3324c4fce6926bb38739d36c94287484b0bdedacfed28ce4d3d21ffb4fd6df"
+      "sha256": "3f8f47c9f3e9679bc28e33023e9ca2ad3490a154cb3b5f641e600ba7cff4f306"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 198473,
-      "sha256": "9df265ba016a17e8aec8fbbbbb72d615bb1fa3ca2d2d745501a18e6c042e5ddc"
+      "bytes": 199329,
+      "sha256": "4a04be0872844bf2e82c8e406e9503c8f2205f64e886921517f928fb8c6ae984"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2409,7 +2409,7 @@
     {
       "path": "plugin.json",
       "bytes": 2408,
-      "sha256": "1788f6fb5e33ec2ca06073dee2eb043b79b25ca9d5a3d334c7618f497df60d37"
+      "sha256": "876edb12a3cdc91d566922d9ee43db657b2f916aefd0ef0ac0cbf87b8de348d1"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -5223,8 +5223,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 25007,
-      "sha256": "a748e04a502b4052853cb67015c8b5dde4b37aaa86128f58f9ae080b9c7a0bef"
+      "bytes": 25419,
+      "sha256": "1a5497a901d2615b55696aae75c4f355a1d5b93368dff35a06695c195ae1a7f6"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5233,8 +5233,8 @@
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/README.md",
-      "bytes": 25301,
-      "sha256": "c8d61dfc89798e3ef69687c1aa3f8ee7b0d24643e7427cdd18c4cfc656ff6247"
+      "bytes": 25462,
+      "sha256": "20ba24697a1dccd33c3e7fdbc044dc63d7e4a4ec308fb29de25348288cec0339"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/effects/blur.json",
@@ -5328,8 +5328,8 @@
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_render.py",
-      "bytes": 36586,
-      "sha256": "699c8a26b3c6b3f3ff1c419ec626c5c6160ddd901cc8ad33c653004aa5150ee6"
+      "bytes": 39116,
+      "sha256": "38f48b0be6b698b2a9e5a23c810ba778e9709dfa1f0ba4b3e56811eaefe7b9ed"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/fc_time.py",
@@ -7229,7 +7229,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31652,
-      "sha256": "89de642815ae7053eb4030cf4b4bc47bb1582315232395adbeaf0d834afb7d49"
+      "sha256": "90e7fd0c6523a00363a428db4c5197b9ea6e90f436925f3e72d415c35d606826"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7548,8 +7548,8 @@
     },
     {
       "path": "tests/framecut_audit_test.py",
-      "bytes": 17925,
-      "sha256": "fbe43c2ccd6871ee33d448666950e7d5cbb1778166019715ff863b0d63a9bb3e"
+      "bytes": 21177,
+      "sha256": "1785b61b7f6a9daff8eaf76a16b9227da07f3b22ab2c85c6d4ac8148661d46c4"
     },
     {
       "path": "tests/framecut_development_test.py",

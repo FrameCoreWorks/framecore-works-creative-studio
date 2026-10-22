@@ -1,0 +1,29 @@
+{
+  "version": "1.119.3",
+  "baseline_tag": "v1.119.2",
+  "baseline": "c9e24c9e024c23e817ffd5f8a3ad6254e3b76876",
+  "change_id": "CC-20261022-02",
+  "origin": "cloud-code",
+  "files": 1539,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/opencut-video-studio/assets/framecut/README.md",
+    "skills/opencut-video-studio/assets/framecut/fc_render.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/framecut_audit_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1528,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: owner decisions on the FrameCut audit. Music is lowered 6 dB under speech by default, following the timed transcript with smooth ramps; the storyboard stays a one-time host-managed preview. Measured about -6 dB under words and full level in pauses."
+}
