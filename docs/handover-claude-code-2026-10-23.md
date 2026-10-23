@@ -62,3 +62,57 @@ Expected: all three hashes match; `status` shows `pinned_commit` `591fa3e…`, `
 - Superpowers in a cloud session: `/root/.claude/plugins/synced/.../skills/using-superpowers` (find with `find / -name using-superpowers -type d`). Host evals: `python3 scripts/host_eval.py --suite companion --cases <ids> --with-plugin <superpowers dir> --with-plugin plugins/earshot-audio --write` (paths are made absolute; set `EARSHOT_NATIVE_ROOT` to an empty folder for "engine missing" cases; at most 25 cases per pass, 5 per gate).
 - Releases: commit first (clean tree), then `STUDIO_RELEASE_BRANCHES=<session branch> STUDIO_ORIGIN_AGENT=cloud-code STUDIO_COMMIT_TRAILERS=... python3 scripts/release.py prepare <ver> ... --push` and `publish <ver> --change-id ... --wait 3000 --push`; the notes heading must be exactly `# Creative Studio <version>`.
 - The Earshot engine in a new container must be reinstalled (`plugins/earshot-audio/scripts/runtime.py install --tier full --yes`, `fetch-models --yes`), with the network hosts above allowed.
+
+## Update after 1.125.1 (review fixes)
+
+- Studio **1.125.1**, earshot-audio **1.0.6**, release commit `19e2776fc856856d903c24bee6a137bbeb9a8b67` (tag `v1.125.1`). Use it instead of `b94028c…` in the ChatGPT Work prompts above, with these expected hashes:
+  - `scripts/runtime.py` `301269338ae91049538d68beef57596d42a0385ad2f57175ce2bbe0151e07187`
+  - `upstream.json` `20d5332d2fd0551ce02d9f6df00920a2ffd356aac42ba7b731807d0b60c90e46`
+  - `skills/earshot/SKILL.md` `4273b8318968dda30f7f8d34334f72d3eba4912dddcd68b4701533d05c6038bc`
+- The 2026-10-23 review covered only the companion integration (Superpowers, Earshot, setup, `listen.py`, `runtime.py`, install guides): 10 findings, 8 fixed, 1 wrong (`--marketplace` exists), 1 deferred (upper bounds on Earshot's Python dependencies, needs a full-tier test). The other skills' content quality was **not reviewed**; the main suite ran only its 5 gate cases (PASS).
+
+## Next session: owner's development plan (owner request 2026-10-23)
+
+This is an explicit owner task, so it is not blocked by maintenance mode, but every change still needs evidence before and after. Constraints: never delete, rename or move a package path; skill descriptions are 7,716 of 7,800 characters; `workflow-orchestrator/SKILL.md` is 31,759 of 32,000 bytes.
+
+### 1. A real review of all 37 skills
+
+- Run the full main suite (at most 25 cases per pass), plus the companion suite.
+- Review the skills group by group, one independent reviewer per group (Superpowers `requesting-code-review`), each owner `SKILL.md` read with its references: orchestration and pipeline; graphics and images; story and copy; video and motion; audio; delivery. Record findings with file:line and fix by priority.
+
+### 2. Merge candidates (measure first)
+
+Write routing cases inside each group (the same request phrased the way a user would) and merge only where the host actually picks the wrong skill. Merge = the kept skill takes over the duties; the retired one stays as a short alias (40–60 characters of description, like `producer-ai-task-builder`), so description characters are freed and no path is removed.
+
+| Group | Skills | Why it may overlap |
+|---|---|---|
+| Copy | `copy-voice` + `humanizer` | Humanizer is "polish existing copy", a mode of Copy Voice |
+| Story | `storytelling` + `screenplay-story-architect` | Storytelling is supporting story logic that Screenplay also covers |
+| Campaigns | `marketing`, `ecommerce-campaign-strategy-director`, `commercial-visual-campaign-director`, `commercial-video-campaign-director` | Four skills share the campaign-strategy layer; the largest misrouting risk |
+| Handoff packets | `hipson-adapter` + `instruction-packet-factory` | Hipson is one packet format |
+| Project files | `asset-manifest` + `delivery-documentation` | Inventory and handoff notes describe the same files |
+
+### 3. New capabilities as references, not skills
+
+The skill set already covers the creative scope; new capabilities go into `references/` of an existing owner (no description cost), with one sentence in that owner's `SKILL.md` saying when to read it. Candidates:
+
+| Capability | Owner(s) | Content |
+|---|---|---|
+| Language versions of a film | FrameCut, Caption Studio, Copy Voice | Translating captions, voice-over and on-screen text on the same edit, timing and length rules, locked terms |
+| Client brand kit | `pipeline-core` (plus a Project State field) | One place for a client's colours, fonts, logo, tone and approvals, read by every owner |
+| Platform specifications and publishing | `pipeline-core` or Delivery Documentation | Formats, durations, safe zones, covers and thumbnails per platform, as one dated card |
+| Accessibility check | Output Critic Iteration, Caption Studio | Captions, contrast, legibility and loudness before delivery |
+
+Freed description characters (from merges) can buy one or two new skills only if a reference is not enough, measured by routing.
+
+### 4. Future companion plugins (plan only; each needs the owner's go)
+
+The pattern is earshot-audio: a separate plugin in this repository's marketplace, its own descriptions (outside Studio's budget), offered by first companion setup, routed from Studio's owners, local and consent-gated. Ideas, ordered by how often Studio's paid motion and video work would use them:
+
+1. **Voice and narration**: local or user-chosen text-to-speech, timing of voice-over to the edit, pronunciation lists; Studio keeps the script and approvals.
+2. **Brand kit manager**: stores and validates client kits (colours, fonts, logos, rules) across projects and checks deliverables against them.
+3. **Publishing and platform pack**: exports, covers, captions and metadata per platform, and a pre-flight check.
+4. **Stock and licence finder**: searches licensed images, footage and music on the user's request, with a licence audit like Earshot's real-sound process.
+5. **Localization**: translation memory and glossaries for multi-language versions.
+
+Each one: owner approval, a pinned upstream or own code, a registry entry, a setup step, routing lines in the owning skills, and before/after host evaluations.
