@@ -3341,3 +3341,19 @@ Cross-host state:
 - GitHub: synchronized. `main` at `358d40f`; workflows Check Studio sources 39947711723, Refresh current release notes 39947708597, Check Studio sources 39947708731, Publish verified Studio release 39947708811: success; [v1.124.4](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.124.4) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1559 of 1559) ([record](../verification/github-publication-1.124.4.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261023-07
+
+- Origin: cloud-code
+- Branch: `main`
+- Baseline: `48526d8` (main, package 1.124.4)
+- Result: this commit (verification record only)
+- Package version: 1.124.4 (unchanged); earshot-audio 1.0.4 (unchanged)
+- Scope: the owner listened to three landing hits on the test film and chose V3 (`cut_hit/kick`), the take the gated selection of earshot-audio 1.0.4 picked by itself in host eval C17 ([record](../verification/earshot-audio-1.0.4-listening.json)). PASS_REPORTED.
+- Shared package changed: no
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: pending
+- Codex: not_run

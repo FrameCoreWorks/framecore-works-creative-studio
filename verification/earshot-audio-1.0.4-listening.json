@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-23",
+  "kind": "owner listening test of landing-hit choices",
+  "status": "PASS_REPORTED",
+  "context": "logo.mp4 test film (whoosh at 1.2 s, landing hit at 3.0 s); whoosh_fast/heavy kept in every variant. The owner first rejected pro_impact/air (kit preset) as a metallic debris tail; Earshot read it as 11.8 onsets/s, losing to metal debris / rattle.",
+  "variants": {
+    "V1": {
+      "hit": "impact/punch --dur 1.2, -3 dB",
+      "sha256": "4978bf4771ff4b00995d6b231ccd9a5b9d073c7be8b079fa59e482a1ea07ffa8"
+    },
+    "V2": {
+      "hit": "impact/punch --dur 1.2 plus sub_drop/808 --dur 1.2 at -9 dB",
+      "sha256": "15289a521a0ae123cd08c358206d08ef592fc1017699add1fe336bc84b68b3d1"
+    },
+    "V3": {
+      "hit": "cut_hit/kick, -2 dB: the take the gated selection in earshot-audio 1.0.4 chose by itself in host eval C17",
+      "sha256": "d3928cb7d88084075fd7537686e3871a6addd24d22a676e76eb149e2874f9169",
+      "readings": "match \"a solid logo landing, a deep dull thud with a short clean tail\": strong, z +3.0, forced choice >99% vs metal debris, metallic clang, crackling rattle, glass shattering (<1% each); 0.325 s, 3.1 onsets/s; timeline cue +5 ms"
+    }
+  },
+  "owner_choice": "V3 fits best (owner report in conversation, 2026-10-23)",
+  "conclusion": "The take chosen by the gated selection matches the owner's ear; no change to the description wording is needed.",
+  "evidence_kind": "owner listening (PASS_REPORTED); not a model reading"
+}
