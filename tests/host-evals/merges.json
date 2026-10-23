@@ -1,0 +1,140 @@
+{
+  "name": "merges",
+  "description": "Merge measurement (owner plan 2026-10-23): does the host tell apart skills that may overlap? A pass means the expected skill was chosen. Run with --suite merges.",
+  "cases": [
+    {
+      "id": "M01",
+      "title": "Merge measurement 2026-10-23: expected copy-voice",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Napisz trzy krótkie hasła reklamowe dla nowej kawiarni z kawą speciality w centrum Poznania.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "copy-voice"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "title": "Merge measurement 2026-10-23: expected humanizer",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Popraw ten tekst, żeby brzmiał naturalnie i po ludzku, bez zmiany faktów: \"Nasza firma oferuje innowacyjne rozwiązania, które są dopasowane do potrzeb klientów i zapewniają najwyższą jakość.\"",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "humanizer"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "title": "Merge measurement 2026-10-23: expected copy-voice or humanizer (ambiguous; record which)",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam opis produktu: \"Świeca sojowa o zapachu lawendy, 200 g, czas palenia 40 godzin.\" Przerób go na krótszy i bardziej chwytliwy tekst na Instagram.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "copy-voice",
+                "humanizer"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "title": "Merge measurement 2026-10-23: expected ecommerce-campaign-strategy-director",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaplanuj kampanię sprzedażową nowej linii świec sojowych w moim sklepie internetowym na Black Friday.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "ecommerce-campaign-strategy-director"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "title": "Merge measurement 2026-10-23: expected marketing",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Pomóż mi określić pozycjonowanie, grupę docelową i ton marki dla nowego studia jogi.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "marketing"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "title": "Merge measurement 2026-10-23: expected commercial-video-campaign-director",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję pomysłu na 30-sekundowy spot wideo dla marki rowerów miejskich.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "commercial-video-campaign-director"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "title": "Merge measurement 2026-10-23: expected commercial-visual-campaign-director",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj spójny system wizualny kampanii dla marki rowerów: billboard, post na Instagram i baner internetowy.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "commercial-visual-campaign-director"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
