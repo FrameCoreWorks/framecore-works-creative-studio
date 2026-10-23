@@ -116,3 +116,12 @@ The pattern is earshot-audio: a separate plugin in this repository's marketplace
 5. **Localization**: translation memory and glossaries for multi-language versions.
 
 Each one: owner approval, a pinned upstream or own code, a registry entry, a setup step, routing lines in the owning skills, and before/after host evaluations.
+
+### 5. Uniform, branded skill names (owner request 2026-10-23)
+
+The owner wants the 37 skill names made uniform and, where it fits, carrying FrameCore Works branding the way FrameCut does (FrameCut is the user-facing name of `opencut-video-studio`). Rules that still apply (AGENTS.md, `plugins/framecore-work-creative-studio/docs/skill-naming.md`):
+
+- Change only the user-facing name, `interface.display_name` in each skill's `agents/openai.yaml` (English words, each capitalised, AI/UGC/HyperFrames/OpenCut spelling kept), and the matching short descriptions where they name the skill. Technical IDs, folder paths, `name:` in `SKILL.md`, invocations and routing stay unchanged; never rename or move a path.
+- Make one naming scheme first and get the owner's approval on the full list before editing: for example a "Frame…" family for the owner's own products (FrameCut, a possible FrameMotion for Motion Graphics, FrameSound for audio, FrameBoard for storyboards) and plain role names ("Copy Voice", "Brief Architect") elsewhere, or one consistent pattern for all. Avoid names that collide with other products or with the Studio name itself.
+- Update `skill-naming.md`, the startup welcome only where it already names a skill (keeping the protected full-welcome contract and both language excerpts byte-matched), the skill finder and the tests that check display names; run the naming validator, the main-suite gate and a routing pass to show that nothing routes differently.
+- Do it together with the merges in section 2, so retired skills keep a short alias name and the final list is renamed once.
