@@ -1,0 +1,28 @@
+{
+  "version": "1.124.3",
+  "baseline_tag": "v1.124.2",
+  "baseline": "15ae48a36486010ade8015b414564388d5bcc42f",
+  "change_id": "CC-20261023-04",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/pipeline-core/references/earshot-native-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1549,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner's ChatGPT Work test on 2026-10-23: with earshot-audio listed but its engine missing, Work made the sound with Studio's sound.py without asking. Owner decision (option A): Studio and earshot-audio 1.0.3 ask one question with both routes, run neither before the answer and name the engine that ran. Host eval C16 failed before and passes after."
+}
