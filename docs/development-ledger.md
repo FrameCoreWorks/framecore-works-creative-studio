@@ -3378,3 +3378,19 @@ Cross-host state:
 - GitHub: synchronized. `main` at `b94028c`; workflows Check Studio sources 39958758990, Refresh current release notes 39958755867, Check Studio sources 39958755189, Publish verified Studio release 39958755077: success; [v1.125.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.125.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1559 of 1559) ([record](../verification/github-publication-1.125.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261023-09
+
+- Origin: cloud-code
+- Branch: `main`
+- Baseline: the 1.125.0 publication record commit
+- Result: this commit (handover only)
+- Package version: 1.125.0 (unchanged); earshot-audio 1.0.5 (unchanged)
+- Scope: [handover](handover-claude-code-2026-10-23.md) for the owner's next Claude Code account and ChatGPT Work: state, owner decisions of 2026-10-23, evidence, remaining work and the ChatGPT Work update and test prompts.
+- Shared package changed: no
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: pending
+- Codex: not_run
