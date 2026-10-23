@@ -1,0 +1,273 @@
+{
+  "version": "1.124.0",
+  "date": "2026-10-23",
+  "baseline": "0f64d9c76e496c078f7ccc8cd530440ae1a894a5",
+  "change_id": "CC-20261022-14",
+  "origin": "cloud-code",
+  "environment": "Claude Code cloud container (Linux)",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1559,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7700 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 238,
+        "pass": 227,
+        "fail": 0,
+        "skipped": 11
+      },
+      "python": {
+        "suite 1": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 2": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 3": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 4": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 5": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 6": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 7": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 8": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "suite 9": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 10": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 11": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "suite 12": {
+          "tests": 21,
+          "skipped": 0
+        },
+        "suite 13": {
+          "tests": 29,
+          "skipped": 0
+        },
+        "suite 14": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 15": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 16": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 17": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 18": {
+          "tests": 25,
+          "skipped": 0
+        },
+        "suite 19": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 20": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 21": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 22": {
+          "tests": 8,
+          "skipped": 8
+        },
+        "suite 23": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 24": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 25": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 26": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "suite 27": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 28": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 29": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 30": {
+          "tests": 43,
+          "skipped": 0
+        },
+        "suite 31": {
+          "tests": 20,
+          "skipped": 0
+        },
+        "suite 32": {
+          "tests": 26,
+          "skipped": 0
+        },
+        "suite 33": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 34": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 35": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 36": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 37": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 38": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 39": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 40": {
+          "tests": 5,
+          "skipped": 5
+        },
+        "suite 41": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 42": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 43": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 44": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 45": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 46": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 47": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 48": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 49": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 50": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 51": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 52": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 53": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 54": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 55": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 56": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 57": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 58": {
+          "tests": 26,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.309)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Trigger: the owner asked to publish Earshot for every user beside Studio. The marketplace lists earshot-audio 1.0.0 (Earshot v0.4.0, upstream earshot and real-sound merged, pinned and checked installation, local only); Studio's registry and routing point to it first.",
+  "source": "Release 1.124.0: Earshot Audio 1.0.0 beside Studio",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

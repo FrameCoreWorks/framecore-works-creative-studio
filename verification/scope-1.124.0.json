@@ -1,0 +1,29 @@
+{
+  "version": "1.124.0",
+  "baseline_tag": "v1.123.2",
+  "baseline": "81b0d51f2b122e312cff205e95e5d3af9d873e34",
+  "change_id": "CC-20261022-14",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/earshot/README.md",
+    "plugin.json",
+    "skills/pipeline-core/references/earshot-native-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1548,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Trigger: the owner asked to publish Earshot for every user beside Studio. The marketplace lists earshot-audio 1.0.0 (Earshot v0.4.0, upstream earshot and real-sound merged, pinned and checked installation, local only); Studio's registry and routing point to it first."
+}

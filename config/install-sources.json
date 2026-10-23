@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.123.2",
+  "version": "1.124.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "cc18ddde9e4a1074eb6f98c2c62704df225561fc0c2269e5d8ca3506c7c487e1"
+      "sha256": "78ff67d65555008d2dcdddfd2a1b4a68bd1b9dfead9baf67fa28615a86310064"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "8641e4c2900b5b5c0b06002946c48bf6afe9bf2e14f1be92d3ec895eb421dcd9"
+      "sha256": "a99b47034ccd3a9a6005393045da41519bc0eebc13f7c00e5f639dea760c1112"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22829,
-      "sha256": "ab7190420cad211666e32f3785877f4da582b14470078a94c7da304b0089fbf7"
+      "sha256": "3255a7c7f06fdc3e8606c4d6591e5092571fcccceb57976af497bf78e9e8cd95"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "cb52c85f45472c1ea38f22fe7bdf1b915a3cc1a3cf1b458257ef4e3e4367056c"
+      "sha256": "c660b1cdc5f7a8d94441c631e2350447fd5a99ebf8d765585f35c7de9ea704eb"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 211539,
-      "sha256": "f1b0c0ee6433e48f5421b5f557275ec4a23cd25c3b53154f03c627e960e01d55"
+      "bytes": 213620,
+      "sha256": "200264ef4a9a8e9d1da9303fc351ec6618c625e461c065a32055c6772fedcdbc"
     },
     {
       "path": "docs/research-ledger.json",
@@ -303,8 +303,8 @@
     },
     {
       "path": "integrations/earshot/README.md",
-      "bytes": 4545,
-      "sha256": "2132cfdb50bef57843fb30a8fb3916036d27047a4f5b5404199136ef1b25682e"
+      "bytes": 4901,
+      "sha256": "e30554c403da496f704afedf5d62af0fb33764fe923173df7a063a77da7057f4"
     },
     {
       "path": "integrations/kaventro-motion-designer/LICENSE",
@@ -2454,7 +2454,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "fbd0e843adb8c4a7d274e944b4497a89bd34095e274f0ad00db5015636b5d3a5"
+      "sha256": "3313f2499822e6cad47ce3b903124d1b11a2d8a899af44bb91605672c491ffa7"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -5728,8 +5728,8 @@
     },
     {
       "path": "skills/pipeline-core/references/earshot-native-routing.md",
-      "bytes": 6127,
-      "sha256": "1fccc605b5cd71a6294cc4b04d15e78dee81de0ff895564308c7c7df8d9e9dd3"
+      "bytes": 6197,
+      "sha256": "37fa2cad911b9b78c056a5f277ecaa89f21d0e75e7a3f71c5e6b127a84b239b8"
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
@@ -7309,7 +7309,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31759,
-      "sha256": "d941b68b561d7085185c90a0685c8988a1ddc637b7393b271b2482b944f9e84f"
+      "sha256": "92de06c11ab039653c1b85800640b72ba9ee8040c1745ee1e5bc63e9df5bccd2"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7358,8 +7358,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 137798,
-      "sha256": "3e3e677a2dbda9778ed2b6ffc5688a0e5f6ecad3f30a7399401ccefe13d4d756"
+      "bytes": 138382,
+      "sha256": "deb4a70b55b096fb41f765cbe10ca991f79d707b557553e5d03d070c5e19a15b"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7623,8 +7623,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 22060,
-      "sha256": "1725b6cc295d78f6939efcbed6ba456bd1caf8cdc1d4f5cf9bd90aafcbf6620e"
+      "bytes": 22330,
+      "sha256": "15977e4a044e8865bd3d914c7bb159d69af37c96421a11794a501892f4db47fc"
     },
     {
       "path": "tests/flash_check_test.py",
