@@ -1,0 +1,446 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.125.2",
+  "source": {
+    "commit": "15f6b794bfb99e46cb2994810bcc39017366fbe7",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "c627f8f30a8f46621fd0d6281e63c40d4d456ba8ab084f66895b50d489a21d0c",
+      "files": 1559,
+      "archive": "candidates/c627f8f30a8f46621fd0d6281e63c40d4d456ba8ab084f66895b50d489a21d0c.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "merges",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "e12a27fee20d32ed851890af4823e84b0744259cc8cf60be0d732ebaf58c6d75",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 6,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 6,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 7522,
+      "output": 23166,
+      "cache_read": 252312,
+      "cache_write": 110448
+    },
+    "seconds": 257.4
+  },
+  "cases": [
+    {
+      "id": "M08",
+      "title": "Merge measurement 2026-10-23: expected storytelling",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1260,
+        "output": 1273,
+        "cache_read": 17389,
+        "cache_write": 19492
+      },
+      "seconds": 18.5,
+      "wall_seconds": 18.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam gotowy pomysł na 3 reklamy jednej marki. Sprawdź, czy łuk emocjonalny i logika historii trzymają się razem we wszystkich trzech, zanim zrobimy storyboard.",
+          "reply": "Nie mam jeszcze samego pomysłu. W wiadomości go nie było, a katalog projektu jest pusty, więc nie mam czego sprawdzać. Nie będę zgadywać ani niczego dopisywać.\n\nŻeby ocenić spójność łuku emocjonalnego i logiki historii w trzech reklamach, potrzebuję:\n\n1. **Marka i cel**: kim jest marka, co sprzedaje i co widz ma poczuć, zrozumieć albo zrobić na końcu.\n2. **Trzy reklamy**: dla każdej logline albo krótki opis scen (początek, punkt zwrotny, zakończenie). Wystarczą notatki.\n3. **Relacja między nimi**: czy to serial z ciągłą historią, trzy warianty tej samej idei, czy trzy osobne historie z jednym motywem przewodnim.\n4. **Format**: długość, kanał i ewentualny tekst, który jest już zatwierdzony (VO, hasło, CTA).\n5. **Stałe elementy** (opcjonalnie): bohater, motywy i rekwizyty, które mają wracać.\n\nPomysł możesz wkleić tutaj albo wrzucić jako plik do katalogu projektu.\n\nGdy go dostanę, sprawdzę:\n- logikę przyczynową w każdej reklamie (czy kroki łączy „ale\" i „więc\", a nie samo „potem\"),\n- czy emocje wynikają ze zdarzeń widocznych lub słyszalnych w kadrze,\n- czy łuk całej trójki narasta albo się uzupełnia, a nie powtarza,\n- ciągłość bohatera, motywów i obietnicy marki,\n- czy każda reklama mieści się w swojej długości,\n- co trzeba poprawić przed storyboardem, z konkretnymi propozycjami zmian.",
+          "reply_chars": 1303,
+          "reply_sha256": "36696cc24a5b582aac543468b2b53f381020289a287568985816bef7a270771f",
+          "skills": [
+            "storytelling"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1260,
+            "output": 1273,
+            "cache_read": 17389,
+            "cache_write": 19492
+          },
+          "seconds": 18.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "storytelling"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['storytelling']; expected one of ['storytelling']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M09",
+      "title": "Merge measurement 2026-10-23: expected screenplay-story-architect",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1253,
+        "output": 5590,
+        "cache_read": 21912,
+        "cache_write": 15389
+      },
+      "seconds": 59.1,
+      "wall_seconds": 59.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz scenariusz krótkiego filmu (ok. 5 minut) o starszym zegarmistrzu, który naprawia ostatni zegar przed zamknięciem zakładu, z dialogami.",
+          "reply": "# OSTATNI GODZINNIK\n\n*Krótki film, ok. 5 min · scenariusz z dialogami*\n\n**Postacie**\n- **HENRYK WOLSKI**, 74 l., zegarmistrz. Mówi mało, ręce ma pewniejsze od głosu.\n- **KUBA**, 33 l., kurier. Ma na sobie kurtkę z logo firmy i w ogóle się nie rozbiera.\n\n**Miejsce:** zakład zegarmistrzowski na parterze starej kamienicy. Październik, późne popołudnie.\n\n---\n\n**1. WN. ZAKŁAD – DZIEŃ (17:12)**\n\n*Ściany są pełne zegarów. Połowa ma na sznurkach papierowe numerki, a wiele wisi już w pudłach. Tykanie nakłada się z kilkunastu stron i nie zgadza się w rytmie.*\n\n*HENRYK siedzi pod lampą z lupą na oku. Przed nim leży rozebrany kuchenny zegar ścienny: plastikowa obudowa, mechanizm sprężynowy, biała tarcza z wyblakłymi owocami. Henryk obraca w palcach maleńkie kółko zębate i odkłada je na ściereczkę.*\n\n*Na drzwiach wisi tabliczka \"ZAMKNIĘTE OD 1 LISTOPADA\". Obok niej druga, starsza: \"Naprawa – 1 dzień\".*\n\n*Henryk wyjmuje sprężynę napędową. Jest złamana. Przykłada ją do światła, mruży oko i kiwa głową, jakby się z nią zgadzał.*\n\n*Wysuwa szufladę pod blatem. W środku leży porządek, który pasuje tylko do jednego człowieka: sprężyny w papierkach, podpisane ołówkiem. Szuka. Palec przesuwa się po papierkach i zatrzymuje. Nie ma takiej sprężyny.*\n\n*Odsuwa szufladę i patrzy w głąb zakładu, na ścianę.*\n\n**2. WN. ZAKŁAD – DZIEŃ (17:30)**\n\n*Na ścianie za ladą wisi jeden zegar, którego nie dotyka żaden numerek. To drewniany regulator z ręcznie rysowaną tarczą, trochę krzywy. Chodzi spokojnie, wyraźniej niż reszta.*\n\n*Henryk stoi przed nim z małym śrubokrętem. Nie wykonuje żadnego ruchu.*\n\n*Dzwonek u drzwi. Wchodzi KUBA, zdyszany, z telefonem w ręku.*\n\n**KUBA**\nDobry wieczór. Ja po zegar. Wolski, na telefon, wczoraj dzwoniłem.\n\n**HENRYK**\n*(nie odwraca się)*\nJest rozebrany.\n\n**KUBA**\nJak to rozebrany? Pan powiedział, że na dzisiaj.\n\n**HENRYK**\nNa dzisiaj. Dzień się jeszcze nie skończył.\n\n*Kuba spogląda na tabliczkę, potem na zegarek na nadgarstku.*\n\n**KUBA**\nZamyka pan o szóstej. Mam pociąg o 18:40.\n\n**HENRYK**\nTo wystarczy.\n\n*Idzie do blatu. Kuba nie rusza się od drzwi. Po chwili stawia plecak na krześle dla klientów, ale nie siada.*\n\n**3. WN. ZAKŁAD – DZIEŃ (17:38)**\n\n*Henryk pracuje. Jego ręce wykonują kolejne czynności bez zbędnych ruchów. Kuba zerka na telefon, potem na ręce. Patrzy coraz dłużej.*\n\n**KUBA**\nJa tam nie jestem od zegarów. To po babci. Wisiał w kuchni, odkąd pamiętam.\n\n**HENRYK**\nWiem. Widziałem na tarczy tłuszcz od smażenia. Czterdzieści lat patelni.\n\n**KUBA**\n*(prawie się uśmiecha)*\nPięćdziesiąt. Siedemdziesiąty czwarty.\n\n*Henryk unosi brew znad lupy.*\n\n**HENRYK**\nTaki zegar nie jest wiele wart. Plastik, mechanizm z fabryki. Za tyle, ile pan zapłaci za naprawę, kupi pan nowy w supermarkecie.\n\n**KUBA**\nPewnie tak.\n\n**HENRYK**\nI pan przyszedł.\n\n**KUBA**\nSprzedaję jej mieszkanie. W sobotę klucze. Chciałem, żeby ten jeden chodził, jak będę go pakował. *(wzrusza ramionami)* Głupie.\n\n*Henryk nie odpowiada. Odkłada śrubokręt i patrzy na regulator na ścianie.*\n\n**4. WN. ZAKŁAD – DZIEŃ (17:46)**\n\n*Henryk zdejmuje regulator. Robi to ostrożnie, jak się podnosi śpiące zwierzę. Kładzie go na blacie tarczą w dół. Kuba podchodzi o krok.*\n\n**KUBA**\nNie musi pan ruszać innego. Mogę poczekać do jutra.\n\n**HENRYK**\nJutro nie ma.\n\n*Kuba milknie. Henryk zdejmuje tylną ściankę regulatora. W środku widać mechanizm dużo lepszy od tego w kuchennym zegarze: ręcznie piłowane koła, patyna na mosiądzu.*\n\n**KUBA**\nCo to za zegar?\n\n**HENRYK**\nPierwszy, jaki zrobiłem sam. Rok siedemdziesiąty. Miał pan wtedy jeszcze… *(liczy)* …nie miał pan nic.\n\n**KUBA**\nA to nie jest na sprzedaż?\n\n**HENRYK**\nNigdy nie było.\n\n*Wyjmuje z regulatora sprężynę, cienką, lśniącą od oleju, i trzyma ją w palcach przed lampą. Przez moment jest to najspokojniejszy obraz w całym filmie. Potem Henryk wkłada ją do kuchennego zegara.*\n\n*Kuba patrzy na to, co zrobił.*\n\n**KUBA**\n*(cicho)*\nPanie Henryku. To przecież jest…\n\n**HENRYK**\nSprężyna. Pasuje. Sprawdziłem, zanim pan przyszedł.\n\n**KUBA**\nZanim przyszedłem, już pan wiedział?\n\n**HENRYK**\nOd południa.\n\n*Zakłada tarczę z owocami. Mechanizm zamyka, nakręca. Odczekuje sekundę. Z kuchennego zegara dochodzi tykanie, płaskie i trochę chrapliwe, w rytmie, który nie jest rytmem żadnego z pozostałych.*\n\n**5. WN. ZAKŁAD – DZIEŃ (17:58)**\n\n*Henryk podaje zegar Kubie w obu dłoniach. Kuba bierze go tak samo ostrożnie.*\n\n**KUBA**\nIle jestem winien?\n\n**HENRYK**\nCzterdzieści złotych.\n\n**KUBA**\n*(sięga po portfel, zatrzymuje się)*\nTen drugi zegar…\n\n**HENRYK**\nBędzie miał inny mechanizm. Sprężyny w szufladzie są tylko do ręki, jedną zawsze można dorobić.\n\n*Kuba kładzie na ladzie banknot, potem drugi. Henryk odsuwa drugi o centymetr w jego stronę i nic nie mówi. Kuba go zabiera.*\n\n**KUBA**\nDziękuję.\n\n**HENRYK**\nNiech pan idzie, bo pan spóźni pociąg.\n\n*Kuba wychodzi. Dzwonek u drzwi. Za szybą widać, jak biegnie z zegarem przytulonym do piersi, jakby niósł dziecko.*\n\n**6. WN. ZAKŁAD – DZIEŃ (18:04)**\n\n*Zakład jest pusty. Henryk stoi chwilę przy ladzie. Podnosi puste drewniane pudełko po regulatorze, które leży na blacie. W środku zostało tylko złożone sukno.*\n\n*Zdejmuje tabliczkę \"Naprawa – 1 dzień\". Odwraca ją. Na odwrocie, ołówkiem, jest napisane: \"Zaraz wracam\".*\n\n*Wiesza z powrotem. Napis \"Zaraz wracam\" zostaje w oknie.*\n\n*Podchodzi do ściany. Zegary nadal tykają, wszystkie. Gasi lampę nad blatem. Zostaje tylko światło z ulicy. W półmroku tykanie jest głośniejsze niż wcześniej.*\n\n*Henryk bierze płaszcz i klucze. Przy drzwiach zatrzymuje się, nasłuchuje. Potem nastawia ręcznie wskazówki małego budzika na półce, żeby i on szedł razem z resztą.*\n\n*Wychodzi. Zamyka drzwi na klucz od zewnątrz. Klucz zostaje w zamku, Henryk chwilę patrzy na swoją dłoń, potem go wyjmuje.*\n\n**7. ZN. ULICA PRZED ZAKŁADEM – WIECZÓR**\n\n*Latarnie się zapalają. Henryk idzie wzdłuż witryny, nie oglądając się. W szybie, w ciemności, widać kontury zegarów na ścianach.*\n\n*Z oddali, przez zamknięte drzwi, słychać cienki dźwięk jednego z zegarów, który bije ",
+          "reply_chars": 7281,
+          "reply_sha256": "1e63dbdca3a6d6d423352c33cfc9171da437ef1e2ae13d565f5c41e88ede8545",
+          "skills": [
+            "screenplay-story-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1253,
+            "output": 5590,
+            "cache_read": 21912,
+            "cache_write": 15389
+          },
+          "seconds": 59.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "screenplay-story-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['screenplay-story-architect']; expected one of ['screenplay-story-architect']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M10",
+      "title": "Merge measurement 2026-10-23: expected instruction-packet-factory",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1265,
+        "output": 3100,
+        "cache_read": 41233,
+        "cache_write": 15019
+      },
+      "seconds": 56.4,
+      "wall_seconds": 56.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Przygotuj zadanie dla innego agenta: ma wygenerować 12 wariantów banera według naszego briefu. Podaj wejścia, oczekiwane wyniki, kryteria akceptacji i warunek zakończenia.",
+          "reply": "Nie znalazłem w katalogu roboczym żadnego briefu, więc w pakiecie wartości zależne od briefu są polami `{{…}}` do uzupełnienia. Reszta jest gotowa do przekazania.\n\n---\n\n# Instruction Packet: IP-BANNER-12V-001\n\n**Typ:** pakiet wykonawczy\n**Rola docelowa:** `static-graphic-design-creator` (adaptacje formatów: `commercial-visual-campaign-director`)\n**Cel:** wygenerować 12 wariantów banera zgodnych z briefem FrameCore Works.\n\n## 1. Wejścia\n\n| Wejście | Wartość | Status |\n|---|---|---|\n| Brief (Brief Contract) | `{{ścieżka/plik briefu}}` | wymagane |\n| Dokładny tekst (headline, subline, CTA, disclaimer) | `{{wklej dosłownie}}` | wymagane, nie zmieniać |\n| Formaty / wymiary | `{{np. 1200×628, 300×250, 728×90}}` | wymagane |\n| Logo, kolory, fonty | `{{pliki / kody HEX / nazwy}}` | wymagane |\n| Referencje (kanoniczne vs inspiracje vs wykluczenia) | `{{lista}}` | opcjonalne |\n| Język tekstów banera | `{{język}}` | wymagane |\n| Macierz 12 wariantów | patrz sekcja 2 | do potwierdzenia |\n\n**Proponowana macierz wariantów** (zmienić, jeśli brief mówi inaczej): 3 kierunki wizualne × 4 osie testu (np. 2 wersje headline'u × 2 układy kompozycji). Każdy wariant ma unikalny ID `V01`–`V12` i zmienia tylko zadeklarowane osie. Reszta jest zablokowana.\n\n## 2. Wykluczenia (przed metodą)\n\n- Nie zmieniać dokładnego tekstu, logo, palety ani claimów z briefu.\n- Nie wymyślać nowych faktów, cen, rabatów, opinii ani certyfikatów.\n- Nie używać materiałów spoza listy referencji ani znaków towarowych osób trzecich.\n- Nie publikować, nie wysyłać plików poza projekt, nie uruchamiać płatnych generacji bez zatwierdzenia.\n- Nie dołączać sekretów ani prywatnych ścieżek do wyników.\n- Nie oceniać własnej pracy jako finalnej. Ocenę robi Output Critic.\n\n## 3. Metoda\n\n1. Zapisz blokady z briefu (tekst, logo, paleta, safe zones) jako listę `LOCKS`.\n2. Zdefiniuj osie zmienności i przypisz je do V01–V12.\n3. Dla każdego wariantu przygotuj opis kompozycji oraz gotowy prompt generacyjny lub plik projektowy.\n4. Wygeneruj wariant i zapisz go pod nazwą `banner_{{kampania}}_V##_{{format}}.{{ext}}`.\n5. Sprawdź każdy plik wobec kryteriów z sekcji 5. Jednorazowo napraw to, co nie przeszło, i sprawdź ponownie.\n6. Przygotuj manifest.\n\n## 4. Oczekiwane wyniki\n\n- 12 plików banerów, po jednym na wariant (×N formatów, jeśli brief ich wymaga).\n- `manifest.md`: tabela V01–V12 z kolumnami: plik, wymiary, oś zmienności, użyty prompt/źródło, status QA.\n- `variants-matrix.md`: co się różni między wariantami, co zablokowane.\n- `qa-report.md`: wynik sprawdzenia każdego wariantu, kryterium po kryterium.\n- Lista ewentualnych odstępstw od briefu z uzasadnieniem.\n\n## 5. Kryteria akceptacji (testowalne)\n\nWariant jest zaakceptowany, jeśli spełnia wszystkie punkty:\n\n1. Plik istnieje, otwiera się i ma dokładnie wymagane wymiary oraz format pliku.\n2. Tekst jest identyczny znak w znak z tekstem z briefu (pisownia, diakrytyki, interpunkcja) i w pełni czytelny.\n3. Logo, kolory i font zgodne z `LOCKS`. Logo nie jest zniekształcone ani za blisko krawędzi (margines `{{X}}` px).\n4. Kluczowe elementy mieszczą się w safe zone. Nic nie jest ucięte.\n5. CTA jest widoczny i wyraźnie wyróżniony. Kontrast tekstu do tła wynosi co najmniej 4.5:1 (3:1 dla dużego tekstu).\n6. Wariant różni się od pozostałych tylko zadeklarowanymi osiami. Nie ma duplikatów ani wariantów prawie identycznych.\n7. Brak artefaktów generacji (zniekształcone dłonie, pseudo-tekst, rozmyte krawędzie) i brak niezatwierdzonych claimów.\n8. Rozmiar pliku mieści się w limicie `{{np. ≤150 KB}}`, jeśli brief go podaje.\n\nZestaw jest zaakceptowany, jeśli ≥12 wariantów przechodzi punkty 1–8. Agent sprawdza pliki faktycznie otwierając obrazy, a nie na podstawie samych opisów.\n\n## 6. Warunek zakończenia\n\nZakończ, gdy zachodzi jedno z poniższych:\n\n- **Sukces:** wszystkie 12 wariantów spełnia kryteria, a manifest i raporty są zapisane. Zatrzymaj się bez dalszych poprawek.\n- **Limit poprawek:** po jednej rundzie napraw wariant nadal nie spełnia kryteriów. Oznacz go `FAIL` z przyczyną i nie ponawiaj w pętli.\n- **Blokada:** brakuje wejścia wymaganego (tekst, logo, formaty) albo brief jest sprzeczny. Zatrzymaj się i zgłoś pytanie zamiast zgadywać.\n- **Budżet:** przekroczono `{{limit kosztu/liczby generacji}}`. Zgłoś stan i zatrzymaj się.\n\n## 7. Schemat odpowiedzi agenta\n\n```\nstatus: DONE | PARTIAL | BLOCKED\nvariants: [{id, file, size, axis, qa: PASS|FAIL, notes}]\ndeviations: [...]\nopen_questions: [...]\n```\n\n## 8. Przekazanie dalej\n\nCel: `output-critic-iteration` (przegląd wobec briefu), a po akceptacji `asset-manifest` i `delivery-documentation`.\nBramka: `instruction_packet_fit`.\n\n---\n\n**Do uzupełnienia, zanim przekażesz pakiet:** ścieżka briefu, dokładne teksty, formaty, zasoby marki, limit kosztu i ewentualna zmiana macierzy 3×4. Podeślij brief, a wstawię te wartości za Ciebie.",
+          "reply_chars": 4825,
+          "reply_sha256": "1784d5cd0fb91543f77edbb8a1fe39a0cc3413d006e081fb771ababc3b9579c6",
+          "skills": [
+            "instruction-packet-factory"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1265,
+            "output": 3100,
+            "cache_read": 41233,
+            "cache_write": 15019
+          },
+          "seconds": 56.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "instruction-packet-factory"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['instruction-packet-factory']; expected one of ['instruction-packet-factory']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M11",
+      "title": "Merge measurement 2026-10-23: expected hipson-adapter",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1242,
+        "output": 8464,
+        "cache_read": 65212,
+        "cache_write": 24948
+      },
+      "seconds": 67.2,
+      "wall_seconds": 67.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób pakiet w formacie Hipson: mapę badań i pakiet wykonawczy dla zadania przeglądu konkurencji w branży kawowej.",
+          "reply": "Nie mogłem zapisać pliku, bo narzędzie zapisu jest w tej sesji wyłączone. Pakiet jest więc poniżej w treści odpowiedzi. Nie wykonałem żadnych badań ani wyszukiwań. To plan dla wykonawcy, a nie wynik przeglądu.\n\n## Do uzupełnienia przed startem\nBrief nie podaje tych danych, więc użyłem pól zastępczych:\n- `[MARKA]`: nazwa klienta i model (palarnia, kawiarnia, e-commerce, subskrypcja).\n- `[RYNEK]`: domyślnie Polska.\n- `[SEGMENT]`: domyślnie specialty coffee, B2C.\n- `[LISTA]`: konkurenci. Jeśli jej nie podasz, wykonawca zaproponuje 5–8 podmiotów (3 bezpośrednich, 2 pośrednich, 1–2 aspiracyjne) i poczeka na Twoją akceptację.\n\n---\n\n## 1. Mapa badań (Research Map)\n\n- **research_goal:** Ustalić, jak konkurenci w segmencie `[SEGMENT]` na rynku `[RYNEK]` się pozycjonują, co komunikują i jak wyglądają. Wskazać nisze, których nikt nie zajął, oraz zagrożenia dla `[MARKA]`.\n- **source_hierarchy:**\n  1. Własne kanały konkurenta: strona, sklep, karty produktów, dostawa, FAQ, o nas.\n  2. Publiczne profile społecznościowe konkurenta.\n  3. Biblioteki reklam (Meta Ad Library, Google Ads Transparency).\n  4. Publiczne opinie klientów. To sygnał, nie dowód.\n  5. Prasa branżowa, czyli źródło wtórne.\n  6. Raporty i blogi. Służą tylko jako kontekst, z datą i autorem.\n- **freshness_rules:**\n  - Ceny, promocje, oferta i reklamy: stan z dnia przeglądu, z datą dostępu przy każdym wpisie.\n  - Strona i komunikacja: ostatnie 12 miesięcy.\n  - Social media: ostatnie 90 dni lub 30 postów.\n  - Opinie: ostatnie 12 miesięcy.\n  - Dane starsze niż 24 miesiące oznaczyć jako historyczne.\n- **search_angles:**\n  1. Pozycjonowanie i obietnica marki.\n  2. Oferta i asortyment.\n  3. Publiczne ceny i progi (np. cena za 250 g i 1 kg, darmowa dostawa).\n  4. Pochodzenie, storytelling i certyfikaty.\n  5. Identyfikacja wizualna: logo, paleta, typografia, opakowanie, fotografia.\n  6. Kanały i treści: częstotliwość, formaty, motywy, reklamy.\n  7. Ścieżka zakupu i dostawa.\n  8. Głos klienta: powtarzające się pochwały i skargi.\n  9. Luki i szanse, czyli czego nikt nie mówi, nie pokazuje ani nie oferuje.\n- **exclusions:**\n  - Bez logowania, omijania zabezpieczeń, fałszywych kont i zamówień.\n  - Bez danych osobowych klientów i pracowników.\n  - Bez kopiowania treści i grafik konkurentów. Wolno opisać i zacytować krótko, z linkiem.\n  - Bez przychodów i udziałów w rynku bez publicznego źródła.\n  - Bez wniosków o skuteczności reklam na podstawie samej ich obecności.\n  - Bez oceny jakości kawy.\n- **confidence_rules:**\n  - **Wysoka:** fakt widoczny bezpośrednio u konkurenta, z datą.\n  - **Średnia:** jedno źródło wtórne albo kilka spójnych sygnałów.\n  - **Niska:** pojedyncza opinia lub jeden przykład.\n  - **Niezweryfikowane:** brak źródła. Oznaczyć jako hipotezę i nie opierać na tym wniosków.\n- **output_schema:**\n  - `competitor_card`: typ, URL, data dostępu, obietnica, oferta, ceny, ton, wizualia, kanały, mocne i słabe strony, krótkie cytaty z linkiem, pewność.\n  - `comparison_matrix`: konkurenci w kolumnach, wymiary z search_angles w wierszach.\n  - `gaps_and_opportunities`: 5–8 pozycji z dowodem, pewnością i implikacją dla marki.\n  - `threats`: do 5 pozycji.\n  - `source_log` i `open_questions`.\n\n---\n\n## 2. Pakiet wykonawczy (Execution Packet)\n\n- **packet_id:** HIP-COFFEE-CR-001\n- **target_role:** analityk badawczy. Wynik idzie dalej do Marketing lub Commercial Visual Campaign Director.\n- **goal:** Dostarczyć przegląd konkurencji zgodny z mapą, gotowy jako podstawa pozycjonowania i kierunku kreatywnego.\n- **context:** `[MARKA]`, `[RYNEK]`, `[SEGMENT]`, `[LISTA]` (patrz wyżej).\n- **exclusions:** Jak w mapie. Dodatkowo bez rekomendacji budżetowych, bez haseł i grafik, bez zakupów i kontaktu z konkurentami.\n- **required_inputs:** marka, rynek, segment, lista konkurentów lub zgoda na propozycję, cel decyzyjny, data przeglądu. Brak któregoś blokuje tylko zależny krok.\n- **method:**\n  1. Potwierdzić zakres i listę konkurentów.\n  2. Zebrać dane według search_angles 1–8 w kolejności source_hierarchy, z URL i datą.\n  3. Wypełnić karty i oznaczyć pewność.\n  4. Zbudować macierz porównawczą.\n  5. Wyprowadzić luki i zagrożenia tylko z wpisów o średniej lub wysokiej pewności. Wnioski z niskiej pewności opisać jako hipotezy.\n  6. Uzupełnić `source_log` i `open_questions`.\n  7. Przejść jedną pętlę przeglądu, maksymalnie trzy przejścia.\n- **evidence_rules:** Fakt wymaga źródła i daty. Bez źródła wpis trafia do `open_questions`. Wynik to przegląd publicznych źródeł z datą dostępu, a nie zweryfikowana prawda.\n- **acceptance_criteria:**\n  - Karty kompletne albo z jawnym „brak danych\".\n  - Każdy fakt ma URL i datę.\n  - Każdy wniosek ma pewność.\n  - Co najmniej 5 luk lub szans z dowodem.\n  - Brak danych osobowych i kopiowanych materiałów.\n  - Braki nie są ukryte.\n  - Karta ma do ok. 250 słów, podsumowanie do 2 stron.\n- **output_schema:** Jak w mapie, w Markdown, z macierzą w tabeli.\n- **handoff_to:** Marketing → Commercial Visual Campaign Director lub Copy Voice, przez Workflow Orchestrator. Przekazać `packet_id`, wyniki, `source_log` i `open_questions`.\n\n## 3. Pakiet przeglądu (Review Packet)\n\n- **packet_id:** HIP-COFFEE-CR-001-R\n- **target_role:** recenzent (Output Critic Iteration lub drugi analityk)\n- **checks:** źródło i data przy faktach; pewność zgodna z dowodem; brak kopiowanych treści i danych osobowych; wnioski wynikają z wpisów; luki są konkretne.\n- **output:** „przyjęto\" albo „do poprawy\" z najmniejszymi naprawami. Jeśli kryteria są spełnione, zatrzymać się bez zmian.\n\n---\n\nSamoocena pakietu (`instruction_packet_fit`): cel i rola są jasne, wykluczenia i zasady źródeł konkretne, schemat użyteczny. Pełny Hipson pozostaje opcjonalny i niepodłączony. Pakiet nie sugeruje wykonania zewnętrznego ani weryfikacji.\n\nPodaj `[MARKA]`, `[RYNEK]`, `[SEGMENT]` i `[LISTA]`, a uzupełnię pola. Jeśli włączysz zapis plików, zapiszę całość jako jeden dokument.",
+          "reply_chars": 5874,
+          "reply_sha256": "cc3d195245011c5d6a0df4bcaacf1004382155afc3651ebad7340120ecd36abd",
+          "skills": [
+            "hipson-adapter"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read",
+            "Read",
+            "Read",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1242,
+            "output": 8464,
+            "cache_read": 65212,
+            "cache_write": 24948
+          },
+          "seconds": 67.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hipson-adapter"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hipson-adapter']; expected one of ['hipson-adapter']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M12",
+      "title": "Merge measurement 2026-10-23: expected asset-manifest",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1249,
+        "output": 1290,
+        "cache_read": 41725,
+        "cache_write": 15451
+      },
+      "seconds": 18.9,
+      "wall_seconds": 19.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób spis wszystkich plików w tym projekcie: co jest, które wersje, skąd pochodzą i co wykluczamy, zanim zaczniemy kontrolę jakości.",
+          "reply": "Nie mogę zrobić spisu: katalog projektu `/tmp/studio-eval-ywzu9ayo/work` jest pusty. Wyszukiwanie `**/*` nie zwróciło żadnego pliku. Nie sprawdzałem osobno plików ukrytych, ale to i tak nie byłyby zasoby do QA. Nie wymyślam więc wersji, źródeł ani wykluczeń.\n\n**Manifest zasobów (stan na 2026-10-23)**\n\n| Sekcja | Zawartość |\n|---|---|\n| Pliki zarządzane (źródłowe, robocze, kandydaci do finału) | brak |\n| Wersje | brak do odnotowania |\n| Pochodzenie plików | brak do odnotowania |\n| Wykluczenia (cache, logi, kopie zapasowe, pliki tymczasowe, systemowe) | brak |\n| Nośniki ciągłości i zaakceptowane wyniki | brak |\n\n**Otwarte pytania**\n1. Czy pliki projektu leżą w innym miejscu, np. w innym katalogu, na dysku użytkownika lub w repozytorium? Jeśli tak, podaj ścieżkę albo wgraj je tutaj.\n2. Czy chodzi o pliki, które dopiero powstaną? Wtedy spis zrobimy po ich wygenerowaniu.\n3. Jakie są kryteria akceptacji, czyli co kwalifikuje zasób do QA lub dostawy?\n4. Które pliki są pewnymi wykluczeniami (odrzucone wersje, materiały prywatne, referencje bez praw użycia)?\n5. Skąd pochodzą najważniejsze materiały: od klienta, wygenerowane (jakim narzędziem lub modelem), czy edytowane pochodne?\n\nGdy dostanę pliki lub ścieżkę, zrobię pełny spis z rolami, wersjami, źródłami i wykluczeniami. Potem przekażę go do kontroli jakości (Output Critic Iteration).",
+          "reply_chars": 1349,
+          "reply_sha256": "c2732efba103907e5870a7e6c271d5620d2b13605d449d49f15fc54cf9be5637",
+          "skills": [
+            "asset-manifest"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1249,
+            "output": 1290,
+            "cache_read": 41725,
+            "cache_write": 15451
+          },
+          "seconds": 18.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "asset-manifest"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['asset-manifest']; expected one of ['asset-manifest']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M13",
+      "title": "Merge measurement 2026-10-23: expected delivery-documentation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1253,
+        "output": 3449,
+        "cache_read": 64841,
+        "cache_write": 20149
+      },
+      "seconds": 37.3,
+      "wall_seconds": 37.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Klient zaakceptował kampanię. Przygotuj pakiet do oddania: pliki końcowe, specyfikacje, notatki eksportu i list przekazania z protokołem odbioru.",
+          "reply": "Nie mogę jeszcze zrobić pakietu. Katalog roboczy (`/tmp/studio-eval-fpo9s7we/work`) jest pusty, więc nie ma plików kampanii ani specyfikacji do opisania. Nie wymyślę nazw plików, formatów ani statusu kontroli jakości. Nie mogę też zapisać szkiców na dysku, bo narzędzie zapisu jest w tej sesji wyłączone.\n\nZaplanowałem pakiet według instrukcji delivery-documentation. Zawiera on:\n- foldery `01-druk/`, `02-internet/`, `03-wideo/` i `03-zrodla/`, tylko te, które są potrzebne;\n- nazwy w formie `klient_projekt_material_format_rN.ext`, z `-final` dopiero po odbiorze;\n- spis plików z rozmiarem lub czasem trwania, przestrzenią barw i przeznaczeniem;\n- notatki eksportu, w których parametry zażądane, zweryfikowane i nieznane są oddzielone;\n- fonty i licencje;\n- list przekazania z prawami, jednym zdaniem o użyciu AI (jeśli dotyczy) i zakresem poza ofertą;\n- protokół odbioru z tabelą materiałów, rundami poprawek i podpisami.\n\nDo kompletu potrzebuję:\n1. **Pliki finalne.** Wgraj je do katalogu roboczego albo podaj ścieżkę. Bez nich nie sprawdzę rozdzielczości, FPS, kodeka, głośności ani czasu trwania i oznaczę te pola jako „niezweryfikowane\".\n2. **Dane stron.** Nazwa i adres klienta oraz Twoje dane, imię osoby kontaktowej, termin zgłaszania uwag i sposób przekazania (załącznik lub link).\n3. **Podstawa i prawa.** Oferta lub umowa (numer, data), pola eksploatacji, terytorium, czas, moment przejścia praw, liczba rund poprawek w ofercie i ile wykorzystano. Tych warunków nie wymyślam.\n4. **Zakres.** Czy kampania ma druk (wtedy potrzebuję specyfikacji drukarni: spad, profil, dieline), czy tylko cyfrę i wideo. Czy w ofercie są pliki źródłowe.\n5. **Użycie AI.** Które elementy wygenerowano narzędziem AI.\n6. **Czy akceptację klienta mam gdzieś udokumentowaną?** Jeśli tak, wskaż gdzie, żeby protokół ją przywołał.\n\nGdy dostanę te informacje, przygotuję pełny pakiet. Jeśli wolisz, mogę najpierw wkleić tutaj szkice listu i protokołu z pustymi polami do uzupełnienia.",
+          "reply_chars": 1970,
+          "reply_sha256": "ec834e2f5d91775e77197d8983f243c06c3d821d93e20e34ae4a56fdadb978d0",
+          "skills": [
+            "delivery-documentation"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Read",
+            "Read",
+            "Read",
+            "Write",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Write",
+              "ok": false
+            },
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1253,
+            "output": 3449,
+            "cache_read": 64841,
+            "cache_write": 20149
+          },
+          "seconds": 37.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "delivery-documentation"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['delivery-documentation']; expected one of ['delivery-documentation']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

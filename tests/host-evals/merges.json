@@ -135,6 +135,120 @@
           ]
         }
       ]
+    },
+    {
+      "id": "M08",
+      "title": "Merge measurement 2026-10-23: expected storytelling",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam gotowy pomysł na 3 reklamy jednej marki. Sprawdź, czy łuk emocjonalny i logika historii trzymają się razem we wszystkich trzech, zanim zrobimy storyboard.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "storytelling"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M09",
+      "title": "Merge measurement 2026-10-23: expected screenplay-story-architect",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Napisz scenariusz krótkiego filmu (ok. 5 minut) o starszym zegarmistrzu, który naprawia ostatni zegar przed zamknięciem zakładu, z dialogami.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "screenplay-story-architect"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M10",
+      "title": "Merge measurement 2026-10-23: expected instruction-packet-factory",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Przygotuj zadanie dla innego agenta: ma wygenerować 12 wariantów banera według naszego briefu. Podaj wejścia, oczekiwane wyniki, kryteria akceptacji i warunek zakończenia.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "instruction-packet-factory"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M11",
+      "title": "Merge measurement 2026-10-23: expected hipson-adapter",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób pakiet w formacie Hipson: mapę badań i pakiet wykonawczy dla zadania przeglądu konkurencji w branży kawowej.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "hipson-adapter"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M12",
+      "title": "Merge measurement 2026-10-23: expected asset-manifest",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób spis wszystkich plików w tym projekcie: co jest, które wersje, skąd pochodzą i co wykluczamy, zanim zaczniemy kontrolę jakości.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "asset-manifest"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M13",
+      "title": "Merge measurement 2026-10-23: expected delivery-documentation",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Klient zaakceptował kampanię. Przygotuj pakiet do oddania: pliki końcowe, specyfikacje, notatki eksportu i list przekazania z protokołem odbioru.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "delivery-documentation"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
