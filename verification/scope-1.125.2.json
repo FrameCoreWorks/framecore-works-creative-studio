@@ -1,0 +1,27 @@
+{
+  "version": "1.125.2",
+  "baseline_tag": "v1.125.1",
+  "baseline": "19e2776fc856856d903c24bee6a137bbeb9a8b67",
+  "change_id": "CC-20261023-16",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1550,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner decision 2026-10-23: Earshot keeps its name and is plainly credited to Leon Lin in the setup copy and in earshot-audio 1.0.7 manifests."
+}

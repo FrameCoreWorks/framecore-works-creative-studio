@@ -1,5 +1,5 @@
-# Creative Studio 1.125.1
+# Creative Studio 1.125.2
 
-A full review of Studio with Superpowers and Earshot found and fixed a few gaps. Studio's own sound tools can no longer download Earshot's models in the background without your agreement; Earshot's installation now stops with a clear message if its no-upload protection cannot be applied; the setup offer also says what will be saved and where; and the last mentions of an older, second way to install Earshot are gone.
+Earshot keeps its name and is now plainly credited to its author: it is Leon Lin's open-source project (github.com/Leonxlnx/earshot, MIT), which FrameCore Works packages as a plugin and connects to Studio. Studio's setup offer says so, and the Earshot plugin (1.0.7) shows it in its name and description.
 
-Verification: source tests, the main startup gate and companion runs in Claude Code, recorded in verification/. ChatGPT, ChatGPT Work and Codex remain NOT_RUN; the hosted plugins are updated separately.
+Verification: source tests. ChatGPT, ChatGPT Work and Codex remain NOT_RUN; the hosted plugins are updated separately.

@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.125.2, 2026-10-23
+
+- **Earshot credited to Leon Lin.** Owner decision 2026-10-23: [first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) presents Earshot as Leon Lin's open-source project packaged by FrameCore Works; `earshot-audio` 1.0.7 starts its manifest descriptions with the credit and shows "Earshot (Leon Lin)".
+
 ## 1.125.1, 2026-10-23
 
 - **Review fixes (Earshot and Superpowers integration).** Trigger: an independent review on 2026-10-23. `listen.py`'s Earshot bridge always runs offline with the plugin's cache and refuses `doctor --fetch`; `earshot-audio` 1.0.6 fails an installation whose upload stub cannot be applied; setup states what is written and where; the last references to a second Earshot route are removed from the owners and routing references.
