@@ -3304,3 +3304,19 @@ Cross-host state:
 - GitHub: synchronized. `main` at `c55acad`; workflows Check Studio sources 39937471623, Refresh current release notes 39937467906, Publish verified Studio release 39937467894, Check Studio sources 39937467913: success; [v1.124.3](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.124.3) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1559 of 1559) ([record](../verification/github-publication-1.124.3.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261023-05
+
+- Origin: cloud-code
+- Branch: `main`
+- Baseline: `2e6809b` (main, package 1.124.3)
+- Result: this commit (verification record only)
+- Package version: 1.124.3 (unchanged); earshot-audio 1.0.3 (unchanged)
+- Scope: Earshot full tier verified in Claude Code at the owner's request, after the owner allowed the PyTorch and Hugging Face hosts in the environment: install --tier full and fetch-models from the pinned commit, timeline and sheet on an encoded MP4, and an end-to-end run where Studio's request was served by earshot-audio's kit and timeline, within one frame ([record](../verification/earshot-audio-1.0.3-full-tier.json)).
+- Shared package changed: no
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: pending (hosted earshot-audio still runs an older runtime.py per the owner's report)
+- Codex: not_run

@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-23",
+  "kind": "earshot-audio full tier: installation and end-to-end run",
+  "host": "Claude Code cloud container (Linux, CPU), environment network access Custom with download.pytorch.org, *.pytorch.org, huggingface.co, *.huggingface.co, *.hf.co added by the owner",
+  "earshot_audio": "1.0.3 (repository main at the time of the run)",
+  "install": {
+    "commands": [
+      "runtime.py install --tier full (plan)",
+      "runtime.py install --tier full --yes (first attempt stopped: download-r2.pytorch.org not allowed; nothing beyond it installed)",
+      "runtime.py install --tier full --yes (100 s)",
+      "runtime.py fetch-models --yes (20 s)"
+    ],
+    "status": {
+      "engine_commit": "591fa3e028032e6dce56620a20e932e35667e8d8",
+      "light_ready": true,
+      "full_ready": true,
+      "models_cached": true,
+      "state": "ready_full"
+    },
+    "sizes": {
+      "venv": "1.7 GB",
+      "model_cache": "1.1 GB"
+    },
+    "llm_keys_present": {
+      "GEMINI_API_KEY": false,
+      "GOOGLE_API_KEY": false
+    }
+  },
+  "direct_check": {
+    "file": "logo_sound.mp4 from the 1.0.2 after-run",
+    "timeline": "timeline --cues 1.2,3.0 --detail low ran in 21 s: whoosh tagged \"fast air whoosh\", cues 2/2 with an onset within 40 ms (chance 18%), median |offset| 18 ms",
+    "sheet": "sheet --cues rendered a PNG; both cue markers green"
+  },
+  "end_to_end": {
+    "model": "claude-sonnet-5-5",
+    "prompt": "the same single Polish request as the earlier runs (logo.mp4, whoosh at 1.2 s, hit at 3.0 s, finished MP4 and a sync check)",
+    "turns": 24,
+    "seconds": 131.2,
+    "tokens": {
+      "input": 36,
+      "output": 7625,
+      "cache_read": 630588,
+      "cache_write": 46092
+    },
+    "engine": "earshot-audio: kit init --preset minimal, kit render, kit check (whoosh_fast/heavy, pro_impact/air), placed by kit.lock.json anchors, ffmpeg mix and stream-copied video, timeline --cues on the encoded MP4",
+    "reported": "whoosh cue -15 ms, hit cue +21 ms, both within one frame; -17.5 LUFS, -2.0 dBTP",
+    "output_sha256": "eebbf5ce76e387cb4b84a00475456c82f160b8f768f69ec65c26c9f9b4a3e79a",
+    "independent_measurement": "video stream bit-identical to logo.mp4; whoosh onset 1.120 s, peak 1.205 s; hit onset 3.005 s, peak 3.180 s (5 ms envelope)",
+    "reply_excerpt": "Dodałem dźwięk i gotowy plik MP4 jest. Oba dźwięki trafiają w obraz w granicach jednej klatki (33 ms).\n\nPlik: `/tmp/claude-0/-home-user-framecore-works-creative-studio/0d39bcb8-e3b1-5dda-99ad-ec14abd04c90/scratchpad/e2e3/logo_sound.mp4`. Obraz jest przekopiowany bez rekompresji, a dźwięk to AAC 192 kb/s, 48 kHz. Całość trwa 6 s.\n\n**Co dodałem**\n- **Whoosh przy napisie:** `whoosh_fast/heavy` z banku dźwięków Earshot, szczytem na 1,200 s (klatka 36). W obrazie napis wskakuje skokowo właśnie w tej klatce, więc dźwięk narasta tuż przed nim.\n- **Uderzenie przy lądowaniu:** `pro_impact/air`, początek dokładnie na 3,000 s (klatka 90). W obrazie ruch logo kończy się w tej klatce.\n- **Poziomy:** whoosh −7 dB, uderzenie −4 dB, żeby został zapas przed szczytem. Wynik to −17,5 LUFS i true peak −2,0 dBTP.\n\n**Czy dźwięk trafia w obraz** (`timeline` na gotowym pliku, offset = dźwięk minus obraz)\n\n| Cue | Czas w obrazie | Offset | Wynik |\n|---|---|---|---|\n| Whoosh, wejście napisu | 1,200 s | −15 ms (dźwięk wcześniej) | OK, poniżej 1 klatki |\n| Uderzenie, lądowanie logo | 3,000 s | +21 ms (dźwięk później) | OK, poniżej 1 klatki |\n\n- Oba cue mają początek dźwięku w granicach jednej klatki i 100 ms. Mediana |offsetu| to 18 ms, a losowo trafiłoby tak tylko 25% cue.\n- Największy akcent w całym dźwięku przypada na 1,22 s (+41 dB nad tłem) i na 3,16 s (+21 dB).\n- Cięcie obrazu wykryte w 1,2 s ma dźwięk 15 ms wcześniej, czyli też poniżej klatki.\n\n**Czego nie sprawdziłem**\n- To pomiary, nie odsłuch."
+  },
+  "not_run": [
+    "listening by a person",
+    "ChatGPT Work and Codex full tier",
+    "sheet in the agent run (not requested)"
+  ],
+  "scope": "Claude Code cloud container on this date; the container is ephemeral, so a new session needs the models fetched again."
+}
