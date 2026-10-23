@@ -33,7 +33,7 @@ Asking Claude to "install this repository" with the link works the same way: the
 
 ## 2. Pin the source
 
-Use the latest release tag: `tag_name` from `https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio/releases/latest`, or, when that API is unreachable, the version in the README's "Source version" line (for example `v1.124.1`; [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases)). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
+Use the latest release tag: `tag_name` from `https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio/releases/latest`, or, when that API is unreachable, the version in the README's "Source version" line (for example `v1.124.2`; [releases page](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases)). The plugin manifest carries the version, so an installed copy stays on that version until a new release changes it. Without a tag, the marketplace follows the default branch.
 
 ## 3. Take inventory before installing
 
@@ -57,7 +57,7 @@ Then ask once, showing the current copies with their versions and the target ver
 **Claude Code, from the shell (the route the assistant runs):**
 
 ```sh
-claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.124.1
+claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.124.2
 claude plugin install framecore-work-creative-studio@framecore-works --scope user
 ```
 
@@ -68,7 +68,7 @@ claude plugin install framecore-work-creative-studio@framecore-works --scope use
 **Slash commands, only in the terminal CLI's interactive session:**
 
 ```text
-/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.124.1
+/plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v1.124.2
 /plugin install framecore-work-creative-studio@framecore-works
 ```
 

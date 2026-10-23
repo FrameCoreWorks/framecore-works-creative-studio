@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.124.2, 2026-10-23
+
+- **Earshot light tier described correctly.** Trigger: defect seen in an end-to-end run on 2026-10-23 ([record](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/earshot-audio-1.0.2-e2e.json)). The registry's `earshot` entry no longer lists `timeline` as a light-tier command (it always loads the CLAP model); `timeline`, `sheet` and the full `critique` need the full tier. The public `earshot-audio` plugin 1.0.2 makes the same correction in its skill, says how to check sync from measured onsets on the light tier, and names where `runtime.py` is. Before: 24 turns and two failed `timeline` calls; after: 17 turns, sync within one frame on the encoded film.
+
 ## 1.124.1, 2026-10-23
 
 - **Earshot Audio is the second setup recommendation.** Owner request 2026-10-23. The registry entry `earshot` carries `recommendation_priority: second` (the validator accepts `first` and `second`, one of each), and [first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) gains step 6: after Superpowers, load `earshot-audio:earshot` if it is listed, otherwise offer the host's install step once, without running any installer. Host eval: new case C14 (Superpowers only) failed before and passes after; C15 (both plugins) recognises an installed Earshot Audio; C05 now fails only on a Superpowers install command.

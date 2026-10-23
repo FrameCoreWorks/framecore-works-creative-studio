@@ -1,0 +1,27 @@
+{
+  "version": "1.124.2",
+  "baseline_tag": "v1.124.1",
+  "baseline": "bcfd726cd85a3f8305d7f8b9d3995e9e6247f705",
+  "change_id": "CC-20261023-03",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1550,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Defect seen in an end-to-end run on 2026-10-23: Earshot's timeline and sheet need the CLAP model, but the registry and earshot-audio 1.0.1 listed them as light-tier commands. The registry text and earshot-audio 1.0.2 are corrected; on the light tier sync is checked from measured onsets. After the fix the run took 17 turns instead of 24 and stayed within one frame."
+}
