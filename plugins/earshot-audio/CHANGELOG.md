@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6, 2026-10-23
+
+Full review fixes: `install` fails instead of reporting ready when the upload stub cannot be applied (both stub modules
+are always written); upstream pages that install the repository with pip or call `python -m earshot` are read as this
+plugin's `runtime.py install` and `exec`, never a second engine.
+
 ## 1.0.5, 2026-10-23
 
 Owner request: one Earshot, set up from FrameCore Works Creative Studio's first configuration (full or light chosen

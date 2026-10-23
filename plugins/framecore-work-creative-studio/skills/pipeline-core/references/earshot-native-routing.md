@@ -4,9 +4,9 @@ Use the public plugin `earshot-audio` from this repository's marketplace (Earsho
 
 Without the `earshot-audio` plugin in the skill list, offer it once (it is the one Earshot route; first companion setup has the steps) or use Studio's own `listen.py`, `sound.py` and `synth.py`, and name the engine that actually ran. Never claim an Earshot run that did not happen.
 
-When the skill is listed but `runtime.py status` reports `unavailable` (owner decision 2026-10-23), ask one question with both routes: install Earshot's light tier (what is written, about 200 MB, local, from the pinned commit) or make the sound now with Studio's own `sound.py`/`synth.py` and check it with `listen.py`. Run neither before the answer, never fall back silently, and say which engine made the delivered sound.
+When the skill is listed but `runtime.py status` reports `unavailable` (owner decision 2026-10-23), ask one question with both routes: install Earshot, full (about 2.6 GB, chooses sounds by listening) or light (about 200 MB, measures only), saying what is written, local, from the pinned commit, or make the sound now with Studio's own `sound.py`/`synth.py` and check it with `listen.py`. Run neither before the answer, never fall back silently, and say which engine made the delivered sound.
 
-Pass each cue's character (from the picture and the request, e.g. a heavy landing: a deep dull thud, no metallic tail) to Earshot and accept a take only with its selection readings: ranked candidates, a match against likely confusions, onsets per second and speaker-audible bands (owner report 2026-10-23: a preset's hit with a debris tail). With Studio's own engine, apply the same measurement checks with `listen.py`.
+Pass each cue's character (from the picture and the request, e.g. a heavy landing: a deep dull thud, no metallic tail) to Earshot and accept a take only with its selection readings: ranked candidates, a match against likely confusions, onsets per second and speaker-audible bands (owner report 2026-10-23: a preset's hit with a debris tail). On the light tier only the measurement gates run (onsets per second, bands, duration); say that recognition (`rank`, `match`) needs the full tier and offer it. With Studio's own engine, apply the same measurement checks with `listen.py`.
 
 `llm` and `mcp` are out of scope (owner decision 2026-10-22): no audio goes to Gemini or any other model service, no MCP server is installed or started, and Studio does not configure keys for them. Earshot runs locally through its skill, CLI or Python; a request to send audio to an external model is declined with the local route offered instead.
 
@@ -25,11 +25,11 @@ Earshot is the preferred procedural SFX/kit engine for the requested native inte
 
 ## Capability and initialization
 
-Read the Earshot skill's runtime reference and run its bundled `runtime.py status` at the actual materialized skill path. Check the returned interpreter and binary; PATH absence alone is insufficient. Distinguish native plugin availability, `light_ready`, cached neural files, successful model inference and task-specific verified results. Ordinary runs default to offline. With an authorized installation/restore scope, use the bundled installer and explicit model-fetch action. No automatic external audio upload follows from installing either plugin.
+Read the Earshot skill (its section 1, readiness and consent) and run its bundled `runtime.py status` at the actual materialized skill path. Check the returned interpreter and binary; PATH absence alone is insufficient. Distinguish native plugin availability, `light_ready`, cached neural files, successful model inference and task-specific verified results. Ordinary runs default to offline. With an authorized installation/restore scope, use the bundled installer and explicit model-fetch action. No automatic external audio upload follows from installing either plugin.
 
 Judge ChatGPT, ChatGPT Work, Codex and other hosts by available execution, files and dependencies, not a blanket brand-level support flag. A shell-less host gets a precise plan/handoff with execution unavailable. A saved plugin persists; a sandbox runtime may need restoration. No global remote server, runtime synchronization or MCP endpoint is implied. Do not initialize, modify or push a project repository for this native integration.
 
-The established Studio bridge can use the verified `EARSHOT_BIN` or `listen.py ... --earshot <binary>`; the bundled default runtime also uses its existing discoverable installation folder. Keep the native catalog path dynamic. Preserve any user-selected interpreter or known authorized installation instead of inventing a cache path.
+Studio's `listen.py` bridge runs the engine the earshot-audio plugin installed (its venv under `~/.framecore-studio/extensions/earshot`), offline with that plugin's cache; `EARSHOT_BIN` or `--earshot` may point only at that engine, never at another installation. Keep the native catalog path dynamic. Preserve any user-selected interpreter or known authorized installation instead of inventing a cache path.
 
 ## Handoff and timing
 

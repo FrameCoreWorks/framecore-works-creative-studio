@@ -119,7 +119,9 @@ real.
 
 ## 5. A soundtrack from real recordings (real-sound)
 
-Follow `<skill>/references/process.md` and the prompt briefs in `<skill>/templates/prompts/`. In those files
+Follow `<skill>/references/process.md` and the prompt briefs in `<skill>/templates/prompts/`. Upstream pages that install
+the repository with pip or call `python -m earshot ...` (for example `references/troubleshooting.md`) mean this
+plugin's `python3 <runtime> install` and `python3 <runtime> exec -m earshot ...`: never install another engine. In those files
 `{{PY}}` means `python3 <runtime> exec`: fill it in that way, also in briefs handed to other agents, so every
 script and every `-m earshot <command>` runs offline from the plugin's cache and through the allowlist.
 

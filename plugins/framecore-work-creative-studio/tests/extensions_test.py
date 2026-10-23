@@ -107,7 +107,7 @@ class Registry(unittest.TestCase):
         for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 200 MB', 'not now',
                        'The answer is the consent', 'claude plugin install earshot-audio@framecore-works', 'Plugin Creator',
                        'install --tier <choice>', 'fetch-models --yes', 'status --json', '*.hf.co', '*.pytorch.org',
-                       'Pełny', 'Lekki', 'niczego nie wysyła'):
+                       'Pełny', 'Lekki', 'nie wysyła Twoich plików', '~/.framecore-studio/extensions/earshot'):
             self.assertIn(needle, section)
         self.assertNotIn('Do not run `runtime.py install`', section)
         self.assertIn("installation guides' last step enters this setup", section)

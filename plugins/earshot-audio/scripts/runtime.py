@@ -204,11 +204,9 @@ def engine_package(python):
 def disable_remote_modules(package):
     """Replace the engine's upload (llm) and server (mcp) modules in the venv with an ImportError stub."""
     if not package:
-        return
+        raise OSError('the earshot package is not in the venv, so the upload stub could not be applied')
     for name in REMOTE_MODULES:
-        target = Path(package) / name
-        if target.exists():
-            target.write_text(STUB)
+        (Path(package) / name).write_text(STUB)   # also when absent: an import fails loudly either way
 
 
 def engine_env(root, offline=True):

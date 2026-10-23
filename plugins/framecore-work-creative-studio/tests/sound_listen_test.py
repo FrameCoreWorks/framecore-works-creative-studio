@@ -2,6 +2,7 @@
 import importlib.util
 import json
 import math
+import os
 import pathlib
 import shutil
 import struct
@@ -9,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 import wave
 
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
@@ -122,7 +124,8 @@ class ListenTests(unittest.TestCase):
         real = self.listen.subprocess.call
         self.listen.subprocess.call = lambda cmd, env=None: calls.append((cmd, env)) or 0
         try:
-            self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
+            with mock.patch.dict(os.environ, {'EARSHOT_NATIVE_ROOT': str(root)}):
+                self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
             self.assertEqual(self.listen.delegate('llm', ['a.wav'], str(exe)), 2)
             self.assertEqual(self.listen.delegate('mcp', [], str(exe)), 2)
         finally:
@@ -135,6 +138,25 @@ class ListenTests(unittest.TestCase):
         self.assertNotIn('GEMINI_API_KEY', env)
         self.assertNotIn('llm', self.listen.EARSHOT_COMMANDS)
         self.assertIn('earshot-audio', open(KIT / 'listen.py', encoding='utf-8').read())
+
+    def test_the_earshot_bridge_never_goes_online(self):
+        # Review 2026-10-23: without a cache folder, or with an engine elsewhere, the bridge must still run offline
+        # with the plugin's cache, and `doctor --fetch` (a model download) is refused as the launcher refuses it.
+        exe = self.dir / 'elsewhere/bin/earshot'
+        exe.parent.mkdir(parents=True)
+        exe.write_text('#!/bin/sh\n')
+        calls = []
+        real = self.listen.subprocess.call
+        self.listen.subprocess.call = lambda cmd, env=None: calls.append((cmd, env)) or 0
+        try:
+            self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
+            self.assertEqual(self.listen.delegate('doctor', ['--fetch'], str(exe)), 2)
+        finally:
+            self.listen.subprocess.call = real
+        self.assertEqual(len(calls), 1)
+        env = calls[0][1]
+        self.assertEqual(env['EARSHOT_OFFLINE'], '1')
+        self.assertTrue(env['EARSHOT_HOME'].endswith('.framecore-studio/extensions/earshot/cache'), env['EARSHOT_HOME'])
 
     def test_critique_reports_partial_without_earshot(self):
         p = self.dir / 'crit.wav'

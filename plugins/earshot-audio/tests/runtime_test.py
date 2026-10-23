@@ -110,6 +110,7 @@ class Readiness(unittest.TestCase):
                     mock.patch.object(runtime, 'load_manifest', return_value={'files': manifest}), \
                     mock.patch.object(runtime, 'venv_python', return_value=pathlib.Path('/venv/bin/python')), \
                     mock.patch.object(runtime, 'status', return_value={}), \
+                    mock.patch.object(runtime, 'engine_package', return_value=pathlib.Path(tmp)), \
                     mock.patch.object(runtime.subprocess, 'run') as started:
                 self.assertEqual(quiet(runtime.main, ['install', '--tier', 'light', '--root', str(root), '--yes'])[0], 0)
             pip_calls = [c.args[0] for c in started.call_args_list if 'pip' in c.args[0]]
@@ -209,6 +210,19 @@ class Readiness(unittest.TestCase):
             runtime.real_sound_script('../../scripts/runtime.py')
         with self.assertRaises(runtime.Refused):
             runtime.real_sound_script('/etc/passwd')
+
+
+class RemoteStub(unittest.TestCase):
+    def test_a_missing_engine_package_fails_the_install_instead_of_skipping_the_stub(self):
+        # Review 2026-10-23: the upload stub must be applied or the install fails; it is never skipped silently.
+        with self.assertRaises(OSError):
+            runtime.disable_remote_modules(None)
+        with tempfile.TemporaryDirectory() as d:
+            pkg = pathlib.Path(d)
+            (pkg / 'llm.py').write_text('upload')
+            runtime.disable_remote_modules(pkg)
+            self.assertIn('Removed by earshot-audio', (pkg / 'llm.py').read_text())
+            self.assertIn('Removed by earshot-audio', (pkg / 'mcp_server.py').read_text())
 
 
 if __name__ == '__main__':

@@ -949,6 +949,10 @@ def delegate(command, rest, explicit=None):
         print(f'listen: `{command}` is outside Studio: Earshot runs locally only (no audio upload, no MCP server).',
               file=sys.stderr)
         return 2
+    if command == 'doctor' and any(a == '--fetch' or a.startswith('--fetch=') for a in rest):
+        print('listen: `doctor --fetch` downloads models; use the earshot-audio plugin: runtime.py fetch-models, '
+              'after the user agrees.', file=sys.stderr)
+        return 2
     exe = find_earshot(explicit)
     if not exe:
         print(f'listen: `{command}` needs the Earshot engine (models and the sound bank), which is not installed here.\n'
@@ -958,10 +962,9 @@ def delegate(command, rest, explicit=None):
         return 4
     # The engine the earshot-audio plugin installed: its model cache, offline, without API keys.
     env = {k: v for k, v in os.environ.items() if k not in ('GEMINI_API_KEY', 'GOOGLE_API_KEY')}
-    cache = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(exe))), 'cache')
-    if os.path.isdir(cache):
-        env['EARSHOT_HOME'] = cache
-        env.update(EARSHOT_OFFLINE)
+    root = os.environ.get('EARSHOT_NATIVE_ROOT') or os.path.expanduser('~/.framecore-studio/extensions/earshot')
+    env['EARSHOT_HOME'] = os.path.join(root, 'cache')   # never online: models come only from runtime.py fetch-models
+    env.update(EARSHOT_OFFLINE)
     return subprocess.call([exe, command] + rest, env=env)
 
 
