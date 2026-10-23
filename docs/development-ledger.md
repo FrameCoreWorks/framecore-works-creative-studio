@@ -3357,3 +3357,24 @@ Cross-host state:
 - GitHub: synchronized after push
 - ChatGPT Work: pending
 - Codex: not_run
+
+## CC-20261023-08
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `76c93ee` (main, package 1.124.4); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.125.0)
+- Package version: 1.124.4 -> 1.125.0
+- Scope: Owner request 2026-10-23: the same first configuration on every host (Superpowers, then Earshot in plain words with a full or light choice installed in the same conversation; install guides enter it), one Earshot route through the earshot-audio plugin (registry pip installation removed, stale 0.3 text corrected, listen.py runs the plugin's engine offline and refuses llm and mcp), and Superpowers as the method for the code around Earshot (earshot-audio 1.0.5). Host evals C14, C18, C19 and C20 failed before and pass after.
+- Shared package changed: yes; 18 changed, 0 added, 0 removed ([scope](../verification/scope-1.125.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 9 suite 7, 8 suite 8 (3 skipped; see the suite log for reasons), 23 suite 9, 17 suite 10, 24 suite 11, 21 suite 12, 29 suite 13, 6 suite 14, 10 suite 15, 10 suite 16, 7 suite 17, 31 suite 18, 11 suite 19, 5 suite 20, 15 suite 21, 8 suite 22 (8 skipped; see the suite log for reasons), 2 suite 23, 8 suite 24, 6 suite 25, 14 suite 26, 11 suite 27, 6 suite 28, 4 suite 29, 43 suite 30, 20 suite 31, 26 suite 32, 17 suite 33, 10 suite 34, 4 suite 35, 4 suite 36, 2 suite 37, 2 suite 38, 3 suite 39, 5 suite 40 (5 skipped; see the suite log for reasons), 5 suite 41, 4 suite 42, 8 suite 43, 8 suite 44, 11 suite 45, 6 suite 46, 14 suite 47, 3 suite 48, 12 suite 49, 3 suite 50, 6 suite 51, 4 suite 52, 9 suite 53, 2 suite 54, 2 suite 55, 15 suite 56, 11 suite 57, 27 suite 58: PASS ([record](../verification/release-1.125.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

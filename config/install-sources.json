@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.124.4",
+  "version": "1.125.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "61f550ccaacf816a6e843eb36141aa7df33ce7b38b4e0218af388093e9d415c6"
+      "sha256": "332e1e51a8fc7aea858f14fc9db0271adc0489ac726252db403c8e106b3bcbba"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "ed93912eb46a8208db32f22e75beddfc12dba8602e66797d73a8fffaa54d05de"
+      "sha256": "7397cbffd3abf81d28f8cbdfe21f21a09b52efbd83424823e08ba8f3e100262a"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22829,
-      "sha256": "9aef69d480441cb23003ef4eb32e2a1625d5f9b3fa6ddfd67e6ab3ae4db013e6"
+      "sha256": "1f7c0ddd0c2b4269aa99a9a4abad97810bb11e5e835a85d1f25a82156bda43f4"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "c79c8aa2eba35fe42ba961e6d21cd3debe6f6e4a6820b3070a698694288c9472"
+      "sha256": "f39f18b2ba138be38ef818eb6d4702ba6d04bd53cdad4f1e6313ba41eac8ddac"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 217200,
-      "sha256": "b62846eb93d1b5044bdf5ac7e8b484c122edf798b6bc745cb423deadbe593f72"
+      "bytes": 218803,
+      "sha256": "f065e9d4860162adcd7d79f8ebeac4ae1b95673cc7aa69411ed389d31f20e3d1"
     },
     {
       "path": "docs/research-ledger.json",
@@ -303,8 +303,8 @@
     },
     {
       "path": "integrations/earshot/README.md",
-      "bytes": 4901,
-      "sha256": "e30554c403da496f704afedf5d62af0fb33764fe923173df7a063a77da7057f4"
+      "bytes": 5987,
+      "sha256": "073bba7692d5a9f923a92d9ccacbfd148846712f501f11eb558ac596cc62c9ff"
     },
     {
       "path": "integrations/kaventro-motion-designer/LICENSE",
@@ -2454,7 +2454,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "8575ba05a289b4e9db93e760801e032e25cfb7b0179a6d2e274f84610424e4bf"
+      "sha256": "589a96b5d2875b4e89fe2b9a51701b47cea5214cc1b1c4200bd765fa215eed13"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2553,8 +2553,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 10652,
-      "sha256": "0ab57d12773c7479e4b1010b737ae603e2befd55799f02394c615eca490f5f90"
+      "bytes": 10673,
+      "sha256": "57174445d26376c1924388f3438df25e7e558c253de30479f72ebcf232918a16"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -3188,8 +3188,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 31091,
-      "sha256": "288aa27e1848904292efe584e29b141f3d055a57db80681964aea961d7c2d0ee"
+      "bytes": 31443,
+      "sha256": "a74d241e65084ed5fdf7c67ab0ab4dd93a19cb241f5ed6f7e64066c1a07fd361"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4963,13 +4963,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/README.md",
-      "bytes": 5024,
-      "sha256": "1228398e936e4fe73f63f83058415daccd5d14922199f4624fae9697d000b1ab"
+      "bytes": 5200,
+      "sha256": "f758e11f4e226071a8e02de7e08218c7b8bdda1602412fbd07e24a58a666ee83"
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/listen.py",
-      "bytes": 55242,
-      "sha256": "0ac575d646eb3130a40ba240573cdefe497303eafc5f4233d19cdd7550c6410e"
+      "bytes": 56242,
+      "sha256": "ed79e0a7e4c3f153bca756dfbb7671363823c9c8d77944f8a73e295588b818dd"
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py",
@@ -5728,8 +5728,8 @@
     },
     {
       "path": "skills/pipeline-core/references/earshot-native-routing.md",
-      "bytes": 7043,
-      "sha256": "c3a96ff4389507322c1678db608ae491d1021c82e5d1016aab0af84e29a92be1"
+      "bytes": 7418,
+      "sha256": "209c0718268aa39e40159fa12c1d75624cfedfaffc49e9b80422f348b22d06b5"
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
@@ -5818,8 +5818,8 @@
     },
     {
       "path": "skills/pipeline-core/references/superpowers-native-routing.md",
-      "bytes": 10398,
-      "sha256": "869d0c28ddba5c4afae2e7de120c4235ab69d27a6524eb76e03dbb5d0233e671"
+      "bytes": 11285,
+      "sha256": "24a9b295398b29d1754d8d14ea5aa9774932f62cca27a140780588109273b263"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -7309,7 +7309,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31759,
-      "sha256": "5edb85244e44d0ad9e703377b3994e66ba2984daac1a7f39aa902359fd424688"
+      "sha256": "26073a8a03e5c7ba9d004a2dfeb23bf0491b7f9eee3d6813afce471fca4728cc"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7358,8 +7358,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 138415,
-      "sha256": "0f1751d5b1d2f868ad61c9802907787f6d2106b5cc76ab12f8bdcd9faffb8e92"
+      "bytes": 138594,
+      "sha256": "32199f8f130f88b04603595057396c37f373396d8844352159ea8681f774b662"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7458,8 +7458,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 12794,
-      "sha256": "9ad5624e6d2dabff690e2aced63109047fe41e39034efedb2089db2cc503d5d7"
+      "bytes": 14522,
+      "sha256": "799bd66d71e11b3b61925fabb413ffdbe207c8551f5a3dbc28b1709e79f149ce"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7623,8 +7623,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 25308,
-      "sha256": "faf27d9134d04afa2e486c20b987cdf51dc72ae4a3c4e85ade5bcd9d9ad31989"
+      "bytes": 28003,
+      "sha256": "c738ab959b964f0d4f7dc31181dabc366233602f51a5dd7655f6242d9b6a3573"
     },
     {
       "path": "tests/flash_check_test.py",
@@ -7803,8 +7803,8 @@
     },
     {
       "path": "tests/sound_listen_test.py",
-      "bytes": 11573,
-      "sha256": "d6baa78ace52bc20b524282d1a399ff89af0d74b5b1cb732dd8f93f350efa14d"
+      "bytes": 12986,
+      "sha256": "63d2ae584561d8277d410404f51f9c0a679bf76d20622393b0def0051f1ca865"
     },
     {
       "path": "tests/static_render_test.py",
