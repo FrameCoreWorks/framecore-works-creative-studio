@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.4, 2026-10-23
+
+Owner report after listening: the landing hit taken from a kit preset had a metallic debris tail. Every effect is now
+chosen by listening: a description from the picture and the request, candidates ranked, the pick matched against
+likely confusions (metal, rattle, clang), onsets per second and speaker-audible bands measured, and the readings and
+rejected candidates reported. A preset's take is a starting point, not a choice.
+
 ## 1.0.3, 2026-10-23
 
 Owner decision (option A), after a ChatGPT Work run that found the engine missing and made the sound with

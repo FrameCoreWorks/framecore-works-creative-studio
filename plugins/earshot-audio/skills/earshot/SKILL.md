@@ -93,6 +93,19 @@ effect against the bed (`kit.bed_level`, `kit.gain_db`, `kit.place`, `kit.space_
 6-12 dB for 0.3-0.5 s before a big hit and bring it back on it, and report the gains and bed levels. These sounds are
 made in code (15 fitted from CC0 recordings with credits); when the brief asks for recorded sound, use section 5.
 
+**Choose every effect by listening; a preset's take is a starting point, not a choice.** Per cue, write one
+description from the picture and the request (source + material + action + character: "a solid logo landing, a deep
+dull thud with a short clean tail") and its likely confusions (metal debris, a rattle, a clang, a click, glass). Render
+the candidate members of the fitting families into one folder. Full tier: `rank "<description>" <folder> --top 5`,
+then `match <pick> "<description>" --alts <confusions>`; keep a take only when it reads strong or plausible (z 2.5 or
+more) and beats its confusions. Both tiers: `measure` each pick: a single hit stays under about 4 onsets per second
+(8 or more is a rattle or debris tail), its tail fits the gap to the next event, and it has energy in the low-mid and
+mid bands so phone and laptop speakers play it (a sub-only boom is near silent there; layer it under a hit with
+body). These are gates, not trade-offs: a take that reads weak or no match, loses to a confusion or has 8 or more
+onsets per second is rejected, also when nothing passes; then layer a passing low hit under a passing take with body,
+or say the bank has no fit and offer `forge` or recorded sound (section 5). Report for each pick its readings (z, onsets per second, bands) and the candidates rejected and why; the user's
+ears decide taste.
+
 **Make or fit a sound in code.** `forge <recipe> --refs <real refs> --budget 144 --reps 2 --tone 1.5 --keep 4
 --robust 8 --dir <round>` improves a code recipe by listening; `fit <recording> -o recipe.py` turns a recording into
 a recipe with knobs. Say plainly that the search satisfies Earshot's own models: judge by the model-free tone

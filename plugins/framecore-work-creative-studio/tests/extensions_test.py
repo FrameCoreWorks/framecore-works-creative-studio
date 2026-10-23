@@ -117,6 +117,15 @@ class Registry(unittest.TestCase):
             self.assertIn('run neither before the answer', text.replace('Run neither', 'run neither'))
         self.assertIn('never fall back silently', routing)
 
+    def test_effects_are_chosen_by_listening_with_readings(self):
+        # Owner report 2026-10-23: a preset's hit had a metallic debris tail.
+        routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text()
+        motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
+        self.assertIn('chosen by listening', motion)
+        self.assertIn("never accept a preset's take unchecked", motion)
+        for needle in ('likely confusions', 'onsets per second', 'speaker-audible bands'):
+            self.assertIn(needle, routing)
+
     def test_superpowers_is_first_optional_catalog_companion_for_every_host(self):
         entries = [e for e in DATA['extensions'] if e['id'] == 'superpowers']
         self.assertEqual(len(entries), 1)

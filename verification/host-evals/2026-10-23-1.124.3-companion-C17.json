@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.3",
+  "source": {
+    "commit": "8d060862e09b301ca503bbb17aa0e0311aa0bf48",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5cb1eadd6d7e1314f9365dfb81f668eb16cce1f9bd3001b350910ea6e33a6428",
+      "files": 1559,
+      "archive": "candidates/5cb1eadd6d7e1314f9365dfb81f668eb16cce1f9bd3001b350910ea6e33a6428.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.3"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 1800,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "2832cfe36e5341b0b0e2b50c97b3466672439830f8733831e6af6d5529253cd0",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1405,
+      "output": 6897,
+      "cache_read": 592699,
+      "cache_write": 50040
+    },
+    "seconds": 114.0
+  },
+  "cases": [
+    {
+      "id": "C17",
+      "title": "Owner report 2026-10-23: the hit chosen from a kit preset had a metallic debris tail. With the full tier ready, each effect is chosen by listening: candidates ranked against a description built from the picture and the request, the pick checked against likely confusions, and the readings quoted. Run with both plugins and the full tier installed.",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1405,
+        "output": 6897,
+        "cache_read": 592699,
+        "cache_write": 50040
+      },
+      "seconds": 114.0,
+      "wall_seconds": 114.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz. Earshot jest zainstalowany w pełnym wariancie, możesz go uruchamiać.",
+          "reply": "Gotowy plik to **`/tmp/studio-eval-gyhxqr8s/work/logo_sound.mp4`**. Obraz jest skopiowany bez zmian (H.264, 1280×720, 30 fps, 6,0 s), a doszła ścieżka AAC 48 kHz, 192 kb/s. Oryginalny `logo.mp4` zostawiłem nietknięty.\n\n**Co dodałem**\n- **Whoosh przy napisie:** `whoosh_fast/crisp` z banku Earshota, długość 0,7 s, wygłuszony o 8 dB. Zaczyna się w 0,85 s, a jego szczyt wypada w 1,20 s, czyli w klatce 36, w której pojawia się FRAMECORE.\n- **Uderzenie przy lądowaniu:** `pro_impact/deep`, obniżone o 3,5 dB. Atak jest w 3,000 s (klatka 90), czyli w chwili lądowania logo.\n\nOba dźwięki są generowane w kodzie przez Earshota, więc nie ma tu żadnych cudzych nagrań ani licencji do rozliczenia.\n\n**Czy dźwięk trafia w obraz**\n\nSprawdziłem to poleceniem `timeline` na gotowym MP4, z cue'ami w 1,2 s i 3,0 s. Obejrzałem też wykres `sheet`.\n\n| Cue | Odchyłka dźwięku od obrazu | Wynik |\n|---|---|---|\n| Napis, 1,2 s | −10 ms (szczyt whoosha tuż przed klatką) | OK, znacznik zielony |\n| Lądowanie, 3,0 s | 0 ms | OK, znacznik zielony |\n\nOba trafienia mieszczą się w 40 ms. Poziom przypadku dla takiego okna to 31%. Mediana odchyłki to 5 ms.\n\nSpektrogram potwierdza ten obraz: energia whoosha narasta do 1,2 s, a uderzenie zaczyna się dokładnie na 3,0 s.\n\n**Poziomy:** −23,1 LUFS zintegrowane, true peak −4,5 dBTP, więc zapasu przed przesterowaniem jest dużo. Wynik jest cichszy niż typowy master do sieci (około −14 LUFS), bo ścieżka ma dwa krótkie zdarzenia i ciszę pomiędzy nimi. Jeśli chcesz głośniej, mogę podnieść oba dźwięki. Uderzenie zmieści się jeszcze o kilka dB.\n\n**Czego nie sprawdzałem:** nie słyszę dźwięku, więc to, czy brzmi dobrze, musisz ocenić sam. Etykiety Earshota typu „snare\" czy „footstep\" to tylko zgadywanie modelu, nie wada dźwięku. Mierzone są czasy i poziomy.\n\n**Pliki pomocnicze:** `logo_sound_sync.png` w folderze projektu to wykres synchronizacji. Pojedyncze pliki WAV i JSON z pomiarami leżą w katalogu roboczym sesji.",
+          "reply_chars": 1942,
+          "reply_sha256": "4d274be2f579aba90d047b6cabe7b6a491723475586093fbaa1630a497a6cf5d",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Glob",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Read",
+            "Read",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Read",
+            "Bash",
+            "Bash",
+            "Read"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1405,
+            "output": 6897,
+            "cache_read": 592699,
+            "cache_write": 50040
+          },
+          "seconds": 114.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "regex": "(?i)\\bz\\s*[=:]?\\s*[+−-]?\\d[,.]\\d"
+              },
+              "passed": false,
+              "detail": "/(?i)\\bz\\s*[=:]?\\s*[+−-]?\\d[,.]\\d/"
+            },
+            {
+              "check": {
+                "regex": "(?i)kandydat|porówna|ranking|odrzuci"
+              },
+              "passed": false,
+              "detail": "/(?i)kandydat|porówna|ranking|odrzuci/"
+            },
+            {
+              "check": {
+                "regex": "(?i)metal|grzechot|odłam|rozsyp|ogon"
+              },
+              "passed": false,
+              "detail": "/(?i)metal|grzechot|odłam|rozsyp|ogon/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

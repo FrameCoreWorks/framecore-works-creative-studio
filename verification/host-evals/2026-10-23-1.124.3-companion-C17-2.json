@@ -1,0 +1,216 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.3",
+  "source": {
+    "commit": "8d060862e09b301ca503bbb17aa0e0311aa0bf48",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "efedd9b01ccbdcec6a8aa430fcf7114ad821d757bef7de3f74d6687f435ee4cd",
+      "files": 1559,
+      "archive": "candidates/efedd9b01ccbdcec6a8aa430fcf7114ad821d757bef7de3f74d6687f435ee4cd.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.4"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 1800,
+    "keep_chars": 8000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "2832cfe36e5341b0b0e2b50c97b3466672439830f8733831e6af6d5529253cd0",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1413,
+      "output": 12756,
+      "cache_read": 824229,
+      "cache_write": 48308
+    },
+    "seconds": 226.0
+  },
+  "cases": [
+    {
+      "id": "C17",
+      "title": "Owner report 2026-10-23: the hit chosen from a kit preset had a metallic debris tail. With the full tier ready, each effect is chosen by listening: candidates ranked against a description built from the picture and the request, the pick checked against likely confusions, and the readings quoted. Run with both plugins and the full tier installed.",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1413,
+        "output": 12756,
+        "cache_read": 824229,
+        "cache_write": 48308
+      },
+      "seconds": 226.0,
+      "wall_seconds": 226.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz. Earshot jest zainstalowany w pełnym wariancie, możesz go uruchamiać.",
+          "reply": "Gotowy MP4 z dźwiękiem jest zrobiony i sprawdzony, ale nie udało mi się go zapisać w folderze projektu. Polecenie kopiowania do `/tmp/studio-eval-l144ygvj/work/` wymagało zatwierdzenia, którego nie dostałem. Plik leży więc w katalogu roboczym sesji:\n\n`/tmp/claude-0/-tmp-studio-eval-l144ygvj-work/0d39bcb8-e3b1-5dda-99ad-ec14abd04c90/scratchpad/logo_sound.mp4`\n\nJeśli zatwierdzisz kopiowanie, wrzucę go do folderu obok `logo.mp4` jako `logo_sound.mp4`. Oryginału nie ruszałem.\n\n**Plik:** wideo H.264 skopiowane bez ponownego kodowania, 30 fps, 6,0 s. Dźwięk to AAC 192 kb/s, 48 kHz, 6,0 s.\n\n**Użyte dźwięki** (z banku Earshot, generowane w kodzie, nie nagrania):\n- **Whoosh przy napisie:** `whoosh_fast/heavy`. Model ocenia go jako dopasowanie mocne (z +3,7) do opisu „szybki powiew powietrza, napis wjeżdża, bez tonu\". Szczyt dałem na 1,2 s, bo w obrazie napis pojawia się od razu na 1,2 s, bez przesuwania. Whoosh zaczyna się więc ok. 0,7 s.\n- **Uderzenie przy lądowaniu:** `cut_hit/kick` (z +3,0, mocne) z podkładem `pro_impact/deep` (z +2,9, prawdopodobne). Oba zaczynają się równo na 3,0 s. Kick daje czysty atak, deep daje ciało i ogon.\n- **Odrzucone:** `pro_impact/short` (z +2,1, słabe) i `cut_hit/punch` (z +1,5, brak dopasowania). Przy `pro_impact/short` model typował bardziej „bęben\" niż „uderzenie\".\n\n**Czy dźwięk trafia w obraz** (pomiar na zakodowanym MP4, według Earshot; ocena na podstawie odczytów, nie odsłuchu):\n\n| Cue | Obraz | Początek dźwięku | Odchyłka |\n|---|---|---|---|\n| Napis wchodzi | 1,2 s | 1,19 s | −11 ms (ok. 1/3 klatki) |\n| Logo ląduje | 3,0 s | 3,00 s | +5 ms |\n\n- Oba cue mają dźwięk w obrębie jednej klatki. Mediana odchyłki wynosi 8 ms, a szansa trafienia przypadkiem ok. 29%.\n- Detektor cięć znalazł w obrazie tylko 1,2 s. Lądowanie na 3,0 s wziąłem od Ciebie i sprawdziłem na klatkach, gdzie kwadrat jest na miejscu w klatce 3,0 s.\n\n**Co warto wiedzieć:**\n- **Poziom:** całość ma −19,2 LUFS, true peak −1,7 dBTP. To cicho, ale to tylko dwa efekty. Podbicie do −14 LUFS wymaga limitera, bo peak jest już blisko limitu.\n- **Pasmo:** uderzenie ma dużo basu, a mało średnich częstotliwości (pasmo mid −21,7 dB). Na głośniku telefonu zabrzmi słabiej niż na słuchawkach. Można podłożyć pod nie coś ze średnicą.\n- **Ogon uderzenia:** Earshot wykrywa w nim kilka słabych zdarzeń (od 3,1 do 4,3 s, głównie poniżej −17 dBFS). Całość to 3,3 zdarzenia na sekundę, więc poniżej progu „grzechotki\", ale ogon deep jest długi. Skrócenie go to prosta poprawka.\n- **Odsłuch:** o gust zdecyduje Twoje ucho. Earshot mówi, co to za dźwięk i jak się mierzy, nie czy pasuje do marki.\n\nChcesz, żebym skopiował plik do folderu projektu albo skrócił ogon uderzenia i podniósł głośność?",
+          "reply_chars": 2701,
+          "reply_sha256": "f6d9f65e0cf90c68950a1d01ac170a8b8fbdc6381088f3e27e10d67f29ca9e4a",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Glob",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Write",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Read",
+            "Bash",
+            "Write",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1413,
+            "output": 12756,
+            "cache_read": 824229,
+            "cache_write": 48308
+          },
+          "seconds": 226.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "regex": "(?i)\\bz\\s*[=:]?\\s*[+−-]?\\d[,.]\\d"
+              },
+              "passed": true,
+              "detail": "/(?i)\\bz\\s*[=:]?\\s*[+−-]?\\d[,.]\\d/"
+            },
+            {
+              "check": {
+                "regex": "(?i)kandydat|porówna|ranking|odrzuci"
+              },
+              "passed": false,
+              "detail": "/(?i)kandydat|porówna|ranking|odrzuci/"
+            },
+            {
+              "check": {
+                "regex": "(?i)metal|grzechot|odłam|rozsyp|ogon"
+              },
+              "passed": true,
+              "detail": "/(?i)metal|grzechot|odłam|rozsyp|ogon/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

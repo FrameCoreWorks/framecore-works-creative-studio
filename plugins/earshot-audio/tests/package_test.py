@@ -37,11 +37,11 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.3'})
+        self.assertEqual(versions, {'1.0.4'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.3')
+        self.assertEqual(entries['earshot-audio']['version'], '1.0.4')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
@@ -95,6 +95,14 @@ class Package(unittest.TestCase):
         skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
         self.assertIn("`sound.py`), offer them in the same", skill)
         self.assertIn('run neither before the answer', skill)
+
+    def test_every_effect_is_chosen_by_listening(self):
+        # Owner report 2026-10-23: a kit preset's hit had a metallic debris tail; the system must pick the fitting sound.
+        skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
+        section = skill.split('**Choose every effect by listening', 1)[1].split('**Make or fit', 1)[0]
+        for needle in ('rank "<description>"', '--alts <confusions>', 'onsets per second', 'phone', 'rejected',
+                       'gates, not trade-offs', 'also when nothing passes'):
+            self.assertIn(needle, section)
 
     def test_licence_and_notice(self):
         data = manifest()
