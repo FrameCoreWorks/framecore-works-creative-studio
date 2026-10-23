@@ -1,0 +1,482 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.125.1",
+  "source": {
+    "commit": "f69aa91e437c51dcb895c896fb33e9851c3245d5",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "cb86af74dabbced426c729537e86d13beb2e49657cfab1e514e162881b92cf37",
+      "files": 1559,
+      "archive": "candidates/cb86af74dabbced426c729537e86d13beb2e49657cfab1e514e162881b92cf37.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-routing-pl",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "f65e5c9f21e8a5addb8b895d069585f63d745fe4403acb497e001b3c849612ee",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 7,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 7,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8663,
+      "output": 13476,
+      "cache_read": 181877,
+      "cache_write": 123269
+    },
+    "seconds": 178.4
+  },
+  "cases": [
+    {
+      "id": "M01",
+      "title": "Merge measurement 2026-10-23: expected copy-voice",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1227,
+        "output": 785,
+        "cache_read": 21881,
+        "cache_write": 16801
+      },
+      "seconds": 17.4,
+      "wall_seconds": 17.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz trzy krótkie hasła reklamowe dla nowej kawiarni z kawą speciality w centrum Poznania.",
+          "reply": "Oto trzy hasła dla nowej kawiarni z kawą speciality w centrum Poznania:\n\n1. **Dobra kawa wreszcie w centrum.**\n2. **Każda filiżanka ma swoją historię.**\n3. **Zwolnij na jedną dobrą kawę.**\n\nNie znam nazwy kawiarni, więc haseł nie podpisałem. Nie dodałem też żadnych faktów, których nie podałeś (adresu, rodzaju ziaren, ofert ani porównań z konkurencją). Hasło nr 1 sugeruje, że w centrum brakowało dobrej kawy. Jeśli to ma zostać, sprawdź, czy to nie będzie odebrane jako przytyk do innych lokali.\n\nJeśli podasz nazwę, klimat miejsca (np. minimalistyczny, rodzinny, miejski) i jedną cechę wyróżniającą, np. palarnię własną lub zaparzanie alternatywne, dopasuję hasła do marki. Mogę też dodać wersję z „Poznań” w treści.",
+          "reply_chars": 719,
+          "reply_sha256": "7202710dd229fac8edab6f805f8a594d11d384ee9e2c5040f72714185d8363b1",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1227,
+            "output": 785,
+            "cache_read": 21881,
+            "cache_write": 16801
+          },
+          "seconds": 17.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['copy-voice']; expected one of ['copy-voice']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M02",
+      "title": "Merge measurement 2026-10-23: expected humanizer",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1277,
+        "output": 1138,
+        "cache_read": 21934,
+        "cache_write": 14958
+      },
+      "seconds": 17.3,
+      "wall_seconds": 17.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Popraw ten tekst, żeby brzmiał naturalnie i po ludzku, bez zmiany faktów: \"Nasza firma oferuje innowacyjne rozwiązania, które są dopasowane do potrzeb klientów i zapewniają najwyższą jakość.\"",
+          "reply": "Oto wersje bez zmiany faktów. Zostały: firma, innowacyjne rozwiązania, dopasowanie do klientów i najwyższa jakość.\n\n**Polecana:**\n> Oferujemy innowacyjne rozwiązania szyte na miarę potrzeb naszych klientów – i dbamy o najwyższą jakość.\n\n**Prostsza, mniej „reklamowa\":**\n> Proponujemy innowacyjne rozwiązania dopasowane do potrzeb klientów. Stawiamy na najwyższą jakość.\n\n**Cieplejsza, w pierwszej osobie:**\n> Tworzymy innowacyjne rozwiązania z myślą o tym, czego naprawdę potrzebują nasi klienci, i zawsze stawiamy na najwyższą jakość.\n\nZmieniłem to, co brzmiało jak szablon. „Nasza firma oferuje\" zamieniłem na „oferujemy\", a „są dopasowane… i zapewniają\" na krótszą konstrukcję. „Szyte na miarę\" jest tylko obrazowym zapisem „dopasowanych\", więc nie dodaje nowej informacji. W wersji trzeciej „naprawdę\" jest akcentem, nie faktem. Jeśli wolisz bardziej oficjalny ton, wybierz wersję drugą.\n\nZdanie nadal jest ogólne. „Innowacyjne\" i „najwyższa jakość\" brzmią naturalniej, gdy obok stoi konkret, na przykład co to za rozwiązania albo czym się wyróżniają. Jeśli mi je podasz, dopiszę to, ale niczego nie zgaduję.",
+          "reply_chars": 1112,
+          "reply_sha256": "1731ce6b3ed2a1f944ecff026f169e11f8bbbbeba3fbc87cd1be83240ed73d98",
+          "skills": [
+            "humanizer"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1277,
+            "output": 1138,
+            "cache_read": 21934,
+            "cache_write": 14958
+          },
+          "seconds": 17.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "humanizer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['humanizer']; expected one of ['humanizer']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M03",
+      "title": "Merge measurement 2026-10-23: expected copy-voice or humanizer (ambiguous; record which)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1257,
+        "output": 1047,
+        "cache_read": 21912,
+        "cache_write": 16687
+      },
+      "seconds": 21.6,
+      "wall_seconds": 21.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam opis produktu: \"Świeca sojowa o zapachu lawendy, 200 g, czas palenia 40 godzin.\" Przerób go na krótszy i bardziej chwytliwy tekst na Instagram.",
+          "reply": "**Wersja główna (polecana)**\n\n> Lawenda. 40 godzin. Jeden knot.\n> Sojowa świeca, 200 g.\n\nTa wersja zawiera tylko dane z Twojego opisu.\n\n**Warianty**\n\n1. > 40 godzin lawendy w jednej świecy. 🕯️\n   > Sojowa, 200 g.\n\n2. > Zapal. Poczuj lawendę. Zostań na 40 godzin.\n   > Świeca sojowa, 200 g.\n\n3. > Mała świeca, długi wieczór.\n   > Lawenda, wosk sojowy, 200 g, do 40 godzin palenia.\n\n**Uwagi**\n- Wersja 3 mówi „do 40 godzin”, bo czas palenia zwykle zależy od warunków. Jeśli 40 godzin to wynik z testu, zostaw wersję bez „do”.\n- Nie dodałem słów o relaksie, naturalności ani ręcznej robocie, bo nie ma ich w opisie. Jeśli to prawda, podeślij, a dopiszę.\n- Nie dodałem CTA ani hashtagów. Mogę dorzucić np. „Link w bio” i zestaw tagów.\n- Dla poprawnego składu wstaw twardą spację między „200” a „g” oraz między „40” a „godzin”.",
+          "reply_chars": 822,
+          "reply_sha256": "a329cb30f7c264b7dc056a78ea8b4828177933ab161f6596af6f38e06ea4f63a",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1257,
+            "output": 1047,
+            "cache_read": 21912,
+            "cache_write": 16687
+          },
+          "seconds": 21.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice",
+                  "humanizer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['copy-voice']; expected one of ['copy-voice', 'humanizer']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M04",
+      "title": "Merge measurement 2026-10-23: expected ecommerce-campaign-strategy-director",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1228,
+        "output": 3166,
+        "cache_read": 21883,
+        "cache_write": 16232
+      },
+      "seconds": 33.0,
+      "wall_seconds": 33.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaplanuj kampanię sprzedażową nowej linii świec sojowych w moim sklepie internetowym na Black Friday.",
+          "reply": "# Kampania Black Friday: nowa linia świec sojowych (wersja robocza)\n\nNie mam jeszcze adresu sklepu, oferty ani danych o produktach. Poniżej jest plan oparty na założeniach, oznaczonych jako **[zał.]**. Po Twoich odpowiedziach zamienię je na fakty. Black Friday wypada **27.11.2026**, Cyber Monday **30.11**. Do startu zostało około 5 tygodni.\n\n## 1. Najpierw potrzebuję od Ciebie (kluczowe luki)\n1. **Adres sklepu** (albo 2–3 kartę produktu), żebym mógł sprawdzić ofertę, ton marki i zdjęcia.\n2. **Oferta**: czy przecenisz nową linię, czy dasz zestawy, prezent lub darmową dostawę? Jaki jest minimalny poziom marży?\n3. **Fakty o produkcie**: rodzaj wosku (100% soja?), knot, czas palenia, zapachy, pojemności, ceny, certyfikaty.\n4. **Dane wyjściowe**: wielkość listy mailowej i obserwujących, a także wyniki z poprzedniego sezonu, jeśli je masz.\n\n## 2. Założenia robocze\n- **[zał.]** Linia jest nowa, więc nie ma jeszcze opinii klientów. Nie używam żadnych recenzji ani „bestsellerów\".\n- **[zał.]** Główny kanał to e-mail oraz Instagram i TikTok. Do tego strona sklepu i ewentualnie płatne social.\n- **[zał.]** Kupujący to osoby, które szukają prezentu przed świętami, i osoby, które chcą urządzić dom.\n- **Do potwierdzenia, zanim trafi do tekstów:** „ekologiczne\", „nietoksyczne\", „czysto się palą\" i „X godzin palenia\". Takie twierdzenia wymagają dowodu albo wyniku testu. Bez tego użyję opisu, który da się sprawdzić, np. „wosk sojowy, bawełniany knot\".\n\n## 3. Teza kampanii\n**„Pierwszy prezent z tej linii: wybierz zapach, zanim zniknie z półki.\"** Black Friday jest tu startem sezonu prezentowego dla nowej kolekcji, a nie wyprzedażą starego towaru. Dzięki temu nie zbijasz postrzeganej wartości marki. Oferta oparta na zestawach prezentowych chroni marżę lepiej niż sam rabat procentowy.\n\n## 4. Cztery kąty kreatywne\n| Kąt | Dla kogo | Rola |\n|---|---|---|\n| **Prezent gotowy do wręczenia** (zestawy, opakowanie) | szukający prezentów | konwersja w tygodniu BF |\n| **Rytuał wieczoru** (zapach, nastrój, zimowy wieczór) | kupujący dla siebie | budowanie pożądania |\n| **Poznaj zapachy** (zestaw próbny lub miniatury) | niezdecydowani | obniżenie bariery zakupu |\n| **Zapowiedź i limit** (tylko prawdziwy limit zapasów) | lista mailowa | pilność |\n\nKąt „limit\" użyję tylko wtedy, gdy ilości faktycznie są ograniczone.\n\n## 5. Oś czasu\n| Okres | Cel | Działania |\n|---|---|---|\n| **26.10–15.11** | Zbieranie listy | strona zapisu „wczesny dostęp do BF\", teasery zapachów, sesja zdjęciowa |\n| **16–23.11** | Rozgrzewka | pokazy produktów, rytuały, odliczanie, retarget odwiedzających |\n| **24–26.11** | Wczesny dostęp | mail i SMS tylko dla zapisanych |\n| **27.11** | Black Friday | pełna oferta, 2–3 maile (rano i wieczorem), stories, reklamy |\n| **28–29.11** | Weekend | przypomnienia, porzucone koszyki, „ostatnie sztuki\" tylko jeśli prawda |\n| **30.11** | Cyber Monday | zestawy, darmowa dostawa, ostatnia szansa |\n| **1–10.12** | Gwarancja dostawy na święta | komunikat o terminie wysyłki |\n\n## 6. Asset matrix (pierwsza partia)\n- **E-mail**: 5–6 wiadomości (zapowiedź, wczesny dostęp, start, przypomnienie, porzucony koszyk, Cyber Monday).\n- **Strona sklepu**: baner BF, kolekcja „Zestawy prezentowe\", odliczanie, komunikat o wysyłce.\n- **Social**: 3–4 Reelsy lub TikToki (zapalanie świecy, rozpakowanie zestawu, porównanie zapachów), karuzela „który zapach jesteś\", stories.\n- **Płatne**: 3 kreacje statyczne i 2 wideo, kierowane do listy i do odwiedzających.\n\n## 7. Pierwszy test\nTestuję **jedną zmienną**: kąt „prezent\" kontra „rytuał\". Oferta, grafika i grupa odbiorców są te same. Sukces mierzę współczynnikiem konwersji i przychodem na odwiedzającego, a nie samymi kliknięciami. Konkretne progi ustalę, gdy dostanę Twoje dane z poprzedniego sezonu. Nie wpisuję tu żadnych wymyślonych wyników.\n\n## 8. Ryzyka\n- Rabat poniżej progu marży przy małej skali produkcji.\n- Zapasy i termin wysyłki w szczycie sezonu.\n- Twierdzenia o produkcie bez dowodu (patrz pkt 2).\n- Nowa linia nie ma opinii, więc przy zimnym ruchu zaufanie budują zdjęcia, skład i polityka zwrotów.\n\n## Co dalej\nOdpowiedz na pytania z pkt 1 (wystarczy przynajmniej link, oferta i fakty o produkcie). Wtedy przygotuję pełny pakiet strategii z rejestrem twierdzeń. Potem mogę przejść do tekstów maili i reklam, kierunku wizualnego albo skryptów wideo, w tej kolejności, w jakiej wybierzesz.",
+          "reply_chars": 4364,
+          "reply_sha256": "c19bd9d4c45db1252e09680ab31608e97e27bac83e4d8f5bc0aaacb60b0e0d1f",
+          "skills": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1228,
+            "output": 3166,
+            "cache_read": 21883,
+            "cache_write": 16232
+          },
+          "seconds": 33.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M05",
+      "title": "Merge measurement 2026-10-23: expected marketing",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1222,
+        "output": 1576,
+        "cache_read": 21879,
+        "cache_write": 15312
+      },
+      "seconds": 19.8,
+      "wall_seconds": 20.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Pomóż mi określić pozycjonowanie, grupę docelową i ton marki dla nowego studia jogi.",
+          "reply": "Zanim zaproponuję pozycjonowanie, potrzebuję jednej informacji, bo bez niej wyszłoby ogólnikowo, a nie o Waszym studiu.\n\n**Jaka będzie główna oferta studia: jaki styl jogi i jakie formaty zajęć (np. hatha, vinyasa, joga dla początkujących, zajęcia małogrupowe, indywidualne)?**\n\nWystarczy kilka słów. Jeśli znasz już lokalizację, cenę lub pomysł na to, czym studio ma się różnić od innych, dopisz to, ale nie musisz.\n\nNa tej podstawie przygotuję **Brand Strategy**, czyli:\n- **Pozycjonowanie:** jedno zdanie, czym studio jest i dla kogo, plus różnicowanie wobec typowych studiów.\n- **Grupa docelowa:** 2–3 sytuacje użycia, np. ktoś, kto zaczyna od zera, ktoś wracający po przerwie, ktoś szukający regularnej praktyki po pracy.\n- **Ton marki:** cechy z ich granicami, formy zwracania się do klientów, słowa do używania i do unikania oraz przykłady „zamiast tego, napisz tak”.\n- **Wartości i granice dowodowe:** czego nie obiecujemy, np. efektów zdrowotnych bez pokrycia.\n\nChcę uniknąć zmyślonych faktów o studiu, dlatego pytam, zamiast zgadywać.",
+          "reply_chars": 1044,
+          "reply_sha256": "1d971b1f0c2bac3631bd646f379fde8efa0f461dddbbfaad3387c3117bb25c48",
+          "skills": [
+            "marketing"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1222,
+            "output": 1576,
+            "cache_read": 21879,
+            "cache_write": 15312
+          },
+          "seconds": 19.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "marketing"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['marketing']; expected one of ['marketing']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M06",
+      "title": "Merge measurement 2026-10-23: expected commercial-video-campaign-director",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1221,
+        "output": 2579,
+        "cache_read": 21878,
+        "cache_write": 16848
+      },
+      "seconds": 31.2,
+      "wall_seconds": 31.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję pomysłu na 30-sekundowy spot wideo dla marki rowerów miejskich.",
+          "reply": "# Spot 30 s dla marki rowerów miejskich: trzy kierunki\n\nNie znam jeszcze marki, produktu ani miejsca emisji. Poniższe kierunki są robocze i nie zakładają żadnych cech roweru, wyników ani porównań.\n\n**Co odłożyłem na bok:** wschód słońca nad miastem, montaż „złotej godziny\", uśmiechnięty rowerzysta w slow-motion, hasło „wolność\" i zielone parki. Tak wygląda większość reklam tej kategorii.\n\n## 1. „Nawigacja\" (format zapożyczony, humor)\n- **Pomysł:** głos nawigacji samochodowej prowadzi rowerzystę przez miasto. Co chwilę przestaje sobie radzić: „Za 100 m skręć w… przejście? Przeliczam trasę.\" Rower przejeżdża tam, gdzie nawigacja się gubi: ścieżką przez podwórko, rampą, wzdłuż stojących aut.\n- **Po co ruch:** gag rośnie z każdym „przeliczam\", a rowerzysta jest coraz spokojniejszy. Statyczna reklama tego nie pokaże.\n- **Pamięć:** komunikat „Przeliczam trasę\" wraca jako puenta z logo.\n- **Do ustalenia:** żartuje się z samochodowej nawigacji, a nie z kierowców. Potrzebna jest zgoda klienta na taki ton.\n\n## 2. „Dźwięk miasta\" (dźwięk i nieobecność)\n- **Pomysł:** spot zaczyna się od pełnego hałasu: klaksony, silniki, tramwaj. Rowerzysta wjeżdża w kadr, a hałas schodzi do tła, aż zostaje tylko tykanie wolnobiegu i dzwonek. Obraz pozostaje miejski i prawdziwy.\n- **Po co ruch:** zmienia się to, co słychać, a nie to, co widać. To działa tylko w czasie.\n- **Pamięć:** tykanie wolnobiegu jako sygnał dźwiękowy marki.\n- **Ryzyko:** potrzebna wersja bez dźwięku (napisy lub gra obrazem), bo wiele odtworzeń w social mediach jest wyciszonych.\n\n## 3. „Ten sam dystans\" (proces i konsekwencja)\n- **Pomysł:** ta sama trasa A→B pokazana na podzielonym ekranie: rower, komunikacja, samochód. Ekran sam opowiada o czasie i nerwach, bez narratora.\n- **Po co ruch:** różnica rośnie na naszych oczach.\n- **Ryzyko:** to porównanie. Nagrywamy je tylko wtedy, gdy trasę da się naprawdę zmierzyć i udokumentować. Inaczej nie mamy prawa pokazać wyniku.\n\n## Rekomendacja\nZaczęłabym od **1 („Nawigacja\")**. Jest najbardziej charakterystyczna, łatwo ją zrobić w 30 s (3–4 gagi i puenta) i da się z niej zrobić cutdowny po 6–15 s. Kierunek **2** można dołożyć jako warstwę dźwiękową.\n\n## Co jest mi potrzebne\nOdpowiedz na te pytania:\n1. Nazwa marki i jedna prawdziwa cecha roweru, którą chcesz pokazać, np. lekkość, kosz, zabezpieczenie.\n2. Gdzie spot będzie emitowany: social (9:16), YouTube, kino czy sklep?\n3. Jaki ton wchodzi w grę: żartobliwy, spokojny czy ambitny?\n\nGdy wybierzesz kierunek, rozwinę go. Mogę przejść do skryptu, rozpiski ujęć albo jednostronicówki dla klienta.",
+          "reply_chars": 2569,
+          "reply_sha256": "dc783bf70e08328936329442ab23cead5bbf3ae02b08ea47d6330a7089495065",
+          "skills": [
+            "commercial-video-campaign-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1221,
+            "output": 2579,
+            "cache_read": 21878,
+            "cache_write": 16848
+          },
+          "seconds": 31.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "commercial-video-campaign-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['commercial-video-campaign-director']; expected one of ['commercial-video-campaign-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M07",
+      "title": "Merge measurement 2026-10-23: expected commercial-visual-campaign-director",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1231,
+        "output": 3185,
+        "cache_read": 50510,
+        "cache_write": 26431
+      },
+      "seconds": 38.1,
+      "wall_seconds": 38.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj spójny system wizualny kampanii dla marki rowerów: billboard, post na Instagram i baner internetowy.",
+          "reply": "Brief nie podaje nazwy marki, typu rowerów (miejskie, górskie, szosowe, e-bike), odbiorców ani gotowych tekstów. Zaczynam więc od trzech kierunków i proszę o jedną decyzję. Teksty poniżej to propozycje, nie zatwierdzona kopia. Zamiast `[MARKA]` wstawię nazwę, gdy ją podasz.\n\n**Co odłożyłem na bok:** kolarza w pędzie na tle zachodu słońca lub gór, rozmycie ruchu i hasło o \"wolności\". Tak wyglądałaby połowa kategorii. Użyć tego mógłby najwyżej jeden kierunek, oznaczony jako klasyk, a ja go nie proponuję.\n\n## Trzy kierunki\n\nWszystkie trzy opierają się na jednym urządzeniu graficznym, które powtarza się w każdym formacie. Różnią się mechanizmem, nie paletą.\n\n**A. Ślad: trasa pisze hasło**\n- **Mechanizm:** ślad opony (albo linia GPS) przecina całą kampanię jedną ciągłą kreską. Ta kreska układa się w literę lub słowo nagłówka.\n- **Pierwsze czytanie:** linia, potem rower na jej końcu.\n- **Rola obrazu i typografii:** rower jest małym, ostrym punktem na końcu linii. Nagłówek jest samą linią.\n- **Kompozycja:** długa, pozioma, ciemna powierzchnia (asfalt, błoto, śnieg) z jasną kreską.\n- **Propozycja tekstu:** „Zostaw ślad.\" Dopisek: `[MARKA]`.\n- **Kompromis:** na małym banerze czytelność litery zależy od grubości linii.\n- **Kryterium akceptacji:** hasło da się odczytać z 30 m i na ekranie telefonu.\n\n**B. Godzina: rower oddaje czas**\n- **Mechanizm:** znacznik czasu (np. „6:12\") jest głównym elementem graficznym. Pokazuje chwilę, którą rower daje z powrotem, na przykład pustą ulicę przed szczytem.\n- **Pierwsze czytanie:** duża godzina.\n- **Rola obrazu i typografii:** na zdjęciu nie ma kolarza, jest sam rower oparty o ścianę, w chłodnym świetle poranka. Cyfry są największym elementem.\n- **Propozycja tekstu:** „6:12. Jesteś już w drodze.\" albo „Minuty, które masz tylko ty.\"\n- **Kompromis:** kierunek zawęża ofertę do roweru miejskiego i na dojazdy.\n- **Kryterium akceptacji:** liczba i hasło działają bez logo.\n\n**C. Przebieg: rower ma historię**\n- **Mechanizm:** rower pokazany jako narzędzie z uczciwymi śladami używania (rysy, patyna, błoto), podpisany licznikiem przejechanych kilometrów.\n- **Pierwsze czytanie:** liczba w stylu licznika, potem zbliżenie na detal.\n- **Rola obrazu i typografii:** zbliżenie na zużyty detal, np. korbę albo siodło. Cyfry mają formę wskazań licznika.\n- **Propozycja tekstu:** „12 480 km i dalej jak nowy.\" Taki tekst wymaga sprawdzenia, czy to prawda.\n- **Kompromis:** kierunek jest mniej „piękny\", za to wiarygodny. Wymaga prawdziwych danych o trwałości, żeby nie zrobić pustej obietnicy.\n- **Kryterium akceptacji:** obietnica wytrzymuje sprawdzenie faktów.\n\n## Jak system przechodzi przez trzy formaty\n\nWymiary to moje założenie robocze. Poprawimy je według faktycznych nośników.\n\n| Nośnik | Założenie | Rola wspólnego urządzenia |\n|---|---|---|\n| Billboard | ok. 12×4 m (3:1), czytany w kilka sekund | Samo urządzenie plus 3–5 słów i logo. Bez dodatkowego tekstu. |\n| Instagram | 1080×1350 (4:5) | To samo urządzenie w większej skali, z miejscem na szczegół i krótki opis. |\n| Baner internetowy | 970×250 oraz 300×250 | Skrócona wersja, w której urządzenie zostaje, a hasło i przycisk CTA są wyraźne. |\n\n## Decyzja\n\nKtóry kierunek rozwijamy: **A**, **B** czy **C**? Jeśli któryś jest bliski, ale nie trafia, napisz, co zmienić. Po wyborze dopracuję system (paleta, typografia, siatka, zasady adaptacji) i przekażę go do wykonania poszczególnych materiałów.",
+          "reply_chars": 3410,
+          "reply_sha256": "82574852824f79f75c4fd12d493ac9761b6ef9a27f55af6749a054d96418396e",
+          "skills": [
+            "workflow-orchestrator",
+            "commercial-visual-campaign-director"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1231,
+            "output": 3185,
+            "cache_read": 50510,
+            "cache_write": 26431
+          },
+          "seconds": 38.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "commercial-visual-campaign-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'commercial-visual-campaign-director']; expected one of ['commercial-visual-campaign-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

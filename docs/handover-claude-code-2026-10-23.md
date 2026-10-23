@@ -125,3 +125,51 @@ The owner wants the 37 skill names made uniform and, where it fits, carrying Fra
 - Make one naming scheme first and get the owner's approval on the full list before editing: for example a "Frame…" family for the owner's own products (FrameCut, a possible FrameMotion for Motion Graphics, FrameSound for audio, FrameBoard for storyboards) and plain role names ("Copy Voice", "Brief Architect") elsewhere, or one consistent pattern for all. Avoid names that collide with other products or with the Studio name itself.
 - Update `skill-naming.md`, the startup welcome only where it already names a skill (keeping the protected full-welcome contract and both language excerpts byte-matched), the skill finder and the tests that check display names; run the naming validator, the main-suite gate and a routing pass to show that nothing routes differently.
 - Do it together with the merges in section 2, so retired skills keep a short alias name and the final list is renamed once.
+
+### 6. First evidence and a naming proposal (2026-10-23, end of session)
+
+**Routing measurement (Claude Code, Sonnet 5.5, 7 new cases M01-M07 in `tests/host-evals/routing.json`, record `verification/host-evals/2026-10-23-1.125.1-routing-M01-M02-M03-M04-M05-M06-M07.json`): 7 of 7 routed to the expected skill.** Copy: slogans to `copy-voice`, "make this sound natural" to `humanizer`, the ambiguous "shorter and catchier" to `copy-voice`. Campaigns: store sale to `ecommerce-campaign-strategy-director`, brand positioning to `marketing`, a video spot to `commercial-video-campaign-director`, a multi-format visual system to `commercial-visual-campaign-director` (through the orchestrator). So the host currently tells these skills apart: there is **no routing evidence for merging them**. A merge would only be justified by duplicated maintenance or by a quality review; the next session should measure the other groups (story, handoff packets, project files) and harder, mixed prompts before deciding, and may decide to keep all 37 and spend effort on references instead.
+
+**Display-name proposal for the owner's approval (display names only; IDs unchanged).** The "Frame" family marks the FrameCore Works products a user meets directly; role names stay plain and uniform ("<Domain> <Role>"); technical words are dropped from names.
+
+| Skill ID | Now | Proposed |
+|---|---|---|
+| workflow-orchestrator | Workflow Orchestrator | FrameCore Studio Guide |
+| opencut-video-studio | FrameCut | FrameCut |
+| hyperframes-workflow | Motion Graphics Workflow | FrameMotion |
+| audio-production-director | Audio Production Director | FrameSound |
+| storyboard-board-architect | Storyboard Board Architect | FrameBoard |
+| storyboard-sequence-architect | Storyboard Sequence Architect | FrameShot Sequencer |
+| output-critic-iteration | Output Critic Iteration | FrameCheck |
+| caption-studio | Caption Studio | FrameCaption |
+| brief-architect | Brief Architect | Brief Architect |
+| copy-voice | Copy Voice | Copy Voice |
+| humanizer | Humanizer | Copy Polish |
+| screenplay-story-architect | Screenplay Story Architect | Story And Screenplay |
+| storytelling | Storytelling | Story Logic |
+| static-graphic-design-creator | Static Graphic Design Creator | Graphic Design |
+| image-prompt-architect | Image Prompt Architect | Image Prompt |
+| video-prompt-architect | Video Prompt Architect | Video Prompt |
+| cinematography | Cinematography | Camera And Light |
+| character-design | Character Design | Character Design |
+| reference-pack-curator | Reference Pack Curator | Reference Pack |
+| commercial-video-campaign-director | Commercial Video Campaign Director | Video Campaign |
+| commercial-visual-campaign-director | Commercial Visual Campaign Director | Visual Campaign |
+| ecommerce-campaign-strategy-director | Ecommerce Campaign Strategy Director | Sales Campaign Strategy |
+| marketing | Marketing | Brand Strategy |
+| creative-music-video-director | Creative Music Video Director | Music Video |
+| creative-video-producer | Creative Video Producer | Video Producer |
+| remotion-video-production | Remotion Video Production | Remotion Video |
+| ugc | UGC | UGC Ads |
+| research-evidence | Research Evidence | Research |
+| tool-routing-cost | Tool Routing Cost | Tools And Costs |
+| asset-manifest | Asset Manifest | Asset Manifest |
+| delivery-documentation | Delivery Documentation | Delivery Pack |
+| instruction-packet-factory | Instruction Packet Factory | Task Handoff |
+| hipson-adapter | Hipson Adapter | Hipson Handoff |
+| pipeline-core | Pipeline Core | Studio Core |
+| studio-workstyle-profile | Studio Workstyle Profile | Workstyle Profile |
+| workflow-self-improvement | Workflow Self Improvement | Studio Retrospective |
+| producer-ai-task-builder | Producer AI Task Builder | Producer AI Task Builder (legacy alias) |
+
+Open points for the owner: whether "FrameCore Studio Guide" may appear next to the Studio's own name, whether more skills join the Frame family (for example FramePrompt for both prompt skills), and the earshot-audio plugin's own name (now "Earshot Audio"; upstream Earshot is Leon Lin's, so a FrameCore name should keep "Earshot" visible, e.g. "FrameSound Earshot"). Check each name for collisions with existing products before release, then follow section 5.
