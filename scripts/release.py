@@ -390,6 +390,32 @@ def require_matches(matches):
 PUBLICATION_FILES = ['RELEASE_STATUS.md', 'docs/development-ledger.md']
 
 
+NOTES_WORKFLOW = 'Refresh current release notes'
+
+
+def notes_correction(failed, later, runs_of):
+    """Clear a failed notes refresh on the tag commit when a later commit changing only RELEASE_NOTES.md has a
+    successful refresh (1.122.0, 1.124.0: the heading must read exactly '# Creative Studio <version>').
+    later: [(sha, changed files)] after the tag on main; runs_of(sha) -> workflow runs. Returns (still failed, record)."""
+    if not any(r['name'] == NOTES_WORKFLOW for r in failed):
+        return failed, None
+    for sha, files in later:
+        if files != ['RELEASE_NOTES.md']:
+            continue
+        good = [r for r in runs_of(sha) if r['name'] == NOTES_WORKFLOW and r.get('conclusion') == 'success']
+        if good:
+            return ([r for r in failed if r['name'] != NOTES_WORKFLOW],
+                    {'commit': sha, 'cause': 'release notes heading corrected after the tag; plugin package unchanged',
+                     'workflow': {'id': good[0]['id'], 'name': NOTES_WORKFLOW, 'conclusion': 'success'}})
+    return failed, None
+
+
+def later_commits(sha):
+    git('fetch', '-q', 'origin', 'main')
+    shas = git('rev-list', '--reverse', f'{sha}..origin/main').split()
+    return [(c, git('diff-tree', '--no-commit-id', '--name-only', '-r', c).split()) for c in shas]
+
+
 def publish(args):
     version = args.version
     dirty = git('status', '--porcelain')
@@ -406,6 +432,8 @@ def publish(args):
             raise ReleaseError(f'workflows not finished after {args.wait}s: {[(r["name"], r["status"]) for r in runs]}')
         time.sleep(20)
     failed = [r for r in runs if r['conclusion'] != 'success']
+    failed, correction = notes_correction(failed, later_commits(sha) if failed else [],
+                                          lambda c: api(f'actions/runs?head_sha={c}').get('workflow_runs', []))
     if failed:
         raise ReleaseError('workflow failed: ' + ', '.join(f"{r['name']} {r['conclusion']} {r['html_url']}" for r in failed))
     git('fetch', '-q', 'origin', f'refs/tags/v{version}:refs/tags/v{version}')
@@ -449,6 +477,8 @@ def publish(args):
         'published_skill_yaml': f'{frontmatters} SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML' if frontmatters is not None else 'PyYAML unavailable; not parsed',
         'hosted_plugin': 'pending (separate guarded update and readback required)', 'host_behavior': 'NOT_RUN',
     }
+    if correction:
+        record['notes_correction'] = correction
     write(f'verification/github-publication-{version}.json', json.dumps(record, indent=2, ensure_ascii=False) + '\n')
     status = read('RELEASE_STATUS.md')
     status = re.sub(r'^\| GitHub publication \|.*\|$', f'| GitHub publication | {version}: `main` at `{sha[:7]}`, [v{version}](https://github.com/{REPO}/releases/tag/v{version}), release and check workflows green, plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree ({len(members)} of {len(tree)}) ([record](verification/github-publication-{version}.json)) |', status, count=1, flags=re.M)
@@ -461,7 +491,8 @@ def publish(args):
         raise ReleaseError('no pending GitHub line in the ledger')
     done = (f'- GitHub: synchronized. `main` at `{sha[:7]}`; workflows ' + ', '.join(f"{r['name']} {r['id']}" for r in runs)
             + f': success; [v{version}](https://github.com/{REPO}/releases/tag/v{version}) assets read back: plugin ZIP, inventory and player '
-            + f'match the local build, ZIP byte-identical to the tag tree ({len(members)} of {len(tree)}) ([record](../verification/github-publication-{version}.json))')
+            + f'match the local build, ZIP byte-identical to the tag tree ({len(members)} of {len(tree)}) ([record](../verification/github-publication-{version}.json))'
+            + (f"; the notes refresh failed on the tag and passed after the notes-only fix `{correction['commit'][:7]}`" if correction else ''))
     write('docs/development-ledger.md', ledger[:at] + done + ledger[at + len(pending):])
     run('node', f'{PACKAGE}/scripts/validate-studio.mjs')
     baseline = git('rev-parse', 'HEAD')

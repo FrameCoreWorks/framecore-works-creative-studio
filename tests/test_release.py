@@ -27,6 +27,22 @@ class Release(unittest.TestCase):
         finally:
             release.git = original
 
+    def test_a_notes_heading_fix_after_the_tag_clears_only_the_notes_workflow(self):
+        # 1.122.0 and 1.124.0: the notes refresh failed on the tag commit and a notes-only commit on main fixed it.
+        notes = {'name': 'Refresh current release notes', 'conclusion': 'failure', 'html_url': 'u1'}
+        checks = {'name': 'Check Studio sources', 'conclusion': 'failure', 'html_url': 'u2'}
+        later = [('c2', ['RELEASE_NOTES.md'])]
+        ok = lambda sha: [{'name': 'Refresh current release notes', 'conclusion': 'success', 'id': 7, 'head_sha': sha}]
+        left, correction = release.notes_correction([notes], later, ok)
+        self.assertEqual(left, [])
+        self.assertEqual(correction['commit'], 'c2')
+        left, correction = release.notes_correction([notes, checks], later, ok)
+        self.assertEqual(left, [checks])
+        # a later commit that also changed other files, or a refresh that failed again, does not count
+        self.assertEqual(release.notes_correction([notes], [('c3', ['RELEASE_NOTES.md', 'README.md'])], ok), ([notes], None))
+        bad = lambda sha: [{'name': 'Refresh current release notes', 'conclusion': 'failure', 'id': 8, 'head_sha': sha}]
+        self.assertEqual(release.notes_correction([notes], later, bad), ([notes], None))
+
     def test_publish_refuses_a_dirty_tree(self):
         original = release.git
         release.git = lambda *args, **kwargs: ' M unfinished-user-draft.txt' if args[:1] == ('status',) else original(*args, **kwargs)
