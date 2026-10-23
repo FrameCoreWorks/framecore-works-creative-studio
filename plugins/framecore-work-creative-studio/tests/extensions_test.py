@@ -100,6 +100,14 @@ class Registry(unittest.TestCase):
         self.assertIn('earshot-audio:earshot', section)
         self.assertLess(section.index('Superpowers'), section.index('earshot-audio'))
 
+    def test_earshot_light_tier_text_matches_the_engine(self):
+        # End-to-end run 2026-10-23: timeline needs the CLAP model even at --detail low.
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
+        for host in ('codex', 'claude_code'):
+            after = entry['hosts'][host]['after']
+            self.assertNotIn('timeline without models', after)
+            self.assertIn('timeline, sheet', after)
+
     def test_superpowers_is_first_optional_catalog_companion_for_every_host(self):
         entries = [e for e in DATA['extensions'] if e['id'] == 'superpowers']
         self.assertEqual(len(entries), 1)

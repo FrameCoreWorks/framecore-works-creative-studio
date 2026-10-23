@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.2, 2026-10-23
+
+Defect found in an end-to-end run (Studio, Superpowers and this plugin in Claude Code, light tier): `timeline` and
+`sheet` stopped on the missing CLAP model, while the skill listed them as light-tier commands. The skill now lists
+measure, critique --fast, sfx, kit and the real-sound scripts as light, moves timeline and sheet to the full tier, and
+says how to check sync on the light tier (measured onsets against the cue frames). It also says where `runtime.py`
+is (`../../scripts/runtime.py`); the run looked for it inside the skill folder first.
+
 ## 1.0.1, 2026-10-23
 
 Owner decision: a free, key-free replacement for upstream's Gemini upload. The skill now writes a review in words

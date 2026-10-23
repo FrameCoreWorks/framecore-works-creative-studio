@@ -37,11 +37,11 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.1'})
+        self.assertEqual(versions, {'1.0.2'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.1')
+        self.assertEqual(entries['earshot-audio']['version'], '1.0.2')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
@@ -70,6 +70,25 @@ class Package(unittest.TestCase):
                        'cheap', 'not a measurement', 'did not hear'):
             self.assertIn(needle, ref)
         self.assertNotIn('Gemini', ref.split('## Why not an upload')[0])
+
+    def test_light_tier_promises_only_what_runs_without_models(self):
+        # End-to-end run 2026-10-23: timeline and sheet stopped on the missing CLAP model in a light install;
+        # measure, critique --fast, sfx and kit ran.
+        skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
+        light = re.search(r'`light_ready` \(([^)]*)\)', skill).group(1)
+        for needle in ('measure', 'critique --fast', 'sfx', 'kit'):
+            self.assertIn(needle, light)
+        for needle in ('timeline', 'sheet'):
+            self.assertNotIn(needle, light)
+        full = re.search(r'`full_ready` with `models_cached` \(([^)]*)\)', skill).group(1)
+        for needle in ('timeline', 'sheet'):
+            self.assertIn(needle, full)
+        self.assertIn('../../scripts/runtime.py', skill)
+        ref = (PLUGIN / 'skills/earshot/references/written-critique.md').read_text(encoding='utf-8')
+        self.assertIn('critique --fast', ref)
+        self.assertNotIn('steps 1 to 4 still run', ref)
+        handoff = (PLUGIN / 'skills/earshot/references/studio-handoff.md').read_text(encoding='utf-8')
+        self.assertIn('light tier', handoff)
 
     def test_licence_and_notice(self):
         data = manifest()

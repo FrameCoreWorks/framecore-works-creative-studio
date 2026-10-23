@@ -9,14 +9,15 @@ You cannot hear. Never say how a sound sounds or that it fits without an Earshot
 number ("strong match, z +3.9", "p_real 0.96", "-14.2 LUFS"). Earshot 0.4.0 by Leon Lin (MIT) runs on the user's
 machine on CPU; this plugin installs it from one pinned commit and keeps every run local.
 
-`<runtime>` below is this plugin's `scripts/runtime.py`; `<skill>` is this folder's `real-sound` subfolder. Resolve both
+`<runtime>` below is this plugin's `scripts/runtime.py`, two folders above this file (`../../scripts/runtime.py`,
+not inside this skill folder); `<skill>` is this folder's `real-sound` subfolder. Resolve both
 from where the host installed this skill; never copy a path from another machine.
 
 ## 1. Readiness and consent (always first)
 
 1. `python3 <runtime> status --json`. Four facts, kept apart: the skill is readable; `light_ready` (no models:
-   measure, sfx, kit, timeline and sheet without tags, the real-sound scripts); `full_ready` with `models_cached`
-   (describe, match, rank, find, compare, ab, realness, full critique); a task actually completed. `unavailable`
+   measure, critique --fast, sfx, kit and the real-sound scripts); `full_ready` with `models_cached` (timeline,
+   sheet, describe, match, rank, find, compare, ab, realness, full critique); a task actually completed. `unavailable`
    means not installed here, not "probably works".
 2. Missing tier: say in one line what will be written and its size, then install only after the user agrees:
    `python3 <runtime> install --tier light` prints the plan; `--yes` runs it (about 200 MB). Full: `--tier full --yes`
@@ -52,7 +53,9 @@ gate only when the user wants real or produced sound; clean professional synthes
 a b --query "..."` with trims to decide between two; `match <file> "<claim>" --alts ...` to test one claim;
 `compare <file> --refs <folder>` for palette fit.
 
-**Review a mix or a film.** `timeline film.mp4 --cues cues.json`: events, sections, loudness, picture cuts and sync
+**Review a mix or a film.** With the light tier only, check sync from measured onsets: `kit.lock.json`, or onsets
+measured in the encoded film's audio against the cue frames, and say `timeline` and `sheet` need the full tier.
+With the full tier: `timeline film.mp4 --cues cues.json`: events, sections, loudness, picture cuts and sync
 per cut and cue (offset_ms = sound minus picture; trust it only above the printed chance level). `sheet film.mp4 -o
 sheet.png --cues cues.json`, then open the PNG: green within a frame, amber within 100 ms, red silent. `critique
 film.mp4`: a scorecard against seven professional launch films with timed fixes (a range, not a target; music-led

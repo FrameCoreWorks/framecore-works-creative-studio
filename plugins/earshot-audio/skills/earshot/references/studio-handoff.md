@@ -25,7 +25,8 @@ Zero-based frame `f` at `fps_num/fps_den` is `t = f * fps_den / fps_num` seconds
 `round(t * rate) - round(anchor * rate)` samples, where `anchor` is the measured onset, peak or end inside the take.
 At 30000/1001 fps, frame 48 is 1.6016 s and frame 90 is 3.003 s. Earshot 0.4.0 reads a numeric fps in a cue file:
 pass seconds and keep the rational rate in the project. Resolve a negative start (pre-roll before the film) instead
-of cutting the onset. After mixing, check the encoded film with `timeline --cues`, not only the WAV.
+of cutting the onset. After mixing, check the encoded film with `timeline --cues`, not only the WAV; with the light tier only, measure
+the onsets in the encoded film's audio against the cue frames instead (`timeline` needs the CLAP model).
 
 ## Approvals
 

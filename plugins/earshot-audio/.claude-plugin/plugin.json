@@ -1,7 +1,7 @@
 {
   "name": "earshot-audio",
   "displayName": "Earshot Audio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload.",
   "author": {
     "name": "FrameCore Works"

@@ -19,8 +19,9 @@ Run through `python3 <runtime> run ...` (or one `exec` script on `earshot.api`):
 5. For any sound you will judge by character: `describe <file> --start s --end e` on that trim, `realness` when real
    versus synthesized matters, and `ab` between a sound and a candidate replacement.
 
-Without the full tier, steps 1 to 4 still run without tags; say that `describe`, `realness` and the tagged events were
-not available.
+Without the full tier only `measure` and `critique --fast` run (`timeline`, `sheet` and the full `critique` need the
+CLAP and AST models): check sync from measured onsets in the encoded audio against the cue frames, and say that
+`timeline`, `sheet`, `describe` and `realness` were not available.
 
 ## 2. Write the review
 

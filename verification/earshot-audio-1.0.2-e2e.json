@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-23",
+  "kind": "end-to-end run, Studio + Superpowers + earshot-audio",
+  "host": "Claude Code 2.1.309, headless (claude -p; turn 2 with --resume), isolated CLAUDE_CONFIG_DIR, three --plugin-dir: Studio 1.124.1, Superpowers 6.4.2, earshot-audio",
+  "model": "claude-sonnet-5-5",
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "fixture": {
+    "file": "logo.mp4",
+    "sha256": "c920924e22f44ad73ac5355ccc829077de28bf1ce3c629bf8f152cd5ea719e99",
+    "what": "6 s, 30 fps, 1280x720, silent; FRAMECORE text appears at 1.2 s (frame 36), a square logo drops from 2.4 s and lands at 3.0 s (frame 90); made with ffmpeg lavfi"
+  },
+  "prompts": [
+    "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz.",
+    "Tak, zainstaluj Earshot w trybie light i zrób całość do końca. (before run only; the after run had the light tier already installed)"
+  ],
+  "allowed_tools": "Read Glob Grep Skill Write Edit Bash(python3|ffmpeg|ffprobe|node|ls|sha256sum|cat); after run also Bash(mkdir|cp) (a first after attempt stopped on a denied mkdir, a test-harness limit)",
+  "before": {
+    "earshot_audio": "1.0.1",
+    "turn1": {
+      "turns": 9,
+      "seconds": 27.1,
+      "tool_calls": 7,
+      "tokens": {
+        "input": 14,
+        "output": 1729,
+        "cache_read": 146941,
+        "cache_write": 20083
+      },
+      "reply_excerpt": "Earshot nie jest tu jeszcze zainstalowany, więc na razie niczego nie wyrenderowałem. Potrzebuję Twojej zgody.\n\n**Co sprawdziłem**\n- `logo.mp4` ma 1280×720, 30 fps i 6,0 s, bez ścieżki audio.\n- `ffmpeg` i `ffprobe` są dostępne.\n- Earshot (silnik dźwięku i pomiarów, działa lokalnie, nic nie jest wysyłane) ma stan `unavailable`.\n\n**Czego potrzeba**\nLekka wersja zajmuje ok. 200 MB w `/root/.framecore-studio/extensions/earshot`. Wystarczy do wszystkiego, o co prosisz, bo modele AI nie są potrzebne:\n- Efekty wygeneruję z wbudowanego banku: whoosh na wejście napisu i uderzenie na lądowanie.\n- Zsynchronizuję je z klatkami 1,2 s (klatka 36) i 3,0 s (klatka 90).\n- Zmiksuję je z filmem w `logo_sound.mp4`.\n- Sprawdzę synchronizację pomiarem `timeline` z offsetem w ms i arkuszem `sheet`.\n\n**Pytanie:** czy mogę zainstalować wersję lekką (ok. 200 MB)?\n\nJeśli się zgodzisz, przyjmę takie ustawienia domyślne: whoosh ma szczyt w 1,2 s, a uderzenie ma początek w 3,0 s. Do tego master ok. −14 LUFS i true peak najwyżej −1,5 dBTP. Daj znać, jeśli chcesz coś zmienić."
+    },
+    "turn2": {
+      "turns": 24,
+      "seconds": 191.2,
+      "tool_calls": 23,
+      "tokens": {
+        "input": 42,
+        "output": 8803,
+        "cache_read": 709012,
+        "cache_write": 17977
+      },
+      "reply_excerpt": "Dźwięk jest dodany i trafia w obraz. Gotowy plik to `/tmp/claude-0/-home-user-framecore-works-creative-studio/0d39bcb8-e3b1-5dda-99ad-ec14abd04c90/scratchpad/e2e/logo_sound.mp4`. Whoosh ma szczyt dokładnie w 1,200 s, a uderzenie zaczyna się w 3,005 s. Dźwięku nie odsłuchałem, bo nie mam uszu. Opieram się wyłącznie na pomiarach.\n\n**Co zrobiłem**\n- Zainstalowałem Earshot w trybie light.\n- Whoosh to `swish/soft` z banku efektów Earshota. Ma szczyt dokładnie w 1,2 s, czyli w klatce 36, w której pojawia się napis.\n- Uderzenie to `cut_hit/punch`. Jego początek wypada w 3,0 s, czyli w klatce 90, w której logo ląduje.\n- Wideo jest skopiowane bez rekompresji (h264, 6,000 s). Dźwięk to AAC 48 kHz stereo, też 6,000 s.\n\n**Sprawdzenie synchronizacji**\n\n| Zdarzenie | Obraz | Dźwięk | Różnica |\n|---|---|---|---|\n| Wejście napisu | klatka 36, 1,200 s | szczyt whoosha 1,200 s | 0 ms |\n| Lądowanie logo | klatka 90, 3,000 s | początek uderzenia 3,005 s, szczyt 3,060 s | +5 ms (początek) |\n\n- **Poprawka:** za pierwszym razem szczyt whoosha wypadał w 1,130 s, czyli 70 ms przed napisem. Przesunąłem go o 70 ms i pomiar potwierdził 1,200 s.\n- **Szczyt uderzenia:** wypada 60 ms po początku, bo tak jest zbudowany ten dźwięk.\n- **Lądowanie logo:** kwadrat porusza się od klatki 74 do 90, a zmiana obrazu kończy się w klatce 90.\n\n**Głośność:** −15,2 LUFS, true peak −1,5 dBTP, bez przesterowań. Zakładałem ok. −14 LUFS, ale nie osiągnę go przy limicie true peak −1,5 dBTP. Dwa krótkie efekty i 80% ciszy ciąg"
+    },
+    "result": "turn 1: readiness checked (unavailable), one consent question, nothing installed. turn 2: light tier installed from the pinned commit; whoosh swish/soft and cut_hit/punch rendered and mixed with ffmpeg; timeline (twice) failed on the missing CLAP model although the skill listed it as light; the agent measured sync with its own script; runtime.py first looked for inside the skill folder.",
+    "output": {
+      "file": "logo_sound.mp4",
+      "sha256": "cd41d29844bf9c09878b0fb467b863be4f3416b644eb99f9c3eda27b2d197f3a",
+      "independent_measurement": "whoosh onset 0.810 s, peak 1.205 s; hit onset 3.005 s, peak 3.060 s (5 ms envelope, -30 dB threshold); -15.2 LUFS, -1.5 dBTP (earshot measure)"
+    }
+  },
+  "defect": "earshot-audio 1.0.1 SKILL.md listed timeline and sheet as light-tier commands; in the engine both always load CLAP (sections() and tagging), and full critique loads AST. Light tier verified here: measure, critique --fast, sfx, kit init ran; timeline, sheet and critique failed offline without models. Fixed in earshot-audio 1.0.2 and in the Studio registry after text (Studio 1.124.2).",
+  "after": {
+    "earshot_audio": "1.0.2 (working tree)",
+    "turn1": {
+      "turns": 17,
+      "seconds": 105.4,
+      "tool_calls": 15,
+      "tokens": {
+        "input": 26,
+        "output": 5586,
+        "cache_read": 334332,
+        "cache_write": 26861
+      },
+      "reply_excerpt": "Gotowy plik z dźwiękiem to `logo_sound.mp4` w folderze projektu. Obraz jest skopiowany bez zmian (bez ponownego kodowania), długość to 6,000 s, a dźwięk to AAC 192 kb/s. Zgranie sprawdziłem na tym zakodowanym pliku: zdekodowałem z niego ścieżkę audio i zmierzyłem, kiedy wypadają ataki.\n\n**Dodane dźwięki** (z wbudowanego banku Earshot, generowane kodem, bez zewnętrznych nagrań)\n- **Whoosh przy napisie:** `swish/soft`, przesunięty tak, by atak wypadł na 1,200 s.\n- **Uderzenie przy lądowaniu logo:** `cut_hit/punch` z `cut_hit/sub` pod spodem, z atakiem na 3,000 s.\n\n**Zgranie z obrazem**\n\n| Zdarzenie | Klatka docelowa | Zmierzony atak | Różnica |\n|---|---|---|---|\n| Wejście napisu (1,2 s) | 36 | 1,196 s | −4 ms |\n| Lądowanie logo (3,0 s) | 90 | 3,007 s | +7 ms |\n\nObie różnice mieszczą się w jednej klatce (33 ms). Szczyt whoosha wypada ok. 90 ms po jego ataku, czyli w trakcie wjazdu napisu.\n\n**Poziomy:** true peak to −3,8 dBTP, głośność całości −19,7 LUFS, bez przesterowań. Dla krótkiego stingu z dwoma dźwiękami jest to dość cicho, bo większość 6 s to cisza. Jeśli ma brzmieć głośniej, podniosę poziom do ok. −1,5 dBTP.\n\n**Czego nie sprawdziłem**\n- Nie słyszę dźwięku. Mam tylko pomiary czasu i poziomu, nie ocenę, czy brzmienie pasuje do marki. Warto odsłuchać plik raz na własnych głośnikach.\n- Nie mam zainstalowanego pełnego pakietu Earshot (ok. 1,5 GB), więc nie zrobiłem arkusza z klatkami (`sheet`) ani analizy cięć obrazu (`timeline`). Zgranie opieram na pomiarze momentów ataku wz"
+    },
+    "result": "readiness ready_light; no timeline or sheet attempt; sync checked from onsets measured in the decoded encoded audio; says timeline and sheet need the full tier.",
+    "output": {
+      "file": "logo_sound.mp4",
+      "sha256": "fce81614fdee8b8b36ed876fb606c6c070d7ee7de0a7b1a9644d4140ee96a277",
+      "video_stream": "bit-identical to logo.mp4 (stream copy)",
+      "independent_measurement": "whoosh onset 1.205 s, peak 1.295 s; hit onset 3.005 s, peak 3.060 s; both within one frame of frames 36 and 90; agent reported 1.196 s and 3.007 s"
+    }
+  },
+  "not_run": [
+    "full tier (models): the PyTorch index is blocked here",
+    "listening by a person",
+    "ChatGPT Work and Codex",
+    "Studio orchestrator was not loaded: Studio routed the request straight to earshot-audio:earshot"
+  ],
+  "scope": "Claude Code on this machine and model only."
+}
