@@ -421,6 +421,8 @@ def publish(args):
     dirty = git('status', '--porcelain')
     if dirty:  # the publication commit holds its three records only; unrelated work must not ride along
         raise ReleaseError('the working tree has uncommitted changes; commit or stash them before publish:\n' + dirty)
+    # the tag first: without it locally the fallback is HEAD, a later commit whose workflows are not the release's
+    git('fetch', '-q', 'origin', f'refs/tags/v{version}:refs/tags/v{version}', check=False)
     sha = git('rev-list', '-n', '1', f'v{version}', check=False) or git('rev-parse', 'HEAD')
     deadline = time.time() + args.wait
     while True:

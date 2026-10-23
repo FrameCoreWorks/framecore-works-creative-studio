@@ -43,6 +43,28 @@ class Release(unittest.TestCase):
         bad = lambda sha: [{'name': 'Refresh current release notes', 'conclusion': 'failure', 'id': 8, 'head_sha': sha}]
         self.assertEqual(release.notes_correction([notes], later, bad), ([notes], None))
 
+    def test_publish_fetches_the_tag_before_choosing_the_commit(self):
+        # 1.124.0: without the tag locally, publish fell back to HEAD (a later commit) and waited on its workflows.
+        calls = []
+
+        def fake_git(*args, **kwargs):
+            calls.append(args)
+            if args[:1] == ('status',):
+                return ''
+            if args[:1] == ('rev-list',):
+                raise SystemExit('stop after choosing the commit')
+            return ''
+        original = release.git
+        release.git = fake_git
+        try:
+            with self.assertRaises(SystemExit):
+                release.publish(types.SimpleNamespace(version='9.9.9', wait=0, min_runs=3, change_id='X', push=False))
+        finally:
+            release.git = original
+        fetched = [i for i, c in enumerate(calls) if c[:1] == ('fetch',) and any('refs/tags/v9.9.9' in a for a in c)]
+        chosen = [i for i, c in enumerate(calls) if c[:1] == ('rev-list',)]
+        self.assertTrue(fetched and chosen and fetched[0] < chosen[0])
+
     def test_publish_refuses_a_dirty_tree(self):
         original = release.git
         release.git = lambda *args, **kwargs: ' M unfinished-user-draft.txt' if args[:1] == ('status',) else original(*args, **kwargs)
