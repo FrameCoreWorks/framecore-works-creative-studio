@@ -37,11 +37,11 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.6'})
+        self.assertEqual(versions, {'1.0.7'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.6')
+        self.assertEqual(entries['earshot-audio']['version'], '1.0.7')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
@@ -109,6 +109,13 @@ class Package(unittest.TestCase):
         skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
         for name in ('writing-plans', 'test-driven-development', 'systematic-debugging', 'verification-before-completion'):
             self.assertIn(f'superpowers:{name}', skill)
+
+    def test_earshot_is_credited_to_leon_lin_everywhere_users_see_it(self):
+        # Owner decision 2026-10-23: Earshot keeps its name and is plainly marked as Leon Lin's repository.
+        for path in ('plugin.json', '.claude-plugin/plugin.json', '.codex-plugin/plugin.json'):
+            data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
+            self.assertTrue(data['description'].startswith('Earshot by Leon Lin (github.com/Leonxlnx/earshot'), path)
+        self.assertIn('Leon Lin', (PLUGIN / '.codex-plugin/plugin.json').read_text(encoding='utf-8').split('displayName')[1][:40])
 
     def test_licence_and_notice(self):
         data = manifest()

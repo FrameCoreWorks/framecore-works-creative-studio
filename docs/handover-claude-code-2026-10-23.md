@@ -173,3 +173,10 @@ The owner wants the 37 skill names made uniform and, where it fits, carrying Fra
 | producer-ai-task-builder | Producer AI Task Builder | Producer AI Task Builder (legacy alias) |
 
 Open points for the owner: whether "FrameCore Studio Guide" may appear next to the Studio's own name, whether more skills join the Frame family (for example FramePrompt for both prompt skills), and the earshot-audio plugin's own name (now "Earshot Audio"; upstream Earshot is Leon Lin's, so a FrameCore name should keep "Earshot" visible, e.g. "FrameSound Earshot"). Check each name for collisions with existing products before release, then follow section 5.
+
+**Owner decisions on the naming proposal (2026-10-23):**
+
+- The orchestrator may be called **FrameCore Studio Guide** (accepted).
+- The prompt skills stay **separate**: one for video, one for images (keep `video-prompt-architect` and `image-prompt-architect` apart; no shared FramePrompt name). Give them uniform names in the same scheme, e.g. "Video Prompt" and "Image Prompt".
+- **Earshot keeps its name "Earshot"** and is always plainly marked as Leon Lin's repository (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works. Done in earshot-audio 1.0.7 (manifest descriptions and display name "Earshot (Leon Lin)") and in Studio 1.125.2's setup copy; keep this credit in every future text that presents Earshot.
+- The rest of the table above awaits the owner's final look before the next session renames anything (section 5 rules).

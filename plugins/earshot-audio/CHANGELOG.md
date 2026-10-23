@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.7, 2026-10-23
+
+Owner decision: Earshot keeps its name and is plainly credited to Leon Lin. The manifests' descriptions start with
+"Earshot by Leon Lin (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works" and the display name is
+"Earshot (Leon Lin)". No engine or skill change.
+
 ## 1.0.6, 2026-10-23
 
 Full review fixes: `install` fails instead of reporting ready when the upload stub cannot be applied (both stub modules

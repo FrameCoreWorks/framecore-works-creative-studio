@@ -1,7 +1,7 @@
 {
   "name": "earshot-audio",
-  "version": "1.0.6",
-  "description": "Ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload.",
+  "version": "1.0.7",
+  "description": "Earshot by Leon Lin (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works: ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload.",
   "author": {
     "name": "FrameCore Works"
   },
@@ -19,10 +19,10 @@
   ],
   "skills": "./skills",
   "interface": {
-    "displayName": "Earshot Audio",
+    "displayName": "Earshot (Leon Lin)",
     "shortDescription": "Local listening and sound kits",
     "longDescription": "Ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload. Readiness is checked before any claim, installation and model downloads run only after the user agrees, and recordings from the internet are fetched only on request with licence checks.",
-    "developerName": "FrameCore Works",
+    "developerName": "Leon Lin (Earshot); packaged by FrameCore Works",
     "category": "Productivity",
     "capabilities": [],
     "defaultPrompt": [
