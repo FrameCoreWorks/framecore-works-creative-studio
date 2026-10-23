@@ -71,6 +71,16 @@ class Manifests(unittest.TestCase):
 
 
 class Guides(unittest.TestCase):
+    def test_every_install_guide_offers_earshot_audio_after_superpowers(self):
+        # Owner request 2026-10-23: each host's guide names the sound companion, second after Superpowers.
+        for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
+            text = (ROOT / guide).read_text()
+            self.assertIn('earshot-audio', text, guide)
+            self.assertIn('plugins/earshot-audio', text, guide)
+            self.assertLess(text.index('Superpowers'), text.index('Earshot Audio'), guide)
+            self.assertIn('runtime.py status', text, guide)
+        self.assertIn('Plugin Creator', (ROOT / 'CHATGPT_INSTALL.md').read_text().split('Earshot Audio', 1)[1])
+
     def test_installation_ends_with_the_final_check_and_updates_with_the_update_check(self):
         for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
             self.assertIn('--final --host', (ROOT / guide).read_text(), guide)

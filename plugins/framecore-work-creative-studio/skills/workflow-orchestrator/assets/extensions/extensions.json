@@ -1152,6 +1152,7 @@
     },
     {
       "id": "earshot",
+      "recommendation_priority": "second",
       "name": "earshot",
       "repository": "https://github.com/Leonxlnx/earshot",
       "reviewed_commit": "591fa3e028032e6dce56620a20e932e35667e8d8",

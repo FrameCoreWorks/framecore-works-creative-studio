@@ -55,16 +55,17 @@ def validate(data):
         problems.append('schema_version 1 and a checked date')
     hosts = data.get('hosts') or []
     seen = set()
-    first_recommendations = 0
+    priorities = {'first': 0, 'second': 0}
     for entry in data.get('extensions') or []:
         where = str(entry.get('id'))
         if not re.fullmatch(r'[a-z0-9_-]+', where) or where in seen:
             problems.append(f'{where}: id must be unique, lowercase')
         seen.add(where)
         priority = entry.get('recommendation_priority')
-        if priority not in (None, 'first'):
+        if priority is not None and priority not in priorities:
             problems.append(f'{where}: unknown recommendation_priority')
-        first_recommendations += priority == 'first'
+        elif priority:
+            priorities[priority] += 1
         for field in ENTRY_FIELDS:
             if entry.get(field) in (None, '', [], {}):
                 problems.append(f'{where}: {field} missing')
@@ -100,8 +101,9 @@ def validate(data):
                 problems.append(f'{where}: {host} plan must be a dry run')
             if spec.get('install') and re.search(r'(^|\s)(-y|--yes)(\s|$)', spec['install'].replace('npx -y ', 'npx ')) and package is None:
                 problems.append(f'{where}: {host} install must keep the installer\'s own confirmation')
-    if first_recommendations > 1:
-        problems.append('only one first recommendation is allowed')
+    for priority, count in priorities.items():
+        if count > 1:
+            problems.append(f'only one {priority} recommendation is allowed')
     return problems
 
 

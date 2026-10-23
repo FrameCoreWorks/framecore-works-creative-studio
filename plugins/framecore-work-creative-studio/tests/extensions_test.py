@@ -77,6 +77,29 @@ class Registry(unittest.TestCase):
         other['recommendation_priority'] = 'urgent'
         self.assertIn('unknown recommendation_priority', ' '.join(ext.validate(data)))
 
+    def test_second_recommendation_is_unique(self):
+        data = self.companion_registry()
+        for name in ('second-a', 'second-b'):
+            other = copy.deepcopy(data['extensions'][0])
+            other.update(id=name, recommendation_priority='second')
+            data['extensions'].append(other)
+        self.assertIn('only one second recommendation', ' '.join(ext.validate(data)))
+        data['extensions'].pop()
+        self.assertEqual(ext.validate(data), [])
+
+    def test_earshot_is_the_second_setup_recommendation(self):
+        # Owner request 2026-10-23: first configuration offers earshot-audio after Superpowers.
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
+        self.assertEqual(entry['recommendation_priority'], 'second')
+        code, out, _ = run('show', 'earshot', '--host', 'claude_code')
+        self.assertEqual(code, 0)
+        self.assertIn('recommendation: second', out)
+        setup = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text()
+        section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
+        self.assertIn('recommendation_priority: second', section)
+        self.assertIn('earshot-audio:earshot', section)
+        self.assertLess(section.index('Superpowers'), section.index('earshot-audio'))
+
     def test_superpowers_is_first_optional_catalog_companion_for_every_host(self):
         entries = [e for e in DATA['extensions'] if e['id'] == 'superpowers']
         self.assertEqual(len(entries), 1)

@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.0",
+  "source": {
+    "commit": "1f96dc6842a3d4e1e9644c52b9d2fc9f26c6fd56",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "1690d06b26117b12f6c927abbc9321f4acaa59a8f05f10652b7131692a8491a7",
+      "files": 1559,
+      "archive": "candidates/1690d06b26117b12f6c927abbc9321f4acaa59a8f05f10652b7131692a8491a7.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "9b9963e9461f3c2c775d3d9ddb4a86efb7e36a6ecafea736fc3025f4b82e30d6",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1198,
+      "output": 1604,
+      "cache_read": 79361,
+      "cache_write": 27852
+    },
+    "seconds": 20.1
+  },
+  "cases": [
+    {
+      "id": "C05",
+      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again (since 2026-10-23 the setup also offers earshot-audio, so only a Superpowers install command fails)",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1198,
+        "output": 1604,
+        "cache_read": 79361,
+        "cache_write": 27852
+      },
+      "seconds": 20.1,
+      "wall_seconds": 20.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Sprawdziłem, co jest dostępne w tym środowisku (Claude Code).\n\n**1. Superpowers: już działa.**\nSkill `superpowers:using-superpowers` jest w katalogu i jego treść została wczytana na starcie sesji. Nie trzeba go instalować. Studio dalej prowadzi część kreatywną, a Superpowers wspiera planowanie, diagnozę błędów, przeglądy i weryfikację wyników.\n\n**2. Earshot Audio: drugi polecany dodatek, jeszcze niezainstalowany.**\nNie widzę `earshot-audio:earshot` w katalogu. Earshot daje Studio lokalny „słuch” i bank dźwięków: pomiary, efekty na klatkach, ścieżki z licencjonowanych nagrań. Nic nie jest wysyłane, a silnik instaluję dopiero po Twojej drugiej zgodzie.\n\nŻeby go dodać w Claude Code, wpisz w terminalu:\n\n```\n/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio\n```\n\nPo instalacji przy pierwszym zadaniu dźwiękowym sprawdzi się jego gotowość (`runtime.py status`). Niczego nie instalowałem ani nie uruchamiałem w tej turze.\n\nMożesz zainstalować Earshota teraz, później albo pracować bez niego, bo Studio działa też bez niego. Mogę też pokazać pełną listę polecanych repozytoriów albo od razu zacząć projekt.",
+          "reply_chars": 1149,
+          "reply_sha256": "1772a04f95bbbdb3c4e88b9f035fc045cf5c56e8ab5ad6c531c61c6773b24401",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 1604,
+            "cache_read": 79361,
+            "cache_write": 27852
+          },
+          "seconds": 20.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Superpowers']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "/plugin install superpowers",
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

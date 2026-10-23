@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.0",
+  "source": {
+    "commit": "1f96dc6842a3d4e1e9644c52b9d2fc9f26c6fd56",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "4e17ad8a301f5441129774f54dfdb318433ceede4037800c5f60ca0348fe0f38",
+      "files": 1559,
+      "archive": "candidates/4e17ad8a301f5441129774f54dfdb318433ceede4037800c5f60ca0348fe0f38.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.1"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "99ea4909ff813dfe882e897da41b1b02eafacf6f89212d6622843f470a0443a5",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1200,
+      "output": 2051,
+      "cache_read": 113432,
+      "cache_write": 32583
+    },
+    "seconds": 27.8
+  },
+  "cases": [
+    {
+      "id": "C15",
+      "title": "Configuring Studio with Superpowers and earshot-audio both loaded recognises earshot-audio by reading its skill and offers no install command for it (owner request 2026-10-23). Run with both plugins.",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1200,
+        "output": 2051,
+        "cache_read": 113432,
+        "cache_write": 32583
+      },
+      "seconds": 27.8,
+      "wall_seconds": 28.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Konfiguracja Studio gotowa. Niczego nie instalowałem i nie zmieniałem żadnych ustawień.\n\n**Host:** Claude Code (sesja w chmurze).\n\n| Dodatek | Stan | Dowód |\n|---|---|---|\n| **Superpowers** | Dostępny. Nie trzeba go instalować. | Skill `superpowers:using-superpowers` jest na liście skilli tego hosta, a jego pełną treść dostarczył hook startowy. |\n| **Earshot Audio** | Dostępny. Nie trzeba go instalować. | Skill `earshot-audio:earshot` jest na liście skilli i wczytałem go w tej sesji. |\n\n- **Superpowers** pomaga doprecyzować wymagania, zaplanować prace techniczne, diagnozować błędy oraz sprawdzać kod i wyniki. Studio nadal prowadzi część kreatywną: kierunek, storyboard i końcowy przegląd.\n- **Earshot Audio** daje Studio lokalny „słuch” i bank dźwięków: pomiary, efekty na klatkach, ścieżki z licencjonowanych nagrań. Nic nie jest wysyłane.\n\nNie sprawdzałem jeszcze gotowości silnika Earshot (`runtime.py status`). Zrobię to przy pierwszym zadaniu z dźwiękiem. Silnik zainstaluję dopiero po Twojej zgodzie. Lekka wersja zajmuje około 200 MB, pełna około 1,5 GB plus modele około 1,1 GB.\n\nStudio nie ma kont ani konektorów do skonfigurowania. Zewnętrzne narzędzia do generowania obrazu lub wideo ustawimy dopiero wtedy, gdy projekt będzie ich potrzebował.\n\nNapisz, nad czym chcesz zacząć pracę, albo wywołaj samo @FrameCore Works Creative Studio, żeby zobaczyć pełne menu startowe.",
+          "reply_chars": 1388,
+          "reply_sha256": "58ef23bedb0b255d9486b5f6d9577870a2ee7e47d7dc9b73408c98579cc6f8ba",
+          "skills": [
+            "workflow-orchestrator",
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1200,
+            "output": 2051,
+            "cache_read": 113432,
+            "cache_write": 32583
+          },
+          "seconds": 27.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "/plugin install earshot-audio",
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)earshot[^.\\n|]{0,80}(nie jest zainstalowan|niezainstalowan|nie widzę|nie ma go)"
+              },
+              "passed": true,
+              "detail": "not /(?i)earshot[^.\\n|]{0,80}(nie jest zainstalowan|niezainstalowan|nie widzę|nie ma go)/"
+            },
+            {
+              "check": {
+                "no_command": "runtime.py install"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

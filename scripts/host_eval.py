@@ -133,7 +133,7 @@ def within_limit(cases, limit):
 
 def run_turn(prompt, workspace, config, args, tools, session=None, max_turns=None):
     # A companion plugin (Superpowers) is passed explicitly: the isolated config never loads the user's own plugins.
-    companions = [part for path in getattr(args, 'with_plugin', None) or [] for part in ('--plugin-dir', str(path))]
+    companions = [part for path in getattr(args, 'with_plugin', None) or [] for part in ('--plugin-dir', str(Path(path).resolve()))]
     command = ['claude', '-p', prompt, '--plugin-dir', str(PLUGIN), *companions, '--output-format', 'stream-json', '--verbose',
                '--model', args.model, '--max-turns', str(max_turns or args.max_turns), '--allowed-tools', ' '.join(tools),
                '--tools', ','.join(sorted({t.split('(')[0] for t in tools})), '--strict-mcp-config',

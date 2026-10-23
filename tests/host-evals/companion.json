@@ -1,6 +1,6 @@
 {
   "name": "companion",
-  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation. Cases C09-C12 (owner request 2026-10-22, public earshot-audio plugin) also need --with-plugin plugins/earshot-audio.",
+  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation. Cases C09-C13 and C15 (public earshot-audio plugin) also need --with-plugin plugins/earshot-audio; C14 runs with Superpowers only.",
   "requires_plugin": "superpowers",
   "cases": [
     {
@@ -128,7 +128,7 @@
     {
       "id": "C05",
       "gate": true,
-      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again",
+      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again (since 2026-10-23 the setup also offers earshot-audio, so only a Superpowers install command fails)",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
@@ -143,7 +143,7 @@
             },
             {
               "not_contains": [
-                "/plugin install",
+                "/plugin install superpowers",
                 "plugin install superpowers"
               ]
             },
@@ -393,6 +393,71 @@
             },
             {
               "regex": "(?i)nie (jest to |to )?(test|ods[łl]uch)|bez ods[łl]uchu|z odczyt|na podstawie (pomiar|odczyt)"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only.",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "contains_any": [
+                "earshot-audio",
+                "Earshot Audio"
+              ]
+            },
+            {
+              "not_contains": [
+                "plugin install superpowers"
+              ]
+            },
+            {
+              "no_command": "runtime.py"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "title": "Configuring Studio with Superpowers and earshot-audio both loaded recognises earshot-audio by reading its skill and offers no install command for it (owner request 2026-10-23). Run with both plugins.",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "earshot-audio:earshot"
+              ]
+            },
+            {
+              "not_contains": [
+                "/plugin install earshot-audio",
+                "plugin install superpowers"
+              ]
+            },
+            {
+              "not_regex": "(?i)earshot[^.\\n|]{0,80}(nie jest zainstalowan|niezainstalowan|nie widzę|nie ma go)"
+            },
+            {
+              "no_command": "runtime.py install"
             },
             {
               "max_questions": 3

@@ -47,6 +47,15 @@ Before providers or other add-ons, follow [first companion setup](plugins/framec
 
 Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
 
+## Second recommended companion: Earshot Audio
+
+After Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) offers once the sound companion `earshot-audio` (folder `plugins/earshot-audio` in this repository; Earshot 0.4.0 by Leon Lin, MIT): local listening and measuring, sound effects on cue frames and soundtracks from licensed recordings. Skip the offer when `earshot-audio:earshot` is already readable; Studio works without it.
+
+1. It needs code execution: its engine runs in Python on the host's machine. ChatGPT Work with execution can use it; an ordinary ChatGPT chat without execution cannot, so there Studio names Work, Codex or Claude Code instead.
+2. Install it only when the user accepts. With Plugin Creator, create a separate plugin (or update the existing `earshot-audio` one) from the whole folder `plugins/earshot-audio` at the same pinned commit as Studio, then read back its files. Keep the folder whole: its skill calls `scripts/runtime.py` two folders up and checks the engine against `upstream.json`.
+3. Saving the plugin writes no engine. `python3 <earshot-audio>/scripts/runtime.py status --json` reports readiness; `install --tier light --yes` (and the full tier with `fetch-models --yes`) run only after the user agrees, from the pinned commit with every file checked. A Work sandbox may not keep the engine between conversations; run `status` again in each. Nothing is uploaded; its `llm` and `mcp` commands are refused.
+4. Remove it with the host's plugin controls.
+
 ## 6. Offer optional providers after installation
 
 Then read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.

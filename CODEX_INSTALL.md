@@ -59,6 +59,15 @@ Before providers or other add-ons, follow [first companion setup](plugins/framec
 
 Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
 
+## Second recommended companion: Earshot Audio
+
+After Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) offers once the sound companion `earshot-audio` (folder `plugins/earshot-audio` in this repository; Earshot 0.4.0 by Leon Lin, MIT): local listening and measuring, sound effects on cue frames and soundtracks from licensed recordings. Skip the offer when `earshot-audio:earshot` is already readable; Studio works without it.
+
+1. Install it only when the user accepts. Take the folder from the same pinned commit as Studio and keep it whole: its skill calls `scripts/runtime.py` two folders up and checks the engine against `upstream.json`. Where Codex shows a plugin route for a local folder, add `plugins/earshot-audio` (it carries `.codex-plugin/plugin.json`); this route is not yet tested here, so check that the skill is readable afterwards.
+2. Without that route, install the same pinned engine through the registry: `python3 <persistent-bundle-dir>/skills/workflow-orchestrator/assets/extensions/extensions.py show earshot --host codex`, then its plan, install and verify steps. Studio's sound routes call that engine.
+3. Installing the plugin writes no engine. `python3 <earshot-audio>/scripts/runtime.py status --json` reports readiness; `install --tier light|full --yes` and `fetch-models --yes` run only after the user agrees, from the pinned commit with every file checked. Nothing is uploaded; its `llm` and `mcp` commands are refused.
+4. Remove: the host's plugin controls or delete the copied folder, and `~/.framecore-studio/extensions/earshot` if the user wants the engine gone.
+
 ## 6. Offer optional providers after installation
 
 Then read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.
