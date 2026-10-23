@@ -358,6 +358,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "C13",
+      "title": "A review in words of a film's sound is written from local Earshot readings, says it is not a listening test, and uploads nothing (owner decision 2026-10-23)",
+      "files": {
+        "film.mp4": "tests/host-evals/fixtures/companion-final.mp4"
+      },
+      "extra_tools": [
+        "Bash(python3:*)",
+        "Bash(curl:*)"
+      ],
+      "max_turns": 20,
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio W folderze jest film.mp4. Oceń jego dźwięk: co brzmi tanio i co poprawić? Earshot jest już zainstalowany w trybie light, możesz go uruchamiać.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "earshot-audio:earshot"
+              ]
+            },
+            {
+              "command": "runtime.py"
+            },
+            {
+              "no_command": "curl"
+            },
+            {
+              "regex": "(?i)LUFS|dBTP"
+            },
+            {
+              "regex": "(?i)nie (jest to |to )?(test|ods[łl]uch)|bez ods[łl]uchu|z odczyt|na podstawie (pomiar|odczyt)"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
     }
   ]
 }

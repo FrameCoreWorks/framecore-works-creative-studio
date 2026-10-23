@@ -59,6 +59,13 @@ film.mp4`: a scorecard against seven professional launch films with timed fixes 
 or speech-led films need a `profile` built from references the user chooses). `measure` for exact LUFS, true peak,
 LRA, bands, onsets, tempo and key.
 
+**A review in words.** When the user wants an opinion on a mix or a film ("what sounds cheap", "is it ready"), write it
+yourself from local readings: `timeline`, the opened `sheet` PNG, `critique`, `measure` and `describe` or `realness` on
+the sounds you judge, then sync, realism, mix, loudness and the cheap tells, each tied to a number, and fixes by
+impact. Say it is a review written from readings, not a listening test. Steps and criteria:
+`references/written-critique.md`. This replaces upstream's upload to a hosted model: free, no key, nothing leaves the
+machine.
+
 **A/B a change.** `ab before.wav after.wav --query "..."` or `--refs`, with trims for multi-take files, then
 `timeline` again. Change one thing at a time.
 

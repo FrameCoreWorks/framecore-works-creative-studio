@@ -37,11 +37,11 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.0'})
+        self.assertEqual(versions, {'1.0.1'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.0')
+        self.assertEqual(entries['earshot-audio']['version'], '1.0.1')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
@@ -58,6 +58,18 @@ class Package(unittest.TestCase):
         self.assertNotIn('write one short script run with the venv', text)   # companion C12 2026-10-22: five scene questions at once
         description = re.search(r'(?m)^description: (.+)$', text).group(1)
         self.assertLessEqual(len(description), 1024)
+
+    def test_written_critique_replaces_the_upload_with_local_evidence(self):
+        # Owner decision 2026-10-23: a review in words written by the host model from local readings, instead of
+        # upstream's Gemini upload; free, no key, nothing leaves the machine.
+        skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
+        self.assertIn('references/written-critique.md', skill)
+        self.assertIn('A review in words', skill)
+        ref = (PLUGIN / 'skills/earshot/references/written-critique.md').read_text(encoding='utf-8')
+        for needle in ('timeline', 'sheet', 'critique', 'measure', 'describe', 'sync', 'realism', 'mix', 'loudness',
+                       'cheap', 'not a measurement', 'did not hear'):
+            self.assertIn(needle, ref)
+        self.assertNotIn('Gemini', ref.split('## Why not an upload')[0])
 
     def test_licence_and_notice(self):
         data = manifest()

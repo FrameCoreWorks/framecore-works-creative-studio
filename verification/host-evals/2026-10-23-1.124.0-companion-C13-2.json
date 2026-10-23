@@ -1,0 +1,199 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.0",
+  "source": {
+    "commit": "8d650b5b0a406e5158876a8e4b45adef97f508d0",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "c42c2801565f1af18a053fdd3f8fbac51e6c9297db39576430aeed9302725559",
+      "files": 1559,
+      "archive": "candidates/c42c2801565f1af18a053fdd3f8fbac51e6c9297db39576430aeed9302725559.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.1"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 4000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "4aca53f91d3dcfa36ce04874107c2283a6b34c54a5a6174cb5ebd8ff403fea15",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1269,
+      "output": 4673,
+      "cache_read": 247846,
+      "cache_write": 21505
+    },
+    "seconds": 108.2
+  },
+  "cases": [
+    {
+      "id": "C13",
+      "title": "A review in words of a film's sound is written from local Earshot readings, says it is not a listening test, and uploads nothing (owner decision 2026-10-23)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1269,
+        "output": 4673,
+        "cache_read": 247846,
+        "cache_write": 21505
+      },
+      "seconds": 108.2,
+      "wall_seconds": 108.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze jest film.mp4. Oceń jego dźwięk: co brzmi tanio i co poprawić? Earshot jest już zainstalowany w trybie light, możesz go uruchamiać.",
+          "reply": "Dźwięk w `film.mp4` to jeden ciągły ton sinusoidalny, bez muzyki, efektów i głosu. Tak nie brzmi film zmiksowany na poważnie, tylko ścieżka testowa albo placeholder. To ocena z pomiarów, nie odsłuch. Wynik `measure` w Earshot (tryb light) jest dokładny, ale wnioski o brzmieniu są moje.\n\n**Pomiary**\n\n| Parametr | Wartość | Co to znaczy |\n|---|---|---|\n| Głośność | −18,8 LUFS | Około 4–5 LU poniżej typowych −14 LUFS dla sieci. |\n| True peak | −17,4 dBTP | Zapas ponad 16 dB, nic się nie przesterowuje, ale ścieżka jest cicha. |\n| LRA | 0,0 LU | Zero zmian głośności w całym filmie. |\n| Dynamika | 0,4 dB | Praktycznie płaska linia. |\n| Wysokość tonu | 330,3 Hz (E4) | Jeden ton, centroid 329 Hz, pasmo około 507 Hz. |\n| Pasma | lowmid 0 dB, reszta od −55 do −114 dB | Cała energia siedzi w jednym wąskim pasie. Góra i dół są puste. |\n| Płaskość widma | 0,0, harmoniczność 1,0 | Czysta sinusoida, bez szumu, bez alikwotów. |\n| Stereo | korelacja 1,0 | Czysty mono, bez przestrzeni. |\n| Zdarzenia | 1 onset, w 5,97 s | Poza tym nic się nie dzieje. |\n\n**Co brzmi tanio**\n1. **Jedna sinusoida przez 6 s.** To najsilniejszy znak „placeholdera”. Nic nie reaguje na obraz, nic nie narasta ani nie opada.\n2. **Brak ruchu w mikście.** LRA 0 i dynamika 0,4 dB oznaczają ścianę dźwięku. Żadnego budowania napięcia, akcentów ani ciszy przed uderzeniem.\n3. **Puste pasma.** Brak basu poniżej około 200 Hz i brak góry, czyli „powietrza” i prezencji. Dźwięk jest wąski i cienki.\n4. **Mono i sucho.** Korelacja 1,0 i zero pogłosu, więc nie ma poczucia pomieszczenia ani głębi.\n5. **Zbyt cicho.** −18,8 LUFS to wyraźnie poniżej standardu dla social mediów i internetu.\n\n**Co poprawić (od największego wpływu)**\n1. **Zastąp ton prawdziwą warstwą dźwiękową.** Potrzebujesz podkładu muzycznego albo ambientu, który ma ruch i szeroki zakres częstotliwości. Do tego dojdą akcenty na cięciach i kluczowych momentach obrazu (whoosh, hit, pop).\n2. **Dodaj dramaturgię.** Wstęp, narastanie, punkt kulminacyjny i wyciszenie. Przed głównym uderzeniem przycisz muzykę o 6–12 dB na 0,3–0,5 s.\n3. **Rozszerz widmo.** Potrzebujesz niskich i wysokich częstotliwości, nie tylko okolic 330 Hz.\n4. **Dodaj szerokość stereo i trochę pogłosu.** Muzyka i efekty w stereo, mono tylko dla ewentualnego lektora.\n5. **Zmastering do około −14 LUFS** i true peak nie wyżej niż −1,5 dBTP. Teraz masz zapas, więc podbicie o 4–5 dB jest bezpieczne.\n6. **Jeśli ten ton jest celowy** (np. sygnał testowy), zrób przynajmniej fade in i fade out. Obecny onset w 5,97 s, tuż przed końcem, wygląda na artefakt montażu, a nie na decyzję.\n\n**Czego nie sprawdziłem**\n- **Synchronizacja z obrazem.** `timeline`, `sheet` i `critique` wymagają modeli CLAP i AST, których tu nie ma w cache. Nie widziałem cięć ani nie mogłem porównać ich z dźwiękiem. Dlatego nie oceniam synchronu ani zgodności dźwięku z obrazem.\n- **Oceny z `realness` i `describe`** z tego samego powodu.\n- **Dokładne parametry techniczne** (kodek, liczba kanałów). Polecenie `ffprobe` wymagało zatwierdzenia i go nie dostałem.\n\nPełne narzędzia (porównanie z siedmioma filmami launchowymi, synchronizacja na cięciach) wymagają instalacji trybu full. To około 1,5 GB plus około 1,1 GB modeli, zapisane lokalnie, nic nie jest wysyłane. Zainstaluję go, jeśli się zgodzisz. Mogę też pomóc zaprojektować ścieżkę od zera: mapę cue'ów, brief dźwiękowy albo zestaw efektów z banku Earshot, który nie potrzebuje modeli.",
+          "reply_chars": 3419,
+          "reply_sha256": "0f2936de482e57fda49f6f7e8f6d2f5732119d5e808e2d6486ec624967ae6147",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Glob",
+            "Glob",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1269,
+            "output": 4673,
+            "cache_read": 247846,
+            "cache_write": 21505
+          },
+          "seconds": 108.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "command": "runtime.py"
+              },
+              "passed": true,
+              "detail": "ran python3 /home/user/framecore-works-creative-studio/plugins/earshot-audio/scripts/runtime.py status --json"
+            },
+            {
+              "check": {
+                "no_command": "curl"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "regex": "(?i)LUFS|dBTP"
+              },
+              "passed": true,
+              "detail": "/(?i)LUFS|dBTP/"
+            },
+            {
+              "check": {
+                "regex": "(?i)nie (jest to |to )?(test|ods[łl]uch)|bez ods[łl]uchu|z odczyt|na podstawie (pomiar|odczyt)"
+              },
+              "passed": true,
+              "detail": "/(?i)nie (jest to |to )?(test|ods[łl]uch)|bez ods[łl]uchu|z odczyt|na podstawie (pomiar|odczyt)/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
