@@ -52,7 +52,10 @@ class Package(unittest.TestCase):
             self.assertIn(needle, text)
         for banned in ('mcp add', '.mcp.json', 'GEMINI_API_KEY', 'pip install -e', 'llm_critique'):
             self.assertNotIn(banned, text)
-        self.assertIn('at most one question', text)   # companion C12 2026-10-22: five scene questions at once
+        self.assertIn('at most one question', text)
+        # final review I2/I3: every engine call goes through the launcher's environment; no bare venv interpreter
+        self.assertIn('`{{PY}}` means `python3 <runtime> exec`', text)
+        self.assertNotIn('write one short script run with the venv', text)   # companion C12 2026-10-22: five scene questions at once
         description = re.search(r'(?m)^description: (.+)$', text).group(1)
         self.assertLessEqual(len(description), 1024)
 

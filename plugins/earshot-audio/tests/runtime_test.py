@@ -146,6 +146,52 @@ class Readiness(unittest.TestCase):
             self.assertIn('--tier full', err)
             started.assert_not_called()
 
+    def test_status_does_not_trust_an_engine_it_cannot_identify(self):
+        # Final review I4: a venv from the old 0.3 registry route has no engine.json yet imports fine.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(runtime, 'venv_python', return_value=pathlib.Path('/venv/bin/python')), \
+                    mock.patch.object(runtime, '_python_ok', return_value=True):
+                report = runtime.status(root)
+                self.assertEqual(report['state'], 'unavailable')
+                self.assertIn('reinstall', report['note'])
+                (root / 'engine.json').write_text('{not json')
+                self.assertEqual(runtime.status(root)['state'], 'unavailable')
+                (root / 'engine.json').write_text(json.dumps({**runtime.PIN, 'tier': 'light'}))
+                self.assertEqual(runtime.status(root)['state'], 'ready_light')
+
+    def test_exec_applies_the_offline_cache_and_checks_earshot_commands(self):
+        # Final review I2: scripts run with the bare venv interpreter missed EARSHOT_HOME and the offline flags.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            with mock.patch.object(runtime, 'venv_python', return_value=pathlib.Path('/venv/bin/python')), \
+                    mock.patch.object(runtime.subprocess, 'run', return_value=mock.Mock(returncode=0)) as started, \
+                    mock.patch.dict(runtime.os.environ, {'GEMINI_API_KEY': 'x', 'GOOGLE_API_KEY': 'y'}):
+                self.assertEqual(quiet(runtime.main, ['--root', tmp, 'exec', '-I', 'my_analysis.py', 'a.wav'])[0], 0)
+                command, env = started.call_args.args[0], started.call_args.kwargs['env']
+                self.assertEqual(command, ['/venv/bin/python', '-I', 'my_analysis.py', 'a.wav'])
+                self.assertEqual(env['EARSHOT_HOME'], str(root / 'cache'))
+                self.assertEqual(env['EARSHOT_OFFLINE'], '1')
+                self.assertNotIn('GEMINI_API_KEY', env)
+                self.assertNotIn('GOOGLE_API_KEY', env)
+                started.reset_mock()
+                self.assertEqual(quiet(runtime.main, ['--root', tmp, 'exec', '-m', 'earshot', '--threads', '2', 'llm', 'a.wav'])[0], 2)
+                self.assertEqual(quiet(runtime.main, ['--root', tmp, 'exec', '-m', 'earshot.mcp_server'])[0], 2)
+                started.assert_not_called()
+
+    def test_install_removes_the_upload_and_server_modules_from_the_engine(self):
+        # Final review I3: the CLI allowlist alone left api.llm_critique and the MCP server importable.
+        with tempfile.TemporaryDirectory() as tmp:
+            package = pathlib.Path(tmp) / 'site' / 'earshot'
+            package.mkdir(parents=True)
+            for name in ('llm.py', 'mcp_server.py', 'api.py'):
+                (package / name).write_text('real = True\n')
+            runtime.disable_remote_modules(package)
+            for name in ('llm.py', 'mcp_server.py'):
+                self.assertIn('earshot-audio', (package / name).read_text())
+                self.assertIn('raise ImportError', (package / name).read_text())
+            self.assertEqual((package / 'api.py').read_text(), 'real = True\n')
+
     def test_venv_python_on_windows_layout(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = pathlib.Path(tmp)

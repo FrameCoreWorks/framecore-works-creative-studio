@@ -6,6 +6,7 @@
     python3 runtime.py fetch-models [--yes]
     python3 runtime.py run [--threads N] <command> [args...]
     python3 runtime.py python <real-sound script> [args...]
+    python3 runtime.py exec [python args...]      the venv interpreter with the plugin's offline cache: {{PY}}
 
 Standard library only. `status` never writes; `install` and `fetch-models` print their plan and write nothing without
 --yes. The engine comes from one pinned upstream commit, and every file is checked against upstream.json before
@@ -134,7 +135,10 @@ def status(root):
     root = Path(root)
     python = venv_python(root)
     marker = root / 'engine.json'
-    engine = json.loads(marker.read_text()) if marker.is_file() else {}
+    try:
+        engine = json.loads(marker.read_text()) if marker.is_file() else {}
+    except (OSError, ValueError):
+        engine = {}
     light = bool(python) and _python_ok(python, ['earshot', 'numpy', 'scipy', 'soundfile', 'librosa', 'pyloudnorm'])
     full = light and _python_ok(python, ['torch', 'transformers'])
     hub = root / 'cache' / 'hf'
@@ -143,9 +147,9 @@ def status(root):
               'pinned_commit': PIN['commit'], 'light_ready': light, 'full_ready': full, 'models_cached': cached,
               'ffmpeg': shutil.which('ffmpeg'), 'ffprobe': shutil.which('ffprobe')}
     report['state'] = 'ready_full' if full and cached else 'ready_light' if light else 'unavailable'
-    if engine.get('commit') and engine['commit'] != PIN['commit']:
+    if python and engine.get('commit') != PIN['commit']:   # an older route's venv, or an unfinished install
         report['state'] = 'unavailable'
-        report['note'] = 'installed engine is not the pinned commit; reinstall'
+        report['note'] = 'the engine here is not the pinned, completed install of this plugin; reinstall with install --yes'
     return report
 
 
@@ -175,13 +179,41 @@ def install(tier, root):
         if tier == 'full':
             subprocess.run(pip + ['--index-url', TORCH_INDEX, 'torch>=2.6'], check=True)
             subprocess.run(pip + FULL[1:], check=True)
+        disable_remote_modules(engine_package(python))
     (root / 'engine.json').write_text(json.dumps({**PIN, 'tier': tier}, indent=2) + '\n')
     print(json.dumps(status(root), indent=2))
     return 0
 
 
+REMOTE_MODULES = ('llm.py', 'mcp_server.py')
+STUB = ('"""Removed by earshot-audio: this plugin runs Earshot locally only, with no audio upload and no MCP server."""\n'
+        'raise ImportError("earshot-audio: the audio-LLM upload and the MCP server are not part of this installation")\n')
+
+
+def engine_package(python):
+    """The installed earshot package folder in the venv, or None."""
+    try:
+        out = subprocess.run([str(python), '-c', 'import earshot, os; print(os.path.dirname(earshot.__file__))'],
+                             capture_output=True, text=True, timeout=120).stdout
+        folder = Path(str(out).strip())
+        return folder if folder.is_dir() else None
+    except (OSError, subprocess.TimeoutExpired, TypeError, ValueError):
+        return None
+
+
+def disable_remote_modules(package):
+    """Replace the engine's upload (llm) and server (mcp) modules in the venv with an ImportError stub."""
+    if not package:
+        return
+    for name in REMOTE_MODULES:
+        target = Path(package) / name
+        if target.exists():
+            target.write_text(STUB)
+
+
 def engine_env(root, offline=True):
-    env = dict(os.environ, EARSHOT_HOME=str(Path(root) / 'cache'))
+    env = {k: v for k, v in os.environ.items() if k not in ('GEMINI_API_KEY', 'GOOGLE_API_KEY')}
+    env['EARSHOT_HOME'] = str(Path(root) / 'cache')   # the cache fetch-models fills; keys dropped, nothing to upload with
     if offline:
         env.update(OFFLINE)
     return env
@@ -194,12 +226,33 @@ def split_passthrough(argv):
         root, i = Path(argv[1]), 2
     elif argv[:1] and argv[0].startswith('--root='):
         root, i = Path(argv[0].split('=', 1)[1]), 1
-    if i < len(argv) and argv[i] in ('run', 'python'):
+    if i < len(argv) and argv[i] in ('run', 'python', 'exec'):
         return root, argv[i], argv[i + 1:]
     return None
 
 
+def check_exec(args):
+    """`-m earshot <command>` goes through the allowlist; any other earshot module run directly is refused."""
+    if '-m' in args:
+        module = args[args.index('-m') + 1] if args.index('-m') + 1 < len(args) else ''
+        if module == 'earshot':
+            check_command(args[args.index('-m') + 2:])
+        elif module.startswith('earshot.'):
+            raise Refused(f'`-m {module}` is not available in earshot-audio; use `-m earshot <command>`')
+
+
 def passthrough(root, command, rest):
+    if command == 'exec':
+        try:
+            check_exec(rest)
+        except Refused as error:
+            print(f'earshot-audio: {error}', file=sys.stderr)
+            return 2
+        python = venv_python(root)
+        if not python:
+            print('earshot-audio: the engine is not installed here; see `runtime.py install --tier light`', file=sys.stderr)
+            return 1
+        return subprocess.run([str(python), *rest], env=engine_env(root)).returncode
     if command == 'run':
         try:
             check_command(rest)

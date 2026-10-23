@@ -32,11 +32,14 @@ from where the host installed this skill; never copy a path from another machine
 
 - One command: `python3 <runtime> run <command> ... [--json]`. Allowed: `measure describe match rank find compare ab
   realness timeline sheet critique profile forge fit sfx kit gallery doctor`. Runs are offline.
-- Many readings in one task: models take 20-40 s to load per process, so write one short script run with the venv
-  interpreter (`venv` in `status --json`): `from earshot import api` then `api.find(...)`, `api.realness(...)`.
-- Not in this plugin, and refused: `llm` (uploads audio to Gemini), `mcp` (a server), `doctor --fetch` (use
-  `fetch-models`). Do not install upstream's `mcp` or `llm` extras or configure keys. If someone asks for an audio-LLM
-  opinion, say it would upload the audio and offer the local readings instead.
+- Many readings in one task: models take 20-40 s to load per process, so write one short script and run it with
+  `python3 <runtime> exec -I my_script.py` (`from earshot import api`, then `api.find(...)`, `api.realness(...)`).
+  `exec` is the venv interpreter with the plugin's offline model cache; never call the venv's python directly, which
+  would miss that cache and could download the models again.
+- Not in this plugin: `llm` (uploads audio to Gemini) and `mcp` (a server). The launcher refuses them, and the
+  installation replaces both modules in the engine with a stub that raises an error, so the upload cannot run from Python
+  either; API keys are not passed to the engine. `doctor --fetch` is refused too (use `fetch-models`). If someone asks
+  for an audio-LLM opinion, say it would upload the audio and offer the local readings instead.
 - Errors are one line on stderr with exit 1; a refusal is exit 2.
 
 ## 3. Listening
@@ -86,9 +89,9 @@ real.
 
 ## 5. A soundtrack from real recordings (real-sound)
 
-Follow `<skill>/references/process.md` and the prompt briefs in `<skill>/templates/prompts/`. `{{PY}}` in those files
-is the venv interpreter from `status --json`; run every script through `python3 <runtime> python <script> ...`
-(isolated, `-I`) and every `{{PY}} -m earshot <command>` as `python3 <runtime> run <command>`.
+Follow `<skill>/references/process.md` and the prompt briefs in `<skill>/templates/prompts/`. In those files
+`{{PY}}` means `python3 <runtime> exec`: fill it in that way, also in briefs handed to other agents, so every
+script and every `-m earshot <command>` runs offline from the plugin's cache and through the allowlist.
 
 Steps: cue list from the picture (`templates/cues.json`), brief (`templates/SOUND_BRIEF.md`), recordings, licence
 audit, music edit at bar lines (`arrange.py`), design fragments, integrate and QA (`mix.py`, `qa.py --layers`,

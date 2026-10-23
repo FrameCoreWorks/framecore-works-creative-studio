@@ -9,8 +9,8 @@ fits sounds in code, and builds full soundtracks from real licensed recordings.
 It works on its own and next to FrameCore Works Creative Studio, which hands it sound work and keeps the brief,
 approvals and final review.
 
-- **Local only.** The engine runs on the user's machine on CPU. Nothing is uploaded; upstream's audio-LLM command and
-  MCP server are not part of this plugin.
+- **Local only.** The engine runs on the user's machine on CPU. Nothing is uploaded: the launcher refuses upstream's audio-LLM
+  and MCP commands, and the installation replaces those two engine modules with a stub.
 - **Pinned and checked.** `scripts/runtime.py` installs Earshot v0.4.0 from commit `591fa3e` into
   `~/.framecore-studio/extensions/earshot`, after checking every upstream file against `upstream.json`, and only after
   the user agrees. Models (about 1.1 GB) are a separate, agreed step.
