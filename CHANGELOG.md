@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.124.4, 2026-10-23
+
+- **Effects chosen by listening.** Trigger: the owner's listening report on 2026-10-23 (a preset's landing hit with a metallic debris tail; Earshot read it as 11.8 onsets per second, losing to "metal debris / rattle"). The public `earshot-audio` 1.0.4 skill chooses every effect from a description built from the picture and the request: candidates ranked, the pick matched against likely confusions, onsets per second and speaker-audible bands measured, as gates rather than trade-offs, with readings and rejected candidates reported. The [Motion Graphics owner](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md) and [native Earshot routing](plugins/framecore-work-creative-studio/skills/pipeline-core/references/earshot-native-routing.md) ask for such takes. Host eval C17 failed before and passes after.
+
 ## 1.124.3, 2026-10-23
 
 - **A missing Earshot engine is a choice, not a silent fallback.** Trigger: the owner's ChatGPT Work test on 2026-10-23, where earshot-audio was listed without its engine and Work made the sound with `sound.py` without asking. Owner decision (option A): [native Earshot routing](plugins/framecore-work-creative-studio/skills/pipeline-core/references/earshot-native-routing.md), the [Motion Graphics owner](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md) and the public `earshot-audio` 1.0.3 skill ask one question with both routes (Earshot's light tier, about 200 MB, or Studio's own engine), run neither before the answer and name the engine that ran. Host eval C16 failed before and passes after; C09 and C10 still pass.

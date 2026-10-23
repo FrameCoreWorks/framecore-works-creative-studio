@@ -3320,3 +3320,24 @@ Cross-host state:
 - GitHub: synchronized after push
 - ChatGPT Work: pending (hosted earshot-audio still runs an older runtime.py per the owner's report)
 - Codex: not_run
+
+## CC-20261023-06
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `8d06086` (main, package 1.124.3); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.124.4)
+- Package version: 1.124.3 -> 1.124.4
+- Scope: Owner's listening report on 2026-10-23: a preset's landing hit had a metallic debris tail. Earshot-audio 1.0.4 and Studio choose every effect by listening, with candidates ranked, a match against likely confusions, onsets per second and speaker-audible bands as gates, and the readings reported. Host eval C17 failed before and passes after.
+- Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.124.4.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 238 Node tests (227 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 9 suite 6, 9 suite 7, 8 suite 8 (3 skipped; see the suite log for reasons), 23 suite 9, 17 suite 10, 24 suite 11, 21 suite 12, 29 suite 13, 6 suite 14, 10 suite 15, 10 suite 16, 7 suite 17, 30 suite 18, 11 suite 19, 5 suite 20, 15 suite 21, 8 suite 22 (8 skipped; see the suite log for reasons), 2 suite 23, 8 suite 24, 6 suite 25, 14 suite 26, 11 suite 27, 6 suite 28, 4 suite 29, 43 suite 30, 20 suite 31, 26 suite 32, 17 suite 33, 10 suite 34, 4 suite 35, 4 suite 36, 2 suite 37, 2 suite 38, 3 suite 39, 5 suite 40 (5 skipped; see the suite log for reasons), 5 suite 41, 4 suite 42, 8 suite 43, 8 suite 44, 11 suite 45, 6 suite 46, 13 suite 47, 3 suite 48, 12 suite 49, 3 suite 50, 6 suite 51, 4 suite 52, 9 suite 53, 2 suite 54, 2 suite 55, 15 suite 56, 10 suite 57, 27 suite 58: PASS ([record](../verification/release-1.124.4.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

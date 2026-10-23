@@ -1,0 +1,28 @@
+{
+  "version": "1.124.4",
+  "baseline_tag": "v1.124.3",
+  "baseline": "c55acad7d9e1b99b4d362cc07d05a19a9d38592a",
+  "change_id": "CC-20261023-06",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/pipeline-core/references/earshot-native-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1549,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner's listening report on 2026-10-23: a preset's landing hit had a metallic debris tail. Earshot-audio 1.0.4 and Studio choose every effect by listening, with candidates ranked, a match against likely confusions, onsets per second and speaker-audible bands as gates, and the readings reported. Host eval C17 failed before and passes after."
+}
