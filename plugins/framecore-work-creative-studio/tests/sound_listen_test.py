@@ -110,6 +110,32 @@ class ListenTests(unittest.TestCase):
         bad = subprocess.run([sys.executable, str(KIT / 'listen.py'), 'measure', str(self.dir / 'nope.wav')], capture_output=True, text=True)
         self.assertEqual(bad.returncode, 3)
 
+    def test_the_earshot_bridge_uses_the_plugin_engine_offline_and_refuses_uploads(self):
+        # One Earshot (owner request 2026-10-23): the bridge runs the earshot-audio engine with its own model cache,
+        # offline and without API keys, and refuses llm and mcp as the plugin's launcher does.
+        root = self.dir / 'earshot'
+        exe = root / 'venv/bin/earshot'
+        exe.parent.mkdir(parents=True)
+        exe.write_text('#!/bin/sh\n')
+        (root / 'cache').mkdir()
+        calls = []
+        real = self.listen.subprocess.call
+        self.listen.subprocess.call = lambda cmd, env=None: calls.append((cmd, env)) or 0
+        try:
+            self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
+            self.assertEqual(self.listen.delegate('llm', ['a.wav'], str(exe)), 2)
+            self.assertEqual(self.listen.delegate('mcp', [], str(exe)), 2)
+        finally:
+            self.listen.subprocess.call = real
+        self.assertEqual(len(calls), 1)
+        cmd, env = calls[0]
+        self.assertEqual(cmd, [str(exe), 'describe', 'a.wav'])
+        self.assertEqual(env['EARSHOT_HOME'], str(root / 'cache'))
+        self.assertEqual(env['EARSHOT_OFFLINE'], '1')
+        self.assertNotIn('GEMINI_API_KEY', env)
+        self.assertNotIn('llm', self.listen.EARSHOT_COMMANDS)
+        self.assertIn('earshot-audio', open(KIT / 'listen.py', encoding='utf-8').read())
+
     def test_critique_reports_partial_without_earshot(self):
         p = self.dir / 'crit.wav'
         write_wav(p, clicks([0.5, 1.0, 1.5, 2.0], 3.0, amp=0.5))

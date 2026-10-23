@@ -1,0 +1,376 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "4babcc36ac751ac43909102f56d0584701336b61e739e285f7caa291101cd28f",
+      "files": 1559,
+      "archive": "candidates/4babcc36ac751ac43909102f56d0584701336b61e739e285f7caa291101cd28f.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.5"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 1200,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "82a63ef1ff1bf082e0ca7b6081f45b47652e7eb5d9c8b7cb7e8cdd38c289dd9f",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 3,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3819,
+      "output": 9184,
+      "cache_read": 453303,
+      "cache_write": 78516
+    },
+    "seconds": 114.6
+  },
+  "cases": [
+    {
+      "id": "C18",
+      "title": "Owner request 2026-10-23: configuring Studio with both plugins loaded and the Earshot engine missing explains Earshot in plain words and asks once: full (about 2.6 GB), light (about 200 MB) or not now; nothing is installed before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1202,
+        "output": 1701,
+        "cache_read": 158060,
+        "cache_write": 33119
+      },
+      "seconds": 25.8,
+      "wall_seconds": 25.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Skonfigurowałem Studio. Superpowers już działa, a Earshot czeka na Twoją decyzję. Niczego nie instalowałem.\n\n**Superpowers.** Jest w tej sesji i przeczytałem go, więc nie trzeba nic instalować. Pomaga doprecyzować wymagania, planować prace techniczne, diagnozować błędy i sprawdzać wyniki. Część kreatywną, storyboard i końcowy przegląd nadal prowadzi Studio.\n\n**Earshot.** To drugi polecany dodatek. Moduł jest zainstalowany, ale silnik jeszcze nie (status: `unavailable`). Earshot dobiera i tworzy efekty dźwiękowe do filmów, na przykład „szum” przelotu przy pojawieniu się napisu albo uderzenie przy lądowaniu logo. Ustawia je dokładnie na klatce, w której coś dzieje się w obrazie, i sprawdza, czy pasują. Działa lokalnie w tym środowisku i niczego nie wysyła do internetu.\n\nWybierz wariant:\n1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać” dźwięków i sam wybrać ten, który najlepiej pasuje.\n2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n3. **Na razie bez Earshota.** Studio ma też własne narzędzia dźwiękowe i możemy pracować na nich.\n\nPrzy wariancie pełnym środowisko musi mieć dostęp do PyPI, `download.pytorch.org` i `huggingface.co`. Jeśli sieć któryś zablokuje, powiem który, i zatrzymam się. Silnik może też zniknąć razem z kontenerem. Wtedy sprawdzę status i zapytam o to samo.\n\nOdpowiedz **1**, **2** albo **3**.",
+          "reply_chars": 1398,
+          "reply_sha256": "f6576af4dada5090364729a2d7ef6c52a714e332cd5b90aecb505d43be56c364",
+          "skills": [
+            "workflow-orchestrator",
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read",
+            "Skill",
+            "Bash"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1202,
+            "output": 1701,
+            "cache_read": 158060,
+            "cache_write": 33119
+          },
+          "seconds": 25.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "regex": "(?i)2[,.]6\\s?GB"
+              },
+              "passed": true,
+              "detail": "/(?i)2[,.]6\\s?GB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)200\\s?MB"
+              },
+              "passed": true,
+              "detail": "/(?i)200\\s?MB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pełn"
+              },
+              "passed": true,
+              "detail": "/(?i)pełn/"
+            },
+            {
+              "check": {
+                "regex": "(?i)lekk|light"
+              },
+              "passed": true,
+              "detail": "/(?i)lekk|light/"
+            },
+            {
+              "check": {
+                "regex": "(?i)efekt\\w* dźwięk|dźwięk\\w* (w|do) film"
+              },
+              "passed": true,
+              "detail": "/(?i)efekt\\w* dźwięk|dźwięk\\w* (w|do) film/"
+            },
+            {
+              "check": {
+                "no_command": "--yes"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C19",
+      "title": "Owner request 2026-10-23: Superpowers supports Earshot's code; a failed Earshot full install is diagnosed with systematic-debugging and the blocked host is named, never worked around.",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1303,
+        "output": 2094,
+        "cache_read": 75711,
+        "cache_write": 20544
+      },
+      "seconds": 26.5,
+      "wall_seconds": 26.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Instalacja pełnego Earshota (runtime.py install --tier full --yes) przerwała się błędem: \"Failed to connect to proxy ... fetching https://download-r2.pytorch.org/whl/cpu/torch-2.14.1+cpu ... Tunnel connection failed: 403 Forbidden\". Co z tym zrobić?",
+          "reply": "Nie dostałem zgody na odczyt statusu proxy, więc diagnoza opiera się na komunikacie błędu i dokumentacji proxy.\n\n**Co się stało.** `403 Forbidden` przy `Tunnel connection failed` oznacza, że proxy sesji odrzuciło połączenie z hostem `download-r2.pytorch.org`. To nie jest awaria sieci ani certyfikatu. Zgodnie z dokumentacją proxy (`/root/.ccr/README.md`) taki 403 zwykle znaczy, że host nie jest dozwolony dla tej sesji. Ponawianie nic nie da. Nie obchodziłbym tego przez inny mirror, wyłączanie weryfikacji TLS ani zmianę `HTTPS_PROXY`. Pobranie samego `torch` (CPU) z tego hosta jest częścią pełnego tieru.\n\n**Stan instalacji.** `runtime.py status --json` pokazuje `state: unavailable`. Nie ma venv, a `light_ready` i `full_ready` mają wartość `false`. Nic z Earshota nie jest więc gotowe, także tier light.\n\n**Co możesz zrobić:**\n1. **Odblokować host.** Poproś administratora tej sesji o dopuszczenie `download-r2.pytorch.org` (i prawdopodobnie `download.pytorch.org`) w polityce egress. Potem uruchom `python3 <runtime> install --tier full --yes` jeszcze raz.\n2. **Zacząć od tieru light.** Nie wymaga modeli ani torcha, ma ok. 200 MB i daje `measure`, `critique --fast`, `sfx`, `kit` oraz skrypty real-sound. Sprawdza synchronizację z zmierzonych onsetów. Nie ma w nim `timeline`, `sheet`, `describe`, `match`, `rank`, `find`, `realness` ani pełnego `critique`. Zainstaluję go po Twojej zgodzie: `python3 <runtime> install --tier light --yes`.\n3. **Zainstalować pełny tier na własnej maszynie.** Earshot działa lokalnie, więc tam ta blokada nie występuje.\n\nDo tego dochodzi drugi, osobny problem. `fetch-models` (CLAP i AST, ok. 1,1 GB) też wymaga sieci i może zostać zablokowane tak samo, więc najpierw trzeba wyjaśnić politykę hosta.\n\nCzy mam zainstalować tier light (ok. 200 MB), czy wolisz poczekać na odblokowanie hosta? Jeśli pozwolisz na `curl http://127.0.0.1:45145/__agentproxy/status`, sprawdzę też, który host dokładnie został zablokowany.",
+          "reply_chars": 1955,
+          "reply_sha256": "17cc4626022194fbead5928e999ecaa0851612a0285abc636c040e63bec90cfc",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Read",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1303,
+            "output": 2094,
+            "cache_read": 75711,
+            "cache_write": 20544
+          },
+          "seconds": 26.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "regex": "(?i)pytorch\\.org"
+              },
+              "passed": true,
+              "detail": "/(?i)pytorch\\.org/"
+            },
+            {
+              "check": {
+                "no_command": "pip install"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "--index-url"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C20",
+      "title": "Owner request 2026-10-23: code that places Earshot's takes on cue frames is written test-first with Superpowers.",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1314,
+        "output": 5389,
+        "cache_read": 219532,
+        "cache_write": 24853
+      },
+      "seconds": 62.3,
+      "wall_seconds": 62.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi mały skrypt w Pythonie, który bierze kit.lock.json z Earshota (zmierzony onset każdego dźwięku) i cues.json z klatkami przy 29,97 fps i wylicza, od której próbki (48 kHz) wstawić każdy dźwięk, żeby jego onset trafił w klatkę.",
+          "reply": "Skrypt jest w `/tmp/studio-eval-w0964a25/work/place_cues.py`. Sprawdziłem go tylko na wymyślonych danych, nie na prawdziwym `kit.lock.json`.\n\n**Użycie:** `python3 -I place_cues.py kit.lock.json cues.json [--rate 48000] [--fps 30000/1001] [--json]`\n\n**Wzór** (ten z `studio-handoff.md` Earshota): `start = round(t·48000) − round(onset·48000)`, gdzie `t = klatka · 1001 / 30000`.\n- **Ułamki:** czas liczę na `Fraction`, więc nie ma dryfu zmiennoprzecinkowego. Jedna klatka to 1601,6 próbki, więc zaokrąglam raz, na samym końcu.\n- **29,97 fps:** jeśli w `cues.json` stoi `29.97`, traktuję to jako 30000/1001, a nie dokładne 29,97. Można to nadpisać przez `--fps`.\n- **Ujemny start:** gdy dźwięk wypada przed początkiem filmu, skrypt oznacza go jako „needs pre-roll”. Niczego nie przycina, bo przycięcie ucięłoby onset.\n- **Brak dźwięku:** cue bez pasującego dźwięku w locku jest wypisany osobno.\n\n**Wynik testu:**\n- Klatka 48, onset 5 ms: t = 1,6016 s, start w próbce 76637. Ręczne przeliczenie daje to samo.\n- Klatka 90, onset 0,5 s: start w próbce 120144.\n- Klatka 5, onset 0,5 s: start −15992, więc skrypt zgłosił pre-roll.\n- Cue bez dźwięku w locku: skrypt zgłosił brak dopasowania.\n\n**Założenia o formatach, do sprawdzenia:**\n- **`kit.lock.json`:** w dostępnych mi plikach Earshota nie ma opisu jego schematu, a samego silnika tu nie zainstalowano. Zgaduję więc kształt: lista lub słownik pod `takes` (albo na górnym poziomie), z `id` i `onset` w sekundach (akceptuję też `onset_s` i `onset_sec`). Jeśli prawdziwy lock ma inne nazwy pól, skrypt zgłosi błąd z listą kluczy i wystarczy zmienić jedną funkcję, `onset_of`.\n- **`cues.json`:** czytam format z szablonu Earshota. Zdarzenia leżą w `events`, każde ma `f` (klatka liczona od zera) i `id`.\n- **Dopasowanie:** dźwięk do cue'a dobieram po polu `take` w cue'ie, potem po jego `id`, a na końcu po `kind`.\n- **Punkt synchronizacji:** używam wyłącznie onsetu, jak prosiłeś. Dla whoosha czy risera Earshot zaleca peak lub koniec, a wtedy trzeba by podstawić inne pole.\n\nGdy wkleisz fragment prawdziwego `kit.lock.json`, dopasuję parsowanie. Po zmiksowaniu warto też sprawdzić zakodowany film przez `timeline --cues`.",
+          "reply_chars": 2167,
+          "reply_sha256": "d12e64c8a77e51cb37642c098d088e8260e4f465a3c858fe7121e805309aeb83",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Bash",
+            "Read",
+            "Glob",
+            "Read",
+            "Grep",
+            "Grep",
+            "Write",
+            "Bash",
+            "Write",
+            "Write",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1314,
+            "output": 5389,
+            "cache_read": 219532,
+            "cache_write": 24853
+          },
+          "seconds": 62.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:test-driven-development"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['superpowers:test-driven-development']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

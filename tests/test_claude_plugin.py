@@ -71,6 +71,19 @@ class Manifests(unittest.TestCase):
 
 
 class Guides(unittest.TestCase):
+    def test_installation_flows_into_the_same_companion_setup_on_every_host(self):
+        # Owner request 2026-10-23: no extra "Configure Studio" in Claude; the same Superpowers and Earshot offer everywhere.
+        guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
+        prompt = guide.split('## Paste this prompt', 1)[1].split('```text', 1)[1].split('```', 1)[0]
+        self.assertIn('first\ncompanion setup', prompt)
+        for name in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
+            text = (ROOT / name).read_text()
+            self.assertIn('Right after the final check, in the same conversation', text, name)
+            earshot = text.split('## Second recommended companion: Earshot Audio', 1)[1].split('\n## ', 1)[0]
+            for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 200 MB)', 'install --tier <full|light>',
+                           'fetch-models --yes', 'status --json', '*.hf.co'):
+                self.assertIn(needle, earshot, name)
+
     def test_every_install_guide_offers_earshot_audio_after_superpowers(self):
         # Owner request 2026-10-23: each host's guide names the sound companion, second after Superpowers.
         for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):

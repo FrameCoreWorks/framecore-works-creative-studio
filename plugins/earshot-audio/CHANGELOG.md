@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.5, 2026-10-23
+
+Owner request: one Earshot, set up from FrameCore Works Creative Studio's first configuration (full or light chosen
+there), and Superpowers as the method for the code around it. The skill names `superpowers:writing-plans`,
+`test-driven-development`, `systematic-debugging` and `verification-before-completion` for soundtrack plans, cue
+placement checks, failures and the final check on the encoded film. No engine change.
+
 ## 1.0.4, 2026-10-23
 
 Owner report after listening: the landing hit taken from a kit preset had a metallic debris tail. Every effect is now

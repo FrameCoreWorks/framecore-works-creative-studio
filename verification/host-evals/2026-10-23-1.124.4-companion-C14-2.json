@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "4babcc36ac751ac43909102f56d0584701336b61e739e285f7caa291101cd28f",
+      "files": 1559,
+      "archive": "candidates/4babcc36ac751ac43909102f56d0584701336b61e739e285f7caa291101cd28f.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "82a63ef1ff1bf082e0ca7b6081f45b47652e7eb5d9c8b7cb7e8cdd38c289dd9f",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1198,
+      "output": 1603,
+      "cache_read": 79165,
+      "cache_write": 27613
+    },
+    "seconds": 31.6
+  },
+  "cases": [
+    {
+      "id": "C14",
+      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1198,
+        "output": 1603,
+        "cache_read": 79165,
+        "cache_write": 27613
+      },
+      "seconds": 31.6,
+      "wall_seconds": 31.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Konfiguracja Studio (Claude Code, wersja pakietu 1.124.4):\n\n**1. Superpowers: gotowy.** Jest na liście skilli tej sesji, a jego treść wczytała się przy starcie, więc nie trzeba go instalować. Studio prowadzi część kreatywną: kierunek, storyboard i końcowy przegląd. Superpowers pomaga przy wymaganiach, planowaniu prac technicznych, diagnozie błędów i weryfikacji wyników.\n\n**2. Earshot: nie ma go w tej sesji.** To drugi polecany dodatek, silnik do dźwięku w filmach. Dobiera i tworzy efekty dźwiękowe, na przykład „szum” przelotu, gdy pojawia się napis, albo uderzenie, gdy ląduje logo. Ustawia je dokładnie w momencie, w którym coś dzieje się w obrazie, i sprawdza, czy pasują. Działa u Ciebie, w Twoim środowisku pracy, i niczego nie wysyła do internetu.\n\nDo wyboru:\n1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać” dźwięków i sam wybrać ten, który najlepiej pasuje.\n2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n3. **Na razie bez Earshota.**\n\nDopóki nie odpowiesz, niczego nie instaluję. Po wyborze 1 lub 2 zainstaluję wtyczkę i silnik krok po kroku i powiem, w jakim stanie się skończyło. Do tego potrzebuję dostępu do powłoki, a w tej sesji nie mam teraz narzędzia do jej uruchamiania. Jeśli nie da się go włączyć, podam Ci polecenia do wykonania ręcznie.\n\nInstalacja pełna pobiera pliki z PyPI, `download.pytorch.org` i `huggingface.co`. W środowisku chmurowym Claude Code te hosty muszą być dozwolone w ustawieniach dostępu do sieci. Jeśli któryś będzie zablokowany, powiem który, i się zatrzymam.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1611,
+          "reply_sha256": "88a84668b6dd5316919fed5f49d990d3df92af2fc625937965a59c13e82547ab",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 1603,
+            "cache_read": 79165,
+            "cache_write": 27613
+          },
+          "seconds": 31.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)2[,.]6\\s?GB"
+              },
+              "passed": true,
+              "detail": "/(?i)2[,.]6\\s?GB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)200\\s?MB"
+              },
+              "passed": true,
+              "detail": "/(?i)200\\s?MB/"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "earshot-audio",
+                  "Earshot Audio"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['earshot-audio', 'Earshot Audio']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "no_command": "runtime.py"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

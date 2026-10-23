@@ -25,9 +25,11 @@ from where the host installed this skill; never copy a path from another machine
    `python3 <runtime> install --tier light` prints the plan; `--yes` runs it (about 200 MB). Full: `--tier full --yes`
    (about 1.5 GB) and `python3 <runtime> fetch-models --yes` (pinned CLAP and AST, about 1.1 GB). The source is the
    pinned commit, checked file by file; the engine is never updated from upstream `main`.
-3. No shell or code execution in this host: give the plan, the exact commands and what each would prove; never
+3. An installation, `runtime.py`, model-load or render failure: load `superpowers:systematic-debugging` first when it
+   is in the skill list, then read the error and `status --json`; a blocked host is named, never worked around.
+4. No shell or code execution in this host: give the plan, the exact commands and what each would prove; never
    report a reading that did not run.
-4. Ask at most one question per reply: the one that changes the route (own recordings or a search, which film or
+5. Ask at most one question per reply: the one that changes the route (own recordings or a search, which film or
    file). Take sensible defaults for the rest (how the sound should feel, its room, its length), say them in one
    line, and let the user correct them.
 
@@ -43,6 +45,9 @@ from where the host installed this skill; never copy a path from another machine
   installation replaces both modules in the engine with a stub that raises an error, so the upload cannot run from Python
   either; API keys are not passed to the engine. `doctor --fetch` is refused too (use `fetch-models`). If someone asks
   for an audio-LLM opinion, say it would upload the audio and offer the local readings instead.
+- Writing code around Earshot (a script on `earshot.api`, cue mapping, sample placement, a mix): when
+  `superpowers:test-driven-development` is in the skill list, load it before the first line of code and write the
+  expected result (for placement, the sample each cue's onset must land on) as a failing test first.
 - Errors are one line on stderr with exit 1; a refusal is exit 2.
 
 ## 3. Listening
@@ -138,6 +143,14 @@ numbers, and what was not run. FrameCut (or the project's editor) keeps the mast
 frame as `frame * fps_den / fps_num` seconds and place a take at `round(t * rate) - round(anchor * rate)` samples;
 Earshot 0.4.0 reads a numeric fps in cue files, so pass seconds with rational FPS kept in the project. The project's
 owner keeps the brief, approvals and final review. Details: `references/studio-handoff.md`.
+
+With Superpowers in the skill list, load the matching Superpowers skill before acting (it is the method for the code
+around Earshot): `superpowers:writing-plans` for a
+soundtrack built in several steps, `superpowers:test-driven-development` for cue mapping and placement (the expected
+onset per cue frame as a failing check before the mix), `superpowers:systematic-debugging` when installation,
+`runtime.py`, a model load or a render fails or a cue lands off its frame (read the error and `status --json` first),
+and `superpowers:verification-before-completion` before calling a film's sound done (`timeline --cues`, or measured
+onsets on the light tier, on the encoded file). The choice by listening and the user's ears stay as they are.
 
 ## 7. Limits (say them when they matter)
 

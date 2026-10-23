@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775",
+      "files": 1559,
+      "archive": "candidates/f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.5"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "31aeb7d110e83159809da5b49a07f3f58245f368a8ebdc44719c0d9d781fa88e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1202,
+      "output": 1977,
+      "cache_read": 150986,
+      "cache_write": 33299
+    },
+    "seconds": 44.8
+  },
+  "cases": [
+    {
+      "id": "C15",
+      "title": "Configuring Studio with Superpowers and earshot-audio both loaded recognises earshot-audio by reading its skill and offers no install command for it (owner request 2026-10-23). Run with both plugins.",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1202,
+        "output": 1977,
+        "cache_read": 150986,
+        "cache_write": 33299
+      },
+      "seconds": 44.8,
+      "wall_seconds": 45.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Konfiguracja Studio jest częściowo gotowa. Superpowers działa, a Earshota nie mogłem sprawdzić ani zainstalować, bo w tej sesji nie mam powłoki (Bash jest wyłączony).\n\n**1. Superpowers (pierwszy polecany dodatek).** Jest już dostępny w tej sesji w Claude Code i został wczytany przy starcie. Nie musisz niczego instalować. Pomaga doprecyzować wymagania, planować prace techniczne, diagnozować błędy oraz sprawdzać kod i wyniki. Część kreatywną nadal prowadzi Studio.\n\n**2. Earshot (drugi polecany dodatek), stan nieznany.** Nie uruchomiłem `runtime.py status --json`, więc nie wiem, czy silnik jest u Ciebie zainstalowany. Wtyczka jest widoczna na liście skilli, ale to jeszcze nie znaczy, że silnik działa.\n\nEarshot to silnik do dźwięku w filmach. Dobiera i tworzy efekty dźwiękowe, na przykład „szum” przelotu, gdy pojawia się napis, albo uderzenie, gdy ląduje logo. Ustawia je dokładnie w momencie, w którym coś dzieje się w obrazie, i sprawdza, czy pasują. Działa w Twoim środowisku pracy i niczego nie wysyła do internetu.\n\nDo wyboru:\n1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać” dźwięków i sam wybrać ten, który najlepiej pasuje.\n2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n3. **Na razie bez Earshota.**\n\nZainstaluję go dopiero po Twojej odpowiedzi. Ta sesja nie ma powłoki, więc potrzebuję jej włączenia, żeby sprawdzić stan i zainstalować wybrany wariant. Bez niej mogę tylko podać dokładne komendy do uruchomienia u Ciebie. Wystarczy odpowiedź **1**, **2** albo **3**.",
+          "reply_chars": 1556,
+          "reply_sha256": "a4f18a859c8eba53dafb3b53d7c8fd39bf438c30b0028d6444a5f5e547de37cf",
+          "skills": [
+            "workflow-orchestrator",
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read",
+            "Skill",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1202,
+            "output": 1977,
+            "cache_read": 150986,
+            "cache_write": 33299
+          },
+          "seconds": 44.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "/plugin install earshot-audio",
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)earshot[^.\\n|]{0,80}(nie jest zainstalowan|niezainstalowan|nie widzę|nie ma go)"
+              },
+              "passed": true,
+              "detail": "not /(?i)earshot[^.\\n|]{0,80}(nie jest zainstalowan|niezainstalowan|nie widzę|nie ma go)/"
+            },
+            {
+              "check": {
+                "no_command": "runtime.py install"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

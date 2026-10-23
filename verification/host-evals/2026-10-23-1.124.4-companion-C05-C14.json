@@ -1,0 +1,237 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775",
+      "files": 1559,
+      "archive": "candidates/f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "31aeb7d110e83159809da5b49a07f3f58245f368a8ebdc44719c0d9d781fa88e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2396,
+      "output": 3964,
+      "cache_read": 158560,
+      "cache_write": 55472
+    },
+    "seconds": 36.7
+  },
+  "cases": [
+    {
+      "id": "C05",
+      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again (since 2026-10-23 the setup also offers earshot-audio, so only a Superpowers install command fails)",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1198,
+        "output": 2040,
+        "cache_read": 79370,
+        "cache_write": 27804
+      },
+      "seconds": 19.6,
+      "wall_seconds": 19.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "**Konfiguracja Studio (Claude Code, sesja w chmurze)**\n\n**1. Superpowers: już działa.** Skill `superpowers:using-superpowers` jest w katalogu tej sesji i jego treść została załadowana, więc nie trzeba go instalować. Sprawdziłem to tylko w tym hoście. Studio dalej prowadzi część kreatywną: kierunek, storyboard i końcowy przegląd. Superpowers pomaga przy wymaganiach, planowaniu, diagnozie błędów i weryfikacji.\n\n**2. Earshot: nie ma go na liście skilli tej sesji.** Zostaje do ustawienia drugi polecany dodatek.\n\nEarshot to silnik do dźwięku w filmach. Dobiera i tworzy efekty dźwiękowe, na przykład „szum” przelotu, gdy pojawia się napis, albo uderzenie, gdy ląduje logo. Ustawia je dokładnie w momencie, w którym coś dzieje się w obrazie, i sprawdza, czy pasują. Działa w Twoim środowisku pracy i niczego nie wysyła do internetu.\n\nDo wyboru:\n1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać” dźwięków i sam wybrać ten, który najlepiej pasuje.\n2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n3. **Na razie bez Earshota.**\n\nDwie rzeczy do wiedzy przed wyborem:\n- **Sieć:** instalacja potrzebuje dostępu do PyPI. Wariant pełny potrzebuje też `download.pytorch.org` (i `*.pytorch.org`) oraz `huggingface.co` (i `*.huggingface.co`, `*.hf.co`). Jeśli środowisko je blokuje, zatrzymam się i wskażę, które domeny odblokować w ustawieniach sieci środowiska. Zachowaj tam domyślne pakiety.\n- **Trwałość:** w kontenerze w chmurze silnik może zniknąć razem z sesją. Wtedy sprawdzę stan ponownie i zaproponuję ten sam wybór.\n\nOdpowiedz **1**, **2** albo **3**. Do Twojej odpowiedzi niczego nie instaluję. Po wyborze wykonam całą instalację i opiszę każdy krok.",
+          "reply_chars": 1720,
+          "reply_sha256": "63489e52e73a0065498b06d4ce48190008f0f0f490920ba124be21dabe94ac1e",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 2040,
+            "cache_read": 79370,
+            "cache_write": 27804
+          },
+          "seconds": 19.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Superpowers']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "/plugin install superpowers",
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C14",
+      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1198,
+        "output": 1924,
+        "cache_read": 79190,
+        "cache_write": 27668
+      },
+      "seconds": 17.1,
+      "wall_seconds": 17.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "**Konfiguracja Studio (Claude Code, sesja w chmurze)**\n\n1. **Superpowers: gotowe.** Skill `superpowers:using-superpowers` jest dostępny i czytelny w tej sesji, więc nie trzeba go instalować. Studio dalej prowadzi część kreatywną. Superpowers pomaga przy wymaganiach, planowaniu, diagnozie błędów i sprawdzaniu wyników.\n\n2. **Earshot: brak na liście skilli tej sesji.**\n\n   Drugim polecanym dodatkiem jest Earshot, silnik do dźwięku w filmach. Dobiera i tworzy efekty dźwiękowe, na przykład „szum” przelotu, gdy pojawia się napis, albo uderzenie, gdy ląduje logo. Ustawia je dokładnie w momencie, w którym coś dzieje się w obrazie, i sprawdza, czy pasują. Działa w Twoim środowisku pracy i niczego nie wysyła do internetu.\n\n   Do wyboru:\n   1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać” dźwięków i sam wybrać ten, który najlepiej pasuje.\n   2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n   3. **Na razie bez Earshota.**\n\n   Niczego nie zainstaluję, dopóki nie odpowiesz. Jeśli wybierzesz 1 lub 2, dodam wtyczkę i silnik, a po każdym kroku podam wynik. W środowisku chmurowym instalacja wymaga dostępu do PyPI. Wersja pełna potrzebuje też `download.pytorch.org` i `huggingface.co` (wraz z `*.pytorch.org`, `*.huggingface.co`, `*.hf.co`). Jeśli sieć je blokuje, wskażę, który host, i się zatrzymam. Silnik może zniknąć po zakończeniu kontenera, więc przy następnej sesji sprawdzę stan i zaproponuję ten sam wybór.\n\nWpisz **1**, **2** albo **3**.",
+          "reply_chars": 1518,
+          "reply_sha256": "e96c4492d3cffbd8bc31884fce225db8cd937f5da88e4e667581210e14ee8900",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 1924,
+            "cache_read": 79190,
+            "cache_write": 27668
+          },
+          "seconds": 17.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)2[,.]6\\s?GB"
+              },
+              "passed": true,
+              "detail": "/(?i)2[,.]6\\s?GB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)200\\s?MB"
+              },
+              "passed": true,
+              "detail": "/(?i)200\\s?MB/"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Earshot']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "no_command": "runtime.py"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

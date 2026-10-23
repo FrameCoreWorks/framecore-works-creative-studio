@@ -1,6 +1,6 @@
 {
   "name": "companion",
-  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation. Cases C09-C13 and C15 (public earshot-audio plugin) also need --with-plugin plugins/earshot-audio; C14 runs with Superpowers only.",
+  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation. Cases C09-C13 and C15-C20 (public earshot-audio plugin) also need --with-plugin plugins/earshot-audio; C14 runs with Superpowers only; C16, C18-C20 set EARSHOT_NATIVE_ROOT to an empty folder; C17 needs the full tier installed.",
   "requires_plugin": "superpowers",
   "cases": [
     {
@@ -403,7 +403,7 @@
     },
     {
       "id": "C14",
-      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only.",
+      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
@@ -412,9 +412,14 @@
               "language": "pl"
             },
             {
+              "regex": "(?i)2[,.]6\\s?GB"
+            },
+            {
+              "regex": "(?i)200\\s?MB"
+            },
+            {
               "contains_any": [
-                "earshot-audio",
-                "Earshot Audio"
+                "Earshot"
               ]
             },
             {
@@ -492,7 +497,7 @@
               "regex": "(?i)silnik(iem|a)?\\s+(własn\\w+\\s+)?Studio|sound\\.py|wbudowan\\w+\\s+silnik"
             },
             {
-              "no_command": "install --tier"
+              "no_command": "--yes"
             },
             {
               "no_command": "sound.py"
@@ -545,6 +550,118 @@
             },
             {
               "regex": "(?i)metal|grzechot|odłam|rozsyp|ogon"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "title": "Owner request 2026-10-23: configuring Studio with both plugins loaded and the Earshot engine missing explains Earshot in plain words and asks once: full (about 2.6 GB), light (about 200 MB) or not now; nothing is installed before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "extra_tools": [
+        "Bash(python3:*)"
+      ],
+      "max_turns": 16,
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "earshot-audio:earshot"
+              ]
+            },
+            {
+              "regex": "(?i)2[,.]6\\s?GB"
+            },
+            {
+              "regex": "(?i)200\\s?MB"
+            },
+            {
+              "regex": "(?i)pełn"
+            },
+            {
+              "regex": "(?i)lekk|light"
+            },
+            {
+              "regex": "(?i)efekt\\w* dźwięk|dźwięk\\w* (w|do) film"
+            },
+            {
+              "no_command": "--yes"
+            },
+            {
+              "not_contains": [
+                "plugin install superpowers"
+              ]
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "title": "Owner request 2026-10-23: Superpowers supports Earshot's code; a failed Earshot full install is diagnosed with systematic-debugging and the blocked host is named, never worked around.",
+      "extra_tools": [
+        "Bash(python3:*)"
+      ],
+      "max_turns": 16,
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Instalacja pełnego Earshota (runtime.py install --tier full --yes) przerwała się błędem: \"Failed to connect to proxy ... fetching https://download-r2.pytorch.org/whl/cpu/torch-2.14.1+cpu ... Tunnel connection failed: 403 Forbidden\". Co z tym zrobić?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "superpowers:systematic-debugging"
+              ]
+            },
+            {
+              "regex": "(?i)pytorch\\.org"
+            },
+            {
+              "no_command": "pip install"
+            },
+            {
+              "no_command": "--index-url"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C20",
+      "title": "Owner request 2026-10-23: code that places Earshot's takes on cue frames is written test-first with Superpowers.",
+      "extra_tools": [
+        "Bash(python3:*)",
+        "Write",
+        "Edit"
+      ],
+      "max_turns": 30,
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Napisz mi mały skrypt w Pythonie, który bierze kit.lock.json z Earshota (zmierzony onset każdego dźwięku) i cues.json z klatkami przy 29,97 fps i wylicza, od której próbki (48 kHz) wstawić każdy dźwięk, żeby jego onset trafił w klatkę.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "superpowers:test-driven-development"
+              ]
             },
             {
               "max_questions": 3

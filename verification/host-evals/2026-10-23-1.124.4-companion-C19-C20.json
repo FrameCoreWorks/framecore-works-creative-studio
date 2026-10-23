@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775",
+      "files": 1559,
+      "archive": "candidates/f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.5"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 1200,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "31aeb7d110e83159809da5b49a07f3f58245f368a8ebdc44719c0d9d781fa88e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2613,
+      "output": 6332,
+      "cache_read": 237691,
+      "cache_write": 44731
+    },
+    "seconds": 79.9
+  },
+  "cases": [
+    {
+      "id": "C19",
+      "title": "Owner request 2026-10-23: Superpowers supports Earshot's code; a failed Earshot full install is diagnosed with systematic-debugging and the blocked host is named, never worked around.",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1301,
+        "output": 2331,
+        "cache_read": 49075,
+        "cache_write": 21920
+      },
+      "seconds": 31.8,
+      "wall_seconds": 31.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Instalacja pełnego Earshota (runtime.py install --tier full --yes) przerwała się błędem: \"Failed to connect to proxy ... fetching https://download-r2.pytorch.org/whl/cpu/torch-2.14.1+cpu ... Tunnel connection failed: 403 Forbidden\". Co z tym zrobić?",
+          "reply": "Instalacja nie ma jeszcze żadnej działającej części: wszystko wskazuje na zablokowany host, a nie na błąd w Earshocie.\n\n**Co ustaliłem**\n- `runtime.py status --json` zwraca `state: unavailable`, `venv: null`, `light_ready: false` i `full_ready: false`. Przerwany `--tier full` nie zostawił więc użytecznego środowiska, ani pełnego, ani lekkiego.\n- Błąd `Tunnel connection failed: 403 Forbidden` pochodzi z proxy tej sesji, a nie z serwera PyTorcha. Proxy odmawia tunelu do `download-r2.pytorch.org`, czyli hosta z kołami CPU `torch`. To blokada hosta, a nie literówka ani zła wersja. Ponowienie niczego nie zmieni.\n- Nie sprawdziłem stanu proxy (`/__agentproxy/status`) ani jego README. Moje polecenie zostało odrzucone, bo zawierało zmienną `$HTTPS_PROXY`. Nie potwierdziłem więc z listy dozwolonych hostów, że to jest powód.\n\n**Czego nie zrobię**\nNie będę obchodzić blokady: nie podmienię indeksu na inne lustro, nie wyłączę weryfikacji TLS i nie ustawię proxy inaczej. Plugin instaluje silnik z jednego przypiętego commita, a zmiana źródła `torch` zmieniłaby ten zestaw.\n\n**Możliwe wyjścia**\n1. **Poproszenie o odblokowanie hosta.** Trzeba dopuścić `download-r2.pytorch.org` w proxy (lub w polityce sieciowej środowiska). Potem ponawiam `runtime.py install --tier full --yes` i `fetch-models --yes`. Modele CLAP i AST (ok. 1,1 GB) pochodzą z innego hosta, więc ten może być zablokowany osobno.\n2. **Poziom lekki (ok. 200 MB, bez modeli).** Dają go `measure`, `critique --fast`, `sfx`, `kit` i skrypty real-sound. Nie ma w nim `timeline`, `sheet`, `describe`, `match`, `rank`, `find` ani `realness`. Można go zainstalować od razu, jeśli nie wymaga `torch`.\n3. **Własne narzędzia projektu** (`sound.py` w Studio). Silnik dźwięku trzeba wtedy nazwać w wynikach.\n\nKtórą drogę wybierasz? Jeśli 1, daj znać, gdy host będzie odblokowany. Jeśli 2, zainstaluję poziom lekki po twojej zgodzie.",
+          "reply_chars": 1886,
+          "reply_sha256": "e0dc21a122fba43d4cea9ef69a14d693cdcd052a93f041e983fd2d56346534da",
+          "skills": [
+            "earshot-audio:earshot",
+            "superpowers:systematic-debugging"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Skill",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1301,
+            "output": 2331,
+            "cache_read": 49075,
+            "cache_write": 21920
+          },
+          "seconds": 31.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:systematic-debugging"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot', 'superpowers:systematic-debugging']; expected one of ['superpowers:systematic-debugging']"
+            },
+            {
+              "check": {
+                "regex": "(?i)pytorch\\.org"
+              },
+              "passed": true,
+              "detail": "/(?i)pytorch\\.org/"
+            },
+            {
+              "check": {
+                "no_command": "pip install"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "--index-url"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C20",
+      "title": "Owner request 2026-10-23: code that places Earshot's takes on cue frames is written test-first with Superpowers.",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1312,
+        "output": 4001,
+        "cache_read": 188616,
+        "cache_write": 22811
+      },
+      "seconds": 48.1,
+      "wall_seconds": 48.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi mały skrypt w Pythonie, który bierze kit.lock.json z Earshota (zmierzony onset każdego dźwięku) i cues.json z klatkami przy 29,97 fps i wylicza, od której próbki (48 kHz) wstawić każdy dźwięk, żeby jego onset trafił w klatkę.",
+          "reply": "Skrypt jest w `/tmp/studio-eval-n1nwjbwd/work/place_cues.py`. Sprawdziłem go tylko na dwóch policzonych ręcznie klatkach. Nie uruchomiłem go na prawdziwych plikach, bo `kit.lock.json` ani `cues.json` nie ma w tym katalogu.\n\nUruchomienie:\n```\npython3 place_cues.py kit.lock.json cues.json [--rate 48000] [--fps-num 30000 --fps-den 1001]\n```\n\nDla każdego cue wypisuje, od której próbki wstawić dźwięk:\n\n`start = round(t·48000) − round(onset·48000)`, gdzie `t = klatka · 1001 / 30000` s\n\n- **Ułamek zamiast liczby:** 29,97 fps liczę jako dokładny ułamek 30000/1001, a nie jako 29.97.\n- **Sprawdzone klatki:** klatka 48 daje 1,6016 s, czyli próbkę 76877 (przy onsecie 0). Klatka 90 z onsetem 0,25 s daje próbkę 132144.\n- **Ujemny start:** gdy onset wypada wcześniej niż początek filmu, skrypt oznacza taki cue jako `NEGATIVE`. Trzeba wtedy dodać pre-roll. Nie wolno obcinać onsetu.\n- **Cue bez dźwięku:** jeśli w locku nie ma dźwięku dla danego cue, skrypt zgłasza to w wyniku.\n\nFormat `kit.lock.json` założyłem z pamięci. Nie znalazłem jego schematu ani w skillu, ani w repozytorium. Skrypt zakłada, że lock to słownik lub lista dźwięków, a dźwięk ma pole `onset` (albo `onset_s`) w sekundach. Dźwięk jest łączony z cue po polu `cue` albo `id`, więc `id` w cues.json musi się z nim zgadzać. Z `cues.json` czytam `events[].f` i `id`. Jeśli Twój lock wygląda inaczej, wklej mi jego fragment, a poprawię funkcję `load_takes`.\n\nPo zmiksowaniu sprawdź jeszcze zakodowany film. Samo WAV nie wystarczy.",
+          "reply_chars": 1492,
+          "reply_sha256": "3c27a7ec4aa5c9429324cfa7856a722ae8cf71dad393f147a27b86bb4db468fb",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Bash",
+            "Read",
+            "Read",
+            "Grep",
+            "Bash",
+            "Write",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1312,
+            "output": 4001,
+            "cache_read": 188616,
+            "cache_write": 22811
+          },
+          "seconds": 48.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:test-driven-development"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['superpowers:test-driven-development']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

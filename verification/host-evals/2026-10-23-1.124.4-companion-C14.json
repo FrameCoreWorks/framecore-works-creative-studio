@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5ecda6291ecec5352d69877db8208105b3d15c90e9de437a1137a453021ccea1",
+      "files": 1559,
+      "archive": "candidates/5ecda6291ecec5352d69877db8208105b3d15c90e9de437a1137a453021ccea1.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "82a63ef1ff1bf082e0ca7b6081f45b47652e7eb5d9c8b7cb7e8cdd38c289dd9f",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1198,
+      "output": 1723,
+      "cache_read": 77726,
+      "cache_write": 29314
+    },
+    "seconds": 25.3
+  },
+  "cases": [
+    {
+      "id": "C14",
+      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1198,
+        "output": 1723,
+        "cache_read": 77726,
+        "cache_write": 29314
+      },
+      "seconds": 25.3,
+      "wall_seconds": 25.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Konfiguracja Studio w tym środowisku (Claude Code) wygląda tak:\n\n**1. Superpowers: już dostępny.** Pozycja `superpowers:using-superpowers` jest w katalogu tej sesji, a jej treść załadowała się na starcie. Nie musisz niczego instalować. Pomaga doprecyzować wymagania, planować prace techniczne, diagnozować błędy i weryfikować wyniki. Studio nadal prowadzi część kreatywną: kierunek, storyboard i końcowy przegląd. Superpowers nie dodaje narzędzi renderujących ani połączenia z kontem. Stwierdzam to tylko dla tej sesji, bo w innych środowiskach (np. ChatGPT, Codex) trzeba to sprawdzić osobno.\n\n**2. Earshot Audio: nie widzę go na liście skilli.** To drugi polecany dodatek. Daje Studio lokalny „słuch” i bank dźwięków: pomiary, efekty na klatkach, ścieżki z licencjonowanych nagrań. Nic nie jest wysyłane, a silnik instaluje się dopiero po Twojej drugiej zgodzie. Instalacja w Claude Code, w interaktywnym terminalu:\n\n```\n/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio\n```\n\nNiczego nie instaluję ani nie uruchamiam. Gotowość silnika sprawdzę przy pierwszym zadaniu dźwiękowym.\n\nMożesz zainstalować Earshot teraz, później albo pominąć. Dodatki nie są wymagane do pracy ze Studio.\n\nGdy będziesz gotów zacząć projekt, napisz samo **@FrameCore Works Creative Studio** albo od razu opisz zadanie.",
+          "reply_chars": 1336,
+          "reply_sha256": "80dd3f5da2253b4f4902308f2ae6e2bafe3da3f5e213a3d146ce65acab98bcfb",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 1723,
+            "cache_read": 77726,
+            "cache_write": 29314
+          },
+          "seconds": 25.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)2[,.]6\\s?GB"
+              },
+              "passed": false,
+              "detail": "/(?i)2[,.]6\\s?GB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)200\\s?MB"
+              },
+              "passed": false,
+              "detail": "/(?i)200\\s?MB/"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "earshot-audio",
+                  "Earshot Audio"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['earshot-audio', 'Earshot Audio']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "plugin install superpowers"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "no_command": "runtime.py"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

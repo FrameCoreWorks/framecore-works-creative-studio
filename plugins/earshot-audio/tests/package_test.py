@@ -37,11 +37,11 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.4'})
+        self.assertEqual(versions, {'1.0.5'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.4')
+        self.assertEqual(entries['earshot-audio']['version'], '1.0.5')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
@@ -103,6 +103,12 @@ class Package(unittest.TestCase):
         for needle in ('rank "<description>"', '--alts <confusions>', 'onsets per second', 'phone', 'rejected',
                        'gates, not trade-offs', 'also when nothing passes'):
             self.assertIn(needle, section)
+
+    def test_superpowers_is_the_method_for_the_code_around_earshot(self):
+        # Owner request 2026-10-23: Superpowers fully supports Earshot's code.
+        skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
+        for name in ('writing-plans', 'test-driven-development', 'systematic-debugging', 'verification-before-completion'):
+            self.assertIn(f'superpowers:{name}', skill)
 
     def test_licence_and_notice(self):
         data = manifest()

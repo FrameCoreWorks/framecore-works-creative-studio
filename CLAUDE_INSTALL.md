@@ -19,8 +19,9 @@ the desktop app's Code tab). Pin the latest release tag. Before installing, run
 Studio copy (from a marketplace or "Synced from claude.ai") with its version, then ask me once
 to confirm, showing the current and the target version. After installing, verify the version,
 that only one Studio copy loads and that it has 37 skills, run the final environment check from
-CLAUDE_INSTALL.md and report what is missing. Do not install system packages, upload files or
-use providers without asking.
+CLAUDE_INSTALL.md and report what is missing. Then, in this same conversation, run Studio's first
+companion setup (Superpowers, then Earshot with its full or light choice). Do not install system
+packages, upload files or use providers without asking.
 ```
 
 Asking Claude to "install this repository" with the link works the same way: the link is source context, so the assistant reads this guide and asks once whether to install. In the Claude apps without a shell, follow [Claude apps](#claude-apps-web-desktop-chat-cowork) yourself.
@@ -87,19 +88,20 @@ Open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCore
 
 ## First recommended companion: Superpowers
 
-Before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). Check whether Superpowers is already readable. Otherwise recommend it once: it supports requirements, technical plans, debugging, code review and verification while Studio keeps creative direction, boards and production ownership. The user installs it separately through the actual host Plugins/Marketplace interface; use the registry's host-specific manual steps. The upstream identity is obra/superpowers, Jesse Vincent / Prime Radiant. An official catalog listing does not mean the platform authored it.
+Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). Check whether Superpowers is already readable. Otherwise recommend it once: it supports requirements, technical plans, debugging, code review and verification while Studio keeps creative direction, boards and production ownership. The user installs it separately through the actual host Plugins/Marketplace interface; use the registry's host-specific manual steps. The upstream identity is obra/superpowers, Jesse Vincent / Prime Radiant. An official catalog listing does not mean the platform authored it.
 
 Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
 
 ## Second recommended companion: Earshot Audio
 
-The same marketplace lists a second plugin, `earshot-audio` (folder `plugins/earshot-audio`; Earshot 0.4.0 by Leon Lin, MIT): local listening, measuring, sound effects on cue frames and soundtracks from licensed recordings. In first configuration Studio offers it once, after Superpowers, unless `earshot-audio:earshot` is already readable; later it offers it once when a project needs sound. Studio works without it. In an interactive Claude Code session the user runs:
+Right after Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains Earshot in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 200 MB) or not now. It is the separate plugin `earshot-audio` (folder `plugins/earshot-audio`; Earshot 0.4.0 by Leon Lin, MIT): it chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. The user's answer is the consent; then the assistant installs the plugin and the chosen tier in the same conversation:
 
-```text
-/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio
-```
+- Claude Code with a shell: `claude plugin install earshot-audio@framecore-works` (the marketplace is already added by the Studio installation); a new conversation loads its skill, the engine works before that. In the interactive terminal the user can also type `/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio`.
+- A Claude Code cloud session: allow the hosts above under the environment's network access first; a new container fetches the models again.
 
-Installing the plugin writes no engine. Its `scripts/runtime.py status` reports readiness; `install --tier light|full --yes` and `fetch-models --yes` run only after the user agrees, from the pinned commit with every file checked. Nothing is uploaded, and its `llm` and `mcp` commands are refused. Remove it with `/plugin uninstall earshot-audio` and delete `~/.framecore-studio/extensions/earshot` if the user wants the engine gone.
+Then, from the plugin folder: `python3 scripts/runtime.py install --tier <full|light>` (the plan), the same with `--yes`, for full also `fetch-models --yes`, then `runtime.py status --json` (`ready_full` or `ready_light`). The engine is pinned and checked file by file; `llm` and `mcp` are refused. A blocked download names its host (PyPI; for full also `download.pytorch.org`, `*.pytorch.org`, `huggingface.co`, `*.huggingface.co`, `*.hf.co`) and stops. If `earshot-audio:earshot` is already readable, `status` decides what is still needed. Studio works without it.
+
+Remove it with `/plugin uninstall earshot-audio` (or `claude plugin uninstall earshot-audio@framecore-works`) and delete `~/.framecore-studio/extensions/earshot` if the user wants the engine gone.
 
 ## 6. Update and remove
 

@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.4",
+  "source": {
+    "commit": "76c93ee9b207039ff76d27ac62fddf595981d5f4",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775",
+      "files": 1559,
+      "archive": "candidates/f432ae6420bb66eab6218b2b712dd0b93f574d775a559c87823d3532cc5e4775.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.5"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 1200,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "31aeb7d110e83159809da5b49a07f3f58245f368a8ebdc44719c0d9d781fa88e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1318,
+      "output": 5634,
+      "cache_read": 338844,
+      "cache_write": 33020
+    },
+    "seconds": 63.3
+  },
+  "cases": [
+    {
+      "id": "C20",
+      "title": "Owner request 2026-10-23: code that places Earshot's takes on cue frames is written test-first with Superpowers.",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1318,
+        "output": 5634,
+        "cache_read": 338844,
+        "cache_write": 33020
+      },
+      "seconds": 63.3,
+      "wall_seconds": 63.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi mały skrypt w Pythonie, który bierze kit.lock.json z Earshota (zmierzony onset każdego dźwięku) i cues.json z klatkami przy 29,97 fps i wylicza, od której próbki (48 kHz) wstawić każdy dźwięk, żeby jego onset trafił w klatkę.",
+          "reply": "Skrypt jest gotowy i 9 testów przechodzi. Testy napisałem przed kodem i widziałem je najpierw na czerwono. Nie uruchamiałem go na prawdziwych plikach, bo nie miałem żadnego `kit.lock.json` ani `cues.json`.\n\n**Użycie:**\n```\npython3 place_cues.py kit.lock.json cues.json\n```\nNa stdout dostajesz JSON z listą `{id, frame, take, onset, start, preroll}`. Pole `start` to próbka (48 kHz), od której wstawić dźwięk.\n\n**Wzór:** `start = round(f·1001/30000·48000) − round(onset·48000)`\n\n- **Tempo klatek:** liczę je jako dokładny ułamek 30000/1001, a nie jako 29,97. Przy 29,97 klatka 30000 wypadałaby o 1 ms za późno.\n- **Przykłady:** klatka 48 to 1,6016 s, czyli próbka 76 877 przy onsecie 0. Klatka 90 to 3,003 s, czyli próbka 144 144.\n- **Klatki:** liczę od zera, tak jak w kontrakcie Earshota. Jeśli twoje `cues.json` liczy od jedynki, odejmij 1 od `f`.\n- **Ujemny start:** gdy onset jest dłuższy niż czas do klatki, `start` wychodzi ujemny. Skrypt nie przycina wtedy dźwięku, tylko ustawia `preroll: true` i ostrzega na stderr. Trzeba dodać pre-roll przed filmem.\n\n**Założenia o formatach:** nie znam dokładnego schematu `kit.lock.json`, więc przyjąłem poniższe. Jeśli twoje pliki wyglądają inaczej, przeklej mi fragment, a poprawię to w jednym miejscu.\n- `kit.lock.json` ma `takes` jako słownik albo listę, a każdy take ma `onset` w sekundach.\n- Zdarzenie w `cues.json` (`events[]`, pole `f`) dobiera take po polu `take`, a jeśli go brak, po `kind` (na koniec po `id`). Nieznany take kończy się błędem `KeyError`.\n\nPliki leżą w `/tmp/studio-eval-i2s47mqy/work/`:\n- `place_cues.py`\n- `test_place_cues.py`\n\nTest CLI zostawił po sobie katalog `_tmp/`. Nie mogłem go usunąć, bo środowisko zablokowało to polecenie, więc skasuj go ręcznie.",
+          "reply_chars": 1732,
+          "reply_sha256": "726d83d49c74d59c77405832199a9df435fbad2eeb5c9552470b126bbe8fc89e",
+          "skills": [
+            "earshot-audio:earshot",
+            "superpowers:test-driven-development"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Skill",
+            "Bash",
+            "Read",
+            "Glob",
+            "Read",
+            "Grep",
+            "Grep",
+            "Bash",
+            "Write",
+            "Bash",
+            "Write",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1318,
+            "output": 5634,
+            "cache_read": 338844,
+            "cache_write": 33020
+          },
+          "seconds": 63.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "superpowers:test-driven-development"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot', 'superpowers:test-driven-development']; expected one of ['superpowers:test-driven-development']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "0 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

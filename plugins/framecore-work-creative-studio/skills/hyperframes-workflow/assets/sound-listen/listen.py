@@ -10,13 +10,15 @@ NumPy and FFmpeg (Pillow draws the sheet).
   python listen.py ab a.wav b.wav                         two sounds compared in numbers and words
   python listen.py profile refs/*.mp4 -o refs.json        your own reference ranges
   python listen.py sheet film.mp4 -o sheet.png            an annotated picture of the soundtrack
-  python listen.py describe|match|rank|find|compare|realness|llm|forge|fit|sfx|kit|gallery|doctor|mcp ...
-                                                          the models and the sound bank: the earshot extension
+  python listen.py describe|match|rank|find|compare|realness|forge|fit|sfx|kit|gallery|doctor ...
+                                                          the models and the sound bank: the Earshot engine
 
 Every command prints a plain summary first; --json prints the whole result. Nothing here uses a model, so it
-measures and never says what a sound "is": that is `describe` or `match` in the earshot extension, found by
-`--earshot PATH`, the EARSHOT_BIN variable, ~/.framecore-studio/extensions/earshot/venv/bin/earshot or PATH.
-Exit codes: 0 done, 1 a problem was found (critique or check), 3 bad input, 4 the earshot extension is needed.
+measures and never says what a sound "is": that is `describe` or `match` in the Earshot engine that the
+earshot-audio plugin installs (runtime.py), found by `--earshot PATH`, the EARSHOT_BIN variable,
+~/.framecore-studio/extensions/earshot/venv/bin/earshot or PATH, and run offline with that plugin's model cache.
+`llm` and `mcp` are refused (exit 2). Exit codes: 0 done, 1 a problem was found (critique or check), 2 refused,
+3 bad input, 4 the Earshot engine is needed.
 
 Adapted from earshot by Leon Lin (MIT, notice in integrations/earshot/): its definitions of salient hits,
 stop-downs, the picture-event detector, the launch scorecard and the sound audit, rewritten in Studio's own code
@@ -41,8 +43,10 @@ NOTES = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 KK_MAJ = np.array([6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88])
 KK_MIN = np.array([6.33, 2.68, 3.52, 5.38, 2.60, 3.53, 2.54, 4.75, 3.98, 2.69, 3.34, 3.17])
 KWEIGHT = 'highshelf=f=1681.974:g=3.99984:t=q:w=0.7071752,highpass=f=38.13547:poles=2:t=q:w=0.5003270'
-EARSHOT_COMMANDS = ('describe', 'match', 'rank', 'find', 'compare', 'realness', 'llm', 'forge', 'fit', 'sfx', 'kit',
-                    'gallery', 'doctor', 'mcp')
+EARSHOT_COMMANDS = ('describe', 'match', 'rank', 'find', 'compare', 'realness', 'forge', 'fit', 'sfx', 'kit',
+                    'gallery', 'doctor')
+EARSHOT_REFUSED = ('llm', 'mcp')   # upload and server: outside Studio's integration, as in the earshot-audio launcher
+EARSHOT_OFFLINE = {'EARSHOT_OFFLINE': '1', 'HF_HUB_OFFLINE': '1', 'TRANSFORMERS_OFFLINE': '1'}
 
 
 class InputError(Exception):
@@ -941,13 +945,24 @@ def find_earshot(explicit=None):
 
 
 def delegate(command, rest, explicit=None):
+    if command in EARSHOT_REFUSED:
+        print(f'listen: `{command}` is outside Studio: Earshot runs locally only (no audio upload, no MCP server).',
+              file=sys.stderr)
+        return 2
     exe = find_earshot(explicit)
     if not exe:
-        print(f'listen: `{command}` needs the earshot extension (models and the sound bank), which is not installed here.\n'
-              'It is a recommended repository: python3 <plugin>/skills/workflow-orchestrator/assets/extensions/extensions.py show earshot --host <host>\n'
+        print(f'listen: `{command}` needs the Earshot engine (models and the sound bank), which is not installed here.\n'
+              'Install it through the earshot-audio plugin, after the user agrees: python3 <earshot-audio>/scripts/runtime.py '
+              'status, then install --tier light|full and, for full, fetch-models.\n'
               'The measurements and checks above run without it.', file=sys.stderr)
         return 4
-    return subprocess.call([exe, command] + rest)
+    # The engine the earshot-audio plugin installed: its model cache, offline, without API keys.
+    env = {k: v for k, v in os.environ.items() if k not in ('GEMINI_API_KEY', 'GOOGLE_API_KEY')}
+    cache = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(exe))), 'cache')
+    if os.path.isdir(cache):
+        env['EARSHOT_HOME'] = cache
+        env.update(EARSHOT_OFFLINE)
+    return subprocess.call([exe, command] + rest, env=env)
 
 
 def emit(args, result, text):
@@ -965,7 +980,7 @@ def public(a):
 
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
-    if argv and argv[0] in EARSHOT_COMMANDS:
+    if argv and argv[0] in EARSHOT_COMMANDS + EARSHOT_REFUSED:
         explicit = None
         if '--earshot' in argv:
             i = argv.index('--earshot')
