@@ -127,6 +127,11 @@ class Registry(unittest.TestCase):
         self.assertNotIn('201', listen_doc)
         apd = (PLUGIN / 'skills/audio-production-director/SKILL.md').read_text()
         self.assertNotIn("uploads audio and runs only with the user's own key", apd)
+        for path in ('skills/hyperframes-workflow/SKILL.md', 'skills/audio-production-director/SKILL.md',
+                     'skills/pipeline-core/references/earshot-native-routing.md', 'skills/pipeline-core/references/studio-integration-policy.md'):
+            body = (PLUGIN / path).read_text()
+            for stale in ('pinned `earshot` command', 'command-line extension'):
+                self.assertNotIn(stale, body, path)
         for owner in ('hyperframes-workflow', 'audio-production-director'):
             self.assertNotIn('the pinned `earshot` [extension]', (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(), owner)
 

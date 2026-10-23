@@ -5,7 +5,7 @@ description: "Music, sound and voice direction: soundtrack concepts, music-gener
 
 # Audio Production Director
 
-For supplied-audio analysis, semantic selection, trimming and soundtrack evidence, load `earshot-audio:earshot` when it is in the skill list and follow [native Earshot routing](../pipeline-core/references/earshot-native-routing.md); without it use the pinned `earshot` command line or Studio's `listen.py`, named by the engine that ran. This owner retains audio direction, music/voice/rights and review; Motion Graphics Workflow implements authorized procedural sound.
+For supplied-audio analysis, semantic selection, trimming and soundtrack evidence, load `earshot-audio:earshot` when it is in the skill list and follow [native Earshot routing](../pipeline-core/references/earshot-native-routing.md); without it use Studio's `listen.py`, named by the engine that ran. This owner retains audio direction, music/voice/rights and review; Motion Graphics Workflow implements authorized procedural sound.
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 

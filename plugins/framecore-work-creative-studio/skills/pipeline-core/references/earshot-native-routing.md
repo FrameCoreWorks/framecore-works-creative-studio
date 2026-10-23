@@ -2,7 +2,7 @@
 
 Use the public plugin `earshot-audio` from this repository's marketplace (Earshot v0.4.0 by Leon Lin, pinned to `591fa3e`), skill `earshot-audio:earshot`, for sound analysis, procedural SFX, sound kits and audio-to-picture verification. Resolve and actually read the skill through the current host catalog. Studio owns the brief, creative choices, acceptance and final edit. Earshot supplies the audio engine; Superpowers supplies the selected planning/debugging/verification method. None of these names proves execution or adds permissions.
 
-Without the `earshot-audio` plugin in the skill list (most Claude Code and Codex users), use the pinned `earshot` command-line extension from the registry when it is installed, or Studio's own `listen.py`, `sound.py` and `synth.py`, and name the engine that actually ran. Never claim an Earshot run that did not happen.
+Without the `earshot-audio` plugin in the skill list, offer it once (it is the one Earshot route; first companion setup has the steps) or use Studio's own `listen.py`, `sound.py` and `synth.py`, and name the engine that actually ran. Never claim an Earshot run that did not happen.
 
 When the skill is listed but `runtime.py status` reports `unavailable` (owner decision 2026-10-23), ask one question with both routes: install Earshot's light tier (what is written, about 200 MB, local, from the pinned commit) or make the sound now with Studio's own `sound.py`/`synth.py` and check it with `listen.py`. Run neither before the answer, never fall back silently, and say which engine made the delivered sound.
 

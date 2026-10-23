@@ -26,7 +26,7 @@ For every substantive direction, implementation, repair, review or completion de
 
 ## Native Earshot routing
 
-For audio analysis, procedural sound effects/kits and motion or FrameCut soundtrack synchronization, apply [native Earshot routing](earshot-native-routing.md). When `earshot-audio:earshot` is in the skill list, read it and verify its execution tier; otherwise use the pinned command-line extension or Studio's own sound tools, named by the engine that ran. This applies to all Studio owners and direct specialist invocations. Keep the same brief, accepted locks, Project State, master timeline and QA budget. Existing Superpowers support remains the method layer.
+For audio analysis, procedural sound effects/kits and motion or FrameCut soundtrack synchronization, apply [native Earshot routing](earshot-native-routing.md). When `earshot-audio:earshot` is in the skill list, read it and verify its execution tier; otherwise offer the earshot-audio plugin once (the one Earshot route) or use Studio's own sound tools, named by the engine that ran. This applies to all Studio owners and direct specialist invocations. Keep the same brief, accepted locks, Project State, master timeline and QA budget. Existing Superpowers support remains the method layer.
 
 ## Operational rules
 
