@@ -99,7 +99,7 @@ The skill set already covers the creative scope; new capabilities go into `refer
 | Capability | Owner(s) | Content |
 |---|---|---|
 | Language versions of a film | FrameCut, Caption Studio, Copy Voice | Translating captions, voice-over and on-screen text on the same edit, timing and length rules, locked terms |
-| Client brand kit | `pipeline-core` (plus a Project State field) | One place for a client's colours, fonts, logo, tone and approvals, read by every owner |
+| Brand kit from a website | `pipeline-core` brand kit + Research Evidence | The brand kit **already exists** (`pipeline-core/references/brand-kit.md`, `assets/brand-kit.template.json`, `design_md.py`; colours, fonts, logo, voice, claims, legal lines, used by every owner). Missing (owner's DFIRST "Brand DNA" example, 2026-10-23): give a website address and Studio drafts the kit from it (colours, fonts, logo, tone, one-line identity), shows it for approval and saves it |
 | Platform specifications and publishing | `pipeline-core` or Delivery Documentation | Formats, durations, safe zones, covers and thumbnails per platform, as one dated card |
 | Accessibility check | Output Critic Iteration, Caption Studio | Captions, contrast, legibility and loudness before delivery |
 
@@ -110,7 +110,7 @@ Freed description characters (from merges) can buy one or two new skills only if
 The pattern is earshot-audio: a separate plugin in this repository's marketplace, its own descriptions (outside Studio's budget), offered by first companion setup, routed from Studio's owners, local and consent-gated. Ideas, ordered by how often Studio's paid motion and video work would use them:
 
 1. **Voice and narration**: local or user-chosen text-to-speech, timing of voice-over to the edit, pronunciation lists; Studio keeps the script and approvals.
-2. **Brand kit manager**: stores and validates client kits (colours, fonts, logos, rules) across projects and checks deliverables against them.
+2. **Brand kit manager**: builds on the existing brand kit: drafts a kit from a website, keeps kits across projects and checks deliverables against them.
 3. **Publishing and platform pack**: exports, covers, captions and metadata per platform, and a pre-flight check.
 4. **Stock and licence finder**: searches licensed images, footage and music on the user's request, with a licence audit like Earshot's real-sound process.
 5. **Localization**: translation memory and glossaries for multi-language versions.
@@ -180,3 +180,5 @@ Open points for the owner: whether "FrameCore Studio Guide" may appear next to t
 - The prompt skills stay **separate**: one for video, one for images (keep `video-prompt-architect` and `image-prompt-architect` apart; no shared FramePrompt name). Give them uniform names in the same scheme, e.g. "Video Prompt" and "Image Prompt".
 - **Earshot keeps its name "Earshot"** and is always plainly marked as Leon Lin's repository (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works. Done in earshot-audio 1.0.7 (manifest descriptions and display name "Earshot (Leon Lin)") and in Studio 1.125.2's setup copy; keep this credit in every future text that presents Earshot.
 - The rest of the table above awaits the owner's final look before the next session renames anything (section 5 rules).
+
+- Studio **1.125.2** / earshot-audio **1.0.7** (tag `v1.125.2`) is the latest release: update both hosted plugins from that tag; the 1.125.1 hashes for `runtime.py`, `upstream.json` and `skills/earshot/SKILL.md` still apply.
