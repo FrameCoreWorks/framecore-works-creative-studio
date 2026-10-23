@@ -4,6 +4,8 @@ Use the public plugin `earshot-audio` from this repository's marketplace (Earsho
 
 Without the `earshot-audio` plugin in the skill list (most Claude Code and Codex users), use the pinned `earshot` command-line extension from the registry when it is installed, or Studio's own `listen.py`, `sound.py` and `synth.py`, and name the engine that actually ran. Never claim an Earshot run that did not happen.
 
+When the skill is listed but `runtime.py status` reports `unavailable` (owner decision 2026-10-23), ask one question with both routes: install Earshot's light tier (what is written, about 200 MB, local, from the pinned commit) or make the sound now with Studio's own `sound.py`/`synth.py` and check it with `listen.py`. Run neither before the answer, never fall back silently, and say which engine made the delivered sound.
+
 `llm` and `mcp` are out of scope (owner decision 2026-10-22): no audio goes to Gemini or any other model service, no MCP server is installed or started, and Studio does not configure keys for them. Earshot runs locally through its skill, CLI or Python; a request to send audio to an external model is declined with the local route offered instead.
 
 ## Route by the task

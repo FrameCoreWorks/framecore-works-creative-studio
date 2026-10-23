@@ -19,7 +19,9 @@ from where the host installed this skill; never copy a path from another machine
    measure, critique --fast, sfx, kit and the real-sound scripts); `full_ready` with `models_cached` (timeline,
    sheet, describe, match, rank, find, compare, ab, realness, full critique); a task actually completed. `unavailable`
    means not installed here, not "probably works".
-2. Missing tier: say in one line what will be written and its size, then install only after the user agrees:
+2. Missing tier: say in one line what will be written and its size, then install only after the user agrees. When
+   the project has its own sound tools (FrameCore Works Creative Studio's `sound.py`), offer them in the same
+   question as the other route, run neither before the answer, and name the engine that made the sound:
    `python3 <runtime> install --tier light` prints the plan; `--yes` runs it (about 200 MB). Full: `--tier full --yes`
    (about 1.5 GB) and `python3 <runtime> fetch-models --yes` (pinned CLAP and AST, about 1.1 GB). The source is the
    pinned commit, checked file by file; the engine is never updated from upstream `main`.

@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.2",
+  "source": {
+    "commit": "ef7382b066dbc446fb972c07889eca8a0671c57e",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "cce204546ad4a85ae7a194305126cb1dd921705f7e6477bf61e76c174d4a13a0",
+      "files": 1559,
+      "archive": "candidates/cce204546ad4a85ae7a194305126cb1dd921705f7e6477bf61e76c174d4a13a0.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.2"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "bd67b8edd26c2a0395b1fc3946397f19a8b69c6f55e702526435f8974d1b23fb",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1344,
+      "output": 1777,
+      "cache_read": 93387,
+      "cache_write": 19606
+    },
+    "seconds": 32.5
+  },
+  "cases": [
+    {
+      "id": "C16",
+      "title": "Owner decision 2026-10-23 (option A): earshot-audio is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 200 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1344,
+        "output": 1777,
+        "cache_read": 93387,
+        "cache_write": 19606
+      },
+      "seconds": 32.5,
+      "wall_seconds": 32.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz.",
+          "reply": "Sprawdziłem `logo.mp4`. Plik ma 1280×720, 30 fps, 180 klatek, 6,000 s i nie ma ścieżki audio. Zgadza się to z Twoim opisem.\n\nEarshot, czyli narzędzie, którego użyję do dźwięku i sprawdzenia synchronizacji, nie jest jeszcze zainstalowane na tej maszynie. Bez niego nie mogę ani wyrenderować whoosha i uderzenia z banku dźwięków, ani zmierzyć, czy trafiają w obraz.\n\n**Co zainstaluję (poziom „light”):**\n- Zainstaluję Earshot 0.4.0 z przypiętego commita, ze sprawdzeniem każdego pliku. Zajmie to około 200 MB w katalogu sesji (`.../scratchpad/empty-earshot/venv`).\n- Modeli nie pobieram. Nic nie jest wysyłane na zewnątrz, wszystko działa lokalnie.\n- Poziom „light” wystarczy do wyrenderowania efektów i zmierzenia synchronizacji z momentów początku dźwięku. Pełnego `timeline` i `sheet` (to dodatkowe 1,5–2,6 GB) nie potrzebuję.\n\n**Plan po instalacji:**\n1. Dźwięk dobiorę z banku efektów: whoosh (`whoosh`, `swish` lub `reverse_swell`) i uderzenie (`cut_hit` lub `mallet`).\n2. Whoosh ustawię tak, żeby jego szczyt wypadał przy wejściu napisu w 1,2 s (klatka 36). Uderzenie ustawię na lądowanie logo w 3,0 s (klatka 90).\n3. Zmiksuję dźwięk z obrazem. Obraz skopiuję bez ponownego kodowania, a dźwięk zakoduję jako AAC. Wynik zapiszę jako nowy plik, a oryginał zostawię bez zmian.\n4. Zmierzę początki dźwięku w gotowym MP4 i porównam je z klatkami 36 i 90. Podam odchylenie w ms, głośność w LUFS i true peak.\n\nCzy mam zainstalować Earshot (około 200 MB, lokalnie)?",
+          "reply_chars": 1461,
+          "reply_sha256": "7f40c4a881a4112fd823bccc11d62707127ed1ad7e734d47c774321f2be6057f",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1344,
+            "output": 1777,
+            "cache_read": 93387,
+            "cache_write": 19606
+          },
+          "seconds": 32.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)200\\s?MB"
+              },
+              "passed": true,
+              "detail": "/(?i)200\\s?MB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)silnik(iem|a)?\\s+(własn\\w+\\s+)?Studio|sound\\.py|wbudowan\\w+\\s+silnik"
+              },
+              "passed": false,
+              "detail": "/(?i)silnik(iem|a)?\\s+(własn\\w+\\s+)?Studio|sound\\.py|wbudowan\\w+\\s+silnik/"
+            },
+            {
+              "check": {
+                "no_command": "install --tier"
+              },
+              "passed": false,
+              "detail": "ran ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,r_frame_rate,nb_frames,duration -of compact /tm"
+            },
+            {
+              "check": {
+                "no_command": "sound.py"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "ffmpeg -"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

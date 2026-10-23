@@ -108,6 +108,15 @@ class Registry(unittest.TestCase):
             self.assertNotIn('timeline without models', after)
             self.assertIn('timeline, sheet', after)
 
+    def test_a_listed_earshot_without_its_engine_asks_with_both_routes(self):
+        # Owner decision 2026-10-23 (option A): no silent fallback to Studio's engine, no install before the answer.
+        routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text()
+        motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
+        for text in (routing, motion):
+            self.assertIn('about 200 MB', text)
+            self.assertIn('run neither before the answer', text.replace('Run neither', 'run neither'))
+        self.assertIn('never fall back silently', routing)
+
     def test_superpowers_is_first_optional_catalog_companion_for_every_host(self):
         entries = [e for e in DATA['extensions'] if e['id'] == 'superpowers']
         self.assertEqual(len(entries), 1)

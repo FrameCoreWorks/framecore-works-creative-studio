@@ -1,0 +1,223 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.2",
+  "source": {
+    "commit": "ef7382b066dbc446fb972c07889eca8a0671c57e",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "9ecceacfd5915fa9a788691a9e3186de3fdc81e9bc707ea2cc1a616d16fa0da1",
+      "files": 1559,
+      "archive": "candidates/9ecceacfd5915fa9a788691a9e3186de3fdc81e9bc707ea2cc1a616d16fa0da1.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.3"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "8ead741ad060c5e24f7519edea2ca00cd23db5a20c6c448eddd5d27615f954e3",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2515,
+      "output": 3630,
+      "cache_read": 86604,
+      "cache_write": 35897
+    },
+    "seconds": 44.0
+  },
+  "cases": [
+    {
+      "id": "C09",
+      "title": "Whoosh and hit on frames go to earshot-audio, with readiness checked and nothing claimed before it ran",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1263,
+        "output": 1877,
+        "cache_read": 42887,
+        "cache_write": 18468
+      },
+      "seconds": 25.6,
+      "wall_seconds": 25.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
+          "reply": "Nie mam tu dostępu do powłoki, więc nie uruchomiłem Earshota i nie mam żadnych odczytów. Nic nie zostało dodane do animacji. Poniżej plan i dokładne komendy. W working directory nie ma też Twojego pliku animacji, więc nie wiem jeszcze, jak się nazywa.\n\n**Cue'y (30 fps)**\n- Whoosh przy wejściu napisu: 1,2 s = klatka 36.\n- Uderzenie przy lądowaniu logo: 3,0 s = klatka 90.\n\n**Plan**\n1. **Gotowość.** `python3 <runtime> status --json`. Do efektów z banku wystarczy tier light (bez modeli, ok. 200 MB). Zainstaluję go dopiero po Twojej zgodzie.\n2. **Kit.** `kit init --preset crisp -o audio/kit.json` (domyślnie `crisp`, bo animacja logo jest energetyczna; `calm` jest łagodniejszy). Do kitu wpisuję dwa cue'y: whoosh na 1,2 s i uderzenie na 3,0 s.\n3. **Dobór dźwięków.**\n   - Whoosh: `sfx list --category whoosh`, potem `sfx render <id> -o w.wav --dur 0.8`.\n   - Uderzenie: `sfx list --category cut_hit` albo `knock`, i też `sfx render`.\n4. **Synchronizacja po zmierzonych punktach.** Whoosh kładę **szczytem** (peak) na wejściu napisu, bo szczyt jest tym, co słychać jako \"moment\". Uderzenie kładę **początkiem** (onset) dokładnie na klatce 90. Wartości wezmę z `kit.lock.json`, a nie na oko.\n5. **Render i kontrola.** `kit render audio/kit.json --out audio/kit`, potem `kit check`. Ostrzeżony dźwięk wymieniam, a nie zostawiam.\n6. **Weryfikacja synchronizacji.** Na lekkim tierze sprawdzam zmierzone onsety w zakodowanym filmie względem klatek 36 i 90. Pełny `timeline` i `sheet` wymagają tieru full (ok. 1,5 GB plus modele ok. 1,1 GB).\n7. **Wynik.** Dostajesz WAV-y z SHA-256, `kit.lock.json` z onsetem, szczytem i końcem każdego dźwięku oraz listę tego, czego nie uruchomiłem.\n\n**Potrzebuję od Ciebie:**\n- Czy w animacji jest muzyka? Jeśli tak, ściszę ją o 6–12 dB na 0,3–0,5 s przed uderzeniem, żeby wybiło się czysto.\n- Zgoda na instalację tieru light.\n- Ścieżka do pliku animacji (albo projektu, jeśli masz kod). Z nim sprawdzę też synchronizację na gotowym filmie.\n\nJeśli wolisz własne narzędzia dźwiękowe Studia (`sound.py`), to też jest opcja. Do czasu Twojej odpowiedzi nie uruchamiam żadnej z dwóch dróg.",
+          "reply_chars": 2115,
+          "reply_sha256": "6e21664c534026ee6918bb3ae004bc1f9d5136f2891a83f3d53c2c12b443b96f",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1263,
+            "output": 1877,
+            "cache_read": 42887,
+            "cache_write": 18468
+          },
+          "seconds": 25.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Gemini",
+                  "--yes-upload"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C10",
+      "title": "Choosing among candidate files uses Earshot's readings and invents no scores when the engine is not installed",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1252,
+        "output": 1753,
+        "cache_read": 43717,
+        "cache_write": 17429
+      },
+      "seconds": 18.4,
+      "wall_seconds": 18.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze roboczym są trzy kliknięcia: a.wav, b.wav i c.wav. Który najlepiej pasuje jako miękkie kliknięcie przycisku w aplikacji?",
+          "reply": "Nie mogę teraz wybrać na podstawie odsłuchu. W tej sesji nie mam dostępu do powłoki, więc nie uruchomiłem Earshota. Nie wiem, jak brzmią a.wav, b.wav i c.wav, i nie będę zgadywać. Pliki są w `/tmp/studio-eval-dl7mhg7b/work`, a silnik jest w `/home/user/framecore-works-creative-studio/plugins/earshot-audio/scripts/runtime.py`.\n\nDomyślnie przyjmuję, że chodzi o krótkie, ciche kliknięcie przycisku, bez ostrego ataku i bez długiego ogona. Jeśli chcesz inny charakter, napisz.\n\nTe komendy możesz uruchomić u siebie. Wszystko działa lokalnie, a pierwsza sprawdza, czy silnik jest gotowy:\n\n```bash\nR=/home/user/framecore-works-creative-studio/plugins/earshot-audio/scripts/runtime.py\ncd /tmp/studio-eval-dl7mhg7b/work\n\npython3 $R status --json                 # czy poziom \"light\" jest gotowy\npython3 $R run measure a.wav --json      # głośność, szczyt, długość, pasma, początek dźwięku\npython3 $R run measure b.wav --json\npython3 $R run measure c.wav --json\npython3 $R run rank \"a soft, quiet UI button click, short and gentle\" . --top 3\n```\n\n- **`measure`** pokaże dokładne wartości dla każdego pliku. Miękkie kliknięcie powinno mieć niski szczyt (dBTP), krótki czas trwania i mało energii w górnych pasmach.\n- **`rank`** (wymaga pełnego poziomu, ok. 1,5 GB plus modele ok. 1,1 GB) uszereguje pliki względem opisu. Wynik z z ≥ 3 oznacza mocne dopasowanie, poniżej 2 brak dopasowania.\n\nJeśli `status` pokaże, że brakuje poziomu \"light\", instalacja zajmie ok. 200 MB i zrobię ją dopiero po Twojej zgodzie. Studio ma też własne `sound.py`, które mogę użyć zamiast Earshota. Którą drogę wybierasz: Earshot (light, a do `rank` full), czy `sound.py`?\n\nJeśli dostanę dostęp do powłoki albo wkleisz wyniki `measure`, wskażę najlepszy plik z liczbami.",
+          "reply_chars": 1741,
+          "reply_sha256": "cdedda232f6f497029687911da13c70ff6a9ff12cf03ced33beb46e41289e03e",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1252,
+            "output": 1753,
+            "cache_read": 43717,
+            "cache_write": 17429
+          },
+          "seconds": 18.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "earshot-audio:earshot"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['earshot-audio:earshot']; expected one of ['earshot-audio:earshot']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)\\bz\\s*[=+]\\s*\\d|p_real\\s*[=:]?\\s*0\\.\\d"
+              },
+              "passed": true,
+              "detail": "not /(?i)\\bz\\s*[=+]\\s*\\d|p_real\\s*[=:]?\\s*0\\.\\d/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

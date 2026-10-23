@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3, 2026-10-23
+
+Owner decision (option A), after a ChatGPT Work run that found the engine missing and made the sound with
+FrameCore Works Creative Studio's own engine without asking: when the engine is missing and the project has its own
+sound tools, the readiness question offers both routes (install the light tier, or the project's tools now), runs
+neither before the answer, and names the engine that made the sound.
+
 ## 1.0.2, 2026-10-23
 
 Defect found in an end-to-end run (Studio, Superpowers and this plugin in Claude Code, light tier): `timeline` and

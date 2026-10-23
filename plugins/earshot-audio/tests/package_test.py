@@ -37,11 +37,11 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.2'})
+        self.assertEqual(versions, {'1.0.3'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.2')
+        self.assertEqual(entries['earshot-audio']['version'], '1.0.3')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
@@ -89,6 +89,12 @@ class Package(unittest.TestCase):
         self.assertNotIn('steps 1 to 4 still run', ref)
         handoff = (PLUGIN / 'skills/earshot/references/studio-handoff.md').read_text(encoding='utf-8')
         self.assertIn('light tier', handoff)
+
+    def test_a_missing_engine_offers_both_routes(self):
+        # Owner decision 2026-10-23 (option A): ChatGPT Work fell back to Studio's engine without asking.
+        skill = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
+        self.assertIn("`sound.py`), offer them in the same", skill)
+        self.assertIn('run neither before the answer', skill)
 
     def test_licence_and_notice(self):
         data = manifest()

@@ -465,6 +465,50 @@
           ]
         }
       ]
+    },
+    {
+      "id": "C16",
+      "title": "Owner decision 2026-10-23 (option A): earshot-audio is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 200 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "files": {
+        "logo.mp4": "tests/host-evals/fixtures/companion-logo.mp4"
+      },
+      "extra_tools": [
+        "Bash(python3:*)",
+        "Bash(ffprobe:*)",
+        "Bash(ffmpeg:*)"
+      ],
+      "max_turns": 20,
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "regex": "(?i)200\\s?MB"
+            },
+            {
+              "regex": "(?i)silnik(iem|a)?\\s+(własn\\w+\\s+)?Studio|sound\\.py|wbudowan\\w+\\s+silnik"
+            },
+            {
+              "no_command": "install --tier"
+            },
+            {
+              "no_command": "sound.py"
+            },
+            {
+              "no_command": "adelay"
+            },
+            {
+              "no_command": "amix"
+            },
+            {
+              "max_questions": 3
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-23",
+  "package_version": "1.124.2",
+  "source": {
+    "commit": "ef7382b066dbc446fb972c07889eca8a0671c57e",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "9ecceacfd5915fa9a788691a9e3186de3fdc81e9bc707ea2cc1a616d16fa0da1",
+      "files": 1559,
+      "archive": "candidates/9ecceacfd5915fa9a788691a9e3186de3fdc81e9bc707ea2cc1a616d16fa0da1.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "companion",
+  "host": "Claude Code 2.1.309, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [
+    {
+      "name": "superpowers",
+      "version": "6.4.2"
+    },
+    {
+      "name": "earshot-audio",
+      "version": "1.0.3"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "8ead741ad060c5e24f7519edea2ca00cd23db5a20c6c448eddd5d27615f954e3",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1342,
+      "output": 1458,
+      "cache_read": 72144,
+      "cache_write": 17471
+    },
+    "seconds": 22.4
+  },
+  "cases": [
+    {
+      "id": "C16",
+      "title": "Owner decision 2026-10-23 (option A): earshot-audio is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 200 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1342,
+        "output": 1458,
+        "cache_read": 72144,
+        "cache_write": 17471
+      },
+      "seconds": 22.4,
+      "wall_seconds": 22.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz.",
+          "reply": "Earshot nie jest tu jeszcze zainstalowany (`state: unavailable`), więc nie uruchomiłem niczego, co zapisuje na dysku. Wideo ma 1280×720, 180 klatek przy 30 fps i 6,0 s, bez ścieżki audio. Cue'y wypadają na klatce 36 (1,2 s, wejście napisu) i klatce 90 (3,0 s, lądowanie logo).\n\nKtórą drogą mam pójść?\n\n1. **Earshot, tier light.** Instaluje się z przypiętego commita, zapisuje około 200 MB i działa lokalnie. Whoosh i uderzenie biorę z banku dźwięków (`sfx`/`kit`), a miksuję je na tych klatkach. Synchronizację sprawdzam pomiarem onsetów w gotowym MP4 względem klatek 36 i 90. To działa bez modeli. Wykres `timeline` i `sheet` wymagają tieru full (około 1,5 GB plus około 1,1 GB modeli), więc ich nie dostaniesz bez dodatkowej zgody.\n2. **Własne narzędzie studia (`sound.py`).** Dźwięki powstaną w nim, a onsety zmierzę osobno, więc bez Earshota. Raport napiszę wtedy z nazwą tego silnika.\n\nJeśli nie odpowiesz inaczej, polecam opcję 1, bo daje zmierzony wynik synchronizacji.",
+          "reply_chars": 976,
+          "reply_sha256": "38454578060d882e29a4b9c904a5734f701bf782b4a72bf9c619c28a854bfa84",
+          "skills": [
+            "earshot-audio:earshot"
+          ],
+          "tools": [
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1342,
+            "output": 1458,
+            "cache_read": 72144,
+            "cache_write": 17471
+          },
+          "seconds": 22.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)200\\s?MB"
+              },
+              "passed": true,
+              "detail": "/(?i)200\\s?MB/"
+            },
+            {
+              "check": {
+                "regex": "(?i)silnik(iem|a)?\\s+(własn\\w+\\s+)?Studio|sound\\.py|wbudowan\\w+\\s+silnik"
+              },
+              "passed": true,
+              "detail": "/(?i)silnik(iem|a)?\\s+(własn\\w+\\s+)?Studio|sound\\.py|wbudowan\\w+\\s+silnik/"
+            },
+            {
+              "check": {
+                "no_command": "install --tier"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "sound.py"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "adelay"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "no_command": "amix"
+              },
+              "passed": true,
+              "detail": "not run"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
