@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.125.1, 2026-10-23
+
+- **Review fixes (Earshot and Superpowers integration).** Trigger: an independent review on 2026-10-23. `listen.py`'s Earshot bridge always runs offline with the plugin's cache and refuses `doctor --fetch`; `earshot-audio` 1.0.6 fails an installation whose upload stub cannot be applied; setup states what is written and where; the last references to a second Earshot route are removed from the owners and routing references.
+
 ## 1.125.0, 2026-10-23
 
 - **One setup offer on every host.** Owner request 2026-10-23. [First companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) offers Superpowers, then explains Earshot in plain words and asks full (about 2.6 GB), light (about 200 MB) or not now; the answer is the consent, and the plugin and tier are installed in the same conversation where code runs, with blocked hosts named. [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md), [CODEX_INSTALL.md](CODEX_INSTALL.md) and [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md) end by entering that setup.

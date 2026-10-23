@@ -1,0 +1,33 @@
+{
+  "version": "1.125.1",
+  "baseline_tag": "v1.125.0",
+  "baseline": "b94028c807c3dd59878d1bb8bceeff6121ac0deb",
+  "change_id": "CC-20261023-11",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/sound-listen/listen.py",
+    "skills/pipeline-core/references/earshot-native-routing.md",
+    "skills/pipeline-core/references/studio-integration-policy.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py",
+    "tests/sound_listen_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1544,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Independent review on 2026-10-23: listen.py bridge always offline and refuses doctor --fetch; earshot-audio 1.0.6 fails an install whose upload stub cannot be applied; setup states what is written; last second-route references removed. Main gate W01 W02 W04 V01 D01 pass."
+}
