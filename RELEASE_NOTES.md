@@ -1,7 +1,7 @@
-# Creative Studio 1.124.0
+# Creative Studio 1.124.1
 
-Studio gets a sound companion, Earshot Audio 1.0.0: the new Earshot Audio plugin, in the same marketplace. It lets the agent listen to sound it cannot hear, measure a soundtrack against its picture, render a film's sound effects on exact frames from a bank of 252 sounds, and build a soundtrack from licensed recordings. Studio keeps the brief, the storyboard acceptance and the final review, and hands sound work to Earshot when it is installed.
+When you configure Studio ("Configure Studio", in any language), it now offers Earshot Audio as the second recommended companion, right after Superpowers. If Earshot Audio is already installed, Studio recognises it and gives no install step; if not, it shows the one step for your agent. Nothing is installed in that setup turn, and Earshot's engine is installed only after a separate agreement on your first sound task.
 
-Everything runs on your machine. The engine and its models are installed only after you agree, from a pinned and checked version; nothing is uploaded, and downloads from Freesound, Mixkit or Pixabay happen only when you ask.
+The installation guides for Claude Code, Codex and ChatGPT now each describe how to add Earshot Audio from this repository (folder `plugins/earshot-audio`) and what it needs: code execution on your machine or in ChatGPT Work.
 
-Verification: source tests, a light installation and real renders in a Linux container, upstream's test suite and joint Claude Code runs are recorded in verification/. The full model tier and fresh ChatGPT behavior remain NOT_RUN; the hosted plugins are updated separately.
+Verification: source tests and joint Claude Code runs (Studio with Superpowers, and with Superpowers and Earshot Audio) are recorded in verification/. The Codex local-plugin route for Earshot Audio, ChatGPT and fresh ChatGPT Work behavior remain NOT_RUN; the hosted plugin is updated separately.

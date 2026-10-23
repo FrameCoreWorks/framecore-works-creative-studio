@@ -1,0 +1,29 @@
+{
+  "version": "1.124.1",
+  "baseline_tag": "v1.124.0",
+  "baseline": "4979658385d6909f2552de393cafc3798037438f",
+  "change_id": "CC-20261023-02",
+  "origin": "cloud-code",
+  "files": 1559,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.py",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1548,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner request 2026-10-23: first configuration offers earshot-audio second, after Superpowers (registry recommendation_priority second, first companion setup step 6), and the Codex and ChatGPT install guides gain an Earshot Audio section; host_eval resolves --with-plugin to an absolute path. Host eval C14 failed before and passes after; C15 and C05 pass."
+}

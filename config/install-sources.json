@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.124.0",
+  "version": "1.124.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "78ff67d65555008d2dcdddfd2a1b4a68bd1b9dfead9baf67fa28615a86310064"
+      "sha256": "a1a0b92e7d64068d6d97b0cf6d6aeec1aa7c8846fb5cec48b87658d31049e090"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "a99b47034ccd3a9a6005393045da41519bc0eebc13f7c00e5f639dea760c1112"
+      "sha256": "9c168b62ff212e56e291c28e94fbf20e2b58ba9879a771da027fe7fd3a0c1760"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22829,
-      "sha256": "3255a7c7f06fdc3e8606c4d6591e5092571fcccceb57976af497bf78e9e8cd95"
+      "sha256": "d9c0e9fd9ef98016d8b545a03532603f065500320e99881366bc5c5b2a87d8b8"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "c660b1cdc5f7a8d94441c631e2350447fd5a99ebf8d765585f35c7de9ea704eb"
+      "sha256": "a9d52695271aabed922f800d37c3a31f6c76f84462da7c9641ca086b107681f3"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 213620,
-      "sha256": "200264ef4a9a8e9d1da9303fc351ec6618c625e461c065a32055c6772fedcdbc"
+      "bytes": 214984,
+      "sha256": "1ead7283c047a40a7e465fbcb8ce018f01cd38ac994123ad976b24e28279a020"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2454,7 +2454,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "3313f2499822e6cad47ce3b903124d1b11a2d8a899af44bb91605672c491ffa7"
+      "sha256": "df1f719376fbc8e5d167a87ba559acc5cc16f714e16bb089e42fa6213f458ec6"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -7309,7 +7309,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31759,
-      "sha256": "92de06c11ab039653c1b85800640b72ba9ee8040c1745ee1e5bc63e9df5bccd2"
+      "sha256": "6f6eafa6d5011e659a1e42fbbbd9c3f4a541bdff07792504e5248754700c9bee"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7358,13 +7358,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 138382,
-      "sha256": "deb4a70b55b096fb41f765cbe10ca991f79d707b557553e5d03d070c5e19a15b"
+      "bytes": 138425,
+      "sha256": "cfdf7dac29e7351b59906d62085f3fbd50002af24446442dff051cb2c191dd10"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
-      "bytes": 13258,
-      "sha256": "95408f46f4ef13c6846947dc7a72862c22a09181a1f58c3d0f8cbb23f331d17c"
+      "bytes": 13344,
+      "sha256": "8325523826877500d482277fe679e91a28c4f47f2cbf3205db18c471826a5bc1"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -7458,8 +7458,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 11111,
-      "sha256": "6522d8019768a002e1c83c0dc1f8ea1419cc65e0e25939181f10b995e1ca8dde"
+      "bytes": 12794,
+      "sha256": "9ad5624e6d2dabff690e2aced63109047fe41e39034efedb2089db2cc503d5d7"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7623,8 +7623,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 22330,
-      "sha256": "15977e4a044e8865bd3d914c7bb159d69af37c96421a11794a501892f4db47fc"
+      "bytes": 23659,
+      "sha256": "90165233ff6586fdc90f163ac8604cc3315c9bac2a5b5b03942a29f145e808a3"
     },
     {
       "path": "tests/flash_check_test.py",
