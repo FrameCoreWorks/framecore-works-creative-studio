@@ -1,0 +1,27 @@
+{
+  "version": "1.128.0",
+  "baseline_tag": "v1.127.0",
+  "baseline": "63f0e47cd28a08b33ea1c6d13f7413629a76824e",
+  "change_id": "CC-20261024-05",
+  "origin": "cloud-code",
+  "files": 1564,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/references/local-tts-engines.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1555,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Voice And Narration 1.0.0, a new public plugin beside Studio (skill voice-narration:narrate), generates and measures voice-overs: VoxCPM2 (consented pinned install) or Voicebox on the user's own computer, or ElevenLabs through the host connector, with a per-project lexicon, per-line limits, a consented speed-up of at most 5% and narration.lock.json; Studio adds the voice-narration registry entry and a pointer in Audio Production Director's voice engines guide. Plugin tests 48 + 6 pass; real engine generation and the ElevenLabs read are NOT_RUN; hosted ChatGPT update pending."
+}

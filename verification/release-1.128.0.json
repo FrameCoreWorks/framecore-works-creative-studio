@@ -1,0 +1,279 @@
+{
+  "version": "1.128.0",
+  "date": "2026-10-24",
+  "baseline": "3fd27085b02b6d68d7654f2160bab2a74464b438",
+  "change_id": "CC-20261024-05",
+  "origin": "cloud-code",
+  "environment": "Development environment not reported",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1564,
+      "owners": 37,
+      "planned_cases": 204,
+      "executed": 0,
+      "warnings": []
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 239,
+        "pass": 228,
+        "fail": 0,
+        "skipped": 11
+      },
+      "python": {
+        "suite 1": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 2": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 3": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 4": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 5": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 6": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 7": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 8": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "suite 9": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 10": {
+          "tests": 20,
+          "skipped": 0
+        },
+        "suite 11": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "suite 12": {
+          "tests": 21,
+          "skipped": 0
+        },
+        "suite 13": {
+          "tests": 34,
+          "skipped": 0
+        },
+        "suite 14": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 15": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 16": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 17": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 18": {
+          "tests": 31,
+          "skipped": 0
+        },
+        "suite 19": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 20": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 21": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 22": {
+          "tests": 12,
+          "skipped": 12
+        },
+        "suite 23": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 24": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 25": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 26": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 27": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 28": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 29": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 30": {
+          "tests": 44,
+          "skipped": 0
+        },
+        "suite 31": {
+          "tests": 21,
+          "skipped": 0
+        },
+        "suite 32": {
+          "tests": 26,
+          "skipped": 0
+        },
+        "suite 33": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 34": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 35": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 36": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 37": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 38": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 39": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 40": {
+          "tests": 6,
+          "skipped": 6
+        },
+        "suite 41": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 42": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 43": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 44": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 45": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 46": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 47": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 48": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 49": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 50": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 51": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 52": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 53": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 54": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 55": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 56": {
+          "tests": 16,
+          "skipped": 0
+        },
+        "suite 57": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 58": {
+          "tests": 48,
+          "skipped": 0
+        },
+        "suite 59": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 60": {
+          "tests": 34,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.310)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Voice And Narration 1.0.0, a new public plugin beside Studio (skill voice-narration:narrate), generates and measures voice-overs: VoxCPM2 (consented pinned install) or Voicebox on the user's own computer, or ElevenLabs through the host connector, with a per-project lexicon, per-line limits, a consented speed-up of at most 5% and narration.lock.json; Studio adds the voice-narration registry entry and a pointer in Audio Production Director's voice engines guide. Plugin tests 48 + 6 pass; real engine generation and the ElevenLabs read are NOT_RUN; hosted ChatGPT update pending.",
+  "source": "Release 1.128.0: Voice And Narration companion plugin",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

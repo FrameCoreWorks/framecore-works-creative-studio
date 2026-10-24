@@ -1,15 +1,15 @@
-# Creative Studio 1.127.0
+# Creative Studio 1.128.0
 
-The owner approved plain role names for Studio's skills. Only the names people see change.
+A new companion plugin, Voice And Narration, makes and measures voice-overs.
 
 ## What changed
 
-Thirty of the 37 skills now show shorter role names, such as Motion Graphics, Audio Production, Storyboard Board, Shot Sequence, Output Review, Copy Polish, Graphic Design, Image Prompt, Video Prompt and Brand Strategy. FrameCut keeps its name, and the Studio entry skill shows as FrameCore Studio Guide. Names already clear (Caption Studio, Brief Architect, Copy Voice, Character Design, Asset Manifest and the legacy Producer AI Task Builder alias) stay. The full list is in the naming standard, `docs/skill-naming.md`.
+The separate `voice-narration` plugin (install it from this repository's marketplace next to Studio) takes an approved script with a time limit per line and returns one WAV per line. It runs VoxCPM2 or Voicebox on your own computer, or ElevenLabs through your app's ElevenLabs connector. It applies the project's pronunciation lexicon, measures each take against its limit, and writes `narration.lock.json` for FrameCut or Motion Graphics. Nothing is installed, downloaded, cloned or paid for without your yes. In a cloud session or a phone app it advises against the local engines and offers ElevenLabs or a script handoff. Studio's extension registry lists it, and Audio Production Director's voice engine guide points to it.
 
 ## What did not change
 
-Technical skill IDs, `$skill` invocations, file paths, routing, startup welcome and menus are unchanged, so existing projects and prompts keep working. Earshot keeps its `Earshot (Leon Lin)` credit.
+Studio's skills, startup, routing, names and paths are unchanged.
 
 ## Verification limits
 
-Source checks and packaging passed. Startup and skill display in fresh ChatGPT, Work, Claude and Codex clients were not run for this release.
+The plugin's 48 launcher tests and 6 package tests and Studio's checks passed. Status and the cloud install refusal were checked in a Claude Code cloud container. Real VoxCPM2 and Voicebox generation, an ElevenLabs read, and fresh ChatGPT, Work, Claude and Codex clients were not run for this release.
