@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.132.0, 2026-10-24
+
+- **Fixes from the full review.** Owner instruction 2026-10-24 to fix every finding of the [full review](docs/reviews/full-review-2026-10-24.md); the fix status is at its end.
+- **Companions.** Voice And Narration 1.0.2 needs the script's language for Voicebox instead of defaulting to Polish; Brand Kit 1.0.1 checks each connection's real address against DNS rebinding; Earshot Audio 1.0.8 bounds its fallback download. A companion that changes without a new version now fails `check_version_bump.py`. The install guides and README name Voice And Narration and Brand Kit, and Studio's registry pins both to their fixed commit.
+- **Storyboards in any language.** `board_compose.py` keeps the user's text exactly; Polish typesetting and „…” supers apply only to boards with `"language": "pl"`, and `labels` localizes Audio and Super.
+- **Clearer owners.** Ad and brand-film scripts are named in Screenplay's description; polish goes to Humanizer, store campaigns to Sales Campaign Strategy, the shared visual system to Visual Campaign, the coded-motion storyboard to Motion Graphics; Claude Code is named in the shared contracts and the startup contract; Polish client templates say to translate and adapt them.
+- **Repository.** The repository ZIP leaves out host-eval candidate snapshots (about 490 MB); `check_all.sh` prints validator errors; the release workflow skips a version already released from another commit; `release.py` pushes only `main`; AGENTS.md current rules and the roadmap follow the owner's 2026-10-24 rules; stray `edit*.py` scripts removed.
+
 ## 1.131.0, 2026-10-24
 
 - **Brand Kit plugin.** Owner task 2026-10-24 (grow the "Brand kit manager" from the [companion proposals](docs/handover-development-proposals-2026-10-24.md#4-future-companion-plugins-plan-only) into a website-to-brand-kit and voice asset; [design](docs/superpowers/specs/2026-10-24-brand-kit-plugin-design.md), [plan](docs/superpowers/plans/2026-10-24-brand-kit-plugin.md)). A new public plugin, `plugins/brand-kit` 1.0.0 (skill `brand-kit:brand`), collects bounded, robots-respecting evidence from a company website (colours with their use, font families, logo files, metadata, headings, CTAs, a copy sample), drafts a kit in Studio's own brand kit schema with a source ledger where unverified values stay `Unknown`, writes a brand audit with a voice and messaging profile, keeps approved kits as never-overwritten revisions per brand (`save`, `list`, `show`, `diff`) and offers a direction menu (new website ideas, ads and Meta Ads, video, brand development, content, spoken brand voice) handed to Studio's owners. Studio gains the registry entry `brand-kit`; no path was removed or moved.

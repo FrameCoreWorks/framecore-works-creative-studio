@@ -1,15 +1,13 @@
-# Creative Studio 1.131.0
+# Creative Studio 1.132.0
 
-A new companion plugin, Brand Kit, takes a company website apart into a brand kit and a brand audit.
+Every finding of the 2026-10-24 full review is fixed or recorded with its reason.
 
 ## What changed
 
-The separate `brand-kit` plugin (install it from this repository's marketplace next to Studio) reads a website you name: a few pages, their stylesheets and styles, with robots.txt honoured. It records colours with their use, font families, logo files, headings, CTAs and a copy sample in `evidence.json`, drafts `brand-kit.json` in Studio's brand kit format with a source ledger, and writes `brand-audit.md` with the visual system and a voice and messaging profile. Values it could not verify, such as font and logo rights, stay `Unknown`. Approved kits are saved as numbered revisions per brand. A menu then hands the next step (new website ideas, ads and Meta Ads, video, brand development, content, a spoken brand voice) to Studio's skills. Studio's extension registry lists it.
+Storyboard sheets now keep your on-screen text exactly as written in any language; Polish quotes and spacing apply only to Polish boards. Several skills say more clearly who does what: ad and brand-film scripts belong to the screenplay skill, polishing existing text to Copy Polish, store campaigns to Sales Campaign Strategy. Polish client templates (handoff letter, acceptance protocol, client emails) now say to translate and adapt them to your language and local law.
+
+The companion plugins got fixes too: Voice And Narration 1.0.2 asks for the script's language with Voicebox instead of assuming Polish, Brand Kit 1.0.1 closes a gap in its "public pages only" promise, and Earshot Audio 1.0.8 can no longer hang on a stalled download. The installation guides now describe Voice And Narration and Brand Kit.
 
 ## What did not change
 
-Studio's skills, startup, routing, names, paths and the brand kit schema are unchanged.
-
-## Verification limits
-
-The plugin's 46 launcher tests and 6 package tests and Studio's checks passed. One real extraction (pypi.org) ran in a Claude Code cloud container. The skill's audit and direction steps in a host conversation, and fresh ChatGPT, Work, Claude and Codex clients, were not run for this release.
+Startup, the welcome, routing tokens, skill names and paths are unchanged.
