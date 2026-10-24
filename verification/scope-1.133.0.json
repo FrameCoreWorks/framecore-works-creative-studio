@@ -1,0 +1,30 @@
+{
+  "version": "1.133.0",
+  "baseline_tag": "v1.132.0",
+  "baseline": "e5951203f53689cb2a0c5447bcdd468c14694728",
+  "change_id": "CC-20261024-15",
+  "origin": "cloud-code",
+  "files": 1567,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-studio.mjs",
+    "skills/studio-workstyle-profile/SKILL.md",
+    "skills/studio-workstyle-profile/assets/profile.template.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "skills/workflow-orchestrator/references/startup-and-creative-menus.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1555,
+  "welcome": "byte_identical",
+  "menus": "changed",
+  "vendored_snapshots": "byte_identical",
+  "note": "Opt-in startup style chosen at first configuration: guided (default, complete welcome and menus) or workflow (one ready line on a bare invocation, menu on request); saved only with consent through a real per-user mechanism; host behavior beyond the recorded cases NOT_RUN; hosted ChatGPT update pending."
+}

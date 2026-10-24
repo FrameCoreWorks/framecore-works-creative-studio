@@ -3663,3 +3663,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `e595120`; workflows Refresh current release notes 40098078816, Publish verified Studio release 40098078824, Check Studio sources 40098078809: success; [v1.132.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.132.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1567 of 1567) ([record](../verification/github-publication-1.132.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261024-15
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `c3b76f8` (main, package 1.132.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.133.0)
+- Package version: 1.132.0 -> 1.133.0
+- Scope: Opt-in startup style chosen at first configuration: guided (default, complete welcome and menus) or workflow (one ready line on a bare invocation, menu on request); saved only with consent through a real per-user mechanism; host behavior beyond the recorded cases NOT_RUN; hosted ChatGPT update pending.
+- Shared package changed: yes; 12 changed, 0 added, 0 removed ([scope](../verification/scope-1.133.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 242 Node tests (231 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 10 suite 7, 4 suite 8, 8 suite 9 (3 skipped; see the suite log for reasons), 23 suite 10, 20 suite 11, 24 suite 12, 21 suite 13, 34 suite 14, 6 suite 15, 10 suite 16, 10 suite 17, 13 suite 18, 31 suite 19, 11 suite 20, 5 suite 21, 17 suite 22, 12 suite 23 (12 skipped; see the suite log for reasons), 2 suite 24, 8 suite 25, 8 suite 26, 17 suite 27, 12 suite 28, 6 suite 29, 4 suite 30, 44 suite 31, 21 suite 32, 26 suite 33, 17 suite 34, 10 suite 35, 6 suite 36, 4 suite 37, 2 suite 38, 2 suite 39, 3 suite 40, 6 suite 41 (6 skipped; see the suite log for reasons), 6 suite 42, 4 suite 43, 8 suite 44, 8 suite 45, 11 suite 46, 6 suite 47, 15 suite 48, 3 suite 49, 12 suite 50, 3 suite 51, 6 suite 52, 4 suite 53, 9 suite 54, 2 suite 55, 2 suite 56, 16 suite 57, 12 suite 58, 55 suite 59, 6 suite 60, 15 suite 61, 17 suite 62, 6 suite 63, 10 suite 64, 6 suite 65, 34 suite 66: PASS ([record](../verification/release-1.133.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.133.0, 2026-10-24
+
+Trigger: owner request 2026-10-24 (a bounded task): let a user choose at first configuration whether Studio starts guided or plugs into their own workflow.
+
+- New opt-in startup style ([startup style](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/startup-and-creative-menus.md#startup-style)). `guided` stays the default and keeps the complete welcome and menus. `workflow` answers a bare invocation with one ready line, keeps "menu" for the full welcome and skips the intent, area and pace menus for a creation request; concrete tasks bypass the welcome in both styles.
+- First companion setup asks the style once, before the add-ons ([extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup)).
+- The choice is `work_preferences.startup_style` in the workstyle profile; it is saved only with consent through a real per-user mechanism (Claude Code `~/.claude/CLAUDE.md`, Codex `~/.codex/AGENTS.md`, ChatGPT memory or custom instructions), with an honest conversation-only fallback.
+- Validator check `STARTUP_STYLE`; host cases ST01 and ST02 in the additions suite (ST01 failed before the change, both pass after).
+
 ## 1.132.0, 2026-10-24
 
 - **Fixes from the full review.** Owner instruction 2026-10-24 to fix every finding of the [full review](docs/reviews/full-review-2026-10-24.md); the fix status is at its end.
