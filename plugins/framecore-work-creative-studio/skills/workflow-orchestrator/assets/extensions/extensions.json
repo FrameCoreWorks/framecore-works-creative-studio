@@ -1634,6 +1634,65 @@
       },
       "observed": "2026-10-24: cloned at the reviewed commit in a sandbox and read README, LICENSE, data/videos.json and all 703 prompt files; nothing installed. Host behaviour not run",
       "update": "Run scripts/build_opus_gallery_shard.py --check on a newer checkout, write notes for new slugs, then change reviewed_commit here, in the build script and in the notes file together"
+    },
+    {
+      "id": "brand-kit",
+      "name": "brand-kit",
+      "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+      "reviewed_commit": "6dbcc2896ac2435f3760f1b0e2c5a14b12f0524e",
+      "package": null,
+      "license": "Apache-2.0",
+      "kind": [
+        "native_plugin",
+        "skill",
+        "cli"
+      ],
+      "category": "brand-identity",
+      "role": "engine",
+      "gives": "A brand kit from a company website: bounded, robots-respecting evidence of colours with their use, font families, logo files, metadata, headings, CTAs and a copy sample (evidence.json); a draft brand-kit.json in Studio's own brand kit schema with a source ledger where unverified values stay Unknown; a brand audit with a voice and messaging profile; numbered, never-overwritten revisions per brand with list, show and diff; and a menu of directions (new website ideas, ads and Meta Ads, video, brand development, content, spoken brand voice).",
+      "studio_uses": "Through the separate brand-kit plugin from this repository (skill brand-kit:brand), the measured route for pipeline-core's Draft from a website: it fills the same brand kit schema, and its direction menu hands the saved kit, its revision and the audit to Marketing, Ecommerce Campaign Strategy Director, Copy Voice, Static Graphic Design Creator, the video owners and voice-narration. Studio keeps the creative work, the claims discipline and the review.",
+      "not_for": "Pixel-exact colour sampling, full-site crawls, competitor research (Marketing and Research Evidence), downloading or licensing logos and fonts, or publishing anything. A website's copy is observed wording, not an approved claim.",
+      "requires": [
+        {
+          "tool": "python",
+          "ranges": [
+            [
+              "3.10.0",
+              null
+            ]
+          ],
+          "note": "Python 3.10+ standard library only"
+        },
+        {
+          "tool": "network",
+          "note": "HTTPS to the website the user names; robots.txt is honoured and private or loopback addresses are refused"
+        }
+      ],
+      "rights": "Apache-2.0 (FrameCore Works), no third-party code. The analysed site's logos, fonts, images and copy stay their owners' property; the plugin records where it saw them and grants no right to use them.",
+      "hosts": {
+        "codex": {
+          "status": "manual",
+          "manual_steps": "One route: the separate brand-kit plugin (this repository's folder plugins/brand-kit, with .codex-plugin/plugin.json), skill brand-kit:brand. Copy the whole folder from the same pinned commit as Studio to a persistent place and add it where Codex shows a plugin route for a local folder (not yet tested here). Use: python3 <brand-kit>/scripts/brandkit.py extract <url> then draft; save only after the user approves the kit. Writes: evidence.json, brand-kit.draft.json, brand-kit.sources.json and brand-audit.md in the project folder; saved revisions in ~/.framecore-studio/brand-kits (or BRAND_KIT_ROOT). Remove: the host's plugin controls; the catalog folder stays until the user deletes it."
+        },
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "One route: the separate brand-kit plugin (this repository's folder plugins/brand-kit, marketplace framecore-works), skill brand-kit:brand. With a shell, after the user agrees: claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio (when not added yet) and claude plugin install brand-kit@framecore-works, then a new conversation loads the skill; in the interactive terminal /plugin install brand-kit --marketplace FrameCoreWorks/framecore-works-creative-studio. Use: python3 <brand-kit>/scripts/brandkit.py extract <url> then draft; save only after the user approves the kit. Writes: evidence.json, brand-kit.draft.json, brand-kit.sources.json and brand-audit.md in the project folder; saved revisions in ~/.framecore-studio/brand-kits (or BRAND_KIT_ROOT). Remove: the host's plugin controls; the catalog folder stays until the user deletes it."
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The launcher needs code execution. In the Claude apps, Studio's pipeline-core Draft from a website route reads the site with the app's fetch or browser tools instead."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The launcher needs code execution. In ChatGPT, Studio's pipeline-core Draft from a website route reads the site with the available browsing instead."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "One route: the separate brand-kit plugin (this repository's folder plugins/brand-kit), skill brand-kit:brand, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back (not done yet: pending). A Work sandbox is temporary: offer the saved kit as a download. Use: python3 <brand-kit>/scripts/brandkit.py extract <url> then draft; save only after the user approves the kit."
+        }
+      },
+      "observed": "2026-10-24 Claude Code cloud container (Python 3.13): brand-kit 1.0.0 built with 46 launcher and 6 package tests on offline fixtures, after one code review round; a real extract of https://pypi.org/ through the sandbox proxy read 3 of 5 pages (2 robots-disallowed), 4 stylesheets, 85 colours and 3 font families, and the draft picked #006dad as primary and Source Sans 3 as body. python.org and github.com were blocked by this sandbox's proxy. The skill's audit, approval and direction steps were not run in a host conversation.",
+      "update": "Check the brand kit template's top-level fields against the plugin's catalog.REQUIRED (package_test does) whenever Studio's schema changes."
     }
   ]
 }
