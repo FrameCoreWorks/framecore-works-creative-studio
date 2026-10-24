@@ -1,0 +1,3 @@
+interface:
+  display_name: "Voice And Narration"
+  short_description: "Measured voice-overs, local or ElevenLabs"
