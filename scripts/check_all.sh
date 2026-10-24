@@ -74,4 +74,5 @@ python3 plugins/earshot-audio/tests/runtime_test.py
 python3 plugins/earshot-audio/tests/package_test.py
 python3 plugins/voice-narration/tests/runtime_test.py
 python3 plugins/voice-narration/tests/package_test.py
+for t in site style draft catalog package; do python3 plugins/brand-kit/tests/${t}_test.py; done
 python3 -m unittest discover -s tests -p 'test_host_eval.py' -v

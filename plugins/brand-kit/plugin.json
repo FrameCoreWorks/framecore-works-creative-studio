@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "brand-kit",
+  "version": "1.0.0",
+  "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
+  "author": {
+    "name": "FrameCore Works"
+  },
+  "keywords": [
+    "brand-kit",
+    "brand-audit",
+    "brand-voice",
+    "tone-of-voice",
+    "website",
+    "colours",
+    "typography",
+    "logo",
+    "meta-ads",
+    "branding"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Brand Kit",
+        "shortDescription": "Website to brand kit, voice audit and plan",
+        "longDescription": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills. Evidence is collected politely (robots.txt, bounded pages, no private addresses) and every value keeps its source or stays Unknown; nothing is published or uploaded.",
+        "developerName": "FrameCore Works",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Take my website apart into a brand kit: https://example.com",
+          "Write the brand audit and voice profile for this site.",
+          "Plan Meta Ads from my saved brand kit."
+        ]
+      }
+    }
+  }
+}

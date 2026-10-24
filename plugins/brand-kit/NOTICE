@@ -1,0 +1,6 @@
+Brand Kit (brand-kit), FrameCore Works. Apache-2.0, see LICENSE.
+
+No third-party code is included; the scripts use the Python standard library only. The brand kit format is
+FrameCore Works Creative Studio's pipeline-core/assets/brand-kit.template.json from this repository.
+Websites the user analyses, and their logos, fonts, images and copy, remain their owners' property; the plugin
+records where it saw them and does not grant any right to use them.

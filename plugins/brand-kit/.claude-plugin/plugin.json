@@ -1,0 +1,24 @@
+{
+  "name": "brand-kit",
+  "version": "1.0.0",
+  "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
+  "author": {
+    "name": "FrameCore Works"
+  },
+  "displayName": "Brand Kit",
+  "homepage": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+  "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+  "license": "Apache-2.0",
+  "keywords": [
+    "brand-kit",
+    "brand-audit",
+    "brand-voice",
+    "tone-of-voice",
+    "website",
+    "colours",
+    "typography",
+    "logo",
+    "meta-ads",
+    "branding"
+  ]
+}
