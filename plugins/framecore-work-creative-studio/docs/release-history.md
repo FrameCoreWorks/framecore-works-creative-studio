@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.126.0, 2026-10-24
+
+- Resolve the 28 independently reviewed audit findings with focused regression coverage for captions, image/PDF correctness, quotation/copy validation, wrapping, alternate-format motion acceptance and FFmpeg 9 decoding; the full regression also exposed and fixed FFmpeg 7 crossfade rate metadata.
+- Require observed and bound media execution for C17 and ordered red/edit/green evidence for C20; repair portable installer/browser test expectations.
+- Add language versions, website-derived draft brand kits, dated platform delivery cards and cross-deliverable accessibility evidence through existing owners.
+- Register Hallmark as an optional complete native design companion, with pinned provenance and a narrow Codex metadata adapter. Keep full upstream resources separate from Studio.
+- Record 12 source-guided mixed-routing observations and four reference cases, retaining the strict comparison-read failure. Preserve 37 owners and protected startup; publish naming and future companion proposals for owner selection.
+
 ## 1.125.2, 2026-10-23
 
 - **Earshot credited to Leon Lin.** Owner decision 2026-10-23: [first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) presents Earshot as Leon Lin's open-source project packaged by FrameCore Works; `earshot-audio` 1.0.7 starts its manifest descriptions with the credit and shows "Earshot (Leon Lin)".
