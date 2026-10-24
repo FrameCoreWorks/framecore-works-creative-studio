@@ -24,6 +24,14 @@ def is_saturated(hex_):
     return saturation >= 0.25 and (max(r, g, b) - min(r, g, b)) >= 0.1 and 0.08 < lightness < 0.92
 
 
+def distinct(a, b):
+    """True when two colours differ by more than a shade: hue at least 20 degrees or lightness 0.2 apart."""
+    ha, la, _ = colorsys.rgb_to_hls(*_rgb(a))
+    hb, lb, _ = colorsys.rgb_to_hls(*_rgb(b))
+    hue = abs(ha - hb) * 360
+    return min(hue, 360 - hue) >= 20 or abs(la - lb) >= 0.2
+
+
 def _pick(colours, test, prefer=()):
     """Most used colour passing `test`; colours with a preferred use come first."""
     candidates = [c for c in colours if test(c)]
@@ -70,7 +78,13 @@ def draft(evidence):
     kit_colours['text'] = role('text', lambda c: luminance(c['hex']) < 0.2 and
                                {'body-text', 'text'} & set(c['uses']), ('body-text',))
     kit_colours['primary'] = role('primary', lambda c: is_saturated(c['hex']), ('button', 'link'))
-    kit_colours['accent'] = role('accent', lambda c: is_saturated(c['hex']), ())
+    primary = kit_colours['primary']['hex']
+    kit_colours['accent'] = role('accent', lambda c: is_saturated(c['hex']) and
+                                 (primary == UNKNOWN or distinct(c['hex'], primary)), ())
+    if kit_colours['background']['hex'] == UNKNOWN and any(
+            luminance(c['hex']) < 0.2 and 'page-background' in c['uses'] for c in colours):
+        note('colours.background', UNKNOWN, 'unknown', 'the page background is dark',
+             'a dark-themed site: confirm the background and text roles with the user')
     kit_colours = {k: kit_colours[k] for k in ('primary', 'accent', 'text', 'background')}
 
     fonts = evidence.get('fonts', [])
@@ -104,7 +118,7 @@ def draft(evidence):
         files['mark'] = mark['url']
         note('logo.files.mark', mark['url'], 'inferred', 'apple-touch-icon', 'url-not-downloaded; an icon, '
              'confirm it is the brand mark')
-    note('logo.white', UNKNOWN, 'unknown', '', 'a white version is rarely on the page; ask the user')
+    note('logo.files.white', UNKNOWN, 'unknown', '', 'a white version is rarely on the page; ask the user')
 
     note('voice', UNKNOWN, 'unknown', 'copy sample in evidence.json',
          'tone, address and phrases are written by the model from quoted copy and approved by the user')

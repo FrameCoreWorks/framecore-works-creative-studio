@@ -19,10 +19,18 @@ def default_root():
 def slugify(text):
     ascii_ = unicodedata.normalize('NFKD', text.replace('ł', 'l').replace('Ł', 'L'))
     ascii_ = ascii_.encode('ascii', 'ignore').decode()
-    slug = re.sub(r'[^a-z0-9]+', '-', ascii_.lower()).strip('-')
-    if not slug:
+    slug = re.sub(r'[^a-z0-9]+', '-', ascii_.lower()).strip('-')[:60].strip('-')
+    if slug:
+        return slug
+    letters = re.sub(r'\W+', '', text.casefold())
+    if not letters:
         raise ValueError(f'no usable brand name in {text!r}')
-    return slug
+    return 'brand-' + hashlib.sha256(letters.encode('utf-8')).hexdigest()[:8]
+
+
+def _same_name(a, b):
+    norm = lambda s: re.sub(r'\W+', '', str(s).casefold())
+    return norm(a) == norm(b)
 
 
 def validate(kit):
@@ -51,15 +59,28 @@ def save(kit, brand, root=None, note=''):
     folder = root / slugify(brand)
     folder.mkdir(parents=True, exist_ok=True)
     index = _index(root, brand)
-    rev = max([r['rev'] for r in index['revisions']], default=0) + 1
+    on_disk = [int(m.group(1)) for m in (re.fullmatch(r'rev-(\d+)\.json', p.name) for p in folder.iterdir()) if m]
+    rev = max([r['rev'] for r in index['revisions']] + on_disk, default=0) + 1
     data = (json.dumps(kit, ensure_ascii=False, indent=2) + '\n').encode('utf-8')
     path = folder / f'rev-{rev:04d}.json'
     with open(path, 'xb') as handle:
         handle.write(data)
-    index['revisions'].append({'rev': rev, 'file': path.name, 'note': note, 'sha256': hashlib.sha256(data).hexdigest(),
+    index.setdefault('name', kit.get('name'))
+    index['revisions'].append({'rev': rev, 'name': kit.get('name'), 'file': path.name, 'note': note, 'sha256': hashlib.sha256(data).hexdigest(),
                                'saved': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds')})
-    _index_path(root, brand).write_text(json.dumps(index, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    tmp = _index_path(root, brand).with_suffix('.tmp')
+    tmp.write_text(json.dumps(index, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    os.replace(tmp, _index_path(root, brand))
     return rev
+
+
+def name_mismatch(kit, brand, root=None):
+    """The brand's saved name when the kit carries a different one (a rebrand or a wrong --brand), else None."""
+    index = _index(pathlib.Path(root or default_root()), brand)
+    saved = index.get('name')
+    if saved and not _same_name(saved, kit.get('name', '')):
+        return saved
+    return None
 
 
 def list_brands(root=None):

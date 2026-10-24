@@ -85,6 +85,31 @@ class Collect(unittest.TestCase):
         self.assertTrue(statuses['https://lipa.example/menu'].startswith('error'))
         self.assertEqual(statuses['https://lipa.example/o-nas'], 200)
 
+    def test_bad_links_and_ports_do_not_abort(self):
+        html = '<nav><a href="http://[oops">x</a><a href="http://lipa.example:abc/">y</a><a href="/menu">m</a></nav>'
+        fetch = lambda url: (200, 'text/html', html)
+        result = site.collect('https://lipa.example/', pages=3, fetch=fetch, resolve=public, robots=lambda u: True)
+        self.assertIn('https://lipa.example/menu', [p['url'] for p in result['pages']])
+
+    def test_www_and_apex_are_one_site_and_redirect_is_followed(self):
+        html = '<nav><a href="https://www.lipa.example/menu">m</a></nav>'
+        fetch = lambda url: (200, 'text/html', html, url.replace('://lipa', '://www.lipa'))
+        result = site.collect('https://lipa.example/', pages=2, fetch=fetch, resolve=public, robots=lambda u: True)
+        self.assertEqual([p['url'] for p in result['pages']], ['https://lipa.example/', 'https://www.lipa.example/menu'])
+        self.assertEqual(result['pages'][0]['final_url'], 'https://www.lipa.example/')
+
+    def test_non_html_page_is_not_parsed(self):
+        fetch = lambda url: (200, 'application/pdf', '%PDF')
+        result = site.collect('https://lipa.example/', pages=1, fetch=fetch, resolve=public, robots=lambda u: True)
+        self.assertEqual(result['pages'][0]['html'], '')
+        self.assertIn('application/pdf', result['pages'][0]['status'])
+
+    def test_robots_server_error_disallows(self):
+        can = site.robots_for('https://lipa.example/', fetch=lambda url: (503, 'text/plain', ''))
+        self.assertFalse(can('https://lipa.example/menu'))
+        can = site.robots_for('https://lipa.example/', fetch=lambda url: (404, 'text/plain', ''))
+        self.assertTrue(can('https://lipa.example/menu'))
+
     def test_stylesheets_collected_once(self):
         result, _ = self.run_collect(pages=3, robots=lambda url: True)
         urls = [s['url'] for s in result['stylesheets']]

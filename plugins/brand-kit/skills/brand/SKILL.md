@@ -22,8 +22,9 @@ python3 <brandkit> extract <url> --pages 3 --out evidence.json
 python3 <brandkit> draft evidence.json --out brand-kit.draft.json --ledger brand-kit.sources.json
 ```
 
-`extract` reads the home page and up to `--pages` same-site pages from the navigation (max 8), their stylesheets and
-inline styles, honours robots.txt and refuses private addresses. Report its summary line plainly: a page that is
+`extract` reads up to `--pages` pages in total (default 3, max 8): the start page, then same-site links with the
+navigation first (`www.` and the bare domain count as one site). It reads their stylesheets, `<style>` blocks and
+`style` attributes, honours robots.txt and refuses private addresses. Dark-theme overrides are left out. Report its summary line plainly: a page that is
 `robots-disallowed` or `error` was not read. For a page the user saved, or a site that blocks the script, use
 `--html page.html --css site.css --base-url <url>`.
 
@@ -59,18 +60,20 @@ user a compact view: name, four colours with roles, two fonts, logo files, voice
 the source ledger. Supplied approved values (an existing kit or brand book) win over the website; show a difference
 as a proposed change.
 
-Save only after the user agrees. Then:
+Save only after the user agrees. Then write the approved kit as `brand-kit.json` in the project folder (Studio's
+owners read it there) and add it to the catalog:
 
 ```
 python3 <brandkit> save brand-kit.json --brand "<Brand name>" --note "from <url>, <date>"
 ```
 
+A warning that the brand folder holds another company's name means a wrong `--brand` or a rebrand: ask which.
+
 Each save is a new numbered revision in the brand's own folder of the catalog (`BRAND_KIT_ROOT`, default
 `~/.framecore-studio/brand-kits`); earlier revisions are never overwritten. `list`, `show <brand> [--rev N]` and
 `diff <brand> A B` show the catalog; work for a client always names which brand and revision it uses, and two brands
-never share a file. When the kit changes, list the outputs made with the earlier revision that need a check. Also
-write `brand-kit.json` into the project folder when the user wants Studio's owners to read it from there; in a
-cloud session say that the catalog lives on a temporary disk and offer the file for download.
+never share a file. When the kit changes, list the outputs made with the earlier revision that need a check. In a
+cloud session say that the catalog lives on a temporary disk and offer `brand-kit.json` for download.
 
 ## 5. Choose a direction
 

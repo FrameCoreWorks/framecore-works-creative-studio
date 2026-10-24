@@ -25,6 +25,8 @@ def _read(path):
 
 
 def cmd_extract(args):
+    if args.html and args.url:
+        raise ValueError('give either a URL or --html, not both')
     if args.html:
         base = args.base_url or pathlib.Path(args.html).resolve().as_uri()
         collected = {'start_url': base,
@@ -55,7 +57,12 @@ def cmd_draft(args):
 
 
 def cmd_save(args):
-    rev = catalog.save(_read(args.kit), args.brand, args.root, note=args.note)
+    kit = _read(args.kit)
+    saved = catalog.name_mismatch(kit, args.brand, args.root)
+    if saved:
+        print(f"warning: {catalog.slugify(args.brand)} holds kits for {saved!r}, this kit is {kit.get('name')!r}; "
+              'use another --brand for a different company', file=sys.stderr)
+    rev = catalog.save(kit, args.brand, args.root, note=args.note)
     print(f'saved {catalog.slugify(args.brand)} revision {rev}')
 
 

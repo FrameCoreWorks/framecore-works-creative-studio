@@ -62,6 +62,53 @@ class Css(unittest.TestCase):
         self.assertEqual(style.parse_css('', 'x'), {'colours': [], 'variables': {}, 'fonts': [], 'font_faces': []})
 
 
+class ReviewCases(unittest.TestCase):
+    def colours(self, css, variables=None):
+        return {(c['hex'], c['use']) for c in style.parse_css(css, 'x', variables)['colours']}
+
+    def fonts(self, css):
+        return {(f['family'], f['role']) for f in style.parse_css(css, 'x')['fonts']}
+
+    def test_backslash_in_variable_does_not_crash(self):
+        style.parse_css(':root{--i:"\\e900"}.x:before{content:var(--i)}', 'x')
+
+    def test_each_var_resolved_with_chains_and_fallback(self):
+        css = ':root{--a:#ff0000;--b:#0000ff;--brand:#00aa00;--primary:var(--brand)}' \
+              '.g{background:linear-gradient(var(--a),var(--b))}.p{color:var(--primary)}.f{color:var(--nope, #123456)}'
+        found = self.colours(css)
+        self.assertTrue({('#ff0000', 'background'), ('#0000ff', 'background'), ('#00aa00', 'text'),
+                         ('#123456', 'text')} <= found, found)
+
+    def test_variables_across_sheets(self):
+        tokens = style.css_variables(':root{--bg:#fafafa}')
+        self.assertIn(('#fafafa', 'page-background'), self.colours('body{background:var(--bg)}', tokens))
+
+    def test_dark_theme_does_not_override(self):
+        css = ':root{--bg:#ffffff}@media (prefers-color-scheme: dark){:root{--bg:#000000}}' \
+              '[data-theme="dark"]{--bg:#111111}body{background:var(--bg)}'
+        self.assertEqual({h for h, u in self.colours(css) if u == 'page-background'}, {'#ffffff'})
+
+    def test_font_shorthand_and_selector_lists(self):
+        fonts = self.fonts('h1{font:700 2rem/1.1 "Brand Sans",sans-serif}body,button,input{font-family:Roboto,Arial}')
+        self.assertIn(('Brand Sans', 'heading'), fonts)
+        self.assertIn(('Roboto', 'body'), fonts)
+        self.assertIn(('Roboto', 'button'), fonts)
+        self.assertNotIn('Arial', {f for f, _ in fonts})  # a fallback, not the brand font
+
+    def test_url_and_faint_overlays_are_not_colours(self):
+        found = self.colours('.hero{background:url(/img/hero-white.jpg)}.o{background:rgba(255,255,255,.08)}')
+        self.assertEqual(found, set())
+
+    def test_style_attributes_svg_title_and_lazy_logo(self):
+        html = '<html><head><title>Acme</title></head><body><header><svg><title>Open menu</title></svg>' \
+               '<img class="logo" src="" data-src="/l.svg"><img class="logo" src=""></header>' \
+               '<div class="hero" style="background:#ff6600">x</div></body></html>'
+        page = style.parse_html(html, 'https://acme.example/')
+        self.assertEqual(page['meta']['title'], 'Acme')
+        self.assertEqual([l['url'] for l in page['logos'] if l['kind'] == 'header-img'], ['https://acme.example/l.svg'])
+        self.assertIn(('#ff6600', 'background'), self.colours(page['inline_css']))
+
+
 class Html(unittest.TestCase):
     def setUp(self):
         self.page = style.parse_html(HOME, 'https://lipa.example/')

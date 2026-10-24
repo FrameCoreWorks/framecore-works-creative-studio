@@ -1,6 +1,8 @@
 """Bounded, polite fetching of a public website: URL safety, robots.txt, pages and stylesheets."""
+import http.client
 import ipaddress
 import socket
+import urllib.error
 import urllib.parse
 import urllib.request
 import urllib.robotparser
@@ -50,26 +52,41 @@ class _SafeRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
+PAGE_TYPES = ('text/html', 'application/xhtml+xml')
+SHEET_TYPES = ('text/css', 'text/plain')
+FETCH_ERRORS = (OSError, ValueError, LookupError, http.client.HTTPException)
+
+
 def fetch(url):
-    """GET one URL; returns (status, content type, text). Raises OSError or UnsafeURL."""
+    """GET one URL; returns (status, content type, text, final URL after redirects)."""
     check_url(url)
     opener = urllib.request.build_opener(_SafeRedirect())
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'text/html,text/css,*/*'})
-    with opener.open(request, timeout=TIMEOUT) as response:
+    try:
+        response = opener.open(request, timeout=TIMEOUT)
+    except urllib.error.HTTPError as exc:
+        return exc.code, exc.headers.get_content_type() if exc.headers else '', '', url
+    with response:
         data = response.read(MAX_BYTES + 1)[:MAX_BYTES]
         charset = response.headers.get_content_charset() or 'utf-8'
-        return response.status, response.headers.get_content_type(), data.decode(charset, errors='replace')
+        try:
+            text = data.decode(charset, errors='replace')
+        except LookupError:
+            text = data.decode('utf-8', errors='replace')
+        return response.status, response.headers.get_content_type(), text, response.geturl()
 
 
 def robots_for(url, fetch=fetch):
-    """Return a can_fetch(url) function for the site; an unreadable robots.txt allows everything."""
+    """Return a can_fetch(url) function: a missing robots.txt allows everything, a server error allows nothing."""
     parts = urllib.parse.urlsplit(url)
     parser = urllib.robotparser.RobotFileParser()
     try:
-        status, _, text = fetch(f'{parts.scheme}://{parts.netloc}/robots.txt')
-        parser.parse(text.splitlines() if status == 200 else [])
-    except (OSError, UnsafeURL):
-        parser.parse([])
+        status, _, text, *_ = fetch(f'{parts.scheme}://{parts.netloc}/robots.txt')
+    except FETCH_ERRORS + (UnsafeURL,):
+        status, text = 404, ''
+    if isinstance(status, int) and status >= 500:
+        return lambda target: False
+    parser.parse(text.splitlines() if status == 200 else [])
     return lambda target: parser.can_fetch(USER_AGENT, target)
 
 
@@ -93,27 +110,47 @@ class _Links(HTMLParser):
             self.depth -= 1
 
 
+def _absolute(base, hrefs):
+    out = []
+    for href in hrefs:
+        try:
+            url = urllib.parse.urldefrag(urllib.parse.urljoin(base, href.strip()))[0]
+            urllib.parse.urlsplit(url).port  # raises on a malformed port
+        except ValueError:
+            continue
+        out.append(url)
+    return out
+
+
 def links(html, base):
     parser = _Links()
     parser.feed(html)
-    absolute = lambda hrefs: [urllib.parse.urldefrag(urllib.parse.urljoin(base, h))[0] for h in hrefs]
-    return absolute(parser.nav), absolute(parser.other), absolute(parser.stylesheets)
+    return _absolute(base, parser.nav), _absolute(base, parser.other), _absolute(base, parser.stylesheets)
 
 
-def _same_site(url, root):
-    a, b = urllib.parse.urlsplit(url), urllib.parse.urlsplit(root)
-    return a.scheme in ('http', 'https') and a.hostname == b.hostname
+def _host(url):
+    host = urllib.parse.urlsplit(url).hostname or ''
+    return host[4:] if host.startswith('www.') else host
 
 
-def _get(url, fetch, resolve, robots):
+def _same_site(url, roots):
+    return urllib.parse.urlsplit(url).scheme in ('http', 'https') and _host(url) in {_host(r) for r in roots}
+
+
+def _get(url, fetch, resolve, robots, types):
+    """(status, text, final URL); the text is empty when the page was not read or is not of an expected type."""
     if robots is not None and not robots(url):
-        return 'robots-disallowed', ''
+        return 'robots-disallowed', '', url
     try:
         check_url(url, resolve=resolve)
-        status, _, text = fetch(url)
-        return status, text
-    except (OSError, UnsafeURL) as exc:
-        return f'error: {exc}', ''
+        status, content_type, text, *final = fetch(url)
+    except FETCH_ERRORS + (UnsafeURL,) as exc:
+        return f'error: {exc}', '', url
+    if status != 200:
+        return status, '', url
+    if content_type and content_type not in types:
+        return f'skipped: {content_type}', '', url
+    return status, text, (final[0] if final else url)
 
 
 def collect(url, pages=3, fetch=fetch, resolve=socket.getaddrinfo, robots=None):
@@ -122,7 +159,8 @@ def collect(url, pages=3, fetch=fetch, resolve=socket.getaddrinfo, robots=None):
     if robots is None:
         robots = robots_for(url, fetch)
     limit = max(1, min(int(pages), MAX_PAGES))
-    queue, seen, result = [url], set(), {'start_url': url, 'pages': [], 'stylesheets': []}
+    queue, seen, roots = [url], set(), [url]
+    result = {'start_url': url, 'pages': [], 'stylesheets': []}
     sheets = []
     read = lambda: sum(1 for p in result['pages'] if p['status'] != 'robots-disallowed')
     while queue and read() < limit and len(result['pages']) < limit * 4:
@@ -130,14 +168,19 @@ def collect(url, pages=3, fetch=fetch, resolve=socket.getaddrinfo, robots=None):
         if current in seen:
             continue
         seen.add(current)
-        status, html = _get(current, fetch, resolve, robots)
-        result['pages'].append({'url': current, 'status': status, 'html': html})
+        status, html, final = _get(current, fetch, resolve, robots, PAGE_TYPES)
+        page = {'url': current, 'status': status, 'html': html}
+        if final != current:
+            page['final_url'] = final
+            roots.append(final)
+            seen.add(final)
+        result['pages'].append(page)
         if not html:
             continue
-        nav, other, css = links(html, current)
-        queue.extend(u for u in nav + other if _same_site(u, url) and u not in seen and u not in queue)
+        nav, other, css = links(html, final)
+        queue.extend(u for u in nav + other if _same_site(u, roots) and u not in seen and u not in queue)
         sheets.extend(s for s in css if s not in sheets)
     for sheet in sheets[:MAX_STYLESHEETS]:
-        status, css = _get(sheet, fetch, resolve, robots if _same_site(sheet, url) else None)
+        status, css, _ = _get(sheet, fetch, resolve, robots if _same_site(sheet, roots) else None, SHEET_TYPES)
         result['stylesheets'].append({'url': sheet, 'status': status, 'css': css})
     return result

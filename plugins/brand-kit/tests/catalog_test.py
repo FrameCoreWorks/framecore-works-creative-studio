@@ -37,6 +37,21 @@ class Catalog(unittest.TestCase):
         with self.assertRaises(ValueError):
             catalog.slugify('../..')
 
+    def test_non_latin_names_get_a_stable_slug(self):
+        slug = catalog.slugify('Яндекс')
+        self.assertRegex(slug, r'^brand-[0-9a-f]{8}$')
+        self.assertEqual(slug, catalog.slugify('Яндекс'))
+
+    def test_orphan_revision_file_does_not_block_saves(self):
+        catalog.save(kit(), 'lipa', self.root)
+        (self.root / 'lipa/rev-0002.json').write_text('{}', encoding='utf-8')
+        self.assertEqual(catalog.save(kit(), 'lipa', self.root), 3)
+
+    def test_name_change_is_reported(self):
+        catalog.save(kit('Acme Inc'), 'acme', self.root)
+        self.assertEqual(catalog.name_mismatch(kit('Other Brand'), 'acme', self.root), 'Acme Inc')
+        self.assertIsNone(catalog.name_mismatch(kit('ACME, Inc.'), 'acme', self.root))
+
     def test_brands_isolated(self):
         catalog.save(kit('Lipa'), 'lipa', self.root)
         catalog.save(kit('Dąb', '#222222'), 'dab', self.root)

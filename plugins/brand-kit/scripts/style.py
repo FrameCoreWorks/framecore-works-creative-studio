@@ -6,11 +6,12 @@ from html.parser import HTMLParser
 
 METHOD = 'static-html-css'
 NAMED = {'white': '#ffffff', 'black': '#000000'}
+# Only CSS keywords and OS stacks; real families (Roboto, Arial) count when they come first in a stack.
 GENERIC_FONTS = {
-    'serif', 'sans-serif', 'monospace', 'cursive', 'fantasy', 'system-ui', 'ui-sans-serif', 'ui-serif',
-    'ui-monospace', '-apple-system', 'blinkmacsystemfont', 'segoe ui', 'roboto', 'helvetica', 'helvetica neue',
-    'arial', 'georgia', 'times', 'times new roman', 'courier', 'courier new', 'verdana', 'tahoma',
-    'apple color emoji', 'segoe ui emoji', 'noto color emoji', 'inherit', 'initial', 'unset', 'var',
+    'serif', 'sans-serif', 'monospace', 'cursive', 'fantasy', 'math', 'fangsong', 'emoji', 'system-ui',
+    'ui-sans-serif', 'ui-serif', 'ui-monospace', 'ui-rounded', '-apple-system', 'blinkmacsystemfont',
+    'apple color emoji', 'segoe ui emoji', 'segoe ui symbol', 'noto color emoji', 'inherit', 'initial', 'unset',
+    'revert', 'revert-layer',
 }
 SOCIAL = ('instagram.com', 'facebook.com', 'tiktok.com', 'linkedin.com', 'youtube.com', 'x.com', 'twitter.com',
           'pinterest.', 'behance.net', 'dribbble.com', 'threads.net')
@@ -20,8 +21,11 @@ COPY_LIMIT = 2000
 EVIDENCE_COPY_LIMIT = 4000
 
 _COLOUR = re.compile(r'#[0-9a-fA-F]{3,8}\b|(?:rgba?|hsla?)\([^)]*\)|\b(?:white|black)\b', re.I)
-_VAR = re.compile(r'var\(\s*(--[\w-]+)\s*(?:,[^)]*)?\)')
+_VAR = re.compile(r'var\(\s*(--[\w-]+)\s*(?:,\s*([^()]*(?:\([^()]*\))?[^()]*))?\)')
 _BLOCK = re.compile(r'([^{}]+)\{([^{}]*)\}')
+_URL = re.compile(r'url\([^)]*\)', re.I)
+_DARK = re.compile(r'dark', re.I)
+MIN_ALPHA = 0.3
 
 
 def normalise_colour(value):
@@ -56,6 +60,18 @@ def normalise_colour(value):
     return '#' + ''.join(f'{max(0, min(255, round(c))):02x}' for c in rgb)
 
 
+def alpha(value):
+    """Opacity of a CSS colour (1 when none is given)."""
+    v = value.strip().lower()
+    if v.startswith('#') and len(v) in (5, 9):
+        digits = v[-1] * 2 if len(v) == 5 else v[-2:]
+        return int(digits, 16) / 255
+    m = re.search(r'(?:,|/)\s*([\d.]+)(%?)\s*\)$', v)
+    if m and (v.startswith('rgba') or v.startswith('hsla') or '/' in v):
+        return float(m.group(1)) / (100 if m.group(2) else 1)
+    return 1.0
+
+
 def _use(prop, selector):
     page = re.search(r'(^|[\s,])(html|body|:root)\s*($|,)', selector) is not None
     if prop == 'color':
@@ -86,6 +102,7 @@ ICON_FONTS = re.compile(r'awesome|material (icons|symbols)|icomoon|glyphicons|da
 
 
 def families(value):
+    """Named families in a font-family stack, generic keywords and icon fonts left out."""
     out = []
     for part in value.split(','):
         name = re.sub(r'\\(.)', r'\1', part.strip()).strip('"\'').strip()
@@ -96,6 +113,58 @@ def families(value):
     return out
 
 
+def shorthand_families(value):
+    """The family list of a `font` shorthand (after size[/line-height])."""
+    m = re.search(r'(?:^|\s)[\d.]+(?:px|rem|em|%|pt|vw|vh|ch|ex)(?:\s*/\s*[\w.%]+)?\s+(.+)$', value)
+    return families(m.group(1)) if m else []
+
+
+def _strip_dark(css):
+    """Remove @media blocks for a dark colour scheme, so theme overrides do not replace the default values."""
+    out, i = [], 0
+    for m in re.finditer(r'@media[^{]*prefers-color-scheme\s*:\s*dark[^{]*\{', css, re.I):
+        if m.start() < i:
+            continue
+        out.append(css[i:m.start()])
+        depth, j = 1, m.end()
+        while j < len(css) and depth:
+            depth += {'{': 1, '}': -1}.get(css[j], 0)
+            j += 1
+        i = j
+    out.append(css[i:])
+    return ''.join(out)
+
+
+def _blocks(css):
+    css = _strip_dark(re.sub(r'/\*.*?\*/', '', css or '', flags=re.S))
+    return [(sel.strip().split(';')[-1].strip(), body) for sel, body in _BLOCK.findall(css)]
+
+
+def css_variables(css):
+    """Custom properties in default (not dark-theme) rules."""
+    variables = {}
+    for selector, body in _blocks(css):
+        if _DARK.search(selector):
+            continue
+        for prop, value in _declarations(body):
+            if prop.startswith('--'):
+                variables[prop] = value
+    return variables
+
+
+def resolve(value, variables, depth=5):
+    """Replace each var() by its own value, following chains, with the fallback when undefined."""
+    def one(m):
+        if m.group(1) in variables and depth > 0:
+            return resolve(variables[m.group(1)], variables, depth - 1)
+        return m.group(2) or ''
+    return _VAR.sub(one, value) if depth > 0 else value
+
+
+def _parts(selector):
+    return [p.strip() for p in selector.split(',') if p.strip()] or [selector]
+
+
 def _declarations(body):
     for decl in body.split(';'):
         if ':' in decl:
@@ -103,15 +172,12 @@ def _declarations(body):
             yield prop.strip().lower(), value.replace('!important', '').strip()
 
 
-def parse_css(css, source):
-    css = re.sub(r'/\*.*?\*/', '', css or '', flags=re.S)
-    blocks = [(sel.strip().split(';')[-1].strip(), body) for sel, body in _BLOCK.findall(css)]
-    variables = {}
-    for _, body in blocks:
-        for prop, value in _declarations(body):
-            if prop.startswith('--'):
-                variables[prop] = value
-    result = {'colours': [], 'variables': variables, 'fonts': [], 'font_faces': []}
+def parse_css(css, source, variables=None):
+    """Colours and fonts in one stylesheet; `variables` adds custom properties defined in other sheets."""
+    blocks = _blocks(css)
+    own = css_variables(css)
+    known = dict(variables or {}, **own)
+    result = {'colours': [], 'variables': own, 'fonts': [], 'font_faces': []}
     for selector, body in blocks:
         decls = dict(_declarations(body))
         if selector.lower().startswith('@font-face'):
@@ -119,23 +185,27 @@ def parse_css(css, source):
             result['font_faces'].append({'family': (families(decls.get('font-family', '')) or ['Unknown'])[0],
                                          'src': src.group(1) if src else None, 'source': source})
             continue
+        if _DARK.search(selector):
+            continue
         for prop, value in decls.items():
             if prop.startswith('--'):
                 continue
-            variable = None
             ref = _VAR.search(value)
-            if ref and ref.group(1) in variables:
-                variable, value = ref.group(1), _VAR.sub(variables[ref.group(1)], value)
-            if prop == 'font-family':
-                for family in families(value):
-                    result['fonts'].append({'family': family, 'role': _font_role(selector), 'selector': selector,
+            variable = ref.group(1) if ref else None
+            value = _URL.sub(' ', resolve(value, known))
+            if prop in ('font-family', 'font'):
+                stack = families(value) if prop == 'font-family' else shorthand_families(value)
+                for role in _unique([_font_role(p) for p in _parts(selector)]) if stack else []:
+                    result['fonts'].append({'family': stack[0], 'role': role, 'selector': selector,
                                             'source': source})
                 continue
             for raw in _COLOUR.findall(value):
                 hex_ = normalise_colour(raw)
-                if hex_:
-                    result['colours'].append({'hex': hex_, 'use': _use(prop, selector), 'property': prop,
-                                              'selector': selector, 'variable': variable, 'source': source})
+                if not hex_ or alpha(raw) < MIN_ALPHA:
+                    continue
+                for use in _unique([_use(prop, p) for p in _parts(selector)]):
+                    result['colours'].append({'hex': hex_, 'use': use, 'property': prop, 'selector': selector,
+                                              'variable': variable, 'source': source})
     return result
 
 
@@ -146,13 +216,18 @@ class _Page(HTMLParser):
         self.meta = {'title': '', 'description': '', 'site_name': '', 'lang': ''}
         self.headings, self.nav, self.ctas, self.logos, self.font_links, self.social = [], [], [], [], [], []
         self.paragraphs, self.inline_css = [], []
-        self.stack, self.text, self.header_depth, self.nav_depth = [], None, 0, 0
+        self.stack, self.header_depth, self.nav_depth, self.svg_depth = [], 0, 0, 0
 
     def _abs(self, href):
         return urllib.parse.urljoin(self.url, href)
 
     def handle_starttag(self, tag, attrs):
         a = {k: v or '' for k, v in attrs}
+        if a.get('style'):
+            selector = tag + ''.join('.' + c for c in a.get('class', '').split())
+            self.inline_css.append(f"{selector} {{{a['style']}}}")
+        if tag == 'svg':
+            self.svg_depth += 1
         if tag == 'html':
             self.meta['lang'] = a.get('lang', '')
         elif tag == 'meta':
@@ -173,9 +248,12 @@ class _Page(HTMLParser):
                 self.font_links.append(self._abs(a['href']))
         elif tag == 'img':
             hint = ' '.join(a.get(k, '') for k in ('class', 'id', 'alt', 'src')).lower()
-            if self.header_depth or 'logo' in hint:
+            src = a.get('src') or a.get('data-src') or (a.get('srcset') or a.get('data-srcset') or '').split(' ')[0]
+            if src.startswith('data:') and a.get('data-src'):
+                src = a['data-src']
+            if src and (self.header_depth or 'logo' in hint):
                 kind = 'header-img' if self.header_depth else 'logo-img'
-                self.logos.append({'kind': kind, 'url': self._abs(a.get('src', '')), 'alt': a.get('alt', '')})
+                self.logos.append({'kind': kind, 'url': self._abs(src), 'alt': a.get('alt', '')})
         elif tag == 'svg' and self.header_depth and not any(l['kind'] == 'header-svg' for l in self.logos):
             self.logos.append({'kind': 'header-svg', 'url': None, 'note': 'inline SVG in the header'})
         elif tag == 'a' and a.get('href'):
@@ -185,11 +263,15 @@ class _Page(HTMLParser):
         if tag in ('header', 'nav'):
             self.header_depth += tag == 'header'
             self.nav_depth += tag == 'nav'
+        if tag == 'title' and self.svg_depth:
+            return
         if tag in ('title', 'h1', 'h2', 'h3', 'p', 'button', 'a', 'style'):
             klass = a.get('class', '') + ' ' + a.get('role', '')
             self.stack.append((tag, BUTTONISH.search(klass) is not None, []))
 
     def handle_endtag(self, tag):
+        if tag == 'svg' and self.svg_depth:
+            self.svg_depth -= 1
         if tag == 'header' and self.header_depth:
             self.header_depth -= 1
         if tag == 'nav' and self.nav_depth:
@@ -205,7 +287,7 @@ class _Page(HTMLParser):
         elif not text:
             return
         elif tag == 'title':
-            self.meta['title'] = text
+            self.meta['title'] = self.meta['title'] or text
         elif tag in ('h1', 'h2', 'h3'):
             self.headings.append({'level': int(tag[1]), 'text': text})
         elif tag == 'p':
@@ -239,7 +321,7 @@ def parse_html(html, url):
 
 def build_evidence(collected):
     """Aggregate parsed pages and stylesheets into one evidence document."""
-    parsed_css, pages, logos, social, font_links, headings, ctas, nav, copy = [], [], [], [], [], [], [], [], []
+    inline_css, pages, logos, social, font_links, headings, ctas, nav, copy = [], [], [], [], [], [], [], [], []
     meta = None
     for page in collected.get('pages', []):
         pages.append({'url': page['url'], 'status': page['status']})
@@ -247,7 +329,7 @@ def build_evidence(collected):
             continue
         item = parse_html(page['html'], page['url'])
         meta = meta or dict(item['meta'], url=page['url'])
-        parsed_css.append(parse_css(item['inline_css'], page['url'] + '#inline-style'))
+        inline_css.append((item['inline_css'], page['url'] + '#inline-style'))
         seen = {(l['kind'], l['url']) for l in logos}
         logos += [dict(l, page=page['url']) for l in item['logos'] if (l['kind'], l['url']) not in seen]
         social += item['social']
@@ -256,11 +338,16 @@ def build_evidence(collected):
         ctas += item['ctas']
         nav += item['nav']
         copy.append(item['copy_sample'])
-    sheets = []
+    sheets, sources = [], []
     for sheet in collected.get('stylesheets', []):
         sheets.append({'url': sheet['url'], 'status': sheet['status']})
         if sheet.get('css'):
-            parsed_css.append(parse_css(sheet['css'], sheet['url']))
+            sources.append((sheet['css'], sheet['url']))
+    inline = [(c, s) for c, s in inline_css if c]
+    shared = {}
+    for css, _ in sources + inline:
+        shared.update(css_variables(css))
+    parsed_css = [parse_css(css, source, shared) for css, source in sources + inline]
     colours, fonts, variables, faces = {}, {}, {}, []
     for css in parsed_css:
         variables.update(css['variables'])
