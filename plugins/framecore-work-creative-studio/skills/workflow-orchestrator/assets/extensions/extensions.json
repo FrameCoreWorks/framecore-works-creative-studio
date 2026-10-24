@@ -1639,7 +1639,7 @@
       "id": "brand-kit",
       "name": "brand-kit",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
-      "reviewed_commit": "6dbcc2896ac2435f3760f1b0e2c5a14b12f0524e",
+      "reviewed_commit": "c243aa7ee9ee136c84d07507410580d84b74084f",
       "package": null,
       "license": "Apache-2.0",
       "kind": [
