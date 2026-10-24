@@ -58,13 +58,21 @@ def load_lexicon(path):
     entries = json.loads(raw.decode('utf-8'))
     if not isinstance(entries, dict) or not all(isinstance(k, str) and isinstance(v, str) for k, v in entries.items()):
         raise CueError(f'lexicon {path} must map words to spoken forms')
+    folded = {}
+    for key in entries:
+        if key.lower() in folded:
+            raise CueError(f'lexicon {path} has {folded[key.lower()]} and {key}, which differ only in case')
+        folded[key.lower()] = key
     return entries, hashlib.sha256(raw).hexdigest()
 
 
 def apply_lexicon(text, lexicon):
     """Whole-word, case-insensitive, longest key first; a leading (voice description) is left unchanged."""
-    match = VOICE_DESCRIPTION.match(text)
-    head, body = (match.group(0), text[match.end():]) if match else ('', text)
+    match = VOICE_DESCRIPTION.match(text.lstrip())
+    if match:
+        offset = len(text) - len(text.lstrip())
+        match_end = offset + match.end()
+    head, body = (text[:match_end], text[match_end:]) if match else ('', text)
     keys = sorted((k for k in lexicon if k.strip()), key=len, reverse=True)
     if not keys:
         return text

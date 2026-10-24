@@ -23,7 +23,7 @@ def spoken_duration(path, threshold_dbfs=-50.0):
         with wave.open(str(path), 'rb') as source:
             width, channels, rate = source.getsampwidth(), source.getnchannels(), source.getframerate()
             raw = source.readframes(source.getnframes())
-    except (wave.Error, EOFError) as error:
+    except (wave.Error, EOFError, OSError) as error:
         raise AudioError(f'{path} is not a readable WAV: {error}') from None
     if width != 2:
         raise AudioError(f'{path} is {width * 8}-bit; 16-bit PCM is required')
@@ -77,7 +77,8 @@ def stretch(source, percent, ffmpeg, dest):
     tempo = f'atempo={1 + percent / 100:g}'
     argv = [ffmpeg, '-hide_banner', '-loglevel', 'error', '-y', '-i', str(source),
             '-filter:a', tempo, '-c:a', 'pcm_s16le', str(dest)]
-    result = subprocess.run(argv, capture_output=True, text=True)
+    result = subprocess.run(argv, capture_output=True, text=True, encoding='utf-8', errors='replace')
     if result.returncode != 0:
-        raise AudioError(f'FFmpeg failed: {(result.stderr or "").strip().splitlines()[-1:] or "no output"}')
+        lines = (result.stderr or '').strip().splitlines()
+        raise AudioError(f'FFmpeg failed: {lines[-1] if lines else "no output"}')
     return Path(dest)

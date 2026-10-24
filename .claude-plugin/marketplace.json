@@ -27,7 +27,7 @@
       "displayName": "Voice And Narration",
       "source": "./plugins/voice-narration",
       "description": "Measured voice-overs and narration: VoxCPM2 or Voicebox on your own computer, or ElevenLabs through the app's connector.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "productivity"
     }
   ]

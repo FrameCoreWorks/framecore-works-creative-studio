@@ -77,7 +77,7 @@ def voxcpm_version(root):
         return 'unavailable'
     probe = 'import importlib.metadata as m; print(m.version("voxcpm"))'
     try:
-        result = subprocess.run([str(python), '-I', '-c', probe], capture_output=True, text=True, timeout=60)
+        result = subprocess.run([str(python), '-I', '-c', probe], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=60)
     except (OSError, subprocess.TimeoutExpired):
         return 'unavailable'
     return result.stdout.strip() if result.returncode == 0 and result.stdout.strip() else 'unavailable'
@@ -89,7 +89,7 @@ def gpu():
         return 'unknown'
     try:
         result = subprocess.run([smi, '--query-gpu=name,memory.total', '--format=csv,noheader'],
-                                capture_output=True, text=True, timeout=10)
+                                capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=10)
     except (OSError, subprocess.TimeoutExpired):
         return 'unknown'
     if result.returncode != 0:
@@ -177,16 +177,16 @@ def cmd_stretch(args, env):
     except formats.CueError as error:
         print(f'error: {error}', file=sys.stderr)
         return 2
-    if not args.yes:
-        print(f'plan: speed {source} up by {args.percent:g}% with FFmpeg into {dest}; nothing written. Rerun with --yes.')
-        return 0
     ffmpeg = shutil.which('ffmpeg')
-    if not ffmpeg:
-        print('error: FFmpeg is not on PATH; shorten the text or regenerate the line instead', file=sys.stderr)
-        return 1
     if not source.exists():
         print(f'error: {source} does not exist', file=sys.stderr)
         return 1
+    if not ffmpeg:
+        print('error: FFmpeg is not on PATH; shorten the text or regenerate the line instead', file=sys.stderr)
+        return 1
+    if not args.yes:
+        print(f'plan: speed {source} up by {args.percent:g}% with FFmpeg into {dest}; nothing written. Rerun with --yes.')
+        return 0
     try:
         audio.stretch(source, args.percent, ffmpeg, dest)
         duration = audio.spoken_duration(dest)
@@ -245,10 +245,10 @@ def cmd_install(args, env):
         return code
     try:
         root.mkdir(parents=True, exist_ok=True)
-        subprocess.run([sys.executable, '-m', 'venv', str(root / 'venv')], check=True, capture_output=True, text=True)
+        subprocess.run([sys.executable, '-m', 'venv', str(root / 'venv')], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
         pip = [str(venv_python(root)), '-m', 'pip', 'install', '-q', '--disable-pip-version-check']
-        subprocess.run(pip + ['--upgrade', 'pip'], check=True, capture_output=True, text=True)
-        subprocess.run(pip + [VOXCPM_PIN, 'soundfile'], check=True, capture_output=True, text=True)
+        subprocess.run(pip + ['--upgrade', 'pip'], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
+        subprocess.run(pip + [VOXCPM_PIN, 'soundfile'], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
     except (OSError, subprocess.CalledProcessError) as error:
         print(f'error: installation failed: {one_line(error)}', file=sys.stderr)
         return 1
@@ -269,7 +269,7 @@ def cmd_fetch_models(args, env):
     script = f"from huggingface_hub import snapshot_download; snapshot_download('{VOXCPM_MODEL}')"
     try:
         subprocess.run([str(python), '-I', '-c', script], check=True, env=engine_env(root, env, offline=False),
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, encoding='utf-8', errors='replace')
     except (OSError, subprocess.CalledProcessError) as error:
         print(f'error: download failed: {one_line(error)}', file=sys.stderr)
         return 1
@@ -318,7 +318,7 @@ def generate_voxcpm(args, env, cues, lock, texts, lexicon_hash):
     results = {}
     try:
         result = subprocess.run([str(venv_python(args.root)), '-I', str(WORKER), str(job_path)],
-                                env=engine_env(args.root, env, offline=True), capture_output=True, text=True)
+                                env=engine_env(args.root, env, offline=True), capture_output=True, text=True, encoding='utf-8', errors='replace')
         for raw in result.stdout.splitlines():
             try:
                 item = json.loads(raw)
@@ -388,7 +388,10 @@ def cmd_generate(args, env):
     failed = [c.id for c in selected if lock.lines[c.id]['status'] != 'ok']
     for line_id in failed:
         print(f'failed: {line_id}: {lock.lines[line_id]["error"]}', file=sys.stderr)
-    return 1 if failed else 0
+    silent = [r['id'] for r in rows if r['verdict'] == 'silent' and r['id'] in texts and r['id'] not in failed]
+    for line_id in silent:
+        print(f'silent: {line_id}: the take has no audible speech; regenerate it', file=sys.stderr)
+    return 1 if failed or silent else 0
 
 
 COMMANDS = {'status': cmd_status, 'install': cmd_install, 'fetch-models': cmd_fetch_models, 'generate': cmd_generate, 'measure': cmd_measure, 'stretch': cmd_stretch}

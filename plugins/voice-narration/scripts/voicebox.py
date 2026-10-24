@@ -90,7 +90,8 @@ def to_pcm_wav(body, dest):
         tmp.write(body)
     try:
         result = subprocess.run([ffmpeg, '-hide_banner', '-loglevel', 'error', '-y', '-i', tmp.name,
-                                 '-c:a', 'pcm_s16le', str(dest)], capture_output=True, text=True)
+                                 '-c:a', 'pcm_s16le', str(dest)], capture_output=True, text=True,
+                                encoding='utf-8', errors='replace')
     finally:
         Path(tmp.name).unlink(missing_ok=True)
     if result.returncode != 0:

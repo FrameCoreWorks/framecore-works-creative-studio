@@ -3520,3 +3520,25 @@ Cross-host state:
 - GitHub: synchronized. `main` at `35af152`; workflows Refresh current release notes 40083434446, Publish verified Studio release 40083434421, Check Studio sources 40083434425: success; [v1.128.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.128.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1564 of 1564) ([record](../verification/github-publication-1.128.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261024-06
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `2acb34d` (main, package 1.128.0); full SHA in the commit trailer
+- Result: the commit carrying this entry
+- Package version: 1.128.0 (unchanged); voice-narration 1.0.0 -> 1.0.1
+- Trigger: the independent final review of voice-narration 1.0.0 (owner 2026-10-24: decide the deferred minors)
+- Scope: plugin-only follow-up in `plugins/voice-narration` and its marketplace version. A silent take fails `generate`; `stretch` checks the source and FFmpeg before its plan; FFmpeg errors are plain text; an unreadable WAV is reported, not raised; a leading space keeps a voice description protected; case-colliding lexicon keys are refused; subprocess output decodes as UTF-8 with replacement. Kept by decision: only `voxcpm` pinned; `status` reports `cloud` or `local`.
+- Shared package changed: no
+
+Verification:
+
+- voice-narration tests: 54 launcher, 6 package: PASS (each minor with a failing-first test); `bash scripts/check_all.sh --fast`: PASS
+- Real VoxCPM2/Voicebox generation and an ElevenLabs read: NOT_RUN
+
+Cross-host state:
+
+- GitHub: this commit on `main`
+- ChatGPT Work: not affected (Studio package unchanged); voice-narration not hosted there
+- Codex: not_run

@@ -222,7 +222,8 @@ class Measure(unittest.TestCase):
         self.assertFalse((self.dir / 'a.stretched.wav').exists())
 
     def test_stretch_without_yes_writes_nothing(self):
-        with mock.patch.object(runtime.subprocess, 'run') as run:
+        with mock.patch.object(runtime.subprocess, 'run') as run, \
+                mock.patch.object(runtime.shutil, 'which', return_value='/usr/bin/ffmpeg'):
             code, out, _ = self.stretch('--percent', '4')
         self.assertEqual(code, 0)
         self.assertIn('--yes', out)
@@ -682,6 +683,67 @@ class ReviewFixes(unittest.TestCase):
         code, out, _ = quiet(runtime.main, ['measure', '--cues', str(self.cues), '--out', str(moved), '--json'], {})
         self.assertEqual(code, 0)
         self.assertEqual({row['verdict'] for row in json.loads(out)}, {'fits'})
+
+
+class Minors(unittest.TestCase):
+    """Final review minors decided for 1.0.1 (2026-10-24)."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = pathlib.Path(self.tmp.name)
+        self.cues = write_json(self.dir / 'cues.json', [{'id': 'a', 'text': 'x', 'max_seconds': 1}])
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_ffmpeg_error_is_plain_text(self):
+        import audio
+        write_wav(self.dir / 'a.wav', 0.5)
+        with mock.patch.object(audio.subprocess, 'run', return_value=mock.Mock(returncode=1, stderr='first\nbad filter\n')):
+            with self.assertRaises(audio.AudioError) as caught:
+                audio.stretch(self.dir / 'a.wav', 3, 'ffmpeg', self.dir / 'b.wav')
+        self.assertEqual(str(caught.exception), 'FFmpeg failed: bad filter')
+
+    def test_stretch_plan_checks_source_and_ffmpeg(self):
+        argv = ['stretch', 'a', '--percent', '3', '--cues', str(self.cues), '--out', str(self.dir)]
+        code, _, err = quiet(runtime.main, argv, {})
+        self.assertEqual(code, 1)
+        self.assertIn('does not exist', err)
+        write_wav(self.dir / 'a.wav', 0.5)
+        with mock.patch.object(runtime.shutil, 'which', return_value=None):
+            code, _, err = quiet(runtime.main, argv, {})
+        self.assertEqual(code, 1)
+        self.assertIn('FFmpeg', err)
+
+    def test_unreadable_wav_is_reported_not_raised(self):
+        import audio
+        write_wav(self.dir / 'a.wav', 0.5)
+        with mock.patch.object(audio.wave, 'open', side_effect=PermissionError('denied')):
+            code, out, err = quiet(runtime.main, ['measure', '--cues', str(self.cues), '--out', str(self.dir), '--json'], {})
+        self.assertEqual(code, 1)
+        self.assertEqual(json.loads(out)[0]['verdict'], 'unreadable')
+
+    def test_leading_space_keeps_description(self):
+        import formats
+        self.assertEqual(formats.apply_lexicon(' (Core voice)Core', {'Core': 'kor'}), ' (Core voice)kor')
+
+    def test_case_colliding_lexicon_keys_refused(self):
+        import formats
+        path = write_json(self.dir / 'lexicon.json', {'AI': 'a i', 'ai': 'aj'})
+        with self.assertRaises(formats.CueError) as caught:
+            formats.load_lexicon(path)
+        self.assertIn('AI', str(caught.exception))
+
+    def test_silent_take_fails_generate(self):
+        fake = FakeVoicebox(body=wav_bytes(0.0))
+        try:
+            code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
+                                                '--out', str(self.dir / 'out'), '--profile', 'p',
+                                                '--voicebox-url', fake.url], {})
+        finally:
+            fake.close()
+        self.assertEqual(code, 1)
+        self.assertIn('silent: a', err)
 
 
 if __name__ == '__main__':
