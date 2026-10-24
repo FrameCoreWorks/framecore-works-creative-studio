@@ -1,0 +1,30 @@
+{
+  "version": "1.135.0",
+  "baseline_tag": "v1.134.0",
+  "baseline": "4fa425e6ab23cee0bbc696baef91e8c909c1214d",
+  "change_id": "CC-20261024-17",
+  "origin": "cloud-code",
+  "files": 1568,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+    "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion_acceptance_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1556,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Motion Graphics: acceptance.py --pack writes a delivery folder (judged video and contract, evidence, sources, SHA-256 manifest, HANDOFF.md) only for a film that is not blocked, and the acceptance result records the contract and video SHA-256; motion sound gains level rules for supplied library samples; trigger: owner-opened task 2026-10-24 to adopt ideas from a comparison with social-motion-agent (MIT, ideas only, nothing copied); host behavior NOT_RUN; hosted ChatGPT update pending."
+}

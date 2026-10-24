@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.135.0, 2026-10-24
+
+Trigger: owner request 2026-10-24 (a bounded task): adopt the strongest ideas from a comparison with [social-motion-agent](https://github.com/aievolutionpl/social-motion-agent) (MIT) in the motion module; ideas only, no code or media copied.
+
+- Motion Graphics: `acceptance.py --pack` writes a [delivery folder](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-review/README.md#delivery-folder) only for a film that is not blocked: the exact video and contract that were judged, the evidence, the render script or sources, `manifest.json` with every file's SHA-256 and `HANDOFF.md` with the status, the four verdicts, what was not verified and how to revise. A blocked film is never packaged; the acceptance result now records the contract and video SHA-256.
+- Motion sound: [rules for supplied library samples](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md#where-sound-sits-against-the-picture): never at full level, lower under a voice-over, one sound per visual event, the same sample at most twice, the key spoken word left clear.
+
 ## 1.134.0, 2026-10-24
 
 - Cinematography gains [camera and light decision cards](plugins/framecore-work-creative-studio/skills/cinematography/references/camera-light-decision-cards.md): shot size, lens feel, angle, movement, light and colour chosen beat by beat, each with a reason and an observable QA test (review recommendation 1 of [the 2026-10-24 review](docs/reviews/full-review-2026-10-24.md)). The skill description is unchanged.
