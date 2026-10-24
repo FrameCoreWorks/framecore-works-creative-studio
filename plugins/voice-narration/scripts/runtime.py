@@ -4,6 +4,7 @@
     python3 runtime.py status [--json]
     python3 runtime.py install voxcpm [--yes] [--allow-cloud]
     python3 runtime.py fetch-models [--yes] [--allow-cloud]
+    python3 runtime.py generate --engine voxcpm|voicebox --cues cues.json --out DIR [--lexicon F] [--only ID ...]
     python3 runtime.py measure --cues cues.json --out DIR [--json]
     python3 runtime.py stretch LINE_ID --percent N --cues cues.json --out DIR [--yes]
 
@@ -24,6 +25,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import audio  # noqa: E402
 import formats  # noqa: E402
+import voicebox  # noqa: E402
 
 PLUGIN = Path(__file__).resolve().parent.parent
 VOICEBOX_URL = 'http://127.0.0.1:17493'
@@ -267,7 +269,110 @@ def cmd_fetch_models(args, env):
     return 0
 
 
-COMMANDS = {'status': cmd_status, 'install': cmd_install, 'fetch-models': cmd_fetch_models, 'measure': cmd_measure, 'stretch': cmd_stretch}
+WORKER = Path(__file__).resolve().parent / 'voxcpm_worker.py'
+
+
+def generate_voicebox(args, cues, lock, texts):
+    client = voicebox.VoiceboxClient(args.voicebox_url)
+    for cue in cues:
+        dest = Path(args.out) / f'{cue.id}.wav'
+        line = dict(engine='voicebox', model=args.voicebox_engine or 'profile default', engine_version=None,
+                    voice_source=f'voicebox profile {args.profile}', consent=None, text_sent=texts[cue.id],
+                    stretch_percent=None)
+        try:
+            generation = client.generate(texts[cue.id], args.profile, args.language, args.voicebox_engine)
+            state = client.wait(generation)
+            if state.get('status') != 'completed':
+                raise voicebox.VoiceboxError(state.get('error') or f"generation {state.get('status', 'unknown')}")
+            client.download(generation, dest)
+        except (voicebox.VoiceboxError, audio.AudioError) as error:
+            lock.set_line(cue.id, **line, status='failed', error=str(error))
+            continue
+        lock.set_line(cue.id, **line, wav=str(dest), sha256=audio.sha256(dest), status='ok', error=None)
+
+
+def generate_voxcpm(args, env, cues, lock, texts):
+    out = Path(args.out)
+    jobs = [{'id': c.id, 'text': texts[c.id], 'out': str(out / f'{c.id}.wav'), 'seed': args.seed,
+             'reference_wav': str(args.reference_wav) if args.reference_wav else None} for c in cues]
+    job_path = out / '.voxcpm-job.json'
+    job_path.write_text(json.dumps({'model': VOXCPM_MODEL, 'jobs': jobs}, ensure_ascii=False), encoding='utf-8')
+    results = {}
+    try:
+        result = subprocess.run([str(venv_python(args.root)), '-I', str(WORKER), str(job_path)],
+                                env=engine_env(args.root, env, offline=True), capture_output=True, text=True)
+        for raw in result.stdout.splitlines():
+            try:
+                item = json.loads(raw)
+                results[item['id']] = item
+            except (ValueError, KeyError, TypeError):
+                continue
+        fallback = one_line(result) if result.returncode else 'no result from the worker'
+    except OSError as error:
+        fallback = str(error)
+    finally:
+        job_path.unlink(missing_ok=True)
+    version = voxcpm_version(args.root)
+    source = f'reference:{args.reference_wav}' if args.reference_wav else 'voxcpm default voice'
+    for cue in cues:
+        item = results.get(cue.id, {'status': 'failed', 'error': fallback})
+        line = dict(engine='voxcpm', model=VOXCPM_MODEL, engine_version=version, voice_source=source,
+                    consent=args.consent, text_sent=texts[cue.id], stretch_percent=None)
+        dest = out / f'{cue.id}.wav'
+        if item.get('status') == 'ok' and dest.exists():
+            lock.set_line(cue.id, **line, wav=str(dest), sha256=audio.sha256(dest), status='ok', error=None)
+        else:
+            lock.set_line(cue.id, **line, status='failed', error=item.get('error') or 'no audio written')
+
+
+def cmd_generate(args, env):
+    if args.reference_wav and not (args.consent or '').strip():
+        print('refused: cloning needs --consent with the voice owner\'s recorded permission', file=sys.stderr)
+        return 2
+    if args.engine == 'voicebox' and not args.profile:
+        print('error: --engine voicebox needs --profile (a Voicebox voice profile id)', file=sys.stderr)
+        return 2
+    try:
+        cues = formats.load_cues(args.cues)
+        lexicon, lexicon_hash = formats.load_lexicon(args.lexicon)
+    except (formats.CueError, OSError, ValueError) as error:
+        print(f'error: {error}', file=sys.stderr)
+        return 2
+    selected = [c for c in cues if not args.only or c.id in args.only]
+    unknown = set(args.only or ()) - {c.id for c in cues}
+    if unknown:
+        print(f'error: no line {", ".join(sorted(unknown))} in {args.cues}', file=sys.stderr)
+        return 2
+    if args.engine == 'voicebox' and not probe_voicebox(args.voicebox_url):
+        print(f'error: voicebox is not running on {args.voicebox_url} (it only runs on the user\'s own computer); '
+              'no other engine was tried', file=sys.stderr)
+        return 1
+    if args.engine == 'voxcpm':
+        if not venv_python(args.root).exists():
+            print('error: VoxCPM2 is not installed here; run: install voxcpm --yes', file=sys.stderr)
+            return 1
+        if not weights_cached(args.root):
+            print('error: VoxCPM2 weights are not downloaded; run: fetch-models --yes', file=sys.stderr)
+            return 1
+    texts = {c.id: formats.apply_lexicon(c.text, lexicon) for c in selected}
+    Path(args.out).mkdir(parents=True, exist_ok=True)
+    lock = formats.Lock.load(args.out)
+    lock.lexicon_sha256 = lexicon_hash
+    if args.engine == 'voicebox':
+        generate_voicebox(args, selected, lock, texts)
+    else:
+        generate_voxcpm(args, env, selected, lock, texts)
+    rows = audio.measure_all(cues, args.out, lock)
+    record_measure(lock, rows)
+    lock.save()
+    print_measure(rows)
+    failed = [c.id for c in selected if lock.lines[c.id]['status'] != 'ok']
+    for line_id in failed:
+        print(f'failed: {line_id}: {lock.lines[line_id]["error"]}', file=sys.stderr)
+    return 1 if failed else 0
+
+
+COMMANDS = {'status': cmd_status, 'install': cmd_install, 'fetch-models': cmd_fetch_models, 'generate': cmd_generate, 'measure': cmd_measure, 'stretch': cmd_stretch}
 
 
 def build_parser(env):
@@ -284,6 +389,20 @@ def build_parser(env):
     p = sub.add_parser('fetch-models')
     p.add_argument('--yes', action='store_true')
     p.add_argument('--allow-cloud', action='store_true')
+    p.add_argument('--root', type=Path, default=default_root(env))
+    p = sub.add_parser('generate')
+    p.add_argument('--engine', choices=['voxcpm', 'voicebox'], required=True)
+    p.add_argument('--cues', type=Path, required=True)
+    p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--lexicon', type=Path)
+    p.add_argument('--only', nargs='+')
+    p.add_argument('--language', default='pl')
+    p.add_argument('--profile')
+    p.add_argument('--voicebox-engine')
+    p.add_argument('--voicebox-url', default=VOICEBOX_URL)
+    p.add_argument('--reference-wav', type=Path)
+    p.add_argument('--consent')
+    p.add_argument('--seed', type=int, default=42)
     p.add_argument('--root', type=Path, default=default_root(env))
     p = sub.add_parser('measure')
     p.add_argument('--cues', type=Path, required=True)

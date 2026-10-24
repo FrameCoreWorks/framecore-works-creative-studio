@@ -335,5 +335,237 @@ class Install(unittest.TestCase):
         self.assertEqual(kwargs['env']['HF_HOME'], str(self.root / 'hf-cache'))
 
 
+def wav_bytes(seconds):
+    with tempfile.TemporaryDirectory() as tmp:
+        return write_wav(pathlib.Path(tmp) / 'x.wav', seconds).read_bytes()
+
+
+class FakeVoicebox:
+    """A local stand-in for Voicebox's REST API: POST /generate, SSE status, GET /audio/{id}."""
+
+    def __init__(self, fail_texts=(), body=None):
+        import http.server
+        import threading
+        fake = self
+        self.requests = []
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+
+            def send(self, code, body, kind):
+                self.send_response(code)
+                self.send_header('Content-Type', kind)
+                self.send_header('Content-Length', str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+
+            def do_GET(self):
+                if self.path == '/health':
+                    return self.send(200, b'{}', 'application/json')
+                if self.path.endswith('/status'):
+                    gen = self.path.split('/')[2]
+                    state = 'failed' if gen in fake.failed else 'completed'
+                    error = 'engine error' if state == 'failed' else None
+                    data = json.dumps({'id': gen, 'status': state, 'error': error})
+                    return self.send(200, f'data: {data}\n\n'.encode(), 'text/event-stream')
+                if self.path.startswith('/audio/'):
+                    return self.send(200, fake.body if fake.body is not None else wav_bytes(1.0), 'audio/wav')
+                self.send(404, b'{}', 'application/json')
+
+            def do_POST(self):
+                payload = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
+                fake.requests.append(payload)
+                gen = f'g{len(fake.requests)}'
+                if payload['text'] in fake.fail_texts:
+                    fake.failed.add(gen)
+                self.send(200, json.dumps({'id': gen, 'status': 'generating'}).encode(), 'application/json')
+
+        self.fail_texts, self.failed, self.body = set(fail_texts), set(), body
+        self.server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        self.url = f'http://127.0.0.1:{self.server.server_address[1]}'
+        threading.Thread(target=self.server.serve_forever, daemon=True).start()
+
+    def close(self):
+        self.server.shutdown()
+        self.server.server_close()
+
+
+class Generate(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = pathlib.Path(self.tmp.name)
+        self.out = self.dir / 'out'
+        self.cues = write_json(self.dir / 'cues.json', [{'id': 'a', 'text': 'FrameCore first', 'max_seconds': 2},
+                                                        {'id': 'b', 'text': 'second line', 'max_seconds': 0.5}])
+        self.lexicon = write_json(self.dir / 'lexicon.json', {'FrameCore': 'frejm kor'})
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def voicebox(self, fake, *extra):
+        argv = ['generate', '--engine', 'voicebox', '--cues', str(self.cues), '--out', str(self.out),
+                '--lexicon', str(self.lexicon), '--profile', 'p1', '--language', 'pl', '--voicebox-url', fake.url, *extra]
+        return quiet(runtime.main, argv, {})
+
+    def lock(self):
+        return json.loads((self.out / 'narration.lock.json').read_text(encoding='utf-8'))
+
+    def test_voicebox_roundtrip(self):
+        fake = FakeVoicebox()
+        try:
+            code, out, _ = self.voicebox(fake)
+        finally:
+            fake.close()
+        self.assertEqual(code, 0)
+        self.assertEqual(fake.requests[0], {'text': 'frejm kor first', 'profile_id': 'p1', 'language': 'pl'})
+        line = self.lock()['lines']['a']
+        self.assertEqual((line['status'], line['engine'], line['text_sent']), ('ok', 'voicebox', 'frejm kor first'))
+        import audio
+        self.assertEqual(line['sha256'], audio.sha256(self.out / 'a.wav'))
+        self.assertEqual(self.lock()['lines']['b']['verdict'], 'over')
+        self.assertIn('b: 1.00s / 0.50s over', out)
+
+    def test_voicebox_failed_line_keeps_others(self):
+        fake = FakeVoicebox(fail_texts={'second line'})
+        try:
+            code, _, _ = self.voicebox(fake)
+        finally:
+            fake.close()
+        self.assertEqual(code, 1)
+        lines = self.lock()['lines']
+        self.assertEqual(lines['a']['status'], 'ok')
+        self.assertEqual((lines['b']['status'], lines['b']['error']), ('failed', 'engine error'))
+
+    def test_only_regenerates_selected(self):
+        fake = FakeVoicebox()
+        try:
+            self.voicebox(fake)
+            before = self.lock()['lines']['a']['sha256']
+            (self.out / 'a.wav').write_bytes(wav_bytes(0.3))
+            code, _, _ = self.voicebox(fake, '--only', 'b')
+        finally:
+            fake.close()
+        self.assertEqual(code, 0)
+        self.assertEqual(len(fake.requests), 3)
+        self.assertEqual(fake.requests[-1]['text'], 'second line')
+        self.assertEqual(self.lock()['lines']['a']['sha256'], before)
+
+    def test_non_wav_without_ffmpeg_one_line(self):
+        fake = FakeVoicebox(body=b'ID3fake-mp3')
+        try:
+            with mock.patch.object(runtime.shutil, 'which', return_value=None):
+                code, _, _ = self.voicebox(fake)
+        finally:
+            fake.close()
+        self.assertEqual(code, 1)
+        self.assertIn('non-WAV', self.lock()['lines']['a']['error'])
+
+    def test_voicebox_needs_profile(self):
+        code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
+                                            '--out', str(self.out)], {})
+        self.assertEqual(code, 2)
+        self.assertIn('--profile', err)
+
+    def test_voicebox_unreachable_no_fallback(self):
+        with mock.patch.object(runtime.subprocess, 'run') as run:
+            code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
+                                                '--out', str(self.out), '--profile', 'p1',
+                                                '--voicebox-url', 'http://127.0.0.1:9'], {})
+        self.assertEqual(code, 1)
+        self.assertIn("user's own computer", err)
+        run.assert_not_called()
+        self.assertFalse(self.out.exists())
+
+    def test_clone_needs_consent(self):
+        ref = write_wav(self.dir / 'ref.wav', 1.0)
+        with mock.patch.object(runtime.subprocess, 'run') as run:
+            code, _, err = quiet(runtime.main, ['generate', '--engine', 'voxcpm', '--cues', str(self.cues),
+                                                '--out', str(self.out), '--reference-wav', str(ref)], {})
+        self.assertEqual(code, 2)
+        self.assertIn('--consent', err)
+        run.assert_not_called()
+
+    def install_fake_voxcpm(self, root):
+        python = runtime.venv_python(root)
+        python.parent.mkdir(parents=True)
+        python.touch()
+        (runtime.hf_cache(root) / 'hub' / 'models--openbmb--VoxCPM2' / 'snapshots' / 'abc').mkdir(parents=True)
+
+    def test_voxcpm_missing_hint(self):
+        root = self.dir / 'root'
+        argv = ['generate', '--engine', 'voxcpm', '--cues', str(self.cues), '--out', str(self.out), '--root', str(root)]
+        code, _, err = quiet(runtime.main, argv, {})
+        self.assertEqual(code, 1)
+        self.assertIn('install voxcpm --yes', err)
+        self.install_fake_voxcpm(root)
+        import shutil as sh
+        sh.rmtree(runtime.hf_cache(root))
+        code, _, err = quiet(runtime.main, argv, {})
+        self.assertEqual(code, 1)
+        self.assertIn('fetch-models --yes', err)
+
+    def test_voxcpm_worker_jobs(self):
+        root = self.dir / 'root'
+        self.install_fake_voxcpm(root)
+        seen = {}
+
+        def fake_worker(argv, **kwargs):
+            job = json.loads(pathlib.Path(argv[-1]).read_text(encoding='utf-8'))
+            seen.update(job=job, env=kwargs['env'], argv=argv)
+            lines = []
+            for item in job['jobs']:
+                write_wav(pathlib.Path(item['out']), 0.4)
+                lines.append(json.dumps({'id': item['id'], 'status': 'ok'}))
+            return mock.Mock(returncode=0, stdout='\n'.join(lines) + '\n', stderr='')
+        ref = write_wav(self.dir / 'ref.wav', 1.0)
+        with mock.patch.object(runtime.subprocess, 'run', side_effect=fake_worker), \
+                mock.patch.object(runtime, 'voxcpm_version', return_value='2.0.3'):
+            code, _, _ = quiet(runtime.main, ['generate', '--engine', 'voxcpm', '--cues', str(self.cues),
+                                              '--out', str(self.out), '--root', str(root), '--lexicon', str(self.lexicon),
+                                              '--reference-wav', str(ref), '--consent', 'speaker agreed in writing 2026-10-24'], {})
+        self.assertEqual(code, 0)
+        self.assertTrue(seen['argv'][-2].endswith('voxcpm_worker.py'))
+        self.assertEqual(seen['env']['HF_HUB_OFFLINE'], '1')
+        self.assertEqual(seen['job']['jobs'][0]['text'], 'frejm kor first')
+        line = self.lock()['lines']['a']
+        self.assertEqual((line['engine'], line['engine_version'], line['model']), ('voxcpm', '2.0.3', 'openbmb/VoxCPM2'))
+        self.assertEqual(line['consent'], 'speaker agreed in writing 2026-10-24')
+        self.assertTrue(line['voice_source'].startswith('reference:'))
+        self.assertEqual(self.lock()['lexicon_sha256'], __import__('hashlib').sha256(self.lexicon.read_bytes()).hexdigest())
+
+
+class Worker(unittest.TestCase):
+    def test_failed_job_does_not_stop_others(self):
+        import types
+        written = []
+
+        class Model:
+            tts_model = types.SimpleNamespace(sample_rate=48000)
+
+            def generate(self, **options):
+                if options['text'] == 'bad':
+                    raise RuntimeError('oom')
+                self.last = options
+                return [0.0]
+        model = Model()
+        fake_vox = types.SimpleNamespace(VoxCPM=types.SimpleNamespace(from_pretrained=lambda *a, **k: model))
+        fake_sf = types.SimpleNamespace(write=lambda path, wav, rate, subtype: written.append((path, rate, subtype)))
+        with tempfile.TemporaryDirectory() as tmp:
+            job = write_json(pathlib.Path(tmp) / 'job.json', {'model': 'openbmb/VoxCPM2', 'jobs': [
+                {'id': 'a', 'text': 'bad', 'out': 'a.wav', 'seed': 1},
+                {'id': 'b', 'text': 'good', 'out': 'b.wav', 'seed': 1, 'reference_wav': 'ref.wav'}]})
+            worker_spec = importlib.util.spec_from_file_location('worker', PLUGIN / 'scripts/voxcpm_worker.py')
+            worker = importlib.util.module_from_spec(worker_spec)
+            worker_spec.loader.exec_module(worker)
+            with mock.patch.dict(sys.modules, {'voxcpm': fake_vox, 'soundfile': fake_sf}):
+                code, out, _ = quiet(worker.main, str(job))
+        self.assertEqual(code, 1)
+        results = [json.loads(line) for line in out.splitlines()]
+        self.assertEqual([(r['id'], r['status']) for r in results], [('a', 'failed'), ('b', 'ok')])
+        self.assertEqual(written, [('b.wav', 48000, 'PCM_16')])
+        self.assertEqual(model.last['reference_wav_path'], 'ref.wav')
+
+
 if __name__ == '__main__':
     unittest.main()
