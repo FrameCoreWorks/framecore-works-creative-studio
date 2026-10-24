@@ -3622,3 +3622,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `2f50e07`; workflows Refresh current release notes 40094310308, Publish verified Studio release 40094310318, Check Studio sources 40094310280: success; [v1.131.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.131.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1567 of 1567) ([record](../verification/github-publication-1.131.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261024-10
+
+- Origin: cloud-code
+- Baseline: `f3f612a` (main, package 1.131.0)
+- Package version: unchanged (1.131.0)
+- Scope: owner-requested full review of the repository and all four plugins, review only; report in [reviews/full-review-2026-10-24.md](reviews/full-review-2026-10-24.md) (0 critical, 11 important, 19 minor, plus budget measurements and reference recommendations)
+- Shared package changed: no
+
+Verification:
+
+- `scripts/check_all.sh`: PASS (Node 242: 231 pass, 11 skipped; all Python suites OK)
+- companion plugin tests: earshot-audio 28, voice-narration 60, brand-kit 52: PASS
+- host behavior: not_run
+
+Cross-host state:
+
+- GitHub: pending until the push of this entry
+- ChatGPT Work: not affected (no package change)
+- Codex: not affected
