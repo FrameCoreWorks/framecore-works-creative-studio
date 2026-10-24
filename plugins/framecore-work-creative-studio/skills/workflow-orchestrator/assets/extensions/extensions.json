@@ -581,6 +581,69 @@
       "category": "tts"
     },
     {
+      "id": "voice-narration",
+      "name": "voice-narration",
+      "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+      "reviewed_commit": "397c9eba436c3e74bbe62ae39d8ffa24a11103d8",
+      "package": null,
+      "license": "Apache-2.0",
+      "kind": [
+        "native_plugin",
+        "skill",
+        "cli"
+      ],
+      "category": "audio",
+      "role": "engine",
+      "gives": "Measured voice-overs from an approved script: one WAV per line from VoxCPM2 or Voicebox on the user's own computer, or from ElevenLabs through the app's connector, with a per-project pronunciation lexicon, a measurement of every take against its scene's limit, a consented speed-up of at most 5% and narration.lock.json (engine, model, voice source and consent, text sent, duration, verdict, SHA-256) for the mix.",
+      "studio_uses": "Through the separate voice-narration plugin from this repository (skill voice-narration:narrate), the generation and measurement route for the voice-over lines Copy Voice approved: Audio Production Director's local voice engines guide hands off to it once the engine is chosen, and its WAV files and lock file go to FrameCut's timeline or Motion Graphics Workflow's sound step. Studio keeps the brief, copy locks, voice direction and final review.",
+      "not_for": "Writing or shortening the script (Copy Voice), music or sound effects (Earshot, Audio Production Director), lip sync, or cloning a voice without its owner's recorded consent. Local engines are for the user's own computer: in a cloud session or a phone app installing them is advised against (several GB on a temporary disk, usually no GPU); use ElevenLabs through the connector or the script handoff there. OmniVoice, MOSS-TTS and MOSS-TTSD stay as separate entries without this plugin.",
+      "requires": [
+        {
+          "tool": "python",
+          "ranges": [
+            [
+              "3.10.0",
+              null
+            ]
+          ],
+          "note": "Python 3.10+ with venv for the launcher and the VoxCPM2 environment"
+        },
+        {
+          "tool": "ffmpeg",
+          "note": "Optional: FFmpeg for the bounded speed-up and for converting non-WAV audio"
+        },
+        {
+          "tool": "network",
+          "note": "PyPI and download.pytorch.org at the VoxCPM2 install, about 5 GB of weights once from huggingface.co; Voicebox runs locally on 127.0.0.1:17493; ElevenLabs only through the host's connector"
+        }
+      ],
+      "rights": "Apache-2.0 (FrameCore Works). No engine code or model is included: VoxCPM2 code and weights Apache-2.0 (OpenBMB), Voicebox MIT (each engine inside has its own licence), ElevenLabs under the user's own account and terms. A cloned voice needs its owner's recorded consent, kept in the lock file.",
+      "hosts": {
+        "codex": {
+          "status": "manual",
+          "manual_steps": "One route: the separate voice-narration plugin (this repository's folder plugins/voice-narration, with .codex-plugin/plugin.json), skill voice-narration:narrate. Copy the whole folder from the same pinned commit as Studio to a persistent place on the user's own computer and add it where Codex shows a plugin route for a local folder (not yet tested here); Codex cloud tasks are a cloud environment. Engines (each only after the user agrees): python3 <voice-narration>/scripts/runtime.py status --json; VoxCPM2: install voxcpm prints the plan (voxcpm==2.0.3 in ~/.framecore-studio/extensions/voxcpm, about 3 GB), then the same with --yes, then fetch-models (about 5 GB of openbmb/VoxCPM2 weights from huggingface.co), then --yes; Voicebox: the user installs the desktop app, then status shows it ready on 127.0.0.1:17493; ElevenLabs: the user connects the app's ElevenLabs connector, no API key. In a cloud or phone environment the launcher advises against local engines and refuses --yes without --allow-cloud. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/voxcpm."
+        },
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "One route: the separate voice-narration plugin (this repository's folder plugins/voice-narration, marketplace framecore-works), skill voice-narration:narrate. With a shell, after the user agrees: claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio (when not added yet) and claude plugin install voice-narration@framecore-works, then a new conversation loads the skill; in the interactive terminal /plugin install voice-narration --marketplace FrameCoreWorks/framecore-works-creative-studio. Claude Code on the web or a phone is a cloud environment. Engines (each only after the user agrees): python3 <voice-narration>/scripts/runtime.py status --json; VoxCPM2: install voxcpm prints the plan (voxcpm==2.0.3 in ~/.framecore-studio/extensions/voxcpm, about 3 GB), then the same with --yes, then fetch-models (about 5 GB of openbmb/VoxCPM2 weights from huggingface.co), then --yes; Voicebox: the user installs the desktop app, then status shows it ready on 127.0.0.1:17493; ElevenLabs: the user connects the app's ElevenLabs connector, no API key. In a cloud or phone environment the launcher advises against local engines and refuses --yes without --allow-cloud. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/voxcpm."
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "The plugin's launcher needs code execution and local engines need the user's own computer. In the Claude apps use the ElevenLabs connector directly, or Claude Code on a desktop with the voice-narration plugin."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "The plugin's launcher needs code execution and local engines need the user's own computer. Use Codex or Claude Code on a desktop with the voice-narration plugin, or ElevenLabs where a connector is available."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "One route: the separate voice-narration plugin (this repository's folder plugins/voice-narration), skill voice-narration:narrate, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back (not done yet: pending). A Work sandbox is a cloud environment: advise against the local engines there and use ElevenLabs through the connector or the script handoff; run status in each conversation. Engines (each only after the user agrees): python3 <voice-narration>/scripts/runtime.py status --json; VoxCPM2: install voxcpm prints the plan (voxcpm==2.0.3 in ~/.framecore-studio/extensions/voxcpm, about 3 GB), then the same with --yes, then fetch-models (about 5 GB of openbmb/VoxCPM2 weights from huggingface.co), then --yes; Voicebox: the user installs the desktop app, then status shows it ready on 127.0.0.1:17493; ElevenLabs: the user connects the app's ElevenLabs connector, no API key. In a cloud or phone environment the launcher advises against local engines and refuses --yes without --allow-cloud. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/voxcpm."
+        }
+      },
+      "observed": "2026-10-24 Claude Code cloud container (Python 3.13, no GPU): voice-narration 1.0.0 built with 48 launcher and 6 package tests; status reported environment cloud, voxcpm and Voicebox unavailable, FFmpeg present; install voxcpm --yes refused with exit 2 naming --allow-cloud; a real FFmpeg speed-up of 4% took a 2.00 s line to 1.92 s. Real VoxCPM2 and Voicebox generation and an ElevenLabs connector read were not run (no GPU or desktop app here; credits not spent).",
+      "update": "Review a newer voxcpm release or Voicebox API (its generate, status and audio routes) before moving the pin in the plugin's runtime.py and NOTICE; keep ElevenLabs on the host connector with no API key."
+    },
+    {
       "id": "logo-design",
       "name": "Logo Design Skill (kaankiziltug)",
       "repository": "https://github.com/kaankiziltug/logo-design-skill",

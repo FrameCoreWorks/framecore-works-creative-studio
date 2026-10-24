@@ -29,6 +29,8 @@ Install only on an explicit request, through the [extension route](../../workflo
 
 Discover the current host's actual tools and authorized connections before choosing execution. An available Voicebox MCP connection in Claude Desktop or another host can provide a native route; a local executor may expose an existing engine. Use the registry's exact host/engine route and verify it, without assuming that a host name proves availability. If no supported runtime or authorized connection exists, deliver the script, voice direction (voice, pace, pauses, pronunciation, emotion per line) and engine settings for the user's local generation.
 
+For VoxCPM2, Voicebox or ElevenLabs, the separate `voice-narration` plugin from this repository (skill `voice-narration:narrate`, registry entry `voice-narration` in the [recommended extensions](../../workflow-orchestrator/references/extensions.md)) runs the read: it installs VoxCPM2 only with consent, applies the project's pronunciation lexicon, measures every line against its limit and writes the WAV files and `narration.lock.json` for the mix. Its local engines are for the user's own computer; in a cloud session or a phone app it advises against installing them and offers ElevenLabs through the connector or this script handoff.
+
 ## 4. Consent and delivery
 
 Clone a voice only with its owner's documented permission (the user's own voice, or a speaker who agreed in writing); never imitate a real person, a celebrity or a client's competitor. Mark a synthetic voice where the platform or the law asks. Record the engine, model, version, licence and the voice source in the delivery notes.
