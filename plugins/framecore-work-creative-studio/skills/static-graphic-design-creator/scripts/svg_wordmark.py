@@ -422,7 +422,8 @@ def main(argv=None):
             mask = rasterize(contours, (w, h), Image).resize((max(1, round(w / ss)), max(1, round(h / ss))), Image.LANCZOS)
             image = Image.new('RGBA', mask.size, (*rgb(ground), 255) if ground else (0, 0, 0, 0))
             ink = Image.new('RGBA', mask.size, (*rgb(colour), 255))
-            image.paste(ink, (0, 0), mask)
+            ink.putalpha(mask)
+            image.alpha_composite(ink)
             return image, mask
 
         out.mkdir(parents=True)

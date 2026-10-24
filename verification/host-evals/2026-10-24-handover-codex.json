@@ -1,0 +1,452 @@
+{
+  "client": "Codex CLI, fresh ephemeral sessions, source candidate read-only evaluation",
+  "source_version": "1.125.2 + working candidate",
+  "requested_model": "gpt-6-astra",
+  "effort": "high",
+  "observed_model": "not exposed by JSON events",
+  "installed_client_behavior": "NOT_RUN: source files explicitly supplied as candidate",
+  "date": "2026-10-24",
+  "cases": [
+    {
+      "id": "H01",
+      "verdict": "PASS",
+      "primary_owner": "remotion-video-production",
+      "supporting_owners": [
+        "copy-voice",
+        "caption-studio",
+        "audio-production-director"
+      ],
+      "read_owners": [
+        "audio-production-director",
+        "caption-studio",
+        "copy-voice",
+        "opencut-video-studio",
+        "remotion-video-production"
+      ],
+      "reply": "Najbliższy krok to zebranie zaakceptowanych tekstów i ich przedziałów czasowych z istniejącej kompozycji Remotion w jednej tabeli PL/EN, osobno dla napisów, lektora i tekstów ekranowych. Zachowamy montaż i długość 15 sekund. Nova pozostaje bez zmian, a claim „5 lat gwarancji” zachowuje treść; jego angielskie brzmienie wymaga zatwierdzenia. Dopasowanie obu wersji oprzemy na istniejących oknach czasowych, z osobnym czasowaniem fraz każdego języka. Do tego kroku potrzebny jest projekt lub zaakceptowany film z aktualnym tekstem. Na tym etapie nie uruchamiamy generacji.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "copy-voice",
+              "caption-studio",
+              "remotion-video-production"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['audio-production-director', 'caption-studio', 'copy-voice', 'opencut-video-studio', 'remotion-video-production']; expected one of ['copy-voice', 'caption-studio', 'remotion-video-production']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 179368,
+        "cached_input_tokens": 151808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 841,
+        "reasoning_output_tokens": 18
+      },
+      "seconds": 28.8,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "4fdb7fc9faca7cad31cbbfb822a29b58e5a1f1282017885e2e7dd76beb97e846",
+          "output_sha256": "c2aaef803b33616ce8eb427fea6c581a9f9ef400cda051b7a2d13ba63495e57c"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "144521fcfb699fd10f059ef424a25f1b13690a10bd81cf413bd0c0b5bf5a19c1",
+          "output_sha256": "8d2c787d10788efc6dcccd3badc0929b7f5b9180a2924689a56c2d77c7b938f5"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "caption-studio"
+          ],
+          "command_sha256": "2ad166da66f10aecdab61d736430165bee6298b3187ce1c5c26a3015d42d8db2",
+          "output_sha256": "b52c3103fd1610a3c1be6d0beb186c17d4f629cf1c91a43331a109830846dfb8"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "opencut-video-studio"
+          ],
+          "command_sha256": "d7c39064f975b58890a221ded78f98e7085fbb2d0ab6dba1c024769a27a92fb1",
+          "output_sha256": "ddc58271e4f4b2761c07e1013fcd0d0c0fa6f15773518082986198a84e546e1d"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "audio-production-director"
+          ],
+          "command_sha256": "b61b8dcfbed5007eae4969bd77b168b3628caf9445cfa71a99da722ea6e96ff4",
+          "output_sha256": "61e88ee537d2f95c885bf0a2490fd18497cac89beac3205725dd09311fadb205"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "copy-voice"
+          ],
+          "command_sha256": "175332fb8a3b83030190174eeaa5b76b3300d9be8ff48819bca99582150975da",
+          "output_sha256": "f03530ef12e822fc1d1b0f0559da4ee1c65c2af1b07d7319398c83d049004e5e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "remotion-video-production"
+          ],
+          "command_sha256": "6d20cd6ed608c07841006e8c15ae55f17df44ed7fd09fd4498408cfcae38d2f6",
+          "output_sha256": "58998c65446b575164bd3b911fad447eeacbd98424afb14ba056b8b4e19862ef"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "caption-studio"
+          ],
+          "command_sha256": "e4fdbaf25576ad0afb5aab161d755e0084499918446fbc0a53268cab700f2db1",
+          "output_sha256": "82f1847b86e95413c403dc2073f77176ec6f9b3812ed06e2bcb42489a8346b35"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "audio-production-director",
+            "copy-voice"
+          ],
+          "command_sha256": "843808555d2332ea9759f07b7e1b26136b5395095f39acccb07d2253da4efe46",
+          "output_sha256": "b8101bb88b097b9831e0acc9ece3d4a641ab9a8fe8029695fbd8a20cb0aec5c6"
+        }
+      ]
+    },
+    {
+      "id": "H02",
+      "verdict": "PASS",
+      "primary_owner": "pipeline-core",
+      "supporting_owners": [
+        "research-evidence"
+      ],
+      "read_owners": [
+        "pipeline-core",
+        "research-evidence",
+        "static-graphic-design-creator",
+        "workflow-orchestrator"
+      ],
+      "reply": "Szkic brand kitu „Równo” pozostaje w rozmowie, bez zapisywania plików przed Twoją akceptacją.\n\nŹródło: dostarczony fragment HTML przypisany do https://example.invalid; odczyt 24.10.2026. Analiza dotyczy wyłącznie tej kopii, bez otwierania witryny i sprawdzania jej wyglądu w przeglądarce.\n\nZe źródła:\n- Nazwa w nagłówku H1: „Równo”. Nagłówek nie potwierdza istnienia logo.\n- Treść: „Proste planowanie zadań dla małych zespołów.” To zaobserwowane sformułowanie, bez potwierdzenia jego prawdziwości ani zatwierdzenia jako claimu reklamowego.\n- Kolor: zmienna CSS `--brand: #224433`. Fragment nie używa tej zmiennej do kolorowania elementów, więc nie potwierdza widocznego zastosowania zieleni.\n- Typografia: deklaracja `font-family: Arial` dla body. Nie potwierdza faktycznie wyrenderowanego kroju ani licencji.\n\nMoje propozycje do akceptacji:\n- Zachować pisownię „Równo”.\n- Przyjąć #224433 jako kolor główny; białe tło i ciemny tekst jako uzupełnienie. To proponowane role kolorów.\n- Budować układ na czytelnych nagłówkach, równych odstępach i krótkich komunikatach.\n- Ton: prosty, spokojny, konkretny; forma zwracania się do odbiorcy: „Ty”.\n\nNieustalone: pliki i prawa do logo, prawa do fontów, pole ochronne, minimalny rozmiar znaku, zatwierdzone claimy i wymagane informacje prawne. Pozostają nieustalone — nie uzupełniam ich domysłami.\n\nCzy akceptujesz ten kierunek szkicu? Akceptację kierunku i zgodę na zapis potraktuję osobno.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "pipeline-core",
+              "research-evidence"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['pipeline-core', 'research-evidence', 'static-graphic-design-creator', 'workflow-orchestrator']; expected one of ['pipeline-core', 'research-evidence']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 239539,
+        "cached_input_tokens": 191360,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1539,
+        "reasoning_output_tokens": 82
+      },
+      "seconds": 51.7,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "a48d888bf7ec6468f52e1f8f10593eaa33eff843b35935e929a6c8753e7e8e64",
+          "output_sha256": "c468e1680024e7015d3a6540c963a5b301877d369da49e2d299a954cdead2eca"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "a2fbcdce1314c4b6563424f25cbc1d99bb8a3dd475070344b7da5a926869e195",
+          "output_sha256": "65aca4928d5b73ab7c64a77b33afe79d0c46a49c593a87b168d3501659b2b302"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "5579a1a7f36245819ee45c734b5bbeaaa4d12dfd1548f1ee2764538919837b57",
+          "output_sha256": "45c075455ade534e204db4766252193624747f8665e5d72f822170c0d75bf48e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "pipeline-core",
+            "research-evidence"
+          ],
+          "command_sha256": "262690efb236a697d4758103fee4ac98158552985bd1c837daf0c065901314e4",
+          "output_sha256": "dc4edc59f0aa57d97d9b4a89ab51ad0b29fb6f795910de41c8f7931e152e70fb"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "command_sha256": "1fef6bf50d12a5c56c44a237424c174549103a0cf31563f00f26519354682fb6",
+          "output_sha256": "d7e706b330760427e5d932f2ee3c4f3b65d1d3b694aeccc6e8555e83c98e7126"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "research-evidence"
+          ],
+          "command_sha256": "781c10b3f4a955cf7bf05ef93466eb3bb78bbf11ad39cdbe76acda3514949e83",
+          "output_sha256": "dfe61116e42a552c2849c3094ae66c677acc9fdc53240186cce540efacb2752e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "8aea7cd6c74ab91c44f056f6b95aa9c8d25369828f8fae8fe4493bda6cfa1c7a",
+          "output_sha256": "ddc4155903bcf438e1751432abc6c2ad8f1085ab131d27ee78522e67bdd116ae"
+        }
+      ]
+    },
+    {
+      "id": "H03",
+      "verdict": "PASS",
+      "primary_owner": "delivery-documentation",
+      "supporting_owners": [
+        "research-evidence"
+      ],
+      "read_owners": [
+        "delivery-documentation",
+        "research-evidence",
+        "workflow-orchestrator"
+      ],
+      "reply": "Przygotowuję strukturę karty dostawy w treści rozmowy. Nie sprawdzam aktualnych wymagań TikToka ani statusu konta; niepotwierdzone wartości oznaczam jako Unknown.\n\nKarta dostawy — 2026-10-24\n\n| Pole | Wartość |\n|---|---|\n| Platforma / zastosowanie | TikTok / płatna reklama wideo |\n| Dokładne umiejscowienie i format reklamy | Unknown |\n| Konto docelowe / ID kampanii / ID reklamy | Unknown |\n| Plik źródłowy, wersja i identyfikator materiału | Unknown |\n| Wymiary i proporcje | Unknown |\n| Czas trwania | Unknown |\n| Kontener, kodek, FPS | Unknown |\n| Parametry audio i wymagania głośności | Unknown |\n| Okładka i kadrowanie | Unknown |\n| Napisy: język, pliki, sposób osadzenia, synchronizacja | Unknown |\n| Tekst reklamy, CTA, adres docelowy i metadane | Unknown |\n| Bezpieczne obszary / nakładka interfejsu / podgląd placementu | Unknown |\n| Prawa do obrazu, muzyki, głosu i innych materiałów | Unknown |\n| Źródło wymagań i data ich sprawdzenia | Unknown |\n| Kontrola techniczna, obrazu, dźwięku, synchronizacji i dostępności | Unknown |\n| Akceptacja: osoba, wersja, data | Unknown |\n\nDla każdego parametru karta powinna zawierać osobno: wartość wymaganą, wartość zweryfikowaną, dowód lub metodę sprawdzenia oraz pozostałe braki. Wartość wymagana nie potwierdza właściwości pliku.\n\nStatusy zapisujemy oddzielnie:\n\n- Przygotowanie: struktura karty jest dostępna tutaj; przygotowanie pliku wideo — Unknown.\n- Walidacja materiału: Unknown.\n- Upload / przekazanie do kolejki: Unknown.\n- Przetwarzanie / zaplanowanie: Unknown.\n- Publikacja / emisja: Unknown.\n\nInstrukcja dla operatora: ustalić dokładny placement i konto, sprawdzić aktualną specyfikację, uzupełnić kartę na podstawie rzeczywistego pliku, wykonać podgląd oraz kontrolę materiału. Po autoryzowanym uploadzie zapisać potwierdzenie i ID reklamy, a następnie osobno sprawdzić jej status w miejscu docelowym.\n\nNie — ani przygotowany plik, ani potwierdzenie uploadu nie oznaczają publikacji. Potwierdzenie uploadu dowodzi wyłącznie przesłania lub przyjęcia do kolejki. Publikacja wymaga potwierdzonego statusu published/live dla tego samego materiału i miejsca docelowego; faktyczna emisja wymaga osobnego dowodu z konta.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "delivery-documentation",
+              "research-evidence"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['delivery-documentation', 'research-evidence', 'workflow-orchestrator']; expected one of ['delivery-documentation', 'research-evidence']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 154790,
+        "cached_input_tokens": 126336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1352,
+        "reasoning_output_tokens": 24
+      },
+      "seconds": 41.3,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "72ad17e7aa3a39e767ab4b814527d6b7f3e9605b078b836dc0c1016ded9d5bab",
+          "output_sha256": "07f885bbb66302011f7ebd49ebdcec52f0c8da47a474f9b968aec0985b3507c5"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "delivery-documentation"
+          ],
+          "command_sha256": "cde2d60e315ddbba4ff3a44e6e2f2b24772f5551dba29f422a3c78cd967e81f4",
+          "output_sha256": "e1eb84de3d7bfb568e8c87e500243c9a21c0da1ad045b91f96227ec39ed08081"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "workflow-orchestrator"
+          ],
+          "command_sha256": "45ca81ecafcd99c2e78a39678688ce2a32d17ba77b35bdf5e5b1d0bf730b719b",
+          "output_sha256": "876a3eddba83e05391069f48bfc6d12fcf4ab7c21055735aa4666e18c8466073"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "research-evidence"
+          ],
+          "command_sha256": "694e013c42e2bc4236195f1374308e05f6f777ce20447d8bc20b65a37ac0d1b3",
+          "output_sha256": "a80d37fd2f7634c602c1a15d7c79043bfc63f1ec965aa8f0a0249dad8f5918f2"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "91af9c57a896a8a96fa8504ad7ecc24e21ae44a32ea0200a88e3087a19a1f333",
+          "output_sha256": "ac0d23de34f2056e28a1c217394e668f25b811ee338447060a0df94bbd9e8af9"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "1b5df713fd5ef0fbac60bf1694e039785e9bfe20d4fd40a78e530739fa1814bc",
+          "output_sha256": "d56788a04683f5cb11fe7fd3940e843e95af9baab90c2fef5efc7860812de24f"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "ae460808ceb48d0c30b437a4071d23d3680aa9adb13f6e5d7a17358aacffbe1c",
+          "output_sha256": "943633d386325bd7ef372ae94d2e3019baf866ae51e5ce7b2256bd3142e9e88e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "91af9c57a896a8a96fa8504ad7ecc24e21ae44a32ea0200a88e3087a19a1f333",
+          "output_sha256": "ac0d23de34f2056e28a1c217394e668f25b811ee338447060a0df94bbd9e8af9"
+        }
+      ]
+    },
+    {
+      "id": "H04",
+      "verdict": "PASS",
+      "primary_owner": "video-prompt-architect",
+      "supporting_owners": [
+        "output-critic-iteration",
+        "caption-studio",
+        "audio-production-director"
+      ],
+      "read_owners": [
+        "audio-production-director",
+        "caption-studio",
+        "output-critic-iteration",
+        "research-evidence",
+        "video-prompt-architect",
+        "workflow-orchestrator"
+      ],
+      "reply": "Nie. Zgłoszony wynik 7:1 dotyczy tylko pomiaru w jednej stopklatce. Nie wystarcza do potwierdzenia dostępności całej rolki; nie oznacza też, że rolka jest niedostępna.\n\nNajbliższe potrzebne dowody:\n\n1. Raport źródłowy: wersja filmu, czas stopklatki, badany tekst i tło oraz metoda pomiaru. Pozwoli ustalić, czego dokładnie dotyczy 7:1.\n2. Pełne wideo: sprawdzenie kontrastu napisów na zmieniającym się tle, wielkości i czytelności w docelowym rozmiarze, zasłaniania tekstu oraz migotania i ruchu. Próbki klatek nie potwierdzą całego przebiegu.\n3. Napisy z czasami oraz porównanie z nagraniem: kompletność i poprawność wypowiedzi, oznaczenie rozmówców i istotnych dźwięków, synchronizacja, podział tekstu i czas na przeczytanie. Same hasła ekranowe nie zastępują pełnych napisów.\n4. Odsłuch całej ścieżki: zrozumiałość lektora, zagłuszanie przez muzykę i efekty oraz zgodność z obrazem i napisami. Sam pomiar głośności nie potwierdza zrozumiałości.\n5. Ocena informacji dostępnych wyłącznie wzrokowo: czy lektor je przekazuje, czy potrzebny jest dodatkowy opis obrazu lub transkrypcja opisowa. Sama obecność lektora tego nie rozstrzyga.\n6. Docelowe miejsce publikacji i odtwarzacz: działanie napisów i sterowania oraz określenie wymagań, względem których ma być oceniona dostępność.\n\nBez wideo i audio nie można teraz potwierdzić tych właściwości ani zgodności całej rolki z wymaganiami dostępności. Status: zgłoszony pomiar jednej klatki; pozostałe kontrole niewykonane. Nie sprawdzałem aktualnych wymagań w internecie, zgodnie z ograniczeniem tego zadania.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "output-critic-iteration",
+              "caption-studio"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['audio-production-director', 'caption-studio', 'output-critic-iteration', 'research-evidence', 'video-prompt-architect', 'workflow-orchestrator']; expected one of ['output-critic-iteration', 'caption-studio']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 235373,
+        "cached_input_tokens": 179456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1494,
+        "reasoning_output_tokens": 43
+      },
+      "seconds": 45.6,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "f29201c5eb0d4e13a74844debc4a0408b072d8400fe11806bd6fc72379fc6d79",
+          "output_sha256": "bb25d06fa9058e3aff58523ad60a0df19a886ad53e1e5f4d6037989e47d653b7"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "20884f9a5ca8a6db526542e54cbb4bc171efb8d0039c519aa620bcaa0797426b",
+          "output_sha256": "62f40ee9dbd0d8180c3cc7bee14a37a61f28b715853bb8aa54353332b1901e09"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "output-critic-iteration"
+          ],
+          "command_sha256": "2a98942c9d4e1b41e36767dd93131a9872e5ce84e32f45d91b1b92f2861a4eb2",
+          "output_sha256": "202ca08521c8599de7cb7e1eb942e1127c703683684b5c0099e7087cdd6b3f37"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "workflow-orchestrator"
+          ],
+          "command_sha256": "45ca81ecafcd99c2e78a39678688ce2a32d17ba77b35bdf5e5b1d0bf730b719b",
+          "output_sha256": "876a3eddba83e05391069f48bfc6d12fcf4ab7c21055735aa4666e18c8466073"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "8d69e58141f85fc516fa403cbed2421819648e8594ed6f1896c934f59b28b109",
+          "output_sha256": "63c2d9036ec641b3e786a8de90f78f308f4edd057303e70663eff837ee342222"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "caption-studio"
+          ],
+          "command_sha256": "2ad166da66f10aecdab61d736430165bee6298b3187ce1c5c26a3015d42d8db2",
+          "output_sha256": "b52c3103fd1610a3c1be6d0beb186c17d4f629cf1c91a43331a109830846dfb8"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "audio-production-director"
+          ],
+          "command_sha256": "b61b8dcfbed5007eae4969bd77b168b3628caf9445cfa71a99da722ea6e96ff4",
+          "output_sha256": "61e88ee537d2f95c885bf0a2490fd18497cac89beac3205725dd09311fadb205"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "output-critic-iteration"
+          ],
+          "command_sha256": "2d330bfb1a7a7b52d2f0b052441994bbf8baadbc4a279b46cbe4103fa50ea670",
+          "output_sha256": "6c3f784aaca939431dc7268b7aff16f8b5dfe37f1e3b817358bb5c741ea669ab"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "video-prompt-architect"
+          ],
+          "command_sha256": "a8ca88651bf4ce5ea1ae5179d6f34f4eda6b8bfe94380489d045816854e6c2db",
+          "output_sha256": "99356b0511e783dda4627fa4c70119949f1157d087439eb4db019c41dc7eb108"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "research-evidence"
+          ],
+          "command_sha256": "694e013c42e2bc4236195f1374308e05f6f777ce20447d8bc20b65a37ac0d1b3",
+          "output_sha256": "a80d37fd2f7634c602c1a15d7c79043bfc63f1ec965aa8f0a0249dad8f5918f2"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "cases": 4,
+    "strict_pass": 4,
+    "strict_fail": 0,
+    "seconds": 167.4
+  },
+  "limitations": [
+    "This checks source-guided selection, not native Studio discovery or fresh ChatGPT/Work behavior.",
+    "Checks classify successfully read owner SKILL.md files as loaded; deliberate comparison reads can fail no_skills without adopting that route.",
+    "No artistic/media-quality claim and no automatic merge from this bounded sample."
+  ]
+}

@@ -103,3 +103,13 @@ A resume sheet records existing operation authorization and its scope; it does n
 Before saying “done”, confirm the requested artifact exists, the relevant checks were actually run, limitations are visible and the user can use the result. Distinguish structural validation from host behavior and actual creative-output review.
 
 Packaging does not itself authorize upload, external publication, marketplace installation or team notification. If the user already requested and authorized a specific operation, preserve that scope and use only the actual supported route; do not add a duplicate confirmation. Missing capability, destination or materially different spend/transfer needs an explicit resolution rather than a fabricated successful delivery.
+
+## Platform delivery card
+
+Carry one dated project card per exact platform/placement and organic/paid variant. Use [channel evidence](../../research-evidence/references/channel-specs-snapshot.md#video-placement-evidence) for current sources, not a second permanent platform table.
+
+Include requested/verified/Unknown values for dimensions/aspect, duration, container/codec/FPS, cover/crop, caption files, copy/metadata and safe-area overlay or placement preview; attach the source/access date and relevant actual file/revision. Separate inferred production choices from established platform requirements. No universal safe-zone percentage or loudness target establishes compliance.
+
+Bundle only requested files that really exist. Keep prepared, validated, submitted and published separate. An available authorized publishing route plus its upload/queue receipt establishes submission only. Record scheduled or processing as such; publication requires a confirmed published/live state for the same asset and destination. Preparation alone establishes neither. If no publishing route exists, deliver the assets with a precise manual upload sheet. Preserve existing explicit authorization rather than adding a duplicate approval because ownership changed.
+
+Aggregate [accessibility evidence](../../output-critic-iteration/references/review-and-repair.md#accessibility-evidence-across-deliverables) from the existing modality owners, including checks left Unknown. A passing still-image check cannot certify the whole audiovisual package.

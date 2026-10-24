@@ -72,15 +72,19 @@ export function parseRanges(text) {
 }
 
 /** The composition page to audit and its sampling plan: a Studio contract becomes its preview, frames and holds. */
-export function plan(input, {times, holds, fps, width, height, root, seek} = {}) {
+export function plan(input, {times, holds, fps, width, height, root, seek, format = 'base'} = {}) {
   if (input.endsWith('.json')) {
     const {html, score, evidenceBinding} = previewFor(input);
+    const selected = format === 'base' ? score : score.formats?.find(f => f.id === format);
+    if (!selected) throw new Error(`Unknown format: ${format}`);
+    evidenceBinding.format = format;
     const rate = score.fps.num / score.fps.den;
     const frames = times ? times.map(t => Math.round(t * rate)) : selectFrames(score);
     const known = score.scenes.flatMap(s => (s.holds ?? []).map(([a, b]) => [a / rate, b / rate]));
-    return {html, evidenceBinding, base: null, fps: rate, width: score.width, height: score.height, root: root ?? '#stage', seek,
+    return {html, evidenceBinding, format, base: null, fps: rate, width: selected.width, height: selected.height, root: root ?? '#stage', seek,
       samples: frames.map(f => ({t: f / rate, f})), holds: known, holdsFrom: 'contract'};
   }
+  if (format !== 'base') throw new Error('--format requires a Studio JSON contract; use --width/--height for an HTML composition');
   const html = fs.readFileSync(input, 'utf8');
   // A composition outside the contract route is bound to its own bytes, so acceptance can match it (--composition).
   const evidenceBinding = {kind: 'composition', contract: null,
@@ -144,7 +148,7 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
     const inner = Number(probed.stdout?.match(/<title>(\d+)<\/title>/)?.[1]);
     flags.push(`--window-size=${p.width},${p.height + (inner > 0 && inner < p.height ? p.height - inner : 0)}`);
   }
-  const urlFor = (t, f) => `${pathToFileURL(path.resolve(page)).href}?t=${t}&f=${f}${input.endsWith('.json') ? `&frame=${f}&review=1` : ''}`;
+  const urlFor = (t, f) => `${pathToFileURL(path.resolve(page)).href}?t=${t}&f=${f}${input.endsWith('.json') ? `&frame=${f}&review=1&format=${encodeURIComponent(p.format)}` : ''}`;
   const measure = (t, f) => {
     const url = urlFor(t, f);
     const dump = spawnSync(chrome, [...flags, '--dump-dom', url], {encoding: 'utf8', timeout: 90000, maxBuffer: 64 * 1024 * 1024});
@@ -195,13 +199,13 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2), option = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
-  const valued = ['--out', '--browser', '--times', '--holds', '--fps', '--width', '--height', '--root', '--seek'];
+  const valued = ['--out', '--browser', '--times', '--holds', '--fps', '--width', '--height', '--root', '--seek', '--format'];
   const input = args.find((arg, i) => !arg.startsWith('--') && !valued.includes(args[i - 1]));
   try {
     if (!input) throw new Error('Usage: node text-audit.mjs <composition.html | motion-score.json> --out <new-dir> [--times 1,2.5] [--holds 0.5-3] [--fps 30] [--width W --height H] [--root sel] [--seek expr] [--browser path]');
     const number = name => option(name) === undefined ? undefined : Number(option(name));
     const result = runAudit(input, {out: option('--out'), browser: option('--browser'), times: option('--times')?.split(',').map(Number),
-      holds: parseRanges(option('--holds')), fps: number('--fps'), width: number('--width'), height: number('--height'), root: option('--root'), seek: option('--seek')});
+      holds: parseRanges(option('--holds')), fps: number('--fps'), width: number('--width'), height: number('--height'), root: option('--root'), seek: option('--seek'), format: option('--format')});
     for (const s of result.samples) for (const i of s.issues) console.log(`${i.severity.toUpperCase()} ${s.t}s${s.hold ? ' hold' : ''} ${i.check} ${i.element} "${i.text}": ${i.detail}`);
     for (const s of result.samples) for (const e of s.exceptions) console.log(`EXCEPTION ${s.t}s ${e.element} "${e.text}": ${e.reason} (${e.review})`);
     console.log(`${result.verdict.toUpperCase()}: ${result.summary.errors} errors, ${result.summary.warnings} warnings, ${result.summary.transitional} transitional, ${result.summary.textsChecked} visible texts in ${result.summary.samples} samples (${result.summary.heldSamples} held; holds ${result.holdsFrom}).`);

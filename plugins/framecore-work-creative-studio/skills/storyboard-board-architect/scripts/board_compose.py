@@ -80,12 +80,18 @@ def main(argv=None):
         frame_w, frame_h = int(cell_w), int(cell_w / aspect)
 
         def wrap(text, font, width):
+            if any(font.getlength(char) > width for char in text if not char.isspace()):
+                raise ValueError('a glyph is wider than the text box')
             lines = []
             for paragraph in keep_together(text).split('\n'):
                 line_text = ''
                 for word in paragraph.split(' '):
                     trial = word if not line_text else f'{line_text} {word}'
                     if line_text and font.getlength(trial) > width:
+                        while font.getlength(line_text) > width:
+                            cut = max(1, next((n for n in range(len(line_text), 0, -1) if font.getlength(line_text[:n]) <= width), 1))
+                            lines.append(line_text[:cut])
+                            line_text = line_text[cut:]
                         lines.append(line_text)
                         line_text = word
                     else:

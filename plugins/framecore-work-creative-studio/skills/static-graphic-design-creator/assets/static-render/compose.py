@@ -264,9 +264,8 @@ class TextLayout:
             reasons.append(f'{len(self.lines)} lines, max_lines {self.max_lines}')
         return {'layer': self.layer.get('id'), 'text': self.text, 'size': round(self.final_size / scale, 1), 'reasons': reasons}
 
-    def draw(self, canvas, fill, shadow=None):
-        mask = Image.new('L', canvas.size, 0)
-        draw = ImageDraw.Draw(mask)
+    def positioned_runs(self):
+        """Use the same un-clipped positions for ink bounds and painting."""
         ascent, descent = self.font.getmetrics()
         valign = self.layer.get('valign', 'top')
         top = self.y + {'top': 0, 'middle': (self.h - self.height) / 2, 'bottom': self.h - self.height}[valign]
@@ -277,9 +276,24 @@ class TextLayout:
             left = self.x + {'left': 0, 'center': (self.w - width) / 2, 'right': self.w - width}[align]
             if self.tracking:
                 for i, char in enumerate(line):
-                    draw.text((left + self.font.getlength(line[:i]) + i * self.tracking, baseline), char, font=self.font, fill=255, anchor='ls')
+                    yield left + self.font.getlength(line[:i]) + i * self.tracking, baseline, char
             else:
-                draw.text((left, baseline), line, font=self.font, fill=255, anchor='ls')
+                yield left, baseline, line
+
+    def ink_bounds(self):
+        bounds = []
+        for x, y, text in self.positioned_runs():
+            left, top, right, bottom = self.font.getbbox(text, anchor='ls')
+            if right > left and bottom > top:
+                bounds.append((x + left, y + top, x + right, y + bottom))
+        return (min(b[0] for b in bounds), min(b[1] for b in bounds),
+                max(b[2] for b in bounds), max(b[3] for b in bounds)) if bounds else None
+
+    def draw(self, canvas, fill, shadow=None):
+        mask = Image.new('L', canvas.size, 0)
+        draw = ImageDraw.Draw(mask)
+        for x, y, text in self.positioned_runs():
+            draw.text((x, y), text, font=self.font, fill=255, anchor='ls')
         if shadow:
             offset = shadow.get('offset', [0, 4])
             blur = shadow.get('blur', 8)
@@ -413,6 +427,11 @@ def compose(spec, base, font_dirs, allow_overflow=False):
         if x < -0.5 or y < -0.5 or x + w > width + 0.5 or y + h > height + 0.5:   # text never leaves the finished page
             problem = problem or {'layer': layer.get('id'), 'text': layer['text'], 'size': layer['size'], 'reasons': []}
             problem['reasons'].append(f'box {layer["box"]} is outside the {width:g} x {height:g} px canvas')
+        ink = layout.ink_bounds()
+        if ink and (ink[0] < -0.5 or ink[1] < -0.5 or
+                    ink[2] > width * scale + 0.5 or ink[3] > height * scale + 0.5):
+            problem = problem or {'layer': layer.get('id'), 'text': layer['text'], 'size': layer['size'], 'reasons': []}
+            problem['reasons'].append('positioned glyph ink extends outside the canvas')
         if problem:
             overflows.append(problem)
         if layout.missing:
@@ -485,7 +504,9 @@ def measure_contrast(layer, layout, behind, mask, fill, scale):
     samples = [region.getpixel((x, y)) for y in range(0, region.height, step) for x in range(0, region.width, step) if ring.getpixel((x, y)) > 128]
     if not samples:
         return {'layer': layer.get('id'), 'ratio': None}
-    ratios = sorted(contrast_ratio(fill, pixel) for pixel in samples)
+    alpha = fill[3] / 255
+    ratios = sorted(contrast_ratio(tuple(round(fill[c] * alpha + pixel[c] * (1 - alpha))
+                                         for c in range(3)), pixel) for pixel in samples)
     weakest = ratios[len(ratios) // 10]
     large = layout.final_size / scale >= 48 or (layout.final_size / scale >= 36 and layer.get('bold', False))
     need = float(layer.get('min_contrast', 3.0 if large else 4.5))

@@ -149,8 +149,11 @@ class ListenTests(unittest.TestCase):
         real = self.listen.subprocess.call
         self.listen.subprocess.call = lambda cmd, env=None: calls.append((cmd, env)) or 0
         try:
-            self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
-            self.assertEqual(self.listen.delegate('doctor', ['--fetch'], str(exe)), 2)
+            # Exercise the default-cache branch independently of the host's configured engine.
+            with mock.patch.dict(os.environ):
+                os.environ.pop('EARSHOT_NATIVE_ROOT', None)
+                self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
+                self.assertEqual(self.listen.delegate('doctor', ['--fetch'], str(exe)), 2)
         finally:
             self.listen.subprocess.call = real
         self.assertEqual(len(calls), 1)

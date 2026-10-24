@@ -242,5 +242,54 @@ class BurnIn(unittest.TestCase):
             self.assertLess(max(band[1] for band in outside.getextrema()), 24)
 
 
+class WordContractCLI(unittest.TestCase):
+    def test_word_json_reaches_the_contract_with_timing_and_new_revision(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = pathlib.Path(temp)
+            words = root / 'words.json'
+            words.write_text(json.dumps({'words': [
+                {'word': 'Hello', 'start': .15, 'end': .55},
+                {'word': 'world', 'start': .6, 'end': 1.0}]}))
+            score = {'id': 'words', 'revision': 2, 'fps': {'num': 30, 'den': 1}, 'totalFrames': 60,
+                     'copy': {}, 'approval': {'status': 'approved', 'revision': 2, 'evidence': 'owner'}}
+            contract, out = root / 'c.json', root / 'out.json'
+            contract.write_text(json.dumps(score))
+            command = [sys.executable, str(TOOL), 'contract', str(words), str(contract), '--words', '--out', str(out)]
+            done = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(done.returncode, 0, done.stderr)
+            result = json.loads(out.read_text())
+            self.assertEqual(result['captions'][0]['words'], [[5, 17], [18, 30]])
+            self.assertEqual(result['copy'], {'caption-1': 'Hello world'})
+            self.assertEqual(result['revision'], 3)
+            self.assertEqual(result['approval']['status'], 'proposed')
+            self.assertEqual(json.loads(contract.read_text()), score)
+            before = out.read_bytes()
+            again = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(again.returncode, 2)
+            self.assertEqual(out.read_bytes(), before)
+
+    def test_half_frames_match_nonnegative_js_rounding(self):
+        score = {'fps': {'num': 30, 'den': 1}}
+        for ms, want in ((0, 0), (149.999, 4), (150, 5), (150.001, 5), (550, 17)):
+            self.assertEqual(captions.frame_at(ms, score), want)
+        score['fps'] = {'num': 30000, 'den': 1001}
+        self.assertEqual(captions.frame_at(150.15, score), 5)
+
+    def test_bad_word_records_are_controlled_input_errors_without_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = pathlib.Path(temp); source = root/'words.json'; contract = root/'c.json'; out = root/'out.json'
+            contract.write_text(json.dumps({'id': 'bad', 'revision': 1, 'fps': {'num': 30, 'den': 1}, 'totalFrames': 60}))
+            for records in ([None], [{'word': 'x', 'start': -1, 'end': 1}],
+                            [{'word': 'x', 'start': 1, 'end': 0}], [{'word': 'x', 'start': float('nan'), 'end': 1}],
+                            [{'word': 'x', 'start': True, 'end': 1}], [{'word': 'x', 'end': 1}]):
+                with self.subTest(records=records):
+                    source.write_text(json.dumps(records))
+                    done = subprocess.run([sys.executable, str(TOOL), 'contract', str(source), str(contract),
+                                           '--words', '--out', str(out)], capture_output=True, text=True)
+                    self.assertEqual(done.returncode, 2)
+                    self.assertNotIn('Traceback', done.stderr)
+                    self.assertFalse(out.exists())
+
+
 if __name__ == '__main__':
     unittest.main()

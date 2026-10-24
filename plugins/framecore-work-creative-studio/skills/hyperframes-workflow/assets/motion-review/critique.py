@@ -308,8 +308,6 @@ class Critique:
         from PIL import Image, ImageChops, ImageDraw
         r = load_renderer()
         sections = []
-        if video:
-            formats = ['base']
         for format_id in formats:
             sheet_tiles = []
             sections.append(sheet_tiles)
@@ -321,9 +319,9 @@ class Critique:
                     frames.add((a + b) // 2)
             keys = self.key_frames(score)
             frames.update(keys.values())
-            # Pacing samples (base format only: formats share one timeline): the picture four times a second.
+            # Sample pacing for the first selected format (base in an aggregate preview), including a selected encoded variant.
             step = max(1, round(self.fps / PACE_SAMPLES_PER_SECOND))
-            pace_frames = {n for scene in score['scenes'] for n in range(scene['start'], scene['end'], step)} if format_id == 'base' else set()
+            pace_frames = {n for scene in score['scenes'] for n in range(scene['start'], scene['end'], step)} if format_id == formats[0] else set()
             renderer = VideoFrames(video, score, frames | pace_frames) if video else r.Renderer(score)
             # Persistent elements (a corner mark, a tag) sit at the margins by design: layout and composition judge the scene alone.
             scenes_only = r.Renderer({**score, 'persistent': []}) if score.get('persistent') and not video else None
@@ -503,11 +501,16 @@ def main(argv=None):
     parser.add_argument('--out', help='folder for critique.json and contact-sheet.png; never overwritten')
     parser.add_argument('--no-frames', action='store_true', help='timing and text rules only; no rendering')
     parser.add_argument('--video', help='judge the frames of this delivered video instead of rendering them (for a custom renderer)')
+    parser.add_argument('--format', help='base or a declared format ID; defaults to all previews or base for a video')
     args = parser.parse_args(argv)
     try:
         with open(args.contract, 'rb') as handle:
             source = handle.read()
         score = json.loads(source)
+        available = ['base'] + [f['id'] for f in score.get('formats') or [] if f.get('id')]
+        if args.format is not None and args.format not in available:
+            raise ValueError(f'Unknown format: {args.format}')
+        formats = [args.format] if args.format else ['base'] if args.video else available
         if args.out:
             if os.path.exists(args.out):
                 raise ValueError(f'Output folder already exists: {args.out}')
@@ -516,7 +519,6 @@ def main(argv=None):
         critique.timing()
         sheet = None
         frames_status = 'not_run: --no-frames'
-        formats = ['base'] + [f['id'] for f in score.get('formats') or [] if f.get('id')]
         if not args.video:
             try:
                 critique.measure_text(formats)
@@ -530,6 +532,7 @@ def main(argv=None):
                 frames_status = f'not_run: {error}'
         result = critique.report()
         result['frames'] = frames_status
+        result['formats'] = formats
         result['contact_sheet'] = sheet
         # The status says what the score covers: a contract checked without frames certifies no video, and frames that
         # were asked for but could not be read leave the review incomplete, whatever the score.
@@ -543,6 +546,7 @@ def main(argv=None):
         # normal-speed playback is never observed by this tool, so its temporal verdict stays not_verified.
         pictured = result['status'] in ('checked', 'issues')
         result['evidence_binding'] = {
+            'format': formats[0] if len(formats) == 1 else 'all',
             'kind': 'encoded_video' if pictured and args.video else 'preview' if pictured else 'contract_only',
             'contract': {'id': score.get('id'), 'revision': score.get('revision'),
                          'sha256': hashlib.sha256(source).hexdigest()},

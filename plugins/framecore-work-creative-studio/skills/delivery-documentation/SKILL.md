@@ -46,3 +46,5 @@ For related assets, masters, variants, changed sources or resumable delivery, us
 ## Integrated workflow contracts
 
 Use [the integrated workflow-kit method](kit/method.md) for this owner’s artifact fields, bounded review and downstream handoffs. Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) for precedence and the single active route. Preserve this owner’s domain craft and the user’s requested stage.
+
+For a publishing bundle, use the dated [platform delivery card](references/production-and-delivery.md#platform-delivery-card); preparation and publication have separate evidence.

@@ -24,6 +24,22 @@ def run(*args):
 
 @unittest.skipUnless(READY, 'fontTools and Pillow are needed (python3 -m pip install fonttools pillow)')
 class Wordmark(unittest.TestCase):
+    def test_transparent_white_edges_store_unpremultiplied_rgb(self):
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as temp:
+            out = pathlib.Path(temp, 'logo')
+            code, _, err = run('--text', 'Frame', '--font', 'inter/Inter-Bold.ttf', '--out-dir', str(out))
+            self.assertEqual(code, 0, err)
+            with Image.open(out / 'wordmark-white.png') as image:
+                edges = [pixel for pixel in image.getdata() if 0 < pixel[3] < 255]
+                self.assertTrue(edges)
+                self.assertTrue(all(pixel[:3] == (255, 255, 255) for pixel in edges))
+                black = Image.new('RGBA', image.size, 'black')
+                black.alpha_composite(image)
+                for pixel, composed in zip(image.getdata(), black.getdata()):
+                    if 0 < pixel[3] < 255:
+                        self.assertEqual(composed[:3], (pixel[3],) * 3)
+
     def test_outlined_svg_files_renders_preview_and_report(self):
         with tempfile.TemporaryDirectory() as temp:
             spec_file = pathlib.Path(temp, 'wordmark.json')
@@ -66,7 +82,7 @@ class Wordmark(unittest.TestCase):
 
     def test_nonzero_fill_matches_the_font_rasterizer_including_self_intersecting_glyphs(self):
         from fontTools.ttLib import TTFont
-        from PIL import Image, ImageDraw, ImageFont
+        from PIL import Image, ImageDraw, ImageFont, features
         for name, text in (('inter/Inter-Bold.ttf', 'Bóbr 08 &%'), ('fraunces/Fraunces-Black.ttf', 'Żółć gęślą'), ('anton/Anton-Regular.ttf', 'ŁÓDŹ 2026')):
             path = svg_wordmark.resolve_font(name)
             font = TTFont(str(path))
@@ -75,7 +91,17 @@ class Wordmark(unittest.TestCase):
             size = (int(line.advance * scale) + 40, int((ascent - font['hhea'].descent) * scale) + 40)
             ours = svg_wordmark.rasterize(line.contours(scale, 20, 20 + ascent * scale), size, Image)
             reference = Image.new('L', size, 0)
-            ImageDraw.Draw(reference).text((20, 20 + ascent * scale), text, font=ImageFont.truetype(str(path), 200), fill=255, anchor='ls')
+            drawing = ImageDraw.Draw(reference)
+            raster_font = ImageFont.truetype(str(path), 200)
+            if features.check('raqm'):
+                drawing.text((20, 20 + ascent * scale), text, font=raster_font, fill=255, anchor='ls')
+            else:
+                # BASIC layout cannot supply the GPOS kerning being compared. Keep this
+                # raster/contour test at the same glyph positions; the shaping test above
+                # independently compares full-line advances when HarfBuzz is available.
+                for char, (_, position) in zip(text, line.placed):
+                    drawing.text((20 + position * scale, 20 + ascent * scale), char,
+                                 font=raster_font, fill=255, anchor='ls')
             a = [v > 127 for v in ours.getdata()]
             b = [v > 127 for v in reference.getdata()]
             union = sum(1 for x, y in zip(a, b) if x or y)

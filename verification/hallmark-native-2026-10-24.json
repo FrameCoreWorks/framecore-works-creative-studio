@@ -1,0 +1,36 @@
+{
+  "reviewed_commit": "7ec868225c6caa040558c321ee0fefa0e73f83a8",
+  "source_files": 178,
+  "installed_files": 189,
+  "source_payload_parity": false,
+  "generated_extras": [
+    "scripts/fixtures/kept/.hallmark/.gitignore",
+    "scripts/fixtures/kept/.hallmark/before/before-1280x800.png",
+    "scripts/fixtures/kept/.hallmark/before/before-1440-full.png",
+    "scripts/fixtures/kept/.hallmark/before/before-1440x900.png",
+    "scripts/fixtures/kept/.hallmark/before/before-1920x1080.png",
+    "scripts/fixtures/kept/.hallmark/before/before-375.png",
+    "scripts/fixtures/kept/.hallmark/shots/after-1280x800.png",
+    "scripts/fixtures/kept/.hallmark/shots/after-1440-full.png",
+    "scripts/fixtures/kept/.hallmark/shots/after-1440x900.png",
+    "scripts/fixtures/kept/.hallmark/shots/after-1920x1080.png",
+    "scripts/fixtures/kept/.hallmark/shots/after-375.png"
+  ],
+  "full_directory_equal": false,
+  "native_discovery": "PASS: fresh Codex CLI catalog and file read",
+  "static_smoke": "PASS: positive 0, deliberate negative 1",
+  "browser_smoke": "PASS: before capture, same-path kept detects dropped behavior",
+  "visual_inspection": "375px before/after screenshots inspected; synthetic functional fixture, not design-quality certification",
+  "claude_hosts": "NOT_RUN",
+  "chatgpt_hosts": "NOT_RUN",
+  "unchanged_source_files": 177,
+  "declared_compatibility_overrides": {
+    "agents/openai.yaml": {
+      "upstream_sha256": "0bc6fa7d573c926e8d3fe04a5afc8191096e5aa7287598a59b6c7e6321b53298",
+      "installed_sha256": "1cd054bdad1dc00b3f42d05aa1c901ece450da019e9005e4c38c6e9c1f2a09eb"
+    }
+  },
+  "unexpected_source_differences": [],
+  "metadata_loader": "PASS: fresh Codex CLI discovers skill and parses corrected metadata; no Hallmark metadata warning in stderr",
+  "review": "PASS: independent Codex final inspection"
+}

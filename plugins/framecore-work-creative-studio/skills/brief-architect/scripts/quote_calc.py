@@ -67,7 +67,33 @@ def need(condition, problems, message):
 
 def validate(spec):
     problems = []
-    need(spec.get('language', 'pl') in LABELS, problems, 'language must be pl or en')
+    if not isinstance(spec, dict):
+        return ['quote must be an object']
+    for key in ('vat', 'rates', 'discount', 'payment'):
+        if key in spec and not isinstance(spec[key], dict):
+            problems.append(f'{key} must be an object')
+    for key in ('packages', 'extras'):
+        if key in spec and not isinstance(spec[key], list):
+            problems.append(f'{key} must be a list')
+    if problems:
+        return problems
+    for index, package in enumerate(spec.get('packages', [])):
+        if not isinstance(package, dict):
+            problems.append(f'packages[{index}] must be an object')
+            continue
+        if 'items' in package and not isinstance(package['items'], list):
+            problems.append(f'packages[{index}].items must be a list')
+            continue
+        for item in package.get('items', []):
+            if not isinstance(item, dict) or not isinstance(item.get('name'), str) or not item['name'].strip():
+                problems.append(f'packages[{index}]: each item needs an object with a nonempty name')
+    for extra in spec.get('extras', []):
+        if not isinstance(extra, dict) or not isinstance(extra.get('name'), str) or not extra['name'].strip():
+            problems.append('each extra needs an object with a nonempty name')
+    if problems:
+        return problems
+    numeric = lambda value: isinstance(value, (int, float)) and not isinstance(value, bool) and Decimal(str(value)).is_finite()
+    need(isinstance(spec.get('language', 'pl'), str) and spec.get('language', 'pl') in LABELS, problems, 'language must be pl or en')
     need(isinstance(spec.get('currency', 'PLN'), str) and len(spec.get('currency', 'PLN')) == 3, problems, 'currency is a three-letter code such as PLN')
     vat = spec.get('vat')
     need(isinstance(vat, dict), problems, 'vat: give {"rate": 23} or {"exempt": true, "basis": "..."} (the user decides which applies)')
@@ -75,17 +101,17 @@ def validate(spec):
         if vat.get('exempt'):
             need(bool(str(vat.get('basis', '')).strip()), problems, 'vat.exempt needs the legal basis the user relies on, for example "art. 113 ust. 1 ustawy o VAT"')
         else:
-            need(isinstance(vat.get('rate'), (int, float)) and 0 <= vat['rate'] <= 100, problems, 'vat.rate is a percentage from 0 to 100')
+            need(numeric(vat.get('rate')) and 0 <= vat['rate'] <= 100, problems, 'vat.rate is a percentage from 0 to 100')
     need(spec.get('prices', 'net') in ('net', 'gross'), problems, 'prices is "net" or "gross"')
     rates = spec.get('rates', {})
     for key in ('hour', 'day'):
         if key in rates:
-            need(isinstance(rates[key], (int, float)) and rates[key] >= 0, problems, f'rates.{key} must be a number of zero or more')
+            need(numeric(rates[key]) and rates[key] >= 0, problems, f'rates.{key} must be a number of zero or more')
     packages = spec.get('packages')
     need(isinstance(packages, list) and packages, problems, 'packages: at least one package')
     for p_index, package in enumerate(packages or []):
         where = f'packages[{p_index}] {package.get("name", "")}'.strip()
-        need(bool(package.get('name')), problems, f'{where}: name')
+        need(isinstance(package.get('name'), str) and bool(package['name'].strip()), problems, f'{where}: name')
         need(isinstance(package.get('items'), list) and package['items'], problems, f'{where}: items')
         for i_index, item in enumerate(package.get('items') or []):
             label = f'{where} item {i_index + 1}'
@@ -97,17 +123,19 @@ def validate(spec):
                 need('day' in rates, problems, f'{label}: a day item needs rates.day')
             for key in ('price', 'hours', 'days', 'qty'):
                 if key in item:
-                    need(isinstance(item[key], (int, float)) and item[key] >= 0, problems, f'{label}: {key} must be a number of zero or more')
-        need(isinstance(package.get('revisions', 0), int) and package.get('revisions', 0) >= 0, problems, f'{where}: revisions is a whole number')
+                    need(numeric(item[key]) and item[key] >= 0, problems, f'{label}: {key} must be a number of zero or more')
+        need(type(package.get('revisions', 0)) is int and package.get('revisions', 0) >= 0, problems, f'{where}: revisions is a whole number')
     for extra in spec.get('extras', []):
         need(('price' in extra) != ('surcharge_pct' in extra), problems, f'extra {extra.get("name", "")}: price or surcharge_pct')
         if 'price' in extra:
-            need(isinstance(extra['price'], (int, float)) and extra['price'] >= 0, problems, f'extra {extra.get("name", "")}: price must be zero or more')
+            need(numeric(extra['price']) and extra['price'] >= 0, problems, f'extra {extra.get("name", "")}: price must be zero or more')
+        if 'surcharge_pct' in extra:
+            need(numeric(extra['surcharge_pct']) and extra['surcharge_pct'] >= 0, problems, 'extra surcharge_pct must be zero or more')
     discount = spec.get('discount', {})
     if discount:
-        need(0 < discount.get('pct', 0) < 100, problems, 'discount.pct between 0 and 100')
+        need(numeric(discount.get('pct', 0)) and 0 < discount.get('pct', 0) < 100, problems, 'discount.pct between 0 and 100')
     payment = spec.get('payment', {})
-    need(0 <= payment.get('advance_pct', 0) <= 100, problems, 'payment.advance_pct from 0 to 100')
+    need(numeric(payment.get('advance_pct', 0)) and 0 <= payment.get('advance_pct', 0) <= 100, problems, 'payment.advance_pct from 0 to 100')
     return problems
 
 

@@ -81,6 +81,32 @@ class Typesetting(unittest.TestCase):
 
 
 class Compose(unittest.TestCase):
+    def test_contrast_uses_composited_text_alpha(self):
+        for colour, expected in (('#000000', 21.0), ('#00000080', 4.0), ('#00000000', 1.0)):
+            with self.subTest(colour=colour), tempfile.TemporaryDirectory() as temp:
+                spec = {'id': 'alpha', 'canvas': {'width': 800, 'height': 400, 'background': '#FFFFFF'},
+                        'layers': [text('t', 'Readable', color=colour, box=[40, 40, 700, 200])]}
+                code, report = run(spec, temp)
+                self.assertEqual(code, 0, report)
+                self.assertAlmostEqual(report['contrast'][0]['ratio'], expected, delta=0.05)
+                self.assertEqual(report['contrast'][0]['pass'], colour != '#00000000')
+
+    def test_negative_glyph_bearing_outside_canvas_is_overflow(self):
+        font_path = compose.resolve_font('Inter Bold', compose.font_index([]), PLUGIN)
+        font = ImageFont.truetype(str(font_path), 160, layout_engine=compose.LAYOUT)
+        self.assertLess(font.getbbox('j', anchor='ls')[0], 0)
+        for tracking in (0, 25):
+            with self.subTest(tracking=tracking), tempfile.TemporaryDirectory() as temp:
+                spec = {'id': 'bearing', 'canvas': {'width': 400, 'height': 400},
+                        'layers': [text('t', 'j', size=160, tracking=tracking, box=[0, 0, 350, 300])]}
+                code, report = run(spec, temp)
+                self.assertEqual((code, report['status']), (4, 'text_overflow'))
+                self.assertIn('ink', ' '.join(report['text_overflow'][0]['reasons']))
+                self.assertFalse(pathlib.Path(temp, 'out/bearing.png').exists())
+        with tempfile.TemporaryDirectory() as temp:
+            spec['layers'][0]['box'] = [20, 0, 350, 300]
+            self.assertEqual(run(spec, temp)[0], 0)
+
     def test_exact_copy_at_exact_size_with_an_audit(self):
         with tempfile.TemporaryDirectory() as temp:
             spec = {'id': 'post', 'canvas': {'preset': 'instagram-feed-portrait', 'background': '#F5EFE6'},

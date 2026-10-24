@@ -219,7 +219,7 @@ test('frame review selects contract frames and embeds the score in the preview',
   assert.deepEqual(evidenceBinding, {kind: 'preview', contract: {id: score.id, revision: score.revision,
     sha256: createHash('sha256').update(fs.readFileSync(scorePath)).digest('hex')}});
   const {plan} = await import('../skills/hyperframes-workflow/assets/motion-review/text-audit.mjs');
-  assert.deepEqual(plan(scorePath).evidenceBinding, evidenceBinding);
+  assert.deepEqual(plan(scorePath).evidenceBinding, {...evidenceBinding, format: 'base'});
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'unbound-preview-'));
   try {
     const saved = path.join(temp, 'preview.html');
@@ -1265,7 +1265,14 @@ test('the visible-text audit catches every clipped word and passes complete text
     assert.equal(ignored.verdict, 'fail', 'data-layout-ignore never exempts visible text');
     assert.ok(issues(ignored).some(i => i.check === 'ignore-flag'));
     const lines = audit('container-fits-lines-clipped.html', held);
-    assert.ok(issues(lines).some(i => i.detail.includes('not visible: ulubionego zapachu')), 'lines hidden by a box that fits the frame');
+    for (const word of ['ulubionego', 'zapachu']) {
+      assert.ok(issues(lines).some(i => i.check === 'text-cut' && i.detail.includes(word)), 'clipped word: ' + word);
+    }
+    const hiddenPath = path.join(tmp, 'fully-hidden.html');
+    fs.writeFileSync(hiddenPath, '<!doctype html><html><body style="margin:0"><div style="width:500px;height:40px;overflow:hidden"><p style="margin:0;font:32px/100px sans-serif">VISIBLE<br>HIDDENWORD</p></div></body></html>');
+    const hidden = runAudit(hiddenPath, {out: path.join(tmp, 'hidden'), browser: process.env.MOTION_REVIEW_BROWSER, screenshots: false, ...held});
+    assert.equal(hidden.verdict, 'fail');
+    assert.ok(issues(hidden).some(i => i.check === 'text-cut' && i.detail.includes('not visible: HIDDENWORD')));
     assert.ok(issues(lines).some(i => i.text === 'ODPOWIEDNIK' && i.check === 'text-cut'), 'glyphs cut by their own box');
     const fitted = audit('fitted-text-pass.html', held);
     assert.equal(fitted.verdict, 'pass');
@@ -1507,4 +1514,23 @@ test('web motion probe reads CSS animations, transitions and GSAP tweens from a 
     assert.equal(transition.duration, 4000);
     await assert.rejects(probePage(path.join(tmp, 'missing.html'), {browser: process.env.MOTION_REVIEW_BROWSER}), /no such file/);
   } finally { fs.rmSync(tmp, {recursive: true, force: true}); }
+});
+
+test('text-audit plan selects a format ID while binding original contract bytes', async () => {
+  const {plan} = await import('../skills/hyperframes-workflow/assets/motion-review/text-audit.mjs');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'audit-format-'));
+  try {
+    const source = path.join(root, 'skills/hyperframes-workflow/assets/motion-review/fixtures/search-to-cta.motion.json');
+    const score = JSON.parse(fs.readFileSync(source, 'utf8'));
+    score.formats = [{id: 'square', width: 960, height: 960}, {id: 'same', width: 960, height: 960}];
+    const input = path.join(tmp, 'contract.json');
+    fs.writeFileSync(input, JSON.stringify(score));
+    const selected = plan(input, {format: 'square'});
+    assert.equal(selected.width, 960);
+    assert.equal(selected.height, 960);
+    assert.equal(selected.format, 'square');
+    assert.equal(selected.evidenceBinding.format, 'square');
+    assert.equal(selected.evidenceBinding.contract.sha256, createHash('sha256').update(fs.readFileSync(input)).digest('hex'));
+    assert.throws(() => plan(input, {format: 'missing'}), /Unknown format/);
+  } finally {fs.rmSync(tmp, {recursive: true, force: true});}
 });

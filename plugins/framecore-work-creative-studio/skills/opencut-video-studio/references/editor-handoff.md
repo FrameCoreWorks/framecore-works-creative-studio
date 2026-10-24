@@ -54,3 +54,13 @@ Use the OTIO or EDL where the editor imports them; otherwise follow the CSV as i
 ## After the edit
 
 Ask for the exported file, not a screen recording, and check it with the delivery QA: duration, frame rate and size by a media inspector, the cuts against the shot list, the captions against the approved text, loudness against the delivery spec.
+
+## Language versions
+
+For an existing FrameCut project, FrameCut keeps the master project, sequence, picture lock and source revision. An existing motion/native project stays with its current execution owner; translation does not transfer it to FrameCut. Reuse the approved edit and brief. Record source speech language, target languages, approved copy per language, locked names/claims/legal lines, glossary and pronunciation, affected caption/VO/super layers, placement, version status and actual files. Do not start a second motion project.
+
+Copy Voice owns translation or transcreation; distinguish literal accessibility captions from adapted advertising copy. Caption Studio owns segmentation and timing; Audio Production owns the chosen available voice route. Fit wording to the existing cut first. If mandatory copy cannot fit, preserve it and present the smallest concrete wording/timing tradeoff. Never silently shorten required text, accelerate speech or change shots.
+
+Translated text needs its own phrase timing and, when available, measured word alignment. Source-language word timestamps cannot become translated-word evidence by changing labels. Inspect rendered glyph coverage, diacritics/RTL, line breaks, reading speed, occlusion, phrase sync and actual VO duration for each language. Missing voice generation yields approved text/timing and an explicit pending audio step, not a dubbed film. Lip-sync is a separate requested capability.
+
+Record each language as specified, created, inspected and accepted independently. Pair the correct captions and VO with the exported master. A changed script/take or picture revision invalidates only dependent language artifacts; keep accepted unrelated work.

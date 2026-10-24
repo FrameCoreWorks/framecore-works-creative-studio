@@ -181,12 +181,18 @@ def main(argv=None):
         width = PAGE[0] - 2 * MARGIN
 
         def wrap(text, font, limit):
+            if any(font.getlength(char) > limit for char in text if not char.isspace()):
+                raise ValueError('a glyph is wider than the text box')
             lines = []
             for paragraph in keep_together(text).split('\n'):
                 current = ''
                 for word in paragraph.split(' '):
                     trial = word if not current else f'{current} {word}'
                     if current and font.getlength(trial) > limit:
+                        while font.getlength(current) > limit:
+                            cut = max(1, next((n for n in range(len(current), 0, -1) if font.getlength(current[:n]) <= limit), 1))
+                            lines.append(current[:cut])
+                            current = current[cut:]
                         lines.append(current)
                         current = word
                     else:

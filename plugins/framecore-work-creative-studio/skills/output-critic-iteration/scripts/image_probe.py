@@ -55,7 +55,7 @@ def normalise(text):
     return re.findall(r'[-−]?\d+(?:[.,]\d+)?%?|[^\W\d_]+', text.replace('\u00a0', ' '))
 
 
-def ocr_compare(image, copy):
+def ocr_compare(image, copy, exact=False):
     try:
         import pytesseract
         seen = pytesseract.image_to_string(image.convert('RGB'), lang='pol+eng')
@@ -70,8 +70,8 @@ def ocr_compare(image, copy):
             have[w] -= 1
         else:
             missing.append(w)
-    extra = [w for w in got if w not in want and len(w) > 2]
-    return {'status': 'match' if not missing else 'mismatch', 'missing_words': missing, 'unexpected_words': extra[:20], 'ocr_text': seen.strip()[:500]}
+    extra = list(have.elements()) if exact else [w for w in got if w not in want and len(w) > 2]
+    return {'mode': 'exact' if exact else 'required', 'status': 'mismatch' if missing or (exact and extra) else 'match', 'missing_words': missing, 'unexpected_words': extra[:20], 'ocr_text': seen.strip()[:500]}
 
 
 def percentile(histogram, share):
@@ -277,10 +277,13 @@ def analyze(image):
 def probe(path, args):
     image = Image.open(path)
     image.load()
+    stored_size, stored_format = list(image.size), image.format
+    orientation = image.getexif().get(274, 1)
+    image = ImageOps.exif_transpose(image)
     w, h = image.size
-    report = {'file': Path(path).name, 'size': [w, h], 'ratio': ratio_name(w, h), 'mode': image.mode, 'format': image.format,
+    report = {'stored_size': stored_size, 'exif_orientation': orientation, 'file': Path(path).name, 'size': [w, h], 'ratio': ratio_name(w, h), 'mode': image.mode, 'format': stored_format,
               'dpi_tag': [round(v) for v in image.info['dpi']] if 'dpi' in image.info else None, 'problems': [], 'notes': []}
-    alpha = image.mode in ('RGBA', 'LA') or (image.mode == 'P' and 'transparency' in image.info)
+    alpha = 'A' in image.getbands() or 'transparency' in image.info
     if alpha:
         lowest = image.convert('RGBA').getchannel('A').getextrema()[0]
         report['transparency'] = 'used' if lowest < 255 else 'channel present, fully opaque'
@@ -328,7 +331,7 @@ def probe(path, args):
         else:
             report['notes'].append('RGB image: the print shop converts to CMYK unless a profile conversion was agreed')
     if args.copy:
-        report['ocr'] = ocr_compare(image, args.copy)
+        report['ocr'] = ocr_compare(image, args.copy, exact=getattr(args, 'copy_mode', 'required') == 'exact')
     if getattr(args, 'analyze', False):
         report['analysis'] = analyze(image)
     if args.previews:
@@ -372,6 +375,7 @@ def main(argv=None):
     parser.add_argument('--bleed-mm', type=float, default=0.0, help='bleed included in the image, per side')
     parser.add_argument('--dpi', type=int, help='resolution the print needs (default from the preset or 300)')
     parser.add_argument('--copy', help='the locked visible text, for an OCR comparison when OCR is installed')
+    parser.add_argument('--copy-mode', choices=('required', 'exact'), default='required', help='required terms or the complete copy inventory, including repeated words; OCR still needs visual review')
     parser.add_argument('--previews', help='folder for phone, thumbnail, greyscale and safe-area previews')
     parser.add_argument('--analyze', action='store_true', help='measured palette, accents, tones, colour character, focus and light maps and subject position, for reconstructing the image in a prompt')
     parser.add_argument('--json', action='store_true')

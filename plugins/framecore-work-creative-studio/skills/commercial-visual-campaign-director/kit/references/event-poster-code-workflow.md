@@ -34,11 +34,11 @@ not evidence of a generator preset. Read the JSON directly when Node is absent.
 From this skill directory:
 
 ```sh
-node scripts/poster-codes.mjs --code '/Two Ink Collision /rebuild'
-node scripts/poster-codes.mjs --category 02
-node scripts/poster-codes.mjs --query 'Bauhaus'
-node scripts/poster-codes.mjs --list-categories
-node scripts/poster-codes.mjs --command /codes
+node kit/scripts/poster-codes.mjs --code '/Two Ink Collision /rebuild'
+node kit/scripts/poster-codes.mjs --category 02
+node kit/scripts/poster-codes.mjs --query 'Bauhaus'
+node kit/scripts/poster-codes.mjs --list-categories
+node kit/scripts/poster-codes.mjs --command /codes
 ```
 
 `/Name` can inform a new design; `/Name /rebuild` can inform an explicitly

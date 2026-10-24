@@ -306,6 +306,15 @@ class Media(unittest.TestCase):
         render(self.p,self.root,'wide','fade','final',max_disk_mb=128)
         self.assertEqual(read_json(self.root/'fade/receipt.json')['technical']['decoded_frames'],90)
 
+    def test_crossfade_after_cut_preserves_rational_rate_and_length(self):
+        seq=self.p['sequences'][0];seq['fps']={'num':30000,'den':1001};seq['duration']=120;seq['texts']=[]
+        seq['clips']=[{'id':'c1','asset':'a','start':0,'duration':30},
+                      {'id':'c2','asset':'a','start':30,'duration':60},
+                      {'id':'c3','asset':'a','start':60,'duration':60,'transition':30}]
+        render(self.p,self.root,'wide','cut-fade','final',max_disk_mb=128)
+        self.assertEqual(read_json(self.root/'cut-fade/receipt.json')['technical']['decoded_frames'],120)
+        self.assertEqual(Fraction(probe(self.root/'cut-fade/video.mp4')['fps']),Fraction(30000,1001))
+
     def test_rational_master_and_independent_audio(self):
         seq=self.p['sequences'][0];seq['fps']={'num':30000,'den':1001};seq['duration']=60;seq['texts']=[];seq['clips'][0]['mute']=True
         seq['audio']=[{'id':'jcut','asset':'a','start':15,'duration':30,'bus':'dialogue','gain_db':-6}]

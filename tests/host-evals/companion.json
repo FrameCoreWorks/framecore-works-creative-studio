@@ -532,7 +532,7 @@
       "max_turns": 45,
       "turns": [
         {
-          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz. Earshot jest zainstalowany w pełnym wariancie, możesz go uruchamiać.",
+          "prompt": "@FrameCore Works Creative Studio W folderze jest logo.mp4 (animacja logo, 6 s, 30 fps, bez dźwięku). Napis FRAMECORE wchodzi w 1,2 s, a logo ląduje w 3,0 s. Dodaj dźwięk: whoosh przy wejściu napisu i uderzenie, gdy logo ląduje. Chcę gotowy plik MP4 i sprawdzenie, czy dźwięk trafia w obraz. Earshot jest zainstalowany w pełnym wariancie, możesz go uruchamiać. Na potrzeby tego sprawdzianu zwróć mierzalne dowody: rank Earshota w JSON (co najmniej dwa kandydaty na efekt), zapisz cues.json z polami t i file, zmiksuj przez istniejący place_sfx.py --json, a potem uruchom earshot timeline na tym samym końcowym MP4 z --cues cues.json --json. Zachowaj wyniki poleceń; zrób je osobno jako bezpośrednie wywołania. Pomiary są dowodem synchronizacji, nie oceną estetyczną.",
           "checks": [
             {
               "language": "pl"
@@ -553,6 +553,17 @@
             },
             {
               "max_questions": 3
+            },
+            {
+              "media_execution": {
+                "duration": 6,
+                "fps": 30,
+                "cues": [
+                  1.2,
+                  3.0
+                ],
+                "input": "logo.mp4"
+              }
             }
           ]
         }
@@ -665,6 +676,11 @@
             },
             {
               "max_questions": 3
+            },
+            {
+              "test_red_green": {
+                "test_pattern": "cue|onset|sample|timing|placement"
+              }
             }
           ]
         }

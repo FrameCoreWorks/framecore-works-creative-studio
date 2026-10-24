@@ -150,6 +150,32 @@ class Media(unittest.TestCase):
 
     def tearDown(self):self.tmp.cleanup()
 
+    def test_decoder_preserves_count_and_selected_pixels_on_supported_ffmpeg(self):
+        from fc_picture import decode_command
+        from PIL import Image
+        asset = self.p['assets']['a']
+        for fps, extra in ((Fraction(30), {}), (Fraction(30000, 1001), {}), (Fraction(30), {'freeze': True}),
+                           (Fraction(30), {'speed': {'num': 2, 'den': 1}})):
+            with self.subTest(fps=str(fps), extra=extra):
+                event = dict(self.p['sequences'][0]['clips'][0], duration=12, **extra)
+                full = subprocess.run(decode_command(self.root, asset, event, fps), capture_output=True)
+                self.assertEqual(full.returncode, 0, full.stderr.decode())
+                size = 160 * 90 * 4
+                self.assertEqual(len(full.stdout), 12 * size)
+                selected = subprocess.run(decode_command(self.root, asset, event, fps, frame=7), capture_output=True)
+                self.assertEqual(selected.returncode, 0, selected.stderr.decode())
+                self.assertEqual(selected.stdout, full.stdout[7 * size:8 * size])
+                if extra.get('freeze'):
+                    self.assertEqual(full.stdout[:size], selected.stdout)
+                else:
+                    self.assertNotEqual(full.stdout[:size], selected.stdout)
+                path = self.root / 'selected.png'
+                if path.exists(): path.unlink()
+                still = subprocess.run(decode_command(self.root, asset, event, fps, frame=7, output=path), capture_output=True)
+                self.assertEqual(still.returncode, 0, still.stderr.decode())
+                with Image.open(path) as image:
+                    self.assertEqual(image.convert('RGBA').tobytes(), selected.stdout)
+
     def test_keyframes_variant_effect_preview_matches_decoded_video(self):
         from PIL import Image,ImageChops,ImageStat
         c=self.p['sequences'][0]['clips'][0]

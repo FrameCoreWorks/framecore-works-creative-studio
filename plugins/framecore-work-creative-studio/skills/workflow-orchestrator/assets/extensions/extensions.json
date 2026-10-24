@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-22",
+  "checked": "2026-10-24",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -1455,6 +1455,75 @@
       },
       "observed": "2026-10-22: upstream README and license reviewed at the recorded commit. ChatGPT Work installed skills readable in this account; fresh-install and other host behavior not_run. Codex and Claude Code marketplace routes are upstream-documented; Claude apps availability unverified. No installer executed.",
       "update": "Review upstream and current host listing when needed. reviewed_commit is source provenance, not the marketplace version. Resolve actual installed skills/version at use time; preserve user choice."
+    },
+    {
+      "id": "hallmark",
+      "name": "Hallmark",
+      "repository": "https://github.com/Nutlope/hallmark",
+      "reviewed_commit": "7ec868225c6caa040558c321ee0fefa0e73f83a8",
+      "package": null,
+      "license": "MIT for code; individual photo and font licences remain separate",
+      "kind": [
+        "skill",
+        "knowledge",
+        "tools"
+      ],
+      "category": "design",
+      "role": "knowledge",
+      "gives": "Complete source skill 2.0.0 for coded websites and app screens: 48 themes, selective references, static/browser inspection and redesign preservation checks.",
+      "studio_uses": "Optional native companion to the existing Static Graphic Design Creator. Studio adapts task-first page anatomy, first-viewport inspection, before/after behavior inventory and separate hard/style evidence. Full upstream assets remain in the separate native skill.",
+      "not_for": "Replacing an approved brand, a second intake or owner, automatic paid image calls, universal cross-media aesthetic bans, functional or accessibility certification from a lint score.",
+      "requires": [
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "22.20.0",
+              null
+            ]
+          ],
+          "note": "Node 22.20.0+ for pinned skills CLI 1.7.2; upstream scripts require Node 18+."
+        },
+        {
+          "tool": "browser",
+          "note": "Render tier needs Chrome/Chromium and puppeteer-core; reuse existing tools. A missing browser yields static-only evidence."
+        }
+      ],
+      "rights": "Preserve Hallmark MIT notice. Wikimedia metadata records do not grant blanket image rights: inspect each selected image author/source/licence and applicable attribution/share-alike conditions. Check font terms separately. User authorization governs private site access and uploads; a present Together key is not paid-generation consent.",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8/skills/hallmark --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8/skills/hallmark --skill hallmark -a codex -g --copy",
+          "writes": "Complete separate hallmark skill in the selected agent skill directory (normally ~/.agents/skills/hallmark for Codex, ~/.claude/skills/hallmark for Claude Code). Inspect existing destinations first; preserve an existing copy before updating. No host permissions/settings changes.",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Start a fresh turn/session; read the discovered hallmark/SKILL.md and verify its version. Static gates need Node. Browser evidence additionally needs available puppeteer-core and Chrome; discover existing installations before installing any dependencies. CODEX_HOME-aware native skill-installer is an alternative where the standard destination is unavailable; copy the entire pinned subtree and verify all file hashes. Do not repair host links implicitly. For this pinned version, back up the installed agents/openai.yaml and replace only that file with Studio integrations/hallmark/codex-openai.yaml; upstream dependencies: [] is rejected by Codex. Verify a fresh turn has no Hallmark metadata-loader warning. Record this one-file override separately from source payload hashes.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove hallmark -g -a codex"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8/skills/hallmark --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8/skills/hallmark --skill hallmark -a claude-code -g --copy",
+          "writes": "Complete separate hallmark skill in the selected agent skill directory (normally ~/.agents/skills/hallmark for Codex, ~/.claude/skills/hallmark for Claude Code). Inspect existing destinations first; preserve an existing copy before updating. No host permissions/settings changes.",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Start a fresh turn/session; read the discovered hallmark/SKILL.md and verify its version. Static gates need Node. Browser evidence additionally needs available puppeteer-core and Chrome; discover existing installations before installing any dependencies. CODEX_HOME-aware native skill-installer is an alternative where the standard destination is unavailable; copy the entire pinned subtree and verify all file hashes. Do not repair host links implicitly.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove hallmark -g -a claude-code"
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Where custom skills are supported, upload the complete skills/hallmark subtree from https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8 including LICENSE. Verify discovery in a fresh conversation. Node/browser execution depends on actual host tools; otherwise use references only. Remove through the same skill UI. This route has not been tested."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Use selected knowledge from https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8/skills/hallmark with LICENSE as project files where supported. This is knowledge import, not native tool registration. Studio already adapts the task-first and preservation methods. In a host with local execution, use an explicitly supplied complete reviewed skill and inspect Node, Puppeteer and Chrome before running scripts; no browser/render support is assumed. Remove those optional files through the host project UI."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Use selected knowledge from https://github.com/Nutlope/hallmark/tree/7ec868225c6caa040558c321ee0fefa0e73f83a8/skills/hallmark with LICENSE as project files where supported. This is knowledge import, not native tool registration. Studio already adapts the task-first and preservation methods. In a host with local execution, use an explicitly supplied complete reviewed skill and inspect Node, Puppeteer and Chrome before running scripts; no browser/render support is assumed. Remove those optional files through the host project UI."
+        }
+      },
+      "observed": "2026-10-24 macOS: full pinned 178-file native Codex payload installed with the CODEX_HOME-aware host skill-installer; 177 source files match; one declared Codex-only agents/openai.yaml compatibility replacement corrects the upstream metadata schema. Source and replacement hashes are recorded separately. Fresh Codex CLI native discovery and actual skill/reference read PASS after standard host permission retry (initial nested sandbox read failed). Refcheck clean across 99 files; Skills CLI 1.7.2 remote --list found hallmark. Upstream dry-run/install/remove PASS only in a disposable isolated-home fixture. Static positive fixture passes, negative fixture fails; existing Chrome renders before/after and detects dropped links, fields, handlers and hooks on the same local synthetic page. No container, paid generation, hook or host config change. Claude/manual routes NOT_RUN; these checks do not certify page quality.",
+      "update": "Review the new full commit, licence, installer and dependency contract; update every pin and repeat source/native parity. Keep existing project decisions and inspect installed destinations before replacing files."
     }
   ]
 }

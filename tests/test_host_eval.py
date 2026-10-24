@@ -1,6 +1,9 @@
 """Offline tests for the host-eval harness: suite loading and the deterministic checks. Spends nothing."""
 import importlib.util
 import json
+import tempfile
+import subprocess
+import shutil
 import pathlib
 import types
 import unittest
@@ -100,6 +103,157 @@ class Usage(unittest.TestCase):
         source = (host_eval.ROOT / 'scripts/host_eval.py').read_text(encoding='utf-8')
         self.assertNotIn('total_cost_usd', source)
         self.assertNotIn('cost_usd', source.replace('--max-budget-usd', ''))
+
+
+class ExecutionEvidence(unittest.TestCase):
+    def parsed(self, records):
+        events = []
+        for index, record in enumerate(records):
+            name, payload, ok, output = record
+            ident = str(index)
+            events += [{'type': 'assistant', 'message': {'content': [
+                {'type': 'tool_use', 'id': ident, 'name': name, 'input': payload}]}},
+                       {'type': 'user', 'message': {'content': [
+                {'type': 'tool_result', 'tool_use_id': ident, 'is_error': not ok, 'content': output}]}}]
+        return host_eval.parse_events(events, {'result': 'Zrobione, testy PASS.'})
+
+    def evidence(self):
+        return [
+            ('Write', {'file_path': '/w/test_cues.py', 'content': 'test'}, True, 'created'),
+            ('Bash', {'command': 'python3 -m unittest test_cues.py'}, False,
+             'FAIL: test_onset (test_cues.TestCues)\nAssertionError: 48000 != 47900\nRan 1 test in 0.01s\nFAILED (failures=1)'),
+            ('Write', {'file_path': '/w/place_cues.py', 'content': 'code'}, True, 'created'),
+            ('Bash', {'command': 'python3 -m unittest test_cues.py'}, True,
+             'Ran 1 test in 0.01s\n\nOK')]
+
+    def test_failed_tool_results_preserve_output_and_order(self):
+        parsed = self.parsed(self.evidence())
+        failed = parsed['tools'][1]
+        self.assertFalse(failed['ok'])
+        self.assertIn('AssertionError', failed['result'])
+        self.assertLess(failed['result_order'], parsed['tools'][2]['call_order'])
+        self.assertEqual(len(failed['result_sha256']), 64)
+        long = self.parsed([('Bash', {'command': 'python3 x.py'}, True, 'x'*50000)])['tools'][0]
+        self.assertLessEqual(len(long['result']), 16384)
+        self.assertEqual(long['result_chars'], 50000)
+
+    def test_tdd_requires_a_real_relevant_ordered_red_edit_green(self):
+        rule = {'test_red_green': {'test_pattern': 'cue|onset|sample|timing'}}
+        self.assertTrue(host_eval.check(rule, self.parsed(self.evidence()))[0])
+        bads = [[], self.evidence()[1:], self.evidence()[:2]+self.evidence()[3:],
+                list(reversed(self.evidence()))]
+        for output in ('Permission denied', 'ModuleNotFoundError: no module',
+                       'FAILED (failures=1)', 'echo AssertionError'):
+            records = self.evidence()
+            records[1] = ('Bash', records[1][1], False, output)
+            bads.append(records)
+        records = self.evidence()
+        records[-1] = ('Bash', {'command': 'python3 -m unittest test_other.py'}, True, 'Ran 1 test in 0.01s\nOK')
+        bads.append(records)
+        records = self.evidence()
+        records[1] = ('Bash', {'command': 'echo "python3 -m unittest test_cues.py"'}, False, records[1][3])
+        bads.append(records)
+        for records in bads:
+            with self.subTest(records=records):
+                self.assertFalse(host_eval.check(rule, self.parsed(records))[0])
+
+    def test_c17_and_c20_cannot_pass_with_claims_and_skill_loads_only(self):
+        for case in host_eval.load_suite('companion')['cases']:
+            if case['id'] not in ('C17', 'C20'):
+                continue
+            checks = case['turns'][0]['checks']
+            loaded = [{'name': 'Skill', 'input': {'skill': s}, 'ok': True}
+                      for s in ('earshot-audio:earshot', 'superpowers:test-driven-development')]
+            reply = 'Wybrałem kandydatów, odrzuciłem metaliczny ogon, z = 2.4. Test najpierw FAIL, potem PASS.'
+            self.assertFalse(all(host_eval.check(c, turn(reply, loaded))[0] for c in checks), case['id'])
+
+    def test_artifacts_and_command_result_are_observed_not_claimed(self):
+        rule = {'artifact': {'suffix': '.mp4', 'min_bytes': 64}}
+        self.assertFalse(host_eval.check(rule, turn('film.mp4 gotowy'))[0])
+        self.assertTrue(host_eval.check(rule, {**turn('done'), 'artifacts': [
+            {'path': 'film.mp4', 'bytes': 120, 'sha256': 'a'*64, 'changed': True} ]})[0])
+        command = {'command_result': {'command': 'earshot', 'output': 'z.?score|similarity'}}
+        record = ('Bash', {'command': 'python3 earshot.py rank a.wav --text hit'}, True, '{"similarity":0.8}')
+        self.assertTrue(host_eval.check(command, self.parsed([record]))[0])
+        self.assertFalse(host_eval.check(command, self.parsed([
+            ('Bash', {'command': 'echo "python3 earshot.py rank"'}, True, '{"similarity":0.8}')]))[0])
+
+
+    def test_direct_commands_accept_quoted_and_escaped_literal_paths(self):
+        for command in (
+            "python3 '/Volumes/Codex&Claude/test_cues.py'",
+            'python3 "/Volumes/Codex&Claude/test_cues.py"',
+            r'python3 /Volumes/Codex\&Claude/test_cues.py',
+        ):
+            self.assertEqual(host_eval.executable_command(command)[1], '/Volumes/Codex&Claude/test_cues.py')
+        for command in ('python3 x.py; echo ok', 'python3 x.py && true', 'python3 x.py | cat',
+                        'python3 "$(touch /tmp/x)"', 'python3 x.py > result', 'python3 -c "print(1)"'):
+            self.assertEqual(host_eval.executable_command(command), [], command)
+
+    def media_turn(self, root):
+        (root/'cues.json').write_text(json.dumps({'cues': [
+            {'file': 'a.wav', 't': 1.2}, {'file': 'b.wav', 't': 3.0}]}))
+        rank = {'query': 'clean effect', 'n_files': 2, 'results': [
+            {'path': 'a.wav', 'z': 2.3, 'cosine': .6},
+            {'path': 'b.wav', 'z': 2.1, 'cosine': .5}]}
+        mix = {'out': 'final.mp4', 'all_on_time': True, 'cues': [
+            {'t': 1.2, 'placed': True, 'on_time': True},
+            {'t': 3.0, 'placed': True, 'on_time': True}]}
+        timeline = {'file': 'final.mp4', 'sync': {'cues': {'items': [
+            {'t': 1.2, 'offset_ms': 2, 'status': 'OK'}, {'t': 3.0, 'offset_ms': 0, 'status': 'peak'}]}}}
+        parsed = self.parsed([
+            ('Bash', {'command': 'python3 -m earshot rank a.wav b.wav --query "clean effect" --json'}, True, json.dumps(rank)),
+            ('Bash', {'command': 'python3 /plugin/assets/sound-listen/place_sfx.py --video logo.mp4 --cues cues.json --out final.mp4 --json'}, True, json.dumps(mix)),
+            ('Bash', {'command': 'python3 -m earshot timeline final.mp4 --cues cues.json --json'}, True, json.dumps(timeline))])
+        parsed.update(workspace=str(root), artifacts=[{'path': 'final.mp4', 'changed': True, 'bytes': 200, 'sha256': 'a'*64},
+                                               {'path': 'logo.mp4', 'changed': False, 'sha256': 'b'*64}])
+        return parsed
+
+    def test_media_execution_binds_rank_mix_and_encoded_timeline(self):
+        rule = {'media_execution': {'input': 'logo.mp4', 'duration': 6, 'fps': 30, 'cues': [1.2, 3.0]}}
+        with tempfile.TemporaryDirectory() as temp:
+            root = pathlib.Path(temp)
+            with mock.patch.object(host_eval, 'probe_media', return_value={'duration': 6, 'streams': ['audio', 'video']}):
+                self.assertTrue(host_eval.check(rule, self.media_turn(root))[0])
+                for mutation in ('name', 'rank', 'output', 'cue', 'offset', 'order', 'unchanged', 'missing', 'wrong_video', 'changed_input'):
+                    candidate = self.media_turn(root)
+                    if mutation == 'name':
+                        candidate['tools'][0]['input']['command'] = 'python3 status.py --label earshot'
+                    elif mutation == 'rank':
+                        candidate['tools'][0]['result_data']['results'][0]['path'] = 'not-selected.wav'
+                    elif mutation == 'output':
+                        candidate['tools'][2]['result_data']['file'] = 'different.mp4'
+                    elif mutation == 'cue':
+                        candidate['tools'][2]['result_data']['sync']['cues']['items'][0]['t'] = 2.5
+                    elif mutation == 'offset':
+                        candidate['tools'][2]['result_data']['sync']['cues']['items'][0]['offset_ms'] = 100
+                    elif mutation == 'order':
+                        candidate['tools'][2]['call_order'] = 0
+                    elif mutation == 'unchanged':
+                        candidate['artifacts'][0]['changed'] = False
+                    elif mutation == 'wrong_video':
+                        candidate['tools'][1]['input']['command'] = candidate['tools'][1]['input']['command'].replace('logo.mp4','other.mp4')
+                    elif mutation == 'changed_input':
+                        candidate['artifacts'][1]['changed'] = True
+                    else:
+                        candidate['tools'][0]['result_data'] = {}
+                    self.assertFalse(host_eval.check(rule, candidate)[0], mutation)
+            for media in ({}, {'duration': 6, 'streams': ['video']}, {'duration': 7, 'streams': ['video','audio']}):
+                with mock.patch.object(host_eval, 'probe_media', return_value=media):
+                    self.assertFalse(host_eval.check(rule, self.media_turn(root))[0], media)
+
+    @unittest.skipUnless(shutil.which('ffmpeg') and shutil.which('ffprobe'), 'requires FFmpeg and ffprobe')
+    def test_probe_rejects_text_and_detects_actual_audio_video_streams(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = pathlib.Path(temp)
+            fake = root/'fake.mp4'
+            fake.write_text('video audio CLAP ' * 20)
+            self.assertEqual(host_eval.probe_media(fake), {})
+            video = root/'video.mp4'
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'color=s=32x32:r=30:d=0.2',
+                            '-f', 'lavfi', '-i', 'sine=frequency=440:duration=0.2', '-c:v', 'mpeg4',
+                            '-c:a', 'aac', '-shortest', str(video)], check=True)
+            self.assertEqual(set(host_eval.probe_media(video)['streams']), {'video', 'audio'})
 
 
 class Checks(unittest.TestCase):
@@ -252,7 +406,9 @@ class Checks(unittest.TestCase):
         self.assertEqual(template['check_vocabulary'], list(host_eval.CHECK_KINDS))
         self.assertEqual((template['status'], template['test']['result'], template['adoption']['explicit']), ('proposed', 'NOT_RUN', False))
         samples = {'welcome': 'pl', 'language': 'pl', 'regex': 'x', 'not_regex': 'x', 'command': 'x', 'no_command': 'x', 'code_block': True, 'not_welcome': True,
-                   'max_sections_matching': {'pattern': 'x', 'max': 1}, 'directions': {'count': 3}}
+                   'max_sections_matching': {'pattern': 'x', 'max': 1}, 'directions': {'count': 3},
+                   'artifact': {'suffix': '.mp4'}, 'command_result': {'command': 'x', 'output': 'x'},
+                   'test_red_green': {'test_pattern': 'test'}}
         for kind in host_eval.CHECK_KINDS:
             value = samples.get(kind, 1 if kind.startswith(('max_', 'min_')) or kind == 'items' else ['x'])
             host_eval.check({kind: value}, turn('x'))

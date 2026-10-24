@@ -101,5 +101,24 @@ class Document(unittest.TestCase):
             self.assertEqual(json.loads(done.stdout)['status'], 'invalid_spec')
 
 
+class MalformedQuotes(unittest.TestCase):
+    def test_bad_structures_and_missing_names_are_validation_errors(self):
+        cases = [[], None, offer(rates=[]), offer(packages={}), offer(packages=[None]),
+                 offer(packages=[{'name': 'A', 'items': ['bad']}]),
+                 offer(packages=[{'name': 'A', 'items': [{'price': 1}]}]),
+                 offer(extras=[None]), offer(extras={}), offer(discount=[]), offer(payment=[]),
+                 offer(discount={'pct': 'wrong'}), offer(payment={'advance_pct': None}),
+                 offer(rates={'hour': float('inf')}), offer(vat={'rate': True})]
+        with tempfile.TemporaryDirectory() as temp:
+            path = pathlib.Path(temp)/'bad.json'
+            for value in cases:
+                with self.subTest(value=value):
+                    self.assertTrue(quote.validate(value))
+                    path.write_text(json.dumps(value))
+                    done = subprocess.run([sys.executable, str(TOOL), str(path)], capture_output=True, text=True)
+                    self.assertEqual(done.returncode, 3)
+                    self.assertNotIn('Traceback', done.stderr)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

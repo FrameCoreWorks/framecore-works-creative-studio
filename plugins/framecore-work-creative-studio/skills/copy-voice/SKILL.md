@@ -142,3 +142,5 @@ depending on the next artifact.
 ## Studio text boundaries
 
 Narrative scenes and original dialogue belong to [Screenplay Story Architect](../screenplay-story-architect/SKILL.md); lyrics belong to [Audio Production Director](../audio-production-director/SKILL.md). Review their wording only within the requested scope. Exact user-final text does not require new selection. If a first draft passes the bounded review, record no repair needed and deliver; do not manufacture a rewrite.
+
+For film translation/transcreation, carry approved language copy into [language versions](../opencut-video-studio/references/editor-handoff.md#language-versions); preserve picture and timing ownership.

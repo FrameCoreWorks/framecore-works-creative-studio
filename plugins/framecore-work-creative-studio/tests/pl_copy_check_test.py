@@ -60,5 +60,23 @@ class Channels(unittest.TestCase):
         self.assertEqual(done.returncode, 0, done.stdout)
 
 
+class AuditRegressions(unittest.TestCase):
+    def test_missing_explicit_paths_with_spaces_are_not_copy(self):
+        for source in ('/private/tmp/does not exist.txt', './missing copy.md', 'missing copy.txt'):
+            done = subprocess.run([sys.executable, str(TOOL), source], capture_output=True, text=True)
+            self.assertEqual(done.returncode, 3, source)
+            self.assertIn('file not found', done.stderr)
+        for source in ('Wybierz kawę/herbatę na miejscu.', 'Zapisz wynik do pliku.txt i wyślij go później.'):
+            done = subprocess.run([sys.executable, str(TOOL), source], capture_output=True, text=True)
+            self.assertNotEqual(done.returncode, 3, source)
+
+    def test_google_rsa_counts_wide_units_only_for_its_own_channels(self):
+        for channel, limit in (('google-rsa-headline', 30), ('google-rsa-description', 90)):
+            self.assertEqual(check.channel_report('漢' * (limit // 2), channel)['characters'], limit)
+            self.assertEqual(check.channel_report('漢' * (limit // 2) + 'a', channel)['status'], 'over_hard_limit')
+        self.assertEqual(check.channel_report('漢' * 16, 'meta-primary-text')['characters'], 16)
+        self.assertEqual(check.channel_report('e\u0301' * 30, 'google-rsa-headline')['characters'], 30)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

@@ -51,3 +51,5 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 ## Shared loop and modality
 
 Use [Loop Protocol](../pipeline-core/references/loop-protocol.md) for bounded evidence-backed repair. This owner reviews static output and contract completeness. Video temporal review stays with Video Prompt Architect, a rendered motion video with its contract with the Motion Graphics Workflow, audio with Audio Production Director, and caption timing with Caption Studio. The workflow role qa-iteration resolves by modality; one reviewer does not imply full audiovisual inspection.
+
+For accessibility-related delivery, use [cross-deliverable evidence](references/review-and-repair.md#accessibility-evidence-across-deliverables) while retaining static-image ownership.

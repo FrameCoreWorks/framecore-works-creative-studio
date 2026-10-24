@@ -18,7 +18,9 @@ as an output intent. It does not convert colours and does not claim PDF/X confor
 resolution, the colour spaces of images and vector paint (RGB, CMYK, grey, spot colours), total ink
 of CMYK images and vector colours, transparency (soft masks, blend modes, alpha), the thinnest
 stroked line, fonts and their embedding, embedded files (including /AF, where C2PA manifests sit),
-the output intent, the declared PDF/X version, Trapped, the producer and the file's SHA-256. It exits
+the output intent, the declared PDF/X version, Trapped, the producer and the file's SHA-256.
+The stroke width is a conservative lower bound from the smallest transform singular value;
+anisotropic or sheared paths may need visual inspection to establish their actual directional width. It exits
 1 when a limit fails. --require cmyk adds RGB, a missing output intent and embedded files as
 problems; --require x1a also forbids transparency and PDF versions above 1.4. Declarations in the
 file are reported, never trusted: this is a preflight, not PDF/X validation, and the printer's
@@ -43,6 +45,7 @@ Needs pikepdf (pip install pikepdf, MPL-2.0); numpy and Pillow for total ink and
 import argparse
 import hashlib
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -178,9 +181,25 @@ class Scan:
             entry['effective_ppi'] = ppi
 
 
-def walk(owner, resources, ctm, scan, chain=()):
-    """Follows the graphics state through one content stream and every form XObject it draws."""
-    state, stack = {'ctm': ctm, 'w': 1.0, 'fill': 'Gray', 'stroke': 'Gray'}, []
+def minimum_scale(ctm):
+    """Smallest singular value: conservative stroke-width bound, including shear."""
+    a, b, c, d = ctm[:4]
+    # Normalize first; det/s_max avoids cancellation for very unequal axes.
+    largest = max(abs(a), abs(b), abs(c), abs(d))
+    if not largest:
+        return 0.0
+    a, b, c, d = (v / largest for v in (a, b, c, d))
+    determinant = abs(a * d - b * c)
+    trace = a * a + b * b + c * c + d * d
+    maximum = math.sqrt((trace + math.sqrt(max(0.0, trace * trace - 4 * determinant * determinant))) / 2)
+    return largest * determinant / maximum if maximum else 0.0
+
+
+def walk(owner, resources, ctm, scan, chain=(), inherited=None):
+    """Forms inherit a copy of the caller's graphics state; changes stay local."""
+    state = dict(inherited) if inherited is not None else {'w': 1.0, 'fill': 'Gray', 'stroke': 'Gray'}
+    state['ctm'] = ctm
+    stack = []
     for operands, operator in pikepdf.parse_content_stream(owner):
         op = str(operator)
         if op == 'q':
@@ -192,8 +211,7 @@ def walk(owner, resources, ctm, scan, chain=()):
         elif op == 'w':
             state['w'] = float(operands[0])
         elif op in STROKES:
-            a, b, c, d = state['ctm'][:4]
-            width = round(state['w'] * abs(a * d - b * c) ** 0.5, 3)
+            width = round(abs(state['w']) * minimum_scale(state['ctm']), 3)
             scan.min_line = width if scan.min_line is None else min(scan.min_line, width)
         elif op in ('k', 'K'):
             state['fill' if op == 'k' else 'stroke'] = 'CMYK'
@@ -241,7 +259,7 @@ def walk(owner, resources, ctm, scan, chain=()):
                            space_name(obj.get('/ColorSpace'), {}))
             elif obj.get('/Subtype') == '/Form' and obj.objgen not in chain and len(chain) < 16:
                 matrix = [float(v) for v in obj.get('/Matrix', IDENTITY)]
-                walk(obj, obj.get('/Resources', resources), multiply(matrix, state['ctm']), scan, chain + (obj.objgen,))
+                walk(obj, obj.get('/Resources', resources), multiply(matrix, state['ctm']), scan, chain + (obj.objgen,), state)
         elif op == 'INLINE IMAGE':
             image = operands[0]
             space = space_name(pikepdf.Name(image.colorspace), resources) if image.colorspace else 'mask'
@@ -271,9 +289,21 @@ def check(args):
         info = {'page': number, 'media_mm': [mm(media[2] - media[0]), mm(media[3] - media[1])]}
         if not trim or not bleed_box:
             problems.append(f'page {number}: no TrimBox or BleedBox (run finish)')
+        elif any(len(b) != 4 or not all(math.isfinite(v) for v in b) or
+                 b[0] >= b[2] or b[1] >= b[3] for b in (media, trim, bleed_box)):
+            problems.append(f'page {number}: MediaBox, TrimBox and BleedBox must be finite ordered rectangles')
         else:
             info['trim_mm'] = [mm(trim[2] - trim[0]), mm(trim[3] - trim[1])]
-            sides = [trim[0] - bleed_box[0], trim[1] - bleed_box[1], bleed_box[2] - trim[2], bleed_box[3] - trim[3]]
+            def contains(outer, inner):
+                return (inner[0] >= outer[0] - SLACK and inner[1] >= outer[1] - SLACK and
+                        inner[2] <= outer[2] + SLACK and inner[3] <= outer[3] + SLACK)
+            if not contains(media, bleed_box):
+                problems.append(f'page {number}: BleedBox extends outside MediaBox')
+            if not contains(bleed_box, trim) or not contains(media, trim):
+                problems.append(f'page {number}: TrimBox must be contained by BleedBox and MediaBox')
+            effective = [max(media[0], bleed_box[0]), max(media[1], bleed_box[1]),
+                         min(media[2], bleed_box[2]), min(media[3], bleed_box[3])]
+            sides = [trim[0] - effective[0], trim[1] - effective[1], effective[2] - trim[2], effective[3] - trim[3]]
             info['bleed_mm_left_bottom_right_top'] = [mm(s) for s in sides]
             info['bleed_mm'] = round(mm(min(sides)), 2)
             if info['bleed_mm'] + 0.1 < args.bleed_mm:

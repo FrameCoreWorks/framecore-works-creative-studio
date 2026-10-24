@@ -44,6 +44,71 @@ class PrintPdfTest(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
+    def form_pdf(self, path, content, inner, matrix=None):
+        with pikepdf.new() as pdf:
+            leaf = pdf.make_stream(inner, Type=pikepdf.Name.XObject, Subtype=pikepdf.Name.Form,
+                                   BBox=[0, 0, 200, 200], Resources=pikepdf.Dictionary())
+            parent = pdf.make_stream(b'/Leaf Do', Type=pikepdf.Name.XObject, Subtype=pikepdf.Name.Form,
+                                     BBox=[0, 0, 200, 200], Matrix=matrix or tool.IDENTITY,
+                                     Resources=pikepdf.Dictionary(XObject=pikepdf.Dictionary(Leaf=leaf)))
+            page = pdf.add_blank_page(page_size=(300, 300))
+            page.TrimBox = [10, 10, 290, 290]
+            page.BleedBox = [0, 0, 300, 300]
+            page.Resources = pikepdf.Dictionary(XObject=pikepdf.Dictionary(Fm0=parent))
+            page.Contents = pdf.make_stream(content)
+            pdf.save(path)
+
+    def test_nested_forms_inherit_colour_and_line_width(self):
+        path = self.root / 'inherit.pdf'
+        self.form_pdf(path, b'/DeviceCMYK cs 0.05 w /Fm0 Do',
+                      b'1 1 1 1 scn 20 20 50 50 re B')
+        code, output = run('check', str(path), '--json')
+        report = json.loads(output)
+        self.assertEqual(code, 1)
+        self.assertEqual(report['pages'][0]['thinnest_line_pt'], 0.05)
+        self.assertEqual(report['pages'][0]['vector_tac_max'], 400)
+        self.assertIn('total ink 400', ' '.join(report['problems']))
+
+    def test_form_state_does_not_escape_and_q_Q_restores(self):
+        path = self.root / 'restore.pdf'
+        self.form_pdf(path, b'0.1 w /Fm0 Do 10 10 m 50 50 l S',
+                      b'q 0.01 w Q 5 w')
+        report = json.loads(run('check', str(path), '--json')[1])
+        self.assertEqual(report['pages'][0]['thinnest_line_pt'], 0.1)
+
+    def test_stroke_reports_minimum_scale_bound_including_shear(self):
+        for matrix, expected in (([0.01, 0, 0, 100, 0, 0], 0.01),
+                                 ([1, 0, 10, 1, 0, 0], 0.099),
+                                 ([2, 0, 0, 2, 0, 0], 2),
+                                 ([0, 0, 0, 1, 0, 0], 0)):
+            with self.subTest(matrix=matrix):
+                path = self.root / 'scale.pdf'
+                self.form_pdf(path, b'/Fm0 Do', b'0 0 m 100 0 l S', matrix)
+                report = json.loads(run('check', str(path), '--json')[1])
+                self.assertAlmostEqual(report['pages'][0]['thinnest_line_pt'], expected, places=3)
+
+    def test_declared_bleed_cannot_extend_outside_media(self):
+        path = self.root / 'boxes.pdf'
+        self.form_pdf(path, b'', b'')
+        with pikepdf.open(path) as pdf:
+            page = pdf.pages[0]
+            page.TrimBox = [0, 0, 300, 300]
+            page.BleedBox = [-10, -10, 310, 310]
+            bad = self.root / 'outside.pdf'
+            pdf.save(bad)
+        code, output = run('check', str(bad), '--json')
+        report = json.loads(output)
+        self.assertEqual(code, 1)
+        self.assertIn('MediaBox', ' '.join(report['problems']))
+        self.assertEqual(report['pages'][0]['bleed_mm'], 0)
+        for trim, bleed in (([20, 20, 280, 280], [30, 10, 290, 290]),
+                            ([280, 20, 20, 280], [0, 0, 300, 300])):
+            with pikepdf.open(path) as pdf:
+                pdf.pages[0].TrimBox = trim
+                pdf.pages[0].BleedBox = bleed
+                pdf.save(bad)
+            self.assertEqual(run('check', str(bad), '--json')[0], 1)
+
     def test_finish_sets_centred_boxes_and_check_passes(self):
         src, out = self.root / 'a5.pdf', self.root / 'a5-print.pdf'
         page_pdf(src, 'CMYK', (10, 20, 30, 0))                       # 148 x 210 trim plus 3 mm bleed

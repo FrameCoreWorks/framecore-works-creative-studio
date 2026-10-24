@@ -27,7 +27,7 @@ Recommendation by need: no code or a first try, Voicebox; a paid ad or client vo
 
 Install only on an explicit request, through the [extension route](../../workflow-orchestrator/references/extensions.md): `extensions.py show <id> --host <host>`, its plan, then install, verify and the restart. Voicebox is installed by the user from its release page; Studio then connects its MCP server or calls its REST API. Every engine downloads model weights of several gigabytes on first use.
 
-In ChatGPT, ChatGPT Work and the Claude apps these engines cannot run: deliver the script, the voice direction (voice, pace, pauses, pronunciation, emotion per line) and the settings for the chosen engine, and the user generates the audio on their computer.
+Discover the current host's actual tools and authorized connections before choosing execution. An available Voicebox MCP connection in Claude Desktop or another host can provide a native route; a local executor may expose an existing engine. Use the registry's exact host/engine route and verify it, without assuming that a host name proves availability. If no supported runtime or authorized connection exists, deliver the script, voice direction (voice, pace, pauses, pronunciation, emotion per line) and engine settings for the user's local generation.
 
 ## 4. Consent and delivery
 

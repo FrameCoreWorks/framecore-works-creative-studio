@@ -66,7 +66,7 @@ A video the user made, such as a phone reel or an edited film, has no motion con
 
 ```sh
 python footage.py cuts clip.mp4
-python footage.py contract clip.mp4 --out clip.sound.json --hit 3.2:impact:logo lands --reveal 13.0 --keep-audio --style meadow --message "..."
+python footage.py contract clip.mp4 --out clip.sound.json --hit "3.2:impact:logo lands" --reveal 13.0 --keep-audio --style meadow --message "..."
 python sound.py plan clip.sound.json --out clip-r1.sound.json --table cues.md
 python sound.py mix clip-r1.sound.json --video clip.mp4 --out clip-sound.mp4
 ```

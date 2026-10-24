@@ -49,7 +49,7 @@ def file_hash(path):
     return digest.hexdigest()
 
 
-def bound_report(path, score, contract_hash, video_hash):
+def bound_report(path, score, contract_hash, video_hash, format_id='base'):
     """Only use evidence for these exact source bytes and, for video critiques, this encoded file."""
     if not path:
         return None, None
@@ -68,10 +68,40 @@ def bound_report(path, score, contract_hash, video_hash):
             return None, ('fail', 'report video SHA-256 mismatch; rerun it on the current encoded file')
     elif binding['kind'] not in ('preview', 'contract_only'):
         return None, ('not_verified', 'report evidence kind is unknown; rerun it')
+    return report_for_format(report, format_id)
+
+
+def report_for_format(report, format_id):
+    """A format ID identifies layout overrides even when two outputs have the same dimensions."""
+    binding = report.get('evidence_binding') or {}
+    if binding.get('kind') == 'contract_only':
+        return report, None
+    frames = report.get('frames')
+    declared = binding.get('format')
+    if isinstance(frames, list):
+        selected = [f for f in frames if f.get('format', declared or 'base') == format_id]
+        if not selected:
+            return None, ('not_verified', f'no reviewed frames for format {format_id}; rerun the frame review')
+        issues = [i for f in selected for i in f.get('issues', [])]
+        return dict(report, frames=selected, formats=[format_id], summary={
+            **report.get('summary', {}), 'checkedFrames': sum(bool(f.get('checked')) for f in selected),
+            'errors': sum(i.get('severity') == 'error' for i in issues),
+            'warnings': sum(i.get('severity') == 'warning' for i in issues),
+            'textAudited': sum(bool(f.get('textAudit')) for f in selected)}), None
+    if declared == 'all':
+        # Aggregate critique findings do not all carry machine-readable format IDs. Keep them conservatively
+        # for the legacy base route; a variant needs a selected-format rerun rather than discarding findings.
+        if format_id != 'base':
+            return None, ('not_verified', f'aggregate critique cannot certify format {format_id}; rerun with --format')
+    elif declared is None:
+        if format_id != 'base':
+            return None, ('not_verified', f'report has no format identity for {format_id}; rerun with --format')
+    elif declared != format_id:
+        return None, ('fail', f'report format {declared} does not match selected format {format_id}')
     return report, None
 
 
-def bound_composition(path, composition_hash):
+def bound_composition(path, composition_hash, format_id='base'):
     """A text audit of a composition outside the contract route counts only for these exact composition bytes."""
     report = load(path)
     binding = report.get('evidence_binding') or {}
@@ -79,7 +109,7 @@ def bound_composition(path, composition_hash):
         return None, ('not_verified', 'text audit has no composition binding; rerun text-audit.mjs on the composition')
     if binding['composition']['sha256'] != composition_hash:
         return None, ('fail', 'text audit composition SHA-256 mismatch; rerun it on the current composition')
-    return report, None
+    return report_for_format(report, format_id)
 
 
 def bound_activity(path, video_hash):
@@ -275,21 +305,25 @@ def temporal(critique, playback, temporal_review, note, sound=False, listening='
 
 
 def decide(score, args):
+    format_id = getattr(args, 'format', 'base')
+    selected = score if format_id == 'base' else next((f for f in score.get('formats', []) if f.get('id') == format_id), None)
+    if selected is None:
+        raise ValueError(f'Unknown format: {format_id}')
     contract_path = getattr(args, 'contract', None)
     contract_hash = file_hash(contract_path) if contract_path else None
     video_hash = file_hash(args.video) if args.video and os.path.isfile(args.video) else None
-    critique, critique_gap = bound_report(args.critique, score, contract_hash, video_hash)
-    review, review_gap = bound_report(args.review, score, contract_hash, video_hash)
-    audit, audit_gap = bound_report(args.text_audit, score, contract_hash, video_hash)
+    critique, critique_gap = bound_report(args.critique, score, contract_hash, video_hash, format_id)
+    review, review_gap = bound_report(args.review, score, contract_hash, video_hash, format_id)
+    audit, audit_gap = bound_report(args.text_audit, score, contract_hash, video_hash, format_id)
     composition_hash = file_hash(args.composition) if getattr(args, 'composition', None) else None
     if composition_hash and args.text_audit:
-        audit, audit_gap = bound_composition(args.text_audit, composition_hash)
+        audit, audit_gap = bound_composition(args.text_audit, composition_hash, format_id)
     activity, activity_gap = bound_activity(getattr(args, 'motion_activity', None), video_hash)
     if getattr(args, 'copy', None):
         with open(args.copy, encoding='utf-8') as handle:
             lines = [line.strip() for line in handle if line.strip()]
         score = dict(score, copy={**(score.get('copy') or {}), **{f'locked-{i + 1}': line for i, line in enumerate(lines)}})
-    technical_verdict = technical(score, args.video)
+    technical_verdict = technical(dict(score, width=selected['width'], height=selected['height']), args.video)
     sound = bool(score.get('music') or score.get('voiceover') or score.get('sfx') or technical_verdict.pop('audio', False))
     verdicts = {
         'A_technical': technical_verdict,
@@ -312,7 +346,7 @@ def decide(score, args):
                 result['findings'].append(f'{label}: {reason}')
     states = [v['status'] for v in verdicts.values()]
     overall = 'blocked' if 'fail' in states else 'accepted' if all(s == 'pass' for s in states) else 'deliverable_with_limits'
-    return {'contract': score.get('id'), 'revision': score.get('revision'), 'video': os.path.basename(args.video) if args.video else None,
+    return {'contract': score.get('id'), 'revision': score.get('revision'), 'format': format_id, 'video': os.path.basename(args.video) if args.video else None,
             'overall': overall, 'verdicts': verdicts,
             'not_verified': [k for k, v in verdicts.items() if v['status'] == 'not_verified'],
             'rule': 'Each verdict stands alone: a passing export or a contract score never passes composition, fidelity or the viewing.'}
@@ -322,6 +356,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description='Four separate acceptance verdicts for a motion deliverable.')
     parser.add_argument('contract')
     parser.add_argument('--video')
+    parser.add_argument('--format', default='base', help='base or a declared format ID')
     parser.add_argument('--critique')
     parser.add_argument('--review')
     parser.add_argument('--text-audit')

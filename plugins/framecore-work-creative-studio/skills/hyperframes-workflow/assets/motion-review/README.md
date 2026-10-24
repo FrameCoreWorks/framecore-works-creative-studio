@@ -73,7 +73,7 @@ automated evidence is missing.
 
 For a HyperFrames or hand-written composition outside the contract route, the text audit binds to the composition's own
 bytes (`evidence_binding.kind` `composition` with its SHA-256). Pass that file with `--composition composition.html`,
-the locked copy with `--copy "LINE"` (repeatable) and the encoded-file measurement with
+the locked copy with `--copy locked-copy.txt` (one locked entry per line in that file) and the encoded-file measurement with
 `--motion-activity activity.json` (from `motion_activity.py --json`, bound by its `video_sha256`). Acceptance then
 checks the copy and the composition on that exact composition and counts the activity in D temporal; a changed
 composition or a measurement of another file leaves the verdict `not_verified`.
@@ -118,3 +118,7 @@ The browser checks are layout checks on selected frames, and the critique's rule
 Until 1.18.0, review screenshots were drawn about 8% smaller than the frame because the headless viewport is shorter than the window; measurements were unaffected. Review mode now renders at true size. In a 1.18.0 check, frame 176 of the starter matched the Remotion still of the same frame pixel for pixel in each of the three starter formats. Until 1.30.0 the screenshots still lost the bottom of the frame (87 pixels in Chromium 1194), which new headless Chrome fills with the page background because the page gets less height than the window; text measurements were unaffected. The tool now measures that difference with a probe page, enlarges the window by it, and the contact sheet shows each screenshot cropped to the frame. On 2026-10-07 every review frame of the app-film example then matched the Python renderer within 0.86 grey levels on average, including the bottom rows.
 
 During package preparation the tool ran in a Linux development container with headless Chromium 1194: the starter contract (31 frames; 93 across its three formats since 1.18.0) and the all-kinds example (53 frames) produced no findings, and a deliberately broken contract produced clipping and out-of-frame errors with exit code 1. Host behavior is not verified.
+
+## Declared output formats
+
+For a variant, pass the same explicit `--format <id>` to `acceptance.py`, `critique.py` and `text-audit.mjs`; `review-frames.mjs --format <id>` already selects that layout. Format IDs select the declared params/tokens as well as dimensions. The evidence retains the SHA-256 of the original contract, with the selected ID recorded separately. Acceptance selects only that format's frame-review entries. An unlabeled or aggregate critique cannot certify a non-base variant: rerun it with the selected ID. Existing defaults remain base acceptance/text-audit/video critique and all-format preview critique/frame review. An HTML composition uses its explicit dimensions, not a contract format ID.

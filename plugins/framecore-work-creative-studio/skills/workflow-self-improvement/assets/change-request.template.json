@@ -51,7 +51,12 @@
     "no_command",
     "command",
     "max_sections_matching",
-    "directions"
+    "directions",
+    "no_write",
+    "artifact",
+    "command_result",
+    "test_red_green",
+      "media_execution"
   ],
   "privacy": "Client names, facts and files are replaced with neutral stand-ins before the case leaves the conversation.",
   "risk": "",

@@ -1,0 +1,334 @@
+{
+  "date": "2026-10-24",
+  "baseline_tag": "v1.125.2",
+  "baseline_commit": "9e69674828f44311f004240b23e1e024de39b82f",
+  "repository_start": "40c1745e02e9c773af26aea90dae05c62dfc8e92",
+  "client": "Codex desktop",
+  "authorization": "Owner requested surgical repair, tests, commit/push and paired installed-plugin update; independent Codex reviewers instead of Claude for these repairs.",
+  "findings": [
+    {
+      "id": "ORCH-01",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/tool-routing-cost/SKILL.md",
+      "title": "Planning instructions discard authorization that the same skill requires preserving",
+      "remedy": "Preserve scoped authorization; ask again only when scope changes or expires.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "ORCH-02",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/research-evidence/references/marketing-rules-snapshot.md",
+      "title": "Snapshot date grants a research pass to rows explicitly not checked",
+      "remedy": "Use row-level checked status/date; verify triggered unchecked rows.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "ORCH-03",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/learning-mode.md",
+      "title": "Offline disclaimer is unconditional despite the stable-craft exemption",
+      "remedy": "Condition the disclaimer on an actual research trigger.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "ORCH-04",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/brief-architect/scripts/quote_calc.py",
+      "title": "Malformed quote structures bypass validation and raise exceptions",
+      "remedy": "Validate mapping/list types and required labels before pricing.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "quote_calc_test.py (12)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-01",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/assets/static-render/compose.py",
+      "title": "Contrast check ignores text opacity",
+      "remedy": "Composite alpha over the actual backdrop before measuring contrast.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "static_render_test.py (17)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-02",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/scripts/svg_wordmark.py",
+      "title": "PNG wordmark antialiasing attenuates RGB twice",
+      "remedy": "Apply coverage as alpha to constant-color ink.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "svg_wordmark_test.py (6)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-03",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/assets/static-render/compose.py",
+      "title": "Containment ignores negative glyph ink bearings",
+      "remedy": "Check positioned ink bounds as well as layout advance.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "static_render_test.py (17)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-04",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/commercial-visual-campaign-director/kit/references/event-poster-code-workflow.md",
+      "title": "Poster-code recipe uses the wrong path from its stated directory",
+      "remedy": "Correct the documented relative path or working directory.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-S01",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/assets/static-render/print_pdf.py",
+      "title": "PDF Form scan loses inherited stroke width",
+      "remedy": "Pass inherited graphics state into recursive Form scanning.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "print_pdf_test.py (12)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-S02",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/assets/static-render/print_pdf.py",
+      "title": "PDF bleed can pass outside the physical MediaBox",
+      "remedy": "Validate page-box containment and effective bleed on each side.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "print_pdf_test.py (12)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "GFX-S03",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/assets/static-render/print_pdf.py",
+      "title": "Anisotropic transforms hide thin PDF strokes",
+      "remedy": "Use normal-direction width or a documented conservative transform bound.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "print_pdf_test.py (12)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "SC-01",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/copy-voice/scripts/pl_copy_check.py",
+      "title": "Missing copy filenames containing spaces are treated as inline text",
+      "remedy": "Recognize explicit file inputs before inline-text fallback; preserve valid sentences.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "pl_copy_check_test.py (8)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "SC-02",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/copy-voice/scripts/pl_copy_check.py",
+      "title": "Google RSA counter ignores the bundled double-width rule",
+      "remedy": "Add the channel-specific width counter and boundary cases.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "pl_copy_check_test.py (8)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "VM-01",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+      "title": "Acceptance rejects a valid declared non-base output format",
+      "remedy": "Resolve an explicit selected format and bind it to original-contract evidence.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "motion_acceptance_test.py (34) and producer binding Node checks",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "VM-02",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/storyboard-board-architect/scripts/board_compose.py",
+      "title": "Storyboard wrapping emits an oversized intermediate token unchanged",
+      "remedy": "Split oversized tokens before every line flush.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "board_compose_test.py",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "VM-03",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-review/README.md",
+      "title": "Acceptance recipe documents literal repeatable copy but CLI expects one file",
+      "remedy": "Document --copy locked-copy.txt with one locked entry per line.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "VM-04",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_picture.py",
+      "title": "FrameCut decoder uses -vsync, rejected by installed FFmpeg 9",
+      "remedy": "Use the supported option with a defined compatibility policy; verify frame/PTS equivalence.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "FrameCut focused real FFmpeg 9 decoder regression",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "VM-05",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sound/README.md",
+      "title": "Sound recipe leaves a multiword --hit value unquoted",
+      "remedy": "Quote the entire cue value.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "AUDIO-01",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/caption-studio/assets/captions/captions.py",
+      "title": "Documented caption CLI handoff loses active-word timings",
+      "remedy": "Expose a timing-preserving CLI route or explicit sidecar; cover the real roundtrip.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "captions_test.py (20)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "AUDIO-02",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/audio-production-director/references/local-tts-engines.md",
+      "title": "TTS guide rejects a Claude Desktop route supported by the registry",
+      "remedy": "Discover actual capabilities; reserve manual handoff for unavailable engines.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Source correction reviewed; canonical contract validation",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "AUDIO-03",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/caption-studio/assets/captions/captions.py",
+      "title": "Python and JavaScript caption import disagree at half frames",
+      "remedy": "Use one nonnegative timestamp rounding rule and half-frame parity cases.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "captions_test.py (20)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "DEL-01",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/skills/output-critic-iteration/scripts/image_probe.py",
+      "title": "OCR status match is ambiguous when checking a complete copy inventory",
+      "remedy": "Distinguish required-terms presence from exact inventory; compare multiplicities only in explicit exact mode; retain visual reading.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "image_probe_test.py (17, optional OCR dependency skip)",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "DEL-02",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/output-critic-iteration/scripts/image_probe.py",
+      "title": "Image placement checks ignore EXIF orientation",
+      "remedy": "Transpose the working image; preserve stored metadata separately.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "image_probe_test.py",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "DEL-03",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/output-critic-iteration/scripts/image_probe.py",
+      "title": "RGB/greyscale PNG transparency is reported absent",
+      "remedy": "Inspect supported transparency metadata/converted alpha across modes.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "image_probe_test.py",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "DEL-04",
+      "priority": 2,
+      "source_path": "plugins/framecore-work-creative-studio/skills/delivery-documentation/scripts/brand_guide.py",
+      "title": "Brand guide clips an oversized token followed by another word",
+      "remedy": "Split long tokens before every emitted line, preserving all characters.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "brand_guide_test.py",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "HOST-01",
+      "priority": 2,
+      "source_path": "tests/host-evals/companion.json",
+      "title": "C17/C20 checks allow artifact-free and test-free responses to pass",
+      "remedy": "Require artifact/command evidence and observed failing-then-passing test sequence; retain routing-only status separately.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "test_host_eval.py (34); actual ffprobe fixture; negative claims/commands/cue/input binding cases",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "HOST-02",
+      "priority": 3,
+      "source_path": "tests/test_codex_install.py",
+      "title": "Installer test fixtures fail through macOS /var symlink",
+      "remedy": "Resolve fixture roots; preserve production symlink rejection.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "test_codex_install.py (13), resolved temporary fixture path",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    },
+    {
+      "id": "HOST-03",
+      "priority": 3,
+      "source_path": "plugins/framecore-work-creative-studio/tests/motion-toolkit.test.mjs",
+      "title": "Text-audit fixture requires fully hidden words although this browser correctly detects partial clipping",
+      "remedy": "Pin fixture font/geometry so the intended fully hidden case is deterministic, or assert the intended clipping contract while retaining a separate fully hidden-word case.",
+      "status": "fixed_and_independently_reviewed",
+      "focused_verification": "Actual Chrome targeted Node tests (2); partial and fully hidden-word fixtures",
+      "client_scope": "source/tool verification; no installed ChatGPT behavior claim"
+    }
+  ],
+  "counts": {
+    "total": 28,
+    "important": 17,
+    "minor": 11,
+    "critical": 0
+  },
+  "review": {
+    "plan": "independent Codex review; dependencies and execution ordering incorporated",
+    "final": "independent Codex inspector found 2 P2 in HOST-01; corrected and reinspected with no remaining findings",
+    "requested_model": "gpt-6-astra",
+    "effort": "high",
+    "observed_model": "not independently exposed"
+  },
+  "full_regression": "PENDING immutable final release-prepare check. Fifth diagnostic run overlaps a reviewed fixture-only isolation edit and is not used as immutable release proof. Prior failures and their resolutions are retained in the local work evidence.",
+  "preserved": [
+    "37 skill IDs and paths",
+    "protected welcome/menu bytes",
+    "vendored source snapshots",
+    "existing authorization scope",
+    "private hosted overlay, checked separately at deployment"
+  ],
+  "limitations": [
+    "No new Claude host calls (owner waiver).",
+    "C17/C20 harness regressions verify evidence enforcement, not a new live full-tier Earshot production run.",
+    "Source-guided Codex routing is reported separately from native installed Studio client behavior."
+  ],
+  "additional_regression_correction": {
+    "id": "REG-01",
+    "trigger": "Full check: FFmpeg 7.1 xfade rejected a 1/0 input frame rate after setpts/concat; minimal graph fails on 7.1 and passes on 9.",
+    "scope": "Explicit exact FPS and common timebase on both xfade inputs; assembly-cache invalidation.",
+    "test": "New rational-rate cut-then-fade case RED before correction; complete FrameCut suite 44 PASS afterward.",
+    "review": "Independent Codex follow-up, no findings."
+  },
+  "regression_environment": {
+    "python": "Existing FrameCore media Python 3.12 with a temporary executable path without spaces for test-generated shebangs",
+    "ffmpeg": "ASS-capable imageio-ffmpeg 7.1; actual system FFmpeg 9 decoder proof recorded separately",
+    "temporary_storage": "Task-specific temporary directory on the Codex volume (599 GiB free); system temporary volume had 1.3 GiB, below the required 2 GiB render budget",
+    "native_earshot": "Existing root/cache preserved; one default-cache test locally removes EARSHOT_NATIVE_ROOT only inside a mocked environment context"
+  },
+  "additional_test_isolation": {
+    "trigger": "sound_listen default-cache test inherited the host configured EARSHOT_NATIVE_ROOT and asserted the wrong default path",
+    "scope": "Isolate only that mocked test; configured-root test and production code unchanged",
+    "focused_result": "15 sound-listen tests PASS"
+  }
+}

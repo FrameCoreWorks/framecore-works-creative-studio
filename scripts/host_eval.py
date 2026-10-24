@@ -20,9 +20,11 @@ import argparse
 import datetime
 import hashlib
 import json
+import math
 import os
 import re
 import shutil
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -49,7 +51,8 @@ ENGLISH_WORDS = re.compile(r'\b(the|and|you|your|for|with|is|are|to|of|can|or|th
 
 CHECK_KINDS = ('welcome', 'not_welcome', 'contains', 'contains_any', 'not_contains', 'regex', 'not_regex', 'max_questions',
                'max_user_questions', 'min_numbered', 'items', 'max_chars', 'code_block', 'language', 'skills', 'skills_any',
-               'reads_any', 'no_skills', 'no_command', 'command', 'max_sections_matching', 'directions')
+               'reads_any', 'no_skills', 'no_command', 'command', 'max_sections_matching', 'directions',
+               'no_write', 'artifact', 'command_result', 'test_red_green', 'media_execution')
 
 
 class EvalError(Exception):
@@ -158,18 +161,30 @@ def parse_events(events, result):
     """The reply, usage and tool calls of one turn. Each call is paired with its result by ID: ok is True when it ran,
     False when the host returned an error (a skill not found, a failed read), None when no result came back."""
     tools_used, by_id = [], {}
+    order = 0
     for event in events:
         message = event.get('message')
         content = (message.get('content', []) if isinstance(message, dict) else []) or []   # some events carry plain text
         if not isinstance(content, list):
             continue
         for block in content:
+            order += 1
+            if not isinstance(block, dict):
+                continue
             if event.get('type') == 'assistant' and block.get('type') == 'tool_use':
-                call = {'name': block.get('name'), 'input': block.get('input', {}), 'ok': None}
+                call = {'name': block.get('name'), 'input': block.get('input', {}), 'ok': None, 'call_order': order}
                 tools_used.append(call)
                 by_id[block.get('id')] = call
             elif event.get('type') == 'user' and block.get('type') == 'tool_result' and block.get('tool_use_id') in by_id:
-                by_id[block['tool_use_id']]['ok'] = not block.get('is_error')
+                call = by_id[block['tool_use_id']]
+                raw = block.get('content', '')
+                if isinstance(raw, list):
+                    raw = '\n'.join(str(part.get('text', '')) for part in raw if isinstance(part, dict))
+                raw = raw if isinstance(raw, str) else json.dumps(raw)
+                call.update(ok=not block.get('is_error'), result_order=order,
+                            result=raw if len(raw) <= 16384 else raw[:8192] + raw[-8192:],
+                            result_chars=len(raw), result_sha256=hashlib.sha256(raw.encode()).hexdigest(),
+                            result_data=structured_result(raw))
     return {
         'reply': result.get('result') or '', 'is_error': bool(result.get('is_error')), 'subtype': result.get('subtype'),
         'session': result.get('session_id'), 'tokens': tokens_of(result),
@@ -210,6 +225,223 @@ def written_of(tools):
 
 def commands_of(tools):
     return [str(tool['input'].get('command', '')) for tool in ran(tools) if tool['name'] == 'Bash']
+
+
+def executable_command(command):
+    """A direct invocation; quoted/escaped literal path characters are not shell operators."""
+    quote, escaped = None, False
+    for char in command:
+        if escaped:
+            escaped = False
+            continue
+        if char == '\\' and quote != "'":
+            escaped = True
+            continue
+        if char in ("'", '"'):
+            if quote is None:
+                quote = char
+            elif quote == char:
+                quote = None
+            continue
+        if quote != "'" and char in '$' + chr(96):
+            return []
+        if quote is None and char in ';&|<>()\n':
+            return []
+    try:
+        argv = shlex.split(command)
+    except ValueError:
+        return []
+    if not argv or any(arg in ('-c', '-e', '--eval') for arg in argv) or Path(argv[0]).name in ('echo', 'printf', 'cat', 'true', 'false'):
+        return []
+    return argv
+
+
+def structured_result(raw):
+    """Keep JSON emitted by a tool, separately from its bounded diagnostic text."""
+    decoder = json.JSONDecoder()
+    for match in re.finditer(r'(?m)^\s*\{', raw):
+        try:
+            data, end = decoder.raw_decode(raw[match.start():].lstrip())
+            if isinstance(data, dict):
+                return data
+        except ValueError:
+            continue
+    return {}
+
+
+def probe_media(path):
+    try:
+        result = subprocess.run(['ffprobe', '-v', 'error', '-show_entries',
+                                 'format=duration:stream=codec_type', '-of', 'json', str(path)],
+                                capture_output=True, text=True, timeout=30)
+        data = json.loads(result.stdout) if result.returncode == 0 else {}
+        duration = float(data.get('format', {}).get('duration', 0))
+        return {'duration': duration, 'streams': [s['codec_type'] for s in data.get('streams', [])]} if math.isfinite(duration) and duration > 0 else {}
+    except (OSError, ValueError, KeyError, subprocess.TimeoutExpired):
+        return {}
+
+
+def earshot_operation(argv):
+    if not argv:
+        return []
+    if Path(argv[0]).name == 'earshot':
+        return argv[1:]
+    if re.fullmatch(r'python(?:3(?:\.\d+)?)?', Path(argv[0]).name):
+        if argv[1:3] == ['-m', 'earshot']:
+            return argv[3:]
+        if len(argv) > 3 and Path(argv[1]).name == 'runtime.py' and 'earshot-audio' in argv[1] and argv[2] == 'run':
+            return argv[3:]
+    return []
+
+
+def media_execution(turn, spec):
+    """C17 controlled fixture: bind rankings, mixer cues and encoded-file timing measurements."""
+    root = Path(turn.get('workspace', '.')).resolve()
+    def path(name, base=root):
+        return (base / str(name)).resolve()
+    def flag(argv, key):
+        try:
+            return argv[argv.index(key) + 1]
+        except (ValueError, IndexError):
+            return None
+    def number(value):
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+    def cue_times(rows):
+        return isinstance(rows, list) and all(isinstance(row, dict) and number(row.get('t')) for row in rows) and sorted(row['t'] for row in rows) == sorted(spec['cues'])
+    calls = [(t, executable_command(str(t.get('input', {}).get('command', ''))))
+             for t in ran(turn['tools']) if t['name'] == 'Bash']
+    for mix, argv in calls:
+        if len(argv) < 2 or not re.fullmatch(r'python(?:3(?:\.\d+)?)?', Path(argv[0]).name) or Path(argv[1]).name != 'place_sfx.py':
+            continue
+        cue_name, output = flag(argv, '--cues'), flag(argv, '--out')
+        video = flag(argv, '--video')
+        if not video or path(video) != path(spec['input']):
+            continue
+        if not any(path(a.get('path', '')) == path(video) and a.get('changed') is False for a in turn.get('artifacts', [])):
+            continue
+        if not cue_name or not output or '--json' not in argv:
+            continue
+        cue_path, out = path(cue_name), path(output)
+        if not cue_path.is_relative_to(root) or not out.is_relative_to(root):
+            continue
+        data = mix.get('result_data', {})
+        if path(data.get('out', '')) != out or data.get('all_on_time') is not True or not cue_times(data.get('cues')):
+            continue
+        if not all(c.get('placed') is True and c.get('on_time') is True for c in data['cues']):
+            continue
+        try:
+            cues = json.loads(cue_path.read_text())
+            cues = cues.get('cues') if isinstance(cues, dict) else cues
+        except (OSError, ValueError):
+            continue
+        if not cue_times(cues) or not all(c.get('file') for c in cues):
+            continue
+        selected = {path(c['file'], cue_path.parent) for c in cues}
+        ranked = set()
+        for rank, command in calls:
+            op = earshot_operation(command)
+            ranks = rank.get('result_data', {})
+            rows = ranks.get('results', [])
+            if not op or op[0] != 'rank' or rank.get('result_order', math.inf) >= mix.get('call_order', -1):
+                continue
+            if not isinstance(rows, list) or len(rows) < 2 or not ranks.get('query'):
+                continue
+            valid = [row for row in rows if isinstance(row, dict) and row.get('path') and
+                     number(row.get('z')) and number(row.get('cosine'))]
+            if len(valid) >= 2:
+                ranked.update(path(row['path']) for row in valid)
+        if not selected.issubset(ranked):
+            continue
+        artifact = next((a for a in turn.get('artifacts', []) if path(a.get('path','')) == out and
+                         a.get('changed') and out.suffix.lower() == '.mp4' and len(a.get('sha256','')) == 64), None)
+        if artifact is None:
+            continue
+        media = probe_media(out)
+        artifact['media'] = media
+        if not {'audio', 'video'}.issubset(media.get('streams', [])) or abs(media.get('duration', 0)-spec['duration']) > 1/spec['fps']:
+            continue
+        for timeline, command in calls:
+            op = earshot_operation(command)
+            measured = timeline.get('result_data', {})
+            if len(op) < 2 or op[0] != 'timeline' or path(op[1]) != out or path(measured.get('file', '')) != out:
+                continue
+            if timeline.get('call_order', -1) <= mix.get('result_order', math.inf):
+                continue
+            sync = measured.get('sync', {})
+            cue_result = sync.get('cues', {}) if isinstance(sync, dict) else {}
+            rows = cue_result.get('items', []) if isinstance(cue_result, dict) else []
+            if cue_times(rows) and all(number(row.get('offset_ms')) and abs(row['offset_ms']) <= 1000/spec['fps'] and
+                                       row.get('status') in ('OK', 'peak', 'swell') for row in rows):
+                turn['media_cues'] = cues
+                return True, f"ranked takes, placement and encoded timing bound to {artifact['path']} ({artifact['sha256']})"
+    return False, 'missing bound rank, placement, audio/video file or encoded cue timing evidence'
+
+
+def test_command(command, pattern):
+    argv = executable_command(command)
+    if not argv:
+        return None
+    exe = Path(argv[0]).name
+    python = bool(re.fullmatch(r'python(?:3(?:\.\d+)?)?', exe))
+    runner = exe in ('pytest', 'py.test') or (python and len(argv) > 2 and argv[1:3] in
+                                             (['-m', 'unittest'], ['-m', 'pytest']))
+    direct = python and len(argv) > 1 and re.search(r'(^|/)(test[^/]*|[^/]*_test)\.py$', argv[1])
+    if not (runner or direct) or not re.search(pattern, ' '.join(argv[1:]), re.I):
+        return None
+    return tuple(argv)
+
+
+def red_green(tools, pattern):
+    """Require a written test, its assertion failure, a source edit, then the same passing command."""
+    for failed in tools:
+        command = test_command(str(failed.get('input', {}).get('command', '')), pattern)
+        output = failed.get('result', '')
+        if failed.get('name') != 'Bash' or not command or failed.get('ok') is not False:
+            continue
+        if not (re.search(r'AssertionError|assert .*==', output) and
+                re.search(r'FAIL:|FAILED .*::|FAILED \(failures=|\d+ failed', output)):
+            continue
+        start, end = failed.get('call_order', -1), failed.get('result_order')
+        if end is None:
+            continue
+        writes = [t for t in tools if t.get('name') in ('Write', 'Edit') and t.get('ok') is True and
+                  str(t.get('input', {}).get('file_path', '')).endswith('.py')]
+        tests = [t for t in writes if re.search(r'(^|/)(test[^/]*|[^/]*_test)\.py$',
+                                                 t['input']['file_path'])]
+        if not any(t.get('result_order', float('inf')) < start and
+                   re.search(pattern, t['input']['file_path'], re.I) for t in tests):
+            continue
+        for passed in tools:
+            if passed.get('name') != 'Bash' or passed.get('ok') is not True:
+                continue
+            if test_command(str(passed.get('input', {}).get('command', '')), pattern) != command:
+                continue
+            green = passed.get('result', '')
+            if not (re.search(r'Ran [1-9]\d* tests?\b', green) and re.search(r'^OK(?:\s|$)', green, re.M) or
+                    re.search(r'\b[1-9]\d* passed\b', green)):
+                continue
+            if re.search(r'FAILED|\b[1-9]\d* (?:failed|errors?)\b', green):
+                continue
+            if any(t not in tests and end < t.get('call_order', -1) and
+                   t.get('result_order', float('inf')) < passed.get('call_order', -1) for t in writes):
+                return True
+    return False
+
+
+def artifact_inventory(workspace, before):
+    """New/changed local files, without following symlinks or exposing file contents."""
+    files = []
+    for path in sorted(workspace.rglob('*')):
+        if path.is_symlink() or not path.is_file() or '__pycache__' in path.parts:
+            continue
+        resolved = path.resolve()
+        if not resolved.is_relative_to(workspace.resolve()):
+            continue
+        name = path.relative_to(workspace).as_posix()
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        files.append({'path': name, 'bytes': path.stat().st_size, 'sha256': digest,
+                      'changed': before.get(name) != digest})
+    return files
 
 
 def language_of(text):
@@ -365,6 +597,22 @@ def check(spec, turn):
     if kind == 'no_write':
         hit = [p for p in written_of(turn['tools']) if any(v in p for v in value)]
         return not hit, 'wrote none of them' if not hit else f'wrote {hit}'
+    if kind == 'artifact':
+        found = [a for a in turn.get('artifacts', []) if a.get('changed') and
+                 a.get('path', '').endswith(value['suffix']) and a.get('bytes', 0) >= value.get('min_bytes', 1)
+                 and len(a.get('sha256', '')) == 64]
+        return bool(found), f'new or changed artifacts: {[a["path"] for a in found]}'
+    if kind == 'command_result':
+        found = [t for t in ran(turn['tools']) if t['name'] == 'Bash' and
+                 executable_command(str(t['input'].get('command', ''))) and
+                 re.search(value['command'], str(t['input'].get('command', '')), re.I) and
+                 re.search(value['output'], t.get('result', ''), re.I)]
+        return bool(found), 'matched command and observed result' if found else 'no matching execution evidence'
+    if kind == 'media_execution':
+        return media_execution(turn, value)
+    if kind == 'test_red_green':
+        passed = red_green(turn['tools'], value['test_pattern'])
+        return passed, 'observed test write, assertion failure, source edit and same passing command' if passed else 'missing ordered test execution evidence'
     if kind == 'no_command':
         hit = [c for c in commands_of(turn['tools']) if value in c]
         return not hit, 'not run' if not hit else f'ran {hit[0][:120]}'
@@ -403,6 +651,7 @@ def run_case(case, args):
         workspace.mkdir()
         for name, source in (case.get('files') or {}).items():   # files the case puts in the workspace, by repository path
             shutil.copyfile(ROOT / source, workspace / name)
+        before = {a['path']: a['sha256'] for a in artifact_inventory(workspace, {})}
         session, turns, used, seconds = None, [], add_tokens(), 0.0
         started, failure = time.time(), None
         for index, step in enumerate(case['turns']):
@@ -413,6 +662,8 @@ def run_case(case, args):
                 failure = f'turn {index + 1}: {str(error)[:600]}'
                 break
             session, used, seconds = turn['session'], add_tokens(used, turn['tokens']), seconds + turn['seconds']
+            turn['workspace'] = str(workspace)
+            turn['artifacts'] = artifact_inventory(workspace, before)
             results = []
             for spec in step.get('checks', []):
                 passed, detail = check(spec, turn)
@@ -423,6 +674,10 @@ def run_case(case, args):
                           'reply_chars': len(turn['reply']), 'reply_sha256': hashlib.sha256(turn['reply'].encode('utf-8')).hexdigest(),
                           'skills': skills_of(turn['tools']), 'tools': [t['name'] for t in turn['tools']],
                           'failed_tools': [{'name': t['name'], 'ok': t.get('ok')} for t in turn['tools'] if t.get('ok') is not True],
+                          'execution_evidence': [{k: t[k] for k in ('name', 'ok', 'call_order', 'result_order', 'result', 'result_chars', 'result_sha256', 'result_data') if k in t}
+                                                 | {'input': {k: v for k, v in t.get('input', {}).items() if k in ('command', 'file_path')}}
+                                                 for t in turn['tools'] if t['name'] in ('Bash', 'Write', 'Edit')],
+                          'artifacts': turn['artifacts'], 'media_cues': turn.get('media_cues'),
                           'models': turn['models'], 'tokens': turn['tokens'], 'seconds': turn['seconds'], 'checks': results})
         verdict = 'ERROR' if failure else 'PASS' if all(r['passed'] for t in turns for r in t['checks']) else 'FAIL'
         graded = None

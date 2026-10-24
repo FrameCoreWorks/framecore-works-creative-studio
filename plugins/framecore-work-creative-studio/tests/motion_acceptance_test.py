@@ -470,5 +470,77 @@ class OutsideTheContract(unittest.TestCase):
         _, other = run(acceptance.main, self.argv('Fleki w 20 minut'))
         self.assertFalse(any('motion activity on the encoded file' in e for e in other['verdicts']['D_temporal']['evidence']))
 
+class SelectedFormat(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.score = {'id': 'formats', 'revision': 1, 'width': 160, 'height': 90, 'fps': {'num': 30, 'den': 1},
+                      'totalFrames': 30, 'copy': {'line': 'Hello'}, 'scenes': [
+                          {'id': 's', 'kind': 'line-reveal', 'start': 0, 'end': 30, 'holds': [[5, 25]], 'params': {'lines': ['line'], 'sizes': [20]}}],
+                      'formats': [{'id': 'portrait', 'width': 90, 'height': 160},
+                                  {'id': 'square', 'width': 96, 'height': 96},
+                                  {'id': 'same-size', 'width': 90, 'height': 160, 'params': {'s': {'sizes': [40]}}}]}
+        self.contract = self.root/'c.json'
+        self.contract.write_text(json.dumps(self.score))
+
+    def test_actual_encoded_sizes_follow_explicit_format(self):
+        if not have_media(): self.skipTest('FFmpeg required')
+        for fmt, width, height in [('base', 160, 90), ('portrait', 90, 160), ('square', 96, 96)]:
+            video = self.root/f'{fmt}.mp4'
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', f'color=s={width}x{height}:r=30:d=1',
+                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', str(video)], check=True)
+            code, report = run(acceptance.main, [str(self.contract), '--video', str(video), '--format', fmt])
+            self.assertEqual(report['verdicts']['A_technical']['status'], 'pass', report)
+            self.assertEqual(report['format'], fmt)
+        wrong = run(acceptance.main, [str(self.contract), '--video', str(video), '--format', 'portrait'])[1]
+        self.assertEqual(wrong['verdicts']['A_technical']['status'], 'fail')
+
+    def test_format_identity_and_aggregate_frames_are_respected(self):
+        review = bound_report({'formats': ['base', 'portrait'], 'frames': [
+            {'format': 'base', 'checked': True, 'issues': [{'severity': 'error', 'check': 'cut'}]},
+            {'format': 'portrait', 'checked': True, 'issues': []}]}, self.contract)
+        path = self.root/'review.json'; path.write_text(json.dumps(review))
+        argv = [str(self.contract), '--review', str(path), '--composition-review', 'pass']
+        portrait = run(acceptance.main, [*argv, '--format', 'portrait'])[1]
+        self.assertEqual(portrait['verdicts']['C_composition']['status'], 'pass', portrait)
+        self.assertEqual(run(acceptance.main, [*argv, '--format', 'base'])[1]['overall'], 'blocked')
+        self.assertEqual(run(acceptance.main, [*argv, '--format', 'same-size'])[1]['verdicts']['C_composition']['status'], 'not_verified')
+
+    def test_nonbase_audit_needs_its_own_id_even_for_equal_dimensions(self):
+        audit = bound_report({'samples': [{'texts': [{'text': 'Hello'}]}]}, self.contract)
+        path = self.root/'audit.json'
+        argv = [str(self.contract), '--text-audit', str(path), '--source-review', 'pass', '--format', 'portrait']
+        path.write_text(json.dumps(audit))
+        self.assertEqual(run(acceptance.main, argv)[1]['verdicts']['B_fidelity']['status'], 'not_verified')
+        audit['evidence_binding']['format'] = 'same-size'
+        path.write_text(json.dumps(audit))
+        self.assertEqual(run(acceptance.main, argv)[1]['overall'], 'blocked')
+        audit['evidence_binding']['format'] = 'portrait'
+        path.write_text(json.dumps(audit))
+        self.assertEqual(run(acceptance.main, argv)[1]['verdicts']['B_fidelity']['status'], 'pass')
+        self.contract.write_bytes(self.contract.read_bytes() + b' ')
+        self.assertEqual(run(acceptance.main, argv)[1]['overall'], 'blocked')
+
+    def test_unknown_format_is_a_controlled_input_error(self):
+        done = subprocess.run([sys.executable, str(REVIEW/'acceptance.py'), str(self.contract), '--format', 'missing'],
+                              capture_output=True, text=True)
+        self.assertEqual(done.returncode, 2)
+        self.assertIn('Unknown format', done.stderr)
+        self.assertNotIn('Traceback', done.stderr)
+
+    def test_portrait_video_critique_binds_original_bytes_and_samples_pacing(self):
+        if not have_media(): self.skipTest('FFmpeg required')
+        video = self.root/'v.mp4'
+        subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'color=s=90x160:r=30:d=1',
+                        '-c:v', 'libx264', '-pix_fmt', 'yuv420p', str(video)], check=True)
+        code, report = run(critique.main, [str(self.contract), '--video', str(video), '--format', 'portrait'])
+        self.assertIn(report['status'], ('checked', 'issues'), report)
+        self.assertEqual(report['evidence_binding']['format'], 'portrait')
+        self.assertEqual(report['evidence_binding']['contract']['sha256'], hashlib.sha256(self.contract.read_bytes()).hexdigest())
+        self.assertTrue(report['pacing'])
+        self.assertEqual(report['evidence_binding']['video_sha256'], hashlib.sha256(video.read_bytes()).hexdigest())
+
+
 if __name__ == '__main__':
     unittest.main()

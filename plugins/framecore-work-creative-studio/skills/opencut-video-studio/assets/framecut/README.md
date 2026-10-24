@@ -1,6 +1,6 @@
 # FrameCut runtime
 
-One project, source clocks, edit decisions, captions, motion placements, mix and delivery. Python 3.10+, Pillow, plus FFmpeg/FFprobe (libx264, AAC, libass, overlay, xfade, loudnorm). No network, MCP daemon, GPU or private package required. PyWhisperCpp/model and official OpenTimelineIO are optional explicit runtimes. Run `python3 framecut.py --help` for the complete command surface. All commands return JSON; failures exit 2 with a typed error.
+One project, source clocks, edit decisions, captions, motion placements, mix and delivery. Python 3.10+, Pillow, plus FFmpeg/FFprobe with output `-fps_mode passthrough` support (libx264, AAC, libass, overlay, xfade, loudnorm). No network, MCP daemon, GPU or private package required. PyWhisperCpp/model and official OpenTimelineIO are optional explicit runtimes. Run `python3 framecut.py --help` for the complete command surface. All commands return JSON; failures exit 2 with a typed error.
 
 ## Workflow
 

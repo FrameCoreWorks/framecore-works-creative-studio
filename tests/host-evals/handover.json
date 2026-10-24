@@ -1,0 +1,87 @@
+{
+  "name": "handover",
+  "description": "Owner-authorized four reference capabilities, 2026-10-24. Source-guided Codex observations are recorded separately from installed host tests.",
+  "cases": [
+    {
+      "id": "H01",
+      "title": "Language variants preserve the existing motion owner",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam zaakceptowaną animację Remotion, 15 sekund. Potrzebuję polskiej i angielskiej wersji napisów, lektora i tekstów na ekranie, z tym samym montażem. Nazwa produktu Nova i claim „5 lat gwarancji” są zablokowane. Opisz tylko najbliższy krok; nie uruchamiaj generacji.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "copy-voice",
+                "caption-studio",
+                "remotion-video-production"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H02",
+      "title": "Website brand kit is a sourced draft before approval",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób szkic brand kitu z tej dostarczonej kopii strony, bez zapisywania przed moją akceptacją. Źródło https://example.invalid, HTML: <style>:root{--brand:#224433}body{font-family:Arial}</style><h1>Równo</h1><p>Proste planowanie zadań dla małych zespołów.</p>. Odróżnij to, co widać w źródle, od swoich propozycji. Nie zgaduj praw do logo ani fontów.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "pipeline-core",
+                "research-evidence"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H03",
+      "title": "Dated placement card separates prepared and published",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Przygotuj strukturę karty dostawy dla płatnej reklamy wideo TikTok. Nie masz teraz dostępu do internetu ani konta publikacji. Wpisz niepotwierdzone parametry jako Unknown. Czy przygotowany plik albo potwierdzenie uploadu oznacza, że reklama jest już opublikowana?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "delivery-documentation",
+                "research-evidence"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "H04",
+      "title": "Accessibility evidence does not certify missing modalities",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam tylko raport kontrastu jednej stopklatki z rolki: 7:1. Czy to wystarczy, żeby uznać całą rolkę z napisami i lektorem za dostępną? Wymień najbliższe potrzebne dowody i czego jeszcze nie można potwierdzić. Nie mam tu pliku wideo ani audio.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "output-critic-iteration",
+                "caption-studio"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

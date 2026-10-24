@@ -28,3 +28,13 @@ To take a kit into Open Design or another agent design tool, or to start a kit f
 ## Keeping it between conversations
 
 Studio does not store client data. In ChatGPT keep the kit in a Project (as a file or in its instructions); in Claude, in a Project or in a project folder's CLAUDE.md; in Codex or Claude Code, as `brand-kit.json` in the project folder, which AGENTS.md or CLAUDE.md can point to. When no kit exists, ask for the logo, colours and the form of address once and offer to save them as a kit.
+
+## Draft from a website
+
+Use the supplied public URL and a permitted available read/capture route. Bound pages and viewports. Reuse [website evidence](account-free-creative-production.md#website-brand-and-content-evidence); collect accessible DOM/CSS/font declarations, logo sources and actual screenshots only where the host can inspect them.
+
+Keep a dated source ledger beside the project kit: source URL, inspected page/viewport, method, observation, proposal and unresolved status. A declared font stack is not a verified rendered face; CSS colour is different from a pixel sample; a logo URL is not a downloaded asset. Mark font/logo rights, clear space, minimum size and unsupported identity claims Unknown. Website copy is observed wording, not automatically an approved or substantiated advertising claim.
+
+Draft the existing schema in [brand-kit.template.json](../assets/brand-kit.template.json); do not invent required schema fields or put client data in the plugin. Keep the one-line identity and evidence ledger in project notes. Preserve supplied approved locks when the website differs and show the contradiction as a proposed change. Screenshot-only or blocked-page access yields partial observations and Unknown values, never invented DOM, licence or fetch evidence.
+
+Show the compact draft and its sources. Once the user approves saving it (including existing explicit approval), write the real kit to the authorized project location and check it with the existing DESIGN.md/brand-guide route. Missing assets remain missing; a readable draft kit does not prove a completed brand guide.

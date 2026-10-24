@@ -6,7 +6,7 @@ Rules that change what a Polish or EU advertisement, post, label or landing page
 
 ## How to use it
 
-When copy or a graphic contains one of the triggers below, add the rule to the [claim ledger](../../ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md#copy-and-claim-ledger) row as `flag`, `compliant wording drafted` or `needs counsel`, with the snapshot date. Within 90 days of the snapshot date it satisfies the research trigger for these rules in Quick mode; a status marked *changing* needs a fresh check before a final.
+When copy or a graphic contains one of the triggers below, add the rule to the [claim ledger](../../ecommerce-campaign-strategy-director/templates/ecommerce-campaign-strategy-pack.md#copy-and-claim-ledger) row as `flag`, `compliant wording drafted` or `needs counsel`, with the applicable row's verification status and date. Only a row explicitly verified against its source within the last 90 days can satisfy that rule's research trigger in Quick mode. The document date alone is not evidence: rows marked *general knowledge*, unchecked or without a verification date require a fresh check when triggered. A status marked *changing*, a paid final or a rule outside this snapshot also needs a fresh check.
 
 ## Rules
 

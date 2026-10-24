@@ -107,3 +107,7 @@ The pattern behind these: reproduce first, change the smallest text the model re
 - **Codex.** A shell host: run `node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs` and `bash scripts/check_all.sh` before every push; you can try extension installs for real (record `observed`) and run the motion routes end to end. Releases use `scripts/release.py prepare` then `publish`; never force-push, never delete a package path.
 - **ChatGPT Work.** Plugin Creator updates the hosted copy from a pinned commit (`CHATGPT_UPDATE.md`); it only adds and overwrites files. The sandbox runs Python and, when the check finds them, HyperFrames for the session; it cannot run local MCP servers or GPU voice engines. Report findings from real use with the reply, the host and the version, so another surface can reproduce them.
 - **All surfaces.** Read the ledger and Git history first, record the baseline SHA, add a ledger entry per change, write `synchronized` only with readback evidence, and keep this roadmap current when the direction changes.
+
+## Owner handover continuation, 2026-10-24
+
+The authorized continuation applies the [28 audited repairs and four reference workflows](audit-repairs-and-handover-2026-10-24.md), preserving 37 owners after bounded mixed-routing measurement. Hallmark is an optional complete native design companion with narrow Studio routing. The [full naming list and five future companion plans](handover-development-proposals-2026-10-24.md) are ready for owner selection; none is auto-installed or renamed by this proposal.

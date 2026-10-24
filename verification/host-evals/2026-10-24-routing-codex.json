@@ -1,0 +1,926 @@
+{
+  "client": "Codex CLI, fresh ephemeral sessions, source candidate read-only evaluation",
+  "source_version": "1.125.2 + working candidate",
+  "requested_model": "gpt-6-astra",
+  "effort": "high",
+  "observed_model": "not exposed by JSON events",
+  "installed_client_behavior": "NOT_RUN: source files explicitly supplied as candidate",
+  "date": "2026-10-24",
+  "cases": [
+    {
+      "id": "M14",
+      "verdict": "PASS",
+      "primary_owner": "copy-voice",
+      "supporting_owners": [
+        "humanizer"
+      ],
+      "read_owners": [
+        "copy-voice",
+        "humanizer"
+      ],
+      "reply": "Zapal lawendę. Świeca sojowa o zapachu lawendy, 200 g, 40 godzin palenia.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "copy-voice",
+              "humanizer"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['copy-voice', 'humanizer']; expected one of ['copy-voice', 'humanizer']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 100593,
+        "cached_input_tokens": 82048,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 521,
+        "reasoning_output_tokens": 32
+      },
+      "seconds": 21.5,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "4b4ed9c252c8487d020551251bdfb53046ae671a11c12656dec12f15ef9da3e0",
+          "output_sha256": "fe889e533cfc158aa94ae80c1f4834bdda45272c22674692b38353b6fb13063b"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "humanizer"
+          ],
+          "command_sha256": "706932c2bccc681b94d82607b7a0fd577a3315c6a7756a7aebc78a8a2a6e99e4",
+          "output_sha256": "d870a7fddef9b2013b0d1295b246fb91b30806f18c60ef8d3c2318597f9b8528"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "copy-voice"
+          ],
+          "command_sha256": "175332fb8a3b83030190174eeaa5b76b3300d9be8ff48819bca99582150975da",
+          "output_sha256": "f03530ef12e822fc1d1b0f0559da4ee1c65c2af1b07d7319398c83d049004e5e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "ae460808ceb48d0c30b437a4071d23d3680aa9adb13f6e5d7a17358aacffbe1c",
+          "output_sha256": "943633d386325bd7ef372ae94d2e3019baf866ae51e5ce7b2256bd3142e9e88e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "d947fc62e10d1ca559f15f0e85ab081ef65395ed8ad3a3488802511a18eea81e",
+          "output_sha256": "c15f9cd879b61e3e646cdf18916b8c901d1a6e210518840d70a4d61e08ebbe00"
+        }
+      ]
+    },
+    {
+      "id": "M15",
+      "verdict": "PASS",
+      "primary_owner": "humanizer",
+      "supporting_owners": [],
+      "read_owners": [
+        "copy-voice",
+        "humanizer"
+      ],
+      "reply": "„Wspieramy małe firmy w prowadzeniu księgowości”.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "workflow-orchestrator",
+              "humanizer",
+              "copy-voice"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['copy-voice', 'humanizer']; expected one of ['workflow-orchestrator', 'humanizer', 'copy-voice']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 123688,
+        "cached_input_tokens": 99200,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 448,
+        "reasoning_output_tokens": 33
+      },
+      "seconds": 20.7,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "7075c6eb514a5976e2b722074b33a8f8e447730a1f4a7f48615cc4efcef50df9",
+          "output_sha256": "956a466778252ae0dfadc7b329f0a8d21ab4abf3ab5449e2e9e94dd0977c5be1"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "humanizer"
+          ],
+          "command_sha256": "706932c2bccc681b94d82607b7a0fd577a3315c6a7756a7aebc78a8a2a6e99e4",
+          "output_sha256": "d870a7fddef9b2013b0d1295b246fb91b30806f18c60ef8d3c2318597f9b8528"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "copy-voice"
+          ],
+          "command_sha256": "175332fb8a3b83030190174eeaa5b76b3300d9be8ff48819bca99582150975da",
+          "output_sha256": "f03530ef12e822fc1d1b0f0559da4ee1c65c2af1b07d7319398c83d049004e5e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "2edd5dc878d6a2e33cb9139053c8d54cb31c756a7562b5e96a2ad9eecc52f944",
+          "output_sha256": "15f4596d3c783d96501c70bb73219f0f40042a52e6d846fadc5bf0a7aba3f5d4"
+        }
+      ]
+    },
+    {
+      "id": "M16",
+      "verdict": "PASS",
+      "primary_owner": "screenplay-story-architect",
+      "supporting_owners": [
+        "storytelling"
+      ],
+      "read_owners": [
+        "screenplay-story-architect",
+        "storytelling"
+      ],
+      "reply": "Brakuje ogniwa między kupieniem kawy a powrotem do mieszkania. Proponuję: klucz zaplątał się w szalik, a bohater odkrywa go, kiedy zdejmuje szalik, żeby usiąść z kawą. Zachowujemy trzy elementy historii i pokazujemy przyczynę rozwiązania.\n\nScena na około 20 sekund — proponowany rytm:\n\n| Czas | Obraz | Dialog i dźwięk |\n|---|---|---|\n| 0–5 s | Przed drzwiami mieszkania bohater przeszukuje kieszenie. Zerka na kawiarnię obok. | BOHATER: „No pięknie. Gdzie klucz?” |\n| 5–10 s | W kawiarni płaci telefonem. Baristka podaje kawę. | BOHATER: „Jedną kawę. Muszę pomyśleć.” BARISTKA: „Proszę.” |\n| 10–15 s | Siada przy stoliku. Zdejmuje szalik; z jego luźnego splotu wypada klucz. Bohater zatrzymuje go dłonią na blacie. | Brzęk. BOHATER: „A ty tutaj.” |\n| 15–20 s | Z kawą na wynos wraca pod swoje drzwi. Otwiera je odnalezionym kluczem i wchodzi. | Szczęk zamka. Ciche westchnienie ulgi. |\n\nKawa daje mu powód do zatrzymania się, a zdjęcie szalika prowadzi do odnalezienia klucza.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "screenplay-story-architect",
+              "storytelling"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['screenplay-story-architect', 'storytelling']; expected one of ['screenplay-story-architect', 'storytelling']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 98697,
+        "cached_input_tokens": 80512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1098,
+        "reasoning_output_tokens": 248
+      },
+      "seconds": 42.3,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "75bb7e256189dc580ab3613a14a83820efcd557c3578e2b990f52e75c11dc04e",
+          "output_sha256": "d20e3f5d91db01278db475a25f724f214f5ce83672f3aa68a173b62115cb11e6"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "storytelling",
+            "screenplay-story-architect"
+          ],
+          "command_sha256": "f69aa5ffea4e118110c859534a38d68cd1812d8333729a9a34210812ef2f025a",
+          "output_sha256": "0f1aa0385005631a17ba3db2a74bf13fd2b785ec42a7397661da681dff829aa9"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "df13addbaa1bc232b0bd7cbe9dfa1fa14a3ba07acd8761329af765a9063f8d1c",
+          "output_sha256": "9b52f1c61ca0fc9ad3b318e9986786a4c6f3dec6ccb0fd2ab691b0b69f648ffd"
+        }
+      ]
+    },
+    {
+      "id": "M17",
+      "verdict": "PASS",
+      "primary_owner": "storytelling",
+      "supporting_owners": [],
+      "read_owners": [
+        "storytelling"
+      ],
+      "reply": "Wklej zaakceptowaną historię. Sprawdzę wyłącznie czytelność związków przyczynowo-skutkowych i wskażę ewentualne luki wraz z krótkim uzasadnieniem. Zachowam zatwierdzoną historię, bez przepisywania scenariusza.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "storytelling"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['storytelling']; expected one of ['storytelling']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 119768,
+        "cached_input_tokens": 105344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 593,
+        "reasoning_output_tokens": 55
+      },
+      "seconds": 26.2,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "75bb7e256189dc580ab3613a14a83820efcd557c3578e2b990f52e75c11dc04e",
+          "output_sha256": "67f51d8e04eed82feae22311b9c70027f1f2a0cb1e4de0b5d94e0d0f05fce68a"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "storytelling"
+          ],
+          "command_sha256": "65dbb7278074568920a56455399f8ecbdf5e13ed8b875463c5a02d04e9e389a3",
+          "output_sha256": "0b910acc8b982aadaf1dbb83d7378540812baf83664603e799799c70299f6d9d"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "ae460808ceb48d0c30b437a4071d23d3680aa9adb13f6e5d7a17358aacffbe1c",
+          "output_sha256": "943633d386325bd7ef372ae94d2e3019baf866ae51e5ce7b2256bd3142e9e88e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "72f3644dfaa49ef5ab7bbaab5372287f116b3b808d09090e7dd2eff348b062f6",
+          "output_sha256": "5581414eec2d9ced78934bd261c4409defe8d5bce2daeab4ee0bc96b82e1cb36"
+        }
+      ]
+    },
+    {
+      "id": "M18",
+      "verdict": "PASS",
+      "primary_owner": "ecommerce-campaign-strategy-director",
+      "supporting_owners": [],
+      "read_owners": [
+        "commercial-video-campaign-director",
+        "commercial-visual-campaign-director",
+        "ecommerce-campaign-strategy-director",
+        "marketing"
+      ],
+      "reply": "Oprę strategię sprzedaży na istniejącym pozycjonowaniu i wyglądzie marki. Ustalimy odbiorców karnetu, argument zakupu, drogę od reklamy do płatności oraz sposób mierzenia sprzedaży. W planie przypiszemy osobne zadania reklamie wideo i plakatowi, zachowując wspólny przekaz. Na tym etapie pozostajemy przy strategii.\n\nJak wygląda oferta nowego karnetu — co obejmuje, ile kosztuje i przez jaki czas można go wykorzystać?",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "ecommerce-campaign-strategy-director"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['commercial-video-campaign-director', 'commercial-visual-campaign-director', 'ecommerce-campaign-strategy-director', 'marketing']; expected one of ['ecommerce-campaign-strategy-director']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 105062,
+        "cached_input_tokens": 78336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 641,
+        "reasoning_output_tokens": 105
+      },
+      "seconds": 27.3,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "59a9a3942e3f70c65e5287187046d3499e8f4297298db869ea79e1bba4b9dedb",
+          "output_sha256": "718e87fbd6fe3bb8b255686a9d2cc8ab3e01c5eab0e6e569c4608aebbae36a76"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "marketing"
+          ],
+          "command_sha256": "88934771b35ecd020f55ed82ce4c4f5469ef81741f1de3906d4ebb6dca94e926",
+          "output_sha256": "654679f6d564b02e706e5df97baab983ec5c7d317d2ed2de04b937a50c028cbf"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "command_sha256": "879424905ad9da1ffe4c9c403b92fde4d915f90695ed8b1216109ed011654f80",
+          "output_sha256": "92279f1ace107636bb48b106b909f03c6fb1dda7244fc5678fe8e2939e14f885"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "commercial-visual-campaign-director"
+          ],
+          "command_sha256": "526bfa13aa602c86ef7d0f4cb481b3141f3df3615de189862be71e66fa604bb2",
+          "output_sha256": "3e57b726205e7c14e2197f5be10ee280d07ec5437cb135eecb47d3fa74b8b092"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "commercial-video-campaign-director"
+          ],
+          "command_sha256": "0ca69e3e1be4236c416651928c6e97986a36062b324ff36c88485a9789d75bc7",
+          "output_sha256": "92ee32ae895d8057f67bca97177b66a3868da8210dda8ab7c4d9b39b32712e6e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "ae460808ceb48d0c30b437a4071d23d3680aa9adb13f6e5d7a17358aacffbe1c",
+          "output_sha256": "943633d386325bd7ef372ae94d2e3019baf866ae51e5ce7b2256bd3142e9e88e"
+        }
+      ]
+    },
+    {
+      "id": "M19",
+      "verdict": "PASS",
+      "primary_owner": "brief-architect",
+      "supporting_owners": [
+        "marketing",
+        "workflow-orchestrator"
+      ],
+      "read_owners": [
+        "brief-architect",
+        "marketing",
+        "workflow-orchestrator"
+      ],
+      "reply": "Zaczniemy od ustalenia celu i odbiorców, a potem oprzemy film, plakaty i posty na jednej wspólnej idei. Pomogę Ci określić te podstawy krok po kroku.\n\nNa początek: czym zajmuje się marka, dla której przygotowujemy kampanię?\n\nPracujemy nad kampanią; jeśli wolisz poznawać ten proces przez ćwiczenia, możesz przełączyć się na tryb nauki.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "workflow-orchestrator",
+              "marketing"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['brief-architect', 'marketing', 'workflow-orchestrator']; expected one of ['workflow-orchestrator', 'marketing']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 203741,
+        "cached_input_tokens": 152704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 837,
+        "reasoning_output_tokens": 61
+      },
+      "seconds": 30.9,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "770fe7509761132abe49fe62d8a141ae39b4784bbd25cbba411cf25dbfdeaf84",
+          "output_sha256": "8ef6ae72a4869de60d0e7e83089696961acf75b308758777c25c129285e453b9"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "workflow-orchestrator",
+            "brief-architect",
+            "marketing"
+          ],
+          "command_sha256": "466fcd738e5bbc331542ccab2fd4803c219f891d51e7b58f7d6927eb162c3e86",
+          "output_sha256": "5a0aff5d30746864ac0109e9cad3c303aa1432fd985b695910ced53b69ebba5d"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "9a166d9a393ef05e89880ee0a5b1415b92f25a71edabfd1839aa074431af4ffe",
+          "output_sha256": "46748960db0f6578f62908136b5cab3ecb43e6b46a4e77fdd06a7ff7ce4f6d10"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "29d9be1e1e1c2d8aeefa787c897e07015a5d099be577a6cbc8fdbe0da08e0528",
+          "output_sha256": "b733fa23197e81130e1d48c81d5a3ad2081de37554b96b8391165c2f6f0455c7"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "a38b74b8d397635a1515b1129e5d7d544f09a51f1dac7eceede4903759a495a3",
+          "output_sha256": "1a0489bdab72b722304c61ae0aecb850f76f69cce3d283949c8844e347c9b216"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "0021e0546a157f135fc73aee6672ab940f7b323dd58d75f11c01d1703494c950",
+          "output_sha256": "2caa7d010266e6328dbfa9356217fe3f5e9278fc0a7cd5524bdc0ab14f54fa60"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "644d4eea041c416a64e13c63dcbce867ee745b8a196e92be1617ecabd7f2158e",
+          "output_sha256": "48e809c4680219ba88a4a2a7200f3229b6b5afb333642ae92b504f3b910cbda2"
+        }
+      ]
+    },
+    {
+      "id": "M20",
+      "verdict": "PASS",
+      "primary_owner": "instruction-packet-factory",
+      "supporting_owners": [
+        "hipson-adapter"
+      ],
+      "read_owners": [
+        "hipson-adapter",
+        "instruction-packet-factory",
+        "producer-ai-task-builder"
+      ],
+      "reply": "Przygotuję pakiet w formacie Hipson przez Instruction Packet Factory, z wejściem Hipson Adapter.\n\nPakiet: HIPSON-BANNERS-12\nOdbiorca: agent odpowiedzialny za projektowanie grafik statycznych.\nCel: przygotować 12 banerów zgodnych z zatwierdzonym briefem.\n\nWejścia: opis marki i oferty, odbiorcy, lista 12 wariantów i ich wymiarów, zatwierdzone teksty i CTA, logo, materiały źródłowe oraz referencje wizualne. Brakujące dane oznacz jako blokery; nie zgaduj treści oferty.\nWyłączenia: bez publikacji, niezatwierdzonych twierdzeń, płatnej generacji ani przesyłania materiałów do usług zewnętrznych bez odpowiedniej zgody.\nWyniki: banery B01–B12 oraz tabela zawierająca nazwę pliku, wymiary, wariant, użyte źródła i wynik kontroli jakości.\nKryteria odbioru: dokładnie 12 plików, zgodność z ustalonymi formatami i tekstami, czytelność w docelowym rozmiarze, spójność marki, brak ucięć i artefaktów oraz kompletna tabela wyników.\nWarunek stopu: zakończ po spełnieniu wszystkich kryteriów; przy brakującym wejściu lub wymaganej zgodzie zatrzymaj zależny etap i zwróć konkretną listę blokad. Sam pakiet nie uruchamia wykonania.\n\nJakiej marki i oferty dotyczy zestaw?",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "hipson-adapter"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['hipson-adapter', 'instruction-packet-factory', 'producer-ai-task-builder']; expected one of ['hipson-adapter']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 98627,
+        "cached_input_tokens": 82304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 952,
+        "reasoning_output_tokens": 118
+      },
+      "seconds": 29.4,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "1d04bd8a2a390bf16c0e8899effc00bace727edef8dbd54006d0f62e2f61ca08",
+          "output_sha256": "094afa33888016d8fc3f2260f319bad2c3f4d1affbf753075b01f405bb952269"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "hipson-adapter"
+          ],
+          "command_sha256": "632bd6b966ae08abbbb677e6347bd3ec67e60c6b5f666431a8081928d63a2f2c",
+          "output_sha256": "94606f0f76bfe9dff49b6310cb56c727a349de33c7de704904703b6bd698fc6a"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "instruction-packet-factory"
+          ],
+          "command_sha256": "57d9d576b6dace4ec1ae338f4354a831d24088965ee8193f90cc815e8252d41b",
+          "output_sha256": "3ec5b30e34816bc14c15a49f31af72f8add366e7e1dc85fa1a939ac15c9d3a27"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "producer-ai-task-builder"
+          ],
+          "command_sha256": "329c433a1b998fd5514baa7f7f159899cb4c1df213d2725f48d719bb2d85bbb0",
+          "output_sha256": "9269f5ef91a4303401604571e8fb2c4ce80a8f0a649ea8fac5a888868b4ed459"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "ae460808ceb48d0c30b437a4071d23d3680aa9adb13f6e5d7a17358aacffbe1c",
+          "output_sha256": "943633d386325bd7ef372ae94d2e3019baf866ae51e5ce7b2256bd3142e9e88e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "4460fda6bbdac509b6c20884ffd350d9bf52458f12b5af0590f4afd1b509d710",
+          "output_sha256": "52c76b94cd0557f0aaf03bb791b236455e33711c9a6b7b14fbcd65e213616089"
+        }
+      ]
+    },
+    {
+      "id": "M21",
+      "verdict": "FAIL",
+      "primary_owner": "instruction-packet-factory",
+      "supporting_owners": [],
+      "read_owners": [
+        "hipson-adapter",
+        "instruction-packet-factory",
+        "producer-ai-task-builder",
+        "workflow-orchestrator"
+      ],
+      "reply": "Wklej brief, a przygotuję z niego prostą instrukcję gotową do przekazania agentowi: co ma zrobić, z jakich materiałów skorzystać, jakie ma ograniczenia i po czym poznać, że zadanie jest ukończone. Wszystko zwykłym tekstem, bez dodatkowego formatu.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "instruction-packet-factory"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['hipson-adapter', 'instruction-packet-factory', 'producer-ai-task-builder', 'workflow-orchestrator']; expected one of ['instruction-packet-factory']"
+        },
+        {
+          "check": {
+            "no_skills": [
+              "hipson-adapter"
+            ]
+          },
+          "passed": false,
+          "detail": "loaded ['hipson-adapter', 'instruction-packet-factory', 'producer-ai-task-builder', 'workflow-orchestrator']; unexpected ['hipson-adapter']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 105112,
+        "cached_input_tokens": 84864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 476,
+        "reasoning_output_tokens": 9
+      },
+      "seconds": 15.2,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "ee6876fa6296b07bc06034ffdf5a3d3618ed5fc1d8ff356e9ca60e32ad3908d3",
+          "output_sha256": "373eb07b20a2f99b568836c7145e4012ab3e6c3cd50414420792b20682c5776e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "producer-ai-task-builder",
+            "instruction-packet-factory",
+            "hipson-adapter",
+            "workflow-orchestrator"
+          ],
+          "command_sha256": "155824846c19ca58ee2aeee79fef7126ca11880133dfba175a89acc25e8a8e6a",
+          "output_sha256": "1e205c338e350d47cfe1765f5c4d4d28e867a984dc0025d736dde3416f77ace1"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "d4a930013f145417827a96eb9f43264db7fb60b93acbfb85975b2421145427fb",
+          "output_sha256": "943633d386325bd7ef372ae94d2e3019baf866ae51e5ce7b2256bd3142e9e88e"
+        }
+      ]
+    },
+    {
+      "id": "M22",
+      "verdict": "PASS",
+      "primary_owner": "asset-manifest",
+      "supporting_owners": [
+        "delivery-documentation"
+      ],
+      "read_owners": [
+        "asset-manifest",
+        "delivery-documentation"
+      ],
+      "reply": "Zacznę od spisu plików i wersji: oddzielę szkice, duplikaty, materiały z potwierdzoną akceptacją oraz te do wyjaśnienia. Sama nazwa „final” ani najnowsza data nie oznacza zatwierdzenia. Niejasne wersje przedstawię Ci do rozstrzygnięcia, a paczkę dla klienta przygotuję z zaakceptowanych materiałów, ze spisem zawartości i krótką instrukcją użycia. Wskaż folder z plikami i dostępne potwierdzenia akceptacji, np. wiadomość klienta lub listę wybranych wersji.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "asset-manifest",
+              "delivery-documentation"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['asset-manifest', 'delivery-documentation']; expected one of ['asset-manifest', 'delivery-documentation']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 99430,
+        "cached_input_tokens": 83584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 604,
+        "reasoning_output_tokens": 49
+      },
+      "seconds": 23.9,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "72ad17e7aa3a39e767ab4b814527d6b7f3e9605b078b836dc0c1016ded9d5bab",
+          "output_sha256": "9e74ad350904aa06f89b20f7f65a5d14d8cd3b4946c9cfb25ecaa7e5502206cd"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "asset-manifest",
+            "delivery-documentation"
+          ],
+          "command_sha256": "029cdb1b9852ce9868794bff64bda4ae5192cbc84b8b5fb2f430127664f5e2c3",
+          "output_sha256": "521f0c8f1c7be6d321751a3cbaf01fe8d4941c967d1c9c0dcf433f702efd206a"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "aafabbb9c5d500a792aea2938f10cd7e31433359325087820718d3e4609d2a0b",
+          "output_sha256": "87e5b29bba3aca94dac9dde1bdb74ee9ecccb8cc8ba95f9e2b894a529b13b601"
+        }
+      ]
+    },
+    {
+      "id": "M23",
+      "verdict": "PASS",
+      "primary_owner": "delivery-documentation",
+      "supporting_owners": [],
+      "read_owners": [
+        "asset-manifest",
+        "delivery-documentation",
+        "workflow-orchestrator"
+      ],
+      "reply": "Poniżej treść listu przekazania do dopisania:\n\nTemat: Przekazanie materiałów — manifest v3\n\nDzień dobry,\n\ndziękuję za akceptację plików wskazanych w manifeście v3. Niniejszy list odnosi się do zaakceptowanego zestawu; manifest v3 stanowi jego spis i określa przekazywane wersje.\n\nZasady korzystania z materiałów i zakres praw pozostają zgodne z dotychczasowymi ustaleniami.\n\nW razie problemów z dostępem do plików proszę o wskazanie pozycji z manifestu v3.\n\nDziękuję za współpracę!\n[podpis]",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "delivery-documentation"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['asset-manifest', 'delivery-documentation', 'workflow-orchestrator']; expected one of ['delivery-documentation']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 108751,
+        "cached_input_tokens": 84352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 647,
+        "reasoning_output_tokens": 12
+      },
+      "seconds": 21.7,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "a62fa36cf9c53d21aa1149d386980b8c22e8e9c16c647e7d407283d71cfe0307",
+          "output_sha256": "67b084cdd264284822575d3dd1f67ebf73717ab6913ebaedf0c9410754ec83a8"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "delivery-documentation",
+            "asset-manifest",
+            "workflow-orchestrator"
+          ],
+          "command_sha256": "717e2bf948d12926f85997fb66b88e600cff1defb60743d635fc3774299c39e1",
+          "output_sha256": "025662b22e6fda62c27101983396dd947db11b00e9df35bb314ef7dda589eec8"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "939425fbc497e09cce44311e8f4691267aecde687ca266973bc22afabae56aa9",
+          "output_sha256": "6174cb41dafa3b25883f3d0eb892aedc7495d50a73d85ae62e7bbf9d9653940c"
+        }
+      ]
+    },
+    {
+      "id": "M24",
+      "verdict": "PASS",
+      "primary_owner": "opencut-video-studio",
+      "supporting_owners": [
+        "copy-voice",
+        "caption-studio",
+        "audio-production-director"
+      ],
+      "read_owners": [
+        "audio-production-director",
+        "caption-studio",
+        "copy-voice",
+        "opencut-video-studio"
+      ],
+      "reply": "Przygotuję w istniejącym projekcie FrameCut wersje PL i EN: napisy, teksty ekranowe i lektora. Zachowam ujęcia, montaż i długość filmu. Dopasuję oba teksty do obecnego tempa, a napisy zsynchronizuję osobno z każdą wersją lektora. Jeśli obowiązkowy tekst nie zmieści się w czasie, wskażę konkretny fragment do uzgodnienia. Podaj ścieżkę do projektu FrameCut, żebym mógł odczytać aktualne teksty i zapisane ustalenia dotyczące głosu.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "opencut-video-studio"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['audio-production-director', 'caption-studio', 'copy-voice', 'opencut-video-studio']; expected one of ['opencut-video-studio']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 144688,
+        "cached_input_tokens": 114816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 774,
+        "reasoning_output_tokens": 34
+      },
+      "seconds": 27.9,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "39f259dc4afe4a5644ce6613168d4ef4cf1cb1c4221969fd38c4abc89a55cff6",
+          "output_sha256": "a6ca97482a29f304b692cd494e976637151f0777b76e9d718d8a8acff14455f1"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "4f4d8f47abeb1f3a234f30974e68d8a36455292625dbf5da8df66ad8043c2aec",
+          "output_sha256": "37a4e34b150c54890bcf7bf24d4f6cb7c07e1a0811d5da4cd0204625dcd05b5b"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "opencut-video-studio",
+            "caption-studio",
+            "copy-voice",
+            "audio-production-director"
+          ],
+          "command_sha256": "80b40725f9f31a6af7bf2954c00b61e177eb02c762fb586a352dd05b586c5d79",
+          "output_sha256": "0a92b91c748b8c2a3eb97451c5546ca44a0f55d42eb401b4a4107c240a93fbc0"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "caption-studio"
+          ],
+          "command_sha256": "b2240c5c90f34aa0e1f0cfccfdbc49d4eb4ced30dbca42e8849536c072557794",
+          "output_sha256": "b52c3103fd1610a3c1be6d0beb186c17d4f629cf1c91a43331a109830846dfb8"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "copy-voice"
+          ],
+          "command_sha256": "0f661347124fad1587bb6afeacd2bf7011f5ce93984a949d0186f17260e7323a",
+          "output_sha256": "f03530ef12e822fc1d1b0f0559da4ee1c65c2af1b07d7319398c83d049004e5e"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "audio-production-director"
+          ],
+          "command_sha256": "6d621370cbc5f5aaf36769198fcd562c9a62894999fe4560900bf94fc8e685bd",
+          "output_sha256": "61e88ee537d2f95c885bf0a2490fd18497cac89beac3205725dd09311fadb205"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "34717328d300351de72457e9e04ab5172f95cf74274fb964991af97a0e4296a1",
+          "output_sha256": "63058957b794171c253d606d83354ef9c8c135fc97a43a3f3e15cda6f54113c4"
+        }
+      ]
+    },
+    {
+      "id": "M25",
+      "verdict": "PASS",
+      "primary_owner": "image-prompt-architect",
+      "supporting_owners": [
+        "video-prompt-architect"
+      ],
+      "read_owners": [
+        "image-prompt-architect",
+        "video-prompt-architect"
+      ],
+      "reply": "Jaki produkt ma przedstawiać zdjęcie? Wystarczy krótki opis. Przygotuję dwa osobne prompty: do zdjęcia oraz do ożywienia tego samego kadru w filmie. Domyślnie przyjmę realistyczną fotografię studyjną i subtelny ruch kamery, z zachowaniem wyglądu produktu; prompty napiszę po angielsku, bez przypisywania ich do konkretnego generatora.",
+      "checks": [
+        {
+          "check": {
+            "language": "pl"
+          },
+          "passed": true,
+          "detail": "reads as pl"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "image-prompt-architect"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['image-prompt-architect', 'video-prompt-architect']; expected one of ['image-prompt-architect']"
+        },
+        {
+          "check": {
+            "skills_any": [
+              "video-prompt-architect"
+            ]
+          },
+          "passed": true,
+          "detail": "loaded ['image-prompt-architect', 'video-prompt-architect']; expected one of ['video-prompt-architect']"
+        }
+      ],
+      "usage": {
+        "input_tokens": 71610,
+        "cached_input_tokens": 55552,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 449,
+        "reasoning_output_tokens": 46
+      },
+      "seconds": 18.4,
+      "execution_evidence": [
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [],
+          "command_sha256": "72ad17e7aa3a39e767ab4b814527d6b7f3e9605b078b836dc0c1016ded9d5bab",
+          "output_sha256": "8cbd21c170428e079913aed3bcd6342c893ca1607a4507a574e1e073b505c8cc"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "image-prompt-architect"
+          ],
+          "command_sha256": "8574d3df3cdea6d65ad69908aa4015df4d88bf72a268189f12cef13cf2887e81",
+          "output_sha256": "b80a2c0a17dd93c96d2cf2cb0dff0e6e087d6f01a1c124c4d07a0ed5b6e8eac6"
+        },
+        {
+          "exit_code": 0,
+          "read_skill_frontmatter": [
+            "video-prompt-architect"
+          ],
+          "command_sha256": "a01e15317ec96260f53483d2051ed56de3db26809d96b5ce34d91b50931e0541",
+          "output_sha256": "2f82ff35f2adeb0d7522570ade61b41aa43449fc55ff3a0705d88890bc3498d5"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "cases": 12,
+    "strict_pass": 11,
+    "strict_fail": 1,
+    "seconds": 305.4
+  },
+  "limitations": [
+    "This checks source-guided selection, not native Studio discovery or fresh ChatGPT/Work behavior.",
+    "Checks classify successfully read owner SKILL.md files as loaded; deliberate comparison reads can fail no_skills without adopting that route.",
+    "No artistic/media-quality claim and no automatic merge from this bounded sample."
+  ],
+  "manual_review": {
+    "result": "Primary owner and support responsibilities appropriate in all 12 replies. Preserve all 37 skills.",
+    "M21": "Generic packet stays with instruction-packet-factory; hipson-adapter was read for comparison, not adopted as required format. Strict no_skills failure retained.",
+    "M23": "Accepted inventory delivered by delivery-documentation; asset-manifest comparison read does not restart inventory or approval. Checks passed."
+  }
+}

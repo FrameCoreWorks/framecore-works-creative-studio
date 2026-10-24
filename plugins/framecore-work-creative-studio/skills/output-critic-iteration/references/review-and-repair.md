@@ -136,3 +136,17 @@ If only a thumbnail was available:
 “Hierarchia wygląda zgodnie z briefem, ale nie mogę zatwierdzić drobnego tekstu z tego podglądu. Potrzebny jest plik w pełnej rozdzielczości.”
 
 These are teaching examples, not observations about a real file. The final verdict must be grounded in the actual inspected asset. A checklist or status view shows passed, failed or uninspected per criterion for the exact version reviewed; it adds no status that the evidence lacks ([presentation and interaction](../../pipeline-core/references/presentation-and-interaction.md#campaigns-and-qa)).
+
+## Accessibility evidence across deliverables
+
+Use the [W3C WAI media guidance](https://www.w3.org/WAI/media/av/) (checked 2026-10-24) to select applicable caption, transcript, visual-description and player requirements for the actual requested medium. This section coordinates evidence; Output Critic remains the static-image owner.
+
+- For stills/coded pages, inspect meaningful text contrast on the actual backdrop, reading order, size, crop and information conveyed by colour alone. Reuse [craft rules](../../pipeline-core/references/craft-rules.md) and the existing contrast tools.
+- [Caption Studio](../../caption-studio/SKILL.md) checks caption text, speaker changes and necessary non-speech cues, readable holds, segmentation and timing. Marketing supers are not automatically accessibility captions.
+- Route changing backgrounds, flashing/motion and temporal readability to the existing video/motion reviewer. A sampled readable frame cannot pass the whole clip or a flashing check.
+- [Audio Production](../../audio-production-director/references/audio-evidence-and-av-handoff.md) records actual listening scope, intelligibility and supplied measured level targets. A generic loudness number is not proof of clear speech. No listening capability means intelligibility remains unverified.
+- Record file/revision, ranges, viewed/heard/measured evidence, defects and Unknown/NOT_RUN checks. Static contrast does not establish all-frame contrast, hearing, flashing safety or accessibility conformance.
+
+Reuse the existing bounded review and repair budget; preserve accepted unrelated content. Delivery aggregates these results without inventing an overall PASS or a compliance score.
+
+For coded pages using the optional Hallmark companion, apply [its evidence contract](../../static-graphic-design-creator/references/hallmark-native-routing.md): compare preserved behavior, inspect actual viewports and distinguish objective defects from advisory style gates.

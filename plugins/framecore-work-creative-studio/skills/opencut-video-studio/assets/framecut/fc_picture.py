@@ -63,7 +63,7 @@ def decode_command(root, asset, event, fps, frame=None, output=None):
                 f'tpad=stop_mode=clone:stop_duration={decimal(Fraction(2)/fps)}', f'trim=end_frame={event["duration"]}', 'format=rgba']
     if frame is not None:
         filters += [f"select='eq(n,{frame})'"]
-    args += ['-map', f'0:{asset["probe"]["video_index"]}', '-an', '-vf', ','.join(filters), '-vsync', '0',
+    args += ['-map', f'0:{asset["probe"]["video_index"]}', '-an', '-vf', ','.join(filters), '-fps_mode', 'passthrough',
              '-frames:v', str(event['duration'] if frame is None else 1)]
     return args + (['-f', 'rawvideo', '-pix_fmt', 'rgba', 'pipe:1'] if output is None else ['-threads', '1', str(output)])
 

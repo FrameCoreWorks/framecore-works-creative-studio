@@ -90,3 +90,5 @@ The native renderer supports cuts/gaps, explicit crossfades, constant and variab
 Preserve `scripts/edit_export.py` and [editor handoff](references/editor-handoff.md). FrameCut exports native JSON, relink map, CSV and picture EDL for supported cuts; optional official OpenTimelineIO export reports losses and checks library round-trip. Do not claim a named editor import was tested unless it was. Motion/effects remain authored in their contracts or are baked, with that limitation stated. The old [Edit Pack](templates/opencut-edit-pack.md) remains the plan-only handoff.
 
 Never overwrite sources or accepted finals; exclude failed/stale/temporary files from delivery. Keep source/rights uncertainty explicit. Use existing authorization for requested local work; external uploads, paid generation, service registration and publishing require their actual applicable scope. End with what was delivered, what was reviewed, any material limitation and the next useful decision only if one remains.
+
+For requested language variants, preserve the picture lock and use [language versions](references/editor-handoff.md#language-versions).

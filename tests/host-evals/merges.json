@@ -249,6 +249,298 @@
           ]
         }
       ]
+    },
+    {
+      "id": "M14",
+      "title": "Mixed routing: Existing product copy becomes an advertisement and is polished",
+      "turns": [
+        {
+          "prompt": "Przerób opis „Świeca sojowa, lawenda, 200 g, 40 godzin palenia” na krótką reklamę i usuń sztuczny ton. Zachowaj wszystkie fakty.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "copy-voice",
+                "humanizer"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Copy Voice owns new advertisement; Humanizer may polish. Either may enter if it explicitly transfers new-copy authorship. No invented claims or second intake.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M15",
+      "title": "Mixed routing: Vague polish request permits bounded edit or targeted clarification",
+      "turns": [
+        {
+          "prompt": "Mam ten tekst: „Pomagamy małym firmom prowadzić księgowość”. Popraw go.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "workflow-orchestrator",
+                "humanizer",
+                "copy-voice"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "A bounded conservative polish or one short question about intended change; no assumption of campaign strategy, invented benefit or full production. Vague prompt alone is not a misroute.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M16",
+      "title": "Mixed routing: Story logic repair and a scripted scene",
+      "turns": [
+        {
+          "prompt": "Oto historia reklamy: bohater gubi klucz, kupuje kawę i nagle odzyskuje mieszkanie. Napraw logikę i napisz 20-sekundową scenę z dialogiem.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "screenplay-story-architect",
+                "storytelling"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Screenplay owns scene; Storytelling can diagnose logic. Preserve request for actual scene and timing, do not stop at narrative notes.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M17",
+      "title": "Mixed routing: Accepted story needs only a logic check",
+      "turns": [
+        {
+          "prompt": "Historia jest już zaakceptowana. Sprawdź tylko, czy przyczyna i skutek są jasne; nie pisz scenariusza od nowa.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "storytelling"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Storytelling scope; do not regenerate screenplay or reopen approvals.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M18",
+      "title": "Mixed routing: Priced service campaign with downstream video and print planned only",
+      "turns": [
+        {
+          "prompt": "Mamy pozycjonowanie i wygląd marki. Zaplanuj sprzedaż nowego karnetu studia jogi, z reklamą wideo i plakatem; na razie tylko strategia.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "ecommerce-campaign-strategy-director"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Ecommerce strategy coordinates priced offer; reuse approved brand; video/visual downstream work remains planned. No rendering or redundant Marketing re-intake.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M19",
+      "title": "Mixed routing: Mixed campaign with missing audience and goal",
+      "turns": [
+        {
+          "prompt": "Potrzebuję spójnej kampanii marki: film, plakaty i posty. Nie mamy jeszcze określonego odbiorcy ani celu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "workflow-orchestrator",
+                "marketing"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Orchestrator/Marketing resolves missing strategic foundation; limited targeted question before material downstream choices; no arbitrary modality owner taking the whole campaign.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M20",
+      "title": "Mixed routing: Hipson format with generic task-contract fields",
+      "turns": [
+        {
+          "prompt": "Zrób pakiet Hipson dla innego agenta: 12 banerów, wejścia, wyniki, kryteria odbioru i warunek stopu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "hipson-adapter"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Hipson Adapter owns named format; Instruction Packet may provide shared task contract. No two independently conflicting packets.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M21",
+      "title": "Mixed routing: Generic agent handoff explicitly excludes Hipson",
+      "turns": [
+        {
+          "prompt": "Przygotuj zadanie dla agenta z briefu. Nie znam Hipsona i nie chcę dodatkowego formatu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "instruction-packet-factory"
+              ]
+            },
+            {
+              "no_skills": [
+                "hipson-adapter"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Instruction Packet Factory; no forced Hipson conversion or installation.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M22",
+      "title": "Mixed routing: Client bundle with unknown file acceptance",
+      "turns": [
+        {
+          "prompt": "Uporządkuj pliki i przygotuj paczkę dla klienta. Część to stare szkice, nie wiadomo które są zatwierdzone.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "asset-manifest",
+                "delivery-documentation"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Asset Manifest first establishes inventory/approval; Delivery may prepare draft handoff but cannot label uncertain drafts final. No deletion or fabricated archive.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M23",
+      "title": "Mixed routing: Accepted manifest requires only a handoff letter",
+      "turns": [
+        {
+          "prompt": "Klient zaakceptował pliki z manifestu v3. Dopisz list przekazania; niczego ponownie nie sprawdzaj ani nie pakuj.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "delivery-documentation"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Delivery Documentation reuses supplied acceptance; records prior evidence as supplied; no extra QA, new ZIP or claim of fresh verification.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M24",
+      "title": "Mixed routing: Existing FrameCut language variants retain editing ownership",
+      "turns": [
+        {
+          "prompt": "W istniejącym projekcie FrameCut zrób polską i angielską wersję napisów, tekstów ekranowych i lektora. Obraz zostaje ten sam.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "opencut-video-studio"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "FrameCut retains project ownership; Copy Voice language copy, Caption timing, Audio available VO; preserves picture/source revision and declares language-timing dependencies. No default new motion project.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
+    },
+    {
+      "id": "M25",
+      "title": "Mixed routing: Separate image and video prompts",
+      "turns": [
+        {
+          "prompt": "Napisz mi prompt do zdjęcia produktu i osobny prompt, żeby ożywić to zdjęcie w filmie.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "skills_any": [
+                "image-prompt-architect"
+              ]
+            },
+            {
+              "skills_any": [
+                "video-prompt-architect"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Image and Video Prompt remain separate owners/outputs, with handoff of image lock; no merge into a generic FramePrompt owner or invented execution.",
+        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
+      ]
     }
   ]
 }

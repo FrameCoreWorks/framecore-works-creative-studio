@@ -210,7 +210,7 @@ def base_picture(root, project, seq, d, cache):
         items.append((blank(seq["duration"] - end), end, seq["duration"] - end, 0))
     if len(items) == 1:
         return items[0][0]
-    settings = {"items": [(file_hash(p), start, length, overlap) for p, start, length, overlap in items], "fps": str(fps)}
+    settings = {"items": [(file_hash(p), start, length, overlap) for p, start, length, overlap in items], "fps": str(fps), "cfr_crossfade": 1}
     def build(out):
         args, graph = [], []
         for i, (p, _, _, _) in enumerate(items):
@@ -220,7 +220,11 @@ def base_picture(root, project, seq, d, cache):
         for i, (_, start, _, overlap) in enumerate(items[1:], 1):
             label = f"join{i}"
             if overlap:
-                graph.append(f"[{last}][v{i}]xfade=transition=fade:duration={decimal(Fraction(overlap)/fps)}:offset={decimal(Fraction(start)/fps)}[{label}]")
+                # setpts/concat may clear frame-rate metadata in FFmpeg 7. Normalize
+                # both already-timed streams, including a preceding cut, for xfade.
+                graph.append(f"[{last}]fps={fps},settb=AVTB[fadeleft{i}]")
+                graph.append(f"[v{i}]fps={fps},settb=AVTB[faderight{i}]")
+                graph.append(f"[fadeleft{i}][faderight{i}]xfade=transition=fade:duration={decimal(Fraction(overlap)/fps)}:offset={decimal(Fraction(start)/fps)}[{label}]")
             else:
                 graph.append(f"[{last}][v{i}]concat=n=2:v=1:a=0[{label}]")
             last = label

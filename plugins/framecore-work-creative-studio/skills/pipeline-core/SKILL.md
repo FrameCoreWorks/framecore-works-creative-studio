@@ -230,3 +230,5 @@ Recovery assets: [checkpoint state](assets/project-state.md) and [paste-ready re
 ## Provider setup state
 
 Use [provider setup](../tool-routing-cost/references/provider-setup.md) for optional post-install choices and host-aware connection planning. Keep directory presence, installed/selected state, authentication, billing, schema and task permission independent. The user's account and tool preferences remain private; shared package defaults contain no personal provider state. An instruction-only Studio install is complete without a provider.
+
+When a user asks to capture their website identity, use [a draft brand kit from a website](references/brand-kit.md#draft-from-a-website), preserving project approval and evidence.

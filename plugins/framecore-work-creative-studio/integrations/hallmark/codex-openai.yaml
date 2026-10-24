@@ -1,0 +1,10 @@
+interface:
+  display_name: "Hallmark"
+  short_description: "Design skill. Pages that look made, not generated."
+  default_prompt: "Use $hallmark to design a landing page for my product."
+
+policy:
+  allow_implicit_invocation: true
+
+dependencies:
+  tools: []

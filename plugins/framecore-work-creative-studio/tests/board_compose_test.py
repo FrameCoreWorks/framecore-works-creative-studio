@@ -74,5 +74,22 @@ class Typesetting(unittest.TestCase):
         self.assertEqual(board_compose.keep_together('ręcznie, z dala i w lesie 20 zł'), 'ręcznie, z dala i w lesie 20 zł')
 
 
+class LongTokenWrapping(unittest.TestCase):
+    def test_every_intermediate_token_is_split_without_losing_letters(self):
+        import ast
+        from types import SimpleNamespace
+        tree = ast.parse(TOOL.read_text())
+        function = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == 'wrap')
+        unit = ast.fix_missing_locations(ast.Module(body=[function], type_ignores=[]))
+        namespace = {'keep_together': lambda text: text}
+        exec(compile(unit, str(TOOL), 'exec'), namespace)
+        for text in ('X'*26 + ' next', 'before ' + 'X'*26 + ' next', 'X'*26, 'X'*26 + ' ' + 'Y'*24):
+            lines = namespace['wrap'](text, SimpleNamespace(getlength=lambda s: 10*len(s)), 100)
+            self.assertTrue(all(len(line) <= 10 for line in lines), lines)
+            self.assertEqual(''.join(lines).replace(' ', ''), text.replace(' ', ''))
+        with self.assertRaisesRegex(ValueError, 'glyph'):
+            namespace['wrap']('X next', SimpleNamespace(getlength=lambda s: 10*len(s)), 5)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

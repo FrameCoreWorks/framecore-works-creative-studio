@@ -64,3 +64,5 @@ Use FrameCut's existing transcript, source-clock and timeline contracts. Select 
 - A portrait series mixes daylight and tungsten. Preview one representative of each group plus the clipped-highlight outlier, then apply the accepted recipes from originals. Mark the outlier for individual handling and record what was visually checked.
 - A requested local font lacks `Ł` in the exact headline. Preserve `Ł`, show the limitation and propose an available licensed alternative for approval. Do not silently replace it with `L` or claim a passed specimen before rendering.
 - A text-only host can read a brief but cannot inspect attached media. Return a useful provisional matrix/recipe and the precise missing input; image inspection and rendering remain NOT_RUN. Do not request Adobe sign-in to continue this route.
+
+For a requested reusable identity file, continue to [Draft from a website](brand-kit.md#draft-from-a-website): evidence first, project approval, then the existing kit schema.

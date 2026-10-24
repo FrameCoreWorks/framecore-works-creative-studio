@@ -173,5 +173,43 @@ class Probe(unittest.TestCase):
         self.assertEqual(report['ocr']['status'], 'not_run')
 
 
+class AuditImageCases(unittest.TestCase):
+    def test_displayed_size_respects_exif_and_preserves_stored_metadata(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = pathlib.Path(temp)/'rotated.jpg'
+            image = Image.new('RGB', (135, 108), 'white')
+            exif = Image.Exif(); exif[274] = 6
+            image.save(path, exif=exif)
+            done = subprocess.run([sys.executable, str(TOOL), str(path), '--size', '108x135', '--json'],
+                                  capture_output=True, text=True)
+            self.assertEqual(done.returncode, 0, done.stderr)
+            report = json.loads(done.stdout)
+            self.assertEqual(report['size'], [108, 135])
+            self.assertEqual(report['stored_size'], [135, 108])
+            self.assertEqual(report['exif_orientation'], 6)
+            self.assertEqual(report['format'], 'JPEG')
+
+    def test_rgb_and_grey_png_transparency_is_detected(self):
+        for mode, colour, transparent in [('RGB', (255, 0, 0), (255, 0, 0)), ('L', 0, 0)]:
+            image = Image.new(mode, (32, 32), colour)
+            image.info['transparency'] = transparent
+            self.assertEqual(probe(image)[1]['transparency'], 'used')
+
+    def test_exact_inventory_counts_repeated_short_and_numeric_additions(self):
+        import importlib.util
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        spec = importlib.util.spec_from_file_location('probe_inventory', TOOL)
+        mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+        image = Image.new('RGB', (10, 10), 'white')
+        fake = SimpleNamespace(image_to_string=lambda *a, **kw: 'Buy now now 1 x')
+        with patch.dict(sys.modules, {'pytesseract': fake}):
+            self.assertEqual(mod.ocr_compare(image, 'Buy now')['status'], 'match')
+            exact = mod.ocr_compare(image, 'Buy now', exact=True)
+            self.assertEqual(exact['status'], 'mismatch')
+            self.assertEqual(exact['unexpected_words'], ['now', '1', 'x'])
+            self.assertEqual(mod.ocr_compare(image, 'Buy now now 1 x', exact=True)['status'], 'match')
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

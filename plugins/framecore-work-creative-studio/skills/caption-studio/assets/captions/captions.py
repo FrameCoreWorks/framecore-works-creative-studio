@@ -219,10 +219,23 @@ def load_json(path, key):
 
 def words_from(items):
     out = []
-    for item in items:
-        word = str(item.get('word', item.get('text', ''))).strip()
-        if word:
-            out.append({'word': word, 'start': float(item['start']), 'end': float(item['end'])})
+    for index, item in enumerate(items, 1):
+        if not isinstance(item, dict):
+            raise ValueError(f'word {index}: expected an object')
+        word = item.get('word', item.get('text', ''))
+        if not isinstance(word, str):
+            raise ValueError(f'word {index}: text must be a string')
+        if not word.strip():
+            continue
+        try:
+            if isinstance(item['start'], bool) or isinstance(item['end'], bool):
+                raise ValueError('boolean timestamp')
+            start, end = float(item['start']), float(item['end'])
+        except (KeyError, TypeError, ValueError) as error:
+            raise ValueError(f'word {index}: start and end must be numeric timestamps') from error
+        if not math.isfinite(start) or not math.isfinite(end) or start < 0 or end <= start:
+            raise ValueError(f'word {index}: require finite 0 <= start < end')
+        out.append({'word': word.strip(), 'start': start, 'end': end})
     if any(b['start'] < a['start'] for a, b in zip(out, out[1:])):
         raise ValueError('word timings must be in order')
     return out
@@ -322,7 +335,7 @@ def build_from_segments(items, language='en', max_chars=MAX_CHARS):
 # ---------------------------------------------------------------- motion contract
 
 def frame_at(ms, score):
-    return round(ms * score['fps']['num'] / (1000 * score['fps']['den']))
+    return math.floor(ms * score['fps']['num'] / (1000 * score['fps']['den']) + 0.5)
 
 
 def import_captions(score, cues, prefix='caption', replace=False):
@@ -480,6 +493,9 @@ def main(argv=None):
     k.add_argument('--out', required=True)
     k.add_argument('--prefix', default='caption')
     k.add_argument('--replace', action='store_true')
+    k.add_argument('--words', action='store_true', help='file is timed-word JSON; preserve word timings in the contract')
+    k.add_argument('--profile', choices=PROFILES, default='social')
+    k.add_argument('--language', default='en')
     u = sub.add_parser('burn')
     u.add_argument('video')
     u.add_argument('file')
@@ -519,7 +535,10 @@ def main(argv=None):
         if args.command == 'contract':
             with open(args.contract, encoding='utf-8') as handle:
                 score = json.load(handle)
-            result, warnings = import_captions(score, read_cues(args.file), args.prefix, args.replace)
+            cues = (build_from_words(words_from(load_json(args.file, 'words')), profile=args.profile,
+                                     language=args.language, fps=score['fps']['num'] / score['fps']['den'])
+                    if args.words else read_cues(args.file))
+            result, warnings = import_captions(score, cues, args.prefix, args.replace)
             mark_revised(score, result, warnings)
             with open(args.out, 'w', encoding='utf-8') as handle:
                 handle.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')

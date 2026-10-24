@@ -71,7 +71,7 @@ Use [templates/caption-task-pack.md](templates/caption-task-pack.md) for nontriv
 
 ## Decision Rules
 
-- Prefer word-level timing for karaoke, active-word highlight, bounce, or rapid short-form captions. In a motion contract, the captions tool keeps each cue's word timings when it builds cues from timed words and imports them as `words`; set `tokens.captions.preset` to `active-word` for word boxes with the spoken word highlighted, rendered identically by the player and the Python renderer ([example](../hyperframes-workflow/assets/motion-scenes/examples/social-captions.motion-score.json)).
+- Prefer word-level timing for karaoke, active-word highlight, bounce, or rapid short-form captions. In a motion contract, the captions tool's `contract words.json video.motion.json --words --out video-r2.motion.json` route preserves timed-word JSON as `words` (integer-millisecond normalization); ordinary SRT/VTT imports carry phrase timing only; set `tokens.captions.preset` to `active-word` for word boxes with the spoken word highlighted, rendered identically by the player and the Python renderer ([example](../hyperframes-workflow/assets/motion-scenes/examples/social-captions.motion-score.json)).
 - For a song, take word and line times from [lyric timing](../hyperframes-workflow/assets/motion-sync/README.md#lyric-timing) with the user's lyrics as the truth; it writes SRT and LRC and lists lines to check by ear.
 - Prefer segment-level subtitles for calm editorial work and deterministic sidecar delivery.
 - Prefer a coded-video route when exact repeatable motion and layout are required. For a motion video Studio builds from a contract, import the SRT or WebVTT with the [motion sync tool](../hyperframes-workflow/assets/motion-sync/README.md); `check-score.mjs` then checks order, overlaps and reading time.
@@ -123,3 +123,5 @@ Hand off with:
 ## FrameCut handoff
 
 Use FrameCut’s source-derived caption projection for an edit; retain source word IDs and corrected copy separately. Return caption/QA artifacts with the originating project revision, sequence, format and actual checks; FrameCut reconciles them before insertion. Reuse its working agreement and keep speech/caption languages distinct. Translation needs separate approved copy and phrase timing, not translated words assigned original-language word timestamps or disguised as source-word corrections. Use phrase captions or an explicitly timed specialist composition where the native path cannot represent it. Do not re-time source words twice or claim segment ASR is precise word alignment.
+
+For translated captions use [language versions](../opencut-video-studio/references/editor-handoff.md#language-versions), then record the applicable [accessibility evidence](../output-critic-iteration/references/review-and-repair.md#accessibility-evidence-across-deliverables).

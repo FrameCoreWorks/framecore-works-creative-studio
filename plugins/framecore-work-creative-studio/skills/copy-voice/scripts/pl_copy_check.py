@@ -131,7 +131,9 @@ def length(text):
 
 def channel_report(text, channel):
     spec = LIMITS['channels'][channel]
-    n = length(text)
+    n = (sum(2 if unicodedata.east_asian_width(c) in ('W', 'F') else 1
+             for c in unicodedata.normalize('NFC', text))
+         if channel in ('google-rsa-headline', 'google-rsa-description') else length(text))
     status = 'over_hard_limit' if spec['hard'] and n > spec['hard'] else 'over_visible' if spec['visible'] and n > spec['visible'] else 'ok'
     return {'channel': channel, 'label': spec['label'], 'characters': n, 'visible': spec['visible'], 'hard': spec['hard'], 'status': status, 'checked': LIMITS['checked']}
 
@@ -154,7 +156,7 @@ def main(argv=None):
         text = sys.stdin.read()
     elif Path(args.source).is_file():
         text = Path(args.source).read_text(encoding='utf-8')
-    elif re.fullmatch(r'\S+\.(txt|md|srt|vtt|csv|json|html?)|\S*[/\\]\S*', args.source.strip()):
+    elif args.source.startswith(('/', './', '../', '~/')) or re.fullmatch(r'[^\n]+\.(txt|md|srt|vtt|csv|json|html?)|\S*[/\\]\S*', args.source.strip(), re.I):
         print(f'file not found: {args.source}', file=sys.stderr)   # a mistyped path is not text to check
         return 3
     else:

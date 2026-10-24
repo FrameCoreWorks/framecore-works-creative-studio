@@ -6,7 +6,7 @@ Character limits and sizes for common placements, read on the snapshot date. Pla
 
 ## How to use it
 
-- In Quick mode, a platform or channel trigger for a placement listed here is satisfied by this snapshot while it is less than 90 days old: write to these limits and say once that they were checked on the snapshot date.
+- In Quick mode, reuse a row only when its exact placement/value was confirmed by the cited source within 90 days. Third-party estimates, conflicting values and unestablished limits remain provisional; check them when they materially affect the task. The document date does not verify every row.
 - In Deep mode, for a paid campaign at final, or when the user names a placement, a rule or an ad policy not listed here, check the platform's current page. When a check finds a different value, use it and note it in the project.
 - **Hard** means the platform refuses longer text; **visible** means longer text is cut behind "more" or truncated in a placement. Write the message to the visible length and use the rest for detail.
 
@@ -32,7 +32,7 @@ Character limits and sizes for common placements, read on the snapshot date. Pla
 
 ## Image and video sizes
 
-The static compositor's [presets](../../static-graphic-design-creator/assets/static-render/presets.json) hold the sizes with the same date: feed 4:5 at 1080 × 1350, square 1080 × 1080, Stories and Reels 9:16 at 1080 × 1920, link and landscape 1.91:1 at 1200 × 628, LinkedIn square 1200 × 1200. For 9:16 placements keep text out of the top 14 %, the bottom 35 % and 6 % at each side: sources disagree on Meta's exact zones (some measure 13 % top and bottom for Stories, 23 % to 35 % bottom for Reels), so the most conservative values are used. Check the ad manager's placement preview before a paid final.
+The static compositor's [presets](../../static-graphic-design-creator/assets/static-render/presets.json) hold the sizes with the same date: feed 4:5 at 1080 × 1350, square 1080 × 1080, Stories and Reels 9:16 at 1080 × 1920, link and landscape 1.91:1 at 1200 × 628, LinkedIn square 1200 × 1200. The existing 9:16 presets reserve 14 % at the top, 35 % at the bottom and 6 % at each side as historical planning assumptions from conflicting Meta summaries, not a universal platform safe zone. Use the exact placement's current overlay/preview and CTA/caption configuration for a final; retain Unknown when it cannot be inspected.
 
 ## Sources read on 2026-10-10
 
@@ -41,3 +41,11 @@ The static compositor's [presets](../../static-graphic-design-creator/assets/sta
 - Google Search Central, Control your snippets in search results: <https://developers.google.com/search/docs/appearance/snippet>
 - Allegro developer news (title minimum): <https://developer.allegro.pl/news>
 - Third-party summaries used where no platform page was found: adsuploader.com (Meta aspect ratios), billo.app and adkit.so (Meta safe zones), influee.co and adligator.com (Meta copy lengths), b2linked.com and thebrief.ai (LinkedIn), tlinky.com and lettercounter.org (TikTok)
+
+## Video placement evidence
+
+For a video, extend the project's delivery card, not this snapshot with guessed universal values: platform, organic/paid, exact placement, region/account constraints when relevant, source URL and check date; dimensions/aspect, duration, container/codec/FPS, cover/thumbnail crop, captions/sidecars, text/metadata and safe-area source. For each property distinguish requested, verified and Unknown. A new source supersedes only the placement it actually covers.
+
+Primary entry points checked 2026-10-24: [YouTube upload encoding recommendations](https://support.google.com/youtube/answer/1722171) and [TikTok auction in-feed specifications](https://ads.tiktok.com/resources/help/article/tiktok-auction-in-feed-ads). The first is guidance, not account eligibility; the second distinguishes Spark/Non-Spark and safe areas affected by caption length, dimensions and added formats. Recheck the applicable source at final. Do not generalize either to every short-video placement.
+
+Use the [platform delivery card](../../delivery-documentation/references/production-and-delivery.md#platform-delivery-card). Preserve dated or Unknown status when a source is unavailable; successful file preparation does not establish platform submission or publication.
