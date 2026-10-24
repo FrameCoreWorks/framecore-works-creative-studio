@@ -144,5 +144,115 @@ class Formats(unittest.TestCase):
         self.assertEqual(self.f.Lock.load(self.dir).lexicon_sha256, digest)
 
 
+def write_wav(path, tone_seconds, silence_seconds=0.0, rate=24000, amplitude=12000, channels=1):
+    import array
+    import math
+    import wave
+    frames = array.array('h')
+    for i in range(int(tone_seconds * rate)):
+        value = int(amplitude * math.sin(2 * math.pi * 440 * i / rate))
+        frames.extend([value] * channels)
+    frames.extend([0] * int(silence_seconds * rate) * channels)
+    with wave.open(str(path), 'wb') as out:
+        out.setnchannels(channels)
+        out.setsampwidth(2)
+        out.setframerate(rate)
+        out.writeframes(frames.tobytes())
+    return path
+
+
+class Measure(unittest.TestCase):
+    def setUp(self):
+        import audio
+        self.a = audio
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = pathlib.Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def cues(self, *lines):
+        return write_json(self.dir / 'cues.json', [{'id': i, 'text': 'x', 'max_seconds': m} for i, m in lines])
+
+    def test_trailing_silence_excluded(self):
+        path = write_wav(self.dir / 'a.wav', 1.0, 0.5)
+        self.assertAlmostEqual(self.a.spoken_duration(path), 1.0, delta=0.02)
+        stereo = write_wav(self.dir / 's.wav', 0.5, 0.5, channels=2)
+        self.assertAlmostEqual(self.a.spoken_duration(stereo), 0.5, delta=0.02)
+
+    def test_all_silence_is_silent(self):
+        path = write_wav(self.dir / 'a.wav', 0.0, 1.0)
+        self.assertEqual(self.a.spoken_duration(path), 0.0)
+        self.assertEqual(self.a.verdict(0.0, 2.0), 'silent')
+
+    def test_over_by(self):
+        write_wav(self.dir / 'a.wav', 2.4)
+        write_wav(self.dir / 'b.wav', 1.0)
+        import formats
+        rows = {r['id']: r for r in self.a.measure_all(formats.load_cues(self.cues(('a', 2.0), ('b', 2.0))), self.dir)}
+        self.assertEqual(rows['a']['verdict'], 'over')
+        self.assertAlmostEqual(rows['a']['over_by'], 0.4, delta=0.02)
+        self.assertEqual(rows['b']['verdict'], 'fits')
+
+    def test_missing_file_reported(self):
+        code, out, _ = quiet(runtime.main, ['measure', '--cues', str(self.cues(('a', 2.0))), '--out', str(self.dir), '--json'])
+        self.assertEqual(code, 1)
+        self.assertEqual(json.loads(out)[0]['verdict'], 'missing')
+
+    def test_measure_updates_lock(self):
+        write_wav(self.dir / 'a.wav', 1.0)
+        code, _, _ = quiet(runtime.main, ['measure', '--cues', str(self.cues(('a', 2.0))), '--out', str(self.dir)])
+        self.assertEqual(code, 0)
+        line = json.loads((self.dir / 'narration.lock.json').read_text())['lines']['a']
+        self.assertEqual(line['verdict'], 'fits')
+        self.assertEqual(line['max_seconds'], 2.0)
+
+    def test_8bit_wav_rejected(self):
+        import wave
+        path = self.dir / 'a.wav'
+        with wave.open(str(path), 'wb') as out:
+            out.setnchannels(1); out.setsampwidth(1); out.setframerate(8000); out.writeframes(bytes(800))
+        with self.assertRaises(self.a.AudioError):
+            self.a.spoken_duration(path)
+
+    def stretch(self, *extra):
+        write_wav(self.dir / 'a.wav', 1.0)
+        return quiet(runtime.main, ['stretch', 'a', '--cues', str(self.cues(('a', 0.9))), '--out', str(self.dir), *extra])
+
+    def test_stretch_limit_refused(self):
+        for percent in ('6', '0', '-1'):
+            code, _, err = self.stretch('--percent', percent, '--yes')
+            self.assertEqual(code, 2, percent)
+        self.assertFalse((self.dir / 'a.stretched.wav').exists())
+
+    def test_stretch_without_yes_writes_nothing(self):
+        with mock.patch.object(runtime.subprocess, 'run') as run:
+            code, out, _ = self.stretch('--percent', '4')
+        self.assertEqual(code, 0)
+        self.assertIn('--yes', out)
+        run.assert_not_called()
+        self.assertFalse((self.dir / 'narration.lock.json').exists())
+
+    def test_stretch_without_ffmpeg_one_line(self):
+        with mock.patch.object(runtime.shutil, 'which', return_value=None):
+            code, _, err = self.stretch('--percent', '4', '--yes')
+        self.assertEqual(code, 1)
+        self.assertEqual(len(err.strip().splitlines()), 1)
+        self.assertIn('FFmpeg', err)
+
+    def test_stretch_records_percent(self):
+        def fake_run(argv, **kwargs):
+            write_wav(pathlib.Path(argv[-1]), 0.97)
+            return mock.Mock(returncode=0)
+        with mock.patch.object(runtime.shutil, 'which', return_value='/usr/bin/ffmpeg'), \
+                mock.patch.object(runtime.subprocess, 'run', side_effect=fake_run) as run:
+            code, _, _ = self.stretch('--percent', '3', '--yes')
+        self.assertEqual(code, 0)
+        self.assertIn('atempo=1.03', ' '.join(run.call_args[0][0]))
+        line = json.loads((self.dir / 'narration.lock.json').read_text())['lines']['a']
+        self.assertEqual(line['stretch_percent'], 3.0)
+        self.assertTrue(line['wav'].endswith('a.stretched.wav'))
+
+
 if __name__ == '__main__':
     unittest.main()
