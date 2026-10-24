@@ -3542,3 +3542,24 @@ Cross-host state:
 - GitHub: this commit on `main`
 - ChatGPT Work: not affected (Studio package unchanged); voice-narration not hosted there
 - Codex: not_run
+
+## CC-20261024-05
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `4bf66c3` (main, package 1.128.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.129.0)
+- Package version: 1.128.0 -> 1.129.0
+- Scope: All 703 entries of yihui-dev/awesome-opus5-5-videos (pinned 92aee2f) join the motion prompt library as link-only records with Studio-written mechanism notes, brief types and pinned prompt links; Motion Graphics, Remotion and Storyboard Sequence Architect use them as technique after the idea is chosen. Host eval: OG02, OG03 PASS; OG01 FAIL (storyboard stage defers the lookup). Hosted ChatGPT plugin pending.
+- Shared package changed: yes; 18 changed, 3 added, 0 removed ([scope](../verification/scope-1.129.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 242 Node tests (231 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 9 suite 7, 8 suite 8 (3 skipped; see the suite log for reasons), 23 suite 9, 20 suite 10, 24 suite 11, 21 suite 12, 34 suite 13, 6 suite 14, 10 suite 15, 10 suite 16, 7 suite 17, 31 suite 18, 11 suite 19, 5 suite 20, 17 suite 21, 12 suite 22 (12 skipped; see the suite log for reasons), 2 suite 23, 8 suite 24, 8 suite 25, 17 suite 26, 12 suite 27, 6 suite 28, 4 suite 29, 44 suite 30, 21 suite 31, 26 suite 32, 17 suite 33, 10 suite 34, 5 suite 35, 4 suite 36, 2 suite 37, 2 suite 38, 3 suite 39, 6 suite 40 (6 skipped; see the suite log for reasons), 6 suite 41, 4 suite 42, 8 suite 43, 8 suite 44, 11 suite 45, 6 suite 46, 15 suite 47, 3 suite 48, 12 suite 49, 3 suite 50, 6 suite 51, 4 suite 52, 9 suite 53, 2 suite 54, 2 suite 55, 16 suite 56, 12 suite 57, 54 suite 58, 6 suite 59, 34 suite 60: PASS ([record](../verification/release-1.129.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

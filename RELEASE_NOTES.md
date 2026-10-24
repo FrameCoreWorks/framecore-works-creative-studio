@@ -1,15 +1,5 @@
-# Creative Studio 1.128.0
-
-A new companion plugin, Voice And Narration, makes and measures voice-overs.
-
-## What changed
-
-The separate `voice-narration` plugin (install it from this repository's marketplace next to Studio) takes an approved script with a time limit per line and returns one WAV per line. It runs VoxCPM2 or Voicebox on your own computer, or ElevenLabs through your app's ElevenLabs connector. It applies the project's pronunciation lexicon, measures each take against its limit, and writes `narration.lock.json` for FrameCut or Motion Graphics. Nothing is installed, downloaded, cloned or paid for without your yes. In a cloud session or a phone app it advises against the local engines and offers ElevenLabs or a script handoff. Studio's extension registry lists it, and Audio Production Director's voice engine guide points to it.
-
-## What did not change
-
-Studio's skills, startup, routing, names and paths are unchanged.
-
-## Verification limits
-
-The plugin's 48 launcher tests and 6 package tests and Studio's checks passed. Status and the cloud install refusal were checked in a Claude Code cloud container. Real VoxCPM2 and Voicebox generation, an ElevenLabs read, and fresh ChatGPT, Work, Claude and Codex clients were not run for this release.
+- **Opus 5.5 gallery in the motion prompt library.** Owner request 2026-10-24: Studio draws technique from [awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) in its video workflow. All 703 entries at commit `92aee2f` become link-only records in [`specimen-opus-gallery.json`](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/specimen-opus-gallery.json), each with a Studio-written mechanism note, brief types and a prompt link pinned to the commit; no creator prompt text or media is copied (the MIT licence covers the compilation, the credits leave each prompt with its creator). Owner decision the same day: the gallery supplies technique after the idea is chosen from the brief, never the idea.
+- A brief lookup lists up to three gallery records ranked by the brief's own words; search covers the notes; 16 records carry a `caution` (credential or settings instructions, real people, protected characters). Games and interactive pieces stay opt-in.
+- New [prompt guide](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/README.md#writing-a-prompt-for-a-coded-film) for a coded film, written from reading the whole gallery: source of truth, format, idea and first second, beats, motion values, sound, determinism, things to avoid, review.
+- Motion Graphics, Remotion and Storyboard Sequence Architect link the gallery and the guide; knowledge wiring, library validation and the canonical validator check the records; registry entry `awesome-opus-videos` (knowledge, manual, nothing to install); repository script `scripts/build_opus_gallery_shard.py` with `--check` for refreshes.
+- Headless host evaluation (suite `opus-gallery-pl`, Claude Code, 8 case runs across four records in `verification/host-evals/2026-10-24-1.127.0-opus-gallery*.json`): OG02 (prompt for another coding agent) and OG03 (gallery record with a caution) PASS; OG01 (storyboard-only brief) still FAIL: the model names the gallery but defers the lookup to the build stage. Hosted ChatGPT plugin: `pending`.

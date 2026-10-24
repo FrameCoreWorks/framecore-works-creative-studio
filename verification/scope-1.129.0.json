@@ -1,0 +1,40 @@
+{
+  "version": "1.129.0",
+  "baseline_tag": "v1.128.0",
+  "baseline": "35af152585abe82696c6542aa519e324b9759573",
+  "change_id": "CC-20261024-05",
+  "origin": "cloud-code",
+  "files": 1567,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "scripts/validate-motion-quality.mjs",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/SOURCE-NOTICE.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+    "skills/hyperframes-workflow/references/motion-quality-research.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/knowledge_wiring_test.py",
+    "tests/motion-quality.test.mjs"
+  ],
+  "added": [
+    "integrations/awesome-opus-videos/LICENSE",
+    "integrations/awesome-opus-videos/README.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-opus-gallery.json"
+  ],
+  "removed": [],
+  "unchanged_count": 1546,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "All 703 entries of yihui-dev/awesome-opus5-5-videos (pinned 92aee2f) join the motion prompt library as link-only records with Studio-written mechanism notes, brief types and pinned prompt links; Motion Graphics, Remotion and Storyboard Sequence Architect use them as technique after the idea is chosen. Host eval: OG02, OG03 PASS; OG01 FAIL (storyboard stage defers the lookup). Hosted ChatGPT plugin pending."
+}
