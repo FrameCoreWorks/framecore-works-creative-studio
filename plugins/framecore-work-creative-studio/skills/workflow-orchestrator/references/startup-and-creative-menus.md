@@ -32,7 +32,7 @@ The greeting promises help, not a bundled generation engine. Explain a relevant 
 
 ## Skill search
 
-Option `3` of the welcome is skill search. Close the startup choice and follow the [skill finder](skill-finder.md): one question about what the skill should do, a matching Studio skill first, then the open skills.sh catalog only in Codex or Claude Code. It shows no pace or area menu and installs nothing without an explicit request.
+Option `3` of the welcome is skill search. Close the startup choice and follow the [skill finder](skill-finder.md): one question about what the skill should do, a matching Studio skill first, then the open skills.sh catalog wherever the host can reach it. It shows no pace or area menu and installs nothing without the user's answer.
 
 ## Recommended repositories
 

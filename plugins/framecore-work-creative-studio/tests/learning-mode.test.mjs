@@ -44,7 +44,7 @@ test('learning is integrated with the same 37 skills and unexecuted evidence sco
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical.errors));
   assert.equal(result.canonical.owners, 37);
-  assert.equal(result.canonical.evaluations.learning_scenarios, 27);
+  assert.equal(result.canonical.evaluations.learning_scenarios, 29);
   assert.equal(result.canonical.evaluations.executed, 0);
 });
 

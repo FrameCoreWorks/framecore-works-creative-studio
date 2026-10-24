@@ -1249,6 +1249,87 @@
         "Script commands and their JSON output.",
         "Host and model identity, or Unknown."
       ]
+    },
+    {
+      "id": "LM28",
+      "family": "skill_search",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Zrób mi z tego pliku .psd z warstwami listę eksportu wszystkich grafik do social mediów, z nazwami warstw.",
+      "context": {
+        "thread": "Claude Code with a shell and network; Studio installed; task with a chosen owner and known brief needs layered PSD parsing, which no Studio skill or registry extension covers",
+        "host": "claude-code"
+      },
+      "available_assets": [],
+      "expected_branch": "skill_finder_during_task",
+      "expected_interaction_mode": "undecided",
+      "expected_owners": [
+        "workflow-orchestrator"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "shell": "available",
+        "network": "available"
+      },
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "catalog_lookup_not_public_claim",
+      "checks": [
+        "Continues the task with its owner and searches the catalog once, with English keywords for the missing capability only, without showing the welcome or option 3.",
+        "Shows at most three listed or caution candidates with what each adds to this result, installs, audits and verdict; no blocked candidate.",
+        "Asks one question: use once in this task (listed only), install, or continue without; runs nothing before the answer.",
+        "On use once, runs --read, names the commit and licence, applies only the method and runs none of the skill's commands.",
+        "Records the offer in skill_offers and does not repeat it after a decline in the same scope."
+      ],
+      "required_evidence": [
+        "Complete assistant reply.",
+        "Script commands and their JSON output.",
+        "Host and model identity, or Unknown."
+      ]
+    },
+    {
+      "id": "LM29",
+      "family": "skill_search",
+      "status": "planned",
+      "execution_status": "not_run",
+      "user_request": "Napisz trzy warianty nagłówka do posta na Instagram o nowej kolekcji kubków.",
+      "context": {
+        "thread": "Claude Code with a shell and network; Studio installed; Copy Voice covers the task",
+        "host": "claude-code"
+      },
+      "available_assets": [],
+      "expected_branch": "skill_finder_not_triggered",
+      "expected_interaction_mode": "undecided",
+      "expected_owners": [
+        "workflow-orchestrator"
+      ],
+      "tool_state": {
+        "mode": "planned_fixture_only",
+        "web_search": "available_read_only",
+        "image_generation": "not_available",
+        "video_generation": "not_available",
+        "audio_generation": "not_available",
+        "external_provider_authorized": false,
+        "uploads_authorized": false,
+        "shell": "available",
+        "network": "available"
+      },
+      "research_expectation": "not_triggered",
+      "research_exemption_reason": "catalog_lookup_not_public_claim",
+      "checks": [
+        "Routes to Copy Voice and delivers the headlines.",
+        "Runs no catalog search and offers no external skill, because a Studio skill covers the need."
+      ],
+      "required_evidence": [
+        "Complete assistant reply.",
+        "Tool calls made, showing no find_skills.py run.",
+        "Host and model identity, or Unknown."
+      ]
     }
   ]
 }

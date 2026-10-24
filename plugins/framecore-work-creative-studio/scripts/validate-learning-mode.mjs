@@ -4,7 +4,7 @@ import {isDeepStrictEqual as equal} from 'node:util';
 import {createHash} from 'node:crypto';
 
 export const learningDomainIds = ['static_graphics', 'typography_layout', 'story_screenplay', 'performance', 'character_reference', 'storyboard_sequence', 'cinematography', 'commercial_video', 'music_video', 'copy_voice', 'prompting', 'audio_music', 'editing_motion', 'campaign_workflow'];
-export const learningCaseIds = Array.from({length: 27}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
+export const learningCaseIds = Array.from({length: 29}, (_, i) => 'LM' + String(i + 1).padStart(2, '0'));
 export const canonicalWelcomeSha256 = '4180e4e5d32543a9ca9f6d042dd69dd0b42ab17ba180726dadf71089381acffa';
 export const englishWelcomeSha256 = '3be03cb91e165eb95fd6db33903dcb7effaecdd6fa86f9c37be24e1465a3085e';
 
@@ -85,7 +85,7 @@ export function validateLearningMode(root, packageFiles) {
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Recommended repositories/, /`4` means the recommended repositories list/, /extensions\.md#recommended-repositories-list/, /A `4` from a startup menu displayed before 1\.91\.0/]);
     need('skills/workflow-orchestrator/SKILL.md', [/\*\*Recommended repositories answer \(`4`\)/, /references\/extensions\.md#recommended-repositories-list/]);
     need('skills/workflow-orchestrator/references/extensions.md', [/## Recommended repositories list/, /extensions\.py catalog --host/, /installs nothing/, /How it is installed in the agent/]);
-    need('skills/workflow-orchestrator/references/skill-finder.md', [/Studio's own skills first/, /only in Codex and Claude Code|natively in Codex and Claude Code/, /DO_NOT_TRACK=1/, /never uses `-y`/, /only when the user explicitly asks to install/, /untrusted data/, /`blocked`/, /Do not run the script in a chat sandbox/]);
+    need('skills/workflow-orchestrator/references/skill-finder.md', [/Studio's own skills first/, /wherever the host can reach it/, /DO_NOT_TRACK=1/, /never uses `-y`/, /only when the user explicitly asks to install/, /untrusted data/, /`blocked`/, /present a sandbox copy as installed/, /## 6\. During a task/, /--read owner\/repo\/skill/, /never run its scripts or commands/, /`skill_offers`/]);
     const finder = read('skills/workflow-orchestrator/assets/skill-finder/find_skills.py');
     if (!/DO_NOT_TRACK=1 npx skills add/.test(finder) || /npx skills add[^\n]*(?:\s-y\b|--yes)/.test(finder)) fail('SKILL_FINDER_INSTALL', 'install commands set DO_NOT_TRACK=1 and never auto-confirm');
     need('skills/workflow-orchestrator/SKILL.md', [/eight numbered work areas/, /If an area was already supplied/, /Area `8` follows.*references\/startup-and-creative-menus\.md#motion-graphics-in-creative-work/]);
@@ -130,7 +130,7 @@ export function validateLearningMode(root, packageFiles) {
     }
     const suite = JSON.parse(read('evals/learning-mode-cases.json'));
     if (suite.schema_version !== 1 || !Array.isArray(suite.cases)) throw new Error('Invalid learning scenario suite');
-    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM27 once each');
+    if (!equal(suite.cases.map(c => c.id).sort(), learningCaseIds)) fail('LEARNING_CASE_COVERAGE', 'Expected LM01 through LM29 once each');
     for (const item of suite.cases) {
       if (item.status !== 'planned' || item.execution_status !== 'not_run' || !strings(item.required_evidence) || !strings(item.expected_owners) || !strings(item.checks) || !['learning', 'creation', 'undecided'].includes(item.expected_interaction_mode)) fail('LEARNING_EVAL', String(item.id));
       for (const owner of item.expected_owners ?? []) if (!packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('LEARNING_EVAL_OWNER', item.id + ': ' + owner);

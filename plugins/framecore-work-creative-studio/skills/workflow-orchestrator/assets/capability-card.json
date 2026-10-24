@@ -792,7 +792,7 @@
       "id": "skill_search",
       "executed_by": "studio",
       "owner": "workflow-orchestrator",
-      "does": "Searches the open skills.sh catalog with its security audits and reads a candidate's SKILL.md description; installs nothing",
+      "does": "Searches the open skills.sh catalog with its security audits, reads a candidate's SKILL.md description and, for one-time use of a listed skill, its text at a pinned commit; installs nothing",
       "tools": [
         "skills/workflow-orchestrator/assets/skill-finder/find_skills.py"
       ],
@@ -802,10 +802,11 @@
       ],
       "optional": [],
       "hosts": [
-        "shell"
+        "shell",
+        "code_execution"
       ],
-      "delivers": "Catalog candidates with what they do, installs, audits, verdict and an install command run only on explicit request",
-      "when_missing": "Match the need against Studio's own skills and give the skills.sh link with search keywords; Codex and Claude Code can search and install from it",
+      "delivers": "Catalog candidates with what they do, installs, audits and verdict, offered by request or when a task needs what Studio lacks; one-time use or an install command only on the user's answer",
+      "when_missing": "Search skills.sh with the host's web search (one-time use only when its audits read low or safe), else give the link with search keywords; installing needs Codex or Claude Code",
       "observed": "Container checks against the live catalog only"
     },
     {

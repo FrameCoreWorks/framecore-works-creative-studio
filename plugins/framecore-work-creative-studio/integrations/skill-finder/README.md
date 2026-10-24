@@ -8,15 +8,15 @@ This integration adapts the MIT-licensed `find-skills` method. [The original lic
 
 | Source method | Decision | Studio destination or reason |
 | --- | --- | --- |
-| Trigger on "how do I do X", "find a skill for X" | Adapt | Welcome option `3` and the orchestrator's entry rule |
+| Trigger on "how do I do X", "find a skill for X" | Adapt | Welcome option `3`, the orchestrator's entry rule and, at the owner's request of 2026-10-24, a task that needs what no Studio skill covers (one offer per need) |
 | Understand domain and task first | Adapt | One question about what the skill should do |
 | Check the leaderboard, then `npx skills find` | Adapt with change | Studio's own skills are matched first; the catalog is read through its search endpoint by a standard-library script, no CLI needed |
 | Verify install count, source reputation, stars | Adapt with change | Install count and the catalog's security audits (ath, Socket, Snyk) give a verdict; the whole catalog is searched without an author allowlist, at the owner's request; imitation names are flagged |
 | Present name, installs, command and link | Adopt | Plus what the skill does, read from its own `SKILL.md`, and the audit results |
-| Install with `npx skills add … -g -y` | Reject `-y`; adapt | Only on an explicit request, in Codex or Claude Code; `DO_NOT_TRACK=1`; the CLI keeps its confirmation |
+| Install with `npx skills add … -g -y` | Reject `-y`; adapt | Only on the user's request or accepted offer, in Codex or Claude Code; `DO_NOT_TRACK=1`; the CLI keeps its confirmation. Added: one-time use of a `listed` skill's text at a pinned commit (`--read`), method only, nothing run |
 | CLI telemetry to skills.sh | Opt out | Commands set `DO_NOT_TRACK=1`; the script sends only the search query, the audit request and one GitHub read |
 | `npx skills init` when nothing is found | Defer | Creating skills is outside this route |
 
 ## Evidence scope
 
-The search (`/api/search`) and audit (`/tele/audit`) endpoints are read from the CLI source; skills.sh does not document them publicly, so they may change without notice and the script treats any failure as `offline` or `unchecked`. Checked on 2026-10-10 against the live catalog from a Linux container: searches returned results with installs and audits, and critical-rated skills were blocked. Behavior in Codex, Claude Code and chat hosts is not run.
+The search (`/api/search`) and audit (`/tele/audit`) endpoints are read from the CLI source; skills.sh does not document them publicly, so they may change without notice and the script treats any failure as `offline` or `unchecked`. Checked on 2026-10-10 against the live catalog from a Linux container: searches returned results with installs and audits, and critical-rated skills were blocked. Behavior in Codex, Claude Code and chat hosts is not run. `--read` (2026-10-24) is covered by stand-in tests only; the live catalog was unreachable from the 2026-10-24 container (proxy 403), so its live check is `NOT_RUN`.

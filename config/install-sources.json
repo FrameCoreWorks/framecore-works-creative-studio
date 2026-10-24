@@ -173,8 +173,8 @@
     },
     {
       "path": "evals/learning-mode-cases.json",
-      "bytes": 55891,
-      "sha256": "8a695a4da522e1904a149b8877170b0491e72e3124e19e6a2a8d261dbfd8b63e"
+      "bytes": 59480,
+      "sha256": "3c236394511e7d6e4b3f35b67e2319bbc1b95098dc7dee50d2cc04d6ff1cb5ef"
     },
     {
       "path": "evals/motion-sound-cases.json",
@@ -453,8 +453,8 @@
     },
     {
       "path": "integrations/skill-finder/README.md",
-      "bytes": 2786,
-      "sha256": "1bd1777c5b3b50138ab7703497d1d3f4ffe26e969ba4ac65c89c731c1e2634e0"
+      "bytes": 3179,
+      "sha256": "0ba7ec17db7dbbdf7d28350cdd638d5deca639af90e29a398b9f7eddce50f721"
     },
     {
       "path": "integrations/skill-finder/source-manifest.json",
@@ -2518,8 +2518,8 @@
     },
     {
       "path": "scripts/validate-learning-mode.mjs",
-      "bytes": 21102,
-      "sha256": "d0388d3d84558ff8a19746e34badc4e16a8c287bd1c8872c95256d3dc797aa9d"
+      "bytes": 21173,
+      "sha256": "dba271654cb88551e3763340a36a046d6676110f6c4dd9f459e69ccd0fdf3165"
     },
     {
       "path": "scripts/validate-motion-quality.mjs",
@@ -5523,8 +5523,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 24248,
-      "sha256": "0364770f0ed43b3e2d45819ef86ef697284a8910e79fed0cb5f944e0b1f75d76"
+      "bytes": 24561,
+      "sha256": "91365555ced3f64cfebc92fb2eb84d9b813f230505186d7fbe5119030eb34076"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -7348,8 +7348,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31681,
-      "sha256": "37c3cb2647a874eb2b288993544974f6c0a230f37d2c6b2516135a7498a26543"
+      "bytes": 31726,
+      "sha256": "bb4976e951a0e3998d6c35a84fc5af4783f860033ebc0893ed2d949760a9ef18"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7363,8 +7363,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 54000,
-      "sha256": "158f791eeb5b7000600231b772a0ec3f82ed00bc2d37bec6c409482d2f38ba9f"
+      "bytes": 54195,
+      "sha256": "ea9c52e79b5e1883206434c17c753d7ed49a09cf437a7c70ab07273d8f59bdb0"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7428,8 +7428,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/skill-finder/find_skills.py",
-      "bytes": 11139,
-      "sha256": "d7ec55bba26b3f39aac1d854d856086b7fd279834024c704537148085766b56a"
+      "bytes": 15017,
+      "sha256": "1751794765bcbc13771b6b9c3f4e3881eb5f5855e55d8705561eab9881dc1013"
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
@@ -7523,13 +7523,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
-      "bytes": 5458,
-      "sha256": "7d88f117412e758b85b6ac2773de851a75f0870b9d7ee0db27b54752a4548a36"
+      "bytes": 8115,
+      "sha256": "7e4ea27e0c7d2b0915e18454891fe4e64a30b149f9b4e14099661bab0f64957a"
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
       "bytes": 20122,
-      "sha256": "edba490ba6a7ed006d16152d8317d3f95821d018c95546e92a724cd20ca012ce"
+      "sha256": "6924e7f8d03e566f234cbbb1dafe9422b536691f94aa0aaf14234c4173d70884"
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
@@ -7719,7 +7719,7 @@
     {
       "path": "tests/learning-mode.test.mjs",
       "bytes": 21531,
-      "sha256": "ba36d0b6b0894ac6bc9524bfa7d5df980f36f2bed25af624a5b921d678a184fb"
+      "sha256": "62a8c7e1808bdee5d285cced8b1e0c821983399b6570b355a3d2637dd1d9bee1"
     },
     {
       "path": "tests/logo-design-engine.test.mjs",
@@ -7838,8 +7838,8 @@
     },
     {
       "path": "tests/skill_finder_test.py",
-      "bytes": 6706,
-      "sha256": "eaea21164ebc4dddded615f7d6921822c6e4186a6ebf09d1edb545716bebc402"
+      "bytes": 10261,
+      "sha256": "4bc953f40c604a853deb54812f37e2c0e3b995df2d92e51fec6a2e4d1b80c294"
     },
     {
       "path": "tests/sound_listen_test.py",
@@ -7854,7 +7854,7 @@
     {
       "path": "tests/studio.test.mjs",
       "bytes": 34651,
-      "sha256": "6476595a1bf9e5b6186cdefe6d2f814cfee025e8ebdeeeac1f6df2215538e7e9"
+      "sha256": "c2adcb411aaa96a6b34a8a6734da8918114bf729ba0292b60fccc3ab6b6729e3"
     },
     {
       "path": "tests/svg_wordmark_test.py",
