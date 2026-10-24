@@ -57,10 +57,15 @@ def normalise_colour(value):
 
 
 def _use(prop, selector):
+    page = re.search(r'(^|[\s,])(html|body|:root)\s*($|,)', selector) is not None
     if prop == 'color':
-        return 'link' if re.search(r'(^|[\s,>])a([\s,:.\[]|$)', selector) else 'text'
+        if re.search(r'(^|[\s,>])a([\s,:.\[]|$)', selector):
+            return 'link'
+        return 'body-text' if page else 'text'
     if prop.startswith('background'):
-        return 'button' if BUTTONISH.search(selector) else 'background'
+        if BUTTONISH.search(selector):
+            return 'button'
+        return 'page-background' if page else 'background'
     if prop.startswith('border') or prop.startswith('outline'):
         return 'border'
     return 'other'

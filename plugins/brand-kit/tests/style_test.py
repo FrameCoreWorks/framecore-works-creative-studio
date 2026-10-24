@@ -40,8 +40,10 @@ class Css(unittest.TestCase):
 
     def test_uses(self):
         uses = {(c['hex'], c['use']) for c in self.parsed['colours']}
-        self.assertIn(('#f7f3ec', 'background'), uses)
-        self.assertIn(('#1d1d1b', 'text'), uses)
+        self.assertIn(('#f7f3ec', 'page-background'), uses)
+        self.assertIn(('#1d1d1b', 'body-text'), uses)
+        self.assertIn(('#ffffff', 'background'), uses)
+        self.assertIn(('#1d3b2a', 'link'), uses)
         self.assertIn(('#1d3b2a', 'border'), uses)
         self.assertIn(('#1d3b2a', 'button'), uses)
 
