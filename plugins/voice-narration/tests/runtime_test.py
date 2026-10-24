@@ -254,5 +254,86 @@ class Measure(unittest.TestCase):
         self.assertTrue(line['wav'].endswith('a.stretched.wav'))
 
 
+CLOUD = {'CLAUDE_CODE_REMOTE_ENVIRONMENT_TYPE': 'cloud_default'}
+
+
+class Install(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = pathlib.Path(self.tmp.name) / 'root'
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def run_main(self, argv, env=None):
+        return quiet(runtime.main, argv + ['--root', str(self.root)], env or {})
+
+    def test_install_plan_writes_nothing(self):
+        with mock.patch.object(runtime.subprocess, 'run') as run:
+            code, out, _ = self.run_main(['install', 'voxcpm'])
+        self.assertEqual(code, 0)
+        self.assertIn('voxcpm==2.0.3', out)
+        self.assertIn('--yes', out)
+        self.assertFalse(self.root.exists())
+        run.assert_not_called()
+
+    def test_cloud_plan_leads_with_warning(self):
+        code, out, _ = self.run_main(['install', 'voxcpm'], CLOUD)
+        self.assertEqual(code, 0)
+        self.assertTrue(out.startswith('warning: this is a cloud environment'))
+
+    def test_cloud_install_refused_without_allow_cloud(self):
+        for argv in (['install', 'voxcpm', '--yes'], ['fetch-models', '--yes']):
+            with mock.patch.object(runtime.subprocess, 'run') as run:
+                code, _, err = self.run_main(argv, CLOUD)
+            self.assertEqual(code, 2, argv)
+            self.assertIn('--allow-cloud', err)
+            run.assert_not_called()
+            self.assertFalse(self.root.exists())
+
+    def test_install_runs_pinned_pip(self):
+        with mock.patch.object(runtime.subprocess, 'run', return_value=mock.Mock(returncode=0, stdout='', stderr='')) as run, \
+                mock.patch.object(runtime, 'voxcpm_version', return_value='2.0.3'):
+            code, _, _ = self.run_main(['install', 'voxcpm', '--yes'])
+        self.assertEqual(code, 0)
+        calls = [c[0][0] for c in run.call_args_list]
+        self.assertEqual(calls[0][1:3], ['-m', 'venv'])
+        self.assertEqual(calls[-1][-2:], ['voxcpm==2.0.3', 'soundfile'])
+
+    def test_install_allowed_in_cloud_with_flag(self):
+        with mock.patch.object(runtime.subprocess, 'run', return_value=mock.Mock(returncode=0, stdout='', stderr='')), \
+                mock.patch.object(runtime, 'voxcpm_version', return_value='2.0.3'):
+            code, _, _ = self.run_main(['install', 'voxcpm', '--yes', '--allow-cloud'], CLOUD)
+        self.assertEqual(code, 0)
+
+    def test_failed_pip_is_one_line(self):
+        error = runtime.subprocess.CalledProcessError(1, ['pip'], stderr='ERROR: No matching distribution\n')
+        with mock.patch.object(runtime.subprocess, 'run', side_effect=[mock.Mock(returncode=0), error]):
+            code, _, err = self.run_main(['install', 'voxcpm', '--yes'])
+        self.assertEqual(code, 1)
+        self.assertEqual(len(err.strip().splitlines()), 1)
+
+    def test_fetch_models_needs_install_first(self):
+        with mock.patch.object(runtime.subprocess, 'run') as run:
+            code, _, err = self.run_main(['fetch-models', '--yes'])
+        self.assertEqual(code, 1)
+        self.assertIn('install voxcpm --yes', err)
+        run.assert_not_called()
+
+    def test_fetch_models_plan_and_run(self):
+        code, out, _ = self.run_main(['fetch-models'])
+        self.assertEqual(code, 0)
+        self.assertIn('huggingface.co', out)
+        python = runtime.venv_python(self.root)
+        python.parent.mkdir(parents=True)
+        python.touch()
+        with mock.patch.object(runtime.subprocess, 'run', return_value=mock.Mock(returncode=0)) as run:
+            code, _, _ = self.run_main(['fetch-models', '--yes'])
+        self.assertEqual(code, 0)
+        argv, kwargs = run.call_args[0][0], run.call_args[1]
+        self.assertIn("snapshot_download('openbmb/VoxCPM2')", argv[-1])
+        self.assertEqual(kwargs['env']['HF_HOME'], str(self.root / 'hf-cache'))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -2,10 +2,13 @@
 """voice-narration launcher: local voice-over generation, measurement and a consented, pinned VoxCPM2 install.
 
     python3 runtime.py status [--json]
+    python3 runtime.py install voxcpm [--yes] [--allow-cloud]
+    python3 runtime.py fetch-models [--yes] [--allow-cloud]
     python3 runtime.py measure --cues cues.json --out DIR [--json]
     python3 runtime.py stretch LINE_ID --percent N --cues cues.json --out DIR [--yes]
 
-Standard library only. `status` never writes. Local engines are for the user's own computer; in a cloud environment
+Standard library only. `status` never writes; `install` and `fetch-models` print their plan and write nothing
+without --yes, and in a cloud environment --yes also needs --allow-cloud. Local engines are for the user's own computer; in a cloud environment
 the launcher says so. Any command not listed in COMMANDS is refused before a process starts.
 """
 import argparse
@@ -189,7 +192,82 @@ def cmd_stretch(args, env):
     return 0
 
 
-COMMANDS = {'status': cmd_status, 'measure': cmd_measure, 'stretch': cmd_stretch}
+CLOUD_WARNING = ('warning: this is a cloud environment; the files land on a temporary disk and are lost with the '
+                 'session. Local engines belong on the user\'s own computer.')
+
+
+def engine_env(root, env, offline):
+    result = dict(env)
+    result['HF_HOME'] = str(hf_cache(root))
+    if offline:
+        result['HF_HUB_OFFLINE'] = '1'
+    return result
+
+
+def consent_gate(args, env, plan_lines):
+    """Print the plan and return an exit code when nothing should be written, else None."""
+    cloud = detect_environment(env) == 'cloud'
+    if not args.yes:
+        if cloud:
+            print(CLOUD_WARNING)
+        print('\n'.join(plan_lines))
+        print('Nothing was written. Rerun with --yes to proceed.')
+        return 0
+    if cloud and not args.allow_cloud:
+        print('refused: cloud environment; files would be lost with the session. '
+              'Use ElevenLabs or the script handoff, or add --allow-cloud if the user insists.', file=sys.stderr)
+        return 2
+    return None
+
+
+def one_line(error):
+    detail = (getattr(error, 'stderr', None) or '').strip().splitlines()
+    return detail[-1] if detail else str(error)
+
+
+def cmd_install(args, env):
+    root = args.root
+    code = consent_gate(args, env, [
+        f'plan: create a Python environment in {root / "venv"}',
+        f'plan: pip install {VOXCPM_PIN} soundfile (about 3 GB of Python packages including PyTorch)',
+        'plan: model weights are fetched separately with fetch-models'])
+    if code is not None:
+        return code
+    try:
+        root.mkdir(parents=True, exist_ok=True)
+        subprocess.run([sys.executable, '-m', 'venv', str(root / 'venv')], check=True, capture_output=True, text=True)
+        pip = [str(venv_python(root)), '-m', 'pip', 'install', '-q', '--disable-pip-version-check']
+        subprocess.run(pip + ['--upgrade', 'pip'], check=True, capture_output=True, text=True)
+        subprocess.run(pip + [VOXCPM_PIN, 'soundfile'], check=True, capture_output=True, text=True)
+    except (OSError, subprocess.CalledProcessError) as error:
+        print(f'error: installation failed: {one_line(error)}', file=sys.stderr)
+        return 1
+    print(f'installed: voxcpm {voxcpm_version(root)} in {root / "venv"}; next: fetch-models --yes')
+    return 0
+
+
+def cmd_fetch_models(args, env):
+    root = args.root
+    code = consent_gate(args, env, [
+        f'plan: download the {VOXCPM_MODEL} weights (about 5 GB) from huggingface.co into {hf_cache(root)}'])
+    if code is not None:
+        return code
+    python = venv_python(root)
+    if not python.exists():
+        print('error: VoxCPM2 is not installed here; run: install voxcpm --yes', file=sys.stderr)
+        return 1
+    script = f"from huggingface_hub import snapshot_download; snapshot_download('{VOXCPM_MODEL}')"
+    try:
+        subprocess.run([str(python), '-I', '-c', script], check=True, env=engine_env(root, env, offline=False),
+                       capture_output=True, text=True)
+    except (OSError, subprocess.CalledProcessError) as error:
+        print(f'error: download failed: {one_line(error)}', file=sys.stderr)
+        return 1
+    print(f'fetched: {VOXCPM_MODEL} into {hf_cache(root)}')
+    return 0
+
+
+COMMANDS = {'status': cmd_status, 'install': cmd_install, 'fetch-models': cmd_fetch_models, 'measure': cmd_measure, 'stretch': cmd_stretch}
 
 
 def build_parser(env):
@@ -197,6 +275,15 @@ def build_parser(env):
     sub = parser.add_subparsers(dest='command', required=True)
     p = sub.add_parser('status')
     p.add_argument('--json', action='store_true')
+    p.add_argument('--root', type=Path, default=default_root(env))
+    p = sub.add_parser('install')
+    p.add_argument('engine', choices=['voxcpm'])
+    p.add_argument('--yes', action='store_true')
+    p.add_argument('--allow-cloud', action='store_true')
+    p.add_argument('--root', type=Path, default=default_root(env))
+    p = sub.add_parser('fetch-models')
+    p.add_argument('--yes', action='store_true')
+    p.add_argument('--allow-cloud', action='store_true')
     p.add_argument('--root', type=Path, default=default_root(env))
     p = sub.add_parser('measure')
     p.add_argument('--cues', type=Path, required=True)
