@@ -17,16 +17,26 @@ class UnsafeURL(ValueError):
     pass
 
 
-def check_url(url, resolve=socket.getaddrinfo):
-    """Refuse anything but http(s) to a host that resolves only to public addresses."""
+def check_url(url, resolve=socket.getaddrinfo, proxies=urllib.request.getproxies):
+    """Refuse anything but http(s) to a host that resolves only to public addresses.
+
+    Behind a configured proxy that resolves names itself, an unresolvable name is left to the proxy;
+    literal private addresses and localhost are still refused."""
     parts = urllib.parse.urlsplit(url)
     if parts.scheme not in ('http', 'https'):
         raise UnsafeURL(f'only http and https are fetched: {url}')
     if not parts.hostname:
         raise UnsafeURL(f'no host in {url}')
+    if parts.hostname == 'localhost' or parts.hostname.endswith('.localhost'):
+        raise UnsafeURL(f'{parts.hostname} resolves to a non-public address (loopback)')
     try:
         infos = resolve(parts.hostname, parts.port or (443 if parts.scheme == 'https' else 80))
     except OSError as exc:
+        if proxies().get(parts.scheme):
+            try:
+                ipaddress.ip_address(parts.hostname)
+            except ValueError:
+                return
         raise UnsafeURL(f'cannot resolve {parts.hostname}: {exc}') from exc
     for info in infos:
         address = ipaddress.ip_address(info[4][0].split('%')[0])
@@ -114,7 +124,8 @@ def collect(url, pages=3, fetch=fetch, resolve=socket.getaddrinfo, robots=None):
     limit = max(1, min(int(pages), MAX_PAGES))
     queue, seen, result = [url], set(), {'start_url': url, 'pages': [], 'stylesheets': []}
     sheets = []
-    while queue and len(result['pages']) < limit:
+    read = lambda: sum(1 for p in result['pages'] if p['status'] != 'robots-disallowed')
+    while queue and read() < limit and len(result['pages']) < limit * 4:
         current = queue.pop(0)
         if current in seen:
             continue

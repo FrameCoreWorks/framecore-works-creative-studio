@@ -82,12 +82,17 @@ def _font_role(selector):
     return 'other'
 
 
+ICON_FONTS = re.compile(r'awesome|material (icons|symbols)|icomoon|glyphicons|dashicons|icon', re.I)
+
+
 def families(value):
     out = []
     for part in value.split(','):
-        name = part.strip().strip('"\'').strip()
-        if name and name.lower() not in GENERIC_FONTS and not name.lower().startswith('var('):
-            out.append(name)
+        name = re.sub(r'\\(.)', r'\1', part.strip()).strip('"\'').strip()
+        if (not name or name.lower() in GENERIC_FONTS or ICON_FONTS.search(name)
+                or not re.fullmatch(r"[\w][\w .'-]*", name)):
+            continue
+        out.append(name)
     return out
 
 

@@ -42,6 +42,15 @@ class CheckUrl(unittest.TestCase):
         with self.assertRaises(site.UnsafeURL):
             site.check_url('http://intranet.example/', resolve=lambda *a, **k: [(2, 1, 6, '', ('192.168.1.5', 0))])
 
+    def test_unresolvable_name_left_to_a_configured_proxy(self):
+        def fail(*a, **k):
+            raise OSError('no dns')
+        site.check_url('https://lipa.example/', resolve=fail, proxies=lambda: {'https': 'http://proxy:8080'})
+        with self.assertRaises(site.UnsafeURL):
+            site.check_url('https://lipa.example/', resolve=fail, proxies=lambda: {})
+        with self.assertRaises(site.UnsafeURL):
+            site.check_url('http://localhost:8000/', resolve=public, proxies=lambda: {'http': 'x'})
+
     def test_accepts_public(self):
         site.check_url('https://kawiarnialipa.example/', resolve=public)
 

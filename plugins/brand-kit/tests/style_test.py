@@ -54,6 +54,10 @@ class Css(unittest.TestCase):
         self.assertIn(('Inter', 'button'), families)
         self.assertEqual(self.parsed['font_faces'][0]['family'], 'Fraunces')
 
+    def test_family_cleanup(self):
+        self.assertEqual(style.families('"Source Sans\\ 3", "Font Awesome 7 Free", "x"))", sans-serif'),
+                         ['Source Sans 3'])
+
     def test_empty(self):
         self.assertEqual(style.parse_css('', 'x'), {'colours': [], 'variables': {}, 'fonts': [], 'font_faces': []})
 
