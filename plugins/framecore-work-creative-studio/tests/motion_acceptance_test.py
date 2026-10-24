@@ -542,5 +542,60 @@ class SelectedFormat(unittest.TestCase):
         self.assertEqual(report['evidence_binding']['video_sha256'], hashlib.sha256(video.read_bytes()).hexdigest())
 
 
+class DeliveryPackage(unittest.TestCase):
+    """Ideas from social-motion-agent (MIT), rewritten: package only the exact file the evidence judged."""
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        root = pathlib.Path(self.temp.name)
+        self.contract = root / 'reel.motion.json'
+        self.contract.write_bytes(PROOF.read_bytes())
+        self.video = root / 'reel.mp4'
+        self.video.write_bytes(b'synthetic encoded file')
+        self.script = root / 'reel.render.py'
+        self.script.write_text('# render script\n')
+        self.audit = root / 'audit.json'
+        self.audit.write_text(json.dumps(bound_report({'verdict': 'pass', 'samples': [{'issues': [], 'texts': [
+            {'text': v, 'visible': 'complete'} for v in json.loads(PROOF.read_bytes())['copy'].values()]}]}, self.contract)))
+        self.pack = root / 'delivery'
+        patcher = mock.patch.object(acceptance, 'technical', return_value=acceptance.verdict('pass', ['synthetic probe']))
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def decide(self, *args):
+        return run(acceptance.main, [str(self.contract), '--video', str(self.video), '--text-audit', str(self.audit),
+                                    '--source-review', 'pass', '--composition-review', 'pass', '--pack', str(self.pack),
+                                    '--include', str(self.script), *args])
+
+    def test_blocked_film_is_never_packaged(self):
+        code, result = self.decide('--source-review', 'fail')
+        self.assertEqual((code, result['overall']), (1, 'blocked'))
+        self.assertFalse(self.pack.exists())
+
+    def test_package_holds_the_judged_file_its_evidence_and_a_handoff(self):
+        code, result = self.decide()
+        self.assertEqual(result['overall'], 'deliverable_with_limits')
+        self.assertEqual(code, 3)
+        video_hash = hashlib.sha256(self.video.read_bytes()).hexdigest()
+        self.assertEqual(result['evidence_binding']['video_sha256'], video_hash)
+        manifest = json.loads((self.pack / 'manifest.json').read_text())
+        files = {entry['path']: entry for entry in manifest['files']}
+        self.assertEqual(files['reel.mp4']['sha256'], video_hash)
+        for path in ('reel.motion.json', 'source/reel.render.py', 'evidence/text-audit.json', 'acceptance.json'):
+            self.assertIn(path, files)
+            self.assertEqual(files[path]['sha256'], hashlib.sha256((self.pack / path).read_bytes()).hexdigest())
+        handoff = (self.pack / 'HANDOFF.md').read_text()
+        self.assertIn(video_hash, handoff)
+        self.assertIn('deliverable_with_limits', handoff)
+        self.assertIn('nobody watched the encoded file at normal speed', handoff)
+
+    def test_existing_folder_or_missing_video_is_refused(self):
+        self.pack.mkdir()
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(acceptance.main([str(self.contract), '--video', str(self.video), '--pack', str(self.pack)]), 2)
+            self.assertEqual(acceptance.main([str(self.contract), '--pack', str(self.temp.name) + '/other']), 2)
+        self.assertEqual(list(self.pack.iterdir()), [])
+
+
 if __name__ == '__main__':
     unittest.main()

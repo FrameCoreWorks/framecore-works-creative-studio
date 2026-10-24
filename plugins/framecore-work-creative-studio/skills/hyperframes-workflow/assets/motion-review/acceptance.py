@@ -6,6 +6,7 @@
          [--playback watched|not_watched] [--source-review pass|fail] [--composition-review pass|fail] [--temporal-review pass|fail]
          [--listening heard|not_heard] [--sound-review pass|fail] [--motion-activity activity.json]
          [--copy locked-copy.txt] [--note "who watched what, where"] [--out acceptance.json]
+         [--pack delivery-dir --include video.render.py ...]
 
 A composition outside the contract route (HyperFrames, GSAP, hand-written HTML) has no copy in its contract: give the
 composition with --composition (its text audit must be bound to those bytes), the locked copy with --copy (one entry
@@ -24,6 +25,11 @@ contract-only critique score (any number) never makes C pass, a valid export nev
 recorded normal-speed viewing (and a recorded listening when there is sound: an audio stream is not a listening). Overall: accepted (all four pass), deliverable_with_limits (nothing failed, something
 not verified, listed) or blocked (a verdict failed). Exit code 0 accepted, 1 blocked, 3 with limits, 2 setup problem.
 Python 3.8+, standard library; ffprobe for --video.
+
+--pack writes a delivery folder only when the result is not blocked: the exact video and contract that were judged,
+the evidence under evidence/, --include files (render script, composition sources) under source/, acceptance.json,
+manifest.json (bytes and SHA-256 of every file) and HANDOFF.md (status, verdicts, what was not verified, how to
+revise). A blocked film is never packaged. Idea adapted from social-motion-agent (MIT); no code or media copied.
 """
 import argparse
 import hashlib
@@ -347,9 +353,56 @@ def decide(score, args):
     states = [v['status'] for v in verdicts.values()]
     overall = 'blocked' if 'fail' in states else 'accepted' if all(s == 'pass' for s in states) else 'deliverable_with_limits'
     return {'contract': score.get('id'), 'revision': score.get('revision'), 'format': format_id, 'video': os.path.basename(args.video) if args.video else None,
+            'evidence_binding': {'contract_sha256': contract_hash, 'video_sha256': video_hash},
             'overall': overall, 'verdicts': verdicts,
             'not_verified': [k for k, v in verdicts.items() if v['status'] == 'not_verified'],
             'rule': 'Each verdict stands alone: a passing export or a contract score never passes composition, fidelity or the viewing.'}
+
+
+def pack(result, args, directory):
+    """Copy the judged files into a new delivery folder with a manifest and a handoff note."""
+    import shutil as copier
+    planned = [(os.path.basename(args.video), args.video), (os.path.basename(args.contract), args.contract)]
+    for role, path in (('critique', args.critique), ('review', args.review), ('text-audit', args.text_audit),
+                       ('motion-activity', args.motion_activity), ('locked-copy', args.copy)):
+        if path:
+            planned.append((f'evidence/{role}{os.path.splitext(path)[1] or ".txt"}', path))
+    for path in ([args.composition] if args.composition else []) + list(args.include or []):
+        planned.append(('source/' + os.path.basename(path), path))
+    names = [name for name, _ in planned]
+    if len(set(names)) != len(names):
+        raise ValueError('two packaged files would share a name: ' + ', '.join(sorted({n for n in names if names.count(n) > 1})))
+    if file_hash(args.video) != result['evidence_binding']['video_sha256'] or file_hash(args.contract) != result['evidence_binding']['contract_sha256']:
+        raise ValueError('the video or contract changed while it was judged; run acceptance again')
+    os.makedirs(directory)
+    for name, path in planned:
+        os.makedirs(os.path.dirname(os.path.join(directory, name)) or directory, exist_ok=True)
+        copier.copyfile(path, os.path.join(directory, name))
+    with open(os.path.join(directory, 'acceptance.json'), 'w', encoding='utf-8') as handle:
+        handle.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
+    names.append('acceptance.json')
+    rows = [f"| {key} | {value['status']} |" for key, value in result['verdicts'].items()]
+    limits = [f'- {key}: {finding}' for key in result['not_verified'] for finding in result['verdicts'][key]['findings']]
+    handoff = [f"# Handoff: {result['contract']} revision {result['revision']} ({result['format']})", '',
+               f"Status: **{result['overall']}**", '',
+               f"Delivered file: `{names[0]}`, SHA-256 `{result['evidence_binding']['video_sha256']}`. The evidence in this "
+               'folder covers only these bytes; any change to the video or the contract needs a new acceptance run and a new folder.', '',
+               '| Verdict | Status |', '| --- | --- |', *rows, '',
+               '## Not verified', '', *(limits or ['- nothing: all four verdicts passed']), '',
+               '## Files', '', *[f'- `{name}`' for name in names + ['manifest.json', 'HANDOFF.md']], '',
+               '## How to revise', '',
+               'Start from the contract and the render script or composition in `source/`, change only what was asked, '
+               're-render with the same script, review again and run acceptance with `--pack` into a new folder.']
+    if args.note:
+        handoff[4:4] = [f'Viewing note: {args.note}', '']
+    with open(os.path.join(directory, 'HANDOFF.md'), 'w', encoding='utf-8') as handle:
+        handle.write('\n'.join(handoff) + '\n')
+    names.append('HANDOFF.md')
+    manifest = {'contract': result['contract'], 'revision': result['revision'], 'overall': result['overall'],
+                'files': [{'path': name, 'bytes': os.path.getsize(os.path.join(directory, name)),
+                           'sha256': file_hash(os.path.join(directory, name))} for name in names]}
+    with open(os.path.join(directory, 'manifest.json'), 'w', encoding='utf-8') as handle:
+        handle.write(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
 
 
 def main(argv=None):
@@ -371,14 +424,27 @@ def main(argv=None):
     parser.add_argument('--copy', help='locked copy, one entry per line, for a composition whose contract holds none')
     parser.add_argument('--composition', help='the HTML composition a text audit was run on (HyperFrames, GSAP, hand-written)')
     parser.add_argument('--out', help='write the result here (never overwrites)')
+    parser.add_argument('--pack', help='write a delivery folder (new) with the judged files, evidence, manifest and HANDOFF.md; never for a blocked film')
+    parser.add_argument('--include', action='append', help='a source file to deliver under source/ with --pack (render script, composition assets); repeatable')
     args = parser.parse_args(argv)
     try:
+        if args.pack and os.path.exists(args.pack):
+            raise ValueError(f'Delivery folder already exists: {args.pack}')
+        if args.pack and not (args.video and os.path.isfile(args.video)):
+            raise ValueError('--pack needs the encoded file given with --video')
+        for path in args.include or []:
+            if not os.path.isfile(path):
+                raise ValueError(f'Included file not found: {path}')
         result = decide(load(args.contract), args)
         if args.out:
             if os.path.exists(args.out):
                 raise ValueError(f'Output file already exists: {args.out}')
             with open(args.out, 'w', encoding='utf-8') as handle:
                 handle.write(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
+        if args.pack and result['overall'] == 'blocked':
+            sys.stderr.write('Not packaged: a verdict failed. Fix it, re-render and run acceptance again.\n')
+        elif args.pack:
+            pack(result, args, args.pack)
     except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:
         sys.stderr.write(f'{error}\n')
         return 2

@@ -18,6 +18,7 @@ Read when a film's sound has to be judged, fixed or checked against its picture,
 - **Element pop-ins land 25 to 40 ms after the picture event** when they are fired in a run (about every 200 ms in the studied film).
 - **Not every cut needs a sound.** Six of the eight studied films let music or voice carry the cut rhythm and put designed effects on a few chosen moments. About half the cuts with a sound onset nearby is normal; a sound on every cut is a rhythm of its own and is chosen, not defaulted. Silence between ideas is a tool (the effects-only film dropped to silence a dozen times).
 - **Levels over music:** accents about 13 to 17 dB over the quiet bed between beats, tonal sweeps 7 to 9 dB, a whoosh up to about 20 dB. Over a voice-over, effects stay under the voice; carve with the duck cues.
+- **Supplied library samples** are often mastered to peak near 0 dBFS, so never place one at full level: start about 6 to 10 dB down (a gain of 0.3 to 0.5), and 9 to 12 dB down under a voice-over, then set the level by the targets above. One sound per visual event; the same sample at most twice in a film; never an impact and a riser's end stacked on one frame unless the riser hands over to that impact; leave the key spoken word clear of effects. When an effect is the first thing heard in a passage, it is too loud. Adapted from social-motion-agent's library rules (MIT); no samples are bundled or copied.
 
 ## What designed effects are made of
 

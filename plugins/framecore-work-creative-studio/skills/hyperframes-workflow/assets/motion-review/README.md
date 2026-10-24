@@ -64,6 +64,18 @@ python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/
 
 Overall `accepted` needs all four to pass; `deliverable_with_limits` lists what was not verified; `blocked` names the failure (exit codes 0, 3, 1). It never infers a viewing or a comparison that was not recorded.
 
+### Delivery folder
+
+Deliver a film through `--pack`, so the client gets exactly the file that was judged:
+
+```sh
+python acceptance.py video.motion.json --video video.mp4 --critique critique-r2/critique.json --text-audit audit-r2/text-audit.json \
+  --composition-review pass --playback watched --source-review pass --temporal-review pass --note "owner, phone, 2026-10-24" \
+  --pack delivery-r2 --include video.render.py
+```
+
+It writes a new folder (never an existing one) only when the result is not `blocked`: the video and contract, the evidence under `evidence/`, the `--include` files (render script, composition sources) under `source/`, `acceptance.json`, `manifest.json` with the bytes and SHA-256 of every file, and `HANDOFF.md` with the status, the four verdicts, everything not verified and how to revise. A blocked film is not packaged (exit 1). A `deliverable_with_limits` package is allowed, and its limits are named in `HANDOFF.md` and in the reply. Any change to the video or the contract afterwards needs a new acceptance run and a new folder; the old folder's evidence covers only its own SHA-256. The idea comes from [social-motion-agent](https://github.com/aievolutionpl/social-motion-agent) (MIT); no code or media was copied.
+
 Reports carry an `evidence_binding`: contract ID, revision and SHA-256 of the original JSON bytes. A critique that
 inspected `--video` also records that file's SHA-256. Acceptance rejects a mismatched contract or video; reports without
 a binding leave the affected verdicts `not_verified` and must be rerun. Copying identical files to another path is fine.
