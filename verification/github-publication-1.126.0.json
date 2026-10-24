@@ -33,6 +33,7 @@
   "motion_player_sha256": "06436adb883f08de66d5281d5915ca5eda8f823f5f00da3ee60a4236415e91ad",
   "motion_player_asset_matches_local": true,
   "published_skill_yaml": "PyYAML unavailable; not parsed",
-  "hosted_plugin": "pending (separate guarded update and readback required)",
-  "host_behavior": "NOT_RUN"
+  "hosted_plugin": "synchronized; guarded 1.126.0 save and complete readback, with declared private overlays",
+  "host_behavior": "Codex CLI installed-cache welcome output PASS (catalog registration not proven); ordinary ChatGPT and ChatGPT Work UI NOT_RUN",
+  "hosted_plugin_record": "verification/hosted-sync-1.126.0.json"
 }

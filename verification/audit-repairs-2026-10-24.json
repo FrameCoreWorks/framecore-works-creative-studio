@@ -300,7 +300,34 @@
     "effort": "high",
     "observed_model": "not independently exposed"
   },
-  "full_regression": "PENDING immutable final release-prepare check. Fifth diagnostic run overlaps a reviewed fixture-only isolation edit and is not used as immutable release proof. Prior failures and their resolutions are retained in the local work evidence.",
+  "full_regression": {
+    "status": "PASS",
+    "evidence": "verification/release-1.126.0.json",
+    "execution": "Immutable release-prepare full check, exit 0; prior diagnostic failures and fixes retained locally.",
+    "node": {
+      "tests": 239,
+      "pass": 228,
+      "fail": 0,
+      "skipped": 11
+    },
+    "python": {
+      "tests": 650,
+      "pass": 646,
+      "fail": 0,
+      "skipped": 4,
+      "suites": 58
+    },
+    "github_source_check": {
+      "run_id": 40069342725,
+      "conclusion": "success",
+      "node": {
+        "tests": 239,
+        "pass": 237,
+        "fail": 0,
+        "skipped": 2
+      }
+    }
+  },
   "preserved": [
     "37 skill IDs and paths",
     "protected welcome/menu bytes",
@@ -330,5 +357,6 @@
     "trigger": "sound_listen default-cache test inherited the host configured EARSHOT_NATIVE_ROOT and asserted the wrong default path",
     "scope": "Isolate only that mocked test; configured-root test and production code unchanged",
     "focused_result": "15 sound-listen tests PASS"
-  }
+  },
+  "deployment_evidence": "verification/hosted-sync-1.126.0.json"
 }

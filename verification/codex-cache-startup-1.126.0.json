@@ -1,0 +1,30 @@
+{
+  "version": "1.126.0",
+  "date": "2026-10-24",
+  "client": "Codex CLI, fresh ephemeral read-only session on macOS",
+  "status": "PASS",
+  "scope": "Installed-cache source read and complete Polish welcome output only.",
+  "prompt": "Uruchom FrameCore Works Creative Studio.",
+  "requested_model": "gpt-6-astra",
+  "effort": "high",
+  "observed_model": "Not independently exposed",
+  "usage": {
+    "input_tokens": 166972,
+    "cached_input_tokens": 121728,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1314,
+    "reasoning_output_tokens": 22
+  },
+  "cases": 1,
+  "elapsed_seconds": null,
+  "elapsed_note": "Not separately captured; no elapsed-time estimate asserted.",
+  "reply_sha256": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983",
+  "welcome_asset_sha256": "4180e4e5d32543a9ca9f6d042dd69dd0b42ab17ba180726dadf71089381acffa",
+  "comparison": "Exact after trimming trailing whitespace; reply 2087 and asset 2088 Unicode characters.",
+  "package_read": "Managed Studio 1.126.0 workflow-orchestrator/SKILL.md was read during execution.",
+  "discovery": "The session searched the filesystem. Its first guessed skills/instructions/SKILL.md path failed, then it read the actual orchestrator.",
+  "native_initial_catalog_registration": "NOT_PROVEN",
+  "ordinary_chatgpt_ui": "NOT_RUN",
+  "chatgpt_work_ui": "NOT_RUN",
+  "evidence_events_sha256": "8b816b8526509ccf93141c388f5cb7b26c0dee1344411da901da1484708baef4"
+}

@@ -1,0 +1,173 @@
+{
+  "version": "1.126.0",
+  "date": "2026-10-24",
+  "change_id": "CX-20261024-01",
+  "recorded_by": "Codex desktop",
+  "source_commit": "8d2c3461caa6777d5df22ed28e98ba7020dca24d",
+  "source_tag": "v1.126.0",
+  "source_publication_record": "verification/github-publication-1.126.0.json",
+  "previous_hosted_version": "1.125.2",
+  "previous_release_id": "pluginrel_6adbb7b6512c8191a42ec8f0b3c0f09e",
+  "release_id": "pluginrel_6adc505b3a448191bcb6dc984c701e2c",
+  "scope": "USER",
+  "visibility": "PRIVATE",
+  "identity_preserved": true,
+  "comparison": {
+    "status": "PASS",
+    "expected_files": 1619,
+    "saved_files": 1619,
+    "missing": [],
+    "unexpected": [],
+    "expected_byte_identical": 1618,
+    "json_format_normalization": [
+      ".codex-plugin/plugin.json"
+    ],
+    "content_different": [],
+    "public_files": 1564,
+    "public_byte_identical": 1562,
+    "declared_manifest_overlays": [
+      ".codex-plugin/plugin.json",
+      "plugin.json"
+    ],
+    "public_failed": [],
+    "private_files_preserved": 55,
+    "private_files_failed": [],
+    "claim": "Public bytes match except the two declared App-binding manifest overlays; complete candidate comparison reported separately. File equality does not prove active-client behavior."
+  },
+  "comparison_rules": {
+    "public": "1562 exact bytes; compare the two manifest overlays after removing only plugin.json extensions.com.openai.apps and .codex-plugin/plugin.json apps.",
+    "private": "55 additional saved files preserved byte for byte, including existing PoYo, Sunra API and runtime integrations. No private contents published.",
+    "retired_sunra_mcp": "Absent before and after; not restored.",
+    "candidate": "1618 exact bytes; one .codex-plugin/plugin.json JSON serialization normalization with identical data."
+  },
+  "archives": {
+    "public_zip_sha256": "3921c30d0f8b2c4efcadf5f146ad25fe61c58800d4800d97f8f55d5ddea9f31e",
+    "submitted_zip_sha256": "a6cf7d716da99e55009bd925fce8954984928a8858cb7576f41c2da6dad760fe",
+    "saved_archive_sha256": "5c3e3b3b16fee445fed1a405822e974b2b90fa16385217d5ddd86499b541d3d4",
+    "saved_inventory_sha256": "83dc11acd7d70722eac99cc8a3d04b3f074b649a506a782cb6c7b4ff89119ad7",
+    "inventory_hash_encoding": "SHA256 of UTF-8 JSON file-path/hash map, sort_keys=True, separators=(comma,colon)"
+  },
+  "codex": {
+    "status": "synchronized",
+    "version": "1.126.0",
+    "local_version": "1.126.0",
+    "installed": true,
+    "enabled": true,
+    "refresh": "Supported Codex app-server plugin/list with marketplaceKinds=[created-by-me-remote], forceRefetch=true materialized the managed bundle.",
+    "cache_vs_saved_hosted": {
+      "status": "PASS",
+      "files": 1619,
+      "byte_identical": 1619,
+      "missing": [],
+      "unexpected": []
+    },
+    "config_toml": "Byte-identical to the dated pre-refresh backup; no persistent infrastructure edits.",
+    "startup_record": "verification/codex-cache-startup-1.126.0.json"
+  },
+  "local_runtime": {
+    "status": "LIMITED",
+    "client": "Codex desktop, macOS arm64",
+    "actual_check_date": "2026-10-24",
+    "checker_reported_at": "2026-10-20 is the bundled reference basis, not this execution date.",
+    "command": "Saved cache check_environment.py --update --host codex --json, existing FrameCore media interpreter/environment.",
+    "baseline": {
+      "checked": 59,
+      "ok": 53,
+      "failed": [
+        {
+          "id": "blender",
+          "status": "missing"
+        },
+        {
+          "id": "inkscape",
+          "status": "broken"
+        },
+        {
+          "id": "cairosvg",
+          "status": "missing"
+        },
+        {
+          "id": "cairo",
+          "status": "missing"
+        },
+        {
+          "id": "pango",
+          "status": "missing"
+        },
+        {
+          "id": "python_blender",
+          "status": "missing"
+        }
+      ]
+    },
+    "per_command_library_path": {
+      "setting": "DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib (single command only)",
+      "checked": 59,
+      "ok": 55,
+      "failed": [
+        {
+          "id": "blender",
+          "status": "missing"
+        },
+        {
+          "id": "inkscape",
+          "status": "broken"
+        },
+        {
+          "id": "cairosvg",
+          "status": "missing"
+        },
+        {
+          "id": "python_blender",
+          "status": "missing"
+        }
+      ],
+      "cairo": "1.18.6 loaded",
+      "pango": "1.58.2 loaded"
+    },
+    "blender_app": {
+      "status": "PASS",
+      "method": "Existing Blender.app --background --factory-startup --python-expr; bpy runs inside Blender.",
+      "version": "5.2.0 LTS",
+      "python": "3.13.13",
+      "exit_code": 0,
+      "scope": "Application/import probe only; no production render."
+    },
+    "inkscape_app": {
+      "status": "LIMITED",
+      "checker": "Version command exited -6 with and without host execution permission.",
+      "direct_probe": "Printed Inkscape 1.4.2 (ebf0e940, 2025-05-08) but did not complete; only this owned probe was terminated (exit 143).",
+      "render": "NOT_RUN"
+    },
+    "cairosvg": "Not importable in any of the six existing inspected Python environments, including the bounded library-path check.",
+    "installs_performed": false,
+    "render_tests": "NOT_RUN",
+    "model_downloads": false,
+    "interpretation": "The two bpy inventory failures do not mean the Blender application is missing. Library discovery and application launch are separate from package parity."
+  },
+  "fresh_clients": {
+    "codex_cli_installed_cache_output": "PASS with catalog-discovery limitation; see startup record.",
+    "codex_desktop_native_initial_skill_catalog": "NOT_RUN",
+    "chatgpt_work_ui": "NOT_RUN",
+    "ordinary_chatgpt_ui": "NOT_RUN"
+  },
+  "evidence_files_local_sha256": {
+    "release-prepare.log": "8014f11bbae8543230204362e0420a6ef4f44fb05b4fcb8d6ff7506cc65c9f79",
+    "github-checks-job.log": "d07f4e8bc4328c747e83f8a2b27beb33d45d84ebc172b2ddd21021f6a7abd54a",
+    "github-release-job.log": "6b85c32c5261ed9865121c9615cb57e56789da0c90cb423410c24f609bd75d18",
+    "deployment/hosted-after-comparison.json": "cfbdd4c4722b97876e8b30e842eec8e2a6172d36cede4d0d24bce57184692805",
+    "deployment/codex-cache-after-comparison.json": "aef300bee243a1660080873189abb006abb504e8fa6eb007691fadf6e9a39624",
+    "deployment/codex-installed-studio-after.json": "bc240fb65bc559d71aa1983f784c9d3faa25f37b1c034004c47826b18a52d772",
+    "deployment/codex-runtime-after.json": "7a3d44f085a8b5020156236fcac9b42b724578f5a339d7128c31a84f71e7c689",
+    "deployment/codex-runtime-library-path.json": "c70ce7805fe12f9916e94c5d703ceb25575e8f5745d16a8af3c52be4c3dc4997",
+    "deployment/blender-app-after.log": "17e1e265f0e0f757402ce3c2b4ede3467cbf8a501aa43051530d69fec4859281",
+    "deployment/inkscape-direct-after.log": "361d503bd1a988ddef047371edb9104fc78ce56173ff0a664f6a7de496af90e0",
+    "native-studio-startup/events.jsonl": "8b816b8526509ccf93141c388f5cb7b26c0dee1344411da901da1484708baef4",
+    "native-studio-startup/reply.md": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983"
+  },
+  "limitations": [
+    "Saved plugin and cache equality do not prove an already-running ChatGPT conversation has loaded this release.",
+    "No full 204-case host matrix executed for this release.",
+    "Owner reports use PASS_REPORTED; the measurements here were agent-observed and are not labeled as owner reports."
+  ]
+}
