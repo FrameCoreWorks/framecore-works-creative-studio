@@ -18,15 +18,15 @@
       "name": "earshot-audio",
       "displayName": "Earshot Audio",
       "source": "./plugins/earshot-audio",
-      "description": "Ears and a sound kit for an agent: local listening, measuring and sound effects on cue frames, and soundtracks from licensed recordings (Earshot 0.4.0 by Leon Lin, MIT).",
-      "version": "1.0.7",
+      "description": "Earshot by Leon Lin (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works: ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload.",
+      "version": "1.0.8",
       "category": "productivity"
     },
     {
       "name": "voice-narration",
       "displayName": "Voice And Narration",
       "source": "./plugins/voice-narration",
-      "description": "Measured voice-overs and narration: VoxCPM2 or Voicebox on your own computer, or ElevenLabs through the app's connector.",
+      "description": "Voice-overs and narration from an approved script, measured against each scene's time: VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector. Pronunciation lexicon per project, consent before cloning, a lock file for the mix.",
       "version": "1.0.2",
       "category": "productivity"
     },
@@ -34,7 +34,7 @@
       "name": "brand-kit",
       "displayName": "Brand Kit",
       "source": "./plugins/brand-kit",
-      "description": "A brand kit from your company website: colours, fonts, logo, tone of voice and messaging, kept as revisions per brand, then a plan for a new site, ads or brand development.",
+      "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
       "version": "1.0.1",
       "category": "productivity"
     }

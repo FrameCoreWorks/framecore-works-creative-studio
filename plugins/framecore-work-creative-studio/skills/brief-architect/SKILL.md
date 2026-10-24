@@ -85,7 +85,7 @@ Produce a Brief Contract with:
 
 Review gate: `brief_completeness`.
 
-Hand off to `reference-curator` or `workflow-orchestrator` with:
+Hand off to [Reference Pack Curator](../reference-pack-curator/SKILL.md) (role `reference-curator`) or `workflow-orchestrator` with:
 
 - `brief_contract`
 - `reference_needs`

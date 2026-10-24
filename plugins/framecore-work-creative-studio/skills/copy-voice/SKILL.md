@@ -21,7 +21,8 @@ Use the user’s working language; keep exact copy and requested prompt language
 ## When To Use
 
 Use this skill when the workflow needs written copy, voice, captions, supers,
-dialogue, product text, campaign lines, CTA variants, or tone polish. Use it
+dialogue, product text, campaign lines or CTA variants; polishing existing text goes to
+Humanizer. Use it
 after the brief, audience, claim boundaries, and output format are clear enough
 to write without inventing missing facts.
 
@@ -33,7 +34,7 @@ polish must not silently change selected words.
 
 ## Polish copy and channel limits
 
-For copy in Polish, follow the [Polish copy standard](references/polish-copy-standard.md) (quotes, dashes, no-break spaces, money, dates, time, sentence-case headlines, one form of address; claim a no-break space only when the delivered text really contains U+00A0, checked with the checker on a file; in a chat reply write a note such as „twarda spacja między 199 a zł” instead) and run the [checker](scripts/pl_copy_check.py) on ready-to-use text where code execution exists (pass a file or `-`; a missing file is an error, not a pass): `--fix` applies only typographic fixes, the other findings are decisions. For a named placement, write to the visible length in the [channel specs snapshot](../research-evidence/references/channel-specs-snapshot.md) and check each field with `--channel`. Flag price reductions, paid-content labels, consent text, generated realism and regulated claims in the claim ledger with the [marketing rules snapshot](../research-evidence/references/marketing-rules-snapshot.md). Deliver a multi-field set as a [Copy Pack](assets/copy-pack.template.md). For messages to a client at each project step (questions, offer, concepts, feedback summary, files, payment reminder, request for a testimonial) start from the [client email kit](assets/client-emails.pl.md).
+For copy in Polish, follow the [Polish copy standard](references/polish-copy-standard.md) (quotes, dashes, no-break spaces, money, dates, time, sentence-case headlines, one form of address; claim a no-break space only when the delivered text really contains U+00A0, checked with the checker on a file; in a chat reply write a note such as „twarda spacja między 199 a zł” instead) and run the [checker](scripts/pl_copy_check.py) on ready-to-use text where code execution exists (pass a file or `-`; a missing file is an error, not a pass): `--fix` applies only typographic fixes, the other findings are decisions. For a named placement, write to the visible length in the [channel specs snapshot](../research-evidence/references/channel-specs-snapshot.md) and check each field with `--channel`. Flag price reductions, paid-content labels, consent text, generated realism and regulated claims in the claim ledger with the [marketing rules snapshot](../research-evidence/references/marketing-rules-snapshot.md). Deliver a multi-field set as a [Copy Pack](assets/copy-pack.template.md). For messages to a client at each project step (questions, offer, concepts, feedback summary, files, payment reminder, request for a testimonial) start from the [client email kit](assets/client-emails.pl.md), written in Polish: translate and adapt it to the user's language and customs.
 
 Before delivering copy in any language, check it against the [AI writing patterns](references/ai-writing-patterns.md) (empty vocabulary, inflated significance, unproven social proof, "not just X, it's Y", forced threes, chatbot closers, generic CTAs, in English and Polish). Where code runs, [`ai_writing_check.py`](scripts/ai_writing_check.py) finds them; a `cluster` verdict means rewrite before delivery. A rewrite never adds a fact the brief does not contain.
 

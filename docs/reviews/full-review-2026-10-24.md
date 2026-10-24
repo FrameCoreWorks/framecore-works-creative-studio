@@ -94,3 +94,12 @@ The owner asked whether there is room for more skills or for deeper reference ma
 - `bash scripts/check_all.sh` on `f3f612a`: exit 0; Node 242 tests (231 pass, 11 opt-in browser tests skipped), every Python suite OK, no failures.
 - Reviewer coverage: about 210 links in the orchestration group, about 270 in the video group and every link in the visual, copy and audio group were resolved; route targets, role IDs and gate names were matched to `role-skill-map.md` and `gate-registry.md`.
 - Re-checked by the lead reviewer: important 1, 3, 5, 6, 7, 8, 11 and minor 1, 3 in the source.
+
+## Fix status (1.132.0, 2026-10-24)
+
+The owner asked to fix every finding. Released in Studio 1.132.0 with Voice And Narration 1.0.2, Brand Kit 1.0.1 and Earshot Audio 1.0.8.
+
+- **Fixed, important:** 1 (companion version guard in `check_version_bump.py`, with tests; companions ship in Studio's tagged releases and the marketplace), 2, 3, 4, 5, 6, 7 (repository ZIP only; the snapshots stay in Git as evidence), 8, 9, 10, 11.
+- **Fixed, minor:** 1, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, and from 19 the release workflow gate, `.gitignore` and the fixture paragraph (moved to `docs/host-evals.md`).
+- **Kept by decision, no change:** minor 2 (a host listing budget, nothing in the repository to fix; descriptions stay within Studio's own budget), minor 5 (recorded in voice-narration 1.0.1: only the engine is pinned), minor 6 (`exec` running the user's own scripts in the venv is the documented use; the allowlist covers `run` and `-m earshot`).
+- **Deferred:** from minor 19, tests for the guard branches of `publish_github_release.py` (ambiguous release, tag on another commit, partial upload).

@@ -16,7 +16,7 @@ Apply the conditional [public research gate](../research-evidence/SKILL.md) befo
 
 ## Ad scripts
 
-This skill writes the script of an advert or a short brand film: the spoken words, dialogue and scene action in the [AV two-column script](assets/av-ad-script.template.md) (video beside audio, row by row in time), within the word budget of the [short-form timing card](../pipeline-core/references/short-form-timing.md) checked with `vo_budget.py`. Copy Voice locks the voice-over and supers; a creator-read script belongs to UGC; shot timing and cards to Shot Sequence.
+This skill writes the script of an advert or a short brand film: the spoken words, dialogue and scene action in the [AV two-column script](assets/av-ad-script.template.md) (video beside audio, row by row in time), within the word budget of the [short-form timing card](../pipeline-core/references/short-form-timing.md) checked with [`vo_budget.py`](../copy-voice/scripts/vo_budget.py). Copy Voice locks the voice-over and supers; a creator-read script belongs to UGC; shot timing and cards to Shot Sequence.
 
 ## Route the work
 

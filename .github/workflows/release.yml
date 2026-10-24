@@ -25,13 +25,27 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           persist-credentials: false
+      # An edit to plugin.json that is not a version bump (a description, say) would otherwise end in a red
+      # "different source" failure; a version already tagged on another commit is skipped with a notice.
+      - name: Skip a version already released from another commit
+        id: gate
+        run: |
+          v=$(python3 -c "import json; print(json.load(open('plugins/framecore-work-creative-studio/plugin.json'))['version'])")
+          sha=$(git ls-remote origin "refs/tags/v$v^{}" | cut -f1)
+          [ -n "$sha" ] || sha=$(git ls-remote origin "refs/tags/v$v" | cut -f1)
+          if [ -n "$sha" ] && [ "$sha" != "$GITHUB_SHA" ]; then
+            echo "::notice::v$v is already released from $sha; nothing to publish for this commit"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Install ffmpeg, numpy and Pillow for the media tests
+        if: steps.gate.outputs.skip != 'true'
         timeout-minutes: 30
         run: |
           sudo apt-get update -q -o Acquire::Retries=3
           sudo apt-get install -y -q --no-install-recommends -o Acquire::Retries=3 ffmpeg
           python3 -m pip install --no-deps --only-binary :all: -r requirements-ci.txt
       - name: Check the package and isolated filesystem installer
+        if: steps.gate.outputs.skip != 'true'
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: |
@@ -39,6 +53,7 @@ jobs:
           bash scripts/check_all.sh
           python3 scripts/package_release.py
       - name: Upload, verify and publish the source commit
+        if: steps.gate.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: FrameCoreWorks/framecore-works-creative-studio

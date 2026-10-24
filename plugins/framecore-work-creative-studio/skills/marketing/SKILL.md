@@ -32,7 +32,7 @@ Use this skill when:
 
 - A request needs campaign logic before visual direction, copy, storyboard, or prompts.
 - The user asks for brand, social, creator or promotional workflow planning without a store, product or offer goal; those go to Sales Campaign Strategy.
-- Offers, audiences, channels, claims, or asset variants need structure.
+- Audiences, channels, claims, or asset variants need structure without a commerce goal.
 
 Do not use this skill to invent evidence, write final copy, produce final prompts, or execute media tools.
 
@@ -42,7 +42,7 @@ Required:
 
 - `brief_contract`: objective, audience, deliverables, constraints, and acceptance criteria.
 - `offer_or_subject`: product, service, idea, event, or asset focus.
-- `channel_context`: ecommerce, social, email, marketplace, video, static campaign, or mixed rollout.
+- `channel_context`: social, email, video, static campaign, or mixed rollout (store and marketplace campaigns go to Sales Campaign Strategy).
 
 Optional:
 
@@ -54,7 +54,7 @@ Optional:
 
 Produce a Marketing Plan with:
 
-- audience and offer framing
+- audience and message framing
 - campaign thesis and message hierarchy
 - asset matrix and channel variants
 - CTA system

@@ -14,7 +14,7 @@ Before final delivery of a substantive authored, revised or generated creative a
 Read [Studio integration authority](references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
-Use this skill when a task needs Studio's shared workflow contracts in ChatGPT or Codex.
+Use this skill when a task needs Studio's shared workflow contracts in ChatGPT, Codex or Claude Code.
 
 It is the contract layer for roles, gates, handoffs, artifacts, request diagnostics, reasoning routes, Loop Protocol, text-bearing image policy, Humanizer routing, HyperFrames routing, Hipson Handoff routing, and workflow governance.
 
@@ -35,6 +35,7 @@ Do not use this skill to bypass specialist owners or treat routing as authorizat
 
 ## Surface Model
 
+- In Claude Code, Studio runs as a marketplace plugin; skills, shell and files are those the session actually exposes, and a cloud session is temporary.
 - In Codex, Studio runs as a plugin or as one native entry backed by the intact bundle; neither registers project agents or needs project config. Keep a visible Workflow Profile; persist project state only with approval. Role IDs are bounded responsibilities unless the host actually exposes a matching registered agent.
 - Where a workspace allows it, Project State may be stored in approved workspace files; role IDs map to registered agents only when the host actually has them.
 - On every host, role IDs are bounded responsibilities. Inspect actually exposed file, shell, agent and persistence capabilities. In a chat-only surface keep state in conversation or a handoff. Claim saved files, executed commands or agents only from actual results.

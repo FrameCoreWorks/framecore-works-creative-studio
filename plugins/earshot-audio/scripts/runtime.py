@@ -118,7 +118,10 @@ def fetch_source(dest):
             pass
         shutil.rmtree(repo, ignore_errors=True)
     archive = dest / 'earshot.zip'
-    urllib.request.urlretrieve(f"{PIN['repository']}/archive/{PIN['commit']}.zip", archive)
+    # A stalled download must not hang the install: the same 600 s bound as the git route.
+    with urllib.request.urlopen(f"{PIN['repository']}/archive/{PIN['commit']}.zip", timeout=600) as response, \
+            open(archive, 'wb') as out:
+        shutil.copyfileobj(response, out)
     with zipfile.ZipFile(archive) as zf:
         zf.extractall(dest / 'unzipped')
     return next((dest / 'unzipped').iterdir())

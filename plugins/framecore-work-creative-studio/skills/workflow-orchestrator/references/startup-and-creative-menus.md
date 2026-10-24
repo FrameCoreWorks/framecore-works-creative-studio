@@ -1,6 +1,6 @@
 # Startup and creative menus
 
-Use this entry contract in ChatGPT, Work and Codex. It belongs to FrameCore Studio Guide and the existing Project State, not a new role or UI implementation. The [learning method](learning-mode.md) continues to own curriculum and lessons. A menu is a conversational response when a user sends a message; selecting or enabling a plugin without sending a request does not prove that the host can emit an automatic welcome.
+Use this entry contract in ChatGPT, Work, Codex and Claude Code. It belongs to FrameCore Studio Guide and the existing Project State, not a new role or UI implementation. The [learning method](learning-mode.md) continues to own curriculum and lessons. A menu is a conversational response when a user sends a message; selecting or enabling a plugin without sending a request does not prove that the host can emit an automatic welcome.
 
 The entry sequence is mandatory across supported models and reasoning/effort settings, including instant/low effort. Host effort does not substitute for the user's Quick/Deep pace. Use the short bootstrap in the orchestrator before substantive work; do not compress away the welcome or the next unresolved menu.
 

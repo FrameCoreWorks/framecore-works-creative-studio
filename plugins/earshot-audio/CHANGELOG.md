@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.8, 2026-10-24
+
+Review fix (2026-10-24 full review): the archive fallback of `install` downloads with the same 600 s bound as the git route, so a stalled connection can no longer hang the install. The source is still checked against `upstream.json`.
+
 ## 1.0.7, 2026-10-23
 
 Owner decision: Earshot keeps its name and is plainly credited to Leon Lin. The manifests' descriptions start with

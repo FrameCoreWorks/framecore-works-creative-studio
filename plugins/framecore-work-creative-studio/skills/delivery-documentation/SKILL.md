@@ -33,7 +33,7 @@ For a client whose website or app is built by a coding agent, add the brand kit 
 
 ## Client handoff
 
-For work delivered to a client, follow [client handoff](references/client-handoff.md): files grouped by use with sortable names, a contents list, fonts and licences, the [handoff letter](assets/handoff-letter.pl.md) with the agreed rights and a plain AI-assistance line when generative tools made part of the work, and written acceptance or the [acceptance protocol](assets/acceptance-protocol.pl.md). Afterwards, a [case study](assets/case-study.template.md) only with the client's consent and the client's own figures.
+For work delivered to a client, follow [client handoff](references/client-handoff.md): files grouped by use with sortable names, a contents list, fonts and licences, the [handoff letter](assets/handoff-letter.pl.md) with the agreed rights and a plain AI-assistance line when generative tools made part of the work, and written acceptance or the [acceptance protocol](assets/acceptance-protocol.pl.md). Both templates are the Polish reference version: for another language or country, translate them and adapt the legal terms (tax IDs, acceptance and rights wording) to the client's jurisdiction, and say that the user should check them locally. Afterwards, a [case study](assets/case-study.template.md) only with the client's consent and the client's own figures.
 
 ## Applied practice
 
@@ -41,7 +41,7 @@ For classroom materials and teacher documents, use the [teacher profile](../work
 
 For a Logo Guide, Identity Guide or identity file package, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md) and its [Brand Identity Pack](../workflow-orchestrator/assets/brand-identity.template.md). Package the selected strategy/logo/system revisions, actual requested applications and inspected files. Keep logo-guide scope distinct from a full identity guide. Verify actual document exports and any claimed vector master; record concept, reviewed digital asset and remaining production work separately. Preserve font/rights evidence and source dependencies rather than inferring readiness from filenames.
 
-For related assets, masters, variants, changed sources or resumable delivery, use [asset lifecycle and dependencies](references/asset-lifecycle-and-dependencies.md), the [blank manifest](assets/project-manifest.template.json) and [fictional worked example](assets/project-manifest.example.json). The optional [manifest helper](scripts/asset_manifest.py) checks declared consistency and change impact; it never inspects, uploads or modifies media.
+For related assets, masters, variants, changed sources or resumable delivery, use [asset lifecycle and dependencies](references/asset-lifecycle-and-dependencies.md), the [blank manifest](assets/project-manifest.template.json) and [fictional worked example](assets/project-manifest.example.json). The optional [manifest helper](scripts/asset_manifest.py) checks declared consistency and change impact; it never inspects, uploads or modifies media. These files are the machine-checked dependency and lifecycle record for delivery; the review inventory of what exists, versions and exclusions stays with [Asset Manifest](../asset-manifest/SKILL.md).
 
 ## Integrated workflow contracts
 
