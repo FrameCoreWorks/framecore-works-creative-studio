@@ -1,0 +1,34 @@
+{
+  "name": "voice-narration",
+  "version": "1.0.0",
+  "description": "Voice-overs and narration from an approved script, measured against each scene's time: VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector. Pronunciation lexicon per project, consent before cloning, a lock file for the mix.",
+  "author": {
+    "name": "FrameCore Works"
+  },
+  "keywords": [
+    "voice-over",
+    "narration",
+    "text-to-speech",
+    "tts",
+    "voxcpm",
+    "voicebox",
+    "elevenlabs",
+    "pronunciation",
+    "motion-design",
+    "video"
+  ],
+  "skills": "./skills",
+  "interface": {
+    "displayName": "Voice And Narration",
+    "shortDescription": "Measured voice-overs, local or ElevenLabs",
+    "longDescription": "Voice-overs and narration from an approved script, measured against each scene's time: VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector. Pronunciation lexicon per project, consent before cloning, a lock file for the mix. Readiness is checked before any claim; installation and model downloads run only after the user agrees and are advised against in cloud or phone environments; ElevenLabs credits are spent only after the user agrees.",
+    "developerName": "FrameCore Works",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Check whether voice generation is ready here.",
+      "Read my cue sheet with VoxCPM2 and measure it.",
+      "Make this voice-over with ElevenLabs."
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "voice-narration",
+  "version": "1.0.0",
+  "description": "Voice-overs and narration from an approved script, measured against each scene's time: VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector. Pronunciation lexicon per project, consent before cloning, a lock file for the mix.",
+  "author": {
+    "name": "FrameCore Works"
+  },
+  "displayName": "Voice And Narration",
+  "homepage": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+  "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+  "license": "Apache-2.0",
+  "keywords": [
+    "voice-over",
+    "narration",
+    "text-to-speech",
+    "tts",
+    "voxcpm",
+    "voicebox",
+    "elevenlabs",
+    "pronunciation",
+    "motion-design",
+    "video"
+  ]
+}

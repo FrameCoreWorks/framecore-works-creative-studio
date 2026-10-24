@@ -1,0 +1,9 @@
+Voice And Narration (voice-narration), FrameCore Works. Apache-2.0, see LICENSE.
+
+No engine code or model is included. The plugin drives engines the user installs:
+
+- VoxCPM2 by OpenBMB, https://github.com/OpenBMB/VoxCPM, code and weights Apache-2.0.
+  Reviewed at commit cce58a5b59303c9bd63d12f23afe6a49a4a80c59; installed as PyPI voxcpm 2.0.3 on the user's request.
+- Voicebox by Jamie Pine, https://github.com/jamiepine/voicebox, MIT (each engine inside has its own licence).
+  Reviewed at commit 2bcb98d1a8b6fe05e15fbc1559e3085669e4035d (v0.5.0); installed by the user from its release page.
+- ElevenLabs is reached only through the host application's ElevenLabs connector, under the user's own account and terms.

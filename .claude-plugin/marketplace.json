@@ -21,6 +21,14 @@
       "description": "Ears and a sound kit for an agent: local listening, measuring and sound effects on cue frames, and soundtracks from licensed recordings (Earshot 0.4.0 by Leon Lin, MIT).",
       "version": "1.0.7",
       "category": "productivity"
+    },
+    {
+      "name": "voice-narration",
+      "displayName": "Voice And Narration",
+      "source": "./plugins/voice-narration",
+      "description": "Measured voice-overs and narration: VoxCPM2 or Voicebox on your own computer, or ElevenLabs through the app's connector.",
+      "version": "1.0.0",
+      "category": "productivity"
     }
   ]
 }
