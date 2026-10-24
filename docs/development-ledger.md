@@ -3457,3 +3457,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `8d2c346`; workflows Refresh current release notes 40069342740, Publish verified Studio release 40069342756, Check Studio sources 40069342725: success; [v1.126.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.126.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1564 of 1564) ([record](../verification/github-publication-1.126.0.json))
 - ChatGPT Work: saved plugin synchronized as 1.126.0 / `pluginrel_6adc505b3a448191bcb6dc984c701e2c`; 1619-file readback, 55 private files preserved, two declared public manifest overlays. Active ChatGPT/Work UI: NOT_RUN.
 - Codex: installed/enabled 1.126.0; all 1619 cached files byte-identical to the saved hosted package. Fresh CLI cache-read welcome output PASS with catalog-registration limitation; local media inventory LIMITED. [Synchronization record](../verification/hosted-sync-1.126.0.json).
+
+## CC-20261024-01
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `879c857` (main, package 1.126.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged)
+- Package version: 1.126.0 (unchanged)
+- Scope: record the owner's 2026-10-24 host smoke test of 1.126.0 (version, SM2, SM3) in ordinary ChatGPT and ChatGPT Work
+- Shared package changed: no
+
+Verification:
+
+- owner report: all three steps PASS_REPORTED in both clients; one intermittent shortened, mixed-language start on the plain phrase without @ in ordinary ChatGPT, correct on retry; cause unknown ([report](../verification/host-report-2026-10-24-startup-1.126.0.json))
+- canonical validator: PASS; `scripts/check_all.sh`: PASS (exit 0)
+
+Cross-host state:
+
+- GitHub: synchronized on push of this commit
+- ChatGPT Work: unchanged (1.126.0 saved plugin); no hosted update needed
+- Codex: unchanged

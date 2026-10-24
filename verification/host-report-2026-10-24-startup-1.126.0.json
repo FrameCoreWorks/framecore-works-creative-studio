@@ -1,0 +1,57 @@
+{
+  "version": "1.126.0 (hosted release pluginrel_6adc505b3a448191bcb6dc984c701e2c); the installed version was reported as 1.126.0 by Studio in both clients",
+  "date": "2026-10-24",
+  "reported_by": "owner (chat messages and two phone screenshots); reading by cloud-code",
+  "cases": "docs/host-smoke-set.md: version check, SM2 (Polish startup) and SM3 (direct task skips the welcome), Polish wording of SM3",
+  "clients": [
+    {
+      "client": "ordinary ChatGPT, Android phone app, GPT 6 on a very high reasoning setting",
+      "observations": [
+        {
+          "step": "Jaka wersja FrameCore Works Creative Studio jest zainstalowana?",
+          "observed": "1.126.0",
+          "result": "PASS_REPORTED"
+        },
+        {
+          "step": "Użyj FrameCore Works Creative Studio. (SM2)",
+          "observed": "with the @ app mention: the complete Polish welcome. With the plain phrase (no @): first try a shortened welcome partly in English; a retry of the same plain phrase gave the complete welcome",
+          "expected": "the complete Polish welcome as in assets/startup-welcome.pl.md",
+          "result": "PASS_REPORTED, with one intermittent shortened mixed-language start on the plain phrase without @",
+          "note": "no screenshot of the failed try; whether the plugin was loaded on that try is unknown"
+        },
+        {
+          "step": "Użyj FrameCore Works Creative Studio. Napisz trzy nagłówki reklamy bidonu dla biegaczy, każdy do 40 znaków. (SM3)",
+          "observed": "screenshot: reply labelled 'FrameCore Works Creative Studio / Copy Voice'; three headlines of 36, 26 and 31 characters (counts checked); no welcome, no menu",
+          "result": "PASS_REPORTED"
+        }
+      ]
+    },
+    {
+      "client": "ChatGPT Work, Android phone app; reasoning setting not reported",
+      "observations": [
+        {
+          "step": "version check",
+          "observed": "1.126.0",
+          "result": "PASS_REPORTED"
+        },
+        {
+          "step": "SM2 Polish startup",
+          "observed": "the complete welcome, as reported by the owner",
+          "result": "PASS_REPORTED"
+        },
+        {
+          "step": "SM3 direct task",
+          "observed": "screenshot: about 54 s of processing; three headlines of 24, 38 and 28 characters (counts checked); no welcome, no menu; the screenshot shows no skill label",
+          "result": "PASS_REPORTED"
+        }
+      ]
+    }
+  ],
+  "unknown": [
+    "the cause of the one shortened start in ordinary ChatGPT (plugin not loaded versus answered without the skill)",
+    "the reasoning setting in ChatGPT Work",
+    "the welcome text was not copied, so byte equality with the asset is not checked"
+  ],
+  "not_run": "SM1 and SM4 to SM8",
+  "host_behavior": "startup and direct-task handling of 1.126.0 observed in ordinary ChatGPT and ChatGPT Work on a phone"
+}
