@@ -3601,3 +3601,24 @@ Cross-host state:
 - GitHub: synchronized on push of `main`
 - ChatGPT Work: not applicable (no package change)
 - Codex: not_run
+
+## CC-20261024-09
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `cccef7f` (main, package 1.130.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.131.0)
+- Package version: 1.130.0 -> 1.131.0
+- Scope: Brand Kit 1.0.0, a new public plugin beside Studio (skill brand-kit:brand), turns a company website into bounded evidence, a draft kit in Studio's brand kit schema with a source ledger, a brand audit with a voice and messaging profile, per-brand revisions and a direction menu routed to Studio's owners; Studio adds the brand-kit registry entry. Plugin tests 46 + 6 pass; one real extraction (pypi.org) ran; host-conversation audit and fresh clients NOT_RUN; hosted ChatGPT update pending.
+- Shared package changed: yes; 8 changed, 0 added, 0 removed ([scope](../verification/scope-1.131.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 242 Node tests (231 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 9 suite 7, 8 suite 8 (3 skipped; see the suite log for reasons), 23 suite 9, 20 suite 10, 24 suite 11, 21 suite 12, 34 suite 13, 6 suite 14, 10 suite 15, 10 suite 16, 13 suite 17, 31 suite 18, 11 suite 19, 5 suite 20, 17 suite 21, 12 suite 22 (12 skipped; see the suite log for reasons), 2 suite 23, 8 suite 24, 8 suite 25, 17 suite 26, 12 suite 27, 6 suite 28, 4 suite 29, 44 suite 30, 21 suite 31, 26 suite 32, 17 suite 33, 10 suite 34, 5 suite 35, 4 suite 36, 2 suite 37, 2 suite 38, 3 suite 39, 6 suite 40 (6 skipped; see the suite log for reasons), 6 suite 41, 4 suite 42, 8 suite 43, 8 suite 44, 11 suite 45, 6 suite 46, 15 suite 47, 3 suite 48, 12 suite 49, 3 suite 50, 6 suite 51, 4 suite 52, 9 suite 53, 2 suite 54, 2 suite 55, 16 suite 56, 12 suite 57, 54 suite 58, 6 suite 59, 13 suite 60, 17 suite 61, 6 suite 62, 10 suite 63, 6 suite 64, 34 suite 65: PASS ([record](../verification/release-1.131.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

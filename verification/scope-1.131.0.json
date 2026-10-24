@@ -1,0 +1,26 @@
+{
+  "version": "1.131.0",
+  "baseline_tag": "v1.130.0",
+  "baseline": "91b88a9c5e7a3850cb6eda1ea0f4f193bf982a7b",
+  "change_id": "CC-20261024-09",
+  "origin": "cloud-code",
+  "files": 1567,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1559,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Brand Kit 1.0.0, a new public plugin beside Studio (skill brand-kit:brand), turns a company website into bounded evidence, a draft kit in Studio's brand kit schema with a source ledger, a brand audit with a voice and messaging profile, per-brand revisions and a direction menu routed to Studio's owners; Studio adds the brand-kit registry entry. Plugin tests 46 + 6 pass; one real extraction (pypi.org) ran; host-conversation audit and fresh clients NOT_RUN; hosted ChatGPT update pending."
+}

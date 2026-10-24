@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.131.0, 2026-10-24
+
+- **Brand Kit plugin.** Owner task 2026-10-24 (grow the "Brand kit manager" from the [companion proposals](docs/handover-development-proposals-2026-10-24.md#4-future-companion-plugins-plan-only) into a website-to-brand-kit and voice asset; [design](docs/superpowers/specs/2026-10-24-brand-kit-plugin-design.md), [plan](docs/superpowers/plans/2026-10-24-brand-kit-plugin.md)). A new public plugin, `plugins/brand-kit` 1.0.0 (skill `brand-kit:brand`), collects bounded, robots-respecting evidence from a company website (colours with their use, font families, logo files, metadata, headings, CTAs, a copy sample), drafts a kit in Studio's own brand kit schema with a source ledger where unverified values stay `Unknown`, writes a brand audit with a voice and messaging profile, keeps approved kits as never-overwritten revisions per brand (`save`, `list`, `show`, `diff`) and offers a direction menu (new website ideas, ads and Meta Ads, video, brand development, content, spoken brand voice) handed to Studio's owners. Studio gains the registry entry `brand-kit`; no path was removed or moved.
+
 ## 1.130.0, 2026-10-24
 
 - **Studio looks for a skill when a task needs one.** Owner request 2026-10-24. Besides welcome option `3`, Studio now searches the open skills.sh catalog by itself when a task needs a specific capability that no Studio skill or [recommended extension](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) covers. It offers at most three audited candidates once per need and asks one question: use once in this task, install, or continue without ([skill finder, section 6](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/skill-finder.md#6-during-a-task)). A declined offer is not repeated.

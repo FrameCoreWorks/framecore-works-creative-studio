@@ -1,15 +1,15 @@
-# Creative Studio 1.130.0
+# Creative Studio 1.131.0
 
-Studio now looks for a skill in the open skills.sh catalog when a task needs something its own skills do not cover.
+A new companion plugin, Brand Kit, takes a company website apart into a brand kit and a brand audit.
 
 ## What changed
 
-Besides welcome option 3, Studio searches skills.sh by itself when a task needs a specific capability that no Studio skill or recommended extension covers. It offers at most three audited candidates once per need and asks one question: use once in this task, install, or continue without. A declined offer is not repeated. Using a skill once reads a listed skill's `SKILL.md` at a pinned commit, with its licence; Studio applies only its method and runs nothing from it. Skills that are not listed, contain an instruction override or pipe a download to a shell are refused. ChatGPT Work runs the search script in its sandbox without a lasting install; ordinary ChatGPT and the Claude apps search through the host's web search.
+The separate `brand-kit` plugin (install it from this repository's marketplace next to Studio) reads a website you name: a few pages, their stylesheets and styles, with robots.txt honoured. It records colours with their use, font families, logo files, headings, CTAs and a copy sample in `evidence.json`, drafts `brand-kit.json` in Studio's brand kit format with a source ledger, and writes `brand-audit.md` with the visual system and a voice and messaging profile. Values it could not verify, such as font and logo rights, stay `Unknown`. Approved kits are saved as numbered revisions per brand. A menu then hands the next step (new website ideas, ads and Meta Ads, video, brand development, content, a spoken brand voice) to Studio's skills. Studio's extension registry lists it.
 
 ## What did not change
 
-Startup, the welcome, routing, skill names and paths are unchanged; no path was removed. Installation still needs the user's answer, never uses `-y`, and is never offered for a blocked skill.
+Studio's skills, startup, routing, names, paths and the brand kit schema are unchanged.
 
 ## Verification limits
 
-The canonical validator and the full check suite passed, and `find_skills.py --read` is covered by stand-in tests. The live skills.sh catalog was unreachable from the container (proxy 403), so live catalog behaviour is not run, and ChatGPT, Work and Codex clients were not run. The hosted ChatGPT plugin update is pending.
+The plugin's 46 launcher tests and 6 package tests and Studio's checks passed. One real extraction (pypi.org) ran in a Claude Code cloud container. The skill's audit and direction steps in a host conversation, and fresh ChatGPT, Work, Claude and Codex clients, were not run for this release.
