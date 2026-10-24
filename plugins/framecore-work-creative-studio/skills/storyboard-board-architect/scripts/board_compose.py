@@ -8,7 +8,12 @@ board.json (image paths are relative to it):
    "frame": "9:16", "columns": 4, "page": "A4-landscape", "fit": "contain",
    "panels": [{"id": "S01", "time": "0:00–0:02", "camera": "MCU, push in", "image": "frames/s01.png",
                "action": "...", "audio": "VO: ...", "super": "Miód z Beskidów"}],
-   "notes": "Assumptions: ...", "placeholder": "frame to come"}
+   "notes": "Assumptions: ...", "placeholder": "frame to come", "language": "pl",
+   "labels": {"audio": "Audio", "super": "Super"}}
+
+"language" is the board's language code. Polish ("pl") boards get Polish typesetting (no-break spaces after one-letter
+words and inside numbers with units) and supers in „…” quotes; every other language keeps the text exactly as given.
+"labels" optionally renames the Audio and Super labels in the board's language.
 
 Frames are drawn as given (contain, or cover with --fit) or as a marked placeholder when a panel has no image yet; the
 labels are set in Studio's bundled Inter with every word kept: text wraps and rows move to the next page, nothing is cut.
@@ -35,6 +40,22 @@ def keep_together(text):
     text = re.sub(r'(?<!\S)([^\W\d_]) +(?=\S)', '\\1\u00a0', str(text))
     text = re.sub(r'(\d) (?=\d{3}(?!\d))', '\\1\u00a0', text)
     return re.sub(r'(\d) (?=' + UNIT + ')', '\\1\u00a0', text)
+
+
+def is_polish(language):
+    return str(language or '').lower().split('-')[0] == 'pl'
+
+
+def typeset(text, language):
+    """Polish boards get keep_together; every other language keeps the text exactly as given."""
+    return keep_together(text) if is_polish(language) else str(text)
+
+
+def label_line(key, value, language, labels):
+    """One caption line: the user's exact text, a Polish super in „…” quotes, an optional localized label."""
+    label = {**dict(LABELS), **(labels or {})}.get(key)
+    text = f'„{value}”' if key == 'super' and is_polish(language) else str(value)
+    return f'{label}: {text}' if label else text
 
 
 class InputError(Exception):
@@ -83,7 +104,7 @@ def main(argv=None):
             if any(font.getlength(char) > width for char in text if not char.isspace()):
                 raise ValueError('a glyph is wider than the text box')
             lines = []
-            for paragraph in keep_together(text).split('\n'):
+            for paragraph in typeset(text, board.get('language')).split('\n'):
                 line_text = ''
                 for word in paragraph.split(' '):
                     trial = word if not line_text else f'{line_text} {word}'
@@ -108,8 +129,8 @@ def main(argv=None):
             out = [(l, fonts['head']) for l in wrap(head, fonts['head'], frame_w)] if head else []
             for key, label in LABELS:
                 if panel.get(key):
-                    text = f'„{panel[key]}”' if key == 'super' else str(panel[key])
-                    out += [(l, fonts['body']) for l in wrap(f'{label}: {text}' if label else text, fonts['body'], frame_w)]
+                    line = label_line(key, panel[key], board.get('language'), board.get('labels'))
+                    out += [(l, fonts['body']) for l in wrap(line, fonts['body'], frame_w)]
             return out
 
         def frame(panel):

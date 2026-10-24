@@ -69,6 +69,15 @@ Then, from the plugin folder: `python3 scripts/runtime.py install --tier <full|l
 
 Remove: the host's plugin controls or the copied folder, and `~/.framecore-studio/extensions/earshot`.
 
+## More companions: Voice And Narration and Brand Kit
+
+The repository carries two more separate plugins, each with `.codex-plugin/plugin.json`. Studio proposes each one only when it clearly helps the user's task, and installs it only after the user agrees; the [registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) entries `voice-narration` and `brand-kit` hold the steps for this host.
+
+- **Voice And Narration** (folder `plugins/voice-narration`, skill `voice-narration:narrate`): measured voice-overs from an approved script with VoxCPM2 or Voicebox on the user's own computer or ElevenLabs through a connector. Local engines are installed only on consent and are advised against in a cloud sandbox.
+- **Brand Kit** (folder `plugins/brand-kit`, skill `brand-kit:brand`): a brand kit from a company website (colours, fonts, logo, voice and messaging) with revisions per brand and a direction plan. It needs Python 3 and reads only public pages.
+
+Use the same pinned commit as Studio and copy the whole folder.
+
 ## 6. Offer optional providers after installation
 
 Then read the bundled [provider setup guide](plugins/framecore-work-creative-studio/docs/provider-setup-guide.md) and [setup method](plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/provider-setup.md). Offer one optional question about existing accounts, additional tools, a setup guide or skipping setup. Match the actual host and distinguish native apps from API/MCP/CLI access and billing.

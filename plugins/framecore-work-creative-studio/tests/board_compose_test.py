@@ -70,6 +70,14 @@ class Compose(unittest.TestCase):
 
 
 class Typesetting(unittest.TestCase):
+    def test_supers_keep_the_users_exact_text_outside_polish(self):
+        self.assertEqual(board_compose.label_line('super', 'Fresh "honey"', 'en', {}), 'Super: Fresh "honey"')
+        self.assertEqual(board_compose.label_line('super', 'Miód', 'pl', {}), 'Super: „Miód”')
+        self.assertEqual(board_compose.label_line('audio', 'VO: hi', 'de', {'audio': 'Ton'}), 'Ton: VO: hi')
+        self.assertEqual(board_compose.label_line('action', 'a', 'en', {}), 'a')
+        self.assertEqual(board_compose.typeset('a b 20 kg', 'en'), 'a b 20 kg')
+        self.assertEqual(board_compose.typeset('i w 20 kg', 'pl-PL'), board_compose.keep_together('i w 20 kg'))
+
     def test_one_letter_words_and_numbers_stay_with_their_neighbours(self):
         self.assertEqual(board_compose.keep_together('ręcznie, z dala i w lesie 20 zł'), 'ręcznie, z dala i w lesie 20 zł')
 
@@ -81,7 +89,7 @@ class LongTokenWrapping(unittest.TestCase):
         tree = ast.parse(TOOL.read_text())
         function = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == 'wrap')
         unit = ast.fix_missing_locations(ast.Module(body=[function], type_ignores=[]))
-        namespace = {'keep_together': lambda text: text}
+        namespace = {'typeset': lambda text, language: text, 'board': {}}
         exec(compile(unit, str(TOOL), 'exec'), namespace)
         for text in ('X'*26 + ' next', 'before ' + 'X'*26 + ' next', 'X'*26, 'X'*26 + ' ' + 'Y'*24):
             lines = namespace['wrap'](text, SimpleNamespace(getlength=lambda s: 10*len(s)), 100)

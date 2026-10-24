@@ -9,7 +9,7 @@ cd "$(dirname "$0")/.."
 FAST=0
 [ "${1:-}" = "--fast" ] && FAST=1
 P=plugins/framecore-work-creative-studio
-node "$P/scripts/validate-studio.mjs" > /dev/null
+node "$P/scripts/validate-studio.mjs" > /dev/null || { node "$P/scripts/validate-studio.mjs"; exit 1; }
 python3 -m unittest discover -s tests -p 'test_codex_install.py' -v
 python3 -m unittest discover -s tests -p 'test_package_identity.py' -v
 [ "$FAST" = 1 ] || python3 -m unittest discover -s tests -p 'test_motion_benchmark.py' -v
@@ -17,6 +17,7 @@ python3 -m unittest discover -s tests -p 'test_host_smoke.py' -v
 python3 -m unittest discover -s tests -p 'test_hosted_readback.py' -v
 python3 -m unittest discover -s tests -p 'test_claude_plugin.py' -v
 python3 -m unittest discover -s tests -p 'test_release.py' -v
+python3 -m unittest discover -s tests -p 'test_version_bump.py' -v
 NODE_TESTS=("$P/tests/studio.test.mjs" "$P/tests/workflow-kit.test.mjs" "$P/tests/creative-upgrade.test.mjs" \
   "$P/tests/learning-mode.test.mjs" "$P/tests/quality-methods.test.mjs" "$P/tests/presentation.test.mjs" "$P/tests/anatomy-engine.test.mjs" "$P/tests/logo-design-engine.test.mjs")
 # motion-toolkit.test.mjs also runs motion-quality.test.mjs, which it imports.

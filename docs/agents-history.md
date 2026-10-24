@@ -43,3 +43,9 @@ Owner decision 2026-10-10: hosted readback verification is stopped. After a rele
 ## Development provenance: superseded branch sentence
 
 Treat `main` as protected even without GitHub enforcement. Develop on a local working branch, for Cloud Code `cloud-code/<change-id>-<short-scope>` with change ID `CC-YYYYMMDD-NN`, and integrate through review unless the owner decides otherwise; the branch stays local (see Branch hygiene).
+
+## Superseded on 2026-10-24
+
+- From the 2026-10-21 current rules: "**Closed exception, 2026-10-22:** the owner's Superpowers companion task, which ran on `cw/superpowers-companion-foundation-2026-10-22`, was released as 1.122.0 and is complete; that branch was merged and deleted on the owner's request."
+- Rule 1 (2026-10-21): development paused after 1.115.0 for real-use tests; the three post-pause tasks (1.116.0 to 1.118.0) authorized nothing further. Replaced by the owner's bounded-task rule.
+- Rule 2 (2026-10-20): the host-required session branch exception (push it, keep it equal to `main`, name it in `STUDIO_RELEASE_BRANCHES`). Replaced by the owner's push-only-`main` rule; `release.py` no longer reads `STUDIO_RELEASE_BRANCHES`.

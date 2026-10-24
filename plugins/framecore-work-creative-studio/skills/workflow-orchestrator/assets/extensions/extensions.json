@@ -584,7 +584,7 @@
       "id": "voice-narration",
       "name": "voice-narration",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
-      "reviewed_commit": "397c9eba436c3e74bbe62ae39d8ffa24a11103d8",
+      "reviewed_commit": "1610949892193b1b7c739b3a48e88ca17fd39bc9",
       "package": null,
       "license": "Apache-2.0",
       "kind": [
@@ -640,7 +640,7 @@
           "manual_steps": "One route: the separate voice-narration plugin (this repository's folder plugins/voice-narration), skill voice-narration:narrate, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back (not done yet: pending). A Work sandbox is a cloud environment: advise against the local engines there and use ElevenLabs through the connector or the script handoff; run status in each conversation. Engines (each only after the user agrees): python3 <voice-narration>/scripts/runtime.py status --json; VoxCPM2: install voxcpm prints the plan (voxcpm==2.0.3 in ~/.framecore-studio/extensions/voxcpm, about 3 GB), then the same with --yes, then fetch-models (about 5 GB of openbmb/VoxCPM2 weights from huggingface.co), then --yes; Voicebox: the user installs the desktop app, then status shows it ready on 127.0.0.1:17493; ElevenLabs: the user connects the app's ElevenLabs connector, no API key. In a cloud or phone environment the launcher advises against local engines and refuses --yes without --allow-cloud. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/voxcpm."
         }
       },
-      "observed": "2026-10-24 Claude Code cloud container (Python 3.13, no GPU): voice-narration 1.0.0 built with 48 launcher and 6 package tests; status reported environment cloud, voxcpm and Voicebox unavailable, FFmpeg present; install voxcpm --yes refused with exit 2 naming --allow-cloud; a real FFmpeg speed-up of 4% took a 2.00 s line to 1.92 s. Real VoxCPM2 and Voicebox generation and an ElevenLabs connector read were not run (no GPU or desktop app here; credits not spent).",
+      "observed": "2026-10-24 Claude Code cloud container (Python 3.13, no GPU): voice-narration 1.0.0 built with 48 launcher and 6 package tests (1.0.2 at the pinned commit: 61 tests, Voicebox needs --language); status reported environment cloud, voxcpm and Voicebox unavailable, FFmpeg present; install voxcpm --yes refused with exit 2 naming --allow-cloud; a real FFmpeg speed-up of 4% took a 2.00 s line to 1.92 s. Real VoxCPM2 and Voicebox generation and an ElevenLabs connector read were not run (no GPU or desktop app here; credits not spent).",
       "update": "Review a newer voxcpm release or Voicebox API (its generate, status and audio routes) before moving the pin in the plugin's runtime.py and NOTICE; keep ElevenLabs on the host connector with no API key."
     },
     {
@@ -1639,7 +1639,7 @@
       "id": "brand-kit",
       "name": "brand-kit",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
-      "reviewed_commit": "c243aa7ee9ee136c84d07507410580d84b74084f",
+      "reviewed_commit": "1610949892193b1b7c739b3a48e88ca17fd39bc9",
       "package": null,
       "license": "Apache-2.0",
       "kind": [
@@ -1691,7 +1691,7 @@
           "manual_steps": "One route: the separate brand-kit plugin (this repository's folder plugins/brand-kit), skill brand-kit:brand, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back (not done yet: pending). A Work sandbox is temporary: offer the saved kit as a download. Use: python3 <brand-kit>/scripts/brandkit.py extract <url> then draft; save only after the user approves the kit."
         }
       },
-      "observed": "2026-10-24 Claude Code cloud container (Python 3.13): brand-kit 1.0.0 built with 46 launcher and 6 package tests on offline fixtures, after one code review round; a real extract of https://pypi.org/ through the sandbox proxy read 3 of 5 pages (2 robots-disallowed), 4 stylesheets, 85 colours and 3 font families, and the draft picked #006dad as primary and Source Sans 3 as body. python.org and github.com were blocked by this sandbox's proxy. The skill's audit, approval and direction steps were not run in a host conversation.",
+      "observed": "2026-10-24 Claude Code cloud container (Python 3.13): brand-kit 1.0.0 built with 46 launcher and 6 package tests on offline fixtures, after one code review round (1.0.1 at the pinned commit: 54 tests, connect-time peer check against DNS rebinding); a real extract of https://pypi.org/ through the sandbox proxy read 3 of 5 pages (2 robots-disallowed), 4 stylesheets, 85 colours and 3 font families, and the draft picked #006dad as primary and Source Sans 3 as body. python.org and github.com were blocked by this sandbox's proxy. The skill's audit, approval and direction steps were not run in a host conversation.",
       "update": "Check the brand kit template's top-level fields against the plugin's catalog.REQUIRED (package_test does) whenever Studio's schema changes."
     }
   ]

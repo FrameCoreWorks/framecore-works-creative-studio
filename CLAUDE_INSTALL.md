@@ -103,6 +103,15 @@ Then, from the plugin folder: `python3 scripts/runtime.py install --tier <full|l
 
 Remove it with `/plugin uninstall earshot-audio` (or `claude plugin uninstall earshot-audio@framecore-works`) and delete `~/.framecore-studio/extensions/earshot` if the user wants the engine gone.
 
+## More companions: Voice And Narration and Brand Kit
+
+The same marketplace carries two more separate plugins. Studio proposes each one only when it clearly helps the user's task, and installs it only after the user agrees ([registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json), entries `voice-narration` and `brand-kit`).
+
+- **Voice And Narration** (`voice-narration`, skill `voice-narration:narrate`): measured voice-overs from an approved script, with VoxCPM2 or Voicebox on the user's own computer or ElevenLabs through the app's connector. Install: `claude plugin install voice-narration@framecore-works`, or `/plugin install voice-narration --marketplace FrameCoreWorks/framecore-works-creative-studio`. Local engines are optional and installed only on consent (`python3 scripts/runtime.py status --json` first); in a cloud session use the connector.
+- **Brand Kit** (`brand-kit`, skill `brand-kit:brand`): a brand kit from a company website (colours, fonts, logo, voice and messaging), kept as revisions per brand, then a direction plan. Install: `claude plugin install brand-kit@framecore-works`, or `/plugin install brand-kit --marketplace FrameCoreWorks/framecore-works-creative-studio`. It needs Python 3 and reads only public pages.
+
+A new conversation loads each skill. Remove with `claude plugin uninstall <name>@framecore-works`.
+
 ## 6. Update and remove
 
 - Claude Code: `claude plugin marketplace update framecore-works`, then `claude plugin update framecore-work-creative-studio@framecore-works`. To move to a newer pinned release, add the marketplace again with the new tag (`claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio#v<new>`) and update. Auto-update for third-party marketplaces is off by default and can be turned on in the `/plugin` Marketplaces tab of the terminal CLI. Start a new conversation afterwards.

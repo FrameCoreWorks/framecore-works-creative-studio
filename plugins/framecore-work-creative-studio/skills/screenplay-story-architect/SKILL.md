@@ -1,6 +1,6 @@
 ---
 name: screenplay-story-architect
-description: "Write original stories and screenplays: premise, treatment, scenes, dialogue, pitch, coverage and revision. Copy and taglines go to Copy Voice; shot timing to Shot Sequence."
+description: "Write original stories, screenplays and ad or brand-film scripts: premise, treatment, scenes, dialogue, pitch, coverage, revision. Copy and taglines go to Copy Voice; shot timing to Shot Sequence."
 ---
 
 # Story And Screenplay

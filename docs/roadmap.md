@@ -1,8 +1,26 @@
 # Roadmap for the development surfaces
 
-Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-21); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
+Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
-## Current direction (2026-10-22, package 1.121.0)
+## Current direction (2026-10-24, package 1.131.0)
+
+- **State.** Studio 1.131.0 with 37 skills, plus three companion plugins in the same marketplace: Earshot Audio 1.0.7, Voice And Narration and Brand Kit (current versions in `.claude-plugin/marketplace.json`). Since 1.122.0 the owner opened bounded tasks: the skill rename (1.127.0), Voice And Narration (1.128.0), the Opus motion gallery (1.129.0), proactive skill search (1.130.0) and Brand Kit (1.131.0). The hosted ChatGPT plugin is updated by the owner from `CHATGPT_UPDATE.md` (pending since 1.126.0).
+- **Latest bounded task.** The owner's A-to-Z [review of 2026-10-24](reviews/full-review-2026-10-24.md) (0 critical, 11 important, 19 minor) and the owner's instruction to fix every finding, released in batches.
+- **Budgets.** Skill descriptions use about 7,520 of 7,800 characters and the orchestrator about 31,700 of 32,000 bytes, so new capabilities go to companion plugins and depth goes to references inside existing skills (priorities in the review).
+
+Direction, in order of value:
+
+1. **The owner's findings from real use and the review fixes**: reproduce, fix the smallest cause, test before and after.
+2. **Companion plugins** for new capabilities, each with its own budget, version guard (`scripts/check_version_bump.py`) and Studio registry entry pinned to its reviewed commit.
+3. **References that deepen existing skills** when the owner opens that task (cinematography, platform specs for captions, UGC disclosure rules first).
+4. **Cheap evidence on every surface** (unchanged from 2026-10-22, below).
+5. **Recommended extensions** (unchanged from 2026-10-22, below).
+
+Not the direction: ready-made ideas or category lists, personal defaults, deleting package paths, or growing a reference without a trigger.
+
+## History (newest first)
+
+### Direction 2026-10-22 (package 1.121.0 to 1.122.0)
 
 - **State.** 1.122.0, 37 skills, 1,552 canonical package files. Development is paused for the owner's real-use tests except for explicit bounded tasks. The current [temporary takeover](handover-chatgpt-work-2026-10-22-superpowers.md) records the separate hosted state and Claude's unfinished Open Design plan.
 - **Latest bounded task completed.** The approved [Superpowers companion integration](superpowers/plans/2026-10-22-studio-companion-implementation.md) is published in 1.122.0 and the existing ChatGPT plugin is updated with its private overlay preserved. Superpowers is first recommended and separately installed; Studio retains creative ownership. Fresh installed-client behavior remains untested; Open Design stays paused.
@@ -19,8 +37,6 @@ Direction, in order of value:
 Not the direction: new knowledge rounds, ready-made ideas or category lists, personal defaults, deleting package paths, or growing a reference without a trigger.
 
 Open items with a known trigger: OmniVoice's weights licence is unverified; Motion Designer cannot install in Codex (its front matter); the web motion probe has not run on a live script-driven site; the private hosted overlay must be preserved on every update; skill descriptions use about 7,716 of 7,800 characters.
-
-## History (newest first)
 
 ### Account-free creative knowledge (2026-10-21)
 

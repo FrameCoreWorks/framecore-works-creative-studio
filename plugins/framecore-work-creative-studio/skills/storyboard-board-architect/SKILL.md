@@ -38,7 +38,7 @@ When choosing panels, reconciling a locked camera, comparing references or reser
 
 ## Board files
 
-Where Python with Pillow runs, compose the approved board with `scripts/board_compose.py board.json --out-dir boards/`: frames in a grid with their shot, time, camera, action, audio and supers set in the bundled Inter, as PNG pages and one PDF. Labels wrap and move to the next page, never cut; a panel without its frame shows a marked placeholder. Without Python, deliver the board specification and say the file was not composed.
+Where Python with Pillow runs, compose the approved board with `scripts/board_compose.py board.json --out-dir boards/`: frames in a grid with their shot, time, camera, action, audio and supers set in the bundled Inter, as PNG pages and one PDF. Set `language` to the board's language code (Polish typesetting and „…” supers apply only to `pl`; other languages keep the text exactly) and `labels` for localized Audio and Super labels. Labels wrap and move to the next page, never cut; a panel without its frame shows a marked placeholder. Without Python, deliver the board specification and say the file was not composed.
 
 ## Board brief
 

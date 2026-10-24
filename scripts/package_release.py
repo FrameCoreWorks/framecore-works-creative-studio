@@ -12,9 +12,12 @@ from build_install_manifest import EXCLUDED_DIRS, excluded, verify_source
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / 'plugins' / 'framecore-work-creative-studio'
 DIST = ROOT / 'dist'
+# Repository-ZIP only: host-evaluation candidate snapshots (about 18 MB each) stay in Git as evidence but are not
+# shipped to users; each one is a copy of the plugin at a past commit.
+REPOSITORY_ONLY_EXCLUDED = ('verification/host-evals/candidates/',)
 
 
-def inventory(directory):
+def inventory(directory, skip=()):
     files = []
     def walk(folder):
         for p in sorted(folder.iterdir()):
@@ -24,7 +27,7 @@ def inventory(directory):
                 if p.name not in EXCLUDED_DIRS:
                     walk(p)
             elif p.is_file():
-                if excluded(p, directory):
+                if excluded(p, directory) or p.relative_to(directory).as_posix().startswith(skip):
                     continue
                 if p.name == '.env' or p.name.startswith('.env.'):
                     raise ValueError('Refusing environment file: ' + str(p.relative_to(directory)))
@@ -35,8 +38,8 @@ def inventory(directory):
     return sorted(files, key=lambda p: p.relative_to(directory).as_posix())
 
 
-def package(directory, prefix, archive_name):
-    items = inventory(directory)
+def package(directory, prefix, archive_name, skip=()):
+    items = inventory(directory, skip)
     archive = DIST / archive_name
     temporary = archive.with_suffix(archive.suffix + '.tmp')
     entries = []
@@ -80,7 +83,8 @@ def main():
     packed = {entry['path']: entry for entry in json.loads(outputs[1].read_text())['files']}
     if packed != {entry['path']: entry for entry in declared['files']}:
         raise SystemExit('The plugin ZIP differs from config/install-sources.json; rebuild the manifest from a clean tree')
-    outputs.extend(package(ROOT, ROOT.name, 'framecore-works-creative-studio-' + version + '-repository.zip'))
+    outputs.extend(package(ROOT, ROOT.name, 'framecore-works-creative-studio-' + version + '-repository.zip',
+                           REPOSITORY_ONLY_EXCLUDED))
     # The motion player: the single-file preview template, byte for byte, as a standalone download.
     player = DIST / ('framecore-motion-player-' + version + '.html')
     player.write_bytes((PLUGIN / 'skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html').read_bytes())
