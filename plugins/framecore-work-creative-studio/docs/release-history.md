@@ -1,5 +1,11 @@
 # Historical development notes
 
+## 1.130.0, 2026-10-24
+
+- **Studio looks for a skill when a task needs one.** Owner request 2026-10-24. Besides welcome option `3`, Studio now searches the open skills.sh catalog by itself when a task needs a specific capability that no Studio skill or [recommended extension](../skills/workflow-orchestrator/references/extensions.md) covers. It offers at most three audited candidates once per need and asks one question: use once in this task, install, or continue without ([skill finder, section 6](../skills/workflow-orchestrator/references/skill-finder.md#6-during-a-task)). A declined offer is not repeated.
+- **Use a listed skill once without installing it.** `find_skills.py --read owner/repo/skill` reads a `listed` skill's `SKILL.md` at a pinned commit, with its licence. It refuses skills that are not `listed`, contain an instruction override or a download piped to a shell, or are very long. Studio applies only the method and runs nothing from the skill.
+- **More hosts.** ChatGPT Work runs the search script in its sandbox (no lasting install there). Ordinary ChatGPT and the Claude apps search through the host's web search and use a skill once only when its audits read low or safe. This replaces the 1.53.0 rule that skipped the search in chat hosts. Two planned evaluation cases (LM28, LM29) were added. Live catalog checks and host runs are `NOT_RUN`.
+
 ## 1.129.0, 2026-10-24
 
 - **Opus 5.5 gallery in the motion prompt library.** Owner request 2026-10-24: Studio draws technique from [awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) in its video workflow. All 703 entries at commit `92aee2f` become link-only records in [`specimen-opus-gallery.json`](../skills/hyperframes-workflow/assets/motion-prompt-library/specimen-opus-gallery.json), each with a Studio-written mechanism note, brief types and a prompt link pinned to the commit; no creator prompt text or media is copied (the MIT licence covers the compilation, the credits leave each prompt with its creator). Owner decision the same day: the gallery supplies technique after the idea is chosen from the brief, never the idea.

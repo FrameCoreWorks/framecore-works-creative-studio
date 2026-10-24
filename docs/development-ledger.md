@@ -3563,3 +3563,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `5f53133`; workflows Refresh current release notes 40087907922, Check Studio sources 40087907988, Publish verified Studio release 40087907892: success; [v1.129.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.129.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1567 of 1567) ([record](../verification/github-publication-1.129.0.json)); the notes refresh failed on the tag and passed after the notes-only fix `c8af69d`
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261024-07
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `100e9dc` (main, package 1.129.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.130.0)
+- Package version: 1.129.0 -> 1.130.0
+- Scope: Owner request 2026-10-24: Studio searches the skills.sh catalog during a task when no Studio skill or recommended extension covers a needed capability, offers up to three audited candidates once per need, and on the user's answer uses a listed skill once (find_skills.py --read, pinned commit, method only, nothing run) or installs it. ChatGPT Work runs the script without lasting install; ordinary ChatGPT and Claude apps use the host's web search. Planned cases LM28 and LM29 added. Live catalog checks and host runs are NOT_RUN (skills.sh blocked by the container proxy).
+- Shared package changed: yes; 18 changed, 0 added, 0 removed ([scope](../verification/scope-1.130.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 242 Node tests (231 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 9 suite 7, 8 suite 8 (3 skipped; see the suite log for reasons), 23 suite 9, 20 suite 10, 24 suite 11, 21 suite 12, 34 suite 13, 6 suite 14, 10 suite 15, 10 suite 16, 13 suite 17, 31 suite 18, 11 suite 19, 5 suite 20, 17 suite 21, 12 suite 22 (12 skipped; see the suite log for reasons), 2 suite 23, 8 suite 24, 8 suite 25, 17 suite 26, 12 suite 27, 6 suite 28, 4 suite 29, 44 suite 30, 21 suite 31, 26 suite 32, 17 suite 33, 10 suite 34, 5 suite 35, 4 suite 36, 2 suite 37, 2 suite 38, 3 suite 39, 6 suite 40 (6 skipped; see the suite log for reasons), 6 suite 41, 4 suite 42, 8 suite 43, 8 suite 44, 11 suite 45, 6 suite 46, 15 suite 47, 3 suite 48, 12 suite 49, 3 suite 50, 6 suite 51, 4 suite 52, 9 suite 53, 2 suite 54, 2 suite 55, 16 suite 56, 12 suite 57, 54 suite 58, 6 suite 59, 34 suite 60: PASS ([record](../verification/release-1.130.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run
