@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.127.0, 2026-10-24
+
+- **Plain role names for the skills.** Owner decision 2026-10-24 (option "plain role names" on the [naming proposal](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-development-proposals-2026-10-24.md#5-naming-proposal-for-owner-review--not-applied)). Thirty skills get shorter display names (for example Motion Graphics, Audio Production, Shot Sequence, Output Review, Copy Polish, Graphic Design, Brand Strategy); FrameCut stays and `workflow-orchestrator` displays as FrameCore Studio Guide. FrameMotion, FrameBoard, FrameCheck and FrameShot were not used because existing products in the same field carry them. Technical IDs, invocations, paths and routing are unchanged. Catalog descriptions, skill headings, routing tables and maintained references use the new names; the validator's display map and routing-boundary checks and the [naming standard](../docs/skill-naming.md) follow the approved list. Historical records and vendored snapshots keep their original names.
+
 ## 1.126.0, 2026-10-24
 
 - Resolve the 28 independently reviewed audit findings with focused regression coverage for captions, image/PDF correctness, quotation/copy validation, wrapping, alternate-format motion acceptance and FFmpeg 9 decoding; the full regression also exposed and fixed FFmpeg 7 crossfade rate metadata.
