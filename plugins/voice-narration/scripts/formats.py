@@ -7,6 +7,7 @@ from pathlib import Path
 
 LOCK_NAME = 'narration.lock.json'
 VOICE_DESCRIPTION = re.compile(r'^\([^)]*\)')
+SAFE_ID = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]*$')
 
 
 class CueError(ValueError):
@@ -35,6 +36,8 @@ def load_cues(path):
         line_id = str(item.get('id', '')).strip() if isinstance(item, dict) else ''
         if not line_id:
             raise CueError(f'line {index + 1} has no id')
+        if not SAFE_ID.match(line_id) or '..' in line_id:
+            raise CueError(f'line id {line_id!r} must use only letters, digits, dot, dash and underscore')
         if line_id in seen:
             raise CueError(f'duplicate line id {line_id}')
         seen.add(line_id)
@@ -74,12 +77,16 @@ class Lock:
     def __init__(self, out_dir, data):
         self.path = Path(out_dir) / LOCK_NAME
         self.lines = data.get('lines', {})
-        self.lexicon_sha256 = data.get('lexicon_sha256')
 
     @classmethod
     def load(cls, out_dir):
         path = Path(out_dir) / LOCK_NAME
-        data = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+        try:
+            data = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+            if not isinstance(data, dict) or not isinstance(data.get('lines', {}), dict):
+                raise ValueError('not a lock object')
+        except (OSError, ValueError) as error:
+            raise CueError(f'cannot read {path}: {error}') from None
         return cls(out_dir, data)
 
     def set_line(self, line_id, **fields):
@@ -87,5 +94,5 @@ class Lock:
 
     def save(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        data = {'version': 1, 'lexicon_sha256': self.lexicon_sha256, 'lines': self.lines}
+        data = {'version': 1, 'lines': self.lines}
         self.path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')

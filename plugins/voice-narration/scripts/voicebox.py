@@ -42,24 +42,35 @@ class VoiceboxClient:
         payload = {'text': text, 'profile_id': profile_id, 'language': language}
         if engine:
             payload['engine'] = engine
-        with self._open('/generate', payload) as response:
-            return json.loads(response.read())['id']
+        try:
+            with self._open('/generate', payload) as response:
+                return str(json.loads(response.read())['id'])
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            raise VoiceboxError(f'voicebox /generate gave an unexpected answer: {error}') from None
 
     def wait(self, generation_id):
         state = {}
-        with self._open(f'/generate/{generation_id}/status') as response:
-            for raw in response:
-                line = raw.decode('utf-8', 'replace').strip()
-                if line.startswith('data:'):
-                    state = json.loads(line[5:])
-                    if state.get('status') in ('completed', 'failed', 'not_found'):
-                        break
+        try:
+            with self._open(f'/generate/{generation_id}/status') as response:
+                for raw in response:
+                    line = raw.decode('utf-8', 'replace').strip()
+                    if line.startswith('data:'):
+                        state = json.loads(line[5:])
+                        if not isinstance(state, dict):
+                            raise ValueError('status is not an object')
+                        if state.get('status') in ('completed', 'failed', 'not_found'):
+                            break
+        except (OSError, ValueError) as error:
+            raise VoiceboxError(f'voicebox status stream broke: {error}') from None
         return state
 
     def download(self, generation_id, dest):
         dest = Path(dest)
-        with self._open(f'/audio/{generation_id}') as response:
-            body = response.read()
+        try:
+            with self._open(f'/audio/{generation_id}') as response:
+                body = response.read()
+        except OSError as error:
+            raise VoiceboxError(f'voicebox audio download broke: {error}') from None
         dest.parent.mkdir(parents=True, exist_ok=True)
         if body[:4] == b'RIFF':
             dest.write_bytes(body)

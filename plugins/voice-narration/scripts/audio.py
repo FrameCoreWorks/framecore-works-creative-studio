@@ -46,7 +46,7 @@ def verdict(duration, max_seconds):
 
 def line_wav(out_dir, cue, lock):
     recorded = lock.lines.get(cue.id, {}).get('wav')
-    return Path(recorded) if recorded else Path(out_dir) / f'{cue.id}.wav'
+    return Path(out_dir) / (recorded or f'{cue.id}.wav')
 
 
 def measure_all(cues, out_dir, lock=None):

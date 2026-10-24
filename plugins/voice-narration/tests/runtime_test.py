@@ -138,10 +138,6 @@ class Formats(unittest.TestCase):
         self.assertEqual(entries, {'FrameCore': 'frejm kor'})
         self.assertEqual(digest, hashlib.sha256(path.read_bytes()).hexdigest())
         self.assertEqual(self.f.load_lexicon(None), ({}, None))
-        lock = self.f.Lock.load(self.dir)
-        lock.lexicon_sha256 = digest
-        lock.save()
-        self.assertEqual(self.f.Lock.load(self.dir).lexicon_sha256, digest)
 
 
 def write_wav(path, tone_seconds, silence_seconds=0.0, rate=24000, amplitude=12000, channels=1):
@@ -251,7 +247,7 @@ class Measure(unittest.TestCase):
         self.assertIn('atempo=1.03', ' '.join(run.call_args[0][0]))
         line = json.loads((self.dir / 'narration.lock.json').read_text())['lines']['a']
         self.assertEqual(line['stretch_percent'], 3.0)
-        self.assertTrue(line['wav'].endswith('a.stretched.wav'))
+        self.assertEqual(line['wav'], 'a.stretched.wav')
 
 
 CLOUD = {'CLAUDE_CODE_REMOTE_ENVIRONMENT_TYPE': 'cloud_default'}
@@ -532,7 +528,8 @@ class Generate(unittest.TestCase):
         self.assertEqual((line['engine'], line['engine_version'], line['model']), ('voxcpm', '2.0.3', 'openbmb/VoxCPM2'))
         self.assertEqual(line['consent'], 'speaker agreed in writing 2026-10-24')
         self.assertTrue(line['voice_source'].startswith('reference:'))
-        self.assertEqual(self.lock()['lexicon_sha256'], __import__('hashlib').sha256(self.lexicon.read_bytes()).hexdigest())
+        self.assertEqual(line['lexicon_sha256'], __import__('hashlib').sha256(self.lexicon.read_bytes()).hexdigest())
+        self.assertNotIn('lexicon_sha256', self.lock())
 
 
 class Worker(unittest.TestCase):
@@ -565,6 +562,126 @@ class Worker(unittest.TestCase):
         self.assertEqual([(r['id'], r['status']) for r in results], [('a', 'failed'), ('b', 'ok')])
         self.assertEqual(written, [('b.wav', 48000, 'PCM_16')])
         self.assertEqual(model.last['reference_wav_path'], 'ref.wav')
+
+
+class ReviewFixes(unittest.TestCase):
+    """Final review findings 1-6 (2026-10-24)."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = pathlib.Path(self.tmp.name)
+        self.out = self.dir / 'out'
+        self.cues = write_json(self.dir / 'cues.json', [{'id': 'a', 'text': 'Core one', 'max_seconds': 2},
+                                                        {'id': 'b', 'text': 'two', 'max_seconds': 2}])
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def voicebox(self, url, *extra):
+        return quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues), '--out', str(self.out),
+                                    '--profile', 'p1', '--voicebox-url', url, *extra], {})
+
+    def lock(self):
+        return json.loads((self.out / 'narration.lock.json').read_text(encoding='utf-8'))
+
+    def broken_server(self, generate_body, status_body=b'data: {"status": "completed"}\n\n'):
+        import http.server
+        import threading
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+
+            def reply(self, body):
+                self.send_response(200)
+                self.send_header('Content-Length', str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+
+            def do_GET(self):
+                self.reply(b'{}' if self.path == '/health' else status_body)
+
+            def do_POST(self):
+                self.rfile.read(int(self.headers['Content-Length']))
+                self.reply(generate_body)
+        server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        return f'http://127.0.0.1:{server.server_address[1]}'
+
+    def test_1_bad_voicebox_answers_are_one_line_per_line(self):
+        for generate_body, status_body in ((b'<html>proxy</html>', None), (b'{"status": "x"}', None),
+                                           (b'{"id": "g1"}', b'data: {not json\n\n')):
+            url = self.broken_server(generate_body, status_body or b'data: {"status": "completed"}\n\n')
+            code, _, err = self.voicebox(url)
+            self.assertEqual(code, 1, generate_body)
+            self.assertNotIn('Traceback', err)
+            lines = self.lock()['lines']
+            self.assertEqual({lines['a']['status'], lines['b']['status']}, {'failed'})
+
+    def test_2_failed_only_keeps_the_previous_take_truthful(self):
+        fake = FakeVoicebox()
+        try:
+            self.voicebox(fake.url)
+            before = self.lock()['lines']['a']
+            fake.fail_texts.add('kor one')
+            lexicon = write_json(self.dir / 'lexicon.json', {'Core': 'kor'})
+            code, _, _ = self.voicebox(fake.url, '--only', 'a', '--lexicon', str(lexicon))
+        finally:
+            fake.close()
+        self.assertEqual(code, 1)
+        after = self.lock()['lines']['a']
+        self.assertEqual(after['status'], 'failed')
+        for key in ('text_sent', 'wav', 'sha256', 'lexicon_sha256', 'stretch_percent'):
+            self.assertEqual(after[key], before[key], key)
+
+    def test_3_only_keeps_other_lines_lexicon_hash(self):
+        fake = FakeVoicebox()
+        lexicon = write_json(self.dir / 'lexicon.json', {'Core': 'kor'})
+        try:
+            self.voicebox(fake.url, '--lexicon', str(lexicon))
+            digest = self.lock()['lines']['b']['lexicon_sha256']
+            self.voicebox(fake.url, '--only', 'a')
+        finally:
+            fake.close()
+        self.assertIsNotNone(digest)
+        self.assertEqual(self.lock()['lines']['b']['lexicon_sha256'], digest)
+        self.assertIsNone(self.lock()['lines']['a']['lexicon_sha256'])
+
+    def test_4_unsafe_ids_refused(self):
+        import formats
+        for bad in ('../escape', 'a/b', 'a:b', '..', '.hidden', 'a b'):
+            path = write_json(self.dir / 'bad.json', [{'id': bad, 'text': 'x', 'max_seconds': 1}])
+            with self.assertRaises(formats.CueError, msg=bad):
+                formats.load_cues(path)
+        ok = write_json(self.dir / 'ok.json', [{'id': 's01_intro-2.v1', 'text': 'x', 'max_seconds': 1}])
+        self.assertEqual(formats.load_cues(ok)[0].id, 's01_intro-2.v1')
+
+    def test_5_malformed_lock_is_one_line(self):
+        self.out.mkdir()
+        (self.out / 'narration.lock.json').write_text('{broken', encoding='utf-8')
+        for argv in (['measure', '--cues', str(self.cues), '--out', str(self.out)],
+                     ['stretch', 'a', '--percent', '2', '--cues', str(self.cues), '--out', str(self.out), '--yes']):
+            with mock.patch.object(runtime.shutil, 'which', return_value='/usr/bin/ffmpeg'):
+                write_wav(self.out / 'a.wav', 0.5)
+                code, _, err = quiet(runtime.main, argv, {})
+            self.assertEqual(code, 2, argv)
+            self.assertIn('narration.lock.json', err)
+            self.assertEqual(len(err.strip().splitlines()), 1)
+
+    def test_6_lock_paths_survive_moving_the_folder(self):
+        fake = FakeVoicebox()
+        try:
+            self.voicebox(fake.url)
+        finally:
+            fake.close()
+        self.assertEqual(self.lock()['lines']['a']['wav'], 'a.wav')
+        moved = self.dir / 'moved'
+        self.out.rename(moved)
+        code, out, _ = quiet(runtime.main, ['measure', '--cues', str(self.cues), '--out', str(moved), '--json'], {})
+        self.assertEqual(code, 0)
+        self.assertEqual({row['verdict'] for row in json.loads(out)}, {'fits'})
 
 
 if __name__ == '__main__':

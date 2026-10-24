@@ -2,7 +2,8 @@
 
 ## Cue sheet (`cues.json`)
 
-An ordered list of lines (or `{"lines": [...]}`). `id` must be unique, `text` non-empty and `max_seconds` positive;
+An ordered list of lines (or `{"lines": [...]}`). `id` must be unique and use only letters, digits, dot, dash and
+underscore (it becomes the file name), `text` non-empty and `max_seconds` positive;
 the launcher stops before any generation and names the line otherwise.
 
 ```json
@@ -26,17 +27,18 @@ entry first, so `Hardcore` is not changed by an entry for `Core`.
 
 ## Lock file (`narration.lock.json`)
 
-Written in the output folder and updated line by line, so `--only` keeps the other lines.
+Written in the output folder and updated line by line, so `--only` keeps the other lines. `wav` is relative to the
+output folder, so the folder can be moved. A failed attempt on a line that already has a take sets `status: failed`
+and `error` and keeps the previous take's description (its text, file, hash and lexicon) unchanged.
 
 ```json
 {
   "version": 1,
-  "lexicon_sha256": "…",
   "lines": {
     "s01": {"engine": "voxcpm", "model": "openbmb/VoxCPM2", "engine_version": "2.0.3",
             "voice_source": "voxcpm default voice", "consent": null,
             "text_sent": "(calm, warm female voice)frejm kor Works ships today.",
-            "wav": "takes/s01.wav", "sha256": "…", "duration": 2.61, "max_seconds": 2.8,
+            "wav": "s01.wav", "sha256": "…", "lexicon_sha256": "…", "duration": 2.61, "max_seconds": 2.8,
             "verdict": "fits", "stretch_percent": null, "status": "ok", "error": null}
   }
 }

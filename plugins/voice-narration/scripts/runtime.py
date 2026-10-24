@@ -142,7 +142,11 @@ def cmd_measure(args, env):
     except formats.CueError as error:
         print(f'error: {error}', file=sys.stderr)
         return 2
-    lock = formats.Lock.load(args.out)
+    try:
+        lock = formats.Lock.load(args.out)
+    except formats.CueError as error:
+        print(f'error: {error}', file=sys.stderr)
+        return 2
     rows = audio.measure_all(cues, args.out, lock)
     record_measure(lock, rows)
     if any(row['verdict'] in ('fits', 'over', 'silent') for row in rows):
@@ -168,6 +172,11 @@ def cmd_stretch(args, env):
         return 2
     source = Path(args.out) / f'{cue.id}.wav'
     dest = Path(args.out) / f'{cue.id}.stretched.wav'
+    try:
+        lock = formats.Lock.load(args.out)
+    except formats.CueError as error:
+        print(f'error: {error}', file=sys.stderr)
+        return 2
     if not args.yes:
         print(f'plan: speed {source} up by {args.percent:g}% with FFmpeg into {dest}; nothing written. Rerun with --yes.')
         return 0
@@ -184,8 +193,7 @@ def cmd_stretch(args, env):
     except audio.AudioError as error:
         print(f'error: {error}', file=sys.stderr)
         return 1
-    lock = formats.Lock.load(args.out)
-    lock.set_line(cue.id, wav=str(dest), sha256=audio.sha256(dest), stretch_percent=float(args.percent),
+    lock.set_line(cue.id, wav=dest.name, sha256=audio.sha256(dest), stretch_percent=float(args.percent),
                   duration=duration, max_seconds=cue.max_seconds, verdict=audio.verdict(duration, cue.max_seconds))
     lock.save()
     print_measure([{'id': cue.id, 'duration': duration, 'max_seconds': cue.max_seconds,
@@ -272,26 +280,36 @@ def cmd_fetch_models(args, env):
 WORKER = Path(__file__).resolve().parent / 'voxcpm_worker.py'
 
 
-def generate_voicebox(args, cues, lock, texts):
+def record_take(lock, cue_id, line, dest, ok, error=None):
+    """A good take replaces the line; a failed attempt keeps the previous take's description and marks the line."""
+    if ok:
+        lock.set_line(cue_id, **line, wav=dest.name, sha256=audio.sha256(dest), status='ok', error=None)
+    elif cue_id in lock.lines and lock.lines[cue_id].get('wav'):
+        lock.set_line(cue_id, status='failed', error=error)
+    else:
+        lock.set_line(cue_id, **line, status='failed', error=error)
+
+
+def generate_voicebox(args, cues, lock, texts, lexicon_hash):
     client = voicebox.VoiceboxClient(args.voicebox_url)
     for cue in cues:
         dest = Path(args.out) / f'{cue.id}.wav'
         line = dict(engine='voicebox', model=args.voicebox_engine or 'profile default', engine_version=None,
                     voice_source=f'voicebox profile {args.profile}', consent=None, text_sent=texts[cue.id],
-                    stretch_percent=None)
+                    stretch_percent=None, lexicon_sha256=lexicon_hash)
         try:
             generation = client.generate(texts[cue.id], args.profile, args.language, args.voicebox_engine)
             state = client.wait(generation)
             if state.get('status') != 'completed':
                 raise voicebox.VoiceboxError(state.get('error') or f"generation {state.get('status', 'unknown')}")
             client.download(generation, dest)
-        except (voicebox.VoiceboxError, audio.AudioError) as error:
-            lock.set_line(cue.id, **line, status='failed', error=str(error))
+        except (voicebox.VoiceboxError, audio.AudioError, OSError) as error:
+            record_take(lock, cue.id, line, dest, False, str(error))
             continue
-        lock.set_line(cue.id, **line, wav=str(dest), sha256=audio.sha256(dest), status='ok', error=None)
+        record_take(lock, cue.id, line, dest, True)
 
 
-def generate_voxcpm(args, env, cues, lock, texts):
+def generate_voxcpm(args, env, cues, lock, texts, lexicon_hash):
     out = Path(args.out)
     jobs = [{'id': c.id, 'text': texts[c.id], 'out': str(out / f'{c.id}.wav'), 'seed': args.seed,
              'reference_wav': str(args.reference_wav) if args.reference_wav else None} for c in cues]
@@ -317,12 +335,10 @@ def generate_voxcpm(args, env, cues, lock, texts):
     for cue in cues:
         item = results.get(cue.id, {'status': 'failed', 'error': fallback})
         line = dict(engine='voxcpm', model=VOXCPM_MODEL, engine_version=version, voice_source=source,
-                    consent=args.consent, text_sent=texts[cue.id], stretch_percent=None)
+                    consent=args.consent, text_sent=texts[cue.id], stretch_percent=None, lexicon_sha256=lexicon_hash)
         dest = out / f'{cue.id}.wav'
-        if item.get('status') == 'ok' and dest.exists():
-            lock.set_line(cue.id, **line, wav=str(dest), sha256=audio.sha256(dest), status='ok', error=None)
-        else:
-            lock.set_line(cue.id, **line, status='failed', error=item.get('error') or 'no audio written')
+        ok = item.get('status') == 'ok' and dest.exists()
+        record_take(lock, cue.id, line, dest, ok, None if ok else item.get('error') or 'no audio written')
 
 
 def cmd_generate(args, env):
@@ -355,13 +371,16 @@ def cmd_generate(args, env):
             print('error: VoxCPM2 weights are not downloaded; run: fetch-models --yes', file=sys.stderr)
             return 1
     texts = {c.id: formats.apply_lexicon(c.text, lexicon) for c in selected}
+    try:
+        lock = formats.Lock.load(args.out)
+    except formats.CueError as error:
+        print(f'error: {error}', file=sys.stderr)
+        return 2
     Path(args.out).mkdir(parents=True, exist_ok=True)
-    lock = formats.Lock.load(args.out)
-    lock.lexicon_sha256 = lexicon_hash
     if args.engine == 'voicebox':
-        generate_voicebox(args, selected, lock, texts)
+        generate_voicebox(args, selected, lock, texts, lexicon_hash)
     else:
-        generate_voxcpm(args, env, selected, lock, texts)
+        generate_voxcpm(args, env, selected, lock, texts, lexicon_hash)
     rows = audio.measure_all(cues, args.out, lock)
     record_measure(lock, rows)
     lock.save()
