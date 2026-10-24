@@ -1,0 +1,28 @@
+{
+  "version": "1.134.0",
+  "baseline_tag": "v1.133.0",
+  "baseline": "34a3423e474aa59720f50b4876d31e7535b402c2",
+  "change_id": "CC-20261024-16",
+  "origin": "cloud-code",
+  "files": 1568,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/cinematography/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/cinematography/references/camera-light-decision-cards.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1559,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Cinematography gains a camera and light decision-card reference (shot size, lens feel, angle, movement, light, colour, each with a reason and QA test; description unchanged), and the release publish script's guard branches gain unit tests; trigger: owner-opened review task (full review 2026-10-24, recommendation 1 and deferred minor 19); host behavior NOT_RUN; hosted ChatGPT update pending."
+}

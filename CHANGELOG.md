@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.134.0, 2026-10-24
+
+- Cinematography gains [camera and light decision cards](plugins/framecore-work-creative-studio/skills/cinematography/references/camera-light-decision-cards.md): shot size, lens feel, angle, movement, light and colour chosen beat by beat, each with a reason and an observable QA test (review recommendation 1 of [the 2026-10-24 review](docs/reviews/full-review-2026-10-24.md)). The skill description is unchanged.
+- Repository: [tests/test_publish_release.py](tests/test_publish_release.py) covers the guard branches of `scripts/publish_github_release.py` (ambiguous release, tag on another commit, release from another source, partial upload on a published or draft release, changed or unexpected assets); deferred item from minor finding 19.
+
 ## 1.133.0, 2026-10-24
 
 Trigger: owner request 2026-10-24 (a bounded task): let a user choose at first configuration whether Studio starts guided or plugs into their own workflow.
