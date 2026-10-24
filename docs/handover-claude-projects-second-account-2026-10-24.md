@@ -20,12 +20,16 @@ For the owner's second Claude account, which runs this same project as a Claude 
 - **Studio 1.128.0** (tag `v1.128.0` = `35af152`, publication record `2acb34d`): new public companion plugin **voice-narration** (`plugins/voice-narration`, skill `voice-narration:narrate`): VoxCPM2 or Voicebox on the user's own computer, ElevenLabs through the host connector. **voice-narration 1.0.1** (review minors) is on `main` at `4bf66c3`. Real engine generation and the ElevenLabs read: `NOT_RUN`.
 - **Studio 1.129.0:** Opus gallery, all 703 entries brought in as technique only, used by motion graphics only. Known gap: the storyboard step checks the gallery too late.
 - **Studio 1.130.0** (`main` at `ccf925d` before this note): Studio searches skills.sh during a task when no Studio skill or recommended extension covers a need, offers up to three audited candidates once per need, and uses a listed skill once (method only) or installs it on consent. A live skills.sh search: `NOT_RUN`.
-- **Hosted ChatGPT plugin:** `pending` for 1.127.0 to 1.130.0; the update prompts are in the files (`CHATGPT_UPDATE.md`, release notes). The owner runs them with Plugin Creator when convenient.
+- **Studio 1.131.0** (release `2f50e07`, tag `v1.131.0`, publication record `f3f612a`): new public companion plugin **brand-kit** (`plugins/brand-kit`, skill `brand-kit:brand`): a company website becomes evidence, a draft kit in Studio's brand kit schema, a brand audit with voice and messaging, revisions per brand and a direction menu. Audit and direction steps in a real host conversation: `NOT_RUN`.
+- **Studio 1.132.0** (release `e595120`, tag `v1.132.0`, publication record `7ff580f`): fixes from the owner's [full review](reviews/full-review-2026-10-24.md) (0 critical, 11 important, 19 minor; fix status at its end), with **voice-narration 1.0.2**, **brand-kit 1.0.1** and **earshot-audio 1.0.8**. `check_version_bump.py` now also guards companion plugins; `release.py` pushes only `main`; AGENTS.md current rules are consolidated 2026-10-24.
+  - Kept by decision (minor 2, 5, 6): Claude Code's skill-listing truncation is a host budget, not a repository defect; dependency ranges stay unpinned apart from the engines; Earshot's `exec` runs the user's own scripts by design.
+  - Deferred (minor 19): tests for the guard branches of `scripts/publish_github_release.py` (ambiguous release, tag on another commit, partial upload).
+- **Hosted ChatGPT plugin:** `pending` for 1.127.0 to 1.132.0; one update to 1.132.0 covers them all (Plugin Creator writes the whole declared inventory). Prompt: `CHATGPT_UPDATE.md` and the project file `review/chatgpt-update-1.132.0.txt`. The owner runs it with Plugin Creator when convenient.
 - Plugins the owner installed on claude.ai: Superpowers, context7, playwright, plugin-dev, claude-md-management. The skills.sh `handoff` skill is not installed.
 
 ## In flight
 
-1. **Brand kit from a website (MVP, new thread):** the owner wants the brand kit manager grown into a strong asset: the user pastes the company website, Studio reverse-engineers its styles, colours, logo and voice, then plans in whatever direction the user wants (website ideas, ads, Meta ads, brand development). Start with Superpowers brainstorming and an MVP scope; it builds on the existing reference workflow "brand kit from website" (1.126.0).
+1. **Brand kit from a website:** done in 1.131.0 (see above); out of its MVP: pixel sampling, competitor analysis, a hosted ChatGPT package.
 2. **Known follow-up:** make the storyboard step consult the Opus gallery earlier (gap noted in 1.129.0).
 
 ## Suggested project instructions (paste into the second account's project)
