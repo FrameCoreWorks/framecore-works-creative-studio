@@ -1,6 +1,6 @@
 {
   "name": "voice-narration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Voice-overs and narration from an approved script, measured against each scene's time: VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector. Pronunciation lexicon per project, consent before cloning, a lock file for the mix.",
   "author": {
     "name": "FrameCore Works"

@@ -55,6 +55,33 @@ class CheckUrl(unittest.TestCase):
         site.check_url('https://kawiarnialipa.example/', resolve=public)
 
 
+class ConnectTimeCheck(unittest.TestCase):
+    """DNS can answer the pre-check with a public address and the connection with a private one (rebinding)."""
+
+    def serve(self):
+        import http.server
+        import threading
+        server = http.server.HTTPServer(('127.0.0.1', 0), http.server.SimpleHTTPRequestHandler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        return f'http://127.0.0.1:{server.server_address[1]}/'
+
+    def test_a_private_peer_is_refused_even_after_a_public_pre_check(self):
+        from unittest import mock
+        url = self.serve()
+        with mock.patch.object(site, 'check_url'), mock.patch.object(site, '_proxied', return_value=False):
+            with self.assertRaisesRegex(site.UnsafeURL, 'non-public'):
+                site.fetch(url)
+
+    def test_behind_a_proxy_the_proxy_resolves_names(self):
+        from unittest import mock
+        url = self.serve()
+        with mock.patch.object(site, 'check_url'), mock.patch.object(site, '_proxied', return_value=True), \
+                mock.patch.dict('os.environ', {'NO_PROXY': '*', 'no_proxy': '*'}):
+            self.assertEqual(site.fetch(url)[0], 200)
+
+
 class Collect(unittest.TestCase):
     def run_collect(self, **kw):
         fetch = kw.pop('fetch', StubFetch())

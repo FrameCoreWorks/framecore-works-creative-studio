@@ -6,7 +6,7 @@ import unittest
 
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 ROOT = PLUGIN.parent.parent
-VERSION = '1.0.1'
+VERSION = '1.0.2'
 
 
 def load(path):

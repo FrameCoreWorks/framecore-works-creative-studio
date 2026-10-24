@@ -464,10 +464,16 @@ class Generate(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn('--profile', err)
 
+    def test_voicebox_needs_the_users_language(self):
+        code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
+                                            '--out', str(self.out), '--profile', 'p1'], {})
+        self.assertEqual(code, 2)
+        self.assertIn('--language', err)
+
     def test_voicebox_unreachable_no_fallback(self):
         with mock.patch.object(runtime.subprocess, 'run') as run:
             code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
-                                                '--out', str(self.out), '--profile', 'p1',
+                                                '--out', str(self.out), '--profile', 'p1', '--language', 'en',
                                                 '--voicebox-url', 'http://127.0.0.1:9'], {})
         self.assertEqual(code, 1)
         self.assertIn("user's own computer", err)
@@ -580,7 +586,7 @@ class ReviewFixes(unittest.TestCase):
 
     def voicebox(self, url, *extra):
         return quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues), '--out', str(self.out),
-                                    '--profile', 'p1', '--voicebox-url', url, *extra], {})
+                                    '--profile', 'p1', '--language', 'en', '--voicebox-url', url, *extra], {})
 
     def lock(self):
         return json.loads((self.out / 'narration.lock.json').read_text(encoding='utf-8'))
@@ -738,7 +744,7 @@ class Minors(unittest.TestCase):
         fake = FakeVoicebox(body=wav_bytes(0.0))
         try:
             code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
-                                                '--out', str(self.dir / 'out'), '--profile', 'p',
+                                                '--out', str(self.dir / 'out'), '--profile', 'p', '--language', 'en',
                                                 '--voicebox-url', fake.url], {})
         finally:
             fake.close()

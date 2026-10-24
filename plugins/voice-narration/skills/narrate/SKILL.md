@@ -62,7 +62,7 @@ brand names, people, numbers read aloud). Keep one lexicon per project; never re
 
 - VoxCPM2: `python3 <runtime> generate --engine voxcpm --cues cues.json --lexicon lexicon.json --out takes/`. A voice
   description goes at the start of a line's text in parentheses, for example `(calm, warm male voice)`.
-- Voicebox: `python3 <runtime> generate --engine voicebox --profile <profile id> --language pl --cues cues.json
+- Voicebox: `python3 <runtime> generate --engine voicebox --profile <profile id> --language <script language code> --cues cues.json
   --lexicon lexicon.json --out takes/`.
 - ElevenLabs: follow `references/elevenlabs-connector.md`. Price the run first, ask before spending credits, name
   the chosen voice, and never retry a generation automatically: each attempt costs credits.

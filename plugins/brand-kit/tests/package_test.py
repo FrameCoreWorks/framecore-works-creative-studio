@@ -9,7 +9,7 @@ PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 ROOT = PLUGIN.parent.parent
 STUDIO = ROOT / 'plugins/framecore-work-creative-studio'
 SKILL = PLUGIN / 'skills/brand'
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 sys.path.insert(0, str(PLUGIN / 'scripts'))
 import catalog  # noqa: E402
 

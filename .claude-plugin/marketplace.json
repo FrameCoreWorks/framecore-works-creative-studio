@@ -27,7 +27,7 @@
       "displayName": "Voice And Narration",
       "source": "./plugins/voice-narration",
       "description": "Measured voice-overs and narration: VoxCPM2 or Voicebox on your own computer, or ElevenLabs through the app's connector.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "productivity"
     },
     {
@@ -35,7 +35,7 @@
       "displayName": "Brand Kit",
       "source": "./plugins/brand-kit",
       "description": "A brand kit from your company website: colours, fonts, logo, tone of voice and messaging, kept as revisions per brand, then a plan for a new site, ads or brand development.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "productivity"
     }
   ]

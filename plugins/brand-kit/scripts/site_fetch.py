@@ -52,6 +52,42 @@ class _SafeRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
+def _check_peer(conn):
+    """Refuse a connection whose actual peer is not public: the name may resolve differently than at check_url."""
+    host = conn.sock.getpeername()[0]
+    address = ipaddress.ip_address(host.split('%')[0])
+    if not address.is_global:
+        conn.close()
+        raise UnsafeURL(f'{conn.host} connected to a non-public address ({address})')
+
+
+class _CheckedHTTPConnection(http.client.HTTPConnection):
+    def connect(self):
+        super().connect()
+        _check_peer(self)
+
+
+class _CheckedHTTPSConnection(http.client.HTTPSConnection):
+    def connect(self):
+        super().connect()
+        _check_peer(self)
+
+
+class _CheckedHTTPHandler(urllib.request.HTTPHandler):
+    def http_open(self, req):
+        return self.do_open(_CheckedHTTPConnection, req)
+
+
+class _CheckedHTTPSHandler(urllib.request.HTTPSHandler):
+    def https_open(self, req):
+        return self.do_open(_CheckedHTTPSConnection, req, context=self._context)
+
+
+def _proxied(scheme):
+    """True when a configured proxy resolves names for this scheme (its own address is then the peer)."""
+    return bool(urllib.request.getproxies().get(scheme))
+
+
 PAGE_TYPES = ('text/html', 'application/xhtml+xml')
 SHEET_TYPES = ('text/css', 'text/plain')
 FETCH_ERRORS = (OSError, ValueError, LookupError, http.client.HTTPException)
@@ -60,11 +96,18 @@ FETCH_ERRORS = (OSError, ValueError, LookupError, http.client.HTTPException)
 def fetch(url):
     """GET one URL; returns (status, content type, text, final URL after redirects)."""
     check_url(url)
-    opener = urllib.request.build_opener(_SafeRedirect())
+    handlers = [_SafeRedirect()]
+    if not _proxied(urllib.parse.urlsplit(url).scheme):
+        handlers += [_CheckedHTTPHandler(), _CheckedHTTPSHandler()]
+    opener = urllib.request.build_opener(*handlers)
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'text/html,text/css,*/*'})
     try:
         response = opener.open(request, timeout=TIMEOUT)
-    except urllib.error.HTTPError as exc:
+    except urllib.error.URLError as exc:
+        if isinstance(exc.reason, UnsafeURL):
+            raise exc.reason
+        if not isinstance(exc, urllib.error.HTTPError):
+            raise
         return exc.code, exc.headers.get_content_type() if exc.headers else '', '', url
     with response:
         data = response.read(MAX_BYTES + 1)[:MAX_BYTES]

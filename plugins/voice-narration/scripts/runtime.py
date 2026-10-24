@@ -348,6 +348,9 @@ def cmd_generate(args, env):
     if args.engine == 'voicebox' and not args.profile:
         print('error: --engine voicebox needs --profile (a Voicebox voice profile id)', file=sys.stderr)
         return 2
+    if args.engine == 'voicebox' and not (args.language or '').strip():
+        print("error: --engine voicebox needs --language with the script's language code (e.g. en, pl)", file=sys.stderr)
+        return 2
     try:
         cues = formats.load_cues(args.cues)
         lexicon, lexicon_hash = formats.load_lexicon(args.lexicon)
@@ -418,7 +421,7 @@ def build_parser(env):
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--lexicon', type=Path)
     p.add_argument('--only', nargs='+')
-    p.add_argument('--language', default='pl')
+    p.add_argument('--language', help="the script's language code for Voicebox, e.g. en or pl")
     p.add_argument('--profile')
     p.add_argument('--voicebox-engine')
     p.add_argument('--voicebox-url', default=VOICEBOX_URL)
