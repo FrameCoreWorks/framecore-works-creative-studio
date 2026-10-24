@@ -446,6 +446,61 @@
     "Names what the numbers cannot judge (taste, genre fit)",
     "Does not claim to have heard the sound and does not upload the audio anywhere"
    ]
-  }
+  },
+ {
+  "id": "ST01",
+  "title": "Workflow startup style: a later bare invocation gets one ready line, not the welcome",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio chcę styl startu workflow: bez menu powitalnego, podpinaj się po cichu.",
+    "checks": [
+     {
+      "not_welcome": true
+     },
+     {
+      "language": "pl"
+     }
+    ]
+   },
+   {
+    "prompt": "@FrameCore Works Creative Studio",
+    "checks": [
+     {
+      "not_welcome": true
+     },
+     {
+      "max_chars": 400
+     },
+     {
+      "contains_any": [
+       "menu"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ST02",
+  "title": "Workflow startup style: an explicit menu request still gets the complete welcome",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio chcę styl startu workflow: bez menu powitalnego, podpinaj się po cichu.",
+    "checks": [
+     {
+      "not_welcome": true
+     }
+    ]
+   },
+   {
+    "prompt": "@FrameCore Works Creative Studio menu",
+    "checks": [
+     {
+      "welcome": "pl"
+     }
+    ]
+   }
+  ]
+ }
  ]
 }

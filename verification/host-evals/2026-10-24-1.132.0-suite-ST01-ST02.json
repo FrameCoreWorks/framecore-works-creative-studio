@@ -1,0 +1,273 @@
+{
+  "date": "2026-10-24",
+  "package_version": "1.132.0",
+  "source": {
+    "commit": "c3b76f8352e663e8a2547a9106ff6e0349ec14f2",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "e7516c97fa32af5690908ec68a5340de51b094340a5c483ee9f4eac0915504fc",
+      "files": 1567,
+      "archive": "candidates/e7516c97fa32af5690908ec68a5340de51b094340a5c483ee9f4eac0915504fc.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "79c9e3f4c7abcf29f6a8538a9416901b7e0dc7d40a051e57ae4f791754742dda",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4864,
+      "output": 7771,
+      "cache_read": 301394,
+      "cache_write": 107252
+    },
+    "seconds": 58.7
+  },
+  "cases": [
+    {
+      "id": "ST01",
+      "title": "Workflow startup style: a later bare invocation gets one ready line, not the welcome",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2436,
+        "output": 3848,
+        "cache_read": 217310,
+        "cache_write": 55534
+      },
+      "seconds": 30.4,
+      "wall_seconds": 30.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio chcę styl startu workflow: bez menu powitalnego, podpinaj się po cichu.",
+          "reply": "Tryb workflow jest włączony. Studio będzie się podpinać po cichu, bez menu powitalnego.\n\nObowiązuje to tylko w tej rozmowie, bo nic nie zapisałem. To sesja w chmurze, a zapis w folderze domowym zniknąłby razem ze środowiskiem. Żeby styl został na stałe, wklej tę linijkę do własnych ustawień (w Claude Code do `~/.claude/CLAUDE.md`, w ChatGPT do Ustawienia → Personalizacja → Instrukcje niestandardowe):\n\n`FrameCore Works Creative Studio: startup style workflow`\n\nW tym stylu samo wywołanie Studio, powitanie albo „start\" dostaje jedną krótką linijkę gotowości. Konkretne zadanie idzie od razu do właściwego skilla, bez menu trybu, obszaru i tempa. Domyślnie działa tryb szybki, a pytam tylko o pierwszy brakujący element briefu. Pełne powitanie wróci, gdy napiszesz „menu\". Do trybu prowadzonego wrócisz, pisząc „tryb prowadzony\".\n\nStudio jest gotowe (styl workflow). Wyślij zadanie albo wpisz „menu\", żeby zobaczyć pełne powitanie.",
+          "reply_chars": 933,
+          "reply_sha256": "03f8defc89f500723127adb1b7444a99697b015ddb55dcda905e82a27fabb3cb",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1217,
+            "output": 1897,
+            "cache_read": 91567,
+            "cache_write": 27471
+          },
+          "seconds": 23.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "Studio jest gotowe (styl workflow). Wyślij zadanie albo wpisz „menu\", żeby zobaczyć pełne powitanie.",
+          "reply_chars": 100,
+          "reply_sha256": "401b6f96dc36f5059b4fb633bc335a7edd3d672b2b70d20aa3442a729ca99ba2",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1219,
+            "output": 1951,
+            "cache_read": 125743,
+            "cache_write": 28063
+          },
+          "seconds": 6.5,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_chars": 400
+              },
+              "passed": true,
+              "detail": "100 chars (max 400)"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "menu"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['menu']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "ST02",
+      "title": "Workflow startup style: an explicit menu request still gets the complete welcome",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2428,
+        "output": 3923,
+        "cache_read": 84084,
+        "cache_write": 51718
+      },
+      "seconds": 28.3,
+      "wall_seconds": 28.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio chcę styl startu workflow: bez menu powitalnego, podpinaj się po cichu.",
+          "reply": "Rozumiem, od teraz startuję po cichu, bez menu powitalnego. Mam gotowy tryb startu `workflow`, więc przy samym wywołaniu dostaniesz tylko jedną linijkę gotowości.\n\nNie zapisałem tej preferencji w pamięci zespołu, bo narzędzie zapisu jest w tej sesji wyłączone. Obowiązuje więc tylko w tej rozmowie. Jeśli ma działać w kolejnych sesjach, trzeba ją dopisać innym sposobem.\n\nStudio jest gotowe. Napisz, nad czym pracujemy.",
+          "reply_chars": 419,
+          "reply_sha256": "e924bf1a2062f3d7ccb645ef0113961ef9f25fc9d3856b841462399c18507e98",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 5,
+              "result_order": 6,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/claude/memory/team/silo/feedback-quiet-workflow-start.md"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1213,
+            "output": 1429,
+            "cache_read": 25865,
+            "cache_write": 25649
+          },
+          "seconds": 18.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "@FrameCore Works Creative Studio menu",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+          "reply_chars": 2087,
+          "reply_sha256": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1215,
+            "output": 2494,
+            "cache_read": 58219,
+            "cache_write": 26069
+          },
+          "seconds": 9.9,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

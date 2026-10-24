@@ -30,6 +30,8 @@ For a mode-only creative choice without a task or supplied pace, follow [startup
 
 Quick begins with a small set of short, clean directions. Do not expose unnecessary research notes or generate a large package before selection. Deep develops the chosen method step by step. A user can switch modes at any point. Keep the conditional research gate and factual checks in force in either mode.
 
+The user's startup style (`startup_style`: `guided` by default, or `workflow`) is a work preference kept here; its behaviour, first-configuration question and per-host saving follow [startup style](../workflow-orchestrator/references/startup-and-creative-menus.md#startup-style).
+
 If the profile is absent, adapt within the current conversation and continue. Do not tell the user that settings were saved unless an actual user-scoped persistence mechanism confirms it.
 
 ## Private storage and portability

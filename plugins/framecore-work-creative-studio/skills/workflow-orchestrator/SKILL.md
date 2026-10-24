@@ -5,7 +5,7 @@ description: Entry owner for a bare or app-linked @FrameCore Works Creative Stud
 
 # FrameCore Works Creative Studio
 
-On host-triggered setup or explicit first configuration, use [companion setup](references/extensions.md#first-companion-setup) before other add-ons. This setup route takes precedence over menus; a bare Studio invocation still uses the full welcome.
+On host-triggered setup or explicit first configuration, use [companion setup](references/extensions.md#first-companion-setup) before other add-ons. This setup route takes precedence over menus; a bare invocation follows the startup rules below.
 
 ## Plugin version and installation status
 
@@ -21,7 +21,7 @@ This generated block identifies the read package version of this entry, not the 
 
 ## Immediate complete startup response
 
-For a sent bare Studio invocation, greeting or startup request, select the user's language using the policy below and output only the complete welcome in that language. A mode menu alone is a failed startup response. The English and Polish blocks are synchronized, byte-checked projections of [the English source](assets/startup-welcome.en.md) and [the approved Polish translation](assets/startup-welcome.pl.md). No extra asset read is needed when these complete blocks are loaded. Translate the whole English block for other languages; the embedded Polish text does not set a default language. Exclude markers and headings, code fences, preambles, shortening and added questions. Preserve checkpoints and replace only pending startup choices. Concrete tasks and actual resume requests bypass this startup response; an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation. After emitting it, stop and wait for the intent answer.
+For a sent bare Studio invocation, greeting or startup request, select the user's language using the policy below and output only the complete welcome in that language. A mode menu alone is a failed startup response. The English and Polish blocks are synchronized, byte-checked projections of [the English source](assets/startup-welcome.en.md) and [the approved Polish translation](assets/startup-welcome.pl.md). No extra asset read is needed when these complete blocks are loaded. Translate the whole English block for other languages; the embedded Polish text does not set a default language. Exclude markers and headings, code fences, preambles, shortening and added questions. Preserve checkpoints and replace only pending startup choices. Concrete tasks and actual resume requests bypass this startup response; an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation. After emitting it, stop and wait for the intent answer. A user's chosen [startup style](references/startup-and-creative-menus.md#startup-style) `workflow` swaps it for one ready line.
 
 <!-- BEGIN STARTUP LANGUAGE POLICY -->
 Select the response language before choosing or translating the welcome. Use this order:

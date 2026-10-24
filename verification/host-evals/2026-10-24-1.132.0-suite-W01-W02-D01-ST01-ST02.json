@@ -1,0 +1,453 @@
+{
+  "date": "2026-10-24",
+  "package_version": "1.132.0",
+  "source": {
+    "commit": "c3b76f8352e663e8a2547a9106ff6e0349ec14f2",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "7f297fbbcb57fa8e05be46f2804ddcc5689c91c4e874c62734076026d46231ca",
+      "files": 1567,
+      "archive": "candidates/7f297fbbcb57fa8e05be46f2804ddcc5689c91c4e874c62734076026d46231ca.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-host-starter",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "79c9e3f4c7abcf29f6a8538a9416901b7e0dc7d40a051e57ae4f791754742dda",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 4,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 8498,
+      "output": 11625,
+      "cache_read": 519604,
+      "cache_write": 182361
+    },
+    "seconds": 79.8
+  },
+  "cases": [
+    {
+      "id": "W01",
+      "title": "Polish greeting with the Studio name gives the complete Polish welcome",
+      "source": null,
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1186,
+        "output": 1145,
+        "cache_read": 25264,
+        "cache_write": 24181
+      },
+      "seconds": 10.4,
+      "wall_seconds": 10.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Cześć @FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+          "reply_chars": 2087,
+          "reply_sha256": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1186,
+            "output": 1145,
+            "cache_read": 25264,
+            "cache_write": 24181
+          },
+          "seconds": 10.4,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            },
+            {
+              "check": {
+                "skills": [
+                  "workflow-orchestrator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "W02",
+      "title": "Bare Studio name gives the complete English welcome (provisional fallback)",
+      "source": null,
+      "gate": true,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 1181,
+        "output": 1301,
+        "cache_read": 25202,
+        "cache_write": 25343
+      },
+      "seconds": 13.0,
+      "wall_seconds": 13.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+          "reply_chars": 2087,
+          "reply_sha256": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1181,
+            "output": 1301,
+            "cache_read": 25202,
+            "cache_write": 25343
+          },
+          "seconds": 13.0,
+          "checks": [
+            {
+              "check": {
+                "welcome": "en"
+              },
+              "passed": false,
+              "detail": "differs from startup-welcome.en.md (2087 vs 2020 chars)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "D01",
+      "title": "Direct Polish copy task: exactly three slogans, no welcome, no questions",
+      "source": "evals/studio-behavior-cases.json#H01",
+      "gate": true,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1259,
+        "output": 1229,
+        "cache_read": 25273,
+        "cache_write": 17319
+      },
+      "seconds": 11.7,
+      "wall_seconds": 11.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Podaj dokładnie trzy krótkie hasła dla sobotniego warsztatu ceramiki dla początkujących. Glina, szkliwienie i wypał są w cenie. Nie dodawaj innych faktów.",
+          "reply": "1. Sobota z gliną. Dla początkujących.\n2. Glina, szkliwienie i wypał w cenie.\n3. Zacznij ceramikę w sobotę.\n\nUżyłem tylko podanych faktów: sobota, ceramika, początkujący oraz glina, szkliwienie i wypał w cenie. Nie dodałem godzin, ceny, miejsca ani żadnych obietnic.",
+          "reply_chars": 266,
+          "reply_sha256": "e2122ae84e9acd2087fb02ee2047b53d4f96ed12f8d604c3f1c4fa630cfd6e54",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1259,
+            "output": 1229,
+            "cache_read": 25273,
+            "cache_write": 17319
+          },
+          "seconds": 11.7,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "items": 3
+              },
+              "passed": true,
+              "detail": "3 list items (expected 3)"
+            },
+            {
+              "check": {
+                "max_user_questions": 0
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 0)"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "ST01",
+      "title": "Workflow startup style: a later bare invocation gets one ready line, not the welcome",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2436,
+        "output": 3519,
+        "cache_read": 215908,
+        "cache_write": 55061
+      },
+      "seconds": 21.5,
+      "wall_seconds": 21.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio chcę styl startu workflow: bez menu powitalnego, podpinaj się po cichu.",
+          "reply": "Studio jest gotowe (styl workflow). Wyślij zadanie albo wpisz „menu\", jeśli chcesz pełne powitanie.\n\nTen styl działa na razie tylko w tej rozmowie, bo niczego nie zapisałem. Żeby przetrwał kolejne sesje, dopisz do `~/.claude/CLAUDE.md` tę linię:\n\n`FrameCore Works Creative Studio: startup style workflow`\n\nMogę ją dopisać sam, jeśli się zgodzisz. W trybie workflow zapytania typu „zrób plakat\" przechodzą od razu do właściwego skilla, bez menu trybu, obszaru i tempa. Dopytam tylko o pierwszy brakujący element briefu.",
+          "reply_chars": 518,
+          "reply_sha256": "19b75e3093a6d091c7f688a8d834ef2daf0771646c4aad416a1bec81a2c2916f",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1217,
+            "output": 1733,
+            "cache_read": 90937,
+            "cache_write": 27329
+          },
+          "seconds": 18.6,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "@FrameCore Works Creative Studio",
+          "reply": "Studio jest gotowe (styl workflow). Wyślij zadanie albo wpisz „menu\", jeśli chcesz pełne powitanie.",
+          "reply_chars": 99,
+          "reply_sha256": "cfb4f3b740c1a312eac04463cca5d6372f2eca1e807df047e9d9254294988dcd",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1219,
+            "output": 1786,
+            "cache_read": 124971,
+            "cache_write": 27732
+          },
+          "seconds": 2.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "max_chars": 400
+              },
+              "passed": true,
+              "detail": "99 chars (max 400)"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "menu"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['menu']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "ST02",
+      "title": "Workflow startup style: an explicit menu request still gets the complete welcome",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2436,
+        "output": 4431,
+        "cache_read": 227957,
+        "cache_write": 60457
+      },
+      "seconds": 23.2,
+      "wall_seconds": 23.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio chcę styl startu workflow: bez menu powitalnego, podpinaj się po cichu.",
+          "reply": "Styl workflow jest włączony w tej rozmowie. Studio startuje po cichu, bez menu powitalnego. Na samo wywołanie odpowie jedną linijką, a pełne powitanie pokaże dopiero po wpisaniu „menu\".\n\nNa razie to ustawienie działa tylko w tej rozmowie, bo niczego nie zapisałem na stałe. Żeby obowiązywało w każdej nowej sesji, dopisałbym do `~/.claude/CLAUDE.md` tę linię:\n\n`FrameCore Works Creative Studio: startup style workflow`\n\nZrobię to, jeśli się zgodzisz. Plik leży poza repozytorium i poza pluginem. Możesz też wkleić tę linię sam, np. w instrukcjach własnych w ustawieniach.\n\nStudio gotowe (styl workflow). Wyślij zadanie albo wpisz „menu\".",
+          "reply_chars": 637,
+          "reply_sha256": "6602206ce6b07bd692c3fecc3edd7ec6cd79490fe8837f2d834536f99551ab05",
+          "skills": [
+            "workflow-orchestrator",
+            "studio-workstyle-profile"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1217,
+            "output": 1708,
+            "cache_read": 95624,
+            "cache_write": 30004
+          },
+          "seconds": 16.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "@FrameCore Works Creative Studio menu",
+          "reply": "Jestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+          "reply_chars": 2087,
+          "reply_sha256": "ed65f2f6c337690afcc813dad2a7216040ca725e0707e3a267e01a612fc2e983",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1219,
+            "output": 2723,
+            "cache_read": 132333,
+            "cache_write": 30453
+          },
+          "seconds": 6.8,
+          "checks": [
+            {
+              "check": {
+                "welcome": "pl"
+              },
+              "passed": true,
+              "detail": "byte-identical to startup-welcome.pl.md"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

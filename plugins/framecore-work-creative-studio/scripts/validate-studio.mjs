@@ -347,6 +347,18 @@ export function validateStudio(root, {legacy = false} = {}) {
     const body = texts.get('skills/workflow-orchestrator/' + reference) ?? '';
     if (!routing.includes('](' + reference + ')') || phrases.some(phrase => !body.includes(phrase))) fail('ORCHESTRATOR_REFERENCE', reference);
   }
+  // Opt-in startup style (owner 2026-10-24): guided stays the default; workflow trades the bare-invocation welcome for one ready line.
+  const startupMenus = texts.get('skills/workflow-orchestrator/references/startup-and-creative-menus.md') ?? '';
+  const styleSection = startupMenus.split('## Startup style')[1]?.split(/\n## /)[0] ?? '';
+  if (!routing.includes('](references/startup-and-creative-menus.md#startup-style)')) fail('STARTUP_STYLE', 'Entry must link the startup style section');
+  for (const phrase of ['`guided`', '`workflow`', 'default is `guided`', 'one ready line', 'menu', 'only in this conversation', 'Concrete tasks']) {
+    if (!styleSection.includes(phrase)) fail('STARTUP_STYLE', 'startup style section lacks: ' + phrase);
+  }
+  if (!(texts.get('skills/workflow-orchestrator/references/extensions.md') ?? '').includes('startup-and-creative-menus.md#startup-style')) fail('STARTUP_STYLE', 'First companion setup must ask the startup style first');
+  if (!(texts.get('skills/studio-workstyle-profile/SKILL.md') ?? '').includes('startup_style')) fail('STARTUP_STYLE', 'Workstyle profile must own the saved startup style');
+  try {
+    if (!['guided', 'workflow'].includes(JSON.parse(read('skills/studio-workstyle-profile/assets/profile.template.json')).work_preferences?.startup_style)) fail('STARTUP_STYLE', 'profile template needs work_preferences.startup_style');
+  } catch { fail('STARTUP_STYLE', 'profile template is not JSON'); }
   const routeRows = routing.split(/\r?\n/).filter(line => line.startsWith('|') && line.includes('/SKILL.md)'));
   const linkedOwnersByRow = new Map();
   const seenRouteRows = new Set();

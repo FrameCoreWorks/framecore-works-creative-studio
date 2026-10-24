@@ -7,6 +7,7 @@
     "prompt": ""
   },
   "work_preferences": {
+    "startup_style": "guided",
     "default_mode": "ask_or_infer_from_request",
     "first_pitch": "short_clean_ideas",
     "detail_after_selection": "stepwise",
