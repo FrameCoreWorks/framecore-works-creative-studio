@@ -12,7 +12,10 @@ export function validateMotionQuality(root) {
       if(data.schema_version!==1||!Array.isArray(data.entries)||!data.entries.length){fail(file+': invalid schema');continue;}
       for(const e of data.entries){
         if(!e.id||ids.has(e.id))fail(file+': duplicate/missing ID');ids.add(e.id);
-        if(e.category!==data.category||!e.title||!e.rights||!e.verification)fail(e.id+': incomplete provenance');
+        // A mixed shard (the Opus gallery) names each record's category from a fixed set.
+        const categoryOk=data.category==='mixed'?['motion','explainers','3d','interactive'].includes(e.category):e.category===data.category;
+        if(!categoryOk||!e.title||!e.rights||!e.verification)fail(e.id+': incomplete provenance');
+        if(String(e.id).startsWith('OPUS-')&&(typeof e.mechanism!=='string'||e.mechanism.length<30||!String(e.prompt_source_url).includes('/blob/'+e.upstream_commit+'/')))fail(e.id+': gallery record needs a mechanism note and a pinned prompt URL');
         if(file.startsWith('original-')){
           if(e.prompt_origin!=='framecore_original'||e.verification!=='not_run')fail(e.id+': original evidence boundary');
           for(const k of ['beats','acceptance','inputs','tags','avoid'])if(!Array.isArray(e[k])||!e[k].length)fail(e.id+': missing '+k);

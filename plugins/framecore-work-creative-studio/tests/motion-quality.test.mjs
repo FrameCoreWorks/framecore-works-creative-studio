@@ -57,6 +57,35 @@ test('creator-only records cannot silently gain redistributed text or tested sta
   e.prompt_text='Unauthorized creator text';e.verification='PASS';
   const errors=validateLibrary([e]);assert.ok(errors.some(e=>e.includes('link-only')));assert.ok(errors.some(e=>e.includes('verification')));
 });
+const OPUS_COMMIT='92aee2f586ac0715cb3cbcb6384834f98a33383d';
+test('the Opus gallery is complete, link-only and pinned, with a Studio note per record',()=>{
+  const entries=loadLibrary(),gallery=entries.filter(e=>e.file==='specimen-opus-gallery.json'),briefs=new Set(loadBriefIndex().briefs.map(b=>b.id));
+  assert.equal(gallery.length,703);
+  for (const e of gallery) {
+    assert.equal(e.prompt_origin,'creator_prompt_link_only',e.id);assert.equal(e.prompt_text,null,e.id);
+    assert.ok(e.prompt_source_url.startsWith('https://github.com/yihui-dev/awesome-opus5-5-videos/blob/'+OPUS_COMMIT+'/prompts/'),e.id);
+    assert.ok(typeof e.mechanism==='string'&&e.mechanism.length>=30,e.id);
+    assert.ok(e.brief_types.every(b=>briefs.has(b)),e.id);
+  }
+  assert.equal(gallery.filter(e=>e.category==='interactive').every(e=>!e.default_motion_search),true);
+  assert.ok(gallery.filter(e=>e.caution).length>=3);
+});
+test('gallery records reach briefs as technique, at most three, never as originals',()=>{
+  const entries=loadLibrary(),index=loadBriefIndex();
+  const view=presentBrief(index.briefs.find(b=>b.id==='tech-explainer'),entries);
+  assert.ok(view.gallery.length>0&&view.gallery.length<=3);
+  assert.ok(view.gallery.every(g=>g.id.startsWith('OPUS-')&&g.mechanism&&g.source&&g.prompt_source));
+  assert.match(view.authority,/selects no runtime/);
+  const shown=presentEntry(entries.find(e=>e.id===view.gallery[0].id));
+  assert.ok(shown.mechanism&&shown.prompt_source);assert.equal(shown.prompt,null);
+  assert.ok(searchLibrary(entries,'cocktail recipe',{limit:5}).some(e=>e.id.startsWith('OPUS-')));
+});
+test('tampered gallery records fail validation',()=>{
+  const entries=loadLibrary(),e=structuredClone(entries.find(x=>x.file==='specimen-opus-gallery.json'));
+  e.mechanism='';e.prompt_source_url='https://github.com/yihui-dev/awesome-opus5-5-videos/blob/main/prompts/x.md';e.brief_types=['no-such-brief'];
+  const errors=[...validateLibrary([e]),...validateBriefIndex(loadBriefIndex(),[...entries,{...e,id:'OPUS-copy'}])].join('\n');
+  assert.match(errors,/mechanism/);assert.match(errors,/pinned/);assert.match(errors,/unknown brief type no-such-brief/);
+});
 test('brief index points to existing original records and matches Polish briefs',()=>{
   const entries=loadLibrary(),index=loadBriefIndex();
   assert.deepEqual(validateBriefIndex(index,entries),[]);

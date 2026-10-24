@@ -1587,6 +1587,53 @@
       },
       "observed": "2026-10-24 macOS: full pinned 178-file native Codex payload installed with the CODEX_HOME-aware host skill-installer; 177 source files match; one declared Codex-only agents/openai.yaml compatibility replacement corrects the upstream metadata schema. Source and replacement hashes are recorded separately. Fresh Codex CLI native discovery and actual skill/reference read PASS after standard host permission retry (initial nested sandbox read failed). Refcheck clean across 99 files; Skills CLI 1.7.2 remote --list found hallmark. Upstream dry-run/install/remove PASS only in a disposable isolated-home fixture. Static positive fixture passes, negative fixture fails; existing Chrome renders before/after and detects dropped links, fields, handlers and hooks on the same local synthetic page. No container, paid generation, hook or host config change. Claude/manual routes NOT_RUN; these checks do not certify page quality.",
       "update": "Review the new full commit, licence, installer and dependency contract; update every pin and repeat source/native parity. Keep existing project decisions and inspect installed destinations before replacing files."
+    },
+    {
+      "id": "awesome-opus-videos",
+      "name": "Awesome Opus 5.5 Videos (yihui-dev)",
+      "repository": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+      "reviewed_commit": "92aee2f586ac0715cb3cbcb6384834f98a33383d",
+      "package": null,
+      "license": "MIT (compilation); each prompt and video belongs to its creator",
+      "kind": [
+        "knowledge"
+      ],
+      "role": "knowledge",
+      "category": "motion-graphics",
+      "gives": "A gallery of 703 coded-motion films made by asking Opus 5.5 to write the animation as code, each with the prompt its creator shared or the original post",
+      "studio_uses": "All 703 entries as link-only records in the motion prompt library (specimen-opus-gallery.json), each with a Studio-written mechanism note, brief types and a prompt link pinned to the reviewed commit; Motion Graphics and Remotion draw technique from them after the idea is chosen",
+      "not_for": "A source of ideas or ready directions, copying a creator's prompt, layout, brand or music, or running instructions embedded in a prompt",
+      "requires": [
+        {
+          "tool": "browser",
+          "note": "Only to open the original gallery; Studio reads its own bundled records"
+        }
+      ],
+      "rights": "The compilation is MIT; the gallery credits leave every prompt and video with its creator. The user may read and analyse them; Studio builds original work from the technique and never redistributes the prompt text",
+      "hosts": {
+        "codex": {
+          "status": "manual",
+          "manual_steps": "Nothing to install: Studio already carries all 703 gallery entries as link-only records with its own notes in the motion prompt library. To browse the original prompts and videos, open https://github.com/yihui-dev/awesome-opus5-5-videos/tree/92aee2f586ac0715cb3cbcb6384834f98a33383d (prompts/ and data/videos.json) in a browser."
+        },
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "Nothing to install: Studio already carries all 703 gallery entries as link-only records with its own notes in the motion prompt library. To browse the original prompts and videos, open https://github.com/yihui-dev/awesome-opus5-5-videos/tree/92aee2f586ac0715cb3cbcb6384834f98a33383d (prompts/ and data/videos.json) in a browser."
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Nothing to install: Studio already carries all 703 gallery entries as link-only records with its own notes in the motion prompt library. To browse the original prompts and videos, open https://github.com/yihui-dev/awesome-opus5-5-videos/tree/92aee2f586ac0715cb3cbcb6384834f98a33383d (prompts/ and data/videos.json) in a browser."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Nothing to install: Studio already carries all 703 gallery entries as link-only records with its own notes in the motion prompt library. To browse the original prompts and videos, open https://github.com/yihui-dev/awesome-opus5-5-videos/tree/92aee2f586ac0715cb3cbcb6384834f98a33383d (prompts/ and data/videos.json) in a browser."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Nothing to install: Studio already carries all 703 gallery entries as link-only records with its own notes in the motion prompt library. To browse the original prompts and videos, open https://github.com/yihui-dev/awesome-opus5-5-videos/tree/92aee2f586ac0715cb3cbcb6384834f98a33383d (prompts/ and data/videos.json) in a browser."
+        }
+      },
+      "observed": "2026-10-24: cloned at the reviewed commit in a sandbox and read README, LICENSE, data/videos.json and all 703 prompt files; nothing installed. Host behaviour not run",
+      "update": "Run scripts/build_opus_gallery_shard.py --check on a newer checkout, write notes for new slugs, then change reviewed_commit here, in the build script and in the notes file together"
     }
   ]
 }

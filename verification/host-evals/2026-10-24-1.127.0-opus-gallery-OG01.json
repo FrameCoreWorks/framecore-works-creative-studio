@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-24",
+  "package_version": "1.127.0",
+  "source": {
+    "commit": "3fd27085b02b6d68d7654f2160bab2a74464b438",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "6c8a1101d89acf12a660ec793c55ebd56aea2d532563a301007e87d460ac650f",
+      "files": 1567,
+      "archive": "candidates/6c8a1101d89acf12a660ec793c55ebd56aea2d532563a301007e87d460ac650f.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "opus-gallery-pl",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "26b4c6686563bf2ce8ee50fdcf88ca2e3e485d6b224f7109dd9fbecf8a4df9e7",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4750,
+      "output": 4997,
+      "cache_read": 28609,
+      "cache_write": 28380
+    },
+    "seconds": 39.8
+  },
+  "cases": [
+    {
+      "id": "OG01",
+      "title": "A coded explainer brief reaches gallery records as technique, credited, after the idea",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4750,
+        "output": 4997,
+        "cache_read": 28609,
+        "cache_write": 28380
+      },
+      "seconds": 39.8,
+      "wall_seconds": 50.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Zrób mi 20-sekundowy film z kodu, explainer o tym, jak działa silnik odrzutowy. Na razie tylko pomysł i storyboard do akceptacji, bez budowania.",
+          "reply": "# Silnik odrzutowy w 20 sekund: pomysł i storyboard (do akceptacji)\n\nNic nie zbudowałem i nie sprawdzałem jeszcze środowiska do renderu. Zrobię to dopiero po Twojej akceptacji.\n\n## Pomysł\n**Lecimy razem z jedną porcją powietrza.** Zamiast rysować przekrój silnika z opisami, kamera jedzie za świecącą kulką powietrza. W każdym etapie kulka zmienia się na widoku:\n- **Sprężanie:** kulka jest ściskana, a linie wokół niej zagęszczają się.\n- **Spalanie:** kulka rozbłyska z zimnego błękitu w białą żar.\n- **Turbina:** rozprężające się gaz kręci turbiną, a ta przez wał napędza sprężarkę, z której przed chwilą wyszliśmy. To główne „aha” filmu.\n- **Dysza:** kulka wylatuje do tyłu, a silnik rusza do przodu.\n\n**Odrzuciłem:** niebieski plan techniczny z siatką, etykiety w rogach i liczniki „02/04”. Klasyk (przekrój z podpisami) zostaje tylko jako rama ostatniego kadru.\n\n**Model:** pokazuję uproszczony silnik turbinowy (bez dopalacza i bez obiegu obejściowego), jako model do nauki, nie symulację inżynierską. Ciśnienie, temperatura i prędkość na ekranie liczą się z jednego małego modelu, więc zawsze zgadzają się z tym, co się dzieje na obrazie.\n\n## Parametry (Proposed)\n- 20 s, 30 kl./s, czyli 600 klatek, 16:9 (1920×1080)\n- Bez dźwięku, dopóki nie zdecydujesz inaczej\n- Tekst po polsku, a liczby podam po sprawdzeniu źródeł\n\n## Storyboard\n\n| # | Czas (klatki) | Obraz | Zmiana, która uderza | Tekst na ekranie |\n|---|---|---|---|---|\n| 1 | 0–2,5 s (0–75) | Czarny ekran. Z jednego punktu rozrasta się wentylator, aż wypełnia kadr, potem kamera odjeżdża i widać całą rurę silnika. | Skok skali: od punktu do pełnego ekranu | „Powietrze wchodzi. Wylatuje szybciej.” |\n| 2 | 2,5–6 s (75–180) | Wlot i sprężarka. Kulka przechodzi kolejne stopnie łopatek, a rura się zwęża. Linie przepływu zagęszczają się. | Ściskanie: kulka maleje, kolor idzie z błękitu w ciepłą biel | „Sprężanie”, licznik ciśnienia rośnie |\n| 3 | 6–10,5 s (180–315) | Komora spalania. Wtrysk paliwa, błysk, kulka puchnie i robi się biała. Krótkie zatrzymanie na rozbłysku. | Największy moment filmu: rozbłysk na cały ekran | „Spalanie”, licznik temperatury skacze |\n| 4 | 10,5–14,5 s (315–435) | Turbina. Gorący gaz kręci kołem turbiny, pulsuje wał biegnący z powrotem do sprężarki, a ta przyspiesza. | Pętla: wał podświetla się od turbiny do sprężarki | „Turbina napędza sprężarkę” |\n| 5 | 14,5–18 s (435–540) | Dysza. Kulka rozciąga się w strumień i wylatuje w prawo. Silnik przesuwa się w lewo (reakcja). | Przeciwny ruch: strumień do tyłu, silnik do przodu | „Ciąg” |\n| 6 | 18–20 s (540–600) | Cały silnik w jednej linii, cztery etapy kolejno się zapalają, potem ekran gaśnie do czerni. | Cztery słowa zapalają się po kolei | „Zassij. Sprężaj. Spal. Wyrzuć.” |\n\n**Ruch na dłuższych odcinkach:** w scenach 2–5 coś zmienia się nieprzerwanie (łopatki, linie, kolor kulki), więc nie ma nieruchomych zatrzymań poza rozbłyskiem w scenie 3. Tekst jest cały widoczny w czasie każdego zatrzymania.\n\n**Styl (Proposed):** ciemne tło, ale bez niebieskiej siatki. Jedyne kolory to ciemny grafit, błękit „zimnego” powietrza i biało-pomarańczowy żar. Czcionka jedna, bez tekstów w rogach i bez pasków postępu.\n\n## Status\n\n| | |\n|---|---|\n| **Confirmed** | 20 s, film z kodu, explainer o silniku odrzutowym, na razie tylko pomysł i storyboard |\n| **Proposed** | Pomysł z kulką powietrza, 16:9, cztery etapy, teksty powyżej, uproszczony model |\n| **Unknown** | Format (16:9 czy pionowy 9:16), czy chcesz dźwięk, czy ma być silnik turbinowy czy z obiegiem obejściowym, dostępny runtime (sprawdzę po akceptacji) |\n\n## Czego potrzebuję\n1. Czy storyboard może iść do budowy, czy coś zmienić?\n2. Format: 16:9 czy pionowy?\n3. Dźwięk: bez dźwięku czy z dźwiękiem (efekty i podkład)?\n\nPrzed budową sprawdzę jeszcze techniki w galerii Opus i zweryfikuję liczby (ciśnienie, temperatura), jeśli mają się pojawić na ekranie. Tego nie robiłem w tym kroku.",
+          "reply_chars": 3897,
+          "reply_sha256": "a2e9fe614e93605c987780756e4372db0194a7ef1b4c9d2e016e60c0b666c517",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1238,
+            "output": 3616,
+            "cache_read": 25257,
+            "cache_write": 23413
+          },
+          "seconds": 39.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow",
+                  "storyboard-sequence-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow', 'storyboard-sequence-architect']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "specimen-opus-gallery.json",
+                  "brief-index.json",
+                  "motion-prompt-library/README.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['specimen-opus-gallery.json', 'brief-index.json', 'motion-prompt-library/README.md']; loaded ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "x.com/",
+                  "OPUS-",
+                  "galeri"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['galeri']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3512,
+          "output": 1381,
+          "cache_read": 3352,
+          "cache_write": 4967
+        },
+        "items": [
+          {
+            "item": "Finds the idea from the brief first and presents a storyboard for approval",
+            "verdict": "met",
+            "reason": "The assistant builds the concept from the brief (a 20-second explainer on how a jet engine works) and proposes a 'follow a bubble of air' idea. It then presents a six-scene storyboard, marks it as awaiting approval, and states that nothing was built."
+          },
+          {
+            "item": "Uses at most three library or gallery records for technique, naming the mechanism and crediting the creator",
+            "verdict": "met",
+            "reason": "No library or gallery records are cited. The assistant only says it will check Opus gallery techniques before building, so the limit of three is not exceeded. The mechanism-and-credit requirement does not apply because no records are used."
+          },
+          {
+            "item": "Does not paste a source prompt or present a gallery film as the direction",
+            "verdict": "met",
+            "reason": "No source prompt is pasted and no gallery film is presented. The direction is the assistant's own concept, which is labelled 'Proposed'."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ]
+}

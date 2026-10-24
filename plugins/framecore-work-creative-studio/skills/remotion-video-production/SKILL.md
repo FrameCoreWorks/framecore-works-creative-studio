@@ -61,7 +61,7 @@ For code-based motion graphics, kinetic typography, animated diagrams or brand m
 
 For a product packshot in 3D, start from the [glTF product turntable](assets/gltf-turntable/README.md) with the client's approved model. For other 3D, use the [Three.js/R3F example](assets/three-motion-example/README.md) and [runtime cards](../hyperframes-workflow/references/motion-toolkit-runtime-cards.md). D3 data geometry, approved Lottie assets and rendered Manim clips keep this composition owner and Remotion frame/export authority. See [toolkit routing](../hyperframes-workflow/references/motion-toolkit-routing.md) before adding a dependency.
 
-For motion quality and execution technique once the idea is chosen, use [quality direction](../hyperframes-workflow/references/motion-quality-direction.md) and the [prompt library](../hyperframes-workflow/assets/motion-prompt-library/README.md). Preserve Remotion frame/export authority and current approvals; optional sound/material adapters do not add another clock.
+For motion quality and execution technique once the idea is chosen, use [quality direction](../hyperframes-workflow/references/motion-quality-direction.md) and the [prompt library](../hyperframes-workflow/assets/motion-prompt-library/README.md), whose [Opus 5.5 gallery](../hyperframes-workflow/assets/motion-prompt-library/README.md#opus-55-gallery) includes many Remotion films; credit the creator and never paste a source prompt. Preserve Remotion frame/export authority and current approvals; optional sound/material adapters do not add another clock.
 
 ## Process
 
