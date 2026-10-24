@@ -2,7 +2,7 @@
 
 Use this route when the user has a brief and product photograph and wants a short campaign video planned across multiple stages. Keep one coherent creative premise and a single source of truth for product identity. Work only through the stages requested; a complete route is available without forcing the user to accept an automatic production chain. When the film could be generated footage or built from the product photos as motion graphics, offer that choice first ([generated video or motion from code](routing-boundaries.md#generated-video-or-motion-from-code)); this route describes the generated-footage path.
 
-For a full production request, [Creative Video Producer](../../creative-video-producer/SKILL.md) coordinates this route within the orchestrator’s shared state. [Reference Pack Curator](../../reference-pack-curator/SKILL.md) binds source roles; [Pipeline Core](../../pipeline-core/SKILL.md) supplies prompt contracts and handoff gates.
+For a full production request, [Video Producer](../../creative-video-producer/SKILL.md) coordinates this route within the orchestrator’s shared state. [Reference Pack](../../reference-pack-curator/SKILL.md) binds source roles; [Studio Core](../../pipeline-core/SKILL.md) supplies prompt contracts and handoff gates.
 
 ## 1. Start with a short, researched direction
 
@@ -12,25 +12,25 @@ In Quick mode, return a few short, distinct concepts: the concrete event that op
 
 ## 2. Preserve or prepare product references
 
-Use Image Prompt Architect when an existing source photo needs a scoped cleanup, framing change, lighting variant or reference still. State the exact requested delta and preserve the product's geometry, label, packaging and other locked details; name unavoidable physical effects of a changed environment. Research the exact generator surface before recommending a model-dependent approach. A prompt request does not run a generator.
+Use Image Prompt when an existing source photo needs a scoped cleanup, framing change, lighting variant or reference still. State the exact requested delta and preserve the product's geometry, label, packaging and other locked details; name unavoidable physical effects of a changed environment. Research the exact generator surface before recommending a model-dependent approach. A prompt request does not run a generator.
 
 If people recur, use the human-reference capture card and request only missing useful views. If the film uses abstract or product-only images, do not create character-reference intake. Keep a stable alias for each actual carrier; a prompt phrase such as “same product” is not itself a reference binding.
 
 ## 3. Turn the premise into a flowing sequence
 
-Commercial Video Campaign Director owns the motion thesis and the campaign-specific reason for each event. For a roughly 25-second reel, a five-shot plan near 4–5 seconds each is a starting constraint only. Sequence Architect assigns shot IDs and target in/out ranges, then defines each shot's starting state, primary action and ending state. Each adjacent pair needs a real connection: action consequence, shared direction, shape/scale match, material or color carry, camera move, sound bridge, or an intentional contrast with a readable reset.
+Video Campaign owns the motion thesis and the campaign-specific reason for each event. For a roughly 25-second reel, a five-shot plan near 4–5 seconds each is a starting constraint only. Sequence Architect assigns shot IDs and target in/out ranges, then defines each shot's starting state, primary action and ending state. Each adjacent pair needs a real connection: action consequence, shared direction, shape/scale match, material or color carry, camera move, sound bridge, or an intentional contrast with a readable reset.
 
 Before compiling prompts, check that each action is physically understandable, suits the actual product, preserves identity and label, and can be made from available references. Remove unrelated decorative macro shots and spectacle without product function. Do not force every beat to cut or apply a universal hook/body/CTA timing formula. Mark time as proposed until a real edit or timebase is inspected.
 
 ## 4. Make distinct board and prompt deliverables
 
-Storyboard Sequence Architect owns the time-based shot list and continuity. Storyboard Board Architect lays out a requested sheet with readable panels and explicit timing, action, camera, light, palette, wardrobe/location, product state and continuity annotations. Keep a static look/product reference sheet separate from the temporal storyboard; do not ask one image board to prove motion or timing.
+Shot Sequence owns the time-based shot list and continuity. Storyboard Board lays out a requested sheet with readable panels and explicit timing, action, camera, light, palette, wardrobe/location, product state and continuity annotations. Keep a static look/product reference sheet separate from the temporal storyboard; do not ask one image board to prove motion or timing.
 
-Image Prompt Architect creates selected still/reference prompts. Video Prompt Architect compiles each chosen shot for the researched target model/surface, with camera/subject motion, opening and ending states, source references and observable failure checks. Research generator documentation for the exact version and operation; distinguish the host's actual built-in generator from an external API or optional provider the user has not connected. A prompt pack does not imply generated references or clips.
+Image Prompt creates selected still/reference prompts. Video Prompt compiles each chosen shot for the researched target model/surface, with camera/subject motion, opening and ending states, source references and observable failure checks. Research generator documentation for the exact version and operation; distinguish the host's actual built-in generator from an external API or optional provider the user has not connected. A prompt pack does not imply generated references or clips.
 
 ## 5. Design audio and editorial timing in either direction
 
-Audio Production Director supports both routes:
+Audio Production supports both routes:
 
 - **Picture-first:** map actual accessible shots/cuts and tactile action sounds to music, VO, ambience, Foley/SFX and silence. Record what was measured versus supplied or estimated.
 - **Music-first:** inspect an actual selected track or use the user's pulse/time landmarks, then design image/action changes around meaningful sections. Do not infer BPM or cut every beat from clip duration or genre.
@@ -49,4 +49,4 @@ Distinguish brief, concept, shot plan, storyboard, prompt, generated candidate, 
 
 ## Editing, captions and delivery owners
 
-Use [Caption Studio](../../caption-studio/SKILL.md) for transcript-bound timing and layout; [Copy Voice](../../copy-voice/SKILL.md) for substantive wording. Route a footage-first timeline to [OpenCut Video Studio](../../opencut-video-studio/SKILL.md), a requested React/TypeScript composition to [Remotion Video Production](../../remotion-video-production/SKILL.md), or requested HTML/GSAP video to [Motion Graphics Workflow](../../hyperframes-workflow/SKILL.md). These are capability-checked routes: the Motion Graphics Workflow renders a finished MP4 from the product photos or screenshots, with designed sound on request, only where code execution exists, and otherwise delivers the contract and the motion player. [Asset Manifest](../../asset-manifest/SKILL.md) records accepted inputs/versions and [Delivery Documentation](../../delivery-documentation/SKILL.md) packages the requested output after the actual applicable QA.
+Use [Caption Studio](../../caption-studio/SKILL.md) for transcript-bound timing and layout; [Copy Voice](../../copy-voice/SKILL.md) for substantive wording. Route a footage-first timeline to [OpenCut Video Studio](../../opencut-video-studio/SKILL.md), a requested React/TypeScript composition to [Remotion Video](../../remotion-video-production/SKILL.md), or requested HTML/GSAP video to [Motion Graphics](../../hyperframes-workflow/SKILL.md). These are capability-checked routes: the Motion Graphics renders a finished MP4 from the product photos or screenshots, with designed sound on request, only where code execution exists, and otherwise delivers the contract and the motion player. [Asset Manifest](../../asset-manifest/SKILL.md) records accepted inputs/versions and [Delivery Pack](../../delivery-documentation/SKILL.md) packages the requested output after the actual applicable QA.

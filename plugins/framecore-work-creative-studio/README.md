@@ -83,29 +83,29 @@ All 37 display names follow one standard: words separated by spaces, an uppercas
 
 | Need | Skill |
 |---|---|
-| Open brief, cross-media project, resuming work or selecting a stage | [Workflow Orchestrator](skills/workflow-orchestrator/SKILL.md) |
-| Poster, graphic, product key visual, typography and exact copy | [Static Graphic Design Creator](skills/static-graphic-design-creator/SKILL.md) |
-| Multi-asset campaign visual strategy and adaptations | [Commercial Visual Campaign Director](skills/commercial-visual-campaign-director/SKILL.md) |
-| Video campaign and motion direction | [Commercial Video Campaign Director](skills/commercial-video-campaign-director/SKILL.md) |
+| Open brief, cross-media project, resuming work or selecting a stage | [FrameCore Studio Guide](skills/workflow-orchestrator/SKILL.md) |
+| Poster, graphic, product key visual, typography and exact copy | [Graphic Design](skills/static-graphic-design-creator/SKILL.md) |
+| Multi-asset campaign visual strategy and adaptations | [Visual Campaign](skills/commercial-visual-campaign-director/SKILL.md) |
+| Video campaign and motion direction | [Video Campaign](skills/commercial-video-campaign-director/SKILL.md) |
 | Flowing shot sequences and transitions for a short reel | [Short-form motion workbook](skills/commercial-video-campaign-director/references/short-form-motion-bridge-workbook.md) |
-| Music-video direction and song-to-image relationships | [Creative Music Video Director](skills/creative-music-video-director/SKILL.md) |
-| Music, VO, sound, audio-to-picture, prompts and track licenses | [Audio Production Director](skills/audio-production-director/SKILL.md) |
-| Narrative, scene, screenplay and story dialogue | [Screenplay Story Architect](skills/screenplay-story-architect/SKILL.md) |
-| Event sequence, timing and shot cards | [Storyboard Sequence Architect](skills/storyboard-sequence-architect/SKILL.md) |
-| Storyboard, character sheet and reference board | [Storyboard Board Architect](skills/storyboard-board-architect/SKILL.md) |
-| Realistic character, image references and generator prompt | [Image Prompt Architect](skills/image-prompt-architect/SKILL.md) |
-| Copy, editorial text, headline and CTA | [Copy Voice](skills/copy-voice/SKILL.md), with Humanizer support |
-| Video-generator prompts and generated-shot repair prompts | [Video Prompt Architect](skills/video-prompt-architect/SKILL.md) |
+| Music-video direction and song-to-image relationships | [Music Video](skills/creative-music-video-director/SKILL.md) |
+| Music, VO, sound, audio-to-picture, prompts and track licenses | [Audio Production](skills/audio-production-director/SKILL.md) |
+| Narrative, scene, screenplay and story dialogue | [Story And Screenplay](skills/screenplay-story-architect/SKILL.md) |
+| Event sequence, timing and shot cards | [Shot Sequence](skills/storyboard-sequence-architect/SKILL.md) |
+| Storyboard, character sheet and reference board | [Storyboard Board](skills/storyboard-board-architect/SKILL.md) |
+| Realistic character, image references and generator prompt | [Image Prompt](skills/image-prompt-architect/SKILL.md) |
+| Copy, editorial text, headline and CTA | [Copy Voice](skills/copy-voice/SKILL.md), with Copy Polish support |
+| Video-generator prompts and generated-shot repair prompts | [Video Prompt](skills/video-prompt-architect/SKILL.md) |
 | Video analysis, editing, highlights, motion composition and edit revisions | [FrameCut](skills/opencut-video-studio/SKILL.md) |
-| Review of an actual still image | [Output Critic Iteration](skills/output-critic-iteration/SKILL.md) |
-| Image, print, audio and video delivery specifications | [Delivery Documentation](skills/delivery-documentation/SKILL.md) |
-| Public sources, current models and evidence boundaries | [Research Evidence](skills/research-evidence/SKILL.md) |
-| Pace, detail, per-domain preferences and portable handoff | [Studio Workstyle Profile](skills/studio-workstyle-profile/SKILL.md) |
+| Review of an actual still image | [Output Review](skills/output-critic-iteration/SKILL.md) |
+| Image, print, audio and video delivery specifications | [Delivery Pack](skills/delivery-documentation/SKILL.md) |
+| Public sources, current models and evidence boundaries | [Research](skills/research-evidence/SKILL.md) |
+| Pace, detail, per-domain preferences and portable handoff | [Workstyle Profile](skills/studio-workstyle-profile/SKILL.md) |
 
 ## Changes in dev.29
 
-- Integrated the complete pinned, hash-verified Static Graphic Design Creator bundle from FrameCore Works. Studio uses its full method; static-only tasks route to one owner, while multi-asset campaign strategy remains with Commercial Visual Campaign Director.
-- Renamed Producer AI Task Builder to **Audio Production Director**. Google Flow Music, formerly ProducerAI, is now only one dated provider route.
+- Integrated the complete pinned, hash-verified Static Graphic Design Creator bundle from FrameCore Works. Studio uses its full method; static-only tasks route to one owner, while multi-asset campaign strategy remains with Visual Campaign.
+- Renamed Producer AI Task Builder to **Audio Production Director** (displayed as Audio Production since 1.127.0). Google Flow Music, formerly ProducerAI, is now only one dated provider route.
 - Added a motion/shot-bridge workbook for short reels, natural realistic-character reference cards, per-domain preferences, a cross-environment handoff template and a supplied-conversation-link resume attempt.
 - Connected concise ideation, expanded step-by-step work, mandatory research in both modes and one clarification after an unexplained rejected direction.
 - Added nine planned scenarios for the new routes. They are specifications, not observed model-behavior results.

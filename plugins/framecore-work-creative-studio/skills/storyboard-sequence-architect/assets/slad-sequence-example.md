@@ -28,4 +28,4 @@ The scene does not require a frozen body during speech. Preserve intelligibility
 - Acceptance: the pad moves under the same lamp, the unplugged state survives, lines and speaker order remain exact, the final release is readable, and the camera stays fixed.
 - A later change to L02 duration marks B03, caption timing and any final export for review. B01 prop design is not automatically redesigned.
 
-For a requested storyboard, select three instants from S01 rather than inventing three camera setups: [board examples](../../storyboard-board-architect/assets/slad-board-examples.md). Final video syntax still belongs to Video Prompt Architect.
+For a requested storyboard, select three instants from S01 rather than inventing three camera setups: [board examples](../../storyboard-board-architect/assets/slad-board-examples.md). Final video syntax still belongs to Video Prompt.

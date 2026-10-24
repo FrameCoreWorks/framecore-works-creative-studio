@@ -58,7 +58,7 @@ Lengths are starting points; the brief and the placement decide. Each row names 
 
 - **Exact layers.** Logos, names, prices and claims are typed in the composition, never generated inside an image or clip ([exact layers in video](../../video-prompt-architect/references/exact-layers-in-video.md)).
 - **Generated stills** become plates: a camera move (`push-in`, `parallax-zoom`, a Ken Burns through `hyperframes-keyframes`), a mask reveal, type on the calm area.
-- **Generated clips** play as video layers in the composition; plan each clip's length on the beat grid and its handover to the next board ([joining generated clips](../../video-prompt-architect/references/blocking-continuity-and-extension-workbook.md#7-joining-generated-clips)). Prompts come from Video Prompt Architect.
+- **Generated clips** play as video layers in the composition; plan each clip's length on the beat grid and its handover to the next board ([joining generated clips](../../video-prompt-architect/references/blocking-continuity-and-extension-workbook.md#7-joining-generated-clips)). Prompts come from Video Prompt.
 - **One look.** A shared grade or grain (`grain-overlay`, `npx hyperframes grade-compare`) makes plates from different generators sit together.
 - **Provenance.** Record which generator made each plate and the rights the user holds.
 

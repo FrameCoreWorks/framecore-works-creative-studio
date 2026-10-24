@@ -1,18 +1,18 @@
 ---
 name: cinematography
-description: "Camera and light for a chosen direction: shot size, lens, camera movement, lighting, blocking, colour and texture, provider-neutral. Prompt syntax goes to Video Prompt Architect or Image Prompt Architect."
+description: "Camera and light for a chosen direction: shot size, lens, camera movement, lighting, blocking, colour and texture, provider-neutral. Prompt syntax goes to Video Prompt or Image Prompt."
 ---
 
-# Cinematography
+# Camera And Light
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to translate direction into shot language, lighting, blocking, camera behavior, and visual texture for image, video, storyboard, or coded-video workflows.
 
-For shot, lens, light and movement vocabulary with observable tests, read the relevant section of [video craft](../video-prompt-architect/references/video-craft.md): [camera decisions](../video-prompt-architect/references/video-craft.md#7-camera-is-a-decision-not-decoration), [perspective, framing and focus](../video-prompt-architect/references/video-craft.md#8-perspective-framing-and-focus), [blocking, axis and contact](../video-prompt-architect/references/video-craft.md#9-blocking-axis-and-contact) and [motion layers](../video-prompt-architect/references/video-craft.md#10-four-motion-layers-and-physical-response). Use its terms in Cinematography Notes; prompt syntax stays with Video Prompt Architect. For camera behavior in a motion video built from code, use the [motion craft](../hyperframes-workflow/references/motion-craft.md) starting values.
+For shot, lens, light and movement vocabulary with observable tests, read the relevant section of [video craft](../video-prompt-architect/references/video-craft.md): [camera decisions](../video-prompt-architect/references/video-craft.md#7-camera-is-a-decision-not-decoration), [perspective, framing and focus](../video-prompt-architect/references/video-craft.md#8-perspective-framing-and-focus), [blocking, axis and contact](../video-prompt-architect/references/video-craft.md#9-blocking-axis-and-contact) and [motion layers](../video-prompt-architect/references/video-craft.md#10-four-motion-layers-and-physical-response). Use its terms in Cinematography Notes; prompt syntax stays with Video Prompt. For camera behavior in a motion video built from code, use the [motion craft](../hyperframes-workflow/references/motion-craft.md) starting values.
 
 ## Language Policy
 

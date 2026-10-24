@@ -1,6 +1,6 @@
 # Campaign product and human asset production
 
-Apply to the requested campaign asset after its business role, direction and source basis are known. Reuse the campaign strategy and exact locks; do not restart intake or create another production owner. A narrow static request still belongs to Static Graphic Design Creator. The [asset card](../templates/campaign-asset-card.md) is a compact handoff, not a questionnaire.
+Apply to the requested campaign asset after its business role, direction and source basis are known. Reuse the campaign strategy and exact locks; do not restart intake or create another production owner. A narrow static request still belongs to Graphic Design. The [asset card](../templates/campaign-asset-card.md) is a compact handoff, not a questionnaire.
 
 ## Product truth and source roles
 

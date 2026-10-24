@@ -1,13 +1,13 @@
 ---
 name: video-prompt-architect
-description: Write a video-generator prompt for a clear brief, approved shot card or requested edit (text-to-video, image-to-video, references, extensions), researched for the named model, or review a supplied clip. Coded motion goes to Motion Graphics Workflow.
+description: Write a video-generator prompt for a clear brief, approved shot card or requested edit (text-to-video, image-to-video, references, extensions), researched for the named model, or review a supplied clip. Coded motion goes to Motion Graphics.
 ---
 
-# Video Prompt Architect
+# Video Prompt
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-**Missing essentials.** With essentials missing ("zrób prompt do wideo"), ask one question, the subject; default the rest and label the defaults. Coded motion goes to [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md).
+**Missing essentials.** With essentials missing ("zrób prompt do wideo"), ask one question, the subject; default the rest and label the defaults. Coded motion goes to [Motion Graphics](../hyperframes-workflow/SKILL.md).
 
 Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to substantive direction or prompt work. Without a named generator, write a model-agnostic prompt and search only when another trigger applies; verify material public facts. The deeper model-mapping requirements below apply whenever a generator is named.
 
@@ -20,10 +20,10 @@ contains initial music-video direction, screenplay development, sequence/shot
 planning, and static storyboard/reference-board specification modules; their
 approved artifacts can be consumed here without silently revising upstream
 decisions. Direction modules are initial synthesis, not evidence of
-target-host behavior or creative quality. Audio Production Director supplies
+target-host behavior or creative quality. Audio Production supplies
 music/audio text packets and conditional evidence-bounded audio triage; it has
 no bundled generation connector. A motion video Studio builds from code, with its designed sound, belongs to the
-[Motion Graphics Workflow](../hyperframes-workflow/SKILL.md), not to a generator prompt.
+[Motion Graphics](../hyperframes-workflow/SKILL.md), not to a generator prompt.
 
 ## Generator dialects
 
@@ -174,7 +174,7 @@ For dialogue, establish speaker ownership, exact words, intention, timing
 estimate, mouth visibility, listener reaction, and acoustic perspective.
 [Screenplay](../screenplay-story-architect/SKILL.md) owns narrative scenes and
 dialogue; [Copy Voice](../copy-voice/SKILL.md) owns standalone marketing/editorial
-copy and short VO wording; [Audio Production Director](../audio-production-director/SKILL.md)
+copy and short VO wording; [Audio Production](../audio-production-director/SKILL.md)
 owns lyrics and audio direction. Consume their accepted text without another
 writing pass. Return necessary wording changes to the relevant owner.
 Keep approved copy locked. If it cannot fit naturally, propose
@@ -187,7 +187,7 @@ operation; otherwise provide a separate post-audio plan.
 
 Use [audio evidence and audiovisual handoff](../audio-production-director/references/audio-evidence-and-av-handoff.md)
 for cue sheets, transcripts/captions, timing basis, sonic continuity and evidence
-states. This owner reviews video, motion and audiovisual alignment; Audio Production Director
+states. This owner reviews video, motion and audiovisual alignment; Audio Production
 owns audio triage. For captions, preserve supplied/transcribed words and test
 placement and readability over the actual picture. Do not certify sync from
 isolated stills, or a whole mix from metadata or a partial listen.

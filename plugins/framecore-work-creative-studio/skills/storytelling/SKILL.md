@@ -1,13 +1,13 @@
 ---
 name: storytelling
-description: 'Supporting story logic for other owners: beats, emotional arc, scene logic and continuity across multi-shot work. Authored scenes go to Screenplay Story Architect; timed shots to Storyboard Sequence Architect.'
+description: 'Supporting story logic for other owners: beats, emotional arc, scene logic and continuity across multi-shot work. Authored scenes go to Story And Screenplay; timed shots to Shot Sequence.'
 ---
 
-# Storytelling
+# Story Logic
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to shape narrative logic, story beats, emotional arcs, continuity, and multi-shot dependencies for creative workflows before storyboard or prompt work.
@@ -97,4 +97,4 @@ Hand off to `storyboard-architect`, `motion-direction`, `music-video-direction`,
 
 ## Authorship boundary
 
-Supply structure notes to [Screenplay Story Architect](../screenplay-story-architect/SKILL.md) for authored scenes and dialogue. Do not force escalation, conflict or a payoff when the selected artistic form calls for a sustained mood, observational sequence or another deliberate structure.
+Supply structure notes to [Story And Screenplay](../screenplay-story-architect/SKILL.md) for authored scenes and dialogue. Do not force escalation, conflict or a payoff when the selected artistic form calls for a sustained mood, observational sequence or another deliberate structure.

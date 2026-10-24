@@ -1,5 +1,5 @@
 
-# Screenplay Story Architect
+# Story And Screenplay
 
 Read [Studio integration authority](../../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 

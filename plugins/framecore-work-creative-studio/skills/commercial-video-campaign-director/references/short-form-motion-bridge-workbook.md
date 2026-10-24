@@ -4,7 +4,7 @@ Use for a social reel, product film or short advertisement when the user needs a
 
 ## Research for mechanisms, not imitation
 
-For a substantive concept, use the shared Research Evidence gate before choosing a direction. Search the exact placement and category, then look beyond it for physical, visual or editorial mechanisms that can transfer without copying a source. When available, inspect complete videos or primary case studies rather than image thumbnails or short snippets. Record title/link/date, what is directly observed, what is your inference, and which choice the evidence changes.
+For a substantive concept, use the shared Research gate before choosing a direction. Search the exact placement and category, then look beyond it for physical, visual or editorial mechanisms that can transfer without copying a source. When available, inspect complete videos or primary case studies rather than image thumbnails or short snippets. Record title/link/date, what is directly observed, what is your inference, and which choice the evidence changes.
 
 TikTok for Business and Meta publish platform-specific creative guidance, case studies and libraries. Their recommendations and performance claims describe their own context and should be treated as vendor guidance, not universal creative law. For instance, TikTok recommends clear openings, sound and native feeling; Meta reports Reels-ad results under specified test conditions. Neither warrants forcing a fixed hook/body/CTA pattern or copying an ad. Follow the brief and use platform conventions only when they help the actual audience and placement.
 
@@ -72,4 +72,4 @@ Ask the storyboard owners to create the actual ordered sequence and/or board whe
 
 Only after the direction and shot functions are selected, pass the exact cards and reference roles to image/video prompt compilation. Search current official model docs and first-hand experiments for the exact version/surface. Do not attribute unverified prompt syntax to the model. A still board, reference sheet, prompt, render and inspected final shot are distinct states.
 
-Pass sound to Audio Production Director in either direction: map an existing video to sound, or choose a musical pulse/section and design visuals around it. Keep audio and image clocks aligned, distinguish estimated BPM from analysis, and use sound bridges/accent moments intentionally rather than cutting on every beat.
+Pass sound to Audio Production in either direction: map an existing video to sound, or choose a musical pulse/section and design visuals around it. Keep audio and image clocks aligned, distinguish estimated BPM from analysis, and use sound bridges/accent moments intentionally rather than cutting on every beat.

@@ -43,7 +43,7 @@ revision, evidence, evaluation count and stop decision across owners.
 | Need | Method selection within the current task |
 |---|---|
 | Routine authored idea, prompt or copy | Relevant specialist plus CQoT in the existing review; direct execution remains valid |
-| Material factual or current technical claim | Add CoVe: check the claim against attributable sources or observed tests; reuse relevant Research Evidence preflight and leave missing evidence Unknown |
+| Material factual or current technical claim | Add CoVe: check the claim against attributable sources or observed tests; reuse relevant Research preflight and leave missing evidence Unknown |
 | Several requested or unresolved plausible directions | Add Best-of-N lite with explicit selection criteria; do not invent alternatives to an accepted direction or automatically run paid generations |
 | Dependent production stages | Add Plan-and-Solve / Least-to-Most for the bounded handoffs |
 | Diagnosed material defect | Use Self-Refine / RCI as the repair step, then recheck affected locks in the same loop |

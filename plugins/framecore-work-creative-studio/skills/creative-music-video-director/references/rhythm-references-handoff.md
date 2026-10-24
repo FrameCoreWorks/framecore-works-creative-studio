@@ -50,7 +50,7 @@ Pass generator-neutral world, observable actions, performer/camera relationship,
 
 If the user asks for both downstream artifacts, preserve a clear order: direction decision → sequence plan where timing/shot structure is needed → generator-aware prompt. This does not mean the user must receive a long internal handoff or fictional agent dialogue.
 
-For a requested audio/visual production packet, also pass the sonic thesis, exact lyrics/VO status, sources and permissions when known, music-to-action relation, any cue/shot links and required synchronization to Audio Production Director. Use its [audio evidence and audiovisual handoff](../../audio-production-director/references/audio-evidence-and-av-handoff.md); keep proposed timing, observed timing and unknowns distinct. A missing exact-sync capability does not silently authorize approximate singing.
+For a requested audio/visual production packet, also pass the sonic thesis, exact lyrics/VO status, sources and permissions when known, music-to-action relation, any cue/shot links and required synchronization to Audio Production. Use its [audio evidence and audiovisual handoff](../../audio-production-director/references/audio-evidence-and-av-handoff.md); keep proposed timing, observed timing and unknowns distinct. A missing exact-sync capability does not silently authorize approximate singing.
 
 ## Focused revision loop
 

@@ -1,6 +1,6 @@
 # Presentation and interaction
 
-Owner: Pipeline Core, under [Studio integration authority](studio-integration-policy.md). Every Studio skill applies this one source when it chooses how a response is presented. It decides the form of a stage's answer (text, comparison, interactive experiment, form, chart or another element the host actually composes) and how an interaction may change Project State. It adds no skill, agent, state store, MCP server, app, component system, manifest key or tool. Domain owners keep their craft; this file only adds how their output is shown.
+Owner: Studio Core, under [Studio integration authority](studio-integration-policy.md). Every Studio skill applies this one source when it chooses how a response is presented. It decides the form of a stage's answer (text, comparison, interactive experiment, form, chart or another element the host actually composes) and how an interaction may change Project State. It adds no skill, agent, state store, MCP server, app, component system, manifest key or tool. Domain owners keep their craft; this file only adds how their output is shown.
 
 Contents: [host basis](#host-basis), [choosing the form](#choosing-the-form), [offering an interactive version](#offering-an-interactive-version), [text equivalence](#equivalent-text-path), [state and actions](#interaction-state-and-actions), [domain adaptations](#domain-adaptations), [module coverage](#module-coverage).
 

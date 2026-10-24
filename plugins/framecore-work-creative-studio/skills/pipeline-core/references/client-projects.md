@@ -6,12 +6,12 @@ The business side of creative work for a client, from enquiry to acceptance. Eac
 | --- | --- | --- |
 | Enquiry | [Client intake](../../brief-architect/assets/client-intake.pl.md) ([English](../../brief-architect/assets/client-intake.en.md)), only the open questions | Brief Architect |
 | Offer | Brief Contract with commercial fields, [offer and quote](../../brief-architect/references/client-offer-and-quote.md) priced by `quote_calc.py` from the user's rates | Brief Architect |
-| Brand | [Brand kit](brand-kit.md): colours, fonts and their licences, logo files, tone, banned claims, legal lines | Pipeline Core, read by every owner |
+| Brand | [Brand kit](brand-kit.md): colours, fonts and their licences, logo files, tone, banned claims, legal lines | Studio Core, read by every owner |
 | Concepts | [Concept presentation](../templates/concept-presentation.template.md): two or three directions in context, a recommendation and a numbered decision | the domain owner (static, video, motion, campaign) |
-| Feedback | [Revision tracker](../templates/revision-tracker.md): consolidated feedback, revision, our error or change of scope | Workflow Orchestrator with the domain owner |
-| Delivery | [Client handoff](../../delivery-documentation/references/client-handoff.md): files, naming, rights, AI-assistance line, acceptance protocol | Delivery Documentation |
+| Feedback | [Revision tracker](../templates/revision-tracker.md): consolidated feedback, revision, our error or change of scope | FrameCore Studio Guide with the domain owner |
+| Delivery | [Client handoff](../../delivery-documentation/references/client-handoff.md): files, naming, rights, AI-assistance line, acceptance protocol | Delivery Pack |
 | Messages | [Client email kit](../../copy-voice/assets/client-emails.pl.md) | Copy Voice |
-| Afterwards | [Case study](../../delivery-documentation/assets/case-study.template.md) with the client's consent | Delivery Documentation |
+| Afterwards | [Case study](../../delivery-documentation/assets/case-study.template.md) with the client's consent | Delivery Pack |
 
 ## Client version of a document
 
@@ -19,12 +19,12 @@ A document the client reads (offer, concept, script, treatment, brief, report) s
 
 | Template | Owner |
 | --- | --- |
-| [AV ad script](../../screenplay-story-architect/assets/av-ad-script.template.md) | Screenplay Story Architect |
-| [Concept one-pager](../../commercial-video-campaign-director/assets/concept-one-pager.template.md) | Commercial Video Campaign Director |
-| [Music-video treatment](../../creative-music-video-director/assets/music-video-treatment.template.md) | Creative Music Video Director |
+| [AV ad script](../../screenplay-story-architect/assets/av-ad-script.template.md) | Story And Screenplay |
+| [Concept one-pager](../../commercial-video-campaign-director/assets/concept-one-pager.template.md) | Video Campaign |
+| [Music-video treatment](../../creative-music-video-director/assets/music-video-treatment.template.md) | Music Video |
 | [Creator brief with usage rights](../../ugc/assets/creator-brief.template.md) | UGC |
 | [Editor handoff: EDL, OTIO, shot list, step lists](../../opencut-video-studio/references/editor-handoff.md) | OpenCut Video Studio |
-| Storyboard pages and PDF (`board_compose.py`) | Storyboard Board Architect |
-| Shot list or AV script as XLSX, CSV, PDF (`sheet_export.py`) | Storyboard Sequence Architect |
+| Storyboard pages and PDF (`board_compose.py`) | Storyboard Board |
+| Shot list or AV script as XLSX, CSV, PDF (`sheet_export.py`) | Shot Sequence |
 
 Keep one project folder or conversation per client and keep the client's data there, not in plugin files. A user who works in ChatGPT can keep the brand kit and the offer terms in a Project; in Claude, in a Project or a project's CLAUDE.md; in Codex or Claude Code, as files in the project folder (AGENTS.md or CLAUDE.md can point to them).

@@ -23,7 +23,7 @@ Do not embed the whole bank in every prompt or expose a worksheet in Quick deliv
 ## Tool-backed verification (CRITIC-inspired)
 
 For an objectively checkable requirement, use the available evidence-producing
-tool before accepting it. Reuse CoVe and Research Evidence for material claims.
+tool before accepting it. Reuse CoVe and Research for material claims.
 The tool must actually run; its plan, filename or a model's agreement is not evidence.
 
 | Requirement | Appropriate evidence | Limit |

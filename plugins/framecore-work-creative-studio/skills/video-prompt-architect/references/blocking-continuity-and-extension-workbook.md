@@ -130,7 +130,7 @@ An editorial audio bridge can connect attention across a cut, but it cannot prov
 
 **Original editorial example:** an approved sequence moves from an empty workshop view to a close view of a hand laying down a tool. The director wants anticipation. Let an authorized room activity sound belonging to the upcoming space begin before the picture cut, then retain its perspective consistently after the cut. Do not place the specific tool-contact sound before visible contact unless an intentional sound offset has been approved. The first choice is an editorial J-cut; it is not an exact-sync error or evidence that the generated video has native audio. Exact placement awaits the real edit and sound.
 
-An L-cut can instead let a prior sound continue over a new image. Use only when that tail serves the approved transition. Audio Production Director supplies sound-source/cue details and audio review; this owner reviews their relation to picture. Preserve the exact accepted script from screenplay or Humanizer, and lyrics from Audio Production Director. No new dialogue is required to demonstrate an audio bridge.
+An L-cut can instead let a prior sound continue over a new image. Use only when that tail serves the approved transition. Audio Production supplies sound-source/cue details and audio review; this owner reviews their relation to picture. Preserve the exact accepted script from screenplay or Humanizer, and lyrics from Audio Production. No new dialogue is required to demonstrate an audio bridge.
 
 ## 6. One-cause repair table
 
@@ -145,7 +145,7 @@ An L-cut can instead let a prior sound continue over a new image. Use only when 
 | Sound feels late or detached | Is it causal sound or an authored bridge? | Repair the specific event relation after inspecting combined playback |
 | Board requires new angles for a locked shot | Was layout variety confused with shot coverage? | Repeat the approved framing at different temporal states |
 
-For user reports, use “reported” and present a test rather than an observed diagnosis. Picture/motion and AV review stay here; audio triage goes to Audio Production Director without requiring a full task packet; output-critic-iteration owns static-image review. An attractive still is no substitute for motion QA.
+For user reports, use “reported” and present a test rather than an observed diagnosis. Picture/motion and AV review stay here; audio triage goes to Audio Production without requiring a full task packet; output-critic-iteration owns static-image review. An attractive still is no substitute for motion QA.
 
 ## 7. Joining generated clips
 

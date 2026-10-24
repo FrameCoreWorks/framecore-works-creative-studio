@@ -18,7 +18,7 @@ For a timeout, inspect status using the existing job ID if available before retr
 
 Record the actual returned output reference, accessible file, job ID and available technical properties. Do not save tokens, credentials or signed URLs into reusable handoffs. A URL is not proof of successful download; a completed provider job is not creative acceptance.
 
-Route still inspection to Output Critic, a rendered motion video with its contract to the Motion Graphics Workflow, other motion/adjacency to Video Prompt Architect, audio to Audio Production Director and subtitle timing to Caption Studio. Verify the actual combined artifact where synchronization matters. If only a thumbnail or transcript is available, report that inspection scope. Preserve the selected version and make a rejected result a new candidate, not an overwrite of an accepted asset.
+Route still inspection to Output Critic, a rendered motion video with its contract to the Motion Graphics, other motion/adjacency to Video Prompt, audio to Audio Production and subtitle timing to Caption Studio. Verify the actual combined artifact where synchronization matters. If only a thumbnail or transcript is available, report that inspection scope. Preserve the selected version and make a rejected result a new candidate, not an overwrite of an accepted asset.
 
 Pass outputs to Asset Manifest and Delivery after the applicable checks. With no exposed execution tool, return the requested portable prompt/plan and identify the actual missing capability. Do not simulate a job, ask for keys in chat or install infrastructure as a hidden workaround.
 

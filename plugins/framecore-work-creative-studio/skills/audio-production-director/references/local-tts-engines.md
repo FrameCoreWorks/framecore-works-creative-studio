@@ -33,4 +33,4 @@ Discover the current host's actual tools and authorized connections before choos
 
 Clone a voice only with its owner's documented permission (the user's own voice, or a speaker who agreed in writing); never imitate a real person, a celebrity or a client's competitor. Mark a synthetic voice where the platform or the law asks. Record the engine, model, version, licence and the voice source in the delivery notes.
 
-After generation, measure the read against the [voice-over budget](../../pipeline-core/references/short-form-timing.md), listen for wrong stress in names and numbers, regenerate only the faulty lines, and hand the files to the mix (in a motion film, Motion Graphics Workflow's sound step).
+After generation, measure the read against the [voice-over budget](../../pipeline-core/references/short-form-timing.md), listen for wrong stress in names and numbers, regenerate only the faulty lines, and hand the files to the mix (in a motion film, Motion Graphics's sound step).

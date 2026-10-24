@@ -22,7 +22,7 @@ Derive these from the brief, the site and the assets actually available, and wri
 - **Hook with a payoff:** the first line raises a specific question or situation the film answers later. "One scent?" fits any store; "Love a scent? Find its equivalent" sets up the search the film then shows.
 - **Every scene argues:** each scene's `argues` names the step it adds (situation, action, result, proof, action again). A scene that only re-arranges the same products adds nothing.
 - **The CTA closes what was shown:** ask for the action the film demonstrated ("find your equivalent"), not a new generic one ("buy now").
-- **Claims:** check prices, capacities, availability, promotions and comparisons on the source page through [Research Evidence](../../research-evidence/SKILL.md) on the day, and record the source. Anything not verified stays Unknown and never appears in the copy (`check-score.mjs` fails it). If the strongest idea depends on an unverifiable claim, choose another idea the evidence supports; do not soften the claim into vagueness.
+- **Claims:** check prices, capacities, availability, promotions and comparisons on the source page through [Research](../../research-evidence/SKILL.md) on the day, and record the source. Anything not verified stays Unknown and never appears in the copy (`check-score.mjs` fails it). If the strongest idea depends on an unverifiable claim, choose another idea the evidence supports; do not soften the claim into vagueness.
 
 ## 2. Prove the picture on real frames first
 

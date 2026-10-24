@@ -1,7 +1,7 @@
 # Deliverable Profiles
 
 Adapted for the existing Workflow Kit role. Source: FrameCore Works,
-Static Graphic Design Creator, Apache-2.0, commit
+Graphic Design, Apache-2.0, commit
 `c3cbdf766411ca7e1131bc034bfa74ebad2efe71`. Ownership and links were
 adapted; upstream standalone activation, installation and execution are not imported.
 

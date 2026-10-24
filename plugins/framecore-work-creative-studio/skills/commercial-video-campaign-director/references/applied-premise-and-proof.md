@@ -23,7 +23,7 @@ Use the [premise/proof worksheet](../assets/premise-proof-worksheet.md) only whe
 
 Retain the campaign's memory cue, truth limits and exact selected copy. Then decide what each actual requested asset lets its viewer notice or do. A close-detail version can establish an observable mechanism; a contextual version can establish use; a static key visual can hold the memorable relation. Do not invent a funnel, placement, duration or extra deliverable.
 
-Pass the selected thesis to static direction; pass sonic function and approved language to Audio Production Director; pass story to screenplay and timing/coverage to sequence. Video prompt compilation maps the execution surface. The [Ślad example](../assets/slad-campaign-example.md) shows how an honest receiving gesture can unify these tasks without claiming that every repair succeeds.
+Pass the selected thesis to static direction; pass sonic function and approved language to Audio Production; pass story to screenplay and timing/coverage to sequence. Video prompt compilation maps the execution surface. The [Ślad example](../assets/slad-campaign-example.md) shows how an honest receiving gesture can unify these tasks without claiming that every repair succeeds.
 
 ## Apply platform advice within its scope
 

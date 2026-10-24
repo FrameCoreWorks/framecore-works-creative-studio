@@ -24,7 +24,7 @@ Try one controlled revision: retain the exact line but change its preceding acti
 
 ## Preserve what the next owner must know
 
-Pass the scene revision, exact selected lines, speaker, action triggers, entry/exit states and material prop knowledge. Mark script timing as estimated until performed/measured. Identify any moment whose words or listener response must remain intelligible during downstream camera work. The [sequence owner](../../storyboard-sequence-architect/SKILL.md) decides shot coverage and timing; this worksheet does not impose a shot count or generator syntax. Lyrics remain with Audio Production Director, and standalone commercial wording remains with Copy Voice.
+Pass the scene revision, exact selected lines, speaker, action triggers, entry/exit states and material prop knowledge. Mark script timing as estimated until performed/measured. Identify any moment whose words or listener response must remain intelligible during downstream camera work. The [sequence owner](../../storyboard-sequence-architect/SKILL.md) decides shot coverage and timing; this worksheet does not impose a shot count or generator syntax. Lyrics remain with Audio Production, and standalone commercial wording remains with Copy Voice.
 
 The [original “Ślad” scene](../assets/slad-scene-example.md) demonstrates a small relational turn without promising successful repair. It is a hypothetical teaching artifact, not a reusable approved client story. Its linked sequence example preserves the words and ending.
 

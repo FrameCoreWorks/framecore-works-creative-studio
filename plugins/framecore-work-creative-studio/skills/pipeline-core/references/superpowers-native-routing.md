@@ -33,11 +33,11 @@ At each consequential direction, implementation-plan, repair, review and complet
 
 ### Motion graphics and coded composition
 
-Motion Graphics Workflow owns concept, choreography, visual hierarchy, typography and sound implementation; Remotion Video Production owns a selected React/TypeScript composition. Use Superpowers to turn the approved design into a concrete build plan, diagnose code/timing/layout defects and verify the result. Preserve the existing engine unless a justified change is authorized. A moving outer container does not establish articulated character performance. Check the promised action, pivots/body parts, timing, readable holds, transitions and sound against actual frames and playback where accessible. A technical PASS or motion metric cannot replace that craft review.
+Motion Graphics owns concept, choreography, visual hierarchy, typography and sound implementation; Remotion Video owns a selected React/TypeScript composition. Use Superpowers to turn the approved design into a concrete build plan, diagnose code/timing/layout defects and verify the result. Preserve the existing engine unless a justified change is authorized. A moving outer container does not establish articulated character performance. Check the promised action, pivots/body parts, timing, readable holds, transitions and sound against actual frames and playback where accessible. A technical PASS or motion metric cannot replace that craft review.
 
 ### Layout, typography and static composition
 
-Static Graphic Design Creator owns layout, hierarchy, exact copy, references and visual choices; Caption Studio owns caption craft, with the motion owner implementing timed composition. Use Superpowers for ambiguous requirements, multi-step coded implementation, reproducible layout faults and completion evidence. Inspect the actual requested sizes and dense/edge frames for overflow, overlaps, font substitution and readability. For a raster edit, preserve the established image-edit route; do not replace it with HTML/SVG, a code repository or a provider solely to satisfy a development procedure.
+Graphic Design owns layout, hierarchy, exact copy, references and visual choices; Caption Studio owns caption craft, with the motion owner implementing timed composition. Use Superpowers for ambiguous requirements, multi-step coded implementation, reproducible layout faults and completion evidence. Inspect the actual requested sizes and dense/edge frames for overflow, overlaps, font substitution and readability. For a raster edit, preserve the established image-edit route; do not replace it with HTML/SVG, a code repository or a provider solely to satisfy a development procedure.
 
 ### Sound with Earshot
 

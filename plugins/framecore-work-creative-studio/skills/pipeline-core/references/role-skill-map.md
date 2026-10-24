@@ -115,7 +115,7 @@ changes, keep these files synchronized:
 
 ## Media-specific review
 
-Resolve qa-iteration by the actual artifact: stills to Output Critic, a rendered motion video with its contract to the Motion Graphics Workflow (craft critique and frame review), other video motion to Video Prompt Architect, sound to Audio Production Director and caption timing to Caption Studio. Pipeline Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.
+Resolve qa-iteration by the actual artifact: stills to Output Critic, a rendered motion video with its contract to the Motion Graphics (craft critique and frame review), other video motion to Video Prompt, sound to Audio Production and caption timing to Caption Studio. Studio Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.
 
 ## Optional process support
 

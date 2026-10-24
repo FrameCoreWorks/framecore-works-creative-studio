@@ -1,6 +1,6 @@
 # Short-form story structures
 
-Stable craft for reels, shorts, ads and explainers. The structures are starting shapes, not templates to fill: choose one from the asset's job, then test its causality. Authored scenes and dialogue go to [Screenplay Story Architect](../../screenplay-story-architect/SKILL.md); timed shot cards go to [Storyboard Sequence Architect](../../storyboard-sequence-architect/SKILL.md).
+Stable craft for reels, shorts, ads and explainers. The structures are starting shapes, not templates to fill: choose one from the asset's job, then test its causality. Authored scenes and dialogue go to [Story And Screenplay](../../screenplay-story-architect/SKILL.md); timed shot cards go to [Shot Sequence](../../storyboard-sequence-architect/SKILL.md).
 
 ## Choose by the asset's job
 

@@ -12,6 +12,6 @@ Snapshot: 2026-10-03. Sources were read for bounded design principles. This file
 
 The original examples and activity bank were independently authored for this package. They are proposals to adapt and review, with fictional scenarios or explicitly synthetic data. A source supporting a general teaching principle does not validate a particular lesson, reading level, duration or measurable outcome.
 
-No current national curriculum provision was mapped in this release. For a requested mapping, Research Evidence must inspect the relevant current official document and record jurisdiction, version, requirement locator, task and check. Recheck changing policy, qualification, platform or legal claims when needed.
+No current national curriculum provision was mapped in this release. For a requested mapping, Research must inspect the relevant current official document and record jurisdiction, version, requirement locator, task and check. Recheck changing policy, qualification, platform or legal claims when needed.
 
 The delivered base contains no third-party commercial lesson files, copied catalogue, branded exercise names or links to the business/profile used for initial needs discovery. Public availability does not establish reuse rights or effectiveness.

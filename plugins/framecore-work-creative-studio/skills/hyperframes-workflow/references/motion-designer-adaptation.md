@@ -18,13 +18,13 @@ The inspected repository contains eight skills, schemas and adapter guidance. It
 
 | Upstream responsibility | Studio owner |
 | --- | --- |
-| Motion director / project coordination | Workflow Orchestrator; Creative Video Producer for multi-stage work |
+| Motion director / project coordination | FrameCore Studio Guide; Video Producer for multi-stage work |
 | Creative DNA / Style Lock | Appropriate visual/video direction owner; recorded in the motion contract |
-| Reference scout | Research Evidence + Reference Pack Curator |
-| Storyboard | Storyboard Sequence Architect |
-| Engine routing and build | Existing Motion Graphics Workflow / Remotion Video Production; Tool Routing Cost for actual capabilities |
-| Audio design | Motion sound design in this skill for the video's effects and composed bed; Audio Production Director for songs, voice and external tools |
-| Review and delivery | Runtime/domain QA within the shared loop; Delivery Documentation |
+| Reference scout | Research + Reference Pack |
+| Storyboard | Shot Sequence |
+| Engine routing and build | Existing Motion Graphics / Remotion Video; Tools And Costs for actual capabilities |
+| Audio design | Motion sound design in this skill for the video's effects and composed bed; Audio Production for songs, voice and external tools |
+| Review and delivery | Runtime/domain QA within the shared loop; Delivery Pack |
 
 ## Deliberate boundaries
 

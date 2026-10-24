@@ -15,7 +15,7 @@ Studio keeps the decisions; HyperFrames builds. HyperFrames' router calls itself
 
 | Stage | Owner |
 | --- | --- |
-| Brief, offer, exact copy, claims, rights, language | Studio (orchestrator, Copy Voice, Research Evidence) |
+| Brief, offer, exact copy, claims, rights, language | Studio (orchestrator, Copy Voice, Research) |
 | The idea, found before the look | Studio's [ideation method](../../pipeline-core/references/ideation-method.md), carried in Project State |
 | Board plan and approval | This skill with the [reel board system](reel-board-system.md) |
 | Composition, animation, blocks, render | The HyperFrames skills below |

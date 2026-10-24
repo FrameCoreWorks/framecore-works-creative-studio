@@ -232,7 +232,7 @@ For pages and app mockups (a video canvas or a print page is fixed and skips thi
 
 ## How Studio applies this
 
-1. Owners producing styled output (Static Graphic Design Creator, presentations, landing or app mockups, HTML motion) read the sections their artifact needs: typography, hierarchy and colour almost always; editorial for long reads; motion, states, accessibility and forms for interactive work; right-to-left only when such text appears.
+1. Owners producing styled output (Graphic Design, presentations, landing or app mockups, HTML motion) read the sections their artifact needs: typography, hierarchy and colour almost always; editorial for long reads; motion, states, accessibility and forms for interactive work; right-to-left only when such text appears.
 2. Before making, write the one-line Design Read with the three dials; before delivering, the one-line reasons for the major decisions.
 3. Where code runs and the artifact is HTML, CSS or SVG, run [`craft_lint.py`](../assets/craft-lint/README.md) inside the [automatic output review](loop-protocol.md#automatic-output-review) and fix P0 findings before delivery; report P1 findings that remain, with the reason.
 4. A raster image cannot be linted: look for the same tells in the pixels during review.

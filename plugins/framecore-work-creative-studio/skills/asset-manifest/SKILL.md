@@ -1,6 +1,6 @@
 ---
 name: asset-manifest
-description: "Track project files before QA or delivery: what exists, versions, sources, exclusions and continuity carriers. Quality review goes to Output Critic Iteration; delivery notes to Delivery Documentation."
+description: "Track project files before QA or delivery: what exists, versions, sources, exclusions and continuity carriers. Quality review goes to Output Review; delivery notes to Delivery Pack."
 ---
 
 # Asset Manifest
@@ -9,7 +9,7 @@ For account-free batch variants, fonts, templates and mockups, apply the source-
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to make produced files auditable before QA or delivery. It records what exists, where it came from, what should be excluded, and what the next role can trust.

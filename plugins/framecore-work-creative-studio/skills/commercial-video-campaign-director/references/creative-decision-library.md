@@ -1,6 +1,6 @@
 # Creative decision library
 
-Use this chapter when the brief is clear but the proposed images feel interchangeable, ornamental or causally weak. It supports the existing campaign owner; it does not create another intake or force a full campaign. For a static-only deliverable, Static Graphic Design Creator remains the author and may borrow a relevant decision exercise. Narrative scenes stay with Screenplay; sound stays with Audio Production Director.
+Use this chapter when the brief is clear but the proposed images feel interchangeable, ornamental or causally weak. It supports the existing campaign owner; it does not create another intake or force a full campaign. For a static-only deliverable, Graphic Design remains the author and may borrow a relevant decision exercise. Narrative scenes stay with Screenplay; sound stays with Audio Production.
 
 ## Contents
 
@@ -63,13 +63,13 @@ If the user explicitly wants surreal luxury imagery, floating or satin can be ap
 
 **Weak:** add unrelated ornaments and a long slogan to make a poster more creative.
 
-**Specific repair:** identify one visual relationship that communicates the event; give the exact title a clear hierarchy and let supporting shapes reinforce that relationship. Static Graphic Design Creator decides typography, composition and feasibility. Do not force motion terminology or another full copy intake into its work.
+**Specific repair:** identify one visual relationship that communicates the event; give the exact title a clear hierarchy and let supporting shapes reinforce that relationship. Graphic Design decides typography, composition and feasibility. Do not force motion terminology or another full copy intake into its work.
 
 ### Sound and image
 
 **Weak:** place a generic rise and impact at every transition.
 
-**Specific repair:** choose one sound event that belongs to the action, then decide where silence or continuation helps attention. Audio Production Director owns the cue and music brief. A paper plan does not establish BPM, sync accuracy or commercial music rights.
+**Specific repair:** choose one sound event that belongs to the action, then decide where silence or continuation helps attention. Audio Production owns the cue and music brief. A paper plan does not establish BPM, sync accuracy or commercial music rights.
 
 ## Selection and user feedback
 
@@ -92,7 +92,7 @@ The good, bad and borderline anchors make evaluation criteria explicit. They
 are not real renders or confirmed user preferences. Use [conditional quality
 methods](../../pipeline-core/references/quality-improvement-methods.md) for
 pairwise judging and evidence boundaries. Static examples stay in the full
-Static Graphic Design Creator; other domains retain their existing owner.
+Graphic Design; other domains retain their existing owner.
 
 ## Adding a real project record
 

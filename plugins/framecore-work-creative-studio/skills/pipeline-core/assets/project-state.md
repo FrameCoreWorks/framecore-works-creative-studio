@@ -56,7 +56,7 @@ Keep one Project State. This checkpoint and the [portable state template](../tem
 
 ## Safe Resume Point
 
-Read applicable project instructions when available and the host-resolved Studio Pipeline Core; inspect actual assets before continuing from `checkpoint_id`.
+Read applicable project instructions when available and the host-resolved Studio Studio Core; inspect actual assets before continuing from `checkpoint_id`.
 
 ## Recovery Prompt
 

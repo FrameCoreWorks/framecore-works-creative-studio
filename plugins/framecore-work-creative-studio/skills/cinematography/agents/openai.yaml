@@ -1,5 +1,5 @@
 interface:
-  display_name: "Cinematography"
+  display_name: "Camera And Light"
   short_description: "Plan shots, lenses, lighting, and camera motion"
   default_prompt: "Use $cinematography to plan the shot language, lighting, lenses, and camera movement."
 

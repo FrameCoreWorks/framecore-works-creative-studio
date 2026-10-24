@@ -26,4 +26,4 @@ Use only for the requested copy operation. Omit irrelevant fields. This template
 - Exact line to hand off after selection:
 - Acceptance test:
 
-For spoken copy, record target versus measured duration separately. For a transcript/caption-file request, switch to Audio Production Director's source-evidence contract; do not fill this worksheet with invented speech.
+For spoken copy, record target versus measured duration separately. For a transcript/caption-file request, switch to Audio Production's source-evidence contract; do not fill this worksheet with invented speech.

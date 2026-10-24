@@ -1,9 +1,9 @@
 ---
 name: creative-music-video-director
-description: "Music-video direction from a song, artist persona, lyrics or brief: concept, song-to-image logic, performance and visual motifs. Not for brand campaigns, song writing (Audio Production Director) or prompt syntax."
+description: "Music-video direction from a song, artist persona, lyrics or brief: concept, song-to-image logic, performance and visual motifs. Not for brand campaigns, song writing (Audio Production) or prompt syntax."
 ---
 
-# Creative Music Video Director
+# Music Video
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
@@ -13,7 +13,7 @@ Own the music-video creative direction between intake and shot/prompt execution.
 
 For a selected direction needing a precise rhythm relationship, recurring image, sustained performance or concept repair, read the relevant section of the [rhythm, motifs and performance workbook](references/rhythm-motifs-and-performance-workbook.md). It supplies original complete treatments, a reusable motif contract and handoff tests; it is not a shot list or audio inspection.
 
-When the selected direction is a coded lyric video, beat-synced typography or an animation that reacts to the track (no camera footage), hand the approved treatment to the [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md): it times the lyrics with [lyric timing](../hyperframes-workflow/assets/motion-sync/README.md#lyric-timing), cuts on the beat grid and drives audio-reactive parts with `audio_envelope.py`.
+When the selected direction is a coded lyric video, beat-synced typography or an animation that reacts to the track (no camera footage), hand the approved treatment to the [Motion Graphics](../hyperframes-workflow/SKILL.md): it times the lyrics with [lyric timing](../hyperframes-workflow/assets/motion-sync/README.md#lyric-timing), cuts on the beat grid and drives audio-reactive parts with `audio_envelope.py`.
 
 ## Treatment
 

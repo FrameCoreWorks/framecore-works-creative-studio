@@ -11,7 +11,7 @@ python captions.py contract captions.srt video.motion.json --out video-r2.motion
 python captions.py burn video.mp4 captions.srt --out video-captioned.mp4
 ```
 
-`check`, `convert`, `build` and `contract` need only Python 3.8 or newer. `burn` also needs Pillow and ffmpeg with ffprobe, and the [motion renderer](../../../hyperframes-workflow/assets/motion-render/README.md) (`render.py`), which it finds in the Motion Graphics Workflow or next to `captions.py`; copy both into a sandbox. Every command refuses to overwrite a file. Exit codes: 0 without errors, 1 with errors, 2 when an input cannot be read or a tool is missing.
+`check`, `convert`, `build` and `contract` need only Python 3.8 or newer. `burn` also needs Pillow and ffmpeg with ffprobe, and the [motion renderer](../../../hyperframes-workflow/assets/motion-render/README.md) (`render.py`), which it finds in the Motion Graphics or next to `captions.py`; copy both into a sandbox. Every command refuses to overwrite a file. Exit codes: 0 without errors, 1 with errors, 2 when an input cannot be read or a tool is missing.
 
 ## Profiles
 

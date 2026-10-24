@@ -1,5 +1,5 @@
 interface:
-  display_name: "Instruction Packet Factory"
+  display_name: "Task Handoff"
   short_description: "Create bounded role, research, and review packets"
   default_prompt: "Use $instruction-packet-factory to create a bounded instruction or review packet for this task."
 

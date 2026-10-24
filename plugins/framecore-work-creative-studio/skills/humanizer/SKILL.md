@@ -33,4 +33,4 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 
 ## Copy ownership
 
-Use [Copy Voice](../copy-voice/SKILL.md) to own new commercial/editorial copy and the ready-to-use Copy Pack. Humanizer owns focused naturalness and voice repair. A direct short polish request stays here; it does not start a second intake or editorial loop. Narrative scene authorship stays with Screenplay Story Architect and lyrics with Audio Production Director.
+Use [Copy Voice](../copy-voice/SKILL.md) to own new commercial/editorial copy and the ready-to-use Copy Pack. Humanizer owns focused naturalness and voice repair. A direct short polish request stays here; it does not start a second intake or editorial loop. Narrative scene authorship stays with Story And Screenplay and lyrics with Audio Production.

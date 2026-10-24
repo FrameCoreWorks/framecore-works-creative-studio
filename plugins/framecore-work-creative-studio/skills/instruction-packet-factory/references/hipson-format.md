@@ -1,6 +1,6 @@
 # Hipson format packets
 
-Instruction Packet Factory makes Hipson-format packets; Hipson Adapter is kept only as the explicit entry point that points here (retired to a pointer in 1.64.0). This is the lightweight format, not the full Hipson system, which can be connected separately from https://github.com/Hipson47/Hipson.git as an optional expansion, never a required dependency.
+Task Handoff makes Hipson-format packets; Hipson Handoff is kept only as the explicit entry point that points here (retired to a pointer in 1.64.0). This is the lightweight format, not the full Hipson system, which can be connected separately from https://github.com/Hipson47/Hipson.git as an optional expansion, never a required dependency.
 
 ## When it applies
 
@@ -13,7 +13,7 @@ It is not orchestration, evidence verification or an external research run. If t
 
 Required: `target_role` (the role that receives the packet), `goal` (the outcome it enables), `context` (brief, references, source constraints or repository evidence, compressed to what the receiver needs) and `exclusions` (what the receiver must not do). Optional: `source_rules` (allowed sources, evidence quality, search boundaries), `acceptance_criteria` and `output_schema`.
 
-The shared packet fields (target role, goal, context, exclusions, evidence rules, acceptance criteria, output schema and handoff) are the Instruction Packet Factory's own; the Hipson format adds the research-map and internet-mapping fields in its templates.
+The shared packet fields (target role, goal, context, exclusions, evidence rules, acceptance criteria, output schema and handoff) are the Task Handoff's own; the Hipson format adds the research-map and internet-mapping fields in its templates.
 
 ## Packet types
 

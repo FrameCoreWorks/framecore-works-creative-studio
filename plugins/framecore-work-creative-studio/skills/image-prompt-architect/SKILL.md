@@ -1,13 +1,13 @@
 ---
 name: image-prompt-architect
-description: Compile a still-image generation or scoped image-edit prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Static Graphic Design Creator.
+description: Compile a still-image generation or scoped image-edit prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Graphic Design.
 ---
 
 # Prompt compilation
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-**Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. A complete poster, flyer, ad or other designed graphic with copy, price or logo goes to [Static Graphic Design Creator](../static-graphic-design-creator/SKILL.md). With essentials missing, ask one question (the subject); default the rest and label the defaults.
+**Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. A complete poster, flyer, ad or other designed graphic with copy, price or logo goes to [Graphic Design](../static-graphic-design-creator/SKILL.md). With essentials missing, ask one question (the subject); default the rest and label the defaults.
 
 Read [the compiler](references/static-prompt-compiler.md). Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to a substantive prompt. Search for visual or contextual inspiration only when the user asks for it or the subject depends on real-world facts. For a named model, research is triggered: load [mapping and evidence](../research-evidence/references/model-mapping.md), actively check current owner guidance and first-hand practitioner evidence for the exact family/version/surface, and state any gap. No generator name means a conservative natural-language prompt, not an invented default external provider.
 

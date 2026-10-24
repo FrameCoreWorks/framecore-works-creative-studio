@@ -85,7 +85,7 @@ def compile_project(project, root, deliverable_id):
 
 
 def motion_request(project, seq, event, delivery):
-    """Projection for Motion Graphics Workflow, not a second editable global timeline."""
+    """Projection for Motion Graphics, not a second editable global timeline."""
     identifier(event["id"])
     start = integer(event_start(event, seq), "motion start")
     duration = integer(event["duration"], "motion duration", 1)

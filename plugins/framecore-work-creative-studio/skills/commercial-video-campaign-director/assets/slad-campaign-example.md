@@ -19,7 +19,7 @@ Assume the hypothetical client asks for a short film direction and a related pos
 | Short film direction | Let the viewer see the small permission change | Script to screenplay; fixed-view timing plan to sequence; actual prompt only if asked |
 | Poster concept | Hold the receiving gesture as one intelligible relation | Static director reconsiders hierarchy; exact public copy selected separately |
 
-Do not add a jingle, third asset or CTA when the hypothetical request does not ask for one. If a later request adds a sonic identity, send its communication job and copy status to Audio Production Director within the shared premise.
+Do not add a jingle, third asset or CTA when the hypothetical request does not ask for one. If a later request adds a sonic identity, send its communication job and copy status to Audio Production within the shared premise.
 
 ## Proof check
 

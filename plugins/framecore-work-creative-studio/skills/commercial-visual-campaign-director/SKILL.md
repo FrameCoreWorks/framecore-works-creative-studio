@@ -1,6 +1,6 @@
 ---
 name: commercial-visual-campaign-director
-description: Shared visual system and format adaptation for multi-asset campaigns. Static-only graphic execution goes to Static Graphic Design Creator.
+description: Shared visual system and format adaptation for multi-asset campaigns. Static-only graphic execution goes to Graphic Design.
 ---
 
 # Static direction
@@ -13,7 +13,7 @@ When exact copy needs a concrete reading plan, difficult line breaks or a meanin
 
 Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to substantive work. Search visual context and original references when the user asks for inspiration or references or the work depicts real-world subjects; fact-check material public claims. Keep research bounded to the design question and translate inspiration into an original mechanism, not a copied layout or style.
 
-Start with purpose and reading conditions, then visual thesis, composition, type-image relation and material. These bundled references govern campaign-level visual direction and format adaptation. For a static-only deliverable, route execution to the complete, pinned [Static Graphic Design Creator](../static-graphic-design-creator/SKILL.md) rather than repeating a second full design workflow here. Never substitute a stack of fashionable effects.
+Start with purpose and reading conditions, then visual thesis, composition, type-image relation and material. These bundled references govern campaign-level visual direction and format adaptation. For a static-only deliverable, route execution to the complete, pinned [Graphic Design](../static-graphic-design-creator/SKILL.md) rather than repeating a second full design workflow here. Never substitute a stack of fashionable effects.
 
 Develop copy inside the same design conversation using the [Copy Voice method](../copy-voice/SKILL.md). Do not require a second intake or advertise a simulated copywriting agent. Preserve final user copy exactly. Do not move unselected assistant-written headlines into a final generation prompt.
 
@@ -25,7 +25,7 @@ Each route contains a concrete communicative mechanism, exact or proposed copy w
 
 Before handing a static direction to the prompt compiler, run the blocking pre-prompt anti-slop review in [direction and composition](references/direction-and-composition.md#9-authorial-and-anti-slop-pre-prompt-gate). A material failure means the direction is not ready: withhold the final prompt, repair the direction at its source, and recheck the affected criteria. If a source fact essential to specificity is missing, ask one narrow question instead of inventing a differentiator. Do not report a numeric score. A valid type-led concept, justified maximalism, centering, texture, ornament, chrome or glow may pass when its role is clear. This gate assesses direction coherence only; it does not certify rendered pixels.
 
-Hand a selected direction for static execution to [Static Graphic Design Creator](../static-graphic-design-creator/SKILL.md) without changing copy or restarting discovery. Carry source roles, allowed changes, format and review conditions. Image Prompt Architect remains available for its separate requested image operations; it does not replace the complete static workflow. A directed local edit never becomes unsolicited concept exploration.
+Hand a selected direction for static execution to [Graphic Design](../static-graphic-design-creator/SKILL.md) without changing copy or restarting discovery. Carry source roles, allowed changes, format and review conditions. Image Prompt remains available for its separate requested image operations; it does not replace the complete static workflow. A directed local edit never becomes unsolicited concept exploration.
 
 ## Integrated workflow contracts
 
@@ -33,6 +33,6 @@ Use [the integrated workflow-kit method](kit/method.md) for this owner’s artif
 
 ## Specific creative mechanisms
 
-Use the [creative decision library](../commercial-video-campaign-director/references/creative-decision-library.md) when a campaign lacks a meaningful product or story relationship. Static-only execution stays with Static Graphic Design Creator.
+Use the [creative decision library](../commercial-video-campaign-director/references/creative-decision-library.md) when a campaign lacks a meaningful product or story relationship. Static-only execution stays with Graphic Design.
 
 For commerce campaign families, retain the strategy and claim revisions through the [campaign production contract](../ecommerce-campaign-strategy-director/references/campaign-production.md). Define each asset's message, product/person locks, destination and placement adaptation; pass its card to the integrated static owner. Product truth and credible human presentation survive changes of scene, crop and format.

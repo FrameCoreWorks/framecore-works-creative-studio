@@ -12,7 +12,7 @@ Mirror the user's working style so they can spend attention on creative decision
 
 ## Research boundary
 
-When workstyle tuning accompanies a substantive creative request, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate through the relevant creative owner. Profile maintenance by itself does not need unrelated public research.
+When workstyle tuning accompanies a substantive creative request, apply the conditional [Research](../research-evidence/SKILL.md) gate through the relevant creative owner. Profile maintenance by itself does not need unrelated public research.
 
 ## Learn without turning work into onboarding
 

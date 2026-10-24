@@ -1,13 +1,13 @@
 ---
 name: copy-voice
-description: Write campaign copy, headlines, CTAs, voice-over, supers, caption text and short dialogue lines with locked facts and claims. Polish of existing text goes to Humanizer; narrative scenes to Screenplay Story Architect.
+description: Write campaign copy, headlines, CTAs, voice-over, supers, caption text and short dialogue lines with locked facts and claims. Polish of existing text goes to Copy Polish; narrative scenes to Story And Screenplay.
 ---
 
 # Copy Voice
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 ## Voice-over length
@@ -39,7 +39,7 @@ Before delivering copy in any language, check it against the [AI writing pattern
 
 ## Teacher materials
 
-For teacher-facing lesson content, worksheets, quizzes, games, explanations, answer keys, rubrics or school communications, use the [teacher profile](../workflow-orchestrator/references/teacher-workflow.md) and [material methods](../workflow-orchestrator/references/teacher-material-methods.md). Own complete original educational text and its content/answer review with Research Evidence inside the same bounded loop. Preserve objectives, prerequisites and supplied facts; do not turn a classroom-material request into Learning Mode or route pedagogical correctness to the static-image critic. Keep student tasks separate from teacher answers.
+For teacher-facing lesson content, worksheets, quizzes, games, explanations, answer keys, rubrics or school communications, use the [teacher profile](../workflow-orchestrator/references/teacher-workflow.md) and [material methods](../workflow-orchestrator/references/teacher-material-methods.md). Own complete original educational text and its content/answer review with Research inside the same bounded loop. Preserve objectives, prerequisites and supplied facts; do not turn a classroom-material request into Learning Mode or route pedagogical correctness to the static-image critic. Keep student tasks separate from teacher answers.
 
 ## Inputs
 
@@ -141,6 +141,6 @@ depending on the next artifact.
 
 ## Studio text boundaries
 
-Narrative scenes and original dialogue belong to [Screenplay Story Architect](../screenplay-story-architect/SKILL.md); lyrics belong to [Audio Production Director](../audio-production-director/SKILL.md). Review their wording only within the requested scope. Exact user-final text does not require new selection. If a first draft passes the bounded review, record no repair needed and deliver; do not manufacture a rewrite.
+Narrative scenes and original dialogue belong to [Story And Screenplay](../screenplay-story-architect/SKILL.md); lyrics belong to [Audio Production](../audio-production-director/SKILL.md). Review their wording only within the requested scope. Exact user-final text does not require new selection. If a first draft passes the bounded review, record no repair needed and deliver; do not manufacture a rewrite.
 
 For film translation/transcreation, carry approved language copy into [language versions](../opencut-video-studio/references/editor-handoff.md#language-versions); preserve picture and timing ownership.

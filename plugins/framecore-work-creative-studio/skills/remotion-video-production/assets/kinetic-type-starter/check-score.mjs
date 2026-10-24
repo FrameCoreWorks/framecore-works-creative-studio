@@ -1,5 +1,5 @@
 // Dependency-free check of the shared motion contract (motion-score.json).
-// Structural rules match the Motion Graphics Workflow score format; hold lengths
+// Structural rules match the Motion Graphics score format; hold lengths
 // are compared with the reading heuristic from references/motion-craft.md.
 // Storyboard fields are checked whenever present and required with --storyboard.
 //

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Audio Production Director"
+  display_name: "Audio Production"
   short_description: "Shape music, sound, sync, prompts, and audio handoffs."
   default_prompt: "Use $audio-production-director to shape sound or music for my creative project."
 policy:

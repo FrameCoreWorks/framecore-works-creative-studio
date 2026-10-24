@@ -713,7 +713,7 @@
         "code_execution",
         "shell"
       ],
-      "delivers": "An MP4 rendered by HyperFrames from the approved brief, reviewed by the Motion Graphics Workflow before delivery",
+      "delivers": "An MP4 rendered by HyperFrames from the approved brief, reviewed by the Motion Graphics before delivery",
       "when_missing": "The bundled route: the Python renderer or the motion player, with Studio's sound design and captions tool",
       "observed": "2026-10-09: the owner reported a high-quality reel made in the HyperFrames Studio app from a shop link; no HyperFrames render has run through Studio; 2026-10-14: in ChatGPT Work the owner had the CLI installed on request and a 1080x1920 test rendered (check --strict passed)"
     },
@@ -740,7 +740,7 @@
       "id": "video_generation",
       "executed_by": "external",
       "owner": "video-prompt-architect",
-      "does": "Video generators such as Veo, Gemini Omni, Kling, Seedance, Wan, MiniMax H3 or Runway run outside Studio; the dated video-generator snapshot in Research Evidence maps them",
+      "does": "Video generators such as Veo, Gemini Omni, Kling, Seedance, Wan, MiniMax H3 or Runway run outside Studio; the dated video-generator snapshot in Research maps them",
       "tools": [],
       "requires": [
         "host_tool"

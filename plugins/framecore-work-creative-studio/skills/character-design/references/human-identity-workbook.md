@@ -1,6 +1,6 @@
 # Human identity and believable reference sheets
 
-Use for a recurring person, a real-person likeness, or a requested human reference sheet. Read only the relevant sections. Character Design owns identity decisions; Reference Pack Curator owns source authority, Board owns the sheet, Image Prompt owns final image instructions, and Video Prompt owns motion continuity. Source support and limits are recorded in [the expansion evidence](../../research-evidence/references/reference-audio-expansion-sources.md).
+Use for a recurring person, a real-person likeness, or a requested human reference sheet. Read only the relevant sections. Character Design owns identity decisions; Reference Pack owns source authority, Board owns the sheet, Image Prompt owns final image instructions, and Video Prompt owns motion continuity. Source support and limits are recorded in [the expansion evidence](../../research-evidence/references/reference-audio-expansion-sources.md).
 
 ## Establish what the source can prove
 

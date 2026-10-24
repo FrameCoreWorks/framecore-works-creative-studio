@@ -1,6 +1,6 @@
 # GSAP motion starter (HTML)
 
-An original, synthetic starter for the HTML route of the [Motion Graphics Workflow](../../SKILL.md): kinetic typography and lightweight 2D scenes built with a paused GSAP timeline. It is a teaching fixture, not a client concept or a mandated style.
+An original, synthetic starter for the HTML route of the [Motion Graphics](../../SKILL.md): kinetic typography and lightweight 2D scenes built with a paused GSAP timeline. It is a teaching fixture, not a client concept or a mandated style.
 
 ## Same contract as the Remotion starter
 

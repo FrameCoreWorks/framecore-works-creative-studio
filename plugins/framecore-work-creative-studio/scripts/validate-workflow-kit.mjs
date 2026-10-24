@@ -160,7 +160,7 @@ export function validateWorkflowKit(root, packageFiles) {
     for (const phrase of ['Image supplied as a reference for a new asset','Approved base image supplied for an edit','Existing image explicitly supplied for review']) if (!capabilities.includes(phrase)) fail('KIT_IMAGE_OPERATION_ROUTE', phrase);
     if (!equal(routes.qa_by_modality, {still:'output-critic-iteration',video:'video-prompt-architect',audio:'audio-production-director',captions:'caption-studio',motion:'hyperframes-workflow'})) fail('KIT_MEDIA_QA', 'Review must route by inspected modality');
     const authority = text(refs + 'studio-integration-policy.md');
-    for (const phrase of ['Missing carriers do not lower a strict requirement', 'If the first draft satisfies them', 'Tool availability is discovered from the actual host', 'Hipson Adapter supplies bounded packets', 'A clear request already establishes intent', 'After an unexplained rejection ask one specific direction question']) if (!authority.includes(phrase)) fail('KIT_AUTHORITY', phrase);
+    for (const phrase of ['Missing carriers do not lower a strict requirement', 'If the first draft satisfies them', 'Tool availability is discovered from the actual host', 'Hipson Handoff supplies bounded packets', 'A clear request already establishes intent', 'After an unexplained rejection ask one specific direction question']) if (!authority.includes(phrase)) fail('KIT_AUTHORITY', phrase);
     for (const item of resources.filter(item => item.active_path.endsWith('.md'))) if (/Name the carrier or mark continuity approximate|at least one review-and-revision cycle|must use GPT Image 2/.test(text(item.active_path))) fail('KIT_STALE_POLICY', item.active_path);
   } catch (error) { fail('KIT_PACKAGE', error.message); }
   return errors;

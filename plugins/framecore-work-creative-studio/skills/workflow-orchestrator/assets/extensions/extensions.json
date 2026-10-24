@@ -36,7 +36,7 @@
       "category": "research",
       "gives": "Reverse engineering of software the user may analyse: native binaries (with Hopper, Ghidra or IDA), JavaScript and Electron apps, .NET assemblies, Android packages, websites through the browser's DevTools, network captures; every finding comes with its evidence and unknowns",
       "studio_uses": "Optional depth when the user wants to know how a feature or an effect of an app or a website is built and Studio's own web motion probe is not enough: an Electron or desktop app, a bundled script, a source map. For a web animation, the web motion probe answers first",
-      "not_for": "Image or prompt reverse engineering (that is Image Prompt Architect's reference reconstruction), copying another product's code or assets, bypassing protection, licences or logins",
+      "not_for": "Image or prompt reverse engineering (that is Image Prompt's reference reconstruction), copying another product's code or assets, bypassing protection, licences or logins",
       "requires": [
         {
           "tool": "node",
@@ -243,7 +243,7 @@
       "role": "knowledge",
       "category": "design",
       "gives": "Rules and examples for social ads, posters and flyers made with image models: research, questions, art direction, strong prompts and post-generation analysis",
-      "studio_uses": "The original skill next to Studio's adaptation in Static Graphic Design Creator (integrations/meta-ads-designer), for a user who wants the full upstream rules",
+      "studio_uses": "The original skill next to Studio's adaptation in Graphic Design (integrations/meta-ads-designer), for a user who wants the full upstream rules",
       "not_for": "Overriding Studio's exact-copy, claim and review rules; Studio's own routes stay in charge",
       "requires": [
         {
@@ -595,7 +595,7 @@
       "category": "brand-identity",
       "role": "knowledge",
       "gives": "Logo discovery, concept comparison, SVG craft and optical refinement; reference search, SVG audit, concept/test sheets and icon exports. Upstream plugin version 1.4.4.",
-      "studio_uses": "Studio bundles the reusable Logo Design tools, references, templates and catalogue within Static Graphic Design Creator. This optional entry installs the original separate workflow. Reference trademark SVGs retain their separate rights.",
+      "studio_uses": "Studio bundles the reusable Logo Design tools, references, templates and catalogue within Graphic Design. This optional entry installs the original separate workflow. Reference trademark SVGs retain their separate rights.",
       "not_for": "Automatic trademark clearance, guaranteed originality, production approval from a score, replacing the requested image/vector route, or copying reference marks.",
       "requires": [
         {
@@ -668,7 +668,7 @@
       "category": "motion-graphics",
       "role": "engine",
       "gives": "Complete SVG projection, WebGL shader layers, moving 3D groups, React adapters and geometry/browser audits for technical explanations.",
-      "studio_uses": "The complete graphics toolset is bundled inside Motion Graphics Workflow, with Static Graphic Design Creator using requested coded/vector diagrams. This optional entry adds the separate original skill.",
+      "studio_uses": "The complete graphics toolset is bundled inside Motion Graphics, with Graphic Design using requested coded/vector diagrams. This optional entry adds the separate original skill.",
       "not_for": "Automatic engineering proof, fixed machine aesthetics, unsolicited gallery publication, session-log collection, security-setting changes, or replacing the existing motion runtime without a brief requirement.",
       "requires": [
         {
@@ -736,7 +736,7 @@
       "role": "engine",
       "category": "research",
       "gives": "A command-line layer that installs, checks and routes to tools for reading the web: web pages through Jina Reader, YouTube metadata and transcripts, RSS, public GitHub and Exa search through an MCP setup (mcporter); its doctor names the working route per channel",
-      "studio_uses": "Optional research reach for Research Evidence in a shell host, when the host's own web tools cannot read a page, a YouTube transcript or a feed the brief depends on (a client's or competitor's site, a video's wording, a public changelog). Only the channels that need no login",
+      "studio_uses": "Optional research reach for Research in a shell host, when the host's own web tools cannot read a page, a YouTube transcript or a feed the brief depends on (a client's or competitor's site, a video's wording, a public changelog). Only the channels that need no login",
       "not_for": "Any channel that needs cookies, tokens or a logged-in browser session (X/Twitter, Reddit, Facebook, Instagram, Xiaohongshu, Boss Zhipin): Studio never exports cookies, never uses spare accounts and never automates a platform against its terms. Not for bulk scraping, personal data or content the user may not use",
       "requires": [
         {
@@ -805,7 +805,7 @@
       "category": "motion-graphics",
       "role": "engine",
       "gives": "Art-style animation that stays alive (36 implemented style scenes from cave painting to Monet, Van Gogh, Bauhaus, 8-bit and Ghibli, plus 17 research cards), 9 explainer grammars (Kurzgesagt, Vox, whiteboard, 3Blue1Brown, storytime, kinetic type, keynote UI, finance charts, presenter) with parameterized clips, a reference-breakdown script, a shot-list lint and a delivery gate against slide-deck films. Upstream version 1.2.0; docs mostly in Chinese.",
-      "studio_uses": "Studio bundles its direction method in English (camera, look, explainer grammars, six failure modes, shot-list rules) and an adapted reference-breakdown tool in Motion Graphics Workflow. This optional entry installs the original skill with its style scenes, clip renderer and gates.",
+      "studio_uses": "Studio bundles its direction method in English (camera, look, explainer grammars, six failure modes, shot-list rules) and an adapted reference-breakdown tool in Motion Graphics. This optional entry installs the original skill with its style scenes, clip renderer and gates.",
       "not_for": "Copying its showcase films, characters or likenesses (they include generated images of real people), replacing Studio's intake, review and delivery, or presenting a research style card as a finished, verified style.",
       "requires": [
         {
@@ -880,7 +880,7 @@
       "category": "motion-graphics",
       "role": "knowledge",
       "gives": "Interactive isometric hairline figures where whatever is switched on glows in one accent colour, as single HTML pages: devices, buildings, city scenes, exploded diagrams, a 3D mode with three.js (including cleaning up a .glb model) and a solid \"Lumen\" product-illustration style.",
-      "studio_uses": "Studio bundles the look adapted for video in Motion Graphics Workflow: an isometric kit, a bass-driven loudspeaker example and audio_envelope.py, which drives glow from a track. This optional entry installs the original skill for clickable pages.",
+      "studio_uses": "Studio bundles the look adapted for video in Motion Graphics: an isometric kit, a bass-driven loudspeaker example and audio_envelope.py, which drives glow from a track. This optional entry installs the original skill for clickable pages.",
       "not_for": "Seekable video renders (its pages animate from clicks and wall-clock time; use Studio's kit), real logos or trademarks on objects, or removing its footer credit without the user's choice.",
       "requires": [
         {
@@ -1282,7 +1282,7 @@
       "role": "engine",
       "gives": "A topic or script becomes a finished short video automatically: a script from many LLM providers, stock footage from Pexels or Pixabay (or local files, or paid AI clip providers), voice-over from Edge TTS and other voice services or the user's own audio, speech-based subtitles, background music and 9:16 or 16:9 composition with MoviePy and FFmpeg; WebUI, REST API and CLI, with a JSON result and exit codes for agents",
       "studio_uses": "Quick faceless stock-footage explainer or tip videos from a topic, and drafts or batches where speed matters more than a designed look; Studio keeps the brief, the script and claims, and the review",
-      "not_for": "Client work that needs original footage, exact copy, a designed look or brand-consistent motion (use FrameCut for the user's footage and Motion Graphics Workflow for designed motion); publishing without a person checking the script, claims, footage and music rights; the bundled songs",
+      "not_for": "Client work that needs original footage, exact copy, a designed look or brand-consistent motion (use FrameCut for the user's footage and Motion Graphics for designed motion); publishing without a person checking the script, claims, footage and music rights; the bundled songs",
       "requires": [
         {
           "tool": "python",
@@ -1471,7 +1471,7 @@
       "category": "design",
       "role": "knowledge",
       "gives": "Complete source skill 2.0.0 for coded websites and app screens: 48 themes, selective references, static/browser inspection and redesign preservation checks.",
-      "studio_uses": "Optional native companion to the existing Static Graphic Design Creator. Studio adapts task-first page anatomy, first-viewport inspection, before/after behavior inventory and separate hard/style evidence. Full upstream assets remain in the separate native skill.",
+      "studio_uses": "Optional native companion to the existing Graphic Design. Studio adapts task-first page anatomy, first-viewport inspection, before/after behavior inventory and separate hard/style evidence. Full upstream assets remain in the separate native skill.",
       "not_for": "Replacing an approved brand, a second intake or owner, automatic paid image calls, universal cross-media aesthetic bans, functional or accessibility certification from a lint score.",
       "requires": [
         {

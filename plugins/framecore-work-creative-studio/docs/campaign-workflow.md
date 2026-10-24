@@ -1,6 +1,6 @@
 # Website-led marketing and sales campaigns
 
-Creative Studio can connect an accessible company/store website to a brand and offer diagnosis, incremental business questions, campaign strategy, asset briefs, requested production and a measurement plan. The existing Ecommerce Campaign Strategy Director owns the commerce plan; Marketing and the existing graphic, UGC and video owners supply their specialist work. No new role or provider is installed.
+Creative Studio can connect an accessible company/store website to a brand and offer diagnosis, incremental business questions, campaign strategy, asset briefs, requested production and a measurement plan. The existing Sales Campaign Strategy owns the commerce plan; Marketing and the existing graphic, UGC and video owners supply their specialist work. No new role or provider is installed.
 
 ## Route
 

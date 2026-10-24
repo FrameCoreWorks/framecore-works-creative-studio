@@ -1,9 +1,9 @@
 ---
 name: screenplay-story-architect
-description: "Write original stories and screenplays: premise, treatment, scenes, dialogue, pitch, coverage and revision. Copy and taglines go to Copy Voice; shot timing to Storyboard Sequence Architect."
+description: "Write original stories and screenplays: premise, treatment, scenes, dialogue, pitch, coverage and revision. Copy and taglines go to Copy Voice; shot timing to Shot Sequence."
 ---
 
-# Screenplay Story Architect
+# Story And Screenplay
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
@@ -16,7 +16,7 @@ Apply the conditional [public research gate](../research-evidence/SKILL.md) befo
 
 ## Ad scripts
 
-This skill writes the script of an advert or a short brand film: the spoken words, dialogue and scene action in the [AV two-column script](assets/av-ad-script.template.md) (video beside audio, row by row in time), within the word budget of the [short-form timing card](../pipeline-core/references/short-form-timing.md) checked with `vo_budget.py`. Copy Voice locks the voice-over and supers; a creator-read script belongs to UGC; shot timing and cards to Storyboard Sequence Architect.
+This skill writes the script of an advert or a short brand film: the spoken words, dialogue and scene action in the [AV two-column script](assets/av-ad-script.template.md) (video beside audio, row by row in time), within the word budget of the [short-form timing card](../pipeline-core/references/short-form-timing.md) checked with `vo_budget.py`. Copy Voice locks the voice-over and supers; a creator-read script belongs to UGC; shot timing and cards to Shot Sequence.
 
 ## Route the work
 

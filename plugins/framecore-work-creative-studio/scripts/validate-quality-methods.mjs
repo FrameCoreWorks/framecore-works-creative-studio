@@ -14,7 +14,7 @@ export function validateQualityMethods(root) {
   requireText(profile, ['## Relevant examples', '## Tool-backed verification (CRITIC-inspired)', '## Calibrated pairwise evaluation', '## Controlled Reflexion lessons', '## Offline GEPA pilot', 'No method resets this budget', 'Passing work stops unchanged', 'order_disagreement', 'No automatic adoption', 'not media certification', 'never raw reasoning traces']);
   requireText('skills/pipeline-core/references/inference-reasoning-methods.md', ['quality-improvement-methods.md']);
   requireText('skills/static-graphic-design-creator/SKILL.md', ['After an unexplained rejection', 'Apply an already explained correction directly']);
-  requireText('skills/commercial-visual-campaign-director/SKILL.md', ['Hand a selected direction for static execution to [Static Graphic Design Creator]']);
+  requireText('skills/commercial-visual-campaign-director/SKILL.md', ['Hand a selected direction for static execution to [Graphic Design]']);
   requireText('skills/commercial-video-campaign-director/references/creative-decision-library.md', ['decision-examples.json', 'one to three examples']);
   requireText('skills/output-critic-iteration/SKILL.md', ['quality-improvement-methods.md#tool-backed-verification-critic-inspired', 'quality-improvement-methods.md#calibrated-pairwise-evaluation']);
   requireText('skills/workflow-self-improvement/SKILL.md', ['quality-improvement-methods.md#controlled-reflexion-lessons', 'assets/reflexion-lesson.template.json']);

@@ -78,7 +78,7 @@ Do not promote a concept prop into an identity carrier. An approved motif descri
 
 **Risk and repair:** the stopped hand may be too subtle at the intended framing. First make the hand's prepared approach and deliberate stop readable. Keep the restrained performance and stable camera. Do not add tears, a disappearing chair or faster cutting as an automatic repair.
 
-**Complete handoff note:** preserve the empty-place relationship, non-singing performance, cloth-adjustment rule, stable observational camera, consistent daylight and unresolved ending. The source for music shape is the user's description, not inspection. Sequence may propose event ordering and timing after confirming song evidence; it must preserve the fixed-camera option. Board panels may show distinct temporal states in the same framing. Video-prompt-architect owns motion feasibility and final prompt mapping. If exact identity is later required, obtain and bind its actual carrier; do not silently weaken the requirement. Audio Production Director receives music/audio questions only if requested; a treatment alone requires no audio production packet.
+**Complete handoff note:** preserve the empty-place relationship, non-singing performance, cloth-adjustment rule, stable observational camera, consistent daylight and unresolved ending. The source for music shape is the user's description, not inspection. Sequence may propose event ordering and timing after confirming song evidence; it must preserve the fixed-camera option. Board panels may show distinct temporal states in the same framing. Video-prompt-architect owns motion feasibility and final prompt mapping. If exact identity is later required, obtain and bind its actual carrier; do not silently weaken the requirement. Audio Production receives music/audio questions only if requested; a treatment alone requires no audio production packet.
 
 ## 4. Worked direction B: a performance that stays with the listener
 
@@ -107,7 +107,7 @@ Do not promote a concept prop into an identity carrier. An approved motif descri
 | Render misses the approved gesture | Is direction clear but execution weak? | Video owner reviews actual motion; do not replace the accepted thesis prematurely |
 | New song edit changes the timing | Which dependent artifacts used the old version? | Mark sequence, cues, prompts and captions `review_required`; keep unaffected direction locks |
 
-If the user rejects the central image, revise that device rather than producing palette variations. If the user accepts the direction but dislikes a rendered motion, preserve the direction while the video owner diagnoses the clip. Audio triage belongs to Audio Production Director and does not require a production packet; static-image criticism remains with output-critic-iteration.
+If the user rejects the central image, revise that device rather than producing palette variations. If the user accepts the direction but dislikes a rendered motion, preserve the direction while the video owner diagnoses the clip. Audio triage belongs to Audio Production and does not require a production packet; static-image criticism remains with output-critic-iteration.
 
 ## 6. Research anchor and transfer limits
 

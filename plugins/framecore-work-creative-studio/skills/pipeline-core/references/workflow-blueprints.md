@@ -1,6 +1,6 @@
 # Workflow Blueprints
 
-For brand strategy, a logo system, Logo Guide or Identity Guide, use the [brand identity profile](../../workflow-orchestrator/references/brand-identity-workflow.md). Reuse this kit's existing roles/gates: brief and research as needed, then `static-direction` with Marketing for foundations and Static Graphic Design Creator for integrated logo/visual craft, inspected `qa-iteration` where applicable, and `delivery-documentation` for the requested guide/package. Keep stage artifacts and selection status in one Project State; a logo-only request skips the unrequested stages.
+For brand strategy, a logo system, Logo Guide or Identity Guide, use the [brand identity profile](../../workflow-orchestrator/references/brand-identity-workflow.md). Reuse this kit's existing roles/gates: brief and research as needed, then `static-direction` with Marketing for foundations and Graphic Design for integrated logo/visual craft, inspected `qa-iteration` where applicable, and `delivery-documentation` for the requested guide/package. Keep stage artifacts and selection status in one Project State; a logo-only request skips the unrequested stages.
 
 Use these blueprints as starting routes. The workflow-orchestrator may shorten or expand them, but it must preserve required gates, handoffs, and missing-artifact loopbacks.
 
@@ -161,7 +161,7 @@ Required gates:
 - `post_execution_fit` when a concrete artifact or supplied media is reviewed
 - `delivery_fit` when delivery documentation is produced
 
-Boundary: Audio Production Director creates text-based planning/review artifacts and can inspect media only through actually available, task-authorized tools. The route does not imply audio generation or provider execution.
+Boundary: Audio Production creates text-based planning/review artifacts and can inspect media only through actually available, task-authorized tools. The route does not imply audio generation or provider execution.
 
 ## Storyboard Board Artifact
 

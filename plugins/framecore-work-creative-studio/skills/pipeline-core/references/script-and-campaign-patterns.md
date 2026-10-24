@@ -1,19 +1,19 @@
 # Script and campaign patterns
 
-Shared patterns for scripts, short-form video, campaigns, launches and sales conversations, used by every owner that writes for a business: Copy Voice, Screenplay Story Architect, Storytelling, UGC, Marketing, Ecommerce Campaign Strategy Director, Commercial Video Campaign Director, Storyboard Sequence Architect, Video Prompt Architect and the Motion Graphics Workflow.
+Shared patterns for scripts, short-form video, campaigns, launches and sales conversations, used by every owner that writes for a business: Copy Voice, Story And Screenplay, Storytelling, UGC, Marketing, Sales Campaign Strategy, Video Campaign, Shot Sequence, Video Prompt and the Motion Graphics.
 
 These are structures with reasons, not finished scripts. The idea still comes from the brief and the [ideation method](ideation-method.md); a pattern says what each part must do, and the owner writes it for this client, in the user's language and market. Patterns compiled from common short-form and direct-response practice, including a creator's prompt collection shared in 2026 (KANJI.LOW); expressed here in Studio's own words, with no text copied.
 
 ## Honesty rules for every pattern
 
-- No invented proof: statistics, testimonials, case studies, results, scarcity and deadlines come from the user or a checked source, through Research Evidence when they are public claims.
+- No invented proof: statistics, testimonials, case studies, results, scarcity and deadlines come from the user or a checked source, through Research when they are public claims.
 - Agitation names a real problem in the audience's words; it never exaggerates harm or fear.
 - Scarcity, deadlines and guarantees exist only when they are real.
 - Sales conversations persuade by understanding; no pressure tactics, no false urgency, no manipulation of vulnerable people.
 
 ## 1. A script that production can use
 
-Write every short script as beats, one row each: **time**, **spoken line**, **on-screen text**, **visual change**, **proof shown**, **CTA** when present. This format goes straight into Storyboard Sequence Architect's shot cards, Video Prompt Architect's generator prompts and the Motion Graphics Workflow's boards; the words decide what is heard, the visual column decides what is generated or animated.
+Write every short script as beats, one row each: **time**, **spoken line**, **on-screen text**, **visual change**, **proof shown**, **CTA** when present. This format goes straight into Shot Sequence's shot cards, Video Prompt's generator prompts and the Motion Graphics's boards; the words decide what is heard, the visual column decides what is generated or animated.
 
 - A visual change every 2 to 3 seconds in talking or live-action video; 1 to 2.5 seconds per board in motion graphics ([reel board system](../../hyperframes-workflow/references/reel-board-system.md)).
 - Spoken sentences of up to about 10 words; one idea per sentence.
@@ -104,21 +104,21 @@ Map each phase to formats (reel, story, post, email, ad) in Marketing's plan; th
 
 ## 11. Video sales letter for cold traffic
 
-Hook; the problem in the audience's words; why the usual fixes fail; the mechanism that makes this offer work, explained plainly and truthfully; proof; the offer; risk reversal only if a real guarantee exists; the CTA. Keep agitation factual and short, and test the claims with Research Evidence before the script is ready.
+Hook; the problem in the audience's words; why the usual fixes fail; the mechanism that makes this offer work, explained plainly and truthfully; proof; the offer; risk reversal only if a real guarantee exists; the CTA. Keep agitation factual and short, and test the claims with Research before the script is ready.
 
 ## 12. From script to generated video and motion
 
-1. Each script beat becomes a shot card (Storyboard Sequence Architect): subject, action, camera, duration, continuity carriers, the proof it shows.
+1. Each script beat becomes a shot card (Shot Sequence): subject, action, camera, duration, continuity carriers, the proof it shows.
 2. Exact text (names, prices, claims, CTA) is an overlay or a motion board, never generated inside an image or clip.
-3. Generator prompts come per shot from Video Prompt Architect; motion boards from the Motion Graphics Workflow; voice and music from Audio Production Director.
+3. Generator prompts come per shot from Video Prompt; motion boards from the Motion Graphics; voice and music from Audio Production.
 4. The visual change cadence of section 1 holds across generated shots and boards.
 
 ## Owners
 
 | Pattern | Writes | Plans or checks |
 | --- | --- | --- |
-| Hooks, retention, CTAs, scripts | Copy Voice | Commercial Video Campaign Director for ads |
-| Story structures, long scripts, VSL | Screenplay Story Architect, Storytelling | Copy Voice for final wording, Research Evidence for claims |
+| Hooks, retention, CTAs, scripts | Copy Voice | Video Campaign for ads |
+| Story structures, long scripts, VSL | Story And Screenplay, Storytelling | Copy Voice for final wording, Research for claims |
 | Creator-style scripts | UGC | Copy Voice |
-| Series, launches, CTA by temperature, sales conversations | Marketing; Ecommerce Campaign Strategy Director for priced offers and stores | Copy Voice for the words |
-| Shot cards and prompts | Storyboard Sequence Architect, Video Prompt Architect | Motion Graphics Workflow for boards |
+| Series, launches, CTA by temperature, sales conversations | Marketing; Sales Campaign Strategy for priced offers and stores | Copy Voice for the words |
+| Shot cards and prompts | Shot Sequence, Video Prompt | Motion Graphics for boards |

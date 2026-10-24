@@ -14,9 +14,9 @@ Pass each cue's character (from the picture and the request, e.g. a heavy landin
 
 | Trigger | Owner and native operation |
 |---|---|
-| Authorized sound for motion graphics, kinetic type, transitions, UI, reveals or logo cues | Motion Graphics Workflow delegates SFX/kit generation to Earshot when ready, then implements the mix against existing motion-score cues. Preserve a selected Remotion or other visual engine. |
+| Authorized sound for motion graphics, kinetic type, transitions, UI, reveals or logo cues | Motion Graphics delegates SFX/kit generation to Earshot when ready, then implements the mix against existing motion-score cues. Preserve a selected Remotion or other visual engine. |
 | FrameCut needs generated effects or checks of speech/music/SFX timing | FrameCut delegates through the existing motion/audio owners with its current revision, rational FPS, cue mapping and master timeline. Earshot returns assets and evidence to that owner. |
-| Supplied audio needs description, candidate ranking, trimming or semantic comparison | Audio Production Director uses the corresponding Earshot analysis command and reports model availability and uncertainty. |
+| Supplied audio needs description, candidate ranking, trimming or semantic comparison | Audio Production uses the corresponding Earshot analysis command and reports model availability and uncertainty. |
 | Finished soundtrack/delivered MP4 needs objective QA | Run the applicable Earshot measurement/timeline/sheet checks within the existing bounded QA. Select a genre-appropriate critique profile. |
 | Runtime or technical failure | `superpowers:systematic-debugging` when available: read the actual error and `runtime.py status --json`, identify the real failing tier or blocked host before repairing or offering the fallback. |
 | Code around Earshot (scripts on `earshot.api`, cue files, placement, mix, mux) | Superpowers' method ([sound with Earshot](superpowers-native-routing.md#sound-with-earshot)): a plan for a multi-step soundtrack, a failing onset check per cue before the mix, verification on the encoded MP4 before reporting done. |

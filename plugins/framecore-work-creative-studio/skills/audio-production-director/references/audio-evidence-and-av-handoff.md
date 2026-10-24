@@ -17,7 +17,7 @@ Record source ID/version, method/tool, ranges covered, channels/stems inspected,
 
 ## 2. Keep authorship and review ownership explicit
 
-- Audio Production Director owns lyrics, song/music direction, audio triage, sound-cue planning and literal transcript/caption preparation from real sources.
+- Audio Production owns lyrics, song/music direction, audio triage, sound-cue planning and literal transcript/caption preparation from real sources.
 - Copy Voice owns standalone marketing/editorial language and short VO wording; screenplay owns narrative scenes and dialogue. Preserve approved words and route requested wording changes to that owner.
 - Sequence owns beat/shot order and timing plans. Video owns picture/motion review, speaker/mouth ownership, audiovisual alignment and caption placement over image. Sampled still frames cannot establish lip-sync.
 - Delivery owns requested export specifications, actual file inventory and verified delivery status. A packet is not an export.

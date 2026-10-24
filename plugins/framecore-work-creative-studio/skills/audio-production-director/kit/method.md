@@ -1,5 +1,5 @@
 
-# Audio Production Director: integrated packet method
+# Audio Production: integrated packet method
 
 Read [Studio integration authority](../../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
@@ -68,7 +68,7 @@ Use [templates/producer-ai-task-packet.md](templates/producer-ai-task-packet.md)
 
 ## Guardrails
 
-- Do not initiate provider generation, paid API calls, uploads or external storage from this packet-writing method. Required read-only public research and task-authorized media inspection follow the active Audio Production Director contract.
+- Do not initiate provider generation, paid API calls, uploads or external storage from this packet-writing method. Required read-only public research and task-authorized media inspection follow the active Audio Production contract.
 - Do not claim a named interface supports exact lyrics-to-mouth sync, footage retiming, stems, remix controls, or other changing features without current evidence.
 - Do not reproduce copyrighted lyrics or imitate a living artist's distinctive style.
 - Confirm rights and consent for user-provided lyrics, voices, likenesses, performances, and source media.

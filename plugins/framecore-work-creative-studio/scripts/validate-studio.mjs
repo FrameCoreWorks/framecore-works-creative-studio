@@ -189,7 +189,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     const name = path.basename(relative), entry = read('skills/research-evidence/SKILL.md');
     const at = entry.indexOf('(references/' + name + ')');
     if (!date) fail('SNAPSHOT_DATE', relative + ': state "Snapshot date: YYYY-MM-DD." in its first lines');
-    else if (at < 0 || !entry.slice(at, at + 160).includes(date)) fail('SNAPSHOT_DATE', relative + ': Research Evidence must link it with its date ' + date);
+    else if (at < 0 || !entry.slice(at, at + 160).includes(date)) fail('SNAPSHOT_DATE', relative + ': Research must link it with its date ' + date);
   }
   // The capability card states what Studio executes; every tool it names must exist and every owner must be real.
   try {
@@ -257,7 +257,40 @@ export function validateStudio(root, {legacy = false} = {}) {
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.
   const nameSpellings = new Map([['ai', 'AI'], ['ugc', 'UGC'], ['hyperframes', 'HyperFrames'], ['opencut', 'OpenCut']]);
-  const displayOverrides = new Map([['hyperframes-workflow', 'Motion Graphics Workflow'], ['opencut-video-studio', 'FrameCut']]);
+  // Owner-approved display names (2026-10-24, docs/skill-naming.md); an ID not listed derives its name from its words.
+  const displayOverrides = new Map([
+    ['audio-production-director', 'Audio Production'],
+    ['cinematography', 'Camera And Light'],
+    ['commercial-video-campaign-director', 'Video Campaign'],
+    ['commercial-visual-campaign-director', 'Visual Campaign'],
+    ['creative-music-video-director', 'Music Video'],
+    ['creative-video-producer', 'Video Producer'],
+    ['delivery-documentation', 'Delivery Pack'],
+    ['ecommerce-campaign-strategy-director', 'Sales Campaign Strategy'],
+    ['hipson-adapter', 'Hipson Handoff'],
+    ['humanizer', 'Copy Polish'],
+    ['hyperframes-workflow', 'Motion Graphics'],
+    ['image-prompt-architect', 'Image Prompt'],
+    ['instruction-packet-factory', 'Task Handoff'],
+    ['marketing', 'Brand Strategy'],
+    ['opencut-video-studio', 'FrameCut'],
+    ['output-critic-iteration', 'Output Review'],
+    ['pipeline-core', 'Studio Core'],
+    ['reference-pack-curator', 'Reference Pack'],
+    ['remotion-video-production', 'Remotion Video'],
+    ['research-evidence', 'Research'],
+    ['screenplay-story-architect', 'Story And Screenplay'],
+    ['static-graphic-design-creator', 'Graphic Design'],
+    ['storyboard-board-architect', 'Storyboard Board'],
+    ['storyboard-sequence-architect', 'Shot Sequence'],
+    ['storytelling', 'Story Logic'],
+    ['studio-workstyle-profile', 'Workstyle Profile'],
+    ['tool-routing-cost', 'Tools And Costs'],
+    ['ugc', 'UGC Ads'],
+    ['video-prompt-architect', 'Video Prompt'],
+    ['workflow-orchestrator', 'FrameCore Studio Guide'],
+    ['workflow-self-improvement', 'Studio Retrospective']
+  ]);
   const displayNames = new Set();
   for (const id of actualOwners) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) fail('SKILL_ID_FORMAT', id);
@@ -286,7 +319,7 @@ export function validateStudio(root, {legacy = false} = {}) {
   // Overlapping owners must name their neighbor in the catalog description, and the
   // legacy audio alias stays explicit-only so it never competes with its replacement.
   const descriptionOf = id => (texts.get('skills/' + id + '/SKILL.md') ?? '').match(/^description:\s*(.+)$/m)?.[1] ?? '';
-  for (const [id, neighbors] of [['storytelling', ['Screenplay Story Architect', 'Storyboard Sequence Architect']], ['marketing', ['Ecommerce Campaign Strategy Director']], ['ecommerce-campaign-strategy-director', ['Marketing']], ['instruction-packet-factory', ['Brief Architect', 'Hipson Adapter']], ['hipson-adapter', ['Instruction Packet Factory']], ['brief-architect', ['Instruction Packet Factory']], ['pipeline-core', ['Workflow Orchestrator']]]) {
+  for (const [id, neighbors] of [['storytelling', ['Story And Screenplay', 'Shot Sequence']], ['marketing', ['Sales Campaign Strategy']], ['ecommerce-campaign-strategy-director', ['Brand Strategy']], ['instruction-packet-factory', ['Brief Architect', 'Hipson Handoff']], ['hipson-adapter', ['Task Handoff']], ['brief-architect', ['Task Handoff']], ['pipeline-core', ['FrameCore Studio Guide']]]) {
     for (const neighbor of neighbors) if (!descriptionOf(id).includes(neighbor)) fail('ROUTING_BOUNDARY', id + ' -> ' + neighbor);
   }
   for (const id of ['producer-ai-task-builder', 'hipson-adapter', 'workflow-self-improvement']) {

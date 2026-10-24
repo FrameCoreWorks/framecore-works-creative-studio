@@ -24,7 +24,7 @@ One asset per scene need, each tied to its scenes: the hero object; separate clo
 
 ## 4. Transparency by generator (checked 2026-10-14)
 
-These are fast-moving product facts: before promising transparency for a named tool, check its current documentation through [Research Evidence](../../research-evidence/SKILL.md).
+These are fast-moving product facts: before promising transparency for a named tool, check its current documentation through [Research](../../research-evidence/SKILL.md).
 
 | Generator | Real alpha? | Route |
 |---|---|---|
@@ -40,7 +40,7 @@ These are fast-moving product facts: before promising transparency for a named t
 
 ## 5. Who generates
 
-Probe the host; never assume. With an image-generation tool the host actually exposes (Codex's built-in image tool, or a connected provider), Studio may generate the assets itself, but only after [Tool Routing Cost](../../tool-routing-cost/SKILL.md) states the provider, model, approximate number of images, cost and what gets uploaded (reference images may include the client's brand), and the user approves the batch. Otherwise give the user one ready prompt per asset, built with [Image Prompt Architect](../../image-prompt-architect/SKILL.md), and continue when the files arrive.
+Probe the host; never assume. With an image-generation tool the host actually exposes (Codex's built-in image tool, or a connected provider), Studio may generate the assets itself, but only after [Tools And Costs](../../tool-routing-cost/SKILL.md) states the provider, model, approximate number of images, cost and what gets uploaded (reference images may include the client's brand), and the user approves the batch. Otherwise give the user one ready prompt per asset, built with [Image Prompt](../../image-prompt-architect/SKILL.md), and continue when the files arrive.
 
 ## 6. After the files arrive
 

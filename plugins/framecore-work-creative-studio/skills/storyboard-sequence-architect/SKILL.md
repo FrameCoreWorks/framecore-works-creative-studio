@@ -1,9 +1,9 @@
 ---
 name: storyboard-sequence-architect
-description: Turn an approved script or concept into a timed beat map and continuity-aware shot cards, including a motion storyboard for coded video. Boards go to Storyboard Board Architect; prompts to Video Prompt Architect.
+description: Turn an approved script or concept into a timed beat map and continuity-aware shot cards, including a motion storyboard for coded video. Boards go to Storyboard Board; prompts to Video Prompt.
 ---
 
-# Storyboard Sequence Architect
+# Shot Sequence
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 

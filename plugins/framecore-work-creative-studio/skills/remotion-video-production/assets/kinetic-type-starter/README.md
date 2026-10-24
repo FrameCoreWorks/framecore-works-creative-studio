@@ -1,10 +1,10 @@
 # Kinetic type starter (Remotion 2D)
 
-An original, synthetic starting project for the most common code-motion route: kinetic typography, title sequences and short 2D brand or product statements in Remotion. It is a teaching fixture, not a client concept or a mandated style. Use it through [Remotion Video Production](../../SKILL.md) and the shared [motion workflow](../../../hyperframes-workflow/references/code-based-motion-graphics.md).
+An original, synthetic starting project for the most common code-motion route: kinetic typography, title sequences and short 2D brand or product statements in Remotion. It is a teaching fixture, not a client concept or a mandated style. Use it through [Remotion Video](../../SKILL.md) and the shared [motion workflow](../../../hyperframes-workflow/references/code-based-motion-graphics.md).
 
 ## One contract for code and review
 
-[`motion-score.json`](motion-score.json) is the single source for size, FPS, frame count, scenes, readable holds, exact copy, brand tokens and motion values. It extends the Motion Graphics Workflow score format, so the same file passes `validateScore` in `hyperframes-workflow/assets/motion-quality/score.mjs`. The composition reads it directly; change the contract, not hard-coded numbers in components.
+[`motion-score.json`](motion-score.json) is the single source for size, FPS, frame count, scenes, readable holds, exact copy, brand tokens and motion values. It extends the Motion Graphics score format, so the same file passes `validateScore` in `hyperframes-workflow/assets/motion-quality/score.mjs`. The composition reads it directly; change the contract, not hard-coded numbers in components.
 
 - 1920 × 1080, 30 FPS, N = 300 frames, 10 seconds, frames 0..299, intentional silence.
 - Two more [formats](../../../hyperframes-workflow/assets/motion-scenes/README.md#formats) from the same contract: `9x16` (1080 × 1920) and `1x1` (1080 × 1080), with smaller title and end-card type; the steps stack vertically there.

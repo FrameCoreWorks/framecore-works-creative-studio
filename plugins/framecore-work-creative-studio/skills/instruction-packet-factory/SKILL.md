@@ -1,13 +1,13 @@
 ---
 name: instruction-packet-factory
-description: 'Hand a task to another agent or environment as a bounded packet with inputs, outputs, acceptance criteria and stop condition. Messy notes go to Brief Architect; Hipson-format packets to Hipson Adapter.'
+description: 'Hand a task to another agent or environment as a bounded packet with inputs, outputs, acceptance criteria and stop condition. Messy notes go to Brief Architect; Hipson-format packets to Hipson Handoff.'
 ---
 
-# Instruction Packet Factory
+# Task Handoff
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to create bounded instruction packets for workflow roles. It converts routing intent into a compact, testable packet with target role, goal, context, exclusions, evidence rules, acceptance criteria, output schema, and handoff target.

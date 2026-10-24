@@ -1,6 +1,6 @@
 # Ad evidence, structure and format
 
-Use for a requested social-ad concept, competitor analysis or campaign family. This optional extension supplies decisions for the existing [strategy pack](../templates/ecommerce-campaign-strategy-pack.md) and [asset card](../templates/campaign-asset-card.md). It does not start another intake. A selected static execution stays with [Static Graphic Design Creator](../../static-graphic-design-creator/SKILL.md); a shared family stays with Commercial Visual Campaign Director.
+Use for a requested social-ad concept, competitor analysis or campaign family. This optional extension supplies decisions for the existing [strategy pack](../templates/ecommerce-campaign-strategy-pack.md) and [asset card](../templates/campaign-asset-card.md). It does not start another intake. A selected static execution stays with [Graphic Design](../../static-graphic-design-creator/SKILL.md); a shared family stays with Visual Campaign.
 
 ## Observe an ad before borrowing a mechanism
 

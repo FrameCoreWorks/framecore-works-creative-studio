@@ -10,7 +10,7 @@
 
 ## How Studio uses them
 
-They show how a prompt is structured for a specific model: the order of subject, action, camera, light and style; the JSON-shaped image prompts with named `{argument name="…" default="…"}` slots; timed shot lists for Seedance; the track-by-track build orders for HyperFrames. They are **not ideas for a brief**. Find the direction first with the [ideation method](../../references/ideation-method.md); then [Image Prompt Architect](../../../image-prompt-architect/SKILL.md) or [Video Prompt Architect](../../../video-prompt-architect/SKILL.md) may consult one or two examples for the target model's structure and write a new prompt from the brief. Check the model's current documentation before relying on any syntax: these are examples, not a specification.
+They show how a prompt is structured for a specific model: the order of subject, action, camera, light and style; the JSON-shaped image prompts with named `{argument name="…" default="…"}` slots; timed shot lists for Seedance; the track-by-track build orders for HyperFrames. They are **not ideas for a brief**. Find the direction first with the [ideation method](../../references/ideation-method.md); then [Image Prompt](../../../image-prompt-architect/SKILL.md) or [Video Prompt](../../../video-prompt-architect/SKILL.md) may consult one or two examples for the target model's structure and write a new prompt from the brief. Check the model's current documentation before relying on any syntax: these are examples, not a specification.
 
 ```sh
 python3 prompt_examples.py list --model seedance-2.0

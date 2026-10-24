@@ -12,7 +12,7 @@ Studio 1.9.1 selectively adapts diagnostic knowledge from [FrameCore Works GPT I
 | [references/prompt-patterns.md](https://github.com/FrameCoreWorks/gpt-image-2-artifact-guard/blob/18cbe8e907d8508ba9bb284af27ef61402097297/skills/gpt-image-2-artifact-guard/references/prompt-patterns.md) | Local material requirements that retain essential detail, with no universal negative suffix |
 | [references/evidence-register.md](https://github.com/FrameCoreWorks/gpt-image-2-artifact-guard/blob/18cbe8e907d8508ba9bb284af27ef61402097297/skills/gpt-image-2-artifact-guard/references/evidence-register.md) | Distinguish observations, hypotheses and workflow rules; no backend-cause or success-rate claims |
 
-The maintained destination is [periodic microtexture and preservation](../../skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md), conditionally linked by the existing Output Critic, Image Prompt Architect and Static Graphic Design Creator. This is a Studio adaptation, not an upstream snapshot or an installation of the standalone Artifact Guard skill.
+The maintained destination is [periodic microtexture and preservation](../../skills/output-critic-iteration/references/periodic-microtexture-and-preservation.md), conditionally linked by the existing Output Critic, Image Prompt and Graphic Design. This is a Studio adaptation, not an upstream snapshot or an installation of the standalone Artifact Guard skill.
 
 ## Authority and scope
 

@@ -57,7 +57,7 @@ Choose by the deliverable and the host, not by habit: a client reel in Claude Co
 
 ## 5. Hybrid films: generated images and clips with motion graphics
 
-- **Choose the generator per shot.** Models differ in motion realism, prompt adherence, identity across shots and native audio, and they change quickly; Video Prompt Architect's dated maps hold the current comparison.
+- **Choose the generator per shot.** Models differ in motion realism, prompt adherence, identity across shots and native audio, and they change quickly; Video Prompt's dated maps hold the current comparison.
 - **Continuity.** Define start and end frames for each clip, reuse reference stills for characters and style, and generate a little longer than the board needs, so the cut can sit on the beat.
 - **Repeatability over hero shots.** Generate a few takes per shot and keep the one that matches its neighbours, not the single most impressive one.
 - **One look.** Match colour across generators before the final grade, then unify with one grain or texture; HyperFrames' `grade-compare` shows candidates side by side.

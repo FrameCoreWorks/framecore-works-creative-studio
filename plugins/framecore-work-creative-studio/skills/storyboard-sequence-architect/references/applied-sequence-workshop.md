@@ -23,7 +23,7 @@ No universal words-per-minute value establishes feasibility. If there is no reco
 
 ## Plan accessible communication before the board
 
-[W3C media planning guidance](https://www.w3.org/WAI/media/av/planning/), accessed 2026-09-28, distinguishes needs arising from audio content and visual content and recommends assigning accessibility work during planning. Applied here: note which essential information is carried by speech, sound or image, then hand requested caption/transcript work to Audio Production Director and actual placement/AV review to Video. This is a planning handoff, not a WCAG compliance certificate.
+[W3C media planning guidance](https://www.w3.org/WAI/media/av/planning/), accessed 2026-09-28, distinguishes needs arising from audio content and visual content and recommends assigning accessibility work during planning. Applied here: note which essential information is carried by speech, sound or image, then hand requested caption/transcript work to Audio Production and actual placement/AV review to Video. This is a planning handoff, not a WCAG compliance certificate.
 
 ## Research basis for continuity
 

@@ -24,7 +24,7 @@ Read the board at its intended use size. If labels become unreadable, change hie
 
 [W3C's captions guidance](https://www.w3.org/WAI/media/av/captions/), accessed 2026-09-28, treats captions as synchronized representations of relevant speech and sound, distinguishes translated subtitles in its terminology, and requires checking automatic output for accuracy. A storyboard label or punchy social headline is not that artifact.
 
-Applied here: preserve the supplied caption text; record which pictured action or face it must not obscure; and pass timing/source questions to Audio Production Director and actual video placement/synchronization to Video. Do not create final caption timestamps from still panels. Textual caption needs can be planned here without promising player behavior or accessibility conformance.
+Applied here: preserve the supplied caption text; record which pictured action or face it must not obscure; and pass timing/source questions to Audio Production and actual video placement/synchronization to Video. Do not create final caption timestamps from still panels. Textual caption needs can be planned here without promising player behavior or accessibility conformance.
 
 ## Research basis for visual planning
 

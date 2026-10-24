@@ -1,15 +1,15 @@
 ---
 name: ecommerce-campaign-strategy-director
-description: 'Sales campaign strategy for a product, store, PDP, marketplace or launch: offer truth, audiences, angles, asset matrix, tests and claim ledger, before creative work. Brand foundations without a commerce goal go to Marketing.'
+description: 'Sales campaign strategy for a product, store, PDP, marketplace or launch: offer truth, audiences, angles, asset matrix, tests and claim ledger, before creative work. Brand foundations without a commerce goal go to Brand Strategy.'
 ---
 
-# Ecommerce Campaign Strategy Director
+# Sales Campaign Strategy
 
 For website brand/content audits, campaign variants or supplied performance tables, use [account-free creative methods](../pipeline-core/references/account-free-creative-production.md). Separate observed current style from target direction, bound page/data coverage and preserve claim/asset rights. Reuse existing website-to-campaign and performance-feedback routes without Adobe analytics or authoring services.
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to connect product and offer truth to a practical creative campaign plan. It owns strategy and downstream handoff fields, not prompt writing or media execution.
@@ -84,7 +84,7 @@ Use [templates/ecommerce-campaign-strategy-pack.md](templates/ecommerce-campaign
 
 ## Guardrails
 
-- Planning is provider-neutral and does not authorize generation, provider API calls, uploads or publishing. Read-only public research follows the shared Research Evidence gate and the user's boundary.
+- Planning is provider-neutral and does not authorize generation, provider API calls, uploads or publishing. Read-only public research follows the shared Research gate and the user's boundary.
 - Do not invent claims, reviews, certifications, test results, scarcity, endorsements, or customer evidence.
 - A matrix or chart shows hypotheses as hypotheses and only sourced numbers; never invented CTR, ROAS, costs or progress ([presentation and interaction](../pipeline-core/references/presentation-and-interaction.md#campaigns-and-qa)).
 - Keep private sales data, customer data, credentials, and unpublished client context out of public artifacts.

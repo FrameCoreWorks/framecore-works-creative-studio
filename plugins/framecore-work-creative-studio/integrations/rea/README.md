@@ -2,7 +2,7 @@
 
 Source: [morluto / rea](https://github.com/morluto/rea/tree/5e30969cc5f1255d44ec7a1f1ca8dbac0af5e7c4) ("Reverse Engineer Anything"), npm package `rea-agents` 6.5.0, reviewed at commit `5e30969cc5f1255d44ec7a1f1ca8dbac0af5e7c4` on 2026-10-15 at the owner's request. [The original licence](LICENSE) (MIT) retains Copyright (c) 2026 morluto. No REA code is vendored or installed with Studio.
 
-REA reverse engineers software: native binaries with Hopper, Ghidra or IDA, JavaScript and Electron apps, .NET, Android, firmware, network captures, and websites through Chrome's DevTools, as an MCP server, a CLI and an agent skill. It is not about images or prompts; Studio's image reconstruction is a separate method in Image Prompt Architect.
+REA reverse engineers software: native binaries with Hopper, Ghidra or IDA, JavaScript and Electron apps, .NET, Android, firmware, network captures, and websites through Chrome's DevTools, as an MCP server, a CLI and an agent skill. It is not about images or prompts; Studio's image reconstruction is a separate method in Image Prompt.
 
 ## Decision map
 

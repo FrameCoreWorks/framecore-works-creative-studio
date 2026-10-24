@@ -4,7 +4,7 @@ Apply only the card required by the [chosen route](motion-toolkit-routing.md). E
 
 ## Three.js through Remotion
 
-**Purpose:** controlled 3D geometry, camera, light and material motion. **Owner:** [Remotion Video Production](../../remotion-video-production/SKILL.md). Start with the original [Three motion example](../../remotion-video-production/assets/three-motion-example/README.md).
+**Purpose:** controlled 3D geometry, camera, light and material motion. **Owner:** [Remotion Video](../../remotion-video-production/SKILL.md). Start with the original [Three motion example](../../remotion-video-production/assets/three-motion-example/README.md).
 
 - Use `ThreeCanvas` from `@remotion/three` and Remotion's `useCurrentFrame()` / `useVideoConfig()`. Derive transforms from frame values; do not accumulate rotation in React Three Fiber's `useFrame()`.
 - Keep all Remotion packages on the same version and check React, React Three Fiber and Three.js peer compatibility. Preserve a working project instead of upgrading it to match a sample.

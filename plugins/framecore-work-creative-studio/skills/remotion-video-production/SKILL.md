@@ -1,9 +1,9 @@
 ---
 name: remotion-video-production
-description: "Build or repair deterministic videos in Remotion (React, TypeScript): compositions, frame timing, props, variants, captions and render QA. Other coded motion goes to Motion Graphics Workflow."
+description: "Build or repair deterministic videos in Remotion (React, TypeScript): compositions, frame timing, props, variants, captions and render QA. Other coded motion goes to Motion Graphics."
 ---
 
-# Remotion Video Production
+# Remotion Video
 
 When the composition needs authorized SFX or audio analysis, load `earshot-audio:earshot` when it is in the skill list and follow [native Earshot routing](../pipeline-core/references/earshot-native-routing.md). Keep the Remotion composition and frame clock; use measured sound anchors and return to the same Studio/FrameCut revision.
 
@@ -11,7 +11,7 @@ Use [native Superpowers support](../pipeline-core/references/superpowers-native-
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to turn an approved video brief, storyboard, or existing Remotion project into a testable code-driven composition. It supports planning on any host and local implementation in an actually shell-capable workspace without adding a permanent agent or activating an external media provider.
@@ -29,7 +29,7 @@ Use this skill when:
 - Existing Remotion code needs timing, layout, media, render, or maintainability review.
 - A storyboard or Creative Video Production Pack must become a Remotion implementation contract.
 
-Use `opencut-video-studio` for footage-first timeline editing. Use [Motion Graphics Workflow](../hyperframes-workflow/SKILL.md) for general motion planning and HTML/SVG/Canvas/GSAP composition, including HyperFrames when selected. Remotion may be recommended from project requirements and available capabilities without the user naming it; preserve explicit choices and existing project constraints.
+Use `opencut-video-studio` for footage-first timeline editing. Use [Motion Graphics](../hyperframes-workflow/SKILL.md) for general motion planning and HTML/SVG/Canvas/GSAP composition, including HyperFrames when selected. Remotion may be recommended from project requirements and available capabilities without the user naming it; preserve explicit choices and existing project constraints.
 
 ## Inputs
 

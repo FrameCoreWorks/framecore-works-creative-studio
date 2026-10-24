@@ -1,5 +1,5 @@
 interface:
-  display_name: "Marketing"
+  display_name: "Brand Strategy"
   short_description: "Plan brand strategy, campaigns, audiences, and asset roles"
   default_prompt: "Use $marketing to develop brand strategy or a campaign plan from the supplied audience, offer, and goals."
 

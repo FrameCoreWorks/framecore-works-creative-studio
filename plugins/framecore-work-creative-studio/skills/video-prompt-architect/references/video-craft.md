@@ -285,7 +285,7 @@ Acoustic perspective follows location and distance. A close voice can be dry and
 
 Music direction can specify energy, instrumentation, rhythm and an original/authorized cue. Map available track sections to visual beats. Approximate generated synchronization is not frame-accurate editing. Do not claim knowledge of BPM, beats or timing without the actual track or supplied measured data.
 
-Use native audio only when verified for the exact operation. Otherwise provide the visual prompt plus a separately labelled post-audio plan. Preserve actual voice authorization and do not imply a real person's endorsement or a genuine customer history through a synthetic performance. Use the shared [audio evidence and audiovisual handoff](../../audio-production-director/references/audio-evidence-and-av-handoff.md) for cue IDs, source/timebase mapping, VO/music/SFX priorities, captions, observed scope and sync readiness. Audio triage belongs to Audio Production Director; video and audiovisual alignment review stay here.
+Use native audio only when verified for the exact operation. Otherwise provide the visual prompt plus a separately labelled post-audio plan. Preserve actual voice authorization and do not imply a real person's endorsement or a genuine customer history through a synthetic performance. Use the shared [audio evidence and audiovisual handoff](../../audio-production-director/references/audio-evidence-and-av-handoff.md) for cue IDs, source/timebase mapping, VO/music/SFX priorities, captions, observed scope and sync readiness. Audio triage belongs to Audio Production; video and audiovisual alignment review stay here.
 
 
 ## 16. Human realism and wardrobe in motion

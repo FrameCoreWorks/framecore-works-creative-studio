@@ -146,7 +146,7 @@ test('general motion keeps its stable ID, neutral display name and requirement-l
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
   const motion = read('skills/hyperframes-workflow/SKILL.md');
   assert.match(motion, /name: hyperframes-workflow\n/);
-  assert.match(motion, /# Motion Graphics Workflow/);
+  assert.match(motion, /^# Motion Graphics$/m);
   const selection = read('skills/hyperframes-workflow/references/code-based-motion-graphics.md');
   assert.match(selection, /does not select HyperFrames or any other engine/);
   assert.match(selection, /Remotion may be recommended/);
@@ -155,7 +155,7 @@ test('general motion keeps its stable ID, neutral display name and requirement-l
   assert.match(entry, /Area `8` selects motion graphics from code, not an engine/);
   assert.doesNotMatch(entry, /owns an explicitly selected React/);
   withFixture(root => {
-    edit(root, 'skills/hyperframes-workflow/agents/openai.yaml', text => text.replace('Motion Graphics Workflow', 'HyperFrames Workflow'));
+    edit(root, 'skills/hyperframes-workflow/agents/openai.yaml', text => text.replace('"Motion Graphics"', '"HyperFrames Workflow"'));
     assert.ok(codes(validateStudio(root)).includes('SKILL_DISPLAY_NAME'));
   });
 });
@@ -287,7 +287,7 @@ test('compact entry keeps its budget and the moved rare-path rules', () => {
 
 test('overlapping owners name their neighbors and explicit-only owners stay explicit', () => {
   withFixture(root => {
-    edit(root, 'skills/storytelling/SKILL.md', text => text.replace('Screenplay Story Architect', 'another owner'));
+    edit(root, 'skills/storytelling/SKILL.md', text => text.replace('Story And Screenplay', 'another owner'));
     assert.ok(codes(validateStudio(root)).includes('ROUTING_BOUNDARY'));
   });
   withFixture(root => {
@@ -332,7 +332,7 @@ test('complete pinned Static Graphic Design Creator bundle is byte-verified', ()
   }
   const alias = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8')).owners.find(item => item.id === 'producer-ai-task-builder');
   assert.equal(alias.route_required, false);
-  assert.match(fs.readFileSync(path.join(source, 'skills/producer-ai-task-builder/SKILL.md'), 'utf8'), /Audio Production Director/);
+  assert.match(fs.readFileSync(path.join(source, 'skills/producer-ai-task-builder/SKILL.md'), 'utf8'), /Audio Production\b/);
 });
 
 test('duplicate route and dropped registry owner cannot look valid', () => withFixture(root => {

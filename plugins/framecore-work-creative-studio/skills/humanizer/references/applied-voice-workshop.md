@@ -26,7 +26,7 @@ Then change language at the authorized level. For wording-only work, retain the 
 
 ## Keep a caption request unambiguous
 
-A social-post caption is authored copy. A verbatim media transcript or synchronized accessibility caption represents supplied or inspected speech and meaningful sound; it belongs with [Audio Production Director's audio evidence workflow](../../audio-production-director/references/audio-evidence-and-av-handoff.md). If the request is clear, route directly. If “caption” leaves the deliverable materially ambiguous, ask one narrow question. Do not paraphrase a transcript to make it more marketable or promote a planned script into words actually spoken.
+A social-post caption is authored copy. A verbatim media transcript or synchronized accessibility caption represents supplied or inspected speech and meaningful sound; it belongs with [Audio Production's audio evidence workflow](../../audio-production-director/references/audio-evidence-and-av-handoff.md). If the request is clear, route directly. If “caption” leaves the deliverable materially ambiguous, ask one narrow question. Do not paraphrase a transcript to make it more marketable or promote a planned script into words actually spoken.
 
 The [Ślad wording example](../assets/slad-copy-example.md) demonstrates claim-preserving tonal choices. It does not change the linked scene's dialogue or automatically select public artwork copy.
 

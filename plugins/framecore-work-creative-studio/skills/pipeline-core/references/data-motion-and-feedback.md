@@ -23,7 +23,7 @@ Reconcile totals only across comparable, mutually exclusive groups. Check duplic
 
 ## Report to complete visual storyboard
 
-1. Research Evidence establishes the claim and its limits; the user chooses the communicative goal where unresolved. An interactive dashboard is optional, never a prerequisite for a short film.
+1. Research establishes the claim and its limits; the user chooses the communicative goal where unresolved. An interactive dashboard is optional, never a prerequisite for a short film.
 2. Motion Graphics turns the supported finding into a timed visual argument. Choose chart scale, axes, labels and transitions that preserve the comparison. Keep qualifiers readable; check the text and final numbers in the actual frames.
 3. Show the whole planned sequence, including setup, evidence, development and ending, with its meaningful intermediate states. Reuse existing board owners. In FrameCut, show every requested format's complete visual contact sheets, collect corrections and obtain acceptance of the current board before final rendering. A video sample is optional on request.
 4. Use Motion Graphics for designed animation and FrameCut when footage/mixed-media editing requires it. Reuse the FrameCut working agreement and stage-scoped handoff. Data analysis does not authorize an external connector, upload or automatic refresh.

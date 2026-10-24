@@ -16,7 +16,7 @@ Before the brief is sufficient, leave the runtime Proposed or Unknown and ask on
 
 Reuse supplied decisions and inspect accessible assets or the existing project. Identify the latest contract revision and actual approval evidence. A build or repair request with an already approved contract continues there. Do not repeat onboarding, rewrite successful scenes or invent approval.
 
-For an unresolved concept, Brief Architect resolves material brief gaps. For an open motion brief this workflow finds the idea with the [ideation method](../../pipeline-core/references/ideation-method.md) and lays the scenes on the contract's master timeline (step 2 of the skill); a direction already set by a direction owner is executed, not replaced, and Storyboard Sequence Architect owns timed scenes when a separate shot plan is requested. Motion Graphics Workflow implements HTML/GSAP or plain seekable HTML/SVG; Remotion Video Production implements React/TypeScript. Creative Video Producer coordinates only when several outputs need it. Audio, copy, references and delivery remain with their existing owners.
+For an unresolved concept, Brief Architect resolves material brief gaps. For an open motion brief this workflow finds the idea with the [ideation method](../../pipeline-core/references/ideation-method.md) and lays the scenes on the contract's master timeline (step 2 of the skill); a direction already set by a direction owner is executed, not replaced, and Shot Sequence owns timed scenes when a separate shot plan is requested. Motion Graphics implements HTML/GSAP or plain seekable HTML/SVG; Remotion Video implements React/TypeScript. Video Producer coordinates only when several outputs need it. Audio, copy, references and delivery remain with their existing owners.
 
 Ask only the next consequential missing question under the existing workstyle rules. Learning retains exactly one onboarding question per turn and its exercise/feedback method. Do not import a mandatory grouped questionnaire from an example prompt. A complete brief needs no questionnaire. Optional choices may receive clearly marked proposals; a missing required logo, font or approval blocks only dependent production.
 
@@ -53,8 +53,8 @@ Inspect actual files, runtime versions, scripts and user edits first. Preserve a
 
 | Need | Existing owner and route |
 | --- | --- |
-| React/TypeScript, reusable props, data-driven variants | Remotion Video Production; new 2D projects can start from the [kinetic type starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) |
-| HTML/SVG, GSAP timelines or explicit HyperFrames | Motion Graphics Workflow; new projects can start from the [GSAP motion starter](../assets/gsap-motion-starter/README.md) |
+| React/TypeScript, reusable props, data-driven variants | Remotion Video; new 2D projects can start from the [kinetic type starter](../../remotion-video-production/assets/kinetic-type-starter/README.md) |
+| HTML/SVG, GSAP timelines or explicit HyperFrames | Motion Graphics; new projects can start from the [GSAP motion starter](../assets/gsap-motion-starter/README.md) |
 | Small code demonstration with no dependencies | The local [frame starter](../assets/code-motion-starter/README.md); SVG sequence export is not encoded video |
 | No filesystem, shell or renderer | Complete contract plus the self-contained [single-file preview](../assets/single-file-preview/README.md) the user opens in a browser; implementation source when requested; execution and export marked NOT VERIFIED |
 

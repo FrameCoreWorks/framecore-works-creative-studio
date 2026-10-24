@@ -4,7 +4,7 @@ Source: [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy/tree/e948
 
 ## Adaptation and responsibility
 
-Motion Graphics Workflow owns motion and interactive implementations. Static Graphic Design Creator owns requested static/vector diagrams; the teacher workflow uses the same owners when the learning brief calls for a mechanism or explanation. The existing model, brief, copy, asset, loop and delivery contracts remain authoritative. No extra mode or discoverable owner was added.
+Motion Graphics owns motion and interactive implementations. Graphic Design owns requested static/vector diagrams; the teacher workflow uses the same owners when the learning brief calls for a mechanism or explanation. The existing model, brief, copy, asset, loop and delivery contracts remain authoritative. No extra mode or discoverable owner was added.
 
 The new Studio initializer copies the kit into a new project without overwriting files. The executable SVG/WebGL/3D fixtures establish runtime availability. The shared frame bridge connects authored scenes to Studio's existing HTML-to-video exporter. React uses the host project's existing dependencies. The original remains an optional native `anatomy` entry in the extension registry, for users who separately request its own workflow.
 

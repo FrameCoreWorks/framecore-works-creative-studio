@@ -1,5 +1,5 @@
 interface:
-  display_name: "Hipson Adapter"
+  display_name: "Hipson Handoff"
   short_description: "Create bounded research and instruction packets"
   default_prompt: "Use $hipson-adapter to create a bounded research, review, or instruction packet."
 

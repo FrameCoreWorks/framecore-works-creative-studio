@@ -27,17 +27,17 @@ A usable task needs its source text/data/cards, instructions and a way to check 
 
 | Responsibility | Existing owner | Artifact or check |
 |---|---|---|
-| Scope, stage, revisions and dependencies | Workflow Orchestrator | One project checkpoint and requested material |
+| Scope, stage, revisions and dependencies | FrameCore Studio Guide | One project checkpoint and requested material |
 | Material missing constraints | Brief Architect, when needed | Compact brief using the fields above |
-| Subject facts, evidence and requested curriculum mapping | Research Evidence | Sources, date, exact claim/requirement and unresolved limits |
+| Subject facts, evidence and requested curriculum mapping | Research | Sources, date, exact claim/requirement and unresolved limits |
 | Educational wording, tasks, stimuli, explanations, answer keys, rubrics and communications | Copy Voice | Original content with teacher-domain review |
-| Requested poster, diagram or graphic | Static Graphic Design Creator | Integrated design preserving objective, exact wording and relationships |
+| Requested poster, diagram or graphic | Graphic Design | Integrated design preserving objective, exact wording and relationships |
 | Separately requested authored story/dialogue, media, captions or coded motion | Existing story/media owner | Bounded subartifact retaining approved educational content |
-| Requested documents, slides and exports | Delivery Documentation using actual host tools | Student/teacher editions, actual file status and inspection evidence |
+| Requested documents, slides and exports | Delivery Pack using actual host tools | Student/teacher editions, actual file status and inspection evidence |
 
 Direct specialist invocation loads this profile when relevant; it does not force a second intake. Copy Voice owns educational prose and small original task stimuli; a standalone story or scripted scene goes to the existing story owner. Static-only classroom posters retain integrated static ownership rather than acquiring a second copy pipeline.
 
-Apply the conditional Research Evidence gate proportionally: curriculum, policy, statistics and other public facts trigger it; stable craft does not. Reuse evidence for the unchanged question. Keep source-verified facts, user-supplied information, original design proposals, assumptions and Unknown distinct. The [method evidence](teacher-method-evidence.md) supports selected design choices; it is not a current curriculum or proof that a lesson works.
+Apply the conditional Research gate proportionally: curriculum, policy, statistics and other public facts trigger it; stable craft does not. Reuse evidence for the unchanged question. Keep source-verified facts, user-supplied information, original design proposals, assumptions and Unknown distinct. The [method evidence](teacher-method-evidence.md) supports selected design choices; it is not a current curriculum or proof that a lesson works.
 
 ## Work sequence
 
@@ -45,7 +45,7 @@ Apply the conditional Research Evidence gate proportionally: curriculum, policy,
 2. Select one useful structure from [material methods](teacher-material-methods.md), then author complete content. Use the [activity bank](../assets/teacher-studio/activity-bank.md) for mechanisms, not a mandatory catalogue.
 3. Solve each closed task independently; write criteria and acceptable alternatives for open tasks. Check that instructions and information actually permit those answers.
 4. Add support and extension only as useful. Preserve the assessed construct or disclose how the objective changes.
-5. Apply the [teacher review](teacher-material-methods.md#teacher-review) inside the existing bounded review loop. Content and answer checking stay with Copy Voice and Research Evidence. Output Critic reviews actual static images only; it is not a general pedagogy reviewer.
+5. Apply the [teacher review](teacher-material-methods.md#teacher-review) inside the existing bounded review loop. Content and answer checking stay with Copy Voice and Research. Output Critic reviews actual static images only; it is not a general pedagogy reviewer.
 6. Deliver the requested content and any genuinely created files. Keep student material separate from teacher answers. Do not claim print, slide, accessibility or classroom QA that was not performed.
 
 The optional [pack template](../assets/teacher-studio/lesson-pack.template.md) is a view of the current artifact, not an extra mandatory contract. Store its path/revision and dependent assets in the existing Project State. Content corrections propagate only to affected tasks, keys, slides and graphics.

@@ -4,7 +4,7 @@ Reviewed 2026-10-22 at [`6992380`](https://github.com/harry0703/MoneyPrinterTurb
 
 | Part | Decision | Reason |
 | --- | --- | --- |
-| Topic or script to a finished short video (LLM script, stock footage, voice-over, subtitles, music, composition) | extension | A different job from Studio's: automatic, stock-footage-led shorts. Studio keeps the brief, script, claims and review, and sends edits of the user's own footage to FrameCut and designed motion to Motion Graphics Workflow |
+| Topic or script to a finished short video (LLM script, stock footage, voice-over, subtitles, music, composition) | extension | A different job from Studio's: automatic, stock-footage-led shorts. Studio keeps the brief, script, claims and review, and sends edits of the user's own footage to FrameCut and designed motion to Motion Graphics |
 | CLI with a JSON result and exit codes, WebUI | extension | `mpt cli` is the agent-friendly route; the WebUI listens on 127.0.0.1 |
 | REST API server (`main.py`) | extension with a warning | Listens on 0.0.0.0 by default and has no sign-in: start it only with a loopback `listen_host` |
 | Local footage plus the user's own narration (offline route) | extension | Runs without keys and is the safe first check |

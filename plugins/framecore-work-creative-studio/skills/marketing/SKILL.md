@@ -1,18 +1,18 @@
 ---
 name: marketing
-description: 'Brand strategy and positioning, audiences, values and voice, and general campaign or channel planning without a commerce goal. Store, product or offer campaigns go to Ecommerce Campaign Strategy Director.'
+description: 'Brand strategy and positioning, audiences, values and voice, and general campaign or channel planning without a commerce goal. Store, product or offer campaigns go to Sales Campaign Strategy.'
 ---
 
-# Marketing
+# Brand Strategy
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill to plan campaign-level positioning, offer framing, audience fit, asset matrices, channel adaptation, launch kits, and campaign QA without locking final creative execution too early.
 
-For a website/store-led commercial campaign, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md). Supply only missing brand foundations to the existing Ecommerce Campaign Strategy Director's pack: source-based diagnosis, positioning, buying situations, differentiation/proof and voice. Reuse accepted strategy, inspect accessible website facts before questioning and ask one material missing question per response. Do not create duplicate plans or expand brand-only work into a campaign.
+For a website/store-led commercial campaign, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md). Supply only missing brand foundations to the existing Sales Campaign Strategy's pack: source-based diagnosis, positioning, buying situations, differentiation/proof and voice. Reuse accepted strategy, inspect accessible website facts before questioning and ask one material missing question per response. Do not create duplicate plans or expand brand-only work into a campaign.
 
 ## Brand voice guide
 
@@ -24,14 +24,14 @@ Use the user’s working language; keep exact copy and requested prompt language
 
 ## Brand strategy and identity
 
-For brand strategy or identity foundations, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md). Produce a Brand Strategy with sourced/user-supplied facts, proposed positioning, audience/use situations, differentiation and proof limits, values, voice principles and the visual direction basis. Reuse known inputs and ask exactly one missing question per response. Hand the strategy revision and selected direction to Static Graphic Design Creator. Do not force campaign-only CTA, launch or asset-matrix fields into brand-only work. For campaign work, use the method below.
+For brand strategy or identity foundations, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md). Produce a Brand Strategy with sourced/user-supplied facts, proposed positioning, audience/use situations, differentiation and proof limits, values, voice principles and the visual direction basis. Reuse known inputs and ask exactly one missing question per response. Hand the strategy revision and selected direction to Graphic Design. Do not force campaign-only CTA, launch or asset-matrix fields into brand-only work. For campaign work, use the method below.
 
 ## When To Use
 
 Use this skill when:
 
 - A request needs campaign logic before visual direction, copy, storyboard, or prompts.
-- The user asks for brand, social, creator or promotional workflow planning without a store, product or offer goal; those go to Ecommerce Campaign Strategy Director.
+- The user asks for brand, social, creator or promotional workflow planning without a store, product or offer goal; those go to Sales Campaign Strategy.
 - Offers, audiences, channels, claims, or asset variants need structure.
 
 Do not use this skill to invent evidence, write final copy, produce final prompts, or execute media tools.

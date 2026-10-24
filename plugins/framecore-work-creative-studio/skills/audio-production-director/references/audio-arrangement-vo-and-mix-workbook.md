@@ -144,7 +144,7 @@ audio_review:
 | Sample rate / channels | Requested delivery spec if relevant | Actual file metadata | Do not infer from extension |
 | Sync | Exact, approximate or deliberately offset requirement | Actual combined interval reviewed by video | Carrier/tool/timing readiness is separate |
 
-When a source or accepted take changes, mark affected cues, captions, picture sync and delivery documentation `review_required`; do not erase the approved words or hard sync requirement. Audio Production Director owns audio, video owns moving-picture/AV review, and output-critic-iteration remains the static-image review owner.
+When a source or accepted take changes, mark affected cues, captions, picture sync and delivery documentation `review_required`; do not erase the approved words or hard sync requirement. Audio Production owns audio, video owns moving-picture/AV review, and output-critic-iteration remains the static-image review owner.
 
 ## 6. Research basis and mapping
 

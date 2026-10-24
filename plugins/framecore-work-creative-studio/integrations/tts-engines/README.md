@@ -15,7 +15,7 @@ Owner request 2026-10-16: four open text-to-speech engines for the user to choos
 | Part | Decision | Studio destination or reason |
 |---|---|---|
 | The engines themselves | Extension | Natively installable [recommended extensions](../../skills/workflow-orchestrator/references/extensions.md) (category `tts`), pinned, installed only on request; models of several gigabytes and a GPU do not belong in the plugin |
-| What each can do (languages, cloning, voice design, dialogue, sound, hardware, licence) | Adopt as a choice guide | [Local voice engines](../../skills/audio-production-director/references/local-tts-engines.md) in Audio Production Director: the user chooses, or Studio describes them and recommends one for the need and the computer |
+| What each can do (languages, cloning, voice design, dialogue, sound, hardware, licence) | Adopt as a choice guide | [Local voice engines](../../skills/audio-production-director/references/local-tts-engines.md) in Audio Production: the user chooses, or Studio describes them and recommends one for the need and the computer |
 | Voicebox's REST API and MCP server | Adopt as the agent route | Studio generates through `POST /generate` on 127.0.0.1:17493 or the MCP server once the user installed the app |
 | Each project's responsible-use terms | Adopt | Consent before cloning, no impersonation, disclosure, and the engine, model and licence recorded in delivery |
 

@@ -1,9 +1,9 @@
 ---
 name: pipeline-core
-description: 'Shared Studio contracts used by other owners: project state, roles, gates, handoffs, artifact templates, QA loops and delivery discipline. Entry, menus and routing belong to Workflow Orchestrator.'
+description: 'Shared Studio contracts used by other owners: project state, roles, gates, handoffs, artifact templates, QA loops and delivery discipline. Entry, menus and routing belong to FrameCore Studio Guide.'
 ---
 
-# Pipeline Core
+# Studio Core
 
 Apply [native Superpowers routing](references/superpowers-native-routing.md) at substantive planning, implementation, diagnosis, review and completion decisions. Keep support in the existing Project State, with real skill availability and evidence; all domain owners retain their responsibilities and the same bounded QA loop.
 
@@ -11,12 +11,12 @@ For account-free creative production, load the relevant section of [creative pro
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Read [Studio integration authority](references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research Evidence](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
+Read [Studio integration authority](references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
 Use this skill when a task needs Studio's shared workflow contracts in ChatGPT or Codex.
 
-It is the contract layer for roles, gates, handoffs, artifacts, request diagnostics, reasoning routes, Loop Protocol, text-bearing image policy, Humanizer routing, HyperFrames routing, Hipson Adapter routing, and workflow governance.
+It is the contract layer for roles, gates, handoffs, artifacts, request diagnostics, reasoning routes, Loop Protocol, text-bearing image policy, Humanizer routing, HyperFrames routing, Hipson Handoff routing, and workflow governance.
 
 ## Language Policy
 
@@ -136,7 +136,7 @@ Shared design tools (Python standard library, run where code runs; each README s
   review. Revise only a diagnosed material issue; when the draft passes, record
   no repair needed and stop_sufficient. Do not create a second editorial loop.
 - Route deterministic React/TypeScript video composition through `remotion-video-production`.
-- For brand strategy, logo systems and identity guides, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md) and its existing-owner stage handoffs. Keep one Project State; route strategy to Marketing, integrated visual work to Static Graphic Design Creator and the requested guide/file package to Delivery Documentation. Do not expand logo-only work into a full brand project.
+- For brand strategy, logo systems and identity guides, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md) and its existing-owner stage handoffs. Keep one Project State; route strategy to Marketing, integrated visual work to Graphic Design and the requested guide/file package to Delivery Pack. Do not expand logo-only work into a full brand project.
 - For static-only work, `static-direction` routes to `static-graphic-design-creator`
   as the integrated owner of concept, layout, catalog guidance, visible copy,
   text feasibility and prompt compilation. Do not add a second Copy Voice,
@@ -158,7 +158,7 @@ Shared design tools (Python standard library, run where code runs; each README s
 - Use role IDs and surface-appropriate display names from onboarding.
 - Do not skip upstream gates.
 - Generated static raster graphics should use the native image tool actually exposed by the host by default when available.
-- Static raster graphics with visible text must use the native image tool actually exposed by the host in one pass with text included, unless Static Graphic Design Creator selects its [exact-copy compositing](../static-graphic-design-creator/references/exact-copy-compositing.md) route for a client final.
+- Static raster graphics with visible text must use the native image tool actually exposed by the host in one pass with text included, unless Graphic Design selects its [exact-copy compositing](../static-graphic-design-creator/references/exact-copy-compositing.md) route for a client final.
 - Resolve generator prompt fields and negative handling before producing generator-specific prompts. Do not attach a universal negative-prompt block.
 - Treat separately generated images and shots as independent units. Claim strict continuity only when each request has a concrete continuity carrier.
 - For image, edit, or video prompting, use a revisioned Creative Prompt Contract when the work has strict locks, multiple requests, target adaptation, or execution readiness needs. Keep the prompt revision, reference roles, attachment plan, continuity carrier, QA observables, and adapter status together.
@@ -225,7 +225,7 @@ Hand off with:
 
 Use [project recovery](references/project-recovery.md) for memory and cross-host transfer. [Artifact schemas](assets/artifact-schemas.json) preserve the kit’s required contract sections; [artifact templates](templates/artifact-templates.md) give their field skeletons. Where a template and an owner's own contract differ, the owner's contract wins: a motion video uses the [motion contract](../hyperframes-workflow/references/motion-contract-json.md), and the Task Confirmation block records intent taken from the request rather than a question to ask. [Studio integration authority](references/studio-integration-policy.md) defines primary owners, staged use and the active exceptions. Intent is captured from a clear request; it is not a mandatory confirmation question. Keep full schemas backstage when a compact answer suffices.
 
-Recovery assets: [checkpoint state](assets/project-state.md) and [paste-ready recovery prompt](assets/recovery-prompt.md). The [upstream onboarding schema](assets/onboarding.schema.json) belongs only to a separately requested project-local installation; ordinary Studio use follows [Studio Workstyle Profile](../studio-workstyle-profile/SKILL.md) with optional, incremental preferences.
+Recovery assets: [checkpoint state](assets/project-state.md) and [paste-ready recovery prompt](assets/recovery-prompt.md). The [upstream onboarding schema](assets/onboarding.schema.json) belongs only to a separately requested project-local installation; ordinary Studio use follows [Workstyle Profile](../studio-workstyle-profile/SKILL.md) with optional, incremental preferences.
 
 ## Provider setup state
 

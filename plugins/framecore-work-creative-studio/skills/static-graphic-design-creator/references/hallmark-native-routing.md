@@ -1,6 +1,6 @@
 # Optional Hallmark support for coded pages
 
-Use for a new coded website/app-screen task when Hallmark would help, or when the user names Hallmark. For an existing design, invoke native Hallmark only when the user explicitly names it for audit/redesign; otherwise use Studio's own bounded review and preservation method. Existing Static Graphic Design Creator remains the owner. Read the [reviewed integration](../../../integrations/hallmark/README.md) and [registry](../../workflow-orchestrator/assets/extensions/extensions.json); invoke the actual native `hallmark` skill only if discovered and readable. A recommendation or imported reference is not an installed tool. Reuse existing installations and their declared dependencies.
+Use for a new coded website/app-screen task when Hallmark would help, or when the user names Hallmark. For an existing design, invoke native Hallmark only when the user explicitly names it for audit/redesign; otherwise use Studio's own bounded review and preservation method. Existing Graphic Design remains the owner. Read the [reviewed integration](../../../integrations/hallmark/README.md) and [registry](../../workflow-orchestrator/assets/extensions/extensions.json); invoke the actual native `hallmark` skill only if discovered and readable. A recommendation or imported reference is not an installed tool. Reuse existing installations and their declared dependencies.
 
 ## Reusable method
 

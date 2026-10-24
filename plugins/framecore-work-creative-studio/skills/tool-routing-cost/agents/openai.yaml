@@ -1,5 +1,5 @@
 interface:
-  display_name: "Tool Routing Cost"
+  display_name: "Tools And Costs"
   short_description: "Plan tool routes, costs, approvals, and risks."
   default_prompt: "Use $tool-routing-cost to plan a safe tool route and cost preflight."
 
