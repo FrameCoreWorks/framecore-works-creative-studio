@@ -67,14 +67,32 @@ export function matchBrief(index,query='',{limit=3}={}) {
   return index.briefs.map(b=>({b,score:b.aliases.reduce((n,a)=>n+(hit(a)?(a.includes(' ')?3:2):0),0)}))
     .filter(r=>r.score>0).sort((x,y)=>y.score-x.score||x.b.id.localeCompare(y.b.id)).slice(0,limit).map(r=>r.b);
 }
+// Gallery records tagged with a brief type, best first: brief words (when given), remade, complete prompts, fuller notes.
+function galleryFor(brief,entries,hits=()=>0) {
+  return entries.filter(e=>e.default_motion_search && (e.brief_types||[]).includes(brief.id))
+    .sort((a,b)=>hits(b)-hits(a) || Number(!!b.has_remake)-Number(!!a.has_remake) || Number(!!a.prompt_partial)-Number(!!b.prompt_partial) || b.mechanism.length-a.mechanism.length || a.id.localeCompare(b.id));
+}
+// A small Markdown shortlist per brief type, so a storyboard can name gallery technique without a shell or the 700 KB shard.
+export function galleryShortlist(index,entries,{per=6}={}) {
+  const lines=['# Opus 5.5 gallery shortlist by brief type','',
+    'Generated from `specimen-opus-gallery.json` and `brief-index.json` by `node library.mjs shortlist --write`; do not edit by hand.',
+    'Read it while planning, before a storyboard is shown: pick the brief type, take at most three records whose mechanism serves the idea already chosen from the brief, name the mechanism in one line and credit the creator with the film link. Never paste a creator prompt or present a gallery film as the direction. With a shell, `node library.mjs brief "<brief words>"` ranks by the brief\'s own words. When the user wants a prompt to paste into a coding agent, also read [Writing a prompt for a coded film](README.md#writing-a-prompt-for-a-coded-film) and write the prompt from the brief, never from a gallery prompt.',''];
+  for (const brief of index.briefs) {
+    const rows=galleryFor(brief,entries).slice(0,per);
+    if (!rows.length) continue;
+    lines.push('## '+brief.id+': '+brief.label,'');
+    for (const e of rows) lines.push('- `'+e.id+'` @'+e.author+': '+e.mechanism+' [film]('+e.source_url+'), [prompt]('+e.prompt_source_url+')'+(e.caution?' Caution: '+e.caution:''));
+    lines.push('');
+  }
+  return lines.join('\n');
+}
 export function presentBrief(brief,entries,snippets=[],query='') {
   if (!brief) throw new Error('Unknown brief type');
   const byId=new Map(entries.map(e=>[e.id,e])),runnable=new Set(snippets.map(s=>s.record));
   // Up to three gallery records tagged with this brief type: those sharing the brief's words first, then remade, complete prompts.
   const words=norm(query).split(/[^a-z0-9]+/).filter(w=>w.length>3);
   const hits=e=>{const text=norm([e.mechanism,e.title,...(e.tags||[])].join(' '));return words.filter(w=>text.includes(w)).length;};
-  const gallery=entries.filter(e=>e.default_motion_search && (e.brief_types||[]).includes(brief.id))
-    .sort((a,b)=>hits(b)-hits(a) || Number(!!b.has_remake)-Number(!!a.has_remake) || Number(!!a.prompt_partial)-Number(!!b.prompt_partial) || b.mechanism.length-a.mechanism.length || a.id.localeCompare(b.id)).slice(0,3)
+  const gallery=galleryFor(brief,entries,hits).slice(0,3)
     .map(e=>({id:e.id,mechanism:e.mechanism,source:e.source_url,prompt_source:e.prompt_source_url}));
   return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,scene_kinds:brief.scene_kinds,contract:brief.contract?'motion-scenes/'+brief.contract:null,use:brief.use,avoid:brief.avoid,
     gallery,records:brief.records.map(id=>({id,title:byId.get(id)?.title,objective:byId.get(id)?.objective,runtime:byId.get(id)?.runtime,...(runnable.has(id)?{snippet:'node library.mjs snippet '+id}:{})})),
@@ -157,9 +175,10 @@ if (process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta
         if(!found.length){console.error('No brief type matched; run: node library.mjs brief list');process.exitCode=1;}
         else console.log(JSON.stringify(found.map(b=>presentBrief(b,entries,loadSnippets().snippets,exact?'':[arg,...flags].join(' '))),null,2)); }
     }
+    else if(command==='shortlist') { const text=galleryShortlist(loadBriefIndex(),entries); if(flags.includes('--write')||arg==='--write'){fs.writeFileSync(path.join(here,'opus-gallery-shortlist.md'),text);console.log('opus-gallery-shortlist.md written');} else process.stdout.write(text); }
     else if(command==='snippets') console.log(JSON.stringify(loadSnippets().snippets.map(s=>({record:s.record,title:entries.find(e=>e.id===s.record)?.title,format:s.format,style:s.style,approximates:s.approximates})),null,2));
     else if(command==='snippet') { const s=loadSnippets().snippets.find(x=>x.record===arg); if(!s){console.error('No snippet for '+arg+'; run: node library.mjs snippets');process.exitCode=1;} else console.log(JSON.stringify(snippetContract(s,entries),null,2)); }
     else if(command==='validate') {const errors=[...validateLibrary(entries),...validateBriefIndex(loadBriefIndex(),entries),...validateSnippets(loadSnippets(),entries)];console.log(JSON.stringify({entries:entries.length,prompts:entries.filter(e=>e.prompt_text).length,briefs:loadBriefIndex().briefs.length,errors},null,2));if(errors.length)process.exitCode=1;}
-    else {console.error('Usage: node library.mjs search "query" [--include-related] | show ID | brief [list | ID | "brief words"] | snippets | snippet ID | validate');process.exitCode=2;}
+    else {console.error('Usage: node library.mjs search "query" [--include-related] | show ID | brief [list | ID | "brief words"] | shortlist [--write] | snippets | snippet ID | validate');process.exitCode=2;}
   } catch(error){console.error(error.message);process.exitCode=1;}
 }

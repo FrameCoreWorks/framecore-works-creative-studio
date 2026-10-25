@@ -3223,8 +3223,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 31990,
-      "sha256": "b6506cb0e5eb90964a796109a8d813a97f651a1484cd72b6ef23e865bd9ae965"
+      "bytes": 32075,
+      "sha256": "2d5fd8cee8d756fecba26fb3bc11618fb7ed79541ae9ed45fe255adf7e469e40"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4488,8 +4488,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
-      "bytes": 10291,
-      "sha256": "800879b88aeb8a51a0ed4e27ac90f7ea04a3843c7b57c9b577a27d419643639a"
+      "bytes": 10554,
+      "sha256": "7aeffbd24e9fa2371b26fa5d570d8bf6ebb290a381ff13be5b5579938df9b69b"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/SOURCE-NOTICE.md",
@@ -4503,8 +4503,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
-      "bytes": 15726,
-      "sha256": "bba237c267ce1679d9d3ba338f4407d58ab5fe7c6da5934b087664a1861fbd28"
+      "bytes": 17681,
+      "sha256": "f9ba227ff11e8d4497f72005425856cb8dbf62756e2419f2175b60ef68daa5bf"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md",
+      "bytes": 39681,
+      "sha256": "dfc96a2d614fbc23d272cf2075fccaab34e0e04c70a3156c038652d8c9406630"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-audio.json",
@@ -7133,8 +7138,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 10231,
-      "sha256": "12c39793bb951991d38873037dee1f4fd68493dd653471a7e2a9d35e917d7df0"
+      "bytes": 11094,
+      "sha256": "0b3a67f84c10f7664b73f030b33ffcfefb8b843acd02b96122871409f881b750"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -7718,8 +7723,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 6320,
-      "sha256": "487944c8d8fd5d6ce21e90af338d5926c4b8bc6c2c0d300cf6711cf4a7ac41c6"
+      "bytes": 6613,
+      "sha256": "d80ac589abf986326d1f1db0a13b9303aee70b036fa6078dc08142113dedf2c7"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -7738,8 +7743,8 @@
     },
     {
       "path": "tests/motion-quality.test.mjs",
-      "bytes": 11578,
-      "sha256": "825028a83a382a958988386776bab771ff2924fd71f56fc70bb15aae7cef85c8"
+      "bytes": 12359,
+      "sha256": "94470d5286d66bc862ef67b272e2e5591aa4a723fda0159779303d74ba29a76a"
     },
     {
       "path": "tests/motion-toolkit.test.mjs",

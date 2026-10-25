@@ -49,6 +49,8 @@ WIRING = {
     # awesome-opus5-5-videos: the Opus 5.5 gallery and prompt guide (owner request 2026-10-24)
     'hyperframes-workflow/assets/motion-prompt-library/README.md#opus-55-gallery': ['hyperframes-workflow/SKILL.md', 'remotion-video-production/SKILL.md', 'storyboard-sequence-architect/SKILL.md',
                                                                                   'hyperframes-workflow/references/motion-quality-research.md'],
+    'hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md': ['hyperframes-workflow/SKILL.md', 'storyboard-sequence-architect/SKILL.md',
+                                                                      'hyperframes-workflow/assets/motion-prompt-library/README.md'],
     'hyperframes-workflow/assets/motion-prompt-library/README.md#writing-a-prompt-for-a-coded-film': ['hyperframes-workflow/SKILL.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],

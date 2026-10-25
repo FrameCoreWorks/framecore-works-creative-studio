@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {spawnSync as spawnFontProbe} from 'node:child_process';
 import {validateScore,secondsAtFrame,reviewFrames,cueTimes,renderPaperFrame,renderToneCues} from '../skills/hyperframes-workflow/assets/motion-quality/score.mjs';
-import {loadLibrary,searchLibrary,presentEntry,validateLibrary,loadBriefIndex,matchBrief,presentBrief,validateBriefIndex,loadSnippets,validateSnippets,snippetContract} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
+import {loadLibrary,searchLibrary,presentEntry,validateLibrary,loadBriefIndex,matchBrief,presentBrief,validateBriefIndex,loadSnippets,validateSnippets,snippetContract,galleryShortlist} from '../skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs';
 const score=JSON.parse(fs.readFileSync(new URL('../skills/hyperframes-workflow/assets/motion-quality/example-score.json',import.meta.url),'utf8'));
 test('rational frame time and half-open end are respected',()=>{
   assert.equal(secondsAtFrame(30,{fps:{num:30000,den:1001},totalFrames:60}),1.001);
@@ -145,4 +145,16 @@ test('original blueprints have record-specific objectives',()=>{
   const rewritten=originals.filter(e=>['brand','editorial','product','social','transitions','typography'].includes(e.category));
   assert.equal(rewritten.length,60);
   assert.ok(rewritten.every(e=>e.prompt_text.includes('The purpose is to '+e.objective[0].toLowerCase()+e.objective.slice(1))));
+});
+
+test('the gallery shortlist is a small file that matches the gallery and lists records per brief type', () => {
+  const entries=loadLibrary(), index=loadBriefIndex();
+  const file=new URL('../skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md', import.meta.url);
+  assert.ok(fs.existsSync(file), 'opus-gallery-shortlist.md is missing');
+  const text=fs.readFileSync(file,'utf8');
+  assert.equal(text, galleryShortlist(index,entries), 'shortlist is stale: run node library.mjs shortlist --write');
+  assert.ok(Buffer.byteLength(text) < 60000, 'shortlist must stay small enough to read in one step');
+  assert.match(text, /## tech-explainer/);
+  assert.match(text, /OPUS-[a-z0-9-]+/);
+  assert.doesNotMatch(text, /prompt_text/);
 });

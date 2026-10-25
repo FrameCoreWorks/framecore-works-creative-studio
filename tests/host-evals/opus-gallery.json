@@ -20,6 +20,7 @@
       },
       {
        "reads_any": [
+        "opus-gallery-shortlist.md",
         "specimen-opus-gallery.json",
         "brief-index.json",
         "motion-prompt-library/README.md"
