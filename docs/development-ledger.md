@@ -2300,7 +2300,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized. `main` at `0b5fc9b`; workflows Refresh current release notes 40230757376, Publish verified Studio release 40230757399, Check Studio sources 40230757407: success; [v1.138.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.138.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1576 of 1576) ([record](../verification/github-publication-1.138.0.json))
 - ChatGPT Work: not_tracked (owner decision 2026-10-10)
 - Codex: not_run
 
@@ -3795,6 +3795,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized. `main` at `0b5fc9b`; workflows Refresh current release notes 40230757376, Publish verified Studio release 40230757399, Check Studio sources 40230757407: success; [v1.138.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.138.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1576 of 1576) ([record](../verification/github-publication-1.138.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
