@@ -23,6 +23,8 @@ A model reached through another surface follows that surface's controls and limi
 
 ## Google Veo 3.1
 
+- **Update 2026-10-25.** The Veo 3.1 preview in the Gemini API was shut down on 2026-10-22 (Gemini Omni Flash replaces it there); Veo 3.1 stays on Vertex AI, whose guide writes dialogue as a colon cue (`the detective says: …`) and puts audio in separate sentences. Its prompt rewriter is on by default (`enhancePrompt: false`). Details: [narrative video prompts](narrative-video-prompts.md).
+
 - **Structure.** Subject, action and style, then optionally camera position and motion, composition, focus and lens, and ambiance (colour and light). Use "portrait" for faces. Descriptive, clear sentences rather than keyword lists.
 - **Sound.** Audio is always generated. Put spoken lines in quotes; describe sound effects explicitly; describe the environment's soundscape for ambience.
 - **Settings, not prose.** Aspect ratio `16:9` or `9:16`; duration 4, 6 or 8 s (8 s for extension, reference images, 1080p and 4K); 720p default. People: text to video and extension allow all ages, image to video, interpolation and reference images adults only, and only adults in the EU, UK, Switzerland and MENA.

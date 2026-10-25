@@ -663,6 +663,132 @@
    "Leaves rates blank or asks for the user's rates instead of inventing prices",
    "Names approval gates and what each locks, plus change control"
   ]
+ },
+ {
+  "id": "JP01",
+  "title": "A JSON prompt for Ideogram follows its documented schema",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Zrób mi prompt w JSON do Ideogram 4 na plakat koncertu jazzowego z tytułem „JAZZ NAD WISŁĄ” i datą 12.07.",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "structured-image-prompts.md",
+       "prompt-record/README.md"
+      ]
+     },
+     {
+      "contains_any": [
+       "high_level_description"
+      ]
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Uses Ideogram's own fields (high_level_description, compositional_deconstruction with background and elements)",
+   "Keeps the title and date verbatim as text elements",
+   "Labels the output as Ideogram native JSON and mentions Magic Prompt"
+  ]
+ },
+ {
+  "id": "JV01",
+  "title": "A JSON video prompt is a planning record compiled for the generator",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Napisz mi prompt JSON do Veo na 8-sekundowe ujęcie piekarni o świcie, dwa ujęcia.",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "structured-video-prompts.md",
+       "narrative-video-prompts.md"
+      ]
+     },
+     {
+      "regex": "(?i)nie (ma|dokumentuje)|planist|plan(owania|ning)|prozą|proza|prose"
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Says that Veo documents no JSON prompt format and offers a planning record plus a compiled prose prompt",
+   "Shots touch without gaps and sum to 8 s; duration and aspect ratio are settings",
+   "Audio in separate sentences, no 'no' wording"
+  ]
+ },
+ {
+  "id": "NP01",
+  "title": "A prose image prompt for FLUX.2 follows the narrative order",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Napisz prompt do FLUX.2 na zdjęcie produktowe kubka ceramicznego na drewnianym stole, bez rozmyć i bez tekstu.",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "narrative-image-prompts.md",
+       "static-prompt-compiler.md"
+      ]
+     },
+     {
+      "code_block": true
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Subject first, 30 to 80 words",
+   "Exclusions phrased positively because FLUX.2 has no negative prompt",
+   "No quality filler such as 8K or masterpiece"
+  ]
+ },
+ {
+  "id": "NV01",
+  "title": "A Kling prompt with Polish dialogue warns about translation",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Zrób prompt do Kling 3.0 na 10 sekund: babcia w kuchni mówi do wnuka „Zjedz jeszcze jednego pieroga”.",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "narrative-video-prompts.md",
+       "generator-dialects.md"
+      ]
+     },
+     {
+      "regex": "(?i)angielsk|english|przetłumacz|translat"
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Writes dialogue as Name (tone): line",
+   "Says Kling translates Polish dialogue to English and offers a separate voice-over",
+   "One action and one camera move per shot"
+  ]
  }
 ]
 }

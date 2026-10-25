@@ -27,7 +27,7 @@ no bundled generation connector. A motion video Studio builds from code, with it
 
 ## Generator dialects
 
-Translate the approved shot card into the named generator's phrasing with the [generator dialects](references/generator-dialects.md) card (Veo, Gemini Omni, Runway, Kling, MiniMax H3, Seedance; read 2026-10-11): structure, sound and dialogue syntax, reference wording and the settings that belong outside the prompt. Without browsing, use it provisionally and say when it was checked. Kling 3.0 translates Polish dialogue into English, so a Polish voice-over is recorded or generated separately. When generated shots meet a logo, readable text, an interface or a product, assign each to its exact layer first ([exact layers in video](references/exact-layers-in-video.md)); several clips are joined by the methods in [joining generated clips](references/blocking-continuity-and-extension-workbook.md#7-joining-generated-clips).
+Write the prose in the order and length of [narrative video prompts](references/narrative-video-prompts.md) (checked 2026-10-25: shot and style first, identity anchors, one action as beats, one camera move, audio in its own sentences, dialogue last in the target's form). Translate the approved shot card into the named generator's phrasing with the [generator dialects](references/generator-dialects.md) card (Veo, Gemini Omni, Runway, Kling, MiniMax H3, Seedance; read 2026-10-11): structure, sound and dialogue syntax, reference wording and the settings that belong outside the prompt. Without browsing, use it provisionally and say when it was checked. Kling 3.0 translates Polish dialogue into English, so a Polish voice-over is recorded or generated separately. When generated shots meet a logo, readable text, an interface or a product, assign each to its exact layer first ([exact layers in video](references/exact-layers-in-video.md)); several clips are joined by the methods in [joining generated clips](references/blocking-continuity-and-extension-workbook.md#7-joining-generated-clips).
 
 For Seedance 2.0 and for agent-built HyperFrames compositions, the [prompt examples](../pipeline-core/assets/prompt-examples/README.md) hold 49 licensed, credited worked prompts (timed shot lists, camera and action phrasing, track-by-track build orders). Use them for structure after the shot card is approved, never as the idea; keep an example's credit line if any of its text is reused.
 
@@ -242,7 +242,11 @@ When useful, deliver two compact layers:
 
 If structured JSON/YAML is requested, label whether it is a planning
 representation or a verified native schema. Never present a convenient
-planning object as API payload.
+planning object as API payload. No video maker documents a JSON prompt its
+model reads; follow [structured video prompts](references/structured-video-prompts.md):
+one planning record compiled into settings and the generator's own notation,
+checked with [`prompt_record.py`](../pipeline-core/assets/prompt-record/README.md)
+where code runs (gaps, durations, dialogue length, Kling multi-shot fields).
 
 Writing a prompt does not generate a video. If the user explicitly requests
 generation, use only an actually exposed, permitted host capability. If none

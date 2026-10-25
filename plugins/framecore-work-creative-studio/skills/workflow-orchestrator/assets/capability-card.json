@@ -1304,6 +1304,26 @@
       "delivers": "Playable MP4, subtitle sidecars, source map, project/history, technical receipt and explicitly scoped review; optional editor handoff",
       "when_missing": "Provide an explicitly labelled plan/handoff and a concrete capability/install plan; never claim a render",
       "observed": "2026-10-20: candidate sandbox implementation; release verification records hold actual coverage. Other clients require independent checks."
+    },
+    {
+      "id": "prompt_record",
+      "executed_by": "studio",
+      "owner": "image-prompt-architect",
+      "does": "Checks one structured planning record for an image or a video and compiles it into the generator's own form: Ideogram 4.x native JSON, the FLUX.2 JSON template, Kling custom multi-shot fields, Sora headed blocks, timestamped or plain prose",
+      "tools": [
+        "skills/pipeline-core/assets/prompt-record/prompt_record.py"
+      ],
+      "requires": [
+        "python"
+      ],
+      "optional": [],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "The compiled prompt or payload for the named generator and a list of errors and warnings (gaps, durations, dialogue length, settings in prose)",
+      "when_missing": "Write the record and the compiled prompt by hand from the structured prompt cards and run the same checks by reading",
+      "observed": "2026-10-25: container tests only (13 cases); no generator was run"
     }
   ]
 }

@@ -1,0 +1,378 @@
+{
+  "date": "2026-10-25",
+  "package_version": "1.138.0",
+  "source": {
+    "commit": "40d1a2c8dea1dc872ea04d92f32549b005ddf0f7",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "10634db3a35c557f752daf02b5024f9b7217c16b7feda88256546e1234215e4e",
+      "files": 1583,
+      "archive": "candidates/10634db3a35c557f752daf02b5024f9b7217c16b7feda88256546e1234215e4e.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-additions-pl",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "14c9e5b046cf58877a26884c390d03a332e9bb80f8f423284cc8cf9c8c1f5d45",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 4,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 4,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4970,
+      "output": 11205,
+      "cache_read": 209465,
+      "cache_write": 106612
+    },
+    "seconds": 116.1
+  },
+  "cases": [
+    {
+      "id": "JP01",
+      "title": "A JSON prompt for Ideogram follows its documented schema",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1251,
+        "output": 3168,
+        "cache_read": 71973,
+        "cache_write": 23985
+      },
+      "seconds": 34.6,
+      "wall_seconds": 34.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób mi prompt w JSON do Ideogram 4 na plakat koncertu jazzowego z tytułem „JAZZ NAD WISŁĄ” i datą 12.07.",
+          "reply": "**Kierunek:** zamiast saksofonu i nut jest nocna Wisła. Wanty mostu podwieszanego układają się jak struny kontrabasu, a ich odbicie w rzece rozpływa się w poziome linie, trochę jak pięciolinia. Paleta jest granatowa z jednym mosiężnym akcentem.\n\nPoniżej natywny JSON dla Ideogram 4.x. Pola `high_level_description`, `style_description` i `compositional_deconstruction` są zgodne z dokumentacją. Najważniejsze elementy stoją na początku listy.\n\n```json\n{\n  \"high_level_description\": \"Vertical concert poster for an open-air jazz night on the Vistula river: a dark navy night scene with a cable-stayed bridge whose cables resemble double bass strings, reflected in the river as flowing horizontal lines, with large bold title text at the top and a date at the bottom.\",\n  \"style_description\": {\n    \"aesthetics\": \"Modern editorial poster, bold and minimal, strong typographic hierarchy, generous negative space, subtle film grain, slightly hand-printed screen-print feel\",\n    \"lighting\": \"Low-key night lighting, a single warm brass glow from the bridge lights, soft reflections on water\",\n    \"art_style\": \"Flat layered illustration with soft gradients, screen-print texture, limited palette\",\n    \"medium\": \"Digital illustration, poster design\",\n    \"color_palette\": [\"#0B1633\", \"#16295A\", \"#C99A3B\", \"#F2E8D0\"]\n  },\n  \"compositional_deconstruction\": {\n    \"background\": \"Deep navy night sky fading to slightly lighter blue at the horizon, a distant low city skyline as a thin dark silhouette, calm river in the lower half\",\n    \"elements\": [\n      {\n        \"type\": \"text\",\n        \"text\": \"JAZZ NAD WISŁĄ\",\n        \"desc\": \"Main title in two lines, 'JAZZ' above 'NAD WISŁĄ', heavy condensed sans-serif capitals with generous letter-spacing, warm cream colour, the Polish letters Ł and Ą rendered exactly with correct diacritics, dominant and highly legible\",\n        \"bbox\": [60, 80, 300, 920],\n        \"color_palette\": [\"#F2E8D0\"]\n      },\n      {\n        \"type\": \"text\",\n        \"text\": \"12.07\",\n        \"desc\": \"Date in large brass-gold bold sans-serif numerals with a period between the digits, centred at the bottom, clearly legible, secondary in size to the title\",\n        \"bbox\": [850, 300, 950, 700],\n        \"color_palette\": [\"#C99A3B\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"desc\": \"A single cable-stayed bridge seen from the side at night, one tall pylon with long straight cables fanning out like the strings of a double bass, thin brass-coloured lines against the dark sky, the deck lit by a few warm lights\",\n        \"bbox\": [300, 60, 640, 940],\n        \"color_palette\": [\"#C99A3B\", \"#16295A\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"desc\": \"The river surface below the bridge, reflections of the cables stretched into long horizontal flowing lines like a musical staff, brass and blue tones, calm and rhythmic\",\n        \"bbox\": [640, 0, 840, 1000],\n        \"color_palette\": [\"#16295A\", \"#C99A3B\"]\n      }\n    ]\n  }\n}\n```\n\n**Ustawienia w narzędziu (poza JSON-em):**\n- Proporcje 2:3 albo 3:4 pionowo. Przy druku A3 lub A2 użyj 2:3.\n- **Magic Prompt wyłącz**, bo inaczej Ideogram przepisze JSON.\n- Przed generowaniem sprawdź, czy JSON jest poprawny. Przy błędzie albo braku `high_level_description` Ideogram czyta go jak zwykły tekst.\n\n**Co sprawdzić na wyniku:** pisownię „WISŁĄ” (Ł i Ą) oraz kropkę w „12.07”. Jeśli diakrytyki się psują, zrób kilka generacji z innym seedem. Do finału z dokładnym tekstem możesz też wygenerować samo tło bez elementów `text` i nałożyć napisy osobno.\n\nOpcjonalnie dopiszę drugi, bardziej klasyczny wariant (np. sylwetka muzyka na tle skyline'u) albo dodam godzinę, miejsce i bilety, gdy podasz te dane. Nie dodawałem ich, bo nie były w briefie.",
+          "reply_chars": 3713,
+          "reply_sha256": "cbe7d6aa2a8a9b2bf75ce25fc8f585cfb6d3d1a886a906f1bc655f1cbd59aa7e",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1251,
+            "output": 3168,
+            "cache_read": 71973,
+            "cache_write": 23985
+          },
+          "seconds": 34.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "structured-image-prompts.md",
+                  "prompt-record/README.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['structured-image-prompts.md']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "high_level_description"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['high_level_description']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "JV01",
+      "title": "A JSON video prompt is a planning record compiled for the generator",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1232,
+        "output": 3550,
+        "cache_read": 46867,
+        "cache_write": 27340
+      },
+      "seconds": 31.6,
+      "wall_seconds": 31.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi prompt JSON do Veo na 8-sekundowe ujęcie piekarni o świcie, dwa ujęcia.",
+          "reply": "Poniżej jest plan w JSON i gotowy tekst do wklejenia. Veo nie czyta JSON-a jako własnego schematu, więc JSON to **zapis planistyczny Studia**. Do generatora wklej wersję tekstową z drugiego bloku. Niczego nie generowałem, a model, który sprawdzałem w trybie provisional, to Veo 3.1 (wg kart z 2026-10-25).\n\nPrzyjęte domyślne ustawienia, które możesz zmienić: 16:9, 8 s, 1080p, dźwięk włączony, bez dialogów, piekarz widoczny tylko jako dłonie, bez napisów w kadrze.\n\n**1. Zapis planistyczny (JSON)**\n\n```json\n{\n  \"target\": { \"generator\": \"Veo 3.1\", \"surface\": \"Vertex AI / Flow\", \"mode\": \"text-to-video\" },\n  \"settings\": { \"duration_s\": 8, \"aspect_ratio\": \"16:9\", \"resolution\": \"1080p\", \"audio\": true },\n  \"summary\": \"A small bakery wakes up at dawn: the glowing shopfront on an empty street, then fresh loaves leaving the oven.\",\n  \"style\": \"Naturalistic cinematic realism, shallow depth of field, soft film grain; palette of cold blue dawn, warm amber interior glow, flour white, crust brown.\",\n  \"subjects\": [\n    {\n      \"id\": \"baker\",\n      \"anchors\": \"baker seen only as hands and forearms, dusted with flour, rolled-up sleeves of a natural linen apron\"\n    }\n  ],\n  \"setting\": \"Small European neighbourhood bakery at first light, empty cobbled street, thin morning mist.\",\n  \"lighting\": \"Cool blue pre-sunrise ambient light outside; warm amber light from the shop window and oven inside; same warm source in both shots.\",\n  \"shots\": [\n    {\n      \"index\": 1,\n      \"start_s\": 0,\n      \"end_s\": 4,\n      \"framing\": \"wide, eye-level, 35mm\",\n      \"camera_move\": \"slow push-in toward the shop window\",\n      \"action\": \"Warm light glows in the bakery window as mist drifts over the empty street; a shop lamp flicks on and steam fogs the glass.\",\n      \"sfx\": [\"distant birdsong\", \"faint hum of a refrigerator\", \"muffled clatter of trays inside\"],\n      \"transition_in\": \"none\"\n    },\n    {\n      \"index\": 2,\n      \"start_s\": 4,\n      \"end_s\": 8,\n      \"framing\": \"close-up, slightly low angle, 85mm, shallow depth of field\",\n      \"camera_move\": \"static, locked-off\",\n      \"action\": \"Floury hands slide a tray of golden loaves out of the oven; steam rises and catches the amber light; hands set the tray down on a wooden counter.\",\n      \"sfx\": [\"soft scrape of the tray on the rack\", \"crackling of cooling crust\"],\n      \"transition_in\": \"hard cut\"\n    }\n  ],\n  \"audio\": {\n    \"ambience\": \"quiet dawn, birdsong\",\n    \"music\": \"none\",\n    \"dialogue\": \"none\"\n  },\n  \"on_screen_text\": [],\n  \"avoid\": [\"text\", \"readable signage\", \"subtitles\", \"watermark\", \"people's faces\", \"cars\"]\n}\n```\n\nKontrola spójności: ujęcia stykają się bez luk (0–4, 4–8), sumują się do 8 s, każde ma jeden ruch kamery, a ciepłe światło jest wspólne dla obu.\n\n**2. Prompt do wklejenia w Veo (angielski, z segmentami czasowymi)**\n\n```\nCinematic realism, shallow depth of field, soft film grain, palette of cold blue dawn and warm amber glow.\n\n[00:00-00:04] Wide shot at eye level, 35mm. A slow push-in toward the window of a small neighbourhood bakery at first light. Thin mist drifts over an empty cobbled street. Warm amber light glows behind the glass as a shop lamp flicks on and steam fogs the pane. Audio: distant birdsong, the faint hum of a refrigerator, muffled clatter of trays from inside.\n\n[00:04-00:08] Hard cut to a close-up from a slightly low angle, 85mm, locked-off camera. Flour-dusted hands and forearms in rolled-up sleeves of a natural linen apron slide a tray of golden loaves out of the oven. Steam rises and catches the amber light. The hands set the tray down on a wooden counter. Audio: soft scrape of the tray on the rack, crackling of cooling crust.\n\nNo music, no dialogue.\n```\n\nNegative prompt (jeśli twoja powierzchnia ma takie pole): `text, readable signage, subtitles, watermark, faces, cars`.\n\n**Uwagi produkcyjne**\n- **Ustawienia poza promptem:** 8 s, 16:9 i 1080p ustaw w kontrolkach, nie w tekście. W Veo 3.1 8 s jest wymagane dla 1080p.\n- **Powierzchnia:** preview Veo 3.1 w Gemini API zostało wyłączone 2026-10-22, więc użyj Vertex AI lub Flow. Nie sprawdzałem na żywo, jak wygląda to dla twojej powierzchni.\n- **Prompt rewriter:** na Vertex jest domyślnie włączony. Jeśli chcesz dokładnie swoje słowa, ustaw `enhancePrompt: false`.\n- **Kryteria odbioru po renderze:**\n  1. Są dokładnie dwa ujęcia z cięciem w okolicy 4 s.\n  2. Ujęcie 1 ma jeden płynny najazd.\n  3. W ujęciu 2 kamera stoi nieruchomo.\n  4. Światło jest ciepłe w obu ujęciach.\n  5. W kadrze nie ma czytelnego tekstu ani twarzy.\n  6. Dźwięk to tylko ambient i efekty.\n- **Nazwa piekarni lub napis na szyldzie:** dodaj w postprodukcji, nie w Veo.\n\nJeśli chcesz inne ujęcia, np. widok z wnętrza zamiast wystawy, inny nastrój albo wersję 9:16, podaj to, a przerobię plan.",
+          "reply_chars": 4745,
+          "reply_sha256": "5b918d69c013ea0a1620156763153b7e1604b4fe069f940d27b6177f93e67dba",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1232,
+            "output": 3550,
+            "cache_read": 46867,
+            "cache_write": 27340
+          },
+          "seconds": 31.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "structured-video-prompts.md",
+                  "narrative-video-prompts.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['structured-video-prompts.md']"
+            },
+            {
+              "check": {
+                "regex": "(?i)nie (ma|dokumentuje)|planist|plan(owania|ning)|prozą|proza|prose"
+              },
+              "passed": true,
+              "detail": "/(?i)nie (ma|dokumentuje)|planist|plan(owania|ning)|prozą|proza|prose/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "NP01",
+      "title": "A prose image prompt for FLUX.2 follows the narrative order",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1243,
+        "output": 1907,
+        "cache_read": 43630,
+        "cache_write": 27693
+      },
+      "seconds": 20.5,
+      "wall_seconds": 20.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do FLUX.2 na zdjęcie produktowe kubka ceramicznego na drewnianym stole, bez rozmyć i bez tekstu.",
+          "reply": "Prompt jest gotowy. FLUX.2 nie ma pola negatywnego promptu, więc „bez rozmyć\" i „bez tekstu\" opisałem pozytywnie: ostrość na całej głębi kadru oraz gładki, niezadrukowany kubek.\n\n```\nA photorealistic product photograph of a handmade ceramic mug with a matte off-white glaze and a smooth, plain, unprinted surface, standing on a rustic oak wooden table. The mug is in the center, shown at a three-quarter angle with the handle on the right, its rim and glaze edges crisp. Warm oak grain runs horizontally across the table, with a clean, uncluttered background. Soft diffused window light from the left creates gentle shadows on the table and a subtle highlight on the glaze. Shot at eye level with a 85mm lens at f/11, sharp focus throughout from the mug to the tabletop and the background. Neutral warm palette, natural colors, high-end catalog finish.\n```\n\n**Notatka produkcyjna**\n- **Format:** ustaw w narzędziu, nie w prompcie. Proponuję 4:5 (1:1 też pasuje do sklepu).\n- **Założenia, które dopisałem sam:** kubek matowy, złamana biel, dąb, światło z lewej i kadr 3/4. Zmień je, jeśli masz inny produkt albo styl.\n- **Pierwszy odczyt:** kubek jest na środku, a pod nim widać słoje drewna.\n- **Brak rozmyć:** odpowiada za to „f/11, sharp focus throughout\". Jeśli tło nadal wyjdzie miękkie, dodaj na końcu „everything in the frame in focus\".\n- **Brak tekstu:** odpowiada za to „plain, unprinted surface\" i „uncluttered background\". Jeśli pojawią się napisy lub logo, dopisz konkretny stan, np. „a blank glossy glaze with no markings\".\n- **Do sprawdzenia po wygenerowaniu:** ostrość krawędzi rączki i rantu, realistyczny kształt uchwytu oraz brak liter na kubku i w tle.\n\nNie generowałem obrazu, więc prompt nie był testowany. Jeśli podasz wariant FLUX.2 (Pro, Max, Flex, Klein) albo kolor i kształt kubka, dopasuję go. Mogę też zrobić wersję z innym światłem, np. twardym i bocznym.",
+          "reply_chars": 1883,
+          "reply_sha256": "c11bb3ec21dba31b16567e8a89f7338a6bdcfcb3d5a2afb519a19261b8903b27",
+          "skills": [
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1243,
+            "output": 1907,
+            "cache_read": 43630,
+            "cache_write": 27693
+          },
+          "seconds": 20.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "narrative-image-prompts.md",
+                  "static-prompt-compiler.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['narrative-image-prompts.md']"
+            },
+            {
+              "check": {
+                "code_block": true
+              },
+              "passed": true,
+              "detail": "has a code block"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "NV01",
+      "title": "A Kling prompt with Polish dialogue warns about translation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1244,
+        "output": 2580,
+        "cache_read": 46995,
+        "cache_write": 27594
+      },
+      "seconds": 29.4,
+      "wall_seconds": 29.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób prompt do Kling 3.0 na 10 sekund: babcia w kuchni mówi do wnuka „Zjedz jeszcze jednego pieroga”.",
+          "reply": "Kling 3.0 tłumaczy dialog w innym języku niż chiński, angielski, japoński, koreański i hiszpański na angielski. Polska kwestia w promptcie zabrzmiałaby więc „Eat one more pierogi”. Poniżej są dwie wersje: z angielską kwestią i z polskim lektorem nagranym osobno.\n\nPrompt jest napisany według karty Kling 3.0 sprzed 2026-10-11 i 2026-10-25. Nie sprawdzałem aktualnej dokumentacji ani nie generowałem klipu, więc nic nie jest przetestowane. Pominięte ustawienia przyjąłem domyślnie: 16:9, 1080p, jedno ujęcie bez Multi-Shot, bez referencji i Elementów.\n\n## Wersja A: kwestia generowana w Klingu (po angielsku)\n\n```\nSingle continuous shot, no cuts. Warm, intimate family-film look. Medium shot in a small, lived-in Polish kitchen: a woman in her 70s with silver hair in a bun, a floral apron over a knitted cardigan and flour on her forearms, stands at a wooden table. Facing her, in the foreground, sits her grandson, about 8 years old, in a striped sweater, seen slightly from behind and to the side so her face stays visible. Soft late-afternoon window light from the left, steam rising from a pot on the stove behind her.\n\nBeats: in the first 3 seconds she lifts pierogi from a bowl and sets two on his plate, smiling. At about the 4th second she leans toward him and slides the plate an inch closer, her eyes on his face. From the 5th to the 8th second she speaks, mouth clearly visible. In the last 2 seconds the boy looks down at the plate with a small reluctant grin and she nods, satisfied.\n\nCamera: slow, steady push-in from medium shot to a closer medium shot on the grandmother, ending on her face with the boy's shoulder in the frame edge.\n\nSound: quiet kitchen ambience, a soft clink of the plate on wood, a faint simmering pot. No music.\n\nGrandmother (in a warm, coaxing tone): \"Eat one more pierogi.\"\n```\n\n## Wersja B: polski głos nagrany osobno\n\nZostaw całość promptu, ale ostatni akapit i dźwięk zastąp tym:\n\n```\nSound: quiet kitchen ambience, a soft clink of the plate on wood, a faint simmering pot. No music. No speech, no voices.\n```\n\nW wersji B babcia ma w ujęciu „mówić bezgłośnie”, więc w beacie 5–8 s zamień „she speaks” na „her lips move gently as she coaxes him”. Potem dograj „Zjedz jeszcze jednego pieroga” (około 2 s) w montażu. Synchronizacja ust z polskim dubbingiem nie będzie dokładna, a Kling nie ma jej jak dopasować. Jeśli to ma być widoczne, zrób jedno ujęcie ze wzrokiem babci skierowanym na talerz albo ujęcie zza jej ramienia.\n\n## Kryteria odbioru po renderze\n- Jest jedno ciągłe ujęcie, bez cięć, trwa 10 s.\n- Babcia nakłada pieroga, a kwestia pada wyraźnie około 5–8 s przy widocznych ustach.\n- Kamera powoli najeżdża, a twarz babci zostaje w kadrze.\n- W wersji B nie słychać żadnej mowy.\n- W kadrze nie ma napisów, loga ani przypadkowego tekstu.\n\nJeśli klip wyjdzie z cięciami, dopisz „No scene cuts” albo wydłuż czas. Jeśli chcesz konkretny wygląd babci (np. chustkę, wiejską kuchnię, ujęcie pionowe 9:16), podaj go, a dopasuję prompt.",
+          "reply_chars": 2978,
+          "reply_sha256": "b6684f857e5433280c24d82bb561a1d605ddac05ccd280cb02e17c94735b53c7",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1244,
+            "output": 2580,
+            "cache_read": 46995,
+            "cache_write": 27594
+          },
+          "seconds": 29.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "narrative-video-prompts.md",
+                  "generator-dialects.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['narrative-video-prompts.md', 'generator-dialects.md']"
+            },
+            {
+              "check": {
+                "regex": "(?i)angielsk|english|przetłumacz|translat"
+              },
+              "passed": true,
+              "detail": "/(?i)angielsk|english|przetłumacz|translat/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

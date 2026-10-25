@@ -5223,8 +5223,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 10158,
-      "sha256": "1c844f9abd9908bd955ed8e2ab41e2d1c33f70dfee25f538619ae7b776a43c1f"
+      "bytes": 10837,
+      "sha256": "18edff687a6c9de0a81657bd3c98fdddddbd316fe288c25215bb33fe86367e6b"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5282,6 +5282,11 @@
       "sha256": "ab59176f03340db88c14822db6d54d44064d64fef38d283854a9dc0aba841ecc"
     },
     {
+      "path": "skills/image-prompt-architect/references/narrative-image-prompts.md",
+      "bytes": 9226,
+      "sha256": "eca961bf300be74bb44e91a5ba20a577971e1f363711ffa7e95fc3a3a5632c3f"
+    },
+    {
       "path": "skills/image-prompt-architect/references/reference-reconstruction.md",
       "bytes": 11334,
       "sha256": "544b1ebf75e14f5d34ac2aea9407371fe348826df146bceef8c21e2acc33ec28"
@@ -5295,6 +5300,11 @@
       "path": "skills/image-prompt-architect/references/static-prompt-compiler.md",
       "bytes": 15859,
       "sha256": "4d429c7d5de3afbb5693173befb2c9ed0e6ca379a742f9be721e1bf6d19df976"
+    },
+    {
+      "path": "skills/image-prompt-architect/references/structured-image-prompts.md",
+      "bytes": 9766,
+      "sha256": "f275ff774f81a4024214687833f9c9931de175b784ef6cbe7af9e3b8a38c5c10"
     },
     {
       "path": "skills/image-prompt-architect/references/visual-subject-craft.md",
@@ -5760,6 +5770,16 @@
       "path": "skills/pipeline-core/assets/prompt-examples/prompt_examples.py",
       "bytes": 4530,
       "sha256": "b1a8cf333d08db1303fd4ef892c60b313d89fae314ba4591ada04b29ec497254"
+    },
+    {
+      "path": "skills/pipeline-core/assets/prompt-record/README.md",
+      "bytes": 2479,
+      "sha256": "a665c60377044b607c4df20509d7fa078ab2dbaf9cd9647e3027a5cc900be88f"
+    },
+    {
+      "path": "skills/pipeline-core/assets/prompt-record/prompt_record.py",
+      "bytes": 18650,
+      "sha256": "1d26f4967880a8820bf1ff4d1b73dde2e867a0d83b7da1ed6e782ceeda2ac807"
     },
     {
       "path": "skills/pipeline-core/assets/recovery-prompt.md",
@@ -6258,8 +6278,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 20645,
-      "sha256": "5592042d562ecc0e8a7a4022c5d3d02f1873677315fb0b6ce1d1d035a2c5aab7"
+      "bytes": 21180,
+      "sha256": "63c3d78bbb86927ed8f54c6f66a73c14685161225af480ebe75f6aa362390d85"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7348,8 +7368,8 @@
     },
     {
       "path": "skills/video-prompt-architect/SKILL.md",
-      "bytes": 20002,
-      "sha256": "7251e93266e53f033b46ed37bd628e6a23972c0ac80ad7d25c8d8cb63c1dff91"
+      "bytes": 20642,
+      "sha256": "7f5d28cb5169e81a99f9756f6ede6f17de9131c3e4d9cf06ecc9dd18e83a8b06"
     },
     {
       "path": "skills/video-prompt-architect/agents/openai.yaml",
@@ -7373,8 +7393,18 @@
     },
     {
       "path": "skills/video-prompt-architect/references/generator-dialects.md",
-      "bytes": 9305,
-      "sha256": "244b8443fdf9df1ddfcd9dcb6dd87cdfa698a998a6a6ccd26fc5f5808f17a1e1"
+      "bytes": 9700,
+      "sha256": "c090b2373cdf66b454b64a888c70f00f2cc7d6412d85ef7eef76e9c3fad81b9c"
+    },
+    {
+      "path": "skills/video-prompt-architect/references/narrative-video-prompts.md",
+      "bytes": 9648,
+      "sha256": "230e7f7faa624de2da772bdcc81126faed8994fc0af49fe860c255fa1719d20f"
+    },
+    {
+      "path": "skills/video-prompt-architect/references/structured-video-prompts.md",
+      "bytes": 8910,
+      "sha256": "7a814ff0abc56509321912128e9de0894d26ece61fad94c01b7cc39ce50715bd"
     },
     {
       "path": "skills/video-prompt-architect/references/video-craft.md",
@@ -7408,8 +7438,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 54195,
-      "sha256": "ea9c52e79b5e1883206434c17c753d7ed49a09cf437a7c70ab07273d8f59bdb0"
+      "bytes": 55189,
+      "sha256": "9be05dd5356def97514d7b9be1e8015e91b618b7779d8278a4bd1d45b4630c7e"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7758,8 +7788,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 7814,
-      "sha256": "df8bd15ac77ba4667367fa9eaa99477c1a2d2f4d5aa8b570573aaceccb2e94b0"
+      "bytes": 8618,
+      "sha256": "b33bcbab509f791aef3212182d3dbcf10d1e91bec57b6f58963cd2bc250f815e"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -7845,6 +7875,11 @@
       "path": "tests/prompt_pack_test.py",
       "bytes": 3466,
       "sha256": "4b6fc01afb8f38280c44300cd293a7b4751e083647ad5e68d6eb1a448e8d51b6"
+    },
+    {
+      "path": "tests/prompt_record_test.py",
+      "bytes": 5445,
+      "sha256": "cf9021bdb76a443e9025fd57b6a2de3bee05dbe5d28b877d8febde44d67a4027"
     },
     {
       "path": "tests/quality-methods.test.mjs",

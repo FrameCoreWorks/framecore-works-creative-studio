@@ -62,6 +62,12 @@ WIRING = {
     # method references for Brand Strategy and Video Producer (review recommendations 5 and 6)
     'marketing/references/positioning-and-audience-research.md': ['marketing/SKILL.md'],
     'creative-video-producer/references/production-worksheets.md': ['creative-video-producer/SKILL.md'],
+    # structured (JSON) prompts and prompt records (owner request 2026-10-25)
+    'image-prompt-architect/references/structured-image-prompts.md': ['image-prompt-architect/SKILL.md', 'pipeline-core/assets/prompt-record/README.md', 'static-graphic-design-creator/SKILL.md'],
+    'video-prompt-architect/references/structured-video-prompts.md': ['video-prompt-architect/SKILL.md', 'pipeline-core/assets/prompt-record/README.md'],
+    'pipeline-core/assets/prompt-record/README.md': ['image-prompt-architect/SKILL.md', 'video-prompt-architect/SKILL.md'],
+    'image-prompt-architect/references/narrative-image-prompts.md': ['image-prompt-architect/SKILL.md', 'static-graphic-design-creator/SKILL.md'],
+    'video-prompt-architect/references/narrative-video-prompts.md': ['video-prompt-architect/SKILL.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],
 }
