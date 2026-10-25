@@ -2,17 +2,17 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
-## Current direction (2026-10-24, package 1.131.0)
+## Current direction (2026-10-25, package 1.137.0)
 
-- **State.** Studio 1.131.0 with 37 skills, plus three companion plugins in the same marketplace: Earshot Audio 1.0.7, Voice And Narration and Brand Kit (current versions in `.claude-plugin/marketplace.json`). Since 1.122.0 the owner opened bounded tasks: the skill rename (1.127.0), Voice And Narration (1.128.0), the Opus motion gallery (1.129.0), proactive skill search (1.130.0) and Brand Kit (1.131.0). The hosted ChatGPT plugin is updated by the owner from `CHATGPT_UPDATE.md` (pending since 1.126.0).
-- **Latest bounded task.** The owner's A-to-Z [review of 2026-10-24](reviews/full-review-2026-10-24.md) (0 critical, 11 important, 19 minor) and the owner's instruction to fix every finding, released in batches.
-- **Budgets.** Skill descriptions use about 7,520 of 7,800 characters and the orchestrator about 31,700 of 32,000 bytes, so new capabilities go to companion plugins and depth goes to references inside existing skills (priorities in the review).
+- **State.** Studio 1.137.0 with 37 skills, plus three companion plugins in the same marketplace: Earshot Audio 1.0.8, Voice And Narration 1.0.2 and Brand Kit 1.0.1 (current versions in `.claude-plugin/marketplace.json`). Since 1.122.0 the owner opened bounded tasks: the skill rename (1.127.0), Voice And Narration (1.128.0), the Opus motion gallery (1.129.0), proactive skill search (1.130.0), Brand Kit (1.131.0), the review fixes (1.132.0), opt-in startup style (1.133.0), Cinematography decision cards (1.134.0), the motion delivery folder (1.135.0), the gallery shortlist for storyboards (1.136.0) and, in 1.137.0, dated platform caption specs (Caption Studio), a dated disclosure card (UGC) and fixes for the unstable host cases G14 and OG02. The hosted ChatGPT plugin is updated by the owner from `CHATGPT_UPDATE.md` (last saved 1.126.0; pending since 1.127.0).
+- **Latest bounded tasks.** The owner's A-to-Z [review of 2026-10-24](reviews/full-review-2026-10-24.md) is closed (fix status at its end); its reference recommendations 1 to 3 are done (Cinematography, platform caption specs, UGC disclosure). Recommendations 4 to 7 wait for the owner.
+- **Budgets.** Measured 2026-10-25: skill descriptions use 7,484 of 7,800 characters and the orchestrator 31,851 of 32,000 bytes, so new capabilities go to companion plugins and depth goes to references inside existing skills (priorities in the review).
 
 Direction, in order of value:
 
 1. **The owner's findings from real use and the review fixes**: reproduce, fix the smallest cause, test before and after.
 2. **Companion plugins** for new capabilities, each with its own budget, version guard (`scripts/check_version_bump.py`) and Studio registry entry pinned to its reviewed commit.
-3. **References that deepen existing skills** when the owner opens that task (cinematography, platform specs for captions, UGC disclosure rules first).
+3. **References that deepen existing skills** when the owner opens that task (cinematography, platform caption specs and UGC disclosure are done; next in the review: English source versions of the Polish delivery and copy templates, a marketing research method, producer worksheets, story diagnostics).
 4. **Cheap evidence on every surface** (unchanged from 2026-10-22, below).
 5. **Recommended extensions** (unchanged from 2026-10-22, below).
 

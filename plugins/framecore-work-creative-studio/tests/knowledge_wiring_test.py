@@ -52,6 +52,9 @@ WIRING = {
     'hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md': ['hyperframes-workflow/SKILL.md', 'storyboard-sequence-architect/SKILL.md',
                                                                       'hyperframes-workflow/assets/motion-prompt-library/README.md'],
     'hyperframes-workflow/assets/motion-prompt-library/README.md#writing-a-prompt-for-a-coded-film': ['hyperframes-workflow/SKILL.md'],
+    # dated platform cards (roadmap 2026-10-24, references 2 and 3)
+    'caption-studio/references/platform-caption-specs.md': ['caption-studio/SKILL.md', 'caption-studio/references/readability-defaults.md', 'ugc/SKILL.md'],
+    'ugc/references/disclosure-by-platform-and-market.md': ['ugc/SKILL.md', 'ugc/references/formats-scripts-and-disclosure.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],
 }

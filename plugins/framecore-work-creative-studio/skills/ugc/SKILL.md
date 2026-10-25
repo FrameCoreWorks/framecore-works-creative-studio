@@ -14,7 +14,7 @@ Use this skill to plan UGC-style creator ads, talking-head scripts, social proof
 
 For campaign production with people, use [campaign production](../ecommerce-campaign-strategy-director/references/campaign-production.md) and carry the campaign asset card. Distinguish an authorized real speaker, an actor portrayal and a synthetic presenter. A synthetic presenter is not a real customer; creator-style presentation does not establish purchase, personal use, results or endorsement. Preserve product references, claim IDs, exact copy, contact/continuity and actual inspection status in downstream handoffs.
 
-Use [formats, scripts and disclosure](references/formats-scripts-and-disclosure.md) to choose the speaker type and format, time the script and write disclosure lines for the content and the platform label. Its platform specifications and legal starting points carry check dates; refresh them when a campaign depends on them.
+Use [formats, scripts and disclosure](references/formats-scripts-and-disclosure.md) to choose the speaker type and format, time the script and write disclosure lines for the content and the platform label. Write the disclosure lines from the dated [disclosure card](references/disclosure-by-platform-and-market.md) (platform labels, AI labels and the rules for Poland, the EU, the US and the UK, with sources); for captions and on-screen text use the [platform caption specs](../caption-studio/references/platform-caption-specs.md). Both carry check dates; refresh a row when a campaign depends on it.
 
 ## Creator brief
 

@@ -2683,8 +2683,8 @@
     },
     {
       "path": "skills/caption-studio/SKILL.md",
-      "bytes": 9593,
-      "sha256": "606869d034c1527b39d8794b879e676266fe3ba1c0c3b5e1c8206833418001f9"
+      "bytes": 9763,
+      "sha256": "903ebfca6b606d13e767e4a62ff051b6bbad0723fc7c850c9abb599f8e360a63"
     },
     {
       "path": "skills/caption-studio/agents/openai.yaml",
@@ -2702,9 +2702,14 @@
       "sha256": "d98e68abe9b7f7dc1862c26cbe6599335501a2a4552f7c0e1852e4167f9de893"
     },
     {
+      "path": "skills/caption-studio/references/platform-caption-specs.md",
+      "bytes": 7670,
+      "sha256": "05384e3a063d4e23865a6bf58fdf85d3a514a35701ad0981bafff4441bc956a7"
+    },
+    {
       "path": "skills/caption-studio/references/readability-defaults.md",
-      "bytes": 4246,
-      "sha256": "03138f4a016b3af1cf11247683f6035c8c54d7aeaffb7fee558513145f3f5631"
+      "bytes": 4193,
+      "sha256": "58b41aaec45c47c533c981de20208c977584f0c201c34615e4af6ac68ad2f2ed"
     },
     {
       "path": "skills/caption-studio/templates/caption-task-pack.md",
@@ -3223,8 +3228,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 32075,
-      "sha256": "2d5fd8cee8d756fecba26fb3bc11618fb7ed79541ae9ed45fe255adf7e469e40"
+      "bytes": 32311,
+      "sha256": "4dcf723e1d7fb6a0ec5729ea28fc045be450434b0a1334ea6a556d2ab3e7a915"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5318,8 +5323,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 28977,
-      "sha256": "dee64e5b169ededbfb9b803c3ef74229ae17a241c26f3ee17339ebc07fe78b7b"
+      "bytes": 29196,
+      "sha256": "c95a2b7af315540ae4db10f9bf464561b0acb9ecc5aab8bf7e57de8358fa8156"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -7293,8 +7298,8 @@
     },
     {
       "path": "skills/ugc/SKILL.md",
-      "bytes": 6380,
-      "sha256": "c35484f2cea79e8c6236b234c90a5e46711941a39f7b31b834d0cef215ddb2db"
+      "bytes": 6657,
+      "sha256": "15d457c08877c7e34f28f4633d1fe37e07939b0879b8377f0ee88bbba6bef73c"
     },
     {
       "path": "skills/ugc/agents/openai.yaml",
@@ -7307,9 +7312,14 @@
       "sha256": "eec335d941b95a05f5154384814ee9576fc26f87a093b86f396472030613199a"
     },
     {
+      "path": "skills/ugc/references/disclosure-by-platform-and-market.md",
+      "bytes": 11128,
+      "sha256": "471d219e890ab57362a191dae41c93c1ad9924de2c13f8deb34d8749ba470880"
+    },
+    {
       "path": "skills/ugc/references/formats-scripts-and-disclosure.md",
-      "bytes": 10810,
-      "sha256": "24896134a433000329779f3410b817f677a6e5e620dbc6d295e86ddbe50dd18f"
+      "bytes": 6897,
+      "sha256": "771094c0109f7c82d4dee448d08cbd62aac7b3963e48e4cf084e470e9b58c887"
     },
     {
       "path": "skills/video-prompt-architect/SKILL.md",
@@ -7723,8 +7733,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 6613,
-      "sha256": "d80ac589abf986326d1f1db0a13b9303aee70b036fa6078dc08142113dedf2c7"
+      "bytes": 6967,
+      "sha256": "8ea2f7255c2eb670db88193bd57c4fdf7a9906fb909d9819821f40ba97478faa"
     },
     {
       "path": "tests/learning-mode.test.mjs",

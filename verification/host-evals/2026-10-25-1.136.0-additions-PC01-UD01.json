@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-25",
+  "package_version": "1.136.0",
+  "source": {
+    "commit": "a314057305006a334e596eeb7e24e94049fef641",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "b602adc48deaddde7106464c6d89ad6696b30a433832ae80c4e96a38a9f21dca",
+      "files": 1571,
+      "archive": "candidates/b602adc48deaddde7106464c6d89ad6696b30a433832ae80c4e96a38a9f21dca.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-additions-pl",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "15065a65d85cd15bac9bdb1540392946c73512120936ba8046677b47561fced7",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2507,
+      "output": 3762,
+      "cache_read": 86194,
+      "cache_write": 40739
+    },
+    "seconds": 44.4
+  },
+  "cases": [
+    {
+      "id": "PC01",
+      "title": "Captions for a Reels ad use the dated Meta safe zone in pixels",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1254,
+        "output": 1851,
+        "cache_read": 43574,
+        "cache_write": 21109
+      },
+      "seconds": 22.3,
+      "wall_seconds": 22.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Robię reklamę na Instagram Reels 1080x1920 z wypalonymi napisami. Gdzie dokładnie mogę umieścić napisy, żeby nic ich nie zasłoniło?",
+          "reply": "## Strefa bezpieczna: Reels 1080×1920\n\nŹródło: strony pomocy Meta, sprawdzone 2026-10-25. Meta podaje jedną strefę dla wszystkich placementów 9:16, czyli Reels, Stories i wideo 9:16 w feedzie.\n\n**Te obszary zostaw wolne od tekstu i logo:**\n\n| Krawędź | Meta podaje | Na 1080×1920 |\n|---|---|---|\n| Góra | 14 % | ok. 269 px |\n| Dół | 35 % | ok. 672 px |\n| Boki | 6 % z każdej strony | ok. 65 px |\n\n**Napisy mieszczą się więc w pasie od y ≈ 269 do y ≈ 1248 i od x ≈ 65 do x ≈ 1015.** To pole ma ok. 950×979 px. Przeliczyłem je z procentów Meta. Meta nie publikuje wartości w pikselach.\n\n### Rekomendacja\n- **Pozycja:** środkowa część kadru. Dolna krawędź napisów powinna być nad y ≈ 1248. Optycznie najlepiej wypada pas y ≈ 950–1200, czyli tuż nad dolną strefą wyłączoną.\n- **Prawa strona:** trzymaj napisy wyśrodkowane i z dala od prawej krawędzi. Tam są przyciski akcji (like, komentarz, udostępnij), a ich kolumna jest szersza niż 6 % marginesu Meta.\n- **Reklama z disclaimerem:** jeśli to płatna reklama Reels z disclaimerem, zostaw wolne dolne 40 % (y ≈ 1152 zamiast 1248).\n- **Eksport 1440×2560:** to rozmiar zalecany dla reklam. Margines to wtedy ok. 358 px góra, 896 px dół i 86 px boki.\n- **Długość napisów:** maksymalnie dwie linie, jedna myśl na napis. Dłuższy tekst dziel na krótsze napisy, zamiast zmniejszać czcionkę.\n\n### Przed eksportem\n- Wyłącz automatyczne napisy Instagrama dla tego posta, jeśli to możliwe. Inaczej widz zobaczy te same słowa dwa razy.\n- Na ekranach wyższych niż 9:16 Meta może przyciąć kadr albo dodać pasy. Nie zbliżaj się do granic strefy.\n- Sprawdź podgląd placementu w Menedżerze reklam albo w aplikacji.\n- Jeśli używasz narzędzia do wypalania napisów z Caption Studio, daj dla reklamy `--bottom 0.35`. Domyślnie napisy są 14 % nad dołem, co pasuje tylko do postów organicznych.\n\nJeśli wyślesz transkrypt albo SRT z długością filmu, przygotuję podział na napisy i sprawdzę ich czytelność.",
+          "reply_chars": 1927,
+          "reply_sha256": "8fe2abf1a5f5d0e2ebb2b71cf4037dad1aa6aaa2c92b643011a1392cfd41efc1",
+          "skills": [
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1254,
+            "output": 1851,
+            "cache_read": 43574,
+            "cache_write": 21109
+          },
+          "seconds": 22.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "platform-caption-specs.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['platform-caption-specs.md']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "14",
+                  "35 %",
+                  "35%"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['14', '35 %']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "UD01",
+      "title": "A Polish gifted-product UGC ad gets two disclosures in Polish",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1253,
+        "output": 1911,
+        "cache_read": 42620,
+        "cache_write": 19630
+      },
+      "seconds": 22.1,
+      "wall_seconds": 22.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Influencerka dostała od nas krem za darmo i nagra rolkę na Instagram i TikTok. Jak ma to oznaczyć, żeby było zgodnie z zasadami w Polsce?",
+          "reply": "Krem dany za darmo w zamian za rolkę to w Polsce **reklama**, a nie „prezent”. Opieram się na naszej karcie zasad ze sprawdzenia z 25.10.2026, która cytuje rekomendacje UOKiK z 2022 r. i decyzje z marca 2025 r. To nie jest porada prawna. Prawnik klienta i aktualne regulaminy platform są ważniejsze.\n\n## Dlaczego „reklama”, a nie „prezent”\n`#prezent` jest dopuszczalny tylko przy pierwszym, niezamówionym upominku, gdy marka niczego nie oczekuje. Tu jest umowa „produkt za rolkę”. Dlatego jest to korzyść materialna i współpraca reklamowa.\n\n## Co ma się znaleźć w rolce\nPotrzebne są **dwa oznaczenia**. Żadne nie zastępuje drugiego.\n\n**1. Oznaczenie w treści, po polsku, z nazwą marki**\n- W opisie na samym początku, widoczne bez klikania „więcej”, np. `Reklama marki X` albo `#reklama` lub `#PłatnaWspółpraca`.\n- Na ekranie w pierwszych sekundach, czytelną czcionką, np. „Reklama marki X”.\n- Na głos na początku nagrania, np. „Ten krem dostałam od marki X w ramach współpracy reklamowej”.\n\n**2. Oznaczenie platformy**\n- **Instagram:** narzędzie „Płatne partnerstwo / Paid partnership” z oznaczeniem marki. Produkty dostarczone gratis też się liczą.\n- **TikTok:** włączony przełącznik „ujawnienie treści komercyjnych”. Nazwij też produkt w nagraniu lub w opisie. Nie wiemy, czy sam gratis włącza ten przełącznik. Najbezpieczniej go włączyć.\n\n## Co nie wystarczy (UOKiK to kwestionuje)\n- `#ad`, `#collaboration`, `#współpraca` samo, `#rek`, „Materiał powstał we współpracy z…”.\n- Oznaczenie na końcu opisu albo widoczne dopiero po rozwinięciu.\n- Samo otagowanie marki.\n- Argument, że „obserwujący i tak wiedzą”.\n- Oznaczenie tylko w bio.\n\n## Dla marki\n- W briefie dla influencerki wpisz konkretną formułę oznaczenia i nie podawaj niejasnych hasztagów. Marki odpowiadają za niejasne briefy.\n- Kary sięgają do 10% obrotu. W marcu 2025 r. UOKiK nałożył na trzy osoby kary w łącznej wysokości prawie 0,5 mln zł.\n\n## Gotowy wzór\n> **Reklama marki X** (płatne partnerstwo włączone w aplikacji). Krem dostałam od marki w zamian za rolkę.\n\nJeśli rolka ma lektora albo prezenterkę z AI, dochodzi **trzecie** oznaczenie: „Postać wygenerowana przez AI” plus etykieta AI platformy. Dotyczy to też sklonowanego głosu.\n\nMogę przygotować gotowy brief dla influencerki z tą formułą i resztą ustaleń (prawa do użycia, zakres claimów). Daj znać, jeśli mam to zrobić.",
+          "reply_chars": 2347,
+          "reply_sha256": "262676c54569f9de5cf9bc45645fc1a27de6633fafdc7888a0624b38c73cf9d3",
+          "skills": [
+            "ugc"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1253,
+            "output": 1911,
+            "cache_read": 42620,
+            "cache_write": 19630
+          },
+          "seconds": 22.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "disclosure-by-platform-and-market.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['disclosure-by-platform-and-market.md']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "reklama",
+                  "Reklama",
+                  "REKLAMA"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['reklama', 'Reklama', 'REKLAMA']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

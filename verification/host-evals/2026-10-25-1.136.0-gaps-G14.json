@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-25",
+  "package_version": "1.136.0",
+  "source": {
+    "commit": "a314057305006a334e596eeb7e24e94049fef641",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "b602adc48deaddde7106464c6d89ad6696b30a433832ae80c4e96a38a9f21dca",
+      "files": 1571,
+      "archive": "candidates/b602adc48deaddde7106464c6d89ad6696b30a433832ae80c4e96a38a9f21dca.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "0b57c28d949f728a960fe20af22f192b6aec55604ad13abfa21445efe81a0f88",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1281,
+      "output": 1798,
+      "cache_read": 89312,
+      "cache_write": 33201
+    },
+    "seconds": 21.9
+  },
+  "cases": [
+    {
+      "id": "G14",
+      "title": "A user who does not know what is possible is guided to the strongest route and shown an alternative, with an add-on offered only when it clearly helps (owner's observation 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1281,
+        "output": 1798,
+        "cache_read": 89312,
+        "cache_write": 33201
+      },
+      "seconds": 21.9,
+      "wall_seconds": 22.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
+          "reply": "Nie widzę jeszcze Twoich nagrań w katalogu roboczym, więc na razie podaję rekomendację. Plik wideo możesz dodać potem.\n\n**Moja rekomendacja: nagrania z telefonu plus animowany schemat nałożony na obraz**\n\nRolka składa się z Twoich ujęć magazynu. Co kilka sekund ujęcie ustępuje krótkiemu, czystemu schematowi, który pokazuje, w którym miejscu drogi towaru jesteśmy:\n\n**Przyjęcie → Kontrola → Składowanie → Kompletacja → Pakowanie → Wysyłka**\n\nNa schemacie linia z kropką, czyli towarem, przesuwa się od etapu do etapu. Gdy kropka dojdzie do kolejnego punktu, wraca prawdziwe ujęcie z tego etapu. Widz od razu widzi całą trasę i prawdziwe miejsce, a nie tylko grafikę. To dobrze pasuje do rolki, bo ma wyraźny początek, środek i koniec.\n\n**Wariant kontrastowy: sam montaż z lekkimi napisami**\n\nPomijamy schemat. Zostają same ujęcia, numerowane napisy etapów (\"1 Przyjęcie\", \"2 Kontrola\" i dalej) i pasek postępu na dole.\n- **Zaleta:** jest szybszy i bardziej autentyczny.\n- **Wada:** słabiej tłumaczy całość, jeśli etapy wyglądają podobnie.\n\nWybrałbym wariant ze schematem, a w nim jedną prostą, spójną grafikę zamiast kilku różnych efektów. Jeśli wolisz wariant bez schematu, daj znać.\n\n**Potrzebuję od Ciebie:**\n1. **Nagrań z telefonu.** Najlepiej wszystkie, nawet chaotyczne. Sam wybiorę użyteczne fragmenty i powiem, których etapów brakuje.\n2. **Odpowiedzi na jedno pytanie:** jak długo ma trwać rolka i gdzie ją publikujesz (Instagram, TikTok, oba)? Zakładam 30–45 s w pionie 9:16, jeśli nie napiszesz inaczej.\n\nDalej pójdziemy tak:\n1. Zrobię pełny storyboard całej rolki z obrazami i napisami.\n2. Pokażę go Tobie do poprawek.\n3. Po Twojej akceptacji zrobię montaż.",
+          "reply_chars": 1669,
+          "reply_sha256": "ad8e4525234644ff1e9752feb31e97db245dae66ae600782f6ad64c1ba34e74f",
+          "skills": [
+            "workflow-orchestrator",
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1281,
+            "output": 1798,
+            "cache_read": 89312,
+            "cache_write": 33201
+          },
+          "seconds": 21.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)schemat|diagram"
+              },
+              "passed": true,
+              "detail": "/(?i)schemat|diagram/"
+            },
+            {
+              "check": {
+                "regex": "(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal"
+              },
+              "passed": true,
+              "detail": "/(?i)alternatyw|kierunk|dwa wariant|inny wariant|drugi wariant|wariant [AB12]|opcja [AB12]|zamiast tego|ilustrowan|izometryczn|stylizowan|dodatk|doinstal|zainstal/"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

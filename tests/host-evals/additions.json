@@ -501,6 +501,74 @@
     ]
    }
   ]
+ },
+ {
+  "id": "PC01",
+  "title": "Captions for a Reels ad use the dated Meta safe zone in pixels",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Robię reklamę na Instagram Reels 1080x1920 z wypalonymi napisami. Gdzie dokładnie mogę umieścić napisy, żeby nic ich nie zasłoniło?",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "platform-caption-specs.md"
+      ]
+     },
+     {
+      "contains_any": [
+       "14",
+       "35 %",
+       "35%"
+      ]
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Gives Meta's 14 % top, 35 % bottom and 6 % side zone with pixels for 1080x1920",
+   "Says the platform preview must be checked and that automatic captions should be turned off",
+   "Does not invent numbers for TikTok or YouTube"
+  ]
+ },
+ {
+  "id": "UD01",
+  "title": "A Polish gifted-product UGC ad gets two disclosures in Polish",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Influencerka dostała od nas krem za darmo i nagra rolkę na Instagram i TikTok. Jak ma to oznaczyć, żeby było zgodnie z zasadami w Polsce?",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "disclosure-by-platform-and-market.md"
+      ]
+     },
+     {
+      "contains_any": [
+       "reklama",
+       "Reklama",
+       "REKLAMA"
+      ]
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Requires both an in-content label in Polish at the start and the platform label (Paid partnership, TikTok toggle)",
+   "Treats the free product as a benefit that needs disclosure, with the UOKiK first-gift nuance",
+   "Names terms that are not enough (#ad, #współpraca) and says it is not legal advice"
+  ]
  }
- ]
+]
 }
