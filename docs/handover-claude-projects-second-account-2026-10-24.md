@@ -32,7 +32,7 @@ For the owner's second Claude account, which runs this same project as a Claude 
 ## In flight
 
 1. **Brand kit from a website:** done in 1.131.0 (see above); out of its MVP: pixel sampling, competitor analysis, a hosted ChatGPT package.
-2. **Known follow-up:** make the storyboard step consult the Opus gallery earlier (gap noted in 1.129.0).
+2. **Known follow-up, done in 1.136.0** (CC-20261025-02, tag `v1.136.0` = `5eb4285`, publication record `a525cdd`): storyboards for coded films read the [gallery shortlist](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md) in the same turn; OG01 passes in headless Claude Code (suite 3/3); OG02 stays unstable. Hosted ChatGPT plugin now `pending` for 1.127.0 to 1.136.0.
 
 ## Suggested project instructions (paste into the second account's project)
 
