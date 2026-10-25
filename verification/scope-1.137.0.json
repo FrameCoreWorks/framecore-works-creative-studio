@@ -1,0 +1,35 @@
+{
+  "version": "1.137.0",
+  "baseline_tag": "v1.136.0",
+  "baseline": "5eb4285bea049c2967adaee09b0b7d16012370ba",
+  "change_id": "CC-20261025-04",
+  "origin": "cloud-code",
+  "files": 1571,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/caption-studio/SKILL.md",
+    "skills/caption-studio/references/readability-defaults.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/ugc/SKILL.md",
+    "skills/ugc/references/formats-scripts-and-disclosure.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "skills/caption-studio/references/platform-caption-specs.md",
+    "skills/ugc/references/disclosure-by-platform-and-market.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1555,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Caption Studio platform caption specs and UGC disclosure card (both checked 2026-10-25 on primary sources); FrameCut names a route and an alternative before footage arrives (G14); Motion Graphics reads the prompt guide and shortlist, never the gallery shard (OG02); roadmap state"
+}

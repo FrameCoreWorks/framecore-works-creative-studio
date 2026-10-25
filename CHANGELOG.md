@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.137.0, 2026-10-25
+
+Trigger: owner request 2026-10-25 to work items 2 to 4 of the next-steps list: the two dated references the [2026-10-24 review](docs/reviews/full-review-2026-10-24.md#room-for-new-skills-and-richer-references) recommended, the unstable host cases G14 and OG02, and the roadmap state.
+
+- **Caption Studio: [platform caption specs](plugins/framecore-work-creative-studio/skills/caption-studio/references/platform-caption-specs.md)**, checked 2026-10-25 on the platforms' own pages: Meta's single 9:16 safe zone (top 14 %, bottom 35 %, 6 % each side; bottom 40 % for Reels ads with a disclaimer) with its pixel equivalents, TikTok's caption-dependent safe zone, sizes, lengths and text limits per placement, and the platforms' automatic captions next to burned-in ones. TikTok's overlay pixels, a YouTube Shorts safe zone and several limits stay Unknown. `readability-defaults.md` drops the unconfirmed secondary margins of 2026-10-08 and points to the card.
+- **UGC: [disclosure by platform and market](plugins/framecore-work-creative-studio/skills/ugc/references/disclosure-by-platform-and-market.md)**, checked 2026-10-25: the two-place rule (in the content and the platform label) plus a separate AI disclosure; Meta, TikTok and YouTube labels; Poland (UOKiK recommendations 2022 and the March 2025 decisions), the EU (UCPD guidance, DSA Art. 26, AI Act Art. 50 applying since 2 August 2026), the US (16 CFR 255 and Part 465) and the UK (the ASA, CAP and CMA guide of 23 October 2026, read through its landing page and a law-firm summary). It replaces the platform and law notes of 2026-10-08 in `formats-scripts-and-disclosure.md`. Not legal advice; the Unknown list is kept in the card.
+- **G14** (a user who does not know the best route): FrameCut waited for footage before naming a route. FrameCut now names the recommended route and one contrasting direction in the first reply even before files arrive. Before: 1 of 6 recorded runs passed (2026-10-22); after: 4 of 4.
+- **OG02** (a prompt for another coding agent): the model grepped the 700 KB gallery shard and ran out of turns, or skipped the prompt guide. Motion Graphics now tells it to open the library README's prompt guide with the file tool and then the gallery shortlist, never the shard. After: 4 of 4 runs, the gallery suite 3/3.
+- Host evaluation in headless Claude Code (plan usage), recorded: [G14](verification/host-evals/2026-10-25-1.136.0-gaps-G14.json), [gallery suite](verification/host-evals/2026-10-25-1.136.0-opus-gallery.json), [PC01 and UD01](verification/host-evals/2026-10-25-1.136.0-additions-PC01-UD01.json), all PASS. New cases PC01 and UD01 in the additions set. Fresh ChatGPT behavior: NOT_RUN.
+- `docs/roadmap.md` current state brought to this release with measured budgets (descriptions 7,484 of 7,800 characters, orchestrator 31,851 of 32,000 bytes).
+
 ## 1.136.0, 2026-10-25
 
 Trigger: the open follow-up in the [second-account handover](docs/handover-claude-projects-second-account-2026-10-24.md) from 1.129.0: a storyboard-only request for a coded film named the Opus 5.5 gallery but postponed the lookup to the build (host case OG01 failed twice on 2026-10-24).
