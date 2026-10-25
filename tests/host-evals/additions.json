@@ -569,6 +569,100 @@
    "Treats the free product as a benefit that needs disclosure, with the UOKiK first-gift nuance",
    "Names terms that are not enough (#ad, #współpraca) and says it is not legal advice"
   ]
+ },
+ {
+  "id": "EN01",
+  "title": "An English client gets the English handoff letter with jurisdiction-neutral rights",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio I've finished a poster and social posts for a client in Germany. Write me the handoff email with the files and the rights we agreed (non-exclusive licence for online use, 2 years).",
+    "checks": [
+     {
+      "language": "en"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "handoff-letter.en.md",
+       "client-handoff.md"
+      ]
+     },
+     {
+      "not_contains": [
+       "Dzień dobry",
+       "protokół"
+      ]
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Writes the letter in English from the English template, not a translation of the Polish one",
+   "States the licence as agreed and tells the user to check the legal terms for Germany",
+   "Includes files by use, an acceptance request and nothing the offer did not include"
+  ]
+ },
+ {
+  "id": "MK01",
+  "title": "Positioning starts from questions and an evidence ledger, not invented facts",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Pomóż mi ustalić pozycjonowanie dla mojej szkoły tańca dla dorosłych początkujących w Krakowie. Nie mam jeszcze żadnych badań.",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "positioning-and-audience-research.md"
+      ]
+     },
+     {
+      "max_questions": 3
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Works through the method's questions and asks at most one or two material questions",
+   "Keeps an evidence ledger or marks claims as user-stated, inferred or unknown",
+   "Does not invent competitors, prices or statistics for Krakow"
+  ]
+ },
+ {
+  "id": "VP01",
+  "title": "A multi-stage video gets a backwards schedule, a budget with the user's rates and gates",
+  "turns": [
+   {
+    "prompt": "@FrameCore Works Creative Studio Mam 3 tygodnie na kampanię wideo: spot 30 s i 4 wersje pionowe na social. Rozpisz mi harmonogram, budżet i akceptacje.",
+    "checks": [
+     {
+      "language": "pl"
+     },
+     {
+      "not_welcome": true
+     },
+     {
+      "reads_any": [
+       "production-worksheets.md"
+      ]
+     },
+     {
+      "regex": "(?i)akcept|bramk|zatwierdz"
+     }
+    ]
+   }
+  ],
+  "rubric": [
+   "Plans backwards from the delivery date with a critical path and review dates",
+   "Leaves rates blank or asks for the user's rates instead of inventing prices",
+   "Names approval gates and what each locks, plus change control"
+  ]
  }
 ]
 }

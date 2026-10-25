@@ -9,7 +9,7 @@ For a user who sells creative work: turn a client's request into an offer the cl
 3. **Packages.** Offer two or three packages when the client's goal allows a real choice (for example the logo alone; the logo with a brand card; the logo, brand card and launch materials). Each package differs in outcome, not only in quantity. One package is right when the request is precise.
 4. **Price.** Fill in a quote spec (`python3 ../scripts/quote_calc.py --example`) with the user's rates or fixed prices, their VAT rate or exemption basis, the discount if any, the advance and payment term, and the validity date. Run `quote_calc.py spec.json --markdown offer.md`. Without code execution, compute line by line and show the arithmetic.
 5. **Rights.** State the licence or transfer of rights per package in plain words with the fields of use (below). Mark it for the user's or their counsel's approval.
-6. **Deliver.** The offer document (Markdown, or the user's document tool), the spec, and a short email from the [client email kit](../../copy-voice/assets/client-emails.pl.md). Keep the user's own terms where they have them.
+6. **Deliver.** The offer document (Markdown, or the user's document tool), the spec, and a short email from the client email kit in the client's language ([English](../../copy-voice/assets/client-emails.en.md), [Polish](../../copy-voice/assets/client-emails.pl.md)). Keep the user's own terms where they have them.
 
 ## Brief Contract: commercial fields
 

@@ -2673,8 +2673,8 @@
     },
     {
       "path": "skills/brief-architect/references/client-offer-and-quote.md",
-      "bytes": 4163,
-      "sha256": "b01b0fb4d728d3e36238221f25b910a07c1ddc58ca3daf0700badcfff22d71ec"
+      "bytes": 4253,
+      "sha256": "a06765c2d5dd6f5142b9edf245e9c11d56fbe6dc711143df908603bdf318444d"
     },
     {
       "path": "skills/brief-architect/scripts/quote_calc.py",
@@ -2933,8 +2933,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 10923,
-      "sha256": "0e8553157849db698c11bf1f71a39be9953b8604b02083a0c1223c2e7d1eefa7"
+      "bytes": 11151,
+      "sha256": "ff130fbe4b34432c0cc235d6cf81613ef3ab17e4b53f421915f844f146036bac"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -2945,6 +2945,11 @@
       "path": "skills/copy-voice/assets/channel-limits.json",
       "bytes": 1535,
       "sha256": "f6c78cef29ea63d9073d6d363769d884d4f8a10f8e33dc01c4df52e564f6a4a8"
+    },
+    {
+      "path": "skills/copy-voice/assets/client-emails.en.md",
+      "bytes": 2643,
+      "sha256": "13783d352b998a05af3bb72919971902bf8b7c98af0d4877b686e5e3ee7b1cd3"
     },
     {
       "path": "skills/copy-voice/assets/client-emails.pl.md",
@@ -3028,13 +3033,18 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 11939,
-      "sha256": "9ae0b0940cd81fb44526e345180ad52831fe3412f9bd798552496bb2242720b1"
+      "bytes": 12349,
+      "sha256": "515025a8adc9a69475fa0541d4d356c953d9bd48e86b1795f278476bb7d20f73"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
       "bytes": 346,
       "sha256": "6dfa359dc1f926a2043fbc1404317289699088f7824b025107ab926d337f5321"
+    },
+    {
+      "path": "skills/creative-video-producer/references/production-worksheets.md",
+      "bytes": 5447,
+      "sha256": "26e162143deff7ecf39b195e61eb6107034818789792e08856a8e7623c39b35d"
     },
     {
       "path": "skills/creative-video-producer/templates/creative-video-production-pack.md",
@@ -3043,13 +3053,18 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 8010,
-      "sha256": "a0b1c624c245f821198104e02861e8919bd41a8a84f58d443a276fdab4aa7ac6"
+      "bytes": 8246,
+      "sha256": "c5b21017017a37952c9a5091ee641305f953a4755a54174e66678cc6d8883485"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
       "bytes": 117,
       "sha256": "a3153f5619aa9e3e62fbdf4f6338fa4466ee6c2bad9120ecca461ea2d8e68b1e"
+    },
+    {
+      "path": "skills/delivery-documentation/assets/acceptance-protocol.en.md",
+      "bytes": 1109,
+      "sha256": "4eac97275ce892ff8dafb31f950ad5068e195bc6cb7a7bf3a00a288426585a30"
     },
     {
       "path": "skills/delivery-documentation/assets/acceptance-protocol.pl.md",
@@ -3060,6 +3075,11 @@
       "path": "skills/delivery-documentation/assets/case-study.template.md",
       "bytes": 936,
       "sha256": "92e50b2967cf41fedcf5046e0a30d76f160c2964b6b33ce8dc18e4fd721bc479"
+    },
+    {
+      "path": "skills/delivery-documentation/assets/handoff-letter.en.md",
+      "bytes": 1542,
+      "sha256": "5ffc0f4d2369e30af7d4c6e6adbe18c16ac65b1b434b595468069a0add61b537"
     },
     {
       "path": "skills/delivery-documentation/assets/handoff-letter.pl.md",
@@ -3088,8 +3108,8 @@
     },
     {
       "path": "skills/delivery-documentation/references/client-handoff.md",
-      "bytes": 2295,
-      "sha256": "1e84f38c15dd46e0d0ea17774bef07f5d45c8ae24323162ce970f8e514ab6e23"
+      "bytes": 2536,
+      "sha256": "6fdbf913ca603e0f1dd70c7a04cf38bc04283c40622a9456125a5b0ef08e990b"
     },
     {
       "path": "skills/delivery-documentation/references/print-ready-pdf.md",
@@ -5308,8 +5328,8 @@
     },
     {
       "path": "skills/marketing/SKILL.md",
-      "bytes": 6383,
-      "sha256": "8fc47012544388e3a013c1527386661808446b66beb1e890a23af08e9ade05ef"
+      "bytes": 6814,
+      "sha256": "4d0d9b6ee4e85d80848fa01a93065a7a5e03838e098177c5019b8d401ac25ebb"
     },
     {
       "path": "skills/marketing/agents/openai.yaml",
@@ -5320,6 +5340,11 @@
       "path": "skills/marketing/assets/brand-voice-guide.template.md",
       "bytes": 1636,
       "sha256": "b807c024a391cae4c3019e2fa4d25028c5d99ebbe95eb9aac54a510c27ae80ce"
+    },
+    {
+      "path": "skills/marketing/references/positioning-and-audience-research.md",
+      "bytes": 5133,
+      "sha256": "06b7893dc988f9b8a05d253b7c4da1c37918e3ebe44deb476ed3ec747f78d882"
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
@@ -5758,8 +5783,8 @@
     },
     {
       "path": "skills/pipeline-core/references/client-projects.md",
-      "bytes": 3226,
-      "sha256": "4b483d9b4c5d0f7cb6b27e7d78174e1f1dfe024193e43dbcd18a568164d4f0cb"
+      "bytes": 3328,
+      "sha256": "993ba2a5b915c4af963ae2b9b6098cf8c870a2ed24ad54b30ad473f62dd81ec5"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -7733,8 +7758,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 6967,
-      "sha256": "8ea2f7255c2eb670db88193bd57c4fdf7a9906fb909d9819821f40ba97478faa"
+      "bytes": 7814,
+      "sha256": "df8bd15ac77ba4667367fa9eaa99477c1a2d2f4d5aa8b570573aaceccb2e94b0"
     },
     {
       "path": "tests/learning-mode.test.mjs",

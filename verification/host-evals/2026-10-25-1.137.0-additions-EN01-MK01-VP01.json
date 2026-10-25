@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-25",
+  "package_version": "1.137.0",
+  "source": {
+    "commit": "e41de5e48e7c93c931baa157b2420b08d9878f03",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "dc4fc3b4c05b02cb50f080b4bd07ad3cea5ee00e5fabb4047eb80dca08b49d61",
+      "files": 1576,
+      "archive": "candidates/dc4fc3b4c05b02cb50f080b4bd07ad3cea5ee00e5fabb4047eb80dca08b49d61.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-additions-pl",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "cbdc950ce823ae9256804c6359bdf5108171b983e02b39fc29afce7bfac7464b",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 3,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3738,
+      "output": 10035,
+      "cache_read": 129919,
+      "cache_write": 53473
+    },
+    "seconds": 96.7
+  },
+  "cases": [
+    {
+      "id": "EN01",
+      "title": "An English client gets the English handoff letter with jurisdiction-neutral rights",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1240,
+        "output": 2509,
+        "cache_read": 42853,
+        "cache_write": 17269
+      },
+      "seconds": 23.8,
+      "wall_seconds": 23.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I've finished a poster and social posts for a client in Germany. Write me the handoff email with the files and the rights we agreed (non-exclusive licence for online use, 2 years).",
+          "reply": "I found no files in the working directory, so I couldn't list the real file names. The email below uses placeholders for those and for anything you haven't told me. Where I don't know the client's language, I've given English first and a German version after it.\n\n---\n\n**Subject:** {Project}: final files\n\nHello {name},\n\nattached (or at {link, valid until {date}}) are the final files for {project}.\n\n**What is in the package**\n\n- `01-print/`: {poster, format, PDF specs, e.g. bleed and colour profile}\n- `02-web/`: {social posts, formats, e.g. 1080 × 1350 px, PNG/JPG}\n- `03-source/`: {only if the offer included source files}\n\nThe full file list is in `file-list.{txt,json}`.\n\n**Rights**\n\nAs agreed in {offer of {date} / contract no. {no.}}: a non-exclusive licence for online use of the poster and social posts, valid for 2 years from {date of payment / date of delivery}. {Territory: e.g. worldwide / Germany}. Uses outside online media (for example, print) are not covered by this licence. Fonts: {names} under {OFL / your licence}.\n\n{If it applies:} {Which parts, e.g. the background} were generated with an AI tool; the text, logo and layout are my own work.\n\n**Not included**\n\n{Printing, running the campaign, further formats, extending the licence after 2 years}: I am happy to quote for these separately.\n\n**Acceptance**\n\nPlease confirm receipt by replying to this message. If anything does not work as agreed, let me know by {date} and I will fix it within the project.\n\nThank you for working with us.\n{signature}, FrameCore Works\n\n---\n\n**Deutsche Fassung**\n\n**Betreff:** {Projekt}: finale Dateien\n\nGuten Tag {Name},\n\nanbei (bzw. unter {Link, gültig bis {Datum}}) erhalten Sie die finalen Dateien für {Projekt}.\n\n**Inhalt des Pakets**\n\n- `01-print/`: {Plakat, Format, PDF-Angaben}\n- `02-web/`: {Social-Media-Beiträge, Formate, PNG/JPG}\n- `03-source/`: {nur, wenn im Angebot enthalten}\n\nDie vollständige Dateiliste finden Sie in `file-list.{txt,json}`.\n\n**Nutzungsrechte**\n\nWie vereinbart ({Angebot vom {Datum} / Vertrag Nr. {Nr.}}): ein einfaches (nicht ausschließliches) Nutzungsrecht für die Online-Nutzung von Plakat und Social-Media-Beiträgen, befristet auf 2 Jahre ab {Zahlungs-/Lieferdatum}. {Gebiet: z. B. weltweit / Deutschland}. Nutzungen außerhalb von Online-Medien (z. B. Druck) sind nicht umfasst. Schriften: {Namen} unter {OFL / Ihrer Lizenz}.\n\n{Falls zutreffend:} {Welche Teile} wurden mit einem KI-Werkzeug erstellt; Text, Logo und Layout stammen von uns.\n\n**Nicht enthalten**\n\n{Druck, Kampagnenbetreuung, weitere Formate, Verlängerung der Lizenz nach 2 Jahren}: Gern erstellen wir dafür ein separates Angebot.\n\n**Abnahme**\n\nBitte bestätigen Sie den Erhalt per Antwort auf diese E-Mail. Sollte etwas nicht wie vereinbart funktionieren, melden Sie sich bitte bis {Datum}; wir korrigieren es im Rahmen des Projekts.\n\nVielen Dank für die Zusammenarbeit.\n{Signatur}, FrameCore Works\n\n---\n\n**What I need from you**\n- **Licence start:** I didn't know when the 2 years begin. I used \"date of payment or delivery\" as a placeholder. Please pick one to match your agreement.\n- **Territory:** you didn't mention one, so it's left open. If it was agreed, fill it in. If not, leave it unstated rather than guessing.\n- **File names and contents:** share the files, or tell me the names, and I'll fill in the package list. Names should follow the pattern `client_project_item_format_r1.ext`.\n- **AI use:** if any generative tools made part of the work, keep the AI line and name the parts. Otherwise delete it.\n- **Rights wording:** I also added a line saying print is outside the licence, since the licence covers online use only. Remove it if you agreed otherwise.\n- **German law:** the German wording (\"einfaches Nutzungsrecht\") is a plain rendering of what you described. Please have it checked against your contract and German law. This isn't legal advice.",
+          "reply_chars": 3872,
+          "reply_sha256": "86aeab33d0213fc9d966ff8e79efb9a148e10f5b895c3b7b53af1400a1d50416",
+          "skills": [
+            "delivery-documentation"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1240,
+            "output": 2509,
+            "cache_read": 42853,
+            "cache_write": 17269
+          },
+          "seconds": 23.8,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "handoff-letter.en.md",
+                  "client-handoff.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['handoff-letter.en.md', 'client-handoff.md']"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Dzień dobry",
+                  "protokół"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "MK01",
+      "title": "Positioning starts from questions and an evidence ledger, not invented facts",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1250,
+        "output": 1856,
+        "cache_read": 42564,
+        "cache_write": 17034
+      },
+      "seconds": 24.1,
+      "wall_seconds": 24.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Pomóż mi ustalić pozycjonowanie dla mojej szkoły tańca dla dorosłych początkujących w Krakowie. Nie mam jeszcze żadnych badań.",
+          "reply": "Zacznę od planu pracy, bo bez badań każde twierdzenie musi mieć status: zweryfikowane, od Ciebie, wywnioskowane albo nieznane. Nie będę zgadywać, czym wyróżniają się krakowskie szkoły tańca ani czego chcą Twoi klienci.\n\n## Jak do tego dojdziemy\n\n1. Opis oferty jednym zwykłym zdaniem.\n2. Kto decyduje i kto korzysta.\n3. W jakich sytuacjach ktoś szuka takich zajęć.\n4. Czego używa zamiast tego (inne szkoły, YouTube, aplikacje, nic).\n5. Co jest inne i czym to udowodnić.\n6. Co ludzi powstrzymuje.\n7. Dlaczego teraz.\n8. Czego nie wolno obiecywać.\n\nNa końcu dostaniesz zdanie pozycjonujące wraz z testem, hierarchię komunikatów i listę rzeczy do sprawdzenia.\n\n## Stan wyjściowy\n\n| ID | Co wiemy | Źródło | Status |\n| --- | --- | --- | --- |\n| E1 | Szkoła tańca dla dorosłych początkujących, Kraków | Twoja wiadomość | od Ciebie |\n| E2 | Brak badań, opinii klientów i danych | Twoja wiadomość | od Ciebie |\n\nWszystko inne, czyli konkurencja, ceny, style, grupa docelowa i wyróżniki, jest na razie **nieznane**. Większość da się szybko sprawdzić. Konkurencję w Krakowie mogę przejrzeć, gdy będziemy wiedzieli, z kim się porównujesz. Do tego użyję bramki Research i dam źródła z datami.\n\n## Pierwsze pytanie\n\n**Co dokładnie oferuje Twoja szkoła i czym według Ciebie różni się od innych?** Opisz to tak, jak powiedziałbyś znajomemu. Przydadzą mi się:\n- style tańca (np. towarzyski, salsa, bachata) albo ich brak, jeśli uczysz ogólnie,\n- format zajęć: grupy, pary albo single, kursy cykliczne albo jednorazowe, wielkość grupy,\n- lokalizacja i przybliżony poziom cen, jeśli chcesz je podać,\n- to, co Ci się wydaje wyjątkowe. Zaznaczę to jako Twoje stwierdzenie, dopóki nie znajdziemy dowodu.\n\nJeśli szkoła dopiero powstaje i nic z tego nie jest jeszcze ustalone, napisz to. Wtedy zaczniemy od wyboru kierunku, a nie od opisu stanu obecnego.",
+          "reply_chars": 1831,
+          "reply_sha256": "0a2a6271a293e09aa72e28780b75ca86e93b46fb0603edc8b2a9f3d3f8d7f638",
+          "skills": [
+            "marketing"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1250,
+            "output": 1856,
+            "cache_read": 42564,
+            "cache_write": 17034
+          },
+          "seconds": 24.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "positioning-and-audience-research.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['positioning-and-audience-research.md']"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "VP01",
+      "title": "A multi-stage video gets a backwards schedule, a budget with the user's rates and gates",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1248,
+        "output": 5670,
+        "cache_read": 44502,
+        "cache_write": 19170
+      },
+      "seconds": 48.8,
+      "wall_seconds": 49.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam 3 tygodnie na kampanię wideo: spot 30 s i 4 wersje pionowe na social. Rozpisz mi harmonogram, budżet i akceptacje.",
+          "reply": "# Kampania wideo: spot 30 s + 4 pionowe wersje. Plan na 3 tygodnie\n\n**Założenia, które możesz zmienić.**\n- Start jest w poniedziałek 26.10, a termin w piątek 13.11.\n- **11.11 (środa) jest świętem**, więc zostaje 14 dni roboczych, a nie 15.\n- Klient odpowiada na każdą akceptację w ciągu 1 dnia roboczego.\n- Zakładam 2 rundy poprawek w cenie.\n\n## 1. Harmonogram (od terminu wstecz)\n\n| Etap | Właściciel | Termin | Bramka |\n|---|---|---|---|\n| Brief i kryteria akceptacji | Brief Architect | Pn 26 – Wt 27.10 | **G1** Wt 27.10 |\n| Pomysł i kierunek | Video Campaign Director | Wt 27 – Śr 28.10 | **G2** Czw 29.10 |\n| Skrypt, VO, supery, claimy | Screenplay / Copy Voice | Czw 29 – Pt 30.10 | **G3** Pn 2.11 |\n| Storyboard i shot list (30 s + 4 hooki pionowe) | Shot Sequence | Pn 2 – Wt 3.11 | **G4** Wt 3.11 (koniec dnia) |\n| Zasoby i prawa (równolegle) | Asset Manifest | Pn 2 – Wt 3.11 | producent |\n| Produkcja spotu 30 s | FrameCut / Video Prompt / Motion Graphics | Śr 4 – Pn 9.11 | **G5** Wt 10.11 |\n| Muzyka i głos (zaczyna się w trakcie produkcji) | Audio Production | Pt 6 – Wt 10.11 | w G5 |\n| 4 wersje pionowe, napisy | Caption Studio, FrameCut | Wt 10 – Czw 12.11 | producent |\n| Kontrola jakości i poprawki | Output Review | Czw 12.11 | **G6** Czw 12.11 |\n| Dostawa | Delivery Pack | Pt 13.11 | klient |\n\n**Ścieżka krytyczna.** Wszystkie etapy poza zasobami i prawami są na niej. Zapasu nie ma, poza piątkiem 13.11, który pełni rolę bufora.\n\n**Najwęższe miejsce.** G5 wypada we wtorek przed świętem, a wersje pionowe mają tylko 2,5 dnia. Trzy sposoby na ryzyko:\n- Hooki wersji pionowych są zaplanowane już w storyboardzie (G4).\n- Wersje pionowe to osobne wersje, a nie przycięcie spotu. Trzeba je napisać na nowo, dlatego ich montaż zaczyna się od razu po G5.\n- Spóźniona akceptacja klienta przesuwa dostawę o tyle samo dni. Ewentualnie skracamy zakres za zgodą klienta, ale nigdy po cichu.\n\n## 2. Bramki akceptacji\n\n| Bramka | Klient zatwierdza | Co blokuje | Pokazujemy |\n|---|---|---|---|\n| G1 Brief | cel, odbiorcy, 5 plików, kryteria | zakres i ramy budżetu | Brief Contract |\n| G2 Kierunek | jedna wybrana droga | pomysł, ton, wygląd | plansze lub klatki kierunku |\n| G3 Skrypt | ostateczne słowa | VO, supery, claimy (z dowodami) | skrypt z ID claimów |\n| G4 Storyboard | kolejność i czasy | ujęcia, długości, formaty | storyboard z czasami |\n| G5 Pierwszy montaż | czy montaż działa | struktura i tempo | montaż w pełnym rozmiarze i na telefonie |\n| G6 Finał | gotowe do dostawy | wszystko | zaakceptowane wersje i wyniki QA |\n\nZmiana czegoś zatwierdzonego idzie przez kontrolę zmian. Opisujemy zmianę i jej wpływ na termin i budżet, dostajemy zgodę i zapisujemy datę oraz osobę.\n\n## 3. Budżet (szkielet)\n\nNie podałeś stawek, więc nie wpisuję żadnych kwot. Pozycje bez stawki zostają jako **Nieznane**. Ilości w dniach to moje założenia planistyczne.\n\n| Pozycja | Jednostka | Ilość (plan) | Stawka | Koszt |\n|---|---|---|---|---|\n| Brief, kierunek, skrypt, storyboard | dzień | ok. 4,5 | Nieznane | Nieznane |\n| Produkcja spotu 30 s | dzień | ok. 5 | Nieznane | Nieznane |\n| Montaż, wersje pionowe, napisy | dzień | ok. 3 | Nieznane | Nieznane |\n| Dźwięk i lektor | pozycja | 1 | Nieznane | Nieznane |\n| Kredyty generatora lub subskrypcje | kredyty | do ustalenia | cennik dostawcy | Nieznane |\n| Licencje: muzyka, stock, fonty | pozycja | do ustalenia | Nieznane | Nieznane |\n| Zdjęcia, talenty, lokacja (jeśli będą) | dzień | do ustalenia | oferta dostawcy | Nieznane |\n| Poprawki ponad 2 rundy | runda | 0 | Nieznane | Nieznane |\n| Rezerwa | % sumy | Twoja decyzja | n/d | Nieznane |\n\nSumy policzę po podaniu stawek. Płatne uruchomienia generatorów ruszą dopiero po Twojej zgodzie.\n\n## 4. Główne ryzyka\n\n| Ryzyko | Prawdopodobieństwo i wpływ | Reakcja |\n|---|---|---|\n| Spóźniona akceptacja klienta | średnie / wysoki, bo nie ma zapasu | przesunąć dostawę o tyle samo dni albo skrócić zakres za zgodą |\n| Brak praw do zasobu | średnie / wysoki | podmiana lub licencja przed G5 |\n| Awaria narzędzia | niskie / średni | wcześniej ustalona trasa zapasowa |\n| Claim bez dowodu | średnie / średni | przepisać lub usunąć przed G3 |\n\n## Co muszę wiedzieć\n\n1. Skąd bierze się obraz: zdjęcia, materiał klienta, generowanie czy motion graphics? Od tego zależy koszt i długość produkcji.\n2. Twoje stawki (dzień lub godzina) i czy kwoty mają być netto czy brutto.\n3. Czy termin to na pewno piątek 13.11?\n4. Czy jest lektor i muzyka (własne, licencjonowane, do wygenerowania)?\n5. Czy w spocie są claimy, np. cena, wyniki, porównania?\n\nPo tych odpowiedziach wypełnię budżet, sprawdzę terminy i przejdę do briefu (G1).",
+          "reply_chars": 4626,
+          "reply_sha256": "c48099dadc957a6e30a95dc5f12d59714fc2c58d2ae7fdda500b32433edddbaf",
+          "skills": [
+            "creative-video-producer"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1248,
+            "output": 5670,
+            "cache_read": 44502,
+            "cache_write": 19170
+          },
+          "seconds": 48.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "production-worksheets.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['production-worksheets.md']"
+            },
+            {
+              "check": {
+                "regex": "(?i)akcept|bramk|zatwierdz"
+              },
+              "passed": true,
+              "detail": "/(?i)akcept|bramk|zatwierdz/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

@@ -14,6 +14,10 @@ Use this skill to plan campaign-level positioning, offer framing, audience fit, 
 
 For a website/store-led commercial campaign, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md). Supply only missing brand foundations to the existing Sales Campaign Strategy's pack: source-based diagnosis, positioning, buying situations, differentiation/proof and voice. Reuse accepted strategy, inspect accessible website facts before questioning and ask one material missing question per response. Do not create duplicate plans or expand brand-only work into a campaign.
 
+## Positioning and audience research
+
+Before writing positioning, audiences or a campaign thesis that is not already supplied and approved, follow the [positioning and audience research method](references/positioning-and-audience-research.md): the questions in order, an evidence ledger whose status decides what copy may use, audiences as situations, a tested positioning statement and a message hierarchy built from the ledger.
+
 ## Brand voice guide
 
 When the user asks for a brand voice or tone of voice guide, or a client's copy keeps drifting, write it with the [brand voice guide](assets/brand-voice-guide.template.md): traits with their limits, fixed choices (form of address, name and declension, numbers), words to use and avoid, channel rhythm and before-and-after examples. Save the fixed choices into the client's [brand kit](../pipeline-core/references/brand-kit.md).

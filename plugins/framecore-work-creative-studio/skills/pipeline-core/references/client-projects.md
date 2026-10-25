@@ -10,7 +10,7 @@ The business side of creative work for a client, from enquiry to acceptance. Eac
 | Concepts | [Concept presentation](../templates/concept-presentation.template.md): two or three directions in context, a recommendation and a numbered decision | the domain owner (static, video, motion, campaign) |
 | Feedback | [Revision tracker](../templates/revision-tracker.md): consolidated feedback, revision, our error or change of scope | FrameCore Studio Guide with the domain owner |
 | Delivery | [Client handoff](../../delivery-documentation/references/client-handoff.md): files, naming, rights, AI-assistance line, acceptance protocol | Delivery Pack |
-| Messages | [Client email kit](../../copy-voice/assets/client-emails.pl.md) | Copy Voice |
+| Messages | Client email kit: [English](../../copy-voice/assets/client-emails.en.md), [Polish](../../copy-voice/assets/client-emails.pl.md); other languages from the English one | Copy Voice |
 | Afterwards | [Case study](../../delivery-documentation/assets/case-study.template.md) with the client's consent | Delivery Pack |
 
 ## Client version of a document

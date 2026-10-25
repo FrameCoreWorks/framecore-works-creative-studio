@@ -55,6 +55,13 @@ WIRING = {
     # dated platform cards (roadmap 2026-10-24, references 2 and 3)
     'caption-studio/references/platform-caption-specs.md': ['caption-studio/SKILL.md', 'caption-studio/references/readability-defaults.md', 'ugc/SKILL.md'],
     'ugc/references/disclosure-by-platform-and-market.md': ['ugc/SKILL.md', 'ugc/references/formats-scripts-and-disclosure.md'],
+    # English source versions of the client templates (review recommendation 4)
+    'delivery-documentation/assets/handoff-letter.en.md': ['delivery-documentation/SKILL.md', 'delivery-documentation/references/client-handoff.md'],
+    'delivery-documentation/assets/acceptance-protocol.en.md': ['delivery-documentation/SKILL.md', 'delivery-documentation/references/client-handoff.md'],
+    'copy-voice/assets/client-emails.en.md': ['copy-voice/SKILL.md', 'brief-architect/references/client-offer-and-quote.md', 'pipeline-core/references/client-projects.md'],
+    # method references for Brand Strategy and Video Producer (review recommendations 5 and 6)
+    'marketing/references/positioning-and-audience-research.md': ['marketing/SKILL.md'],
+    'creative-video-producer/references/production-worksheets.md': ['creative-video-producer/SKILL.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],
 }

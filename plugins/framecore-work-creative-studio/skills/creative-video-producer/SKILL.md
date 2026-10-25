@@ -60,6 +60,10 @@ Produce a Creative Video Production Pack containing:
 
 Use [templates/creative-video-production-pack.md](templates/creative-video-production-pack.md) for nontrivial work.
 
+## Production worksheets
+
+For a project with several stages, people or a fixed date, plan it with the [production worksheets](references/production-worksheets.md): a schedule from the delivery date backwards with the critical path, a budget by line with the user's own rates (a line without a rate stays Unknown), approval gates that lock decisions, change control, a risk register and a short status report.
+
 ## Process
 
 1. Run a preflight: confirm goal, inputs, missing route-changing decisions, defaults, exclusions, and next artifact.

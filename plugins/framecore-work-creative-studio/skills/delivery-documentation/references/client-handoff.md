@@ -12,12 +12,12 @@ What a client receives at the end, so they can use the work without asking again
 
 ## The letter
 
-Use the [handoff letter](../assets/handoff-letter.pl.md): what is delivered, how to use each group, what was agreed about rights (quoting the offer or contract, not re-deciding it), what is not included, and how to report a problem.
+Use the handoff letter in the client's language ([English](../assets/handoff-letter.en.md), [Polish](../assets/handoff-letter.pl.md); translate from the English one for another language): what is delivered, how to use each group, what was agreed about rights (quoting the offer or contract, not re-deciding it), what is not included, and how to report a problem.
 
 **AI assistance.** When generative tools made part of the work, say so in one plain line that names which parts ("tło plakatu wygenerowano narzędziem AI; tekst, logo i układ przygotowano ręcznie"). It helps the client meet platform and AI Act disclosure duties for realistic content and is honest about rights: AI-generated elements may have limited copyright protection. The [marketing rules snapshot](../../research-evidence/references/marketing-rules-snapshot.md) has the dated rule.
 
 ## Acceptance
 
-Ask the client to confirm acceptance in writing: a reply to the letter or the [acceptance protocol](../assets/acceptance-protocol.pl.md) (protokół odbioru). Acceptance closes the included revision rounds, often starts the payment term and the transfer of rights, and is the point after which changes are new work. Record it in the [revision tracker](../../pipeline-core/templates/revision-tracker.md).
+Ask the client to confirm acceptance in writing: a reply to the letter or an acceptance record ([English](../assets/acceptance-protocol.en.md), [Polish protokół odbioru](../assets/acceptance-protocol.pl.md)), with the legal terms adapted to the client's jurisdiction. Acceptance closes the included revision rounds, often starts the payment term and the transfer of rights, and is the point after which changes are new work. Record it in the [revision tracker](../../pipeline-core/templates/revision-tracker.md).
 
 Rights, payment and acceptance terms come from the user's offer or contract; Studio fills them in and never invents them. This is not legal advice.
