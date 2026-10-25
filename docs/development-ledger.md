@@ -3726,3 +3726,12 @@ Cross-host state:
 - GitHub: synchronized. `main` at `4b26f0f`; workflows Publish verified Studio release 40136484593, Refresh current release notes 40136484595, Check Studio sources 40136484626: success; [v1.135.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.135.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1568 of 1568) ([record](../verification/github-publication-1.135.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261025-01
+
+- Origin: cloud-code
+- Branch: `main`; baseline `026fd4c` (package 1.135.0)
+- Scope: `docs/handover-claude-projects-second-account-2026-10-24.md`: removed the stale "Deferred (minor 19)" line (done in 1.134.0 with `tests/test_publish_release.py`), added 1.135.0, hosted update range 1.127.0 to 1.135.0 pinned to `4b26f0f`
+- Shared package changed: no
+- Verification: canonical validator
+- GitHub: pending until pushed; ChatGPT Work: pending (unchanged, 1.126.0 saved); Codex: not_run

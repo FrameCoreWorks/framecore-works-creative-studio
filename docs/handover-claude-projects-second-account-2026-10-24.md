@@ -14,7 +14,7 @@ For the owner's second Claude account, which runs this same project as a Claude 
 8. Use the other installed plugins when they fit: **context7** (current library docs), **playwright** (browser tests, for example the motion player on `gh-pages`), **plugin-dev** (building and validating Studio plugins and skills), **claude-md-management** (keeping AGENTS.md and CLAUDE.md concise). In Claude Code cloud containers context7 currently fails to connect (the agent proxy refuses `mcp.context7.com`); fall back to the library's own docs through web search or fetch.
 9. Reply to the owner in Polish. Repository files stay in English (AGENTS.md).
 
-## State on 2026-10-24
+## State on 2026-10-24 (updated 2026-10-25 for 1.135.0)
 
 - **Studio 1.127.0:** skill display-name rename (owner-approved list).
 - **Studio 1.128.0** (tag `v1.128.0` = `35af152`, publication record `2acb34d`): new public companion plugin **voice-narration** (`plugins/voice-narration`, skill `voice-narration:narrate`): VoxCPM2 or Voicebox on the user's own computer, ElevenLabs through the host connector. **voice-narration 1.0.1** (review minors) is on `main` at `4bf66c3`. Real engine generation and the ElevenLabs read: `NOT_RUN`.
@@ -25,8 +25,8 @@ For the owner's second Claude account, which runs this same project as a Claude 
 - **Studio 1.133.0** (CC-20261024-15): opt-in startup style. First configuration asks once: `guided` (default, complete welcome and menus) or `workflow` (one ready line on a bare invocation, "menu" gives the full welcome). Saved as `work_preferences.startup_style` only with consent through a real per-user mechanism; see the `## Startup style` section of `workflow-orchestrator/references/startup-and-creative-menus.md`. Host cases ST01 and ST02 in `tests/host-evals/additions.json`.
 - **Studio 1.134.0** (CC-20261024-16, release `4fa425e`, publication record `2cf94d4`): Cinematography reference `references/camera-light-decision-cards.md` (review reference recommendation 1; description unchanged) and `tests/test_publish_release.py` for the guard branches of `scripts/publish_github_release.py` (deferred minor 19, now done).
   - Kept by decision (minor 2, 5, 6): Claude Code's skill-listing truncation is a host budget, not a repository defect; dependency ranges stay unpinned apart from the engines; Earshot's `exec` runs the user's own scripts by design.
-  - Deferred (minor 19): tests for the guard branches of `scripts/publish_github_release.py` (ambiguous release, tag on another commit, partial upload).
-- **Hosted ChatGPT plugin:** `pending` for 1.127.0 to 1.134.0; one update to 1.134.0 covers them all (Plugin Creator writes the whole declared inventory). Prompt: `CHATGPT_UPDATE.md` and the project file `cinematography/chatgpt-update-1.134.0.txt`. The owner runs it with Plugin Creator when convenient.
+- **Studio 1.135.0** (CC-20261024-17, release `4b26f0f`, tag `v1.135.0`, publication record `026fd4c`): Motion Graphics `acceptance.py --pack` writes a delivery folder (judged video and contract, evidence, sources, SHA-256 manifest, `HANDOFF.md`) only for a film that is not blocked, and the acceptance record carries the contract and video SHA-256; library-sample levels. Shared package: 12 files changed, none added or removed.
+- **Hosted ChatGPT plugin:** last saved 1.126.0 (`RELEASE_STATUS.md`); `pending` for 1.127.0 to 1.135.0. One update to 1.135.0 covers them all (Plugin Creator writes the whole declared inventory). Use `CHATGPT_UPDATE.md` pinned to the 1.135.0 release commit `4b26f0f` (tag `v1.135.0`); the earlier project file `cinematography/chatgpt-update-1.134.0.txt` is superseded. The owner runs it with Plugin Creator when convenient.
 - Plugins the owner installed on claude.ai: Superpowers, context7, playwright, plugin-dev, claude-md-management. The skills.sh `handoff` skill is not installed.
 
 ## In flight
