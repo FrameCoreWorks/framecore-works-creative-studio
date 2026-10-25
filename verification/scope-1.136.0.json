@@ -1,0 +1,33 @@
+{
+  "version": "1.136.0",
+  "baseline_tag": "v1.135.0",
+  "baseline": "4b26f0f18daabf075e5a4318dcdd0b19be9f0842",
+  "change_id": "CC-20261025-02",
+  "origin": "cloud-code",
+  "files": 1569,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/knowledge_wiring_test.py",
+    "tests/motion-quality.test.mjs"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1555,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Opus 5.5 gallery shortlist per brief type (generated, tested); Shot Sequence and Motion Graphics read it before a storyboard is shown; OG01 now passes in headless Claude Code"
+}

@@ -1,3 +1,5 @@
-# Creative Studio 1.135.0
+# Creative Studio 1.136.0
 
-Safer motion delivery. A finished film can now be handed over as one folder that holds exactly the file that was checked, its evidence, the files needed to change it later and a short handoff note saying what was verified and what was not. A film that failed a check is never packaged. Motion sound also gains simple level rules for sound effects taken from a library.
+## Storyboards for coded films name gallery technique before the build
+
+A small per-brief shortlist of the Opus 5.5 gallery lets a storyboard credit at most three technique records in the same turn instead of postponing the lookup.
