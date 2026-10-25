@@ -1,0 +1,39 @@
+{
+  "version": "1.138.0",
+  "baseline_tag": "v1.137.0",
+  "baseline": "f8b6dad3eb4718afe7267057cffed46c41e1af54",
+  "change_id": "CC-20261025-06",
+  "origin": "cloud-code",
+  "files": 1576,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/brief-architect/references/client-offer-and-quote.md",
+    "skills/copy-voice/SKILL.md",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/delivery-documentation/SKILL.md",
+    "skills/delivery-documentation/references/client-handoff.md",
+    "skills/marketing/SKILL.md",
+    "skills/pipeline-core/references/client-projects.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "skills/copy-voice/assets/client-emails.en.md",
+    "skills/creative-video-producer/references/production-worksheets.md",
+    "skills/delivery-documentation/assets/acceptance-protocol.en.md",
+    "skills/delivery-documentation/assets/handoff-letter.en.md",
+    "skills/marketing/references/positioning-and-audience-research.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1556,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "English handoff letter, acceptance record and client emails; Brand Strategy positioning and audience research method; Video Producer production worksheets (review recommendations 4 to 6)"
+}

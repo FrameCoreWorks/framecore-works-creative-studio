@@ -1,5 +1,5 @@
-# Creative Studio 1.137.0
+# Creative Studio 1.138.0
 
-## Dated platform caption specs, a disclosure card and steadier routing
+## English client templates, a positioning research method and production worksheets
 
-Caption Studio and UGC gain dated, sourced cards for safe zones and for disclosing paid, gifted and AI content per platform and market; FrameCut and Motion Graphics fixes make two unstable host cases pass consistently.
+Clients outside Poland get English handoff, acceptance and email templates; Brand Strategy and Video Producer gain method references for evidence-led positioning and for schedule, budget and approval gates.

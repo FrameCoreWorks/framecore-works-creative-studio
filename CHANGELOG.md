@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.138.0, 2026-10-25
+
+Trigger: owner request 2026-10-25 to work recommendations 4 to 6 of the [2026-10-24 review](docs/reviews/full-review-2026-10-24.md#room-for-new-skills-and-richer-references): English source versions of the client templates, a research method for Brand Strategy and production worksheets for Video Producer. Studio is a general product, so a client outside Poland must get a template written for them, not a translation of Polish legal wording.
+
+- **English client templates.** Delivery Pack gains [`handoff-letter.en.md`](plugins/framecore-work-creative-studio/skills/delivery-documentation/assets/handoff-letter.en.md) and [`acceptance-protocol.en.md`](plugins/framecore-work-creative-studio/skills/delivery-documentation/assets/acceptance-protocol.en.md) (an acceptance record with jurisdiction-neutral identifiers and a note that copyright can be assigned only where the law allows); Copy Voice gains [`client-emails.en.md`](plugins/framecore-work-creative-studio/skills/copy-voice/assets/client-emails.en.md). The owners, the client handoff reference, the offer reference and the client-project map pick the version in the client's language and translate any other language from the English one; the Polish files are unchanged.
+- **Brand Strategy: [positioning and audience research method](plugins/framecore-work-creative-studio/skills/marketing/references/positioning-and-audience-research.md):** eight questions in order, an evidence ledger whose status (verified, user-stated, inferred, unknown) decides what copy may use, audiences as situations, a tested positioning statement and a message hierarchy built from the ledger. No ready audiences, personas or industry facts.
+- **Video Producer: [production worksheets](plugins/framecore-work-creative-studio/skills/creative-video-producer/references/production-worksheets.md):** a schedule from the delivery date backwards with the critical path and review dates, a budget by line with the user's own rates (a line without a rate stays Unknown), six approval gates and what each locks, change control, a risk register and a status report.
+- Host evaluation in headless Claude Code (plan usage): new cases EN01, MK01 and VP01 PASS ([record](verification/host-evals/2026-10-25-1.137.0-additions-EN01-MK01-VP01.json)). Fresh ChatGPT behavior: NOT_RUN.
+
 ## 1.137.0, 2026-10-25
 
 Trigger: owner request 2026-10-25 to work items 2 to 4 of the next-steps list: the two dated references the [2026-10-24 review](docs/reviews/full-review-2026-10-24.md#room-for-new-skills-and-richer-references) recommended, the unstable host cases G14 and OG02, and the roadmap state.
