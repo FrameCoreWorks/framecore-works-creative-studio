@@ -1,0 +1,39 @@
+{
+  "version": "1.139.0",
+  "baseline_tag": "v1.138.0",
+  "baseline": "0b5fc9b3f1b7bcd721ecfc9cbf8ae7208f68d4fd",
+  "change_id": "CC-20261025-07",
+  "origin": "cloud-code",
+  "files": 1583,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/video-prompt-architect/SKILL.md",
+    "skills/video-prompt-architect/references/generator-dialects.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "skills/image-prompt-architect/references/narrative-image-prompts.md",
+    "skills/image-prompt-architect/references/structured-image-prompts.md",
+    "skills/pipeline-core/assets/prompt-record/README.md",
+    "skills/pipeline-core/assets/prompt-record/prompt_record.py",
+    "skills/video-prompt-architect/references/narrative-video-prompts.md",
+    "skills/video-prompt-architect/references/structured-video-prompts.md",
+    "tests/prompt_record_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1563,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Structured (JSON) and narrative prompt cards for Image Prompt and Video Prompt from the makers' documentation, prompt_record.py check and compile, Graphic Design opens the JSON card"
+}

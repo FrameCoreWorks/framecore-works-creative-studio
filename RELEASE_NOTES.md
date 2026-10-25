@@ -1,5 +1,5 @@
-# Creative Studio 1.138.0
+# Creative Studio 1.139.0
 
-## English client templates, a positioning research method and production worksheets
+## JSON and narrative prompts for images and video, from the makers' own documentation
 
-Clients outside Poland get English handoff, acceptance and email templates; Brand Strategy and Video Producer gain method references for evidence-led positioning and for schedule, budget and approval gates.
+Image Prompt and Video Prompt gain dated cards on when a JSON prompt is real (Ideogram, FIBO, FLUX.2, API fields) and how to write prose per model, plus `prompt_record.py` to check one planning record and compile it for the target generator.
