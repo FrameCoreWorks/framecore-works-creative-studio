@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.145.0, 2026-10-26
+
+Trigger: the owner's plugin-dev review of 2026-10-26 ([review](docs/reviews/plugin-dev-skill-review-2026-10-26.md)), minor findings, fixed on the owner's go-ahead.
+
+- **Routing wording:** Copy Voice no longer claims dialogue (Story And Screenplay owns it); Sales Campaign Strategy sends a static or mixed family's visual system to Visual Campaign; Audio analyses audio only through its named tools; Hipson routing and the self-improvement trigger stay explicit; Delivery names FrameCut's own review of its finals; Image Prompt says when a text-bearing raster stays there.
+- **Consistency:** Graphic Design's direction count, the workstyle host list (Claude Code added), Hipson Handoff's ChatGPT metadata, display names instead of "Board/Sequence Architect" and "the Motion Graphics", and the client intake links lead with the user's language.
+- Descriptions total 7,482 of 7,800 characters; the orchestrator is 31,867 bytes. Release gate 5/5 in headless Claude Code (plan usage); Codex and ChatGPT clients: NOT_RUN.
+
 ## 1.144.0, 2026-10-26
 
 Trigger: owner decision 2026-10-26 after sending https://openverse.org: Openverse becomes Studio's reference base for images and sound, announced once at first configuration ([decision map](plugins/framecore-work-creative-studio/integrations/openverse/README.md)).
