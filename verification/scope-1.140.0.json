@@ -1,0 +1,41 @@
+{
+  "version": "1.140.0",
+  "baseline_tag": "v1.139.0",
+  "baseline": "a73157338394f4c8268b291f81fc178e627f03b9",
+  "change_id": "CC-20261026-01",
+  "origin": "cloud-code",
+  "files": 1585,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/copy-voice/references/ai-writing-patterns.md",
+    "skills/copy-voice/scripts/ai_writing_check.py",
+    "skills/output-critic-iteration/references/review-and-repair.md",
+    "skills/pipeline-core/assets/craft-lint/README.md",
+    "skills/pipeline-core/assets/craft-lint/craft_lint.py",
+    "skills/pipeline-core/references/craft-rules.md",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/ai_writing_check_test.py",
+    "tests/craft_lint_test.py",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "integrations/taste-skill/LICENSE",
+    "integrations/taste-skill/README.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1563,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "At the owner's request (option 2), taste-skill (Leonxlnx, MIT) is studied as data and its methods restated in Studio's words: headline fit, micro-typography, colour fields, frame and empty space, pictures, real interface fragments and app screen data in the craft rules; mockup look passes and fix order in output review; eight new P1 craft_lint rules and two AI writing patterns; Graphic Design opens the rules for page and app mockups; a pinned taste-skill registry entry."
+}

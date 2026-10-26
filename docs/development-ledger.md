@@ -3819,3 +3819,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `a731573`; workflows Check Studio sources 40246167672, Refresh current release notes 40246166472, Publish verified Studio release 40246166485: success; [v1.139.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.139.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1583 of 1583) ([record](../verification/github-publication-1.139.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261026-01
+
+- Origin: cloud-code
+- Branch: `cloud-code/CC-20261018-01-recommended-repos`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `9c206e2` (main, package 1.139.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.140.0)
+- Package version: 1.139.0 -> 1.140.0
+- Scope: At the owner's request (option 2), taste-skill (Leonxlnx, MIT) is studied as data and its methods restated in Studio's words: headline fit, micro-typography, colour fields, frame and empty space, pictures, real interface fragments and app screen data in the craft rules; mockup look passes and fix order in output review; eight new P1 craft_lint rules and two AI writing patterns; Graphic Design opens the rules for page and app mockups; a pinned taste-skill registry entry.
+- Shared package changed: yes; 20 changed, 2 added, 0 removed ([scope](../verification/scope-1.140.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 243 Node tests (232 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 10 suite 7, 4 suite 8, 7 suite 9, 8 suite 10 (3 skipped; see the suite log for reasons), 23 suite 11, 20 suite 12, 24 suite 13, 21 suite 14, 37 suite 15, 6 suite 16, 10 suite 17, 10 suite 18, 13 suite 19, 31 suite 20, 11 suite 21, 5 suite 22, 17 suite 23, 12 suite 24, 2 suite 25, 8 suite 26, 8 suite 27, 17 suite 28, 12 suite 29, 6 suite 30, 4 suite 31, 44 suite 32, 21 suite 33, 26 suite 34, 17 suite 35, 10 suite 36, 6 suite 37, 4 suite 38, 2 suite 39, 2 suite 40, 3 suite 41, 6 suite 42, 6 suite 43, 4 suite 44, 8 suite 45, 8 suite 46, 11 suite 47, 6 suite 48, 15 suite 49, 13 suite 50, 3 suite 51, 19 suite 52, 3 suite 53, 7 suite 54, 4 suite 55, 9 suite 56, 2 suite 57, 2 suite 58, 16 suite 59, 12 suite 60, 55 suite 61, 6 suite 62, 15 suite 63, 17 suite 64, 6 suite 65, 10 suite 66, 6 suite 67, 34 suite 68: PASS ([record](../verification/release-1.140.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

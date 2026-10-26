@@ -1,5 +1,16 @@
 # Historical development notes
 
+## 1.140.0, 2026-10-26
+
+Trigger: owner request 2026-10-26 to study [taste-skill](https://github.com/Leonxlnx/taste-skill) (Leonxlnx, MIT) and the owner's choice of option 2: a pinned registry entry plus its methods restated in Studio's own words. The repository was read as data at 12af471; none of its scripts was run and no file is copied.
+
+- **Craft rules:** headline fit and micro-typography (with the Polish no-break space after one-letter words), colour fields and warmth without the generated cream-and-terracotta look, a new section [frame, empty space and pictures](../skills/pipeline-core/references/craft-rules.md#frame-empty-space-and-pictures) (frame, rest versus hole, layout words, claims before layout, picture discipline, drawing the subject, real interface fragments, honest found pictures), one action one name, app screen data, interface furniture and motion honesty.
+- **Review:** mockup look passes (one second then five, squint, cover the logo, edges, sameness, phone, fullness, collisions), a fix order and a round record in [review and repair](../skills/output-critic-iteration/references/review-and-repair.md#authored-design-review), without a score. The ideation method's subject inventory now asks for 8 to 12 facts, each also a reference query.
+- **Checks:** `craft_lint.py` gains P1 rules `headline-length`, `index-numbering`, `eyebrow-cluster`, `micro-label-cluster`, `cream-terracotta`, `mono-prose`, `table-figures` and `motion-tells` (dose caps, not bans; skipped in video compositions) and more fake-person patterns; `ai_writing_check.py` gains `template-headline` and `interface-furniture` with Polish forms. New tests in `craft_lint_test.py` and `ai_writing_check_test.py`.
+- **Graphic Design:** for a landing, product page or app screen mockup it opens the frame rules, writes the claims list and layout words first and runs the look passes on screenshots. Sample details presented as the client's are not adopted (Studio's honest-content rule stays).
+- **Registry:** `taste-skill` (category design) pinned to 12af471 through the skills CLI 1.7.2 for Codex and Claude Code (its own marketplaces follow the default branch); manual knowledge-only routes for Claude apps and ChatGPT. Decision map and licence in `integrations/taste-skill/`; NOTICE entry.
+- Host evaluation in headless Claude Code (plan usage): new case TS01 (gaps set) failed first (Graphic Design did not open the rules), then PASS after an explicit file-open instruction ([record](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/host-evals/2026-10-26-1.139.0-gaps-TS01.json)). The pinned `--list` found the one skill; host install: NOT_RUN. Fresh ChatGPT behavior: NOT_RUN.
+
 ## 1.139.0, 2026-10-25
 
 Trigger: owner request 2026-10-25 for a deep web mapping of the ideal JSON prompt structure for images and video, and then the same study for narrative (prose) prompts. Four research passes read the makers' own guides, API references and papers (sources and dates in each card).

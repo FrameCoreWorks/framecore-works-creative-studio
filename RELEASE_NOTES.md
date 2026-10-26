@@ -1,5 +1,5 @@
-# Creative Studio 1.139.0
+# Creative Studio 1.140.0
 
-## JSON and narrative prompts for images and video, from the makers' own documentation
+## Page and app mockup craft adapted from taste-skill
 
-Image Prompt and Video Prompt gain dated cards on when a JSON prompt is real (Ideogram, FIBO, FLUX.2, API fields) and how to write prose per model, plus `prompt_record.py` to check one planning record and compile it for the target generator.
+Craft rules, output review, the ideation method and the copy check gain taste-skill's methods in Studio's words (headline fit, colour fields, frame and empty space, pictures, look passes), with eight new P1 lint rules and a pinned `taste-skill` registry entry.
