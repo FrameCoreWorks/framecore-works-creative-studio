@@ -16,6 +16,7 @@ python3 -m unittest discover -s tests -p 'test_package_identity.py' -v
 python3 -m unittest discover -s tests -p 'test_host_smoke.py' -v
 python3 -m unittest discover -s tests -p 'test_hosted_readback.py' -v
 python3 -m unittest discover -s tests -p 'test_claude_plugin.py' -v
+python3 -m unittest discover -s tests -p 'test_hookify_rules.py' -v
 python3 -m unittest discover -s tests -p 'test_release.py' -v
 python3 -m unittest discover -s tests -p 'test_version_bump.py' -v
 python3 -m unittest discover -s tests -p 'test_publish_release.py' -v
