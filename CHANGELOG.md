@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.141.0, 2026-10-26
+
+Trigger: owner request 2026-10-26 to study [hairline](https://github.com/lucasmarkes/hairline) (Lucas Marques, MIT) and the owner's choice of option 3: a pinned registry entry, the method restated, and a video kit written for Studio. The repository was read as data at 37d2e78; none of its scripts was run and no file is copied except the licence.
+
+- **[Hairline kit](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/hairline/README.md)** in Motion Graphics: quiet isometric line figures built from rounded solids (one silhouette and one crease, no vertical corner), a brighter stroke as the only highlight, a composed rest with one bright mark, honest paint order and no words in the drawing. A planned tour of three to six stops takes the place of the pointer.
+- **`hairline-kit.js`** (Studio's own code, no dependencies): rounded rings, hull and crease; the 30 degree or 2:1 view; and motion as pure functions of time: a 0.7 s ease-out redirected from the current value for choices, exact sums of closed-form spring step responses (k 100, c 18, m 1) for positions, stagger by distance and a clamped falloff. Seeking backwards gives the same values.
+- **Example** `examples/spice-rack/`: two shelves of jars, 1080 x 1920, 8 s, with a HyperFrames timeline and `window.renderFrame(t)`; rendered through `capture-html.mjs` in about 35 s without a GPU (no glow); two renders matched in content (largest pixel difference 5 of 255).
+- **Wiring:** Motion Graphics routes calm, glow-free isometric line films to the kit and opens its README and example first; capability card entry `hairline_kit`, a runtime-map row, wiring test and `hairline_kit_test.py` (7 tests).
+- **Registry:** `hairline` (category motion-graphics) pinned to 37d2e78 through the skills CLI 1.7.2 (hairline-create and hairline-adopt) for Codex and Claude Code; knowledge-only routes for Claude apps and ChatGPT. Decision map and licence in `integrations/hairline/`; NOTICE entry.
+- Host evaluation in headless Claude Code (plan usage): new case HL01 (gaps set) passed 3 of 5 at first (one English reply, one answer without reading the kit; [before](verification/host-evals/2026-10-26-1.140.0-gaps-HL01-before.json)), then 4 of 4 after an explicit file-open instruction ([record](verification/host-evals/2026-10-26-1.140.0-gaps-HL01.json)). The HyperFrames render route and host install: NOT_RUN.
+
 ## 1.140.0, 2026-10-26
 
 Trigger: owner request 2026-10-26 to study [taste-skill](https://github.com/Leonxlnx/taste-skill) (Leonxlnx, MIT) and the owner's choice of option 2: a pinned registry entry plus its methods restated in Studio's own words. The repository was read as data at 12af471; none of its scripts was run and no file is copied.

@@ -1,0 +1,40 @@
+{
+  "version": "1.141.0",
+  "baseline_tag": "v1.140.0",
+  "baseline": "05f0134c8dbb4d61fe4e79ad7c92fcdff897126a",
+  "change_id": "CC-20261026-03",
+  "origin": "cloud-code",
+  "files": 1593,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/capability-card.json",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/knowledge_wiring_test.py"
+  ],
+  "added": [
+    "integrations/hairline/LICENSE",
+    "integrations/hairline/README.md",
+    "skills/hyperframes-workflow/assets/hairline/LICENSE.upstream",
+    "skills/hyperframes-workflow/assets/hairline/README.md",
+    "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/hairline-kit.js",
+    "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/index.html",
+    "skills/hyperframes-workflow/assets/hairline/hairline-kit.js",
+    "tests/hairline_kit_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1572,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "At the owner's request (option 3), hairline (Lucas Marques, MIT) is studied as data: its drawing rules and concept method are restated, and Motion Graphics gains Studio's own seekable Hairline kit (rounded solids, a stroke as the only highlight, ease-out and exact spring sums as functions of time) with a rendered spice-rack example, plus a pinned hairline registry entry."
+}

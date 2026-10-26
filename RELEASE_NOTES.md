@@ -1,5 +1,5 @@
-# Creative Studio 1.140.0
+# Creative Studio 1.141.0
 
-## Page and app mockup craft adapted from taste-skill
+## Hairline: quiet isometric line figures for video
 
-Craft rules, output review, the ideation method and the copy check gain taste-skill's methods in Studio's words (headline fit, colour fields, frame and empty space, pictures, look passes), with eight new P1 lint rules and a pinned `taste-skill` registry entry.
+Motion Graphics gains a kit for glow-free isometric line films built from rounded solids, with one bright stroke as the only highlight and every movement a function of time, adapted from hairline (MIT), plus a rendered example and a pinned `hairline` registry entry.
