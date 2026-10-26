@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.142.0, 2026-10-26
+
+Trigger: owner decision 2026-10-26 on the open question from 1.140.0: option 2, sample details in mockups.
+
+- **[Honest content](../skills/pipeline-core/references/craft-rules.md#honest-content-and-verification):** a page, app screen or product mockup may fill missing content with plausible samples (product names, menu items and prices, opening hours, interface data) so density and line lengths can be judged. Every sample is listed in the delivery note under "Sample details to confirm" and the mockup carries one small note ("Sample details, to be confirmed"; in Polish "Przykładowe dane do potwierdzenia"). Proof is never a sample: testimonials, ratings, review counts, customer or team names and faces, statistics, awards, partner logos and certifications stay real or labelled placeholders, and a sample never reaches a final asset, ad or published page.
+- **Graphic Design** applies the rule to landing, product page and app mockups; the taste-skill decision map records the change. A new lint test keeps the note wording clear of the `filler-copy` rule.
+- Host evaluation in headless Claude Code (plan usage): TS01 with its rubric updated passed 3 of 3; the recorded reply lists sample offer items and prices for confirmation, marks the mockup and invents no reviews, ratings or awards ([record](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/host-evals/2026-10-26-1.141.0-gaps-TS01.json); before: [1.140.0 record](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/host-evals/2026-10-26-1.139.0-gaps-TS01.json)). Fresh ChatGPT behavior: NOT_RUN.
+
 ## 1.141.0, 2026-10-26
 
 Trigger: owner request 2026-10-26 to study [hairline](https://github.com/lucasmarkes/hairline) (Lucas Marques, MIT) and the owner's choice of option 3: a pinned registry entry, the method restated, and a video kit written for Studio. The repository was read as data at 37d2e78; none of its scripts was run and no file is copied except the licence.

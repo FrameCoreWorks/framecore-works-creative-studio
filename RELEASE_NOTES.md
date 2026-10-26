@@ -1,5 +1,5 @@
-# Creative Studio 1.141.0
+# Creative Studio 1.142.0
 
-## Hairline: quiet isometric line figures for video
+## Sample details in mockups, never sample proof
 
-Motion Graphics gains a kit for glow-free isometric line films built from rounded solids, with one bright stroke as the only highlight and every movement a function of time, adapted from hairline (MIT), plus a rendered example and a pinned `hairline` registry entry.
+Page and app mockups may use plausible sample details, listed for the client to confirm and marked on the mockup; testimonials, ratings, names, statistics, awards and logos are never samples.

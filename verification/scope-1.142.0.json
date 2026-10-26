@@ -1,0 +1,29 @@
+{
+  "version": "1.142.0",
+  "baseline_tag": "v1.141.0",
+  "baseline": "f5e1f5dd87628077c28414bbf89686bf40d099be",
+  "change_id": "CC-20261026-04",
+  "origin": "cloud-code",
+  "files": 1593,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/taste-skill/README.md",
+    "plugin.json",
+    "skills/pipeline-core/references/craft-rules.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/craft_lint_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1582,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner decision 2026-10-26 (option 2): page and app mockups may carry plausible sample details, listed under 'Sample details to confirm' and marked on the mockup; testimonials, ratings, names, statistics, awards and logos are never samples. Craft rules and Graphic Design updated; lint test for the note wording."
+}
