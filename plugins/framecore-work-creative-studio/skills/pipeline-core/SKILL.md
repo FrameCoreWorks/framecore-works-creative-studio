@@ -147,7 +147,7 @@ Shared design tools (Python standard library, run where code runs; each README s
   campaign may use its specialist; pass accepted context and exact-copy locks.
 - Route motion graphics from code (kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation) to `hyperframes-workflow`, which chooses the runtime, renders a finished MP4 where code runs and designs its sound; React/TypeScript compositions go to `remotion-video-production`.
 - When a task needs a specific capability that no Studio skill or recommended extension covers, follow the [skill finder during a task](../workflow-orchestrator/references/skill-finder.md#6-during-a-task): one offer of at most three audited skills.sh candidates, used once or installed only on the user's answer.
-- Route Hipson-style packets through `hipson-adapter` unless the user chooses full Hipson separately.
+- Route explicit Hipson-format packets through `hipson-adapter` unless the user chooses full Hipson separately.
 - Route a sales campaign with unresolved product, offer, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`; positioning, audiences or a channel plan without a priced offer go to `marketing`.
 - Route screenplay, treatment, scene, dialogue, pitch, coverage, or narrative-rewrite work through `screenplay-story-architect` before storyboard production.
 - Route broad video production/preproduction through `creative-video-producer`; editing existing material, highlights and cutdowns go to FrameCut. A commercial video idea goes to `commercial-video-campaign-director`, coded motion and explainers to `hyperframes-workflow`, and a creator-style ad to `ugc`, as in the orchestrator's route table.

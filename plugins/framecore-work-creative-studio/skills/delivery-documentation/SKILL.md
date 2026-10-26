@@ -17,7 +17,7 @@ Distinguish prompt, concept raster, reviewed digital raster and production maste
 
 For a file going to a printer, follow [print-ready PDF](references/print-ready-pdf.md): get the printer's specification, set trim and bleed boxes and the output intent, run the preflight where it can run, and report the profile, the checks and what the printer still has to confirm.
 
-For audio/video, distinguish a script/cue sheet/export specification from actual media, inspected ranges and a verified export. Use the audiovisual section of the reference. Record requested, verified and unknown properties separately; never fill missing FPS, codec, sample rate, loudness, dimensions, duration, channels or caption timing with defaults. Audio Production owns audio triage; Video Prompt owns video and audiovisual review, except a rendered motion video with its contract to the Motion Graphics. Their evidence scope travels with the handoff.
+For audio/video, distinguish a script/cue sheet/export specification from actual media, inspected ranges and a verified export. Use the audiovisual section of the reference. Record requested, verified and unknown properties separately; never fill missing FPS, codec, sample rate, loudness, dimensions, duration, channels or caption timing with defaults. Audio Production owns audio triage; Video Prompt owns video and audiovisual review, except a rendered motion video with its contract, which goes to Motion Graphics, and a FrameCut final, which FrameCut reviews. Their evidence scope travels with the handoff.
 
 Carry exact copy, reference roles, concept invariants, format, safe zones and review status. DTP notes identify unknown bleed/profile/font/dieline requirements instead of inventing them. Do not silently shorten mandatory text.
 

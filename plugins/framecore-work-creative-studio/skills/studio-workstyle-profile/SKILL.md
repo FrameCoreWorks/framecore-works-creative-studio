@@ -36,7 +36,7 @@ If the profile is absent, adapt within the current conversation and continue. Do
 
 ## Private storage and portability
 
-The profile is per user, never a shared plugin default. Use only a genuinely available per-user memory/profile facility in the active host, and respect its controls. If persistent memory is unavailable, explain that briefly and, when the user wants continuity, create or update an editable project/profile asset from [the template](assets/profile.template.json). ChatGPT, ChatGPT Work and Codex do not gain automatic synchronization merely because this plugin is installed in both. Do not assume the other host can read a local path or attachment.
+The profile is per user, never a shared plugin default. Use only a genuinely available per-user memory/profile facility in the active host, and respect its controls. If persistent memory is unavailable, explain that briefly and, when the user wants continuity, create or update an editable project/profile asset from [the template](assets/profile.template.json). ChatGPT, ChatGPT Work, Claude Code and Codex do not gain automatic synchronization merely because this plugin is installed in both. Do not assume the other host can read a local path or attachment.
 
 For a cross-host transfer, include only the work preferences needed for that project and only when the user requests a handoff. Keep the broader profile separate by default. The user can inspect, edit, export or clear it at any time. Do not store full conversations, client briefs, reference photos, credentials, or project facts in the profile.
 

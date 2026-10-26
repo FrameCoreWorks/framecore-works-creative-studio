@@ -1,6 +1,6 @@
 ---
 name: copy-voice
-description: Write campaign copy, headlines, CTAs, voice-over, supers, caption text and short dialogue lines with locked facts and claims. Polish of existing text goes to Copy Polish; narrative scenes to Story And Screenplay.
+description: Write campaign copy, headlines, CTAs, voice-over, supers, caption text with locked facts and claims. Polish of existing text goes to Copy Polish; narrative scenes to Story And Screenplay.
 ---
 
 # Copy Voice
@@ -21,7 +21,7 @@ Use the user’s working language; keep exact copy and requested prompt language
 ## When To Use
 
 Use this skill when the workflow needs written copy, voice, captions, supers,
-dialogue, product text, campaign lines or CTA variants; polishing existing text goes to
+review of approved dialogue, product text, campaign lines or CTA variants; polishing existing text goes to
 Humanizer. Use it
 after the brief, audience, claim boundaries, and output format are clear enough
 to write without inventing missing facts.

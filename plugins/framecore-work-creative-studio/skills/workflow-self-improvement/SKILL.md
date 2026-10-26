@@ -29,7 +29,7 @@ Use the user’s working language; keep exact copy and requested prompt language
 Use this skill when:
 
 - The user explicitly asks for workflow retrospective, process audit, improvement proposals, or recurring report review.
-- A completed workflow has lessons, defects, friction, or repeated manual steps worth documenting.
+- When explicitly requested, a completed workflow has lessons, defects, friction, or repeated manual steps worth documenting.
 - A report-only automation asks for proposals without mutation.
 
 Do not use this skill as a hidden daemon, automatic editor, external executor, or upload process.

@@ -9,7 +9,7 @@ For supplied-audio analysis, semantic selection, trimming and soundtrack evidenc
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-Own the sound and music decisions within FrameCore Works Creative Studio. This owner plans and reviews audio; it is not a music-generation connector, a licensed-track marketplace, an automatic audio analyser, or a publishing service. Do not claim a listen, beat map, mix, license or generation unless the exact evidence or execution exists.
+Own the sound and music decisions within FrameCore Works Creative Studio. This owner plans and reviews audio; it is not a music-generation connector, a licensed-track marketplace or a publishing service, and it analyses audio only through the named tools. Do not claim a listen, beat map, mix, license or generation unless the exact evidence or execution exists.
 
 ## Voice-over budgets
 

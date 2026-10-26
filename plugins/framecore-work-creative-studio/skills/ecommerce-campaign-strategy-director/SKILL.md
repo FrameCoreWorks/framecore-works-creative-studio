@@ -76,7 +76,7 @@ Use [templates/ecommerce-campaign-strategy-pack.md](templates/ecommerce-campaign
 
 - Prefer one clear campaign thesis over a list of unrelated concepts.
 - Vary one meaningful creative axis at a time in the first test batch.
-- Use `commercial-visual-campaign-director` for static direction and `commercial-video-campaign-director` for motion direction.
+- Use `commercial-visual-campaign-director` for a static or mixed family's visual system and `commercial-video-campaign-director` for motion direction.
 - Use `commercial-visual-campaign-director` for a shared campaign family; each static-only execution belongs to `static-graphic-design-creator`, including its integrated copy and prompt compilation.
 - Use `ugc` and `copy-voice`, with `humanizer` for polish, for creator scripts, proof framing, VO, supers, and CTAs.
 - Use `video-prompt-architect` for the selected video unit and `image-prompt-architect` for a separately requested image operation or target adaptation only after product truth, claims, asset role, and acceptance criteria are stable. Do not bypass the integrated static owner for banners or static ads.

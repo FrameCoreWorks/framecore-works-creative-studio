@@ -20,7 +20,7 @@ For a poster or static graphic, follow [ordinary-language format choices](../wor
 
 ## Client work: intake, offer and quote
 
-When the user works for a client, use the [client intake](assets/client-intake.pl.md) ([English](assets/client-intake.en.md)) for the open questions only, add the commercial fields to the Brief Contract, and build the offer with [client offer and quote](references/client-offer-and-quote.md): packages that differ in outcome, revision rounds, timeline, rights in plain words, payment and validity, priced by [quote_calc.py](scripts/quote_calc.py) from the user's own rates and VAT status. Never invent a rate or a market price; a question about what to charge gets the pricing logic and an offer to compute from the user's numbers, and a market rate only with current sources. The whole client path is mapped in [client projects](../pipeline-core/references/client-projects.md).
+When the user works for a client, use the client intake in the user's language ([English](assets/client-intake.en.md), [Polish](assets/client-intake.pl.md)) for the open questions only, add the commercial fields to the Brief Contract, and build the offer with [client offer and quote](references/client-offer-and-quote.md): packages that differ in outcome, revision rounds, timeline, rights in plain words, payment and validity, priced by [quote_calc.py](scripts/quote_calc.py) from the user's own rates and VAT status. Never invent a rate or a market price; a question about what to charge gets the pricing logic and an offer to compute from the user's numbers, and a market rate only with current sources. The whole client path is mapped in [client projects](../pipeline-core/references/client-projects.md).
 
 ## When To Use
 

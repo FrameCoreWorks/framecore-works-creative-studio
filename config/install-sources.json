@@ -2613,8 +2613,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 10894,
-      "sha256": "69b578ac3cb507e98a7b936aa2c6a4d8a118ae48d17c24b3836235f2b2eea2f2"
+      "bytes": 10916,
+      "sha256": "c246ae4297527385c1c4592eab840d9f0a30fe5d5f2ebb6a30b9964f63b67c00"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2683,8 +2683,8 @@
     },
     {
       "path": "skills/brief-architect/SKILL.md",
-      "bytes": 6541,
-      "sha256": "fd686fd758105d61136141a07ed0c86325098f1b647461bb3e8c46ff480fabbd"
+      "bytes": 6572,
+      "sha256": "5012a0f066e441277c324779d0f3cdfe2cbf13e7409413e799d02a5a5c699bec"
     },
     {
       "path": "skills/brief-architect/agents/openai.yaml",
@@ -2798,8 +2798,8 @@
     },
     {
       "path": "skills/commercial-video-campaign-director/SKILL.md",
-      "bytes": 11938,
-      "sha256": "bae4e187bc3b92a24b6aa779faae94ac9d5e8378944dbe75fec5b4ad337cab8a"
+      "bytes": 11934,
+      "sha256": "4db53f8dccd0633d9e29ff674bd38b0f4ff2266ba2c4b2bce392501454e0233a"
     },
     {
       "path": "skills/commercial-video-campaign-director/agents/openai.yaml",
@@ -2963,8 +2963,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 10865,
-      "sha256": "466f8bd311a2a2b6117e3cb5bfcf42dcca3544478a2c527ec05211a5cd549c31"
+      "bytes": 10859,
+      "sha256": "86fe1807326aa933bc67a46d696afa1a7f0018d61dfcbae4d6481d9962a8df12"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -3083,8 +3083,8 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 8246,
-      "sha256": "c5b21017017a37952c9a5091ee641305f953a4755a54174e66678cc6d8883485"
+      "bytes": 8300,
+      "sha256": "6e55db37d3a5242e3f5a7bda15bbbeef82f7e366c0c5e9a7e99fde78ec42f569"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
@@ -3163,8 +3163,8 @@
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
-      "bytes": 9071,
-      "sha256": "9f358ccab551794466aa35dbe40cebefcd3b5cabcd862dfba58a1ca6328dd9f2"
+      "bytes": 9095,
+      "sha256": "4fa89840b2915b8d6d4065608289ec8cb400fdc91185e2467420906e75c4a318"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/agents/openai.yaml",
@@ -3223,8 +3223,8 @@
     },
     {
       "path": "skills/hipson-adapter/agents/openai.yaml",
-      "bytes": 260,
-      "sha256": "f04fe5e1b9f8dbe6feb00dbcb8921eeb0039e7439f9419a86058322002857e6d"
+      "bytes": 282,
+      "sha256": "ede0687af5e388d41a045427b291578317f982b4219306d347e0964f62fe3aec"
     },
     {
       "path": "skills/hipson-adapter/templates/instruction-packet.md",
@@ -5278,8 +5278,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 11091,
-      "sha256": "3999d6b5c558c213a476e3f566857178493adc708dc7b284dab66fd91b5c98ef"
+      "bytes": 11214,
+      "sha256": "140dfdaf4b77a028755c68e52cbafd2c0ec6b424667492a931e8f520bf30c8aa"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5573,8 +5573,8 @@
     },
     {
       "path": "skills/output-critic-iteration/SKILL.md",
-      "bytes": 8800,
-      "sha256": "5dfef2b3c8d56d7686f11766c4c04cd9b5bf983628e5bd38056d2ee00b9f9749"
+      "bytes": 8792,
+      "sha256": "4f66d8126066c99e3a4c109767f7d5da64eabb9cc7c762ed0e0fd731d11bd29d"
     },
     {
       "path": "skills/output-critic-iteration/agents/openai.yaml",
@@ -5628,8 +5628,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 24773,
-      "sha256": "fa8bf4c173e5fce2f2962e014839cdd4c2f47fe34abe3ed05f9cf27b16d9711c"
+      "bytes": 24783,
+      "sha256": "c3c0191fc0a1ae315f5f328111bcd1e8cb17f2fe850886635b55894ea8e338aa"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -6338,8 +6338,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 22776,
-      "sha256": "f877b85820304efc5498ba80f96fd50cca29096333b0bb23772c1e9d11509f13"
+      "bytes": 22781,
+      "sha256": "0c9fdb7e59d1dd5221c61cc6527796493c4979cbe6b5530da4a4ffacf94bfa9f"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7188,8 +7188,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/SKILL.md",
-      "bytes": 9453,
-      "sha256": "0e0ce6c2216b115753741e3a309144cb34ae3ab162aed76cf3e75e1a4742de4c"
+      "bytes": 9448,
+      "sha256": "f533d049e5e4ca4a208a65e9ea21f408449daa50d153c8132ca4426dec57ec42"
     },
     {
       "path": "skills/storyboard-board-architect/agents/openai.yaml",
@@ -7248,8 +7248,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 11151,
-      "sha256": "de0d16795ba45b0053abf804837b6dca4e9b1043c0109cc3b572f617f5db052d"
+      "bytes": 11152,
+      "sha256": "906ec58f8f6ece5ff888a3c0782beb71978065ed26fcb71d3ee7d7254f0c23c1"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -7323,8 +7323,8 @@
     },
     {
       "path": "skills/studio-workstyle-profile/SKILL.md",
-      "bytes": 7785,
-      "sha256": "65ef772630afe818f11ed6e408083aeaadab6ad44536f27539947cc4c1df7c73"
+      "bytes": 7798,
+      "sha256": "fa6bec0fddc200e1ff86d7f49f289e9a1662efaa73ff595210f2293367d3fff0"
     },
     {
       "path": "skills/studio-workstyle-profile/agents/openai.yaml",
@@ -7483,8 +7483,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31869,
-      "sha256": "b3bf3d6d48e5cb85cac178241002d0d41f0c367223937d7ab32d80b22aa2d220"
+      "bytes": 31867,
+      "sha256": "eaeb75adad0b3ab181a58e5b77c4d0900c88f6aa0027d1d8815ed044009b8668"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7698,8 +7698,8 @@
     },
     {
       "path": "skills/workflow-self-improvement/SKILL.md",
-      "bytes": 6710,
-      "sha256": "e32e0fb0450c57fe8a70b4b79973f1fb2552df1bbc1dd698717faecd46fc9db6"
+      "bytes": 6737,
+      "sha256": "592997e670c1c39cb270fd3683fa155cc99854981b691ea0c9a0762dc650c43b"
     },
     {
       "path": "skills/workflow-self-improvement/agents/openai.yaml",
