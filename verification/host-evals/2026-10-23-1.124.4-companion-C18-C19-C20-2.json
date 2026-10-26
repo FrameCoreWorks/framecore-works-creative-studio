@@ -6,8 +6,7 @@
     "package_uncommitted_changes": true,
     "candidate": {
       "sha256": "4babcc36ac751ac43909102f56d0584701336b61e739e285f7caa291101cd28f",
-      "files": 1559,
-      "archive": "candidates/4babcc36ac751ac43909102f56d0584701336b61e739e285f7caa291101cd28f.zip"
+      "files": 1559
     },
     "unchanged_during_run": true
   },

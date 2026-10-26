@@ -99,7 +99,7 @@ The owner asked whether there is room for more skills or for deeper reference ma
 
 The owner asked to fix every finding. Released in Studio 1.132.0 with Voice And Narration 1.0.2, Brand Kit 1.0.1 and Earshot Audio 1.0.8.
 
-- **Fixed, important:** 1 (companion version guard in `check_version_bump.py`, with tests; companions ship in Studio's tagged releases and the marketplace), 2, 3, 4, 5, 6, 7 (repository ZIP only; the snapshots stay in Git as evidence), 8, 9, 10, 11.
+- **Fixed, important:** 1 (companion version guard in `check_version_bump.py`, with tests; companions ship in Studio's tagged releases and the marketplace), 2, 3, 4, 5, 6, 7 (repository ZIP only at first; owner decision 2026-10-26: the snapshots were removed and host eval no longer writes them, because the repository archive passed claude.ai's 512 MB marketplace limit; records keep the content hash), 8, 9, 10, 11.
 - **Fixed, minor:** 1, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, and from 19 the release workflow gate, `.gitignore` and the fixture paragraph (moved to `docs/host-evals.md`).
 - **Kept by decision, no change:** minor 2 (a host listing budget, nothing in the repository to fix; descriptions stay within Studio's own budget), minor 5 (recorded in voice-narration 1.0.1: only the engine is pinned), minor 6 (`exec` running the user's own scripts in the venv is the documented use; the allowlist covers `run` and `-m earshot`).
 - **Done in 1.134.0:** from minor 19, tests for the guard branches of `publish_github_release.py` (`tests/test_publish_release.py`), and reference recommendation 1 (Cinematography decision cards).

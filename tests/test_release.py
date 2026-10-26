@@ -138,21 +138,6 @@ class Release(unittest.TestCase):
         self.assertEqual(declared, ['skills/x/SKILL.md'])
         self.assertEqual(packed, declared)
 
-    def test_the_repository_zip_leaves_out_host_eval_candidate_snapshots(self):
-        import sys
-        sys.path.insert(0, str(ROOT / 'scripts'))
-        try:
-            import package_release as packer
-        finally:
-            sys.path.pop(0)
-        with tempfile.TemporaryDirectory() as tmp:
-            root = pathlib.Path(tmp)
-            (root / 'verification/host-evals/candidates').mkdir(parents=True)
-            (root / 'verification/host-evals/candidates/abc.zip').write_bytes(b'0')
-            (root / 'verification/host-evals/run.json').write_text('{}')
-            packed = [p.relative_to(root).as_posix() for p in packer.inventory(root, packer.REPOSITORY_ONLY_EXCLUDED)]
-        self.assertEqual(packed, ['verification/host-evals/run.json'])
-
 
 if __name__ == '__main__':
     unittest.main()

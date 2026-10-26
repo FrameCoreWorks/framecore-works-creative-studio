@@ -29,7 +29,6 @@ import subprocess
 import sys
 import tempfile
 import time
-import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -697,20 +696,13 @@ def run_case(case, args):
     return outcome
 
 
-def candidate_snapshot(root=PLUGIN, destination=None):
+def candidate_snapshot(root=PLUGIN):
     """Bind a run to its source bytes, including uncommitted files, not just HEAD."""
     files = {str(p.relative_to(root)): p.read_bytes() for p in sorted(root.rglob('*'))
              if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc', '.log') and p.name != '.DS_Store'}
     inventory = {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}
     digest = hashlib.sha256(json.dumps(inventory, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
-    if destination is not None:
-        destination.mkdir(parents=True, exist_ok=True)
-        archive = destination / (digest + '.zip')
-        if not archive.exists():
-            with zipfile.ZipFile(archive, 'x', compression=zipfile.ZIP_DEFLATED) as bundle:
-                for name, data in files.items():
-                    bundle.writestr(name, data)
-    return {'sha256': digest, 'files': len(files), 'archive': f'candidates/{digest}.zip' if destination is not None else None}
+    return {'sha256': digest, 'files': len(files)}
 
 
 def main(argv=None):
@@ -761,7 +753,7 @@ def main(argv=None):
     claude_version = subprocess.run(['claude', '--version'], capture_output=True, text=True).stdout.split()[0]
     limit = args.max_cases or CASE_LIMITS['gate' if args.gate else 'full']
     cases, skipped = within_limit(cases, limit)
-    candidate = candidate_snapshot(destination=RECORDS / 'candidates' if args.write else None)
+    candidate = candidate_snapshot()
     results, used, seconds = [], add_tokens(), 0.0
     for case in cases:
         try:

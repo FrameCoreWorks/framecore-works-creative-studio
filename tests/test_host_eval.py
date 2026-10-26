@@ -68,24 +68,18 @@ class Suite(unittest.TestCase):
 
 
 class CandidateSnapshot(unittest.TestCase):
-    def test_snapshot_detects_dirty_edits_and_keeps_the_exact_candidate(self):
+    def test_snapshot_detects_dirty_edits_and_ignores_caches(self):
         import tempfile
-        import zipfile
         with tempfile.TemporaryDirectory() as temp:
-            root = pathlib.Path(temp) / 'package'
-            root.mkdir()
+            root = pathlib.Path(temp)
             (root / 'SKILL.md').write_text('first')
-            destination = pathlib.Path(temp) / 'candidates'
-            first = host_eval.candidate_snapshot(root, destination)
+            first = host_eval.candidate_snapshot(root)
             (root / 'SKILL.md').write_text('second')
-            second = host_eval.candidate_snapshot(root, destination)
+            second = host_eval.candidate_snapshot(root)
             self.assertNotEqual(first['sha256'], second['sha256'])
-            self.assertEqual(second, host_eval.candidate_snapshot(root, destination))
-            with zipfile.ZipFile(destination / (first['sha256'] + '.zip')) as saved:
-                self.assertEqual(saved.read('SKILL.md'), b'first')
             (root / '__pycache__').mkdir()
             (root / '__pycache__/cached.pyc').write_bytes(b'cache')
-            self.assertEqual(second, host_eval.candidate_snapshot(root, destination))
+            self.assertEqual(second, host_eval.candidate_snapshot(root))
 
 
 class Usage(unittest.TestCase):
