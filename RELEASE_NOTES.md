@@ -1,5 +1,5 @@
-# Creative Studio 1.143.0
+# Creative Studio 1.144.0
 
-## Review fixes: caption safe zone, coded storyboards, clearer skill boundaries
+## Openverse: the reference base for images and sound
 
-Burned-in captions on any 9:16 Meta placement, organic or paid, keep the bottom 35 % clear. A storyboard for a coded motion film stays with Motion Graphics. Eight skills state their boundaries without contradicting themselves or their neighbours.
+Studio searches Openverse, over 800 million openly licensed images and audio tracks, whenever pictures or sounds are missing, with no installation or key. Every work comes with its licence, source page and attribution. Earshot 1.0.9 finds recordings through it too.

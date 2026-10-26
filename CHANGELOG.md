@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.144.0, 2026-10-26
+
+Trigger: owner decision 2026-10-26 after sending https://openverse.org: Openverse becomes Studio's reference base for images and sound, announced once at first configuration ([decision map](plugins/framecore-work-creative-studio/integrations/openverse/README.md)).
+
+- **[Openverse reference base](plugins/framecore-work-creative-studio/skills/reference-pack-curator/SKILL.md#openverse-reference-base)** in Reference Pack, with Studio's own `openverse.py` (Python standard library, no key): images or audio usable commercially and modifiable by default, or an explicit licence list (`--licence cc0,by`); each work's licence, source page and attribution line for the asset manifest; share-alike and unknown-creator warnings; on a rate limit, an outage or an unexpected reply a JSON error with the openverse.org search link. Openverse has no video.
+- **Routing:** every owner that sources pictures or sound points to it: Graphic Design, Image Prompt, Storyboard Board, Cinematography, Character Design (never a real person's identity), Motion Graphics (pictures for service reels, recorded sound), FrameCut (stills, b-roll, ambience, effects), Audio, Research and the orchestrator's picture rule. **Earshot 1.0.9** finds Freesound candidates through Openverse with `license=cc0,by`; its licence and consent policy is unchanged.
+- **First configuration** says once, after the startup-style answer, that Openverse is the reference base and nothing is installed.
+- Registry entry `openverse` pinned to WordPress/openverse `49f5b60`; NOTICE entry; `openverse_test.py`.
+- Host evaluation in headless Claude Code (plan usage): OV01 to OV05 pass ([record](verification/host-evals/2026-10-26-1.143.0-gaps-OV01-OV02-OV03-OV04-OV05.json)); OV01 and OV02 failed on 1.143.0; OV01 passed 5 of 7 earlier runs while the wording was tightened; release gate 5/5. Claude apps, ChatGPT and ChatGPT Work reach to the API: NOT_RUN; startup check in ChatGPT: NOT_RUN.
+
 ## 1.143.0, 2026-10-26
 
 Trigger: the owner's plugin-dev review of 2026-10-26 ([review](docs/reviews/plugin-dev-skill-review-2026-10-26.md)), important findings 1 to 8, fixed on the owner's go-ahead.
