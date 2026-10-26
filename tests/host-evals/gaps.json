@@ -424,6 +424,34 @@
           ]
         }
       ]
+    },
+    {
+      "id": "TS01",
+      "title": "A landing page mockup starts from claims and layout words and plans the look passes",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj makietę strony głównej (landing page) dla małej piekarni rzemieślniczej z Krakowa. Nie mam jeszcze zdjęć ani opinii klientów.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "reads_any": [
+                "craft-rules.md",
+                "review-and-repair.md"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Writes a claims list (one claim per section with its proof) before the layout",
+        "Uses labelled placeholders for the missing photos and reviews; invents no testimonials, ratings or customer names",
+        "Plans the mockup look passes on screenshots at phone and desktop width"
+      ]
     }
   ]
 }

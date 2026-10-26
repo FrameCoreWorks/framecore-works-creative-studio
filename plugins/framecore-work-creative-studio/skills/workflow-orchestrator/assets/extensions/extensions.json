@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-24",
+  "checked": "2026-10-26",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -1109,6 +1109,79 @@
       },
       "observed": "2026-10-19 Linux container: repository read at 439a2ef (six skills, contrast-check.py, the CLI installer that writes CLAUDE.md or AGENTS.md pointers, the Claude plugin manifest with a contrast MCP server); skills@1.7.2 pinned remote --list found the six skills. Host install, invocation and removal not_run.",
       "update": "Review a newer commit (rules, installer behaviour, licence), then update reviewed_commit, every pinned command and Studio's adapted references, checker and lint rules together."
+    },
+    {
+      "id": "taste-skill",
+      "name": "Taste Skill (Leonxlnx)",
+      "repository": "https://github.com/Leonxlnx/taste-skill",
+      "reviewed_commit": "12af471f627f866411b4bd785b19646d3672784c",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "skill",
+        "knowledge",
+        "tools"
+      ],
+      "category": "design",
+      "role": "engine",
+      "gives": "A coding-agent skill (design-taste-frontend, plugin 2.1.5) that builds landing pages and app screens: a subject inventory and idea sentence, a design library derived from 247 gallery sites, a found-image search with per-image credits, a headless-browser inspection and critique loop, and a lint script.",
+      "studio_uses": "Studio bundles none of its files. Its methods are restated in Studio English: headline fit, micro-typography, colour fields, frame and empty space, pictures, real interface fragments and app screen data in the craft rules; mockup look passes and fix order in output review; new craft_lint.py rules; template headlines and interface furniture in the AI writing check. This optional entry installs the original skill for coded page and app mockups.",
+      "not_for": "Replacing Studio's brand kit, intake, review or honest-content rule; absolute style bans; numeric design scores; rebuilding a named gallery site; production builds.",
+      "requires": [
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "22.20.0",
+              null
+            ]
+          ],
+          "note": "Node.js 22.20+ for the pinned skills CLI 1.7.2; the skill scripts need Node 22+."
+        },
+        {
+          "tool": "browser",
+          "note": "An installed Chrome, Edge or Chromium, driven headless for its inspection and screenshots."
+        },
+        {
+          "tool": "network",
+          "note": "Network for Google Fonts, Fontshare and its found-image search; no API keys."
+        }
+      ],
+      "rights": "MIT, Copyright (c) 2026 Leonxlnx. Keep LICENSE with the skill. Found images keep their own licences (its search keeps CC0, public domain, CC BY and CC BY-SA; BY-SA adaptations stay BY-SA, which can conflict with client exclusivity); library photos are Unsplash images via Lorem Picsum; fonts keep their own terms. Its site records describe third-party sites: never rebuild a named site for a client.",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill --skill design-taste-frontend -a codex -g --copy",
+          "writes": "Copies the design-taste-frontend skill folder (39 files, about 2.4 MB with its library and scripts) into the agent's global skills. When used, its scripts write .taste-skill/ and assets/credits.json in the project, ~/.taste-skill/history.json and temporary Chrome profiles in the OS temp folder.",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Codex; the skill loads by its description. Its page builds need Node 22+, an installed Chrome, Edge or Chromium and network for fonts and found images. Ask for one page mockup and check that the skill runs before claiming it works.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove design-taste-frontend -g -a codex; then delete .taste-skill/ in each project and ~/.taste-skill/"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill --skill design-taste-frontend -a claude-code -g --copy",
+          "writes": "Copies the design-taste-frontend skill folder (39 files, about 2.4 MB with its library and scripts) into the agent's global skills. When used, its scripts write .taste-skill/ and assets/credits.json in the project, ~/.taste-skill/history.json and temporary Chrome profiles in the OS temp folder.",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Claude Code; the skill loads by its description. Its page builds need Node 22+, an installed Chrome, Edge or Chromium and network for fonts and found images. Ask for one page mockup and check that the skill runs before claiming it works.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove design-taste-frontend -g -a claude-code; then delete .taste-skill/ in each project and ~/.taste-skill/"
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill. Where Claude accepts custom skills, upload skills/taste-skill (it holds SKILL.md and references) with LICENSE in Claude's skill settings; its scripts need a browser and may not run there. Studio already applies the adapted methods. Remove it in the same settings. Not host-tested."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill. For knowledge only, attach skills/taste-skill/SKILL.md and the reference files you need (copy, layout, colour, imagery, critique) as project files where supported; scripts do not run. Studio already includes the adapted methods. Remove the files to remove it."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c/skills/taste-skill. Attach the SKILL.md and reference files as project files, as for ChatGPT; where code execution exists, Studio's own craft_lint.py runs the adapted checks. Remove the files to remove it."
+        }
+      },
+      "observed": "2026-10-26 Linux container: repository read as data at 12af471 (skill design-taste-frontend, 39 files; the Claude Code and Codex marketplaces both follow the default branch, unpinned); no repository script was run. skills@1.7.2 pinned remote --list found the one skill. Host install, invocation and removal not_run.",
+      "update": "Review a newer commit (skill text, scripts, what it writes, licences of bundled photos), then update reviewed_commit, every pinned command and Studio's adapted references, lint rules and writing checks together."
     },
     {
       "id": "upscayl",

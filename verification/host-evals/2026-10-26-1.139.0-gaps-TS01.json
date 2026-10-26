@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-26",
+  "package_version": "1.139.0",
+  "source": {
+    "commit": "9c206e20622a0811396534fba9a5915a74c36777",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "f1f53da386f083b0cabcc2ba192c96218fcab6bc21db8d7f95e9f26a2a5722b8",
+      "files": 1585,
+      "archive": "candidates/f1f53da386f083b0cabcc2ba192c96218fcab6bc21db8d7f95e9f26a2a5722b8.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "255c1bc95627a03ca7dbbf1dc5b39b71a5cad8886ee85881d02dd1c4e216b856",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 4311,
+      "output": 5900,
+      "cache_read": 89428,
+      "cache_write": 47686
+    },
+    "seconds": 38.3
+  },
+  "cases": [
+    {
+      "id": "TS01",
+      "title": "A landing page mockup starts from claims and layout words and plans the look passes",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4311,
+        "output": 5900,
+        "cache_read": 89428,
+        "cache_write": 47686
+      },
+      "seconds": 38.3,
+      "wall_seconds": 52.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj makietę strony głównej (landing page) dla małej piekarni rzemieślniczej z Krakowa. Nie mam jeszcze zdjęć ani opinii klientów.",
+          "reply": "Zanim narysuję makietę, potrzebuję od Ciebie jednej decyzji: wybierz kierunek. Poniżej są trzy, a pod nimi lista danych, których nie wymyślam.\n\n**Co odłożyłam na bok.** Każda piekarnia rzemieślnicza pokazuje to samo: kremowe tło z terakotą, kłosy pszenicy, obsypane mąką dłonie, drewno i pismo „jak dawniej”. Nie startuję od tego. Bez zdjęć taki wygląd i tak by się nie obronił, bo trzyma się na fotografii chleba.\n\n## Trzy kierunki\n\n**A. „Grafik pieca” (moja rekomendacja)**\nCała strona to jeden dzień pracy piekarni.\n- Strona jest ułożona jak oś czasu: zaczyn, wyrastanie, piec, pierwsze bochenki, „do wyczerpania”.\n- Hero to jedna duża godzina, czyli moment, w którym chleb wychodzi z pieca. Strona mówi klientowi, kiedy przyjść po ciepły chleb.\n- Działa bez zdjęć, bo nośnikiem jest typografia i rytm, a nie fotografia.\n- Kolor: ciemny „węgiel pieca” albo kamień, jeden pole koloru w odcieniu skórki chleba, jeden akcent.\n\n**B. „Zakwas ma metrykę”**\nBohaterem jest zakwas, czyli to, co odróżnia tę piekarnię od sklepu.\n- Strona ma układ metryki albo etykiety: imię zakwasu, wiek, mąka, czas dojrzewania.\n- Wymaga prawdziwych faktów od Ciebie (czy zakwas ma imię, ile ma lat). Bez nich ten kierunek odpada.\n\n**C. „Papierowa torba”**\nPożyczony format: nadruk na papierowej torbie piekarni.\n- Stempel, krój w stylu pieczątki, jedno pole koloru i dużo pustego papieru.\n- Jest bardziej zabawny i lokalny, ale mniej „informacyjny” niż A.\n\n*Klasyk (opcjonalnie):* ciepła paleta ze zdjęciami na całą szerokość. Wybieram go tylko wtedy, gdy zdjęcia pojawią się przed startem strony.\n\n## Szkielet strony (wspólny dla wszystkich)\n\nKażda sekcja ma jedno twierdzenie i dowód:\n1. **Hero:** co i kiedy z pieca, plus jedno wyraźne wezwanie, np. „Zobacz, co dziś upieczone”.\n2. **Co pieczemy:** lista chlebów z prawdziwymi nazwami i opisem składu.\n3. **Jak pracujemy:** proces, który wyjaśnia, dlaczego chleb jest inny.\n4. **Gdzie i kiedy:** adres, mapa, godziny, jak zamówić.\n5. **Kontakt/zamówienia:** forma prosta, bez zbędnych pól.\n\nZdjęcia dostają **opisane ramki** (np. „[ZDJĘCIE: bochen na stole, 4:5]”), bez zdjęć z banków. Sekcji opinii nie będzie. Zastąpi ją sekcja z realnym dowodem, np. godzina otwarcia pieca albo skład. Dodamy opinie dopiero, gdy będą prawdziwe.\n\n## Czego potrzebuję (cokolwiek z listy)\n\n- **Nazwa** piekarni i dzielnica Krakowa albo adres.\n- **Godziny** otwarcia i sposób sprzedaży: na miejscu, przedpłata, dostawa.\n- **Asortyment:** 3–6 produktów, które chcesz pokazać.\n- **Logo i kolory**, jeśli istnieją.\n\nCzego nie ma, oznaczę jako `[DO UZUPEŁNIENIA]`, a nie zgadnę. Dopasuję makietę do tego, co jest dostępne.\n\n## Jak odpowiedzieć\n\nNapisz **A**, **B** albo **C**, a jeśli nie masz danych, dopisz „rób z placeholderami”. Wtedy zbuduję makietę jako stronę HTML w dwóch szerokościach (desktop i telefon). Ustawiam ją na energię 2 / rytm 3 / ruch 1, czyli stonowana, z kilkoma wyraźnymi przełamaniami i prawie bez animacji.",
+          "reply_chars": 2943,
+          "reply_sha256": "b0b27faa39b685aa5d14dec0ff60a8b46b90cb13882614a58e88428102451952",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1254,
+            "output": 3522,
+            "cache_read": 87374,
+            "cache_write": 43183
+          },
+          "seconds": 38.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "craft-rules.md",
+                  "review-and-repair.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['craft-rules.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3057,
+          "output": 2378,
+          "cache_read": 2054,
+          "cache_write": 4503
+        },
+        "items": [
+          {
+            "item": "Writes a claims list (one claim per section with its proof) before the layout",
+            "verdict": "unclear",
+            "reason": "The skeleton comes before any layout and lists five sections, and it states that each section has one claim and one proof. However, most entries describe section content rather than naming a claim and a separate proof for each section, so the claim-proof pairing is only loosely present."
+          },
+          {
+            "item": "Uses labelled placeholders for the missing photos and reviews; invents no testimonials, ratings or customer names",
+            "verdict": "unclear",
+            "reason": "Photos get labelled placeholders such as '[ZDJĘCIE: bochen na stole, 4:5]' and missing data is marked '[DO UZUPEŁNIENIA]'. No testimonials, ratings or customer names are invented. But reviews get no placeholder: the review section is dropped and replaced with a proof section, so the 'placeholder for reviews' part is not met."
+          },
+          {
+            "item": "Plans the mockup look passes on screenshots at phone and desktop width",
+            "verdict": "not_met",
+            "reason": "The response plans to build the mockup as HTML at desktop and phone widths. It never mentions taking screenshots or checking the look visually at either width."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ]
+}

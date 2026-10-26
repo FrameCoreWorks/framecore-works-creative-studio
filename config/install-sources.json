@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 8630,
-      "sha256": "3bf1a83d3f5cf5e2138871fe9a288d704ab12d8fb1d16405fc77d78c15b52ac1"
+      "bytes": 9226,
+      "sha256": "1e13619f1f4fae00a63b00c8aa7028eded1a4c5e3364a39ad230287c05acdbef"
     },
     {
       "path": "README.md",
@@ -465,6 +465,16 @@
       "path": "integrations/superpowers/README.md",
       "bytes": 1617,
       "sha256": "3c020fc7db2901853bd1e72f8c2bef7be360bd0e06665dd090a279ac9587ab4b"
+    },
+    {
+      "path": "integrations/taste-skill/LICENSE",
+      "bytes": 1065,
+      "sha256": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df"
+    },
+    {
+      "path": "integrations/taste-skill/README.md",
+      "bytes": 4015,
+      "sha256": "6cbea9ae998281b17775f24df04acd39ab489b1ca402f87cd1eb3f20a51936a4"
     },
     {
       "path": "integrations/tts-engines/LICENSE-MOSS-TTS",
@@ -2963,8 +2973,8 @@
     },
     {
       "path": "skills/copy-voice/references/ai-writing-patterns.md",
-      "bytes": 10313,
-      "sha256": "43bf5cb14545afb2d71f62adf355ef4df7f46fee118955848bcdce743e2728c6"
+      "bytes": 10802,
+      "sha256": "50cde4095a11a7699316ac0e4c6b1fb02e0156fbdf7b8d101851d0990b394f90"
     },
     {
       "path": "skills/copy-voice/references/copy-development-and-human-voice.md",
@@ -2978,8 +2988,8 @@
     },
     {
       "path": "skills/copy-voice/scripts/ai_writing_check.py",
-      "bytes": 10062,
-      "sha256": "71dd6431536f4b02c306f4152917dd28703fa42bd422c5b56d94092632ebed9d"
+      "bytes": 10406,
+      "sha256": "e4aa8979ed3ae6c0533381b1207a4520033fd85ada261ff0ac1b5f076d0c61e1"
     },
     {
       "path": "skills/copy-voice/scripts/pl_copy_check.py",
@@ -5563,8 +5573,8 @@
     },
     {
       "path": "skills/output-critic-iteration/references/review-and-repair.md",
-      "bytes": 12784,
-      "sha256": "63c2d9036ec641b3e786a8de90f78f308f4edd057303e70663eff837ee342222"
+      "bytes": 14077,
+      "sha256": "5df2d08badede6e28d408edc93829b87bd773cdb4a3f399660a4c51c2b2aa04f"
     },
     {
       "path": "skills/output-critic-iteration/scripts/image_probe.py",
@@ -5593,8 +5603,8 @@
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
-      "bytes": 5186,
-      "sha256": "9cb62185e9d1ed17855572b0663cbd41364c9c1c420fc45cda77843b8b692615"
+      "bytes": 6263,
+      "sha256": "3ed6dcd95d7759e6f8d03e2ccbf4261a7b2111d783e8a6185033410a4a196b8f"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/contrast_check.py",
@@ -5603,8 +5613,8 @@
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/craft_lint.py",
-      "bytes": 16524,
-      "sha256": "5cf7ae9ce5165d85e0eda31a7e93c0f4d04ce4bb11d373ad6718ad6921a66c64"
+      "bytes": 21597,
+      "sha256": "0c524f2a3f5698195887585f8456c450e9accb5d358f290cdf46449eb22bb650"
     },
     {
       "path": "skills/pipeline-core/assets/design-md/README.md",
@@ -5808,8 +5818,8 @@
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
-      "bytes": 25113,
-      "sha256": "a6fca3b08451eed017b9174e3f169be4179034fcb3af08e1264397f35445af41"
+      "bytes": 30640,
+      "sha256": "a71b71d77309f741e36e30e6b435823323a7fbb623dc1d078f67c29503add5e4"
     },
     {
       "path": "skills/pipeline-core/references/creative-prompting-standard.md",
@@ -5853,8 +5863,8 @@
     },
     {
       "path": "skills/pipeline-core/references/ideation-method.md",
-      "bytes": 10231,
-      "sha256": "e8cda70424f2f7868f6773b5ff6ebaa7e69a488c686e5e31ce79e839aba16aa1"
+      "bytes": 10398,
+      "sha256": "9b7a98244eac42bee5efdf1095dee870b3dba153711f71100b8109f81e19ff34"
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
@@ -6278,8 +6288,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 21180,
-      "sha256": "63c3d78bbb86927ed8f54c6f66a73c14685161225af480ebe75f6aa362390d85"
+      "bytes": 22279,
+      "sha256": "3b819f72b7f8a02604690fa2adeb566093edc38826a92aeae1a98acac639c3bc"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7473,8 +7483,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 164488,
-      "sha256": "8ac6ced2ce9ab615b857179921473bc3b028cd43218f60093ee7d5668fb40f2e"
+      "bytes": 171530,
+      "sha256": "e8ea20379aa2b3e09ad9301cfe08c097dc230ceeeffc8d2a51e6cf0fd173ff44"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7668,8 +7678,8 @@
     },
     {
       "path": "tests/ai_writing_check_test.py",
-      "bytes": 3803,
-      "sha256": "768e8fad68fa5335886709ad1d2b7894e011aa06d5f4a4f45386a25b007dd17b"
+      "bytes": 4266,
+      "sha256": "8213de1e5e82454d223ea196a86c1346d24914c2952519996ce51a0973670471"
     },
     {
       "path": "tests/anatomy-engine.test.mjs",
@@ -7713,8 +7723,8 @@
     },
     {
       "path": "tests/craft_lint_test.py",
-      "bytes": 8991,
-      "sha256": "ccfb5228e6b3c1b2cea1d811547c499a0f4936855147d52e4f3d7aa687d9d0db"
+      "bytes": 11649,
+      "sha256": "84dd8aa4dd9e46d73779c5bd9b82c0dcf6e028dc7346281cdce862fcb8ae061e"
     },
     {
       "path": "tests/creative-upgrade.test.mjs",
@@ -7788,8 +7798,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 8618,
-      "sha256": "b33bcbab509f791aef3212182d3dbcf10d1e91bec57b6f58963cd2bc250f815e"
+      "bytes": 9027,
+      "sha256": "b72348ba990fd1d09d4a501cd48263dc2e940fbff6f56f6877f87d70905c88ab"
     },
     {
       "path": "tests/learning-mode.test.mjs",

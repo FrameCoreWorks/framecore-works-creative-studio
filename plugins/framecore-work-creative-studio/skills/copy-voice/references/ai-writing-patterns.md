@@ -48,6 +48,8 @@ Two rules govern everything here:
 | Staccato drama | "No templates. No defaults. No safety." in a run | one sentence that says it; a single short sentence for emphasis is fine |
 | Synonym cycling | "the checkout… the process… the flow…" for the same thing | repeat the clearest word |
 | False ranges | "from first click to final invoice, and everything in between" | list what it actually covers |
+| Template headlines | the mad-lib ("X for Y who Z"), the colon headline ("Coffee: Reimagined"), "X, reimagined" or "redefined", "Welcome to …", "Witamy w …", a question nobody asked | the name, what it is, a claim a competitor cannot sign, an instruction, or a place and moment |
+| Interface furniture | "Est. 2024", map coordinates, "Scroll", status dots, captions that narrate the design ("Designed with care") | cut it; keep a detail only when it is true and the reader needs it |
 
 ## Honesty and evidence
 

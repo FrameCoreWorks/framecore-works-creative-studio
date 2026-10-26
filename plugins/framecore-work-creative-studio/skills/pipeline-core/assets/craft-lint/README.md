@@ -31,13 +31,21 @@ python3 craft_lint.py page.html --allow ai-default-indigo     # the brand kit re
 | `button-arrows` | P1 | an arrow (→ ↗) in three or more buttons or links |
 | `generic-cta` | P1 | a button or link reading only Learn more, Get started, Discover, Explore, Try now, Dowiedz się więcej, Odkryj, Zacznij, Sprawdź |
 | `buzzword` | P1 | AI-powered, next-generation, seamless, cutting-edge, game-changer, innowacyjny, rewolucyjny, przełomowy, nowej generacji |
-| `fake-person` | P1 | John or Jane Doe, Jan Kowalski and their example e-mails in visible text |
+| `fake-person` | P1 | John or Jane Doe, Jan Kowalski, Acme, example.com, 123 Main St and their example e-mails in visible text |
 | `background-grid` | P1 | two or more gradients with a small `background-size`: a decorative grid or graph paper |
 | `viewport-missing` | P1 | a full HTML page with no viewport meta |
 | `full-height-section` | P1 | `height` or `min-height: 100vh` (use content height or `dvh`) |
 | `fixed-width` | P1 | a width of 1000 px or more with no `max-width` in the rule |
+| `headline-length` | P1 | an `h1` over 42 characters or 10 words, or an `h2` over 48 characters (it will not fit two lines at display size on a phone) |
+| `index-numbering` | P1 | three or more decorative index numbers (01, 02, 03, Step 1, Krok 1) outside an ordered list |
+| `eyebrow-cluster` | P1 | an eyebrow, kicker or section-label element directly above three or more headings (one editorial label is allowed) |
+| `micro-label-cluster` | P1 | three or more rules setting tiny tracked capitals (13 px or less, 0.08em or more) |
+| `cream-terracotta` | P1 | a hard-coded cream ground together with a hard-coded terracotta colour (brand tokens are not flagged) |
+| `mono-prose` | P1 | a monospace font family outside `pre`, `code`, `kbd`, `samp`, tables and `[data-ui]` |
+| `table-figures` | P1 | a table whose cells are mostly numbers with no `tabular-nums` and no right alignment |
+| `motion-tells` | P1 | `transition: all`, scaling from 0, `animate-bounce`/`ping`/`pulse` or an infinite animation |
 
-A video composition (HyperFrames data attributes or a seekable timeline) is a fixed canvas, so `viewport-missing`, `full-height-section` and `fixed-width` are skipped there, and so is `accent-overuse`, since the accent rule is per shot and the markup holds every shot; caps at display size (48 px or 4vw and up) are exempt from the tracking rule. Colours defined as custom properties (`--accent: #6366f1`) are the brand's tokens and are never flagged; hard-coded uses are. A finding is a reason to look, not a verdict: when the brief or kit deliberately breaks a rule, pass `--allow ID` and note it in the review. Exit code 1 means at least one P0 finding remains.
+A video composition (HyperFrames data attributes or a seekable timeline) is a fixed canvas, so `viewport-missing`, `full-height-section`, `fixed-width` and the eight rules added from taste-skill are skipped there, and so is `accent-overuse`, since the accent rule is per shot and the markup holds every shot; caps at display size (48 px or 4vw and up) are exempt from the tracking rule. Colours defined as custom properties (`--accent: #6366f1`) are the brand's tokens and are never flagged; hard-coded uses are. A finding is a reason to look, not a verdict: when the brief or kit deliberately breaks a rule, pass `--allow ID` and note it in the review. Exit code 1 means at least one P0 finding remains.
 
 It reads source, not pixels: a raster image, a PDF or a rendered video frame is reviewed by eye against the same rules. It checks contrast only where one rule sets both colours as hex; [`contrast_check.py`](contrast_check.py) computes any pair (`python3 contrast_check.py "#777777" "#ffffff"`, `--selftest` recomputes the WCAG reference pairs), and the worst spot of text over an image is checked by eye or with a scrim. Layout is checked only for the static tells above, not rendered.
 

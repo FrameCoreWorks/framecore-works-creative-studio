@@ -8,14 +8,15 @@
 P0: ai-default-indigo, purple-gradient, trust-gradient, emoji-icon, sans-display, left-accent-card, invented-metric,
 filler-copy, focus-outline-removed, dead-link, low-contrast. P1: all-caps-no-tracking, raw-hex, accent-overuse,
 placeholder-image, glass-overuse, glow-overuse, pill-everything, button-arrows, generic-cta, buzzword, fake-person,
-background-grid, viewport-missing, full-height-section, fixed-width. A video composition (HyperFrames data attributes or
+background-grid, viewport-missing, full-height-section, fixed-width, headline-length, index-numbering, eyebrow-cluster,
+micro-label-cluster, cream-terracotta, mono-prose, table-figures, motion-tells. A video composition (HyperFrames data attributes or
 a seekable timeline) is a fixed canvas, so the page-layout rules are skipped there. Caps at display size (48 px or 4vw and
 up, usually a condensed face) may be set tight; the tracking rule applies to caps at text and label sizes. Colours defined as custom properties
 (`--accent: #6366f1`) are the brand's tokens and are not flagged; hard-coded uses are. Copy checks read visible text in
 English and Polish. A finding is a prompt to look, not a verdict: `--allow ID` records a deliberate exception.
 
-Adapted from Open Design's lint-artifact (Apache-2.0), whose rules adapt refero_skill (MIT), and from anti-slop's UI,
-human and mobile rules (MIT). Python standard library only.
+Adapted from Open Design's lint-artifact (Apache-2.0), whose rules adapt refero_skill (MIT), from anti-slop's UI,
+human and mobile rules (MIT) and from taste-skill's tells and typography notes (MIT; rules rewritten, no ban adopted). Python standard library only.
 Exit codes: 0 no P0 finding, 1 at least one P0 finding, 2 unreadable input.
 """
 import argparse
@@ -42,8 +43,27 @@ GENERIC_CTA = re.compile(r'^(?:learn more|get started|discover|explore|try (?:it
                          r'zacznij(?: teraz)?|sprawdź(?: teraz)?|wypróbuj teraz)$', re.I)
 BUZZWORDS = re.compile(r'(?<![\w-])(?:ai[- ]powered|next[- ]generation|revolutionary|seamless|cutting[- ]edge|game[- ]changer|'
                        r'innowacyjn\w*|rewolucyjn\w*|przełomow\w*|nowej generacji|oparte na ai|napędzane (?:przez )?ai)(?![\w-])', re.I)
-FAKE_PEOPLE = re.compile(r'\b(?:john|jane) doe\b|\b(?:john|jane)\.?doe@|\bjan(?:ina)? kowalsk[ai]\b|\bjan\.kowalski@', re.I)
+FAKE_PEOPLE = re.compile(r'\b(?:john|jane) doe\b|\b(?:john|jane)\.?doe@|\bjan(?:ina)? kowalsk[ai]\b|\bjan\.kowalski@|\bacme(?:\s+(?:inc|corp|corporation))?\b|'
+                         r'\bexample\.com\b|\b123 main st', re.I)
 ARROWS = ('→', '↗', '⟶', '➜', '➔')
+INDEX_NUMBER = re.compile(r'^\s*[(\[]?0[1-9][)\]]?\.?\s*$|^(?:step|phase|krok|etap)\s*0?\d+$', re.I)
+EYEBROW_CLASS = re.compile(r'class\s*=\s*["\'][^"\']*\b(?:eyebrow|kicker|overline|pretitle|section-label|section-tag)\b', re.I)
+NUMERIC_CELL = re.compile(r'^[\s$€£+−-]*\d[\d\s.,]*%?\s*(?:zł|€|\$)?$')
+MONO = re.compile(r'font-family\s*:[^;]*\b(?:mono|monospace|courier|menlo|consolas)\b', re.I)
+
+
+def hsl(hexcode):
+    h = hexcode.lstrip('#')
+    h = ''.join(c * 2 for c in h) if len(h) == 3 else h[:6]
+    r, g, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    hi, lo = max(r, g, b), min(r, g, b)
+    light = (hi + lo) / 2
+    if hi == lo:
+        return 0.0, 0.0, light
+    d = hi - lo
+    sat = d / (2 - hi - lo) if light > 0.5 else d / (hi + lo)
+    hue = ((g - b) / d % 6 if hi == r else (b - r) / d + 2 if hi == g else (r - g) / d + 4) * 60
+    return hue, sat, light
 
 
 def contrast(fg, bg):
@@ -66,6 +86,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.text, self.css, self.icon_text, self.stack, self.skip = [], [], [], [], 0
         self.hrefs, self.controls, self.viewport, self.open_controls = [], [], False, []
+        self.blocks, self.open_blocks, self.ol = [], [], 0   # (tag, text) of headings, cells and short text nodes
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -81,6 +102,10 @@ class Page(HTMLParser):
             self.hrefs.append(attrs.get('href') or '')
         if tag in ('a', 'button'):
             self.open_controls.append([tag, ''])
+        if tag == 'ol':
+            self.ol += 1
+        if tag in ('h1', 'h2', 'h3', 'td', 'th', 'span', 'p', 'div', 'li'):
+            self.open_blocks.append([tag, '', self.ol > 0])
         iconish = tag in ICON_TAGS or 'icon' in (attrs.get('class') or '').lower()
         if tag not in ('br', 'img', 'input', 'meta', 'link', 'hr', 'source'):
             self.stack.append((tag, iconish))
@@ -88,6 +113,11 @@ class Page(HTMLParser):
     def handle_endtag(self, tag):
         if tag in ('a', 'button') and self.open_controls and self.open_controls[-1][0] == tag:
             self.controls.append(self.open_controls.pop()[1].strip())
+        if tag == 'ol' and self.ol:
+            self.ol -= 1
+        if self.open_blocks and self.open_blocks[-1][0] == tag:
+            t, txt, in_ol = self.open_blocks.pop()
+            self.blocks.append((t, ' '.join(txt.split()), in_ol))
         while self.stack:
             name, _ = self.stack.pop()
             if name in ('script', 'style'):
@@ -103,6 +133,8 @@ class Page(HTMLParser):
         self.text.append(data)
         for control in self.open_controls:
             control[1] += data
+        if self.open_blocks:
+            self.open_blocks[-1][1] += data
         if any(iconish for _, iconish in self.stack):
             self.icon_text.append(data)
 
@@ -242,6 +274,40 @@ def lint(source, name='input', allow=()):
     host = next((h for h in PLACEHOLDER_HOSTS if h in source.lower()), None)
     if host:
         add('P1', 'placeholder-image', 'Placeholder image service; use the real image or a local labelled placeholder', host)
+    if not video:
+        if is_html:
+            for tag, txt, _ in page.blocks:
+                if (tag == 'h1' and (len(txt) > 42 or len(txt.split()) > 10)) or (tag == 'h2' and len(txt) > 48):
+                    add('P1', 'headline-length', f'{tag} of {len(txt)} characters will not fit two lines at display size on a phone; cut words before resizing', txt)
+                    break
+            index = [txt for tag, txt, in_ol in page.blocks if not in_ol and txt and INDEX_NUMBER.match(txt)]
+            if len(index) >= 3:
+                add('P1', 'index-numbering', f'{len(index)} decorative index numbers (01, 02, 03); number only a real sequence', ' '.join(index[:4]))
+            eyebrows = len(re.findall(r'<[a-z0-9]+\b[^>]*' + EYEBROW_CLASS.pattern + r'[^>]*>[^<]*</[a-z0-9]+>\s*<h[1-3]\b', source, re.I))
+            if eyebrows >= 3:
+                add('P1', 'eyebrow-cluster', f'A small label above {eyebrows} headings; one editorial label is a choice, a label on every heading is a template', f'{eyebrows} labels')
+            cells = [txt for tag, txt, _ in page.blocks if tag == 'td']
+            numeric = [c for c in cells if c and NUMERIC_CELL.match(c)]
+            if cells and len(numeric) * 2 > len(cells) and not re.search(r'tabular-nums|font-variant-numeric', css) and not re.search(r'(?:^|[\s,>])td\b[^{]*\{[^}]*text-align\s*:\s*(?:right|end)', css):
+                add('P1', 'table-figures', 'A table of numbers without tabular figures or right alignment; columns of digits must line up', f'{len(numeric)} of {len(cells)} cells')
+        labels = 0
+        for selector, body in all_rules:
+            spacing = re.search(r'letter-spacing\s*:\s*([\d.]+)em', body)
+            if re.search(r'text-transform\s*:\s*uppercase', body) and (size_px(body) or 99) <= 13 and spacing and float(spacing.group(1)) >= 0.08:
+                labels += 1
+            if MONO.search(body) and not re.search(r'(?:^|[\s,>])(?:pre|code|kbd|samp|table|td|th)\b|\[data-ui\]', selector.lower()):
+                add('P1', 'mono-prose', 'Monospace outside code or data; it reads as a developer template', selector)
+        if labels >= 3:
+            add('P1', 'micro-label-cluster', f'{labels} tiny tracked capitals styles; keep one label style', f'{labels} rules')
+        grounds = [hsl(h) for h in re.findall(r'background(?:-color)?\s*:\s*(#[0-9a-f]{3,6})\b', raw)]
+        inks = [hsl(h) for h in re.findall(r'#[0-9a-f]{6}\b|#[0-9a-f]{3}\b', raw)]
+        cream = any(22 <= h <= 62 and s_ >= 0.16 and 0.88 <= l <= 0.995 for h, s_, l in grounds)
+        terracotta = any(6 <= h <= 30 and 0.38 <= s_ <= 0.85 and 0.42 <= l <= 0.72 for h, s_, l in inks)
+        if cream and terracotta:
+            add('P1', 'cream-terracotta', 'Cream ground with a terracotta accent: the warm look generated pages default to; take warmth from the brand, photos or one committed field', 'cream + terracotta')
+        motion = re.search(r'transition\s*:\s*all\b|\btransition-all\b|scale\(\s*0\s*\)|\bscale-0\b|\banimate-(?:bounce|ping|pulse)\b|animation[^;{}]*\binfinite\b', raw)
+        if motion:
+            add('P1', 'motion-tells', 'Motion tell (transition: all, scale from 0, endless bounce or pulse); animate named properties and stop', motion.group(0))
     order = {'P0': 0, 'P1': 1}
     return sorted(found, key=lambda f: order[f['severity']])
 

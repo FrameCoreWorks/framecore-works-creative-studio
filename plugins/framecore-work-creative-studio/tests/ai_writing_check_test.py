@@ -68,5 +68,14 @@ class AiWritingCheck(unittest.TestCase):
         self.assertEqual(run()[0], 3)
 
 
+
+class TemplateHeadlines(unittest.TestCase):
+    def test_template_headlines_and_furniture(self):
+        ids = lambda t: {f['id'] for f in check.check(t)['findings']}
+        self.assertIn('template-headline', ids('Coffee, reimagined.'))
+        self.assertIn('template-headline', ids('Witamy w naszym sklepie'))
+        self.assertIn('interface-furniture', ids('Est. 2024'))
+        self.assertNotIn('interface-furniture', ids('Od 2019 roku pieczemy chleb.'))
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

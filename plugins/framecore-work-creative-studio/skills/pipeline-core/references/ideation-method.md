@@ -20,7 +20,7 @@ Write the four to six answers down. They are a tool, not a ban: a default comes 
 
 ## 2. Collect real material
 
-What belongs to this client only: a fact about the product or how it is made, a place, a time of day, a customer ritual, a contradiction, a number, a constraint, the name itself (its sound, its letters, its meaning). Unknown facts stay unknown and are asked for or labelled; never invent one to make an idea work.
+What belongs to this client only: a fact about the product or how it is made, a place, a time of day, a customer ritual, a contradiction, a number, a constraint, the name itself (its sound, its letters, its meaning). Unknown facts stay unknown and are asked for or labelled; never invent one to make an idea work. Aim for about eight to twelve such facts before generating; each one is also a picture to find or a reference to search for, so the same list later feeds the imagery.
 
 ## 3. Generate through lenses
 

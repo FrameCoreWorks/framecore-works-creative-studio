@@ -61,6 +61,19 @@ Examine the whole text-image relation, not a fashionable effect list.
 - Restraint: identify elements with no useful job or a system overburdened by effects.
 - Context: check format, viewing mode, audience and relevant cultural associations.
 
+**Mockup look passes** (page, app and poster mockups, run on actual screenshots at phone and desktop width within the existing review budget; adapted from taste-skill, MIT):
+
+1. *One second, then five:* what is seen first, and can a stranger say what it is and what to do next?
+2. *Squint:* two or three masses, or many equal ones?
+3. *Cover the logo:* could a competitor own the page as it is?
+4. *Edges and frame:* equal margins, shared edges, nothing touching or crossing an edge by accident.
+5. *Sameness:* the layout word of each section ([frame, empty space and pictures](../../pipeline-core/references/craft-rules.md#frame-empty-space-and-pictures)); a repeat in a row or three on a page is a template.
+6. *The phone is its own composition,* not the desktop shrunk.
+7. *Fullness:* does it read as a finished poster or as a wireframe? A page that lost its tells and gained nothing reads thin.
+8. *Collisions:* anything over a headline, cut by the edge or hidden under a fixed bar.
+
+Fix in this order, because a later fix cannot rescue an earlier failure: idea, hierarchy, composition, type, pictures, colour, detail, motion. Record per round: what is seen in one second, the idea in one sentence, the layout words, and the top three problems each with its screenshot and fix. No score.
+
 “Human professional design” describes the quality sought, not the provenance of the image. Do not claim it was made by a human, guarantee undetectability or insist on handmade irregularities as proof.
 
 For type-led work, test the word/form relationship rather than removing the word and demanding an image. For information-led work, clear retrieval can be the authorial achievement. Novelty is not mandatory for every functional item.

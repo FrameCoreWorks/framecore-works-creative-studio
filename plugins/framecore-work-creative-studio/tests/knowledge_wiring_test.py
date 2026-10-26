@@ -68,6 +68,9 @@ WIRING = {
     'pipeline-core/assets/prompt-record/README.md': ['image-prompt-architect/SKILL.md', 'video-prompt-architect/SKILL.md'],
     'image-prompt-architect/references/narrative-image-prompts.md': ['image-prompt-architect/SKILL.md', 'static-graphic-design-creator/SKILL.md'],
     'video-prompt-architect/references/narrative-video-prompts.md': ['video-prompt-architect/SKILL.md'],
+    # taste-skill: frame, empty space and pictures; mockup look passes (owner request 2026-10-26)
+    'pipeline-core/references/craft-rules.md#frame-empty-space-and-pictures': ['static-graphic-design-creator/SKILL.md', 'output-critic-iteration/references/review-and-repair.md'],
+    'output-critic-iteration/references/review-and-repair.md#authored-design-review': ['static-graphic-design-creator/SKILL.md'],
     # research without a browsing tool
     'research-evidence/assets/web-reach/README.md': ['research-evidence/SKILL.md'],
 }

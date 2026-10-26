@@ -63,6 +63,9 @@ PATTERNS = [
         'w celu', 'z uwagi na fakt,? że', 'warto zauważyć,? że', 'należy podkreślić,? że', 'na chwilę obecną', 'w chwili obecnej')),
     ('stacked-hedging', 'hygiene', 'keep one qualifier', words(
         'could potentially', 'might possibly', 'may perhaps', 'could possibly', 'potencjalnie mogł\\w+', 'być może mogł\\w+')),
+    ('template-headline', 'tone', 'use the name, a claim only this brand can make, an instruction or a place', words(
+        '\\w+,? reimagined', '\\w+,? redefined', 'welcome to', 'witamy w', 'witaj w')),
+    ('interface-furniture', 'hygiene', 'cut the decoration text', re.compile(r'\b(?:est\.|since|od)\s?(?:19|20)\d{2}\b(?!\s*\w)', re.I)),
     ('generic-conclusion', 'honesty', 'end on a fact or a real plan', words(
         'the future looks bright', 'exciting times (?:lie )?ahead', 'a step in the right direction',
         'przyszłość rysuje się w jasnych barwach', 'to dopiero początek', 'ekscytujące czasy')),

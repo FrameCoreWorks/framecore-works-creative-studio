@@ -122,6 +122,47 @@ class CraftLint(unittest.TestCase):
         self.assertTrue(lint.caps_tracking_ok('letter-spacing: 0.06em'))
 
 
+class TasteRules(unittest.TestCase):
+    HEAD = '<!doctype html><html><head><meta name="viewport" content="width=device-width"><style>{css}</style></head><body>{body}</body></html>'
+
+    def ids(self, css='', body=''):
+        return {f['id'] for f in lint.lint(self.HEAD.format(css=css, body=body))}
+
+    def test_headline_length(self):
+        self.assertIn('headline-length', self.ids(body='<h1>Everything your small team needs to plan, ship and celebrate every week</h1>'))
+        self.assertNotIn('headline-length', self.ids(body='<h1>Kawa z Lipy</h1><h2>Palimy co tydzień w Krakowie</h2>'))
+
+    def test_index_numbering_outside_a_list(self):
+        body = '<div><span>01</span><p>a</p></div><div><span>02</span></div><div><span>03</span></div>'
+        self.assertIn('index-numbering', self.ids(body=body))
+        self.assertNotIn('index-numbering', self.ids(body='<ol><li><span>01</span></li><li><span>02</span></li><li><span>03</span></li></ol>'))
+
+    def test_eyebrow_is_a_dose_cap(self):
+        one = '<p class="eyebrow">Kawiarnia</p><h1>Kawa</h1>'
+        self.assertNotIn('eyebrow-cluster', self.ids(body=one))
+        many = one + '<p class="kicker">A</p><h2>B</h2><p class="eyebrow">C</p><h2>D</h2>'
+        self.assertIn('eyebrow-cluster', self.ids(body=many))
+
+    def test_micro_labels_mono_and_motion(self):
+        css = ''.join(f'.l{i} {{ text-transform: uppercase; font-size: 11px; letter-spacing: 0.12em }}' for i in range(3))
+        css += ' .lead { font-family: "JetBrains Mono", monospace } code { font-family: monospace } .b { transition: all .3s }'
+        ids = self.ids(css=css)
+        self.assertTrue({'micro-label-cluster', 'mono-prose', 'motion-tells'} <= ids, ids)
+        self.assertEqual(self.ids(css='code, pre { font-family: Menlo, monospace } .b { transition: opacity .2s }'), set())
+
+    def test_cream_terracotta_only_when_hard_coded(self):
+        self.assertIn('cream-terracotta', self.ids(css='body { background: #f6efe3 } .cta { background: #c4623a }'))
+        self.assertNotIn('cream-terracotta', self.ids(css=':root { --bg: #f6efe3; --accent: #c4623a } body { background: var(--bg) }'))
+
+    def test_table_figures(self):
+        rows = ''.join(f'<tr><td>Q{i}</td><td>{i * 1234} zł</td><td>{i * 7}%</td></tr>' for i in range(1, 4))
+        self.assertIn('table-figures', self.ids(body=f'<table>{rows}</table>'))
+        self.assertNotIn('table-figures', self.ids(css='td { font-variant-numeric: tabular-nums }', body=f'<table>{rows}</table>'))
+
+    def test_more_placeholder_people(self):
+        self.assertIn('fake-person', self.ids(body='<p>Trusted by Acme Inc. Write to hello@example.com</p>'))
+
+
 class PromptExamples(unittest.TestCase):
     data = examples.load()
 

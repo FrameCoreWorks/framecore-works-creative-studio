@@ -15,6 +15,7 @@ Numbers are defaults for screen work. Print, video frames and posters seen at a 
 - [Hierarchy](#hierarchy)
 - [Editorial hierarchy](#editorial-hierarchy)
 - [Colour](#colour)
+- [Frame, empty space and pictures](#frame-empty-space-and-pictures)
 - [Motion in interfaces](#motion-in-interfaces)
 - [Interface states](#interface-states)
 - [Accessibility floor](#accessibility-floor)
@@ -71,6 +72,9 @@ Each is allowed with a written purpose and fails as a default (`craft_lint.py` f
 - **Layout templates:** hero plus three or six identical cards; "How it works" always in three numbered steps; a bento mosaic as the default section; a "Trusted by" logo bar under the hero; pricing always in three columns with a "Most popular" card; the four-column Product / Company / Resources / Legal footer; every section the same centred title, subtitle and card grid. Order sections by the product's story.
 - **Copy in the interface:** ★ generic CTAs (Get started, Learn more, Discover, Dowiedz się więcej, Odkryj) and ★ buzzwords (AI-powered, next-generation, seamless, innowacyjny, nowej generacji); name the action and the specific benefit.
 - **App screens:** the default shell (sidebar, top bar, four stat cards, a chart, a table) chosen before asking what the screen is for; build around the one decision the user makes there. Stat cards with invented numbers and "+12 % this week" deltas without a named period; activity feeds of invented people; charts without a question (put the question in the title: "Failed jobs per hour, last 24 h"); table columns taken from the component (Name, Status, Date, Actions) instead of the field that decides the next move; ★ filler people (John Doe, Jan Kowalski, johndoe@example.com) dressed as data.
+- **One action, one name:** one primary button per screen, with the same label wherever it appears; navigation of three to five plain links that takes at most about a tenth of the first screen and stays one row on a phone.
+- **App screen data:** name the one question the screen answers and its finding, and put the finding where the eye lands first; the largest figure answers the question and the main job is one click away. Key numbers are type, not icon tiles; delta colour means good or bad, not up or down; a zero or new value is grey ("+4 (new)" or a dash); totals are computed from the rows; one hue per chart, a few faint gridlines, no rotated labels, right-aligned tabular figures.
+- **Developer furniture:** monospace used for prose (★ `mono-prose`), decorative index numbers 01 / 02 / 03 (★ `index-numbering`), a small label above every heading (★ `eyebrow-cluster`; one editorial section label is a choice) and several tiny tracked-capitals styles (★ `micro-label-cluster`) read as a template. Each is allowed with a purpose.
 - **Theme:** dark by default "because it looks tech". Choose by brand and audience; if both themes ship, both must work.
 - **Identity:** never clone a popular product's look (Linear, Vercel, Stripe, Apple) unless the user asks; references inspire, they are not templates.
 
@@ -120,6 +124,10 @@ Negative tracking is Latin-only: never on CJK, Arabic, Persian or Urdu (it break
 
 **Measure.** Body copy 50–75 characters per line (`max-width: 65ch`). Never justify body text on screen.
 
+**Headline fit.** Check that the sentence fits before choosing it: characters per line are about the line width divided by (font size × k), with k about 0.40 for a condensed face, 0.50 for a normal one and 0.58 for a wide face or capitals. A display headline gets two lines at its real size and format; on a phone that is about 32 characters. When it does not fit, cut words first, then widen the measure, and resize last (★ `headline-length`). A long sentence set large is a statement, not a headline: about 25 words at statement size (about 36 px or less), never pushed to display size.
+
+**Micro-typography.** Real quotation marks and apostrophes, a real ellipsis, an en dash for ranges, a no-break space between a number and its unit and before a last orphan word, `text-wrap: balance` on headings and `pretty` on paragraphs, capitals for at most about three words, tabular figures in columns of numbers (★ `table-figures`). In Polish, a no-break space also follows the one-letter words *i, w, z, o, u, a* (the [Polish copy standard](../../copy-voice/references/polish-copy-standard.md) has the full set). Pull display capitals optically left by about 0.05 em so their edge lines up with the text below; set the space above a heading at least twice the space below it.
+
 ## Hierarchy
 
 Every surface meets three conditions: **one dominant entry point**, **intentional contrast between levels**, and **recoverable reading order** (a reader can reconstruct the structure without rereading).
@@ -161,7 +169,22 @@ Display to standfirst is a jump of at least 1.5× or 24 px. Space carries hierar
 - **Contrast gates** (★ checked by `craft_lint.py` when a rule sets both colours; compute any other pair with [`contrast_check.py`](../assets/craft-lint/contrast_check.py), never by eye: #555555 on black is 2.82:1 and fails): body text 4.5:1; large text (18 pt ≈ 24 px, or 14 pt bold ≈ 18.5 px) 3:1; UI components against neighbours 3:1. When a brand colour fails on text, use a darker shade for text and keep the bright one for fills.
 - **Dark themes:** no pure black or white: about `#0f0f0f` on dark and `#fafafa` on light, text `#f0f0f0` / `#111111`; on dark, hairline borders as `rgba(255,255,255,0.08)`.
 - **Name tokens by purpose** (`--accent`, `--success`), never by hue (`--blue-500`).
+- **Colour fields:** a whole section may change its ground; fields meet edge to edge, neighbours differ clearly in lightness, surfaces separate by one tone step, and each field has its own ink (never muted grey text on a coloured field). A committed field is often livelier than a sprinkle of accent.
+- **Warmth without the generated look:** a yellow-cream ground with a terracotta accent is the warm palette generated pages fall back on (★ `cream-terracotta`, a hint, not a ban: a brand kit that uses it wins). Take warmth from the brand, a stone or bone ground with a deep ink, the photographs, or one committed warm field.
 - Gradients separate hierarchy (header from body, primary from secondary CTA); they do not decorate empty space. For video and art direction, the blue-purple machine palette is covered in [art-style and explainer direction](../../hyperframes-workflow/references/art-and-explainer-motion-direction.md#choosing-the-look).
+
+## Frame, empty space and pictures
+
+For page, app and poster mockups. Adapted from taste-skill (MIT) as methods; no measured pixel values are adopted.
+
+- **Frame:** equal outer margins at every width, two or three shared left edges, gaps between sections clearly larger than gaps inside them.
+- **Empty space is a rest or a hole:** a rest is closed by something (a heading, an image edge, the next field); a hole is space nothing explains. Fix a hole by enlarging or moving the main element, never by adding a card. No section stays half empty.
+- **One layout word per section:** name each section's shape (split, list, statement, full bleed, grid). The same word twice in a row, or three times on a page, shows the template; break the system once, on purpose.
+- **Claims before layout:** list one claim per section with its proof before arranging anything; a section without a claim goes, and the order of claims is the order of the page.
+- **Pictures:** one dominant image beats six small ones; two crop ratios cover most layouts; one treatment for every picture (no colour washes or duotone added to some); one corner radius or none; no device frames by default; text over a picture gets a neutral scrim, never a coloured overlay.
+- **Draw the subject, not decoration:** an illustration shows nameable things from the subject's world, in one graphic language and the palette's real colours, with three levels of detail (the masses, the parts that describe, small rewards up close). Repeat the motif at other scales instead of adding unrelated shapes.
+- **Real interface fragments:** to show a product, crop a true-size piece of its interface with real labels, sums that add up and one item selected; grey bars and a laptop frame are worse than nothing.
+- **Honest found pictures:** an archive or stock picture shows the subject's world, never the client's own product, place, staff or customers; record its title, creator, licence and source for the delivery notes (CC BY-SA adaptations stay under the same licence, which may conflict with exclusivity).
 
 ## Motion in interfaces
 
@@ -170,6 +193,7 @@ This is motion inside a product or page; storytelling motion in a video follows 
 - **When it earns its place:** moving through space, time or state (navigation, a container expanding, progress, gesture follow-through). Not to teach a complex system (controlled studies find no gain over static), decorate, signal "premium" or fill silence.
 - **Durations:** 50–100 ms instant feedback; 150 ms default state confirmation; 200–300 ms entering UI; 300–500 ms cross-screen; over 500 ms only for staged or platform transitions. Hover-like motion seen often stays at or under 200 ms; mobile runs 20–30 % shorter.
 - **Curve or spring:** curves for opacity and colour; springs for position, scale and rotation. Material 3 standard easing is `cubic-bezier(0.2, 0, 0, 1)` (`0.4, 0, 0.2, 1` is the legacy M2 curve).
+- **Motion honesty:** nothing in view stays hidden for more than about 0.9 s waiting for a reveal; a failed reveal never leaves a blank band; exits run at about 60–70 % of the entrance; no preloader, gate, scroll capture or custom cursor without a purpose the user asked for; with reduced motion the finished state shows at once. Animate named properties (★ `motion-tells` flags `transition: all`, scaling from 0 and endless bounce or pulse).
 - **Reduced motion:** every translate, scale, rotate or parallax respects `prefers-reduced-motion`; keep opacity or colour crossfades as the substitute. Animation is never the only signal of a state change.
 - **Flashing:** no more than three flashes in any second (WCAG 2.3.1). Rewards (confetti, bursts) fire once; loops cap at 3–5 cycles; motion over 5 seconds needs a pause control; no spinner runs past 60 s.
 - Folklore to avoid repeating: "Doherty threshold = 400 ms" (the paper's lowest measured threshold is 300 ms); "skeletons feel 11 % faster" (measured on ribbed progress bars, not skeletons); "Heer & Robertson recommend 300–1000 ms" (they tested 1.25 and 2 s and recommend about one second per stage).
