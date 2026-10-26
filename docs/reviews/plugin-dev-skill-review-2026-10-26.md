@@ -61,4 +61,4 @@ Host evaluation in headless Claude Code (plan usage, cases RV01 to RV03 in the g
 - RV01 (organic Reel captions) and RV03 (English client email set) pass on the baseline too in their final wording, so they guard against regressions but do not prove the fix; the fix rests on the verified text contradictions. In their first wording RV01 loaded no skill and RV03 was answered directly by the orchestrator, which handles small tasks itself by design.
 - Release gate W01, W02, W04, V01, D01: 5/5 PASS.
 
-The minor findings stay open for the owner.
+The minor findings were fixed in 1.145.0 (CC-20261026-14) on the owner's go-ahead, except two that needed no change: Creative Video Producer's Motion Graphics line was already correct, and Delivery's handoff links already tell Studio to use the client's language. Release gate 5/5.
