@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.143.0, 2026-10-26
+
+Trigger: the owner's plugin-dev review of 2026-10-26 ([review](docs/reviews/plugin-dev-skill-review-2026-10-26.md)), important findings 1 to 8, fixed on the owner's go-ahead.
+
+- **Caption safe zone:** Caption Studio, the captions tool's help and README, the motion compendium, the channel specs snapshot and the motion review README now agree with the dated [platform caption specs](plugins/framecore-work-creative-studio/skills/caption-studio/references/platform-caption-specs.md): bottom 35 % for every 9:16 Meta placement, organic or paid; 14 % is a readability floor, not a platform safe zone.
+- **Coded-motion storyboards stay with Motion Graphics:** its description names the storyboard, and Shot Sequence no longer claims it and hands coded motion over explicitly.
+- **Routing wording:** Copy Voice keeps one client email-kit rule (the client's language, translated from English); Studio Core's ChatGPT metadata no longer presents it as a router; Motion Graphics offers designed sound when wanted and makes HyperFrames the default for client reels on every shell host; Brand Strategy hands offers and product, store or marketplace launches to Sales Campaign Strategy; Visual Campaign and Reference Pack descriptions name their boundaries.
+- Descriptions total 7,507 of 7,800 characters; the orchestrator is unchanged. Host evaluation in headless Claude Code (plan usage): new cases RV01 to RV03 pass ([record](verification/host-evals/2026-10-26-1.142.0-gaps-RV01-RV02-RV03.json)); RV02 failed before the fix, RV01 and RV03 also pass on 1.142.0; release gate 5/5. Fresh ChatGPT and Codex clients: NOT_RUN.
+
 ## 1.142.0, 2026-10-26
 
 Trigger: owner decision 2026-10-26 on the open question from 1.140.0: option 2, sample details in mockups.
