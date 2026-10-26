@@ -449,7 +449,7 @@
       ],
       "rubric": [
         "Writes a claims list (one claim per section with its proof) before the layout",
-        "Uses labelled placeholders for the missing photos and reviews; invents no testimonials, ratings or customer names",
+        "Fills missing content with plausible samples listed under 'sample details to confirm' (owner decision 2026-10-26) and marks the mockup; invents no testimonials, ratings, customer names or statistics as proof",
         "Plans the mockup look passes on screenshots at phone and desktop width"
       ]
     },

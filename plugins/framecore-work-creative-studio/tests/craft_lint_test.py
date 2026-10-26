@@ -162,6 +162,12 @@ class TasteRules(unittest.TestCase):
     def test_more_placeholder_people(self):
         self.assertIn('fake-person', self.ids(body='<p>Trusted by Acme Inc. Write to hello@example.com</p>'))
 
+    def test_the_sample_details_note_is_not_filler(self):
+        # owner decision 2026-10-26: mockups may carry samples under this note; the note itself must pass the lint
+        note = '<p>Sample details, to be confirmed</p><p>Przykładowe dane do potwierdzenia</p><p>Chleb żytni na zakwasie, 14 zł</p>'
+        self.assertEqual(self.ids(body='<h1>Piekarnia</h1>' + note), set())
+        self.assertIn('filler-copy', self.ids(body='<p>Sample content</p>'))
+
 
 class PromptExamples(unittest.TestCase):
     data = examples.load()

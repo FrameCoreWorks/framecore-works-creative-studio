@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-26",
+  "package_version": "1.141.0",
+  "source": {
+    "commit": "7d37c872e7464d67c245cacc0d4887d20b40f5ff",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "861491c614e356aa5b1e1b41247723288bb12c76c71a02fa393b464e52f23265",
+      "files": 1593,
+      "archive": "candidates/861491c614e356aa5b1e1b41247723288bb12c76c71a02fa393b464e52f23265.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "255205d0f7fb2ca927060fa89bda84cbe1ad5a14318b0eeada9b8c565cc7631a",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 5775,
+      "output": 9347,
+      "cache_read": 220540,
+      "cache_write": 52676
+    },
+    "seconds": 87.1
+  },
+  "cases": [
+    {
+      "id": "TS01",
+      "title": "A landing page mockup starts from claims and layout words and plans the look passes",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 5775,
+        "output": 9347,
+        "cache_read": 220540,
+        "cache_write": 52676
+      },
+      "seconds": 87.1,
+      "wall_seconds": 96.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj makietę strony głównej (landing page) dla małej piekarni rzemieślniczej z Krakowa. Nie mam jeszcze zdjęć ani opinii klientów.",
+          "reply": "Mam dla Ciebie koncepcję i pełną specyfikację makiety, ale nie plik. W tej sesji mam tylko narzędzia do czytania i wyszukiwania, więc nie mogę zapisać pliku ani zrobić zrzutów ekranu. Nie przeszedłem też przez lint ani sprawdzenie kontrastu w kodzie, więc kontrasty poniżej to wartości do potwierdzenia. Jeśli włączysz zapis plików, zbuduję z tego stronę HTML (desktop i telefon) i ją sprawdzę.\n\n## Kierunek\n\n**Czytam to tak:** landing dla małej krakowskiej piekarni rzemieślniczej, dla osób z sąsiedztwa i miłośników dobrego chleba, w języku „typografia i godziny zamiast zdjęć\", ustawienia E2 / R2 / M1 (energia i rytm średnie, ruch tylko przy najechaniu).\n\n**Odrzuciłem schemat branży:** kłos pszenicy, bochenek w koszu, kremowo-terakotowa paleta i drewniany stół. Dziś strona i tak nie ma zdjęć, więc obraz zastępuje coś, co należy do tej piekarni: **noc pracy piekarza**. Strona jest ułożona według godzin: 22:00 zaczyn, 04:30 piec, 07:00 otwarcie. Godziny stają się motywem przewodnim, tak jak ceramika w identyfikacji. Brak zdjęć nie wygląda przez to jak brak.\n\n**Klasyczna alternatywa**, jeśli wolisz: ciepła, fotograficzna strona z dużym zdjęciem bochenka w hero. Wymaga to zdjęć, które dopiero będą.\n\n## Tokeny\n\n| Rola | Wartość |\n|---|---|\n| Tło (kamień) | `#EBE7DF` |\n| Tusz | `#1C1B19` |\n| Pole „piec\" (ciemna sekcja) | `#1F1D1A` z tekstem `#EBE7DF` |\n| Tekst pomocniczy | `#55524C` |\n| **Jedyny akcent** (kobalt) | `#2347C5`, tylko przycisk główny i fokus |\n| Nagłówki | Fraunces SemiBold, tracking −0,02 em |\n| Godziny, etykiety | Archivo Condensed ExtraBold, cyfry tabelaryczne, kapitaliki +0,08 em |\n| Treść | Archivo Regular 17 px, interlinia 1,55, szerokość do 65 znaków |\n\nCzcionki są z pakietu Studia (licencja OFL, pełne polskie znaki). Kobalt zamiast bieżącego ciepłego brązu daje wyraźny, nieoczywisty akcent. Kontrasty `#2347C5` i `#55524C` na tle `#EBE7DF` oraz białego tekstu na kobalcie wyglądają bezpiecznie, ale trzeba je policzyć przed oddaniem.\n\n## Układ: twierdzenie, dowód, kształt sekcji\n\n| # | Sekcja | Twierdzenie | Dowód | Kształt |\n|---|---|---|---|---|\n| 1 | **Hero** | Chleb dojrzewa całą noc | Ogromna godzina „04:30\" na ciemnym polu obok nagłówka | podział 50/50 |\n| 2 | **Noc piekarza** | Za chlebem stoi czas, nie dodatki | Cztery godziny jako gigantyczna typografia, jedna pod drugą | pełna szerokość, pole „piec\" |\n| 3 | **Dziś w piecu** | Mała, krótka oferta | Lista pozycji z gramaturą i ceną | lista |\n| 4 | **Zamów na jutro** | Chleb czeka z imieniem | Formularz: imię, chleb, godzina odbioru | wypowiedź (jedna kolumna) |\n| 5 | **O piekarni** | Pieczemy w Krakowie, w małej skali | Jedno duże zdjęcie, na razie oznaczone ramką | podział odwrócony |\n| 6 | **Adres i godziny** | Wiesz, kiedy przyjść | Adres, godziny, mapa | siatka 2 kolumny |\n\nBrak sekcji z opiniami: nie ma jej, bo nie masz opinii. Gdy się pojawią, dochodzi między 3 a 4.\n\n## Treść (po polsku)\n\n- **Menu (nav):** `[Nazwa piekarni]` · Oferta · Zamów · Adres. Nawigacja ma 3 linki i mieści się w jednym rzędzie na telefonie.\n- **Hero:** *Chleb, który dojrzewa całą noc.* Podtytuł: *Mała piekarnia rzemieślnicza z Krakowa. Zakwas, mąka, woda i dużo cierpliwości.* Przycisk: **Zamów chleb na jutro**. Pod nim mała linijka: *Odbiór osobisty w piekarni.*\n- **Noc piekarza:** `22:00` Zaczyn zakwasu, `01:00` Formowanie, `04:30` Pierwszy wsad do pieca, `07:00` Otwieramy drzwi. Każda godzina ma jedno zdanie opisu.\n- **Dziś w piecu:** pozycje i ceny jako lista, z jednym wyróżnionym wierszem (to, co kończy się pierwsze).\n- **Zamów na jutro:** nagłówek *Zostawimy go dla Ciebie.* Pola: Imię, Chleb (lista), Odbiór (rano / po południu). Przycisk **Zamów chleb na jutro**, ten sam napis co w hero. Po wysłaniu pojawia się potwierdzenie na stronie.\n- **O piekarni:** jeden krótki akapit o skali i miejscu, napisany przez Ciebie. Obok ramka `[ZDJĘCIE: bochen na stole w piekarni]`, proporcja 4:5.\n- **Stopka:** adres, telefon, link do Instagrama. Bez czterokolumnowej stopki.\n\nW tekście stosuję twarde spacje po jednoliterowych słowach (*w, z, i, o, u, a*), polskie cudzysłowy „…” i cyfry tabelaryczne przy cenach.\n\n## Co jest przykładem, a co czeka na Twoje dane\n\n**Przykładowe dane do potwierdzenia** (na makiecie będzie mała widoczna adnotacja „Przykładowe dane do potwierdzenia\"):\n- nazwa piekarni, adres i numer telefonu;\n- godziny otwarcia i godziny z sekcji „Noc piekarza\" (22:00, 01:00, 04:30, 07:00);\n- pozycje oferty i ceny: chleb żytni na zakwasie 800 g, pszenny z długim wyrastaniem 700 g, bagietka tradycyjna, obwarzanek krakowski, drożdżówka z serem;\n- zdania o składzie („zakwas, mąka, woda\") i o odbiorze osobistym.\n\n**Nie wymyślam i zostawiam puste:** opinie, oceny, liczby klientów, nagrody, zdjęcia ludzi, logo. Slot na zdjęcie jest ramką z podpisem, bez zdjęcia z banku.\n\n## Telefon i desktop\n\n- Trzy stany układu: jedna kolumna (telefon), dwie (tablet), szeroki desktop. Hero i „Dziś w piecu\" na telefonie układają się pionowo.\n- Odstępy sekcji na telefonie mniej więcej o połowę mniejsze. Sekcje bez `100vh`.\n- Pola formularza i przyciski mają minimum 44 px wysokości. Hover ma odpowiednik dotykowy.\n\n## Czego potrzebuję, żeby zamienić to w stronę\n\n1. Nazwa piekarni (jeśli jest) i adres.\n2. Czy „Noc piekarza\" jest zgodna z prawdą (pieczecie nocą, kiedy otwieracie)? Jeśli nie, zmienię godziny albo oś czasu.\n3. Czy sprzedajesz online/na zamówienie, czy tylko na miejscu? Od tego zależy, czy sekcja 4 zostaje formularzem, czy zamienia się w numer telefonu.\n\nJeśli kierunek Ci odpowiada, zbuduję go w HTML. Jeśli wolisz klasyczny, ciepły wariant ze zdjęciem, napisz „klasyk\".",
+          "reply_chars": 5604,
+          "reply_sha256": "65968d919979d986da967da7e6e4861361017c7dab857ac96c836b353c9d6553",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Grep",
+            "Read",
+            "Read",
+            "Glob",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1260,
+            "output": 7646,
+            "cache_read": 218486,
+            "cache_write": 46712
+          },
+          "seconds": 87.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "craft-rules.md",
+                  "review-and-repair.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['craft-rules.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4515,
+          "output": 1701,
+          "cache_read": 2054,
+          "cache_write": 5964
+        },
+        "items": [
+          {
+            "item": "Writes a claims list (one claim per section with its proof) before the layout",
+            "verdict": "unclear",
+            "reason": "A table pairs each of six sections with a claim (Twierdzenie) and a proof (Dowód), but the claims sit in the same table as the layout shape column rather than in a separate list written before the layout."
+          },
+          {
+            "item": "Fills missing content with plausible samples listed under 'sample details to confirm' (owner decision 2026-10-26) and marks the mockup; invents no testimonials, ratings, customer names or statistics as proof",
+            "verdict": "met",
+            "reason": "Names, address, phone, hours, products, prices and sample copy are listed under 'Przykładowe dane do potwierdzenia', with a visible on-mockup annotation. Testimonials, ratings, customer counts, awards and people photos are explicitly left out, and the photo slot is an empty labelled frame."
+          },
+          {
+            "item": "Plans the mockup look passes on screenshots at phone and desktop width",
+            "verdict": "not_met",
+            "reason": "The assistant says it cannot take screenshots and describes phone and desktop breakpoints and touch-target sizes, but it sets no screenshot-based pass criteria. It only offers to build and check the HTML if file writing is enabled."
+          }
+        ],
+        "overall": "partly"
+      }
+    }
+  ]
+}

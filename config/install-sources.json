@@ -483,8 +483,8 @@
     },
     {
       "path": "integrations/taste-skill/README.md",
-      "bytes": 4015,
-      "sha256": "6cbea9ae998281b17775f24df04acd39ab489b1ca402f87cd1eb3f20a51936a4"
+      "bytes": 4169,
+      "sha256": "bb1dfa19f3d4d6eabdde08a787a4f68665224bed25de4c428d73b995f051866e"
     },
     {
       "path": "integrations/tts-engines/LICENSE-MOSS-TTS",
@@ -5853,8 +5853,8 @@
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
-      "bytes": 30640,
-      "sha256": "a71b71d77309f741e36e30e6b435823323a7fbb623dc1d078f67c29503add5e4"
+      "bytes": 31470,
+      "sha256": "36173588cf06bd991bb69c2f58d500b16ee4829efd8f7f94b70cb585232be527"
     },
     {
       "path": "skills/pipeline-core/references/creative-prompting-standard.md",
@@ -6323,8 +6323,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 22279,
-      "sha256": "3b819f72b7f8a02604690fa2adeb566093edc38826a92aeae1a98acac639c3bc"
+      "bytes": 22547,
+      "sha256": "048334a39533c0fa98c788c18dc6e4f3dd2fb08bde7c0baaed7de1ca9b7e8d6c"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7758,8 +7758,8 @@
     },
     {
       "path": "tests/craft_lint_test.py",
-      "bytes": 11649,
-      "sha256": "84dd8aa4dd9e46d73779c5bd9b82c0dcf6e028dc7346281cdce862fcb8ae061e"
+      "bytes": 12112,
+      "sha256": "6669e1512597799b7358700560c6829cc39f43465e1be7d56478e918e057393a"
     },
     {
       "path": "tests/creative-upgrade.test.mjs",
