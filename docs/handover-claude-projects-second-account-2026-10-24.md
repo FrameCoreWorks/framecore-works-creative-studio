@@ -14,7 +14,7 @@ For the owner's second Claude account, which runs this same project as a Claude 
 8. Use the other installed plugins when they fit: **context7** (current library docs), **playwright** (browser tests, for example the motion player on `gh-pages`), **plugin-dev** (building and validating Studio plugins and skills), **claude-md-management** (keeping AGENTS.md and CLAUDE.md concise). In Claude Code cloud containers context7 currently fails to connect (the agent proxy refuses `mcp.context7.com`); fall back to the library's own docs through web search or fetch.
 9. Reply to the owner in Polish. Repository files stay in English (AGENTS.md).
 
-## State on 2026-10-24 (updated 2026-10-25 for 1.135.0)
+## State on 2026-10-24 (updated 2026-10-26 for 1.140.0)
 
 - **Studio 1.127.0:** skill display-name rename (owner-approved list).
 - **Studio 1.128.0** (tag `v1.128.0` = `35af152`, publication record `2acb34d`): new public companion plugin **voice-narration** (`plugins/voice-narration`, skill `voice-narration:narrate`): VoxCPM2 or Voicebox on the user's own computer, ElevenLabs through the host connector. **voice-narration 1.0.1** (review minors) is on `main` at `4bf66c3`. Real engine generation and the ElevenLabs read: `NOT_RUN`.
@@ -27,13 +27,17 @@ For the owner's second Claude account, which runs this same project as a Claude 
   - Kept by decision (minor 2, 5, 6): Claude Code's skill-listing truncation is a host budget, not a repository defect; dependency ranges stay unpinned apart from the engines; Earshot's `exec` runs the user's own scripts by design.
 - **Studio 1.135.0** (CC-20261024-17, release `4b26f0f`, tag `v1.135.0`, publication record `026fd4c`): Motion Graphics `acceptance.py --pack` writes a delivery folder (judged video and contract, evidence, sources, SHA-256 manifest, `HANDOFF.md`) only for a film that is not blocked, and the acceptance record carries the contract and video SHA-256; library-sample levels. Shared package: 12 files changed, none added or removed.
 - **Studio 1.136.0 and 1.137.0** (2026-10-25): gallery shortlist for storyboards (`5eb4285`); platform caption specs and a UGC disclosure card, both checked on primary sources, and fixes that make host cases G14 and OG02 pass consistently (release `f8b6dad`, tag `v1.137.0`, publication record `ade6106`).
-- **Hosted ChatGPT plugin:** last saved 1.126.0 (`RELEASE_STATUS.md`); `pending` for 1.127.0 to 1.137.0. One update to 1.137.0 covers them all (Plugin Creator writes the whole declared inventory). Use `CHATGPT_UPDATE.md` pinned to the 1.137.0 release commit `f8b6dad` (tag `v1.137.0`). The owner runs it with Plugin Creator when convenient.
+- **Studio 1.138.0** (release `0b5fc9b`, publication record `40d1a2c`): English client handoff letter, acceptance protocol and emails; a positioning and audience research method for Brand Strategy; production worksheets for Video Producer. Host cases EN01, MK01, VP01 PASS.
+- **Studio 1.139.0** (release `a731573`, publication record `9c206e2`): dated cards on JSON (structured) and narrative (prose) prompts for images and video from the makers' own guides, and `prompt_record.py` to check one planning record and compile it per target. Host cases JP01, JV01, NP01, NV01 PASS.
+- **Studio 1.140.0** (CC-20261026-01, release `05f0134`, tag `v1.140.0`, publication record `9a381a3`): taste-skill (Leonxlnx, MIT) methods restated for page and app mockups (craft rules, mockup look passes, eight P1 lint rules, two AI writing patterns) and a pinned `taste-skill` registry entry. Default kept: mockups use real or labelled content, never plausible invented details (owner may choose labelled samples instead). Host case TS01 (gaps set) PASS.
+- **Hosted ChatGPT plugin:** last saved 1.126.0 (`RELEASE_STATUS.md`); `pending` for 1.127.0 to 1.140.0. One update to 1.140.0 covers them all (Plugin Creator writes the whole declared inventory). Use `CHATGPT_UPDATE.md` pinned to the 1.140.0 release commit `05f0134` (tag `v1.140.0`). The owner runs it with Plugin Creator when convenient.
 - Plugins the owner installed on claude.ai: Superpowers, context7, playwright, plugin-dev, claude-md-management. The skills.sh `handoff` skill is not installed.
 
 ## In flight
 
 1. **Brand kit from a website:** done in 1.131.0 (see above); out of its MVP: pixel sampling, competitor analysis, a hosted ChatGPT package.
-2. **Known follow-up, done in 1.136.0** (CC-20261025-02, tag `v1.136.0` = `5eb4285`, publication record `a525cdd`): storyboards for coded films read the [gallery shortlist](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md) in the same turn; OG01 passes in headless Claude Code (suite 3/3); OG02 stays unstable. 
+2. **Known follow-up, done in 1.136.0** (CC-20261025-02, tag `v1.136.0` = `5eb4285`, publication record `a525cdd`): storyboards for coded films read the [gallery shortlist](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md) in the same turn; OG01 passes in headless Claude Code (suite 3/3); OG02 stays unstable.
+3. **hairline (lucasmarkes, MIT), option 3 chosen 2026-10-26:** a pinned registry entry, its drawing methods restated, and a seekable rounded-solid hairline variant of the Iso Glow kit with a rendered example (CC-20261026-02, target 1.141.0).
 
 ## Suggested project instructions (paste into the second account's project)
 
