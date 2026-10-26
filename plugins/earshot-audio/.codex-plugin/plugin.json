@@ -1,6 +1,6 @@
 {
   "name": "earshot-audio",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Earshot by Leon Lin (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works: ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload.",
   "author": {
     "name": "FrameCore Works"

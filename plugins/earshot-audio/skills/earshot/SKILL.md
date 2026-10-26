@@ -131,7 +131,8 @@ audit, music edit at bar lines (`arrange.py`), design fragments, integrate and Q
 (`credits.py`), mux (`node <skill>/scripts/mux.mjs`).
 
 **Recordings.** By default use the user's own recordings and the bank. Search and download from Freesound, Mixkit or
-Pixabay only when the user asks or accepts that proposal; then download politely and sequentially, record every
+Pixabay only when the user asks or accepts that proposal (find Freesound candidates through Openverse first:
+`https://api.openverse.org/v1/audio/?q=<need>&license=cc0,by`, no key, about 20 requests a minute); then download politely and sequentially, record every
 file in its manifest, run `audit.py` (policy in `licences.py`, `references/licences.md`; CC0, public domain, CC BY,
 Mixkit and Pixabay allowed; NC, ND, SA, Sampling+ and unverified blocked) and `credits.py`, and never commit or
 publish downloaded recordings. `audit.py --fetch` re-reads licence pages and is part of that same consent. Nothing is

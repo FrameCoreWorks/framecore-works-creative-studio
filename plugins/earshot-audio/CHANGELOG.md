@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.9, 2026-10-26
+
+Owner decision 2026-10-26: Openverse is Studio's reference base. Recording searches find Freesound and other candidates through the Openverse audio API first (`license=cc0,by`, no key); each item's own page still decides the licence, and the consent and licence policy are unchanged.
+
 ## 1.0.8, 2026-10-24
 
 Review fix (2026-10-24 full review): the archive fallback of `install` downloads with the same 600 s bound as the git route, so a stalled connection can no longer hang the install. The source is still checked against `upstream.json`.

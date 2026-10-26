@@ -14,7 +14,7 @@ Use this skill to define repeatable character identity systems for static, motio
 
 ## Mascots and stylized characters
 
-For a mascot or a stylized character a brand or school will reuse, follow [mascots and stylized characters](references/mascot-and-stylized-characters.md): silhouette, shape language, fixed proportions and three to five anchors, then the [mascot sheet](assets/mascot-sheet.template.md) (turnaround, expressions, poses, colours, do and do not, small sizes) before any campaign image.
+For a mascot or a stylized character a brand or school will reuse, follow [mascots and stylized characters](references/mascot-and-stylized-characters.md): silhouette, shape language, fixed proportions and three to five anchors, then the [mascot sheet](assets/mascot-sheet.template.md) (turnaround, expressions, poses, colours, do and do not, small sizes) before any campaign image. For costume, prop, period or setting references the user has not supplied, search the [Openverse reference base](../reference-pack-curator/SKILL.md#openverse-reference-base); never use it for a real person's identity.
 
 ## Language Policy
 

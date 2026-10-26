@@ -30,6 +30,10 @@ For poster rebuilds, packaging, logos, identity or narrow graphic edits, read
 [static graphic source authority](references/static-graphic-source-authority.md).
 Assign protection per property and preserve the actual current edit source.
 
+## Openverse Reference Base
+
+When the user needs reference or usable images or sounds and has none to supply, search [Openverse](https://openverse.org) first: over 800 million openly licensed images and audio tracks (no video), no key or installation. Where Python runs with internet access, run this skill's `scripts/openverse.py` by its absolute path (resolve it from this skill's folder first, since commands run in the user's working directory): `python3 <skill folder>/scripts/openverse.py "<query>"`, adding `--media audio` for sound; otherwise open `https://api.openverse.org/v1/images/?q=<query>&license_type=commercial,modification` (or `/v1/audio/`) with the host's web tool, and when neither works give the user the `https://openverse.org/search/image?q=<query>&license_type=commercial,modification` link (`/search/audio` for sound). Keep the default filter (commercial use, modification allowed) unless the use is private study. For each chosen work carry its licence, source page and attribution line into the [asset manifest](../asset-manifest/SKILL.md), and say its warnings (share-alike, unknown creator). Openverse does not verify licences: the source page decides before client use. A found work is a reference like any other: tag it canonical, inspiration or excluded here.
+
 ## Inputs
 
 Required:

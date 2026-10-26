@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 9729,
-      "sha256": "5442a7ebf5aed67289dde696bfb62eb35e5b9e50d0934f05c74f74389b14f660"
+      "bytes": 10075,
+      "sha256": "5bc30925f9eb27c738c73565b84ffbe0abe92f134334d4e7674ff622f9df9738"
     },
     {
       "path": "README.md",
@@ -435,6 +435,16 @@
       "path": "integrations/open-design/README.md",
       "bytes": 3254,
       "sha256": "7c8359539c3bf780e8f67ec0fe49006199d808c18ec8c33102dd7a517235997a"
+    },
+    {
+      "path": "integrations/openverse/LICENSE",
+      "bytes": 1066,
+      "sha256": "3b795eeeacf5303d7061bedb5928aefecbf38fb5c11bdc6b2ff9181fb7e674b6"
+    },
+    {
+      "path": "integrations/openverse/README.md",
+      "bytes": 2397,
+      "sha256": "d7042076ba2c8b486acec41b3a3603acae175806d82ba14a5daa7877303f166e"
     },
     {
       "path": "integrations/pixel-plugin/LICENSE",
@@ -2603,8 +2613,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 10563,
-      "sha256": "9055435ecfa442bda113953c4eca55bf73615bb55bdd98910aeb16d6b6e9a872"
+      "bytes": 10894,
+      "sha256": "69b578ac3cb507e98a7b936aa2c6a4d8a118ae48d17c24b3836235f2b2eea2f2"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2738,8 +2748,8 @@
     },
     {
       "path": "skills/character-design/SKILL.md",
-      "bytes": 6255,
-      "sha256": "0aaac842c8978cdb0a62a85072dc7686a34b2a46e555a28c4a8baf835a7d27b5"
+      "bytes": 6473,
+      "sha256": "a7da670c0f6cfcbb0de5a77c8fa3d3a9d92597baafb95f0914150bf9057a3b7d"
     },
     {
       "path": "skills/character-design/agents/openai.yaml",
@@ -2773,8 +2783,8 @@
     },
     {
       "path": "skills/cinematography/SKILL.md",
-      "bytes": 6628,
-      "sha256": "af0d5b79d98b819b315a6a00fb734f4b8521d9bdacb89f6d1cd318fdd9e44eea"
+      "bytes": 6794,
+      "sha256": "21577277833a3f9a4a3dcaded876ad4219f0b67a6de9923b7af6192a3626fc02"
     },
     {
       "path": "skills/cinematography/agents/openai.yaml",
@@ -3268,8 +3278,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 33269,
-      "sha256": "f9854c665c1939ab3e93bc5f07ff3dc47210042f4b315af7329c7f59891dbfb7"
+      "bytes": 33519,
+      "sha256": "5add873e3a389d6879a34a00c31442819fbb66168b9a862743bc7e2a4f1cb8d3"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5228,8 +5238,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 10671,
-      "sha256": "4896d374bb7239c8bac1d6da0406d0bb35a54ce1f81d0dafeafa5faa1af4acea"
+      "bytes": 10795,
+      "sha256": "1fe70667e1a0561bd86e04e8e0d72ed4bc52ceb6c4ade52d704c2755f85f1e0d"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -5268,8 +5278,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 10837,
-      "sha256": "18edff687a6c9de0a81657bd3c98fdddddbd316fe288c25215bb33fe86367e6b"
+      "bytes": 11091,
+      "sha256": "3999d6b5c558c213a476e3f566857178493adc708dc7b284dab66fd91b5c98ef"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5403,8 +5413,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 29196,
-      "sha256": "c95a2b7af315540ae4db10f9bf464561b0acb9ecc5aab8bf7e57de8358fa8156"
+      "bytes": 29413,
+      "sha256": "b4d5de66137980280cf21e99d6e3c9f58b129d07251d1328025f85d0a42b6ea7"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -6028,8 +6038,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 5545,
-      "sha256": "790232b2ae39a3433946406949884a29bf11d7a93217560d32b28fe2ecbd4174"
+      "bytes": 6839,
+      "sha256": "e69fdcca9ee08bffb1c745c59445352a402e5c7377144c427bfdcd9d02632806"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
@@ -6040,6 +6050,11 @@
       "path": "skills/reference-pack-curator/references/static-graphic-source-authority.md",
       "bytes": 2584,
       "sha256": "c7022dce6bdc3a903fd5ff819c5685848b25906d6bf26a93b7cc93f7d5597fe1"
+    },
+    {
+      "path": "skills/reference-pack-curator/scripts/openverse.py",
+      "bytes": 4569,
+      "sha256": "01e7c87441719fc2f9e4a636311bcbfe863e2229fd1825877a03d99d8e9b8b3c"
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
@@ -6193,8 +6208,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 17474,
-      "sha256": "968fe0fc785f141c4e9e8658c7b0b8ac9e64566f691e3496abbce9ac674cd1f3"
+      "bytes": 18002,
+      "sha256": "79962393593ead35ee8da68db2e39c4671456ed8dacaf697667d6b0f0c57fe17"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -6323,8 +6338,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 22547,
-      "sha256": "048334a39533c0fa98c788c18dc6e4f3dd2fb08bde7c0baaed7de1ca9b7e8d6c"
+      "bytes": 22776,
+      "sha256": "f877b85820304efc5498ba80f96fd50cca29096333b0bb23772c1e9d11509f13"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7173,8 +7188,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/SKILL.md",
-      "bytes": 9313,
-      "sha256": "b0a057cd6b61a45f3edcfef160c9af8752d4c10c16510d7380cf8dd5f9336d09"
+      "bytes": 9453,
+      "sha256": "0e0ce6c2216b115753741e3a309144cb34ae3ab162aed76cf3e75e1a4742de4c"
     },
     {
       "path": "skills/storyboard-board-architect/agents/openai.yaml",
@@ -7468,8 +7483,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31851,
-      "sha256": "6b33d6b730a434b7fbbd5c9d1eac94140c788de37a237f0285b94ab2c62788fb"
+      "bytes": 31869,
+      "sha256": "2b6b37e0c804e6a934b218601b6674a270b0e088a10b5bdc1472a983784dca3b"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7518,8 +7533,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 178481,
-      "sha256": "3a75f6d68cedf83e1c94892222b1ed7f02e63657250ca6eab3ca081c186668d6"
+      "bytes": 182353,
+      "sha256": "52deb88707878a4f1baa3335113940b0a813a9fdb4408d1e0fcb930f7e8546fa"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7618,8 +7633,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 16325,
-      "sha256": "b6b0a8a78f8009e8bb670fa273286048681d52482ba9625676fce780f8063406"
+      "bytes": 16920,
+      "sha256": "dfee01eaaa2c125eef95cb830e7617bb91f382c2ff9a75c60466e5fd1a46f447"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7900,6 +7915,11 @@
       "path": "tests/motion_variants_test.py",
       "bytes": 10527,
       "sha256": "36954bef00a54708e00982fa187f0d04b2c989a1515ba87157d7d6432f1d5fd1"
+    },
+    {
+      "path": "tests/openverse_test.py",
+      "bytes": 3078,
+      "sha256": "73857ca9e6f49f105a086bc15969bc4f53eeed60bb5f7928abbdfc19e96100b6"
     },
     {
       "path": "tests/package.test.mjs",

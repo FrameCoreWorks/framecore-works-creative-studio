@@ -1,6 +1,6 @@
 {
   "name": "gaps",
-  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26).",
+  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26). OV01-OV05 Openverse reference base (2026-10-26).",
   "cases": [
     {
       "id": "G01",
@@ -568,6 +568,148 @@
       ],
       "rubric": [
         "Starts from the English client email kit, not a translation of the Polish one"
+      ]
+    },
+    {
+      "id": "OV01",
+      "title": "Reference photos without supplied material come from Openverse with licence and attribution",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "command": "openverse.py"
+            },
+            {
+              "command_result": {
+                "command": "openverse\\.py",
+                "output": "attribution"
+              }
+            },
+            {
+              "regex": "CC BY|CC0|licen[cs]e"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Searches Openverse with the commercial and modification filter",
+        "Gives licence, source page and attribution for each photo and says share-alike or unverified-licence warnings"
+      ],
+      "extra_tools": [
+        "Bash(python3:*)"
+      ],
+      "max_turns": 16
+    },
+    {
+      "id": "OV02",
+      "title": "First configuration announces Openverse as the reference base once",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "checks": [
+            {
+              "language": "pl"
+            }
+          ]
+        },
+        {
+          "prompt": "1",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "contains_any": [
+                "Openverse"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "After the startup-style answer, one line names Openverse as the reference base, with nothing to install"
+      ]
+    },
+    {
+      "id": "OV03",
+      "title": "Without code or a web tool, the Openverse search link is given",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains_any": [
+                "openverse.org/search"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Says it could not search here and gives the openverse.org search link with the commercial filter"
+      ]
+    },
+    {
+      "id": "OV04",
+      "title": "A mockup that needs photos the user lacks searches Openverse before generating",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Plan a landing page mockup for a small bakery. I don't have any photos of the shop. Just tell me where the pictures will come from, briefly.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains_any": [
+                "Openverse"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Names Openverse as the source for missing photos, with licence and attribution, before generated pictures"
+      ]
+    },
+    {
+      "id": "OV05",
+      "title": "Missing ambience for an edit is offered from Openverse audio",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio I'm editing a cafe vlog and I have no ambience or sound effects. Where can you get them for me? Briefly.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains_any": [
+                "Openverse"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Offers Openverse audio (CC0 or CC BY) for ambience and effects, with licence and attribution"
       ]
     }
   ]

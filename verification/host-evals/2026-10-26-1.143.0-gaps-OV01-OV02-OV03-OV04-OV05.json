@@ -1,0 +1,708 @@
+{
+  "date": "2026-10-26",
+  "package_version": "1.143.0",
+  "source": {
+    "commit": "3732c8d7a7e3812852ae15505e28fdb1a2671b9e",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "e4d6c695d50cf483647a4963fcae442bdbe501ab5c73f79b79b7604cb43d293f",
+      "files": 1597,
+      "archive": "candidates/e4d6c695d50cf483647a4963fcae442bdbe501ab5c73f79b79b7604cb43d293f.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "6473caf1336d3b62ece34610b29ed8c518f7a9bb992053326d3745ff63010b80",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 7320,
+      "output": 10161,
+      "cache_read": 606026,
+      "cache_write": 173816
+    },
+    "seconds": 182.0
+  },
+  "cases": [
+    {
+      "id": "OV01",
+      "title": "Reference photos without supplied material come from Openverse with licence and attribution",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1242,
+        "output": 3415,
+        "cache_read": 289665,
+        "cache_write": 36599
+      },
+      "seconds": 110.3,
+      "wall_seconds": 110.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "reply": "I found three photos you can use commercially with credit, but I haven't looked at the images. The sandbox blocked my downloads, so I picked them from titles and licence data only. Whether each one looks rustic is unchecked, so open the source pages and look before you commit.\n\nAll three are plain CC BY, with no share-alike or non-commercial limits. I left out the CC BY-SA results, because that licence can require the finished work to carry the same licence, which is awkward in a client ad.\n\n| # | Photo | Creator | Licence | Source page |\n|---|---|---|---|---|\n| 1 | \"Tartine bakery interior in 2010\" | kennejima | CC BY 2.0 | https://commons.wikimedia.org/w/index.php?curid=11581955 |\n| 2 | \"san antonio bakery interior\" | goodiesfirst | CC BY 2.0 | https://www.flickr.com/photos/49215102@N00/420671805 |\n| 3 | \"Antelope Walk - Dorchester - The Celtic Kitchen\" | ell brown | CC BY 2.0 | https://www.flickr.com/photos/39415781@N06/7189457250 |\n\nDirect file links, if you want to preview them:\n- Photo 1: https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg\n- Photo 2: https://live.staticflickr.com/123/420671805_80062f7223.jpg\n- Photo 3: https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg\n\n**Credit lines**\n\nUse these as written, wherever the ad's credits or small print go:\n1. \"Tartine bakery interior in 2010\" by kennejima is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\n2. \"san antonio bakery interior\" by goodiesfirst is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\n3. \"Antelope Walk - Dorchester - The Celtic Kitchen\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\n\n**Before client use**\n- **Licences:** Openverse doesn't verify them. Open each source page and confirm the licence and creator match the table.\n- **Photo 3:** It may be a café or kitchen rather than a bakery. It came from the single result for \"rustic bakery interior\".\n- **Visible people and logos:** Photo 1 is a named business, and any of the three could show people. CC licences don't cover trademarks or people's likeness, so a recognisable brand or face in a paid ad may need separate clearance.\n- **Edits:** CC BY allows cropping and grading, but you should note that the image was modified.\n- **Credits in the ad:** If the ad format has no room for a credit, ask the creator for a different licence, or use a photo you commissioned.\n\nAn Openverse search for \"artisan bakery shop\" failed with a server error. You can search by hand with commercial and modifiable licences selected: https://openverse.org/search/image?q=artisan+bakery+shop&license_type=commercial%2Cmodification\n\nNot checked: how rustic the photos look, who appears in them, and whether any of the three has a better-looking sibling. If you allow the downloads, I'll view them and swap any weak pick.",
+          "reply_chars": 3006,
+          "reply_sha256": "165812eab4fbe091b732a9870f51729747bc19525f3cee639f9945f2a599b379",
+          "skills": [
+            "workflow-orchestrator",
+            "research-evidence"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 10,
+              "result_order": 11,
+              "result": "This Bash command contains multiple operations. The following part requires approval: ls /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/ 2>&1; python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py --help 2>&1",
+              "result_chars": 371,
+              "result_sha256": "ff36b8d02e24d7d137fad1533d67d987ff9b3d11e7fbfd212879b677bce05b58",
+              "result_data": {},
+              "input": {
+                "command": "ls /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/ 2>&1; python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py --help 2>&1 | head -40"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 12,
+              "result_order": 13,
+              "result": "usage: openverse.py [-h] [--media {image,audio}] [--count 1-20]\n                    [--any-licence] [--licence LICENCE]\n                    query\n\nSearch Openverse (openly licensed images and audio, https://openverse.org) and return each work with its licence.\n\n  python3 openverse.py \"bakery interior\"                      # images usable commercially and modifiable, as JSON\n  python3 openverse.py \"rain on window\" --media audio --count 5\n  python3 openverse.py \"old map\" --any-licence                # every licence, NC and ND included\n  python3 openverse.py \"door slam\" --media audio --licence cc0,by   # only these licences (Earshot's policy)\n\nNo key or installation: the anonymous API allows about 20 requests a minute and 200 a day. Each result carries the\ntitle, creator, licence, source page, file URL and a ready attribution line for the asset manifest, plus warnings\n(share-alike, unknown creator). Openverse does not verify licences: check the source page before client use.\nExit codes: 0 results, 1 no results, 2 rate limit, 3 Openverse unreachable (the reply then gives a search link to\nopen by hand).\n\npositional arguments:\n  query\n\noptions:\n  -h, --help            show this help message and exit\n  --media {image,audio}\n  --count 1-20\n  --any-licence         include NC and ND licences\n  --licence LICENCE     only these licences, comma-separated (for example\n                        cc0,by)",
+              "result_chars": 1408,
+              "result_sha256": "6c991b0ec87096b135828a67eb88bd287319ca6e4b841afa7b6dfc953cf72572",
+              "result_data": {},
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py --help"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 14,
+              "result_order": 15,
+              "result": "{\n  \"query\": \"rustic bakery interior\",\n  \"media\": \"image\",\n  \"result_count\": 1,\n  \"results\": [\n    {\n      \"title\": \"Antelope Walk - Dorchester - The Celtic Kitchen\",\n      \"creator\": \"ell brown\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/39415781@N06/7189457250\",\n      \"url\": \"https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg\",\n      \"attribution\": \"\\\"Antelope Walk - Dorchester - The Celtic Kitchen\\\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    }\n  ],\n  \"note\": \"Openverse does not verify licences; check each source page before client use.\"\n}",
+              "result_chars": 837,
+              "result_sha256": "0fdc4b4aaa689f486bbdd5b451b17de0fcba90217b6a5937ceb7cbbc884809ad",
+              "result_data": {
+                "query": "rustic bakery interior",
+                "media": "image",
+                "result_count": 1,
+                "results": [
+                  {
+                    "title": "Antelope Walk - Dorchester - The Celtic Kitchen",
+                    "creator": "ell brown",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/39415781@N06/7189457250",
+                    "url": "https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg",
+                    "attribution": "\"Antelope Walk - Dorchester - The Celtic Kitchen\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  }
+                ],
+                "note": "Openverse does not verify licences; check each source page before client use."
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"rustic bakery interior\" --count 12"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 17,
+              "result_order": 18,
+              "result": "A variable in this command can't be checked before it runs",
+              "result_chars": 58,
+              "result_sha256": "38625506e5980c486ccb1e7f6021b308aa4f15b8c780da6f9a98deb97966c299",
+              "result_data": {},
+              "input": {
+                "command": "S=/home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py; for q in \"bakery interior\" \"artisan bakery shop\" \"bakery bread display wooden\"; do echo \"=== $q\"; python3 -I $S \"$q\" --count 8 | python3 -I -c \"\nimport json,sys\nd=json.load(sys.stdin)\nfor r in d['results']: print(r['title'],'|',r['creator'],'|',r['license'],r['license_version'],'|',r['foreign_landing_url'],'|',r['warnings'])\"; done"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 19,
+              "result_order": 21,
+              "result": "{\n  \"query\": \"bakery interior\",\n  \"media\": \"image\",\n  \"result_count\": 240,\n  \"results\": [\n    {\n      \"title\": \"Percy Ingle Bakery Interior, Canning Town E16 Dec 2010\",\n      \"creator\": \"sludgegulper\",\n      \"license\": \"by-sa\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by-sa/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/28179929@N08/5303349553\",\n      \"url\": \"https://live.staticflickr.com/5282/5303349553_d40af5ae62_b.jpg\",\n      \"attribution\": \"\\\"Percy Ingle Bakery Interior, Canning Town E16 Dec 2010\\\" by sludgegulper is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.\",\n      \"warnings\": [\n        \"share-alike: a work made from it must carry the same licence\"\n      ]\n    },\n    {\n      \"title\": \"Percy Ingle Bakery interior, Canning Town E16 Dec 2010\",\n      \"creator\": \"sludgegulper\",\n      \"license\": \"by-sa\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by-sa/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/28179929@N08/5303348933\",\n      \"url\": \"https://live.staticflickr.com/5006/5303348933_06f31d2613_b.jpg\",\n      \"attribution\": \"\\\"Percy Ingle Bakery interior, Canning Town E16 Dec 2010\\\" by sludgegulper is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.\",\n      \"warnings\": [\n        \"share-alike: a work made from it must carry the same licence\"\n      ]\n    },\n    {\n      \"title\": \"Wuhan - former Methodist church, now Crown Bakery - interior - P1050063\",\n      \"creator\": \"User:Vmenkov\",\n      \"license\": \"by-sa\",\n      \"license_version\": \"3.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by-sa/3.0/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=15194164\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/2/26/Wuhan_-_former_Methodist_church%2C_now_Crown_Bakery_-_interior_-_P1050063.JPG\",\n      \"attribution\": \"\\\"Wuhan - former Methodist church, now Crown Bakery - interior - P1050063\\\" by User:Vmenkov is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.\",\n      \"warnings\": [\n        \"share-alike: a work made from it must carry the same licence\"\n      ]\n    },\n    {\n      \"title\": \"san antonio bakery interior\",\n      \"creator\": \"goodiesfirst\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/49215102@N00/420671805\",\n      \"url\": \"https://live.staticflickr.com/123/420671805_80062f7223.jpg\",\n      \"attribution\": \"\\\"san antonio bakery interior\\\" by goodiesfirst is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Holland Bakery interior in Malang\",\n      \"creator\": \"Christophe95\",\n      \"license\": \"by-sa\",\n      \"license_version\": \"4.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by-sa/4.0/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=102132818\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/3/35/Holland_Bakery_interior_in_Malang.jpg\",\n      \"attribution\": \"\\\"Holland Bakery interior in Malang\\\" by Christophe95 is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.\",\n      \"warnings\": [\n        \"share-alike: a work made from it must carry the same licence\"\n      ]\n    },\n    {\n      \"title\": \"Tartine bakery interior in 2010\",\n      \"creator\": \"kennejima\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=11581955\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg\",\n      \"attribution\": \"\\\"Tartine bakery interior in 2010\\\" by kennejima is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Tiong Bahru Bakery interior at Fort Canning, Singapore\",\n      \"creator\": \"philip.mallis\",\n      \"license\": \"by-sa\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by-sa/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/122687277@N03/54198766471\",\n      \"url\": \"https://live.staticflickr.com/65535/54198766471_4b993b6ca3_b.jpg\",\n      \"attribution\": \"\\\"Tiong Bahru Bakery interior at Fort Canning, Singapore\\\" by philip.mallis is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.\",\n      \"warnings\": [\n        \"share-alike: a work made from it must carry the same licence\"\n      ]\n    },\n    {\n      \"title\": \"File:HK CWB Yee Wo Street 大班麵包西餅 TaiPan bakery interior Sept-2013.JPG\",\n      \"creator\": \"KampanHungs\",\n      \"license\": \"by-sa\",\n      \"license_version\": \"3.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by-sa/3.0/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=28164029\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/3/30/HK_CWB_Yee_Wo_Street_%E5%A4%A7%E7%8F%AD%E9%BA%B5%E5%8C%85%E8%A5%BF%E9%A4%85_TaiPan_bakery_interior_Sept-2013.JPG\",\n      \"attribution\": \"\\\"File:HK CWB Yee Wo Street 大班麵包西餅 TaiPan bakery interior Sept-2013.JPG\\\" by KampanHungs is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.\",\n      \"warnings\": [\n        \"share-alike: a work made from it must carry the same licence\"\n      ]\n    }\n  ],\n  \"note\": \"Openverse does not verify licences; check each source page before client use.\"\n}",
+              "result_chars": 6222,
+              "result_sha256": "642f6b6ee2240c04a5f28b309cecba487bbeb1b7238ca8c0e58eec1e63241bf3",
+              "result_data": {
+                "query": "bakery interior",
+                "media": "image",
+                "result_count": 240,
+                "results": [
+                  {
+                    "title": "Percy Ingle Bakery Interior, Canning Town E16 Dec 2010",
+                    "creator": "sludgegulper",
+                    "license": "by-sa",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/28179929@N08/5303349553",
+                    "url": "https://live.staticflickr.com/5282/5303349553_d40af5ae62_b.jpg",
+                    "attribution": "\"Percy Ingle Bakery Interior, Canning Town E16 Dec 2010\" by sludgegulper is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+                    "warnings": [
+                      "share-alike: a work made from it must carry the same licence"
+                    ]
+                  },
+                  {
+                    "title": "Percy Ingle Bakery interior, Canning Town E16 Dec 2010",
+                    "creator": "sludgegulper",
+                    "license": "by-sa",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/28179929@N08/5303348933",
+                    "url": "https://live.staticflickr.com/5006/5303348933_06f31d2613_b.jpg",
+                    "attribution": "\"Percy Ingle Bakery interior, Canning Town E16 Dec 2010\" by sludgegulper is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+                    "warnings": [
+                      "share-alike: a work made from it must carry the same licence"
+                    ]
+                  },
+                  {
+                    "title": "Wuhan - former Methodist church, now Crown Bakery - interior - P1050063",
+                    "creator": "User:Vmenkov",
+                    "license": "by-sa",
+                    "license_version": "3.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=15194164",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Wuhan_-_former_Methodist_church%2C_now_Crown_Bakery_-_interior_-_P1050063.JPG",
+                    "attribution": "\"Wuhan - former Methodist church, now Crown Bakery - interior - P1050063\" by User:Vmenkov is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+                    "warnings": [
+                      "share-alike: a work made from it must carry the same licence"
+                    ]
+                  },
+                  {
+                    "title": "san antonio bakery interior",
+                    "creator": "goodiesfirst",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/49215102@N00/420671805",
+                    "url": "https://live.staticflickr.com/123/420671805_80062f7223.jpg",
+                    "attribution": "\"san antonio bakery interior\" by goodiesfirst is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Holland Bakery interior in Malang",
+                    "creator": "Christophe95",
+                    "license": "by-sa",
+                    "license_version": "4.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=102132818",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Holland_Bakery_interior_in_Malang.jpg",
+                    "attribution": "\"Holland Bakery interior in Malang\" by Christophe95 is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+                    "warnings": [
+                      "share-alike: a work made from it must carry the same licence"
+                    ]
+                  },
+                  {
+                    "title": "Tartine bakery interior in 2010",
+                    "creator": "kennejima",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=11581955",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg",
+                    "attribution": "\"Tartine bakery interior in 2010\" by kennejima is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Tiong Bahru Bakery interior at Fort Canning, Singapore",
+                    "creator": "philip.mallis",
+                    "license": "by-sa",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/122687277@N03/54198766471",
+                    "url": "https://live.staticflickr.com/65535/54198766471_4b993b6ca3_b.jpg",
+                    "attribution": "\"Tiong Bahru Bakery interior at Fort Canning, Singapore\" by philip.mallis is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+                    "warnings": [
+                      "share-alike: a work made from it must carry the same licence"
+                    ]
+                  },
+                  {
+                    "title": "File:HK CWB Yee Wo Street 大班麵包西餅 TaiPan bakery interior Sept-2013.JPG",
+                    "creator": "KampanHungs",
+                    "license": "by-sa",
+                    "license_version": "3.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=28164029",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/HK_CWB_Yee_Wo_Street_%E5%A4%A7%E7%8F%AD%E9%BA%B5%E5%8C%85%E8%A5%BF%E9%A4%85_TaiPan_bakery_interior_Sept-2013.JPG",
+                    "attribution": "\"File:HK CWB Yee Wo Street 大班麵包西餅 TaiPan bakery interior Sept-2013.JPG\" by KampanHungs is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+                    "warnings": [
+                      "share-alike: a work made from it must carry the same licence"
+                    ]
+                  }
+                ],
+                "note": "Openverse does not verify licences; check each source page before client use."
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"bakery interior\" --count 8"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 20,
+              "result_order": 22,
+              "result": "Exit code 3\n{\"error\": \"Openverse unreachable from here (HTTP 500); search by hand\", \"link\": \"https://openverse.org/search/image?q=artisan+bakery+shop&license_type=commercial%2Cmodification\"}",
+              "result_chars": 190,
+              "result_sha256": "317f0e705be822f3d2340ec3b5ca572ff2addc20d7845c80c27d845e4bb8d34a",
+              "result_data": {
+                "error": "Openverse unreachable from here (HTTP 500); search by hand",
+                "link": "https://openverse.org/search/image?q=artisan+bakery+shop&license_type=commercial%2Cmodification"
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"artisan bakery shop\" --count 8"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 24,
+              "result_order": 25,
+              "result": "This Bash command contains multiple operations. The following parts require approval: mkdir -p /tmp/claude-0/-tmp-studio-eval-b6m8209v-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs, curl -sS -o celtic.jpg https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg, curl -sS -o sanantonio.jpg https://live.staticflickr.com/123/420671805_80062f7223.jpg, curl -sS -o tartine.jpg https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg",
+              "result_chars": 479,
+              "result_sha256": "84028023ac45d8a675dc0ba50ee515ef72c79162552f63cab931683c15000c8d",
+              "result_data": {},
+              "input": {
+                "command": "mkdir -p /tmp/claude-0/-tmp-studio-eval-b6m8209v-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs && cd /tmp/claude-0/-tmp-studio-eval-b6m8209v-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs && curl -sS -o celtic.jpg https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg && curl -sS -o sanantonio.jpg https://live.staticflickr.com/123/420671805_80062f7223.jpg && curl -sS -o tartine.jpg https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg && ls -l"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1242,
+            "output": 3415,
+            "cache_read": 289665,
+            "cache_write": 36599
+          },
+          "seconds": 110.3,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "command": "openverse.py"
+              },
+              "passed": true,
+              "detail": "ran python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curat"
+            },
+            {
+              "check": {
+                "command_result": {
+                  "command": "openverse\\.py",
+                  "output": "attribution"
+                }
+              },
+              "passed": true,
+              "detail": "matched command and observed result"
+            },
+            {
+              "check": {
+                "regex": "CC BY|CC0|licen[cs]e"
+              },
+              "passed": true,
+              "detail": "/CC BY|CC0|licen[cs]e/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV02",
+      "title": "First configuration announces Openverse as the reference base once",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 2394,
+        "output": 2931,
+        "cache_read": 143002,
+        "cache_write": 63401
+      },
+      "seconds": 21.5,
+      "wall_seconds": 21.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Zanim przejdę do dodatków, jedno pytanie.\n\n**Jak Studio ma się uruchamiać?**\n\n1. **Prowadzony** (polecam, jeśli dopiero zaczynasz ze skillami): pełne powitanie i menu, które prowadzi krok po kroku.\n2. **Workflow**: Studio po cichu podpina się do Twojego sposobu pracy, bez menu. Gdy zechcesz, napisz „menu\".\n\nWpisz **1** albo **2**.\n\nPo Twojej odpowiedzi sprawdzę, które dodatki są u Ciebie dostępne. Superpowers wygląda na już wczytany w tej sesji. Potem zapytam jeszcze o Earshota, silnik do dźwięku w filmach. Niczego nie instaluję przed Twoją decyzją.\n\nPominąłem na razie krok z dodatkami i nic nie zapisałem ani nie zainstalowałem. Pasek statusu ponytail (`statusLine` w settings.json) też nie jest ustawiony. Mogę go dodać, jeśli chcesz.",
+          "reply_chars": 743,
+          "reply_sha256": "edf82b9e74a508b6c9189694ea59f69b14bfd34ea3fb86298e80fe6e27bd0f39",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1196,
+            "output": 918,
+            "cache_read": 53493,
+            "cache_write": 30932
+          },
+          "seconds": 12.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "prompt": "1",
+          "reply": "Wybrałeś tryb **Prowadzony**. Zapamiętuję go na tę rozmowę. Nie zapisałem go w żadnym pliku.\n\nBazą referencji Studia jest Openverse: ponad 800 mln obrazów i nagrań audio na wolnych licencjach, bez instalacji i bez klucza. Przy każdym znalezionym materiale podam licencję, źródło i atrybucję (albo ostrzeżenie, gdy jej brakuje).\n\n**Superpowers** jest już dostępny w tej sesji. Skill `superpowers:using-superpowers` jest wczytany, więc nie trzeba go instalować.\n\n**Earshot** nie jest na liście skilli tej sesji, więc proponuję go jako drugi dodatek. To silnik do dźwięku w filmach, otwarty projekt Leona Lina (github.com/Leonxlnx/earshot, licencja MIT). FrameCore Works dostarcza go jako wtyczkę i podłącza do Studio. Dobiera i tworzy efekty dźwiękowe, na przykład „szum\" przelotu, gdy pojawia się napis, albo uderzenie, gdy ląduje logo. Ustawia je dokładnie w momencie, w którym coś dzieje się w obrazie, i sprawdza, czy pasują. Działa u Ciebie i nie wysyła Twoich plików do internetu.\n\nDo wyboru:\n1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać\" dźwięków i sam wybrać ten, który najlepiej pasuje.\n2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n3. **Na razie bez Earshota.**\n\nZapiszę osobną wtyczkę `earshot-audio` i folder `~/.framecore-studio/extensions/earshot` (silnik, a w wersji pełnej też modele). Pobieram je raz, a z Twoich plików nic nie wysyłam. Gdy sieć zablokuje pobieranie, podam, którą domenę trzeba odblokować.\n\nWpisz **1**, **2** albo **3**. Do Twojej odpowiedzi niczego nie instaluję.\n\nNie sprawdzałem rejestru dodatków ani dostępu do sieci. Pełna wersja wymaga PyPI, `download.pytorch.org` i `huggingface.co`. W środowisku chmurowym kontener może stracić silnik po zakończeniu sesji.",
+          "reply_chars": 1773,
+          "reply_sha256": "2bcad228f001dea75291095dd50b5439d2dbf6389fbdd98dbfce75f89d5b4997",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 2013,
+            "cache_read": 89509,
+            "cache_write": 32469
+          },
+          "seconds": 9.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Openverse"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Openverse']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV03",
+      "title": "Without code or a web tool, the Openverse search link is given",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1234,
+        "output": 1775,
+        "cache_read": 125776,
+        "cache_write": 31280
+      },
+      "seconds": 19.5,
+      "wall_seconds": 19.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "reply": "I couldn't find you three photos. I have no shell or web tool in this session, so I can't run the Openverse search or open any image. I won't name specific photos from memory, because I couldn't check their licences or that the pages still exist.\n\n**Search that returns only commercially usable, modifiable images:**\nhttps://openverse.org/search/image?q=rustic%20bakery%20interior&license_type=commercial,modification\n\nTry variations such as `artisan bakery interior`, `bakery shop wooden shelves` and `bread display bakery counter`.\n\n**Choosing the three:**\n- **Safest licences:** CC0 and Public Domain Mark need no credit. CC BY needs credit and allows commercial use and edits. CC BY-SA also allows commercial use, but you would have to license the finished ad under the same terms, which a client ad usually can't do, so skip it.\n- **Avoid:** anything marked NC (non-commercial) or ND (no derivatives), since a client ad is commercial and you'll probably crop or grade the photos.\n- **Check the source page:** Openverse only indexes the licence. Open each photo's original page (Flickr, Wikimedia Commons and so on) and confirm the licence there.\n- **People and branding:** skip photos with recognisable faces or visible shop names or logos unless there's a release. A CC licence covers the photographer's copyright, not those.\n\n**Credit for each photo.** Openverse's \"Use this image\" box gives a ready-made attribution. It should include:\n1. Title\n2. Author, linked to their profile\n3. Source, linked to the original page\n4. Licence name, linked to its deed (for example CC BY 4.0)\n5. A note if you changed the image, such as \"cropped and colour-graded\"\n\nExample: *\"Rustic Bakery\" by Jane Doe, https://… , licensed under CC BY 2.0, cropped.*\n\nIn a paid ad where on-image credit doesn't fit, put the credit in the ad's caption or landing-page footer, or in the delivery notes to the client. Keep a record of each photo's URL, licence and access date.\n\nIf you paste the three links you choose, I can check the credit lines and draft the attribution block for the client.\n\nI didn't check any images, and the licence terms above are standard Creative Commons rules, not a legal review. Confirm each licence on the source page before the ad goes out.",
+          "reply_chars": 2250,
+          "reply_sha256": "54fd7370be528d26fb0ff9932676dad56f46b052b3046abd8acc4e5fc4aea212",
+          "skills": [
+            "workflow-orchestrator",
+            "research-evidence"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1234,
+            "output": 1775,
+            "cache_read": 125776,
+            "cache_write": 31280
+          },
+          "seconds": 19.5,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "openverse.org/search"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['openverse.org/search']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV04",
+      "title": "A mockup that needs photos the user lacks searches Openverse before generating",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1229,
+        "output": 1026,
+        "cache_read": 23881,
+        "cache_write": 25119
+      },
+      "seconds": 14.4,
+      "wall_seconds": 14.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Plan a landing page mockup for a small bakery. I don't have any photos of the shop. Just tell me where the pictures will come from, briefly.",
+          "reply": "Pictures for the mockup would come from two places:\n\n- **Generated stills.** I'd write image prompts for the hero, the product shots (bread, pastries) and a cozy-interior mood shot, then you run them in your image generator. Nothing realistic gets drawn in code.\n- **Free-licence photos.** Openverse works as a fallback for filler shots. I'd note each photo's licence and credit.\n\nBoth are placeholders. Neither shows your actual shop, so swap in real photos before launch. Don't present generated or stock images as your real bakery or products.\n\nNext I'd hand this to the landing-page design step. It needs the bakery's name, location, and 3–4 signature items.\n\nSkipped: the full page plan, copy, and any image generation. Risk: I haven't checked which image tool you have, so the prompts will need adjusting to it.\n\nI can also set up the optional Ponytail statusline badge in your settings if you want it.",
+          "reply_chars": 908,
+          "reply_sha256": "c1628abcf5f1e6bc6decd731295476eacf06b54647718a0714f8657ae46b9ef7",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1229,
+            "output": 1026,
+            "cache_read": 23881,
+            "cache_write": 25119
+          },
+          "seconds": 14.4,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Openverse"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Openverse']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV05",
+      "title": "Missing ambience for an edit is offered from Openverse audio",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1221,
+        "output": 1014,
+        "cache_read": 23702,
+        "cache_write": 17417
+      },
+      "seconds": 16.3,
+      "wall_seconds": 16.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I'm editing a cafe vlog and I have no ambience or sound effects. Where can you get them for me? Briefly.",
+          "reply": "**Free**\n- **Freesound.org**: the biggest library of cafe ambience, cup clinks, espresso machines and door bells. Filter by CC0 to skip attribution. CC-BY needs a credit, and you should avoid the NC (non-commercial) licences if the vlog is monetized.\n- **Pixabay Sound Effects**: no attribution needed and easy to search (\"coffee shop ambience\").\n- **YouTube Audio Library**: safe if you're publishing on YouTube.\n- **Openverse.org**: searches openly licensed audio across many sources and shows the licence for each.\n\n**Paid (if you want less digging)**\n- **Epidemic Sound**, **Artlist** or **Envato Elements**: subscription libraries with clean commercial licences.\n\n**Free and often best: record it yourself.** Capture 60 seconds of room tone at the cafe with your phone, plus close-ups of the cup, spoon, grinder and door. It matches your footage better than any library track, and you can loop it under the edit.\n\n**Tips**\n- Layer a quiet ambience bed with a few spot effects timed to on-screen actions.\n- Keep the ambience low enough that it doesn't compete with your voice or music.\n\nI haven't searched these libraries or checked any specific track's licence. Confirm the licence on each file before you publish, especially for monetized use. If you tell me your platform, I can look for specific clips and check their licences.",
+          "reply_chars": 1335,
+          "reply_sha256": "8ac67b45125759cb08287773bca72ae48cc8cd125d13b50a8de89537178c7b70",
+          "skills": [
+            "audio-production-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1221,
+            "output": 1014,
+            "cache_read": 23702,
+            "cache_write": 17417
+          },
+          "seconds": 16.3,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Openverse"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Openverse']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

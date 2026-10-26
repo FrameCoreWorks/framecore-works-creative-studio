@@ -1835,6 +1835,53 @@
       },
       "observed": "2026-10-24 Claude Code cloud container (Python 3.13): brand-kit 1.0.0 built with 46 launcher and 6 package tests on offline fixtures, after one code review round (1.0.1 at the pinned commit: 54 tests, connect-time peer check against DNS rebinding); a real extract of https://pypi.org/ through the sandbox proxy read 3 of 5 pages (2 robots-disallowed), 4 stylesheets, 85 colours and 3 font families, and the draft picked #006dad as primary and Source Sans 3 as body. python.org and github.com were blocked by this sandbox's proxy. The skill's audit, approval and direction steps were not run in a host conversation.",
       "update": "Check the brand kit template's top-level fields against the plugin's catalog.REQUIRED (package_test does) whenever Studio's schema changes."
+    },
+    {
+      "id": "openverse",
+      "name": "Openverse (WordPress Foundation)",
+      "repository": "https://github.com/WordPress/openverse",
+      "reviewed_commit": "49f5b6067a6eb40ef7eaa251ced43eaccfc35226",
+      "package": null,
+      "license": "MIT (code); each work carries its own CC licence or public-domain mark",
+      "kind": [
+        "api"
+      ],
+      "category": "research",
+      "role": "reference base",
+      "gives": "Search of over 800 million openly licensed images and audio tracks (no video), each with its licence, source page and attribution line",
+      "studio_uses": "Studio's reference base for images and sound (owner decision 2026-10-26): Reference Pack's Openverse reference base and skills/reference-pack-curator/scripts/openverse.py, used by every owner that sources pictures or sound (Graphic Design, Image Prompt, Storyboard Board, Cinematography, Character Design, Motion Graphics, FrameCut, Audio, Research) and by the Earshot companion for recordings; announced once at first configuration. See integrations/openverse/README.md.",
+      "not_for": "Video, scraping the catalogue, evading rate limits, or treating a listed licence as verified clearance for client use",
+      "requires": [
+        {
+          "tool": "existing host capabilities",
+          "note": "Python with internet access for openverse.py, or a web tool that reads JSON; otherwise the user searches openverse.org by hand. Anonymous API: about 20 requests a minute, 200 a day."
+        }
+      ],
+      "rights": "Each work is used under its own licence with attribution; share-alike licences pass to works made from them. Openverse does not verify licences: the source page decides before client use.",
+      "hosts": {
+        "codex": {
+          "status": "not_supported",
+          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+        },
+        "claude_code": {
+          "status": "not_supported",
+          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+        },
+        "chatgpt_work": {
+          "status": "not_supported",
+          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+        }
+      },
+      "observed": "2026-10-26: live image and audio searches through openverse.py from a Claude Code cloud container (rate-limit headers 20/min, 200/day; /v1/video 404). Claude apps, ChatGPT and ChatGPT Work reach to the API: NOT_RUN.",
+      "update": "Re-check the API terms, limits and endpoints before changing openverse.py; never add a third-party MCP intermediary without a review."
     }
   ]
 }
