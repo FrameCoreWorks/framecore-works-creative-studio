@@ -27,7 +27,7 @@ Use the user’s working language; keep exact copy and requested prompt language
 Use this skill when:
 
 - A request needs more than one workflow stage or role.
-- The task involves brief, references, direction, prompting, QA, delivery, onboarding, or governance.
+- A multi-stage task needs shared state, gates or handoffs across brief, references, direction, prompting, QA, delivery, onboarding, or governance.
 - The task needs checklist-driven evaluation, critique, repair, regression checks, or a loopback decision.
 - The user asks how the kit routes work or what the installed roles do.
 

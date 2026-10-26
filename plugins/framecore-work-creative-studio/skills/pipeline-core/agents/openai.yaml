@@ -1,7 +1,7 @@
 interface:
   display_name: "Studio Core"
-  short_description: "Route multi-stage work through gates and QA loops"
-  default_prompt: "Use $pipeline-core to route this multi-stage task through the required artifacts, gates, and QA loop."
+  short_description: "Shared project state, gates, handoffs and QA loops"
+  default_prompt: "Use $pipeline-core to apply the shared artifacts, gates, and QA loop to this multi-stage task."
 
 policy:
   allow_implicit_invocation: true

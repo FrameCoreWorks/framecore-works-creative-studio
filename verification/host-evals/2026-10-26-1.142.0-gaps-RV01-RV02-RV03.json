@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-26",
+  "package_version": "1.142.0",
+  "source": {
+    "commit": "13c24767b86b980f82db2e0ef79725b542245ec5",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "534695837c8f65c1660b7b1a0a239f8049929254c10ba4fc418a8aa40ca8897d",
+      "files": 1593,
+      "archive": "candidates/534695837c8f65c1660b7b1a0a239f8049929254c10ba4fc418a8aa40ca8897d.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "3667442654d1f8878ce473efe2891d56699c8cd0053087b65361553f2244adfb",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 3,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3761,
+      "output": 9000,
+      "cache_read": 161794,
+      "cache_write": 82234
+    },
+    "seconds": 93.6
+  },
+  "cases": [
+    {
+      "id": "RV01",
+      "title": "Burned captions on an organic Meta Reel keep the 35 % bottom safe zone",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1261,
+        "output": 2015,
+        "cache_read": 43549,
+        "cache_write": 21581
+      },
+      "seconds": 22.6,
+      "wall_seconds": 22.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have reel.mp4 (1080x1920) and its subtitles.srt. It will be posted as an organic (not paid) Instagram Reel. Plan the caption burn-in: give me the exact placement settings you would use, before running anything.",
+          "reply": "# Caption burn-in plan for `reel.mp4`\n\nNothing has been run. I read the dated platform spec (checked 2026-10-25), the readability defaults and the captions tool's README. I haven't opened `reel.mp4` or `subtitles.srt` yet.\n\n## Placement settings\n\n**Source:** Meta's published 9:16 safe zone. It applies to Reels and Stories, organic or paid. The tool's default of 14 % from the bottom is only a readability floor for films with no platform overlays, so it is wrong here.\n\n| Setting | Value |\n| --- | --- |\n| Frame | 1080 × 1920 |\n| Top margin (14 %) | about 269 px |\n| Bottom margin (35 %) | about 672 px |\n| Side margins (6 %) | about 65 px each |\n| Safe box | about 950 × 979 px, from y = 269 to y = 1248 |\n| Burn-in flag | `--bottom 0.35` |\n| Alignment | Centred. |\n\n- **`--bottom 0.35`:** this puts the bottom edge of the caption block at about y = 1248, the lower edge of the safe box.\n- **Right side:** the action-button column on Reels is wider than Meta's 6 % side margin, so I'd keep text off the right edge. Centred lines of two lines at most should stay clear. I'll confirm that on the rendered frames.\n- **Text limits:** the caption stays at two lines of at most 42 characters, within the 950 px box.\n- **Audio:** copied unchanged. The picture is re-encoded as H.264.\n\n## Order of operations\n\n1. Run `python captions.py check subtitles.srt --profile social --language <lang>` first. The `social` profile follows the speech: reading speed of at most 20 characters per second in English or 17 in Polish, cues of 5/6 s to 7 s, no overlaps, and no gaps under two frames. I need the language from you. If it isn't English or Polish, the reading-speed limit is Unknown and the report will say so.\n2. Fix any flagged cues by splitting or retiming, not by shrinking the text. Wording stays locked. If a fix needs a wording change, it goes back to you as a copy decision.\n3. Run `burn reel.mp4 subtitles.srt --out <new file> --bottom 0.35`. The tool refuses to overwrite a file, so the source stays intact. It needs Pillow, ffmpeg and ffprobe, and `render.py` next to `captions.py`. I'll check that these are present before I start.\n4. Inspect sample frames from the dense cues and the first and last cues. I'll check that:\n   - no text sits outside y = 269 to 1248 or in the right-hand button column;\n   - no text covers a face, product, logo or CTA;\n   - contrast is readable.\n\n## What I need from you\n\n- **Language** of the captions, and any locked names, brand terms or legal text.\n- **Style:** font, colour and background. If you don't choose, I'll use the tool's default caption style and tell you what it is. I won't pick a style for you silently.\n- **Instagram's own auto-captions:** these can double up with burned-in text. Burning in is a valid choice, but you may want to turn off the auto-captions on that post.\n\n## Limits\n\n- The tool measures frames, not how legible they are on a phone. Check the result in Instagram's preview before you post.\n- Meta publishes the safe zone as percentages, not as a pixel spec. The pixel box above is my arithmetic from those percentages.\n\nShall I go ahead with the check and the burn-in? If so, send the caption language and any style preferences.",
+          "reply_chars": 3199,
+          "reply_sha256": "c96b27360fe1fa916800ed9192e538edf8a998659fef78a8ba8167df84e16633",
+          "skills": [
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1261,
+            "output": 2015,
+            "cache_read": 43549,
+            "cache_write": 21581
+          },
+          "seconds": 22.6,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "caption-studio"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['caption-studio']; expected one of ['caption-studio']"
+            },
+            {
+              "check": {
+                "regex": "35\\s?%|0\\.35|672"
+              },
+              "passed": true,
+              "detail": "/35\\s?%|0\\.35|672/"
+            },
+            {
+              "check": {
+                "not_regex": "--bottom\\s*0?\\.14\\b"
+              },
+              "passed": true,
+              "detail": "not /--bottom\\s*0?\\.14\\b/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RV02",
+      "title": "A storyboard for a coded motion reel stays with Motion Graphics",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1248,
+        "output": 5171,
+        "cache_read": 51533,
+        "cache_write": 42329
+      },
+      "seconds": 52.0,
+      "wall_seconds": 52.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Make the storyboard for a 10-second coded motion-graphics reel for a bakery launch; the copy is locked: \"Fresh at 7. Gone by 10.\" Just the storyboard for now.",
+          "reply": "**Storyboard r1: \"Fresh at 7. Gone by 10.\"** (10 s, 300 frames at 30 fps). It's a plan only. Nothing is built or rendered, and the runtime isn't probed yet.\n\n**Idea.** One tray of golden rolls is the only thing on screen. The rolls arrange into a giant **7**, then re-form into a **10**, then get taken one by one until the tray is empty. The film shows the sell-out: at 7 the tray is full, and by 10 it's bare.\n\n- **Set aside:** a ticking clock face, steam wisps, wheat and croissant icons, and a sunrise.\n- **Mechanism taken:** from the kinetic-statement shortlist, @Gdgtify's *every line changes the frame's architecture, and the last line stands on what earlier words built* ([film](https://x.com/Gdgtify/status/2103458245213929495)). Here the 10 stands on the same lattice the 7 was built from.\n\n| # | Frames / time | What's on screen | Motion | Copy |\n|---|---|---|---|---|\n| 1 Full tray | 0–24 (0–0.8 s) | At frame 0 the screen is filled edge to edge with a lattice of about 6×11 flat gold rolls on dark cocoa, with a warm glow. | Rolls near the middle swell slightly. Everything else holds. | none yet |\n| 2 Fresh at 7 | 24–90 (0.8–3.0 s) | Rolls outside the 7 shrink and dim. Rolls inside the 7 swell and warm, forming a giant 7 about 60% of the frame height. \"Fresh at\" sets above it. | The lattice resolves into the 7 over 14 frames (expo-out), with a warm light sweep through the 7. Readable hold at f54–90 (1.2 s). | **Fresh at 7.** |\n| 3 Re-form | 90–120 (3.0–4.0 s) | The 7's rolls glide across the lattice into a 10. Extra rolls swell in from the dim background cells. | 20-frame stagger, cubic in-out. \"Fresh at\" exits up and \"Gone by\" rises in from below, masked. | **Gone by** |\n| 4 Gone by 10 | 120–150 (4.0–5.0 s) | The full 10 sits on the tray with \"Gone by 10.\" complete. | Hold 1 s, so the line is read while the tray is still full. | **Gone by 10.** |\n| 5 Taken | 150–240 (5.0–8.0 s) | Rolls are picked one by one in a fixed seeded order. Each lifts about 15% with a growing shadow, then exits off the top. Ghost rings (the tray imprint) stay where each roll was. | The gap between picks accelerates from about 8 frames to 1, so it starts slow and ends in a rush (ease-in). | text holds |\n| 6 Empty | 240–300 (8.0–10.0 s) | The tray is bare, with only the ghost ring outline of the 10 and one stray crumb. The copy stays. | 2 s of stillness, a slow settle of the ring outline and a tiny final glint. The last frame is clean. | **Gone by 10.** |\n\n**Motion system (proposed).**\n- **Easing:** expo-out for arrivals, cubic in-out for the morph, ease-in for the picks.\n- **Rolls:** flat circles with a crust-tone ring and one highlight, with no realistic bread drawn in code.\n- **No page chrome:** no corner labels, counters, timecodes or kickers.\n\n**Look (proposed, and your brand values override it).**\n- **Colours:** cocoa ground #1F1511, roll gold #E8A33D with crust #B8661F, cream type #FFF4E0.\n- **Type:** one heavy display face, with the \"7\" and \"10\" as lattice glyphs and the words as real text.\n\n**Checks I'd run on the frames before build.** I'd review frame 0, frame 90, frame 300 and the f120–150 hold at full size and phone scale. I'd also confirm each roll's pick reads from above, and that the empty tray grows out of the picked 10.\n\n**Status**\n- **Confirmed:** the 10 s length and the copy, \"Fresh at 7. Gone by 10.\"\n- **Proposed:** everything in the table above, the palette, the type and the 9:16 1080×1920 format.\n- **Unknown:**\n  - the bakery name, logo and any address or CTA (I haven't added copy beyond the locked line);\n  - brand colours and fonts;\n  - whether you have product photos or footage;\n  - whether you want sound;\n  - the runtime (I'll probe Node, FFmpeg and Chrome at build time).\n\n**Questions before build**\n1. Is this revision approved?\n2. Is the 9:16 format right?\n3. Do you have bakery photos? A type-and-shape-only reel is the weaker option for a local business, so tell me if the rolls should be real cut-outs instead.\n4. Should the name or logo sit in the final hold? That would be a lockup, not new copy.\n5. Do you want sound? If so, I'd use a soft pop on each roll arriving and a paper-bag rustle that speeds up during the picks. Otherwise the MP4 stays silent.\n\nOn approval I'll write the motion contract with the exact copy locked. Then I'll build and render.",
+          "reply_chars": 4326,
+          "reply_sha256": "76ef977d587c1fad85da84e398ad4012a2a73c19d777c7d0c2ab33965b2058d6",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1248,
+            "output": 5171,
+            "cache_read": 51533,
+            "cache_write": 42329
+          },
+          "seconds": 52.0,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Fresh at 7.",
+                  "Gone by 10."
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "RV03",
+      "title": "A set of client emails in English starts from the English email kit",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1252,
+        "output": 1814,
+        "cache_read": 66712,
+        "cache_write": 18324
+      },
+      "seconds": 19.0,
+      "wall_seconds": 19.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Use Copy Voice to write my set of client emails in English for each step of a logo project: intake questions, the offer, sending concepts, a feedback summary, final files and a payment reminder. Keep each one short.",
+          "reply": "Here is the set, adapted from the studio's client email kit for a logo project. Anything in `{braces}` is yours to fill in. I haven't invented any prices, dates, file formats or rights terms.\n\n## 1. Intake questions\n\n**Subject:** {Project}: a few questions before I quote\n\nHello {name},\n\nthank you for your message. To prepare an accurate offer I need a little more information. Short answers in a reply are enough:\n\n1. What does your business do, and who are your customers?\n2. Where will the logo be used most (web, print, signage, packaging)?\n3. Are there logos you like or dislike, and any colours or ideas to avoid?\n\nI will send the offer within {X} working days of your answers.\n\n{signature}\n\n## 2. The offer\n\n**Subject:** {Project}: offer\n\nHello {name},\n\nattached is my offer for your logo: {number} package options, the schedule and the price. I recommend {package}, because {one sentence tied to the client's goal}.\n\nThe offer is valid until {date}. Once you accept, I will send {the deposit invoice / the contract} and start with {first step}.\n\nI am happy to answer any questions.\n\n{signature}\n\n## 3. Sending concepts\n\n**Subject:** {Project}: logo directions to choose from\n\nHello {name},\n\nhere are {two / three} logo directions, each shown in the places it will be used. My recommendation is {direction}, because {reason}.\n\nPlease reply with one number (1, 2, 3, or 4 with a description of the change) by {date}, so we keep the {date} deadline.\n\n{signature}\n\n## 4. Feedback summary\n\n**Subject:** {Project}: feedback on the logo, please confirm\n\nHello {name},\n\nI have collected your feedback into one list:\n\n1. {point}\n2. {point}\n\n{If points conflict:} Points {x} and {y} rule each other out. Which version shall we go with?\n\nThis is {round {n} of {N} / a change of scope, quoted at {amount}}. I will start once you confirm.\n\n{signature}\n\n## 5. Final files\n\n**Subject:** {Project}: final logo files\n\nHello {name},\n\nattached (or at {link, valid until {date}}) are the final logo files for {project}.\n\n- `01-print/`: {formats, e.g. PDF, EPS}\n- `02-web/`: {formats, e.g. SVG, PNG}\n- `03-source/`: {source files, if the offer included them}\n\nRights, as agreed in {the offer of {date} / contract no. {no.}}: {licence or assignment, uses, territory, term, from the date of payment}. Fonts: {names} under {licence}.\n\nPlease confirm receipt by replying to this message. If anything does not work as agreed, let me know by {date} and I will fix it within the project.\n\nThank you for working with me.\n\n{signature}\n\n## 6. Payment reminder\n\n**Subject:** {Project}: invoice no. {no.}\n\nHello {name},\n\na friendly reminder about invoice no. {no.} for {amount}, due on {date}. If the payment is already on its way, please ignore this message.\n\n{signature}\n\n---\n\n- **Review:** I checked the set against the AI-writing patterns and found nothing to repair. It is a `draft` until you fill the braces.\n- **Rights wording:** the rights line depends on your contract and country. Check it locally. This is not legal advice.\n- **Tone:** it is the same polite, direct address throughout. If you tell me your usual greeting or sign-off, I can match it.",
+          "reply_chars": 3136,
+          "reply_sha256": "865499fa16bda8d7f882a88ccf12da4fba6fe14bef36c75adf6c5ca6c571071f",
+          "skills": [
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1252,
+            "output": 1814,
+            "cache_read": 66712,
+            "cache_write": 18324
+          },
+          "seconds": 19.0,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "client-emails.en.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['client-emails.en.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

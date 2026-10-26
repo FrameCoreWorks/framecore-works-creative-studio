@@ -32,7 +32,7 @@ Character limits and sizes for common placements, read on the snapshot date. Pla
 
 ## Image and video sizes
 
-The static compositor's [presets](../../static-graphic-design-creator/assets/static-render/presets.json) hold the sizes with the same date: feed 4:5 at 1080 × 1350, square 1080 × 1080, Stories and Reels 9:16 at 1080 × 1920, link and landscape 1.91:1 at 1200 × 628, LinkedIn square 1200 × 1200. The existing 9:16 presets reserve 14 % at the top, 35 % at the bottom and 6 % at each side as historical planning assumptions from conflicting Meta summaries, not a universal platform safe zone. Use the exact placement's current overlay/preview and CTA/caption configuration for a final; retain Unknown when it cannot be inspected.
+The static compositor's [presets](../../static-graphic-design-creator/assets/static-render/presets.json) hold the sizes with the same date: feed 4:5 at 1080 × 1350, square 1080 × 1080, Stories and Reels 9:16 at 1080 × 1920, link and landscape 1.91:1 at 1200 × 628, LinkedIn square 1200 × 1200. The existing 9:16 presets reserve 14 % at the top, 35 % at the bottom and 6 % at each side which matches the 9:16 safe zone Meta Business Help gives for all its 9:16 placements (checked 2026-10-25 in the [platform caption specs](../../caption-studio/references/platform-caption-specs.md)). Use the exact placement's current overlay/preview and CTA/caption configuration for a final; retain Unknown when it cannot be inspected.
 
 ## Sources read on 2026-10-10
 

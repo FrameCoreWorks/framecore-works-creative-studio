@@ -501,7 +501,7 @@ def main(argv=None):
     u.add_argument('file')
     u.add_argument('--out', required=True)
     u.add_argument('--size', type=int, default=44, help='text size at 1080 px on the short side (scaled for other sizes)')
-    u.add_argument('--bottom', type=float, default=0.14, help='distance from the bottom as a share of the height (0.14 keeps organic 9:16 captions above the controls; use 0.35 for a paid Reels placement)')
+    u.add_argument('--bottom', type=float, default=0.14, help='distance from the bottom as a share of the height (0.14 is a readability floor without platform overlays; use 0.35 for any 9:16 Meta placement, organic or paid)')
     u.add_argument('--background')
     u.add_argument('--color')
     u.add_argument('--font')

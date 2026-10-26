@@ -110,7 +110,7 @@ With `--video` the frames come from the delivered video itself instead of the bu
 | ending | an end card or logo holds at least 1.5 s (warning); a video without one is noted |
 | motion | lines arrive 3 frames to 0.5 s apart (warning) |
 | contrast | foreground against background at least 4.5:1 (error) |
-| layout | in every hold frame of every format: something is visible, nothing touches the frame edge (error), and in 9:16 nothing sits in the bottom 14% or top 8% where Reels and TikTok draw their interface (warning) |
+| layout | in every hold frame of every format: something is visible, nothing touches the frame edge (error), and in 9:16 nothing sits in the bottom 14% or top 8%, a minimum clear of the interface Reels and TikTok draw (warning); Meta's full 9:16 safe zone is in the [platform caption specs](../../../caption-studio/references/platform-caption-specs.md) |
 | composition | in 9:16, a content block shorter than 60% of the height is centred between 30% and 62% of it, so neither half of the frame is left empty (warning) |
 | hook | in a vertical, feed or advert film, the first frame is empty, though it is the thumbnail (warning) |
 | pace from frames | four times a second, a stretch where nothing appears and under 1.5% of the frame changes counts as still; drift therefore counts as still. A still stretch longer than the copy's reading time plus 1.5 s (2 s without copy; plus 1.5 s in the last scene) is a warning |

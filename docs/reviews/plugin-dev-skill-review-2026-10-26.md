@@ -53,4 +53,12 @@ cinematography, commercial-video-campaign-director, creative-music-video-directo
 
 ## Status
 
-Fixes: not started; they wait for the owner's choice of scope. All are wording edits in existing files; no ID, path or route changes. A fix release would change the shared package and needs the release steps and the paired hosted update (`pending` in Claude Code).
+Important findings 1 to 8 fixed in 1.143.0 (CC-20261026-07, owner's go-ahead 2026-10-26). The code review of the fix found the same stale caption margin in four more places (the captions tool help and README, the channel specs snapshot, the motion review README and a `critique.py` comment), fixed in the same change. Finding 2 also needed the router side: the Motion Graphics description now names its storyboard, and Shot Sequence hands coded motion over explicitly. Descriptions total 7,507 of 7,800 characters; the orchestrator is unchanged (31,851 bytes).
+
+Host evaluation in headless Claude Code (plan usage, cases RV01 to RV03 in the gaps set):
+
+- RV02 (storyboard for a coded reel): FAIL before (Shot Sequence loaded), FAIL after the first fix, PASS after the router fix; it is the only case that separates before from after.
+- RV01 (organic Reel captions) and RV03 (English client email set) pass on the baseline too in their final wording, so they guard against regressions but do not prove the fix; the fix rests on the verified text contradictions. In their first wording RV01 loaded no skill and RV03 was answered directly by the orchestrator, which handles small tasks itself by design.
+- Release gate W01, W02, W04, V01, D01: 5/5 PASS.
+
+The minor findings stay open for the owner.

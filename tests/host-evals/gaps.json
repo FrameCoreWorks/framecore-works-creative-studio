@@ -1,6 +1,6 @@
 {
   "name": "gaps",
-  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15).",
+  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26).",
   "cases": [
     {
       "id": "G01",
@@ -479,6 +479,95 @@
         "Uses the Hairline kit, not Iso Glow, because the brief asks for no glow",
         "Plans the object's giveaway features, a composed rest with one bright mark and a tour of a few stops before building",
         "Moves everything as functions of time (no requestAnimationFrame) and renders or states how to render"
+      ]
+    },
+    {
+      "id": "RV01",
+      "title": "Burned captions on an organic Meta Reel keep the 35 % bottom safe zone",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio I have reel.mp4 (1080x1920) and its subtitles.srt. It will be posted as an organic (not paid) Instagram Reel. Plan the caption burn-in: give me the exact placement settings you would use, before running anything.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "caption-studio"
+              ]
+            },
+            {
+              "regex": "35\\s?%|0\\.35|672"
+            },
+            {
+              "not_regex": "--bottom\\s*0?\\.14\\b"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Uses the Meta 9:16 safe zone (bottom 35 %) for an organic Reel, citing the platform caption specs",
+        "Does not present 14 % as enough for an organic Reel"
+      ]
+    },
+    {
+      "id": "RV02",
+      "title": "A storyboard for a coded motion reel stays with Motion Graphics",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Make the storyboard for a 10-second coded motion-graphics reel for a bakery launch; the copy is locked: \"Fresh at 7. Gone by 10.\" Just the storyboard for now.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "skills_any": [
+                "hyperframes-workflow"
+              ]
+            },
+            {
+              "contains": [
+                "Fresh at 7.",
+                "Gone by 10."
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Motion Graphics authors the storyboard in its motion contract",
+        "Locked copy appears exactly"
+      ]
+    },
+    {
+      "id": "RV03",
+      "title": "A set of client emails in English starts from the English email kit",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Use Copy Voice to write my set of client emails in English for each step of a logo project: intake questions, the offer, sending concepts, a feedback summary, final files and a payment reminder. Keep each one short.",
+          "checks": [
+            {
+              "language": "en"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "reads_any": [
+                "client-emails.en.md"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Starts from the English client email kit, not a translation of the Polish one"
       ]
     }
   ]

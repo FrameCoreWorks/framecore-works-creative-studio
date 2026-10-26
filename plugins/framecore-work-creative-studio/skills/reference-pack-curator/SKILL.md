@@ -1,6 +1,6 @@
 ---
 name: reference-pack-curator
-description: Sort supplied references into canonical sources, mood or style inspiration and exclusions, with aliases, conflicts and continuity carriers, before direction or prompts.
+description: Sort supplied references into canonical sources, mood or style inspiration and exclusions, with aliases and conflicts, before direction or prompts. File inventory goes to Asset Manifest.
 ---
 
 # Reference Pack

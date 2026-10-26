@@ -30,7 +30,7 @@ Every profile allows at most two lines of 42 characters, rejects overlapping cue
 ## Into a motion video or a supplied video
 
 - **A motion video Studio renders:** `contract` imports the cues into the contract exactly as the [motion sync tool](../../../hyperframes-workflow/assets/motion-sync/README.md) does (the same frames, copy IDs and warnings; a test compares the two), and the renderer draws them.
-- **A supplied video:** `burn` draws each caption on the frames it covers with the motion renderer's caption style (`--size` at 1080 px on the short side, `--bottom` as a share of the height, 0.14 by default to stay above a 9:16 feed's controls, `--background`, `--color`, `--font`) and re-encodes the picture as H.264; the source audio is copied unchanged. Watch the result before calling it final: the tool measures frames, not legibility on a phone.
+- **A supplied video:** `burn` draws each caption on the frames it covers with the motion renderer's caption style (`--size` at 1080 px on the short side, `--bottom` as a share of the height, 0.14 by default as a readability floor without platform overlays, 0.35 for any 9:16 Meta placement, organic or paid, per the [platform caption specs](../../references/platform-caption-specs.md), `--background`, `--color`, `--font`) and re-encodes the picture as H.264; the source audio is copied unchanged. Watch the result before calling it final: the tool measures frames, not legibility on a phone.
 
 ## Verification boundary
 

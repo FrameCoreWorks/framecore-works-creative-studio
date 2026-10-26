@@ -10,7 +10,7 @@ Before final delivery of a substantive authored, revised or generated creative a
 Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md) before this method. It defines the active owner map, host capability rules and exceptions to the repository’s installation conventions. For substantive creative work, apply the conditional [Research](../research-evidence/SKILL.md) gate and search only when one of its triggers applies; purely mechanical state or packet maintenance uses its documented exemptions. Scale the artifact to the requested stage. Quick pitches remain short; known intent and valid scoped authorization do not need repeated confirmation.
 
 
-Use this skill to plan campaign-level positioning, offer framing, audience fit, asset matrices, channel adaptation, launch kits, and campaign QA without locking final creative execution too early.
+Use this skill to plan brand positioning, audience fit, asset matrices, channel adaptation, non-commerce campaign or launch planning, and campaign QA without locking final creative execution too early. Offers and product, store or marketplace launches go to [Sales Campaign Strategy](../ecommerce-campaign-strategy-director/SKILL.md).
 
 For a website/store-led commercial campaign, use the [website-to-campaign profile](../ecommerce-campaign-strategy-director/references/website-to-campaign.md). Supply only missing brand foundations to the existing Sales Campaign Strategy's pack: source-based diagnosis, positioning, buying situations, differentiation/proof and voice. Reuse accepted strategy, inspect accessible website facts before questioning and ask one material missing question per response. Do not create duplicate plans or expand brand-only work into a campaign.
 
