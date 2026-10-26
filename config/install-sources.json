@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 9226,
-      "sha256": "1e13619f1f4fae00a63b00c8aa7028eded1a4c5e3364a39ad230287c05acdbef"
+      "bytes": 9729,
+      "sha256": "5442a7ebf5aed67289dde696bfb62eb35e5b9e50d0934f05c74f74389b14f660"
     },
     {
       "path": "README.md",
@@ -315,6 +315,16 @@
       "path": "integrations/earshot/README.md",
       "bytes": 5978,
       "sha256": "bbcc90f31d5f870dee8435a0a8d0dce124df8b90d6b03822674a43555bc5c1a9"
+    },
+    {
+      "path": "integrations/hairline/LICENSE",
+      "bytes": 1070,
+      "sha256": "948d56f0bc8c383c04c453136dcfb78407f97de65ff8bb4fabff2b79ddd17f59"
+    },
+    {
+      "path": "integrations/hairline/README.md",
+      "bytes": 2493,
+      "sha256": "ed3a02f7c9fe17327ad33908e13ef3264d729cf9863cd4eec0e06e9f2e16427d"
     },
     {
       "path": "integrations/hallmark/LICENSE",
@@ -3258,8 +3268,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 32311,
-      "sha256": "4dcf723e1d7fb6a0ec5729ea28fc045be450434b0a1334ea6a556d2ab3e7a915"
+      "bytes": 33196,
+      "sha256": "25cb7dc36054bcf62740f652932add82332aa473fb5a576b0933ed3fecbc426b"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4462,6 +4472,31 @@
       "sha256": "6fd41bdd1d49e9b458c3c90f87d7d8c3c80343f31b8bfe26a5105b9beb628feb"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/hairline/LICENSE.upstream",
+      "bytes": 1070,
+      "sha256": "948d56f0bc8c383c04c453136dcfb78407f97de65ff8bb4fabff2b79ddd17f59"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/hairline/README.md",
+      "bytes": 7219,
+      "sha256": "a0d9564d452d5b69df3bfef7d62d082d2496143e79748aaf0ed3dea1e148a9ad"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/hairline-kit.js",
+      "bytes": 8276,
+      "sha256": "2eb06beaa1e8c24b551fe8e7a7cd04c159b0a8a72159dc2b42de5a88e8975462"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/index.html",
+      "bytes": 6376,
+      "sha256": "ab6378b40c97ab2cb7d254bfef16ed0d9319eb6be9ca05dca87e984964127781"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/hairline/hairline-kit.js",
+      "bytes": 8276,
+      "sha256": "2eb06beaa1e8c24b551fe8e7a7cd04c159b0a8a72159dc2b42de5a88e8975462"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/iso-glow/LICENSE.upstream",
       "bytes": 1194,
       "sha256": "1a1281a84e233c0501448f641943d1a3e6c07aa7dfcfd07ea59f212f0608426a"
@@ -5198,8 +5233,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 8566,
-      "sha256": "5f84a68c7e183edb6a1f9d977c7f98a84b30f73173840ec18037b94ff1f91f3d"
+      "bytes": 8713,
+      "sha256": "38659801db5d065869ccf26687514c03629ca3e94adb32c69d2c83ac62af96a3"
     },
     {
       "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
@@ -7448,8 +7483,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 55189,
-      "sha256": "9be05dd5356def97514d7b9be1e8015e91b618b7779d8278a4bd1d45b4630c7e"
+      "bytes": 56331,
+      "sha256": "fc08cad2cc879a9f74f19d5951ec00d6e1a1edacdb098b872aff649a648f2218"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7483,8 +7518,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 171530,
-      "sha256": "e8ea20379aa2b3e09ad9301cfe08c097dc230ceeeffc8d2a51e6cf0fd173ff44"
+      "bytes": 178481,
+      "sha256": "3a75f6d68cedf83e1c94892222b1ed7f02e63657250ca6eab3ca081c186668d6"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7782,6 +7817,11 @@
       "sha256": "e6ef039308fa282e075e32c32c18d5103bfb732cc8f2d25f9bcd3a459c0f2ac5"
     },
     {
+      "path": "tests/hairline_kit_test.py",
+      "bytes": 5428,
+      "sha256": "bba0cee23e108b6f4c213b4733e10b35604510c1313b349c574b756454ea2ba0"
+    },
+    {
       "path": "tests/image_probe_test.py",
       "bytes": 11687,
       "sha256": "35ce4ddff1a0bdd26baf5ef1c90dc7acd3e4f34898e16bbfb375be1b82c6697d"
@@ -7798,8 +7838,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 9027,
-      "sha256": "b72348ba990fd1d09d4a501cd48263dc2e940fbff6f56f6877f87d70905c88ab"
+      "bytes": 9215,
+      "sha256": "05a63dcd6cdcd4f4a945270a93435c769426a83f2dcc21c39f504b3311edb694"
     },
     {
       "path": "tests/learning-mode.test.mjs",

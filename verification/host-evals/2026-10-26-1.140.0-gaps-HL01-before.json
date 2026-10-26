@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-26",
+  "package_version": "1.140.0",
+  "source": {
+    "commit": "52ea14cd4e08b5c590ab063f9cc5c396b0934ea8",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "81cc1022774f35353c9bae409628322dc4b0fd68c991a91e038a75211d6d41d3",
+      "files": 1593,
+      "archive": "candidates/81cc1022774f35353c9bae409628322dc4b0fd68c991a91e038a75211d6d41d3.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "1c894a50485daf6506645954f2e2a16d6d341f0f0cc2271154d4e68ffbba0b95",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 5130,
+      "output": 8021,
+      "cache_read": 120289,
+      "cache_write": 44123
+    },
+    "seconds": 51.4
+  },
+  "cases": [
+    {
+      "id": "HL01",
+      "title": "A calm isometric line film routes to the Hairline kit with a tour and a composed rest",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 5130,
+        "output": 8021,
+        "cache_read": 120289,
+        "cache_write": 44123
+      },
+      "seconds": 51.4,
+      "wall_seconds": 59.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 8-sekundową animację do reelsa: izometryczny rysunek liniowy szafki z szufladami w stylu cienkiej kreski, bez poświaty, gdzie szuflady wysuwają się po kolei.",
+          "reply": "Saving and rendering aren't possible in this session. I only have read and search tools, with no file writer and no shell, so I couldn't render the MP4. Below is the finished composition, built on the Hairline kit (thin isometric line, no glow, one brighter stroke). Nothing has been run or watched yet.\n\n**Concept.** A four-drawer cabinet stands in a calm rest pose. The drawers slide out one after another from the top down, each on a spring with a slight overshoot. The most recently opened drawer carries the single bright stroke. At 5.8 s they close in reverse order, and the last frame matches the first, so the reel loops cleanly.\n\n| Time | Action |\n|---|---|\n| 0–0.9 s | Rest. The top drawer handle is the one bright mark. |\n| 0.9 / 2.0 / 3.1 / 4.2 s | Drawers 1, 2, 3 and 4 open in turn. |\n| 5.8–6.6 s | They close, bottom drawer first. |\n| 6.6–8 s | Rest, held. |\n\nSave this as `cabinet/index.html`, next to a copy of `hairline-kit.js` from `skills/hyperframes-workflow/assets/hairline/`:\n\n```html\n<!doctype html>\n<html lang=\"en\"><head><meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=1080, height=1920\" />\n<script src=\"hairline-kit.js\"></script>\n<style>\n  * { box-sizing: border-box; margin: 0; padding: 0; }\n  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0e0f12; }\n  #root { position: relative; width: 100%; height: 100%; background: var(--plate);\n          --plate: #0e0f12; --hi: #fafafa; --edge: #a1a1aa; --mid: #52525b; --lo: #27272a; --stroke: 2.2px; }\n  #art { position: absolute; inset: 0; }\n  .hl-sil { fill: var(--plate); stroke: var(--edge); stroke-width: var(--stroke); stroke-linejoin: round; }\n  .hl-sil.hi { stroke: var(--hi); }\n  .hl-crease { fill: none; stroke: var(--mid); stroke-width: var(--stroke); stroke-linecap: round; }\n  .hl-guide { fill: none; stroke: var(--lo); stroke-width: var(--stroke); stroke-dasharray: 6 10; }\n</style></head>\n<body>\n<div id=\"root\" data-composition-id=\"main\" data-start=\"0\" data-duration=\"8\" data-width=\"1080\" data-height=\"1920\">\n  <svg id=\"art\" viewBox=\"0 0 1080 1920\" role=\"img\" aria-label=\"Isometric line drawing of a four-drawer cabinet; the drawers slide out one after another\"></svg>\n</div>\n<script>\nconst D = 8;\nconst { el, frame, solid, put, springAt, tourAt } = HairlineKit;\nconst svg = document.getElementById('art');\nconst K = frame(520, 1100, 1.9);\nconst W = 240, DEP = 200, DH = 88, PITCH = 94, BASE = 24, OUT = 90;\n\n// Tour: drawers are numbered from the top (0) down; they open in turn, then close, bottom first.\nconst TOUR = [{ t: 0, at: null }, { t: 0.9, at: 0 }, { t: 2.0, at: 1 }, { t: 3.1, at: 2 }, { t: 4.2, at: 3 }, { t: 5.8, at: null }];\nconst openT = [0.9, 2.0, 3.1, 4.2], closeT = [6.4, 6.2, 6.0, 5.8];   // reverse order, 0.2 s apart\n\n// Back to front, lower z first. Carcass, plinth and top cap are static.\nput(svg, solid(K.P, { x: 0, y: 0, w: W, d: DEP, z: BASE, h: 4 * PITCH + 4, r: 8 }));\nput(svg, solid(K.P, { x: -6, y: -6, w: W + 12, d: DEP + 12, z: 0, h: BASE, r: 10 }));\nput(svg, solid(K.P, { x: -8, y: -8, w: W + 16, d: DEP + 16, z: BASE + 4 * PITCH + 4, h: 14, r: 10 }));\nconst drawers = [];\nfor (let level = 0; level < 4; level++) {                 // level 0 = bottom, drawn first\n  const s = 3 - level, g = el('g', {}, svg);\n  drawers.push({ s, z: BASE + 4 + level * PITCH, box: put(g, { sil: '', crease: '' }), handle: put(g, { sil: '', crease: '' }),\n    changes: [{ t: openT[s], to: OUT }, { t: closeT[s], to: 0 }] });\n}\n\nfunction renderFrame(t) {\n  const at = tourAt(t, TOUR);\n  for (const d of drawers) {\n    const out = springAt(t, 0, d.changes);                // a position: spring, small overshoot\n    d.box.draw(solid(K.P, { x: 6, y: out, w: W - 12, d: DEP, z: d.z, h: DH, r: 6, inset: 3 }));\n    d.handle.draw(solid(K.P, { x: W / 2 - 30, y: DEP + out, w: 60, d: 10, z: d.z + DH / 2 - 4, h: 8, r: 4, inset: 1.5 }));\n    const hi = at === null ? d.s === 0 : d.s === at;      // exactly one bright place: rest mark, or the newest drawer\n    d.box.sil.classList.toggle('hi', hi && at !== null);\n    d.handle.sil.classList.toggle('hi', hi);\n  }\n}\nwindow.renderFrame = renderFrame;\nrenderFrame(0);\n</script></body></html>\n```\n\n**Render it** (needs Node, Chromium and FFmpeg):\n```\nnode <skill>/assets/motion-export/capture-html.mjs cabinet/index.html --out cabinet.mp4 --width 1080 --height 1920 --seconds 8\n```\nThis gives 1080×1920 at 8 s with no network. I left out the corner read-out the kit's example has, because it adds text you didn't ask for.\n\n**What I haven't done**\n- I haven't rendered or viewed anything. I wrote the geometry from the kit's code but haven't seen a single frame. The first render could show a stacking-order problem when a drawer overlaps the one below it, or off-centre framing.\n- Before you post it, check these frames: rest, about 1.5 s, about 4.6 s, and the final frame. Then run the motion review and motion activity checks.\n- The reel is silent. Sound effects, such as soft slides and a wooden settle, can be added if you want them.\n\nIf you re-run this session with a file writer and shell, I'll save the files, render the MP4 and check the frames.",
+          "reply_chars": 5131,
+          "reply_sha256": "c7fda2b97e607277e3c8171521f518f1b183c7c41e2c449b9e060437d9ef78e5",
+          "skills": [
+            "hyperframes-workflow",
+            "superpowers:verification-before-completion"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Grep",
+            "Read",
+            "Glob",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1267,
+            "output": 6336,
+            "cache_read": 120289,
+            "cache_write": 36756
+          },
+          "seconds": 51.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": false,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "hairline/README.md",
+                  "hairline-kit.js"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['hairline/README.md', 'hairline-kit.js']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 3863,
+          "output": 1685,
+          "cache_read": 0,
+          "cache_write": 7367
+        },
+        "items": [
+          {
+            "item": "Uses the Hairline kit, not Iso Glow, because the brief asks for no glow",
+            "verdict": "met",
+            "reason": "The code loads hairline-kit.js, and the response says the piece is built on the Hairline kit with no glow. It never names Iso Glow or explicitly contrasts the two, but the kit choice and the reason are clear."
+          },
+          {
+            "item": "Plans the object's giveaway features, a composed rest with one bright mark and a tour of a few stops before building",
+            "verdict": "met",
+            "reason": "Before the code, the response gives a concept: a four-drawer cabinet at rest, one bright mark on the top drawer handle, and a timed tour of drawer openings and closings. It does not use the term 'giveaway features', but the planning content is there and comes before the build."
+          },
+          {
+            "item": "Moves everything as functions of time (no requestAnimationFrame) and renders or states how to render",
+            "verdict": "met",
+            "reason": "The code drives every frame from renderFrame(t) using springAt and tourAt, with no requestAnimationFrame. The response states the render command (capture-html.mjs with 1080x1920 and 8 s) and says nothing has been rendered yet."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ]
+}

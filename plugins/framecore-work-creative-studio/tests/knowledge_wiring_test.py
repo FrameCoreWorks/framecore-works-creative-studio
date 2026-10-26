@@ -28,6 +28,8 @@ WIRING = {
     'hyperframes-workflow/assets/reference-breakdown/README.md': ['hyperframes-workflow/SKILL.md',
                                                                   'workflow-orchestrator/references/routing-boundaries.md'],
     'hyperframes-workflow/assets/iso-glow/README.md': ['hyperframes-workflow/SKILL.md'],
+    # hairline: rounded-solid line figures for video (owner request 2026-10-26)
+    'hyperframes-workflow/assets/hairline/README.md': ['hyperframes-workflow/SKILL.md'],
     'hyperframes-workflow/assets/motion-sync/audio_envelope.py': ['hyperframes-workflow/SKILL.md'],
     # songs on screen
     'hyperframes-workflow/assets/motion-sync/README.md#lyric-timing': ['hyperframes-workflow/SKILL.md', 'caption-studio/SKILL.md',
@@ -94,7 +96,7 @@ class KnowledgeWiring(unittest.TestCase):
     def test_the_capability_card_names_every_wired_tool(self):
         card = (PLUGIN / S / 'workflow-orchestrator/assets/capability-card.json').read_text(encoding='utf-8')
         for tool in ('craft_lint.py', 'contrast_check.py', 'design_md.py', 'prompt_examples.py', 'ai_writing_check.py',
-                     'audio_envelope.py', 'breakdown.py', 'lyric_timing.py', 'motion_activity.py', 'web_reach.py'):
+                     'audio_envelope.py', 'hairline-kit.js', 'breakdown.py', 'lyric_timing.py', 'motion_activity.py', 'web_reach.py'):
             self.assertIn(tool, card)
 
 

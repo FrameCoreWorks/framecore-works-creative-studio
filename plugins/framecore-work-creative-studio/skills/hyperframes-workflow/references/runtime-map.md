@@ -28,6 +28,7 @@ The [environment check](../../workflow-orchestrator/assets/environment-check/REA
 | Contract check and storyboard view | `motion_contract_check` | no | no | yes | Node |
 | Beat grid and caption sync | `motion_sync` | no | no | yes | Node |
 | Band envelope and hits from a track (audio-reactive motion, Iso Glow) | `audio_envelope` | no | yes | yes | Python, ffmpeg |
+| Isometric line figures from rounded solids, moved by time (Hairline) | `hairline_kit` | no | yes | yes | a browser; Node and ffmpeg for an MP4 |
 | Measure, time-align, audit and score a film's sound | `sound_listen` | no | yes | yes | Python, numpy, ffmpeg |
 | Lay recorded or bank sounds on frames and mix them | `sound_place` | no | yes | yes | Python, numpy, ffmpeg |
 | Reference animation breakdown (cuts, grid, transitions, motion heatmaps) | `reference_breakdown` | no | yes | yes | Python, numpy, Pillow, ffmpeg |

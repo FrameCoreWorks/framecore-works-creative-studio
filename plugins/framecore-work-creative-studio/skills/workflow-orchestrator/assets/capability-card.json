@@ -370,6 +370,30 @@
       "observed": "Container checks; a supplied song's envelope matched an approved video's"
     },
     {
+      "id": "hairline_kit",
+      "executed_by": "studio",
+      "owner": "hyperframes-workflow",
+      "does": "Draws isometric line figures from rounded solids (one silhouette and one crease, a brighter stroke as the only highlight) and moves them as pure functions of time: ease-out for choices, exact spring sums for positions, stagger by distance",
+      "tools": [
+        "skills/hyperframes-workflow/assets/hairline/hairline-kit.js",
+        "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/index.html"
+      ],
+      "requires": [
+        "browser"
+      ],
+      "optional": [
+        "node",
+        "ffmpeg"
+      ],
+      "hosts": [
+        "code_execution",
+        "shell"
+      ],
+      "delivers": "A seekable composition (HyperFrames timeline and window.renderFrame) and, with FFmpeg, an MP4 through capture-html.mjs",
+      "when_missing": "Write the figure plan (object, features, rest, tour, read-out) and the composition for the user to render",
+      "observed": "2026-10-26 Linux container: the spice-rack example rendered 240 frames at 1080 x 1920 through capture-html.mjs in about 35 s"
+    },
+    {
       "id": "reference_breakdown",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",

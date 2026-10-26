@@ -37,7 +37,7 @@ For the owner's second Claude account, which runs this same project as a Claude 
 
 1. **Brand kit from a website:** done in 1.131.0 (see above); out of its MVP: pixel sampling, competitor analysis, a hosted ChatGPT package.
 2. **Known follow-up, done in 1.136.0** (CC-20261025-02, tag `v1.136.0` = `5eb4285`, publication record `a525cdd`): storyboards for coded films read the [gallery shortlist](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md) in the same turn; OG01 passes in headless Claude Code (suite 3/3); OG02 stays unstable.
-3. **hairline (lucasmarkes, MIT), option 3 chosen 2026-10-26:** a pinned registry entry, its drawing methods restated, and a seekable rounded-solid hairline variant of the Iso Glow kit with a rendered example (CC-20261026-02, target 1.141.0).
+3. **hairline (lucasmarkes, MIT), option 3 chosen 2026-10-26, done in 1.141.0** (CC-20261026-03): a pinned `hairline` registry entry, its drawing rules and concept method restated, and Studio's own seekable [Hairline kit](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/hairline/README.md) with a rendered spice-rack example. Host case HL01 (gaps set) PASS 4/4 after an explicit file-open fix.
 
 ## Suggested project instructions (paste into the second account's project)
 

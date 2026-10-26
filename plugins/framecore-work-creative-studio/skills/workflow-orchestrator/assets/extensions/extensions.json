@@ -988,6 +988,75 @@
       "update": "Upstream publishes an unversioned archive at a fixed URL: download it, review the changes and licence, then update the SHA-256 in archive, every command and the bundled kit's notes together."
     },
     {
+      "id": "hairline",
+      "name": "hairline (lucasmarkes)",
+      "repository": "https://github.com/lucasmarkes/hairline",
+      "reviewed_commit": "37d2e78dcb333ab30c3338e28ed4a690364ea014",
+      "package": null,
+      "license": "MIT",
+      "kind": [
+        "skill",
+        "knowledge",
+        "tools"
+      ],
+      "category": "motion-graphics",
+      "role": "engine",
+      "gives": "Thirty-three isometric line figures that answer the mouse pointer on a web page (npm package for React and the DOM, version 0.5.1), and two coding-agent skills: hairline-create draws a new figure to ten drawing rules as one HTML file and checks it in a browser; hairline-adopt rebuilds a supplied SVG as a figure.",
+      "studio_uses": "Studio bundles none of its files. Its method is restated in Studio English and rebuilt for seekable video as Motion Graphics' Hairline kit: rounded solids drawn as one silhouette and one crease, a brighter stroke as the only highlight, a composed rest, a planned tour instead of the pointer, and ease-out, exact spring sums and stagger by distance as functions of time, with a rendered spice-rack example. This optional entry installs the original skills for interactive figures on a website.",
+      "not_for": "Video rendering as shipped (its figures run on the browser frame loop and do not seek); copying its 33 figures as templates; another company's logo as a figure without the owner's permission.",
+      "requires": [
+        {
+          "tool": "node",
+          "ranges": [
+            [
+              "22.20.0",
+              null
+            ]
+          ],
+          "note": "Node.js 22.20+ for the pinned skills CLI 1.7.2; its build, validate and look scripts run on Node."
+        },
+        {
+          "tool": "browser",
+          "note": "A Chrome or Chromium for its look check; it installs playwright-core once into a cache folder."
+        }
+      ],
+      "rights": "MIT, Copyright (c) 2026 Lucas Marques. Keep LICENSE with the skills or the package. A figure made from a supplied logo shows that owner's mark: it is theirs to publish.",
+      "hosts": {
+        "codex": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014 --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014 --skill hairline-create hairline-adopt -a codex -g --copy",
+          "writes": "Copies the hairline-create and hairline-adopt skill folders (about 140 KB: SKILL.md, rules, the drawing kernel, a page template and Node scripts) into the agent's global skills. When used, its look check installs playwright-core once into a cache folder (~/.cache/hairline-look, ~/Library/Caches/hairline-look or %LOCALAPPDATA%\\hairline-look) and writes hairline-<name>.html and a look sheet PNG in the working directory. For a website, the user's own project adds the npm package @lucasmarkes/hairline@0.5.1 (no dependencies).",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Codex; run /hairline-create with an idea and check that it offers concepts and hands over one HTML file before claiming it works. Its look check needs Node and a Chrome or Chromium.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove hairline-create hairline-adopt -g -a codex; then delete the hairline-look cache folder"
+        },
+        "claude_code": {
+          "status": "native",
+          "plan": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014 --list",
+          "install": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 add https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014 --skill hairline-create hairline-adopt -a claude-code -g --copy",
+          "writes": "Copies the hairline-create and hairline-adopt skill folders (about 140 KB: SKILL.md, rules, the drawing kernel, a page template and Node scripts) into the agent's global skills. When used, its look check installs playwright-core once into a cache folder (~/.cache/hairline-look, ~/Library/Caches/hairline-look or %LOCALAPPDATA%\\hairline-look) and writes hairline-<name>.html and a look sheet PNG in the working directory. For a website, the user's own project adds the npm package @lucasmarkes/hairline@0.5.1 (no dependencies).",
+          "verify": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 list -g",
+          "after": "Restart Claude Code; run /hairline-create with an idea and check that it offers concepts and hands over one HTML file before claiming it works. Its look check needs Node and a Chrome or Chromium.",
+          "remove": "DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@1.7.2 remove hairline-create hairline-adopt -g -a claude-code; then delete the hairline-look cache folder"
+        },
+        "claude_apps": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014. Where Claude accepts custom skills, upload skills/hairline-create (SKILL.md, rules.md, concepts.md, look.md, kernel.js, bench.html and the examples) with LICENSE; without Node its checks fall back to reading the code. Studio's own Hairline kit covers video. Remove it in the same settings. Not host-tested."
+        },
+        "chatgpt": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014. For knowledge only, attach skills/hairline-create/SKILL.md, rules.md and concepts.md as project files where supported; scripts do not run. Studio's own Hairline kit covers video. Remove the files to remove it."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Source pinned at https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014. Attach the same files as for ChatGPT; where code execution and a browser exist, Studio's own Hairline kit renders video through capture-html.mjs. Remove the files to remove it."
+        }
+      },
+      "observed": "2026-10-26 Linux container: repository read as data at 37d2e78 (two skills, the package source, 216 files); no repository script was run; skills@1.7.2 pinned remote --list found hairline-adopt and hairline-create; npm lists @lucasmarkes/hairline 0.5.1 under MIT. Host install, invocation and removal not_run.",
+      "update": "Review a newer commit and package version (rules, kernel, what the scripts install and write), then update reviewed_commit, package, every pinned command and Studio's Hairline kit README together."
+    },
+    {
       "id": "open-design",
       "name": "Open Design (nexu-io)",
       "repository": "https://github.com/nexu-io/open-design",

@@ -452,6 +452,34 @@
         "Uses labelled placeholders for the missing photos and reviews; invents no testimonials, ratings or customer names",
         "Plans the mockup look passes on screenshots at phone and desktop width"
       ]
+    },
+    {
+      "id": "HL01",
+      "title": "A calm isometric line film routes to the Hairline kit with a tour and a composed rest",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób 8-sekundową animację do reelsa: izometryczny rysunek liniowy szafki z szufladami w stylu cienkiej kreski, bez poświaty, gdzie szuflady wysuwają się po kolei.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "reads_any": [
+                "hairline/README.md",
+                "hairline-kit.js"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Uses the Hairline kit, not Iso Glow, because the brief asks for no glow",
+        "Plans the object's giveaway features, a composed rest with one bright mark and a tour of a few stops before building",
+        "Moves everything as functions of time (no requestAnimationFrame) and renders or states how to render"
+      ]
     }
   ]
 }

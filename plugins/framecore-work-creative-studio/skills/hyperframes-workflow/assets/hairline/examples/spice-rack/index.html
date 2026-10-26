@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Hairline spice rack</title>
+    <!-- GSAP drives the HyperFrames route; capture-html.mjs calls window.renderFrame(t) and needs no network. -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="hairline-kit.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0e0f12; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--plate);
+              --plate: #0e0f12; --hi: #fafafa; --edge: #a1a1aa; --mid: #52525b; --lo: #27272a; --stroke: 2.2px; }
+      #art { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      .hl-sil { fill: var(--plate); stroke: var(--edge); stroke-width: var(--stroke); stroke-linejoin: round; }
+      .hl-sil.hi { stroke: var(--hi); }
+      .hl-crease, .hl-fill { fill: none; stroke: var(--mid); stroke-width: var(--stroke); stroke-linecap: round; }
+      .hl-guide { fill: none; stroke: var(--lo); stroke-width: var(--stroke); stroke-dasharray: 6 10; }
+      .read { position: absolute; left: 96px; bottom: 150px; font: 500 34px/1 ui-monospace, "DejaVu Sans Mono", monospace;
+              letter-spacing: 0.04em; color: var(--edge); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+      <svg id="art" viewBox="0 0 1080 1920" role="img" aria-label="Two shelves of spice jars; the jar a hand reaches for lifts, and its neighbours follow less"></svg>
+      <div class="read" id="read">rest</div>
+    </div>
+    <script>
+      const D = 8, INTENSITY = 0.5;
+      const { el, frame, solid, put, tweenAt, springAt, stagger, falloff, tourAt, drive } = HairlineKit;
+      const svg = document.getElementById('art'), read = document.getElementById('read');
+      const K = frame(240, 1100, 1.7);
+
+      // Rest is composed: jars of different heights and fill levels, never a regular row (rule 05).
+      const COLS = 6, PITCH = 82, JAR = 62;
+      const shelves = [{ z: 0 }, { z: 300 }];
+      const heights = [[118, 96, 130, 104, 122, 92], [100, 126, 94, 132, 108, 116]];
+      const fills = [[0.62, 0.4, 0.78, 0.3, 0.55, 0.7], [0.5, 0.82, 0.35, 0.66, 0.45, 0.58]];
+      const LIFT = 26 + 40 * INTENSITY;                     // the slider's number: how high the chosen jar rises
+      const REACH = 0.6 + 1.2 * INTENSITY;                  // and how far the answer spreads, in jars
+
+      // The tour: the stops a hand would visit, then a leave (rest). `at` is [shelf, column] or null.
+      const TOUR = [{ t: 0, at: null }, { t: 1.2, at: [1, 1] }, { t: 2.6, at: [0, 4] }, { t: 4.0, at: [1, 4] },
+                    { t: 5.4, at: [0, 1] }, { t: 6.6, at: null }];
+      const REST_MARK = [1, 3];                              // one bright mark at rest says where the eye starts (rule 04)
+
+      // Back to front: the lower shelf and its jars first, then the upper; within a shelf, smaller x first (rule 06).
+      const guide = el('path', { class: 'hl-guide', d: `M${K.P(-60, 120, 0)}L${K.P(COLS * PITCH + 40, 120, 0)}` }, svg);
+      const jars = [];
+      shelves.forEach((shelf, s) => {
+        put(svg, solid(K.P, { x: -20, y: -16, w: COLS * PITCH + 20, d: JAR + 32, z: shelf.z - 14, h: 14, r: 6 }));
+        for (let c = 0; c < COLS; c++) {
+          const g = el('g', {}, svg);
+          const body = put(g, { sil: '', crease: '' });
+          const fill = el('path', { class: 'hl-fill' }, g);
+          const lid = put(g, { sil: '', crease: '' });
+          // Each jar's lift: a choice, so a 0.7 s ease-out, started later the further the jar is from the chosen one (rules 02, 08).
+          const changes = [];
+          let prev = null;
+          for (const stop of TOUR.slice(1)) {
+            const at = stop.at || prev, near = at && at[0] === s;
+            const to = stop.at && near ? LIFT * falloff(Math.abs(c - at[1]), REACH, 0) : 0;
+            changes.push({ t: stop.t + (near ? stagger(c, at[1]) : 0), to });
+            prev = stop.at || prev;
+          }
+          // The chosen jar's lid follows on a spring: a position, so it settles with a small overshoot (rule 08).
+          const lidChanges = TOUR.slice(1).map(stop => ({ t: stop.t, to: stop.at && stop.at[0] === s && stop.at[1] === c ? 16 : 0 }));
+          jars.push({ s, c, g, body, fill, lid, changes, lidChanges, x: c * PITCH, z: shelf.z, h: heights[s][c], f: fills[s][c] });
+        }
+      });
+
+      function renderFrame(t) {
+        const at = tourAt(t, TOUR);
+        for (const j of jars) {
+          const lift = tweenAt(t, 0, j.changes), pop = springAt(t, 0, j.lidChanges);
+          const z = j.z + lift;
+          j.body.draw(solid(K.P, { x: j.x, y: 0, w: JAR, d: JAR, z, h: j.h, r: JAR / 2, inset: 3 }));
+          // the fill level is a ring the object really has, drawn as its near half only
+          const ring = HairlineKit.rrect(j.x + 2, 2, j.x + JAR - 2, JAR - 2, JAR / 2 - 2);
+          j.fill.setAttribute('d', HairlineKit.path(HairlineKit.nearRun(HairlineKit.ringAt(K.P, ring, z + j.h * j.f)), false));
+          j.lid.draw(solid(K.P, { x: j.x - 3, y: -3, w: JAR + 6, d: JAR + 6, z: z + j.h + pop, h: 16, r: JAR / 2 + 3, inset: 3 }));
+          // The stroke is the only highlight: the chosen jar's silhouette, or the rest mark when nothing is chosen (rule 04).
+          const chosen = at ? at[0] === j.s && at[1] === j.c : REST_MARK[0] === j.s && REST_MARK[1] === j.c;
+          j.body.sil.classList.toggle('hi', chosen && !!at);
+          j.lid.sil.classList.toggle('hi', chosen);
+        }
+        // The read-out names what is chosen in a few characters, outside the drawing (rule 10).
+        read.textContent = at ? `jar ${String((shelves.length - 1 - at[0]) * COLS + at[1] + 1).padStart(2, '0')}` : 'rest';   // top shelf first
+      }
+      window.renderFrame = renderFrame;
+      renderFrame(0);
+
+      if (window.gsap) {
+        const tl = gsap.timeline({ paused: true });
+        drive(tl, D, renderFrame);
+        tl.set({}, {}, D);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['main'] = tl;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-26",
+  "package_version": "1.140.0",
+  "source": {
+    "commit": "52ea14cd4e08b5c590ab063f9cc5c396b0934ea8",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "1858c14edfcb7a96036f5c01723e0b6b16c9d0a84c84e2ac97a5d17b5194309f",
+      "files": 1593,
+      "archive": "candidates/1858c14edfcb7a96036f5c01723e0b6b16c9d0a84c84e2ac97a5d17b5194309f.zip"
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.310, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "1c894a50485daf6506645954f2e2a16d6d341f0f0cc2271154d4e68ffbba0b95",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 5684,
+      "output": 21102,
+      "cache_read": 88285,
+      "cache_write": 40516
+    },
+    "seconds": 156.9
+  },
+  "cases": [
+    {
+      "id": "HL01",
+      "title": "A calm isometric line film routes to the Hairline kit with a tour and a composed rest",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 5684,
+        "output": 21102,
+        "cache_read": 88285,
+        "cache_write": 40516
+      },
+      "seconds": 156.9,
+      "wall_seconds": 166.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób 8-sekundową animację do reelsa: izometryczny rysunek liniowy szafki z szufladami w stylu cienkiej kreski, bez poświaty, gdzie szuflady wysuwają się po kolei.",
+          "reply": "Nie mam w tej sesji narzędzia do zapisu plików ani do uruchamiania poleceń, więc niczego nie wyrenderowałem i nie sprawdziłem. Poniżej jest kompletny kod animacji. Do tej pory przeczytałem tylko instrukcję zestawu Hairline, jego kod i przykład z półką na przyprawy. Kod napisałem na ich podstawie i go nie uruchamiałem. Status renderu i podglądu to **NOT VERIFIED**.\n\n## Pomysł\n\nTo spokojna szafka w cienkiej kresce, bez poświaty. Jasna jest tylko jedna kreska, ta na wybranej szufladzie.\n\n| Czas | Co się dzieje |\n|---|---|\n| 0–1,3 s | Szafka rysuje się kreską od dołu: cokół, korpus, szuflady, uchwyty, blat. |\n| 1,3–1,5 s | Spoczynek. Jasny jest tylko uchwyt górnej szuflady. |\n| 1,5–6,8 s | Pięć szuflad wysuwa się kolejno od góry, co ok. 1,05 s. Wysunięcie jest na sprężynie, z lekkim dobiciem. Poprzednia szuflada wsuwa się, gdy rusza następna. Jasna jest tylko aktualna szuflada z uchwytem. |\n| 6,8–8 s | Wszystko jest wsunięte, a jasny uchwyt wraca na górną szufladę. Rysunek wraca do punktu wyjścia. |\n\nFormat to 1080×1920, 8 s, bez dźwięku i bez żadnych napisów w kadrze. Szuflady mają różne wysokości (78, 64, 96, 64, 78), żeby spoczynek nie był regularnym rzędem.\n\n## Kod\n\nZapisz jako `index.html` obok kopii `hairline-kit.js`:\n\n```html\n<!doctype html>\n<html lang=\"pl\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=1080, height=1920\" />\n    <title>Szafka z szufladami – izometryczny rysunek liniowy</title>\n    <script src=\"hairline-kit.js\"></script>\n    <style>\n      * { box-sizing: border-box; margin: 0; padding: 0; }\n      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0e0f12; }\n      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--plate);\n              --plate: #0e0f12; --hi: #fafafa; --edge: #a1a1aa; --mid: #52525b; --lo: #27272a; --stroke: 2.2px; }\n      #art { position: absolute; inset: 0; width: 1080px; height: 1920px; }\n      .hl-sil { fill: var(--plate); stroke: var(--edge); stroke-width: var(--stroke); stroke-linejoin: round; }\n      .hl-sil.hi { stroke: var(--hi); }\n      .hl-crease { fill: none; stroke: var(--mid); stroke-width: var(--stroke); stroke-linecap: round; }\n    </style>\n  </head>\n  <body>\n    <div id=\"root\" data-composition-id=\"main\" data-start=\"0\" data-duration=\"8\" data-width=\"1080\" data-height=\"1920\">\n      <svg id=\"art\" viewBox=\"0 0 1080 1920\" role=\"img\" aria-label=\"Szafka z pięcioma szufladami; szuflady wysuwają się po kolei\"></svg>\n    </div>\n    <script>\n      const D = 8;\n      const { el, frame, rrect, path, solid, put, easeOut, springAt, tourAt, drive } = HairlineKit;\n      const svg = document.getElementById('art');\n      const K = frame(520, 1130, 1.6);\n\n      // Geometry (units before scale). Drawer fronts sit on the +y face; drawers slide out along +y.\n      const W = 260, DEP = 210, PLINTH = 22, GAP = 14, OUT = 110;\n      const DH = [78, 64, 96, 64, 78];                                  // top to bottom, uneven on purpose\n      const BODY_H = DH.reduce((a, b) => a + b, 0) + GAP * (DH.length + 1);\n      const TOP_Z = PLINTH + BODY_H;\n      const zb = i => TOP_Z - GAP - DH.slice(0, i + 1).reduce((a, b) => a + b, 0) - GAP * i;   // base height of drawer i\n      const EMPTY = { sil: '', crease: '' };\n\n      // The tour: drawer i opens at OPEN[i]; the previous one closes just after. `at` is the chosen drawer or null (rest).\n      const OPEN = [1.5, 2.55, 3.6, 4.65, 5.7], END = 6.8;\n      const TOUR = [{ t: 0, at: null }, ...OPEN.map((t, i) => ({ t, at: i })), { t: END, at: null }];\n      const closeAt = i => (i < OPEN.length - 1 ? OPEN[i + 1] + 0.15 : END);\n\n      // Draw-on of the lines at the start. Dashes are removed once a line is complete.\n      const clamp01 = v => Math.max(0, Math.min(1, v));\n      const prog = (t, a, b) => easeOut(clamp01((t - a) / (b - a)));\n      function dash(node, p) {\n        if (p >= 1) { ['pathLength', 'stroke-dasharray', 'stroke-dashoffset'].forEach(a => node.removeAttribute(a)); return; }\n        node.setAttribute('pathLength', '1');\n        node.setAttribute('stroke-dasharray', '1 2');\n        node.setAttribute('stroke-dashoffset', String(1 - p));\n      }\n      const dashPut = (obj, p) => { dash(obj.sil, p); dash(obj.crease, p); };\n\n      // Back to front: plinth, body, top slab, then the drawers from the lowest to the highest.\n      const plinth = put(svg, solid(K.P, { x: 10, y: 10, w: W - 20, d: DEP - 20, z: 0, h: PLINTH, r: 6 }));\n      const body = put(svg, solid(K.P, { x: 0, y: 0, w: W, d: DEP, z: PLINTH, h: BODY_H, r: 10 }));\n      const slab = put(svg, solid(K.P, { x: -8, y: -8, w: W + 16, d: DEP + 16, z: TOP_Z, h: 16, r: 12 }));\n\n      const drawers = [];\n      for (let i = DH.length - 1; i >= 0; i--) {\n        const k = DH.length - 1 - i;                                     // 0 for the lowest drawer\n        const ring = rrect(8, zb(i) - 3, W - 8, zb(i) + DH[i] + 6, 8).map(([a, b]) => K.P(a, DEP, b));\n        const slot = el('path', { class: 'hl-crease', d: path(ring) }, svg);   // the opening in the body face\n        const g = el('g', {}, svg);\n        const tray = put(g, EMPTY);\n        const panel = put(g, EMPTY);\n        const handle = put(g, EMPTY);\n        const changes = [{ t: OPEN[i], to: OUT }, { t: closeAt(i), to: 0 }];\n        drawers[i] = { i, k, slot, tray, panel, handle, changes };\n      }\n\n      function renderFrame(t) {\n        const at = tourAt(t, TOUR);\n        dashPut(plinth, prog(t, 0.0, 0.5));\n        dashPut(body, prog(t, 0.15, 0.8));\n        dashPut(slab, prog(t, 0.55, 1.05));\n        for (const d of drawers) {\n          const { i, k } = d, h = DH[i], z = zb(i);\n          const out = Math.max(0, springAt(t, 0, d.changes));            // a position, so a spring (k 100, c 18)\n          d.tray.draw(out > 3 ? solid(K.P, { x: 22, y: DEP - 6, w: W - 44, d: out, z: z + 8, h: h - 24, r: 6, inset: 3 }) : EMPTY);\n          d.panel.draw(solid(K.P, { x: 12, y: DEP - 6 + out, w: W - 24, d: 6, z, h, r: 3, inset:",
+          "reply_chars": 8326,
+          "reply_sha256": "9833f26781db01eeb9b3399744d93e2711a79f5d49965e79075791c8a566bb0e",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read",
+            "Read",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1265,
+            "output": 19113,
+            "cache_read": 86231,
+            "cache_write": 34647
+          },
+          "seconds": 156.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "hairline/README.md",
+                  "hairline-kit.js"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['hairline/README.md', 'hairline-kit.js']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 4419,
+          "output": 1989,
+          "cache_read": 2054,
+          "cache_write": 5869
+        },
+        "items": [
+          {
+            "item": "Uses the Hairline kit, not Iso Glow, because the brief asks for no glow",
+            "verdict": "met",
+            "reason": "The assistant builds on HairlineKit (hairline-kit.js), reads its instructions and code, and uses its helpers (frame, solid, put, springAt, tourAt). Iso Glow is never mentioned or used, and the stroke-only styling with no glow fits the brief."
+          },
+          {
+            "item": "Plans the object's giveaway features, a composed rest with one bright mark and a tour of a few stops before building",
+            "verdict": "met",
+            "reason": "The plan comes before the code. It has a timeline with a draw-on phase, a rest at 1.3–1.5 s where only the top handle is bright, and five drawers opening in sequence. It names the components that identify the object (plinth, body, top slab, drawers, handles) and explains the uneven drawer heights as a deliberate choice. It does not use the phrase 'giveaway features'."
+          },
+          {
+            "item": "Moves everything as functions of time (no requestAnimationFrame) and renders or states how to render",
+            "verdict": "met",
+            "reason": "The visible code drives everything from renderFrame(t) using tourAt(t, TOUR), springAt(t, ...), and easeOut/prog(t, a, b). There is no requestAnimationFrame. The assistant states the render is NOT VERIFIED and gives setup steps (save index.html next to hairline-kit.js). The code is cut off mid-line, so the render driver at the end is not visible and cannot be confirmed."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ]
+}
